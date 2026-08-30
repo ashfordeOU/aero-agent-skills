@@ -1,7 +1,30 @@
 # Hit@1 corpus (gate 5)
-# Fixed queries from research/briefs/03-router-design.md section 5.
-# No network. Expected skills are placeholders; pinned when seed skills publish (09-04).
+# Fixed queries evaluated by scripts/router_eval.py (flat+tags token-overlap
+# router per research/briefs/03-router-design.md section 5). No network.
+#
+# Phase 0 (09-04 milestone, landed early): skill 1 (avionics/do178c/planning)
+# is the only published skill, so the ACTIVE tasks are pinned to it. The
+# brief-03 cross-domain queries (CubeSat battery, weight-and-balance, engine
+# overhaul) are preserved under future_pins and promoted into tasks: as their
+# skills publish - the gate asserts every tasks: entry resolves top-1.
 tasks:
+  - id: p1
+    query: "determine the software level for a flight control function whose failure is catastrophic"
+    intent: "DO-178C software level / DAL determination from failure-condition severity"
+    expected_skill: "avionics/do178c/planning"
+
+  - id: p2
+    query: "draft a PSAC for a navigation system software update"
+    intent: "DO-178C planning phase; PSAC artifact"
+    expected_skill: "avionics/do178c/planning"
+
+  - id: p3
+    query: "scope planning-phase artifacts for DO-178C certification of an autopilot"
+    intent: "certification planning; PSAC/SDP/SVP/SCM/SQA scope"
+    expected_skill: "avionics/do178c/planning"
+
+future_pins:
+  # Brief 03 section 5 canonical queries - promote when those skills publish.
   - id: t1
     query: "size a battery for a 12U CubeSat"
     intent: "spacecraft power subsystem sizing"

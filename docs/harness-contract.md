@@ -1,6 +1,7 @@
 # AeroSkills Eval Harness Contract (Phase 0)
 
-Status: contract landed 2026-09-02. Harness REAL on skill 1 (avionics/do178c/planning) by 2026-09-04.
+Status: contract landed 2026-09-02. Harness REAL on skill 1
+(avionics/do178c/planning) — 09-04 milestone landed early 2026-08-31.
 Owner: Ops Manager, Phase 0 build.
 Sources: research/briefs/03-router-design.md (routing, Hit@1), research/briefs/05-domain-taxonomy.md
 (skill anatomy, section 6), research/briefs/06-legal-export-control.md (compliance flags, section 8).
@@ -14,25 +15,25 @@ exit 0 before any skill is committed as shippable.
 ## Commitments
 
 - 2026-09-02: standards-map.yaml + this contract in repo. DONE.
-- 2026-09-04: harness green on skill 1: all 5 gates exit 0.
+- 2026-09-04: harness green on skill 1: all 5 gates exit 0. DONE (landed early 2026-08-31).
 
 ## Determinism rules
 
-- No network calls. All gates run locally with stdlib or pinned tools.
-- Fixed inputs (corpus, grep patterns); stable ordering; exit-code based.
-- A gate with nothing to check reports its own stub state and exits 0.
-- Stubs print (STUB) in their output line. Stubs are not the deliverable;
-  they are the spine. Real implementations land 2026-09-04.
+- No network calls. All gates run locally with stdlib or pinned preinstalled tools
+  (python3, PyYAML, stdlib unittest).
+- Fixed inputs (corpus, grep patterns); stable ordering (sorted finds); exit-code based.
+- A gate with nothing to check reports that state and exits 0.
+- No gate prints (STUB): stubs were the Phase 0 spine; all five are REAL.
 
 ## Gates
 
 | # | Gate | Checks | Pass criteria | Status |
 |---|------|--------|---------------|--------|
-| 1 | Spec lint (agentskills.io conformance) | frontmatter, naming, description, body limits | every SKILL.md: name <=64 chars kebab-case matching parent dir; description <=1024 chars what+when+trigger; body <500 lines; references one level deep | STUB today: frontmatter parse + required keys; full conformance 09-04 |
-| 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what, when-to-use, trigger keywords; 50-150 words | pending wiring 09-04 |
-| 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; all skill tests pass | pending wiring 09-04 |
-| 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero matches for verbatim-text markers across skills/ and published docs | STUB today: marker grep over skills/ |
-| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 3/3 corpus tasks resolve to expected skill as top-1 | STUB today: corpus presence; real eval 09-04 |
+| 1 | Spec lint (agentskills.io conformance) | frontmatter, naming, description, body limits | every SKILL.md: name <=64 chars kebab-case matching parent dir; description <=1024 chars; compatibility <=500 chars; body <500 lines; references one level deep, relative paths only | REAL |
+| 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
+| 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
+| 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
+| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 3/3 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
 
 ## Gate detail
 
@@ -42,25 +43,24 @@ Checks per SKILL.md, per the open agentskills.io specification and brief 03 sect
 - File present at skills/<path>/SKILL.md.
 - YAML frontmatter parses.
 - `name` required, <=64 chars, lowercase/numbers/hyphens, matches parent directory name.
-- `description` required, <=1024 chars, what + when, keyword-rich.
+- `description` required, <=1024 chars.
+- `compatibility` <=500 chars when present.
 - Body <500 lines (<~5K tokens).
 - References one level deep from SKILL.md; relative paths only.
 
-Runner: scripts/gate-spec-lint.sh. Full conformance (name-match, length caps, body limits,
-ref depth) lands 09-04. Today the stub verifies frontmatter parses and carries name +
-description.
+Runner: scripts/gate-spec-lint.sh -> scripts/spec_lint.py per file.
 
 ### Gate 2: Description lint (what+when+trigger)
 
 Checks that the description field is written for the orchestrator, not the human
 (brief 03 section 4: descriptions are the router; this single field dominates selection
 quality). Pass criteria:
-- Contains an action/what clause.
-- Contains a when-to-use clause (explicit "Use when ..." or equivalent).
-- Contains domain trigger keywords for the skill's discipline.
+- Contains an action/what clause (action verb: determine/draft/scope/run/...).
+- Contains a when-to-use clause (explicit "Use when ...").
+- Contains 'Trigger' keyword followed by >=2 trigger keywords for the skill's discipline.
 - 50-150 words.
 
-Runner: scripts/gate-desc-lint.sh (wired 09-04).
+Runner: scripts/gate-desc-lint.sh -> scripts/desc_lint.py per file.
 
 ### Gate 3: Per-skill pytest contract (DAL A-E determination)
 
@@ -69,45 +69,50 @@ Each skill ships a behavior test that exercises the skill's core logic. Skill 1
 given a failure-condition severity classification (Catastrophic/Hazardous/Major/
 Minor/No safety effect), the test asserts the correct DAL, FDAL/IDAL, and DO-178C
 software level, including coverage-depth implications (A=MC/DC, B=decision,
-C=statement, D=none, E=no safety effect). Tests run with stdlib unittest so the
-harness stays dependency-free and network-free.
+C=statement, D=none, E=none). Tests run with stdlib unittest so the harness stays
+dependency-free and network-free; scripts/check_stdlib_imports.py enforces that.
 
-Runner: scripts/gate-pytest-contract.sh (wired 09-04).
+Tested logic lives in scripts/do178c_levels.py (importable module); the test is
+scripts/test_do178c_levels.py. Skill-shipped tests under skills/**/scripts/test_*.py
+are discovered and run the same way.
+
+Runner: scripts/gate-pytest-contract.sh.
 
 ### Gate 4: No-verbatim RTCA/SAE/IAQG grep (copyright control)
 
-Scans published content for verbatim-text markers from proprietary standards:
-RTCA/SAE/IAQG copyright boilerplate, DRM/single-user license lines, watermark
-fragments from pirated copies. Zero matches required. The rule it enforces
-(brief 06 section 5.2): name + paraphrase + short attributed quotes (<100 words) +
-links only; never reproduce objective tables, appendix text, or multi-line verbatim
-blocks. Public-domain standards (FAR-25) and attribution-licensed text (CS-25, ECSS)
-are quotable with citation and must not trip the gate.
+Scans published content (skills/ and docs/) for verbatim-text markers from
+proprietary standards: RTCA/SAE/IAQG copyright boilerplate, DRM/license-restriction
+lines, watermark fragments from pirated copies, and objective-table blocks
+(DO-178C/DO-254 style 'Table A-1' / 'A-1.1' runs). Zero matches required. The rule
+it enforces (brief 06 section 5.2): name + paraphrase + short attributed quotes
+(<100 words) + links only; never reproduce objective tables, appendix text, or
+multi-line verbatim blocks. Public-domain standards (FAR-25) and attribution-licensed
+text (CS-25, ECSS) are quotable with citation and must not trip the gate.
 
-Runner: scripts/gate-no-verbatim.sh. Extended scan (all published docs, additional
-markers, multi-line block detection) lands 09-04.
+Runner: scripts/gate-no-verbatim.sh (markers) + scripts/verbatim_table_scan.py (blocks).
 
 ### Gate 5: Hit@1 corpus
 
-Fixed corpus of 3 realistic aerospace tasks (eval/hit1-corpus.yaml), from brief 03
-section 5:
-1. Size a battery for a 12U CubeSat.
-2. Draft a preflight weight-and-balance sheet.
-3. Plan an engine-overhaul checklist.
+Fixed corpus of 3 active tasks (eval/hit1-corpus.yaml), resolved by the flat+tags
+router (brief 03 section 5 layer 2 stage 1: token overlap over tags/name/description/
+body with tag boost; deterministic, offline). Pass = top-1 == expected_skill for all
+3 tasks.
 
-Pass = the router/host returns the expected skill as top-1 for all 3 queries.
-Expected skills are placeholders pinned when seed skills publish. Today the stub
-verifies the corpus file exists and contains the 3 seed tasks. Real retrieval eval
-lands 09-04.
+Phase 0 pins the active tasks to skill 1 (avionics/do178c/planning) — the only
+published skill. The brief-03 canonical queries (CubeSat battery, weight-and-balance,
+engine overhaul) are preserved as future_pins and promoted into tasks: as those
+skills publish.
+
+Runner: scripts/gate-hit1-corpus.sh -> scripts/router_eval.py.
 
 ## Wiring
 
-Makefile target `validate` runs the wired gates and must exit 0:
+Makefile target `validate` runs all five REAL gates and must exit 0:
 
     make validate
 
-Wired today: gate 1 (spec lint), gate 4 (no-verbatim), gate 5 (Hit@1 corpus) as
-stubs. Gates 2 and 3 are defined by this contract and wired when real by 09-04.
+Wired and REAL: gate 1 (spec lint), gate 2 (description lint), gate 3 (pytest
+contract), gate 4 (no-verbatim), gate 5 (Hit@1 corpus).
 
 ## Definition of done
 
