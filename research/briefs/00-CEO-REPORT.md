@@ -1,161 +1,131 @@
-# AeroSkills — CEO Research Report & Recommended Approach
+# AeroSkills — CEO Deep-Research Addendum (Wave 2 Audit & Full Synthesis)
 
-**Author:** Arjun (CEO) · **Date:** 2026-08-30 · **Status:** Research complete, approach recommended
-**Team:** 5 parallel research agents (market, industry usage, router design, GTM/pricing, domain taxonomy) — all delivered, all audited by CEO.
-
----
-
-## 1. Executive Summary
-
-**AeroSkills is a genuine market whitespace with a proven playbook.** The
-aerospace-specific agent-skills supply is nearly empty (largest dedicated
-repo: 16★), while the demand side is real and growing (GE Aerospace hiring
-multi-agent roles, Airbus's Mistral partnership, NASA's CARE methodology for
-LLM agents). The exact template for success exists: **Anthropic's
-Cybersecurity Skills — 31,246★ in ~6 months, free Apache-2.0, monetized via
-brand + enterprise.** Aerospace is infosec's higher-value cousin: fewer
-practitioners, but better paid ($134.8K median), more standards-bound, and
-starving for exactly what a skills library provides.
-
-**Recommendation: build AeroSkills as an open-source Apache-2.0 aerospace
-skills library (~60 skills across 12 disciplines) with a smart router, free
-core + enterprise tier.** This is the "Cybersecurity-Skills of aerospace" —
-the domain-knowledge layer that doubles as the wedge for the AI Department
-Operator product.
+**Author:** Arjun (CEO) · **Date:** 2026-08-30 · **Status:** Deep research complete, audited, deliverable
+**Team:** Wave 1 (5 agents: market/usage/router/GTM/taxonomy) + Wave 2 (6 agents: legal/academic/defense/competitors/tools/strategy) = **11 research agents, 12 briefs, ~322KB, 2,647 lines**
 
 ---
 
-## 2. The Market (audited)
+## 1. What Changed After the Deep Wave
 
-### The whitespace is real
-| Signal | Finding |
-|---|---|
-| Largest aerospace skills repo | `devideamax/aerospace-team` — **16★** (Feb 2026, 12 Claude skills) |
-| Other skill packs | `asd-ste100-skills` 0★, `deepskyai/agent-tools` 0★ |
-| Aerospace MCP servers | all 0–19★ (mbse-agents 19★ is the best) |
-| Aggregate libraries | aerospace listed with **2 mislabeled skills** |
+Wave 1 established the whitespace. Wave 2 **confirmed it harder and added the load-bearing details** — legal safety, academic/defense buyer reality, tool licensing, and the product-strategy integration. The thesis got *stronger*: the window is real and closing (the Agent Skills format is only 10 months old; the SEP-2640 skills-MCP standard is forming; enterprises will standardize soon).
 
-Compare: **Anthropic Cybersecurity Skills = 31,246★** · K-Dense scientific = 163 workflows. **Nobody owns aerospace agent skills.**
-
-### The demand side is real
-- **GE Aerospace**: "AI Wingmate", hundreds of engine design iterations in
-  seconds, hiring for **multi-agent/LangChain/CrewAI** roles, $300M AI commitment
-- **Airbus**: 600–700 GenAI use cases, Mistral partnership for on-prem/sovereign
-  models, "GenAI will not design aircraft from scratch" (honest boundary)
-- **NASA**: NASA-GPT + **CARE methodology** (stage-gated process for engineering LLM agents)
-- **Boeing**: BCAI on-prem ChatGPT wrapper, agentic-AI-under-human-supervision as explicit future
-
-### The honest risks
-1. **Smaller/slower audience** than infosec (71.6K US aero engineers vs millions in dev/infosec)
-2. **ITAR/standards-licensing constraints** on content (DO-178C text is licensed)
-3. **Commercial monetization > open-source virality** — enterprise licensing is the credible path
+**New headline numbers (wave 2):**
+- **Total stars across ALL aerospace-AI-skills attempts: ~228★.** Largest active repo: 19★. Nobody has done it.
+- Adjacent winners: Cybersecurity Skills **31.1k★/817 skills** · K-Dense Scientific **31.9k★/163 skills** — the playbook is proven twice.
+- **~87–100 ABET aerospace programs, 30–35K students, 9,596 degrees (2024, +4.1%).**
+- Defense procurement: ~78% of tools eliminated on compliance before demo; SOC 2/ISO 27001 is the floor; CMMC 2.0 phases Nov 2025→2028.
+- **Legal: methodology is publish-safe; technical data is not** (the critical ruling, below).
 
 ---
 
-## 3. The Technical Approach (audited)
+## 2. The Legal Ruling (the most important audit result)
 
-### Delivery model: domain-routed skills via a smart router
-The research confirms the field's consensus: **two-stage body-aware
-retrieval → rerank** (SkillRouter paper: 74% Hit@1 on 80K-skill pool, 5.8×
-faster than 16B baseline; in-context routing collapses at ~500 skills). We
-already run this exact pattern in Veda (BM25 + tags + dense rerank over
-1,022 skills).
+**From the legal report (41KB, primary sources: eCFR, EUR-Lex, Estonia's Strategic Goods Act):**
 
-**Key design decisions:**
-1. **SKILL.md format** (Anthropic Agent Skills) — the cross-harness standard
-   (works in Claude Code, Hermes, OpenClaw, Codex)
-2. **Domain-based taxonomy** — 12 disciplines → ~60 skills (curriculum-shaped)
-3. **Smart router** — semantic selection by task/domain (our proven Veda router pattern)
-4. **Router-as-skill caveat**: flat selection beats routing below ~600 skills;
-   AeroSkills (~60) should ship as a **flat library + a domain index**, with
-   the router paying off at scale / for the Operator product
+> **ITAR §120.33(a)** defines technical data as information *required for design/development/production* of USML defense articles. **§120.33(b) explicitly excludes "general scientific, mathematical, or engineering principles commonly taught"** and public-domain information (§120.34).
 
-### The taxonomy skeleton (from domain research)
-**12 disciplines, ~60 skills:** Aerodynamics (SU2, XFOIL, OpenFOAM) ·
-Propulsion (NPSS, cfd) · Structures (CalculiX, NASTRAN-open) · Flight
-Mechanics (JSBSim, AVL) · GNC (dymos, GMAT) · Avionics (cFS, F´) · Systems
-Engineering (MBSE, ARP4754A) · Materials · Manufacturing (AS9100) · Thermal ·
-Orbital Mechanics (poliastro, GMAT) · Certification (DO-178C, DO-254, FAR/CS-25)
+**The consequence for AeroSkills:**
+- ✅ **Publish-safe:** skills/workflows/methodology describing *process* (certification planning, V&V, tool usage, systems engineering, CFD workflow) = general engineering principles → **not ITAR-controlled**
+- ⛔ **Publish-gated:** any skill embedding defense-article-specific data (dimensions, tolerances, part numbers, performance parameters of USML-class items, 9E003-class turbine manufacturing tech) → controlled regardless of packaging
+- ✅ **Standards:** DO-178C/DO-254/ARP4754A/AS9100/FAR-CS25 can be **referenced and summarized** (they're publicly-available documents); **quoted wholesale = copyright issue** (RTCA/SAE/IAQG license their texts). Summarize, cite, never copy.
+- ✅ **EU/Estonian:** EU Regulation 2021/821 dual-use controls — methodology is fine; the EU angle actually *helps* (ITAR-free architecture is a **procurement advantage** in Europe).
+- ⚠️ **The compliance structure:** Apache-2.0 + a README compliance banner + a content policy (what's in/out) — exactly the Cybersecurity Skills model.
 
-Each skill: workflow + tools + pitfalls + **compliance hook** (margins,
-coverage tables, trace matrices) — the standards- and evidence-driven shape
-the domain demands.
+**CEO verdict: AeroSkills CAN publish safely with a clear content policy. The legal gate is a content-rule, not a blocker.**
 
 ---
 
-## 4. The Business Approach (audited)
+## 3. The Audit — Contradictions Found & Resolved
 
-### Pricing (2026 market data)
-| Tier | Price | Target |
+| # | Contradiction | Resolution |
 |---|---|---|
-| Free OSS core (Apache-2.0) | $0 | virality + brand (the cybersecurity template) |
-| Vertical skill packs | $299–2,499 | individual engineers |
-| Enterprise license | $2K–50K/mo | defense orgs, primes, engineering firms |
-| Academic | $2–5K/yr per program | ~100 ABET aero programs |
+| 1 | **poliastro** — taxonomy says "excellent for agents" but tool report found it **ARCHIVED** (0.17.0, 2022, Python <3.11) | **Tool report wins.** Astrodynamics skills target **Orekit** (Apache-2.0, Airbus/ESA-backed) + **dymos** instead. Flagged for the taxonomy revision. |
+| 2 | Cybersecurity stars 31,136 vs 31,246 | Live-count drift between agent runs; both ≈31k. Non-material. |
+| 3 | Competitor report doesn't mention ITAR | Legal report is the authority; compliance banner comes from legal. |
+| 4 | Defense "78%" stat | Vendor-sourced, flagged point-in-time in the report. Used as directional only. |
+| 5 | OpenVSP NOSA license (not OSI-approved) | Both reports flag it; skills reference it, never vendor it. |
 
-### Realistic revenue (conservative)
-- **Year 1**: free OSS adoption + first enterprise pilots → €0–30K
-- **Year 2**: 10 defense orgs × €5–10K/yr + 20 universities × €2–5K/yr =
-  **€90–200K ARR**
-- **Strategic value**: the library is the domain-knowledge layer for the
-  AI Department Operator — every AeroSkills install is an Operator prospect
-
-### GTM channels
-GitHub (the cybersecurity template: free repo → star virality → brand) ·
-X/Twitter (aerospace-AI audience is active) · LinkedIn (defense/engineering
-firms) · engineering communities (r/aerospace, forum.aerospace) · aerospace
-conferences · direct enterprise outreach (founder-GO gated)
+**Audit method:** every report was checked for (a) source grounding (citations, URLs), (b) cross-report number agreement, (c) flagged uncertainties (press-only, vendor-sourced, rate-limit gaps), (d) actionable output. **One real contradiction (poliastro) found and resolved.**
 
 ---
 
-## 5. Recommended 90-Day Approach
+## 4. The Tool Licensing Ruling (from tool report, 22.9KB)
+
+> **A skill is text/instructions, not a derivative work — AeroSkills can legally reference and script every tool, GPL included.** The only rule: never vendor tool source/binaries into the skill library.
+
+- OpenFOAM GPLv3 (both forks) · SU2 LGPL · JSBSim LGPL · GMAT/dymos/OpenMDAO/cFS/F´ Apache-2.0 · poliastro MIT (archived) · OpenVSP NOSA
+- **Agent-usability ranking:** CLI/Python-API tools dominate (OpenFOAM, SU2, JSBSim, dymos, GMAT, CalculiX, Orekit) — GUI tools secondary
+- **Skills must encode:** fork/version differences (OpenFOAM Foundation vs ESI, SU2 v7→v8), strict input formats (AVL whitespace-exact, JSBSim XSD, CalculiX Abaqus-like), canonical failure modes (NaN/CFL, SPICE paths, CMake staleness)
+
+---
+
+## 5. The Buyers (synthesized from academic + defense + GTM reports)
+
+| Buyer | Size | What they need | Entry path |
+|---|---|---|---|
+| **Students** | 30–35K enrolled | Free skills + curriculum alignment | Free tier → adoption → future engineers |
+| **Professors/groups** | ~100 programs | Course-ready skills, examples, docs | Free + academic packs |
+| **Individual engineers** | 71.6K US aero | Working skills for real tools | $299–2,499 vertical packs (expense account) |
+| **Engineering firms** | mid-size | Compliance hooks, MBSE support | Team licenses |
+| **Defense primes/suppliers** | Boeing/Lockheed/RTX/etc. | SOC2/CMMC-ready, on-prem, air-gapped | Enterprise $2K–50K/mo (long cycle) |
+
+**The land-and-expand:** students → engineers → firms → primes. Each tier funds the next.
+
+---
+
+## 6. The Product Strategy (from strategy report, 32.8KB)
+
+> **AeroSkills is not a standalone product that also feeds the Operator — it is the Operator's domain brain, shipped first as an open-source wedge.**
+
+- **The dependency is structural:** nobody buys an "AI Engineering Department" that can't do a weight-and-balance check or a DO-178C coverage argument. AeroSkills proves the platform's core claim.
+- **Architecture:** (a) standalone open-source repo (primary) + (b) skill-pack inside the Operator + (c) MCP server later + (d) marketplace listing when it exists.
+- **The compounding asset:** the SAME smart router (BM25+tags+dense) that powers Veda's 1,022 skills becomes AeroSkills' router AND the Operator's routing engine.
+- **Revenue architecture:** free AeroSkills (brand + adoption) → paid Operator (domain departments). AeroSkills = the 10–50× revenue upside's proof layer.
+- **Long game:** aerospace first → defense → maritime → energy → civil (the vertical-domain-library playbook).
+
+---
+
+## 7. The Final Recommended Approach (updated with deep findings)
 
 ### Phase 1 — Foundation (Days 1–30)
-1. **Seed 12 skills** (one per discipline, the "spine") — highest-value:
-   DO-178C certification, OpenFOAM CFD, JSBSim flight dynamics, poliastro
-   orbital mechanics, dymos GNC, CalculiX structures
-2. **Router + index**: SKILL.md-format library + domain index + smart
-   router (ported from Veda's proven pattern)
-3. **Publish** the open-source repo (founder GO for public visibility)
-4. **Structure**: taxonomy docs, AGENTS.md, license compliance (Apache-2.0)
+1. **Legal content policy** (from report 06): publish-safe/gated rules + Apache-2.0 + compliance banner — **founder GO required** (publish domain)
+2. **Seed 12 skills** (one per discipline) — targets: DO-178C certification, OpenFOAM CFD, JSBSim flight dynamics, **Orekit astrodynamics (not poliastro)**, dymos GNC, CalculiX structures, SU2 aerodynamics, OpenVSP vehicle design, GMAT mission design, AVL stability, cFS/F´ avionics, MBSE/systems
+3. **Router + index**: SKILL.md format + domain index + smart router (Veda port)
+4. **Publish** open-source (founder GO)
+5. **CI/evals** from day 1 (clone K-Dense's proven stack)
 
 ### Phase 2 — Depth (Days 31–60)
-5. **Expand to ~30 skills** (2–3 per discipline), each with BASM fences
-   (applicability/risk/avoidance/recovery) + compliance hooks
-6. **Community**: GitHub stars, X threads, r/aerospace, LinkedIn
-7. **Reference builds**: 2–3 worked examples (a full CFD workflow, a
-   certification trace, an orbit design) as living demos
+6. Expand to ~30 skills with BASM fences + compliance hooks
+7. **Academic outreach** (free tier → professors → course integration)
+8. 2–3 reference builds as living demos
 
 ### Phase 3 — Monetization (Days 61–90)
-8. **Enterprise tier**: private repo + compliance packs + support
-9. **First enterprise pilots** (founder-GO gated outreach)
-10. **Academic tier**: university licenses
-11. **Operator integration**: AeroSkills as the domain layer for the AI
-    Department Operator (the compounding play)
+9. Enterprise tier (SOC2-ready posture, on-prem option, SIG/VSAQ pack)
+10. First enterprise pilots (founder-GO outreach)
+11. Academic site licenses
+12. Operator integration (aerospace SKU)
+
+### Months 4–12
+- Operator aerospace packs · defense vertical · maritime/energy portfolio
 
 ---
 
-## 6. What the CEO Audited (verify-before-credit)
+## 8. What the CEO Is Satisfied With (and what still needs founder)
 
-- ✅ All 5 agent reports cross-checked for source grounding (each cites
-  live URLs, star counts verified via GitHub extraction)
-- ✅ One low-credibility case study (Airbus "6 months→2 weeks") **excluded**
-  by the agent — flagged, not trusted
-- ✅ SpaceX–Cursor acquisition marked as press-coverage-only (not verified)
-- ✅ GitHub API rate-limits worked around (page-extraction fallback) — no
-  data gaps
-- ⚠️ ITAR/standards-licensing is the biggest content risk — legal
-  department must review before publishing compliance-hook content
+**Satisfied (audited, cross-checked, no known gaps):**
+- Market whitespace (228★ total across all attempts vs 31k★ winners)
+- Legal safety framework (publish-safe methodology, gated technical data)
+- Tool licensing (skills can reference everything; never vendor)
+- Buyer map (students→engineers→firms→primes) + pricing
+- Product strategy (the Operator's domain brain, wedge + router compounding)
+- Taxonomy (12 disciplines, 60 skills, with the poliastro correction)
 
-## 7. Decision Needed From Founder
-
-1. **GO on Phase 1** — seed 12 skills + router + publish repo?
-2. **Public visibility GO** — open-source repo public (Apache-2.0) or
-   private-first? (The cybersecurity template = public from day 1)
-3. **Legal review** — ITAR/standards content boundaries before publishing
-   compliance-hook material
+**Needs founder (the VETO gates):**
+1. **GO on Phase 1** — seed skills + router
+2. **Public visibility GO** — open-source from day 1 (recommended) or private-first
+3. **Legal review sign-off** — before any compliance-hook content ships (publish domain = founder VETO)
+4. **Outreach GO** — before any enterprise/academic outreach (external sends = founder VETO)
 
 ---
 
-*Prepared by Arjun (CEO) · AeroSkills · 2026-08-30 · Full briefs in
-research/briefs/01–05*
+*Prepared by Arjun (CEO) · AeroSkills · 2026-08-30 · 11-agent research team · 12 briefs in research/briefs/00–11*
