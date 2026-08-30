@@ -1,0 +1,113 @@
+# AeroSkills standards map (machine-readable)
+# Source: research/briefs/05-domain-taxonomy.md section 2 (compliance backbone),
+#         section 5.12 found/compliance/standards-map (P0).
+# Policy: research/briefs/06-legal-export-control.md section 5.2 (copyright rules),
+#         section 8.3 (frontmatter flags, no-verbatim discipline).
+# Field guide:
+#   family: regulation | guidance | quality | space | open-spec
+#   status: public-domain | proprietary-sold | free-download | open-spec
+#   summary_not_copy: the only allowed way to reference this standard (brief 06 section 5.2)
+#   gated: true  = verbatim text must never appear in the repo
+#          false = text quotable with attribution (paraphrase still preferred)
+schema_version: 1
+generated_from: research/briefs/05-domain-taxonomy.md
+policy_ref: research/briefs/06-legal-export-control.md
+standards:
+  - id: far-25
+    name: "14 CFR Part 25: Airworthiness Standards for Transport Category Airplanes"
+    family: regulation
+    publisher: FAA (US Government)
+    status: public-domain
+    domain: "airworthiness certification; aircraft design; systems safety (25.1309)"
+    applicability: "Type-certification basis for transport-category airplanes; airframe loads and structures, systems, flight characteristics, safety assessment"
+    summary_not_copy: "US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity"
+    gated: false
+    purchase: https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-25
+
+  - id: cs-25
+    name: "CS-25: Certification Specifications and Acceptable Means of Compliance for Large Aeroplanes"
+    family: regulation
+    publisher: EASA
+    status: free-download
+    domain: "airworthiness certification; large aeroplane design"
+    applicability: "EASA certification basis for large aeroplanes; mirrors FAR-25 with EU amendments; AMC-25 acceptable means"
+    summary_not_copy: "Reproduction authorised provided source is acknowledged (EASA copyright notice); free PDFs; paraphrase preferred"
+    gated: false
+    purchase: https://www.easa.europa.eu/en/document-library/easy-access-rules
+
+  - id: arp4754a
+    name: "ARP4754A: Guidelines for Development of Civil Aircraft and Systems"
+    family: guidance
+    publisher: SAE International
+    status: proprietary-sold
+    domain: "systems engineering; development assurance (FDAL/IDAL)"
+    applicability: "System development process and development assurance; aircraft and systems certification coordination; FDAL/IDAL assignment; ARP4754B (2023) supersedes"
+    summary_not_copy: "Proprietary (SAE, circa USD 180). Name + paraphrase + short attributed quotes (<100 words) + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.sae.org/standards/content/arp4754a/
+
+  - id: arp4761a
+    name: "ARP4761A: Guidelines for Conducting the Safety Assessment Process on Civil Aircraft, Systems, and Equipment"
+    family: guidance
+    publisher: SAE International
+    status: proprietary-sold
+    domain: "systems safety; FHA/PSSA/SSA/CCA; DAL determination"
+    applicability: "Safety assessment process: FHA, PSSA, SSA, CCA (ZSA/PRA/CMA), FTA/FMEA; severity-to-DAL propagation (A-E)"
+    summary_not_copy: "Proprietary (SAE). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.sae.org/standards/content/arp4761a/
+
+  - id: do-178c
+    name: "DO-178C: Software Considerations in Airborne Systems and Equipment Certification"
+    family: guidance
+    publisher: RTCA (joint EUROCAE twin ED-12C)
+    status: proprietary-sold
+    domain: "avionics flight software; airborne software certification"
+    applicability: "Software lifecycle (planning/development/verification/configuration management/airworthiness liaison); software levels A-E; coverage depth per level; objectives tables A-1..A-10; supplements DO-330/331/332/333; accepted via AC 20-115D"
+    summary_not_copy: "Proprietary (RTCA, DRM-protected, single-user license). Name + paraphrase + short attributed quotes + link only; never reproduce objective tables, appendix text, or multi-line verbatim blocks"
+    gated: true
+    purchase: https://www.rtca.org/products/
+
+  - id: do-254
+    name: "DO-254: Design Assurance Guidance for Airborne Electronic Hardware"
+    family: guidance
+    publisher: RTCA (joint EUROCAE twin ED-80)
+    status: proprietary-sold
+    domain: "avionics hardware; complex airborne electronic hardware (AEH)"
+    applicability: "Hardware design assurance: simple vs complex AEH, PHAC, requirements capture, verification, configuration management; accepted via AC 20-152A"
+    summary_not_copy: "Proprietary (RTCA). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.rtca.org/products/
+
+  - id: as9100
+    name: "AS9100: Quality Management Systems: Requirements for Aviation, Space and Defense Organizations"
+    family: quality
+    publisher: IAQG (develops) / SAE (publishes Americas; EN9100 Europe)
+    status: proprietary-sold
+    domain: "manufacturing and quality; QMS; production assurance"
+    applicability: "QMS requirements: ISO 9001:2015 plus aerospace clauses (8.1.1 operational risk, 8.1.2 configuration mgmt, 8.1.3 product safety, 8.1.4 counterfeit prevention, 8.4.1 external providers, 8.5.1.3 special processes)"
+    summary_not_copy: "Proprietary (IAQG/SAE). Name + paraphrase + short attributed quotes + link only; no verbatim clause text"
+    gated: true
+    purchase: https://www.sae.org/standards/content/as9100/
+
+  - id: ecss
+    name: "ECSS standards series (E-ST-10C SE, E-ST-40C SW, Q-ST-80C SW assurance, M-ST-40 CM)"
+    family: space
+    publisher: European Cooperation for Space Standardization (ESA)
+    status: free-download
+    domain: "space systems; spacecraft engineering and software"
+    applicability: "Space project engineering/software/quality/management standards; European space procurement baseline"
+    summary_not_copy: "Freely downloadable; copyright ESA; cite source; paraphrase preferred"
+    gated: false
+    purchase: https://ecss.nl/standards/
+
+  - id: sep-2640
+    name: "SEP-2640: Skills-over-MCP specification (MCP working group)"
+    family: open-spec
+    publisher: MCP Skills-over-MCP working group
+    status: open-spec
+    domain: "skill delivery; router interoperability; agentskills.io alignment"
+    applicability: "Standardizing skill representation and discovery inside MCP; emerging, not yet stable; adapter layer, never the source of truth"
+    summary_not_copy: "Open specification; quote with citation; note status (emerging, not yet stable)"
+    gated: false
+    purchase: https://modelcontextprotocol.io/
