@@ -1,6 +1,6 @@
 ---
 name: flight-mechanics
-description: "Use when a task concerns aircraft flight mechanics and performance: guide the router to the flight-mechanics pack, whose breguet-range sub-skill covers cruise range estimation from speed, thrust specific fuel consumption, lift-to-drag ratio, and weights, takeoff-performance covers ground roll distance, lift-off speed, and stall speed from wing loading, and longitudinal-stability covers static longitudinal stability with neutral point, static margin, and the pitch stability coefficient. This pack is the aircraft performance and stability analysis layer of the library. Trigger: flight mechanics, breguet range, cruise range, takeoff performance, ground roll, static margin, neutral point, longitudinal stability."
+description: "Use when a task concerns aircraft flight mechanics and performance: guide the router to the flight-mechanics pack, whose breguet-range sub-skill covers cruise range estimation, takeoff-performance covers ground roll distance, lift-off speed, and stall speed from wing loading, climb-performance covers rate of climb from excess thrust, climb gradient, time to climb, and service ceiling, turn-performance covers turn rate, turn radius, bank angle, load factor, and the sustained turn verdict, and longitudinal-stability covers static longitudinal stability with neutral point and static margin. This pack is the aircraft performance and stability analysis layer of the library. Trigger: flight mechanics, breguet range, cruise range, takeoff performance, ground roll, rate of climb, climb gradient, time to climb, service ceiling, turn rate, turn radius, bank angle, load factor, sustained turn, static margin, neutral point, longitudinal stability."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -22,12 +22,13 @@ metadata:
 # Flight mechanics domain pack (router)
 
 Route here when the task is aircraft performance, range, takeoff,
-or static stability.
+climb, turn, or static stability.
 
 ## Domain
 
 Flight mechanics: cruise performance (Breguet range), takeoff
-performance, and static longitudinal stability analysis.
+performance, climb performance, turn performance, and static
+longitudinal stability analysis.
 
 ## Sub-skills in this pack
 
@@ -35,6 +36,8 @@ performance, and static longitudinal stability analysis.
 |---|---|---|
 | flight-mechanics/performance/breguet-range | Breguet range | cruise range, TSFC, lift-to-drag, fuel fraction, cruise time |
 | flight-mechanics/performance/takeoff-performance | Takeoff performance | ground roll distance, lift-off speed, stall speed from wing loading |
+| flight-mechanics/performance/climb-performance | Climb performance | rate of climb, excess thrust, climb gradient, time to climb, service ceiling |
+| flight-mechanics/performance/turn-performance | Turn performance | turn rate, turn radius, bank angle, load factor, sustained turn |
 | flight-mechanics/stability-control/longitudinal-stability | Longitudinal stability | neutral point, static margin, pitch stability coefficient |
 
 ## Routing guidance
@@ -42,6 +45,10 @@ performance, and static longitudinal stability analysis.
 - Cruise range and fuel-fraction questions route to the
   breguet-range sub-skill; takeoff and ground-roll questions route to
   takeoff-performance.
+- Rate of climb, excess thrust, climb gradient, time to climb, and
+  service ceiling questions route to the climb-performance sub-skill.
+- Turn rate, turn radius, bank angle, and sustained turn questions
+  route to the turn-performance sub-skill.
 - Neutral point, CG margin, and pitch stability questions route to
   the longitudinal-stability sub-skill.
 - Propulsion, structures, and certification questions route to their
