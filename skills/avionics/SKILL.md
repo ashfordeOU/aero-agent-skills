@@ -1,12 +1,16 @@
 ---
 name: avionics
-description: "Use when a task concerns avionics and flight software assurance for civil aircraft: guide the router to the avionics pack, whose DO-178C software lifecycle sub-skills cover planning, development, verification, and configuration management, the DO-254 hardware-planning sub-skill covers airborne electronic hardware, and the far-cs25 airworthiness sub-skill covers the transport-category certification basis. This pack is the airborne software and hardware certification spine. Trigger: avionics, airborne software, flight software, DO-178C, DO-254, airborne electronic hardware, airworthiness certification, software levels."
+description: "Use when a task concerns avionics and flight software assurance for civil aircraft: guide the router to the avionics pack, whose DO-178C software lifecycle sub-skills cover planning, development, verification, and configuration management, whose DO-254 sub-skills cover airborne electronic hardware planning and verification, whose DO-330 tool-qualification sub-skill covers software tool credit, whose DO-160 environmental-qualification sub-skill covers equipment test conditions, and whose far-cs25 airworthiness sub-skill covers the transport-category certification basis. This pack is the airborne software and hardware certification spine. Trigger: avionics, airborne software, flight software, DO-178C, DO-254, DO-330, DO-160, airborne electronic hardware, airworthiness certification, software levels, tool qualification, environmental qualification."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
   - id: do-178c
     reference-only: true
   - id: do-254
+    reference-only: true
+  - id: do-330
+    reference-only: true
+  - id: do-160
     reference-only: true
   - id: far-25
     reference-only: true
@@ -32,9 +36,10 @@ software and hardware.
 ## Domain
 
 Avionics and flight software assurance: airborne software lifecycle
-certification (DO-178C), airborne electronic hardware design assurance
-(DO-254), and transport-category airworthiness certification
-(FAR-25/CS-25).
+certification (DO-178C), software tool qualification (DO-330),
+airborne electronic hardware design assurance (DO-254),
+environmental qualification (DO-160), and transport-category
+airworthiness certification (FAR-25/CS-25).
 
 ## Sub-skills in this pack
 
@@ -44,15 +49,21 @@ certification (DO-178C), airborne electronic hardware design assurance
 | avionics/do178c/development | DO-178C development | requirement-to-code traceability, derived requirements |
 | avionics/do178c/verification | DO-178C verification | structural coverage, MC/DC, independence |
 | avionics/do178c/configuration-management | DO-178C configuration management | baselines, problem reports, release gate |
+| avionics/do178c/tool-qualification | DO-330 tool qualification | TQL per tool criterion, tool credit, TOR |
+| avionics/do160/environmental-qualification | DO-160 environmental qualification | test matrix per equipment category, temperature/vibration/EMC |
 | avionics/do254/hardware-planning | DO-254 hardware planning | simple vs complex AEH, PHAC |
+| avionics/do254/verification | DO-254 verification | verification methods per AEH class, independence, coverage |
 | avionics/far-cs25/airworthiness | FAR-25/CS-25 airworthiness | certification basis, means of compliance, 25.1309 |
 
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
   baselines) route to the DO-178C sub-skills.
-- Hardware assurance questions (AEH classification, PHAC) route to the
-  DO-254 sub-skill.
+- Tool credit and qualification questions route to the DO-330 sub-skill.
+- Environmental test questions (temperature, vibration, EMC, lightning)
+  route to the DO-160 sub-skill.
+- Hardware assurance questions (AEH classification, PHAC, verification)
+  route to the DO-254 sub-skills.
 - Type-certification basis questions (FAR-25 vs CS-25, 25.1309) route to
   the far-cs25 sub-skill.
 - System-level engineering and safety questions route to the

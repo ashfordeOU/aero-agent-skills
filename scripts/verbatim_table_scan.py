@@ -20,7 +20,9 @@ RUN_MIN = 3
 
 def scan(root):
     bad = 0
-    for p in sorted(pathlib.Path(root).rglob("*")):
+    root_p = pathlib.Path(root)
+    targets = [root_p] if root_p.is_file() else sorted(root_p.rglob("*"))
+    for p in targets:
         if not p.is_file():
             continue
         try:

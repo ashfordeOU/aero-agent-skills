@@ -9,13 +9,17 @@ spec_lint.py / router_eval.py).
 
 Fields read (top-level frontmatter): domain, pack, name.
 - A pack router SKILL.md sits at the pack root (rel path has no slash);
-  it is validated but not listed as a leaf.
+  it is validated but not listed as a leaf, and its pack field must
+  equal the router folder name.
 - A leaf SKILL.md sits under the pack (rel path has a slash); its pack
   field must equal the first path segment.
+- domain must be one of the canonical 12-discipline taxonomy
+  (research/briefs/05-domain-taxonomy.md section 1).
 
 Exit 0 = inventory printed. Exit 1 = any SKILL.md is missing domain,
-pack, or name, or a leaf's pack field disagrees with its path (an
-installer must never silently install an untyped skill).
+pack, or name, a leaf's pack field disagrees with its path, a router's
+pack field disagrees with its folder, or domain is not in the taxonomy
+(an installer must never silently install an untyped skill).
 
 Usage:
   pack_inventory.py [skills_dir] [--pack NAME] [--domain NAME]
@@ -32,6 +36,26 @@ import yaml
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 DEFAULT_SKILLS = REPO_ROOT / "skills"
+
+# Canonical 12-discipline taxonomy (research/briefs/05-domain-taxonomy.md
+# section 1). domain frontmatter must be one of these; packs are the
+# installable subsets that today map 1:1 to a domain.
+TAXONOMY_DOMAINS = frozenset(
+    {
+        "aerodynamics",
+        "propulsion",
+        "structures",
+        "flight-mechanics",
+        "gnc-autonomy",
+        "avionics",
+        "systems-engineering-safety",
+        "space-systems",
+        "vehicle-design",
+        "manufacturing-quality",
+        "flight-test-operations",
+        "cross-cutting",
+    }
+)
 
 
 def load_entries(root):
@@ -80,7 +104,22 @@ def main():
             )
             fail = 1
             continue
+        if domain not in TAXONOMY_DOMAINS:
+            print(
+                "FAIL pack_inventory: %s domain '%s' not in taxonomy"
+                % (rel, domain),
+                file=sys.stderr,
+            )
+            fail = 1
+            continue
         if "/" not in rel:
+            if pack != rel:
+                print(
+                    "FAIL pack_inventory: router %s pack '%s' != router folder '%s'"
+                    % (rel, pack, rel),
+                    file=sys.stderr,
+                )
+                fail = 1
             continue  # pack router SKILL.md; validated, not a leaf
         first = rel.split("/", 1)[0]
         if pack != first:

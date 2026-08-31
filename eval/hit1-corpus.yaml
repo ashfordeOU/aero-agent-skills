@@ -4,18 +4,18 @@
 #
 # Active tasks cover every published skill. The Phase-0 baseline (5 canonical
 # eval queries from brief 03 section 5 + brief 05 section 6 item 7 validation anchor)
-# is reconciled 5/5 as of the P2.1 rework (2026-08-31):
+# is reconciled as of the P2.1 rework (2026-08-31) and extended in P3.5:
 #   1. DO-178C coverage (p1)          -> LIVE task (avionics/do178c/planning)
-#   2. CubeSat battery (t1)           -> future_pin (space-systems/subsystems/power-thermal-budget)
-#   3. weight-and-balance (t2)        -> future_pin (vehicle-design/sizing/weight-estimation)
-#   4. engine overhaul (t3)           -> future_pin (manufacturing-quality/as9100/quality; path fixed from stale
-#                                       mfg/quality/as9100-qms — nearest published skill until
+#   2. CubeSat battery (t1)           -> LIVE task (space-systems/subsystems/power-thermal-budget; promoted P3.5)
+#   3. weight-and-balance (t2)        -> LIVE task (vehicle-design/sizing/weight-estimation; promoted P3.5)
+#   4. engine overhaul (t3)           -> future_pin (manufacturing-quality/as9100/quality; nearest published skill until
 #                                       an MRO/maintenance skill publishes)
-#   5. XFOIL NACA 0012 polar (t4)     -> future_pin (aerodynamics/airfoil/xfoil-analysis; added P2.1
-#                                       rework with pass criteria from brief 05 section 6 item 7)
-# 5/5 accounted: 1 live task + 4 future_pins. future_pins are NOT asserted by
-# the gate; they are promoted into tasks: as their skills publish, at which
-# point the gate asserts top-1 == expected_skill.
+#   5. XFOIL NACA 0012 polar (t4)     -> LIVE task (aerodynamics/airfoil/xfoil-analysis; promoted P3.5)
+# P3.5 (2026-08-31): sixty-six active tasks across the twenty-seven skills: the
+# P2.1 set plus two tasks per new skill (a1/a2, g1-g6, st1-st4, pt1/pt2, w1/w2,
+# sa3/sa4, tr1/tr2, tq1/tq2, eq1/eq2, hv1/hv2, se1/se2, fai1/fai2) and five new
+# adversarial cross-pair tasks xp4-xp8. future_pins keep t3 pinned to
+# manufacturing-quality/as9100/quality.
 #
 # P2.1 rework also adds xp1-xp3: adversarial cross-pair tasks whose wording
 # plausibly routes to 2+ domains. Each asserts a deterministic top-1 with no
@@ -146,6 +146,128 @@ tasks:
     intent: "SEP-2640 skill delivery; server readiness capabilities"
     expected_skill: "cross-cutting/sep2640/skill-delivery"
 
+  # P3.5 expansion tasks: two per new skill (waves 1+2, library expansion).
+  - id: a1
+    query: "run an XFOIL viscous polar analysis of a NACA 0012 airfoil and extract lift and drag coefficients at a fixed Reynolds number"
+    intent: "aerodynamics; XFOIL airfoil polar generation"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
+  - id: a2
+    query: "validate an airfoil polar against the reference lift and drag bands for the NACA 0012 section"
+    intent: "aerodynamics; airfoil polar validation against reference data"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
+  - id: g1
+    query: "compute the Hohmann transfer delta-v and transfer time between two circular orbits using vis-viva"
+    intent: "orbit dynamics; Hohmann maneuver and vis-viva"
+    expected_skill: "gnc-autonomy/space/orbit-dynamics"
+  - id: g2
+    query: "propagate an orbit and check whether the J2 perturbation drift is significant for the mission"
+    intent: "orbit dynamics; J2 perturbation significance"
+    expected_skill: "gnc-autonomy/space/orbit-dynamics"
+  - id: g3
+    query: "design a PID controller and check gain margin and phase margin for closed loop stability"
+    intent: "control design; PID and stability margins"
+    expected_skill: "gnc-autonomy/control/python-control-design"
+  - id: g4
+    query: "tune controller gains with Ziegler-Nichols and verify the margins on the bode plot"
+    intent: "control design; Ziegler-Nichols tuning and margins"
+    expected_skill: "gnc-autonomy/control/python-control-design"
+  - id: g5
+    query: "set up a dymos trajectory optimization phase with collocation nodes and check convergence"
+    intent: "optimal control; dymos phase setup and convergence"
+    expected_skill: "gnc-autonomy/optimal-control/dymos-trajectory"
+  - id: g6
+    query: "optimize a launch ascent trajectory with pseudospectral collocation and verify the delta-v budget"
+    intent: "optimal control; launch ascent trajectory optimization"
+    expected_skill: "gnc-autonomy/optimal-control/dymos-trajectory"
+  - id: st1
+    query: "run a linear static finite element analysis with CalculiX and compute the margin of safety"
+    intent: "structures; CalculiX linear FEM and margin of safety"
+    expected_skill: "structures/fem/calculix-linear"
+  - id: st2
+    query: "check unit discipline for a stress analysis and evaluate the von Mises stress against the allowable"
+    intent: "structures; unit discipline and von Mises stress"
+    expected_skill: "structures/fem/calculix-linear"
+  - id: st3
+    query: "compute an A-basis design allowable with a k-factor from a sample of metallic material test data"
+    intent: "materials; A-basis allowable and k-factor"
+    expected_skill: "structures/materials/mmpsd-allowables"
+  - id: st4
+    query: "determine whether B-basis or A-basis applies for the metallic allowables and check the sample size"
+    intent: "materials; basis selection and sample statistics"
+    expected_skill: "structures/materials/mmpsd-allowables"
+  - id: pt1
+    query: "size a battery and solar array for a spacecraft power budget with eclipse duration"
+    intent: "spacecraft power subsystem sizing; battery and solar array"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
+  - id: pt2
+    query: "build an EPS power budget with margin for a satellite in low Earth orbit"
+    intent: "spacecraft EPS power budget with margin"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
+  - id: w1
+    query: "estimate class-I weights and check the empty weight fraction band for a transport aircraft"
+    intent: "vehicle sizing; class-I weight estimation and weight fractions"
+    expected_skill: "vehicle-design/sizing/weight-estimation"
+  - id: w2
+    query: "draft a preflight weight-and-balance sheet and verify the center of gravity is inside the envelope"
+    intent: "vehicle loading; weight and balance and CG envelope"
+    expected_skill: "vehicle-design/sizing/weight-estimation"
+  - id: sa3
+    query: "build a fault tree and extract the minimal cut sets for a flight control failure condition"
+    intent: "safety; fault tree analysis and minimal cut sets"
+    expected_skill: "systems-engineering-safety/arp4761a/fta-fmea"
+  - id: sa4
+    query: "perform an FMEA and check the analysis set including common cause analysis for a level A system"
+    intent: "safety; FMEA and analysis set selection"
+    expected_skill: "systems-engineering-safety/arp4761a/fta-fmea"
+  - id: tr1
+    query: "check the requirements traceability closure matrix from SRATS down to tests and list the gaps"
+    intent: "systems engineering; traceability closure matrix"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-traceability"
+  - id: tr2
+    query: "trace system requirements to low-level requirements and verification evidence with no gaps"
+    intent: "systems engineering; bidirectional traceability with verification"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-traceability"
+  - id: tq1
+    query: "determine the DO-330 tool qualification level for a verification tool per the tool criteria"
+    intent: "avionics; DO-330 tool qualification level"
+    expected_skill: "avionics/do178c/tool-qualification"
+  - id: tq2
+    query: "qualify a software development tool per DO-330: check the tool operational requirements and the TQL artifacts"
+    intent: "avionics; tool credit and tool operational requirements"
+    expected_skill: "avionics/do178c/tool-qualification"
+  - id: eq1
+    query: "select the DO-160 environmental test conditions for an avionics equipment category"
+    intent: "avionics; DO-160 test condition selection"
+    expected_skill: "avionics/do160/environmental-qualification"
+  - id: eq2
+    query: "build the environmental qualification test matrix covering temperature, vibration, and lightning for the equipment"
+    intent: "avionics; environmental qualification test matrix"
+    expected_skill: "avionics/do160/environmental-qualification"
+  - id: hv1
+    query: "check DO-254 verification methods and independence for a complex airborne electronic hardware item and confirm requirements-based test coverage and analysis"
+    intent: "avionics hardware; DO-254 verification methods"
+    expected_skill: "avionics/do254/verification"
+  - id: hv2
+    query: "check DO-254 verification independence and coverage for hardware design assurance level A"
+    intent: "avionics hardware; verification independence and coverage"
+    expected_skill: "avionics/do254/verification"
+  - id: se1
+    query: "map the ECSS lifecycle phases and review gates for a space system development program"
+    intent: "space systems engineering; ECSS lifecycle and reviews"
+    expected_skill: "space-systems/ecss/systems-engineering"
+  - id: se2
+    query: "check gate readiness for the critical design review in the ECSS systems engineering process"
+    intent: "space systems engineering; CDR gate readiness"
+    expected_skill: "space-systems/ecss/systems-engineering"
+  - id: fai1
+    query: "prepare the AS9102 first article inspection forms and verify the characteristic accountability"
+    intent: "manufacturing quality; AS9102 FAI forms"
+    expected_skill: "manufacturing-quality/as9102/first-article-inspection"
+  - id: fai2
+    query: "decide whether a delta FAI is required after a design change and check the FAI completeness"
+    intent: "manufacturing quality; delta FAI and completeness"
+    expected_skill: "manufacturing-quality/as9102/first-article-inspection"
+
   # Adversarial cross-pair tasks (P2.1 rework): each query plausibly routes
   # to 2+ domains; the assertion locks a deterministic top-1 with no collision.
   - id: xp1
@@ -163,25 +285,49 @@ tasks:
     intent: "cross-pair: DO-178C development traceability vs verification vs MBSE digital-thread closure"
     expected_skill: "avionics/do178c/development"
 
-future_pins:
-  # Brief 03 section 5 canonical queries - promote when those skills publish.
+  # P3.5 expansion adversarial cross-pairs: plausible 2+ domain routes among
+  # the new skills; each asserts a deterministic top-1 with no collision.
+  - id: xp4
+    query: "trace the SRATS requirements through the lifecycle and check the traceability closure for gaps"
+    intent: "cross-pair: requirements traceability vs DO-178C development vs MBSE"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-traceability"
+  - id: xp5
+    query: "build a fault tree for the failure condition and extract the minimal cut-set probabilities"
+    intent: "cross-pair: FTA vs safety assessment vs airworthiness"
+    expected_skill: "systems-engineering-safety/arp4761a/fta-fmea"
+  - id: xp6
+    query: "prepare the AS9102 first article inspection records for the production article"
+    intent: "cross-pair: AS9102 FAI vs AS9100 quality"
+    expected_skill: "manufacturing-quality/as9102/first-article-inspection"
+  - id: xp7
+    query: "size the battery and solar array for a satellite power subsystem"
+    intent: "cross-pair: power-thermal-budget vs orbit dynamics vs ECSS systems engineering"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
+  - id: xp8
+    query: "check the control loop gain and phase margins for stability"
+    intent: "cross-pair: control design vs safety assessment vs DO-178C planning"
+    expected_skill: "gnc-autonomy/control/python-control-design"
+
+  # Brief 03 section 5 canonical queries promoted in P3.5 (t1/t2/t4 published).
   - id: t1
     query: "size a battery for a 12U CubeSat"
     intent: "spacecraft power subsystem sizing"
     expected_skill: "space-systems/subsystems/power-thermal-budget"
-
   - id: t2
     query: "draft a preflight weight-and-balance sheet"
     intent: "aircraft loading, CG envelope, weight and balance"
     expected_skill: "vehicle-design/sizing/weight-estimation"
-
-  - id: t3
-    query: "plan an engine-overhaul checklist"
-    intent: "maintenance planning, teardown/inspection/assembly gates; pinned to published manufacturing-quality/as9100/quality (MRO-adjacent production assurance) until an MRO/maintenance skill publishes"
-    expected_skill: "manufacturing-quality/as9100/quality"
-
   - id: t4
     query: "run an XFOIL polar analysis of the NACA 0012 airfoil and validate the lift and drag coefficients"
     intent: "aerodynamics; XFOIL airfoil polar analysis and validation against a known reference"
     expected_skill: "aerodynamics/airfoil/xfoil-analysis"
     pass_criteria: "cl ≈ 0.82 ±0.05 at 10 deg angle of attack; Cd0 ≈ 0.0079 ±0.001 at Re=6M (brief 05 section 6 item 7 validation anchor)"
+
+future_pins:
+  # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
+  # query routes to the nearest published skill (manufacturing-quality/as9100/quality,
+  # MRO-adjacent production assurance) until an MRO/maintenance skill publishes.
+  - id: t3
+    query: "plan an engine-overhaul checklist"
+    intent: "maintenance planning, teardown/inspection/assembly gates; pinned to published manufacturing-quality/as9100/quality (MRO-adjacent production assurance) until an MRO/maintenance skill publishes"
+    expected_skill: "manufacturing-quality/as9100/quality"

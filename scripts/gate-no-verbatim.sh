@@ -15,6 +15,14 @@ for d in skills docs; do
     scans+=("$repo_root/$d")
   fi
 done
+# Published content at the repo root is scanned too (P3.5 hygiene flag):
+# README.md, STANDARDS.md, NOTICE are the same class of publishable
+# surface as skills/ and docs/ and must stay marker-free.
+for f in README.md STANDARDS.md NOTICE; do
+  if [ -f "$repo_root/$f" ]; then
+    scans+=("$repo_root/$f")
+  fi
+done
 
 if [ "${#scans[@]}" -eq 0 ]; then
   echo "PASS gate4-no-verbatim: no skills/ or docs/ content to scan"
@@ -56,4 +64,4 @@ if [ "$hits" -ne 0 ] || [ "$table_fail" -ne 0 ]; then
   echo "FAIL gate4-no-verbatim: ${hits} marker(s) + table blocks found" >&2
   exit 1
 fi
-echo "PASS gate4-no-verbatim: 0 markers in ${#scans[@]} scan root(s) (skills/, docs/)"
+echo "PASS gate4-no-verbatim: 0 markers in ${#scans[@]} scan root(s) (skills/, docs/, README.md, STANDARDS.md, NOTICE)"

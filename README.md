@@ -2,8 +2,8 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 12](https://img.shields.io/badge/skills-12-blue)](skills/)
-[![Standards: 9](https://img.shields.io/badge/standards-9-blue)](STANDARDS.md)
+[![Skills: 27](https://img.shields.io/badge/skills-27-blue)](skills/)
+[![Standards: 14](https://img.shields.io/badge/standards-14-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: draft](https://img.shields.io/badge/status-draft-orange)](README.md)
 
@@ -85,7 +85,7 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-Twelve verified skills in five installable domain packs, each
+Twenty-seven verified skills in nine installable domain packs, each
 spec-linted, behavior-tested, and router-asserted by make validate:
 
 | Pack | Skill | Standard | Covers |
@@ -94,19 +94,35 @@ spec-linted, behavior-tested, and router-asserted by make validate:
 | avionics | do178c/development | DO-178C | HLR/LLR/code traceability, derived requirements |
 | avionics | do178c/verification | DO-178C | review, structural coverage per level, independence |
 | avionics | do178c/configuration-management | DO-178C | baselines, problem reports, release gate |
+| avionics | do178c/tool-qualification | DO-330 | TQL per tool criterion, tool credit, tool operational requirements |
+| avionics | do160/environmental-qualification | DO-160G | test matrix per equipment category, temperature/vibration/EMC/lightning |
 | avionics | do254/hardware-planning | DO-254 | simple vs complex AEH, PHAC scope |
-| systems-engineering-safety | arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
-| systems-engineering-safety | arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
-| manufacturing-quality | as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
+| avionics | do254/verification | DO-254 | verification methods per AEH class, independence, coverage |
 | avionics | far-cs25/airworthiness | FAR-25/CS-25 | certification basis, means of compliance, 25.1309 applicability |
 | space-systems | ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
+| space-systems | ecss/systems-engineering | ECSS | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
+| space-systems | subsystems/power-thermal-budget | ECSS | EPS sizing, eclipse duration, battery and solar array budgets |
+| systems-engineering-safety | arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
+| systems-engineering-safety | arp4754a/requirements-traceability | ARP4754A | SRATS to HLR to LLR to code to tests, closure matrix |
+| systems-engineering-safety | arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
+| systems-engineering-safety | arp4761a/fta-fmea | ARP4761A | fault trees, minimal cut sets, failure modes, common cause |
 | systems-engineering-safety | mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
+| manufacturing-quality | as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
+| manufacturing-quality | as9102/first-article-inspection | AS9102 | FAI Forms 1-3, characteristic accountability, delta FAI |
+| aerodynamics | airfoil/xfoil-analysis | NACA TR-824 | XFOIL polars, viscous analysis, validation bands (NACA 0012 Re=6M) |
+| gnc-autonomy | space/orbit-dynamics | ECSS | Hohmann delta-v, vis-viva, J2 drift, transfer time |
+| gnc-autonomy | control/python-control-design | ARP4754A | PID tuning, gain/phase margins, stability checks |
+| gnc-autonomy | optimal-control/dymos-trajectory | ARP4754A | dymos phases, convergence, launch/ascent delta-v bands |
+| structures | fem/calculix-linear | FAR-25 | static stress, margin of safety, unit discipline, von Mises |
+| structures | materials/mmpsd-allowables | MMPDS | A-/B-basis, k-factors, metallic design values |
+| vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | class-I weights, CG, envelope, weight and balance sheets |
 | cross-cutting | sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
 
 Domain packs follow the 12-discipline taxonomy
-(research/briefs/05-domain-taxonomy.md): avionics,
-space-systems, systems-engineering-safety, manufacturing-quality,
-cross-cutting. Each pack has a router SKILL.md that describes the
+(research/briefs/05-domain-taxonomy.md): aerodynamics, gnc-autonomy,
+structures, vehicle-design, avionics, space-systems,
+systems-engineering-safety, manufacturing-quality, cross-cutting.
+Each pack has a router SKILL.md that describes the
 domain, lists its sub-skills, and tells an agent when to route to it;
 every SKILL.md carries domain and pack frontmatter so routers and
 installers can filter on them. Run `make packs` for the machine
@@ -132,19 +148,25 @@ restart the session. Full per-host walkthrough:
 [docs/harness-integration.md](docs/harness-integration.md).
 
 Example, install only the avionics pack (DO-178C software lifecycle,
-DO-254 hardware planning, FAR-25/CS-25 airworthiness), Claude Code
+DO-330 tool qualification, DO-160 environmental qualification, DO-254
+hardware assurance, FAR-25/CS-25 airworthiness), Claude Code
 user scope:
 
     mkdir -p ~/.claude/skills
     cp -r skills/avionics/do178c/planning skills/avionics/do178c/development \
           skills/avionics/do178c/verification skills/avionics/do178c/configuration-management \
-          skills/avionics/do254/hardware-planning skills/avionics/far-cs25/airworthiness \
+          skills/avionics/do178c/tool-qualification skills/avionics/do160/environmental-qualification \
+          skills/avionics/do254/hardware-planning skills/avionics/do254/verification \
+          skills/avionics/far-cs25/airworthiness \
           ~/.claude/skills/
 
-Example, install only the space-systems pack (ECSS software
-engineering):
+Example, install only the space-systems pack (ECSS software and
+systems engineering, power and thermal budgeting):
 
-    cp -r skills/space-systems/ecss/software-engineering ~/.claude/skills/
+    cp -r skills/space-systems/ecss/software-engineering \
+          skills/space-systems/ecss/systems-engineering \
+          skills/space-systems/subsystems/power-thermal-budget \
+          ~/.claude/skills/
 
 Install the full library the same way: copy every pack's leaf folders.
 The pack entry points (skills/<pack>/SKILL.md) are router documents

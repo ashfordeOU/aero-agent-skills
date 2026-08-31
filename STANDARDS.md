@@ -37,6 +37,11 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | as9100 | AS9100: Quality Management Systems: Requirements for Aviation, Space and Defense Organizations | quality | IAQG (develops) / SAE (publishes Americas; EN9100 Europe) | proprietary-sold | manufacturing and quality; QMS; production assurance | yes |
 | ecss | ECSS standards series (E-ST-10C SE, E-ST-40C SW, Q-ST-80C SW assurance, M-ST-40 CM) | space | European Cooperation for Space Standardization (ESA) | free-download | space systems; spacecraft engineering and software | no |
 | sep-2640 | SEP-2640: Skills-over-MCP specification (MCP working group) | open-spec | MCP Skills-over-MCP working group | open-spec | skill delivery; router interoperability; agentskills.io alignment | no |
+| do-330 | DO-330: Software Tool Qualification Considerations | guidance | RTCA (joint EUROCAE twin ED-215) | proprietary-sold | software tool qualification; DO-178C/DO-254 tool credit | yes |
+| do-160 | DO-160G: Environmental Conditions and Test Procedures for Airborne Equipment | guidance | RTCA (joint EUROCAE twin ED-14G) | proprietary-sold | avionics environmental qualification; test procedures | yes |
+| as9102 | AS9102: Aerospace First Article Inspection Requirements | quality | IAQG (develops) / SAE (publishes Americas; EN9102 Europe) | proprietary-sold | manufacturing quality; first article inspection; production assurance | yes |
+| mmpsd | MMPDS: Metallic Materials Properties Development and Standardization | materials | SAE International (successor to MIL-HDBK-5) | proprietary-sold | metallic materials; allowables; statistical design values | yes |
+| naca-tr-824 | NACA Report 824: Summary of Airfoil Data (Abbott, von Doenhoff, Stivers) | reference-data | NACA (US Government; NASA predecessor) | public-domain | airfoil aerodynamics; validation reference | no |
 
 ## Applicability
 
@@ -46,19 +51,28 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | cs-25 | EASA certification basis for large aeroplanes; mirrors FAR-25 with EU amendments; AMC-25 acceptable means | Reproduction authorised provided source is acknowledged (EASA copyright notice); free PDFs; paraphrase preferred |
 | arp4754a | System development process and development assurance; aircraft and systems certification coordination; FDAL/IDAL assignment; ARP4754B (2023) supersedes | Proprietary (SAE). Name + paraphrase + short attributed quotes (<100 words) + link only; no verbatim tables or sections |
 | arp4761a | Safety assessment process: FHA, PSSA, SSA, CCA (ZSA/PRA/CMA), FTA/FMEA; severity-to-DAL propagation (A-E) | Proprietary (SAE). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections |
-| do-178c | Software lifecycle (planning/development/verification/configuration management/airworthiness liaison); software levels A-E; coverage depth per level; objectives tables A-1..A-10; supplements DO-330/331/332/333; accepted via AC 20-115D | Proprietary (RTCA, DRM-protected, single-user license). Name + paraphrase + short attributed quotes + link only; never reproduce objective tables, appendix text, or multi-line verbatim blocks |
+| do-178c | Software lifecycle (planning/development/verification/configuration management/airworthiness liaison); software levels A-E; coverage depth per level; objectives tables A-1..A-10; supplements DO-330/331/332/333; accepted via AC 20-115D | Proprietary (RTCA, licensed per user with digital-rights restrictions). Name + paraphrase + short attributed quotes + link only; never reproduce objective tables, appendix text, or multi-line verbatim blocks |
 | do-254 | Hardware design assurance: simple vs complex AEH, PHAC, requirements capture, verification, configuration management; accepted via AC 20-152A | Proprietary (RTCA). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections |
 | as9100 | QMS requirements: ISO 9001:2015 plus aerospace clauses (8.1.1 operational risk, 8.1.2 configuration mgmt, 8.1.3 product safety, 8.1.4 counterfeit prevention, 8.4.1 external providers, 8.5.1.3 special processes) | Proprietary (IAQG/SAE). Name + paraphrase + short attributed quotes + link only; no verbatim clause text |
 | ecss | Space project engineering/software/quality/management standards; European space procurement baseline | Freely downloadable; copyright ESA; cite source; paraphrase preferred |
 | sep-2640 | Standardizing skill representation and discovery inside MCP; emerging, not yet stable; adapter layer, never the source of truth | Open specification; quote with citation; note status (emerging, not yet stable) |
+| do-330 | Qualification of software tools used in airborne software and hardware programs: tool criteria 1-5, tool qualification levels TQL-1..TQL-5, tool operational requirements; referenced by DO-178C and accepted via AC 20-115D | Proprietary (RTCA, licensed per user with digital-rights restrictions). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections |
+| do-160 | Environmental test procedures for airborne equipment: temperature, altitude, humidity, vibration, EMC, lightning, and others; equipment categories and test conditions per section | Proprietary (RTCA, licensed per user with digital-rights restrictions). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections |
+| as9102 | First article inspection process: Form 1 part accountability, Form 2 material/special processes, Form 3 characteristic accountability; delta/partial FAI after changes; production lot acceptance context | Proprietary (IAQG/SAE). Name + paraphrase + short attributed quotes + link only; no verbatim form layouts or clause text |
+| mmpsd | Statistically based metallic material design allowables: A-basis (95% confidence, 99% content) and B-basis (95% confidence, 90% content) with k-factors; fastener and joint allowables | Proprietary (SAE, successor to the public-domain MIL-HDBK-5). Name + paraphrase + short attributed quotes + link only; never reproduce design-value tables |
+| naca-tr-824 | Classic airfoil section data (NACA 4/5-digit and 6-series) and wind-tunnel polars used as the validation anchor for airfoil analysis, e.g. the XFOIL NACA 0012 at Re=6M band | US government work; public domain; quotable with citation |
 
 ## Gated standards — verbatim text must NEVER appear
 
 - **do-178c** (DO-178C, RTCA/EUROCAE) — gated
 - **do-254** (DO-254, RTCA/EUROCAE) — gated
+- **do-330** (DO-330, RTCA/EUROCAE) — gated
+- **do-160** (DO-160G, RTCA/EUROCAE) — gated
 - **arp4754a** (ARP4754A, SAE) — gated
 - **arp4761a** (ARP4761A, SAE) — gated
 - **as9100** (AS9100, IAQG/SAE) — gated
+- **as9102** (AS9102, IAQG/SAE) — gated
+- **mmpsd** (MMPDS, SAE) — gated
 
 ## Reference-only standards — quotable with citation
 
@@ -66,6 +80,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 - **cs-25** (EASA, attribution-only reproduction)
 - **ecss** (ESA, cite source)
 - **sep-2640** (open specification, cite with status note)
+- **naca-tr-824** (public domain, US government work)
 
 ## Frontmatter enforcement
 
