@@ -62,7 +62,7 @@ def main():
     new_tasks_block = tasks_block.rstrip() + "\n" + "".join(new_entries) + "\n"
 
     note = (
-        "# P5.2 / Wave 6 (2026-08-31, re-dispatch #3): fan-out continues to\n"
+        "# P5.2 / Wave 6 (2026-08-31, re-dispatch #4): fan-out continues to\n"
         f"# {122} verified skills (134 SKILL.md under gate 1: 12 routers + 122\n"
         "# leaves). Nine new leaves: aerodynamics +2 (airfoil-geometry,\n"
         "# oblique-shock), flight-mechanics +2 (dynamic-stability,\n"
@@ -71,7 +71,7 @@ def main():
         "# material-selection), vehicle-design +1 (life-cycle-cost). Corpus:\n"
         f"# 258 tasks (240 prior plus 18 domain tasks: ag1/ag2, os1/os2, ds1/ds2,\n"
         "# de1/de2, pg1/pg2, in1/in2, rf1/rf2, ms1/ms2, lc1/lc2). Owner: Ops\n"
-        "# Manager, Wave 6 build (provider-hang rescue, fresh context).\n"
+        "# Manager, Wave 6 build (13th-kill rescue, fresh context).\n"
     )
 
     new_text = header.rstrip() + "\n" + note + new_tasks_block + pins_block
