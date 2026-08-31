@@ -98,6 +98,32 @@ for f in no-license bad-license bad-compliance standards-unknown \
   check "S.$f spec-lint flags $f" 1 $?
 done
 
+# ---- pack inventory (domain-pack install tooling) -------------------------
+# pack_inventory.py lists the domain packs an installer can install
+# (founder directive 2026-08-31: per-domain pack installation). The
+# inventory reads top-level domain/pack frontmatter on every SKILL.md;
+# a SKILL.md missing those fields must exit 1 (an installer must never
+# silently install an untyped skill).
+note "== pack_inventory.py =="
+pack_inv="$repo_root/scripts/pack_inventory.py"
+pack_out=$(python3 "$pack_inv" 2>/dev/null)
+check "P1 pack inventory on real repo exits 0" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=5 skills=12"
+check "P2 pack inventory counts 5 packs 12 skills" 0 $?
+
+pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
+check "P3 pack inventory --pack avionics exits 0" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=6"
+check "P4 pack inventory --pack avionics counts 6 leaves" 0 $?
+
+pack_out=$(python3 "$pack_inv" --domain systems-engineering-safety 2>/dev/null)
+check "P5 pack inventory --domain systems-engineering-safety exits 0" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=3"
+check "P6 pack inventory --domain systems-engineering-safety counts 3 leaves" 0 $?
+
+python3 "$pack_inv" "$auto/test/fixture-pack-bad" >/dev/null 2>&1
+check "P7 pack inventory flags missing domain/pack frontmatter" 1 $?
+
 # ---- at-rest green ---------------------------------------------------------
 note "== at-rest (real repo) =="
 # Live snapshot once so offline has evidence, then offline audit
