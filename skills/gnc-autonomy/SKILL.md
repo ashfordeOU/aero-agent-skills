@@ -1,6 +1,6 @@
 ---
 name: gnc-autonomy
-description: "Use when a task concerns guidance, navigation, and control for aerospace vehicles: guide the router to the gnc-autonomy pack, whose orbit-dynamics covers Hohmann transfers, vis-viva, and J2 drift, rendezvous-phasing covers phasing maneuvers, navigation-frames covers ECEF/NED/WGS-84 conversion, inertial-navigation covers INS mechanization, drift, and Schuler tuning, python-control-design covers PID tuning and margins, root-locus-design covers closed-loop poles versus gain, lqr-design covers Riccati gain and cost weights, dymos-trajectory covers pseudospectral optimization, proportional-navigation covers the PN law, and pursuit-guidance covers pure and lead pursuit with capture conditions. Trigger: GNC, guidance navigation control, orbit dynamics, Hohmann, rendezvous, phasing, navigation frames, ECEF, NED, WGS-84, inertial navigation, INS, gyro drift, Schuler, PID, gain margin, root locus, LQR, Riccati, dymos, proportional navigation, closing velocity, pursuit guidance."
+description: "Use when a task concerns guidance, navigation, and control for aerospace vehicles: guide the router to the gnc-autonomy pack, whose orbit-dynamics covers Hohmann and J2 drift, rendezvous-phasing covers phasing maneuvers, attitude-dynamics covers quaternion kinematics, navigation-frames covers ECEF/NED/WGS-84, inertial-navigation covers INS drift and Schuler, dilution-of-precision covers GDOP/PDOP, python-control-design covers PID margins, root-locus-design covers closed-loop poles, state-space-analysis covers controllability, pid-control-design covers Ziegler-Nichols, lqr-design covers Riccati gains, dymos-trajectory covers pseudospectral optimization, proportional-navigation covers the PN law, and pursuit-guidance covers capture conditions. Trigger: GNC, navigation, control, orbit dynamics, Hohmann, rendezvous, attitude dynamics, quaternion, ECEF, NED, WGS-84, INS, Schuler, dilution of precision, GDOP, PDOP, PID, root locus, state space, controllability, LQR, dymos, proportional navigation, pursuit guidance."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -39,10 +39,14 @@ and guidance laws (proportional navigation, pursuit).
 |---|---|---|
 | gnc-autonomy/space/orbit-dynamics | Orbit dynamics | Hohmann delta-v, vis-viva, J2 drift, transfer time |
 | gnc-autonomy/space/rendezvous-phasing | Rendezvous phasing | phasing orbit, catch-up maneuver, drift time, rendezvous planning |
+| gnc-autonomy/space/attitude-dynamics | Attitude dynamics | quaternion kinematics, Euler equations, inertia tensor, nutation, gravity-gradient torque, momentum wheel |
 | gnc-autonomy/navigation/navigation-frames | Navigation frames | ECEF, NED, geodetic conversion, Earth rotation, WGS-84 |
 | gnc-autonomy/navigation/inertial-navigation | Inertial navigation | INS mechanization, strapdown, gyro drift, accelerometer bias, Schuler period, alignment, INS/GPS integration |
+| gnc-autonomy/navigation/dilution-of-precision | Dilution of precision | GDOP, PDOP, HDOP, VDOP, TDOP, satellite geometry, elevation mask, UERE, subset selection |
 | gnc-autonomy/control/python-control-design | Control design | PID tuning, gain/phase margins, stability checks |
 | gnc-autonomy/control/root-locus-design | Root locus design | closed-loop poles vs gain, gain for damping ratio, stability from root locus |
+| gnc-autonomy/control/state-space-analysis | State space analysis | controllability, observability, state transition matrix, eigenvalues, canonical forms |
+| gnc-autonomy/control/pid-control-design | PID control design | Ziegler-Nichols gains, ultimate gain/period, anti-windup, pole placement |
 | gnc-autonomy/optimal-control/lqr-design | LQR design | Riccati gain, quadratic cost weights, closed-loop stability |
 | gnc-autonomy/optimal-control/dymos-trajectory | Trajectory optimization | dymos phases, convergence, launch/ascent delta-v bands |
 | gnc-autonomy/guidance/proportional-navigation | Proportional navigation | closing velocity, line of sight rate, navigation constant, commanded acceleration |
@@ -53,14 +57,23 @@ and guidance laws (proportional navigation, pursuit).
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
 - Phasing and rendezvous planning questions route to the
   rendezvous-phasing sub-skill.
+- Attitude dynamics, quaternion kinematics, and momentum questions
+  route to the space attitude-dynamics sub-skill.
 - Coordinate-frame and navigation-solution questions (ECEF/NED/geodetic,
   WGS-84) route to the navigation navigation-frames sub-skill.
 - Inertial navigation, drift, and Schuler questions route to the
   navigation inertial-navigation sub-skill.
+- DOP, satellite geometry, and subset-selection questions route to the
+  navigation dilution-of-precision sub-skill.
 - Controller design and margin questions route to the
   python-control-design sub-skill.
 - Root-locus questions (pole trajectories, gain for target damping)
   route to the control root-locus-design sub-skill.
+- State-space controllability, observability, transition-matrix, and
+  canonical-form questions route to the control state-space-analysis
+  sub-skill.
+- PID gain tuning, Ziegler-Nichols, and anti-windup questions route to
+  the control pid-control-design sub-skill.
 - LQR and Riccati-gain questions route to the optimal-control
   lqr-design sub-skill.
 - Optimal control and trajectory questions route to the

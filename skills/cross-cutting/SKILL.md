@@ -1,6 +1,6 @@
 ---
 name: cross-cutting
-description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack, whose SEP-2640 skill-delivery and skill-evaluation sub-skills cover SKILL.md conformance, skill URIs, and delivered-skill quality, isa-atmosphere and unit-conversion cover the standard atmosphere and unit conversion, engineering-margins and engineering-report cover margin reporting and report structure, and convergence-verification, least-squares-regression, uncertainty-propagation, numerical-integration cover Richardson extrapolation, OLS fitting, the GUM law, and quadrature. This is the meta-layer for distributing skills and shared analysis. Trigger: skill delivery, SEP-2640, skill evaluation, skill URI, standard atmosphere, ISA, unit conversion, knots, margin of safety, engineering report, Richardson extrapolation, GCI, least squares, linear regression, uncertainty propagation, numerical integration, trapezoid, Simpson, Gauss-Legendre."
+description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack, whose SEP-2640 skill-delivery, skill-evaluation, and skill-authoring cover SKILL.md conformance, quality, and authoring, isa-atmosphere and unit-conversion cover atmosphere and units, engineering-margins and engineering-report cover margins and reports, and convergence-verification, least-squares-regression, uncertainty-propagation, numerical-integration cover Richardson, OLS, GUM, and quadrature. Trigger: skill delivery, SEP-2640, skill evaluation, skill authoring, SKILL.md, frontmatter, skill URI, standard atmosphere, ISA, unit conversion, margin of safety, engineering report, Richardson, GCI, least squares, regression, uncertainty, numerical integration, trapezoid, Simpson, Gauss-Legendre."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -43,6 +43,7 @@ integration) for engineering calculations.
 |---|---|---|
 | cross-cutting/sep2640/skill-delivery | SEP-2640 skill delivery | SKILL.md packaging, skill URIs, MCP resources, server readiness |
 | cross-cutting/sep2640/skill-evaluation | Skill evaluation | SEP-2640 conformance checks, weighted quality score, acceptance verdict, coverage ratio |
+| cross-cutting/sep2640/skill-authoring | Skill authoring | frontmatter template, kebab-case name rule, pre-publish conformance check, required fields |
 | cross-cutting/units-atmos/isa-atmosphere | ISA atmosphere | standard atmosphere, temperature lapse, pressure altitude, density |
 | cross-cutting/units-atmos/unit-conversion | Unit conversion | SI/imperial/aviation units, length, speed, temperature, pressure, density, Mach |
 | cross-cutting/documentation/engineering-margins | Engineering margins | margin of safety, allowable vs applied load, limit and ultimate basis, report sentence |
@@ -56,7 +57,9 @@ integration) for engineering calculations.
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
   skill-delivery sub-skill; evaluating a delivered skill's conformance
-  and quality routes to the skill-evaluation sub-skill.
+  and quality routes to the skill-evaluation sub-skill; authoring a
+  new SKILL.md (template, kebab-case name, required fields) routes to
+  the skill-authoring sub-skill.
 - Standard atmosphere questions route to the units-atmos
   isa-atmosphere sub-skill; converting units between systems routes to
   the unit-conversion sub-skill.
