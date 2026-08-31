@@ -264,12 +264,12 @@ release-notes and positioning-1pager carry the split in the
 allowlist. README's "Standards map" enumeration (13 domain standards
 + SEP-2640 as delivery format, separately named) matches the split.
 
-Map-coverage docs keep 14 on purpose: README "Standards map" badge,
-marketing/positioning-1pager.md ("covers 14 standards") state the
-standards-MAP total (14 entries including sep-2640) and the 9 gated
+Map-coverage docs state the live map total: README "Standards map" badge,
+marketing/positioning-1pager.md ("covers 16 standards") state the
+standards-MAP total (16 entries including sep-2640) and the 10 gated
 set. That is a map-coverage claim, enforced against
 standards-map.yaml by ops/automation/gated-set-check.sh (R2 expects
-14, R1/R3 expect 9). Do not "fix" those to 13; it would break the
+16, R1/R3 expect 10). Do not "fix" those to 15; it would break the
 guard and misstate map coverage.
 
 ## 9. Guardrails (never)
