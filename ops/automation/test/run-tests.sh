@@ -3,6 +3,16 @@
 # Each test asserts a NEGATIVE case (script MUST exit 1 on violation),
 # then the at-rest case (all scripts exit 0 on the real repo).
 # Usage: bash ops/automation/test/run-tests.sh   (exit 0 = all assertions hold)
+#
+# Live-read caveat (P3.2): N1 and G1 call number-snapshot.sh --live, which
+# reads the GitHub API via `gh` (authed arjun-0077). The suite is therefore
+# offline-deterministic EXCEPT those two live reads — every other assertion
+# runs with no network. Tolerance: N1 deliberately feeds a wrong expected
+# value (fixture 100 vs live ~39k) so the live read MUST exit 1; G1 feeds the
+# real register so the live read MUST exit 0 (stars within the register's
+# tolerance_pct / tolerance_abs). If gh is missing, unauthenticated, or the
+# API fails, the live reads exit non-zero (number-snapshot never silently
+# falls back) and the suite fails — run `gh auth status` first.
 set -u
 repo_root="$(cd "$(dirname "$0")/../../.." && pwd)"
 auto="$repo_root/ops/automation"
