@@ -1,0 +1,13 @@
+# Hit@1 wave-1 fragment: longitudinal-stability (flight-mechanics)
+# Two tasks per new leaf skill; lon2 is adversarial (pitch stability
+# wording must deterministically route to the longitudinal-stability
+# leaf, not to the flight-mechanics pack router).
+tasks:
+  - id: lon1
+    query: "compute the neutral point and static margin for the static longitudinal stability analysis"
+    intent: "flight mechanics; neutral point and static margin"
+    expected_skill: "flight-mechanics/stability-control/longitudinal-stability"
+  - id: lon2
+    query: "check the pitch stability and whether the aircraft is longitudinally stable at the current center of gravity"
+    intent: "flight mechanics; pitch stability and longitudinal stability verdict"
+    expected_skill: "flight-mechanics/stability-control/longitudinal-stability"
