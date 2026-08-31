@@ -2,10 +2,10 @@
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.
-P2.1 (2026-08-31): twelve published skills; gate 3 runs twelve contract
+P2.1 (2026-08-31): twenty-seven published skills; gate 3 runs twenty-seven contract
 tests, gate 5 runs sixty-six corpus tasks (fifty-eight domain tasks +
 eight adversarial cross-pair tasks added across the P2.1 and P3.5 reworks).
-P3.6 (2026-08-31): domain-pack restructure: the twelve skills are
+P3.6 (2026-08-31): domain-pack restructure: the twenty-seven skills are
 organized into nine installable domain packs (avionics,
 space-systems, systems-engineering-safety, manufacturing-quality,
 cross-cutting, aerodynamics, gnc-autonomy, structures, vehicle-design)
@@ -107,8 +107,9 @@ implications (A=MC/DC, B=decision, C=statement, D=none, E=none). Tested
 logic and its test live with the skill:
 skills/avionics/do178c/planning/scripts/do178c_levels.py and
 scripts/test_do178c_levels.py (stdlib unittest, offline), the P2.1 rework
-moved skill 1's contract in-tree so all twelve skills were self-contained
-(superseded the repo-root scripts/ copy); P3.5 extends the same in-tree
+moved skill 1's contract in-tree so all twenty-seven skills are
+self-contained (superseded the repo-root scripts/ copy); P3.5 extends the
+same in-tree
 contract pattern to all twenty-seven skills. Every skill ships its behavior
 contract as skills/<path>/scripts/test_*.py alongside a sibling logic
 module. P2.1 ships eleven more across the
