@@ -1,0 +1,13 @@
+# Hit@1 wave-5 fragment: flight-test-instrumentation (flight-test-operations/planning)
+# Two tasks per new leaf skill; fti2 is adversarial (plausibly routes to
+# the neighbor flight-test-operations/planning pack, must deterministically
+# route to flight-test-instrumentation).
+tasks:
+  - id: fti1
+    query: "design the flight test instrumentation: select the sensors and set the data acquisition sample rate with the anti-aliasing and Nyquist margin"
+    intent: "flight test; instrumentation sensor selection and sample rate sizing"
+    expected_skill: "flight-test-operations/planning/flight-test-instrumentation"
+  - id: fti2
+    query: "check the accelerometer range and the ADC quantization resolution for the strain channel and confirm the calibration before the flight test"
+    intent: "flight test; sensor range, quantization, and calibration checks"
+    expected_skill: "flight-test-operations/planning/flight-test-instrumentation"
