@@ -9,9 +9,9 @@ exactly that, nothing more. No certified, no approved, no airworthy.
 
 ## 1. What ships
 
-- 27 aerospace engineering skills for AI agents across 9 installable
-  domain packs (36 SKILL.md files: 9 pack router roots + 27 leaf
-  skills). Packs: aerodynamics, avionics, gnc-autonomy,
+- 43 aerospace engineering skills for AI agents across 27 sub-domain
+  packs in 9 families (52 SKILL.md files: 9 family router roots + 43
+  leaf skills). Families: aerodynamics, avionics, gnc-autonomy,
   manufacturing-quality, space-systems, structures,
   systems-engineering-safety, vehicle-design, cross-cutting.
 - Standards map (standards-map.yaml, machine-readable): 14 mapped
@@ -21,9 +21,9 @@ exactly that, nothing more. No certified, no approved, no airworthy.
   AS9100, DO-330, DO-160G, AS9102, MMPDS, FAR-25/CS-25, ECSS, and
   NACA TR-824; SEP-2640 is the delivery format (skills over MCP,
   emerging open spec), separate from the domain list.
-- Eval corpus: 66 tasks (58 domain + 8 adversarial cross-pair), all
+- Eval corpus: 102 tasks (90 domain + 12 adversarial cross-pair), all
   asserting top-1 routing on a deterministic offline router. Every
-  skill also ships a stdlib unittest behavior contract (27 suites)
+  skill also ships a stdlib unittest behavior contract (43 suites)
   run by gate 3.
 
 ## 2. Verified means this
@@ -34,7 +34,7 @@ make validate runs 5 REAL gates before anything ships:
 2. description lint: what + when + trigger, written for the router
 3. behavior tests: per-skill contract, stdlib unittest, offline
 4. no-verbatim: standards text copyright control
-5. Hit@1: routing corpus resolves to the expected skill (66/66)
+5. Hit@1: routing corpus resolves to the expected skill (102/102)
 
 Deterministic, offline, replayable: clone, run make validate, exit 0.
 That is what verified means in this repository, on the commit you are

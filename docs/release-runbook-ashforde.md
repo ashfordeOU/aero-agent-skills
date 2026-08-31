@@ -14,12 +14,12 @@ release-candidate TAG (allowed, stays private).
 
 **Rework (CEO audit 2026-08-31, HEAD f001e1b):** four defects fixed.
 (1) Package rebuilt from the FINAL RC commit (the commit tagged
-v1.0.0-rc1) — the previous package was built from 7fd559d and missed
+v1.0.0-rc1); the previous package was built from 7fd559d and missed
 the release-notes and the SEP-2640 split. (2) The RC tag was MOVED
 from 7fd559d to the final RC commit (delete + recreate, force-push to
-the private origin only — one-time sanctioned correction, documented
+the private origin only, a one-time sanctioned correction, documented
 in section 4). (3) An explicit public-tree content policy was added
-(section 3a) — the package ships ONLY the allowlist; internal docs
+(section 3a): the package ships ONLY the allowlist; internal docs
 (research/, security/audits/, development/, finance/, people/,
 support/, marketing/launch-draft, marketing/distribution-plan-P3.md,
 docs/ops-notes.md, docs/release-runbook-ashforde.md, docs/superpowers/,
@@ -54,8 +54,8 @@ From the PRIVATE dev repo (/Users/enterprisehq/AeroSkills):
     git rev-parse --short v1.0.0-rc1^{commit}   # prints the same short hash
     git status --porcelain      # expect empty (clean at rest)
     git tag -l v1.0.0-rc1       # expect the annotated RC tag at the final RC commit
-    make validate               # expect PASS 5/5 (36 SKILL.md, 27 contract
-                                # tests, 66/66 Hit@1, gate 4 zero markers)
+    make validate               # expect PASS 5/5 (52 SKILL.md, 43 contract
+                                # tests, 102/102 Hit@1, gate 4 zero markers)
     make attest                 # expect PASS 3/3 (number snapshot offline,
                                 # brief audit, content policy 0 hits)
     bash ops/automation/test/run-tests.sh   # expect ALL TESTS PASS
@@ -82,7 +82,7 @@ connect; `aeroskills` is the working name everywhere in this repo.)
 
 Rebuild the clean tree if the package above is stale; otherwise reuse
 it. The archive command below is the ONLY sanctioned way to build the
-package — it reproduces the public tree EXACTLY (section 3a allowlist;
+package: it reproduces the public tree EXACTLY (section 3a allowlist;
 no drift, no extra files). Do not use a bare `git archive HEAD -- .`
 or `cp -R` of the dev tree: that ships internal docs.
 
@@ -99,11 +99,11 @@ or `cp -R` of the dev tree: that ships internal docs.
     cd /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
     git init -b main
     git add -A
-    git commit -m "AeroSkills v1.0.0-rc1: 27 skills, 9 domain packs, eval-gated
+    git commit -m "AeroSkills v1.0.0-rc1: 43 skills, 27 sub-domain packs, eval-gated
 
-27 aerospace engineering skills across 9 installable domain packs,
-each passing make validate 5/5 (spec lint, desc lint, behavior
-contract, no-verbatim, Hit@1 66/66). Clean tree from dev HEAD
+43 aerospace engineering skills across 27 installable sub-domain packs
+in 9 families, each passing make validate 5/5 (spec lint, desc lint,
+behavior contract, no-verbatim, Hit@1 102/102). Clean tree from dev HEAD
 v1.0.0-rc1 (the final RC commit), no dev history, secrets swept,
 content policy green. Public-tree allowlist only: skills, scripts,
 eval, standards-map, docs (5 public files), marketing (3 public
@@ -131,7 +131,7 @@ IN (allowlist):
 - Root: .gitignore, .github/, CITATION.cff, CODE_OF_CONDUCT.md,
   CONTRIBUTING.md, LICENSE, Makefile, NOTICE, README.md, SECURITY.md,
   STANDARDS.md, standards-map.yaml
-- skills/ (all 27 leaf skills + 9 pack routers, 36 SKILL.md + their
+- skills/ (all 43 leaf skills + 9 family routers, 52 SKILL.md + their
   scripts/ and test_*.py behavior contracts)
 - scripts/ (gate scripts + eval machinery), eval/ (hit1 corpus)
 - docs/FAQ.md, docs/glossary.md, docs/harness-contract.md,
@@ -139,7 +139,7 @@ IN (allowlist):
 - marketing/README.md, marketing/release-notes-v1.0.0-rc1.md,
   marketing/positioning-1pager.md
 - ops/automation/ EXCEPT ops/automation/test/ (gate scripts,
-  numbers.yaml, state/ snapshots — needed for `make attest` and the
+  numbers.yaml, state/ snapshots, needed for `make attest` and the
   content-policy sweep to run inside the package)
 
 OUT (never ship):
@@ -154,7 +154,7 @@ OUT (never ship):
 - docs/ops-notes.md, docs/release-runbook-ashforde.md (internal ops,
   dev-only), docs/superpowers/
 - ops/automation/test/ (dev fixtures + negative-control suite)
-- AGENTS.md — DECISION: EXCLUDE. It is the internal operating/coding
+- AGENTS.md (DECISION: EXCLUDE). It is the internal operating/coding
   standard for agents in the dev repo (departments, VETO domains,
   delivery rules). Public contributors use CONTRIBUTING.md +
   CODE_OF_CONDUCT.md instead. Keeping AGENTS.md out of the package
@@ -202,7 +202,7 @@ forbids pushing dev history or force-pushing main.
 - [ ] Update the clone URL in Install (currently
       https://github.com/arjun-0077/aeroskills.git) to the Ashforde
       org URL.
-- [ ] Verify the badge counts still match the tree: Skills 27,
+- [ ] Verify the badge counts still match the tree: Skills 43,
       Standards 14, Gates 5/5 REAL. The standards-map badge stays 14
       (map total); see the SEP-2640 note below.
 - [ ] Confirm the compliance notice, FAQ links, SECURITY.md,
