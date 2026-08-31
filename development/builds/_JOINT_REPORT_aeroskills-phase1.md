@@ -86,7 +86,7 @@ platform); legal brief 06 ships the exact README compliance banner; tool
 brief is ready-made troubleshooting content.
 Weak: zero buyer-facing artifacts exist; README is an internal org chart, not a
 pitch; 'standards-mapped, verified, cross-harness' is roadmap, not artifact;
-term discipline is legal-adjacent (never 'certified' or 'ITAR-compliant');
+term discipline is legal-adjacent (never 'certified', never export-compliance claims);
 K-Dense unreconciled; clean-at-rest broken.
 Preparing at the fence (no publish): positioning 1-pager, README v0.1 with
 compliance banner, docs/FAQ/glossary skeleton, troubleshooting from canonical

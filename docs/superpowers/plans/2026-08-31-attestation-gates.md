@@ -68,7 +68,7 @@ ops/automation/state/; exit 0/1.
 
 ### Task 4: content-policy-sweep.sh (TDD)
 
-**Files:** Create `ops/automation/test/fixture-policy-bad.md` (contains "ITAR-compliant"),
+**Files:** Create `ops/automation/test/fixture-policy-bad.md` (contains a banned compliance claim),
 `ops/automation/content-policy-sweep.sh`
 **Interfaces:** Scans publishable roots; exit 0/1 listing file:line.
 

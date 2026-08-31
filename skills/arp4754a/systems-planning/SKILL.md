@@ -62,6 +62,16 @@ contract test: scripts/test_systems_planning.py against
 scripts/systems_logic.py (stdlib unittest, offline). Run:
 python3 scripts/test_systems_planning.py
 
+## Revision note (ARP4754A vs ARP4754B)
+
+Keyed to ARP4754A by design: A is the certification-baseline revision:
+FAA AC 20-174 and AC 25-1309 recognize ARP4754A as an acceptable means of
+compliance for development assurance, and the DO-178C/DO-254 ecosystem
+references A. ARP4754B (SAE, revised 2023-12) supersedes A; it is the
+update (alignment with ARP4761A, no significant change in development
+principles). Skills key to A to match current TC/STC certification-baseline
+practice. See standards-map.yaml arp4754a.revision_decision.
+
 ## Compliance
 
 - Standards referenced, not reproduced: ARP4754A / ARP4761A text is

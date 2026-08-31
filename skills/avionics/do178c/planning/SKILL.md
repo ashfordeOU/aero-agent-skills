@@ -53,9 +53,10 @@ planning-phase artifacts (PSAC, SDP, SVP, SCM, SQA plans).
 
 ## Behavior contract (gate 3)
 
-The DAL/FDAL/IDAL determination logic is exercised by the gate 3 contract
-test: scripts/test_do178c_levels.py against scripts/do178c_levels.py
-(stdlib unittest, offline). Run: python3 scripts/test_do178c_levels.py
+This skill ships its own contract test, like every skill in the library:
+scripts/test_do178c_levels.py against scripts/do178c_levels.py (stdlib
+unittest, offline). Run: python3
+skills/avionics/do178c/planning/scripts/test_do178c_levels.py
 
 ## Compliance
 

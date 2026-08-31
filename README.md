@@ -58,9 +58,34 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-- skills/avionics/do178c/planning: the seed skill. Determine the
-  software level (DAL A-E) from failure-condition severity, draft the
-  PSAC, scope planning artifacts. Behavior-tested.
+Twelve verified skills, each spec-linted, behavior-tested, and
+router-asserted by make validate:
+
+- avionics/do178c/planning: software level/DAL (A-E) from failure
+  severity; PSAC; planning-phase artifacts.
+- avionics/do178c/development: HLR/LLR/code traceability, derived
+  requirements.
+- avionics/do178c/verification: review, structural coverage per level,
+  independence.
+- avionics/do178c/configuration-management: baselines, problem
+  reports, release gate.
+- avionics/do254/hardware-planning: simple vs complex AEH, PHAC scope.
+- arp4754a/systems-planning: FDAL/IDAL allocation, certification and
+  system development plans.
+- arp4761a/safety-assessment: FHA/PSSA/SSA sequence, analysis set
+  (FTA/FMEA/CCA).
+- as9100/quality: aerospace QMS clauses, audit evidence, corrective
+  action closure.
+- avionics/far-cs25/airworthiness: certification basis, means of
+  compliance, 25.1309 applicability.
+- space/ecss/software-engineering: ECSS criticality (A-D), lifecycle
+  gates, heritage reuse.
+- mbse/systems-engineering: SysML modeling workflow, function
+  allocation, digital-thread traceability.
+- sep2640/skill-delivery: SKILL.md packaging and discovery over MCP.
+
+Every skill ships its own behavior contract in skills/<path>/scripts/,
+exercised by make validate gate 3.
 
 ## Install
 
@@ -85,12 +110,16 @@ enforces it.
 
 ## Roadmap
 
-- Now: the certification spine. DO-178C planning is shipped; next are
-  DO-178C verification, DO-254 hardware assurance, ARP4761A safety
-  assessment, AS9100 quality.
-- Next: breadth across the 12 aerospace disciplines, reference builds,
-  a SEP-2640-aligned MCP adapter for enterprise delivery, marketplace
-  listings.
+- Shipped: the certification spine. DO-178C planning, development,
+  verification, and configuration management; DO-254 hardware
+  planning; ARP4754A systems planning; ARP4761A safety assessment;
+  AS9100 quality; FAR-25/CS-25 airworthiness; plus ECSS space
+  software, MBSE, and SEP-2640 skill delivery. All 12 gated by
+  make validate (5/5) + make attest.
+- Next: breadth across the 12 aerospace disciplines (aerodynamics/XFOIL,
+  propulsion, structures, flight mechanics, spacecraft subsystems) on
+  the same eval-gated build; reference builds; a SEP-2640-aligned MCP
+  adapter for enterprise delivery; marketplace listings.
 - Later: the same knowledge packaged as AI Department Operator packs:
   role charters, budget ledgers, schedules, evidence gates.
 
