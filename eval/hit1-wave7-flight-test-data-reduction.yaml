@@ -1,0 +1,14 @@
+# Hit@1 wave-7 fragment: flight-test-data-reduction (flight-test-operations)
+# Two tasks per new leaf skill; both must deterministically route to
+# flight-test-data-reduction and NOT to the planning siblings
+# (flight-test-planning, flight-test-instrumentation) or to
+# cross-cutting/numerics/uncertainty-propagation.
+tasks:
+  - id: fdr1
+    query: "reduce the post-flight flight test data: apply the calibration-correction with the channel slope and intercept, align the time series with the time-alignment offset, filter the trace with the moving-average, and compute the corrected-airspeed from the impact pressure and density"
+    intent: "flight-test-operations; post-flight data reduction: calibration correction, time alignment, filtering, corrected airspeed"
+    expected_skill: "flight-test-operations/planning/flight-test-data-reduction"
+  - id: fdr2
+    query: "combine the measurement-uncertainty sources with the rss into the combined uncertainty and run the data-quality verdict for out-of-range values and time gaps on the reduced flight test data"
+    intent: "flight-test-operations; combined uncertainty by root sum square and data quality verdict on reduced flight test data"
+    expected_skill: "flight-test-operations/planning/flight-test-data-reduction"
