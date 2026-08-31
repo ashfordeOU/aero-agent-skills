@@ -1,0 +1,13 @@
+# Hit@1 wave-2 fragment: vertical-navigation (avionics/flight-management)
+# Two tasks per new leaf; vn1 routes on TOD distance from cruise to an
+# arrival constraint, vn2 routes on the VNAV altitude constraint check.
+# Both must deterministically hit avionics/flight-management/vertical-navigation.
+tasks:
+  - id: vn1
+    query: "compute the top of descent distance from the cruise altitude to the arrival constraint with the descent gradient"
+    intent: "avionics; FMS top of descent distance from cruise to constraint"
+    expected_skill: "avionics/flight-management/vertical-navigation"
+  - id: vn2
+    query: "check the computed vnav altitude against the waypoint altitude constraint for the descent path"
+    intent: "avionics; VNAV altitude constraint verdict on the descent path"
+    expected_skill: "avionics/flight-management/vertical-navigation"
