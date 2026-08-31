@@ -80,8 +80,8 @@ ambiguous, forcing the doc to name the repo).
 | N15 | stale-number guard flags planted 27/9/36-class counts ('27 skills' ... '36 SKILL.md', R3 re-grade patterns) | exit 1 | 1 |
 | N16 | stale-number guard exempts legit live vocabulary ('27 live sub-domain packs', '9 families', '43 leaf skills', '52 SKILL.md') | exit 0 | 0 |
 | N17 | stale-number guard flags bare '9 packs' family mislabel | exit 1 | 1 |
-| N10 | gated-set check flags stale gated-set/map-coverage count claims (fixture: 9 vs map 14, 5 gated vs 9) | exit 1 | 1 |
-| N11 | gated-set check passes clean enumerations (fixture: 14 map, 9 gated) | exit 0 | 0 |
+| N10 | gated-set check flags stale gated-set/map-coverage count claims (fixture: 9 vs map 16, 5 gated vs 10) | exit 1 | 1 |
+| N11 | gated-set check passes clean enumerations (fixture: 16 map, 10 gated) | exit 0 | 0 |
 | G7 | stale-number guard on real repo (R4 patterns + R3 re-grade 27/9/36 class; roots: marketing/ + docs/ + development/ + README.md; harness-contract milestone records exempt) | exit 0 | 0 |
 | G8 | gated-set check on real repo (no numeric count claims contradict standards-map.yaml) | exit 0 | 0 |
 
