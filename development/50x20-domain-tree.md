@@ -39,24 +39,25 @@ No other use of "pack" in this document. The old two-way usage
 
 ## 2. Live layout (verified 2026-08-31, make packs)
 
-`make packs` on the dev tree reports `packs=9 skills=43`: 9 families
-with a router SKILL.md, **43 leaf skills in 27 sub-domain packs**. The
-Hit@1 corpus holds 102 tasks (gate 5). These are the disk numbers the
-build plan starts from; section 3 is the full taxonomy target.
+`make packs` on the dev tree reports 12 packs and 55 leaf skills: 12
+families with a router SKILL.md, **55 leaf skills in 35 sub-domain
+packs**. The Hit@1 corpus holds 126 tasks (gate 5). These are the
+disk numbers the build plan starts from; section 3 is the full
+taxonomy target.
 
 | Family | Live packs on disk (leaf count) | Planned packs (0 leaves) |
 |---|---|---|
-| Aerodynamics | airfoil (2) · cfd (1) | high-speed · aeroelasticity · wind-tunnel · drag-polars |
-| Propulsion | none | gas-turbine-cycle · turbomachinery · combustion · rocket · electric-propulsion · engine-airframe |
-| Structures | fem (1) · composites (1) · fatigue (1) · materials (1) | damage-tolerance · thermal-structures |
-| Flight mechanics | none | performance · stability-control · handling-qualities · flight-dynamics-sim |
+| Aerodynamics | airfoil (2) · cfd (2) | high-speed · aeroelasticity · wind-tunnel · drag-polars |
+| Propulsion | gas-turbine-cycle (1) · turbofan (1) · rocket (1) | turbomachinery · combustion · electric-propulsion · engine-airframe |
+| Structures | fem (1) · composites (1) · fatigue (1) · materials (1) · damage-tolerance (1) | thermal-structures |
+| Flight mechanics | performance (2) · stability-control (1) | handling-qualities · flight-dynamics-sim |
 | GNC / autonomy | control (1) · optimal-control (1) · space (2) | estimation-filtering · guidance · navigation · autopilots |
-| Avionics | do178c (6) · do254 (3) · do160 (1) · far-cs25 (1) · flight-management (1) | data-bus · ima · displays |
+| Avionics | do178c (6) · do254 (3) · do160 (2) · far-cs25 (1) · flight-management (1) | data-bus · ima · displays |
 | Systems engineering | arp4754a (3) · arp4761a (3) · mbse (1) | requirements · certification · config-mgmt |
-| Space systems | ecss (2) · subsystems (2) · adcs (1) | orbit-mechanics · mission-design · propulsion-subsystems · launch-reentry · ground-systems |
+| Space systems | ecss (2) · subsystems (2) · adcs (2) | orbit-mechanics · mission-design · propulsion-subsystems · launch-reentry · ground-systems |
 | Vehicle design | conceptual (1) · sizing (1) · mass-properties (1) | mdo · cost-estimation |
 | Manufacturing & quality | as9100 (2) · as9102 (1) | special-processes · supply-chain · additive |
-| Flight test | none | envelope · performance-test · stability-test · instrumentation · telemetry |
+| Flight test | envelope (1) · performance (1) | performance-test · stability-test · instrumentation · telemetry |
 | Cross-cutting (infra) | units-atmos (1) · sep2640 (1) | numerics · data-sources · documentation · compliance · project-mgmt |
 
 Notes on the reconciliation (R1 item 3):
@@ -101,7 +102,7 @@ the R2 pass.
 | Manufacturing & quality | as9100 (LIVE 2) · as9102 (LIVE 1) · special-processes · supply-chain · additive | 100 |
 | Flight test | envelope · performance-test · stability-test · instrumentation · telemetry | 100 |
 | Cross-cutting (infra) | units-atmos (LIVE 1) · sep2640 (LIVE 1) · numerics · data-sources · documentation · compliance · project-mgmt | 140 |
-| **Total** | **73 packs (27 live / 46 planned)** | **1,460** |
+| **Total** | **73 packs (35 live / 38 planned)** | **1,460** |
 
 Arithmetic: 6+6+6+4+7+8+6+8+5+5+5+7 = 73 packs. At 20 per pack:
 120+120+120+80+140+160+120+160+100+100+100+140 = 1,460. Release bar
@@ -199,29 +200,41 @@ replayable for buyers (Market lens). Tiers:
 
 - **Tier 0, cert spine (finish to 20 first):** do178c (6/20),
   arp4754a (3/20), arp4761a (3/20), as9100 (2/20), ecss (2/20).
-- **Tier 1, next standards packs:** do254 (3/20), do160 (1/20),
+- **Tier 1, next standards packs:** do254 (3/20), do160 (2/20),
   far-cs25 (1/20), as9102 (1/20).
-- **Tier 2, remaining live packs (18) toward 20:** airfoil, cfd, fem,
-  composites, fatigue, materials, conceptual, sizing, mass-properties,
-  control, optimal-control, space, subsystems, adcs, mbse, units-atmos,
-  sep2640, flight-management.
-- **Tier 3, new packs (46) in family lanes, Wave 5+:** propulsion
-  opens with gas-turbine-cycle and combustion (CEA) first (both P0 in
-  the taxonomy; the R1 review flagged their deferral), then flight
-  mechanics and flight test, then the remaining planned packs.
+- **Tier 2, remaining live packs (26) toward 20:** airfoil, cfd,
+  fem, composites, fatigue, materials, damage-tolerance, conceptual,
+  sizing, mass-properties, control, optimal-control, space,
+  subsystems, adcs, mbse, units-atmos, sep2640, flight-management,
+  performance (flight-mechanics), stability-control,
+  gas-turbine-cycle, turbofan, rocket, envelope, performance
+  (flight-test).
+- **Tier 3, new packs (38) in family lanes, Wave 6+:** combustion,
+  electric-propulsion, engine-airframe, high-speed,
+  aeroelasticity, wind-tunnel, drag-polars, thermal-structures,
+  handling-qualities, flight-dynamics-sim, estimation-filtering,
+  guidance, navigation, autopilots, data-bus, ima, displays,
+  requirements, certification, config-mgmt, orbit-mechanics,
+  mission-design, propulsion-subsystems, launch-reentry,
+  ground-systems, mdo, cost-estimation, special-processes,
+  supply-chain, additive, stability-test,
+  instrumentation, telemetry, numerics, data-sources, documentation,
+  compliance, project-mgmt.
 
-Wave 4 (next) = fill the 27 live packs toward 20 each, Tier 0 first:
-43 leaf skills -> 540 at completion of Wave 4 (27 x 20). Decompose
+Wave 5 (next) = fill the 35 live packs toward 20 each, Tier 0 first:
+55 leaf skills -> 700 at completion of Wave 5 (35 x 20). Decompose
 first: the 12 families already decompose into the full 73-pack list;
-filling proceeds pack by pack, and the 46 remaining packs open in
-Waves 5+ (46 x 20 = 920; 540 + 920 = 1,460).
+filling proceeds pack by pack, and the 38 remaining packs open in
+Waves 6+ (38 x 20 = 760; 700 + 760 = 1,460).
 
 ## 7. Throughput model and calendar
 
 Measured evidence: the Wave 4 session (2026-08-31, commit 2973701)
 landed 16 verified leaf skills + 36 corpus tasks (66 -> 102) with make
 validate 5/5, make attest 3/3, and run-tests all green in one builder
-session. Planning rate is conservative: **10 verified leaf skills per
+session. The Wave 5 session (2026-08-31) landed twelve verified leaf
+skills + 24 corpus tasks (102 -> 126) plus the three new family
+routers. Planning rate is conservative: **10 verified leaf skills per
 builder per working session**, session = build + corpus batch + gates
 + commit.
 
@@ -252,8 +265,8 @@ This is accepted; the throughput model does not assume usage data.
 
 ## 8. Corpus scale plan
 
-Current gate-5 corpus: 102 tasks / 43 leaf skills = 2.4 tasks per
-leaf (Wave 4 policy: 2 tasks per new skill + adversarial cross-pairs).
+Current gate-5 corpus: 126 tasks / 55 leaf skills = 2.3 tasks per
+leaf (Wave 5 policy: 2 tasks per new skill + adversarial cross-pairs).
 At 1,460 leaves the budget is:
 
 - 2 tasks per leaf = 2,920 base tasks

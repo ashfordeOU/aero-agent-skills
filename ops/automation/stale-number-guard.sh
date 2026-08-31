@@ -1,41 +1,47 @@
 #!/usr/bin/env bash
 # Stale-number guard (R2 rework, Market rec #2; ops track extended R3;
-# scan roots extended R4).
+# scan roots extended R4; Wave-5 stale class + release-notes exemption R5).
 # Scans LIVE corpus/skill/pack count claims that contradict the live
-# repo state (102 tasks / 43 leaf skills / 9 installable packs; 50x20
-# tree: 73 packs, 1,460 leaf skills, Wave 4 43 -> 540). Patterns:
-#   '28/28'             P2.1-era Hit@1 count (live: 102/102)
-#   '12 skills'         P2.1-era skill count, digit form (live: 43)
-#   'twelve skills'     P2.1-era skill count, word form (live: forty-three)
-#   'twenty-eight'      P2.1-era corpus count (live: one hundred two)
-#   'five installable'  P3.6-era pack count (live: nine)
-#   'five packs'        P3.6-era pack count, literal form (live: nine) [R3]
-#   '12 verified'       P2.1-era skill count, 'verified' form (live: 43)
-#   '12 aerospace ...'  P2.1-era skill count, marketing form (live: 43);
+# repo state (126 tasks / 55 leaf skills / 12 installable packs; 50x20
+# tree: 73 packs, 1,460 leaf skills, Wave 5 55 -> 700). Patterns:
+#   '28/28'             P2.1-era Hit@1 count (live: 126/126)
+#   '12 skills'         P2.1-era skill count, digit form (live: 55)
+#   'twelve skills'     P2.1-era skill count, word form (live: fifty-five)
+#   'twenty-eight'      P2.1-era corpus count (live: one hundred twenty-six)
+#   'five installable'  P3.6-era pack count (live: twelve)
+#   'five packs'        P3.6-era pack count, literal form (live: twelve) [R3]
+#   '12 verified'       P2.1-era skill count, 'verified' form (live: 55)
+#   '12 aerospace ...'  P2.1-era skill count, marketing form (live: 55);
 #                       narrowed R4 to '12 aerospace( engineering)? skills'
 #                       so the tree's legit '12 aerospace disciplines'
 #                       (12 families) is not a false positive
-#   '3/3 corpus'        P2.1-era corpus-ratio claim, corpus context (live: 102/102) [R3]
+#   '3/3 corpus'        P2.1-era corpus-ratio claim, corpus context (live: 126/126) [R3]
 #   '68 installable'    R1-era 50x20 pack count (live: 73) [R4]
 #   '1,360'             R1-era 50x20 leaf-skill total (live: 1,460) [R4]
-#   '27 skills'         P5.1-era leaf-skill count (live: 43) [R3 re-grade]
-#   '27 aerospace'      P5.1-era leaf count, marketing form (live: 43)
-#   '27 leaf skills'    P5.1-era leaf count, 'leaf' form (live: 43)
-#   '9 packs'           P5.1-era family mislabel (live: 27 sub-domain
-#                       packs / 9 family routers). Bare digit form only:
+#   '27 skills'         P5.1-era leaf-skill count (live: 55) [R3 re-grade]
+#   '27 aerospace'      P5.1-era leaf count, marketing form (live: 55)
+#   '27 leaf skills'    P5.1-era leaf count, 'leaf' form (live: 55)
+#   '9 packs'           P5.1-era family mislabel (live: 35 sub-domain
+#                       packs / 12 family routers). Bare digit form only:
 #                       'sub-domain packs' without the bare count is
-#                       legit ('27 live sub-domain packs',
-#                       '73 sub-domain packs'), and '9 pack routers'
+#                       legit ('35 live sub-domain packs',
+#                       '73 sub-domain packs'), and '12 pack routers'
 #                       is the live router count - neither trips
 #   '9 domain packs'    P5.1-era family mislabel, 'domain' form
 #   '9 installable'     P5.1-era pack count, digit form (live docs say
-#                       'nine installable domain packs' in words)
-#   '36 SKILL.md'       P5.1-era SKILL.md total (live: 52)
-# All seven new forms are digit-form on purpose: the live one-way
-# vocabulary ('nine installable domain packs', '9 family routers',
-# '9 disciplines', '9 families', '43 leaf skills', '52 SKILL.md',
-# '102/102', '27 live sub-domain packs', '73 sub-domain packs',
-# '1,460', '43 -> 540') shares the numbers but never the stale
+#                       'twelve installable domain packs' in words)
+#   '36 SKILL.md'       P5.1-era SKILL.md total (live: 67)
+#   '43 skills'         Wave-5-era leaf count, bare/digit form (live: 55) [R5]
+#   '43 leaf skills'    Wave-5-era leaf count, 'leaf' form (live: 55) [R5]
+#   '43 verified'       Wave-5-era leaf count, 'verified' form (live: 55) [R5]
+#   '52 SKILL.md'       Wave-5-era SKILL.md total (live: 67) [R5]
+#   '102/102'           Wave-5-era Hit@1 count (live: 126/126) [R5]
+#   '102 tasks'         Wave-5-era corpus count (live: 126) [R5]
+# All new forms are digit-form on purpose: the live one-way
+# vocabulary ('twelve installable domain packs', '12 pack routers',
+# '12 disciplines', '12 families', '55 leaf skills', '67 SKILL.md',
+# '126/126', '35 live sub-domain packs', '73 sub-domain packs',
+# '1,460', '55 -> 700') shares the numbers but never the stale
 # digit-phrase shapes, so word-boundary patterns separate them.
 # Exemption (documented, R4): lines carrying the explicit qualifier
 # 'planning target, not a shipped count' are NOT stale shipped claims.
@@ -45,6 +51,11 @@
 # or '1,360' claim still trips. The exemption is line-scoped: the
 # qualifier must sit on the same line as the number (as README states
 # it); a number on one line with the qualifier on the next still trips.
+# Exemption (documented, R5): dated marketing release notes
+# (marketing/release-notes-*.md) are historical release artifacts
+# (supersede-not-delete) - they legitimately carry the count that was
+# true at release time (43 skills / 52 SKILL.md / 102 tasks). Same
+# class as dated plans/ and builds/; scan roots exclude them.
 # Skip decision (documented, R3): bare '3/3' is NOT in the pattern set -
 # live docs legitimately say 'make attest (3/3)' (docs/ops-notes.md:30)
 # and the attest gate is 3/3 by design, so a bare pattern would
@@ -56,21 +67,22 @@
 # stay EXCLUDED (supersede-not-delete):
 #   docs/superpowers/plans/   dated plan-time counts
 #   development/builds/       dated phase report snapshots
+#   marketing/release-notes-*.md  dated release artifacts [R5]
 # Scope decision (documented, R3 re-grade): docs/harness-contract.md's
-# dated milestone-record paragraphs (P2.1/P3.5/P3.6/P3.7, the block
+# dated milestone-record paragraphs (P2.1/P3.5/P3.6/P3.7/P5.1, the block
 # before the first '## ' heading) are historical records
 # (supersede-not-delete) - they legitimately say '36 SKILL.md' /
 # '27 leaves' because they record what was true at that milestone.
 # The guard scans only the LIVE sections below that heading; the
-# current milestone record (P3.7) already carries the live numbers
-# (52 SKILL.md / 43 leaves).
+# current milestone record (P5.1) already carries the live numbers
+# (67 SKILL.md / 55 leaves).
 # This guard protects LIVE docs (marketing/ + docs/ + development/ +
 # README.md), not the historical record.
 # Usage: bash ops/automation/stale-number-guard.sh [root_dir]
 #   (optional root_dir override for fixture testing; default = repo root)
 set -u
 root="${1:-$(cd "$(dirname "$0")/../.." && pwd)}"
-patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b'
+patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b'
 exempt='planning target, not a shipped count'
 fail=0
 
@@ -78,7 +90,7 @@ scan_file() {
   local f="$1"
   local hits
   case "$f" in
-    */docs/superpowers/plans/*|*/development/builds/*) return ;;
+    */docs/superpowers/plans/*|*/development/builds/*|*/marketing/release-notes-*) return ;;
   esac
   if [[ "$f" == */docs/harness-contract.md ]]; then
     # Dated milestone-record paragraphs (P2.1/P3.5/P3.6/P3.7, the block
@@ -105,6 +117,6 @@ done
 [ -f "$root/README.md" ] && scan_file "$root/README.md"
 
 if [ "$fail" -eq 0 ]; then
-  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|27 skills|27 aerospace|27 leaf skills|9 packs|9 domain packs|9 installable|36 SKILL.md' in marketing/ + docs/ + development/ + README.md (dated plans/, builds/ and harness-contract milestone records excluded; qualified README planning-target lines exempt)"
+  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|27 skills|27 aerospace|27 leaf skills|9 packs|9 domain packs|9 installable|36 SKILL.md|43 skills|43 leaf skills|43 verified|52 SKILL.md|102/102|102 tasks' in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt)"
 fi
 exit "$fail"

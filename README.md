@@ -2,7 +2,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 43 of 1,000+ target](https://img.shields.io/badge/skills-43%20of%201000%2B%20target-blue)](skills/)
+[![Skills: 55 of 1,000+ target](https://img.shields.io/badge/skills-55%20of%201000%2B%20target-blue)](skills/)
 [![Standards: 16](https://img.shields.io/badge/standards-16-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
@@ -284,23 +284,24 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: 43 verified skills across nine disciplines with live packs
+- Shipped: 55 verified skills across twelve disciplines with live packs
   as of 2026-08-31. The certification spine (DO-178C planning,
   development, verification, and configuration management; DO-254
   hardware planning; ARP4754A systems planning; ARP4761A safety
   assessment; AS9100 quality; FAR-25/CS-25 airworthiness; ECSS space
-  software, MBSE, SEP-2640 skill delivery) plus Wave 4 breadth across
-  all nine disciplines. Every skill gated by make validate (5/5) and
-  make attest (3/3).
+  software, MBSE, SEP-2640 skill delivery) plus Wave 4 breadth and
+  Wave 5 depth: propulsion, flight mechanics, and flight test and
+  operations packs opened on the eval-gated pipeline. Every skill
+  gated by make validate (5/5) and make attest (3/3).
 - Release bar (founder, 2026-08-31): 50+ domains x 20+ verified
   skills = 1,000+ skills, all make-validate green, before any
   release. The 12-discipline tree decomposes into 73 sub-domain packs
   (1,460 skills at 20 each): a planning target, not a shipped count.
   [development/50x20-domain-tree.md](development/50x20-domain-tree.md).
-- Next: fill the 27 live sub-domain packs toward 20 skills each (43 ->
-  540), then Wave 5 opens new disciplines (propulsion, flight
-  mechanics, flight test and operations) on the same eval-gated
-  pipeline, then the remaining sub-domains.
+- Next: fill the 35 live sub-domain packs toward 20 skills each (55 ->
+  700). Wave 5 opened propulsion, flight mechanics, and flight test
+  and operations on the same eval-gated pipeline; the remaining
+  sub-domains follow.
 - Later: reference builds; a SEP-2640-aligned MCP adapter for
   enterprise delivery; marketplace listings; the same knowledge
   packaged as AI Department Operator packs (role charters, budget
@@ -314,8 +315,9 @@ controlled data and no verbatim standards text, and every merge must
 pass make validate (5/5) and make attest (3/3). New skills land inside
 their domain pack (skills/<family>/<pack>/<leaf>/SKILL.md) and
 carry domain and pack frontmatter. Smallest disciplines today:
-cross-cutting (two skills), aerodynamics and vehicle-design (three
-each); every pack grows toward 20 per the 50x20 release bar.
+cross-cutting and flight-test-operations (two skills each), then
+flight-mechanics, propulsion, and vehicle-design (three each); every
+pack grows toward 20 per the 50x20 release bar.
 
 ## FAQ
 
