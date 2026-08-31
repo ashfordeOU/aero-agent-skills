@@ -67,6 +67,42 @@ counterfeit prevention, external providers, and special processes.
 Gated standard: summary-only referencing. Source: standards-map.yaml
 (as9100).
 
+## DO-330
+
+Software Tool Qualification Considerations. RTCA guidance (EUROCAE
+twin ED-215) for qualifying the software tools used in airborne
+software and hardware programs: tool criteria 1-5, tool qualification
+levels TQL-1..TQL-5, and tool operational requirements. Referenced by
+DO-178C; accepted via FAA AC 20-115D. Gated standard: summary-only
+referencing. Source: standards-map.yaml (do-330).
+
+## DO-160G
+
+Environmental Conditions and Test Procedures for Airborne Equipment.
+RTCA guidance (EUROCAE twin ED-14G) covering environmental test
+procedures for airborne equipment: temperature, altitude, humidity,
+vibration, EMC, lightning, and other equipment categories and test
+conditions. Gated standard: summary-only referencing. Source:
+standards-map.yaml (do-160).
+
+## AS9102
+
+Aerospace First Article Inspection Requirements. Developed by IAQG,
+published by SAE in the Americas (EN9102 in Europe). Defines the
+first article inspection process: Form 1 part accountability, Form 2
+material and special processes, Form 3 characteristic accountability,
+and delta or partial FAI after changes. Gated standard: summary-only
+referencing. Source: standards-map.yaml (as9102).
+
+## MMPDS
+
+Metallic Materials Properties Development and Standardization. SAE
+publication, successor to the public-domain MIL-HDBK-5. Statistically
+based metallic material design allowables: A-basis (95% confidence,
+99% content) and B-basis (95% confidence, 90% content) with
+k-factors, plus fastener and joint allowables. Gated standard:
+summary-only referencing. Source: standards-map.yaml (mmpsd).
+
 ## V&V
 
 Verification and validation. Verification checks that the product
@@ -105,9 +141,9 @@ research/briefs/06 §8.1.
 A standard whose map entry sets gated: true, meaning verbatim text
 from it must never appear anywhere in this repository. Skills that
 reference a gated standard list it as reference-only. DO-178C,
-DO-254, ARP4754A, ARP4761A, and AS9100 are gated; FAR-25, CS-25,
-ECSS, and SEP-2640 are quotable with attribution. Source:
-STANDARDS.md; standards-map.yaml.
+DO-254, ARP4754A, ARP4761A, AS9100, DO-330, DO-160G, AS9102, and
+MMPDS are gated; FAR-25, CS-25, ECSS, SEP-2640, and NACA TR-824 are
+quotable with attribution. Source: STANDARDS.md; standards-map.yaml.
 
 ## Hit@1
 
@@ -184,6 +220,15 @@ emerging draft, not yet stable; an adapter layer over the
 agentskills.io SKILL.md format, never the source of truth. Open
 specification, quotable with citation. Source: standards-map.yaml
 (sep-2640); skills/cross-cutting/sep2640/skill-delivery.
+
+## NACA TR-824
+
+Summary of Airfoil Data (Abbott, von Doenhoff, Stivers). NACA report;
+US government work, public domain. Classic airfoil section data
+(NACA 4/5-digit and 6-series) and wind-tunnel polars used as the
+validation anchor for airfoil analysis, e.g. the XFOIL NACA 0012 at
+Re=6M band. Quotable with attribution. Source: standards-map.yaml
+(naca-tr-824).
 
 ## Certification basis
 
