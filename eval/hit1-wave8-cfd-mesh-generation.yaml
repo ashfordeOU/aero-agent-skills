@@ -1,0 +1,17 @@
+# Hit@1 wave-8 fragment: cfd-mesh-generation (aerodynamics/cfd)
+# Two tasks per new leaf; cfd-mesh-generation-w8-1 routes on grid type
+# selection (structured/unstructured/hybrid) with boundary-layer prism
+# layers and cell quality metrics (skewness, orthogonality, aspect
+# ratio), cfd-mesh-generation-w8-2 routes on near-wall first cell
+# height from a y+ target, far-field domain sizing, and mesh
+# refinement levels. Both must deterministically hit
+# aerodynamics/cfd/cfd-mesh-generation.
+tasks:
+  - id: cfd-mesh-generation-w8-1
+    query: "choose the grid type between structured unstructured and hybrid and build boundary layer prism layers with the right growth ratio for the cfd mesh"
+    intent: "aerodynamics; CFD mesh generation grid type selection and boundary-layer prism layer setup"
+    expected_skill: "aerodynamics/cfd/cfd-mesh-generation"
+  - id: cfd-mesh-generation-w8-2
+    query: "size the near-wall first cell height from the y plus target and skin friction coefficient and set the far-field domain size and refinement levels for the cfd mesh"
+    intent: "aerodynamics; near-wall first cell height sizing from y+ and mesh refinement planning"
+    expected_skill: "aerodynamics/cfd/cfd-mesh-generation"
