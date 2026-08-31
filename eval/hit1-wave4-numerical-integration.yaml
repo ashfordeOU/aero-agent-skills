@@ -1,0 +1,14 @@
+# Hit@1 wave-4 fragment: numerical-integration (cross-cutting/numerics)
+# Two tasks per new leaf skill; ni1 routes on the quadrature method
+# choice terms, ni2 routes on the error estimate and refinement
+# outputs. Both must deterministically hit
+# cross-cutting/numerics/numerical-integration.
+tasks:
+  - id: ni1
+    query: "choose between the trapezoid rule, simpson rule, and gauss legendre quadrature to integrate the smooth function on the interval"
+    intent: "numerical integration; quadrature method selection between trapezoid, Simpson, and Gauss-Legendre"
+    expected_skill: "cross-cutting/numerics/numerical-integration"
+  - id: ni2
+    query: "estimate the error of the composite trapezoid rule with richardson extrapolation and refine the subintervals for the definite integral"
+    intent: "numerical integration; Richardson error estimate of the trapezoid rule and refinement"
+    expected_skill: "cross-cutting/numerics/numerical-integration"
