@@ -1,7 +1,8 @@
 # RD4 State Note — rescue-first re-dispatch #4 (2026-08-31 23:5x -> 00:0x)
 
-Committed by parent during re-dispatch #4 so a reaped parent leaves a clean
-rescue trail. Read BEFORE acting; supersede with a new note on the next kill.
+STATUS: WAVE COMPLETE 00:1x — all steps done, pushed, posted. Read for
+history; do NOT redo. Final SHAs: 9 leaf commits + ops merge/router/
+badge commits; HEAD bbf301a (remote main == HEAD, ls-remote verified).
 
 ## What landed so far (committed, survives)
 - a6bd27c ops: keep wave-6 merge/inventory/desc helpers, drop stale prep scratch
