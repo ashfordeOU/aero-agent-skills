@@ -2,7 +2,7 @@
 """Gate 3 contract test: AS9100 supplier control.
 
 Exercises scripts/supplier_control_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 - a supplier is classified
+Contract: docs/harness-contract.md gate 3 - a supplier risk tier is assigned
 from part criticality and quality/delivery history per the documented
 rule table (criticality drives the class, history adjusts within major
 and standard), each risk class maps to its documented control set
