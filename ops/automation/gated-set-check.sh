@@ -8,11 +8,11 @@
 #
 # What this guard catches (the re-grader's root cause, verbatim: "the guard
 # greps NUMBER patterns only, so a doc claiming 'map covers 9 standards'
-# passes while the map covers 14"):
-#   R1  '<N> gated standards' / 'gated set of <N> standards'      -> N == gated count (9)
-#   R2  '<covers|maps|spans> <N> standards'                       -> N == map total (14)
-#   R3  'all <N> of the gated standards'                          -> N == gated count (9)
-# Digit and word forms (five..fourteen) both verified.
+# passes while the map covers 16"):
+#   R1  '<N> gated standards' / 'gated set of <N> standards'      -> N == gated count (10)
+#   R2  '<covers|maps|spans> <N> standards'                       -> N == map total (16)
+#   R3  'all <N> of the gated standards'                          -> N == gated count (10)
+# Digit and word forms (five..sixteen) both verified.
 #
 # Scope decision (documented, R3 rework): the guard verifies COUNT CLAIMS.
 # Pure name-list drift ("Gated standards (DO-178C, ...)" listing 5 names

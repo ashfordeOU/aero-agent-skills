@@ -166,7 +166,7 @@ check "N17 stale-number guard flags bare '9 packs' family mislabel" 1 $?
 # ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
 # Asserts numeric gated-set/map-coverage COUNT claims in the three
 # enumeration docs (FAQ.md, glossary.md, positioning-1pager.md) match the
-# live standards-map.yaml (9 gated:true of 14 total), and that explicit
+# live standards-map.yaml (10 gated:true of 16 total), and that explicit
 # "all N gated standards" completeness claims name every gated standard.
 note "== gated-set-check.sh =="
 gated_set="$auto/gated-set-check.sh"
@@ -204,7 +204,7 @@ check "G7 stale-number guard on real repo exits 0" 0 $?
 
 # G8: gated-set enumeration-completeness check on the real repo must stay
 # clean (R3 rework). The live docs carry no numeric count claims that
-# contradict standards-map.yaml (14 map entries, 9 gated:true).
+# contradict standards-map.yaml (16 map entries, 10 gated:true).
 bash "$auto/gated-set-check.sh" >/dev/null 2>&1
 check "G8 gated-set check on real repo exits 0" 0 $?
 
