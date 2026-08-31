@@ -1,6 +1,6 @@
 ---
 name: aerodynamics
-description: "Use when a task concerns aerodynamics: guide the router to the aerodynamics pack, whose airfoil-selection sub-skill covers airfoil family selection against design lift and thickness constraints, xfoil-analysis covers XFOIL polar generation and validation of lift and drag coefficients, cfd-convergence covers residual, Courant, and mesh-refinement convergence checks, cfd-turbulence-modeling covers turbulence model selection and near-wall treatment, normal-shock covers the normal shock relations of compressible flow (downstream Mach, static ratios, stagnation pressure loss), and drag-polar covers the parabolic drag polar with induced-drag factor and maximum lift-to-drag. This pack is the aerodynamic analysis and validation layer of the library. Trigger: aerodynamics, airfoil selection, XFOIL, polar, lift coefficient, drag coefficient, drag polar, Oswald span efficiency, induced drag, CFD convergence, Courant number, turbulence model, normal shock, Mach number, compressible flow."
+description: "Use when a task concerns aerodynamics: guide the router to the aerodynamics pack, whose airfoil-selection sub-skill covers airfoil family selection, xfoil-analysis covers XFOIL polar validation, cfd-convergence covers residual and Courant checks, cfd-turbulence-modeling covers turbulence model selection, normal-shock covers normal shock relations, prandtl-meyer covers Prandtl-Meyer expansion relations, drag-polar covers the parabolic drag polar, and lift-curve-slope covers the wing lift curve slope with aspect ratio, sweep, and Mach corrections. This pack is the aerodynamic analysis and validation layer of the library. Trigger: aerodynamics, airfoil selection, XFOIL, polar, lift coefficient, drag coefficient, drag polar, Oswald span efficiency, induced drag, lift curve slope, aspect ratio, sweep correction, Prandtl-Glauert, CFD convergence, Courant number, turbulence model, normal shock, Prandtl-Meyer, expansion fan, Mach number, compressible flow."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -26,7 +26,8 @@ compressible flow, or validation of section data.
 
 Aerodynamics and CFD: airfoil section selection and analysis with
 XFOIL, viscous-inviscid modeling, turbulence modeling, compressible
-flow (normal shocks), and drag polar construction, validated against
+flow (normal shocks and Prandtl-Meyer expansions), drag polar
+construction, and wing lift curve slope estimation, validated against
 classic reference data.
 
 ## Sub-skills in this pack
@@ -38,7 +39,9 @@ classic reference data.
 | aerodynamics/cfd/cfd-convergence | CFD convergence | residual convergence, Courant number, mesh refinement, solver stability |
 | aerodynamics/cfd/cfd-turbulence-modeling | Turbulence modeling | turbulence model selection, Reynolds number, near-wall treatment, y-plus |
 | aerodynamics/high-speed/normal-shock | Normal shock relations | downstream Mach, pressure/density/temperature ratios, stagnation pressure loss, supersonic flow |
+| aerodynamics/high-speed/prandtl-meyer | Prandtl-Meyer expansion | expansion angle, downstream Mach after turning, total-to-static ratios, expansion fan |
 | aerodynamics/drag-polars/drag-polar | Drag polar | parabolic polar CD0 + k, Oswald span efficiency, induced drag, maximum lift-to-drag |
+| aerodynamics/drag-polars/lift-curve-slope | Lift curve slope | thin-airfoil 2pi, finite-aspect-ratio correction, sweep correction, Prandtl-Glauert Mach correction, lift coefficient from angle of attack |
 
 ## Routing guidance
 
@@ -51,8 +54,14 @@ classic reference data.
 - Compressible-flow questions (Mach number, normal shock relations,
   stagnation pressure loss) route to the high-speed normal-shock
   sub-skill.
+- Supersonic turning and expansion-fan questions (Prandtl-Meyer
+  angle, downstream Mach after a turn) route to the high-speed
+  prandtl-meyer sub-skill.
 - Drag polar construction and peak lift-to-drag questions route to
   the drag-polars drag-polar sub-skill.
+- Wing lift curve slope questions (thin airfoil, aspect ratio, sweep,
+  Mach correction) route to the drag-polars lift-curve-slope
+  sub-skill.
 - Structural, control, and certification questions route to their
   domain packs (structures, gnc-autonomy, avionics).
 
