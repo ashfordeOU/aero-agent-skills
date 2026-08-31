@@ -1,0 +1,13 @@
+# Hit@1 wave-6 fragment: dynamic-stability (flight-mechanics)
+# Two tasks per new leaf skill; ds2 is adversarial (mode classification
+# wording must deterministically route to the dynamic-stability leaf,
+# not to the lateral-directional-stability leaf).
+tasks:
+  - id: ds1
+    query: "compute the short period and phugoid natural frequency and damping ratio from the longitudinal stability derivatives for the dynamic stability analysis"
+    intent: "flight mechanics; short period and phugoid modes from the longitudinal derivatives"
+    expected_skill: "flight-mechanics/stability-control/dynamic-stability"
+  - id: ds2
+    query: "classify the lateral-directional modes of an aircraft from the eigenvalues, check the roll subsidence time constant and the dutch roll damping criterion, and check the spiral time to double"
+    intent: "flight mechanics; lateral mode classification and damping criteria from eigenvalues"
+    expected_skill: "flight-mechanics/stability-control/dynamic-stability"
