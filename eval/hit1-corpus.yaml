@@ -19,7 +19,19 @@
 #
 # P2.1 rework also adds xp1-xp3: adversarial cross-pair tasks whose wording
 # plausibly routes to 2+ domains. Each asserts a deterministic top-1 with no
-# collision (verified against the router at authoring time).
+# collision (verified against the router at authoring time).# P5.2 / Wave 2 (2026-08-31): fan-out build to sixty-nine verified
+# skills (81 SKILL.md under gate 1: 12 routers + 69 leaves). Fourteen
+# new leaves: avionics +3 (special-conditions, vertical-navigation,
+# do254 configuration-management), gnc-autonomy +3 (root-locus-design,
+# lqr-design, navigation-frames opening the navigation pack),
+# manufacturing-quality +1 (delta-fai), space-systems +2
+# (ecss software-verification, communication-link-budget), structures +3
+# (modal-analysis, failure-criteria, residual-strength), propulsion +2
+# (nozzle-design, bypass-ratio-trade). Corpus: 154 tasks (the 126 prior
+# plus 28 domain tasks: sc1/sc2, vn1/vn2, rl1/rl2, lqr1/lqr2, nf1/nf2,
+# df1/df2, dcm1/dcm2, sv1/sv2, ma1/ma2, fc1/fc2, res1/res2, lb1/lb2,
+# nz1/nz2, bpr1/bpr2). Owner: Ops Manager, Wave 2 build.
+
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -580,6 +592,132 @@ tasks:
     query: "size the slew rate to acquire the sun and estimate the solar illumination factor at the sun angle"
     intent: "spacecraft ADCS; sun acquisition slew rate and solar illumination factor"
     expected_skill: "space-systems/adcs/sun-pointing"
+
+  - id: bpr1
+    query: "compute the thrust split and specific thrust for the turbofan at the bypass ratio"
+    intent: "propulsion; turbofan thrust split and specific thrust at the bypass ratio"
+    expected_skill: "propulsion/turbofan/bypass-ratio-trade"
+  - id: bpr2
+    query: "compare the tsfc across bypass ratios and give the bypass ratio trade verdict"
+    intent: "propulsion; TSFC across bypass ratios and the bypass ratio trade verdict"
+    expected_skill: "propulsion/turbofan/bypass-ratio-trade"
+
+  - id: df1
+    query: "classify the material change and determine whether a full new fai or a delta fai is required per as9102"
+    intent: "manufacturing quality; change classification, full new FAI vs delta FAI per AS9102"
+    expected_skill: "manufacturing-quality/as9102/delta-fai"
+  - id: df2
+    query: "scope the delta first article inspection forms and affected characteristics for the process change"
+    intent: "manufacturing quality; delta FAI forms and affected characteristics scope"
+    expected_skill: "manufacturing-quality/as9102/delta-fai"
+
+  - id: dcm1
+    query: "classify the do 254 hardware change and decide whether an engineering change order with reverification is required"
+    intent: "avionics hardware; DO-254 change class and ECR/ECO decision"
+    expected_skill: "avionics/do254/configuration-management"
+  - id: dcm2
+    query: "check the review independence needed for the complex hardware configuration change"
+    intent: "avionics hardware; DO-254 review independence for complex hardware CM"
+    expected_skill: "avionics/do254/configuration-management"
+
+  - id: sv1
+    query: "select the ecss verification method for the functional and safety software requirements of the spacecraft"
+    intent: "ECSS space software; verification method per requirement category"
+    expected_skill: "space-systems/ecss/software-verification"
+  - id: sv2
+    query: "check the verification depth and independence required for the criticality category of the flight software"
+    intent: "ECSS space software; verification depth and independence per criticality"
+    expected_skill: "space-systems/ecss/software-verification"
+
+  - id: fc1
+    query: "compute the tsai wu failure index for the lamina under the in plane stress state"
+    intent: "structures; lamina Tsai-Wu failure index under in-plane stress"
+    expected_skill: "structures/composites/failure-criteria"
+  - id: fc2
+    query: "check the composite ply against the max stress and tsai hill criteria and give the failure verdict"
+    intent: "structures; max-stress and Tsai-Hill checks with failure verdict"
+    expected_skill: "structures/composites/failure-criteria"
+
+  - id: lb1
+    query: "compute the free space path loss and received power for the spacecraft link budget at the given frequency and distance"
+    intent: "communications; free-space path loss and received power from EIRP and gain"
+    expected_skill: "space-systems/subsystems/communication-link-budget"
+  - id: lb2
+    query: "check the link margin against the required energy per bit to noise ratio at the data rate"
+    intent: "communications; link margin versus required Eb/N0 at the data rate"
+    expected_skill: "space-systems/subsystems/communication-link-budget"
+
+  - id: lqr1
+    query: "design the lqr gain matrix for the spacecraft attitude control with the quadratic cost weights"
+    intent: "GNC; LQR gain matrix via Riccati from quadratic cost weights"
+    expected_skill: "gnc-autonomy/optimal-control/lqr-design"
+  - id: lqr2
+    query: "verify the lqr closed loop is stable and check the control effort weighting trade"
+    intent: "GNC; closed-loop stability check and Q/R control-effort trade"
+    expected_skill: "gnc-autonomy/optimal-control/lqr-design"
+
+  - id: ma1
+    query: "compute the natural frequencies and mode shape ratios for the two degree of freedom structural model"
+    intent: "structural dynamics; 2-DOF natural frequencies and mode shape ratios"
+    expected_skill: "structures/fem/modal-analysis"
+  - id: ma2
+    query: "check whether the excitation frequency is near a structural natural frequency and would cause resonance"
+    intent: "structural dynamics; resonance check against natural frequencies"
+    expected_skill: "structures/fem/modal-analysis"
+
+  - id: nf1
+    query: "convert the geodetic position in latitude and longitude to ecef coordinates for the navigation solution"
+    intent: "navigation frames; WGS-84 geodetic to ECEF conversion"
+    expected_skill: "gnc-autonomy/navigation/navigation-frames"
+  - id: nf2
+    query: "build the ecef to ned rotation matrix at the reference latitude and longitude and transform the velocity"
+    intent: "navigation frames; ECEF to NED rotation and velocity transform"
+    expected_skill: "gnc-autonomy/navigation/navigation-frames"
+
+  - id: nz1
+    query: "compute the rocket nozzle area ratio and exit mach number for the design chamber conditions"
+    intent: "propulsion; nozzle area ratio and exit Mach number from chamber conditions"
+    expected_skill: "propulsion/rocket/nozzle-design"
+  - id: nz2
+    query: "calculate the ideal thrust with the pressure term and check the nozzle expansion against the ambient pressure"
+    intent: "propulsion; ideal thrust with pressure term and expansion verdict vs ambient pressure"
+    expected_skill: "propulsion/rocket/nozzle-design"
+
+  - id: res1
+    query: "compute the residual strength of the cracked panel from the fracture toughness and the crack length"
+    intent: "structures; residual strength from fracture toughness and crack length"
+    expected_skill: "structures/damage-tolerance/residual-strength"
+  - id: res2
+    query: "determine the critical crack length and the residual strength margin against the limit load"
+    intent: "structures; critical crack length and residual strength margin vs limit load"
+    expected_skill: "structures/damage-tolerance/residual-strength"
+
+  - id: rl1
+    query: "compute the closed loop poles and stability verdict for the root locus of the plant with gain k"
+    intent: "control design; root locus closed-loop poles and stability"
+    expected_skill: "gnc-autonomy/control/root-locus-design"
+  - id: rl2
+    query: "find the controller gain for the target damping ratio in the root locus design"
+    intent: "control design; gain selection for target damping ratio"
+    expected_skill: "gnc-autonomy/control/root-locus-design"
+
+  - id: sc1
+    query: "determine whether a fly by wire flight control with novel envelope protection needs a special condition under far 25"
+    intent: "certification; special-conditions verdict for a novel fly-by-wire flight control"
+    expected_skill: "avionics/far-cs25/special-conditions"
+  - id: sc2
+    query: "scope the special condition content for the novel composite wing structure with the means of compliance"
+    intent: "certification; special-condition scope and means of compliance for a novel composite wing"
+    expected_skill: "avionics/far-cs25/special-conditions"
+
+  - id: vn1
+    query: "compute the top of descent distance from the cruise altitude to the arrival constraint with the descent gradient"
+    intent: "avionics; FMS top of descent distance from cruise to constraint"
+    expected_skill: "avionics/flight-management/vertical-navigation"
+  - id: vn2
+    query: "check the computed vnav altitude against the waypoint altitude constraint for the descent path"
+    intent: "avionics; VNAV altitude constraint verdict on the descent path"
+    expected_skill: "avionics/flight-management/vertical-navigation"
 
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul

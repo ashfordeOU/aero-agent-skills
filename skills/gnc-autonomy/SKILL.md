@@ -35,15 +35,21 @@ trajectory problems (pseudospectral collocation).
 | Path | Skill | When to route to it |
 |---|---|---|
 | gnc-autonomy/space/orbit-dynamics | Orbit dynamics | Hohmann delta-v, vis-viva, J2 drift, transfer time |
-| gnc-autonomy/control/python-control-design | Control design | PID tuning, gain/phase margins, stability checks |
-| gnc-autonomy/optimal-control/dymos-trajectory | Trajectory optimization | dymos phases, convergence, launch/ascent delta-v bands |
+| gnc-autonomy/control/python-control-design |
+| gnc-autonomy/control/root-locus-design | Root locus design | closed-loop poles vs gain, gain for damping ratio, stability from root locus | Control design | PID tuning, gain/phase margins, stability checks |
+| gnc-autonomy/optimal-control/dymos-trajectory |
+| gnc-autonomy/navigation/navigation-frames | Navigation frames | ECEF, NED, geodetic conversion, Earth rotation, WGS-84 |
+| gnc-autonomy/optimal-control/lqr-design | LQR design | Riccati gain, quadratic cost weights, closed-loop stability | Trajectory optimization | dymos phases, convergence, launch/ascent delta-v bands |
 
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
 - Controller design and margin questions route to the
+- Root-locus questions (pole trajectories, gain for target damping) route to the control root-locus-design sub-skill.
   python-control-design sub-skill.
 - Optimal control and trajectory questions route to the
+- Coordinate-frame and navigation-solution questions (ECEF/NED/geodetic, WGS-84) route to the navigation navigation-frames sub-skill.
+- LQR and Riccati-gain questions route to the optimal-control lqr-design sub-skill.
   dymos-trajectory sub-skill.
 - Certification and item-level assurance questions route to the
   avionics or systems-engineering-safety packs.

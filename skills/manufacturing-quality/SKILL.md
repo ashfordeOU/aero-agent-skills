@@ -36,7 +36,8 @@ delta FAI).
 | Path | Skill | When to route to it |
 |---|---|---|
 | manufacturing-quality/as9100/quality | AS9100 quality | QMS clause scoping, audit evidence, corrective-action closure |
-| manufacturing-quality/as9102/first-article-inspection | AS9102 first article inspection | FAI Forms 1-3, characteristic accountability, delta FAI |
+| manufacturing-quality/as9102/first-article-inspection |
+| manufacturing-quality/as9102/delta-fai | AS9102 delta FAI | change classification, full vs delta FAI, forms scope | AS9102 first article inspection | FAI Forms 1-3, characteristic accountability, delta FAI |
 
 ## Routing guidance
 
@@ -44,6 +45,8 @@ delta FAI).
   corrective action) route to the AS9100 sub-skill.
 - First article and production-approval questions (forms,
   accountability, delta FAI) route to the AS9102 sub-skill.
+- Change-classification and delta-FAI-scope questions (full vs delta
+  after a production change) route to the as9102 delta-fai sub-skill.
 - Design and certification questions route to the avionics or
   systems-engineering-safety packs.
 
