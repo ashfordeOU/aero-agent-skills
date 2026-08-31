@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: lqr-design (gnc-autonomy/optimal-control)
+# Two tasks per new leaf; lqr1 routes on Riccati gain design with
+# quadratic cost weights, lqr2 routes on closed-loop stability and the
+# Q/R control-effort weighting trade. Both must deterministically hit
+# gnc-autonomy/optimal-control/lqr-design.
+tasks:
+  - id: lqr1
+    query: "design the lqr gain matrix for the spacecraft attitude control with the quadratic cost weights"
+    intent: "GNC; LQR gain matrix via Riccati from quadratic cost weights"
+    expected_skill: "gnc-autonomy/optimal-control/lqr-design"
+  - id: lqr2
+    query: "verify the lqr closed loop is stable and check the control effort weighting trade"
+    intent: "GNC; closed-loop stability check and Q/R control-effort trade"
+    expected_skill: "gnc-autonomy/optimal-control/lqr-design"
