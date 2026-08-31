@@ -2,7 +2,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 112 of 1,000+ target](https://img.shields.io/badge/skills-112%20of%201000%2B%20target-blue)](skills/)
+[![Skills: 113 of 1,000+ target](https://img.shields.io/badge/skills-113%20of%201000%2B%20target-blue)](skills/)
 [![Standards: 16](https://img.shields.io/badge/standards-16-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
@@ -352,7 +352,7 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: 112 verified skills across twelve disciplines with live packs
+- Shipped: 113 verified skills across twelve disciplines with live packs
   as of 2026-08-31. The certification spine (DO-178C planning,
   development, verification, and configuration management; DO-254
   hardware planning; ARP4754A systems planning; ARP4761A safety
@@ -367,7 +367,7 @@ vulnerability, see [SECURITY.md](SECURITY.md).
   release. The 12-discipline tree decomposes into 73 sub-domain packs
   (1,460 skills at 20 each): a planning target, not a shipped count.
   [development/50x20-domain-tree.md](development/50x20-domain-tree.md).
-- Next: fill the 47 live sub-domain packs toward 20 skills each (112 ->
+- Next: fill the 47 live sub-domain packs toward 20 skills each (113 ->
   940). Wave 5 opened propulsion, flight mechanics, and flight test
   and operations on the same eval-gated pipeline; Wave 3 added the
   Wave-5-depth fan-out across all nine packs; the remaining

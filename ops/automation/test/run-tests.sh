@@ -109,8 +109,8 @@ note "== pack_inventory.py =="
 pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=12 skills=112"
-check "P2 pack inventory reports 'packs=12 skills=112' (12 family routers / 112 leaf skills)" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=12 skills=113"
+check "P2 pack inventory reports 'packs=12 skills=113' (12 family routers / 113 leaf skills)" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
