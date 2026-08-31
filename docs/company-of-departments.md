@@ -32,7 +32,7 @@ are kept out of the public package.
 ```
 AeroSkills/              # public tree
 ├── README.md            # public landing page
-├── skills/              # the library (43 skills, 27 sub-domain packs)
+├── skills/              # the library (55 skills, 35 sub-domain packs)
 ├── scripts/             # gate + eval machinery
 ├── eval/                # Hit@1 corpus
 ├── standards-map.yaml   # machine-readable standards map
