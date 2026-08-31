@@ -1,0 +1,13 @@
+# Hit@1 wave-5 fragment: particular-risk-analysis (systems-engineering-safety/arp4761a)
+# Two tasks per new leaf; pra1 routes on event-exposure and combined
+# hazard probability, pra2 on hazard zone containment verdicts. Both
+# must deterministically hit systems-engineering-safety/arp4761a/particular-risk-analysis.
+tasks:
+  - id: pra1
+    query: "combine the probability of a rotor burst event with the conditional probability that the resulting debris hazard damages a flight control system and compute the exposure probability over the flight hours"
+    intent: "systems safety; PRA event and conditional probability combination, exposure over flight hours"
+    expected_skill: "systems-engineering-safety/arp4761a/particular-risk-analysis"
+  - id: pra2
+    query: "check whether a tire burst hazard zone overlaps a protected zone containing redundant hydraulic lines and decide if containment action is needed"
+    intent: "systems safety; PRA hazard zone containment verdict"
+    expected_skill: "systems-engineering-safety/arp4761a/particular-risk-analysis"
