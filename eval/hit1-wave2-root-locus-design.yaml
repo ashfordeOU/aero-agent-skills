@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: root-locus-design (gnc-autonomy/control)
+# Two tasks per new leaf; rl1 routes on closed-loop pole locations and
+# the stability verdict, rl2 routes on gain selection for a target
+# damping ratio. Both must deterministically hit
+# gnc-autonomy/control/root-locus-design.
+tasks:
+  - id: rl1
+    query: "compute the closed loop poles and stability verdict for the root locus of the plant with gain k"
+    intent: "control design; root locus closed-loop poles and stability"
+    expected_skill: "gnc-autonomy/control/root-locus-design"
+  - id: rl2
+    query: "find the controller gain for the target damping ratio in the root locus design"
+    intent: "control design; gain selection for target damping ratio"
+    expected_skill: "gnc-autonomy/control/root-locus-design"
