@@ -2,7 +2,7 @@
 """Gate 3 contract test: flight management system flight planning.
 
 Exercises scripts/flight_planning_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — haversine leg distances,
+Contract: docs/harness-contract.md gate 3 - haversine leg distances,
 vertical profile constraint checks, total track distance, and flight-plan
 validity flags; invalid inputs raise ValueError.
 """

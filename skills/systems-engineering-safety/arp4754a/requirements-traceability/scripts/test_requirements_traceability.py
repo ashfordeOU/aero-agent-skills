@@ -2,7 +2,7 @@
 """Gate 3 contract test: ARP4754A requirements traceability.
 
 Exercises scripts/requirements_traceability_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — closure requires
+offline). Contract: docs/harness-contract.md gate 3 - closure requires
 bidirectional tracing through srats/hlr/llr/code/test with every traced
 pair verified; trace_gaps focuses one level; derived requirements are
 flagged; the verified-closure ratio is 0..1; invalid inputs raise

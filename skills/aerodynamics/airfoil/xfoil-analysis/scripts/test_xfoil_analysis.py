@@ -2,7 +2,7 @@
 """Gate 3 contract test: XFOIL airfoil polar analysis.
 
 Exercises scripts/xfoil_analysis_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — angle-of-attack plausibility
+Contract: docs/harness-contract.md gate 3 - angle-of-attack plausibility
 band; structural polar-point validation with ValueError on nonsense
 inputs; NACA 0012 (Re = 6e6) anchor bands for cl at 10 deg (0.77-0.87)
 and cd0 (0.0069-0.0089) with pass/fail at the boundaries; inviscid-run

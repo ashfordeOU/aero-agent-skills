@@ -2,7 +2,7 @@
 """Gate 3 contract test: AS9102 first article inspection.
 
 Exercises scripts/first_article_inspection_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — an FAI is
+offline). Contract: docs/harness-contract.md gate 3 - an FAI is
 complete only when forms 1, 2, and 3 are present and acceptable and
 all nonconformances are closed (missing elements listed); delta FAI
 is required when a change matches a trigger keyword; characteristic

@@ -2,7 +2,7 @@
 """Gate 3 contract test: AS9100 counterfeit prevention planning.
 
 Exercises scripts/counterfeit_prevention_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — counterfeit
+offline). Contract: docs/harness-contract.md gate 3 - counterfeit
 risk level from procurement controls, reporting triggers, and
 control completeness; missing controls count as absent.
 """

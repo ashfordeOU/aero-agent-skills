@@ -2,7 +2,7 @@
 """Gate 3 contract test: Dymos trajectory optimization.
 
 Exercises scripts/dymos_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — phase setup completeness
+Contract: docs/harness-contract.md gate 3 - phase setup completeness
 (5+ collocation nodes, initial/final bounds, objective), optimizer
 convergence against iteration and tolerance limits, state continuity
 across segment boundaries, total delta-v within a fraction of the

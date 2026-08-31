@@ -2,7 +2,7 @@
 """Gate 3 contract test: parabolic drag polar.
 
 Exercises scripts/drag_polar_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — induced drag factor
+Contract: docs/harness-contract.md gate 3 - induced drag factor
 k = 1 / (pi * e * AR) with e in (0, 1] and ar > 0; total drag
 CD = CD0 + k * CL^2 with cd0 > 0; lift to drag ratio cl / cd with
 cd > 0; peak cl_opt = sqrt(cd0 / k) and L/D max = 1 / (2 * sqrt(cd0 * k));

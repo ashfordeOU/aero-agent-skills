@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-178C verification coverage depth per level.
 
 Exercises scripts/verification_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — A = MC/DC, B = decision,
+Contract: docs/harness-contract.md gate 3 - A = MC/DC, B = decision,
 C = statement, D/E = none; levels A/B require independent verification;
 structural coverage must reach 100% of the required metric.
 """

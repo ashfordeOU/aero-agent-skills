@@ -2,7 +2,7 @@
 """Gate 3 contract test: airfoil section selection.
 
 Exercises scripts/airfoil_selection_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — candidate
+offline). Contract: docs/harness-contract.md gate 3 - candidate
 scoring by lift-to-drag ratio, thickness constraint checks, and
 selection; invalid inputs raise ValueError.
 """

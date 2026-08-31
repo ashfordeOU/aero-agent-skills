@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-254 hardware design assurance planning.
 
 Exercises scripts/hardware_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — AEH simple/complex
+Contract: docs/harness-contract.md gate 3 - AEH simple/complex
 classification and the planning artifact set per class.
 """
 

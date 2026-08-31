@@ -2,7 +2,7 @@
 """Gate 3 contract test: ISA standard atmosphere.
 
 Exercises scripts/isa_atmosphere_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — temperature, pressure,
+Contract: docs/harness-contract.md gate 3 - temperature, pressure,
 and density at altitude in the troposphere and lower stratosphere,
 sea-level anchor values, and invalid-input handling.
 """

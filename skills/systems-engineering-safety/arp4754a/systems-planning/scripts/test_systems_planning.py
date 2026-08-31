@@ -2,7 +2,7 @@
 """Gate 3 contract test: ARP4754A systems development planning.
 
 Exercises scripts/systems_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — failure-condition severity maps
+Contract: docs/harness-contract.md gate 3 - failure-condition severity maps
 to FDAL; item IDAL is the highest FDAL among implemented functions; the
 planning artifact set covers certification plan, system development plan,
 and safety assessment plan; safety assessment depth scales with DAL.

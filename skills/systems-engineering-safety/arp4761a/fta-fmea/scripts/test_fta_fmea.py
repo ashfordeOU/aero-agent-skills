@@ -2,7 +2,7 @@
 """Gate 3 contract test: ARP4761A FTA/FMEA analysis.
 
 Exercises scripts/fta_fmea_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — the analysis set scales
+Contract: docs/harness-contract.md gate 3 - the analysis set scales
 with assurance level (FTA/FMEA always, CCA at A/B); minimal cut sets
 derive from AND/OR gate structures (OR unions, AND cartesian-product);
 cut-set probabilities sanity-check against the top event probability;

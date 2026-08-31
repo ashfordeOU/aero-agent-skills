@@ -2,7 +2,7 @@
 """Gate 3 contract test: fatigue cumulative damage (Palmgren-Miner).
 
 Exercises scripts/miner_damage_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — cumulative damage
+Contract: docs/harness-contract.md gate 3 - cumulative damage
 fraction, damage limit checks, and life-consumed accounting;
 invalid inputs raise ValueError.
 """

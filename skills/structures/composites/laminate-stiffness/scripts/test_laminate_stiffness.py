@@ -2,7 +2,7 @@
 """Gate 3 contract test: composite laminate stiffness (CLT).
 
 Exercises scripts/laminate_stiffness_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — ply stiffness,
+offline). Contract: docs/harness-contract.md gate 3 - ply stiffness,
 rotated stiffness, and symmetric laminate A-matrix; invalid inputs
 raise ValueError.
 """

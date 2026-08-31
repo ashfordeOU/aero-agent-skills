@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-254 verification.
 
 Exercises scripts/verification_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — complex AEH is verified
+Contract: docs/harness-contract.md gate 3 - complex AEH is verified
 by test/analysis/review and simple AEH by reduced verification
 (review); independent verification is expected at levels A/B;
 requirements-based test coverage must meet the level ratio (0.98 for
