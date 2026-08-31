@@ -1,0 +1,15 @@
+# Hit@1 wave-6 fragment: material-selection (structures/materials)
+# Two tasks per new leaf skill; ms1 routes on stiffness-to-weight and
+# strength-to-weight selection indices across structural material
+# families, ms2 routes on alloy family ranking with temperature and
+# corrosion screening. Both must deterministically hit
+# structures/materials/material-selection.
+tasks:
+  - id: ms1
+    query: "compare candidate structural materials by stiffness-to-weight and strength-to-weight selection-indices for the airframe"
+    intent: "structures; material selection by stiffness-to-weight and strength-to-weight selection indices"
+    expected_skill: "structures/materials/material-selection"
+  - id: ms2
+    query: "rank aluminum-alloys, titanium-alloys, and steels for a high-temperature structural part by strength-to-weight and corrosion-resistance, and check temperature-limits"
+    intent: "structures; alloy family ranking with temperature and corrosion screening"
+    expected_skill: "structures/materials/material-selection"
