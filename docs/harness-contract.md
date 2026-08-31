@@ -29,7 +29,7 @@ exit 0 before any skill is committed as shippable.
 
 | # | Gate | Checks | Pass criteria | Status |
 |---|------|--------|---------------|--------|
-| 1 | Spec lint (agentskills.io conformance) | frontmatter, naming, description, body limits | every SKILL.md: name <=64 chars kebab-case matching parent dir; description <=1024 chars; compatibility <=500 chars; body <500 lines; references one level deep, relative paths only | REAL |
+| 1 | Spec lint (agentskills.io conformance + compliance flags) | frontmatter, naming, description, body limits, compliance flags | every SKILL.md: name <=64 chars kebab-case matching parent dir; description <=1024 chars; compatibility <=500 chars; body <500 lines; references one level deep, relative paths only; license == Apache-2.0; compliance in {none, ITAR-GATED, EAR-GATED, STANDARDS-REF}; standards non-empty, each resolvable in standards-map.yaml; gated bool consistent with standards-map (gated standards must be reference-only or skill gated:true); metadata.version + metadata.author present | REAL |
 | 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
 | 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
 | 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
@@ -39,7 +39,8 @@ exit 0 before any skill is committed as shippable.
 
 ### Gate 1: Spec lint (agentskills.io conformance)
 
-Checks per SKILL.md, per the open agentskills.io specification and brief 03 section 3:
+Checks per SKILL.md, per the open agentskills.io specification and brief 03 section 3,
+plus the compliance flags of brief 06 section 8.3.5:
 - File present at skills/<path>/SKILL.md.
 - YAML frontmatter parses.
 - `name` required, <=64 chars, lowercase/numbers/hyphens, matches parent directory name.
@@ -47,6 +48,14 @@ Checks per SKILL.md, per the open agentskills.io specification and brief 03 sect
 - `compatibility` <=500 chars when present.
 - Body <500 lines (<~5K tokens).
 - References one level deep from SKILL.md; relative paths only.
+- `license` must equal `Apache-2.0`.
+- `compliance` must be one of `none | ITAR-GATED | EAR-GATED | STANDARDS-REF`.
+- `standards` non-empty list; every entry (string or `{id, reference-only}`
+  mapping) must resolve against standards-map.yaml (by id or name).
+- `gated` boolean consistent with the map: a standard whose map entry is
+  `gated: true` must be listed `reference-only` in the skill, or the skill
+  must be `gated: true`.
+- `metadata.version` and `metadata.author` present.
 
 Runner: scripts/gate-spec-lint.sh -> scripts/spec_lint.py per file.
 

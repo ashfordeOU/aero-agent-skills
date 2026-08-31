@@ -1,3 +1,30 @@
+# AeroSkills
+
+> **Compliance notice.** AeroSkills is an open, unrestricted library of
+> *civil aerospace engineering methodology* for AI agents, published by
+> Ashforde OU (Estonia) under Apache-2.0. The content is educational:
+> general engineering principles, processes, and tool-usage guidance. It
+> is **not** ITAR/EAR-controlled technical data, and no proprietary
+> standards text is reproduced. Standards (DO-178C, DO-254, ARP4754A,
+> ARP4761A, AS9100, FAR/CS-25, ECSS, SEP-2640) are referenced and
+> summarized only — the standards themselves remain the property of
+> their publishers and must be purchased from them (see STANDARDS.md).
+>
+> As published, without restrictions on further dissemination, this
+> library falls within the EU dual-use "public domain" exclusion (Annex I
+> General Technology Note, Regulation (EU) 2021/821) and is not subject
+> to EU dual-use export authorization.
+>
+> **Responsible use.** Users are solely responsible for their own
+> compliance with export-control and sanctions laws applicable to their
+> use of this material. This notice is hygiene, not the legal mechanism:
+> public availability is what keeps published information decontrolled.
+>
+> **Not affiliated with or endorsed by** RTCA, EUROCAE, SAE International,
+> IAQG, EASA, FAA, or any government.
+>
+> See [SECURITY.md](SECURITY.md) · [CONTRIBUTING.md](CONTRIBUTING.md) · [STANDARDS.md](STANDARDS.md)
+
 # AeroSkills — Company Structure
 
 AeroSkills runs as a company of departments, following the proven

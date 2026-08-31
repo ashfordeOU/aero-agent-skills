@@ -2,6 +2,15 @@
 name: planning
 description: "Use when planning DO-178C software certification for airborne systems or equipment: determine the software level or DAL (A-E) from failure-condition severity, draft the PSAC (Plan for Software Aspects of Certification), and scope planning-phase artifacts such as the PSAC, SDP, SVP, SCM, and SQA plans. Covers ARP4754A FDAL/IDAL allocation and ARP4761A severity-to-DAL propagation, including coverage-depth implications per level: A requires MC/DC, B requires decision coverage, C requires statement coverage, D and E require none. Trigger: DO-178C planning, PSAC, software level determination, DAL assignment, development assurance, certification planning, ARP4754A, ARP4761A, airborne software certification."
 license: Apache-2.0
+compliance: STANDARDS-REF
+standards:
+  - id: DO-178C
+    reference-only: true
+  - id: ARP4754A
+    reference-only: true
+  - id: ARP4761A
+    reference-only: true
+gated: false
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: avionics
@@ -9,9 +18,6 @@ metadata:
   tags: [do-178c, dal, psac, certification, arp4754a, arp4761a, software-levels]
   version: 0.1.0
   author: AeroSkills
-  standards: [DO-178C, ARP4754A, ARP4761A]
-  compliance: STANDARDS-REF
-  gated: false
 ---
 
 # DO-178C Planning (avionics/do178c/planning)

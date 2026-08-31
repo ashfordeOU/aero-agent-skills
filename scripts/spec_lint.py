@@ -9,6 +9,12 @@ Contract: docs/harness-contract.md gate 1. Checks:
 - compatibility: <=500 chars when present
 - body <500 lines
 - references one level deep from SKILL.md; relative paths only
+- license == Apache-2.0 (compliance flags, brief 06 s8.3.5)
+- compliance in {none, ITAR-GATED, EAR-GATED, STANDARDS-REF}
+- standards: non-empty list, every entry resolves in standards-map.yaml;
+  a gated standard must be marked reference-only unless skill gated:true
+- gated: boolean, consistent with standards-map gating
+- metadata.version + metadata.author present
 
 Exit 0 = conformant; 1 = violation (reasons on stdout).
 """
@@ -60,6 +66,92 @@ def check_ref(ref, line_no, errs):
         )
 
 
+REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
+STANDARDS_MAP = REPO_ROOT / "standards-map.yaml"
+COMPLIANCE_VALUES = {"none", "ITAR-GATED", "EAR-GATED", "STANDARDS-REF"}
+
+
+def load_standards_index():
+    """Map every searchable key (id, short name, full name) to its entry."""
+    with open(STANDARDS_MAP, "r", encoding="utf-8") as fh:
+        data = yaml.safe_load(fh)
+    index = {}
+    for entry in data.get("standards", []):
+        keys = [entry.get("id", "")]
+        name = entry.get("name", "")
+        if name:
+            keys.append(name.split(":")[0].strip())
+            keys.append(name.strip())
+        for key in keys:
+            key = key.strip().lower()
+            if key:
+                index[key] = entry
+    return index
+
+
+def check_compliance_flags(fm, index, errs):
+    """Enforce brief 06 s8.3.5 frontmatter flags: license/compliance/
+    standards/gated/metadata. Violations append to errs (never raise)."""
+    lic = fm.get("license")
+    if lic != "Apache-2.0":
+        errs.append("license must equal 'Apache-2.0' (got %r)" % (lic,))
+    comp = fm.get("compliance")
+    if comp not in COMPLIANCE_VALUES:
+        errs.append(
+            "compliance must be one of none|ITAR-GATED|EAR-GATED|STANDARDS-REF (got %r)"
+            % (comp,)
+        )
+    raw = fm.get("standards")
+    if raw is None:
+        errs.append("frontmatter missing required 'standards' list")
+        raw = []
+    if not isinstance(raw, list):
+        errs.append("standards must be a list")
+        raw = []
+    if len(raw) == 0:
+        errs.append("standards must be a non-empty list")
+    gated = fm.get("gated")
+    if gated is None:
+        errs.append("frontmatter missing required 'gated' (bool)")
+    elif not isinstance(gated, bool):
+        errs.append("gated must be a boolean (true/false), got %r" % (gated,))
+    resolved = []
+    for i, item in enumerate(raw):
+        ref_only = False
+        key = None
+        if isinstance(item, str):
+            key = item
+        elif isinstance(item, dict):
+            key = item.get("id") or item.get("name")
+            ref_only = bool(item.get("reference-only", False))
+            if key is None:
+                errs.append("standards[%d]: mapping entry needs 'id' or 'name'" % i)
+                continue
+        else:
+            errs.append("standards[%d]: entry must be a string or mapping" % i)
+            continue
+        entry = index.get(str(key).strip().lower())
+        if entry is None:
+            errs.append("standards[%d]: '%s' not in standards-map.yaml" % (i, key))
+            continue
+        resolved.append((entry, ref_only))
+    if isinstance(gated, bool):
+        for entry, ref_only in resolved:
+            if entry.get("gated") and not ref_only and not gated:
+                errs.append(
+                    "standard '%s' is gated:true in standards-map.yaml; "
+                    "skill must be gated:true or list it as reference-only" % entry["id"]
+                )
+    meta = fm.get("metadata")
+    if not isinstance(meta, dict):
+        meta = {}
+        errs.append("frontmatter missing required 'metadata' mapping")
+    if not meta.get("version"):
+        errs.append("metadata.version required")
+    if not meta.get("author"):
+        errs.append("metadata.author required")
+
+
 def main():
     p = pathlib.Path(sys.argv[1])
     text = p.read_text(encoding="utf-8")
@@ -97,6 +189,12 @@ def main():
     compat = fm.get("compatibility")
     if compat is not None and len(compat) > MAX_COMPAT:
         errs.append("compatibility is %d chars, max %d" % (len(compat), MAX_COMPAT))
+    try:
+        index = load_standards_index()
+    except OSError as exc:
+        errs.append("cannot load standards-map.yaml: %s" % exc)
+        index = {}
+    check_compliance_flags(fm, index, errs)
     body = parts[2] if len(parts) >= 3 else text
     n_body = len(body.splitlines())
     if n_body >= MAX_BODY_LINES:
@@ -108,7 +206,7 @@ def main():
             print("FAIL gate1-spec-lint: %s: %s" % (p, e))
         sys.exit(1)
     print(
-        "PASS gate1-spec-lint: %s name=%s desc=%dch body=%dL refs-ok"
+        "PASS gate1-spec-lint: %s name=%s desc=%dch body=%dL refs-ok compliance-flags-ok"
         % (p, name, len(desc), n_body)
     )
 

@@ -44,7 +44,7 @@ ambiguous, forcing the doc to name the repo).
 
 ## TDD evidence (observed exit codes, 2026-08-31)
 
-`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS**
+`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (19/19)**
 
 | Test | Assertion | Expected | Observed |
 |---|---|---|---|
@@ -53,17 +53,32 @@ ambiguous, forcing the doc to name the repo).
 | N3 | brief-audit flags stale K-Dense 38.0k (fixture) | exit 1 | 1 |
 | N5 | brief-audit still flags largest-repo drift 19 vs 22 (fixture, post-tuning) | exit 1 | 1 |
 | N4 | content-policy-sweep flags "ITAR-compliant" (fixture) | exit 1 | 1 |
+| S.no-license | spec-lint flags missing license (fixture) | exit 1 | 1 |
+| S.bad-license | spec-lint flags license != Apache-2.0 (fixture) | exit 1 | 1 |
+| S.bad-compliance | spec-lint flags compliance not in enum (fixture) | exit 1 | 1 |
+| S.standards-unknown | spec-lint flags standard not in standards-map (fixture) | exit 1 | 1 |
+| S.gated-mismatch | spec-lint flags gated:false with unmarked gated standard (fixture) | exit 1 | 1 |
+| S.gated-nonbool | spec-lint flags non-boolean gated (fixture) | exit 1 | 1 |
+| S.no-metadata | spec-lint flags missing metadata.version (fixture) | exit 1 | 1 |
+| S.empty-standards | spec-lint flags empty standards list (fixture) | exit 1 | 1 |
 | G1 | snapshot live on real register | exit 0 | 0 |
 | G2 | snapshot offline with snapshot present | exit 0 | 0 |
 | G3 | brief-audit full repo (19 scanned files) | exit 0 | 0 |
 | G4 | content-policy-sweep full repo | exit 0 | 0 |
 | G5 | brief-audit summary line ("total ≈ 228 / 31 repos") is NOT a largest-repo false positive (fixture) | exit 0 | 0 |
+| G6 | spec-lint gate on real skills tree (compliance flags enforced) | exit 0 | 0 |
 
 Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
 `test/fixture-derived-stale.md`, `test/fixture-derived-summary.md`,
-`test/fixture-policy-bad.md`. Fixture comments keep numbers marker-free so only
+`test/fixture-policy-bad.md`, `test/fixture-spec-{no-license,bad-license,
+bad-compliance,standards-unknown,gated-mismatch,gated-nonbool,no-metadata,
+empty-standards}.md`. Fixture comments keep numbers marker-free so only
 the content line is scanned. The suite preserves and restores the committed
 `state/` dir around its own live runs, so running it never dirties the tree.
+
+The suite covers the attestation scripts plus gate 1 spec-lint compliance
+flags (S-series) and the at-rest gate (G6) — the extended frontmatter
+enforcement of docs/harness-contract.md gate 1.
 
 ## At-rest green
 

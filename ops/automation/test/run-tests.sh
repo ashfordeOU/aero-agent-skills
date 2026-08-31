@@ -55,6 +55,17 @@ note "== content-policy-sweep.sh =="
 bash "$auto/content-policy-sweep.sh" "$auto/test/fixture-policy-bad.md" >/dev/null 2>&1
 check "N4 content-policy-sweep flags ITAR-compliant" 1 $?
 
+# ---- spec-lint compliance flags (gate 1 extension) ------------------------
+# Each fixture is otherwise conformant and must trip EXACTLY the new check
+# (license/compliance/standards/gated/metadata enforcement).
+note "== spec-lint compliance flags =="
+spec_lint="$repo_root/scripts/spec_lint.py"
+for f in no-license bad-license bad-compliance standards-unknown \
+         gated-mismatch gated-nonbool no-metadata empty-standards; do
+  python3 "$spec_lint" "$auto/test/fixture-spec-$f.md" >/dev/null 2>&1
+  check "S.$f spec-lint flags $f" 1 $?
+done
+
 # ---- at-rest green ---------------------------------------------------------
 note "== at-rest (real repo) =="
 # Live snapshot once so offline has evidence, then offline audit
@@ -73,6 +84,10 @@ check "G4 content-policy-sweep full repo exits 0" 0 $?
 # G5: summary lines ("total ≈ 228 / N repos") must NOT be read as largest-repo
 bash "$auto/brief-audit.sh" "$auto/test/fixture-derived-summary.md" >/dev/null 2>&1
 check "G5 brief-audit summary line is not a largest-repo false positive" 0 $?
+
+# G6: real skills tree passes the extended gate 1 (spec lint, compliance flags)
+bash "$repo_root/scripts/gate-spec-lint.sh" >/dev/null 2>&1
+check "G6 spec-lint gate on real skills tree exits 0" 0 $?
 
 # Restore the committed state dir (discard evidence snapshots this run wrote)
 rm -rf "$state" 2>/dev/null

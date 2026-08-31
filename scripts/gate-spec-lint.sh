@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Gate 1 (REAL): agentskills.io conformance lint for every skills/**/SKILL.md.
 # Full contract: docs/harness-contract.md gate 1. Runs scripts/spec_lint.py
-# per file (name/description/body/refs conformance). Exit 0 = all conformant.
+# per file (name/description/body/refs conformance + compliance flags:
+# license, compliance, standards vs standards-map.yaml, gated, metadata).
+# Exit 0 = all conformant.
 set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 skills_dir="$repo_root/skills"
@@ -24,4 +26,4 @@ if [ "$fail" -ne 0 ]; then
   echo "FAIL gate1-spec-lint: one or more SKILL.md failed" >&2
   exit 1
 fi
-echo "PASS gate1-spec-lint: ${checked} SKILL.md conformant (name/desc/body/refs)"
+echo "PASS gate1-spec-lint: ${checked} SKILL.md conformant (name/desc/body/refs/compliance-flags)"
