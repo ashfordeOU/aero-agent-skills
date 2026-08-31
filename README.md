@@ -149,7 +149,7 @@ Updated: 2026-08-31
 |---|---|---|
 | **Research** | Market + competitor + technical research | research/notes/, research/briefs/ |
 | **Development** | Product build, skills, tooling | development/src/, development/builds/ |
-| **Marketing** | Positioning, content, GTM | marketing/strategy/, marketing/content/ |
+| **Marketing** | Positioning, content, GTM | marketing/positioning-1pager.md, marketing/content/ |
 | **Finance** | Costs, pricing, runway, invoices | finance/ledger/, finance/pricing/ |
 | **Ops** | Infrastructure, automation, reliability | ops/runbooks/, ops/state/ |
 | **Security** | Guardrails, compliance, risk | security/policy/, security/audits/ |

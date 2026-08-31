@@ -3,7 +3,7 @@
 # router per research/briefs/03-router-design.md section 5). No network.
 #
 # Active tasks cover every published skill. The Phase-0 baseline (5 canonical
-# eval queries from brief 03 section 5 + brief 05 section 7 validation anchor)
+# eval queries from brief 03 section 5 + brief 05 section 6 item 7 validation anchor)
 # is reconciled 5/5 as of the P2.1 rework (2026-08-31):
 #   1. DO-178C coverage (p1)          -> LIVE task (avionics/do178c/planning)
 #   2. CubeSat battery (t1)           -> future_pin (space/subsystems/power-thermal-budget)
@@ -12,7 +12,7 @@
 #                                       mfg/quality/as9100-qms — nearest published skill until
 #                                       an MRO/maintenance skill publishes)
 #   5. XFOIL NACA 0012 polar (t4)     -> future_pin (aero/airfoil/xfoil-analysis; added P2.1
-#                                       rework with pass criteria from brief 05 section 7)
+#                                       rework with pass criteria from brief 05 section 6 item 7)
 # 5/5 accounted: 1 live task + 4 future_pins. future_pins are NOT asserted by
 # the gate; they are promoted into tasks: as their skills publish, at which
 # point the gate asserts top-1 == expected_skill.
@@ -184,4 +184,4 @@ future_pins:
     query: "run an XFOIL polar analysis of the NACA 0012 airfoil and validate the lift and drag coefficients"
     intent: "aerodynamics; XFOIL airfoil polar analysis and validation against a known reference"
     expected_skill: "aero/airfoil/xfoil-analysis"
-    pass_criteria: "cl ≈ 0.82 ±0.05 at 10 deg angle of attack; Cd0 ≈ 0.0079 ±0.001 at Re=6M (brief 05 section 7 validation anchor)"
+    pass_criteria: "cl ≈ 0.82 ±0.05 at 10 deg angle of attack; Cd0 ≈ 0.0079 ±0.001 at Re=6M (brief 05 section 6 item 7 validation anchor)"

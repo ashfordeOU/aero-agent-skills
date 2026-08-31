@@ -4,6 +4,7 @@
 
 ## Workspace
 - `positioning-1pager.md`: positioning and messaging, draft-in-tree and founder-gated
+- `distribution-plan-P3.md`: P3.1 distribution/GTM plan draft, founder-gated (2026-08-31)
 - `content/`: drafts, posts, threads, pages
 
 ## Operating rules
