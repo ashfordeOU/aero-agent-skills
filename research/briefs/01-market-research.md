@@ -7,7 +7,7 @@
 ## 1. Executive Summary
 
 - The **agent-skills market overall is enormous and hyper-saturated** (anthropics/skills 172.5k★, addyosmani/agent-skills 90.5k★, sickn33/agentic-awesome-skills 45.5k★), but it is dominated by **generic software-development skills**.
-- The **domain-vertical skill library model is proven by exactly two breakout winners**: cybersecurity (mukul975/Anthropic-Cybersecurity-Skills, 31.7k★, 818 skills) and science (K-Dense/scientific-agent-skills, 39.5k★, ~163 skills). Both are ~10 months old, both built by individuals/small startups, both on the open agentskills.io standard.
+- The **domain-vertical skill library model is proven by exactly two breakout winners**: cybersecurity (mukul975/Anthropic-Cybersecurity-Skills, 31.7k★, 818 skills) and science (K-Dense/scientific-agent-skills, 39.9k★, ~163 skills). Both are ~10 months old, both built by individuals/small startups, both on the open agentskills.io standard.
 - **Aerospace is effectively an empty category.** The largest dedicated aerospace agent-skills repo on GitHub is **devideamax/aerospace-team at 21★** (12 skills). All aerospace MCP servers have 0–15 stars. Aggregate skill libraries list "aerospace" as a category with **2 skills** (and those are mislabeled web-dev skills).
 - **Whitespace conclusion: genuine and large.** Demand-side proof exists (cybersecurity and scientific libraries grew 30–40k stars in months with identical positioning: standards-aligned, framework-mapped, agentskills.io-compliant skill packs). Supply side for aerospace is near-zero, fragmented across hobby-scale MCP servers, and the commercial players (Vecteur, Navier, AwerX, Deepsky) are building closed platforms, not open skill libraries.
 - Risk: aerospace is a smaller, slower-moving buyer population than infosec/research; skills must target real engineering workflows (certification, MDAO, mission design) and the "smart router" delivery has a direct precedent (sickn33 AAS Core control plane) that is worth copying.
@@ -53,7 +53,7 @@
 ### Open-source domain libraries (the direct playbook)
 | Project | Stars | Domain | Structure / marketing |
 |---|---|---|---|
-| **K-Dense-AI/scientific-agent-skills** | **39,111** | Science (bio/chem/med/drug discovery) | 163–165 validated skills; 78+ scientific databases via a unified `database-lookup` skill; 70+ version-scoped Python-package skills; MIT; `plugin.json` packaging; BYOK local runner (k-dense-byok); claims "used by 190,000+ scientists"; heavy outbound (X, LinkedIn, YouTube webinars, Reddit); versioned releases (v2.65.0); CI security scan + skill tests. |
+| **K-Dense-AI/scientific-agent-skills** | **39,925** | Science (bio/chem/med/drug discovery) | 163–165 validated skills; 78+ scientific databases via a unified `database-lookup` skill; 70+ version-scoped Python-package skills; MIT; `plugin.json` packaging; BYOK local runner (k-dense-byok); claims "used by 190,000+ scientists"; heavy outbound (X, LinkedIn, YouTube webinars, Reddit); versioned releases (v2.65.0); CI security scan + skill tests. |
 | **mukul975/Anthropic-Cybersecurity-Skills** | **31,700** | Cybersecurity | 818 skills, 34 domains, **mapped to 6 frameworks** (MITRE ATT&CK v19.1, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF, MITRE F3); agentskills.io standard; Apache-2.0; works on 26+ platforms; install via `npx skills add`; release train + changelog; author academic survey (GARS-2026) for credibility. Community project, not affiliated with Anthropic. |
 | **GPTomics/bioSkills** | 1,187 | Bioinformatics | SKILLS.md workflows; **ARCHIVED** 2026 — lesson: single-topic science skills don't survive without a maintainer/business behind them. |
 | **briiirussell/cybersecurity-skills** | 366 | Security | Smaller competitor, MIT. |
@@ -78,7 +78,7 @@
 
 ## 4. Market Size & Maturity Assessment
 
-**How many exist:** Dedicated aerospace agent-skills repos: **~3** (aerospace-team 12 skills; asd-ste100 2; deepsky 2). Aerospace MCP servers: **~12–15**, all single-digit stars. Compare: cybersecurity skills repos >20 with one at 31.7k★; scientific >10 with K-Dense at 39.5k★.
+**How many exist:** Dedicated aerospace agent-skills repos: **~3** (aerospace-team 12 skills; asd-ste100 2; deepsky 2). Aerospace MCP servers: **~12–15**, all single-digit stars. Compare: cybersecurity skills repos >20 with one at 31.7k★; scientific >10 with K-Dense at 39.9k★.
 
 **Maturity by segment:**
 - Generic/coding skills: hyper-mature, crowded, star inflation (anthropics 172k, addyosmani 90k, sickn33 45k, VoltAgent 33k). Entry pointless.

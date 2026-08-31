@@ -1,11 +1,11 @@
 # AeroSkills Eval Harness Contract (Phase 0)
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
-(avionics/do178c/planning) — 09-04 milestone landed early 2026-08-31.
+(avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.
 P2.1 (2026-08-31): twelve published skills; gate 3 runs twelve contract
 tests, gate 5 runs twenty-eight corpus tasks (twenty-five domain tasks +
 three adversarial cross-pair tasks added in the P2.1 rework).
-P3.6 (2026-08-31): domain-pack restructure — the twelve skills are
+P3.6 (2026-08-31): domain-pack restructure: the twelve skills are
 organized into five installable domain packs (avionics,
 space-systems, systems-engineering-safety, manufacturing-quality,
 cross-cutting) per the 12-discipline taxonomy
@@ -92,7 +92,7 @@ correct DAL, FDAL/IDAL, and DO-178C software level, including coverage-depth
 implications (A=MC/DC, B=decision, C=statement, D=none, E=none). Tested
 logic and its test live with the skill:
 skills/avionics/do178c/planning/scripts/do178c_levels.py and
-scripts/test_do178c_levels.py (stdlib unittest, offline) — the P2.1 rework
+scripts/test_do178c_levels.py (stdlib unittest, offline), the P2.1 rework
 moved skill 1's contract in-tree so all twelve skills are self-contained
 (superseded the repo-root scripts/ copy). Every skill ships its behavior
 contract as skills/<path>/scripts/test_*.py alongside a sibling logic
