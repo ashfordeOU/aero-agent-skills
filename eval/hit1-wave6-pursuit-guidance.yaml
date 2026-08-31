@@ -1,0 +1,15 @@
+# Hit@1 wave-6 fragment: pursuit-guidance (gnc-autonomy/guidance)
+# Two tasks per new leaf; pg1 routes on the pure pursuit aim heading
+# and wrapped guidance error, pg2 routes on the lead pursuit lead
+# angle and capture condition. Both must deterministically hit
+# gnc-autonomy/guidance/pursuit-guidance and must not collide with
+# pn1/pn2 (proportional-navigation, already live).
+tasks:
+  - id: pg1
+    query: "compute the pure pursuit aim heading and the wrapped guidance error from the line of sight angle and the interceptor heading"
+    intent: "pursuit guidance; pure pursuit aim heading and wrapped heading error"
+    expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
+  - id: pg2
+    query: "find the lead angle for a lead pursuit collision course from the target to interceptor speed ratio and check the capture condition"
+    intent: "pursuit guidance; lead pursuit lead angle and speed capture condition"
+    expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
