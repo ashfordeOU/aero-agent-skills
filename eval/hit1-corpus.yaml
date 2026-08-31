@@ -2,11 +2,12 @@
 # Fixed queries evaluated by scripts/router_eval.py (flat+tags token-overlap
 # router per research/briefs/03-router-design.md section 5). No network.
 #
-# Phase 0 (09-04 milestone, landed early): skill 1 (avionics/do178c/planning)
-# is the only published skill, so the ACTIVE tasks are pinned to it. The
-# brief-03 cross-domain queries (CubeSat battery, weight-and-balance, engine
-# overhaul) are preserved under future_pins and promoted into tasks: as their
-# skills publish - the gate asserts every tasks: entry resolves top-1.
+# Active tasks cover every published skill. Phase 0 pinned the first three
+# to skill 1 (avionics/do178c/planning); P2.1 added the certification-spine
+# skills and their tasks. The brief-03 cross-domain queries (CubeSat battery,
+# weight-and-balance, engine overhaul) remain under future_pins and are
+# promoted into tasks as their skills publish - the gate asserts every
+# tasks: entry resolves top-1.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -22,6 +23,56 @@ tasks:
     query: "scope planning-phase artifacts for DO-178C certification of an autopilot"
     intent: "certification planning; PSAC/SDP/SVP/SCM/SQA scope"
     expected_skill: "avionics/do178c/planning"
+
+  - id: d1
+    query: "trace high-level requirements to low-level requirements and source code for a DO-178C flight control software item"
+    intent: "DO-178C development; requirement-to-code traceability"
+    expected_skill: "avionics/do178c/development"
+
+  - id: d2
+    query: "identify derived requirements in the software development process"
+    intent: "DO-178C development; derived requirement identification"
+    expected_skill: "avionics/do178c/development"
+
+  - id: v1
+    query: "verify DO-178C level A software with MC/DC structural coverage and independent review"
+    intent: "DO-178C verification; coverage depth and independence"
+    expected_skill: "avionics/do178c/verification"
+
+  - id: v2
+    query: "analyze structural coverage for level B software requiring decision coverage"
+    intent: "DO-178C verification; decision coverage at level B"
+    expected_skill: "avionics/do178c/verification"
+
+  - id: cm1
+    query: "establish configuration baselines and control changes for DO-178C software"
+    intent: "DO-178C configuration management; baselines and change control"
+    expected_skill: "avionics/do178c/configuration-management"
+
+  - id: cm2
+    query: "process problem reports before DO-178C software release"
+    intent: "DO-178C configuration management; problem reports and release"
+    expected_skill: "avionics/do178c/configuration-management"
+
+  - id: sp1
+    query: "allocate FDAL and IDAL for aircraft system functions per ARP4754A"
+    intent: "ARP4754A systems planning; FDAL/IDAL allocation"
+    expected_skill: "arp4754a/systems-planning"
+
+  - id: sp2
+    query: "scope the certification plan and system development plan for a transport aircraft program"
+    intent: "ARP4754A systems planning; certification and development plans"
+    expected_skill: "arp4754a/systems-planning"
+
+  - id: hp1
+    query: "determine whether a DO-254 hardware item is simple or complex airborne electronic hardware"
+    intent: "DO-254 hardware planning; AEH classification"
+    expected_skill: "avionics/do254/hardware-planning"
+
+  - id: hp2
+    query: "scope the plan for hardware aspects of certification for an FPGA-based avionics module"
+    intent: "DO-254 hardware planning; PHAC scope for programmable logic"
+    expected_skill: "avionics/do254/hardware-planning"
 
 future_pins:
   # Brief 03 section 5 canonical queries - promote when those skills publish.

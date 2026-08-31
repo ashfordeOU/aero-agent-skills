@@ -113,6 +113,45 @@ STANDARDS.md; standards-map.yaml.
 
 Router quality metric from the eval harness: the fraction of corpus
 tasks where the expected skill is the top-1 retrieval result. Gate 5
-requires 3/3 pinned tasks to resolve to the expected skill using the
-deterministic offline router. Source: docs/harness-contract.md
+requires all active tasks to resolve to the expected skill using the
+deterministic offline router; the corpus carries 13 tasks across the
+six published skills as of P2.1. Source: docs/harness-contract.md
 (gate 5).
+
+## Derived requirement
+
+A requirement added during software or system development (a design
+decision, or output of safety analysis) that has no direct higher-level
+requirement source. DO-178C requires derived requirements to be
+identified and justified; an unidentified derived item shows up as a
+silent orphan in the trace matrix. Source: standards-map.yaml
+(do-178c); skills/avionics/do178c/development.
+
+## Configuration baseline
+
+A frozen, consistent set of software lifecycle data against which
+changes are controlled. DO-178C configuration management records
+problem reports, controls changes to baselined data (independent
+approval at levels A and B), and maintains archive/recovery; release
+requires closed problem reports, a current baseline, and an archive
+capability. Source: standards-map.yaml (do-178c);
+skills/avionics/do178c/configuration-management.
+
+## Simple and complex AEH
+
+DO-254 classification of airborne electronic hardware. Complex AEH —
+programmable logic, processors, significant internal state, or
+hardware whose correct behavior cannot be fully established from
+top-level data alone — follows the full design assurance process
+(PHAC through verification); simple AEH uses a reduced but still
+planned process. Safety-significant items are treated as complex
+unless a documented justification shows otherwise. Source:
+standards-map.yaml (do-254); skills/avionics/do254/hardware-planning.
+
+## PHAC
+
+Plan for Hardware Aspects of Certification, the DO-254 planning
+artifact for complex airborne electronic hardware, covering
+requirements capture, design, verification, configuration management,
+and process assurance. Source: standards-map.yaml (do-254);
+skills/avionics/do254/hardware-planning.

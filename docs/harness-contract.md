@@ -2,7 +2,8 @@
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning) — 09-04 milestone landed early 2026-08-31.
-Owner: Ops Manager, Phase 0 build.
+P2.1 (2026-08-31): six published skills; gate 3 runs six contract tests,
+gate 5 runs thirteen corpus tasks. Owner: Ops Manager, Phase 0 build.
 Sources: research/briefs/03-router-design.md (routing, Hit@1), research/briefs/05-domain-taxonomy.md
 (skill anatomy, section 6), research/briefs/06-legal-export-control.md (compliance flags, section 8).
 
@@ -73,17 +74,21 @@ Runner: scripts/gate-desc-lint.sh -> scripts/desc_lint.py per file.
 
 ### Gate 3: Per-skill pytest contract (DAL A-E determination)
 
-Each skill ships a behavior test that exercises the skill's core logic. Skill 1
-(avionics/do178c/planning) ships a DAL determination test per ARP4754A/ARP4761A:
-given a failure-condition severity classification (Catastrophic/Hazardous/Major/
-Minor/No safety effect), the test asserts the correct DAL, FDAL/IDAL, and DO-178C
-software level, including coverage-depth implications (A=MC/DC, B=decision,
-C=statement, D=none, E=none). Tests run with stdlib unittest so the harness stays
-dependency-free and network-free; scripts/check_stdlib_imports.py enforces that.
-
-Tested logic lives in scripts/do178c_levels.py (importable module); the test is
-scripts/test_do178c_levels.py. Skill-shipped tests under skills/**/scripts/test_*.py
-are discovered and run the same way.
+Each skill ships a behavior test that exercises the skill's core logic.
+Skill 1 (avionics/do178c/planning) ships a DAL determination test per
+ARP4754A/ARP4761A: given a failure-condition severity classification
+(Catastrophic/Hazardous/Major/Minor/No safety effect), the test asserts the
+correct DAL, FDAL/IDAL, and DO-178C software level, including coverage-depth
+implications (A=MC/DC, B=decision, C=statement, D=none, E=none). Tested
+logic lives in scripts/do178c_levels.py (importable module); the test is
+scripts/test_do178c_levels.py. Every subsequent skill ships its own
+behavior contract as skills/<path>/scripts/test_*.py alongside a sibling
+logic module (stdlib unittest, offline). P2.1 ships five: development
+(traceability closure per DAL), verification (coverage depth + independence),
+configuration-management (baselines/change control/release gate),
+systems-planning (FDAL/IDAL + planning artifacts), hardware-planning
+(DO-254 AEH simple/complex classification). All are discovered and run the
+same way.
 
 Runner: scripts/gate-pytest-contract.sh.
 
@@ -102,15 +107,18 @@ Runner: scripts/gate-no-verbatim.sh (markers) + scripts/verbatim_table_scan.py (
 
 ### Gate 5: Hit@1 corpus
 
-Fixed corpus of 3 active tasks (eval/hit1-corpus.yaml), resolved by the flat+tags
-router (brief 03 section 5 layer 2 stage 1: token overlap over tags/name/description/
-body with tag boost; deterministic, offline). Pass = top-1 == expected_skill for all
-3 tasks.
+Fixed corpus of active tasks (eval/hit1-corpus.yaml), resolved by the
+flat+tags router (brief 03 section 5 layer 2 stage 1: token overlap over
+tags/name/description/body with tag boost; deterministic, offline). Pass =
+top-1 == expected_skill for all tasks (13 as of P2.1).
 
-Phase 0 pins the active tasks to skill 1 (avionics/do178c/planning) — the only
-published skill. The brief-03 canonical queries (CubeSat battery, weight-and-balance,
-engine overhaul) are preserved as future_pins and promoted into tasks: as those
-skills publish.
+Phase 0 pinned the active tasks to skill 1 (avionics/do178c/planning).
+P2.1 promotes tasks for every published skill: the corpus now carries
+thirteen active tasks across the six skills (three DO-178C planning, two
+development, two verification, two configuration-management, two ARP4754A
+systems-planning, two DO-254 hardware-planning). The brief-03 canonical
+queries (CubeSat battery, weight-and-balance, engine overhaul) are
+preserved as future_pins and promoted into tasks as those skills publish.
 
 Runner: scripts/gate-hit1-corpus.sh -> scripts/router_eval.py.
 
