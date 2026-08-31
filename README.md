@@ -93,11 +93,11 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-Forty-three verified skills (as of 2026-08-31) in nine installable
-domain packs, each spec-linted, behavior-tested, and router-asserted
-by make validate:
+Forty-three verified skills (as of 2026-08-31) across nine disciplines
+with live packs, each spec-linted, behavior-tested, and
+router-asserted by make validate:
 
-| Pack | Skill | Standard | Covers |
+| Family | Skill | Standard | Covers |
 |---|---|---|---|
 | aerodynamics | airfoil/airfoil-selection | NACA TR-824 | Use when you must select an airfoil section for a wing design: score ca |
 | aerodynamics | airfoil/xfoil-analysis | NACA TR-824 | Use when running XFOIL-style airfoil analysis for a given section: pla |
@@ -142,12 +142,12 @@ by make validate:
 | vehicle-design | conceptual/tow-estimation | FAR-25/CS-25 | Use when you must estimate the takeoff gross weight in conceptual aircra |
 | vehicle-design | mass-properties/inertia-estimation | FAR-25/CS-25 | Use when you must estimate mass properties for vehicle design: compute m |
 | vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | Use when performing class-I or class-II vehicle weight estimation: com |
-Domain packs follow the 12-discipline taxonomy: aerodynamics,
+Sub-domain packs follow the 12-discipline taxonomy: aerodynamics,
 gnc-autonomy, structures, vehicle-design, avionics, space-systems,
 systems-engineering-safety, manufacturing-quality, cross-cutting.
-Nine of the twelve disciplines have packs today; propulsion, flight
-mechanics, and flight test land in Wave 5. Each pack has a router
-SKILL.md that describes the
+Nine of the twelve disciplines have live packs today; propulsion,
+flight mechanics, and flight test land in Wave 5. Each live
+discipline has a router SKILL.md that describes the
 domain, lists its sub-skills, and tells an agent when to route to it;
 every SKILL.md carries domain and pack frontmatter so routers and
 installers can filter on them. Run `make packs` for the machine
@@ -172,9 +172,10 @@ symlink those leaf folders into your host's skills directory, then
 restart the session. Full per-host walkthrough:
 [docs/harness-integration.md](docs/harness-integration.md).
 
-Example, install only the avionics pack (DO-178C software lifecycle,
-DO-330 tool qualification, DO-160 environmental qualification, DO-254
-hardware assurance, FAR-25/CS-25 airworthiness), Claude Code
+Example, install only the avionics discipline (DO-178C software
+lifecycle, DO-330 tool qualification, DO-160 environmental
+qualification, DO-254 hardware assurance, FAR-25/CS-25
+airworthiness), Claude Code
 user scope:
 
     mkdir -p ~/.claude/skills
@@ -185,8 +186,8 @@ user scope:
           skills/avionics/far-cs25/airworthiness \
           ~/.claude/skills/
 
-Example, install only the space-systems pack (ECSS software and
-systems engineering, power and thermal budgeting):
+Example, install only the space-systems discipline (ECSS software
+and systems engineering, power and thermal budgeting):
 
     cp -r skills/space-systems/ecss/software-engineering \
           skills/space-systems/ecss/systems-engineering \
@@ -194,8 +195,9 @@ systems engineering, power and thermal budgeting):
           ~/.claude/skills/
 
 Install the full library the same way: copy every pack's leaf folders.
-The pack entry points (skills/<pack>/SKILL.md) are router documents
-for agents; hosts load the leaf folders that carry the actual skills.
+The family entry points (skills/<family>/SKILL.md) are router
+documents for agents; hosts load the leaf folders that carry the
+actual skills.
 
 One-command registry installs (npx skills add, gh skill install) are
 listed for when the repository is public; the manual paths above work
@@ -218,7 +220,7 @@ Every host consumes flat <skill-name>/SKILL.md folders, so installing
 a domain pack means copying or symlinking each of its leaf folders.
 `make packs` lists every leaf in every pack.
 
-Example, avionics pack, Claude Code user scope (same as Install):
+Example, avionics discipline, Claude Code user scope (same as Install):
 
     for d in skills/avionics/do178c/* skills/avionics/do254/* skills/avionics/far-cs25/*; do
       cp -r "$d" ~/.claude/skills/
@@ -280,21 +282,21 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: 43 verified skills in nine installable domain packs as of
-  2026-08-31. The certification spine (DO-178C planning, development,
-  verification, and configuration management; DO-254 hardware
-  planning; ARP4754A systems planning; ARP4761A safety assessment;
-  AS9100 quality; FAR-25/CS-25 airworthiness; ECSS space software,
-  MBSE, SEP-2640 skill delivery) plus Wave 4 breadth across all nine
-  packs. Every skill gated by make validate (5/5) and make attest
-  (3/3).
+- Shipped: 43 verified skills across nine disciplines with live packs
+  as of 2026-08-31. The certification spine (DO-178C planning,
+  development, verification, and configuration management; DO-254
+  hardware planning; ARP4754A systems planning; ARP4761A safety
+  assessment; AS9100 quality; FAR-25/CS-25 airworthiness; ECSS space
+  software, MBSE, SEP-2640 skill delivery) plus Wave 4 breadth across
+  all nine disciplines. Every skill gated by make validate (5/5) and
+  make attest (3/3).
 - Release bar (founder, 2026-08-31): 50+ domains x 20+ verified
   skills = 1,000+ skills, all make-validate green, before any
-  release. The 12-discipline tree decomposes into 68 sub-domain packs
-  (1,360 skills at 20 each): a planning target, not a shipped count.
+  release. The 12-discipline tree decomposes into 73 sub-domain packs
+  (1,460 skills at 20 each): a planning target, not a shipped count.
   [development/50x20-domain-tree.md](development/50x20-domain-tree.md).
-- Next: fill the nine existing packs toward 20 skills each (43 ->
-  ~180), then Wave 5 opens new disciplines (propulsion, flight
+- Next: fill the 27 live sub-domain packs toward 20 skills each (43 ->
+  540), then Wave 5 opens new disciplines (propulsion, flight
   mechanics, flight test and operations) on the same eval-gated
   pipeline, then the remaining sub-domains.
 - Later: reference builds; a SEP-2640-aligned MCP adapter for
@@ -308,10 +310,10 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR: one skill
 per PR, every contributor certifies their submission contains no
 controlled data and no verbatim standards text, and every merge must
 pass make validate (5/5) and make attest (3/3). New skills land inside
-their domain pack (skills/<pack>/<standard>/<activity>/SKILL.md) and
-carry domain and pack frontmatter. Smallest packs today: cross-cutting
-(two skills), aerodynamics and vehicle-design (three each); every pack
-grows toward 20 per the 50x20 release bar.
+their domain pack (skills/<family>/<pack>/<leaf>/SKILL.md) and
+carry domain and pack frontmatter. Smallest disciplines today:
+cross-cutting (two skills), aerodynamics and vehicle-design (three
+each); every pack grows toward 20 per the 50x20 release bar.
 
 ## FAQ
 
