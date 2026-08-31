@@ -64,15 +64,15 @@ The proof artifact is not a claim; it is a command:
     make validate    # 5/5 REAL gates, offline, deterministic
     make attest      # internal: number snapshot + brief audit + content policy
 
-- Gate 5 (Hit@1) runs 28 corpus tasks: 25 domain tasks + 3 adversarial
+- Gate 5 (Hit@1) runs 66 corpus tasks: 58 domain tasks + 8 adversarial
   cross-pair tasks, all asserting top-1 routing (harness-contract.md).
-  "Hit@1 28/28" is a headline number every reader can re-run.
+  "Hit@1 66/66" is a headline number every reader can re-run.
 - The lane is empty: total aerospace ≈ 228★ across all attempts, vs
   cybersecurity 31.7k★ and K-Dense Scientific Agent Skills 39.9k★
   adjacent. The largest dedicated aerospace skills repo is 62★
   (Soljourner, 3 commits, abandoned). The largest active aerospace
   repo is ajhcs/mbse-agents at 22★; devideamax/aerospace-team is 21★.
-- AeroSkills launches with 12 verified skills, each spec-linted,
+- AeroSkills launches with 27 verified skills, each spec-linted,
   behavior-tested, router-asserted, and copyright-gated. Where every
   competitor ships claims, we ship receipts.
 - Every marketing claim maps to a replayable command. That is the
@@ -137,14 +137,14 @@ baseline; we target the lower third for 30d).
 | Clones | 300-1,000 (target) | estimate; measured via owner traffic API |
 | Skill adoptions | 30-100 (target) | `npx skills add` + manual installs; issue/PR + registry signals |
 | Issues/PRs | 5-20 (target) | quality signal; 24h response commitment |
-| Hit@1 | 28/28 across every commit (hard gate, not a target) | harness-contract |
+| Hit@1 | 66/66 across every commit (hard gate, not a target) | harness-contract |
 
 ## 6. Risks + fallbacks
 
 | Risk | Fallback |
 |---|---|
 | Legal sign-off delay | Plan is executable-on-GO; keep drafting, no public activity. Re-review at founder cadence. |
-| "Yet another skills repo" skepticism | Verification wedge (§3) is the counter: replayable gates, Hit@1 28/28, empty-lane evidence. Shift weight to aerospace communities where standards matter. FAQ pre-answers "is it certified?" |
+| "Yet another skills repo" skepticism | Verification wedge (§3) is the counter: replayable gates, Hit@1 66/66, empty-lane evidence. Shift weight to aerospace communities where standards matter. FAQ pre-answers "is it certified?" |
 | Standards-copyright questions | Summary-not-copy rule (STANDARDS.md), no-verbatim gate (gate 4) enforces zero verbatim text; compliance banner in README. Show STANDARDS.md + gate output as receipts. |
 | Competitor copycats | Navier (navier.ai) and Vecteur (vecteur.space) are closed Operator-SKU platforms; agent-driven simulation/computation products, not open skill libraries. They validate demand, not the format. The moat is the standards map + eval-gated authoring (brief 09 §Part 4/5: no competitor has a machine-readable clause map; hundreds of hours of expert work) + traction compounding. Position as the knowledge layer, never the platform (brief 11). |
 | Launch flop (low stars) | Iterate top line + channel mix; aerospace adoption is slower. D30 review decides whether to add academic/campus channel (brief 07) or pull AIAA SciTech earlier. |
