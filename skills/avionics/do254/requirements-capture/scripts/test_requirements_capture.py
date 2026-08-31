@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-254 hardware requirements capture.
 
 Exercises scripts/requirements_capture_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — requirement-characteristic
+Contract: docs/harness-contract.md gate 3 - requirement-characteristic
 checks (vague terms, identifiers, traceability), derived vs allocated
 classification, and capture-readiness accounting; invalid inputs raise
 ValueError.

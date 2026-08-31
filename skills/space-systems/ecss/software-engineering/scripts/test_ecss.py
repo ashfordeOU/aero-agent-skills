@@ -2,7 +2,7 @@
 """Gate 3 contract test: ECSS space software engineering.
 
 Exercises scripts/ecss_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — ECSS-E-ST-40C classifies
+Contract: docs/harness-contract.md gate 3 - ECSS-E-ST-40C classifies
 space software criticality A-D from failure consequence (loss of life
 or total loss of mission = A, major mission degradation = B, minor
 degradation = C, negligible = D); assurance rigor scales with the

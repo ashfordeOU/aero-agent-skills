@@ -2,7 +2,7 @@
 """Gate 3 contract test: feedback control design.
 
 Exercises scripts/python_control_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — gain-margin acceptance at
+Contract: docs/harness-contract.md gate 3 - gain-margin acceptance at
 6 dB (pass at boundary, fail below), phase-margin acceptance at 45 deg
 (pass at boundary, fail below), stability classification from the
 margins, Ziegler-Nichols PID tuning from ultimate gain and period

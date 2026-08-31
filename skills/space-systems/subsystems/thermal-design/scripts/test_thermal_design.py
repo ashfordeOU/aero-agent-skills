@@ -2,7 +2,7 @@
 """Gate 3 contract test: spacecraft thermal design (radiator sizing).
 
 Exercises scripts/thermal_design_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — radiator area from the
+Contract: docs/harness-contract.md gate 3 - radiator area from the
 Stefan-Boltzmann balance, equilibrium temperature round-trip, and
 thermal margin flags; invalid inputs raise ValueError.
 """

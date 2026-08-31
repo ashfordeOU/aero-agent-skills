@@ -2,7 +2,7 @@
 """Gate 3 contract test: AS9100 nonconformance control.
 
 Exercises scripts/nonconformance_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — a nonconforming part is
+Contract: docs/harness-contract.md gate 3 - a nonconforming part is
 identified and segregated, then dispositioned (rework, repair, scrap,
 use-as-is) with safety-critical parts constrained to rework or scrap;
 rework of a critical characteristic requires re-verification; repair and

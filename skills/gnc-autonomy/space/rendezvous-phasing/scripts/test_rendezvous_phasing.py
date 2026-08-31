@@ -2,7 +2,7 @@
 """Gate 3 contract test: orbital rendezvous phasing.
 
 Exercises scripts/rendezvous_phasing_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — phasing drift
+offline). Contract: docs/harness-contract.md gate 3 - phasing drift
 rate from phase angle and transfer time, delta-v for a phasing orbit
 around a circular orbit, closing rate checks, and invalid inputs.
 """

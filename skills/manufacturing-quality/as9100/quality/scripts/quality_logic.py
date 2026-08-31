@@ -3,7 +3,7 @@
 
 Common-knowledge summary (standards-map.yaml, as9100: gated):
 AS9100 is the aviation, space, and defense QMS standard: ISO 9001:2015
-plus aerospace clauses — operational risk, configuration management,
+plus aerospace clauses - operational risk, configuration management,
 product safety, counterfeit prevention, external providers, and special
 processes. Audits demonstrate the QMS against those clauses with
 evidence artifacts; corrective action closes a nonconformance only
@@ -11,7 +11,7 @@ when containment, root cause, and corrective action are recorded.
 """
 
 # Clause numbers and area names as listed in standards-map.yaml
-# (applicability) — names, not verbatim clause text.
+# (applicability) - names, not verbatim clause text.
 CLAUSE_BY_FOCUS = {
     "operational-risk": ("8.1.1", "operational risk"),
     "configuration-management": ("8.1.2", "configuration management"),

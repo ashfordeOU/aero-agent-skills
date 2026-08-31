@@ -2,7 +2,7 @@
 """Gate 3 contract test: FAR-25 / CS-25 transport-category airworthiness.
 
 Exercises scripts/airworthiness_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — the certification basis
+Contract: docs/harness-contract.md gate 3 - the certification basis
 resolves to FAR-25 for FAA transport-category programs and CS-25 for
 EASA programs (out-of-scope categories raise); systems whose failure
 conditions are catastrophic, hazardous, or major require the 25.1309

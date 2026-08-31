@@ -2,7 +2,7 @@
 """Gate 3 contract test: CFD convergence checks.
 
 Exercises scripts/cfd_convergence_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — residual convergence
+Contract: docs/harness-contract.md gate 3 - residual convergence
 detection, CFL sanity, and mesh refinement convergence flags;
 invalid inputs raise ValueError.
 """

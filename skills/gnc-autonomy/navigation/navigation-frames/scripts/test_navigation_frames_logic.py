@@ -2,7 +2,7 @@
 """Gate 3 contract test: navigation coordinate frame conversions.
 
 Exercises scripts/navigation_frames_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — WGS-84 geodetic to ECEF
+Contract: docs/harness-contract.md gate 3 - WGS-84 geodetic to ECEF
 (textbook values: X = a = 6378137.0 m at (0, 0, 0); Z = polar semi-axis
 b = 6356752.314 m at the north pole; altitude adds radially at the
 equator); ECEF to NED rotation (equator reference matrix, orthonormality,

@@ -2,7 +2,7 @@
 """Gate 3 contract test: FMS vertical navigation (VNAV).
 
 Exercises scripts/vertical_navigation_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — top of descent
+offline). Contract: docs/harness-contract.md gate 3 - top of descent
 distance, descent gradient, flight path angle, altitude stepping,
 and altitude constraint verdicts; invalid inputs raise ValueError.
 """

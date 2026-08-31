@@ -2,7 +2,7 @@
 """DO-178C verification-process logic (paraphrase, not copy).
 
 Common-knowledge summary (standards-map.yaml, do-178c: gated): structural
-coverage depth scales with software level — A = MC/DC, B = decision,
+coverage depth scales with software level - A = MC/DC, B = decision,
 C = statement, D/E = none required; verification of levels A and B is
 independent; every requirement is exercised by requirements-based tests.
 """

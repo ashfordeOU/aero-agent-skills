@@ -2,7 +2,7 @@
 """Gate 3 contract test: ARP4761A common cause analysis.
 
 Exercises scripts/common_cause_analysis_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — zonal safety
+offline). Contract: docs/harness-contract.md gate 3 - zonal safety
 analysis item scoring and verdicts, common cause analysis set
 completeness (ZSA/PRA/CMA), and invalid-input handling.
 """
