@@ -14,11 +14,12 @@ exactly that, nothing more. No certified, no approved, no airworthy.
   leaf skills). Families: aerodynamics, avionics, gnc-autonomy,
   manufacturing-quality, space-systems, structures,
   systems-engineering-safety, vehicle-design, cross-cutting.
-- Standards map (standards-map.yaml, machine-readable): 14 mapped
-  standards, 9 gated. Gated standards never appear verbatim anywhere;
+- Standards map (standards-map.yaml, machine-readable): 16 mapped
+  standards, 10 gated. Gated standards never appear verbatim anywhere;
   a real gate (make validate gate 4, no-verbatim) enforces it. The
-  13 DOMAIN standards are DO-178C, DO-254, ARP4754A, ARP4761A,
-  AS9100, DO-330, DO-160G, AS9102, MMPDS, FAR-25/CS-25, ECSS, and
+  15 DOMAIN standards are DO-178C, DO-254, ARP4754A, ARP4761A,
+  AS9100, DO-330, DO-160G, AS9102, MMPDS, FAR-25/CS-25, FAR-33,
+  ARINC 429, ECSS, and
   NACA TR-824; SEP-2640 is the delivery format (skills over MCP,
   emerging open spec), separate from the domain list.
 - Eval corpus: 102 tasks (90 domain + 12 adversarial cross-pair), all

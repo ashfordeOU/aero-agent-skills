@@ -61,6 +61,8 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | as9102 | First article inspection process: Form 1 part accountability, Form 2 material/special processes, Form 3 characteristic accountability; delta/partial FAI after changes; production lot acceptance context | Proprietary (IAQG/SAE). Name + paraphrase + short attributed quotes + link only; no verbatim form layouts or clause text |
 | mmpsd | Statistically based metallic material design allowables: A-basis (95% confidence, 99% content) and B-basis (95% confidence, 90% content) with k-factors; fastener and joint allowables | Proprietary (SAE, successor to the public-domain MIL-HDBK-5). Name + paraphrase + short attributed quotes + link only; never reproduce design-value tables |
 | naca-tr-824 | Classic airfoil section data (NACA 4/5-digit and 6-series) and wind-tunnel polars used as the validation anchor for airfoil analysis, e.g. the XFOIL NACA 0012 at Re=6M band | US government work; public domain; quotable with citation |
+| far-33 | Type-certification basis for aircraft engines: design and construction, ratings and operating limitations, endurance and calibration tests, and continued airworthiness; engine cycle work sits upstream of certification | US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity |
+| arinc-429 | Point-to-point 32-bit word digital information transfer standard for civil avionics: label, SDI, data, SSM, and parity bit layout; BNR/BCD coding and sign conventions; 12.5 and 100 kbit/s speeds; word format and equipment identification tables | Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim word-format tables or clause text |
 
 ## Gated standards — verbatim text must NEVER appear
 
@@ -73,11 +75,13 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 - **as9100** (AS9100, IAQG/SAE) — gated
 - **as9102** (AS9102, IAQG/SAE) — gated
 - **mmpsd** (MMPDS, SAE) — gated
+- **arinc-429** (ARINC 429, ARINC/SAE ITC) — gated
 
 ## Reference-only standards — quotable with citation
 
 - **far-25** (public domain, US government work)
 - **cs-25** (EASA, attribution-only reproduction)
+- **far-33** (public domain, US government work)
 - **ecss** (ESA, cite source)
 - **sep-2640** (open specification, cite with status note)
 - **naca-tr-824** (public domain, US government work)
