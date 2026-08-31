@@ -18,7 +18,7 @@ metadata:
   author: AeroSkills
 ---
 
-# MBSE Systems Engineering (mbse/systems-engineering)
+# MBSE Systems Engineering (systems-engineering-safety/mbse/systems-engineering)
 
 Use when the task is model-based systems engineering: building and
 checking the model workflow, allocation, and traceability for an

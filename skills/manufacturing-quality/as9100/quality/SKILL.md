@@ -16,7 +16,7 @@ metadata:
   author: AeroSkills
 ---
 
-# AS9100 Quality Management (as9100/quality)
+# AS9100 Quality Management (manufacturing-quality/as9100/quality)
 
 Use when the task is aerospace quality management per AS9100: clause
 scoping, audit evidence, and corrective-action closure for the

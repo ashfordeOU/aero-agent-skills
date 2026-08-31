@@ -6,12 +6,12 @@
 # eval queries from brief 03 section 5 + brief 05 section 6 item 7 validation anchor)
 # is reconciled 5/5 as of the P2.1 rework (2026-08-31):
 #   1. DO-178C coverage (p1)          -> LIVE task (avionics/do178c/planning)
-#   2. CubeSat battery (t1)           -> future_pin (space/subsystems/power-thermal-budget)
-#   3. weight-and-balance (t2)        -> future_pin (design/sizing/weight-estimation)
-#   4. engine overhaul (t3)           -> future_pin (as9100/quality; path fixed from stale
+#   2. CubeSat battery (t1)           -> future_pin (space-systems/subsystems/power-thermal-budget)
+#   3. weight-and-balance (t2)        -> future_pin (vehicle-design/sizing/weight-estimation)
+#   4. engine overhaul (t3)           -> future_pin (manufacturing-quality/as9100/quality; path fixed from stale
 #                                       mfg/quality/as9100-qms — nearest published skill until
 #                                       an MRO/maintenance skill publishes)
-#   5. XFOIL NACA 0012 polar (t4)     -> future_pin (aero/airfoil/xfoil-analysis; added P2.1
+#   5. XFOIL NACA 0012 polar (t4)     -> future_pin (aerodynamics/airfoil/xfoil-analysis; added P2.1
 #                                       rework with pass criteria from brief 05 section 6 item 7)
 # 5/5 accounted: 1 live task + 4 future_pins. future_pins are NOT asserted by
 # the gate; they are promoted into tasks: as their skills publish, at which
@@ -69,12 +69,12 @@ tasks:
   - id: sp1
     query: "allocate FDAL and IDAL for aircraft system functions per ARP4754A"
     intent: "ARP4754A systems planning; FDAL/IDAL allocation"
-    expected_skill: "arp4754a/systems-planning"
+    expected_skill: "systems-engineering-safety/arp4754a/systems-planning"
 
   - id: sp2
     query: "scope the certification plan and system development plan for a transport aircraft program per ARP4754A"
     intent: "ARP4754A systems planning; certification and development plans"
-    expected_skill: "arp4754a/systems-planning"
+    expected_skill: "systems-engineering-safety/arp4754a/systems-planning"
 
   - id: hp1
     query: "determine whether a DO-254 hardware item is simple or complex airborne electronic hardware"
@@ -89,22 +89,22 @@ tasks:
   - id: sa1
     query: "conduct a functional hazard assessment and classify failure condition severities per ARP4761A"
     intent: "ARP4761A safety assessment; FHA severity classification"
-    expected_skill: "arp4761a/safety-assessment"
+    expected_skill: "systems-engineering-safety/arp4761a/safety-assessment"
 
   - id: sa2
     query: "scope the safety assessment plan and select fault tree analysis and FMEA for a level A system"
     intent: "ARP4761A safety assessment; analysis set selection (FTA/FMEA)"
-    expected_skill: "arp4761a/safety-assessment"
+    expected_skill: "systems-engineering-safety/arp4761a/safety-assessment"
 
   - id: q1
     query: "prepare audit evidence for the AS9100 counterfeit prevention clause"
     intent: "AS9100 quality; audit evidence for aerospace clause 8.1.4"
-    expected_skill: "as9100/quality"
+    expected_skill: "manufacturing-quality/as9100/quality"
 
   - id: q2
     query: "close a nonconformance with corrective action under the aerospace quality management system"
     intent: "AS9100 quality; nonconformance and corrective action closure"
-    expected_skill: "as9100/quality"
+    expected_skill: "manufacturing-quality/as9100/quality"
 
   - id: aw1
     query: "determine the certification basis for a transport category airplane under FAR-25"
@@ -119,39 +119,39 @@ tasks:
   - id: e1
     query: "classify space flight software criticality under ECSS and size verification rigor"
     intent: "ECSS space software; criticality category and assurance rigor"
-    expected_skill: "space/ecss/software-engineering"
+    expected_skill: "space-systems/ecss/software-engineering"
 
   - id: e2
     query: "assess heritage software reuse evidence for a category A space software item"
     intent: "ECSS space software; heritage reuse evidence"
-    expected_skill: "space/ecss/software-engineering"
+    expected_skill: "space-systems/ecss/software-engineering"
 
   - id: m1
     query: "build a SysML model of the functional architecture and allocate functions to design elements"
     intent: "MBSE systems engineering; functional architecture and allocation"
-    expected_skill: "mbse/systems-engineering"
+    expected_skill: "systems-engineering-safety/mbse/systems-engineering"
 
   - id: m2
     query: "run the model-based systems engineering traceability check and confirm full closure in the digital thread for the SysML architecture"
     intent: "MBSE systems engineering; traceability closure and digital thread"
-    expected_skill: "mbse/systems-engineering"
+    expected_skill: "systems-engineering-safety/mbse/systems-engineering"
 
   - id: s1
     query: "package a skill as an MCP resource with a skill URI per SEP-2640"
     intent: "SEP-2640 skill delivery; skill URI and MCP resource packaging"
-    expected_skill: "sep2640/skill-delivery"
+    expected_skill: "cross-cutting/sep2640/skill-delivery"
 
   - id: s2
     query: "verify an MCP server supports resources read and directory read for skill delivery"
     intent: "SEP-2640 skill delivery; server readiness capabilities"
-    expected_skill: "sep2640/skill-delivery"
+    expected_skill: "cross-cutting/sep2640/skill-delivery"
 
   # Adversarial cross-pair tasks (P2.1 rework): each query plausibly routes
   # to 2+ domains; the assertion locks a deterministic top-1 with no collision.
   - id: xp1
     query: "quality system for safety assessment"
     intent: "cross-pair: AS9100 quality system vs ARP4761A safety assessment vs ARP4754A systems planning"
-    expected_skill: "as9100/quality"
+    expected_skill: "manufacturing-quality/as9100/quality"
 
   - id: xp2
     query: "manage configuration baselines for a safety assessment program"
@@ -168,20 +168,20 @@ future_pins:
   - id: t1
     query: "size a battery for a 12U CubeSat"
     intent: "spacecraft power subsystem sizing"
-    expected_skill: "space/subsystems/power-thermal-budget"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
 
   - id: t2
     query: "draft a preflight weight-and-balance sheet"
     intent: "aircraft loading, CG envelope, weight and balance"
-    expected_skill: "design/sizing/weight-estimation"
+    expected_skill: "vehicle-design/sizing/weight-estimation"
 
   - id: t3
     query: "plan an engine-overhaul checklist"
-    intent: "maintenance planning, teardown/inspection/assembly gates; pinned to published as9100/quality (MRO-adjacent production assurance) until an MRO/maintenance skill publishes"
-    expected_skill: "as9100/quality"
+    intent: "maintenance planning, teardown/inspection/assembly gates; pinned to published manufacturing-quality/as9100/quality (MRO-adjacent production assurance) until an MRO/maintenance skill publishes"
+    expected_skill: "manufacturing-quality/as9100/quality"
 
   - id: t4
     query: "run an XFOIL polar analysis of the NACA 0012 airfoil and validate the lift and drag coefficients"
     intent: "aerodynamics; XFOIL airfoil polar analysis and validation against a known reference"
-    expected_skill: "aero/airfoil/xfoil-analysis"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
     pass_criteria: "cl ≈ 0.82 ±0.05 at 10 deg angle of attack; Cd0 ≈ 0.0079 ±0.001 at Re=6M (brief 05 section 6 item 7 validation anchor)"

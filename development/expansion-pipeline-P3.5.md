@@ -27,36 +27,36 @@ safety, quality).
 
 | Candidate | Taxonomy ref | Corpus pin | standards-map deps | Behavior contract (gate 3) | Feasibility |
 |---|---|---|---|---|---|
-| aero/airfoil/xfoil-analysis | 5.1 P0 | t4 (live) | none (V&V practice) | polar sanity band: cl 0.82 +- 0.05 at 10 deg, Cd0 0.0079 +- 0.001 at Re 6M | high; XFOIL freeware (MIT Drela), CLI-scriptable; contract is pure Python |
-| gnc/space/orbit-dynamics | 5.5 P0 | none | none (ECSS/CCSDS optional) | Hohmann delta-v, vis-viva, J2 drift bands | high; poliastro MIT, Orekit Apache-2.0 |
-| gnc/control/python-control-design | 5.5 P0 | none | none | PID gain, gain/phase margin checks | high; python-control BSD-3 |
-| gnc/optimal-control/dymos-trajectory | 5.5 P0 | none | none | problem setup and convergence checks | high; dymos Apache-2.0 |
-| struct/fem/calculix-linear | 5.3 P0 | none | none | margin-of-safety sign convention, unit discipline | high; CalculiX GPL-2 |
-| struct/materials/mmpsd-allowables | 5.3 P0 | none | mmpsd (new) | A/B-basis statistics, K-factor checks | high; MMPDS proprietary-sold, reference-only (gated) |
-| space/subsystems/power-thermal-budget | 5.8 P2 (promote) | t1 (live) | ecss (existing) | EPS sizing bands, eclipse duration | high |
-| design/sizing/weight-estimation | 5.9 P1 | t2 (live) | none | class-I weight-fraction bands, CG envelope | high |
+| aerodynamics/airfoil/xfoil-analysis | 5.1 P0 | t4 (live) | none (V&V practice) | polar sanity band: cl 0.82 +- 0.05 at 10 deg, Cd0 0.0079 +- 0.001 at Re 6M | high; XFOIL freeware (MIT Drela), CLI-scriptable; contract is pure Python |
+| gnc-autonomy/space/orbit-dynamics | 5.5 P0 | none | none (ECSS/CCSDS optional) | Hohmann delta-v, vis-viva, J2 drift bands | high; poliastro MIT, Orekit Apache-2.0 |
+| gnc-autonomy/control/python-control-design | 5.5 P0 | none | none | PID gain, gain/phase margin checks | high; python-control BSD-3 |
+| gnc-autonomy/optimal-control/dymos-trajectory | 5.5 P0 | none | none | problem setup and convergence checks | high; dymos Apache-2.0 |
+| structures/fem/calculix-linear | 5.3 P0 | none | none | margin-of-safety sign convention, unit discipline | high; CalculiX GPL-2 |
+| structures/materials/mmpsd-allowables | 5.3 P0 | none | mmpsd (new) | A/B-basis statistics, K-factor checks | high; MMPDS proprietary-sold, reference-only (gated) |
+| space-systems/subsystems/power-thermal-budget | 5.8 P2 (promote) | t1 (live) | ecss (existing) | EPS sizing bands, eclipse duration | high |
+| vehicle-design/sizing/weight-estimation | 5.9 P1 | t2 (live) | none | class-I weight-fraction bands, CG envelope | high |
 
 ## Wave 2 - standards sub-skills, certification spine depth (seven)
 
 | Candidate | Taxonomy ref | Corpus pin | standards-map deps | Behavior contract (gate 3) | Feasibility |
 |---|---|---|---|---|---|
-| arp4761a/fta-fmea | 5.7 P1 | none | arp4761a (existing) | analysis-set selection, cut-set sanity | high |
-| arp4754a/requirements-traceability | 5.7 P0 | none | arp4754a (existing) | closure matrix check (SRATS to HLR to LLR to code to tests) | high |
+| systems-engineering-safety/arp4761a/fta-fmea | 5.7 P1 | none | arp4761a (existing) | analysis-set selection, cut-set sanity | high |
+| systems-engineering-safety/arp4754a/requirements-traceability | 5.7 P0 | none | arp4754a (existing) | closure matrix check (SRATS to HLR to LLR to code to tests) | high |
 | avionics/do178c/tool-qualification | 5.6 P1 | none | do-330 (new) | TQL criteria per tool category | high |
 | avionics/do160/environmental-qualification | 5.6 P1 | none | do-160 (new) | test-matrix selection per equipment class | high |
 | avionics/do254/verification | 5.6 P1 | none | do-254 (existing) | verification methods per AEH class | high |
-| space/ecss/systems-engineering | 5.7/5.8 | none | ecss (existing) | lifecycle gate mapping (E-ST-10C) | high |
-| mfg/quality/first-article-inspection | 5.10 P0 | none | as9102 (new) | FAI completeness gate, delta-FAI triggers | high |
+| space-systems/ecss/systems-engineering | 5.7/5.8 | none | ecss (existing) | lifecycle gate mapping (E-ST-10C) | high |
+| manufacturing-quality/as9102/first-article-inspection | 5.10 P0 | none | as9102 (new) | FAI completeness gate, delta-FAI triggers | high |
 
 ## Wave 3 - breadth, P1/P2 (six, stretch)
 
 | Candidate | Taxonomy ref | Corpus pin | standards-map deps | Behavior contract (gate 3) | Feasibility |
 |---|---|---|---|---|---|
-| prop/cycle/gas-turbine-turbofan | 5.2 P0 | none | far-33 (new), cs-e (new) | on-design cycle sanity checks | medium; NPSS/GSP licensing, PyCycle open |
-| prop/thermo/cea-rocket-combustion | 5.2 P0 | none | none | Isp and C* sanity bands | medium; NASA CEA open Fortran |
-| flight/perf/mission-sizing | 5.4 P0 | none | none | Breguet range/payload bands | high |
-| aero/cfd/openfoam-run | 5.1 P0 | none | none | residual and convergence checks | medium; OpenFOAM GPL, heavy binary |
-| found/units/isa-atmosphere | 5.12 P0 | none | none | ISA table checks (rho 1.225 kg/m3 at sea level) | high |
+| propulsion/cycle/gas-turbine-turbofan | 5.2 P0 | none | far-33 (new), cs-e (new) | on-design cycle sanity checks | medium; NPSS/GSP licensing, PyCycle open |
+| propulsion/thermo/cea-rocket-combustion | 5.2 P0 | none | none | Isp and C* sanity bands | medium; NASA CEA open Fortran |
+| flight-mechanics/perf/mission-sizing | 5.4 P0 | none | none | Breguet range/payload bands | high |
+| aerodynamics/cfd/openfoam-run | 5.1 P0 | none | none | residual and convergence checks | medium; OpenFOAM GPL, heavy binary |
+| cross-cutting/units/isa-atmosphere | 5.12 P0 | none | none | ISA table checks (rho 1.225 kg/m3 at sea level) | high |
 | avionics/far-cs25/structures | 5.3 compliance | none | far-25, cs-25 (existing) | load-path and margin checks, 25.571 damage tolerance | high |
 
 ## Standards-map extension (required by gate 1)
@@ -101,7 +101,7 @@ link, matching the existing DO-178C/ARP treatment.
    can run, mirroring the twelve existing skills.
 4. Corpus: add two Hit@1 tasks to eval/hit1-corpus.yaml for the new skill
    and promote future_pins t1/t2/t4 to live tasks when their skills
-   publish (t3 stays pinned to as9100/quality). Re-run
+   publish (t3 stays pinned to manufacturing-quality/as9100/quality). Re-run
    scripts/router_eval.py to confirm deterministic top-1 with no
    collision; add an adversarial cross-pair task when a new pair is
    plausible.
@@ -122,7 +122,7 @@ clean (gate 4), corpus resolves (gate 5), committed with evidence.
 - Gate 3: twenty-seven contract tests (twelve current plus fifteen new).
 - Gate 5: twenty-eight current tasks plus thirty new-skill tasks minus
   three pins already filed (t1, t2, t4) equals roughly fifty-five tasks;
-  t3 remains pinned to as9100/quality. All must resolve top-1 with no
+  t3 remains pinned to manufacturing-quality/as9100/quality. All must resolve top-1 with no
   collision; the deterministic offline router makes this replayable.
 - make validate stays 5/5; run-tests.sh G6 re-lints the full skills tree.
 

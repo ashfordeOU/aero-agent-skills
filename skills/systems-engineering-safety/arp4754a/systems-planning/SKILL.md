@@ -18,7 +18,7 @@ metadata:
   author: AeroSkills
 ---
 
-# ARP4754A Systems Planning (arp4754a/systems-planning)
+# ARP4754A Systems Planning (systems-engineering-safety/arp4754a/systems-planning)
 
 Use when the task is aircraft or system development planning per
 ARP4754A: assurance allocation and the planning artifacts of a system
