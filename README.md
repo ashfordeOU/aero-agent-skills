@@ -14,36 +14,10 @@ not the platform.
 *Draft v0.2. Buyer-facing draft, in-tree only; release is
 founder-gated.*
 
-> **Compliance notice.** AeroSkills is an open, unrestricted library of
-> *civil aerospace engineering methodology* for AI agents, published by
-> Ashforde OU (Estonia) under Apache-2.0. The content is educational:
-> general engineering principles, processes, and tool-usage guidance. It
-> is **not** ITAR/EAR-controlled technical data, and no proprietary
-> standards text is reproduced. Standards are referenced and
-> summarized only: DO-178C, DO-254, ARP4754A, ARP4761A, and AS9100
-> remain the property of their publishers (© RTCA/SAE/IAQG) and must
-> be purchased from them; ECSS and FAR/CS-25 are freely available
-> (public regulations or free downloads); SEP-2640 is an open
-> specification from the MCP working group (see STANDARDS.md).
->
-> As published, without restrictions on further dissemination, this
-> library falls within the EU dual-use "public domain" exclusion (Annex I
-> General Technology Note, Regulation (EU) 2021/821) and is not subject
-> to EU dual-use export authorization.
->
-> **Responsible use.** Users are solely responsible for their own
-> compliance with export-control and sanctions laws applicable to their
-> use of this material. This notice is hygiene, not the legal mechanism:
-> public availability is what keeps published information decontrolled.
->
-> **Not affiliated with or endorsed by** RTCA, EUROCAE, SAE International,
-> IAQG, EASA, FAA, or any government.
->
-> See [SECURITY.md](SECURITY.md) · [CONTRIBUTING.md](CONTRIBUTING.md) · [STANDARDS.md](STANDARDS.md)
-
 ## Table of contents
 
 - [Why AeroSkills](#why-aeroskills)
+- [Compliance notice](#compliance-notice)
 - [What's here](#whats-here)
 - [Install](#install)
 - [Harness integration](#harness-integration)
@@ -79,6 +53,35 @@ Two things separate this library from a folder of prompts:
   routing corpus. Deterministic, offline, replayable. Verified means
   the gates pass on the commit you are looking at; not certification,
   not approval, not airworthy.
+
+## Compliance notice
+
+> **Compliance notice.** AeroSkills is an open, unrestricted library of
+> *civil aerospace engineering methodology* for AI agents, published by
+> Ashforde OU (Estonia) under Apache-2.0. The content is educational:
+> general engineering principles, processes, and tool-usage guidance. It
+> is **not** ITAR/EAR-controlled technical data, and no proprietary
+> standards text is reproduced. Standards are referenced and
+> summarized only: DO-178C, DO-254, ARP4754A, ARP4761A, and AS9100
+> remain the property of their publishers (© RTCA/SAE/IAQG) and must
+> be purchased from them; ECSS and FAR/CS-25 are freely available
+> (public regulations or free downloads); SEP-2640 is an open
+> specification from the MCP working group (see STANDARDS.md).
+>
+> As published, without restrictions on further dissemination, this
+> library falls within the EU dual-use "public domain" exclusion (Annex I
+> General Technology Note, Regulation (EU) 2021/821) and is not subject
+> to EU dual-use export authorization.
+>
+> **Responsible use.** Users are solely responsible for their own
+> compliance with export-control and sanctions laws applicable to their
+> use of this material. This notice is hygiene, not the legal mechanism:
+> public availability is what keeps published information decontrolled.
+>
+> **Not affiliated with or endorsed by** RTCA, EUROCAE, SAE International,
+> IAQG, EASA, FAA, or any government.
+>
+> See [SECURITY.md](SECURITY.md) · [CONTRIBUTING.md](CONTRIBUTING.md) · [STANDARDS.md](STANDARDS.md)
 
 ## What's here
 

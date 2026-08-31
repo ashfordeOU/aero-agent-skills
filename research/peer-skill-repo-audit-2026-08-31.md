@@ -30,6 +30,12 @@ Output: patterns + recommendations for README v0.2.
 | VoltAgent/awesome-agent-skills | 33,419 | 3,535 | MIT | 248.7 KB / 2,002 lines | curated catalog |
 | VoltAgent/awesome-openclaw-skills | 52,275 | 5,010 | MIT | 134.0 KB / 1,262 lines | registry-derived catalog |
 
+*Note (timestamp 2026-08-31): star counts above are live reads taken
+earlier the same day, before the P3.4 rebaseline (09:32 CEST). K-Dense
+39,855 is that earlier read; the canonical register
+(ops/automation/numbers.yaml) is source of truth at 39,925 as_of
+2026-08-31. Table keeps the read as taken; no number changed.*
+
 ## 1. K-Dense-AI/scientific-agent-skills — the closest analog
 
 AeroSkills' direct peer: domain library, standards-adjacent content,
