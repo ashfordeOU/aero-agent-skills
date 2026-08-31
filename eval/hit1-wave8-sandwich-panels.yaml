@@ -1,0 +1,15 @@
+# Hit@1 wave-8 fragment: sandwich-panels (structures/composites)
+# Two tasks per new leaf; sandwich-panels-w8-1 routes on face sheet
+# stress and core shear failure checks including face wrinkling,
+# sandwich-panels-w8-2 routes on equivalent bending stiffness,
+# deflection, and honeycomb versus foam core selection. Both must
+# deterministically hit structures/composites/sandwich-panels.
+tasks:
+  - id: sandwich-panels-w8-1
+    query: "compute the face sheet stress and the core shear stress of a sandwich panel and check face wrinkling and the core shear failure margin"
+    intent: "structures; sandwich panel face stress, core shear stress, face wrinkling and core shear failure checks"
+    expected_skill: "structures/composites/sandwich-panels"
+  - id: sandwich-panels-w8-2
+    query: "estimate the bending stiffness and the deflection of a sandwich panel and choose between a honeycomb core and a foam core"
+    intent: "structures; sandwich panel bending stiffness, deflection including core shear, honeycomb vs foam core selection"
+    expected_skill: "structures/composites/sandwich-panels"
