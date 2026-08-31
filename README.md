@@ -5,14 +5,16 @@
 [![Skills: 27](https://img.shields.io/badge/skills-27-blue)](skills/)
 [![Standards: 14](https://img.shields.io/badge/standards-14-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
-[![Status: draft](https://img.shields.io/badge/status-draft-orange)](README.md)
+[![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
 
 Aerospace engineering skills for AI agents: standards-mapped,
 eval-gated, Apache-2.0. The knowledge layer for engineering agents,
 not the platform.
 
-*Draft v0.2. Buyer-facing draft, in-tree only; release is
-founder-gated.*
+*Development status. This repository is the private development home:
+skills, gates, and domain packs are actively built and verified here.
+Public release is founder-gated; when released it ships as a clean
+repo through the company org (Ashforde).*
 
 ## Table of contents
 
@@ -94,34 +96,33 @@ spec-linted, behavior-tested, and router-asserted by make validate:
 
 | Pack | Skill | Standard | Covers |
 |---|---|---|---|
-| avionics | do178c/planning | DO-178C | software level/DAL (A-E) from failure severity; PSAC; planning-phase artifacts |
-| avionics | do178c/development | DO-178C | HLR/LLR/code traceability, derived requirements |
-| avionics | do178c/verification | DO-178C | review, structural coverage per level, independence |
-| avionics | do178c/configuration-management | DO-178C | baselines, problem reports, release gate |
-| avionics | do178c/tool-qualification | DO-330 | TQL per tool criterion, tool credit, tool operational requirements |
-| avionics | do160/environmental-qualification | DO-160G | test matrix per equipment category, temperature/vibration/EMC/lightning |
-| avionics | do254/hardware-planning | DO-254 | simple vs complex AEH, PHAC scope |
-| avionics | do254/verification | DO-254 | verification methods per AEH class, independence, coverage |
-| avionics | far-cs25/airworthiness | FAR-25/CS-25 | certification basis, means of compliance, 25.1309 applicability |
-| space-systems | ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
-| space-systems | ecss/systems-engineering | ECSS | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
-| space-systems | subsystems/power-thermal-budget | ECSS | EPS sizing, eclipse duration, battery and solar array budgets |
-| systems-engineering-safety | arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
-| systems-engineering-safety | arp4754a/requirements-traceability | ARP4754A | SRATS to HLR to LLR to code to tests, closure matrix |
-| systems-engineering-safety | arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
-| systems-engineering-safety | arp4761a/fta-fmea | ARP4761A | fault trees, minimal cut sets, failure modes, common cause |
-| systems-engineering-safety | mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
-| manufacturing-quality | as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
-| manufacturing-quality | as9102/first-article-inspection | AS9102 | FAI Forms 1-3, characteristic accountability, delta FAI |
-| aerodynamics | airfoil/xfoil-analysis | NACA TR-824 | XFOIL polars, viscous analysis, validation bands (NACA 0012 Re=6M) |
-| gnc-autonomy | space/orbit-dynamics | ECSS | Hohmann delta-v, vis-viva, J2 drift, transfer time |
-| gnc-autonomy | control/python-control-design | ARP4754A | PID tuning, gain/phase margins, stability checks |
-| gnc-autonomy | optimal-control/dymos-trajectory | ARP4754A | dymos phases, convergence, launch/ascent delta-v bands |
-| structures | fem/calculix-linear | FAR-25 | static stress, margin of safety, unit discipline, von Mises |
-| structures | materials/mmpsd-allowables | MMPDS | A-/B-basis, k-factors, metallic design values |
-| vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | class-I weights, CG, envelope, weight and balance sheets |
-| cross-cutting | sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
-
+| aerodynamics | airfoil/xfoil-analysis | NACA TR-824 | Use when running XFOIL-style airfoil analysis for a given section: pla |
+| avionics | do160/environmental-qualification | DO-160G | Use when planning or reviewing DO-160 environmental qualification of a |
+| avionics | do178c/configuration-management | DO-178C | Use when you must manage DO-178C software configuration: establish con |
+| avionics | do178c/development | DO-178C | Use when you must develop DO-178C airborne software lifecycle data for |
+| avionics | do178c/planning | DO-178C | Use when planning DO-178C software certification for airborne systems |
+| avionics | do178c/tool-qualification | DO-330 | Use when assessing software tool qualification per DO-330 and DO-178C: |
+| avionics | do178c/verification | DO-178C | Use when you must verify DO-178C airborne software against its require |
+| avionics | do254/hardware-planning | DO-254 | Use when you must plan DO-254 design assurance for airborne electronic |
+| avionics | do254/verification | DO-254 | Use when verifying DO-254 airborne electronic hardware: determine the |
+| avionics | far-cs25/airworthiness | FAR-25/CS-25 | Use when scoping transport-category airworthiness certification: deter |
+| cross-cutting | sep2640/skill-delivery | SEP-2640 | Use when packaging or delivering domain skills over MCP per SEP-2640: |
+| gnc-autonomy | control/python-control-design | ARP4754A | Use when designing and validating feedback control laws with Python co |
+| gnc-autonomy | optimal-control/dymos-trajectory | ARP4754A | Use when setting up and assessing pseudospectral trajectory optimizati |
+| gnc-autonomy | space/orbit-dynamics | ECSS | Use when analyzing spacecraft orbital mechanics with two-body and J2-p |
+| manufacturing-quality | as9100/quality | AS9100 | Use when scoping or preparing AS9100 aerospace quality management work |
+| manufacturing-quality | as9102/first-article-inspection | AS9102 | Use when preparing or reviewing an AS9102 first article inspection (FA |
+| space-systems | ecss/software-engineering | ECSS | Use when scoping European space software work per the ECSS series: cla |
+| space-systems | ecss/systems-engineering | ECSS | Use when scoping or gating European space systems engineering per ECSS |
+| space-systems | subsystems/power-thermal-budget | ECSS | Use when sizing spacecraft electrical power and thermal budgets per EC |
+| structures | fem/calculix-linear | FAR-25 | Use when running or checking linear static finite element analysis for |
+| structures | materials/mmpsd-allowables | MMPDS | Use when computing statistically based metallic material design allowa |
+| systems-engineering-safety | arp4754a/requirements-traceability | ARP4754A | Use when planning or auditing requirements traceability per ARP4754A: |
+| systems-engineering-safety | arp4754a/systems-planning | ARP4754A | Use when you must plan aircraft and system development per ARP4754A: a |
+| systems-engineering-safety | arp4761a/fta-fmea | ARP4761A | Use when scoping or executing FTA (fault tree analysis) and FMEA (fail |
+| systems-engineering-safety | arp4761a/safety-assessment | ARP4761A | Use when planning or conducting the civil-aircraft safety assessment p |
+| systems-engineering-safety | mbse/systems-engineering | SysML | Use when running model-based systems engineering for an aerospace prog |
+| vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | Use when performing class-I or class-II vehicle weight estimation: com |
 Domain packs follow the 12-discipline taxonomy: aerodynamics,
 gnc-autonomy, structures, vehicle-design, avionics, space-systems,
 systems-engineering-safety, manufacturing-quality, cross-cutting.
