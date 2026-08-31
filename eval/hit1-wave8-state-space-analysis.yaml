@@ -1,0 +1,15 @@
+# Hit@1 wave-8 fragment: state-space-analysis (gnc-autonomy/control)
+# Two tasks per new leaf; state-space-analysis-w8-1 routes on
+# controllability and observability of the state space model,
+# state-space-analysis-w8-2 routes on the state transition matrix and
+# the stability verdict from the A matrix. Both must deterministically
+# hit gnc-autonomy/control/state-space-analysis.
+tasks:
+  - id: state-space-analysis-w8-1
+    query: "check the controllability and observability of the linear state space system from the A B and C matrices"
+    intent: "GNC; state space controllability and observability rank checks from A, B, C"
+    expected_skill: "gnc-autonomy/control/state-space-analysis"
+  - id: state-space-analysis-w8-2
+    query: "compute the state transition matrix with the Cayley Hamilton method and the stability verdict from the eigenvalues of the A matrix"
+    intent: "GNC; state transition matrix by Cayley-Hamilton and eigenvalue stability verdict"
+    expected_skill: "gnc-autonomy/control/state-space-analysis"
