@@ -2,6 +2,20 @@
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.
+P5.1 (2026-08-31): Wave 5 library expansion to fifty-five verified
+skills in twelve installable domain packs (67 SKILL.md under gate 1:
+12 routers + 55 leaves). Twelve new leaves: propulsion +3
+(gas-turbine-cycle, turbofan-cycle, rocket-sizing), flight-mechanics
++3 (breguet-range, takeoff-performance, longitudinal-stability),
+flight-test-operations +2 (envelope-expansion,
+stall-speed-determination), avionics +1 (lightning-protection),
+aerodynamics +1 (cfd-turbulence-modeling), space-systems +1
+(sun-pointing), structures +1 (crack-growth). No standards-map
+changes (sixteen entries, ten gated). Gate 3 runs fifty-five contract
+tests; gate 5 runs 126 active corpus tasks (the 102 prior plus
+twenty-four domain tasks cg1/cg2, gt1/gt2, tf1/tf2, rs1/rs2, br1/br2,
+tp1/tp2, lon1/lon2, ee1/ee2, vs1/vs2, lig1/lig2, tbm1/tbm2,
+spt1/spt2). Owner: Ops Manager, Wave 5 build.
 P2.1 (2026-08-31): twenty-seven published skills; gate 3 runs twenty-seven contract
 tests, gate 5 runs sixty-six corpus tasks (fifty-eight domain tasks +
 eight adversarial cross-pair tasks added across the P2.1 and P3.5 reworks).
@@ -74,7 +88,7 @@ exit 0 before any skill is committed as shippable.
 | 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
 | 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
 | 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
-| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 102/102 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
+| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 126/126 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
 
 ## Gate detail
 
