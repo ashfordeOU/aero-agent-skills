@@ -14,13 +14,15 @@ their publishers (STANDARDS.md).
 
 ## What is the export-control status?
 
-As published, AeroSkills is not controlled technical data; verify
-before use. The library is open and unrestricted, Apache-2.0, and
-contains general engineering principles and process guidance, not
-design data for specific articles. Users are responsible for their
-own compliance with the export-control and sanctions laws that apply
-to their use. The compliance notice at the top of the README states
-the legal basis.
+As published, AeroSkills is not ITAR- or EAR-controlled technical
+data, and EU dual-use export authorization does not apply
+(public-domain exclusion, Regulation (EU) 2021/821, Annex I General
+Technology Note). Verify before use. The library is open and
+unrestricted, Apache-2.0, and contains general engineering principles
+and process guidance, not design data for specific articles. Users
+are responsible for their own compliance with the export-control and
+sanctions laws that apply to their use. The compliance notice at the
+top of the README states the legal basis.
 
 ## Do you reproduce standards text?
 
