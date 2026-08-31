@@ -59,18 +59,16 @@ def main():
         leaf_names.append(exp.group(1) if exp else frag.stem)
 
     n_new = len(new_entries)
+    n_leaf = 113 + len(fragments)   # baseline 113 leaves (112 wave-5 + fuselage-sizing rescue)
+    n_skill = 125 + len(fragments)  # 12 routers + 113 leaves
+    n_tasks = 240 + n_new
     new_tasks_block = tasks_block.rstrip() + "\n" + "".join(new_entries) + "\n"
 
     note = (
         "# P5.2 / Wave 6 (2026-08-31, re-dispatch #4): fan-out continues to\n"
-        f"# {122} verified skills (134 SKILL.md under gate 1: 12 routers + 122\n"
-        "# leaves). Nine new leaves: aerodynamics +2 (airfoil-geometry,\n"
-        "# oblique-shock), flight-mechanics +2 (dynamic-stability,\n"
-        "# descent-performance), gnc-autonomy +2 (pursuit-guidance,\n"
-        "# inertial-navigation), structures +2 (load-spectrum-counting,\n"
-        "# material-selection), vehicle-design +1 (life-cycle-cost). Corpus:\n"
-        f"# 258 tasks (240 prior plus 18 domain tasks: ag1/ag2, os1/os2, ds1/ds2,\n"
-        "# de1/de2, pg1/pg2, in1/in2, rf1/rf2, ms1/ms2, lc1/lc2). Owner: Ops\n"
+        f"# {n_leaf} verified skills ({n_skill} SKILL.md under gate 1: 12 routers + {n_leaf}\n"
+        "# leaves). Wave-6 new leaves: " + ", ".join(leaf_names) + ".\n"
+        f"# Corpus: {n_tasks} tasks (240 prior plus {n_new} domain tasks). Owner: Ops\n"
         "# Manager, Wave 6 build (13th-kill rescue, fresh context).\n"
     )
 
