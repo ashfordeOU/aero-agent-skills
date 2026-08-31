@@ -815,6 +815,42 @@ tasks:
     intent: "orbit mechanics; retrograde sun-synchronous inclination, fixed local time of ascending node"
     expected_skill: "space-systems/orbit-mechanics/sun-synchronous-inclination"
 
+  - id: dp1
+    query: "compute the parabolic drag-polar for the wing from the zero-lift-drag coefficient cd0, the Oswald span-efficiency, and the aspect-ratio, then find the maximum lift-to-drag ratio and the optimal lift coefficient"
+    intent: "aerodynamics; parabolic drag-polar from zero-lift drag cd0, Oswald span-efficiency, and aspect ratio; peak L/D and optimal lift coefficient"
+    expected_skill: "aerodynamics/drag-polars/drag-polar"
+  - id: dp2
+    query: "fit a parabolic drag-polar to two measured lift and drag points and recover the zero-lift-drag coefficient cd0 and the induced-drag factor k"
+    intent: "aerodynamics; parabolic drag-polar fit to measured points recovering cd0 and the induced-drag factor k"
+    expected_skill: "aerodynamics/drag-polars/drag-polar"
+
+  - id: nd1
+    query: "select the ndt method for an internal defect in a ferromagnetic part, radiography or ultrasonic"
+    intent: "manufacturing quality; NDT method selection for an internal defect on ferromagnetic material"
+    expected_skill: "manufacturing-quality/ndt/ndt-method-selection"
+  - id: nd2
+    query: "which ndt method suits a surface defect on a non-conductive composite part, liquid penetrant or eddy current"
+    intent: "manufacturing quality; NDT method selection for a surface defect on a non-conductive material"
+    expected_skill: "manufacturing-quality/ndt/ndt-method-selection"
+
+  - id: acst1
+    query: "compute the axial compressor stage velocity triangle: the specific work, flow coefficient, work coefficient, and degree of reaction from the blade speed, axial velocity, and flow angles"
+    intent: "propulsion; axial compressor stage velocity-triangle parameters from blade speed, axial velocity, and flow angles"
+    expected_skill: "propulsion/axial-compressor/axial-compressor-stage"
+  - id: acst2
+    query: "determine the single axial compressor stage pressure ratio and rotor blade loading from the blade speed, axial velocity, and the inlet and outlet flow angles at the design point"
+    intent: "propulsion; single axial compressor stage pressure ratio and rotor blade loading at the design point"
+    expected_skill: "propulsion/axial-compressor/axial-compressor-stage"
+
+  - id: asd1
+    query: "compute the rejected takeoff accelerate stop distance from the decision speed v1 with the braking deceleration"
+    intent: "flight test operations; rejected takeoff accelerate stop distance from V1 with the braking deceleration"
+    expected_skill: "flight-test-operations/performance/accelerate-stop-distance"
+  - id: asd2
+    query: "check the accelerate stop distance against the available runway length with the braking friction coefficient and give the runway verdict"
+    intent: "flight test operations; accelerate stop distance against runway length with the fits verdict"
+    expected_skill: "flight-test-operations/performance/accelerate-stop-distance"
+
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
   # query routes to the nearest published skill (manufacturing-quality/as9100/quality,
