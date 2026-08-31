@@ -779,6 +779,42 @@ tasks:
     intent: "flight mechanics; bank angle from load factor and sustained turn verdict"
     expected_skill: "flight-mechanics/performance/turn-performance"
 
+  - id: vsp1
+    query: "compute the vref reference landing speed the v2 takeoff safety speed and the vr rotation speed from the vs0 and vs1 stall speeds for the flight test"
+    intent: "flight test; vref/v2/vr from vs0 and vs1 stall speeds with certification factors"
+    expected_skill: "flight-test-operations/envelope/v-speeds"
+  - id: vsp2
+    query: "check the computed v-speeds set against the vno normal operating limit and the vne never exceed speed and get the margin verdict for the flight test"
+    intent: "flight test; vno/vne guard verdict and margin in m/s"
+    expected_skill: "flight-test-operations/envelope/v-speeds"
+
+  - id: pc1
+    query: "compute the learning-curve unit-cost and the cumulative production cost for the aircraft program with the CER"
+    intent: "vehicle design; learning curve unit cost and cumulative production cost with the CER"
+    expected_skill: "vehicle-design/cost-estimation/parametric-cost"
+  - id: pc2
+    query: "estimate the development-cost from the airframe mass and roll up the total program-cost with the cumulative-average learning curve"
+    intent: "vehicle design; weight-based development cost CER and total program cost rollup"
+    expected_skill: "vehicle-design/cost-estimation/parametric-cost"
+
+  - id: pn1
+    query: "compute the proportional navigation guidance command from the closing velocity and the line of sight rate for the planar intercept"
+    intent: "GNC; proportional navigation guidance command from closing velocity and LOS rate"
+    expected_skill: "gnc-autonomy/guidance/proportional-navigation"
+  - id: pn2
+    query: "find the commanded acceleration perpendicular to the line of sight using the navigation constant for the intercept guidance law"
+    intent: "GNC; PN commanded acceleration from navigation constant and LOS geometry"
+    expected_skill: "gnc-autonomy/guidance/proportional-navigation"
+
+  - id: ss1
+    query: "compute the sun-synchronous orbital inclination at 500 km altitude from the j2 nodal regression rate for the dawn dusk orbit"
+    intent: "orbit mechanics; sun-synchronous inclination from J2 nodal regression at altitude"
+    expected_skill: "space-systems/orbit-mechanics/sun-synchronous-inclination"
+  - id: ss2
+    query: "select the retrograde inclination that keeps the local time of ascending node fixed so the sun synchronous orbit precesses with the sun"
+    intent: "orbit mechanics; retrograde sun-synchronous inclination, fixed local time of ascending node"
+    expected_skill: "space-systems/orbit-mechanics/sun-synchronous-inclination"
+
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
   # query routes to the nearest published skill (manufacturing-quality/as9100/quality,
