@@ -109,8 +109,8 @@ note "== pack_inventory.py =="
 pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=12 skills=100"
-check "P2 pack inventory reports 'packs=12 skills=100' (12 family routers / 100 leaf skills)" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=12 skills=112"
+check "P2 pack inventory reports 'packs=12 skills=112' (12 family routers / 112 leaf skills)" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
@@ -119,8 +119,8 @@ check "P4 pack inventory --pack avionics counts 16 leaves" 0 $?
 
 pack_out=$(python3 "$pack_inv" --domain systems-engineering-safety 2>/dev/null)
 check "P5 pack inventory --domain systems-engineering-safety exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=1 skills=7"
-check "P6 pack inventory --domain systems-engineering-safety counts 7 leaves" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=9"
+check "P6 pack inventory --domain systems-engineering-safety counts 9 leaves" 0 $?
 
 python3 "$pack_inv" "$auto/test/fixture-pack-bad" >/dev/null 2>&1
 check "P7 pack inventory flags missing domain/pack frontmatter" 1 $?
@@ -177,6 +177,14 @@ bash "$guard" "$auto/test/fixture-stale-83-class" >/dev/null 2>&1
 check "N19 stale-number guard flags planted Wave-4-era counts ('83 skills' ... '182 tasks')" 1 $?
 bash "$guard" "$auto/test/fixture-legit-83-class" >/dev/null 2>&1
 check "N20 stale-number guard exempts live wave-4 vocabulary ('100 leaf skills' ... '216 tasks')" 0 $?
+# R7 re-grade (Ops track): Wave-5-fanout stale class ('100 skills',
+# '100 leaf skills', '100 verified', '112 SKILL.md', '216/216',
+# '216 tasks') that became stale when the wave pushed live counts to
+# 112/124/240. Live vocabulary must NOT trip.
+bash "$guard" "$auto/test/fixture-stale-100-class" >/dev/null 2>&1
+check "N21 stale-number guard flags planted Wave-5-era counts ('100 skills' ... '216 tasks')" 1 $?
+bash "$guard" "$auto/test/fixture-legit-112-class" >/dev/null 2>&1
+check "N22 stale-number guard exempts live wave-5 vocabulary ('112 leaf skills' ... '240 tasks')" 0 $?
 
 # ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
 # Asserts numeric gated-set/map-coverage COUNT claims in the three
