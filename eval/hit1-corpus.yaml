@@ -31,6 +31,21 @@
 # plus 28 domain tasks: sc1/sc2, vn1/vn2, rl1/rl2, lqr1/lqr2, nf1/nf2,
 # df1/df2, dcm1/dcm2, sv1/sv2, ma1/ma2, fc1/fc2, res1/res2, lb1/lb2,
 # nz1/nz2, bpr1/bpr2). Owner: Ops Manager, Wave 2 build.
+# P5.2 / Wave 3 (2026-08-31, re-dispatch #2): fan-out continues to
+# eighty-three verified skills (95 SKILL.md under gate 1: 12 routers +
+# 83 leaves). Fourteen new leaves: flight-mechanics +2
+# (climb-performance, turn-performance), cross-cutting +2
+# (documentation/engineering-margins, numerics/convergence-verification),
+# vehicle-design +2 (sizing/ws-tw-trade, cost-estimation/parametric-cost),
+# flight-test-operations +2 (envelope/v-speeds,
+# performance/accelerate-stop-distance), aerodynamics +2
+# (high-speed/normal-shock, drag-polars/drag-polar),
+# manufacturing-quality +1 (ndt-method-selection), propulsion +1
+# (axial-compressor-stage), gnc-autonomy +1 (proportional-navigation),
+# space-systems +1 (sun-synchronous-inclination). Corpus: 160 tasks
+# (154 prior plus 12 domain tasks roc1/roc2, em1/em2, wt1/wt2 and the
+# wave-3 fragments merged as each leaf lands). Owner: Ops Manager,
+# Wave 3 build.
 
 tasks:
   - id: p1
@@ -718,6 +733,33 @@ tasks:
     query: "check the computed vnav altitude against the waypoint altitude constraint for the descent path"
     intent: "avionics; VNAV altitude constraint verdict on the descent path"
     expected_skill: "avionics/flight-management/vertical-navigation"
+
+  - id: roc1
+    query: "compute the rate of climb from thrust drag speed and weight using the excess power"
+    intent: "flight mechanics; rate of climb from excess power (thrust minus drag)"
+    expected_skill: "flight-mechanics/performance/climb-performance"
+  - id: roc2
+    query: "find the climb gradient in percent the time to climb between altitudes and the service ceiling altitude in the climb performance analysis"
+    intent: "flight mechanics; climb gradient, time to climb, and service ceiling"
+    expected_skill: "flight-mechanics/performance/climb-performance"
+
+  - id: em1
+    query: "compute the margin of safety for a structural element from the allowable and applied load"
+    intent: "cross-cutting; margin of safety from allowable vs applied load"
+    expected_skill: "cross-cutting/documentation/engineering-margins"
+  - id: em2
+    query: "write the margin statement and check the limit vs ultimate margin verdict for the engineering report"
+    intent: "cross-cutting; engineering report margin sentence and limit vs ultimate verdict"
+    expected_skill: "cross-cutting/documentation/engineering-margins"
+
+  - id: wt1
+    query: "compute the wing loading and thrust to weight constraints for the sizing matching chart"
+    intent: "vehicle sizing; wing loading and thrust to weight constraints for the matching chart"
+    expected_skill: "vehicle-design/sizing/ws-tw-trade"
+  - id: wt2
+    query: "find the binding constraint and the minimum thrust to weight at a given wing loading"
+    intent: "vehicle sizing; binding constraint and minimum thrust to weight at the wing loading"
+    expected_skill: "vehicle-design/sizing/ws-tw-trade"
 
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
