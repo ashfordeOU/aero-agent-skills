@@ -1,0 +1,73 @@
+# ops/automation — attestation gates (TEST.md)
+
+Three deterministic scripts gate every quoted number and every publishable
+claim before it ships (milestone 2026-08-31; design:
+docs/superpowers/specs/2026-08-31-attestation-gates-design.md).
+
+## Scripts
+
+| Script | Job | Exit codes |
+|---|---|---|
+| `number-snapshot.sh [--live\|--offline]` | Live-verify `tracked` repos against GitHub API via `gh` (authed arjun-0077); offline re-checks newest snapshot against the register | 0 ok · 1 drift · 2 API failure (no silent fallback) |
+| `brief-audit.sh [path...]` | Resolve every quoted number in repo docs against `numbers.yaml` (canonical register) | 0 clean · 1 drift/unresolved/ambiguous |
+| `content-policy-sweep.sh [path...]` | Scan publishable content for ITAR/EAR compliance CLAIMS, certification claims, classified markings, part numbers (brief 06 §8.3.6/8.3.9) | 0 clean · 1 hit |
+
+`make attest` runs all three at rest (snapshot offline); `make snapshot-live`
+refreshes the evidence snapshot before committing. CI (`.github/workflows/attest.yml`)
+runs `make validate && make attest` on push/PR.
+
+## Audit scope (brief-audit.sh)
+
+Scanned: `research/`, `marketing/`, `development/`, `docs/`, `README.md`.
+Excluded (EXCLUDED_DIRS in number_audit.py):
+- `development/builds/` — dated build snapshots of reports; renumbering them
+  would falsify history (AGENTS.md supersede-not-delete). Living briefs carry
+  the canonical values.
+- `docs/superpowers/` — planning/meta docs whose stale values (38.0k★, 31.9k,
+  16★ ...) are intentional examples of what the audit catches (the audit's own
+  spec + fixture descriptions), not market claims.
+
+Checked patterns: `N★` / `Nk★` / `N stars` / `Nk stars`, `N forks` / `Nk forks`,
+`N skills` (with a repo alias on the line), the first pure-numeric cell after a
+repo alias in a pipe-table row, and derived claims (total/largest phrases) —
+position-aware: the number must sit NEAR the phrase (≤40 chars before, ≤60
+after), so a `Total ≈ 228★ (31 repos)` summary line is never read as a
+largest-repo claim. Excluded: ranges (`N–M`), floors (`N+`), 4-digit years,
+dates, identifier-embedded numbers (SEP-2640), bare prose numbers without a
+market marker, internal AeroSkills design figures (no repo alias), attributed
+historical quotes (`measured N`, `brief says N`, `same week`) which resolve
+against the register's `measurements` section.
+
+Resolution: nearest preceding repo alias on the line wins; no alias → derived
+phrase near the number → unique register match (multiple matches = FAIL
+ambiguous, forcing the doc to name the repo).
+
+## TDD evidence (observed exit codes, 2026-08-31)
+
+`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS**
+
+| Test | Assertion | Expected | Observed |
+|---|---|---|---|
+| N1 | snapshot live, fixture expected 100 vs live ~39k | exit 1 | 1 |
+| N2 | snapshot offline without snapshot (never silent drift) | exit 1 | 1 |
+| N3 | brief-audit flags stale K-Dense 38.0k (fixture) | exit 1 | 1 |
+| N5 | brief-audit still flags largest-repo drift 19 vs 22 (fixture, post-tuning) | exit 1 | 1 |
+| N4 | content-policy-sweep flags "ITAR-compliant" (fixture) | exit 1 | 1 |
+| G1 | snapshot live on real register | exit 0 | 0 |
+| G2 | snapshot offline with snapshot present | exit 0 | 0 |
+| G3 | brief-audit full repo (19 scanned files) | exit 0 | 0 |
+| G4 | content-policy-sweep full repo | exit 0 | 0 |
+| G5 | brief-audit summary line ("total ≈ 228 / 31 repos") is NOT a largest-repo false positive (fixture) | exit 0 | 0 |
+
+Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
+`test/fixture-derived-stale.md`, `test/fixture-derived-summary.md`,
+`test/fixture-policy-bad.md`. Fixture comments keep numbers marker-free so only
+the content line is scanned.
+
+## At-rest green
+
+```
+make validate   → exit 0 (5/5 harness gates)
+make attest     → exit 0 (snapshot offline + brief audit + content sweep)
+git status      → clean (state/stars-latest.json committed as replayable evidence)
+```

@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-- The "domain-specific skills library" play is **proven, not hypothetical**: Anthropic-Cybersecurity-Skills (818 skills, Apache 2.0, free) hit **31,246 GitHub stars and 3,724 forks in ~6 months** — the direct template for AeroSkills.
+- The "domain-specific skills library" play is **proven, not hypothetical**: Anthropic-Cybersecurity-Skills (818 skills, Apache 2.0, free) hit **31,700 GitHub stars and 3,818 forks in ~6 months** — the direct template for AeroSkills.
 - Skills libraries are a **distribution and trust asset first, a revenue product second**. The free OSS library builds the audience; revenue comes from premium skill packs, subscriptions, enterprise/on-prem licensing, and consulting — not from selling the free files.
 - Concrete 2026 comps: solo founders selling vertical Claude skills made **$1,400–$8,483 in their first month** (4 founders, Q1 2026); median skill-marketplace creator earns **$300–$1,500/mo**, top decile **$5–25K/mo**; enterprise skill licensing runs **$2K–$50K/mo**.
 - Aerospace market tailwind is real: MBSE-in-aerospace **$6.8B (2025) → $15.2B (2034)**, AI-in-aerospace-engineering **$12.5B (2024) → $45.8B (2034)**, aerospace AI at **~43–45% CAGR**.
@@ -83,7 +83,7 @@
 
 | Project | Size | Adoption | Monetization |
 |---|---|---|---|
-| **Anthropic-Cybersecurity-Skills** (mukul975) | 818 skills, 34 domains, MITRE/NIST-mapped, Apache 2.0 | **31,246 stars, 3,724 forks** in ~6 months | **None directly** — free; author monetizes via personal brand (mahipal.engineer), surveys (GARS-2026), consulting pipeline |
+| **Anthropic-Cybersecurity-Skills** (mukul975) | 818 skills, 34 domains, MITRE/NIST-mapped, Apache 2.0 | **31,700 stars, 3,818 forks** in ~6 months | **None directly** — free; author monetizes via personal brand (mahipal.engineer), surveys (GARS-2026), consulting pipeline |
 | Trail of Bits /skills | Security research skills | Well-known, cited by Snyk | Free → feeds **consulting funnel** (Trail of Bits sells audits) |
 | transilienceai/communitytools, claude-pentest-skills, awesome-claude-skills-security | Pentest/bug-bounty skills | Community adoption | Free |
 | Snyk's "Top 9 Claude Skills for Cybersecurity" | — | Editorial coverage drives traffic | Content marketing for Snyk |
@@ -175,7 +175,7 @@
 
 ### 4.2 Specific channels for aerospace
 
-1. **GitHub (primary):** open-source AeroSkills core (agentskills.io standard, Apache 2.0). Comp proves ceiling: 31K stars in 6 months for cybersecurity. Publish to **Anthropic Skills Marketplace** (15% cut, ~600-skill catalog, discovery + ratings), **SkillExchange, Agensi, SkillHQ, Smithery/mcp.so** (if MCP tools included). Add `llms.txt` + `/.well-known/skills/` for agent discoverability (GEO).
+1. **GitHub (primary):** open-source AeroSkills core (agentskills.io standard, Apache 2.0). Comp proves ceiling: 31.7K stars in 6 months for cybersecurity. Publish to **Anthropic Skills Marketplace** (15% cut, ~600-skill catalog, discovery + ratings), **SkillExchange, Agensi, SkillHQ, Smithery/mcp.so** (if MCP tools included). Add `llms.txt` + `/.well-known/skills/` for agent discoverability (GEO).
 2. **X/Twitter:** build-in-public, aerospace Twitter is a massive, engaged niche (SpaceX-community scale). Post demos of skills doing real engineering tasks (e.g., "agent ran a constraint check against DO-178C"). Founder B comp: 12K followers → 47 sales of a $99 skill.
 3. **Reddit:** r/AerospaceEngineering (**131–138K subscribers**), r/aerospace, r/AskEngineers, r/CFD, r/spaceflight. Genuine participation + "we built this free library" posts; no hard selling (0.1–0.5% conversion but cheap trust).
 4. **LinkedIn:** aerospace is a strong B2B vertical. Post engineering-AI case studies; target engineering managers at Boeing/Airbus/Rolls-Royce/Lockheed suppliers. Founder C comp: 8.5K followers → 23 sales of $299 skill.
@@ -247,7 +247,7 @@ The cybersecurity library won on **framework mapping** (MITRE ATT&CK, NIST CSF).
 - Claude Lab — "Turning Claude Skills and Claude Code Plugins Into Products That Actually Sell"
 - Monetizely SaaS Pricing Benchmark 2025; DollarPocket SaaS benchmarks; CompareTiers 2026; Dupple SaaS Pricing Index
 - VendorBenchmark DevOps pricing; Vendr ANSYS buyer guide; Ozen Engineering ANSYS pricing; MathWorks pricing pages
-- GitHub: mukul975/Anthropic-Cybersecurity-Skills (31.2K stars); trailofbits/skills; anthropics/skills; agentskills.io spec; Claude Code skills docs
+- GitHub: mukul975/Anthropic-Cybersecurity-Skills (31.7K stars); trailofbits/skills; anthropics/skills; agentskills.io spec; Claude Code skills docs
 - BLS OES 17-2011 (71,600 jobs, $134,830 median); DataUSA; FRED; AIA 2025 Facts & Figures (2.1–2.2M workforce)
 - Dataintelo/GrowthMarketReports/MarketIntelo MBSE-in-aerospace reports; HTF/Technavio/Precedence AI-in-aerospace reports
 - Reddit r/AerospaceEngineering (131–138K subs); AIAA SciTech sponsor/exhibit pages; Vendelux aerospace conference list

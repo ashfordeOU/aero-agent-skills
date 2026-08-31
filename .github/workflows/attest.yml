@@ -1,0 +1,16 @@
+name: attest
+on:
+  push:
+  pull_request:
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PyYAML (brief-audit dependency)
+        run: python3 -m pip install --user pyyaml
+      - name: Harness gates (5/5 REAL, deterministic)
+        run: make validate
+      - name: Attestation gates (offline, deterministic at rest)
+        run: make attest

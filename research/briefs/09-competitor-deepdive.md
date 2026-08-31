@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-30 · **Author:** AeroSkills research (subagent) · **Status:** Evidence-backed, all figures measured via live web extraction on 2026-08-30 unless noted
 
-**Headline verdict:** The whitespace is real and larger than expected. Every aerospace-skills attempt is a single-author hobby project (max 97★, and the 97★ one is a simulation platform, not a skills library). Meanwhile, two adjacent winners — cybersecurity skills (~31.1k★) and scientific skills (31.9k★) — proved the exact playbook AeroSkills needs, and the distribution standard (agentskills.io + SEP-2640 skills-over-MCP) is being standardized *right now*. Nobody has executed the cybersecurity-skills playbook in aerospace. The window is open.
+**Headline verdict:** The whitespace is real and larger than expected. Every aerospace-skills attempt is a single-author hobby project (max 105★ — LunCoSim/lunco-sim, and it's a simulation platform, not a skills library). Meanwhile, two adjacent winners — cybersecurity skills (~31.7k★) and scientific skills (39.1k★) — proved the exact playbook AeroSkills needs, and the distribution standard (agentskills.io + SEP-2640 skills-over-MCP) is being standardized *right now*. Nobody has executed the cybersecurity-skills playbook in aerospace. The window is open.
 
 ---
 
@@ -12,12 +12,12 @@
 
 | Repo | ★ | Forks | Commits | Created | Last activity | License | Format | What it is |
 |---|---|---|---|---|---|---|---|---|
-| devideamax/aerospace-team | 13 | 0 | 10 | ~2025 | release v1.1.0 Feb 17 2026 | MIT+Attribution | Claude Code skills (12) | "Space Engineering Pack" — satellite mission design specialists |
-| ajhcs/mbse-agents | 19 | 4 | ~38 | 2026-03-31 | active | MIT | Agent files (.md) ×5 | Clause-level MBSE/safety standards agents (ARP4761A, DO-178C, ISO 26262) |
+| devideamax/aerospace-team | 21 | 0 | 10 | ~2025 | release v1.1.0 Feb 17 2026 | MIT+Attribution | Claude Code skills (12) | "Space Engineering Pack" — satellite mission design specialists |
+| ajhcs/mbse-agents | 22 | 4 | ~38 | 2026-03-31 | active | MIT | Agent files (.md) ×5 | Clause-level MBSE/safety standards agents (ARP4761A, DO-178C, ISO 26262) |
 | 0xchamin/skyintel → VoyageIntel | 19 | 5 | 45 | 2026-03-06 | active | Apache-2.0 | MCP server + skills | Real-time air/sea/space tracking MCP (25+ tools), 3D globe |
 | IO-Aerospace-software-engineering/mcp-server | 15 | 2 | ~40 | 2025-08-10 | Feb 4 2026 | AGPL-3.0 | MCP server (C#/.NET) | SPICE-powered astrodynamics computation server, hosted prod instance |
 | Soljourner/claude-engineering-skills | 60 | 17 | **3** | 2025-11-07 | dead (3 commits ever) | MIT | Claude skills (~47) | Mechanical+aero engineering skills, pump-centric |
-| LunCoSim/lunco-sim | 97 | 20 | 1,041 | 2022-05 | active | Apache-2.0 | Rust/Bevy sim + MCP + skills/ | Lunar mission simulator (skills are bolted-on, not the product) |
+| LunCoSim/lunco-sim | 105 | 20 | 1,041 | 2022-05 | active | Apache-2.0 | Rust/Bevy sim + MCP + skills/ | Lunar mission simulator (skills are bolted-on, not the product) |
 | LunCoSim/ai4space | 0 | 0 | 18 | 2026 | active | MIT | Skills + guides | "How to model your Space Mission using AI" — Anthropic skills standard |
 | cheesejaguar/aerospace-mcp (aeroastro.org) | 4 | 0 | 64 | 2025-08-30 | active | MIT | FastMCP server + skills/ | Flight planning + orbital mechanics MCP, 7.8k airports, 37 aircraft |
 | muroc-aero/the-hangar | 1 | 0 | 136 | 2026 | active | Apache-2.0 | MCP servers + CLI-guide skills | OpenMDAO tools (OAS/OCP/pyCycle) as MCP + provenance tracking |
@@ -25,11 +25,11 @@
 | hakimzulkufli/asd-ste100-skills | 0 | 0 | 1 | 2026-07-19 | dead | — | Skills (2) | ASD-STE100 writing-compliance skills (53 rules, Issue 7/8/9) |
 | aeroastro.org | — | — | — | — | — | — | website | **Homepage of cheesejaguar/aerospace-mcp (same project)** |
 
-**Total combined star count of ALL aerospace skills attempts: ~228★.** Largest dedicated aerospace *skills* repo: 60★ (and it's abandoned). Largest aerospace *agent* repo: 19★.
+**Total combined star count of ALL aerospace skills attempts: ~228★.** Largest dedicated aerospace *skills* repo: 60★ (and it's abandoned). Largest aerospace *agent* repo: 22★.
 
 ---
 
-### 1.1 devideamax/aerospace-team — 13★ (task brief said 16; measured 13, 0 watchers, 0 forks)
+### 1.1 devideamax/aerospace-team — 13★ measured 2026-08-30 (live 2026-08-31: 21★; task brief said 16; 0 watchers, 0 forks)
 
 **What they built:** "Space Engineering Pack" — 12 Claude Code skills (orbital-mechanics, propulsion, power-systems, mission-architect, launch-operations, ground-systems, satellite-comms, space-environment, payload-specialist, etc.) forming a "Synthetic NASA". Each skill has an expert persona, real reference data (`shared/data/constants.py`, `vehicles.json`), embedded formulas (vis-viva, link budgets, Tsiolkovsky), a per-skill complexity classification (O1–O5), cross-skill integration tables, and shared Python tools (`trajectory.py`, `plot.py`, `timeline.py`). Generated by "Skills Factory Engine v1.1" (IDEAMAX, Dimitar Georgiev - Biko). 2 releases (v1.1.0 Feb 17 2026).
 
@@ -42,11 +42,11 @@
 - **No router.** Nothing dispatches between the 12 specialists.
 - **No verification.** Claims "validation" but no test suite, no CI, no evals, no benchmark.
 - **Attribution-encumbered license** ("MIT + Attribution", must keep attribution in frontmatter) — fine for personal use, poison for enterprise adoption.
-- **No community:** 0 forks, 0 issues, 0 PRs, 10 commits, single author + factory-generated.
+- **No community (devideamax/aerospace-team):** 0 forks, 0 issues, 0 PRs, 10 commits, single author + factory-generated.
 
 ---
 
-### 1.2 ajhcs/mbse-agents — 19★ (the closest thing to AeroSkills' compliance thesis)
+### 1.2 ajhcs/mbse-agents — 22★ (the closest thing to AeroSkills' compliance thesis)
 
 **What they built:** 5 portable "domain agent" files (`agents/*.md`) that turn AI coding assistants into principal systems engineers: Aerospace, Medical Device, Automotive, Defense, General MBSE. Clause-level standards knowledge (e.g., ARP4761A Appendix L common-mode analysis, ISO 26262 ASIL decomposition), artifact mapping across 6 MBSE tools (Cameo SysML, Capella/Arcadia, etc.), "reviewer attack surfaces" per certification gate (PSSA, SSA, DAES, 510(k)). 20 examples, 30+ standards claimed, 7 platform install paths (Claude Code, Claude Desktop, Codex CLI, ChatGPT, Cursor, Aider, Generic), MIT.
 
@@ -57,7 +57,7 @@
 - **No taxonomy or curriculum** — 5 siloed agents, no domain tree, no leveling.
 - **No router, no CI, no evals, no verification harness.** Single author (38 contributions).
 - **Coverage is thin for aerospace depth:** 5 agents spanning 4 industries means ~1.25 agents of aerospace depth.
-- 19★ after 5 months — zero distribution strategy.
+- mbse-agents at 22★ after 5 months — zero distribution strategy.
 
 ---
 
@@ -67,7 +67,7 @@
 
 **What's right:** The only aerospace attempt with (a) a real compliance hook (regulatory text search), (b) an actual test suite, (c) standards-conformant skill packaging + distribution paths, (d) a company behind it.
 
-**What's wrong:** 0★/1 fork. Scope is *aviation operations* (pilots/operators), not aerospace *engineering*. No taxonomy, no curriculum, no router, no standards mapping beyond regulation search, no marketing. Company leads with the API, skills are a footnote.
+**What's wrong:** deepskyai/agent-tools sits at 0★/1 fork. Scope is *aviation operations* (pilots/operators), not aerospace *engineering*. No taxonomy, no curriculum, no router, no standards mapping beyond regulation search, no marketing. Company leads with the API, skills are a footnote.
 
 ---
 
@@ -101,11 +101,11 @@ MCP server with 25+ tools for unified air/sea/space tracking (ADSB.lol flights, 
 
 **What they built:** OpenMDAO-based aerospace MDO tools wrapped as MCP servers: `hangar-oas` (OpenAeroStruct aerostructural analysis of lifting surfaces), `hangar-ocp` (OpenConcept conceptual design/mission analysis, hybrid-electric), `hangar-pyc` (pyCycle gas turbine cycle analysis), plus `hangar-omd` (YAML plan runner with factory registry + **provenance graph**), `hangar-viewer` (provenance viewer), shared SDK (response envelopes, validation, session management), CLI-guide **skills** per tool, hosted servers at mcp.lakesideai.dev behind Keycloak OIDC, docker-compose + Caddy, a `/new-tool` SKILL.md that documents the whole onboarding process, CONTRIBUTING.md. Apache-2.0. **136 commits** — serious engineering.
 
-**What's wrong:** 1★. Zero marketing. No taxonomy, no standards/compliance mapping, no curriculum, no router, no CI quality gates visible, not on PyPI (install from repo only), skills are CLI-guides for their own servers (not a domain library). Single-org project. The *provenance* concept (trace every MCP result to its model/inputs) is genuinely novel and worth stealing.
+**What's wrong:** muroc-aero/the-hangar has 1★. Zero marketing. No taxonomy, no standards/compliance mapping, no curriculum, no router, no CI quality gates visible, not on PyPI (install from repo only), skills are CLI-guides for their own servers (not a domain library). Single-org project. The *provenance* concept (trace every MCP result to its model/inputs) is genuinely novel and worth stealing.
 
 ---
 
-### 1.8 LunCoSim (lunco-sim 97★ + ai4space 0★) — simulation platform, skills bolted on
+### 1.8 LunCoSim (lunco-sim 105★ + ai4space 0★) — simulation platform, skills bolted on
 
 LunCoSim is an open-source collaborative lunar-mission simulator (Rust/Bevy, Modelica via rumoca, MCP interface so "users and AI via MCP use the same interface", USD support, MoonDAO-backed). The sim repo has `skills/`, `skills-lock.json`, `.mcp.json`, `AGENTS.md`. The **ai4space repo is their skills attempt**: guides + skills on the Anthropic Agent Skills standard, MIT, aimed at non-programmers ("design a lunar base with no programming background"), crypto-wallet/safe multi-sig collaboration tangents. 0★, 18 commits. It's onboarding content for a simulator, not an engineering skills library. No taxonomy/standards/verification. Note: they ship a `skills-lock.json` — a versioned skills manifest worth borrowing as a concept.
 
@@ -115,13 +115,13 @@ LunCoSim is an open-source collaborative lunar-mission simulator (Rust/Bevy, Mod
 
 **What they built:** "Claude Engineering Skills Library" — 100+ claimed skills across Databases (10: CoolProp, NIST REFPROP, NASA Earthdata...), Packages (15: numpy/scipy/sympy/fluids...), Integrations (7: ANSYS, OpenFOAM, SolidWorks, COMSOL), Helpers (6), Thinking (9) — pump design + fluid dynamics + aerospace (turbopumps, orbital mechanics with fluid thrust) + thermodynamics. Progressive disclosure (3 levels), SKILLS_INVENTORY.md, CONTRIBUTING.md, citation file.
 
-**What's wrong:** **3 commits total since Nov 2025 — dead on arrival.** Claimed 100+ skills vs ~47 actually enumerated (inflation). Claude-only. No standards/compliance (ANSYS/OpenFOAM/SolidWorks integrations are install instructions, not skills). No taxonomy, no router, no tests, no CI. The 60★ it got are the *demand signal* — people star aerospace skills they can't actually use.
+**What's wrong:** **3 commits total since Nov 2025 — dead on arrival.** Claimed 100+ skills vs ~47 actually enumerated (inflation). Claude-only. No standards/compliance (ANSYS/OpenFOAM/SolidWorks integrations are install instructions, not skills). No taxonomy, no router, no tests, no CI. The Soljourner repo's 60★ are the *demand signal* — people star aerospace skills they can't actually use.
 
 ---
 
 ### 1.10 hakimzulkufli/asd-ste100-skills — 0★ (lost the standards-skills race by a week)
 
-Two well-structured ASD-STE100 skills (`asd-ste100` spec-compliance with all 53 writing rules + controlled dictionary, Issue 7/8/9 reference files; `asd-ste100-style` for general communication with read/think postures), cross-harness manifest (`agents/openai.yaml`), token-budgeted references (~1.4–3.5k tok each), model-invoked + slash-command triggered, careful scoping so they don't double-fire. **Single commit, created 2026-07-19, 0★.**
+Two well-structured ASD-STE100 skills (`asd-ste100` spec-compliance with all 53 writing rules + controlled dictionary, Issue 7/8/9 reference files; `asd-ste100-style` for general communication with read/think postures), cross-harness manifest (`agents/openai.yaml`), token-budgeted references (~1.4–3.5k tok each), model-invoked + slash-command triggered, careful scoping so they don't double-fire. **Single commit, created 2026-07-19, hakimzulkufli/asd-ste100-skills at 0★.**
 
 The instructive story: **AminBlg/SimpleEnglish** (created 2026-07-21 — two days later) packaged the same idea with `evals/run_bench.py` + measured results (**74.6% fewer violations**, then 72.9% across 6 Claude models), honest FAQ, star-history chart, and an HN launch (**232 points**) — and hit **2,937★**. **danyuchn/asd-ste100-skill** (2026-07-20, `npx skills add`, references/writing-rules.md) hit **1,574★**. A third variant, NikolaRHristov/STE-Code, exists too. **Same week, same idea, three wildly different outcomes — evals + marketing + distribution decided everything.** That is the single most important lesson in this entire report for AeroSkills.
 
@@ -164,7 +164,7 @@ skills/<skill-name>/
 5. **Domain breadth as PR:** 26→34 domains across releases shows momentum; "largest open-source cybersecurity skills library" is a self-fulfilling claim.
 6. **Apache-2.0** (enterprise-safe) vs competitors' restrictive or absent licenses.
 
-### 2.2 K-Dense Scientific Agent Skills (K-Dense-AI/scientific-agent-skills) — 31.9k★, 3.2k forks
+### 2.2 K-Dense Scientific Agent Skills (K-Dense-AI/scientific-agent-skills) — 39.1k★, 3,655 forks
 
 **Numbers:** 163 scientific/research skills, MIT (per-skill licenses in frontmatter), "used by 190,000+ scientists worldwide" claim, works with Cursor/Claude Code/Codex/Antigravity/Pi + open Agent Skills standard, also a portable **Agent Plugins** package (`plugin.json` + `skills/`).
 
@@ -176,7 +176,7 @@ skills/<skill-name>/
 - **Marketing engine:** blog (benchmarks: "frontier models match specialized scientific software on raw capability ±0.079 ppm on NMR..."), X/LinkedIn/YouTube/Reddit, star-request banner in README ("please star this repository"), renaming for reach (Claude Scientific Skills → Scientific Agent Skills for broader compatibility).
 - **Thesis-driven narrative:** "The model is no longer the bottleneck — the bottleneck is verification, provenance, and auditable workflow."
 
-**AeroSkills translation:** spec validation CI, security scan CI, auto-releases, per-skill tests, `docs/` inventory, a companion CLI/product, and a verification-provenance narrative — this is the science-domain template and it works (31.9k★).
+**AeroSkills translation:** spec validation CI, security scan CI, auto-releases, per-skill tests, `docs/` inventory, a companion CLI/product, and a verification-provenance narrative — this is the science-domain template and it works (39.1k★).
 
 ### 2.3 anthropics/skills + agentskills.io — the format itself
 
@@ -214,7 +214,7 @@ skills/<skill-name>/
 
 | Gap | Evidence of the gap | Who almost did it | AeroSkills move |
 |---|---|---|---|
-| **Standards/compliance mapping** | No aerospace repo maps skills to DO-178C, DO-254, ARP4754B, ARP4761A, ECSS-E-ST series, AS9100D, 14 CFR, RTCA DO-160, TSO, SSA/PSSA gates | ajhcs/mbse-agents (19★, clause-level, but agents-not-skills, thin coverage) | Clone the Cybersecurity moat: every skill carries standards-mapped frontmatter (like atlas_techniques/nist_csf) + a coverage dashboard (like ATT&CK Navigator layers, but for DO/ECSS/FAR) |
+| **Standards/compliance mapping** | No aerospace repo maps skills to DO-178C, DO-254, ARP4754B, ARP4761A, ECSS-E-ST series, AS9100D, 14 CFR, RTCA DO-160, TSO, SSA/PSSA gates | ajhcs/mbse-agents (22★, clause-level, but agents-not-skills, thin coverage) | Clone the Cybersecurity moat: every skill carries standards-mapped frontmatter (like atlas_techniques/nist_csf) + a coverage dashboard (like ATT&CK Navigator layers, but for DO/ECSS/FAR) |
 | **Taxonomy** | Zero aerospace repos have a domain taxonomy; cybersecurity has 29 domains | devideamax (O1–O5 per-skill classes only) | Publish the aerospace domain tree (aerodynamics, propulsion, structures, orbital mechanics, GNC, avionics, software/airworthiness, systems engineering, manufacturing, ops/safety...) with subdomains + tags |
 | **Curriculum alignment** | No repo maps to ABET accreditation / engineering curriculum / career progression | none | Skills organized into curriculum tracks (fundamentals → senior design → certification) — the education/compliance double hook |
 | **Router / dispatcher** | No aerospace router exists; adjacent niche (skill-gateway) is just emerging | none | A top-level router skill (like AGENTS-level dispatch) that routes aerospace tasks to the right skills — the "on-ramp" skill |
@@ -224,7 +224,7 @@ skills/<skill-name>/
 | **Freshness / governance** | Soljourner: 3 commits and dead. Most: single author, no releases, no issue templates | K-Dense (105+ auto-releases) | Release train, versioned skills, CONTRIBUTING.md, issue templates, weekly maintenance cadence |
 | **Licensing** | devideamax = MIT+Attribution (enterprise poison); IO-Aerospace = AGPL; hakimzulkufli = none | cybersecurity + K-Dense both Apache/MIT | Apache-2.0, per-skill license fields, no attribution clauses |
 
-**The single sentence:** *Every existing aerospace attempt built content without a system — no taxonomy, no standards mapping, no verification, no distribution. The winners in adjacent domains built systems, and the system is what compounded into 31k★.*
+**The single sentence:** *Every existing aerospace attempt built content without a system — no taxonomy, no standards mapping, no verification, no distribution. The winners in adjacent domains built systems, and the system is what compounded into 30k+★.*
 
 ---
 
@@ -237,14 +237,14 @@ skills/<skill-name>/
 3. **Liability fear.** Every aerospace MCP server carries an "educational only, not certified" disclaimer. Aerospace professionals default to "an AI agent must not design flight hardware" — nobody has framed skills as *knowledge/process augmentation inside certified workflows* (the framing Cybersecurity used: investigation support, not replacement).
 4. **Small, fragmented community.** Aerospace on GitHub = simulation libs and OSINT tools, not knowledge assets. No equivalent of the security-researcher culture that poured 817 skills into the cybersecurity repo.
 5. **The winners in adjacent domains had a wedge:** Cybersecurity had frameworks; Science had 100+ databases/APIs to skill-ify. Aerospace has neither an obvious spine nor a database goldmine — the wedge must be *built* (standards mapping + curriculum), which is expensive.
-6. **All 11 attempts are single-author, zero-marketing, zero-distribution projects.** Max adoption (60★) belongs to a 3-commit repo that died. There is no evidence of anyone trying the full playbook even once.
+6. **All 11 attempts are single-author, zero-marketing, zero-distribution projects.** Max adoption (Soljourner's 60★) belongs to a 3-commit repo that died. There is no evidence of anyone trying the full playbook even once.
 
 ### What it takes to win (the AeroSkills playbook, synthesized from Parts 2–4)
 
-1. **Build the spine first, publish it as the marketing artifact.** Aerospace standards map (DO-178C/DO-254/ARP4754B/ARP4761A/ECSS/AS9100D/14 CFR) rendered as a coverage dashboard — the aerospace equivalent of the ATT&CK Navigator. This is the 31k★ moat and it is unbuildable-by-hobbyists.
+1. **Build the spine first, publish it as the marketing artifact.** Aerospace standards map (DO-178C/DO-254/ARP4754B/ARP4761A/ECSS/AS9100D/14 CFR) rendered as a coverage dashboard — the aerospace equivalent of the ATT&CK Navigator. This is the 30k+★ moat and it is unbuildable-by-hobbyists.
 2. **Clone the Cybersecurity repo structure verbatim** (skills/<name>/SKILL.md + references/standards.md + workflows.md + scripts/ + assets/, frontmatter with standards fields, When to Use/Prerequisites/Workflow/Verification bodies) on the agentskills.io spec.
 3. **Clone the K-Dense operational stack:** Skill Spec Validation CI, security-scan CI (Cisco AI Defense skill-scanner), per-skill pytest suites in isolated envs, auto-versioned releases, docs/skills.md inventory, CONTRIBUTING with schema rules.
-4. **Ship evals + benchmarks like SimpleEnglish** — measured before/after per skill ("agent with AeroSkills vs without: X% fewer spec violations, Y% fewer unit errors on worked examples"). Evals were the #1 growth driver in the ASD-STE100 race (2,937★ vs 1,574★ vs 0★ for the same idea).
+4. **Ship evals + benchmarks like SimpleEnglish** — measured before/after per skill ("agent with AeroSkills vs without: X% fewer spec violations, Y% fewer unit errors on worked examples"). Evals were the #1 growth driver in the ASD-STE100 race (SimpleEnglish 2,937★ vs danyuchn/asd-ste100-skill 1,574★ vs hakimzulkufli/asd-ste100-skills 0★ for the same idea).
 5. **Cross-harness + distribution from day one:** agentskills.io conformance, plugin.json, `npx skills add`, openskills, prpm, gh skill install, skills.sh listing, 20+ platform claim.
 6. **SEP-2640-conformant skills-over-MCP serving** (Resources-based, `skill://` URIs — not FastMCP's divergent SkillsProvider), register in the MCP registry, comment on SEP-2640/skills.json as an aerospace voice. Being the reference aerospace implementation while the WG standardizes = protocol-level first-mover.
 7. **Differentiate beyond the copy:** compliance hooks (airworthiness narrative), curriculum alignment (ABET/career tracks — no competitor has it), router skill, and integration skills that invoke the existing computation MCP servers (IO-Aerospace, the-hangar) — turning them into complements instead of competitors.
@@ -253,7 +253,7 @@ skills/<skill-name>/
 
 ### Timing verdict
 - The format (agentskills.io) is stable; the distribution (SEP-2640) is being standardized *now* (draft, v1 scope July 2026) — early participation is cheap, late participation is expensive.
-- The adjacent-domain winners (31k★ each) are 6–10 months old; the aerospace lane has zero serious entrants (largest dedicated repo 60★, abandoned; largest active 19★).
+- The adjacent-domain winners (30–40k★ each) are 6–10 months old; the aerospace lane has zero serious entrants (largest dedicated repo 60★, abandoned; largest active 22★).
 - ASD-STE100's July 2026 viral moment proved aerospace-standards-as-skills *can* go viral when packaged with evals — but it was writing-focused, not engineering.
 - **First-mover window: open, and closing as fast as the WG ships SEP-2640 and as early adopters in aerospace companies standardize their own skill stacks. The winning move is to be the library everyone else's company-internal skills get compared to.**
 
@@ -264,6 +264,6 @@ skills/<skill-name>/
 - Standards/ecosystem: agentskills.io (overview + specification), modelcontextprotocol.io Skills Over MCP charter, SEP-2640 draft (experimental-ext-skills/docs/sep-draft-skills-extension.md), modelcontextprotocol/servers#3636, mcpservers.org (Orbit-MCP), publicmcpservers.com (IO-Aerospace), glama.ai (cheesejaguar), awesomeskills.dev (the-hangar), explainx.ai (ASD-STE100 analysis), skillsllm.com (star count), MoonDAO proposal (LunCoSim)
 
 ## Appendix B — Figures to quote in marketing
-- Largest aerospace skills repo by stars: **60★ (abandoned, 3 commits)** · largest active: **19★** · total across all attempts: **~228★**
-- Adjacent winners: cybersecurity **31.1k★/817 skills/6 frameworks** · scientific **31.9k★/163 skills** · anthropics/skills **~172k★**
+- Largest aerospace skills repo by stars: **60★ (abandoned, 3 commits)** · largest active: **22★** · total across all attempts: **~228★**
+- Adjacent winners: cybersecurity **31.7k★/818 skills/6 frameworks** · K-Dense scientific **39.1k★/163 skills** · anthropics/skills **~172k★**
 - Same-week ASD-STE100 race: **2,937★ (evals+marketing) vs 1,574★ (good distribution) vs 0★ (no distribution)**

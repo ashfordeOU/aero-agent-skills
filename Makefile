@@ -8,7 +8,8 @@
 #   gate 4 no-verbatim    RTCA/SAE/IAQG copyright control, skills/ + docs/
 #   gate 5 hit1           Hit@1 corpus eval, deterministic offline router
 
-.PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1
+.PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 \
+        attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep
 
 validate: lint-spec desc-lint pytest-contract no-verbatim hit1
 	@echo "AeroSkills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
@@ -27,3 +28,23 @@ no-verbatim:
 
 hit1:
 	@scripts/gate-hit1-corpus.sh
+
+# Attestation gates (milestone 2026-08-31): number snapshot (offline, at rest),
+# brief-audit against the canonical register, content-policy sweep. All three
+# deterministic, no network. `make snapshot-live` refreshes the evidence and
+# runs BEFORE committing (a fresh state snapshot is part of each complete commit).
+.PHONY: attest
+attest: number-snapshot-offline brief-audit content-policy-sweep
+	@echo "AeroSkills attest: PASS (number snapshot offline + brief audit + content policy green)"
+
+snapshot-live:
+	@ops/automation/number-snapshot.sh --live
+
+number-snapshot-offline:
+	@ops/automation/number-snapshot.sh --offline
+
+brief-audit:
+	@ops/automation/brief-audit.sh
+
+content-policy-sweep:
+	@ops/automation/content-policy-sweep.sh

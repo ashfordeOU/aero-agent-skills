@@ -1,14 +1,14 @@
 # Market Research: Aerospace Engineering Skills Library for AI Agents (AeroSkills)
 
-**Date:** 2026-08-30 · **Method:** GitHub API + GitHub repo pages (verified star counts) + web search · **Currency note:** all star counts verified 2026-08-30 unless marked "unverified"
+**Date:** 2026-08-30 · **Method:** GitHub API + GitHub repo pages (verified star counts) + web search · **Currency note:** all star counts verified 2026-08-30 unless marked "unverified"; canonical live baseline 2026-08-31 in ops/automation/numbers.yaml (K-Dense 39,111 · cyber 31,700 · devideamax 21 · ajhcs 22)
 
 ---
 
 ## 1. Executive Summary
 
 - The **agent-skills market overall is enormous and hyper-saturated** (anthropics/skills 172.5k★, addyosmani/agent-skills 90.5k★, sickn33/agentic-awesome-skills 45.5k★), but it is dominated by **generic software-development skills**.
-- The **domain-vertical skill library model is proven by exactly two breakout winners**: cybersecurity (mukul975/Anthropic-Cybersecurity-Skills, 31.2k★, 818 skills) and science (K-Dense/scientific-agent-skills, 38.0k★, ~163 skills). Both are ~10 months old, both built by individuals/small startups, both on the open agentskills.io standard.
-- **Aerospace is effectively an empty category.** The largest dedicated aerospace agent-skills repo on GitHub has **16 stars** (devideamax/aerospace-team, 12 skills). All aerospace MCP servers have 0–15 stars. Aggregate skill libraries list "aerospace" as a category with **2 skills** (and those are mislabeled web-dev skills).
+- The **domain-vertical skill library model is proven by exactly two breakout winners**: cybersecurity (mukul975/Anthropic-Cybersecurity-Skills, 31.7k★, 818 skills) and science (K-Dense/scientific-agent-skills, 39.1k★, ~163 skills). Both are ~10 months old, both built by individuals/small startups, both on the open agentskills.io standard.
+- **Aerospace is effectively an empty category.** The largest dedicated aerospace agent-skills repo on GitHub is **devideamax/aerospace-team at 21★** (12 skills). All aerospace MCP servers have 0–15 stars. Aggregate skill libraries list "aerospace" as a category with **2 skills** (and those are mislabeled web-dev skills).
 - **Whitespace conclusion: genuine and large.** Demand-side proof exists (cybersecurity and scientific libraries grew 30–40k stars in months with identical positioning: standards-aligned, framework-mapped, agentskills.io-compliant skill packs). Supply side for aerospace is near-zero, fragmented across hobby-scale MCP servers, and the commercial players (Vecteur, Navier, AwerX, Deepsky) are building closed platforms, not open skill libraries.
 - Risk: aerospace is a smaller, slower-moving buyer population than infosec/research; skills must target real engineering workflows (certification, MDAO, mission design) and the "smart router" delivery has a direct precedent (sickn33 AAS Core control plane) that is worth copying.
 
@@ -20,7 +20,7 @@
 
 | Repo | Stars | Created | What it covers |
 |---|---|---|---|
-| **devideamax/aerospace-team** (github.com/devideamax/aerospace-team) | **16** | 2026-02 | "Space Engineering Pack": **12 Claude Code skills** for spacecraft & launch vehicle design — propulsion, orbital mechanics, structural, thermal, satellite comms, power systems, GNC, payload, mission architect, ground systems. Each skill: expert persona, reference data, formulas (vis-viva, link budgets), worked examples, error catalogs, cross-skill connectors. Built by IDEAMAX Skills Factory (ideamax.eu). **The closest direct competitor in format.** |
+| **devideamax/aerospace-team** (github.com/devideamax/aerospace-team) | **21** | 2026-02 | "Space Engineering Pack": **12 Claude Code skills** for spacecraft & launch vehicle design — propulsion, orbital mechanics, structural, thermal, satellite comms, power systems, GNC, payload, mission architect, ground systems. Each skill: expert persona, reference data, formulas (vis-viva, link budgets), worked examples, error catalogs, cross-skill connectors. Built by IDEAMAX Skills Factory (ideamax.eu). **The closest direct competitor in format.** |
 | **hakimzulkufli/asd-ste100-skills** (github.com/hakimzulkufli/asd-ste100-skills) | 0 | 2026-07 | 2 agent skills for **ASD-STE100 Simplified Technical English** (aerospace maintenance documentation standard, 53 writing rules, Issue 9 vocab). Niche but authentic aerospace-standard skill. |
 | **deepskyai/agent-tools** (github.com/deepskyai/agent-tools) | 0 | 2026-04 | Aviation compliance skills + free remote MCP for **CASA/FAA/EASA/ICAO regulations search** + flight-ops calculators. By **Deepsky** ("The Compliance Team — Vanta for aviation"). Proof an aviation startup ships agent skills as a funnel. |
 
@@ -29,8 +29,8 @@
 | Repo | Stars | What it covers |
 |---|---|---|
 | **IO-Aerospace-software-engineering/mcp-server** (github.com/IO-Aerospace-software-engineering/mcp-server) | **15** | Hosted astrodynamics MCP at mcp.io-aerospace.org: celestial ephemeris, orbital mechanics, DSN ground stations, time systems. C#/AGPL. Single maintainer (sylvain-guillet). |
-| **ajhcs/mbse-agents** (github.com/ajhcs/mbse-agents) | **19** | Not MCP — **MBSE domain agents** (5 agents, 30+ standards): ARP4761A, DO-178C, ISO 26262, SysML/Capella, aerospace + defense + medical. "Agent files that turn AI coding assistants into principal systems engineers." Closest to a standards-mapped aerospace library. |
-| **0xchamin/skyintel** (github.com/0xchamin/skyintel) | 14 | VoyageIntel: air/sea/space tracking MCP, 25+ tools, agent skills, 3D globe. |
+| **ajhcs/mbse-agents** (github.com/ajhcs/mbse-agents) | **22** | Not MCP — **MBSE domain agents** (5 agents, 30+ standards): ARP4761A, DO-178C, ISO 26262, SysML/Capella, aerospace + defense + medical. "Agent files that turn AI coding assistants into principal systems engineers." Closest to a standards-mapped aerospace library. |
+| **0xchamin/skyintel** (github.com/0xchamin/skyintel) | 19 | VoyageIntel: air/sea/space tracking MCP, 25+ tools, agent skills, 3D globe. |
 | **cheesejaguar/aerospace-mcp** (github.com/cheesejaguar/aerospace-mcp) | 4 | Flight planning + space: 7,861 IATA airports, OpenAP performance, ISA atmosphere, ECEF/ECI frames, rocket trajectory, orbital mechanics. |
 | **benajaero/rocket-tools** (github.com/benajaero/rocket-tools) | 1 | "35 MCP tools for aerospace engineering" + a **skills/ library**: structural, margin-of-safety, trusses, aerodynamics, compressible flow, thermodynamics, aircraft performance, nozzle design, mission planning. 265 tests, 74% coverage. |
 | **muroc-aero/the-hangar** (github.com/muroc-aero/the-hangar) | 1 | **Hosted MCP servers for aerospace MDO** (mcp.lakesideai.dev): OAS aerostructural analysis, OCP aircraft conceptual design, PYC gas-turbine cycles, OMD OpenMDAO planner, EVT eVTOL sizing. Reproduces Brelje & Martins 2018. Org-backed (Lakeside AI). |
@@ -53,12 +53,12 @@
 ### Open-source domain libraries (the direct playbook)
 | Project | Stars | Domain | Structure / marketing |
 |---|---|---|---|
-| **K-Dense-AI/scientific-agent-skills** | **37,955** | Science (bio/chem/med/drug discovery) | 163–165 validated skills; 78+ scientific databases via a unified `database-lookup` skill; 70+ version-scoped Python-package skills; MIT; `plugin.json` packaging; BYOK local runner (k-dense-byok); claims "used by 190,000+ scientists"; heavy outbound (X, LinkedIn, YouTube webinars, Reddit); versioned releases (v2.65.0); CI security scan + skill tests. |
-| **mukul975/Anthropic-Cybersecurity-Skills** | **31,246** | Cybersecurity | 818 skills, 34 domains, **mapped to 6 frameworks** (MITRE ATT&CK v19.1, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF, MITRE F3); agentskills.io standard; Apache-2.0; works on 26+ platforms; install via `npx skills add`; release train + changelog; author academic survey (GARS-2026) for credibility. Community project, not affiliated with Anthropic. |
+| **K-Dense-AI/scientific-agent-skills** | **39,111** | Science (bio/chem/med/drug discovery) | 163–165 validated skills; 78+ scientific databases via a unified `database-lookup` skill; 70+ version-scoped Python-package skills; MIT; `plugin.json` packaging; BYOK local runner (k-dense-byok); claims "used by 190,000+ scientists"; heavy outbound (X, LinkedIn, YouTube webinars, Reddit); versioned releases (v2.65.0); CI security scan + skill tests. |
+| **mukul975/Anthropic-Cybersecurity-Skills** | **31,700** | Cybersecurity | 818 skills, 34 domains, **mapped to 6 frameworks** (MITRE ATT&CK v19.1, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF, MITRE F3); agentskills.io standard; Apache-2.0; works on 26+ platforms; install via `npx skills add`; release train + changelog; author academic survey (GARS-2026) for credibility. Community project, not affiliated with Anthropic. |
 | **GPTomics/bioSkills** | 1,187 | Bioinformatics | SKILLS.md workflows; **ARCHIVED** 2026 — lesson: single-topic science skills don't survive without a maintainer/business behind them. |
 | **briiirussell/cybersecurity-skills** | 366 | Security | Smaller competitor, MIT. |
 | **trailofbits/skills** | 6,895 | Security research | Claude Code plugin marketplace from a respected security firm — **company-branded skills as marketing/credibility**. |
-| **hashicorp/agent-skills** | 804 | Terraform/Packer | Vendor product skills (16 + 4), MPL-2.0 — pattern: **a vendor ships agent skills for its own products**. |
+| **hashicorp/agent-skills** | 855 | Terraform/Packer | Vendor product skills (16 + 4), MPL-2.0 — pattern: **a vendor ships agent skills for its own products**. |
 | **addyosmani/agent-skills** | 90,528 | Software engineering | Production-grade SDLC skills (DEFINE→SHIP). |
 | **VoltAgent/awesome-agent-skills** | 33,335 | Curated index | 1,497+ skills; "hand-picked, not AI-slop generated" positioning. |
 | **sickn33/agentic-awesome-skills** | 45,545 | General catalog | 2,005+ skills + **AAS Core: a local control plane (CLI + read-only MCP + catalog + `compose_stack` validation + immutable plan)** — i.e., the "smart router / delivery layer" concept already exists as OSS; AeroSkills' router must be materially better than this. |
@@ -78,12 +78,12 @@
 
 ## 4. Market Size & Maturity Assessment
 
-**How many exist:** Dedicated aerospace agent-skills repos: **~3** (aerospace-team 12 skills; asd-ste100 2; deepsky 2). Aerospace MCP servers: **~12–15**, all single-digit stars. Compare: cybersecurity skills repos >20 with one at 31k★; scientific >10 with one at 38k★.
+**How many exist:** Dedicated aerospace agent-skills repos: **~3** (aerospace-team 12 skills; asd-ste100 2; deepsky 2). Aerospace MCP servers: **~12–15**, all single-digit stars. Compare: cybersecurity skills repos >20 with one at 31.7k★; scientific >10 with K-Dense at 39.1k★.
 
 **Maturity by segment:**
 - Generic/coding skills: hyper-mature, crowded, star inflation (anthropics 172k, addyosmani 90k, sickn33 45k, VoltAgent 33k). Entry pointless.
 - Vertical skill libraries (security, science): **proven demand, young market** — both leaders created Oct 2025–Feb 2026 and hit 30k+ stars in ~6–10 months. Distribution levers: agentskills.io standard + `npx skills add` + plugin marketplaces + LobeHub/agent-skill.co aggregators.
-- Aerospace vertical: **pre-seed / nascent.** Highest-star dedicated asset = 16★. No standards-mapped aerospace library exists (no DO-178C/ARP4754A/ARP4761A/ECSS/MIL-STD skill packs anywhere — mbse-agents at 19★ is the only standards-flavored asset, in MBSE-agent form, not skill form).
+- Aerospace vertical: **pre-seed / nascent.** Highest-star dedicated asset = devideamax/aerospace-team at 21★. No standards-mapped aerospace library exists (no DO-178C/ARP4754A/ARP4761A/ECSS/MIL-STD skill packs anywhere — mbse-agents at 22★ is the only standards-flavored asset, in MBSE-agent form, not skill form).
 - Delivery/router layer: OSS precedents exist (sickn33 AAS Core, tech-leads-club registry, skills.sh, LobeHub market) — the "smart router" is an execution differentiator, not a category creation.
 
 **Buyer/demand reality check (honest):** cybersecurity skills rode a 4.8M-person workforce shortage narrative and a huge developer-adjacent audience; scientific skills rode academia/open-science culture. Aerospace engineers are fewer, more conservative, ITAR/export-controlled, and mostly inside primes — the organic-star path will be slower. The credible wedge is **standards & certification workflows** (the highest-leverage, most-agent-valuable aerospace knowledge) plus mission design/MDAO for the new-space startup population (Vecteur's target).

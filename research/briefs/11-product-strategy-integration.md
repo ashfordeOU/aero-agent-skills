@@ -12,7 +12,7 @@ AeroSkills is not a standalone product that *also* feeds the Operator. It is the
 The architecture conclusion is a **four-surface combination, one spine**:
 
 - **Spine:** filesystem-first SKILL.md library, Apache-2.0, standards-mapped (DO-178C/DO-254/ARP4754A/AS9100) — the open agentskills.io format gives free portability across every agent host.
-- **(a) Standalone OSS repo** — the wedge, the brand, the funnel top (the Anthropic-Cybersecurity-Skills play: 31,246★ in ~6 months, free, monetized around it).
+- **(a) Standalone OSS repo** — the wedge, the brand, the funnel top (the Anthropic-Cybersecurity-Skills play: 31,700★ in ~6 months, free, monetized around it).
 - **(b) Operator domain packs** — the monetization: the same library packaged as an "Aerospace Engineering Department" inside the Operator, with role charters, budget ledgers, schedules, and verification gates.
 - **(c) MCP server** — the enterprise/air-gapped delivery adapter (metadata listing + `get_skill`), never the source of truth.
 - **(d) Marketplace listings** — distribution amplifiers (Anthropic Marketplace 85/15, SkillExchange, etc.), near-zero marginal cost.
@@ -59,7 +59,7 @@ The Operator's value proposition — "run your engineering department as agents"
 
 The path is now well documented and multi-layered:
 
-1. **Free open-source skills → practitioner trust.** `Anthropic-Cybersecurity-Skills` (818 skills, 34 domains, mapped to MITRE ATT&CK, NIST CSF 2.0, ATLAS, D3FEND, AI RMF) hit **31,246★ / 3,724 forks in ~6 months**, Apache-2.0, monetized only via brand + consulting + adjacent products. Framework mapping (the compliance hook) is the credibility engine: "one skill, five compliance checkboxes."
+1. **Free open-source skills → practitioner trust.** `Anthropic-Cybersecurity-Skills` (818 skills, 34 domains, mapped to MITRE ATT&CK, NIST CSF 2.0, ATLAS, D3FEND, AI RMF) hit **31,700★ / 3,818 forks in ~6 months**, Apache-2.0, monetized only via brand + consulting + adjacent products. Framework mapping (the compliance hook) is the credibility engine: "one skill, five compliance checkboxes."
 2. **Free product → enterprise product.** The same domain competence became **Claude Security** — Mythos-5-powered codebase scanning, "public beta for Claude Enterprise," findings with CWE + confidence + suggested patches, adversarial verification pass, human-approval gates. This is the pattern: *free skills prove the capability, paid product packages it with governance.*
 3. **Practitioner credibility → CISO/board credibility.** Anthropic's CISO guide to agentic AI, the Zero Trust for AI Agents white paper, and the "how Anthropic's own security team uses Claude" (CLUE platform) narrative converted the security community into enterprise door-openers. Deputy CISO-authored frameworks are the enterprise entry ticket.
 4. **Ecosystem programs → institutional legitimacy.** Project Glasswing (hardening critical open-source software, partnered with AWS, Microsoft, Linux Foundation), the $35M Defender Advantage Fund, the Cyber Verification Program. Open-source security work became Anthropic's enterprise *identity*, not a marketing sidebar.
@@ -80,7 +80,7 @@ AeroSkills is the same play with a different domain and a *higher-value* buyer:
 | Glasswing / Defender fund → ecosystem | **AIAA SciTech presence, academic program, standards-body liaison** |
 | Snowflake/CrowdStrike partners | **MBSE tool vendors (Cameo/SysML), open-tool ecosystem (OpenFOAM, JSBSim), primes' digital-engineering groups** |
 
-Why this works *better* for aerospace: the audience is smaller (71.6K US aero engineers vs millions in infosec) but better paid (median $134.8K/yr), more standards-bound (every workflow must end in a compliance hook), and currently **unserved** — the largest existing aero skills repo has 16★. The demand side is live: GE Aerospace ("AI Wingmate," multi-agent hiring, $300M AI commitment), Airbus (600–700 GenAI use cases), NASA (CARE methodology for engineering LLM agents), Boeing (agentic-AI-under-human-supervision as explicit future). The whitespace is the wedge; the wedge is the proof.
+Why this works *better* for aerospace: the audience is smaller (71.6K US aero engineers vs millions in infosec) but better paid (median $134.8K/yr), more standards-bound (every workflow must end in a compliance hook), and currently **unserved** — the largest existing aero skills repo (devideamax/aerospace-team) has 21★. The demand side is live: GE Aerospace ("AI Wingmate," multi-agent hiring, $300M AI commitment), Airbus (600–700 GenAI use cases), NASA (CARE methodology for engineering LLM agents), Boeing (agentic-AI-under-human-supervision as explicit future). The whitespace is the wedge; the wedge is the proof.
 
 ### 2.3 The funnel mechanics
 
@@ -187,7 +187,7 @@ Free AeroSkills does three revenue jobs, in order:
 
 ### 6.1 Why aerospace first
 
-Aerospace is the ideal first vertical because it maximizes the *proof* per unit of effort: **highest standards density** (certification = verifiable compliance hooks = objective quality signal), **prestige halo** (aerospace credibility legitimizes every later vertical), **active demand** (GE/Airbus/NASA/Boeing all publicly investing in agentic engineering), **near-empty supply** (16★ incumbent), and **high buyer value** (defense budgets, $134.8K median salaries). Deloitte 2026 confirms A&D agentic adoption is early — the library lands before the wave.
+Aerospace is the ideal first vertical because it maximizes the *proof* per unit of effort: **highest standards density** (certification = verifiable compliance hooks = objective quality signal), **prestige halo** (aerospace credibility legitimizes every later vertical), **active demand** (GE/Airbus/NASA/Boeing all publicly investing in agentic engineering), **near-empty supply** (devideamax/aerospace-team, 21★ incumbent), and **high buyer value** (defense budgets, $134.8K median salaries). Deloitte 2026 confirms A&D agentic adoption is early — the library lands before the wave.
 
 ### 6.2 The portfolio: one playbook, five verticals
 
@@ -307,7 +307,7 @@ The playbook is identical each time: (1) map the vertical's standards backbone, 
 - Veda internal: Department-as-Code skill; AI Department Operator trinity memo (2026-08-25); competitive scans (2026-08-28: FrontierAgent, halofy, Paperclip, SuperOrgs, Chartav, Convey/Sapiom/Naive funding); Veda router (1,018–1,022 skills, BM25+tags+dense rerank, verified 2026-08-28)
 - AeroSkills briefs 01–05 (market, industry usage, router design, GTM/pricing, domain taxonomy) — all figures on stars, pricing, conversion, taxonomy drawn from those audited briefs
 - Anthropic: claude.com/solutions/cybersecurity; claude.com/product/claude-security; "How Anthropic's cybersecurity team built a threat detection platform with Claude Code"; "CISO's guide to agentic AI"; "Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders" ($35M Defender Advantage Fund, Cyber Verification Program, Project Glasswing); Snowflake–Anthropic enterprise press release
-- GitHub: mukul975/Anthropic-Cybersecurity-Skills (31,246★, 818 skills, 5-framework mapping); anthropics/skills (official, ~171.8K★); frankxai/claude-skills-library (free catalog → paid flagship packs pattern)
+- GitHub: mukul975/Anthropic-Cybersecurity-Skills (31,700★, 818 skills, 5-framework mapping); anthropics/skills (official, ~171.8K★); frankxai/claude-skills-library (free catalog → paid flagship packs pattern)
 - MCP ecosystem: 10,000+ active public servers (Anthropic Dec 2025 update); Linux Foundation AAIF donation; Skills-over-MCP WG (SEP-2640); aeroastro.org Aerospace MCP
 - Skill routing: SkillRouter (arXiv 2603.22455); Enrich-Retrieve-Rank (arXiv 2608.22695); AnamKwon/agent-skill-router benchmarks; agentskills.io spec
 - Vertical SaaS: Stackmatix vertical GTM playbook; Blume vertical-SaaS playsheet; Deloitte 2026 A&D outlook; ABS maritime AI report; maritime-executive 2026 automation editorial

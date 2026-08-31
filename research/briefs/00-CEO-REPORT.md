@@ -10,8 +10,8 @@
 Wave 1 established the whitespace. Wave 2 **confirmed it harder and added the load-bearing details** — legal safety, academic/defense buyer reality, tool licensing, and the product-strategy integration. The thesis got *stronger*: the window is real and closing (the Agent Skills format is only 10 months old; the SEP-2640 skills-MCP standard is forming; enterprises will standardize soon).
 
 **New headline numbers (wave 2):**
-- **Total stars across ALL aerospace-AI-skills attempts: ~228★.** Largest active repo: 19★. Nobody has done it.
-- Adjacent winners: Cybersecurity Skills **31.1k★/817 skills** · K-Dense Scientific **31.9k★/163 skills** — the playbook is proven twice.
+- **Total stars across ALL aerospace-AI-skills attempts: ~228★.** Largest active repo: 22★. Nobody has done it.
+- Adjacent winners: Cybersecurity Skills **31.7k★/818 skills** · K-Dense Scientific **39.1k★/163 skills** — the playbook is proven twice.
 - **~87–100 ABET aerospace programs, 30–35K students, 9,596 degrees (2024, +4.1%).**
 - Defense procurement: ~78% of tools eliminated on compliance before demo; SOC 2/ISO 27001 is the floor; CMMC 2.0 phases Nov 2025→2028.
 - **Legal: methodology is publish-safe; technical data is not** (the critical ruling, below).
@@ -113,7 +113,7 @@ Wave 1 established the whitespace. Wave 2 **confirmed it harder and added the lo
 ## 8. What the CEO Is Satisfied With (and what still needs founder)
 
 **Satisfied (audited, cross-checked, no known gaps):**
-- Market whitespace (228★ total across all attempts vs 31k★ winners)
+- Market whitespace (228★ total across all attempts vs 30–40k★ winners)
 - Legal safety framework (publish-safe methodology, gated technical data)
 - Tool licensing (skills can reference everything; never vendor)
 - Buyer map (students→engineers→firms→primes) + pricing

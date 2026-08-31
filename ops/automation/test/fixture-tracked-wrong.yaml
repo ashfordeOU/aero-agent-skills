@@ -1,0 +1,38 @@
+# NEGATIVE TEST FIXTURE — expected values deliberately wrong vs live.
+# number-snapshot.sh --live with this register MUST exit 1 (live ~39k vs 100).
+as_of: "2026-08-31"
+tracked:
+  - id: kdense
+    repo: K-Dense-AI/scientific-agent-skills
+    stars: 100
+    tolerance_pct: 1
+    aliases: ["K-Dense", "scientific-agent-skills"]
+    source: "fixture — wrong on purpose"
+  - id: cyber
+    repo: mukul975/Anthropic-Cybersecurity-Skills
+    stars: 31700
+    tolerance_pct: 1
+    aliases: ["mukul975", "Anthropic-Cybersecurity-Skills"]
+    source: "GitHub API 2026-08-31"
+  - id: devideamax
+    repo: devideamax/aerospace-team
+    stars: 21
+    tolerance_abs: 1
+    aliases: ["devideamax", "aerospace-team"]
+    source: "GitHub API 2026-08-31"
+  - id: ajhcs
+    repo: ajhcs/mbse-agents
+    stars: 22
+    tolerance_abs: 1
+    aliases: ["ajhcs", "mbse-agents"]
+    source: "GitHub API 2026-08-31"
+derived:
+  - id: largest_aerospace_repo
+    value: 22
+    tolerance_abs: 1
+    derived_from: "max(live ajhcs, live devideamax)"
+    source: "GitHub API 2026-08-31"
+  - id: total_aerospace_stars
+    value: 228
+    tolerance_pct: 10
+    source: "brief 09"

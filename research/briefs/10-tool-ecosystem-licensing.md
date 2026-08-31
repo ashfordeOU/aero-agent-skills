@@ -17,7 +17,7 @@
 
 | Tool | License | Stars | Latest release | Maintenance | Agent interface | Headless? |
 |---|---|---|---|---|---|---|
-| OpenFOAM | GPL v3 | 2,214 (Foundation dev repo) | Foundation **v14** (2025); ESI-OpenCFD **v2512** (Dec 2025) | Very active, 2 forks, huge user base | Case-dir CLI (`blockMesh`, `snappyHexMesh`, `simpleFoam`, `foamRun`), PyFoam, casefoam | Yes |
+| OpenFOAM | GPL v3 | 2,214 (Foundation dev repo) | Foundation **v14** (2025); ESI-OpenCFD **v2512** (Dec 2025) | Very active (728 forks), huge user base | Case-dir CLI (`blockMesh`, `snappyHexMesh`, `simpleFoam`, `foamRun`), PyFoam, casefoam | Yes |
 | SU2 | LGPL 2.1 | 1,787 | **v8.5.0 "Harrier"** (2025) | Very active (19.9k commits) | CLI (`SU2_CFD`), SU2_PY, `pysu2` (SWIG) | Yes |
 | JSBSim | LGPL 2.1 (Python module LGPL; MATLAB S-fn BSD; Unreal MIT) | 2,211 | **v1.3.1** | Active; NASA-verified 6DoF FDM | `JSBSim --script=…` CLI, `pip install jsbsim` | Yes |
 | AVL | GPL v2+ (Drela) | n/a (mirrors) | 3.36/3.52 (Drela; static) | Dormant upstream, stable | Interactive stdin-driven Fortran CLI; wrappers: AVLWrapper (GPL-3), JAVL (MIT, Julia) | Yes (stdin piping) |
