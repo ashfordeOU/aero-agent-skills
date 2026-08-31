@@ -21,10 +21,16 @@ check() { # check <label> <expected_exit> <actual_exit>
 
 # ---- number-snapshot.sh negatives -----------------------------------------
 note "== number-snapshot.sh =="
-# Preserve the committed state dir so the suite leaves the tree EXACTLY as it
-# found it (clean at rest even after running the tests); restored at the end.
-state_backup="$state.suite-bak"
-[ -d "$state" ] && mv "$state" "$state_backup"
+# Concurrency guard (P3.1): parallel suite runs must never touch the COMMITTED
+# state dir. Each run gets a PID-suffixed scratch state dir for its own
+# evidence; the EXIT trap removes it. The old fixed-name backup/restore race
+# (two overlapping runs both mv'ing state -> state.suite-bak, then deleting
+# each other's restored state) is gone: committed ops/automation/state is
+# never moved or deleted, so the tree is clean at rest by construction.
+test_state="$state.suite-run.$$"
+cleanup() { rm -rf "$test_state" 2>/dev/null; }
+trap cleanup EXIT
+export SNAPSHOT_STATE_DIR="$test_state"
 
 # N1: live run against fixture with wrong expected value must exit 1
 NUMBERS_YAML="$auto/test/fixture-tracked-wrong.yaml" \
@@ -32,9 +38,9 @@ NUMBERS_YAML="$auto/test/fixture-tracked-wrong.yaml" \
 check "N1 snapshot live detects drift (fixture 100 vs live ~39k)" 1 $?
 
 # N2: offline with no snapshot present must exit 1 (never silent drift)
-rm -rf "$state" 2>/dev/null
+# Deletes the PID-scratch dir (SNAPSHOT_STATE_DIR), never the committed one.
+rm -rf "$test_state" 2>/dev/null
 NUMBERS_YAML="$auto/numbers.yaml" \
-  SNAPSHOT_STATE_DIR="$state" \
   bash "$auto/number-snapshot.sh" --offline >/dev/null 2>&1
 check "N2 snapshot offline without snapshot exits 1" 1 $?
 
@@ -59,14 +65,17 @@ check "N4 content-policy-sweep flags ITAR-compliant" 1 $?
 # ops/automation (../..) and scan nested roots INCLUDING skills/. The fixture
 # tree plants a red flag in skills/dummy/SKILL.md; the pre-fix root (../../..)
 # resolved above the repo and never scanned skills/ = vacuous green. Copy the
-# CURRENT script into the fixture at runtime so the test tracks the real code.
+# CURRENT script into a PID-suffixed RUN copy of the fixture tree so the test
+# tracks the real code AND parallel runs never mutate the committed fixture
+# tree (each run plants and sweeps its own copy).
 note "== content-policy-sweep.sh root regression =="
-fixture_tree="$auto/test/fixture-tree"
-mkdir -p "$fixture_tree/ops/automation"
-cp "$auto/content-policy-sweep.sh" "$fixture_tree/ops/automation/content-policy-sweep.sh"
-bash "$fixture_tree/ops/automation/content-policy-sweep.sh" >/dev/null 2>&1
+fixture_run="$auto/test/fixture-tree-run.$$"
+cp -r "$auto/test/fixture-tree" "$fixture_run"
+mkdir -p "$fixture_run/ops/automation"
+cp "$auto/content-policy-sweep.sh" "$fixture_run/ops/automation/content-policy-sweep.sh"
+bash "$fixture_run/ops/automation/content-policy-sweep.sh" >/dev/null 2>&1
 check "N7 sweep with corrected root scans skills/ (plant found)" 1 $?
-rm -rf "$fixture_tree/ops"
+rm -rf "$fixture_run"
 
 # ---- spec-lint compliance flags (gate 1 extension) ------------------------
 # Each fixture is otherwise conformant and must trip EXACTLY the new check
@@ -102,9 +111,8 @@ check "G5 brief-audit summary line is not a largest-repo false positive" 0 $?
 bash "$repo_root/scripts/gate-spec-lint.sh" >/dev/null 2>&1
 check "G6 spec-lint gate on real skills tree exits 0" 0 $?
 
-# Restore the committed state dir (discard evidence snapshots this run wrote)
-rm -rf "$state" 2>/dev/null
-[ -d "$state_backup" ] && mv "$state_backup" "$state"
+# No restore needed: committed ops/automation/state was never touched; the
+# PID-scratch state dir is removed by the EXIT trap.
 
 note ""
 if [ "$fail" -eq 0 ]; then

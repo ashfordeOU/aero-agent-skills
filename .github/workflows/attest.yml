@@ -14,3 +14,5 @@ jobs:
         run: make validate
       - name: Attestation gates (offline, deterministic at rest)
         run: make attest
+      - name: Negative-control regression suite (N1-N7, G1-G6)
+        run: bash ops/automation/test/run-tests.sh
