@@ -22,7 +22,7 @@ a format-level claim, not a per-host test report.
    airworthy.
 4. The lane is empty. Total across all attempts is about 228★.
    Adjacent domains prove the play: Anthropic-Cybersecurity-Skills at
-   31.7k★, K-Dense Scientific Agent Skills at 39.1k★.
+   31.7k★, K-Dense Scientific Agent Skills at 39.5k★.
 5. Format-level cross-harness: SKILL.md on the open agentskills.io
    format, loadable by any host that reads it (Claude Code, Hermes,
    OpenClaw, Codex). Apache-2.0. Star the repo if it saves you an

@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-30 · **Author:** AeroSkills research (subagent) · **Status:** Evidence-backed, all figures measured via live web extraction on 2026-08-30 unless noted
 
-**Headline verdict:** The whitespace is real and larger than expected. Every aerospace-skills attempt is a single-author hobby project (max 105★ — LunCoSim/lunco-sim, and it's a simulation platform, not a skills library). Meanwhile, two adjacent winners — cybersecurity skills (~31.7k★) and scientific skills (39.1k★) — proved the exact playbook AeroSkills needs, and the distribution standard (agentskills.io + SEP-2640 skills-over-MCP) is being standardized *right now*. Nobody has executed the cybersecurity-skills playbook in aerospace. The window is open.
+**Headline verdict:** The whitespace is real and larger than expected. Every aerospace-skills attempt is a single-author hobby project (max 105★ — LunCoSim/lunco-sim, and it's a simulation platform, not a skills library). Meanwhile, two adjacent winners — cybersecurity skills (~31.7k★) and scientific skills (39.5k★) — proved the exact playbook AeroSkills needs, and the distribution standard (agentskills.io + SEP-2640 skills-over-MCP) is being standardized *right now*. Nobody has executed the cybersecurity-skills playbook in aerospace. The window is open.
 
 ---
 
@@ -164,7 +164,7 @@ skills/<skill-name>/
 5. **Domain breadth as PR:** 26→34 domains across releases shows momentum; "largest open-source cybersecurity skills library" is a self-fulfilling claim.
 6. **Apache-2.0** (enterprise-safe) vs competitors' restrictive or absent licenses.
 
-### 2.2 K-Dense Scientific Agent Skills (K-Dense-AI/scientific-agent-skills) — 39.1k★, 3,655 forks
+### 2.2 K-Dense Scientific Agent Skills (K-Dense-AI/scientific-agent-skills) — 39.5k★, 3,655 forks
 
 **Numbers:** 163 scientific/research skills, MIT (per-skill licenses in frontmatter), "used by 190,000+ scientists worldwide" claim, works with Cursor/Claude Code/Codex/Antigravity/Pi + open Agent Skills standard, also a portable **Agent Plugins** package (`plugin.json` + `skills/`).
 
@@ -176,7 +176,7 @@ skills/<skill-name>/
 - **Marketing engine:** blog (benchmarks: "frontier models match specialized scientific software on raw capability ±0.079 ppm on NMR..."), X/LinkedIn/YouTube/Reddit, star-request banner in README ("please star this repository"), renaming for reach (Claude Scientific Skills → Scientific Agent Skills for broader compatibility).
 - **Thesis-driven narrative:** "The model is no longer the bottleneck — the bottleneck is verification, provenance, and auditable workflow."
 
-**AeroSkills translation:** spec validation CI, security scan CI, auto-releases, per-skill tests, `docs/` inventory, a companion CLI/product, and a verification-provenance narrative — this is the science-domain template and it works (39.1k★).
+**AeroSkills translation:** spec validation CI, security scan CI, auto-releases, per-skill tests, `docs/` inventory, a companion CLI/product, and a verification-provenance narrative — this is the science-domain template and it works (39.5k★).
 
 ### 2.3 anthropics/skills + agentskills.io — the format itself
 
@@ -265,5 +265,5 @@ skills/<skill-name>/
 
 ## Appendix B — Figures to quote in marketing
 - Largest aerospace skills repo by stars: **60★ (abandoned, 3 commits)** · largest active: **22★** · total across all attempts: **~228★**
-- Adjacent winners: cybersecurity **31.7k★/818 skills/6 frameworks** · K-Dense scientific **39.1k★/163 skills** · anthropics/skills **~172k★**
+- Adjacent winners: cybersecurity **31.7k★/818 skills/6 frameworks** · K-Dense scientific **39.5k★/163 skills** · anthropics/skills **~172k★**
 - Same-week ASD-STE100 race: **2,937★ (evals+marketing) vs 1,574★ (good distribution) vs 0★ (no distribution)**
