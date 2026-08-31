@@ -1,0 +1,15 @@
+# Hit@1 wave-4 fragment: breguet-endurance (flight-mechanics)
+# Two tasks per new leaf skill; ben1 routes on loiter endurance
+# equation terms (specific fuel consumption, L/D, weight ratio),
+# ben2 routes on the holding segment outputs (final weight, fuel
+# burn). Both must deterministically hit
+# flight-mechanics/performance/breguet-endurance.
+tasks:
+  - id: ben1
+    query: "compute the loiter endurance time from the specific fuel consumption and lift to drag ratio with the initial and final weights using the breguet endurance equation"
+    intent: "flight mechanics; loiter endurance time from SFC, L/D, and weight ratio"
+    expected_skill: "flight-mechanics/performance/breguet-endurance"
+  - id: ben2
+    query: "find the final weight after the holding endurance segment and check the fuel burn for the loiter requirement"
+    intent: "flight mechanics; final weight after holding and loiter fuel burn check"
+    expected_skill: "flight-mechanics/performance/breguet-endurance"
