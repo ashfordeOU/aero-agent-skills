@@ -33,7 +33,7 @@ Output: patterns + recommendations for README v0.2.
 ## 1. K-Dense-AI/scientific-agent-skills — the closest analog
 
 AeroSkills' direct peer: domain library, standards-adjacent content,
-script-shipping skills, 39.9k stars. README is the most complete of the five.
+script-shipping skills; K-Dense at 39,855 stars. README is the most complete of the five.
 
 README structure:
 - 14 badges: license, version (from pyproject.toml), skill count, database
@@ -93,7 +93,7 @@ violates verify-before-credit); social badge wall; 952-line length.
 
 ## 2. mukul975/Anthropic-Cybersecurity-Skills — best structure for AeroSkills' standards map
 
-31.8k stars. The closest template for AeroSkills' differentiator (standards
+Anthropic-Cybersecurity-Skills at 31,756 stars. The closest template for AeroSkills' differentiator (standards
 mapping) and for the 12-skill catalog table.
 
 README structure:
@@ -227,7 +227,7 @@ collapsible <details> for long sections; quality-standards section.
 
 ## 5. VoltAgent/awesome-openclaw-skills — registry-derived catalog
 
-52.3k stars. 5,300+ skills filtered from the official ClawHub registry.
+52.3k stars (awesome-openclaw-skills). 5,300+ skills filtered from the official ClawHub registry.
 
 README structure:
 - Banner, tagline "Discover 5300+ community-built OpenClaw skills,
