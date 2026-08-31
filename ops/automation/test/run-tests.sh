@@ -119,8 +119,8 @@ check "P4 pack inventory --pack avionics counts 16 leaves" 0 $?
 
 pack_out=$(python3 "$pack_inv" --domain systems-engineering-safety 2>/dev/null)
 check "P5 pack inventory --domain systems-engineering-safety exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=1 skills=9"
-check "P6 pack inventory --domain systems-engineering-safety counts 9 leaves" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=10"
+check "P6 pack inventory --domain systems-engineering-safety counts 10 leaves" 0 $?
 
 python3 "$pack_inv" "$auto/test/fixture-pack-bad" >/dev/null 2>&1
 check "P7 pack inventory flags missing domain/pack frontmatter" 1 $?
