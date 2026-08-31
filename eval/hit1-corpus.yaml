@@ -477,6 +477,110 @@ tasks:
     expected_skill: "aerodynamics/airfoil/xfoil-analysis"
     pass_criteria: "cl ≈ 0.82 ±0.05 at 10 deg angle of attack; Cd0 ≈ 0.0079 ±0.001 at Re=6M (brief 05 section 6 item 7 validation anchor)"
 
+  # Wave 5 (2026-08-31): twelve new leaves across seven packs (fifty-five
+  # leaves total). Corpus grows to 126 active tasks: the 102 prior plus
+  # two per new skill (cg1/cg2, gt1/gt2, tf1/tf2, rs1/rs2, br1/br2,
+  # tp1/tp2, lon1/lon2, ee1/ee2, vs1/vs2, lig1/lig2, tbm1/tbm2,
+  # spt1/spt2). No new adversarial cross-pair tasks this wave; the
+  # existing xp set plus the per-skill adversarial wording (cg2, ee2,
+  # lon2, spt2, tbm2) keeps the router honest at the new boundaries.
+  - id: cg1
+    query: "calculate the crack-growth life with the paris law for the damage-tolerance assessment"
+    intent: "structures; fatigue crack growth life via Paris law and stress intensity"
+    expected_skill: "structures/damage-tolerance/crack-growth"
+  - id: cg2
+    query: "sum the crack-growth per cycle from the paris law and the stress-intensity range for the damage-tolerance check"
+    intent: "adversarial: miner-damage wording (sum, damage tolerance) must route to crack-growth"
+    expected_skill: "structures/damage-tolerance/crack-growth"
+  - id: gt1
+    query: "compute the ideal Brayton cycle thermal efficiency and compressor exit temperature for the gas turbine at a pressure ratio of 8"
+    intent: "propulsion; ideal Brayton cycle efficiency and compressor exit temperature"
+    expected_skill: "propulsion/gas-turbine-cycle/gas-turbine-cycle"
+  - id: gt2
+    query: "estimate the turbine exit temperature for the ideal gas turbine engine cycle"
+    intent: "propulsion; gas turbine turbine exit temperature"
+    expected_skill: "propulsion/gas-turbine-cycle/gas-turbine-cycle"
+  - id: tf1
+    query: "compute the bypass ratio and propulsive efficiency for the turbofan engine"
+    intent: "propulsion; turbofan bypass ratio and propulsive efficiency"
+    expected_skill: "propulsion/turbofan/turbofan-cycle"
+  - id: tf2
+    query: "estimate the specific thrust and net thrust of the turbofan from the mass flow and jet velocity"
+    intent: "propulsion; turbofan specific thrust from mass flow and jet velocity"
+    expected_skill: "propulsion/turbofan/turbofan-cycle"
+  - id: rs1
+    query: "size the rocket propellant mass and delta-v with the rocket equation for the launch vehicle"
+    intent: "propulsion; rocket equation delta-v and propellant mass sizing"
+    expected_skill: "propulsion/rocket/rocket-sizing"
+  - id: rs2
+    query: "compute the mass ratio and staging delta-v for the multistage rocket"
+    intent: "propulsion; rocket mass ratio and staging delta-v"
+    expected_skill: "propulsion/rocket/rocket-sizing"
+  - id: br1
+    query: "estimate the cruise range of the transport aircraft with the breguet range equation from speed, tsfc, and lift to drag ratio"
+    intent: "flight mechanics; Breguet cruise range from speed, TSFC, and L/D"
+    expected_skill: "flight-mechanics/performance/breguet-range"
+  - id: br2
+    query: "compute the cruise time and final mass from the fuel fraction for the long range mission"
+    intent: "flight mechanics; cruise time and final mass from fuel fraction"
+    expected_skill: "flight-mechanics/performance/breguet-range"
+  - id: tp1
+    query: "estimate the ground roll distance and lift off speed for the transport aircraft takeoff"
+    intent: "flight mechanics; takeoff ground roll distance and lift-off speed"
+    expected_skill: "flight-mechanics/performance/takeoff-performance"
+  - id: tp2
+    query: "compute the lift off speed and stall speed for the takeoff ground roll analysis"
+    intent: "flight mechanics; lift-off and stall speed in the takeoff analysis"
+    expected_skill: "flight-mechanics/performance/takeoff-performance"
+  - id: lon1
+    query: "compute the neutral point and static margin for the static longitudinal stability analysis"
+    intent: "flight mechanics; neutral point and static margin"
+    expected_skill: "flight-mechanics/stability-control/longitudinal-stability"
+  - id: lon2
+    query: "check the pitch stability and whether the aircraft is longitudinally stable at the current center of gravity"
+    intent: "flight mechanics; pitch stability and longitudinal stability verdict"
+    expected_skill: "flight-mechanics/stability-control/longitudinal-stability"
+  - id: ee1
+    query: "plan the envelope expansion steps and compute the corner speed against the load factor envelope"
+    intent: "flight test; envelope expansion steps and corner speed"
+    expected_skill: "flight-test-operations/envelope/envelope-expansion"
+  - id: ee2
+    query: "classify the airspeed into the flight test speed categories for the envelope expansion program"
+    intent: "flight test; airspeed classification for envelope expansion"
+    expected_skill: "flight-test-operations/envelope/envelope-expansion"
+  - id: vs1
+    query: "determine the reference stall speed vs1g from the wing loading and maximum lift coefficient for the flight test"
+    intent: "flight test; Vs1g reference stall speed from wing loading"
+    expected_skill: "flight-test-operations/performance/stall-speed-determination"
+  - id: vs2
+    query: "correct the stall speed for the weight change and check the stall margin for the flight test"
+    intent: "flight test; weight-corrected stall speed and stall margin"
+    expected_skill: "flight-test-operations/performance/stall-speed-determination"
+  - id: lig1
+    query: "select the do 160 section 22 lightning induced transient test level and waveform set for the equipment"
+    intent: "avionics; DO-160 lightning test level and waveform selection"
+    expected_skill: "avionics/do160/lightning-protection"
+  - id: lig2
+    query: "check the lightning test pass criteria verdict for no damage, no upset, and no latch up"
+    intent: "avionics; lightning test pass criteria verdict"
+    expected_skill: "avionics/do160/lightning-protection"
+  - id: tbm1
+    query: "estimate the y plus value for the first cell height and recommend the turbulence model for the cfd mesh"
+    intent: "aerodynamics; CFD y+ and turbulence model recommendation"
+    expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
+  - id: tbm2
+    query: "compute the friction velocity from the skin friction coefficient and check the wall treatment for the boundary layer"
+    intent: "aerodynamics; friction velocity and boundary layer wall treatment"
+    expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
+  - id: spt1
+    query: "compute the sun pointing angle and check the attitude is within tolerance for the spacecraft safe hold"
+    intent: "spacecraft ADCS; sun pointing angle and safe hold tolerance"
+    expected_skill: "space-systems/adcs/sun-pointing"
+  - id: spt2
+    query: "size the slew rate to acquire the sun and estimate the solar illumination factor at the sun angle"
+    intent: "spacecraft ADCS; sun acquisition slew rate and solar illumination factor"
+    expected_skill: "space-systems/adcs/sun-pointing"
+
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
   # query routes to the nearest published skill (manufacturing-quality/as9100/quality,

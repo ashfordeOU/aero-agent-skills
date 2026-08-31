@@ -1,0 +1,13 @@
+# Hit@1 wave-1 fragment: crack-growth (structures/damage-tolerance)
+# Two tasks per new leaf skill; cg2 is adversarial (plausibly routes to
+# the neighbor structures/fatigue/miner-damage, must deterministically
+# route to crack-growth).
+tasks:
+  - id: cg1
+    query: "calculate the crack-growth life with the paris law for the damage-tolerance assessment"
+    intent: "structures; fatigue crack growth life via Paris law and stress intensity"
+    expected_skill: "structures/damage-tolerance/crack-growth"
+  - id: cg2
+    query: "sum the crack-growth per cycle from the paris law and the stress-intensity range for the damage-tolerance check"
+    intent: "adversarial: miner-damage wording (sum, damage tolerance) must route to crack-growth"
+    expected_skill: "structures/damage-tolerance/crack-growth"
