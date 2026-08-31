@@ -3,7 +3,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
 [![Skills: 43 of 1,000+ target](https://img.shields.io/badge/skills-43%20of%201000%2B%20target-blue)](skills/)
-[![Standards: 14](https://img.shields.io/badge/standards-14-blue)](STANDARDS.md)
+[![Standards: 16](https://img.shields.io/badge/standards-16-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
 
@@ -46,9 +46,10 @@ demand, no lock-in, works in any host that reads the format.
 Two things separate this library from a folder of prompts:
 
 - **Standards map.** Every skill carries standards frontmatter that
-  resolves against standards-map.yaml: the 13 domain standards
+  resolves against standards-map.yaml: the 15 domain standards
   DO-178C, DO-254, ARP4754A, ARP4761A, AS9100, DO-330, DO-160G,
-  AS9102, MMPDS, FAR-25, CS-25, ECSS, and NACA TR-824, plus SEP-2640
+  AS9102, MMPDS, FAR-25, CS-25, FAR-33, ARINC 429, ECSS, and NACA
+  TR-824, plus SEP-2640
   as the delivery format (skills over MCP), separate from the domain
   list. Referenced and summarized, never copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
@@ -70,11 +71,12 @@ Two things separate this library from a folder of prompts:
 > standards text is reproduced. Standards are referenced and
 > summarized only: DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
 > DO-330 (© RTCA/EUROCAE), DO-160G (© RTCA/EUROCAE ED-14G),
-> AS9102 (© IAQG/SAE), and MMPDS (© SAE) remain the property of
-> their publishers and must be purchased from them; ECSS and
-> FAR/CS-25 are freely available (public regulations or free
-> downloads); SEP-2640 is an open specification from the MCP working
-> group (see STANDARDS.md).
+> AS9102 (© IAQG/SAE), MMPDS (© SAE), and ARINC 429
+> (© ARINC/SAE ITC) remain the property of
+> their publishers and must be purchased from them; ECSS,
+> FAR/CS-25, and FAR-33 are freely available (public regulations or
+> free downloads); SEP-2640 is an open specification from the MCP
+> working group (see STANDARDS.md).
 >
 > As published, without restrictions on further dissemination, this
 > library falls within the EU dual-use "public domain" exclusion (Annex I
