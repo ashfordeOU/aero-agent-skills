@@ -175,8 +175,8 @@ check "N18 stale-number guard flags planted Wave-5-era counts ('43 skills' ... '
 # 100/112/216. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-83-class" >/dev/null 2>&1
 check "N19 stale-number guard flags planted Wave-4-era counts ('83 skills' ... '182 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-83-class" >/dev/null 2>&1
-check "N20 stale-number guard exempts live wave-4 vocabulary ('100 leaf skills' ... '216 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-112-class" >/dev/null 2>&1
+check "N20 stale-number guard exempts live wave-5 vocabulary ('112 leaf skills' ... '240 tasks')" 0 $?
 # R7 re-grade (Ops track): Wave-5-fanout stale class ('100 skills',
 # '100 leaf skills', '100 verified', '112 SKILL.md', '216/216',
 # '216 tasks') that became stale when the wave pushed live counts to
