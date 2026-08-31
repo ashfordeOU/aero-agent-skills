@@ -1,0 +1,12 @@
+# Hit@1 wave-5 fragment: compressor-map (propulsion/axial-compressor)
+# Two tasks per new leaf skill; cmap1 and cmap2 both target the axial
+# compressor operating map leaf and must deterministically route to it.
+tasks:
+  - id: cmap1
+    query: "compute the surge margin and operating line clearance for the axial compressor map at the cruise operating point"
+    intent: "propulsion; axial compressor map surge margin and operating line clearance"
+    expected_skill: "propulsion/axial-compressor/compressor-map"
+  - id: cmap2
+    query: "correct the measured mass flow and rotor speed to standard day conditions and check whether the compressor operating point is approaching the surge line"
+    intent: "propulsion; corrected flow and corrected speed, surge proximity verdict"
+    expected_skill: "propulsion/axial-compressor/compressor-map"
