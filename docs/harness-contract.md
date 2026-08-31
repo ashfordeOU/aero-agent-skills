@@ -10,13 +10,13 @@ organized into nine installable domain packs (avionics,
 space-systems, systems-engineering-safety, manufacturing-quality,
 cross-cutting, aerodynamics, gnc-autonomy, structures, vehicle-design)
 per the 12-discipline taxonomy; every pack carries a router
-SKILL.md (36 SKILL.md under gate 1: 9 routers + 27 leaves); every
+SKILL.md (52 SKILL.md under gate 1: 9 routers + 43 leaves); every
 SKILL.md carries top-level `domain` and `pack` frontmatter
 (enforced by scripts/pack_inventory.py, listed via `make packs`);
 corpus tasks and future pins use pack paths. Owner: Ops Manager, Phase 0 build.
 P3.5 (2026-08-31): library expansion to twenty-seven verified skills
-in nine installable domain packs (36 SKILL.md under gate 1: 9 routers
-+ 27 leaves). Fifteen new leaves across four new packs (aerodynamics,
+in nine installable domain packs (52 SKILL.md under gate 1: 9 routers
++ 43 leaves). Fifteen new leaves across four new packs (aerodynamics,
 gnc-autonomy, structures, vehicle-design) and the existing packs
 (avionics +3, space-systems +2, systems-engineering-safety +2,
 manufacturing-quality +1). standards-map.yaml extended with do-330,
@@ -74,7 +74,7 @@ exit 0 before any skill is committed as shippable.
 | 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
 | 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
 | 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
-| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 66/66 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
+| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 102/102 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
 
 ## Gate detail
 
