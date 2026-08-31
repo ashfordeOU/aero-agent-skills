@@ -15,9 +15,28 @@
 # Scan roots: README.md, marketing/, docs/, development/builds/, skills/,
 # support/ (publishable content). research/ briefs are internal evidence and
 # legitimately discuss the policy terms — exempt by design.
+#
+# SCOPE DECISION (P2.1 rework, 2026-08-31): repo_root is TWO levels up from
+# ops/automation (../..), i.e. the repository root — NOT three (../../..),
+# which resolved to $HOME and made this sweep vacuous (skills/ never scanned).
+# The corrected sweep genuinely scans README.md + marketing/ + docs/ +
+# development/builds/ + skills/ + support/.
+#
+# Meta-doc exemption: documents whose purpose is to DEFINE this sweep or the
+# policy itself necessarily quote the red-flag terms (e.g. the attestation
+# gates design spec lists "CLASSIFIED/SECRET//NOFORN" as the pattern being
+# swept). Those are definitional quotes with clear context, exempted below by
+# explicit relative path. Buyer-facing content (README, marketing, skills,
+# support) is NEVER exempt: any hit there fails the gate.
 # Exit 0 clean; exit 1 listing file:line for each hit. Wired into CI.
 set -uo pipefail
-repo_root="$(cd "$(dirname "$0")/../../.." && pwd)"
+repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
+
+# Explicit meta-doc exemptions (definitional quotes of policy terms).
+# Keep this list minimal and auditable: every entry states WHY in a comment.
+meta_doc_exempt=(
+  "docs/superpowers/specs/2026-08-31-attestation-gates-design.md" # defines the sweep pattern list itself
+)
 
 if [ "$#" -gt 0 ]; then
   roots=("$@")
@@ -43,8 +62,21 @@ patterns=(
 )
 
 hits=0
+# skip <line> — drop grep lines from exempt meta-doc paths (definitional
+# quotes of the policy terms, recorded in the header). Matches the relative
+# path wherever it appears in grep's "<abs-or-rel-path>:<line>:" prefix.
+skip_exempt() {
+  local line="$1" ex
+  for ex in "${meta_doc_exempt[@]}"; do
+    case "$line" in
+      *"$ex:"*) return 1 ;;
+    esac
+  done
+  return 0
+}
 for pat in "${patterns[@]}"; do
   while IFS= read -r line; do
+    skip_exempt "$line" || continue
     echo "FAIL content-policy-sweep: $line" >&2
     hits=$((hits + 1))
   done < <(grep -rniE -- "$pat" "${roots[@]}" 2>/dev/null || true)

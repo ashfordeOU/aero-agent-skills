@@ -31,9 +31,10 @@
   no test suite). Evals were the ASD-STE100 race growth driver: 2,937 vs
   1,574 vs 0 stars, same week (09 §1.10).
 - Term discipline is legal-adjacent: "standards-mapped" is factual,
-  "certified"/"ITAR-compliant" implies certification. Mis-marking public
-  content is itself a compliance failure (06 §8.3.9). Copy must say "not
-  controlled technical data as published, verify before use".
+  "certified" implies certification, as do claims of export-control
+  approval. Mis-marking public content is itself a compliance failure
+  (06 §8.3.9). Copy must say "not controlled technical data as
+  published, verify before use".
 - Number hygiene: K-Dense stars unreconciled (31.9k brief vs 39,082 Intel
   live vs 37,955 Ops). No buyer-facing figure ships without a reconcile.
 - Clean-at-rest broken: research/briefs/00-CEO-REPORT.html untracked
@@ -74,8 +75,8 @@ brief 09 mocks in competitors. Evals were the ASD-STE100 winner growth
 driver (2,937 vs 1,574 vs 0 stars, same week).
 
 WEAK: term discipline is legal-adjacent. Standards-mapped is ok, never
-certified or ITAR-compliant, mis-marking is itself a compliance failure
-(06). K-Dense stars unreconciled (31.9k vs 39,082), no figure ships
+certified, never claims of export-control approval; mis-marking is
+itself a compliance failure (06). K-Dense stars unreconciled (31.9k vs 39,082), no figure ships
 without a reconcile. Repo not clean at rest, 00-CEO-REPORT.html untracked.
 
 Preparing at the fence: positioning 1-pager, README v0.1 with compliance

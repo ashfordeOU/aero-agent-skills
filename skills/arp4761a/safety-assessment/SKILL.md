@@ -53,7 +53,7 @@ analysis set for a certification program.
 
 - Running the SSA before the architecture is fixed (sequence error).
 - Dropping CCA at levels A/B where common-cause analysis is expected.
-- Severity classified without the FHA-to-PSSA-to-SSA chain.
+- Severity assigned without the FHA-to-PSSA-to-SSA chain.
 - Analysis set fixed without consulting the approved safety plan.
 
 ## Behavior contract (gate 3)
@@ -67,4 +67,7 @@ python3 scripts/test_safety_assessment.py
 
 - Standards referenced, not reproduced: ARP4761A / ARP4754A text is
   proprietary (SAE); summary-only per standards-map.yaml and brief 06.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

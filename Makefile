@@ -4,7 +4,7 @@
 #
 #   gate 1 lint-spec      agentskills.io conformance (spec_lint.py)
 #   gate 2 desc-lint      description what+when+trigger (desc_lint.py)
-#   gate 3 pytest-contract  DAL A-E behavior test, stdlib unittest (do178c_levels.py)
+#   gate 3 pytest-contract  per-skill DAL A-E behavior test, stdlib unittest (skill-shipped scripts/test_*.py)
 #   gate 4 no-verbatim    RTCA/SAE/IAQG copyright control, skills/ + docs/
 #   gate 5 hit1           Hit@1 corpus eval, deterministic offline router
 

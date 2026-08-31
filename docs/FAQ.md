@@ -49,10 +49,13 @@ publishers.
 
 ## Which tools work with these skills?
 
-Any host that loads SKILL.md files per the agentskills.io format:
-Claude Code, Hermes, OpenClaw, Codex, and 20+ others. Skills are
-plain files, so there is no lock-in. Each skill declares its
-compatibility in frontmatter.
+Any host that loads SKILL.md files per the agentskills.io format.
+Claude Code, Hermes, OpenClaw, and Codex are named examples; this is
+a format-level claim, not a per-host test report. Every skill is
+validated against the agentskills.io spec by make validate (gate 1),
+and any host that reads the format can load them. Skills are plain
+files, so there is no lock-in. Each skill declares its compatibility
+in frontmatter.
 
 ## How do I install?
 

@@ -26,7 +26,7 @@ while IFS= read -r -d '' t; do
 done < <(find "${roots[@]}" -name 'test_*.py' -print0 2>/dev/null | sort -z)
 
 if [ "$ran" -eq 0 ]; then
-  echo "FAIL gate3-pytest-contract: no contract tests found (skill 1 must ship scripts/test_do178c_levels.py)" >&2
+  echo "FAIL gate3-pytest-contract: no contract tests found (every skill ships skills/<path>/scripts/test_*.py)" >&2
   exit 1
 fi
 if [ "$fail" -ne 0 ]; then

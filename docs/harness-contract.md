@@ -3,7 +3,8 @@
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning) — 09-04 milestone landed early 2026-08-31.
 P2.1 (2026-08-31): twelve published skills; gate 3 runs twelve contract
-tests, gate 5 runs twenty-five corpus tasks. Owner: Ops Manager, Phase 0 build.
+tests, gate 5 runs twenty-eight corpus tasks (twenty-five domain tasks +
+three adversarial cross-pair tasks added in the P2.1 rework). Owner: Ops Manager, Phase 0 build.
 Sources: research/briefs/03-router-design.md (routing, Hit@1), research/briefs/05-domain-taxonomy.md
 (skill anatomy, section 6), research/briefs/06-legal-export-control.md (compliance flags, section 8).
 
@@ -80,10 +81,13 @@ ARP4754A/ARP4761A: given a failure-condition severity classification
 (Catastrophic/Hazardous/Major/Minor/No safety effect), the test asserts the
 correct DAL, FDAL/IDAL, and DO-178C software level, including coverage-depth
 implications (A=MC/DC, B=decision, C=statement, D=none, E=none). Tested
-logic lives in scripts/do178c_levels.py (importable module); the test is
-scripts/test_do178c_levels.py. Every subsequent skill ships its own
-behavior contract as skills/<path>/scripts/test_*.py alongside a sibling
-logic module (stdlib unittest, offline). P2.1 ships eleven more across the
+logic and its test live with the skill:
+skills/avionics/do178c/planning/scripts/do178c_levels.py and
+scripts/test_do178c_levels.py (stdlib unittest, offline) — the P2.1 rework
+moved skill 1's contract in-tree so all twelve skills are self-contained
+(superseded the repo-root scripts/ copy). Every skill ships its behavior
+contract as skills/<path>/scripts/test_*.py alongside a sibling logic
+module. P2.1 ships eleven more across the
 certification spine: development (traceability closure per DAL), verification
 (coverage depth + independence), configuration-management (baselines/change
 control/release gate), systems-planning (FDAL/IDAL + planning artifacts),
@@ -117,16 +121,21 @@ Runner: scripts/gate-no-verbatim.sh (markers) + scripts/verbatim_table_scan.py (
 Fixed corpus of active tasks (eval/hit1-corpus.yaml), resolved by the
 flat+tags router (brief 03 section 5 layer 2 stage 1: token overlap over
 tags/name/description/body with tag boost; deterministic, offline). Pass =
-top-1 == expected_skill for all tasks (25 as of P2.1).
+top-1 == expected_skill for all tasks (28 as of the P2.1 rework: 25
+domain tasks + 3 adversarial cross-pair tasks, xp1-xp3, whose wording
+plausibly routes to 2+ domains and must resolve deterministically with no
+collision).
 
 Phase 0 pinned the active tasks to skill 1 (avionics/do178c/planning).
 P2.1 promotes tasks for every published skill: the corpus now carries
-twenty-five active tasks across the twelve skills (three DO-178C planning,
+twenty-eight active tasks across the twelve skills (three DO-178C planning,
 two development, two verification, two configuration-management, two
 ARP4754A systems-planning, two DO-254 hardware-planning, two ARP4761A
 safety-assessment, two AS9100 quality, two FAR-25/CS-25 airworthiness, two
 ECSS space software-engineering, two MBSE systems-engineering, two SEP-2640
-skill-delivery). The brief-03 canonical
+skill-delivery, three adversarial cross-pair). The Phase-0 baseline is
+reconciled 5/5 in the corpus header (1 live task + 4 future_pins including
+the XFOIL NACA 0012 pin added in the rework). The brief-03 canonical
 queries (CubeSat battery, weight-and-balance, engine overhaul) are
 preserved as future_pins and promoted into tasks as those skills publish.
 

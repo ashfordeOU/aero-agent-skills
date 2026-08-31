@@ -2,12 +2,24 @@
 # Fixed queries evaluated by scripts/router_eval.py (flat+tags token-overlap
 # router per research/briefs/03-router-design.md section 5). No network.
 #
-# Active tasks cover every published skill. Phase 0 pinned the first three
-# to skill 1 (avionics/do178c/planning); P2.1 added the certification-spine
-# skills and their tasks. The brief-03 cross-domain queries (CubeSat battery,
-# weight-and-balance, engine overhaul) remain under future_pins and are
-# promoted into tasks as their skills publish - the gate asserts every
-# tasks: entry resolves top-1.
+# Active tasks cover every published skill. The Phase-0 baseline (5 canonical
+# eval queries from brief 03 section 5 + brief 05 section 7 validation anchor)
+# is reconciled 5/5 as of the P2.1 rework (2026-08-31):
+#   1. DO-178C coverage (p1)          -> LIVE task (avionics/do178c/planning)
+#   2. CubeSat battery (t1)           -> future_pin (space/subsystems/power-thermal-budget)
+#   3. weight-and-balance (t2)        -> future_pin (design/sizing/weight-estimation)
+#   4. engine overhaul (t3)           -> future_pin (as9100/quality; path fixed from stale
+#                                       mfg/quality/as9100-qms — nearest published skill until
+#                                       an MRO/maintenance skill publishes)
+#   5. XFOIL NACA 0012 polar (t4)     -> future_pin (aero/airfoil/xfoil-analysis; added P2.1
+#                                       rework with pass criteria from brief 05 section 7)
+# 5/5 accounted: 1 live task + 4 future_pins. future_pins are NOT asserted by
+# the gate; they are promoted into tasks: as their skills publish, at which
+# point the gate asserts top-1 == expected_skill.
+#
+# P2.1 rework also adds xp1-xp3: adversarial cross-pair tasks whose wording
+# plausibly routes to 2+ domains. Each asserts a deterministic top-1 with no
+# collision (verified against the router at authoring time).
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -134,6 +146,23 @@ tasks:
     intent: "SEP-2640 skill delivery; server readiness capabilities"
     expected_skill: "sep2640/skill-delivery"
 
+  # Adversarial cross-pair tasks (P2.1 rework): each query plausibly routes
+  # to 2+ domains; the assertion locks a deterministic top-1 with no collision.
+  - id: xp1
+    query: "quality system for safety assessment"
+    intent: "cross-pair: AS9100 quality system vs ARP4761A safety assessment vs ARP4754A systems planning"
+    expected_skill: "as9100/quality"
+
+  - id: xp2
+    query: "manage configuration baselines for a safety assessment program"
+    intent: "cross-pair: DO-178C configuration management vs ARP4761A safety assessment vs ARP4754A systems planning"
+    expected_skill: "avionics/do178c/configuration-management"
+
+  - id: xp3
+    query: "traceability between safety requirements and verification evidence"
+    intent: "cross-pair: DO-178C development traceability vs verification vs MBSE digital-thread closure"
+    expected_skill: "avionics/do178c/development"
+
 future_pins:
   # Brief 03 section 5 canonical queries - promote when those skills publish.
   - id: t1
@@ -148,5 +177,11 @@ future_pins:
 
   - id: t3
     query: "plan an engine-overhaul checklist"
-    intent: "maintenance planning, teardown/inspection/assembly gates"
-    expected_skill: "mfg/quality/as9100-qms"
+    intent: "maintenance planning, teardown/inspection/assembly gates; pinned to published as9100/quality (MRO-adjacent production assurance) until an MRO/maintenance skill publishes"
+    expected_skill: "as9100/quality"
+
+  - id: t4
+    query: "run an XFOIL polar analysis of the NACA 0012 airfoil and validate the lift and drag coefficients"
+    intent: "aerodynamics; XFOIL airfoil polar analysis and validation against a known reference"
+    expected_skill: "aero/airfoil/xfoil-analysis"
+    pass_criteria: "cl ≈ 0.82 ±0.05 at 10 deg angle of attack; Cd0 ≈ 0.0079 ±0.001 at Re=6M (brief 05 section 7 validation anchor)"

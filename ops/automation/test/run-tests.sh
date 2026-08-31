@@ -55,6 +55,19 @@ note "== content-policy-sweep.sh =="
 bash "$auto/content-policy-sweep.sh" "$auto/test/fixture-policy-bad.md" >/dev/null 2>&1
 check "N4 content-policy-sweep flags ITAR-compliant" 1 $?
 
+# N7 (P2.1 rework): root regression - the sweep must resolve repo_root from
+# ops/automation (../..) and scan nested roots INCLUDING skills/. The fixture
+# tree plants a red flag in skills/dummy/SKILL.md; the pre-fix root (../../..)
+# resolved above the repo and never scanned skills/ = vacuous green. Copy the
+# CURRENT script into the fixture at runtime so the test tracks the real code.
+note "== content-policy-sweep.sh root regression =="
+fixture_tree="$auto/test/fixture-tree"
+mkdir -p "$fixture_tree/ops/automation"
+cp "$auto/content-policy-sweep.sh" "$fixture_tree/ops/automation/content-policy-sweep.sh"
+bash "$fixture_tree/ops/automation/content-policy-sweep.sh" >/dev/null 2>&1
+check "N7 sweep with corrected root scans skills/ (plant found)" 1 $?
+rm -rf "$fixture_tree/ops"
+
 # ---- spec-lint compliance flags (gate 1 extension) ------------------------
 # Each fixture is otherwise conformant and must trip EXACTLY the new check
 # (license/compliance/standards/gated/metadata enforcement).
