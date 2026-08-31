@@ -1,0 +1,14 @@
+# Hit@1 wave-1 fragment: breguet-range (flight-mechanics)
+# Two tasks per new leaf skill; br1 routes on range equation terms
+# (speed, TSFC, L/D), br2 routes on mission inputs (cruise time,
+# final mass, fuel fraction). Both must deterministically hit
+# flight-mechanics/performance/breguet-range.
+tasks:
+  - id: br1
+    query: "estimate the cruise range of the transport aircraft with the breguet range equation from speed, tsfc, and lift to drag ratio"
+    intent: "flight mechanics; Breguet cruise range from speed, TSFC, and L/D"
+    expected_skill: "flight-mechanics/performance/breguet-range"
+  - id: br2
+    query: "compute the cruise time and final mass from the fuel fraction for the long range mission"
+    intent: "flight mechanics; cruise time and final mass from fuel fraction"
+    expected_skill: "flight-mechanics/performance/breguet-range"
