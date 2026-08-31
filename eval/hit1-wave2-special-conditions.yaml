@@ -1,0 +1,15 @@
+# Hit@1 wave-2 fragment: special-conditions (avionics/far-cs25)
+# Two tasks per new leaf; sc1 routes on the special-conditions decision
+# for a novel fly-by-wire flight control (novelty, envelope protection,
+# FAR 25), sc2 routes on scoping the special condition content for a
+# novel composite wing structure (subject, means of compliance). Both
+# must deterministically hit avionics/far-cs25/special-conditions.
+tasks:
+  - id: sc1
+    query: "determine whether a fly by wire flight control with novel envelope protection needs a special condition under far 25"
+    intent: "certification; special-conditions verdict for a novel fly-by-wire flight control"
+    expected_skill: "avionics/far-cs25/special-conditions"
+  - id: sc2
+    query: "scope the special condition content for the novel composite wing structure with the means of compliance"
+    intent: "certification; special-condition scope and means of compliance for a novel composite wing"
+    expected_skill: "avionics/far-cs25/special-conditions"
