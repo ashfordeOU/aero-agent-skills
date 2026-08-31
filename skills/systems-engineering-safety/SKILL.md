@@ -1,6 +1,6 @@
 ---
 name: systems-engineering-safety
-description: "Use when a task concerns aircraft or system-level engineering and safety assurance: guide the router to the systems-engineering-safety pack, covering ARP4754A systems planning and requirements traceability and validation, the ARP4761A safety assessment process and fault tree and FMEA analyses, common cause analysis and particular risk analysis, and model-based systems engineering with SysML modeling and digital-thread traceability. This pack is the systems-level spine above item-level software and hardware assurance. Trigger: systems engineering, systems safety, ARP4754A, ARP4761A, safety assessment, fault tree, FMEA, common cause, particular risk, rotor burst, traceability, validation, MBSE, SysML, FDAL, IDAL, FHA, PSSA, SSA."
+description: "Use when a task concerns aircraft or system-level engineering and safety assurance: guide the router to the systems-engineering-safety pack, covering ARP4754A systems planning and requirements traceability and validation, the ARP4761A safety assessment process and fault tree and FMEA analyses, common cause analysis and particular risk analysis, and model-based systems engineering with SysML modeling and digital-thread traceability. This pack is the systems-level spine above item-level software and hardware assurance. Trigger: systems engineering, systems safety, ARP4754A, ARP4761A, safety assessment, fault tree, FMEA, common cause, particular risk, rotor burst, traceability, validation, MBSE, SysML, FDAL, IDAL, FHA, PSSA, SSA, trade study, Pugh matrix, decision criteria, weighted scoring."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -45,6 +45,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/particular-risk-analysis | Particular risk analysis | single-event risks, rotor burst, bird strike, conditional probability, containment |
 | systems-engineering-safety/mbse/systems-engineering | MBSE systems engineering | SysML modeling, function allocation, traceability closure |
 | systems-engineering-safety/mbse/sysml-modeling | SysML modeling | diagram kinds, BDD/IBD, requirement and parametric diagrams, viewpoints, governance |
+| systems-engineering-safety/mbse/trade-study-analysis | Trade study analysis | trade study, decision criteria, weighted scoring, Pugh matrix, sensitivity analysis, alternative selection |
 
 ## Routing guidance
 
@@ -64,6 +65,9 @@ model-based systems engineering (SysML, digital thread).
 - Modeling and digital-thread questions route to the MBSE
   sub-skills: system-level engineering to systems-engineering,
   diagram-specific modeling to sysml-modeling.
+- Trade study and alternative-selection questions (decision criteria
+  weights, Pugh matrix, sensitivity analysis) route to the
+  trade-study-analysis sub-skill.
 - Item-level software or hardware questions route to the avionics pack.
 
 ## Install
