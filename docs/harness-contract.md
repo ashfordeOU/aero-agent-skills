@@ -4,7 +4,16 @@ Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning) — 09-04 milestone landed early 2026-08-31.
 P2.1 (2026-08-31): twelve published skills; gate 3 runs twelve contract
 tests, gate 5 runs twenty-eight corpus tasks (twenty-five domain tasks +
-three adversarial cross-pair tasks added in the P2.1 rework). Owner: Ops Manager, Phase 0 build.
+three adversarial cross-pair tasks added in the P2.1 rework).
+P3.6 (2026-08-31): domain-pack restructure — the twelve skills are
+organized into five installable domain packs (avionics,
+space-systems, systems-engineering-safety, manufacturing-quality,
+cross-cutting) per the 12-discipline taxonomy
+(research/briefs/05-domain-taxonomy.md); every pack carries a router
+SKILL.md (17 SKILL.md under gate 1: 5 routers + 12 leaves); every
+SKILL.md carries top-level `domain` and `pack` frontmatter
+(enforced by scripts/pack_inventory.py, listed via `make packs`);
+corpus tasks and future pins use pack paths. Owner: Ops Manager, Phase 0 build.
 Sources: research/briefs/03-router-design.md (routing, Hit@1), research/briefs/05-domain-taxonomy.md
 (skill anatomy, section 6), research/briefs/06-legal-export-control.md (compliance flags, section 8).
 
@@ -31,7 +40,7 @@ exit 0 before any skill is committed as shippable.
 
 | # | Gate | Checks | Pass criteria | Status |
 |---|------|--------|---------------|--------|
-| 1 | Spec lint (agentskills.io conformance + compliance flags) | frontmatter, naming, description, body limits, compliance flags | every SKILL.md: name <=64 chars kebab-case matching parent dir; description <=1024 chars; compatibility <=500 chars; body <500 lines; references one level deep, relative paths only; license == Apache-2.0; compliance in {none, ITAR-GATED, EAR-GATED, STANDARDS-REF}; standards non-empty, each resolvable in standards-map.yaml; gated bool consistent with standards-map (gated standards must be reference-only or skill gated:true); metadata.version + metadata.author present | REAL |
+| 1 | Spec lint (agentskills.io conformance + compliance flags) | frontmatter, naming, description, body limits, compliance flags | every SKILL.md: name <=64 chars kebab-case matching parent dir; description <=1024 chars; compatibility <=500 chars; body <500 lines; references one level deep, relative paths only; license == Apache-2.0; compliance in {none, ITAR-GATED, EAR-GATED, STANDARDS-REF}; standards non-empty, each resolvable in standards-map.yaml; gated bool consistent with standards-map (gated standards must be reference-only or skill gated:true); metadata.version + metadata.author present. Every pack has a router SKILL.md at skills/<pack>/SKILL.md whose name equals the pack folder. Every SKILL.md carries top-level domain and pack frontmatter (pack membership, enforced by scripts/pack_inventory.py, not by this gate) | REAL |
 | 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
 | 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
 | 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
@@ -133,11 +142,14 @@ two development, two verification, two configuration-management, two
 ARP4754A systems-planning, two DO-254 hardware-planning, two ARP4761A
 safety-assessment, two AS9100 quality, two FAR-25/CS-25 airworthiness, two
 ECSS space software-engineering, two MBSE systems-engineering, two SEP-2640
-skill-delivery, three adversarial cross-pair). The Phase-0 baseline is
-reconciled 5/5 in the corpus header (1 live task + 4 future_pins including
-the XFOIL NACA 0012 pin added in the rework). The brief-03 canonical
-queries (CubeSat battery, weight-and-balance, engine overhaul) are
-preserved as future_pins and promoted into tasks as those skills publish.
+skill-delivery, three adversarial cross-pair). P3.6 (2026-08-31) updates
+the expected paths to the domain-pack layout (e.g.
+systems-engineering-safety/arp4754a/systems-planning) and the future pins
+to pack-scheme names; the Phase-0 baseline is reconciled 5/5 in the corpus
+header (1 live task + 4 future_pins including the XFOIL NACA 0012 pin
+added in the rework). The brief-03 canonical queries (CubeSat battery,
+weight-and-balance, engine overhaul) are preserved as future_pins and
+promoted into tasks as those skills publish.
 
 Runner: scripts/gate-hit1-corpus.sh -> scripts/router_eval.py.
 
@@ -146,6 +158,11 @@ Runner: scripts/gate-hit1-corpus.sh -> scripts/router_eval.py.
 Makefile target `validate` runs all five REAL gates and must exit 0:
 
     make validate
+
+Makefile target `packs` lists the domain-pack inventory for per-domain
+install (reads domain/pack frontmatter; deterministic, offline):
+
+    make packs
 
 Wired and REAL: gate 1 (spec lint), gate 2 (description lint), gate 3 (pytest
 contract), gate 4 (no-verbatim), gate 5 (Hit@1 corpus).
