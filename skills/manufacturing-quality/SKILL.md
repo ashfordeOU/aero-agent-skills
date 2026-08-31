@@ -1,6 +1,6 @@
 ---
 name: manufacturing-quality
-description: "Use when a task concerns aerospace manufacturing and quality management: guide the router to the manufacturing-quality pack, whose AS9100 quality, nonconformance-control, supplier-control, counterfeit-prevention, and calibration-control sub-skills cover QMS scoping, disposition, supplier risk, counterfeit scoring, and test-equipment calibration, first-article-inspection and delta-fai cover AS9102 FAI Forms 1-3, and ndt-method-selection and ultrasonic-inspection cover NDT method selection and pulse-echo ultrasonic execution. This pack is the production and quality assurance counterpart of the design certification spine. Trigger: manufacturing quality, AS9100, AS9102, first article inspection, QMS, audit evidence, corrective action, FAI, counterfeit prevention, nonconformance, disposition, MRB, supplier control, delegated verification, calibration, test accuracy ratio, NDT, radiography, ultrasonic, eddy current, penetrant, magnetic particle, pulse echo, discontinuity."
+description: "Use when a task concerns aerospace manufacturing and quality management: guide the router to the manufacturing-quality pack, whose AS9100 quality, nonconformance-control, supplier-control, counterfeit-prevention, and calibration-control sub-skills cover QMS scoping, disposition, supplier risk, counterfeit scoring, and test-equipment calibration, first-article-inspection and delta-fai cover AS9102 FAI Forms 1-3, and ndt-method-selection and ultrasonic-inspection cover NDT method selection and pulse-echo ultrasonic execution. This pack is the production and quality assurance counterpart of the design certification spine. Trigger: manufacturing quality, AS9100, AS9102, first article inspection, QMS, audit evidence, corrective action, FAI, counterfeit prevention, nonconformance, disposition, MRB, supplier control, delegated verification, calibration, test accuracy ratio, NDT, radiography, ultrasonic, eddy current, penetrant, magnetic particle, pulse echo, discontinuity, ballooning."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -44,8 +44,10 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/calibration-control | Calibration control | calibration system, traceability, intervals, TAR 4:1, out-of-tolerance handling, recall |
 | manufacturing-quality/as9102/first-article-inspection | First article inspection | FAI Forms 1-3, characteristic accountability, delta FAI |
 | manufacturing-quality/as9102/delta-fai | AS9102 delta FAI | change classification, full vs delta FAI, forms scope |
+| manufacturing-quality/as9102/ballooning | Ballooning | balloon numbers, characteristic numbering, D-list, accountability matrix, verification method code |
 | manufacturing-quality/ndt/ndt-method-selection | NDT method selection | defect class, ferromagnetic/conductive material, radiography, ultrasonic, eddy current, penetrant, magnetic particle |
 | manufacturing-quality/ndt/ultrasonic-inspection | Ultrasonic inspection | pulse-echo, time of flight to depth, wavelength, near field, discontinuity sizing |
+| manufacturing-quality/ndt/radiographic-inspection | Radiographic inspection | radiography, X-ray, gamma ray, geometric unsharpness, IQI, penetrameter, film density, porosity |
 
 ## Routing guidance
 
@@ -69,6 +71,12 @@ selection and ultrasonic inspection).
   method sensitivity) route to the ndt ndt-method-selection
   sub-skill; pulse-echo ultrasonic execution questions route to the
   ultrasonic-inspection sub-skill.
+- Ballooning and characteristic-numbering questions (balloon numbers,
+  D-list, accountability matrix, verification method codes) route to
+  the as9102 ballooning sub-skill.
+- Radiographic inspection questions (unsharpness, IQI sensitivity,
+  film density, discontinuity interpretation) route to the ndt
+  radiographic-inspection sub-skill.
 - Design and certification questions route to the avionics or
   systems-engineering-safety packs.
 

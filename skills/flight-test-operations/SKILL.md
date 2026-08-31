@@ -39,13 +39,16 @@ flight test instrumentation, and campaign planning.
 |---|---|---|
 | flight-test-operations/envelope/envelope-expansion | Envelope expansion | corner speed, airspeed classes, expansion steps, load factor limits |
 | flight-test-operations/envelope/v-speeds | V-speeds | Vref, V2, Vr from stall speeds, Vno/Vne guard, certification speeds |
+| flight-test-operations/envelope/load-factor-envelope | Load factor envelope | V-n diagram, stall speed boundary, corner point, limit load factor, gust line, placard envelope |
 | flight-test-operations/performance/stall-speed-determination | Stall speed determination | Vs1g from wing loading, weight-corrected stall speed, stall margin |
 | flight-test-operations/performance/accelerate-stop-distance | Accelerate-stop distance | rejected takeoff, decision speed V1, braking deceleration, runway fits |
 | flight-test-operations/performance/landing-distance-determination | Landing distance | Vref approach speed, flare segment, braking ground roll, 1.67 field length factor, runway fits |
 | flight-test-operations/flutter/flutter-testing | Flutter testing | flutter margin, 1.2 design dive speed, damping trend extrapolation, frequency separation |
 | flight-test-operations/flutter/ground-vibration-testing | Ground vibration testing | GVT modal survey, excitation, FRF peak picking, half-power damping, frequency resolution, mode shapes |
+| flight-test-operations/flutter/limit-cycle-oscillation | Limit cycle oscillation | LCO, sustained oscillation, log decrement damping, amplitude growth, freeplay, nonlinear stiffness |
 | flight-test-operations/planning/flight-test-planning | Flight test planning | test point build-up ordering, instrumentation coverage, campaign plan, prerequisites |
 | flight-test-operations/planning/flight-test-instrumentation | Flight test instrumentation | sensor selection, sample rate, Nyquist, anti-aliasing, quantization, calibration |
+| flight-test-operations/planning/flight-test-data-reduction | Flight test data reduction | calibration correction, time alignment, moving average, corrected airspeed, measurement uncertainty, data quality |
 
 ## Routing guidance
 
@@ -69,6 +72,15 @@ flight test instrumentation, and campaign planning.
   flight-test-planning sub-skill; sensor, sample rate, and
   anti-aliasing questions route to the flight-test-instrumentation
   sub-skill.
+- Load factor envelope questions (V-n diagram, stall speed boundary,
+  corner point, gust line, placard envelope) route to the
+  load-factor-envelope sub-skill.
+- Limit cycle oscillation questions (LCO, sustained oscillation, log
+  decrement damping, freeplay, nonlinear stiffness) route to the
+  limit-cycle-oscillation sub-skill.
+- Post-flight data reduction questions (calibration correction, time
+  alignment, filtering, corrected airspeed, measurement uncertainty)
+  route to the flight-test-data-reduction sub-skill.
 - Aircraft performance, structures, and certification questions
   route to their domain packs (flight-mechanics, structures,
   avionics).
