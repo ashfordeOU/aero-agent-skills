@@ -1,0 +1,16 @@
+# Hit@1 wave-8 fragment: parasite-drag (aerodynamics/drag-polars)
+# Two tasks per new leaf; parasite-drag-w8-1 routes on the wetted-area
+# buildup method with form-factor and interference-factor corrections
+# per component, parasite-drag-w8-2 routes on summing component drags
+# into the zero-lift drag buildup and reporting the equivalent
+# skin-friction coefficient. Both must deterministically hit
+# aerodynamics/drag-polars/parasite-drag.
+tasks:
+  - id: parasite-drag-w8-1
+    query: "estimate the parasite-drag of the aircraft with the wetted-area method: flat-plate skin-friction coefficients with form-factor and interference-factor corrections for the wing, fuselage, nacelle, and tail"
+    intent: "aerodynamics; component parasite drag buildup via wetted-area method with flat-plate skin friction, form factor, and interference factor"
+    expected_skill: "aerodynamics/drag-polars/parasite-drag"
+  - id: parasite-drag-w8-2
+    query: "compute the parasite-drag buildup by summing the component wetted-area drags of the fuselage and nacelle and report the equivalent-skin-friction coefficient"
+    intent: "aerodynamics; zero-lift drag buildup total from component wetted-area drags, then equivalent skin-friction coefficient"
+    expected_skill: "aerodynamics/drag-polars/parasite-drag"
