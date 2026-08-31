@@ -1,0 +1,16 @@
+# Hit@1 wave-7 fragment: real-cycle-effects (propulsion)
+# Two tasks per new leaf; rce1 routes on the real-cycle efficiency with
+# the compressor and turbine isentropic efficiencies, rce2 routes on the
+# actual SFC with the combustor and pressure losses. Both must
+# deterministically hit propulsion/gas-turbine-cycle/real-cycle-effects
+# (the non-ideal follow-on to the ideal gas-turbine-cycle leaf, distinct
+# from regenerative-cycle).
+tasks:
+  - id: rce1
+    query: "compute the real-cycle thermal efficiency with the compressor isentropic-efficiency and the turbine isentropic-efficiency for the non-ideal brayton cycle"
+    intent: "propulsion; real cycle efficiency with compressor and turbine isentropic efficiencies (non-ideal Brayton)"
+    expected_skill: "propulsion/gas-turbine-cycle/real-cycle-effects"
+  - id: rce2
+    query: "estimate the actual-sfc and the thermal-efficiency penalty from the combustor-loss and the pressure-loss for the off-ideal-brayton cycle with component-losses"
+    intent: "propulsion; actual SFC and efficiency penalty from combustor and pressure losses (component losses)"
+    expected_skill: "propulsion/gas-turbine-cycle/real-cycle-effects"
