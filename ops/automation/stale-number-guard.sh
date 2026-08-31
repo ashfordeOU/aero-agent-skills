@@ -2,8 +2,8 @@
 # Stale-number guard (R2 rework, Market rec #2; ops track extended R3;
 # scan roots extended R4; Wave-5 stale class + release-notes exemption R5).
 # Scans LIVE corpus/skill/pack count claims that contradict the live
-# repo state (126 tasks / 55 leaf skills / 12 installable packs; 50x20
-# tree: 73 packs, 1,460 leaf skills, Wave 5 55 -> 700). Patterns:
+# repo state (216 tasks / 100 leaf skills / 12 installable packs; 50x20
+# tree: 73 packs, 1,460 leaf skills, Wave 4 100 -> 940). Patterns:
 #   '28/28'             P2.1-era Hit@1 count (live: 126/126)
 #   '12 skills'         P2.1-era skill count, digit form (live: 55)
 #   'twelve skills'     P2.1-era skill count, word form (live: fifty-five)
@@ -37,11 +37,17 @@
 #   '52 SKILL.md'       Wave-5-era SKILL.md total (live: 67) [R5]
 #   '102/102'           Wave-5-era Hit@1 count (live: 126/126) [R5]
 #   '102 tasks'         Wave-5-era corpus count (live: 126) [R5]
+#   '83 skills'         Wave-4-fanout-era leaf count, bare/digit form (live: 100) [R6]
+#   '83 leaf skills'    Wave-4-fanout-era leaf count, 'leaf' form (live: 100) [R6]
+#   '83 verified'       Wave-4-fanout-era leaf count, 'verified' form (live: 100) [R6]
+#   '95 SKILL.md'       Wave-4-fanout-era SKILL.md total (live: 112) [R6]
+#   '182/182'           Wave-4-fanout-era Hit@1 count (live: 216/216) [R6]
+#   '182 tasks'         Wave-4-fanout-era corpus count (live: 216) [R6]
 # All new forms are digit-form on purpose: the live one-way
 # vocabulary ('twelve installable domain packs', '12 pack routers',
-# '12 disciplines', '12 families', '55 leaf skills', '67 SKILL.md',
-# '126/126', '35 live sub-domain packs', '73 sub-domain packs',
-# '1,460', '55 -> 700') shares the numbers but never the stale
+# '12 disciplines', '12 families', '100 leaf skills', '112 SKILL.md',
+# '216/216', '47 live sub-domain packs', '73 sub-domain packs',
+# '1,460', '100 -> 940') shares the numbers but never the stale
 # digit-phrase shapes, so word-boundary patterns separate them.
 # Exemption (documented, R4): lines carrying the explicit qualifier
 # 'planning target, not a shipped count' are NOT stale shipped claims.
@@ -82,7 +88,7 @@
 #   (optional root_dir override for fixture testing; default = repo root)
 set -u
 root="${1:-$(cd "$(dirname "$0")/../.." && pwd)}"
-patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b'
+patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b|\b83 skills\b|\b83 leaf skills\b|\b83 verified\b|\b95 SKILL\.md\b|\b182/182\b|\b182 tasks\b'
 exempt='planning target, not a shipped count'
 fail=0
 
@@ -117,6 +123,6 @@ done
 [ -f "$root/README.md" ] && scan_file "$root/README.md"
 
 if [ "$fail" -eq 0 ]; then
-  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|27 skills|27 aerospace|27 leaf skills|9 packs|9 domain packs|9 installable|36 SKILL.md|43 skills|43 leaf skills|43 verified|52 SKILL.md|102/102|102 tasks' in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt)"
+  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|27 skills|27 aerospace|27 leaf skills|9 packs|9 domain packs|9 installable|36 SKILL.md|43 skills|43 leaf skills|43 verified|52 SKILL.md|102/102|102 tasks|83 skills|83 leaf skills|83 verified|95 SKILL.md|182/182|182 tasks' in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt)"
 fi
 exit "$fail"

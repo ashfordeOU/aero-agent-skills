@@ -109,8 +109,8 @@ note "== pack_inventory.py =="
 pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=12 skills=83"
-check "P2 pack inventory reports 'packs=12 skills=83' (12 family routers / 83 leaf skills)" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=12 skills=100"
+check "P2 pack inventory reports 'packs=12 skills=100' (12 family routers / 100 leaf skills)" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
@@ -169,6 +169,14 @@ check "N17 stale-number guard flags bare '9 packs' family mislabel" 1 $?
 # by design and are exempt.
 bash "$guard" "$auto/test/fixture-stale-43-class" >/dev/null 2>&1
 check "N18 stale-number guard flags planted Wave-5-era counts ('43 skills' ... '102 tasks')" 1 $?
+# R6 re-grade (Ops track): Wave-4-fanout stale class ('83 skills',
+# '83 leaf skills', '83 verified', '95 SKILL.md', '182/182',
+# '182 tasks') that became stale when the wave pushed live counts to
+# 100/112/216. Live vocabulary must NOT trip.
+bash "$guard" "$auto/test/fixture-stale-83-class" >/dev/null 2>&1
+check "N19 stale-number guard flags planted Wave-4-era counts ('83 skills' ... '182 tasks')" 1 $?
+bash "$guard" "$auto/test/fixture-legit-83-class" >/dev/null 2>&1
+check "N20 stale-number guard exempts live wave-4 vocabulary ('100 leaf skills' ... '216 tasks')" 0 $?
 
 # ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
 # Asserts numeric gated-set/map-coverage COUNT claims in the three
