@@ -57,11 +57,17 @@
 #   '124 SKILL.md'      Wave-5-close-era SKILL.md total (live: 134) [R8]
 #   '240/240'           Wave-5-close-era Hit@1 count (live: 258/258) [R8]
 #   '240 tasks'         Wave-5-close-era corpus count (live: 258) [R8]
+#   '122 skills'        Wave-6-close-era leaf count, bare/digit form (live: 131) [R9]
+#   '122 leaf skills'   Wave-6-close-era leaf count, 'leaf' form (live: 131) [R9]
+#   '122 verified'      Wave-6-close-era leaf count, 'verified' form (live: 131) [R9]
+#   '134 SKILL.md'      Wave-6-close-era SKILL.md total (live: 143) [R9]
+#   '258/258'           Wave-6-close-era Hit@1 count (live: 276/276) [R9]
+#   '258 tasks'         Wave-6-close-era corpus count (live: 276) [R9]
 # All new forms are digit-form on purpose: the live one-way
 # vocabulary ('twelve installable domain packs', '12 pack routers',
-# '12 disciplines', '12 families', '122 leaf skills', '134 SKILL.md',
-# '258/258', '47 live sub-domain packs', '73 sub-domain packs',
-# '1,460', '122 -> 940') shares the numbers but never the stale
+# '12 disciplines', '12 families', '131 leaf skills', '143 SKILL.md',
+# '276/276', '47 live sub-domain packs', '73 sub-domain packs',
+# '1,460', '131 -> 940') shares the numbers but never the stale
 # digit-phrase shapes, so word-boundary patterns separate them.
 # Exemption (documented, R4): lines carrying the explicit qualifier
 # 'planning target, not a shipped count' are NOT stale shipped claims.
@@ -102,7 +108,7 @@
 #   (optional root_dir override for fixture testing; default = repo root)
 set -u
 root="${1:-$(cd "$(dirname "$0")/../.." && pwd)}"
-patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|\b12 verified\b|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b|\b83 skills\b|\b83 leaf skills\b|\b83 verified\b|\b95 SKILL\.md\b|\b182/182\b|\b182 tasks\b|\b100 skills\b|\b100 leaf skills\b|\b100 verified\b|\b112 SKILL\.md\b|\b216/216\b|\b216 tasks\b|\b112 skills\b|\b112 leaf skills\b|\b112 verified\b|\b124 SKILL\.md\b|\b240/240\b|\b240 tasks\b'
+patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|\b12 verified\b|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b|\b83 skills\b|\b83 leaf skills\b|\b83 verified\b|\b95 SKILL\.md\b|\b182/182\b|\b182 tasks\b|\b100 skills\b|\b100 leaf skills\b|\b100 verified\b|\b112 SKILL\.md\b|\b216/216\b|\b216 tasks\b|\b112 skills\b|\b112 leaf skills\b|\b112 verified\b|\b124 SKILL\.md\b|\b240/240\b|\b240 tasks\b|\b122 skills\b|\b122 leaf skills\b|\b122 verified\b|\b134 SKILL\.md\b|\b258/258\b|\b258 tasks\b'
 exempt='planning target, not a shipped count'
 fail=0
 
@@ -137,6 +143,6 @@ done
 [ -f "$root/README.md" ] && scan_file "$root/README.md"
 
 if [ "$fail" -eq 0 ]; then
-  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|27 skills|27 aerospace|27 leaf skills|9 packs|9 domain packs|9 installable|36 SKILL.md|43 skills|43 leaf skills|43 verified|52 SKILL.md|102/102|102 tasks|83 skills|83 leaf skills|83 verified|95 SKILL.md|182/182|182 tasks|100 skills|100 leaf skills|100 verified|112 SKILL.md|216/216|216 tasks|112 skills|112 leaf skills|112 verified|124 SKILL.md|240/240|240 tasks' in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt)"
+  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|27 skills|27 aerospace|27 leaf skills|9 packs|9 domain packs|9 installable|36 SKILL.md|43 skills|43 leaf skills|43 verified|52 SKILL.md|102/102|102 tasks|83 skills|83 leaf skills|83 verified|95 SKILL.md|182/182|182 tasks|100 skills|100 leaf skills|100 verified|112 SKILL.md|216/216|216 tasks|112 skills|112 leaf skills|112 verified|124 SKILL.md|240/240|240 tasks|122 skills|122 leaf skills|122 verified|134 SKILL.md|258/258|258 tasks' in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt)"
 fi
 exit "$fail"
