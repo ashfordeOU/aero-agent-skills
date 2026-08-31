@@ -851,6 +851,15 @@ tasks:
     intent: "flight test operations; accelerate stop distance against runway length with the fits verdict"
     expected_skill: "flight-test-operations/performance/accelerate-stop-distance"
 
+  - id: cv1
+    query: "run a richardson extrapolation with the grid convergence index and safety factor 1.25 on the three mesh levels"
+    intent: "numerical verification; Richardson extrapolation and GCI with 1.25 safety factor on a mesh sequence"
+    expected_skill: "cross-cutting/numerics/convergence-verification"
+  - id: cv2
+    query: "compute the observed order of accuracy with richardson extrapolation, the gci, and the monotone converged or oscillatory verdict for the mesh refinement study"
+    intent: "numerical verification; observed order, GCI, and convergence verdict classification of a refinement study"
+    expected_skill: "cross-cutting/numerics/convergence-verification"
+
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
   # query routes to the nearest published skill (manufacturing-quality/as9100/quality,
