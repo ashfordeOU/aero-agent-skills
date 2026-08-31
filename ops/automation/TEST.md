@@ -48,7 +48,7 @@ ambiguous, forcing the doc to name the repo).
 
 ## TDD evidence (observed exit codes, 2026-08-31)
 
-`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (38/38)**
+`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (41/41)**
 
 | Test | Assertion | Expected | Observed |
 |---|---|---|---|
@@ -71,15 +71,18 @@ ambiguous, forcing the doc to name the repo).
 | G4 | content-policy-sweep full repo | exit 0 | 0 |
 | G5 | brief-audit summary line ("total ≈ 228 / 31 repos") is NOT a largest-repo false positive (fixture) | exit 0 | 0 |
 | G6 | spec-lint gate on real skills tree (compliance flags enforced) | exit 0 | 0 |
-| P1–P9 | pack_inventory: real-repo counts 9 packs / 27 skills, per-pack/per-domain counts, missing frontmatter + router + taxonomy negatives | 0/1 | 0/1 |
+| P1–P9 | pack_inventory: real-repo reports 'packs=9 skills=43' (9 family routers / 43 leaf skills), per-pack/per-domain counts, missing frontmatter + router + taxonomy negatives | 0/1 | 0/1 |
 | N8 | stale-number guard flags stale counts in live marketing/ + docs/ (fixture; R3 adds 'five packs' + '3/3 corpus') | exit 1 | 1 |
 | N9 | stale-number guard exempts dated plans/ (supersede-not-delete) | exit 0 | 0 |
 | N12 | stale-number guard flags planted 68/1,360 in README.md + development/ (R4 root extension) | exit 1 | 1 |
 | N13 | stale-number guard exempts qualified README planning-target line ('planning target, not a shipped count') | exit 0 | 0 |
 | N14 | stale-number guard exempts dated development/builds/ reports | exit 0 | 0 |
+| N15 | stale-number guard flags planted 27/9/36-class counts ('27 skills' ... '36 SKILL.md', R3 re-grade patterns) | exit 1 | 1 |
+| N16 | stale-number guard exempts legit live vocabulary ('27 live sub-domain packs', '9 families', '43 leaf skills', '52 SKILL.md') | exit 0 | 0 |
+| N17 | stale-number guard flags bare '9 packs' family mislabel | exit 1 | 1 |
 | N10 | gated-set check flags stale gated-set/map-coverage count claims (fixture: 9 vs map 14, 5 gated vs 9) | exit 1 | 1 |
 | N11 | gated-set check passes clean enumerations (fixture: 14 map, 9 gated) | exit 0 | 0 |
-| G7 | stale-number guard on real repo (R4 patterns + roots: marketing/ + docs/ + development/ + README.md) | exit 0 | 0 |
+| G7 | stale-number guard on real repo (R4 patterns + R3 re-grade 27/9/36 class; roots: marketing/ + docs/ + development/ + README.md; harness-contract milestone records exempt) | exit 0 | 0 |
 | G8 | gated-set check on real repo (no numeric count claims contradict standards-map.yaml) | exit 0 | 0 |
 
 Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
@@ -90,7 +93,11 @@ empty-standards}.md`, `test/fixture-stale-numbers/`,
 `test/fixture-stale-plans-only/`, `test/fixture-stale-roots/` (README +
 development plants), `test/fixture-stale-roots-qualified/` (README
 planning-target qualifier), `test/fixture-stale-builds-only/` (dated
-build report). Fixture comments keep numbers marker-free so only
+build report), `test/fixture-stale-27-9-36/` (marketing plants of the
+27/9/36-class stale counts), `test/fixture-legit-27-9/` (live one-way
+vocabulary: 27 live sub-domain packs, 9 families, 43 leaf skills,
+52 SKILL.md), `test/fixture-stale-9packs/` (bare '9 packs' family
+mislabel). Fixture comments keep numbers marker-free so only
 the content line is scanned. The suite preserves and restores the
 committed `state/` dir around its own live runs, so running it never
 dirties the tree.
