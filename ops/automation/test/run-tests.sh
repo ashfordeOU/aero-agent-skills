@@ -46,7 +46,7 @@ check "N2 snapshot offline without snapshot exits 1" 1 $?
 
 # ---- brief-audit.sh negative ----------------------------------------------
 note "== brief-audit.sh =="
-# N3: stale figure (38.0k vs canonical 39,111) must exit 1
+# N3: stale figure (38.0k vs canonical 39,503) must exit 1
 bash "$auto/brief-audit.sh" "$auto/test/fixture-brief-stale.md" >/dev/null 2>&1
 check "N3 brief-audit flags stale K-Dense 38.0k" 1 $?
 
