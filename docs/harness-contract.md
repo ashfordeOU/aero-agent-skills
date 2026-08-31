@@ -14,6 +14,19 @@ SKILL.md (17 SKILL.md under gate 1: 5 routers + 12 leaves); every
 SKILL.md carries top-level `domain` and `pack` frontmatter
 (enforced by scripts/pack_inventory.py, listed via `make packs`);
 corpus tasks and future pins use pack paths. Owner: Ops Manager, Phase 0 build.
+P3.5 (2026-08-31): library expansion to twenty-seven verified skills
+in nine installable domain packs (36 SKILL.md under gate 1: 9 routers
++ 27 leaves). Fifteen new leaves across four new packs (aerodynamics,
+gnc-autonomy, structures, vehicle-design) and the existing packs
+(avionics +3, space-systems +2, systems-engineering-safety +2,
+manufacturing-quality +1). standards-map.yaml extended with do-330,
+do-160, as9102, mmpsd, naca-tr-824 (fourteen entries). Gate 3 runs
+twenty-seven contract tests; gate 5 runs the expanded Hit@1 corpus
+(sixty-six active tasks: domain tasks for every leaf, the t1/t2/t4
+pins promoted, t3 still pinned to manufacturing-quality/as9100/quality,
+plus adversarial cross-pair tasks xp1-xp8). pack_inventory.py now
+validates router pack-vs-folder and domain-vs-taxonomy; gate 4 scans
+README.md/STANDARDS.md/NOTICE alongside skills/ and docs/. Owner: Ops Manager, P3.5 build.
 Sources: research/briefs/03-router-design.md (routing, Hit@1), research/briefs/05-domain-taxonomy.md
 (skill anatomy, section 6), research/briefs/06-legal-export-control.md (compliance flags, section 8).
 

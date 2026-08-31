@@ -1,6 +1,6 @@
 ---
 name: space-systems
-description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS software-engineering sub-skill covers space software criticality (A-D), assurance and verification rigor, lifecycle gates, and heritage-reuse evidence. This pack is the space counterpart of the avionics certification spine and follows the ECSS series as the European space procurement baseline. Trigger: space systems, space software, spacecraft software, ECSS, E-ST-40C, Q-ST-80C, space flight software, heritage software."
+description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS sub-skills cover space software criticality and assurance rigor and the systems-engineering lifecycle phases and review gates, and whose subsystems power-thermal-budget sub-skill covers EPS sizing, eclipse duration, and battery and solar array budgeting. This pack is the space counterpart of the avionics certification spine and follows the ECSS series as the European space procurement baseline. Trigger: space systems, spacecraft, space software, ECSS, E-ST-10C, E-ST-40C, Q-ST-80C, space flight software, lifecycle phases, power budget, battery sizing, EPS."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -19,30 +19,36 @@ metadata:
 
 # Space systems domain pack (router)
 
-Route here when the task is space systems engineering, especially
-spacecraft software, under the ECSS series.
+Route here when the task is space systems engineering under the ECSS
+series or spacecraft subsystem budgeting.
 
 ## Domain
 
-Space systems and astrodynamics: spacecraft subsystem engineering and
+Space systems and astrodynamics: spacecraft subsystem engineering,
 European space software assurance (ECSS-E-ST-40C software engineering,
-Q-ST-80C product assurance).
+Q-ST-80C product assurance), systems-engineering lifecycle management
+(ECSS-E-ST-10C), and electrical power subsystem sizing.
 
 ## Sub-skills in this pack
 
 | Path | Skill | When to route to it |
 |---|---|---|
 | space-systems/ecss/software-engineering | ECSS space software | criticality A-D, lifecycle gates, heritage reuse |
+| space-systems/ecss/systems-engineering | ECSS systems engineering | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
+| space-systems/subsystems/power-thermal-budget | Power and thermal budget | EPS sizing, eclipse, battery and solar array budgets |
 
 ## Routing guidance
 
 - Space software questions (criticality classification, assurance rigor,
-  lifecycle reviews, heritage reuse) route to the ECSS sub-skill.
+  lifecycle reviews, heritage reuse) route to the ECSS software
+  sub-skill.
+- Lifecycle and phase-gate questions (reviews, readiness) route to the
+  ECSS systems-engineering sub-skill.
+- Power, battery, and thermal budgeting questions route to the
+  subsystems sub-skill.
 - Aircraft software and hardware questions route to the avionics pack.
-- System-level engineering and safety questions route to the
-  systems-engineering-safety pack.
 
 ## Install
 
-To install only this pack, copy or symlink the leaf folder above into
+To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).

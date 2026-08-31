@@ -38,7 +38,8 @@ note "== number-snapshot.sh =="
 # each other's restored state) is gone: committed ops/automation/state is
 # never moved or deleted, so the tree is clean at rest by construction.
 test_state="$state.suite-run.$$"
-cleanup() { rm -rf "$test_state" 2>/dev/null; }
+fixture_run=""
+cleanup() { rm -rf "$test_state" "$fixture_run" 2>/dev/null; }
 trap cleanup EXIT
 export SNAPSHOT_STATE_DIR="$test_state"
 
@@ -108,21 +109,27 @@ note "== pack_inventory.py =="
 pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=5 skills=12"
-check "P2 pack inventory counts 5 packs 12 skills" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=9 skills=27"
+check "P2 pack inventory counts 9 packs 27 skills" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=1 skills=6"
-check "P4 pack inventory --pack avionics counts 6 leaves" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=9"
+check "P4 pack inventory --pack avionics counts 9 leaves" 0 $?
 
 pack_out=$(python3 "$pack_inv" --domain systems-engineering-safety 2>/dev/null)
 check "P5 pack inventory --domain systems-engineering-safety exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=1 skills=3"
-check "P6 pack inventory --domain systems-engineering-safety counts 3 leaves" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=5"
+check "P6 pack inventory --domain systems-engineering-safety counts 5 leaves" 0 $?
 
 python3 "$pack_inv" "$auto/test/fixture-pack-bad" >/dev/null 2>&1
 check "P7 pack inventory flags missing domain/pack frontmatter" 1 $?
+
+python3 "$pack_inv" "$auto/test/fixture-pack-router-bad" >/dev/null 2>&1
+check "P8 pack inventory flags router pack != router folder" 1 $?
+
+python3 "$pack_inv" "$auto/test/fixture-pack-domain-bad" >/dev/null 2>&1
+check "P9 pack inventory flags domain not in taxonomy" 1 $?
 
 # ---- at-rest green ---------------------------------------------------------
 note "== at-rest (real repo) =="
