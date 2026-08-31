@@ -2,7 +2,7 @@
 # Gate 5 (REAL): Hit@1 corpus eval (deterministic, offline).
 # Contract: docs/harness-contract.md gate 5. Reads eval/hit1-corpus.yaml,
 # resolves each task via the flat+tags router (scripts/router_eval.py) against
-# the skills tree, asserts top-1 == expected_skill. Exit 0 = 3/3 Hit@1.
+# asserts top-1 == expected_skill. Exit 0 = 66/66 Hit@1.
 set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 corpus="$repo_root/eval/hit1-corpus.yaml"

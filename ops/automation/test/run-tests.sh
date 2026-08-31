@@ -131,6 +131,17 @@ check "P8 pack inventory flags router pack != router folder" 1 $?
 python3 "$pack_inv" "$auto/test/fixture-pack-domain-bad" >/dev/null 2>&1
 check "P9 pack inventory flags domain not in taxonomy" 1 $?
 
+# ---- stale-number guard (R2 rework, Market rec #2) -------------------------
+# Greps live marketing/ + docs/ for stale corpus/skill/pack counts
+# ('28/28', '12 skills', 'twenty-eight', 'five installable'); dated plan
+# artifacts (docs/superpowers/plans/) are exempt (supersede-not-delete).
+note "== stale-number-guard.sh =="
+guard="$auto/stale-number-guard.sh"
+bash "$guard" "$auto/test/fixture-stale-numbers" >/dev/null 2>&1
+check "N8 stale-number guard flags stale counts in live marketing/ + docs/" 1 $?
+bash "$guard" "$auto/test/fixture-stale-plans-only" >/dev/null 2>&1
+check "N9 stale-number guard exempts dated plans/ (supersede-not-delete)" 0 $?
+
 # ---- at-rest green ---------------------------------------------------------
 note "== at-rest (real repo) =="
 # Live snapshot once so offline has evidence, then offline audit
@@ -153,6 +164,10 @@ check "G5 brief-audit summary line is not a largest-repo false positive" 0 $?
 # G6: real skills tree passes the extended gate 1 (spec lint, compliance flags)
 bash "$repo_root/scripts/gate-spec-lint.sh" >/dev/null 2>&1
 check "G6 spec-lint gate on real skills tree exits 0" 0 $?
+
+# G7: stale-number guard on the real repo must stay clean (R2 rework)
+bash "$auto/stale-number-guard.sh" >/dev/null 2>&1
+check "G7 stale-number guard on real repo exits 0" 0 $?
 
 # No restore needed: committed ops/automation/state was never touched; the
 # PID-scratch state dir is removed by the EXIT trap.

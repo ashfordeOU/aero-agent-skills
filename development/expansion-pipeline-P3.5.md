@@ -5,18 +5,19 @@ Status: plan 2026-08-31, Ops Manager (Feasibility lens). Founder brief:
 
 ## Goal and numbers
 
-Current: twelve verified skills, all gated by make validate (5/5 REAL:
+Current: twenty-seven verified skills, all gated by make validate (5/5 REAL:
 spec lint, description lint, per-skill pytest contract, no-verbatim, Hit@1
-corpus). Gate 3 runs twelve contract tests; gate 5 runs twenty-eight
-corpus tasks (twenty-five domain tasks plus three adversarial cross-pair).
+corpus). Gate 3 runs twenty-seven contract tests; gate 5 runs sixty-six
+corpus tasks (fifty-eight domain tasks plus eight adversarial cross-pair).
 
-Target: twenty-five-plus skills by P3.5. Floor is waves 1+2 below
-(twelve plus fifteen = twenty-seven); wave 3 is stretch (thirty-three).
-Every new skill ships the same contract as the current twelve: SKILL.md,
+Target: twenty-five-plus skills by P3.5, met at P3.5. Floor is waves 1+2
+below (twelve prior plus fifteen new = twenty-seven); wave 3 is stretch
+(thirty-three). Every new skill ships the same contract as the existing
+twenty-seven skills: SKILL.md,
 behavior logic + stdlib unittest, Hit@1 corpus tasks, standards-map
 resolvable frontmatter, and a green make validate on the commit.
 
-Sources for candidates: standards-map.yaml (nine mapped standards),
+Sources for candidates: standards-map.yaml (fourteen mapped standards),
 research/briefs/05-domain-taxonomy.md section 5 (P0/P1/P2 candidates per
 discipline), eval/hit1-corpus.yaml future_pins (t1-t4), and the founder
 brief list (DO-178C/DO-254/ARP/ECSS/FAR/CS-25 sub-skills, XFOIL/airfoil,
@@ -98,7 +99,7 @@ link, matching the existing DO-178C/ARP treatment.
    test_<name>.py (stdlib unittest only, offline). Gate 3 discovers
    test_*.py automatically and check_stdlib_imports.py enforces
    stdlib-only. Every skill's contract is a deterministic check the model
-   can run, mirroring the twelve existing skills.
+   can run, mirroring the twenty-seven existing skills.
 4. Corpus: add two Hit@1 tasks to eval/hit1-corpus.yaml for the new skill
    and promote future_pins t1/t2/t4 to live tasks when their skills
    publish (t3 stays pinned to manufacturing-quality/as9100/quality). Re-run
@@ -119,10 +120,10 @@ clean (gate 4), corpus resolves (gate 5), committed with evidence.
 
 ## Gate count projections at the floor (twenty-seven skills)
 
-- Gate 3: twenty-seven contract tests (twelve current plus fifteen new).
-- Gate 5: twenty-eight current tasks plus thirty new-skill tasks minus
-  three pins already filed (t1, t2, t4) equals roughly fifty-five tasks;
-  t3 remains pinned to manufacturing-quality/as9100/quality. All must resolve top-1 with no
+- Gate 3: twenty-seven contract tests (all twenty-seven skills).
+- Gate 5: sixty-six corpus tasks (fifty-eight domain tasks plus eight
+  adversarial cross-pair tasks); t3 remains pinned to
+  manufacturing-quality/as9100/quality. All must resolve top-1 with no
   collision; the deterministic offline router makes this replayable.
 - make validate stays 5/5; run-tests.sh G6 re-lints the full skills tree.
 
