@@ -1,0 +1,14 @@
+# Hit@1 wave-6 fragment: airfoil-geometry (aerodynamics)
+# Two tasks per new leaf skill; ag1 routes on NACA designation decode
+# (4-digit / 5-digit / 6-series), ag2 routes on geometry computation
+# (thickness distribution, camber, leading-edge radius, section area).
+# Both must deterministically hit aerodynamics/airfoil/airfoil-geometry.
+tasks:
+  - id: ag1
+    query: "decode the NACA 23012 and 65-218 designations into camber, camber position, and thickness for the airfoil geometry definition"
+    intent: "aerodynamics; NACA 4/5/6-series designation decode into geometry parameters"
+    expected_skill: "aerodynamics/airfoil/airfoil-geometry"
+  - id: ag2
+    query: "compute the NACA 0012 thickness distribution ordinates, leading edge radius, and section area from the 4-digit geometry formulas"
+    intent: "aerodynamics; NACA 4-digit thickness distribution, leading-edge radius, and section area"
+    expected_skill: "aerodynamics/airfoil/airfoil-geometry"
