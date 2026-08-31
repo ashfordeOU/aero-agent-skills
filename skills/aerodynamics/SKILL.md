@@ -1,6 +1,6 @@
 ---
 name: aerodynamics
-description: "Use when a task concerns aerodynamics: guide the router to the aerodynamics pack, whose airfoil-selection sub-skill covers airfoil family selection, xfoil-analysis covers XFOIL polar validation, cfd-convergence covers residual and Courant checks, cfd-turbulence-modeling covers turbulence model selection, normal-shock covers normal shock relations, prandtl-meyer covers Prandtl-Meyer expansion relations, drag-polar covers the parabolic drag polar, and lift-curve-slope covers the wing lift curve slope with aspect ratio, sweep, and Mach corrections. This pack is the aerodynamic analysis and validation layer of the library. Trigger: aerodynamics, airfoil selection, XFOIL, polar, lift coefficient, drag coefficient, drag polar, Oswald span efficiency, induced drag, lift curve slope, aspect ratio, sweep correction, Prandtl-Glauert, CFD convergence, Courant number, turbulence model, normal shock, Prandtl-Meyer, expansion fan, Mach number, compressible flow."
+description: "Use when a task concerns aerodynamics: guide the router to the aerodynamics pack, whose airfoil-selection sub-skill covers airfoil family selection, xfoil-analysis covers XFOIL polar validation, airfoil-geometry covers NACA geometry parameters and naming, cfd-convergence covers residual and Courant checks, cfd-turbulence-modeling covers turbulence model selection, normal-shock covers normal shock relations, oblique-shock covers theta-beta-M oblique shock relations, prandtl-meyer covers Prandtl-Meyer expansion relations, drag-polar covers the parabolic drag polar, and lift-curve-slope covers the wing lift curve slope with aspect ratio, sweep, and Mach corrections. This pack is the aerodynamic analysis and validation layer of the library. Trigger: aerodynamics, airfoil selection, NACA, airfoil geometry, camber, XFOIL, polar, lift coefficient, drag coefficient, drag polar, Oswald span efficiency, induced drag, lift curve slope, aspect ratio, sweep correction, Prandtl-Glauert, CFD convergence, Courant number, turbulence model, normal shock, oblique shock, theta-beta-M, Prandtl-Meyer, expansion fan, Mach number, compressible flow."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -24,11 +24,11 @@ compressible flow, or validation of section data.
 
 ## Domain
 
-Aerodynamics and CFD: airfoil section selection and analysis with
-XFOIL, viscous-inviscid modeling, turbulence modeling, compressible
-flow (normal shocks and Prandtl-Meyer expansions), drag polar
-construction, and wing lift curve slope estimation, validated against
-classic reference data.
+Aerodynamics and CFD: airfoil section selection, geometry, and
+analysis with XFOIL, viscous-inviscid modeling, turbulence modeling,
+compressible flow (normal and oblique shocks, Prandtl-Meyer
+expansions), drag polar construction, and wing lift curve slope
+estimation, validated against classic reference data.
 
 ## Sub-skills in this pack
 
@@ -36,9 +36,11 @@ classic reference data.
 |---|---|---|
 | aerodynamics/airfoil/airfoil-selection | Airfoil selection | airfoil family choice, design lift coefficient, thickness ratio, camber, section constraints |
 | aerodynamics/airfoil/xfoil-analysis | XFOIL airfoil analysis | polar generation, viscous analysis, lift/drag coefficients, validation bands |
+| aerodynamics/airfoil/airfoil-geometry | Airfoil geometry | NACA 4/5/6-series geometry, camber and thickness distribution, leading-edge radius, naming decode |
 | aerodynamics/cfd/cfd-convergence | CFD convergence | residual convergence, Courant number, mesh refinement, solver stability |
 | aerodynamics/cfd/cfd-turbulence-modeling | Turbulence modeling | turbulence model selection, Reynolds number, near-wall treatment, y-plus |
 | aerodynamics/high-speed/normal-shock | Normal shock relations | downstream Mach, pressure/density/temperature ratios, stagnation pressure loss, supersonic flow |
+| aerodynamics/high-speed/oblique-shock | Oblique shock relations | theta-beta-M solution, deflection limits, weak/strong solutions, pressure ratio across shock |
 | aerodynamics/high-speed/prandtl-meyer | Prandtl-Meyer expansion | expansion angle, downstream Mach after turning, total-to-static ratios, expansion fan |
 | aerodynamics/drag-polars/drag-polar | Drag polar | parabolic polar CD0 + k, Oswald span efficiency, induced drag, maximum lift-to-drag |
 | aerodynamics/drag-polars/lift-curve-slope | Lift curve slope | thin-airfoil 2pi, finite-aspect-ratio correction, sweep correction, Prandtl-Glauert Mach correction, lift coefficient from angle of attack |
@@ -47,12 +49,16 @@ classic reference data.
 
 - Airfoil family and section constraint questions route to the
   airfoil-selection sub-skill; XFOIL runs and polar validation route
-  to xfoil-analysis.
+  to xfoil-analysis; NACA geometry and naming questions route to
+  airfoil-geometry.
 - CFD solver-convergence questions (residuals, Courant, mesh
   refinement) route to cfd-convergence; turbulence model and
   near-wall questions route to cfd-turbulence-modeling.
 - Compressible-flow questions (Mach number, normal shock relations,
   stagnation pressure loss) route to the high-speed normal-shock
+  sub-skill.
+- Oblique shock and turning questions (theta-beta-M, deflection
+  angle, weak/strong solution) route to the high-speed oblique-shock
   sub-skill.
 - Supersonic turning and expansion-fan questions (Prandtl-Meyer
   angle, downstream Mach after a turn) route to the high-speed
