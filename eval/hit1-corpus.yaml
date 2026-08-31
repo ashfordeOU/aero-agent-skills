@@ -76,6 +76,11 @@
 # leaves). Wave-6 new leaves: "aerodynamics/airfoil/airfoil-geometry", "flight-mechanics/performance/descent-performance", "flight-mechanics/stability-control/dynamic-stability", "gnc-autonomy/navigation/inertial-navigation", "vehicle-design/cost-estimation/life-cycle-cost", "structures/fatigue/load-spectrum-counting", "structures/materials/material-selection", "aerodynamics/high-speed/oblique-shock", "gnc-autonomy/guidance/pursuit-guidance".
 # Corpus: 258 tasks (240 prior plus 18 domain tasks). Owner: Ops
 # Manager, Wave 6 build (13th-kill rescue, fresh context).
+# P5.2 / Wave 7 (2026-09-01): fan-out continues to
+# 131 verified skills (143 SKILL.md under gate 1: 12 routers + 131
+# leaves). Wave-7 new leaves: "manufacturing-quality/as9102/ballooning", "flight-test-operations/planning/flight-test-data-reduction", "flight-test-operations/flutter/limit-cycle-oscillation", "flight-test-operations/envelope/load-factor-envelope", "propulsion/axial-compressor/multi-stage-compressor", "manufacturing-quality/ndt/radiographic-inspection", "propulsion/gas-turbine-cycle/real-cycle-effects", "systems-engineering-safety/mbse/trade-study-analysis", "propulsion/turbofan/turbofan-off-design".
+# Corpus: 276 tasks (258 prior plus 18 domain tasks). Owner: Ops
+# Manager, Wave 7 build.
 tasks:
   - id: p1
     query: determine the software level for a flight control function whose failure is catastrophic
@@ -1118,6 +1123,78 @@ tasks:
     query: "find the lead angle for a lead pursuit collision course from the target to interceptor speed ratio and check the capture condition"
     intent: "pursuit guidance; lead pursuit lead angle and speed capture condition"
     expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
+  - id: bal1
+    query: "balloon the drawing characteristics and assign sequential balloon numbers for the as9102 first article inspection"
+    intent: "manufacturing quality; drawing characteristic ballooning and balloon number assignment per AS9102"
+    expected_skill: "manufacturing-quality/as9102/ballooning"
+  - id: bal2
+    query: "build the d-list accountability matrix with the verification method code and characteristic classification for each balloon number"
+    intent: "manufacturing quality; D-list accountability matrix with verification method codes and characteristic classifications"
+    expected_skill: "manufacturing-quality/as9102/ballooning"
+  - id: fdr1
+    query: "reduce the post-flight flight test data: apply the calibration-correction with the channel slope and intercept, align the time series with the time-alignment offset, filter the trace with the moving-average, and compute the corrected-airspeed from the impact pressure and density"
+    intent: "flight-test-operations; post-flight data reduction: calibration correction, time alignment, filtering, corrected airspeed"
+    expected_skill: "flight-test-operations/planning/flight-test-data-reduction"
+  - id: fdr2
+    query: "combine the measurement-uncertainty sources with the rss into the combined uncertainty and run the data-quality verdict for out-of-range values and time gaps on the reduced flight test data"
+    intent: "flight-test-operations; combined uncertainty by root sum square and data quality verdict on reduced flight test data"
+    expected_skill: "flight-test-operations/planning/flight-test-data-reduction"
+  - id: lco1
+    query: "assess whether the sustained limit cycle oscillation observed at the flutter clearance flight test airspeed is within the amplitude limit and estimate the damping ratio from the log decrement of the decaying response"
+    intent: "flight-test-operations; LCO amplitude assessment against the limit amplitude and damping ratio from log decrement for flutter clearance"
+    expected_skill: "flight-test-operations/flutter/limit-cycle-oscillation"
+  - id: lco2
+    query: "check the amplitude growth rate and the freeplay effect on the onset airspeed of the limit cycle oscillation during the flight test flutter clearance campaign"
+    intent: "flight-test-operations; LCO amplitude growth rate and control surface freeplay effect on LCO onset airspeed"
+    expected_skill: "flight-test-operations/flutter/limit-cycle-oscillation"
+  - id: lf1
+    query: "compute the corner point and the gust line increment for the transport load factor envelope V-n diagram flight test"
+    intent: "flight-test-operations; load factor envelope V-n diagram corner point and gust line"
+    expected_skill: "flight-test-operations/envelope/load-factor-envelope"
+  - id: lf2
+    query: "check the gust line against the placard speed and the corner point when building the load factor envelope V-n diagram"
+    intent: "flight-test-operations; load factor envelope gust line placard speed and corner point"
+    expected_skill: "flight-test-operations/envelope/load-factor-envelope"
+  - id: msc1
+    query: "compute the overall pressure ratio and required stage count for the multi-stage axial compressor from the design stage pressure ratio"
+    intent: "propulsion; multi-stage compressor overall pressure ratio and stage count"
+    expected_skill: "propulsion/axial-compressor/multi-stage-compressor"
+  - id: msc2
+    query: "estimate the reheat factor and the annulus area for the multi-stage compressor stage matching with a rising work distribution"
+    intent: "propulsion; multi-stage compressor reheat factor, annulus area, work distribution"
+    expected_skill: "propulsion/axial-compressor/multi-stage-compressor"
+  - id: rt1
+    query: "plan a radiographic inspection of a titanium weld: compute the geometric unsharpness for a 3 mm focal spot at a 500 mm source-to-object distance with a 30 mm object-to-detector distance, and verify the IQI penetrameter sensitivity for the 12 mm section thickness"
+    intent: "manufacturing-quality; radiographic inspection (RT) setup geometry, geometric unsharpness and IQI penetrameter sensitivity for a weld"
+    expected_skill: "manufacturing-quality/ndt/radiographic-inspection"
+  - id: rt2
+    query: "an X-ray exposure for an aluminum casting needs 4 minutes at a 900 mm source-to-film distance; apply the inverse-square law for a new 600 mm distance, check the film density of 3.1 against the acceptable band, and classify the elongated porosity indications seen on the radiograph"
+    intent: "manufacturing-quality; radiographic inspection (RT) exposure time by inverse-square law, film density verdict and discontinuity classification"
+    expected_skill: "manufacturing-quality/ndt/radiographic-inspection"
+  - id: rce1
+    query: "compute the real-cycle thermal efficiency with the compressor isentropic-efficiency and the turbine isentropic-efficiency for the non-ideal brayton cycle"
+    intent: "propulsion; real cycle efficiency with compressor and turbine isentropic efficiencies (non-ideal Brayton)"
+    expected_skill: "propulsion/gas-turbine-cycle/real-cycle-effects"
+  - id: rce2
+    query: "estimate the actual-sfc and the thermal-efficiency penalty from the combustor-loss and the pressure-loss for the off-ideal-brayton cycle with component-losses"
+    intent: "propulsion; actual SFC and efficiency penalty from combustor and pressure losses (component losses)"
+    expected_skill: "propulsion/gas-turbine-cycle/real-cycle-effects"
+  - id: trd1
+    query: "run a trade study comparing candidate concepts with a Pugh matrix and weighted decision criteria"
+    intent: "systems-engineering-safety; trade study with Pugh matrix and weighted decision criteria"
+    expected_skill: "systems-engineering-safety/mbse/trade-study-analysis"
+  - id: trd2
+    query: "check the selection margin and sensitivity of the weighted scoring before picking the best alternative"
+    intent: "systems-engineering-safety; selection margin and sensitivity analysis for weighted scoring"
+    expected_skill: "systems-engineering-safety/mbse/trade-study-analysis"
+  - id: tod1
+    query: "estimate the off-design corrected mass flow and corrected speed of the turbofan at cruise altitude and the net thrust with ram drag"
+    intent: "propulsion; turbofan off-design corrected mass flow, corrected speed, altitude net thrust with ram drag"
+    expected_skill: "propulsion/turbofan/turbofan-off-design"
+  - id: tod2
+    query: "check the fan and core component matching and the throttle setting for the turbofan off-design operating point, and the cruise SFC at altitude"
+    intent: "propulsion; turbofan component matching verdict and throttle setting with cruise SFC at altitude"
+    expected_skill: "propulsion/turbofan/turbofan-off-design"
 
 future_pins:
 - id: t3
