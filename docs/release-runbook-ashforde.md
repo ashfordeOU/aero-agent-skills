@@ -12,6 +12,21 @@ secrets swept, tagged, README-ready). The arjun-0077 origin remains
 private forever; the only push it ever received beyond main was the
 release-candidate TAG (allowed, stays private).
 
+**Rework (CEO audit 2026-08-31, HEAD f001e1b):** four defects fixed.
+(1) Package rebuilt from the FINAL RC commit (the commit tagged
+v1.0.0-rc1) — the previous package was built from 7fd559d and missed
+the release-notes and the SEP-2640 split. (2) The RC tag was MOVED
+from 7fd559d to the final RC commit (delete + recreate, force-push to
+the private origin only — one-time sanctioned correction, documented
+in section 4). (3) An explicit public-tree content policy was added
+(section 3a) — the package ships ONLY the allowlist; internal docs
+(research/, security/audits/, development/, finance/, people/,
+support/, marketing/launch-draft, marketing/distribution-plan-P3.md,
+docs/ops-notes.md, docs/release-runbook-ashforde.md, docs/superpowers/,
+ops/automation/test/) never ship. (4) The SEP-2640 split (13 domain
+standards + SEP-2640 as separate delivery format) is applied to all
+packaged marketing copy.
+
 **Owner:** Ops Manager executes every step below on GO.
 **Gate:** founder/legal sign-off on the publish package + CEO audit
 GO. CEO handles the founder DM ("READY TO PUBLISH: connect Ashforde
@@ -26,15 +41,19 @@ token") after the 9.5 audit.
       `gh api orgs/Ashforde/repos` returns 200).
 - [ ] Founder/legal sign-off on the publish package (plan P3 section 1).
 - [ ] Pricing HOLD honored: no prices anywhere in public artifacts.
-- [ ] Release candidate evidence fresh: HEAD 7fd559d, gates green.
+- [ ] Release candidate evidence fresh: HEAD == the final RC commit
+      (the commit tagged v1.0.0-rc1; see section 1).
+- [ ] Public-tree content policy (section 3a) satisfied: package
+      contains exactly the allowlist, nothing else.
 
 ## 1. Verify the release source
 
 From the PRIVATE dev repo (/Users/enterprisehq/AeroSkills):
 
-    git log --oneline -1        # expect 7fd559d (release-candidate base)
+    git log --oneline -1        # expect the final RC commit (tagged v1.0.0-rc1)
+    git rev-parse --short v1.0.0-rc1^{commit}   # prints the same short hash
     git status --porcelain      # expect empty (clean at rest)
-    git tag -l v1.0.0-rc1       # expect the annotated RC tag
+    git tag -l v1.0.0-rc1       # expect the annotated RC tag at the final RC commit
     make validate               # expect PASS 5/5 (36 SKILL.md, 27 contract
                                 # tests, 66/66 Hit@1, gate 4 zero markers)
     make attest                 # expect PASS 3/3 (number snapshot offline,
@@ -43,8 +62,9 @@ From the PRIVATE dev repo (/Users/enterprisehq/AeroSkills):
 
 Release package (local, not pushed anywhere): the clean tree at HEAD
 already built at /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1/
-(184 files, no .git, no dev fixtures, secrets sweep 0 hits,
+(144 files, no .git, no dev fixtures, secrets sweep 0 hits,
 content-policy sweep 0 hits, make validate PASS inside the package).
+Rebuild command and exact contents: section 3a.
 
 ## 2. Create the Ashforde org repo (no dev history)
 
@@ -61,14 +81,19 @@ connect; `aeroskills` is the working name everywhere in this repo.)
 ## 3. Build + push the clean tree (single squashed commit)
 
 Rebuild the clean tree if the package above is stale; otherwise reuse
-it. The dev-only ops QA harness is excluded (ops/automation/test/
-contains run-tests.sh and fixture-* trap files with planted stale
-numbers; the shipped gates make validate and make attest do not need
-it).
+it. The archive command below is the ONLY sanctioned way to build the
+package — it reproduces the public tree EXACTLY (section 3a allowlist;
+no drift, no extra files). Do not use a bare `git archive HEAD -- .`
+or `cp -R` of the dev tree: that ships internal docs.
 
     mkdir -p /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
     cd /Users/enterprisehq/AeroSkills
-    git archive --format=tar HEAD -- . ':(exclude)ops/automation/test' \
+    git archive --format=tar HEAD -- \
+      .gitignore .github/ CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE Makefile NOTICE README.md SECURITY.md STANDARDS.md standards-map.yaml \
+      skills/ scripts/ eval/ \
+      docs/FAQ.md docs/glossary.md docs/harness-contract.md docs/harness-integration.md docs/company-of-departments.md \
+      marketing/README.md marketing/release-notes-v1.0.0-rc1.md marketing/positioning-1pager.md \
+      ops/automation/ ':(exclude)ops/automation/test' \
       | tar -x -C /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
 
     cd /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
@@ -79,8 +104,11 @@ it).
 27 aerospace engineering skills across 9 installable domain packs,
 each passing make validate 5/5 (spec lint, desc lint, behavior
 contract, no-verbatim, Hit@1 66/66). Clean tree from dev HEAD
-7fd559d, no dev history, secrets swept, content policy green.
-Apache-2.0, published by Ashforde OU (Estonia)."
+v1.0.0-rc1 (the final RC commit), no dev history, secrets swept,
+content policy green. Public-tree allowlist only: skills, scripts,
+eval, standards-map, docs (5 public files), marketing (3 public
+files), ops/automation (minus dev fixtures). Apache-2.0, published by
+Ashforde OU (Estonia)."
     git remote add origin https://github.com/Ashforde/aeroskills.git
     git push -u origin main
 
@@ -90,6 +118,53 @@ Pre-push hygiene (every one must pass before the push):
 - `grep -rniE 'ghp_|github_pat_|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY' .`
   returns nothing.
 - `bash ops/automation/content-policy-sweep.sh` prints PASS 0 hits.
+- `find . -path ./ops/automation/state -prune -o -type f -print | grep -E 'research/|security/audits|development/|finance/|people/|support/|launch-draft|distribution-plan|ops-notes|superpowers|fixture'` returns nothing.
+
+## 3a. Public-tree content policy (the allowlist)
+
+The public package ships EXACTLY this list and nothing else. This is
+the founder doctrine: public release = CLEAN repos (clean export, no
+dev history, secrets sweep, README-ready). Every file in the package
+must be on the allowlist below.
+
+IN (allowlist):
+- Root: .gitignore, .github/, CITATION.cff, CODE_OF_CONDUCT.md,
+  CONTRIBUTING.md, LICENSE, Makefile, NOTICE, README.md, SECURITY.md,
+  STANDARDS.md, standards-map.yaml
+- skills/ (all 27 leaf skills + 9 pack routers, 36 SKILL.md + their
+  scripts/ and test_*.py behavior contracts)
+- scripts/ (gate scripts + eval machinery), eval/ (hit1 corpus)
+- docs/FAQ.md, docs/glossary.md, docs/harness-contract.md,
+  docs/harness-integration.md, docs/company-of-departments.md
+- marketing/README.md, marketing/release-notes-v1.0.0-rc1.md,
+  marketing/positioning-1pager.md
+- ops/automation/ EXCEPT ops/automation/test/ (gate scripts,
+  numbers.yaml, state/ snapshots — needed for `make attest` and the
+  content-policy sweep to run inside the package)
+
+OUT (never ship):
+- research/ (incl. briefs/ + peer-skill-repo-audit)
+- security/audits/
+- development/ (incl. builds/ + expansion-pipeline)
+- finance/, people/, support/ (dept stubs)
+- legal/ (dept stub; LICENSE/NOTICE at root are the legal artifacts)
+- marketing/launch-draft-2026-08-31.md (founder-gated, not posted)
+- marketing/distribution-plan-P3.md (internal GTM)
+- marketing/content/ (internal drafts)
+- docs/ops-notes.md, docs/release-runbook-ashforde.md (internal ops,
+  dev-only), docs/superpowers/
+- ops/automation/test/ (dev fixtures + negative-control suite)
+- AGENTS.md — DECISION: EXCLUDE. It is the internal operating/coding
+  standard for agents in the dev repo (departments, VETO domains,
+  delivery rules). Public contributors use CONTRIBUTING.md +
+  CODE_OF_CONDUCT.md instead. Keeping AGENTS.md out of the package
+  keeps internal process out of the public tree.
+
+The .github/workflows/attest.yml runs `make validate` + `make attest`
+in CI; both work inside the package (scripts/ + ops/automation minus
+test/ are present). The run-tests.sh negative-control step is dev-only
+and is skipped when ops/automation/test/ is absent (the workflow
+checks for the file).
 
 ## 4. Tag the org repo
 
@@ -100,6 +175,24 @@ Annotated tag, same message discipline as the private tag:
 
 At final release (after any RC review fixes), tag v1.0.0 the same way
 on the org repo and re-run the verification of step 6 on that commit.
+
+### 4a. Private-origin RC tag correction (rework 2026-08-31, DONE)
+
+The v1.0.0-rc1 annotated tag on the PRIVATE dev origin was created at
+7fd559d (before the final RC commit f001e1b + rework landed), so the
+tag excluded its own release notes, runbook, and the SEP-2640 fix.
+Correction (one-time, sanctioned by the CEO audit; repo is private, no
+consumers):
+
+    git tag -d v1.0.0-rc1
+    git push origin :refs/tags/v1.0.0-rc1
+    git tag -a v1.0.0-rc1 -m "AeroSkills v1.0.0-rc1 (final RC commit): clean package, gates validate 5/5 + attest 3/3, public-tree allowlist"
+    git push origin v1.0.0-rc1
+
+This is the ONLY sanctioned force-push/delete-recreate on the private
+dev origin: an RC-tag pointer correction before public release, tag
+ref only (never main, never history). Guardrail section 9 still
+forbids pushing dev history or force-pushing main.
 
 ## 5. README live edits (do these BEFORE the visibility flip)
 
@@ -165,7 +258,13 @@ Applied: marketing/launch-draft-2026-08-31.md line 1 and
 marketing/release-notes-v1.0.0-rc1.md. Keep the split in any new
 public copy (X thread, Show HN, newsletter).
 
-Map-coverage docs keep 14 on purpose: README "Standards map",
+PACKAGED copy (rework 2026-08-31): the launch-draft itself is OUT of
+the public package (founder-gated, not posted); the packaged
+release-notes and positioning-1pager carry the split in the
+allowlist. README's "Standards map" enumeration (13 domain standards
++ SEP-2640 as delivery format, separately named) matches the split.
+
+Map-coverage docs keep 14 on purpose: README "Standards map" badge,
 marketing/positioning-1pager.md ("covers 14 standards") state the
 standards-MAP total (14 entries including sep-2640) and the 9 gated
 set. That is a map-coverage claim, enforced against
@@ -176,8 +275,10 @@ guard and misstate map coverage.
 ## 9. Guardrails (never)
 
 - Never flip arjun-0077/aeroskills public.
-- Never push the dev repo history (no --source, no force-push of the
-  dev repo).
+- Never push the dev repo history (no --source, no force-push of
+  main on the dev repo). The ONE exception is the RC-tag pointer
+  correction documented in section 4a (tag ref only, private origin,
+  no consumers).
 - Never send anything externally without founder GO (publish, posts,
   newsletters are all VETO domains).
 - Never write a price (pricing HOLD until founder lifts it).
@@ -186,7 +287,8 @@ guard and misstate map coverage.
   publishable content (the pattern list is in
   ops/automation/content-policy-sweep.sh).
 - Never ship dev-only artifacts: __pycache__, .pytest_cache, *.pyc,
-  scratch, ops/automation/test/ fixtures.
+  scratch, ops/automation/test/ fixtures, or any path not on the
+  section 3a allowlist.
 
 ## 10. Related
 

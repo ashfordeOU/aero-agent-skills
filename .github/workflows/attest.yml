@@ -14,5 +14,13 @@ jobs:
         run: make validate
       - name: Attestation gates (offline, deterministic at rest)
         run: make attest
-      - name: Negative-control regression suite (N1-N7, G1-G6)
-        run: bash ops/automation/test/run-tests.sh
+      - name: Negative-control regression suite (N1-N7, G1-G6; dev-only)
+        # ops/automation/test/ is dev-only and is NOT shipped in the
+        # public package (runbook section 3a). Run it when present,
+        # skip with a note when absent so public CI stays green.
+        run: |
+          if [ -f ops/automation/test/run-tests.sh ]; then
+            bash ops/automation/test/run-tests.sh
+          else
+            echo "dev-only negative-control suite not shipped; skipped"
+          fi
