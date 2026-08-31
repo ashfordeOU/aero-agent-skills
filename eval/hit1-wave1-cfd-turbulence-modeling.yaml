@@ -1,0 +1,13 @@
+# Hit@1 wave-1 fragment: cfd-turbulence-modeling (aerodynamics/cfd)
+# Two tasks per new leaf skill; tbm2 is adversarial (plausibly routes to
+# the neighbor aerodynamics/cfd/cfd-convergence on 'cfd' wording, must
+# deterministically route to cfd-turbulence-modeling).
+tasks:
+  - id: tbm1
+    query: "estimate the y plus value for the first cell height and recommend the turbulence model for the cfd mesh"
+    intent: "aerodynamics; CFD y+ and turbulence model recommendation"
+    expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
+  - id: tbm2
+    query: "compute the friction velocity from the skin friction coefficient and check the wall treatment for the boundary layer"
+    intent: "aerodynamics; friction velocity and boundary layer wall treatment"
+    expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
