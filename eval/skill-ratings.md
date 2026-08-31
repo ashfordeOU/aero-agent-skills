@@ -1,6 +1,6 @@
 # AeroSkills Per-Skill Ratings Ledger
 
-Audit: CEO (Arjun) — 2026-08-31 · Founder directive: "run the checks and ratings on them too"
+Audit: CEO (Arjun) - 2026-08-31 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
 Total skills rated: 112
 
