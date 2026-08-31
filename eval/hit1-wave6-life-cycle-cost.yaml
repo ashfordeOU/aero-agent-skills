@@ -1,0 +1,15 @@
+# Hit@1 wave-6 fragment: life-cycle-cost (vehicle-design/cost-estimation)
+# Two tasks per new leaf; lc1 routes on the LCC phase structure rollup
+# (RDT&E, production, O&S, disposal) into the total life-cycle cost,
+# lc2 routes on present value discounting of the O&S stream with the
+# inflation and uncertainty treatment. Both must deterministically hit
+# vehicle-design/cost-estimation/life-cycle-cost.
+tasks:
+  - id: lc1
+    query: "estimate the total life-cycle-cost of the aircraft program by summing the r-d-t-e, production, operations-and-support, and disposal-cost phase costs"
+    intent: "vehicle design; LCC phase structure rollup (RDT&E, production, O&S, disposal) into total life-cycle cost"
+    expected_skill: "vehicle-design/cost-estimation/life-cycle-cost"
+  - id: lc2
+    query: "discount the operations-and-support cash flows to present-value at the discount-rate and check the inflation effect on the disposal-cost estimate with the uncertainty range"
+    intent: "vehicle design; present value discounting of the O&S stream, inflation effect on disposal, uncertainty band"
+    expected_skill: "vehicle-design/cost-estimation/life-cycle-cost"
