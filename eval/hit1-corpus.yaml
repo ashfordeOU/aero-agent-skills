@@ -47,7 +47,6 @@
 # turn1/turn2, vsp1/vsp2, pc1/pc2, pn1/pn2, ss1/ss2, dp1/dp2, nd1/nd2,
 # acst1/acst2, asd1/asd2, cv1/cv2). Owner: Ops Manager, Wave 3 build.
 # P5.2 / Wave 4 (2026-08-31, re-dispatch #4): fan-out build continues
-# to one hundred verified skills (112 SKILL.md under gate 1: 12 routers
 # + 100 leaves). Seventeen new leaves: flight-mechanics +3
 # (performance/breguet-endurance, performance/glide-performance,
 # stability-control/lateral-directional-stability),
@@ -74,1130 +73,1575 @@
 # P5.2 / Wave 6 (2026-08-31, re-dispatch #4): fan-out continues to
 # 122 verified skills (134 SKILL.md under gate 1: 12 routers + 122
 # leaves). Wave-6 new leaves: "aerodynamics/airfoil/airfoil-geometry", "flight-mechanics/performance/descent-performance", "flight-mechanics/stability-control/dynamic-stability", "gnc-autonomy/navigation/inertial-navigation", "vehicle-design/cost-estimation/life-cycle-cost", "structures/fatigue/load-spectrum-counting", "structures/materials/material-selection", "aerodynamics/high-speed/oblique-shock", "gnc-autonomy/guidance/pursuit-guidance".
-# Corpus: 258 tasks (240 prior plus 18 domain tasks). Owner: Ops
 # Manager, Wave 6 build (13th-kill rescue, fresh context).
 # P5.2 / Wave 7 (2026-09-01): fan-out continues to
 # 131 verified skills (143 SKILL.md under gate 1: 12 routers + 131
 # leaves). Wave-7 new leaves: "manufacturing-quality/as9102/ballooning", "flight-test-operations/planning/flight-test-data-reduction", "flight-test-operations/flutter/limit-cycle-oscillation", "flight-test-operations/envelope/load-factor-envelope", "propulsion/axial-compressor/multi-stage-compressor", "manufacturing-quality/ndt/radiographic-inspection", "propulsion/gas-turbine-cycle/real-cycle-effects", "systems-engineering-safety/mbse/trade-study-analysis", "propulsion/turbofan/turbofan-off-design".
-# Corpus: 276 tasks (258 prior plus 18 domain tasks). Owner: Ops
 # Manager, Wave 7 build.
+# P5.2 / Wave 8 (2026-09-01, re-dispatch #1): fan-out rescue continues
+# to 147 verified skills (159 SKILL.md under gate 1: 12 routers + 147 leaves).
+# Sixteen new leaves: structures +5 (composite-bolted-joints, widespread-fatigue-damage,
+# goodman-diagram, calculix-nonlinear, sandwich-panels), space-systems +3 (star-tracker,
+# command-data-handling, magnetorquer-control), gnc-autonomy +4 (state-space-analysis,
+# dilution-of-precision, attitude-dynamics, pid-control-design), aerodynamics +2
+# (cfd-mesh-generation, parasite-drag), vehicle-design +1 (payload-range-diagram),
+# cross-cutting +1 (skill-authoring). g3 repointed to pid-control-design (new best match).
+# Corpus: 308 tasks (276 prior plus 32 domain tasks). Owner: Ops Manager, Wave 8 build.
+
 tasks:
   - id: p1
-    query: determine the software level for a flight control function whose failure is catastrophic
-    intent: DO-178C software level / DAL determination from failure-condition severity
-    expected_skill: avionics/do178c/planning
+    query: "determine the software level for a flight control function whose failure is catastrophic"
+    intent: "DO-178C software level / DAL determination from failure-condition severity"
+    expected_skill: "avionics/do178c/planning"
   - id: p2
-    query: draft a PSAC for a navigation system software update
-    intent: DO-178C planning phase; PSAC artifact
-    expected_skill: avionics/do178c/planning
+    query: "draft a PSAC for a navigation system software update"
+    intent: "DO-178C planning phase; PSAC artifact"
+    expected_skill: "avionics/do178c/planning"
   - id: p3
-    query: scope planning-phase artifacts for DO-178C certification of an autopilot
-    intent: certification planning; PSAC/SDP/SVP/SCM/SQA scope
-    expected_skill: avionics/do178c/planning
+    query: "scope planning-phase artifacts for DO-178C certification of an autopilot"
+    intent: "certification planning; PSAC/SDP/SVP/SCM/SQA scope"
+    expected_skill: "avionics/do178c/planning"
   - id: d1
-    query: trace high-level requirements to low-level requirements and source code for a DO-178C flight control software item
-    intent: DO-178C development; requirement-to-code traceability
-    expected_skill: avionics/do178c/development
+    query: "trace high-level requirements to low-level requirements and source code for a DO-178C\
+  \ flight control software item"
+    intent: "DO-178C development; requirement-to-code traceability"
+    expected_skill: "avionics/do178c/development"
   - id: d2
-    query: identify derived requirements in the software development process
-    intent: DO-178C development; derived requirement identification
-    expected_skill: avionics/do178c/development
+    query: "identify derived requirements in the software development process"
+    intent: "DO-178C development; derived requirement identification"
+    expected_skill: "avionics/do178c/development"
   - id: v1
-    query: verify DO-178C level A software with MC/DC structural coverage and independent review
-    intent: DO-178C verification; coverage depth and independence
-    expected_skill: avionics/do178c/verification
+    query: "verify DO-178C level A software with MC/DC structural coverage and independent review"
+    intent: "DO-178C verification; coverage depth and independence"
+    expected_skill: "avionics/do178c/verification"
   - id: v2
-    query: analyze structural coverage for level B software requiring decision coverage
-    intent: DO-178C verification; decision coverage at level B
-    expected_skill: avionics/do178c/verification
+    query: "analyze structural coverage for level B software requiring decision coverage"
+    intent: "DO-178C verification; decision coverage at level B"
+    expected_skill: "avionics/do178c/verification"
   - id: cm1
-    query: establish configuration baselines and control changes for DO-178C software
-    intent: DO-178C configuration management; baselines and change control
-    expected_skill: avionics/do178c/configuration-management
+    query: "establish configuration baselines and control changes for DO-178C software"
+    intent: "DO-178C configuration management; baselines and change control"
+    expected_skill: "avionics/do178c/configuration-management"
   - id: cm2
-    query: process problem reports before DO-178C software release
-    intent: DO-178C configuration management; problem reports and release
-    expected_skill: avionics/do178c/configuration-management
+    query: "process problem reports before DO-178C software release"
+    intent: "DO-178C configuration management; problem reports and release"
+    expected_skill: "avionics/do178c/configuration-management"
   - id: sp1
-    query: allocate FDAL and IDAL for aircraft system functions per ARP4754A
-    intent: ARP4754A systems planning; FDAL/IDAL allocation
-    expected_skill: systems-engineering-safety/arp4754a/systems-planning
+    query: "allocate FDAL and IDAL for aircraft system functions per ARP4754A"
+    intent: "ARP4754A systems planning; FDAL/IDAL allocation"
+    expected_skill: "systems-engineering-safety/arp4754a/systems-planning"
   - id: sp2
-    query: scope the certification plan and system development plan for a transport aircraft program per ARP4754A
-    intent: ARP4754A systems planning; certification and development plans
-    expected_skill: systems-engineering-safety/arp4754a/systems-planning
+    query: "scope the certification plan and system development plan for a transport aircraft\
+  \ program per ARP4754A"
+    intent: "ARP4754A systems planning; certification and development plans"
+    expected_skill: "systems-engineering-safety/arp4754a/systems-planning"
   - id: hp1
-    query: determine whether a DO-254 hardware item is simple or complex airborne electronic hardware
-    intent: DO-254 hardware planning; AEH classification
-    expected_skill: avionics/do254/hardware-planning
+    query: "determine whether a DO-254 hardware item is simple or complex airborne electronic\
+  \ hardware"
+    intent: "DO-254 hardware planning; AEH classification"
+    expected_skill: "avionics/do254/hardware-planning"
   - id: hp2
-    query: scope the plan for hardware aspects of certification for an FPGA-based avionics module
-    intent: DO-254 hardware planning; PHAC scope for programmable logic
-    expected_skill: avionics/do254/hardware-planning
+    query: "scope the plan for hardware aspects of certification for an FPGA-based avionics module"
+    intent: "DO-254 hardware planning; PHAC scope for programmable logic"
+    expected_skill: "avionics/do254/hardware-planning"
   - id: sa1
-    query: conduct a functional hazard assessment and classify failure condition severities per ARP4761A
-    intent: ARP4761A safety assessment; FHA severity classification
-    expected_skill: systems-engineering-safety/arp4761a/safety-assessment
+    query: "conduct a functional hazard assessment and classify failure condition severities\
+  \ per ARP4761A"
+    intent: "ARP4761A safety assessment; FHA severity classification"
+    expected_skill: "systems-engineering-safety/arp4761a/safety-assessment"
   - id: sa2
-    query: scope the safety assessment plan and select fault tree analysis and FMEA for a level A system
-    intent: ARP4761A safety assessment; analysis set selection (FTA/FMEA)
-    expected_skill: systems-engineering-safety/arp4761a/safety-assessment
+    query: "scope the safety assessment plan and select fault tree analysis and FMEA for a level\
+  \ A system"
+    intent: "ARP4761A safety assessment; analysis set selection (FTA/FMEA)"
+    expected_skill: "systems-engineering-safety/arp4761a/safety-assessment"
   - id: q1
-    query: prepare audit evidence for the AS9100 counterfeit prevention clause
-    intent: AS9100 quality; audit evidence for aerospace clause 8.1.4
-    expected_skill: manufacturing-quality/as9100/quality
+    query: "prepare audit evidence for the AS9100 counterfeit prevention clause"
+    intent: "AS9100 quality; audit evidence for aerospace clause 8.1.4"
+    expected_skill: "manufacturing-quality/as9100/quality"
   - id: q2
-    query: close a nonconformance with corrective action under the aerospace quality management system
-    intent: AS9100 quality; nonconformance and corrective action closure
-    expected_skill: manufacturing-quality/as9100/quality
+    query: "close a nonconformance with corrective action under the aerospace quality management\
+  \ system"
+    intent: "AS9100 quality; nonconformance and corrective action closure"
+    expected_skill: "manufacturing-quality/as9100/quality"
   - id: aw1
-    query: determine the certification basis for a transport category airplane under FAR-25
-    intent: FAR-25/CS-25 airworthiness; certification basis
-    expected_skill: avionics/far-cs25/airworthiness
+    query: "determine the certification basis for a transport category airplane under FAR-25"
+    intent: "FAR-25/CS-25 airworthiness; certification basis"
+    expected_skill: "avionics/far-cs25/airworthiness"
   - id: aw2
-    query: evaluate means of compliance options for a FAR-25 certification program and confirm the 25.1309 safety assessment applies to the flight control system
-    intent: FAR-25/CS-25 airworthiness; means of compliance and 25.1309 applicability
-    expected_skill: avionics/far-cs25/airworthiness
+    query: "evaluate means of compliance options for a FAR-25 certification program and confirm\
+  \ the 25.1309 safety assessment applies to the flight control system"
+    intent: "FAR-25/CS-25 airworthiness; means of compliance and 25.1309 applicability"
+    expected_skill: "avionics/far-cs25/airworthiness"
   - id: e1
-    query: classify space flight software criticality under ECSS and size verification rigor
-    intent: ECSS space software; criticality category and assurance rigor
-    expected_skill: space-systems/ecss/software-engineering
+    query: "classify space flight software criticality under ECSS and size verification rigor"
+    intent: "ECSS space software; criticality category and assurance rigor"
+    expected_skill: "space-systems/ecss/software-engineering"
   - id: e2
-    query: assess heritage software reuse evidence for a category A space software item
-    intent: ECSS space software; heritage reuse evidence
-    expected_skill: space-systems/ecss/software-engineering
+    query: "assess heritage software reuse evidence for a category A space software item"
+    intent: "ECSS space software; heritage reuse evidence"
+    expected_skill: "space-systems/ecss/software-engineering"
   - id: m1
-    query: build a SysML model of the functional architecture and allocate functions to design elements
-    intent: MBSE systems engineering; functional architecture and allocation
-    expected_skill: systems-engineering-safety/mbse/systems-engineering
+    query: "build a SysML model of the functional architecture and allocate functions to design\
+  \ elements"
+    intent: "MBSE systems engineering; functional architecture and allocation"
+    expected_skill: "systems-engineering-safety/mbse/systems-engineering"
   - id: m2
-    query: run the model-based systems engineering traceability check and confirm full closure in the digital thread for the SysML architecture
-    intent: MBSE systems engineering; traceability closure and digital thread
-    expected_skill: systems-engineering-safety/mbse/systems-engineering
+    query: "run the model-based systems engineering traceability check and confirm full closure\
+  \ in the digital thread for the SysML architecture"
+    intent: "MBSE systems engineering; traceability closure and digital thread"
+    expected_skill: "systems-engineering-safety/mbse/systems-engineering"
   - id: s1
-    query: package a skill as an MCP resource with a skill URI per SEP-2640
-    intent: SEP-2640 skill delivery; skill URI and MCP resource packaging
-    expected_skill: cross-cutting/sep2640/skill-delivery
+    query: "package a skill as an MCP resource with a skill URI per SEP-2640"
+    intent: "SEP-2640 skill delivery; skill URI and MCP resource packaging"
+    expected_skill: "cross-cutting/sep2640/skill-delivery"
   - id: s2
-    query: verify an MCP server supports resources read and directory read for skill delivery
-    intent: SEP-2640 skill delivery; server readiness capabilities
-    expected_skill: cross-cutting/sep2640/skill-delivery
+    query: "verify an MCP server supports resources read and directory read for skill delivery"
+    intent: "SEP-2640 skill delivery; server readiness capabilities"
+    expected_skill: "cross-cutting/sep2640/skill-delivery"
   - id: a1
-    query: run an XFOIL viscous polar analysis of a NACA 0012 airfoil and extract lift and drag coefficients at a fixed Reynolds number
-    intent: aerodynamics; XFOIL airfoil polar generation
-    expected_skill: aerodynamics/airfoil/xfoil-analysis
+    query: "run an XFOIL viscous polar analysis of a NACA 0012 airfoil and extract lift and drag\
+  \ coefficients at a fixed Reynolds number"
+    intent: "aerodynamics; XFOIL airfoil polar generation"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
   - id: a2
-    query: validate an airfoil polar against the reference lift and drag bands for the NACA 0012 section
-    intent: aerodynamics; airfoil polar validation against reference data
-    expected_skill: aerodynamics/airfoil/xfoil-analysis
+    query: "validate an airfoil polar against the reference lift and drag bands for the NACA\
+  \ 0012 section"
+    intent: "aerodynamics; airfoil polar validation against reference data"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
   - id: g1
-    query: compute the Hohmann transfer delta-v and transfer time between two circular orbits using vis-viva
-    intent: orbit dynamics; Hohmann maneuver and vis-viva
-    expected_skill: gnc-autonomy/space/orbit-dynamics
+    query: "compute the Hohmann transfer delta-v and transfer time between two circular orbits\
+  \ using vis-viva"
+    intent: "orbit dynamics; Hohmann maneuver and vis-viva"
+    expected_skill: "gnc-autonomy/space/orbit-dynamics"
   - id: g2
-    query: propagate an orbit and check whether the J2 perturbation drift is significant for the mission
-    intent: orbit dynamics; J2 perturbation significance
-    expected_skill: gnc-autonomy/space/orbit-dynamics
+    query: "propagate an orbit and check whether the J2 perturbation drift is significant for\
+  \ the mission"
+    intent: "orbit dynamics; J2 perturbation significance"
+    expected_skill: "gnc-autonomy/space/orbit-dynamics"
   - id: g3
-    query: design a PID controller and check gain margin and phase margin for closed loop stability
-    intent: control design; PID and stability margins
-    expected_skill: gnc-autonomy/control/python-control-design
+    query: "design a PID controller and check gain margin and phase margin for closed loop stability"
+    intent: "control design; PID and stability margins"
+    expected_skill: "gnc-autonomy/control/pid-control-design"
   - id: g4
-    query: tune controller gains with Ziegler-Nichols and verify the margins on the bode plot
-    intent: control design; Ziegler-Nichols tuning and margins
-    expected_skill: gnc-autonomy/control/python-control-design
+    query: "tune controller gains with Ziegler-Nichols and verify the margins on the bode plot"
+    intent: "control design; Ziegler-Nichols tuning and margins"
+    expected_skill: "gnc-autonomy/control/python-control-design"
   - id: g5
-    query: set up a dymos trajectory optimization phase with collocation nodes and check convergence
-    intent: optimal control; dymos phase setup and convergence
-    expected_skill: gnc-autonomy/optimal-control/dymos-trajectory
+    query: "set up a dymos trajectory optimization phase with collocation nodes and check convergence"
+    intent: "optimal control; dymos phase setup and convergence"
+    expected_skill: "gnc-autonomy/optimal-control/dymos-trajectory"
   - id: g6
-    query: optimize a launch ascent trajectory with pseudospectral collocation and verify the delta-v budget
-    intent: optimal control; launch ascent trajectory optimization
-    expected_skill: gnc-autonomy/optimal-control/dymos-trajectory
+    query: "optimize a launch ascent trajectory with pseudospectral collocation and verify the\
+  \ delta-v budget"
+    intent: "optimal control; launch ascent trajectory optimization"
+    expected_skill: "gnc-autonomy/optimal-control/dymos-trajectory"
   - id: st1
-    query: run a linear static finite element analysis with CalculiX and compute the margin of safety
-    intent: structures; CalculiX linear FEM and margin of safety
-    expected_skill: structures/fem/calculix-linear
+    query: "run a linear static finite element analysis with CalculiX and compute the margin\
+  \ of safety"
+    intent: "structures; CalculiX linear FEM and margin of safety"
+    expected_skill: "structures/fem/calculix-linear"
   - id: st2
-    query: check unit discipline for a stress analysis and evaluate the von Mises stress against the allowable
-    intent: structures; unit discipline and von Mises stress
-    expected_skill: structures/fem/calculix-linear
+    query: "check unit discipline for a stress analysis and evaluate the von Mises stress against\
+  \ the allowable"
+    intent: "structures; unit discipline and von Mises stress"
+    expected_skill: "structures/fem/calculix-linear"
   - id: st3
-    query: compute an A-basis design allowable with a k-factor from a sample of metallic material test data
-    intent: materials; A-basis allowable and k-factor
-    expected_skill: structures/materials/mmpsd-allowables
+    query: "compute an A-basis design allowable with a k-factor from a sample of metallic material\
+  \ test data"
+    intent: "materials; A-basis allowable and k-factor"
+    expected_skill: "structures/materials/mmpsd-allowables"
   - id: st4
-    query: determine whether B-basis or A-basis applies for the metallic allowables and check the sample size
-    intent: materials; basis selection and sample statistics
-    expected_skill: structures/materials/mmpsd-allowables
+    query: "determine whether B-basis or A-basis applies for the metallic allowables and check\
+  \ the sample size"
+    intent: "materials; basis selection and sample statistics"
+    expected_skill: "structures/materials/mmpsd-allowables"
   - id: pt1
-    query: size a battery and solar array for a spacecraft power budget with eclipse duration
-    intent: spacecraft power subsystem sizing; battery and solar array
-    expected_skill: space-systems/subsystems/power-thermal-budget
+    query: "size a battery and solar array for a spacecraft power budget with eclipse duration"
+    intent: "spacecraft power subsystem sizing; battery and solar array"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
   - id: pt2
-    query: build an EPS power budget with margin for a satellite in low Earth orbit
-    intent: spacecraft EPS power budget with margin
-    expected_skill: space-systems/subsystems/power-thermal-budget
+    query: "build an EPS power budget with margin for a satellite in low Earth orbit"
+    intent: "spacecraft EPS power budget with margin"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
   - id: w1
-    query: estimate class-I weights and check the empty weight fraction band for a transport aircraft
-    intent: vehicle sizing; class-I weight estimation and weight fractions
-    expected_skill: vehicle-design/sizing/weight-estimation
+    query: "estimate class-I weights and check the empty weight fraction band for a transport\
+  \ aircraft"
+    intent: "vehicle sizing; class-I weight estimation and weight fractions"
+    expected_skill: "vehicle-design/sizing/weight-estimation"
   - id: w2
-    query: draft a preflight weight-and-balance sheet and verify the center of gravity is inside the envelope
-    intent: vehicle loading; weight and balance and CG envelope
-    expected_skill: vehicle-design/sizing/weight-estimation
+    query: "draft a preflight weight-and-balance sheet and verify the center of gravity is inside\
+  \ the envelope"
+    intent: "vehicle loading; weight and balance and CG envelope"
+    expected_skill: "vehicle-design/sizing/weight-estimation"
   - id: sa3
-    query: build a fault tree and extract the minimal cut sets for a flight control failure condition
-    intent: safety; fault tree analysis and minimal cut sets
-    expected_skill: systems-engineering-safety/arp4761a/fta-fmea
+    query: "build a fault tree and extract the minimal cut sets for a flight control failure\
+  \ condition"
+    intent: "safety; fault tree analysis and minimal cut sets"
+    expected_skill: "systems-engineering-safety/arp4761a/fta-fmea"
   - id: sa4
-    query: perform an FMEA and check the analysis set including common cause analysis for a level A system
-    intent: safety; FMEA and analysis set selection
-    expected_skill: systems-engineering-safety/arp4761a/fta-fmea
+    query: "perform an FMEA and check the analysis set including common cause analysis for a\
+  \ level A system"
+    intent: "safety; FMEA and analysis set selection"
+    expected_skill: "systems-engineering-safety/arp4761a/fta-fmea"
   - id: tr1
-    query: check the requirements traceability closure matrix from SRATS down to tests and list the gaps
-    intent: systems engineering; traceability closure matrix
-    expected_skill: systems-engineering-safety/arp4754a/requirements-traceability
+    query: "check the requirements traceability closure matrix from SRATS down to tests and list\
+  \ the gaps"
+    intent: "systems engineering; traceability closure matrix"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-traceability"
   - id: tr2
-    query: trace system requirements to low-level requirements and verification evidence with no gaps
-    intent: systems engineering; bidirectional traceability with verification
-    expected_skill: systems-engineering-safety/arp4754a/requirements-traceability
+    query: "trace system requirements to low-level requirements and verification evidence with\
+  \ no gaps"
+    intent: "systems engineering; bidirectional traceability with verification"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-traceability"
   - id: tq1
-    query: determine the DO-330 tool qualification level for a verification tool per the tool criteria
-    intent: avionics; DO-330 tool qualification level
-    expected_skill: avionics/do178c/tool-qualification
+    query: "determine the DO-330 tool qualification level for a verification tool per the tool\
+  \ criteria"
+    intent: "avionics; DO-330 tool qualification level"
+    expected_skill: "avionics/do178c/tool-qualification"
   - id: tq2
-    query: 'qualify a software development tool per DO-330: check the tool operational requirements
-  and the TQL artifacts'
-    intent: avionics; tool credit and tool operational requirements
-    expected_skill: avionics/do178c/tool-qualification
+    query: "qualify a software development tool per DO-330: check the tool operational requirements\
+  \ and the TQL artifacts"
+    intent: "avionics; tool credit and tool operational requirements"
+    expected_skill: "avionics/do178c/tool-qualification"
   - id: eq1
-    query: select the DO-160 environmental test conditions for an avionics equipment category
-    intent: avionics; DO-160 test condition selection
-    expected_skill: avionics/do160/environmental-qualification
+    query: "select the DO-160 environmental test conditions for an avionics equipment category"
+    intent: "avionics; DO-160 test condition selection"
+    expected_skill: "avionics/do160/environmental-qualification"
   - id: eq2
-    query: build the environmental qualification test matrix covering temperature, vibration, and lightning for the equipment
-    intent: avionics; environmental qualification test matrix
-    expected_skill: avionics/do160/environmental-qualification
+    query: "build the environmental qualification test matrix covering temperature, vibration,\
+  \ and lightning for the equipment"
+    intent: "avionics; environmental qualification test matrix"
+    expected_skill: "avionics/do160/environmental-qualification"
   - id: hv1
-    query: check DO-254 verification methods and independence for a complex airborne electronic hardware item and confirm requirements-based test coverage and analysis
-    intent: avionics hardware; DO-254 verification methods
-    expected_skill: avionics/do254/verification
+    query: "check DO-254 verification methods and independence for a complex airborne electronic\
+  \ hardware item and confirm requirements-based test coverage and analysis"
+    intent: "avionics hardware; DO-254 verification methods"
+    expected_skill: "avionics/do254/verification"
   - id: hv2
-    query: check DO-254 verification independence and coverage for hardware design assurance level A
-    intent: avionics hardware; verification independence and coverage
-    expected_skill: avionics/do254/verification
+    query: "check DO-254 verification independence and coverage for hardware design assurance\
+  \ level A"
+    intent: "avionics hardware; verification independence and coverage"
+    expected_skill: "avionics/do254/verification"
   - id: se1
-    query: map the ECSS lifecycle phases and review gates for a space system development program
-    intent: space systems engineering; ECSS lifecycle and reviews
-    expected_skill: space-systems/ecss/systems-engineering
+    query: "map the ECSS lifecycle phases and review gates for a space system development program"
+    intent: "space systems engineering; ECSS lifecycle and reviews"
+    expected_skill: "space-systems/ecss/systems-engineering"
   - id: se2
-    query: check gate readiness for the critical design review in the ECSS systems engineering process
-    intent: space systems engineering; CDR gate readiness
-    expected_skill: space-systems/ecss/systems-engineering
+    query: "check gate readiness for the critical design review in the ECSS systems engineering\
+  \ process"
+    intent: "space systems engineering; CDR gate readiness"
+    expected_skill: "space-systems/ecss/systems-engineering"
   - id: fai1
-    query: prepare the AS9102 first article inspection forms and verify the characteristic accountability
-    intent: manufacturing quality; AS9102 FAI forms
-    expected_skill: manufacturing-quality/as9102/first-article-inspection
+    query: "prepare the AS9102 first article inspection forms and verify the characteristic accountability"
+    intent: "manufacturing quality; AS9102 FAI forms"
+    expected_skill: "manufacturing-quality/as9102/first-article-inspection"
   - id: fai2
-    query: decide whether a delta FAI is required after a design change and check the FAI completeness
-    intent: manufacturing quality; delta FAI and completeness
-    expected_skill: manufacturing-quality/as9102/first-article-inspection
+    query: "decide whether a delta FAI is required after a design change and check the FAI completeness"
+    intent: "manufacturing quality; delta FAI and completeness"
+    expected_skill: "manufacturing-quality/as9102/first-article-inspection"
   - id: al1
-    query: prepare the certification liaison records and check the certification basis coverage for a DO-178C item
-    intent: avionics; DO-178C airworthiness liaison and certification basis coverage
-    expected_skill: avionics/do178c/airworthiness-liaison
+    query: "prepare the certification liaison records and check the certification basis coverage\
+  \ for a DO-178C item"
+    intent: "avionics; DO-178C airworthiness liaison and certification basis coverage"
+    expected_skill: "avionics/do178c/airworthiness-liaison"
   - id: al2
-    query: assess SOI audit readiness for level A software with open authority items
-    intent: avionics; SOI audit readiness and open item tracking
-    expected_skill: avionics/do178c/airworthiness-liaison
+    query: "assess SOI audit readiness for level A software with open authority items"
+    intent: "avionics; SOI audit readiness and open item tracking"
+    expected_skill: "avionics/do178c/airworthiness-liaison"
   - id: rc1
-    query: capture DO-254 hardware requirements and check them for vague wording and trace links
-    intent: avionics hardware; DO-254 requirements capture characteristics
-    expected_skill: avionics/do254/requirements-capture
+    query: "capture DO-254 hardware requirements and check them for vague wording and trace links"
+    intent: "avionics hardware; DO-254 requirements capture characteristics"
+    expected_skill: "avionics/do254/requirements-capture"
   - id: rc2
-    query: classify derived hardware requirements for an FPGA module and score capture readiness
-    intent: avionics hardware; derived requirement classification and readiness
-    expected_skill: avionics/do254/requirements-capture
+    query: "classify derived hardware requirements for an FPGA module and score capture readiness"
+    intent: "avionics hardware; derived requirement classification and readiness"
+    expected_skill: "avionics/do254/requirements-capture"
   - id: fp1
-    query: build an FMS flight plan and compute the great-circle track distance between waypoints
-    intent: avionics; FMS flight plan geometry and track distance
-    expected_skill: avionics/flight-management/flight-planning
+    query: "build an FMS flight plan and compute the great-circle track distance between waypoints"
+    intent: "avionics; FMS flight plan geometry and track distance"
+    expected_skill: "avionics/flight-management/flight-planning"
   - id: fp2
-    query: check the vertical profile against the crossing constraints for the planned route
-    intent: avionics; FMS vertical profile constraint check
-    expected_skill: avionics/flight-management/flight-planning
+    query: "check the vertical profile against the crossing constraints for the planned route"
+    intent: "avionics; FMS vertical profile constraint check"
+    expected_skill: "avionics/flight-management/flight-planning"
   - id: td1
-    query: size the radiator for the spacecraft thermal control subsystem from the heat load
-    intent: spacecraft thermal control; radiator sizing
-    expected_skill: space-systems/subsystems/thermal-design
+    query: "size the radiator for the spacecraft thermal control subsystem from the heat load"
+    intent: "spacecraft thermal control; radiator sizing"
+    expected_skill: "space-systems/subsystems/thermal-design"
   - id: td2
-    query: solve the equilibrium radiator temperature and check the thermal margin for the dissipation budget
-    intent: spacecraft thermal control; equilibrium temperature and margin
-    expected_skill: space-systems/subsystems/thermal-design
+    query: "solve the equilibrium radiator temperature and check the thermal margin for the dissipation\
+  \ budget"
+    intent: "spacecraft thermal control; equilibrium temperature and margin"
+    expected_skill: "space-systems/subsystems/thermal-design"
   - id: ac1
-    query: size the momentum wheel for a spacecraft slew and check the ADCS margin
-    intent: spacecraft attitude control; momentum wheel sizing
-    expected_skill: space-systems/adcs/attitude-control-sizing
+    query: "size the momentum wheel for a spacecraft slew and check the ADCS margin"
+    intent: "spacecraft attitude control; momentum wheel sizing"
+    expected_skill: "space-systems/adcs/attitude-control-sizing"
   - id: ac2
-    query: verify the detumble rate is within the allowed rate after separation
-    intent: spacecraft attitude control; detumble check
-    expected_skill: space-systems/adcs/attitude-control-sizing
+    query: "verify the detumble rate is within the allowed rate after separation"
+    intent: "spacecraft attitude control; detumble check"
+    expected_skill: "space-systems/adcs/attitude-control-sizing"
   - id: va1
-    query: validate system requirements per ARP4754A and check the validation method and independence
-    intent: systems engineering; ARP4754A requirements validation
-    expected_skill: systems-engineering-safety/arp4754a/validation
+    query: "validate system requirements per ARP4754A and check the validation method and independence"
+    intent: "systems engineering; ARP4754A requirements validation"
+    expected_skill: "systems-engineering-safety/arp4754a/validation"
   - id: va2
-    query: score validation closure before releasing requirements to design at level A
-    intent: systems engineering; validation closure at level A
-    expected_skill: systems-engineering-safety/arp4754a/validation
+    query: "score validation closure before releasing requirements to design at level A"
+    intent: "systems engineering; validation closure at level A"
+    expected_skill: "systems-engineering-safety/arp4754a/validation"
   - id: cc1
-    query: run the zonal safety analysis for the equipment bay and score the zone items
-    intent: safety; zonal safety analysis zone scoring
-    expected_skill: systems-engineering-safety/arp4761a/common-cause-analysis
+    query: "run the zonal safety analysis for the equipment bay and score the zone items"
+    intent: "safety; zonal safety analysis zone scoring"
+    expected_skill: "systems-engineering-safety/arp4761a/common-cause-analysis"
   - id: cc2
-    query: check the common cause analysis set covers zonal, particular risk, and common mode studies
-    intent: safety; common cause analysis set completeness
-    expected_skill: systems-engineering-safety/arp4761a/common-cause-analysis
+    query: "check the common cause analysis set covers zonal, particular risk, and common mode\
+  \ studies"
+    intent: "safety; common cause analysis set completeness"
+    expected_skill: "systems-engineering-safety/arp4761a/common-cause-analysis"
   - id: as1
-    query: select an airfoil section for the wing by lift-to-drag ratio and minimum thickness
-    intent: aerodynamics; airfoil section selection
-    expected_skill: aerodynamics/airfoil/airfoil-selection
+    query: "select an airfoil section for the wing by lift-to-drag ratio and minimum thickness"
+    intent: "aerodynamics; airfoil section selection"
+    expected_skill: "aerodynamics/airfoil/airfoil-selection"
   - id: as2
-    query: compare candidate NACA airfoils and pick the best qualified section for the design condition
-    intent: aerodynamics; candidate airfoil comparison
-    expected_skill: aerodynamics/airfoil/airfoil-selection
+    query: "compare candidate NACA airfoils and pick the best qualified section for the design\
+  \ condition"
+    intent: "aerodynamics; candidate airfoil comparison"
+    expected_skill: "aerodynamics/airfoil/airfoil-selection"
   - id: cfc1
-    query: judge whether the CFD run converged from the residual history and Courant number
-    intent: aerodynamics; CFD residual and CFL convergence
-    expected_skill: aerodynamics/cfd/cfd-convergence
+    query: "judge whether the CFD run converged from the residual history and Courant number"
+    intent: "aerodynamics; CFD residual and CFL convergence"
+    expected_skill: "aerodynamics/cfd/cfd-convergence"
   - id: cfc2
-    query: check mesh refinement convergence for the solver results
-    intent: aerodynamics; mesh refinement convergence
-    expected_skill: aerodynamics/cfd/cfd-convergence
+    query: "check mesh refinement convergence for the solver results"
+    intent: "aerodynamics; mesh refinement convergence"
+    expected_skill: "aerodynamics/cfd/cfd-convergence"
   - id: rp1
-    query: plan the rendezvous phasing maneuver and compute the drift rate and delta-v
-    intent: orbit dynamics; rendezvous phasing maneuver
-    expected_skill: gnc-autonomy/space/rendezvous-phasing
+    query: "plan the rendezvous phasing maneuver and compute the drift rate and delta-v"
+    intent: "orbit dynamics; rendezvous phasing maneuver"
+    expected_skill: "gnc-autonomy/space/rendezvous-phasing"
   - id: rp2
-    query: check the closing rate for the final approach is within the allowed value
-    intent: orbit dynamics; rendezvous closing rate
-    expected_skill: gnc-autonomy/space/rendezvous-phasing
+    query: "check the closing rate for the final approach is within the allowed value"
+    intent: "orbit dynamics; rendezvous closing rate"
+    expected_skill: "gnc-autonomy/space/rendezvous-phasing"
   - id: ls1
-    query: compute the laminate A matrix for a symmetric composite layup with classical lamination theory
-    intent: structures; composite laminate stiffness
-    expected_skill: structures/composites/laminate-stiffness
+    query: "compute the laminate A matrix for a symmetric composite layup with classical lamination\
+  \ theory"
+    intent: "structures; composite laminate stiffness"
+    expected_skill: "structures/composites/laminate-stiffness"
   - id: ls2
-    query: rotate the ply stiffness to the laminate axes and check the coupling terms
-    intent: structures; rotated ply stiffness and coupling
-    expected_skill: structures/composites/laminate-stiffness
+    query: "rotate the ply stiffness to the laminate axes and check the coupling terms"
+    intent: "structures; rotated ply stiffness and coupling"
+    expected_skill: "structures/composites/laminate-stiffness"
   - id: md1
-    query: sum the Palmgren-Miner damage fractions for the fatigue load spectrum
-    intent: structures; fatigue cumulative damage
-    expected_skill: structures/fatigue/miner-damage
+    query: "sum the Palmgren-Miner damage fractions for the fatigue load spectrum"
+    intent: "structures; fatigue cumulative damage"
+    expected_skill: "structures/fatigue/miner-damage"
   - id: md2
-    query: check the cumulative fatigue damage against the life limit and report life consumed
-    intent: structures; fatigue life limit check
-    expected_skill: structures/fatigue/miner-damage
+    query: "check the cumulative fatigue damage against the life limit and report life consumed"
+    intent: "structures; fatigue life limit check"
+    expected_skill: "structures/fatigue/miner-damage"
   - id: to1
-    query: estimate the takeoff gross weight with the fuel fraction method for the conceptual design
-    intent: vehicle design; takeoff gross weight estimation
-    expected_skill: vehicle-design/conceptual/tow-estimation
+    query: "estimate the takeoff gross weight with the fuel fraction method for the conceptual\
+  \ design"
+    intent: "vehicle design; takeoff gross weight estimation"
+    expected_skill: "vehicle-design/conceptual/tow-estimation"
   - id: to2
-    query: iterate the takeoff weight estimate to convergence and balance the weight breakdown
-    intent: vehicle design; sizing iteration convergence
-    expected_skill: vehicle-design/conceptual/tow-estimation
+    query: "iterate the takeoff weight estimate to convergence and balance the weight breakdown"
+    intent: "vehicle design; sizing iteration convergence"
+    expected_skill: "vehicle-design/conceptual/tow-estimation"
   - id: mi1
-    query: estimate the moment of inertia from the mass and radius of gyration for the component
-    intent: vehicle design; mass properties inertia
-    expected_skill: vehicle-design/mass-properties/inertia-estimation
+    query: "estimate the moment of inertia from the mass and radius of gyration for the component"
+    intent: "vehicle design; mass properties inertia"
+    expected_skill: "vehicle-design/mass-properties/inertia-estimation"
   - id: mi2
-    query: transfer the inertia to the reference axis with the parallel axis theorem
-    intent: vehicle design; parallel axis theorem
-    expected_skill: vehicle-design/mass-properties/inertia-estimation
+    query: "transfer the inertia to the reference axis with the parallel axis theorem"
+    intent: "vehicle design; parallel axis theorem"
+    expected_skill: "vehicle-design/mass-properties/inertia-estimation"
   - id: cp1
-    query: score the counterfeit risk for the aerospace procurement and check the controls
-    intent: manufacturing quality; counterfeit risk scoring
-    expected_skill: manufacturing-quality/as9100/counterfeit-prevention
+    query: "score the counterfeit risk for the aerospace procurement and check the controls"
+    intent: "manufacturing quality; counterfeit risk scoring"
+    expected_skill: "manufacturing-quality/as9100/counterfeit-prevention"
   - id: cp2
-    query: decide whether a suspect part must be reported and confirm the procurement control set
-    intent: manufacturing quality; counterfeit reporting trigger
-    expected_skill: manufacturing-quality/as9100/counterfeit-prevention
+    query: "decide whether a suspect part must be reported and confirm the procurement control\
+  \ set"
+    intent: "manufacturing quality; counterfeit reporting trigger"
+    expected_skill: "manufacturing-quality/as9100/counterfeit-prevention"
   - id: isa1
-    query: read the ISA standard atmosphere temperature, pressure, and density at 5000 meters
-    intent: cross-cutting; ISA standard atmosphere state
-    expected_skill: cross-cutting/units-atmos/isa-atmosphere
+    query: "read the ISA standard atmosphere temperature, pressure, and density at 5000 meters"
+    intent: "cross-cutting; ISA standard atmosphere state"
+    expected_skill: "cross-cutting/units-atmos/isa-atmosphere"
   - id: isa2
-    query: compute the atmospheric density at cruise altitude from the standard atmosphere model
-    intent: cross-cutting; standard atmosphere density
-    expected_skill: cross-cutting/units-atmos/isa-atmosphere
+    query: "compute the atmospheric density at cruise altitude from the standard atmosphere model"
+    intent: "cross-cutting; standard atmosphere density"
+    expected_skill: "cross-cutting/units-atmos/isa-atmosphere"
   - id: xp1
-    query: quality system for safety assessment
-    intent: 'cross-pair: AS9100 quality system vs ARP4761A safety assessment vs ARP4754A systems
-  planning'
-    expected_skill: manufacturing-quality/as9100/quality
+    query: "quality system for safety assessment"
+    intent: "cross-pair: AS9100 quality system vs ARP4761A safety assessment vs ARP4754A systems\
+  \ planning"
+    expected_skill: "manufacturing-quality/as9100/quality"
   - id: xp2
-    query: manage configuration baselines for a safety assessment program
-    intent: 'cross-pair: DO-178C configuration management vs ARP4761A safety assessment vs ARP4754A
-  systems planning'
-    expected_skill: avionics/do178c/configuration-management
+    query: "manage configuration baselines for a safety assessment program"
+    intent: "cross-pair: DO-178C configuration management vs ARP4761A safety assessment vs ARP4754A\
+  \ systems planning"
+    expected_skill: "avionics/do178c/configuration-management"
   - id: xp3
-    query: traceability between safety requirements and verification evidence
-    intent: 'cross-pair: DO-178C development traceability vs verification vs MBSE digital-thread
-  closure'
-    expected_skill: avionics/do178c/development
+    query: "traceability between safety requirements and verification evidence"
+    intent: "cross-pair: DO-178C development traceability vs verification vs MBSE digital-thread\
+  \ closure"
+    expected_skill: "avionics/do178c/development"
   - id: xp4
-    query: trace the SRATS requirements through the lifecycle and check the traceability closure for gaps
-    intent: 'cross-pair: requirements traceability vs DO-178C development vs MBSE'
-    expected_skill: systems-engineering-safety/arp4754a/requirements-traceability
+    query: "trace the SRATS requirements through the lifecycle and check the traceability closure\
+  \ for gaps"
+    intent: "cross-pair: requirements traceability vs DO-178C development vs MBSE"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-traceability"
   - id: xp5
-    query: build a fault tree for the failure condition and extract the minimal cut-set probabilities
-    intent: 'cross-pair: FTA vs safety assessment vs airworthiness'
-    expected_skill: systems-engineering-safety/arp4761a/fta-fmea
+    query: "build a fault tree for the failure condition and extract the minimal cut-set probabilities"
+    intent: "cross-pair: FTA vs safety assessment vs airworthiness"
+    expected_skill: "systems-engineering-safety/arp4761a/fta-fmea"
   - id: xp6
-    query: prepare the AS9102 first article inspection records for the production article
-    intent: 'cross-pair: AS9102 FAI vs AS9100 quality'
-    expected_skill: manufacturing-quality/as9102/first-article-inspection
+    query: "prepare the AS9102 first article inspection records for the production article"
+    intent: "cross-pair: AS9102 FAI vs AS9100 quality"
+    expected_skill: "manufacturing-quality/as9102/first-article-inspection"
   - id: xp7
-    query: size the battery and solar array for a satellite power subsystem
-    intent: 'cross-pair: power-thermal-budget vs orbit dynamics vs ECSS systems engineering'
-    expected_skill: space-systems/subsystems/power-thermal-budget
+    query: "size the battery and solar array for a satellite power subsystem"
+    intent: "cross-pair: power-thermal-budget vs orbit dynamics vs ECSS systems engineering"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
   - id: xp8
-    query: check the control loop gain and phase margins for stability
-    intent: 'cross-pair: control design vs safety assessment vs DO-178C planning'
-    expected_skill: gnc-autonomy/control/python-control-design
+    query: "check the control loop gain and phase margins for stability"
+    intent: "cross-pair: control design vs safety assessment vs DO-178C planning"
+    expected_skill: "gnc-autonomy/control/python-control-design"
   - id: xp9
-    query: size the radiator and check the thermal balance for the satellite power subsystem
-    intent: 'cross-pair: thermal-design vs power-thermal-budget'
-    expected_skill: space-systems/subsystems/thermal-design
+    query: "size the radiator and check the thermal balance for the satellite power subsystem"
+    intent: "cross-pair: thermal-design vs power-thermal-budget"
+    expected_skill: "space-systems/subsystems/thermal-design"
   - id: xp10
-    query: select an airfoil for the wing and validate the polar against the reference data
-    intent: 'cross-pair: airfoil-selection vs xfoil-analysis; polar validation anchor wins the
-  boundary'
-    expected_skill: aerodynamics/airfoil/xfoil-analysis
+    query: "select an airfoil for the wing and validate the polar against the reference data"
+    intent: "cross-pair: airfoil-selection vs xfoil-analysis; polar validation anchor wins the\
+  \ boundary"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
   - id: xp11
-    query: estimate the takeoff gross weight and check the empty weight fraction for the transport
-    intent: 'cross-pair: tow-estimation vs weight-estimation'
-    expected_skill: vehicle-design/conceptual/tow-estimation
+    query: "estimate the takeoff gross weight and check the empty weight fraction for the transport"
+    intent: "cross-pair: tow-estimation vs weight-estimation"
+    expected_skill: "vehicle-design/conceptual/tow-estimation"
   - id: xp12
-    query: check the fatigue life and the margin of safety for the wing attachment
-    intent: 'cross-pair: miner-damage vs calculix-linear'
-    expected_skill: structures/fatigue/miner-damage
+    query: "check the fatigue life and the margin of safety for the wing attachment"
+    intent: "cross-pair: miner-damage vs calculix-linear"
+    expected_skill: "structures/fatigue/miner-damage"
   - id: t1
-    query: size a battery for a 12U CubeSat
-    intent: spacecraft power subsystem sizing
-    expected_skill: space-systems/subsystems/power-thermal-budget
+    query: "size a battery for a 12U CubeSat"
+    intent: "spacecraft power subsystem sizing"
+    expected_skill: "space-systems/subsystems/power-thermal-budget"
   - id: t2
-    query: draft a preflight weight-and-balance sheet
-    intent: aircraft loading, CG envelope, weight and balance
-    expected_skill: vehicle-design/sizing/weight-estimation
+    query: "draft a preflight weight-and-balance sheet"
+    intent: "aircraft loading, CG envelope, weight and balance"
+    expected_skill: "vehicle-design/sizing/weight-estimation"
   - id: t4
-    query: run an XFOIL polar analysis of the NACA 0012 airfoil and validate the lift and drag coefficients
-    intent: aerodynamics; XFOIL airfoil polar analysis and validation against a known reference
-    expected_skill: aerodynamics/airfoil/xfoil-analysis
+    query: "run an XFOIL polar analysis of the NACA 0012 airfoil and validate the lift and drag\
+  \ coefficients"
+    intent: "aerodynamics; XFOIL airfoil polar analysis and validation against a known reference"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
   - id: cg1
-    query: calculate the crack-growth life with the paris law for the damage-tolerance assessment
-    intent: structures; fatigue crack growth life via Paris law and stress intensity
-    expected_skill: structures/damage-tolerance/crack-growth
+    query: "calculate the crack-growth life with the paris law for the damage-tolerance assessment"
+    intent: "structures; fatigue crack growth life via Paris law and stress intensity"
+    expected_skill: "structures/damage-tolerance/crack-growth"
   - id: cg2
-    query: sum the crack-growth per cycle from the paris law and the stress-intensity range for the damage-tolerance check
-    intent: 'adversarial: miner-damage wording (sum, damage tolerance) must route to crack-growth'
-    expected_skill: structures/damage-tolerance/crack-growth
+    query: "sum the crack-growth per cycle from the paris law and the stress-intensity range\
+  \ for the damage-tolerance check"
+    intent: "adversarial: miner-damage wording (sum, damage tolerance) must route to crack-growth"
+    expected_skill: "structures/damage-tolerance/crack-growth"
   - id: gt1
-    query: compute the ideal Brayton cycle thermal efficiency and compressor exit temperature for the gas turbine at a pressure ratio of 8
-    intent: propulsion; ideal Brayton cycle efficiency and compressor exit temperature
-    expected_skill: propulsion/gas-turbine-cycle/gas-turbine-cycle
+    query: "compute the ideal Brayton cycle thermal efficiency and compressor exit temperature\
+  \ for the gas turbine at a pressure ratio of 8"
+    intent: "propulsion; ideal Brayton cycle efficiency and compressor exit temperature"
+    expected_skill: "propulsion/gas-turbine-cycle/gas-turbine-cycle"
   - id: gt2
-    query: estimate the turbine exit temperature for the ideal gas turbine engine cycle
-    intent: propulsion; gas turbine turbine exit temperature
-    expected_skill: propulsion/gas-turbine-cycle/gas-turbine-cycle
+    query: "estimate the turbine exit temperature for the ideal gas turbine engine cycle"
+    intent: "propulsion; gas turbine turbine exit temperature"
+    expected_skill: "propulsion/gas-turbine-cycle/gas-turbine-cycle"
   - id: tf1
-    query: compute the bypass ratio and propulsive efficiency for the turbofan engine
-    intent: propulsion; turbofan bypass ratio and propulsive efficiency
-    expected_skill: propulsion/turbofan/turbofan-cycle
+    query: "compute the bypass ratio and propulsive efficiency for the turbofan engine"
+    intent: "propulsion; turbofan bypass ratio and propulsive efficiency"
+    expected_skill: "propulsion/turbofan/turbofan-cycle"
   - id: tf2
-    query: estimate the specific thrust and net thrust of the turbofan from the mass flow and jet velocity
-    intent: propulsion; turbofan specific thrust from mass flow and jet velocity
-    expected_skill: propulsion/turbofan/turbofan-cycle
+    query: "estimate the specific thrust and net thrust of the turbofan from the mass flow and\
+  \ jet velocity"
+    intent: "propulsion; turbofan specific thrust from mass flow and jet velocity"
+    expected_skill: "propulsion/turbofan/turbofan-cycle"
   - id: rs1
-    query: size the rocket propellant mass and delta-v with the rocket equation for the launch vehicle
-    intent: propulsion; rocket equation delta-v and propellant mass sizing
-    expected_skill: propulsion/rocket/rocket-sizing
+    query: "size the rocket propellant mass and delta-v with the rocket equation for the launch\
+  \ vehicle"
+    intent: "propulsion; rocket equation delta-v and propellant mass sizing"
+    expected_skill: "propulsion/rocket/rocket-sizing"
   - id: rs2
-    query: compute the mass ratio and staging delta-v for the multistage rocket
-    intent: propulsion; rocket mass ratio and staging delta-v
-    expected_skill: propulsion/rocket/rocket-sizing
+    query: "compute the mass ratio and staging delta-v for the multistage rocket"
+    intent: "propulsion; rocket mass ratio and staging delta-v"
+    expected_skill: "propulsion/rocket/rocket-sizing"
   - id: br1
-    query: estimate the cruise range of the transport aircraft with the breguet range equation from speed, tsfc, and lift to drag ratio
-    intent: flight mechanics; Breguet cruise range from speed, TSFC, and L/D
-    expected_skill: flight-mechanics/performance/breguet-range
+    query: "estimate the cruise range of the transport aircraft with the breguet range equation\
+  \ from speed, tsfc, and lift to drag ratio"
+    intent: "flight mechanics; Breguet cruise range from speed, TSFC, and L/D"
+    expected_skill: "flight-mechanics/performance/breguet-range"
   - id: br2
-    query: compute the cruise time and final mass from the fuel fraction for the long range mission
-    intent: flight mechanics; cruise time and final mass from fuel fraction
-    expected_skill: flight-mechanics/performance/breguet-range
+    query: "compute the cruise time and final mass from the fuel fraction for the long range\
+  \ mission"
+    intent: "flight mechanics; cruise time and final mass from fuel fraction"
+    expected_skill: "flight-mechanics/performance/breguet-range"
   - id: tp1
-    query: estimate the ground roll distance and lift off speed for the transport aircraft takeoff
-    intent: flight mechanics; takeoff ground roll distance and lift-off speed
-    expected_skill: flight-mechanics/performance/takeoff-performance
+    query: "estimate the ground roll distance and lift off speed for the transport aircraft takeoff"
+    intent: "flight mechanics; takeoff ground roll distance and lift-off speed"
+    expected_skill: "flight-mechanics/performance/takeoff-performance"
   - id: tp2
-    query: compute the lift off speed and stall speed for the takeoff ground roll analysis
-    intent: flight mechanics; lift-off and stall speed in the takeoff analysis
-    expected_skill: flight-mechanics/performance/takeoff-performance
+    query: "compute the lift off speed and stall speed for the takeoff ground roll analysis"
+    intent: "flight mechanics; lift-off and stall speed in the takeoff analysis"
+    expected_skill: "flight-mechanics/performance/takeoff-performance"
   - id: lon1
-    query: compute the neutral point and static margin for the static longitudinal stability analysis
-    intent: flight mechanics; neutral point and static margin
-    expected_skill: flight-mechanics/stability-control/longitudinal-stability
+    query: "compute the neutral point and static margin for the static longitudinal stability\
+  \ analysis"
+    intent: "flight mechanics; neutral point and static margin"
+    expected_skill: "flight-mechanics/stability-control/longitudinal-stability"
   - id: lon2
-    query: check the pitch stability and whether the aircraft is longitudinally stable at the current center of gravity
-    intent: flight mechanics; pitch stability and longitudinal stability verdict
-    expected_skill: flight-mechanics/stability-control/longitudinal-stability
+    query: "check the pitch stability and whether the aircraft is longitudinally stable at the\
+  \ current center of gravity"
+    intent: "flight mechanics; pitch stability and longitudinal stability verdict"
+    expected_skill: "flight-mechanics/stability-control/longitudinal-stability"
   - id: ee1
-    query: plan the envelope expansion steps and compute the corner speed against the load factor envelope
-    intent: flight test; envelope expansion steps and corner speed
-    expected_skill: flight-test-operations/envelope/envelope-expansion
+    query: "plan the envelope expansion steps and compute the corner speed against the load factor\
+  \ envelope"
+    intent: "flight test; envelope expansion steps and corner speed"
+    expected_skill: "flight-test-operations/envelope/envelope-expansion"
   - id: ee2
-    query: classify the airspeed into the flight test speed categories for the envelope expansion program
-    intent: flight test; airspeed classification for envelope expansion
-    expected_skill: flight-test-operations/envelope/envelope-expansion
+    query: "classify the airspeed into the flight test speed categories for the envelope expansion\
+  \ program"
+    intent: "flight test; airspeed classification for envelope expansion"
+    expected_skill: "flight-test-operations/envelope/envelope-expansion"
   - id: vs1
-    query: determine the reference stall speed vs1g from the wing loading and maximum lift coefficient for the flight test
-    intent: flight test; Vs1g reference stall speed from wing loading
-    expected_skill: flight-test-operations/performance/stall-speed-determination
+    query: "determine the reference stall speed vs1g from the wing loading and maximum lift coefficient\
+  \ for the flight test"
+    intent: "flight test; Vs1g reference stall speed from wing loading"
+    expected_skill: "flight-test-operations/performance/stall-speed-determination"
   - id: vs2
-    query: correct the stall speed for the weight change and check the stall margin for the flight test
-    intent: flight test; weight-corrected stall speed and stall margin
-    expected_skill: flight-test-operations/performance/stall-speed-determination
+    query: "correct the stall speed for the weight change and check the stall margin for the\
+  \ flight test"
+    intent: "flight test; weight-corrected stall speed and stall margin"
+    expected_skill: "flight-test-operations/performance/stall-speed-determination"
   - id: lig1
-    query: select the do 160 section 22 lightning induced transient test level and waveform set for the equipment
-    intent: avionics; DO-160 lightning test level and waveform selection
-    expected_skill: avionics/do160/lightning-protection
+    query: "select the do 160 section 22 lightning induced transient test level and waveform\
+  \ set for the equipment"
+    intent: "avionics; DO-160 lightning test level and waveform selection"
+    expected_skill: "avionics/do160/lightning-protection"
   - id: lig2
-    query: check the lightning test pass criteria verdict for no damage, no upset, and no latch up
-    intent: avionics; lightning test pass criteria verdict
-    expected_skill: avionics/do160/lightning-protection
+    query: "check the lightning test pass criteria verdict for no damage, no upset, and no latch\
+  \ up"
+    intent: "avionics; lightning test pass criteria verdict"
+    expected_skill: "avionics/do160/lightning-protection"
   - id: tbm1
-    query: estimate the y plus value for the first cell height and recommend the turbulence model for the cfd mesh
-    intent: aerodynamics; CFD y+ and turbulence model recommendation
-    expected_skill: aerodynamics/cfd/cfd-turbulence-modeling
+    query: "estimate the y plus value for the first cell height and recommend the turbulence\
+  \ model for the cfd mesh"
+    intent: "aerodynamics; CFD y+ and turbulence model recommendation"
+    expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
   - id: tbm2
-    query: compute the friction velocity from the skin friction coefficient and check the wall treatment for the boundary layer
-    intent: aerodynamics; friction velocity and boundary layer wall treatment
-    expected_skill: aerodynamics/cfd/cfd-turbulence-modeling
+    query: "compute the friction velocity from the skin friction coefficient and check the wall\
+  \ treatment for the boundary layer"
+    intent: "aerodynamics; friction velocity and boundary layer wall treatment"
+    expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
   - id: spt1
-    query: compute the sun pointing angle and check the attitude is within tolerance for the spacecraft safe hold
-    intent: spacecraft ADCS; sun pointing angle and safe hold tolerance
-    expected_skill: space-systems/adcs/sun-pointing
+    query: "compute the sun pointing angle and check the attitude is within tolerance for the\
+  \ spacecraft safe hold"
+    intent: "spacecraft ADCS; sun pointing angle and safe hold tolerance"
+    expected_skill: "space-systems/adcs/sun-pointing"
   - id: spt2
-    query: size the slew rate to acquire the sun and estimate the solar illumination factor at the sun angle
-    intent: spacecraft ADCS; sun acquisition slew rate and solar illumination factor
-    expected_skill: space-systems/adcs/sun-pointing
+    query: "size the slew rate to acquire the sun and estimate the solar illumination factor\
+  \ at the sun angle"
+    intent: "spacecraft ADCS; sun acquisition slew rate and solar illumination factor"
+    expected_skill: "space-systems/adcs/sun-pointing"
   - id: bpr1
-    query: compute the thrust split and specific thrust for the turbofan at the bypass ratio
-    intent: propulsion; turbofan thrust split and specific thrust at the bypass ratio
-    expected_skill: propulsion/turbofan/bypass-ratio-trade
+    query: "compute the thrust split and specific thrust for the turbofan at the bypass ratio"
+    intent: "propulsion; turbofan thrust split and specific thrust at the bypass ratio"
+    expected_skill: "propulsion/turbofan/bypass-ratio-trade"
   - id: bpr2
-    query: compare the tsfc across bypass ratios and give the bypass ratio trade verdict
-    intent: propulsion; TSFC across bypass ratios and the bypass ratio trade verdict
-    expected_skill: propulsion/turbofan/bypass-ratio-trade
+    query: "compare the tsfc across bypass ratios and give the bypass ratio trade verdict"
+    intent: "propulsion; TSFC across bypass ratios and the bypass ratio trade verdict"
+    expected_skill: "propulsion/turbofan/bypass-ratio-trade"
   - id: df1
-    query: classify the material change and determine whether a full new fai or a delta fai is required per as9102
-    intent: manufacturing quality; change classification, full new FAI vs delta FAI per AS9102
-    expected_skill: manufacturing-quality/as9102/delta-fai
+    query: "classify the material change and determine whether a full new fai or a delta fai\
+  \ is required per as9102"
+    intent: "manufacturing quality; change classification, full new FAI vs delta FAI per AS9102"
+    expected_skill: "manufacturing-quality/as9102/delta-fai"
   - id: df2
-    query: scope the delta first article inspection forms and affected characteristics for the process change
-    intent: manufacturing quality; delta FAI forms and affected characteristics scope
-    expected_skill: manufacturing-quality/as9102/delta-fai
+    query: "scope the delta first article inspection forms and affected characteristics for the\
+  \ process change"
+    intent: "manufacturing quality; delta FAI forms and affected characteristics scope"
+    expected_skill: "manufacturing-quality/as9102/delta-fai"
   - id: dcm1
-    query: classify the do 254 hardware change and decide whether an engineering change order with reverification is required
-    intent: avionics hardware; DO-254 change class and ECR/ECO decision
-    expected_skill: avionics/do254/configuration-management
+    query: "classify the do 254 hardware change and decide whether an engineering change order\
+  \ with reverification is required"
+    intent: "avionics hardware; DO-254 change class and ECR/ECO decision"
+    expected_skill: "avionics/do254/configuration-management"
   - id: dcm2
-    query: check the review independence needed for the complex hardware configuration change
-    intent: avionics hardware; DO-254 review independence for complex hardware CM
-    expected_skill: avionics/do254/configuration-management
+    query: "check the review independence needed for the complex hardware configuration change"
+    intent: "avionics hardware; DO-254 review independence for complex hardware CM"
+    expected_skill: "avionics/do254/configuration-management"
   - id: sv1
-    query: select the ecss verification method for the functional and safety software requirements of the spacecraft
-    intent: ECSS space software; verification method per requirement category
-    expected_skill: space-systems/ecss/software-verification
+    query: "select the ecss verification method for the functional and safety software requirements\
+  \ of the spacecraft"
+    intent: "ECSS space software; verification method per requirement category"
+    expected_skill: "space-systems/ecss/software-verification"
   - id: sv2
-    query: check the verification depth and independence required for the criticality category of the flight software
-    intent: ECSS space software; verification depth and independence per criticality
-    expected_skill: space-systems/ecss/software-verification
+    query: "check the verification depth and independence required for the criticality category\
+  \ of the flight software"
+    intent: "ECSS space software; verification depth and independence per criticality"
+    expected_skill: "space-systems/ecss/software-verification"
   - id: fc1
-    query: compute the tsai wu failure index for the lamina under the in plane stress state
-    intent: structures; lamina Tsai-Wu failure index under in-plane stress
-    expected_skill: structures/composites/failure-criteria
+    query: "compute the tsai wu failure index for the lamina under the in plane stress state"
+    intent: "structures; lamina Tsai-Wu failure index under in-plane stress"
+    expected_skill: "structures/composites/failure-criteria"
   - id: fc2
-    query: check the composite ply against the max stress and tsai hill criteria and give the failure verdict
-    intent: structures; max-stress and Tsai-Hill checks with failure verdict
-    expected_skill: structures/composites/failure-criteria
+    query: "check the composite ply against the max stress and tsai hill criteria and give the\
+  \ failure verdict"
+    intent: "structures; max-stress and Tsai-Hill checks with failure verdict"
+    expected_skill: "structures/composites/failure-criteria"
   - id: lb1
-    query: compute the free space path loss and received power for the spacecraft link budget at the given frequency and distance
-    intent: communications; free-space path loss and received power from EIRP and gain
-    expected_skill: space-systems/subsystems/communication-link-budget
+    query: "compute the free space path loss and received power for the spacecraft link budget\
+  \ at the given frequency and distance"
+    intent: "communications; free-space path loss and received power from EIRP and gain"
+    expected_skill: "space-systems/subsystems/communication-link-budget"
   - id: lb2
-    query: check the link margin against the required energy per bit to noise ratio at the data rate
-    intent: communications; link margin versus required Eb/N0 at the data rate
-    expected_skill: space-systems/subsystems/communication-link-budget
+    query: "check the link margin against the required energy per bit to noise ratio at the data\
+  \ rate"
+    intent: "communications; link margin versus required Eb/N0 at the data rate"
+    expected_skill: "space-systems/subsystems/communication-link-budget"
   - id: lqr1
-    query: design the lqr gain matrix for the spacecraft attitude control with the quadratic cost weights
-    intent: GNC; LQR gain matrix via Riccati from quadratic cost weights
-    expected_skill: gnc-autonomy/optimal-control/lqr-design
+    query: "design the lqr gain matrix for the spacecraft attitude control with the quadratic\
+  \ cost weights"
+    intent: "GNC; LQR gain matrix via Riccati from quadratic cost weights"
+    expected_skill: "gnc-autonomy/optimal-control/lqr-design"
   - id: lqr2
-    query: verify the lqr closed loop is stable and check the control effort weighting trade
-    intent: GNC; closed-loop stability check and Q/R control-effort trade
-    expected_skill: gnc-autonomy/optimal-control/lqr-design
+    query: "verify the lqr closed loop is stable and check the control effort weighting trade"
+    intent: "GNC; closed-loop stability check and Q/R control-effort trade"
+    expected_skill: "gnc-autonomy/optimal-control/lqr-design"
   - id: ma1
-    query: compute the natural frequencies and mode shape ratios for the two degree of freedom structural model
-    intent: structural dynamics; 2-DOF natural frequencies and mode shape ratios
-    expected_skill: structures/fem/modal-analysis
+    query: "compute the natural frequencies and mode shape ratios for the two degree of freedom\
+  \ structural model"
+    intent: "structural dynamics; 2-DOF natural frequencies and mode shape ratios"
+    expected_skill: "structures/fem/modal-analysis"
   - id: ma2
-    query: check whether the excitation frequency is near a structural natural frequency and would cause resonance
-    intent: structural dynamics; resonance check against natural frequencies
-    expected_skill: structures/fem/modal-analysis
+    query: "check whether the excitation frequency is near a structural natural frequency and\
+  \ would cause resonance"
+    intent: "structural dynamics; resonance check against natural frequencies"
+    expected_skill: "structures/fem/modal-analysis"
   - id: nf1
-    query: convert the geodetic position in latitude and longitude to ecef coordinates for the navigation solution
-    intent: navigation frames; WGS-84 geodetic to ECEF conversion
-    expected_skill: gnc-autonomy/navigation/navigation-frames
+    query: "convert the geodetic position in latitude and longitude to ecef coordinates for the\
+  \ navigation solution"
+    intent: "navigation frames; WGS-84 geodetic to ECEF conversion"
+    expected_skill: "gnc-autonomy/navigation/navigation-frames"
   - id: nf2
-    query: build the ecef to ned rotation matrix at the reference latitude and longitude and transform the velocity
-    intent: navigation frames; ECEF to NED rotation and velocity transform
-    expected_skill: gnc-autonomy/navigation/navigation-frames
+    query: "build the ecef to ned rotation matrix at the reference latitude and longitude and\
+  \ transform the velocity"
+    intent: "navigation frames; ECEF to NED rotation and velocity transform"
+    expected_skill: "gnc-autonomy/navigation/navigation-frames"
   - id: nz1
-    query: compute the rocket nozzle area ratio and exit mach number for the design chamber conditions
-    intent: propulsion; nozzle area ratio and exit Mach number from chamber conditions
-    expected_skill: propulsion/rocket/nozzle-design
+    query: "compute the rocket nozzle area ratio and exit mach number for the design chamber\
+  \ conditions"
+    intent: "propulsion; nozzle area ratio and exit Mach number from chamber conditions"
+    expected_skill: "propulsion/rocket/nozzle-design"
   - id: nz2
-    query: calculate the ideal thrust with the pressure term and check the nozzle expansion against the ambient pressure
-    intent: propulsion; ideal thrust with pressure term and expansion verdict vs ambient pressure
-    expected_skill: propulsion/rocket/nozzle-design
+    query: "calculate the ideal thrust with the pressure term and check the nozzle expansion\
+  \ against the ambient pressure"
+    intent: "propulsion; ideal thrust with pressure term and expansion verdict vs ambient pressure"
+    expected_skill: "propulsion/rocket/nozzle-design"
   - id: res1
-    query: compute the residual strength of the cracked panel from the fracture toughness and the crack length
-    intent: structures; residual strength from fracture toughness and crack length
-    expected_skill: structures/damage-tolerance/residual-strength
+    query: "compute the residual strength of the cracked panel from the fracture toughness and\
+  \ the crack length"
+    intent: "structures; residual strength from fracture toughness and crack length"
+    expected_skill: "structures/damage-tolerance/residual-strength"
   - id: res2
-    query: determine the critical crack length and the residual strength margin against the limit load
-    intent: structures; critical crack length and residual strength margin vs limit load
-    expected_skill: structures/damage-tolerance/residual-strength
+    query: "determine the critical crack length and the residual strength margin against the\
+  \ limit load"
+    intent: "structures; critical crack length and residual strength margin vs limit load"
+    expected_skill: "structures/damage-tolerance/residual-strength"
   - id: rl1
-    query: compute the closed loop poles and stability verdict for the root locus of the plant with gain k
-    intent: control design; root locus closed-loop poles and stability
-    expected_skill: gnc-autonomy/control/root-locus-design
+    query: "compute the closed loop poles and stability verdict for the root locus of the plant\
+  \ with gain k"
+    intent: "control design; root locus closed-loop poles and stability"
+    expected_skill: "gnc-autonomy/control/root-locus-design"
   - id: rl2
-    query: find the controller gain for the target damping ratio in the root locus design
-    intent: control design; gain selection for target damping ratio
-    expected_skill: gnc-autonomy/control/root-locus-design
+    query: "find the controller gain for the target damping ratio in the root locus design"
+    intent: "control design; gain selection for target damping ratio"
+    expected_skill: "gnc-autonomy/control/root-locus-design"
   - id: sc1
-    query: determine whether a fly by wire flight control with novel envelope protection needs a special condition under far 25
-    intent: certification; special-conditions verdict for a novel fly-by-wire flight control
-    expected_skill: avionics/far-cs25/special-conditions
+    query: "determine whether a fly by wire flight control with novel envelope protection needs\
+  \ a special condition under far 25"
+    intent: "certification; special-conditions verdict for a novel fly-by-wire flight control"
+    expected_skill: "avionics/far-cs25/special-conditions"
   - id: sc2
-    query: scope the special condition content for the novel composite wing structure with the means of compliance
-    intent: certification; special-condition scope and means of compliance for a novel composite wing
-    expected_skill: avionics/far-cs25/special-conditions
+    query: "scope the special condition content for the novel composite wing structure with the\
+  \ means of compliance"
+    intent: "certification; special-condition scope and means of compliance for a novel composite\
+  \ wing"
+    expected_skill: "avionics/far-cs25/special-conditions"
   - id: vn1
-    query: compute the top of descent distance from the cruise altitude to the arrival constraint with the descent gradient
-    intent: avionics; FMS top of descent distance from cruise to constraint
-    expected_skill: avionics/flight-management/vertical-navigation
+    query: "compute the top of descent distance from the cruise altitude to the arrival constraint\
+  \ with the descent gradient"
+    intent: "avionics; FMS top of descent distance from cruise to constraint"
+    expected_skill: "avionics/flight-management/vertical-navigation"
   - id: vn2
-    query: check the computed vnav altitude against the waypoint altitude constraint for the descent path
-    intent: avionics; VNAV altitude constraint verdict on the descent path
-    expected_skill: avionics/flight-management/vertical-navigation
+    query: "check the computed vnav altitude against the waypoint altitude constraint for the\
+  \ descent path"
+    intent: "avionics; VNAV altitude constraint verdict on the descent path"
+    expected_skill: "avionics/flight-management/vertical-navigation"
   - id: roc1
-    query: compute the rate of climb from thrust drag speed and weight using the excess power
-    intent: flight mechanics; rate of climb from excess power (thrust minus drag)
-    expected_skill: flight-mechanics/performance/climb-performance
+    query: "compute the rate of climb from thrust drag speed and weight using the excess power"
+    intent: "flight mechanics; rate of climb from excess power (thrust minus drag)"
+    expected_skill: "flight-mechanics/performance/climb-performance"
   - id: roc2
-    query: find the climb gradient in percent the time to climb between altitudes and the service ceiling altitude in the climb performance analysis
-    intent: flight mechanics; climb gradient, time to climb, and service ceiling
-    expected_skill: flight-mechanics/performance/climb-performance
+    query: "find the climb gradient in percent the time to climb between altitudes and the service\
+  \ ceiling altitude in the climb performance analysis"
+    intent: "flight mechanics; climb gradient, time to climb, and service ceiling"
+    expected_skill: "flight-mechanics/performance/climb-performance"
   - id: em1
-    query: compute the margin of safety for a structural element from the allowable and applied load
-    intent: cross-cutting; margin of safety from allowable vs applied load
-    expected_skill: cross-cutting/documentation/engineering-margins
+    query: "compute the margin of safety for a structural element from the allowable and applied\
+  \ load"
+    intent: "cross-cutting; margin of safety from allowable vs applied load"
+    expected_skill: "cross-cutting/documentation/engineering-margins"
   - id: em2
-    query: write the margin statement and check the limit vs ultimate margin verdict for the engineering report
-    intent: cross-cutting; engineering report margin sentence and limit vs ultimate verdict
-    expected_skill: cross-cutting/documentation/engineering-margins
+    query: "write the margin statement and check the limit vs ultimate margin verdict for the\
+  \ engineering report"
+    intent: "cross-cutting; engineering report margin sentence and limit vs ultimate verdict"
+    expected_skill: "cross-cutting/documentation/engineering-margins"
   - id: wt1
-    query: compute the wing loading and thrust to weight constraints for the sizing matching chart
-    intent: vehicle sizing; wing loading and thrust to weight constraints for the matching chart
-    expected_skill: vehicle-design/sizing/ws-tw-trade
+    query: "compute the wing loading and thrust to weight constraints for the sizing matching\
+  \ chart"
+    intent: "vehicle sizing; wing loading and thrust to weight constraints for the matching chart"
+    expected_skill: "vehicle-design/sizing/ws-tw-trade"
   - id: wt2
-    query: find the binding constraint and the minimum thrust to weight at a given wing loading
-    intent: vehicle sizing; binding constraint and minimum thrust to weight at the wing loading
-    expected_skill: vehicle-design/sizing/ws-tw-trade
+    query: "find the binding constraint and the minimum thrust to weight at a given wing loading"
+    intent: "vehicle sizing; binding constraint and minimum thrust to weight at the wing loading"
+    expected_skill: "vehicle-design/sizing/ws-tw-trade"
   - id: ns1
-    query: compute the downstream mach number and the static pressure ratio across the normal shock at the supersonic mach number
-    intent: high-speed aerodynamics; normal shock downstream Mach and static pressure ratio
-    expected_skill: aerodynamics/high-speed/normal-shock
+    query: "compute the downstream mach number and the static pressure ratio across the normal\
+  \ shock at the supersonic mach number"
+    intent: "high-speed aerodynamics; normal shock downstream Mach and static pressure ratio"
+    expected_skill: "aerodynamics/high-speed/normal-shock"
   - id: ns2
-    query: find the stagnation pressure loss and the density and temperature ratios for the normal shock relations
-    intent: high-speed aerodynamics; normal shock stagnation pressure loss and static ratios
-    expected_skill: aerodynamics/high-speed/normal-shock
+    query: "find the stagnation pressure loss and the density and temperature ratios for the\
+  \ normal shock relations"
+    intent: "high-speed aerodynamics; normal shock stagnation pressure loss and static ratios"
+    expected_skill: "aerodynamics/high-speed/normal-shock"
   - id: turn1
-    query: compute the turn rate and turn radius at the true airspeed for the sustained turn load factor
-    intent: flight mechanics; turn rate and turn radius from load factor and speed
-    expected_skill: flight-mechanics/performance/turn-performance
+    query: "compute the turn rate and turn radius at the true airspeed for the sustained turn\
+  \ load factor"
+    intent: "flight mechanics; turn rate and turn radius from load factor and speed"
+    expected_skill: "flight-mechanics/performance/turn-performance"
   - id: turn2
-    query: find the bank angle for the level turn load factor and check the sustained turn against the available thrust
-    intent: flight mechanics; bank angle from load factor and sustained turn verdict
-    expected_skill: flight-mechanics/performance/turn-performance
+    query: "find the bank angle for the level turn load factor and check the sustained turn against\
+  \ the available thrust"
+    intent: "flight mechanics; bank angle from load factor and sustained turn verdict"
+    expected_skill: "flight-mechanics/performance/turn-performance"
   - id: vsp1
-    query: compute the vref reference landing speed the v2 takeoff safety speed and the vr rotation speed from the vs0 and vs1 stall speeds for the flight test
-    intent: flight test; vref/v2/vr from vs0 and vs1 stall speeds with certification factors
-    expected_skill: flight-test-operations/envelope/v-speeds
+    query: "compute the vref reference landing speed the v2 takeoff safety speed and the vr rotation\
+  \ speed from the vs0 and vs1 stall speeds for the flight test"
+    intent: "flight test; vref/v2/vr from vs0 and vs1 stall speeds with certification factors"
+    expected_skill: "flight-test-operations/envelope/v-speeds"
   - id: vsp2
-    query: check the computed v-speeds set against the vno normal operating limit and the vne never exceed speed and get the margin verdict for the flight test
-    intent: flight test; vno/vne guard verdict and margin in m/s
-    expected_skill: flight-test-operations/envelope/v-speeds
+    query: "check the computed v-speeds set against the vno normal operating limit and the vne\
+  \ never exceed speed and get the margin verdict for the flight test"
+    intent: "flight test; vno/vne guard verdict and margin in m/s"
+    expected_skill: "flight-test-operations/envelope/v-speeds"
   - id: pc1
-    query: compute the learning-curve unit-cost and the cumulative production cost for the aircraft program with the CER
-    intent: vehicle design; learning curve unit cost and cumulative production cost with the CER
-    expected_skill: vehicle-design/cost-estimation/parametric-cost
+    query: "compute the learning-curve unit-cost and the cumulative production cost for the aircraft\
+  \ program with the CER"
+    intent: "vehicle design; learning curve unit cost and cumulative production cost with the\
+  \ CER"
+    expected_skill: "vehicle-design/cost-estimation/parametric-cost"
   - id: pc2
-    query: estimate the development-cost from the airframe mass and roll up the total program-cost with the cumulative-average learning curve
-    intent: vehicle design; weight-based development cost CER and total program cost rollup
-    expected_skill: vehicle-design/cost-estimation/parametric-cost
+    query: "estimate the development-cost from the airframe mass and roll up the total program-cost\
+  \ with the cumulative-average learning curve"
+    intent: "vehicle design; weight-based development cost CER and total program cost rollup"
+    expected_skill: "vehicle-design/cost-estimation/parametric-cost"
   - id: pn1
-    query: compute the proportional navigation guidance command from the closing velocity and the line of sight rate for the planar intercept
-    intent: GNC; proportional navigation guidance command from closing velocity and LOS rate
-    expected_skill: gnc-autonomy/guidance/proportional-navigation
+    query: "compute the proportional navigation guidance command from the closing velocity and\
+  \ the line of sight rate for the planar intercept"
+    intent: "GNC; proportional navigation guidance command from closing velocity and LOS rate"
+    expected_skill: "gnc-autonomy/guidance/proportional-navigation"
   - id: pn2
-    query: find the commanded acceleration perpendicular to the line of sight using the navigation constant for the intercept guidance law
-    intent: GNC; PN commanded acceleration from navigation constant and LOS geometry
-    expected_skill: gnc-autonomy/guidance/proportional-navigation
+    query: "find the commanded acceleration perpendicular to the line of sight using the navigation\
+  \ constant for the intercept guidance law"
+    intent: "GNC; PN commanded acceleration from navigation constant and LOS geometry"
+    expected_skill: "gnc-autonomy/guidance/proportional-navigation"
   - id: ss1
-    query: compute the sun-synchronous orbital inclination at 500 km altitude from the j2 nodal regression rate for the dawn dusk orbit
-    intent: orbit mechanics; sun-synchronous inclination from J2 nodal regression at altitude
-    expected_skill: space-systems/orbit-mechanics/sun-synchronous-inclination
+    query: "compute the sun-synchronous orbital inclination at 500 km altitude from the j2 nodal\
+  \ regression rate for the dawn dusk orbit"
+    intent: "orbit mechanics; sun-synchronous inclination from J2 nodal regression at altitude"
+    expected_skill: "space-systems/orbit-mechanics/sun-synchronous-inclination"
   - id: ss2
-    query: select the retrograde inclination that keeps the local time of ascending node fixed so the sun synchronous orbit precesses with the sun
-    intent: orbit mechanics; retrograde sun-synchronous inclination, fixed local time of ascending node
-    expected_skill: space-systems/orbit-mechanics/sun-synchronous-inclination
+    query: "select the retrograde inclination that keeps the local time of ascending node fixed\
+  \ so the sun synchronous orbit precesses with the sun"
+    intent: "orbit mechanics; retrograde sun-synchronous inclination, fixed local time of ascending\
+  \ node"
+    expected_skill: "space-systems/orbit-mechanics/sun-synchronous-inclination"
   - id: dp1
-    query: compute the parabolic drag-polar for the wing from the zero-lift-drag coefficient cd0, the Oswald span-efficiency, and the aspect-ratio, then find the maximum lift-to-drag ratio and the optimal lift coefficient
-    intent: aerodynamics; parabolic drag-polar from zero-lift drag cd0, Oswald span-efficiency, and aspect ratio; peak L/D and optimal lift coefficient
-    expected_skill: aerodynamics/drag-polars/drag-polar
+    query: "compute the parabolic drag-polar for the wing from the zero-lift-drag coefficient\
+  \ cd0, the Oswald span-efficiency, and the aspect-ratio, then find the maximum lift-to-drag\
+  \ ratio and the optimal lift coefficient"
+    intent: "aerodynamics; parabolic drag-polar from zero-lift drag cd0, Oswald span-efficiency,\
+  \ and aspect ratio; peak L/D and optimal lift coefficient"
+    expected_skill: "aerodynamics/drag-polars/drag-polar"
   - id: dp2
-    query: fit a parabolic drag-polar to two measured lift and drag points and recover the zero-lift-drag coefficient cd0 and the induced-drag factor k
-    intent: aerodynamics; parabolic drag-polar fit to measured points recovering cd0 and the induced-drag factor k
-    expected_skill: aerodynamics/drag-polars/drag-polar
+    query: "fit a parabolic drag-polar to two measured lift and drag points and recover the zero-lift-drag\
+  \ coefficient cd0 and the induced-drag factor k"
+    intent: "aerodynamics; parabolic drag-polar fit to measured points recovering cd0 and the\
+  \ induced-drag factor k"
+    expected_skill: "aerodynamics/drag-polars/drag-polar"
   - id: nd1
-    query: select the ndt method for an internal defect in a ferromagnetic part, radiography or ultrasonic
-    intent: manufacturing quality; NDT method selection for an internal defect on ferromagnetic material
-    expected_skill: manufacturing-quality/ndt/ndt-method-selection
+    query: "select the ndt method for an internal defect in a ferromagnetic part, radiography\
+  \ or ultrasonic"
+    intent: "manufacturing quality; NDT method selection for an internal defect on ferromagnetic\
+  \ material"
+    expected_skill: "manufacturing-quality/ndt/ndt-method-selection"
   - id: nd2
-    query: which ndt method suits a surface defect on a non-conductive composite part, liquid penetrant or eddy current
-    intent: manufacturing quality; NDT method selection for a surface defect on a non-conductive material
-    expected_skill: manufacturing-quality/ndt/ndt-method-selection
+    query: "which ndt method suits a surface defect on a non-conductive composite part, liquid\
+  \ penetrant or eddy current"
+    intent: "manufacturing quality; NDT method selection for a surface defect on a non-conductive\
+  \ material"
+    expected_skill: "manufacturing-quality/ndt/ndt-method-selection"
   - id: acst1
-    query: 'compute the axial compressor stage velocity triangle: the specific work, flow coefficient,
-  work coefficient, and degree of reaction from the blade speed, axial velocity, and
-  flow angles'
-    intent: propulsion; axial compressor stage velocity-triangle parameters from blade speed, axial velocity, and flow angles
-    expected_skill: propulsion/axial-compressor/axial-compressor-stage
+    query: "compute the axial compressor stage velocity triangle: the specific work, flow coefficient,\
+  \ work coefficient, and degree of reaction from the blade speed, axial velocity,\
+  \ and flow angles"
+    intent: "propulsion; axial compressor stage velocity-triangle parameters from blade speed,\
+  \ axial velocity, and flow angles"
+    expected_skill: "propulsion/axial-compressor/axial-compressor-stage"
   - id: acst2
-    query: determine the single axial compressor stage pressure ratio and rotor blade loading from the blade speed, axial velocity, and the inlet and outlet flow angles at the design point
-    intent: propulsion; single axial compressor stage pressure ratio and rotor blade loading at the design point
-    expected_skill: propulsion/axial-compressor/axial-compressor-stage
+    query: "determine the single axial compressor stage pressure ratio and rotor blade loading\
+  \ from the blade speed, axial velocity, and the inlet and outlet flow angles at\
+  \ the design point"
+    intent: "propulsion; single axial compressor stage pressure ratio and rotor blade loading\
+  \ at the design point"
+    expected_skill: "propulsion/axial-compressor/axial-compressor-stage"
   - id: asd1
-    query: compute the rejected takeoff accelerate stop distance from the decision speed v1 with the braking deceleration
-    intent: flight test operations; rejected takeoff accelerate stop distance from V1 with the braking deceleration
-    expected_skill: flight-test-operations/performance/accelerate-stop-distance
+    query: "compute the rejected takeoff accelerate stop distance from the decision speed v1\
+  \ with the braking deceleration"
+    intent: "flight test operations; rejected takeoff accelerate stop distance from V1 with the\
+  \ braking deceleration"
+    expected_skill: "flight-test-operations/performance/accelerate-stop-distance"
   - id: asd2
-    query: check the accelerate stop distance against the available runway length with the braking friction coefficient and give the runway verdict
-    intent: flight test operations; accelerate stop distance against runway length with the fits verdict
-    expected_skill: flight-test-operations/performance/accelerate-stop-distance
+    query: "check the accelerate stop distance against the available runway length with the braking\
+  \ friction coefficient and give the runway verdict"
+    intent: "flight test operations; accelerate stop distance against runway length with the fits\
+  \ verdict"
+    expected_skill: "flight-test-operations/performance/accelerate-stop-distance"
   - id: cv1
-    query: run a richardson extrapolation with the grid convergence index and safety factor 1.25 on the three mesh levels
-    intent: numerical verification; Richardson extrapolation and GCI with 1.25 safety factor on a mesh sequence
-    expected_skill: cross-cutting/numerics/convergence-verification
+    query: "run a richardson extrapolation with the grid convergence index and safety factor\
+  \ 1.25 on the three mesh levels"
+    intent: "numerical verification; Richardson extrapolation and GCI with 1.25 safety factor\
+  \ on a mesh sequence"
+    expected_skill: "cross-cutting/numerics/convergence-verification"
   - id: cv2
-    query: compute the observed order of accuracy with richardson extrapolation, the gci, and the monotone converged or oscillatory verdict for the mesh refinement study
-    intent: numerical verification; observed order, GCI, and convergence verdict classification of a refinement study
-    expected_skill: cross-cutting/numerics/convergence-verification
+    query: "compute the observed order of accuracy with richardson extrapolation, the gci, and\
+  \ the monotone converged or oscillatory verdict for the mesh refinement study"
+    intent: "numerical verification; observed order, GCI, and convergence verdict classification\
+  \ of a refinement study"
+    expected_skill: "cross-cutting/numerics/convergence-verification"
   - id: ben1
-    query: compute the loiter endurance time from the specific fuel consumption and lift to drag ratio with the initial and final weights using the breguet endurance equation
-    intent: flight mechanics; loiter endurance time from SFC, L/D, and weight ratio
-    expected_skill: flight-mechanics/performance/breguet-endurance
+    query: "compute the loiter endurance time from the specific fuel consumption and lift to\
+  \ drag ratio with the initial and final weights using the breguet endurance equation"
+    intent: "flight mechanics; loiter endurance time from SFC, L/D, and weight ratio"
+    expected_skill: "flight-mechanics/performance/breguet-endurance"
   - id: ben2
-    query: find the final weight after the holding endurance segment and check the fuel burn for the loiter requirement
-    intent: flight mechanics; final weight after holding and loiter fuel burn check
-    expected_skill: flight-mechanics/performance/breguet-endurance
+    query: "find the final weight after the holding endurance segment and check the fuel burn\
+  \ for the loiter requirement"
+    intent: "flight mechanics; final weight after holding and loiter fuel burn check"
+    expected_skill: "flight-mechanics/performance/breguet-endurance"
   - id: cge1
-    query: check the cg position against the envelope polygon and report which limit is violated, forward or aft, at the operating weight
-    intent: mass properties; cg envelope polygon membership and forward/aft limit violation
-    expected_skill: vehicle-design/mass-properties/cg-envelope
+    query: "check the cg position against the envelope polygon and report which limit is violated,\
+  \ forward or aft, at the operating weight"
+    intent: "mass properties; cg envelope polygon membership and forward/aft limit violation"
+    expected_skill: "vehicle-design/mass-properties/cg-envelope"
   - id: cge2
-    query: compute the static margin between the neutral point and the cg divided by the mac and the cg excursion as the fuel burns
-    intent: mass properties; static margin vs neutral point and fuel-burn cg excursion
-    expected_skill: vehicle-design/mass-properties/cg-envelope
+    query: "compute the static margin between the neutral point and the cg divided by the mac\
+  \ and the cg excursion as the fuel burns"
+    intent: "mass properties; static margin vs neutral point and fuel-burn cg excursion"
+    expected_skill: "vehicle-design/mass-properties/cg-envelope"
   - id: ftp1
-    query: plan the flight test program with the build up approach and build the test matrix covering every objective
-    intent: flight test operations; build-up order of the test points and objective coverage of the test matrix
-    expected_skill: flight-test-operations/planning/flight-test-planning
+    query: "plan the flight test program with the build up approach and build the test matrix\
+  \ covering every objective"
+    intent: "flight test operations; build-up order of the test points and objective coverage\
+  \ of the test matrix"
+    expected_skill: "flight-test-operations/planning/flight-test-planning"
   - id: ftp2
-    query: check the instrumentation completeness and the go no go gate before the flight test
-    intent: flight test operations; instrumentation completeness check and go/no-go gate verdict
-    expected_skill: flight-test-operations/planning/flight-test-planning
+    query: "check the instrumentation completeness and the go no go gate before the flight test"
+    intent: "flight test operations; instrumentation completeness check and go/no-go gate verdict"
+    expected_skill: "flight-test-operations/planning/flight-test-planning"
   - id: flt1
-    query: compute the flutter margin from the damping trend extrapolation for the flutter test
-    intent: flight test operations; extrapolate the flutter speed from the damping trend and check the FAR 25.629 flutter margin ratio
-    expected_skill: flight-test-operations/flutter/flutter-testing
+    query: "compute the flutter margin from the damping trend extrapolation for the flutter test"
+    intent: "flight test operations; extrapolate the flutter speed from the damping trend and\
+  \ check the FAR 25.629 flutter margin ratio"
+    expected_skill: "flight-test-operations/flutter/flutter-testing"
   - id: flt2
-    query: check the frequency separation between structural modes and the required flutter speed from the design dive speed factor
-    intent: flight test operations; frequency separation and coalescence check plus the required flutter speed from the design dive speed factor
-    expected_skill: flight-test-operations/flutter/flutter-testing
+    query: "check the frequency separation between structural modes and the required flutter\
+  \ speed from the design dive speed factor"
+    intent: "flight test operations; frequency separation and coalescence check plus the required\
+  \ flutter speed from the design dive speed factor"
+    expected_skill: "flight-test-operations/flutter/flutter-testing"
   - id: gl1
-    query: compute the glide ratio and the descent angle from the lift to drag ratio for the unpowered glide
-    intent: flight mechanics; glide ratio and descent angle from lift to drag ratio in unpowered glide
-    expected_skill: flight-mechanics/performance/glide-performance
+    query: "compute the glide ratio and the descent angle from the lift to drag ratio for the\
+  \ unpowered glide"
+    intent: "flight mechanics; glide ratio and descent angle from lift to drag ratio in unpowered\
+  \ glide"
+    expected_skill: "flight-mechanics/performance/glide-performance"
   - id: gl2
-    query: find the sink rate and the time to descend from the airspeed and the altitude loss in the glide
-    intent: flight mechanics; sink rate and time to descend from airspeed and altitude loss
-    expected_skill: flight-mechanics/performance/glide-performance
+    query: "find the sink rate and the time to descend from the airspeed and the altitude loss\
+  \ in the glide"
+    intent: "flight mechanics; sink rate and time to descend from airspeed and altitude loss"
+    expected_skill: "flight-mechanics/performance/glide-performance"
   - id: ke1
-    query: compute the classical orbital elements from a position and velocity state vector using the rv2coe method and report the semimajor axis, eccentricity, inclination, raan, argument of periapsis and true anomaly
-    intent: orbit mechanics; rv2coe conversion of a state vector to classical orbital elements
-    expected_skill: space-systems/orbit-mechanics/keplerian-elements
+    query: "compute the classical orbital elements from a position and velocity state vector\
+  \ using the rv2coe method and report the semimajor axis, eccentricity, inclination,\
+  \ raan, argument of periapsis and true anomaly"
+    intent: "orbit mechanics; rv2coe conversion of a state vector to classical orbital elements"
+    expected_skill: "space-systems/orbit-mechanics/keplerian-elements"
   - id: ke2
-    query: determine the orbital period and the periapsis and apoapsis radii from the semimajor axis and eccentricity of an elliptical orbit and find the right ascension of the ascending node from the state vector
-    intent: orbit mechanics; orbital period, periapsis and apoapsis radii, and RAAN from elements and state vector
-    expected_skill: space-systems/orbit-mechanics/keplerian-elements
+    query: "determine the orbital period and the periapsis and apoapsis radii from the semimajor\
+  \ axis and eccentricity of an elliptical orbit and find the right ascension of the\
+  \ ascending node from the state vector"
+    intent: "orbit mechanics; orbital period, periapsis and apoapsis radii, and RAAN from elements\
+  \ and state vector"
+    expected_skill: "space-systems/orbit-mechanics/keplerian-elements"
   - id: ldd1
-    query: compute the landing distance for the flight test from the approach speed vref the airborne flare distance and the braking ground roll
-    intent: flight test operations; landing distance from approach speed Vref, airborne flare distance, and braking ground roll
-    expected_skill: flight-test-operations/performance/landing-distance-determination
+    query: "compute the landing distance for the flight test from the approach speed vref the\
+  \ airborne flare distance and the braking ground roll"
+    intent: "flight test operations; landing distance from approach speed Vref, airborne flare\
+  \ distance, and braking ground roll"
+    expected_skill: "flight-test-operations/performance/landing-distance-determination"
   - id: ldd2
-    query: apply the 1.67 certification field length factor and check whether the landing distance fits the available runway length
-    intent: flight test operations; certified field length from the 1.67 factor and the runway fits verdict
-    expected_skill: flight-test-operations/performance/landing-distance-determination
+    query: "apply the 1.67 certification field length factor and check whether the landing distance\
+  \ fits the available runway length"
+    intent: "flight test operations; certified field length from the 1.67 factor and the runway\
+  \ fits verdict"
+    expected_skill: "flight-test-operations/performance/landing-distance-determination"
   - id: lgs1
-    query: size the landing gear struts for the maximum landing weight and compute the nose and main gear loads from the CG position and the wheelbase
-    intent: vehicle design; landing gear strut loads and CG-based load share
-    expected_skill: vehicle-design/sizing/landing-gear-sizing
+    query: "size the landing gear struts for the maximum landing weight and compute the nose\
+  \ and main gear loads from the CG position and the wheelbase"
+    intent: "vehicle design; landing gear strut loads and CG-based load share"
+    expected_skill: "vehicle-design/sizing/landing-gear-sizing"
   - id: lgs2
-    query: check the tire rating margin and the required shock absorber stroke from the sink speed and the landing load factor for the landing gear sizing
-    intent: vehicle design; landing gear tire margin and shock absorber stroke
-    expected_skill: vehicle-design/sizing/landing-gear-sizing
+    query: "check the tire rating margin and the required shock absorber stroke from the sink\
+  \ speed and the landing load factor for the landing gear sizing"
+    intent: "vehicle design; landing gear tire margin and shock absorber stroke"
+    expected_skill: "vehicle-design/sizing/landing-gear-sizing"
   - id: lds1
-    query: compute the dihedral effect on roll stability and the vertical tail volume coefficient for the directional stability derivative Cn beta at a given sideslip angle
-    intent: flight mechanics; dihedral effect and directional stability derivatives
-    expected_skill: flight-mechanics/stability-control/lateral-directional-stability
+    query: "compute the dihedral effect on roll stability and the vertical tail volume coefficient\
+  \ for the directional stability derivative Cn beta at a given sideslip angle"
+    intent: "flight mechanics; dihedral effect and directional stability derivatives"
+    expected_skill: "flight-mechanics/stability-control/lateral-directional-stability"
   - id: lds2
-    query: assess the Dutch roll frequency and damping ratio, the roll mode time constant, and the spiral mode stability classification for the lateral-directional stability of an aircraft
-    intent: flight mechanics; Dutch roll, roll mode, and spiral mode assessment
-    expected_skill: flight-mechanics/stability-control/lateral-directional-stability
+    query: "assess the Dutch roll frequency and damping ratio, the roll mode time constant, and\
+  \ the spiral mode stability classification for the lateral-directional stability\
+  \ of an aircraft"
+    intent: "flight mechanics; Dutch roll, roll mode, and spiral mode assessment"
+    expected_skill: "flight-mechanics/stability-control/lateral-directional-stability"
   - id: lsr1
-    query: fit a straight line to the paired measurements with ordinary least squares and report the slope and intercept of the best fit line
-    intent: numerics; ordinary least squares linear regression slope and intercept
-    expected_skill: cross-cutting/numerics/least-squares-regression
+    query: "fit a straight line to the paired measurements with ordinary least squares and report\
+  \ the slope and intercept of the best fit line"
+    intent: "numerics; ordinary least squares linear regression slope and intercept"
+    expected_skill: "cross-cutting/numerics/least-squares-regression"
   - id: lsr2
-    query: compute the residual standard deviation and coefficient of determination for the linear regression and predict the response at the new input
-    intent: numerics; residual standard deviation, r squared, and prediction for a linear fit
-    expected_skill: cross-cutting/numerics/least-squares-regression
+    query: "compute the residual standard deviation and coefficient of determination for the\
+  \ linear regression and predict the response at the new input"
+    intent: "numerics; residual standard deviation, r squared, and prediction for a linear fit"
+    expected_skill: "cross-cutting/numerics/least-squares-regression"
   - id: lcs1
-    query: estimate the lift-curve-slope of a wing from the thin-airfoil section slope, apply the finite-wing correction for the aspect-ratio with lifting-line theory, then the prandtl-glauert mach correction
-    intent: aerodynamics; wing lift curve slope from the thin-airfoil section slope with finite-wing and Prandtl-Glauert Mach corrections
-    expected_skill: aerodynamics/drag-polars/lift-curve-slope
+    query: "estimate the lift-curve-slope of a wing from the thin-airfoil section slope, apply\
+  \ the finite-wing correction for the aspect-ratio with lifting-line theory, then\
+  \ the prandtl-glauert mach correction"
+    intent: "aerodynamics; wing lift curve slope from the thin-airfoil section slope with finite-wing\
+  \ and Prandtl-Glauert Mach corrections"
+    expected_skill: "aerodynamics/drag-polars/lift-curve-slope"
   - id: lcs2
-    query: compute the lift coefficient at a given angle of attack from the lift-curve-slope and the zero-lift angle, accounting for the aspect-ratio and sweep correction
-    intent: aerodynamics; lift coefficient from angle of attack using the corrected lift curve slope
-    expected_skill: aerodynamics/drag-polars/lift-curve-slope
+    query: "compute the lift coefficient at a given angle of attack from the lift-curve-slope\
+  \ and the zero-lift angle, accounting for the aspect-ratio and sweep correction"
+    intent: "aerodynamics; lift coefficient from angle of attack using the corrected lift curve\
+  \ slope"
+    expected_skill: "aerodynamics/drag-polars/lift-curve-slope"
   - id: nc1
-    query: disposition the nonconforming part with the material review board and decide between rework, repair, scrap, or use as is
-    intent: manufacturing quality; MRB disposition decision for nonconforming product
-    expected_skill: manufacturing-quality/as9100/nonconformance-control
+    query: "disposition the nonconforming part with the material review board and decide between\
+  \ rework, repair, scrap, or use as is"
+    intent: "manufacturing quality; MRB disposition decision for nonconforming product"
+    expected_skill: "manufacturing-quality/as9100/nonconformance-control"
   - id: nc2
-    query: check whether the reworked part must be re verified and whether the mrb approval is required for the repair disposition
-    intent: manufacturing quality; rework re-verification and MRB approval requirements
-    expected_skill: manufacturing-quality/as9100/nonconformance-control
+    query: "check whether the reworked part must be re verified and whether the mrb approval\
+  \ is required for the repair disposition"
+    intent: "manufacturing quality; rework re-verification and MRB approval requirements"
+    expected_skill: "manufacturing-quality/as9100/nonconformance-control"
   - id: ni1
-    query: choose between the trapezoid rule, simpson rule, and gauss legendre quadrature to integrate the smooth function on the interval
-    intent: numerical integration; quadrature method selection between trapezoid, Simpson, and Gauss-Legendre
-    expected_skill: cross-cutting/numerics/numerical-integration
+    query: "choose between the trapezoid rule, simpson rule, and gauss legendre quadrature to\
+  \ integrate the smooth function on the interval"
+    intent: "numerical integration; quadrature method selection between trapezoid, Simpson, and\
+  \ Gauss-Legendre"
+    expected_skill: "cross-cutting/numerics/numerical-integration"
   - id: ni2
-    query: estimate the error of the composite trapezoid rule with richardson extrapolation and refine the subintervals for the definite integral
-    intent: numerical integration; Richardson error estimate of the trapezoid rule and refinement
-    expected_skill: cross-cutting/numerics/numerical-integration
+    query: "estimate the error of the composite trapezoid rule with richardson extrapolation\
+  \ and refine the subintervals for the definite integral"
+    intent: "numerical integration; Richardson error estimate of the trapezoid rule and refinement"
+    expected_skill: "cross-cutting/numerics/numerical-integration"
   - id: pm1
-    query: compute the prandtl meyer expansion angle and the downstream mach number after the supersonic flow turns away from itself
-    intent: high-speed aerodynamics; Prandtl-Meyer expansion angle and downstream Mach number after a turn
-    expected_skill: aerodynamics/high-speed/prandtl-meyer
+    query: "compute the prandtl meyer expansion angle and the downstream mach number after the\
+  \ supersonic flow turns away from itself"
+    intent: "high-speed aerodynamics; Prandtl-Meyer expansion angle and downstream Mach number\
+  \ after a turn"
+    expected_skill: "aerodynamics/high-speed/prandtl-meyer"
   - id: pm2
-    query: find the total turning angle of the expansion fan and the static pressure ratio across the prandtl meyer expansion
-    intent: high-speed aerodynamics; Prandtl-Meyer fan turning angle and static pressure ratio
-    expected_skill: aerodynamics/high-speed/prandtl-meyer
+    query: "find the total turning angle of the expansion fan and the static pressure ratio across\
+  \ the prandtl meyer expansion"
+    intent: "high-speed aerodynamics; Prandtl-Meyer fan turning angle and static pressure ratio"
+    expected_skill: "aerodynamics/high-speed/prandtl-meyer"
   - id: sup1
-    query: control the externally provided processes and products with the supplier evaluation and the approved supplier list
-    intent: manufacturing quality; AS9100 external provider control via supplier evaluation and approved list
-    expected_skill: manufacturing-quality/as9100/supplier-control
+    query: "control the externally provided processes and products with the supplier evaluation\
+  \ and the approved supplier list"
+    intent: "manufacturing quality; AS9100 external provider control via supplier evaluation and\
+  \ approved list"
+    expected_skill: "manufacturing-quality/as9100/supplier-control"
   - id: sup2
-    query: flow down the requirements and determine the required controls for the critical supplier
-    intent: manufacturing quality; requirement flow-down and risk-based controls for a critical supplier
-    expected_skill: manufacturing-quality/as9100/supplier-control
+    query: "flow down the requirements and determine the required controls for the critical supplier"
+    intent: "manufacturing quality; requirement flow-down and risk-based controls for a critical\
+  \ supplier"
+    expected_skill: "manufacturing-quality/as9100/supplier-control"
   - id: ts1
-    query: size the horizontal and vertical tail with the tail volume coefficients from the tail arm and the wing reference area
-    intent: vehicle design; empennage sizing with tail volume coefficients
-    expected_skill: vehicle-design/sizing/tail-sizing
+    query: "size the horizontal and vertical tail with the tail volume coefficients from the\
+  \ tail arm and the wing reference area"
+    intent: "vehicle design; empennage sizing with tail volume coefficients"
+    expected_skill: "vehicle-design/sizing/tail-sizing"
   - id: ts2
-    query: compute the required tail area for the target tail volume coefficient
-    intent: vehicle design; required tail area from a volume coefficient target
-    expected_skill: vehicle-design/sizing/tail-sizing
+    query: "compute the required tail area for the target tail volume coefficient"
+    intent: "vehicle design; required tail area from a volume coefficient target"
+    expected_skill: "vehicle-design/sizing/tail-sizing"
   - id: up1
-    query: propagate the measurement uncertainties through the calculation with the GUM first order law and combine the sensitivity coefficients into the combined standard uncertainty
-    intent: numerics; GUM uncertainty propagation, combined standard uncertainty
-    expected_skill: cross-cutting/numerics/uncertainty-propagation
+    query: "propagate the measurement uncertainties through the calculation with the GUM first\
+  \ order law and combine the sensitivity coefficients into the combined standard\
+  \ uncertainty"
+    intent: "numerics; GUM uncertainty propagation, combined standard uncertainty"
+    expected_skill: "cross-cutting/numerics/uncertainty-propagation"
   - id: up2
-    query: expand the combined standard uncertainty with the coverage factor and identify the dominant variance contribution in the uncertainty budget
-    intent: numerics; expanded uncertainty with coverage factor and dominant contribution
-    expected_skill: cross-cutting/numerics/uncertainty-propagation
+    query: "expand the combined standard uncertainty with the coverage factor and identify the\
+  \ dominant variance contribution in the uncertainty budget"
+    intent: "numerics; expanded uncertainty with coverage factor and dominant contribution"
+    expected_skill: "cross-cutting/numerics/uncertainty-propagation"
   - id: cal1
-    query: calculate the test accuracy ratio verdict for a calibration standard versus the unit under test and check whether the instrument is past its calibration due date
-    intent: manufacturing quality; TAR verdict and calibration due status per AS9100
-    expected_skill: manufacturing-quality/as9100/calibration-control
+    query: "calculate the test accuracy ratio verdict for a calibration standard versus the unit\
+  \ under test and check whether the instrument is past its calibration due date"
+    intent: "manufacturing quality; TAR verdict and calibration due status per AS9100"
+    expected_skill: "manufacturing-quality/as9100/calibration-control"
   - id: cal2
-    query: decide whether to recall product or review records when an out of tolerance calibration standard drifted during the affected period
-    intent: manufacturing quality; out-of-tolerance impact, recall versus review decision
-    expected_skill: manufacturing-quality/as9100/calibration-control
+    query: "decide whether to recall product or review records when an out of tolerance calibration\
+  \ standard drifted during the affected period"
+    intent: "manufacturing quality; out-of-tolerance impact, recall versus review decision"
+    expected_skill: "manufacturing-quality/as9100/calibration-control"
   - id: cmap1
-    query: compute the surge margin and operating line clearance for the axial compressor map at the cruise operating point
-    intent: propulsion; axial compressor map surge margin and operating line clearance
-    expected_skill: propulsion/axial-compressor/compressor-map
+    query: "compute the surge margin and operating line clearance for the axial compressor map\
+  \ at the cruise operating point"
+    intent: "propulsion; axial compressor map surge margin and operating line clearance"
+    expected_skill: "propulsion/axial-compressor/compressor-map"
   - id: cmap2
-    query: correct the measured mass flow and rotor speed to standard day conditions and check whether the compressor operating point is approaching the surge line
-    intent: propulsion; corrected flow and corrected speed, surge proximity verdict
-    expected_skill: propulsion/axial-compressor/compressor-map
+    query: "correct the measured mass flow and rotor speed to standard day conditions and check\
+  \ whether the compressor operating point is approaching the surge line"
+    intent: "propulsion; corrected flow and corrected speed, surge proximity verdict"
+    expected_skill: "propulsion/axial-compressor/compressor-map"
   - id: er1
-    query: 'verify the structure of the engineering report: the required sections, the abstract
-  length, and the completeness of the deliverable'
-    intent: cross-cutting; engineering report structure, required sections, abstract length, completeness
-    expected_skill: cross-cutting/documentation/engineering-report
+    query: "verify the structure of the engineering report: the required sections, the abstract\
+  \ length, and the completeness of the deliverable"
+    intent: "cross-cutting; engineering report structure, required sections, abstract length,\
+  \ completeness"
+    expected_skill: "cross-cutting/documentation/engineering-report"
   - id: er2
-    query: draft the engineering report with units and uncertainty statements for every value and trace the results to the requirements before the review gate
-    intent: cross-cutting; report units and uncertainty statements, traceability to requirements, review gate
-    expected_skill: cross-cutting/documentation/engineering-report
+    query: "draft the engineering report with units and uncertainty statements for every value\
+  \ and trace the results to the requirements before the review gate"
+    intent: "cross-cutting; report units and uncertainty statements, traceability to requirements,\
+  \ review gate"
+    expected_skill: "cross-cutting/documentation/engineering-report"
   - id: fti1
-    query: 'design the flight test instrumentation: select the sensors and set the data acquisition
-  sample rate with the anti-aliasing and Nyquist margin'
-    intent: flight test; instrumentation sensor selection and sample rate sizing
-    expected_skill: flight-test-operations/planning/flight-test-instrumentation
+    query: "design the flight test instrumentation: select the sensors and set the data acquisition\
+  \ sample rate with the anti-aliasing and Nyquist margin"
+    intent: "flight test; instrumentation sensor selection and sample rate sizing"
+    expected_skill: "flight-test-operations/planning/flight-test-instrumentation"
   - id: fti2
-    query: check the accelerometer range and the ADC quantization resolution for the strain channel and confirm the calibration before the flight test
-    intent: flight test; sensor range, quantization, and calibration checks
-    expected_skill: flight-test-operations/planning/flight-test-instrumentation
+    query: "check the accelerometer range and the ADC quantization resolution for the strain\
+  \ channel and confirm the calibration before the flight test"
+    intent: "flight test; sensor range, quantization, and calibration checks"
+    expected_skill: "flight-test-operations/planning/flight-test-instrumentation"
   - id: gvt1
-    query: estimate the modal damping of the wing bending mode from the half-power bandwidth of the frequency response function measured in the ground vibration test
-    intent: ground vibration test; modal damping from FRF half-power bandwidth
-    expected_skill: flight-test-operations/flutter/ground-vibration-testing
+    query: "estimate the modal damping of the wing bending mode from the half-power bandwidth\
+  \ of the frequency response function measured in the ground vibration test"
+    intent: "ground vibration test; modal damping from FRF half-power bandwidth"
+    expected_skill: "flight-test-operations/flutter/ground-vibration-testing"
   - id: gvt2
-    query: check the measured mode count and the accelerometer placement for the ground vibration test mode shape survey
-    intent: ground vibration test; mode count verdict and test setup
-    expected_skill: flight-test-operations/flutter/ground-vibration-testing
+    query: "check the measured mode count and the accelerometer placement for the ground vibration\
+  \ test mode shape survey"
+    intent: "ground vibration test; mode count verdict and test setup"
+    expected_skill: "flight-test-operations/flutter/ground-vibration-testing"
   - id: pra1
-    query: combine the probability of a rotor burst event with the conditional probability that the resulting debris hazard damages a flight control system and compute the exposure probability over the flight hours
-    intent: systems safety; PRA event and conditional probability combination, exposure over flight hours
-    expected_skill: systems-engineering-safety/arp4761a/particular-risk-analysis
+    query: "combine the probability of a rotor burst event with the conditional probability that\
+  \ the resulting debris hazard damages a flight control system and compute the exposure\
+  \ probability over the flight hours"
+    intent: "systems safety; PRA event and conditional probability combination, exposure over\
+  \ flight hours"
+    expected_skill: "systems-engineering-safety/arp4761a/particular-risk-analysis"
   - id: pra2
-    query: check whether a tire burst hazard zone overlaps a protected zone containing redundant hydraulic lines and decide if containment action is needed
-    intent: systems safety; PRA hazard zone containment verdict
-    expected_skill: systems-engineering-safety/arp4761a/particular-risk-analysis
+    query: "check whether a tire burst hazard zone overlaps a protected zone containing redundant\
+  \ hydraulic lines and decide if containment action is needed"
+    intent: "systems safety; PRA hazard zone containment verdict"
+    expected_skill: "systems-engineering-safety/arp4761a/particular-risk-analysis"
   - id: rps1
-    query: compare rocket propellant families by density impulse and specific impulse for the upper stage
-    intent: propulsion; propellant family and density impulse comparison
-    expected_skill: propulsion/rocket/propellant-selection
+    query: "compare rocket propellant families by density impulse and specific impulse for the\
+  \ upper stage"
+    intent: "propulsion; propellant family and density impulse comparison"
+    expected_skill: "propulsion/rocket/propellant-selection"
   - id: rps2
-    query: select a storable hypergolic propellant with the right O/F ratio and storability for the mission
-    intent: propulsion; propellant selection, O/F ratio and storability screening
-    expected_skill: propulsion/rocket/propellant-selection
+    query: "select a storable hypergolic propellant with the right O/F ratio and storability\
+  \ for the mission"
+    intent: "propulsion; propellant selection, O/F ratio and storability screening"
+    expected_skill: "propulsion/rocket/propellant-selection"
   - id: rgc1
-    query: compute the thermal efficiency of the regenerative Brayton cycle with a regenerator effectiveness of 0.8 at a pressure ratio of 6
-    intent: propulsion; regenerative Brayton cycle efficiency with regenerator effectiveness
-    expected_skill: propulsion/gas-turbine-cycle/regenerative-cycle
+    query: "compute the thermal efficiency of the regenerative Brayton cycle with a regenerator\
+  \ effectiveness of 0.8 at a pressure ratio of 6"
+    intent: "propulsion; regenerative Brayton cycle efficiency with regenerator effectiveness"
+    expected_skill: "propulsion/gas-turbine-cycle/regenerative-cycle"
   - id: rgc2
-    query: estimate the optimum pressure ratio for the regenerative-cycle gas turbine that uses a recuperator to recover turbine exhaust heat
-    intent: propulsion; optimum pressure ratio for the regenerative cycle with exhaust heat recovery
-    expected_skill: propulsion/gas-turbine-cycle/regenerative-cycle
+    query: "estimate the optimum pressure ratio for the regenerative-cycle gas turbine that uses\
+  \ a recuperator to recover turbine exhaust heat"
+    intent: "propulsion; optimum pressure ratio for the regenerative cycle with exhaust heat recovery"
+    expected_skill: "propulsion/gas-turbine-cycle/regenerative-cycle"
   - id: ske1
-    query: evaluate a delivered skill package for conformance and issue an acceptance verdict
-    intent: cross-cutting; SEP-2640-style conformance checks and acceptance verdict for a delivered skill
-    expected_skill: cross-cutting/sep2640/skill-evaluation
+    query: "evaluate a delivered skill package for conformance and issue an acceptance verdict"
+    intent: "cross-cutting; SEP-2640-style conformance checks and acceptance verdict for a delivered\
+  \ skill"
+    expected_skill: "cross-cutting/sep2640/skill-evaluation"
   - id: ske2
-    query: score the quality criteria of a skill and compute its tested versus total coverage ratio
-    intent: cross-cutting; weighted quality score and coverage ratio for a delivered skill
-    expected_skill: cross-cutting/sep2640/skill-evaluation
+    query: "score the quality criteria of a skill and compute its tested versus total coverage\
+  \ ratio"
+    intent: "cross-cutting; weighted quality score and coverage ratio for a delivered skill"
+    expected_skill: "cross-cutting/sep2640/skill-evaluation"
   - id: sys1
-    query: which SysML diagram kind shows the internal connections and ports between the blocks of the landing gear system
-    intent: systems-engineering-safety; MBSE diagram selection for an internal block diagram
-    expected_skill: systems-engineering-safety/mbse/sysml-modeling
+    query: "which SysML diagram kind shows the internal connections and ports between the blocks\
+  \ of the landing gear system"
+    intent: "systems-engineering-safety; MBSE diagram selection for an internal block diagram"
+    expected_skill: "systems-engineering-safety/mbse/sysml-modeling"
   - id: sys2
-    query: draft a block definition diagram for the flight control system with every referenced element defined as a block part
-    intent: systems-engineering-safety; SysML block definition diagram structure check
-    expected_skill: systems-engineering-safety/mbse/sysml-modeling
+    query: "draft a block definition diagram for the flight control system with every referenced\
+  \ element defined as a block part"
+    intent: "systems-engineering-safety; SysML block definition diagram structure check"
+    expected_skill: "systems-engineering-safety/mbse/sysml-modeling"
   - id: ui1
-    query: compute the depth of a subsurface discontinuity in a steel part from the ultrasonic pulse-echo time of flight of 50 microseconds and the longitudinal wave velocity of 5920 meters per second
-    intent: ultrasonic inspection; discontinuity depth from pulse-echo time of flight and longitudinal velocity
-    expected_skill: manufacturing-quality/ndt/ultrasonic-inspection
+    query: "compute the depth of a subsurface discontinuity in a steel part from the ultrasonic\
+  \ pulse-echo time of flight of 50 microseconds and the longitudinal wave velocity\
+  \ of 5920 meters per second"
+    intent: "ultrasonic inspection; discontinuity depth from pulse-echo time of flight and longitudinal\
+  \ velocity"
+    expected_skill: "manufacturing-quality/ndt/ultrasonic-inspection"
   - id: ui2
-    query: select the transducer frequency for ultrasonic inspection, compute the near-field length of a 10 millimeter diameter 5 megahertz probe in steel, and convert the 6 decibel echo drop to an amplitude ratio for sizing a flat-bottom-hole indication
-    intent: ultrasonic inspection; transducer frequency and near-field length, decibel amplitude ratio for flat-bottom-hole sizing
-    expected_skill: manufacturing-quality/ndt/ultrasonic-inspection
+    query: "select the transducer frequency for ultrasonic inspection, compute the near-field\
+  \ length of a 10 millimeter diameter 5 megahertz probe in steel, and convert the\
+  \ 6 decibel echo drop to an amplitude ratio for sizing a flat-bottom-hole indication"
+    intent: "ultrasonic inspection; transducer frequency and near-field length, decibel amplitude\
+  \ ratio for flat-bottom-hole sizing"
+    expected_skill: "manufacturing-quality/ndt/ultrasonic-inspection"
   - id: uc1
-    query: convert 250 knots to meters per second for the airspeed conversion table
-    intent: cross-cutting; speed unit conversion from knots to m/s
-    expected_skill: cross-cutting/units-atmos/unit-conversion
+    query: "convert 250 knots to meters per second for the airspeed conversion table"
+    intent: "cross-cutting; speed unit conversion from knots to m/s"
+    expected_skill: "cross-cutting/units-atmos/unit-conversion"
   - id: uc2
-    query: convert the sea level pressure of 1013.25 hPa to inHg and psi for the altimeter setting
-    intent: cross-cutting; pressure unit conversion from hPa to inHg and psi
-    expected_skill: cross-cutting/units-atmos/unit-conversion
+    query: "convert the sea level pressure of 1013.25 hPa to inHg and psi for the altimeter setting"
+    intent: "cross-cutting; pressure unit conversion from hPa to inHg and psi"
+    expected_skill: "cross-cutting/units-atmos/unit-conversion"
   - id: ag1
-    query: "decode the NACA 23012 and 65-218 designations into camber, camber position, and thickness for the airfoil geometry definition"
+    query: "decode the NACA 23012 and 65-218 designations into camber, camber position, and thickness\
+  \ for the airfoil geometry definition"
     intent: "aerodynamics; NACA 4/5/6-series designation decode into geometry parameters"
     expected_skill: "aerodynamics/airfoil/airfoil-geometry"
   - id: ag2
-    query: "compute the NACA 0012 thickness distribution ordinates, leading edge radius, and section area from the 4-digit geometry formulas"
-    intent: "aerodynamics; NACA 4-digit thickness distribution, leading-edge radius, and section area"
+    query: "compute the NACA 0012 thickness distribution ordinates, leading edge radius, and\
+  \ section area from the 4-digit geometry formulas"
+    intent: "aerodynamics; NACA 4-digit thickness distribution, leading-edge radius, and section\
+  \ area"
     expected_skill: "aerodynamics/airfoil/airfoil-geometry"
   - id: de1
-    query: "compute the rate of descent from the groundspeed and the descent gradient for the descent profile"
+    query: "compute the rate of descent from the groundspeed and the descent gradient for the\
+  \ descent profile"
     intent: "flight mechanics; rate of descent from groundspeed and descent gradient"
     expected_skill: "flight-mechanics/performance/descent-performance"
   - id: de2
-    query: "estimate the time to descend between flight levels at a given rate of descent and the fuel burned in the descent segment"
+    query: "estimate the time to descend between flight levels at a given rate of descent and\
+  \ the fuel burned in the descent segment"
     intent: "flight mechanics; descent segment time and fuel between flight levels"
     expected_skill: "flight-mechanics/performance/descent-performance"
   - id: ds1
-    query: "compute the short period and phugoid natural frequency and damping ratio from the longitudinal stability derivatives for the dynamic stability analysis"
+    query: "compute the short period and phugoid natural frequency and damping ratio from the\
+  \ longitudinal stability derivatives for the dynamic stability analysis"
     intent: "flight mechanics; short period and phugoid modes from the longitudinal derivatives"
     expected_skill: "flight-mechanics/stability-control/dynamic-stability"
   - id: ds2
-    query: "classify the lateral-directional modes of an aircraft from the eigenvalues, check the roll subsidence time constant and the dutch roll damping criterion, and check the spiral time to double"
+    query: "classify the lateral-directional modes of an aircraft from the eigenvalues, check\
+  \ the roll subsidence time constant and the dutch roll damping criterion, and check\
+  \ the spiral time to double"
     intent: "flight mechanics; lateral mode classification and damping criteria from eigenvalues"
     expected_skill: "flight-mechanics/stability-control/dynamic-stability"
   - id: in1
-    query: "estimate the position error growth of the inertial navigation system from the accelerometer bias and the gyro drift"
-    intent: "inertial navigation; position error growth from accelerometer bias double integration and gyro drift"
+    query: "estimate the position error growth of the inertial navigation system from the accelerometer\
+  \ bias and the gyro drift"
+    intent: "inertial navigation; position error growth from accelerometer bias double integration\
+  \ and gyro drift"
     expected_skill: "gnc-autonomy/navigation/inertial-navigation"
   - id: in2
-    query: "check the schuler period and the leveling response of the strapdown inertial navigation system and scope the gyrocompass alignment and the ins gps integration"
-    intent: "inertial navigation; Schuler tuning, strapdown mechanization, gyrocompass alignment, INS/GPS integration"
+    query: "check the schuler period and the leveling response of the strapdown inertial navigation\
+  \ system and scope the gyrocompass alignment and the ins gps integration"
+    intent: "inertial navigation; Schuler tuning, strapdown mechanization, gyrocompass alignment,\
+  \ INS/GPS integration"
     expected_skill: "gnc-autonomy/navigation/inertial-navigation"
   - id: lc1
-    query: "estimate the total life-cycle-cost of the aircraft program by summing the r-d-t-e, production, operations-and-support, and disposal-cost phase costs"
-    intent: "vehicle design; LCC phase structure rollup (RDT&E, production, O&S, disposal) into total life-cycle cost"
+    query: "estimate the total life-cycle-cost of the aircraft program by summing the r-d-t-e,\
+  \ production, operations-and-support, and disposal-cost phase costs"
+    intent: "vehicle design; LCC phase structure rollup (RDT&E, production, O&S, disposal) into\
+  \ total life-cycle cost"
     expected_skill: "vehicle-design/cost-estimation/life-cycle-cost"
   - id: lc2
-    query: "discount the operations-and-support cash flows to present-value at the discount-rate and check the inflation effect on the disposal-cost estimate with the uncertainty range"
-    intent: "vehicle design; present value discounting of the O&S stream, inflation effect on disposal, uncertainty band"
+    query: "discount the operations-and-support cash flows to present-value at the discount-rate\
+  \ and check the inflation effect on the disposal-cost estimate with the uncertainty\
+  \ range"
+    intent: "vehicle design; present value discounting of the O&S stream, inflation effect on\
+  \ disposal, uncertainty band"
     expected_skill: "vehicle-design/cost-estimation/life-cycle-cost"
   - id: lsc1
     query: "count the rainflow cycles in the wing load history and build the cycle range spectrum"
     intent: "structures; rainflow cycle counting and cycle range spectrum from a load history"
     expected_skill: "structures/fatigue/load-spectrum-counting"
   - id: lsc2
-    query: "build the exceedance spectrum from the mission profile load levels and truncate the fatigue load spectrum"
+    query: "build the exceedance spectrum from the mission profile load levels and truncate the\
+  \ fatigue load spectrum"
     intent: "structures; exceedance spectrum and mission spectrum truncation for fatigue"
     expected_skill: "structures/fatigue/load-spectrum-counting"
   - id: ms1
-    query: "compare candidate structural materials by stiffness-to-weight and strength-to-weight selection-indices for the airframe"
-    intent: "structures; material selection by stiffness-to-weight and strength-to-weight selection indices"
+    query: "compare candidate structural materials by stiffness-to-weight and strength-to-weight\
+  \ selection-indices for the airframe"
+    intent: "structures; material selection by stiffness-to-weight and strength-to-weight selection\
+  \ indices"
     expected_skill: "structures/materials/material-selection"
   - id: ms2
-    query: "rank aluminum-alloys, titanium-alloys, and steels for a high-temperature structural part by strength-to-weight and corrosion-resistance, and check temperature-limits"
+    query: "rank aluminum-alloys, titanium-alloys, and steels for a high-temperature structural\
+  \ part by strength-to-weight and corrosion-resistance, and check temperature-limits"
     intent: "structures; alloy family ranking with temperature and corrosion screening"
     expected_skill: "structures/materials/material-selection"
   - id: os1
-    query: "compute the oblique-shock wave angle beta and the downstream mach number for the deflection angle theta on the wedge"
-    intent: "high-speed aerodynamics; oblique shock wave angle and downstream Mach number at a wedge deflection"
+    query: "compute the oblique-shock wave angle beta and the downstream mach number for the\
+  \ deflection angle theta on the wedge"
+    intent: "high-speed aerodynamics; oblique shock wave angle and downstream Mach number at a\
+  \ wedge deflection"
     expected_skill: "aerodynamics/high-speed/oblique-shock"
   - id: os2
-    query: "find the weak solution and the strong solution for the oblique shock at the wedge deflection and the stagnation pressure loss"
-    intent: "high-speed aerodynamics; oblique shock weak and strong branches and stagnation pressure loss"
+    query: "find the weak solution and the strong solution for the oblique shock at the wedge\
+  \ deflection and the stagnation pressure loss"
+    intent: "high-speed aerodynamics; oblique shock weak and strong branches and stagnation pressure\
+  \ loss"
     expected_skill: "aerodynamics/high-speed/oblique-shock"
   - id: pg1
-    query: "compute the pure pursuit aim heading and the wrapped guidance error from the line of sight angle and the interceptor heading"
+    query: "compute the pure pursuit aim heading and the wrapped guidance error from the line\
+  \ of sight angle and the interceptor heading"
     intent: "pursuit guidance; pure pursuit aim heading and wrapped heading error"
     expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
   - id: pg2
-    query: "find the lead angle for a lead pursuit collision course from the target to interceptor speed ratio and check the capture condition"
+    query: "find the lead angle for a lead pursuit collision course from the target to interceptor\
+  \ speed ratio and check the capture condition"
     intent: "pursuit guidance; lead pursuit lead angle and speed capture condition"
     expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
   - id: bal1
-    query: "balloon the drawing characteristics and assign sequential balloon numbers for the as9102 first article inspection"
-    intent: "manufacturing quality; drawing characteristic ballooning and balloon number assignment per AS9102"
+    query: "balloon the drawing characteristics and assign sequential balloon numbers for the\
+  \ as9102 first article inspection"
+    intent: "manufacturing quality; drawing characteristic ballooning and balloon number assignment\
+  \ per AS9102"
     expected_skill: "manufacturing-quality/as9102/ballooning"
   - id: bal2
-    query: "build the d-list accountability matrix with the verification method code and characteristic classification for each balloon number"
-    intent: "manufacturing quality; D-list accountability matrix with verification method codes and characteristic classifications"
+    query: "build the d-list accountability matrix with the verification method code and characteristic\
+  \ classification for each balloon number"
+    intent: "manufacturing quality; D-list accountability matrix with verification method codes\
+  \ and characteristic classifications"
     expected_skill: "manufacturing-quality/as9102/ballooning"
   - id: fdr1
-    query: "reduce the post-flight flight test data: apply the calibration-correction with the channel slope and intercept, align the time series with the time-alignment offset, filter the trace with the moving-average, and compute the corrected-airspeed from the impact pressure and density"
-    intent: "flight-test-operations; post-flight data reduction: calibration correction, time alignment, filtering, corrected airspeed"
+    query: "reduce the post-flight flight test data: apply the calibration-correction with the\
+  \ channel slope and intercept, align the time series with the time-alignment offset,\
+  \ filter the trace with the moving-average, and compute the corrected-airspeed from\
+  \ the impact pressure and density"
+    intent: "flight-test-operations; post-flight data reduction: calibration correction, time\
+  \ alignment, filtering, corrected airspeed"
     expected_skill: "flight-test-operations/planning/flight-test-data-reduction"
   - id: fdr2
-    query: "combine the measurement-uncertainty sources with the rss into the combined uncertainty and run the data-quality verdict for out-of-range values and time gaps on the reduced flight test data"
-    intent: "flight-test-operations; combined uncertainty by root sum square and data quality verdict on reduced flight test data"
+    query: "combine the measurement-uncertainty sources with the rss into the combined uncertainty\
+  \ and run the data-quality verdict for out-of-range values and time gaps on the\
+  \ reduced flight test data"
+    intent: "flight-test-operations; combined uncertainty by root sum square and data quality\
+  \ verdict on reduced flight test data"
     expected_skill: "flight-test-operations/planning/flight-test-data-reduction"
   - id: lco1
-    query: "assess whether the sustained limit cycle oscillation observed at the flutter clearance flight test airspeed is within the amplitude limit and estimate the damping ratio from the log decrement of the decaying response"
-    intent: "flight-test-operations; LCO amplitude assessment against the limit amplitude and damping ratio from log decrement for flutter clearance"
+    query: "assess whether the sustained limit cycle oscillation observed at the flutter clearance\
+  \ flight test airspeed is within the amplitude limit and estimate the damping ratio\
+  \ from the log decrement of the decaying response"
+    intent: "flight-test-operations; LCO amplitude assessment against the limit amplitude and\
+  \ damping ratio from log decrement for flutter clearance"
     expected_skill: "flight-test-operations/flutter/limit-cycle-oscillation"
   - id: lco2
-    query: "check the amplitude growth rate and the freeplay effect on the onset airspeed of the limit cycle oscillation during the flight test flutter clearance campaign"
-    intent: "flight-test-operations; LCO amplitude growth rate and control surface freeplay effect on LCO onset airspeed"
+    query: "check the amplitude growth rate and the freeplay effect on the onset airspeed of\
+  \ the limit cycle oscillation during the flight test flutter clearance campaign"
+    intent: "flight-test-operations; LCO amplitude growth rate and control surface freeplay effect\
+  \ on LCO onset airspeed"
     expected_skill: "flight-test-operations/flutter/limit-cycle-oscillation"
   - id: lf1
-    query: "compute the corner point and the gust line increment for the transport load factor envelope V-n diagram flight test"
+    query: "compute the corner point and the gust line increment for the transport load factor\
+  \ envelope V-n diagram flight test"
     intent: "flight-test-operations; load factor envelope V-n diagram corner point and gust line"
     expected_skill: "flight-test-operations/envelope/load-factor-envelope"
   - id: lf2
-    query: "check the gust line against the placard speed and the corner point when building the load factor envelope V-n diagram"
+    query: "check the gust line against the placard speed and the corner point when building\
+  \ the load factor envelope V-n diagram"
     intent: "flight-test-operations; load factor envelope gust line placard speed and corner point"
     expected_skill: "flight-test-operations/envelope/load-factor-envelope"
   - id: msc1
-    query: "compute the overall pressure ratio and required stage count for the multi-stage axial compressor from the design stage pressure ratio"
+    query: "compute the overall pressure ratio and required stage count for the multi-stage axial\
+  \ compressor from the design stage pressure ratio"
     intent: "propulsion; multi-stage compressor overall pressure ratio and stage count"
     expected_skill: "propulsion/axial-compressor/multi-stage-compressor"
   - id: msc2
-    query: "estimate the reheat factor and the annulus area for the multi-stage compressor stage matching with a rising work distribution"
+    query: "estimate the reheat factor and the annulus area for the multi-stage compressor stage\
+  \ matching with a rising work distribution"
     intent: "propulsion; multi-stage compressor reheat factor, annulus area, work distribution"
     expected_skill: "propulsion/axial-compressor/multi-stage-compressor"
   - id: rt1
-    query: "plan a radiographic inspection of a titanium weld: compute the geometric unsharpness for a 3 mm focal spot at a 500 mm source-to-object distance with a 30 mm object-to-detector distance, and verify the IQI penetrameter sensitivity for the 12 mm section thickness"
-    intent: "manufacturing-quality; radiographic inspection (RT) setup geometry, geometric unsharpness and IQI penetrameter sensitivity for a weld"
+    query: "plan a radiographic inspection of a titanium weld: compute the geometric unsharpness\
+  \ for a 3 mm focal spot at a 500 mm source-to-object distance with a 30 mm object-to-detector\
+  \ distance, and verify the IQI penetrameter sensitivity for the 12 mm section thickness"
+    intent: "manufacturing-quality; radiographic inspection (RT) setup geometry, geometric unsharpness\
+  \ and IQI penetrameter sensitivity for a weld"
     expected_skill: "manufacturing-quality/ndt/radiographic-inspection"
   - id: rt2
-    query: "an X-ray exposure for an aluminum casting needs 4 minutes at a 900 mm source-to-film distance; apply the inverse-square law for a new 600 mm distance, check the film density of 3.1 against the acceptable band, and classify the elongated porosity indications seen on the radiograph"
-    intent: "manufacturing-quality; radiographic inspection (RT) exposure time by inverse-square law, film density verdict and discontinuity classification"
+    query: "an X-ray exposure for an aluminum casting needs 4 minutes at a 900 mm source-to-film\
+  \ distance; apply the inverse-square law for a new 600 mm distance, check the film\
+  \ density of 3.1 against the acceptable band, and classify the elongated porosity\
+  \ indications seen on the radiograph"
+    intent: "manufacturing-quality; radiographic inspection (RT) exposure time by inverse-square\
+  \ law, film density verdict and discontinuity classification"
     expected_skill: "manufacturing-quality/ndt/radiographic-inspection"
   - id: rce1
-    query: "compute the real-cycle thermal efficiency with the compressor isentropic-efficiency and the turbine isentropic-efficiency for the non-ideal brayton cycle"
-    intent: "propulsion; real cycle efficiency with compressor and turbine isentropic efficiencies (non-ideal Brayton)"
+    query: "compute the real-cycle thermal efficiency with the compressor isentropic-efficiency\
+  \ and the turbine isentropic-efficiency for the non-ideal brayton cycle"
+    intent: "propulsion; real cycle efficiency with compressor and turbine isentropic efficiencies\
+  \ (non-ideal Brayton)"
     expected_skill: "propulsion/gas-turbine-cycle/real-cycle-effects"
   - id: rce2
-    query: "estimate the actual-sfc and the thermal-efficiency penalty from the combustor-loss and the pressure-loss for the off-ideal-brayton cycle with component-losses"
-    intent: "propulsion; actual SFC and efficiency penalty from combustor and pressure losses (component losses)"
+    query: "estimate the actual-sfc and the thermal-efficiency penalty from the combustor-loss\
+  \ and the pressure-loss for the off-ideal-brayton cycle with component-losses"
+    intent: "propulsion; actual SFC and efficiency penalty from combustor and pressure losses\
+  \ (component losses)"
     expected_skill: "propulsion/gas-turbine-cycle/real-cycle-effects"
   - id: trd1
-    query: "run a trade study comparing candidate concepts with a Pugh matrix and weighted decision criteria"
+    query: "run a trade study comparing candidate concepts with a Pugh matrix and weighted decision\
+  \ criteria"
     intent: "systems-engineering-safety; trade study with Pugh matrix and weighted decision criteria"
     expected_skill: "systems-engineering-safety/mbse/trade-study-analysis"
   - id: trd2
-    query: "check the selection margin and sensitivity of the weighted scoring before picking the best alternative"
-    intent: "systems-engineering-safety; selection margin and sensitivity analysis for weighted scoring"
+    query: "check the selection margin and sensitivity of the weighted scoring before picking\
+  \ the best alternative"
+    intent: "systems-engineering-safety; selection margin and sensitivity analysis for weighted\
+  \ scoring"
     expected_skill: "systems-engineering-safety/mbse/trade-study-analysis"
   - id: tod1
-    query: "estimate the off-design corrected mass flow and corrected speed of the turbofan at cruise altitude and the net thrust with ram drag"
-    intent: "propulsion; turbofan off-design corrected mass flow, corrected speed, altitude net thrust with ram drag"
+    query: "estimate the off-design corrected mass flow and corrected speed of the turbofan at\
+  \ cruise altitude and the net thrust with ram drag"
+    intent: "propulsion; turbofan off-design corrected mass flow, corrected speed, altitude net\
+  \ thrust with ram drag"
     expected_skill: "propulsion/turbofan/turbofan-off-design"
   - id: tod2
-    query: "check the fan and core component matching and the throttle setting for the turbofan off-design operating point, and the cruise SFC at altitude"
-    intent: "propulsion; turbofan component matching verdict and throttle setting with cruise SFC at altitude"
+    query: "check the fan and core component matching and the throttle setting for the turbofan\
+  \ off-design operating point, and the cruise SFC at altitude"
+    intent: "propulsion; turbofan component matching verdict and throttle setting with cruise\
+  \ SFC at altitude"
     expected_skill: "propulsion/turbofan/turbofan-off-design"
+  - id: attitude-dynamics-w8-1
+    query: "propagate the spacecraft quaternion attitude from the measured angular velocity and\
+  \ integrate the euler rotational equations of motion"
+    intent: "GNC/ADCS; quaternion kinematics and Euler rotational dynamics propagation from angular\
+  \ velocity"
+    expected_skill: "gnc-autonomy/space/attitude-dynamics"
+  - id: attitude-dynamics-w8-2
+    query: "compute the gravity gradient torque and the momentum wheel angular momentum for the\
+  \ spacecraft attitude dynamics"
+    intent: "GNC/ADCS; gravity-gradient torque and momentum wheel momentum for attitude control\
+  \ sizing"
+    expected_skill: "gnc-autonomy/space/attitude-dynamics"
+  - id: calculix-nonlinear-w8-1
+    query: "solve the nonlinear bar equilibrium by Newton-Raphson with the state dependent stiffness\
+  \ and tangent stiffness"
+    intent: "structures; nonlinear FEM Newton-Raphson solve with state-dependent stiffness"
+    expected_skill: "structures/fem/calculix-nonlinear"
+  - id: calculix-nonlinear-w8-2
+    query: "apply the total load in equal load steps and report the convergence verdict from\
+  \ the residual norm for the calculix nonlinear run"
+    intent: "structures; load stepping with residual convergence verdict for a nonlinear ccx run"
+    expected_skill: "structures/fem/calculix-nonlinear"
+  - id: cfd-mesh-generation-w8-1
+    query: "choose the grid type between structured unstructured and hybrid and build boundary\
+  \ layer prism layers with the right growth ratio for the cfd mesh"
+    intent: "aerodynamics; CFD mesh generation grid type selection and boundary-layer prism layer\
+  \ setup"
+    expected_skill: "aerodynamics/cfd/cfd-mesh-generation"
+  - id: cfd-mesh-generation-w8-2
+    query: "size the near-wall first cell height from the y plus target and skin friction coefficient\
+  \ and set the far-field domain size and refinement levels for the cfd mesh"
+    intent: "aerodynamics; near-wall first cell height sizing from y+ and mesh refinement planning"
+    expected_skill: "aerodynamics/cfd/cfd-mesh-generation"
+  - id: command-data-handling-w8-1
+    query: "size the onboard storage for the telemetry and payload data volume collected over\
+  \ three orbits before the downlink window"
+    intent: "space systems; onboard storage sizing from housekeeping telemetry and payload data\
+  \ volume per orbit, downlink budgeting"
+    expected_skill: "space-systems/subsystems/command-data-handling"
+  - id: command-data-handling-w8-2
+    query: "compare the spacecraft data bus options MIL-STD-1553 CAN and SpaceWire for the onboard\
+  \ computer and the CCSDS packetization of telecommands"
+    intent: "space systems; data bus selection and CCSDS packetization of the telecommand uplink"
+    expected_skill: "space-systems/subsystems/command-data-handling"
+  - id: composite-bolted-joints-w8-1
+    query: "compute the bearing stress and margin of the bolted joint fastener in the composite\
+  \ laminate under bearing and bypass loading"
+    intent: "structures; bolted joint bearing stress with bypass load share and margin"
+    expected_skill: "structures/composites/composite-bolted-joints"
+  - id: composite-bolted-joints-w8-2
+    query: "check the net-tension and shear-out failure of the bolted joint at the edge distance\
+  \ and report the joint margin"
+    intent: "structures; net-tension and shear-out checks at the edge distance with joint margin"
+    expected_skill: "structures/composites/composite-bolted-joints"
+  - id: dilution-of-precision-w8-1
+    query: "compute the dilution of precision gdop pdop hdop vdop tdop from the satellite geometry\
+  \ and the position error from the uere"
+    intent: "GNSS; DOP values from the geometry matrix and 1-sigma position error from UERE"
+    expected_skill: "gnc-autonomy/navigation/dilution-of-precision"
+  - id: dilution-of-precision-w8-2
+    query: "apply the elevation mask to the visible satellites and select the four satellite\
+  \ subset with the lowest pdop"
+    intent: "GNSS; elevation mask filtering and best PDOP satellite subset selection"
+    expected_skill: "gnc-autonomy/navigation/dilution-of-precision"
+  - id: goodman-diagram-w8-1
+    query: "apply the modified goodman mean-stress correction to compute the allowable stress\
+  \ amplitude for infinite-life from the endurance-limit and the ultimate strength"
+    intent: "structures; modified Goodman mean-stress correction, infinite-life allowable amplitude"
+    expected_skill: "structures/fatigue/goodman-diagram"
+  - id: goodman-diagram-w8-2
+    query: "compare the gerber and soderberg allowable amplitudes on the haigh-diagram and check\
+  \ the infinite-life fatigue-diagram verdict against the endurance-limit"
+    intent: "structures; Gerber vs Soderberg comparison, Haigh diagram / fatigue diagram infinite-life\
+  \ check"
+    expected_skill: "structures/fatigue/goodman-diagram"
+  - id: magnetorquer-control-w8-1
+    query: "compute the magnetorquer dipole moment from a torque demand and the local magnetic\
+  \ field vector and check the torque authority limit"
+    intent: "ADCS; magnetic dipole moment from torque demand and local B-field, cross-product\
+  \ torque = m x B, torque authority limit"
+    expected_skill: "space-systems/adcs/magnetorquer-control"
+  - id: magnetorquer-control-w8-2
+    query: "detumbling spacecraft with the b-dot law magnetorquer dipole torque rod"
+    intent: "ADCS; B-dot detumbling law for rate damping with magnetorquer dipoles and torque\
+  \ rod coil sizing"
+    expected_skill: "space-systems/adcs/magnetorquer-control"
+  - id: parasite-drag-w8-1
+    query: "estimate the parasite-drag of the aircraft with the wetted-area method: flat-plate\
+  \ skin-friction coefficients with form-factor and interference-factor corrections\
+  \ for the wing, fuselage, nacelle, and tail"
+    intent: "aerodynamics; component parasite drag buildup via wetted-area method with flat-plate\
+  \ skin friction, form factor, and interference factor"
+    expected_skill: "aerodynamics/drag-polars/parasite-drag"
+  - id: parasite-drag-w8-2
+    query: "compute the parasite-drag buildup by summing the component wetted-area drags of the\
+  \ fuselage and nacelle and report the equivalent-skin-friction coefficient"
+    intent: "aerodynamics; zero-lift drag buildup total from component wetted-area drags, then\
+  \ equivalent skin-friction coefficient"
+    expected_skill: "aerodynamics/drag-polars/parasite-drag"
+  - id: payload-range-diagram-w8-1
+    query: "build the payload-range-diagram for the transport aircraft and compute the range\
+  \ at max-payload, the range at max-fuel, and the ferry-range"
+    intent: "vehicle design; payload-range diagram corner points: range at max payload, range\
+  \ at max fuel, ferry range"
+    expected_skill: "vehicle-design/conceptual/payload-range-diagram"
+  - id: payload-range-diagram-w8-2
+    query: "compute the payload at the design-range with the breguet range equation and the reserve-fuel\
+  \ policy for the payload-range-trade"
+    intent: "vehicle design; payload at design range from Breguet range with reserve fuel policy"
+    expected_skill: "vehicle-design/conceptual/payload-range-diagram"
+  - id: pid-control-design-w8-1
+    query: "tune the proportional integral derivative gains of the flight controller from the\
+  \ ultimate gain and ultimate period with Ziegler-Nichols and add integrator anti-windup\
+  \ clamping"
+    intent: "GNC; PID gain tuning via Ziegler-Nichols from ultimate gain and period plus integrator\
+  \ anti-windup clamping"
+    expected_skill: "gnc-autonomy/control/pid-control-design"
+  - id: pid-control-design-w8-2
+    query: "design the pid gains by pole placement for the second order plant model and check\
+  \ the gain margin and phase margin of the closed loop"
+    intent: "GNC; PID gains by pole placement for a second order plant and the gain/phase margin\
+  \ check"
+    expected_skill: "gnc-autonomy/control/pid-control-design"
+  - id: sandwich-panels-w8-1
+    query: "compute the face sheet stress and the core shear stress of a sandwich panel and check\
+  \ face wrinkling and the core shear failure margin"
+    intent: "structures; sandwich panel face stress, core shear stress, face wrinkling and core\
+  \ shear failure checks"
+    expected_skill: "structures/composites/sandwich-panels"
+  - id: sandwich-panels-w8-2
+    query: "estimate the bending stiffness and the deflection of a sandwich panel and choose\
+  \ between a honeycomb core and a foam core"
+    intent: "structures; sandwich panel bending stiffness, deflection including core shear, honeycomb\
+  \ vs foam core selection"
+    expected_skill: "structures/composites/sandwich-panels"
+  - id: skill-authoring-w8-1
+    query: "build the frontmatter template for a new SKILL.md with a kebab-case name and the\
+  \ required metadata fields"
+    intent: "cross-cutting; SKILL.md frontmatter template with kebab-case name and required fields"
+    expected_skill: "cross-cutting/sep2640/skill-authoring"
+  - id: skill-authoring-w8-2
+    query: "run the pre-publish conformance check on the candidate skill frontmatter and report\
+  \ the missing required fields"
+    intent: "cross-cutting; pre-publish conformance check and missing-field findings"
+    expected_skill: "cross-cutting/sep2640/skill-authoring"
+  - id: star-tracker-w8-1
+    query: "identify the measured star centroid against the onboard star catalog and keep the\
+  \ matches inside the field of view"
+    intent: "ADCS; star identification of measured centroids against the star catalog within the\
+  \ FOV"
+    expected_skill: "space-systems/adcs/star-tracker"
+  - id: star-tracker-w8-2
+    query: "check the boresight pointing accuracy of the star tracker and decide between lost\
+  \ in space and tracking mode"
+    intent: "ADCS; boresight pointing accuracy and lost in space versus tracking mode selection"
+    expected_skill: "space-systems/adcs/star-tracker"
+  - id: state-space-analysis-w8-1
+    query: "check the controllability and observability of the linear state space system from\
+  \ the A B and C matrices"
+    intent: "GNC; state space controllability and observability rank checks from A, B, C"
+    expected_skill: "gnc-autonomy/control/state-space-analysis"
+  - id: state-space-analysis-w8-2
+    query: "compute the state transition matrix with the Cayley Hamilton method and the stability\
+  \ verdict from the eigenvalues of the A matrix"
+    intent: "GNC; state transition matrix by Cayley-Hamilton and eigenvalue stability verdict"
+    expected_skill: "gnc-autonomy/control/state-space-analysis"
+  - id: widespread-fatigue-damage-w8-1
+    query: "screen the adjacent fastener holes for widespread fatigue damage and classify the\
+  \ multiple site damage msd susceptibility"
+    intent: "structures; WFD MSD screening of adjacent cracked fastener holes"
+    expected_skill: "structures/damage-tolerance/widespread-fatigue-damage"
+  - id: widespread-fatigue-damage-w8-2
+    query: "determine whether the supplemental inspection applies and classify the multiple element\
+  \ damage med for the fatigue critical baseline structure"
+    intent: "structures; supplemental inspection flag and MED classification per FAR 25.571"
+    expected_skill: "structures/damage-tolerance/widespread-fatigue-damage"
 
 future_pins:
-- id: t3
-  query: plan an engine-overhaul checklist
-  intent: maintenance planning, teardown/inspection/assembly gates; pinned to published manufacturing-quality/as9100/quality (MRO-adjacent production assurance) until an MRO/maintenance skill publishes
-  expected_skill: manufacturing-quality/as9100/quality
+  - "expected_skill": "manufacturing-quality/as9100/quality"
+"id": "t3"
+"intent": "maintenance planning, teardown/inspection/assembly gates; pinned to published\
+  \ manufacturing-quality/as9100/quality (MRO-adjacent production assurance) until\
+  \ an MRO/maintenance skill publishes"
+"query": "plan an engine-overhaul checklist"
