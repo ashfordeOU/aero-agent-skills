@@ -1,0 +1,15 @@
+# Hit@1 wave-4 fragment: flight-test-planning (flight-test-operations/planning)
+# Two tasks per new leaf skill; ftp1 routes on the build-up approach
+# and the test matrix covering every objective, ftp2 routes on the
+# instrumentation completeness and the go/no-go gate. Both must
+# deterministically hit
+# flight-test-operations/planning/flight-test-planning.
+tasks:
+  - id: ftp1
+    query: "plan the flight test program with the build up approach and build the test matrix covering every objective"
+    intent: "flight test operations; build-up order of the test points and objective coverage of the test matrix"
+    expected_skill: "flight-test-operations/planning/flight-test-planning"
+  - id: ftp2
+    query: "check the instrumentation completeness and the go no go gate before the flight test"
+    intent: "flight test operations; instrumentation completeness check and go/no-go gate verdict"
+    expected_skill: "flight-test-operations/planning/flight-test-planning"
