@@ -15,9 +15,10 @@ any harness. Installation requires flattening - or symlinking - each skill
 folder into the harness's skills root, with the folder named to match the
 frontmatter `name`.
 
-Domain packs (2026-08-31 restructure): the authoring tree is organized
-into five installable domain packs (avionics, space-systems,
-systems-engineering-safety, manufacturing-quality, cross-cutting). The
+Domain packs (2026-08-31 restructure, expanded in P3.5): the authoring
+tree is organized into nine installable domain packs (aerodynamics,
+avionics, cross-cutting, gnc-autonomy, manufacturing-quality,
+space-systems, structures, systems-engineering-safety, vehicle-design). The
 install unit stays the leaf folder; installing a pack means copying or
 symlinking each leaf folder under `skills/<pack>/`. The pack-level
 `skills/<pack>/SKILL.md` is a router document for agents (domain
