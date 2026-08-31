@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: residual-strength (structures/damage-tolerance)
+# Two tasks per new leaf skill; res1 routes on residual strength from
+# fracture toughness and crack length, res2 routes on critical crack
+# length and the residual strength margin against the limit load. Both
+# must deterministically hit structures/damage-tolerance/residual-strength.
+tasks:
+  - id: res1
+    query: "compute the residual strength of the cracked panel from the fracture toughness and the crack length"
+    intent: "structures; residual strength from fracture toughness and crack length"
+    expected_skill: "structures/damage-tolerance/residual-strength"
+  - id: res2
+    query: "determine the critical crack length and the residual strength margin against the limit load"
+    intent: "structures; critical crack length and residual strength margin vs limit load"
+    expected_skill: "structures/damage-tolerance/residual-strength"
