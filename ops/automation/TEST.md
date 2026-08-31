@@ -62,7 +62,8 @@ ambiguous, forcing the doc to name the repo).
 Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
 `test/fixture-derived-stale.md`, `test/fixture-derived-summary.md`,
 `test/fixture-policy-bad.md`. Fixture comments keep numbers marker-free so only
-the content line is scanned.
+the content line is scanned. The suite preserves and restores the committed
+`state/` dir around its own live runs, so running it never dirties the tree.
 
 ## At-rest green
 

@@ -21,6 +21,11 @@ check() { # check <label> <expected_exit> <actual_exit>
 
 # ---- number-snapshot.sh negatives -----------------------------------------
 note "== number-snapshot.sh =="
+# Preserve the committed state dir so the suite leaves the tree EXACTLY as it
+# found it (clean at rest even after running the tests); restored at the end.
+state_backup="$state.suite-bak"
+[ -d "$state" ] && mv "$state" "$state_backup"
+
 # N1: live run against fixture with wrong expected value must exit 1
 NUMBERS_YAML="$auto/test/fixture-tracked-wrong.yaml" \
   bash "$auto/number-snapshot.sh" --live >/dev/null 2>&1
@@ -68,6 +73,10 @@ check "G4 content-policy-sweep full repo exits 0" 0 $?
 # G5: summary lines ("total ≈ 228 / N repos") must NOT be read as largest-repo
 bash "$auto/brief-audit.sh" "$auto/test/fixture-derived-summary.md" >/dev/null 2>&1
 check "G5 brief-audit summary line is not a largest-repo false positive" 0 $?
+
+# Restore the committed state dir (discard evidence snapshots this run wrote)
+rm -rf "$state" 2>/dev/null
+[ -d "$state_backup" ] && mv "$state_backup" "$state"
 
 note ""
 if [ "$fail" -eq 0 ]; then
