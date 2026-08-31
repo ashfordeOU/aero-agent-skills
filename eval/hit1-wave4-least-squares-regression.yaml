@@ -1,0 +1,14 @@
+# Hit@1 wave-4 fragment: least-squares-regression (cross-cutting/numerics)
+# Two tasks per new leaf skill; lsr1 routes on the ordinary least squares
+# fit (slope, intercept, best fit line), lsr2 routes on the goodness of fit
+# and prediction outputs (residual standard deviation, r squared). Both must
+# deterministically hit cross-cutting/numerics/least-squares-regression.
+tasks:
+  - id: lsr1
+    query: "fit a straight line to the paired measurements with ordinary least squares and report the slope and intercept of the best fit line"
+    intent: "numerics; ordinary least squares linear regression slope and intercept"
+    expected_skill: "cross-cutting/numerics/least-squares-regression"
+  - id: lsr2
+    query: "compute the residual standard deviation and coefficient of determination for the linear regression and predict the response at the new input"
+    intent: "numerics; residual standard deviation, r squared, and prediction for a linear fit"
+    expected_skill: "cross-cutting/numerics/least-squares-regression"
