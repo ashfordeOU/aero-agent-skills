@@ -1,0 +1,14 @@
+# Hit@1 wave-4 fragment: prandtl-meyer (aerodynamics/high-speed)
+# Two tasks per new leaf skill; pm1 routes on the expansion angle and
+# downstream Mach terms, pm2 routes on the turning angle and pressure
+# ratio outputs. Both must deterministically hit
+# aerodynamics/high-speed/prandtl-meyer.
+tasks:
+  - id: pm1
+    query: "compute the prandtl meyer expansion angle and the downstream mach number after the supersonic flow turns away from itself"
+    intent: "high-speed aerodynamics; Prandtl-Meyer expansion angle and downstream Mach number after a turn"
+    expected_skill: "aerodynamics/high-speed/prandtl-meyer"
+  - id: pm2
+    query: "find the total turning angle of the expansion fan and the static pressure ratio across the prandtl meyer expansion"
+    intent: "high-speed aerodynamics; Prandtl-Meyer fan turning angle and static pressure ratio"
+    expected_skill: "aerodynamics/high-speed/prandtl-meyer"
