@@ -1,0 +1,16 @@
+# Hit@1 wave-8 fragment: pid-control-design (gnc-autonomy/control)
+# Two tasks per new leaf; pid-control-design-w8-1 routes on PID gain
+# tuning from the ultimate gain/period with Ziegler-Nichols plus
+# integrator anti-windup clamping, pid-control-design-w8-2 routes on
+# pole placement for the second order plant and the gain/phase margin
+# check. Both must deterministically hit
+# gnc-autonomy/control/pid-control-design.
+tasks:
+  - id: pid-control-design-w8-1
+    query: "tune the proportional integral derivative gains of the flight controller from the ultimate gain and ultimate period with Ziegler-Nichols and add integrator anti-windup clamping"
+    intent: "GNC; PID gain tuning via Ziegler-Nichols from ultimate gain and period plus integrator anti-windup clamping"
+    expected_skill: "gnc-autonomy/control/pid-control-design"
+  - id: pid-control-design-w8-2
+    query: "design the pid gains by pole placement for the second order plant model and check the gain margin and phase margin of the closed loop"
+    intent: "GNC; PID gains by pole placement for a second order plant and the gain/phase margin check"
+    expected_skill: "gnc-autonomy/control/pid-control-design"
