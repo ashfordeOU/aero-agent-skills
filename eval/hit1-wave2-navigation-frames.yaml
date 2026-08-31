@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: navigation-frames (gnc-autonomy/navigation)
+# Two tasks per new leaf; nf1 routes on WGS-84 geodetic to ECEF
+# conversion, nf2 routes on the ECEF to NED rotation matrix and
+# velocity transform. Both must deterministically hit
+# gnc-autonomy/navigation/navigation-frames.
+tasks:
+  - id: nf1
+    query: "convert the geodetic position in latitude and longitude to ecef coordinates for the navigation solution"
+    intent: "navigation frames; WGS-84 geodetic to ECEF conversion"
+    expected_skill: "gnc-autonomy/navigation/navigation-frames"
+  - id: nf2
+    query: "build the ecef to ned rotation matrix at the reference latitude and longitude and transform the velocity"
+    intent: "navigation frames; ECEF to NED rotation and velocity transform"
+    expected_skill: "gnc-autonomy/navigation/navigation-frames"
