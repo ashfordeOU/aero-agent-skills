@@ -52,8 +52,11 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do178c/tool-qualification | DO-330 tool qualification | TQL per tool criterion, tool credit, TOR |
 | avionics/do160/environmental-qualification | DO-160 environmental qualification | test matrix per equipment category, temperature/vibration/EMC |
 | avionics/do254/hardware-planning | DO-254 hardware planning | simple vs complex AEH, PHAC |
-| avionics/do254/verification | DO-254 verification | verification methods per AEH class, independence, coverage |
-| avionics/far-cs25/airworthiness | FAR-25/CS-25 airworthiness | certification basis, means of compliance, 25.1309 |
+| avionics/do254/verification |
+| avionics/do254/configuration-management | DO-254 configuration management | baselines, ECR/ECO, change class, hardware configuration index | DO-254 verification | verification methods per AEH class, independence, coverage |
+| avionics/far-cs25/airworthiness |
+| avionics/flight-management/vertical-navigation | FMS vertical navigation | top of descent, descent gradient, altitude constraints, VNAV path |
+| avionics/far-cs25/special-conditions | FAR-25/CS-25 special conditions | novel design features, FAR 25.17, special-condition scope, means of compliance | FAR-25/CS-25 airworthiness | certification basis, means of compliance, 25.1309 |
 
 ## Routing guidance
 
@@ -63,8 +66,11 @@ airworthiness certification (FAR-25/CS-25).
 - Environmental test questions (temperature, vibration, EMC, lightning)
   route to the DO-160 sub-skill.
 - Hardware assurance questions (AEH classification, PHAC, verification)
+- Hardware configuration and change-control questions (baselines, ECR/ECO, HCI) route to the do254 configuration-management sub-skill.
   route to the DO-254 sub-skills.
 - Type-certification basis questions (FAR-25 vs CS-25, 25.1309) route to
+- FMS vertical profile questions (TOD, gradients, VNAV constraints) route to the flight-management vertical-navigation sub-skill.
+- Novel-feature questions (special conditions, FAR 25.17, equivalent safety) route to the far-cs25 special-conditions sub-skill.
   the far-cs25 sub-skill.
 - System-level engineering and safety questions route to the
   systems-engineering-safety pack instead.

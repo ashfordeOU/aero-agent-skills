@@ -33,8 +33,10 @@ staging.
 | Path | Skill | When to route to it |
 |---|---|---|
 | propulsion/gas-turbine-cycle/gas-turbine-cycle | Gas turbine cycle | Brayton thermal efficiency, compressor/turbine exit temperatures, pressure ratio |
-| propulsion/turbofan/turbofan-cycle | Turbofan cycle | bypass ratio, propulsive efficiency, specific thrust, fan/core mass flow |
-| propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
+| propulsion/turbofan/turbofan-cycle |
+| propulsion/turbofan/bypass-ratio-trade | Bypass ratio trade | BPR vs TSFC, thrust split, specific thrust, fan pressure ratio | Turbofan cycle | bypass ratio, propulsive efficiency, specific thrust, fan/core mass flow |
+| propulsion/rocket/rocket-sizing |
+| propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
 
 ## Routing guidance
 
@@ -43,6 +45,10 @@ staging.
   turbofan-cycle.
 - Rocket equation, delta-v, staging, and propellant mass questions
   route to the rocket-sizing sub-skill.
+- Rocket nozzle questions (area ratio, exit Mach, thrust, expansion)
+  route to the rocket nozzle-design sub-skill.
+- Bypass-ratio design-trade questions (BPR vs TSFC, thrust split) route
+  to the turbofan bypass-ratio-trade sub-skill.
 - Airframe, stability, and certification questions route to their
   domain packs (flight-mechanics, avionics).
 

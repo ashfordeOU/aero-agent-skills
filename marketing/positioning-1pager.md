@@ -78,7 +78,7 @@ tool qualification; DO-254 hardware planning; DO-160G environmental
 qualification; ARP4754A systems planning; ARP4761A safety assessment;
 AS9100 quality; AS9102 first-article inspection; MMPDS allowables;
 FAR-25/CS-25 airworthiness; plus ECSS space software, MBSE systems
-engineering, and SEP-2640 skill delivery. The library now ships 55
-skills across 35 sub-domain packs (12 family routers), all gated by make validate on the commit you
+engineering, and SEP-2640 skill delivery. The library now ships 69
+skills across 36 sub-domain packs (12 family routers), all gated by make validate on the commit you
 are looking at. Methodology that lives inside certified workflows,
 not certification itself. Draft is in-tree; release is founder-gated.

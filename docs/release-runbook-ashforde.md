@@ -54,8 +54,8 @@ From the PRIVATE dev repo (/Users/enterprisehq/AeroSkills):
     git rev-parse --short v1.0.0-rc1^{commit}   # prints the same short hash
     git status --porcelain      # expect empty (clean at rest)
     git tag -l v1.0.0-rc1       # expect the annotated RC tag at the final RC commit
-    make validate               # expect PASS 5/5 (67 SKILL.md, 55 contract
-                                # tests, 126/126 Hit@1, gate 4 zero markers)
+    make validate               # expect PASS 5/5 (81 SKILL.md, 69 contract
+                                # tests, 154/154 Hit@1, gate 4 zero markers)
     make attest                 # expect PASS 3/3 (number snapshot offline,
                                 # brief audit, content policy 0 hits)
     bash ops/automation/test/run-tests.sh   # expect ALL TESTS PASS
@@ -99,11 +99,11 @@ or `cp -R` of the dev tree: that ships internal docs.
     cd /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
     git init -b main
     git add -A
-    git commit -m "AeroSkills v1.0.0-rc1: 55 skills, 35 sub-domain packs, eval-gated
+    git commit -m "AeroSkills v1.0.0-rc1: 69 skills, 36 sub-domain packs, eval-gated
 
-55 aerospace engineering skills across 35 installable sub-domain packs
+69 aerospace engineering skills across 36 installable sub-domain packs
 in 12 families, each passing make validate 5/5 (spec lint, desc lint,
-behavior contract, no-verbatim, Hit@1 126/126). Clean tree from dev HEAD
+behavior contract, no-verbatim, Hit@1 154/154). Clean tree from dev HEAD
 v1.0.0-rc1 (the final RC commit), no dev history, secrets swept,
 content policy green. Public-tree allowlist only: skills, scripts,
 eval, standards-map, docs (5 public files), marketing (3 public
@@ -131,7 +131,7 @@ IN (allowlist):
 - Root: .gitignore, .github/, CITATION.cff, CODE_OF_CONDUCT.md,
   CONTRIBUTING.md, LICENSE, Makefile, NOTICE, README.md, SECURITY.md,
   STANDARDS.md, standards-map.yaml
-- skills/ (all 55 leaf skills + 12 family routers, 67 SKILL.md + their
+- skills/ (all 69 leaf skills + 12 family routers, 81 SKILL.md + their
   scripts/ and test_*.py behavior contracts)
 - scripts/ (gate scripts + eval machinery), eval/ (hit1 corpus)
 - docs/FAQ.md, docs/glossary.md, docs/harness-contract.md,

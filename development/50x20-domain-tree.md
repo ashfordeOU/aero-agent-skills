@@ -45,6 +45,19 @@ packs**. The Hit@1 corpus holds 126 tasks (gate 5). These are the
 disk numbers the build plan starts from; section 3 is the full
 taxonomy target.
 
+Wave 2 (2026-08-31, Ops Manager): fan-out build to 69 leaf skills in
+36 sub-domain packs (navigation pack opened under gnc-autonomy), 81
+SKILL.md total, 154 Hit@1 corpus tasks. Fourteen new leaves:
+avionics +3 (far-cs25/special-conditions,
+flight-management/vertical-navigation, do254/configuration-management),
+gnc-autonomy +3 (control/root-locus-design,
+optimal-control/lqr-design, navigation/navigation-frames),
+manufacturing-quality +1 (as9102/delta-fai), space-systems +2
+(ecss/software-verification, subsystems/communication-link-budget),
+structures +3 (fem/modal-analysis, composites/failure-criteria,
+damage-tolerance/residual-strength), propulsion +2
+(rocket/nozzle-design, turbofan/bypass-ratio-trade).
+
 | Family | Live packs on disk (leaf count) | Planned packs (0 leaves) |
 |---|---|---|
 | Aerodynamics | airfoil (2) · cfd (2) | high-speed · aeroelasticity · wind-tunnel · drag-polars |
