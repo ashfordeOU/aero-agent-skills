@@ -9,10 +9,22 @@ it documents how an AeroSkills SKILL.md is actually consumed by each host.
 
 Every harness consumes a FLAT set of `<skill-name>/SKILL.md` folders per the
 Agent Skills open standard (agentskills.io). The repo's nested authoring
-layout (`skills/avionics/do178c/planning/SKILL.md`) is NOT consumed as-is by
+layout (`skills/<pack>/<standard>/<activity>/SKILL.md`, e.g.
+`skills/avionics/do178c/planning/SKILL.md`) is NOT consumed as-is by
 any harness. Installation requires flattening - or symlinking - each skill
 folder into the harness's skills root, with the folder named to match the
 frontmatter `name`.
+
+Domain packs (2026-08-31 restructure): the authoring tree is organized
+into five installable domain packs (avionics, space-systems,
+systems-engineering-safety, manufacturing-quality, cross-cutting). The
+install unit stays the leaf folder; installing a pack means copying or
+symlinking each leaf folder under `skills/<pack>/`. The pack-level
+`skills/<pack>/SKILL.md` is a router document for agents (domain
+description + sub-skill list + routing guidance), not a consumable
+skill itself. `scripts/pack_inventory.py` (`make packs`) lists every
+leaf by pack from frontmatter so an installer can enumerate a pack's
+folders deterministically.
 
 README v0.1's install line ("Add skills/<path> to your host's skills
 directory (Claude Code, Hermes, OpenClaw, Codex, or any agentskills.io
@@ -282,12 +294,15 @@ compaction.
 
 ## Cross-cutting findings (Ops lens)
 
-1. Repo layout vs consumption: the nested authoring tree is the source of
-   truth; every harness needs a flat `<name>/SKILL.md` per skill. Prefer
-   symlinking the skill DIRECTORY (supported by Codex dir symlinks, Gemini
-   CLI `/skills link`, Cursor's recursive walk) over copying, to keep one
-   canonical source. The SEP-2640 skill-delivery skill already covers MCP
-   packaging; the flat install step is the remaining gap.
+1. Repo layout vs consumption: the nested authoring tree
+   (skills/<pack>/<standard>/<activity>/SKILL.md, organized into domain
+   packs) is the source of truth; every harness needs a flat
+   `<name>/SKILL.md` per skill. Prefer symlinking the skill DIRECTORY
+   (supported by Codex dir symlinks, Gemini CLI `/skills link`, Cursor's
+   recursive walk) over copying, to keep one canonical source. The
+   SEP-2640 skill-delivery skill already covers MCP packaging; the flat
+   install step is the remaining gap, and `make packs` enumerates the
+   leaf folders per pack for it.
 2. Name must match folder: gate 1 enforces this in the authoring tree;
    after flattening, the harness folder must be named the frontmatter name
    or the harness warns or skips the skill.

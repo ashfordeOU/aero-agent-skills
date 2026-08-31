@@ -82,23 +82,32 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-Twelve verified skills, each spec-linted, behavior-tested, and
-router-asserted by make validate:
+Twelve verified skills in five installable domain packs, each
+spec-linted, behavior-tested, and router-asserted by make validate:
 
-| Skill | Standard | Covers |
-|---|---|---|
-| avionics/do178c/planning | DO-178C | software level/DAL (A-E) from failure severity; PSAC; planning-phase artifacts |
-| avionics/do178c/development | DO-178C | HLR/LLR/code traceability, derived requirements |
-| avionics/do178c/verification | DO-178C | review, structural coverage per level, independence |
-| avionics/do178c/configuration-management | DO-178C | baselines, problem reports, release gate |
-| avionics/do254/hardware-planning | DO-254 | simple vs complex AEH, PHAC scope |
-| systems-engineering-safety/arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
-| systems-engineering-safety/arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
-| manufacturing-quality/as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
-| avionics/far-cs25/airworthiness | FAR-25/CS-25 | certification basis, means of compliance, 25.1309 applicability |
-| space-systems/ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
-| systems-engineering-safety/mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
-| cross-cutting/sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
+| Pack | Skill | Standard | Covers |
+|---|---|---|---|
+| avionics | do178c/planning | DO-178C | software level/DAL (A-E) from failure severity; PSAC; planning-phase artifacts |
+| avionics | do178c/development | DO-178C | HLR/LLR/code traceability, derived requirements |
+| avionics | do178c/verification | DO-178C | review, structural coverage per level, independence |
+| avionics | do178c/configuration-management | DO-178C | baselines, problem reports, release gate |
+| avionics | do254/hardware-planning | DO-254 | simple vs complex AEH, PHAC scope |
+| systems-engineering-safety | arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
+| systems-engineering-safety | arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
+| manufacturing-quality | as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
+| avionics | far-cs25/airworthiness | FAR-25/CS-25 | certification basis, means of compliance, 25.1309 applicability |
+| space-systems | ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
+| systems-engineering-safety | mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
+| cross-cutting | sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
+
+Domain packs follow the 12-discipline taxonomy
+(research/briefs/05-domain-taxonomy.md): avionics,
+space-systems, systems-engineering-safety, manufacturing-quality,
+cross-cutting. Each pack has a router SKILL.md that describes the
+domain, lists its sub-skills, and tells an agent when to route to it;
+every SKILL.md carries domain and pack frontmatter so routers and
+installers can filter on them. Run `make packs` for the machine
+readable inventory.
 
 Every skill ships its own behavior contract in skills/<path>/scripts/,
 exercised by make validate gate 3.
@@ -110,15 +119,36 @@ Prereqs: git, make, python3 with PyYAML.
     git clone https://github.com/arjun-0077/aeroskills.git
     cd aeroskills
     make validate        # 5/5 REAL gates, offline
+    make packs           # list the domain packs and their skills
 
-Then load the skills into your agent host. The install unit is the
-leaf folder that contains SKILL.md, for example
-skills/avionics/do178c/planning. Copy or symlink it into your host's
-skills directory, then restart the session. Full per-host walkthrough:
+The library is organized into installable domain packs, so you can
+install only the domain you need. A pack is the set of leaf folders
+(the folders that contain SKILL.md) under skills/<pack>/. Copy or
+symlink those leaf folders into your host's skills directory, then
+restart the session. Full per-host walkthrough:
 [docs/harness-integration.md](docs/harness-integration.md).
 
+Example, install only the avionics pack (DO-178C software lifecycle,
+DO-254 hardware planning, FAR-25/CS-25 airworthiness), Claude Code
+user scope:
+
+    mkdir -p ~/.claude/skills
+    cp -r skills/avionics/do178c/planning skills/avionics/do178c/development \
+          skills/avionics/do178c/verification skills/avionics/do178c/configuration-management \
+          skills/avionics/do254/hardware-planning skills/avionics/far-cs25/airworthiness \
+          ~/.claude/skills/
+
+Example, install only the space-systems pack (ECSS software
+engineering):
+
+    cp -r skills/space-systems/ecss/software-engineering ~/.claude/skills/
+
+Install the full library the same way: copy every pack's leaf folders.
+The pack entry points (skills/<pack>/SKILL.md) are router documents
+for agents; hosts load the leaf folders that carry the actual skills.
+
 One-command registry installs (npx skills add, gh skill install) are
-listed for when the repository is public; the manual paths below work
+listed for when the repository is public; the manual paths above work
 today.
 
 ## Harness integration
@@ -134,12 +164,17 @@ today.
 | Generic agentskills.io host | any host that reads the format | host's skills directory |
 | SEP-2640 MCP | emerging skills-over-MCP adapter, skills served as resources | skill:// URIs behind directoryRead |
 
-Example, Claude Code user scope:
+Every host consumes flat <skill-name>/SKILL.md folders, so installing
+a domain pack means copying or symlinking each of its leaf folders.
+`make packs` lists every leaf in every pack.
 
-    mkdir -p ~/.claude/skills
-    cp -r skills/avionics/do178c/planning ~/.claude/skills/planning
+Example, avionics pack, Claude Code user scope (same as Install):
 
-Example, Gemini CLI via the native command:
+    for d in skills/avionics/do178c/* skills/avionics/do254/* skills/avionics/far-cs25/*; do
+      cp -r "$d" ~/.claude/skills/
+    done
+
+Example, single skill, Gemini CLI via the native command:
 
     gemini skills link "$PWD/skills/avionics/do178c/planning"
 
@@ -208,7 +243,9 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR: one skill
 per PR, every contributor certifies their submission contains no
 controlled data and no verbatim standards text, and every merge must
-pass make validate (5/5) and make attest (3/3). Thin domains today:
+pass make validate (5/5) and make attest (3/3). New skills land inside
+their domain pack (skills/<pack>/<standard>/<activity>/SKILL.md) and
+carry domain and pack frontmatter. Thin domains today:
 space-systems (one skill), manufacturing-quality (one skill), and
 cross-cutting (one skill).
 
