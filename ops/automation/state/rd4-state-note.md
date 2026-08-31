@@ -20,7 +20,23 @@ rescue trail. Read BEFORE acting; supersede with a new note on the next kill.
 - Steering sent: repo-wide count gates (numbers.yaml / run-tests P2 / README
   badge / routers) are PARENT-owned; children commit on make validate 5/5 +
   gate-pytest-contract.sh, noting baseline-count-only failures.
-- As of note: 0 leaf dirs, 0 fragments on disk; all 9 children running.
+- STATUS 00:07 (reaper risk): 6 of 9 leaves COMMITTED:
+  pursuit-guidance 0178f8b · life-cycle-cost 7573cba · material-selection
+  d864501 · oblique-shock 735e653 · airfoil-geometry 74fea45 ·
+  inertial-navigation eee0d3a. 3 PENDING (dirs + fragments on disk,
+  uncommitted WIP, recoverable): dynamic-stability (debugging a
+  gate-pytest-contract failure), descent-performance (waiting on a long
+  background gate proc), load-spectrum-counting (mid contract test).
+  All 9 fragments exist on disk (2 tracked with the first two commits,
+  7 untracked). scratch_leaf_check.py at repo root = child helper,
+  sweep at close.
+
+## Router drafts (pre-written, ready to cp)
+- 5 full router rewrites staged at /tmp/rd4-routers/ (aerodynamics,
+  flight-mechanics, gnc-autonomy, structures, vehicle-design). NOTE: /tmp
+  dies with the session - if reaped, rewrite from skills/<fam>/SKILL.md
+  sources (all read in rd4 parent context). vehicle-design must ALSO add
+  the missing fuselage-sizing row (9522676 landed without router update).
 
 ## Parent steps still open
 - STEP 2 merge: run ops/automation/state/wave6-merge-corpus.py when fragments
