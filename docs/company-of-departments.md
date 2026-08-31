@@ -1,13 +1,9 @@
-# AeroSkills: Company Structure (internal)
-
-Internal operating structure. Kept out of the public README so the
-repo root stays buyer-facing; this file is the canonical reference
-for how the repo is organized.
+# AeroSkills: Company Structure
 
 AeroSkills runs as a company of departments, following the proven
 Department-as-Code pattern (Veda reference implementation). Each
-department is a folder with a README (what it does + how to run it),
-an AGENTS.md (rules), and its own workspace.
+department is a folder with a README (what it does + how to run it)
+and its own workspace.
 
 Updated: 2026-08-31
 
@@ -15,32 +11,35 @@ Updated: 2026-08-31
 
 | Department | Purpose | Key outputs |
 |---|---|---|
-| **Research** | Market + competitor + technical research | research/notes/, research/briefs/ |
-| **Development** | Product build, skills, tooling | development/src/, development/builds/ |
-| **Marketing** | Positioning, content, GTM | marketing/positioning-1pager.md, marketing/content/ |
-| **Finance** | Costs, pricing, runway, invoices | finance/ledger/, finance/pricing/ |
-| **Ops** | Infrastructure, automation, reliability | ops/runbooks/, ops/state/ |
-| **Security** | Guardrails, compliance, risk | security/policy/, security/audits/ |
-| **Legal** | Licensing, contracts, IP | legal/contracts/, legal/licenses/ |
-| **HR (People)** | Roles, charters, hiring | people/roles/, people/onboarding/ |
-| **Support** | Docs, help, user questions | support/docs/, support/faq/ |
+| **Research** | Market + competitor + technical research | briefs, market analysis, peer audits |
+| **Development** | Product build, skills, tooling | skills/, eval/, scripts/ |
+| **Marketing** | Positioning, content, GTM | positioning-1pager.md, release-notes |
+| **Finance** | Costs, pricing, runway, invoices | internal ledgers, pricing notes |
+| **Ops** | Infrastructure, automation, reliability | gate scripts, number register |
+| **Security** | Guardrails, compliance, risk | audits, policy notes |
+| **Legal** | Licensing, contracts, IP | LICENSE, NOTICE, compliance |
+| **HR (People)** | Roles, charters, hiring | role charters, onboarding |
+| **Support** | Docs, help, user questions | FAQ, glossary, help content |
 
 ## Department-as-Code anatomy
 
+The public repository is the product tree only: skills, scripts,
+eval corpus, standards map, public docs, and the gate machinery that
+proves the product (ops/automation). Internal department workspaces
+(research/, development/, finance/, people/, support/, security/audits/)
+are kept out of the public package.
+
 ```
-AeroSkills/
+AeroSkills/              # public tree
 ├── README.md            # public landing page
-├── research/            # what we learn
-├── development/         # what we build
-├── marketing/           # how we're seen
-├── finance/             # how we survive
-├── ops/                 # how it runs
-├── security/            # how we stay safe
-├── legal/               # how we stay legal
-├── people/              # who does what
-├── support/             # how users get help
-├── AGENTS.md            # project-wide rules
-└── .git/                # one main branch, clean-at-rest
+├── skills/              # the library (27 skills, 9 packs)
+├── scripts/             # gate + eval machinery
+├── eval/                # Hit@1 corpus
+├── standards-map.yaml   # machine-readable standards map
+├── docs/                # public docs (FAQ, glossary, contract)
+├── marketing/           # positioning, release notes
+├── ops/automation/      # attestation gates (scripts, register)
+└── .github/             # CI workflow
 ```
 
 ## Operating rules (from Veda doctrine)

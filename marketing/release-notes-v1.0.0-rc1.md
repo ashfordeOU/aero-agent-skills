@@ -3,7 +3,7 @@
 **Status:** draft-in-tree only. No external send without founder GO
 (publish = founder VETO, AGENTS.md).
 **Date:** 2026-08-31 · **Owner:** Ops Manager (draft), Content Writer
-(public copy on GO) · **Base:** dev HEAD 7fd559d, tag v1.0.0-rc1.
+(public copy on GO) · **Base:** final RC commit, tag v1.0.0-rc1.
 **Voice:** cold truth. "Verified" is defined in section 2 and means
 exactly that, nothing more. No certified, no approved, no airworthy.
 
@@ -73,7 +73,5 @@ property of their publishers and must be purchased from them
 
 ## 6. Related
 
-- Runbook: docs/release-runbook-ashforde.md (Ashforde publish steps)
-- Launch copy: marketing/launch-draft-2026-08-31.md
 - Gate contract: docs/harness-contract.md
 - FAQ: docs/FAQ.md · Standards: STANDARDS.md

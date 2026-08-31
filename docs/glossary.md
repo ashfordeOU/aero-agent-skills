@@ -133,8 +133,8 @@ The point in a skill where the workflow must stop and check against a
 standard or regulation before producing a number: a DAL-level
 awareness note, a coverage margin, an export-control verify-before-use
 step. Compliance hooks are why a skill output is usable as evidence
-rather than as an unverifiable claim. Source: research/briefs/11 §1.2;
-research/briefs/06 §8.1.
+rather than as an unverifiable claim. Source: internal research
+(compliance-hook doctrine).
 
 ## Gated standard
 

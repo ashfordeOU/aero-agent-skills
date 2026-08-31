@@ -1,7 +1,7 @@
 # AeroSkills positioning: the aerospace knowledge layer
 
 **Date:** 2026-08-31 · **Status:** draft-in-tree, release founder-gated
-**Sources:** research/briefs/06, 09, 11; docs/harness-contract.md;
+**Sources:** docs/harness-contract.md;
 ops/automation/numbers.yaml (canonical number register)
 
 ## One line
@@ -29,13 +29,14 @@ and let a human sign.
 
 ## Wedge: the standards map
 
-The machine-readable map (standards-map.yaml) covers 14 standards:
-DO-178C, DO-254, ARP4754A, ARP4761A, AS9100, DO-330, DO-160G, AS9102,
-MMPDS, FAR-25, CS-25, ECSS, SEP-2640, and NACA TR-824, with a
-summary-not-copy rule and a gated-standard rule enforced by a real
-gate. Every skill carries standards frontmatter that resolves against
-the map. No aerospace repo has this. The map is the moat; the skills
-are how the map earns its keep.
+The machine-readable map (standards-map.yaml) covers 14 standards: the
+13 domain standards DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
+DO-330, DO-160G, AS9102, MMPDS, FAR-25, CS-25, ECSS, and NACA TR-824,
+plus SEP-2640 as the delivery format (skills over MCP), separate from
+the domain list. Every skill carries standards frontmatter that
+resolves against the map, with a summary-not-copy rule and a
+gated-standard rule enforced by a real gate. No aerospace repo has
+this. The map is the moat; the skills are how the map earns its keep.
 
 ## Proof: evals, not promises
 
@@ -63,10 +64,10 @@ two things AeroSkills ships first.
 ## Compliance posture
 
 As published, this is not controlled technical data; verify before
-use (brief 06 §8.3.9). The library is methodology, not designs:
+use (STANDARDS.md). The library is methodology, not designs:
 general engineering principles and process guidance. It carries no
 certification claims and no export-control claims. Mis-marking public
-content is itself a compliance failure (brief 06 §8.3.9).
+content is itself a compliance failure.
 
 ## What ships
 
