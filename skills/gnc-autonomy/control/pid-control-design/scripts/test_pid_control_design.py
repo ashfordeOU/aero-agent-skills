@@ -2,7 +2,7 @@
 """Gate 3 contract test: PID controller design.
 
 Exercises scripts/pid_control_design_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — PID output from gains and
+Contract: docs/harness-contract.md gate 3 - PID output from gains and
 error terms, Ziegler-Nichols gains from ultimate gain/period, PI/PID
 pole placement for first/second-order plants, integrator anti-windup
 clamping, type-1 gain/phase margins, and the discrete backward
