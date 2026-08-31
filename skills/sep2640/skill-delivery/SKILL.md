@@ -5,6 +5,7 @@ license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
   - id: sep-2640
+    reference-only: true
 gated: false
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:

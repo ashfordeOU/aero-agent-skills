@@ -13,7 +13,7 @@ compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes,
 metadata:
   domain: avionics
   subdomain: arp4754a
-  tags: [arp4754a, arp4761a, fdal, idal, planning, safety]
+  tags: [arp4754a, arp4761a, fdal, idal, planning, safety, certification]
   version: 0.1.0
   author: AeroSkills
 ---
