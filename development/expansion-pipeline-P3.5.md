@@ -3,6 +3,12 @@
 Status: plan 2026-08-31, Ops Manager (Feasibility lens). Founder brief:
 "the library is too small. the goal should be to keep expanding it."
 
+EXECUTED (2026-08-31): the P3.5 floor landed — twenty-seven verified
+skills live across nine installable domain packs, make validate 5/5 REAL
+with gate 5 Hit@1 66/66, make attest 3/3, run-tests.sh ALL PASS. Wave 3
+candidates below remain future work; this document is the historical plan
+record (superseded by the live state in docs/harness-contract.md).
+
 ## Goal and numbers
 
 Current: twenty-seven verified skills, all gated by make validate (5/5 REAL:
