@@ -1,6 +1,6 @@
 ---
 name: hardware-planning
-description: "Use when you must plan DO-254 design assurance for airborne electronic hardware: classify an item as simple or complex AEH, scope the plan for hardware aspects of certification (PHAC) and the hardware design assurance data, and plan requirements capture, verification, and configuration management for the item. Complex AEH — programmable logic, processors, or designs whose correct behavior cannot be fully established from top-level data alone — follows the full design assurance process; simple AEH uses a reduced but still planned process. Trigger: DO-254 hardware planning, airborne electronic hardware, PHAC, simple vs complex hardware, hardware design assurance, programmable logic."
+description: "Use when you must plan DO-254 design assurance for airborne electronic hardware: classify an item as simple or complex AEH, scope the plan for hardware aspects of certification (PHAC) and the hardware design assurance data, and plan requirements capture, verification, and configuration management for the item. Complex AEH (programmable logic, processors, or designs whose correct behavior cannot be fully established from top-level data alone) follows the full design assurance process; simple AEH uses a reduced but still planned process. Trigger: DO-254 hardware planning, airborne electronic hardware, PHAC, simple vs complex hardware, hardware design assurance, programmable logic."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -25,9 +25,9 @@ data.
 ## Domain quick reference
 
 - DO-254 distinguishes simple from complex airborne electronic hardware
-  (AEH). Complex AEH — programmable logic, processors, significant
+  (AEH). Complex AEH (programmable logic, processors, significant
   internal state, or hardware whose correct behavior cannot be fully
-  established from top-level data alone — follows the full design
+  established from top-level data alone) follows the full design
   assurance process.
 - Safety-significant items are treated as complex unless a documented
   justification shows a reduced process is adequate.

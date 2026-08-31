@@ -1,6 +1,6 @@
 ---
 name: verification
-description: "Use when you must verify DO-178C airborne software against its requirements: review software architecture, design, and code, run requirements-based tests, and analyze structural coverage at the depth the software level demands — A requires MC/DC, B decision coverage, C statement coverage, D and E require none. Determine whether verification must be independent, which applies at levels A and B, and produce the verification results, coverage analysis, and review records the software verification process must deliver. Trigger: DO-178C verification, MC/DC coverage, decision coverage, statement coverage, structural coverage analysis, requirements-based testing, independent verification."
+description: "Use when you must verify DO-178C airborne software against its requirements: review software architecture, design, and code, run requirements-based tests, and analyze structural coverage at the depth the software level demands: A requires MC/DC, B decision coverage, C statement coverage, D and E require none. Determine whether verification must be independent, which applies at levels A and B, and produce the verification results, coverage analysis, and review records the software verification process must deliver. Trigger: DO-178C verification, MC/DC coverage, decision coverage, statement coverage, structural coverage analysis, requirements-based testing, independent verification."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
