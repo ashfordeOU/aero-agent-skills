@@ -27,6 +27,23 @@ pins promoted, t3 still pinned to manufacturing-quality/as9100/quality,
 plus adversarial cross-pair tasks xp1-xp8). pack_inventory.py now
 validates router pack-vs-folder and domain-vs-taxonomy; gate 4 scans
 README.md/STANDARDS.md/NOTICE alongside skills/ and docs/. Owner: Ops Manager, P3.5 build.
+P3.7 (2026-08-31): Wave 4 library expansion to forty-three verified
+skills in nine installable domain packs (52 SKILL.md under gate 1: 9
+routers + 43 leaves). Sixteen new leaves across all nine packs:
+avionics +3 (airworthiness-liaison, requirements-capture,
+flight-planning), space-systems +2 (thermal-design,
+attitude-control-sizing), systems-engineering-safety +2 (validation,
+common-cause-analysis), aerodynamics +2 (airfoil-selection,
+cfd-convergence), gnc-autonomy +1 (rendezvous-phasing), structures +2
+(laminate-stiffness, miner-damage), vehicle-design +2 (tow-estimation,
+inertia-estimation), manufacturing-quality +1 (counterfeit-prevention),
+cross-cutting +1 (isa-atmosphere). No standards-map changes (fourteen
+entries, nine gated). Gate 3 runs forty-three contract tests; gate 5
+runs 102 active corpus tasks (sixty-six prior plus thirty-two domain
+tasks al1/al2, rc1/rc2, fp1/fp2, td1/td2, ac1/ac2, va1/va2, cc1/cc2,
+as1/as2, cfc1/cfc2, rp1/rp2, ls1/ls2, md1/md2, to1/to2, mi1/mi2,
+cp1/cp2, isa1/isa2 plus adversarial xp9-xp12). Owner: Ops Manager,
+Wave 4 build.
 Sources: internal design briefs (router design; domain taxonomy;
 legal/export-control compliance flags).
 

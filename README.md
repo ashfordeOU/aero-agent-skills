@@ -2,7 +2,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 27](https://img.shields.io/badge/skills-27-blue)](skills/)
+[![Skills: 43](https://img.shields.io/badge/skills-43-blue)](skills/)
 [![Standards: 14](https://img.shields.io/badge/standards-14-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
@@ -53,7 +53,7 @@ Two things separate this library from a folder of prompts:
   list. Referenced and summarized, never copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
   ships: spec conformance, description quality, a DAL-determination
-  behavior test, a no-verbatim copyright scan, and a 66-task Hit@1
+  behavior test, a no-verbatim copyright scan, and a 102-task Hit@1
   routing corpus. Deterministic, offline, replayable. Verified means
   the gates pass on the commit you are looking at; not certification,
   not approval, not airworthy.
@@ -91,37 +91,53 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-Twenty-seven verified skills in nine installable domain packs, each
+Forty-three verified skills in nine installable domain packs, each
 spec-linted, behavior-tested, and router-asserted by make validate:
 
 | Pack | Skill | Standard | Covers |
 |---|---|---|---|
+| aerodynamics | airfoil/airfoil-selection | NACA TR-824 | Use when you must select an airfoil section for a wing design: score ca |
 | aerodynamics | airfoil/xfoil-analysis | NACA TR-824 | Use when running XFOIL-style airfoil analysis for a given section: pla |
+| aerodynamics | cfd/cfd-convergence | NACA TR-824 | Use when you must judge whether a computational fluid dynamics run has c |
 | avionics | do160/environmental-qualification | DO-160G | Use when planning or reviewing DO-160 environmental qualification of a |
+| avionics | do178c/airworthiness-liaison | DO-178C | Use when you must manage DO-178C airworthiness and certification liaison |
 | avionics | do178c/configuration-management | DO-178C | Use when you must manage DO-178C software configuration: establish con |
 | avionics | do178c/development | DO-178C | Use when you must develop DO-178C airborne software lifecycle data for |
 | avionics | do178c/planning | DO-178C | Use when planning DO-178C software certification for airborne systems |
 | avionics | do178c/tool-qualification | DO-330 | Use when assessing software tool qualification per DO-330 and DO-178C: |
 | avionics | do178c/verification | DO-178C | Use when you must verify DO-178C airborne software against its require |
 | avionics | do254/hardware-planning | DO-254 | Use when you must plan DO-254 design assurance for airborne electronic |
+| avionics | do254/requirements-capture | DO-254 | Use when you must capture and review DO-254 hardware requirements for a c |
 | avionics | do254/verification | DO-254 | Use when verifying DO-254 airborne electronic hardware: determine the |
 | avionics | far-cs25/airworthiness | FAR-25/CS-25 | Use when scoping transport-category airworthiness certification: deter |
+| avionics | flight-management/flight-planning | DO-178C | Use when you must build and check a flight management system flight plan: |
 | cross-cutting | sep2640/skill-delivery | SEP-2640 | Use when packaging or delivering domain skills over MCP per SEP-2640: |
+| cross-cutting | units-atmos/isa-atmosphere | ECSS | Use when you must apply the international standard atmosphere in aerospac |
 | gnc-autonomy | control/python-control-design | ARP4754A | Use when designing and validating feedback control laws with Python co |
 | gnc-autonomy | optimal-control/dymos-trajectory | ARP4754A | Use when setting up and assessing pseudospectral trajectory optimizati |
 | gnc-autonomy | space/orbit-dynamics | ECSS | Use when analyzing spacecraft orbital mechanics with two-body and J2-p |
+| gnc-autonomy | space/rendezvous-phasing | ECSS | Use when you must plan an orbital rendezvous phasing maneuver: compute th |
+| manufacturing-quality | as9100/counterfeit-prevention | AS9100 | Use when you must plan counterfeit parts prevention for an aerospace pro |
 | manufacturing-quality | as9100/quality | AS9100 | Use when scoping or preparing AS9100 aerospace quality management work |
 | manufacturing-quality | as9102/first-article-inspection | AS9102 | Use when preparing or reviewing an AS9102 first article inspection (FA |
+| space-systems | adcs/attitude-control-sizing | ECSS | Use when you must size the attitude control subsystem actuators for a sp |
 | space-systems | ecss/software-engineering | ECSS | Use when scoping European space software work per the ECSS series: cla |
 | space-systems | ecss/systems-engineering | ECSS | Use when scoping or gating European space systems engineering per ECSS |
 | space-systems | subsystems/power-thermal-budget | ECSS | Use when sizing spacecraft electrical power and thermal budgets per EC |
+| space-systems | subsystems/thermal-design | ECSS | Use when you must size the thermal control subsystem for a spacecraft: c |
+| structures | composites/laminate-stiffness | FAR-25/CS-25 | Use when you must compute the stiffness of a composite laminate with cla |
+| structures | fatigue/miner-damage | FAR-25/CS-25 | Use when you must evaluate fatigue life with cumulative damage: sum the P |
 | structures | fem/calculix-linear | FAR-25 | Use when running or checking linear static finite element analysis for |
 | structures | materials/mmpsd-allowables | MMPDS | Use when computing statistically based metallic material design allowa |
 | systems-engineering-safety | arp4754a/requirements-traceability | ARP4754A | Use when planning or auditing requirements traceability per ARP4754A: |
 | systems-engineering-safety | arp4754a/systems-planning | ARP4754A | Use when you must plan aircraft and system development per ARP4754A: a |
+| systems-engineering-safety | arp4754a/validation | ARP4754A | Use when you must run requirements validation for an aircraft or system |
+| systems-engineering-safety | arp4761a/common-cause-analysis | ARP4761A | Use when you must plan or review common cause analysis for a safety asse |
 | systems-engineering-safety | arp4761a/fta-fmea | ARP4761A | Use when scoping or executing FTA (fault tree analysis) and FMEA (fail |
 | systems-engineering-safety | arp4761a/safety-assessment | ARP4761A | Use when planning or conducting the civil-aircraft safety assessment p |
 | systems-engineering-safety | mbse/systems-engineering | SysML | Use when running model-based systems engineering for an aerospace prog |
+| vehicle-design | conceptual/tow-estimation | FAR-25/CS-25 | Use when you must estimate the takeoff gross weight in conceptual aircra |
+| vehicle-design | mass-properties/inertia-estimation | FAR-25/CS-25 | Use when you must estimate mass properties for vehicle design: compute m |
 | vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | Use when performing class-I or class-II vehicle weight estimation: com |
 Domain packs follow the 12-discipline taxonomy: aerodynamics,
 gnc-autonomy, structures, vehicle-design, avionics, space-systems,
