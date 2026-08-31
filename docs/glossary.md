@@ -115,8 +115,9 @@ Router quality metric from the eval harness: the fraction of corpus
 tasks where the expected skill is the top-1 retrieval result. Gate 5
 requires all active tasks to resolve to the expected skill using the
 deterministic offline router; the corpus carries 13 tasks across the
-six published skills as of P2.1. Source: docs/harness-contract.md
-(gate 5).
+28 routed evaluation tasks across the 12 published skills (25 domain
+tasks + 3 adversarial cross-pair tasks). Source:
+docs/harness-contract.md (gate 5).
 
 ## Derived requirement
 
@@ -139,10 +140,10 @@ skills/avionics/do178c/configuration-management.
 
 ## Simple and complex AEH
 
-DO-254 classification of airborne electronic hardware. Complex AEH —
-programmable logic, processors, significant internal state, or
+DO-254 classification of airborne electronic hardware. Complex AEH
+(programmable logic, processors, significant internal state, or
 hardware whose correct behavior cannot be fully established from
-top-level data alone — follows the full design assurance process
+top-level data alone) follows the full design assurance process
 (PHAC through verification); simple AEH uses a reduced but still
 planned process. Safety-significant items are treated as complex
 unless a documented justification shows otherwise. Source:
@@ -158,7 +159,7 @@ skills/avionics/do254/hardware-planning.
 
 ## ECSS
 
-European Cooperation for Space Standardization standards series — the
+European Cooperation for Space Standardization standards series, the
 European space procurement baseline. Includes E-ST-10C (systems
 engineering), E-ST-40C (software engineering), Q-ST-80C (software
 product assurance), and M-ST-40 (configuration management). Freely
@@ -178,7 +179,7 @@ skills/space/ecss/software-engineering.
 ## SEP-2640
 
 The MCP working group's Skills Extension specification (Skills over
-MCP): skills are served as resources — skill:// URIs, resources/read,
+MCP): skills are served as resources: skill:// URIs, resources/read,
 and directory listing behind the directoryRead capability. An
 emerging draft, not yet stable; an adapter layer over the
 agentskills.io SKILL.md format, never the source of truth. Open
