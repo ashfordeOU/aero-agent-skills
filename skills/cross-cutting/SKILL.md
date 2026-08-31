@@ -1,6 +1,6 @@
 ---
 name: cross-cutting
-description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack, whose SEP-2640 skill-delivery sub-skill covers SKILL.md conformance and skill URIs, isa-atmosphere covers the ISA standard atmosphere, engineering-margins covers margin of safety reporting, convergence-verification covers Richardson extrapolation and GCI, least-squares-regression covers OLS fitting, uncertainty-propagation covers the GUM first order law, and numerical-integration covers trapezoid, Simpson, and Gauss-Legendre quadrature. This pack is the library's meta-layer for distributing skills and the shared cross-cutting analysis layer. Trigger: skill delivery, SEP-2640, skill URI, standard atmosphere, ISA, margin of safety, Richardson extrapolation, GCI, least squares, linear regression, coefficient of determination, uncertainty propagation, GUM, coverage factor, numerical integration, trapezoid, Simpson, Gauss-Legendre."
+description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack, whose SEP-2640 skill-delivery and skill-evaluation sub-skills cover SKILL.md conformance, skill URIs, and delivered-skill quality, isa-atmosphere and unit-conversion cover the standard atmosphere and unit conversion, engineering-margins and engineering-report cover margin reporting and report structure, and convergence-verification, least-squares-regression, uncertainty-propagation, and numerical-integration cover Richardson extrapolation, OLS fitting, the GUM law, and quadrature. This pack is the library's meta-layer for distributing skills and the shared analysis layer. Trigger: skill delivery, SEP-2640, skill evaluation, skill URI, standard atmosphere, ISA, unit conversion, knots, margin of safety, engineering report, Richardson extrapolation, GCI, least squares, linear regression, uncertainty propagation, GUM, coverage factor, numerical integration, trapezoid, Simpson, Gauss-Legendre."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -31,18 +31,22 @@ or numerical analysis.
 
 Cross-cutting and foundational: the skill-format and delivery
 specification (SEP-2640) that governs how this library packages and
-serves skills over MCP, the ISA standard atmosphere for performance
-work, the documentation discipline for engineering reports, and the
-numerical analysis discipline (verification, regression, uncertainty
-propagation, integration) for engineering calculations.
+serves skills over MCP, skill evaluation, the ISA standard atmosphere
+for performance work, unit conversion, the documentation discipline
+for engineering reports and margins, and the numerical analysis
+discipline (verification, regression, uncertainty propagation,
+integration) for engineering calculations.
 
 ## Sub-skills in this pack
 
 | Path | Skill | When to route to it |
 |---|---|---|
 | cross-cutting/sep2640/skill-delivery | SEP-2640 skill delivery | SKILL.md packaging, skill URIs, MCP resources, server readiness |
+| cross-cutting/sep2640/skill-evaluation | Skill evaluation | SEP-2640 conformance checks, weighted quality score, acceptance verdict, coverage ratio |
 | cross-cutting/units-atmos/isa-atmosphere | ISA atmosphere | standard atmosphere, temperature lapse, pressure altitude, density |
+| cross-cutting/units-atmos/unit-conversion | Unit conversion | SI/imperial/aviation units, length, speed, temperature, pressure, density, Mach |
 | cross-cutting/documentation/engineering-margins | Engineering margins | margin of safety, allowable vs applied load, limit and ultimate basis, report sentence |
+| cross-cutting/documentation/engineering-report | Engineering report | report anatomy, abstract length, required sections, completeness verdict |
 | cross-cutting/numerics/convergence-verification | Convergence verification | Richardson extrapolation, GCI, observed order, discretization error, mesh refinement |
 | cross-cutting/numerics/least-squares-regression | Least squares regression | OLS slope and intercept, residual standard deviation, R-squared, prediction |
 | cross-cutting/numerics/uncertainty-propagation | Uncertainty propagation | GUM first order law, sensitivity coefficients, combined uncertainty, coverage factor |
@@ -51,10 +55,14 @@ propagation, integration) for engineering calculations.
 ## Routing guidance
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
-  sub-skill.
-- Standard atmosphere questions route to the units-atmos sub-skill.
+  skill-delivery sub-skill; evaluating a delivered skill's conformance
+  and quality routes to the skill-evaluation sub-skill.
+- Standard atmosphere questions route to the units-atmos
+  isa-atmosphere sub-skill; converting units between systems routes to
+  the unit-conversion sub-skill.
 - Margin of safety and report sentence questions route to the
-  documentation engineering-margins sub-skill.
+  documentation engineering-margins sub-skill; report structure and
+  completeness questions route to the engineering-report sub-skill.
 - Mesh refinement, Richardson extrapolation, and discretization
   error questions route to the numerics convergence-verification
   sub-skill.

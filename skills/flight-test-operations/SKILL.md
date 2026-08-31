@@ -1,6 +1,6 @@
 ---
 name: flight-test-operations
-description: "Use when a task concerns flight test operations, envelope expansion, performance determination, flutter clearance, and campaign planning: guide the router to the flight-test-operations pack, whose envelope-expansion sub-skill covers corner speed and expansion steps, v-speeds covers Vref, V2, Vr, stall-speed-determination covers Vs1g from wing loading, accelerate-stop-distance covers rejected-takeoff distance from V1, landing-distance-determination covers the FAR 25.125 landing distance with the 1.67 field length factor, flutter-testing covers the 1.2 design dive speed margin and damping trend, and flight-test-planning covers test point build-up and instrumentation. This pack is the flight test campaign planning and data-reduction layer of the library. Trigger: flight test, envelope expansion, corner speed, V-speeds, Vref, V2, Vr, stall speed, Vs1g, accelerate stop distance, rejected takeoff, V1, landing distance, field length, flutter margin, damping trend, frequency separation, test point, instrumentation."
+description: "Use when a task concerns flight test operations, envelope expansion, performance determination, flutter clearance, ground vibration testing, and campaign planning: guide the router to the flight-test-operations pack, whose envelope-expansion and v-speeds sub-skills cover corner speed and certification speeds, stall-speed-determination and accelerate-stop-distance cover stall and rejected-takeoff distances, landing-distance-determination covers the FAR 25.125 landing distance, flutter-testing and ground-vibration-testing cover flutter margin and GVT modal survey, and flight-test-planning and flight-test-instrumentation cover test point build-up, sensors, and sampling. This pack is the flight test campaign planning and data-reduction layer. Trigger: flight test, envelope expansion, corner speed, V-speeds, Vref, stall speed, Vs1g, accelerate stop distance, rejected takeoff, V1, landing distance, field length, flutter margin, damping trend, ground vibration test, GVT, modal survey, flight test instrumentation, sample rate, anti-aliasing, test point."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -23,13 +23,15 @@ metadata:
 
 Route here when the task is flight test planning, envelope
 expansion, certification speed determination, performance
-distance checks, or flutter clearance.
+distance checks, flutter clearance, ground vibration testing,
+or instrumentation.
 
 ## Domain
 
 Flight test operations: envelope expansion planning, certification
 V-speeds, reference stall speed determination, rejected-takeoff and
-landing distance checks, flutter clearance, and campaign planning.
+landing distance checks, flutter clearance, ground vibration testing,
+flight test instrumentation, and campaign planning.
 
 ## Sub-skills in this pack
 
@@ -41,7 +43,9 @@ landing distance checks, flutter clearance, and campaign planning.
 | flight-test-operations/performance/accelerate-stop-distance | Accelerate-stop distance | rejected takeoff, decision speed V1, braking deceleration, runway fits |
 | flight-test-operations/performance/landing-distance-determination | Landing distance | Vref approach speed, flare segment, braking ground roll, 1.67 field length factor, runway fits |
 | flight-test-operations/flutter/flutter-testing | Flutter testing | flutter margin, 1.2 design dive speed, damping trend extrapolation, frequency separation |
+| flight-test-operations/flutter/ground-vibration-testing | Ground vibration testing | GVT modal survey, excitation, FRF peak picking, half-power damping, frequency resolution, mode shapes |
 | flight-test-operations/planning/flight-test-planning | Flight test planning | test point build-up ordering, instrumentation coverage, campaign plan, prerequisites |
+| flight-test-operations/planning/flight-test-instrumentation | Flight test instrumentation | sensor selection, sample rate, Nyquist, anti-aliasing, quantization, calibration |
 
 ## Routing guidance
 
@@ -58,8 +62,13 @@ landing distance checks, flutter clearance, and campaign planning.
 - Flutter clearance questions (flutter margin, damping trend,
   frequency separation, design dive speed) route to the
   flutter-testing sub-skill.
-- Test point build-up, instrumentation, and campaign planning
-  questions route to the flight-test-planning sub-skill.
+- Ground vibration test questions (modal survey, excitation, FRF,
+  half-power damping, mode shapes) route to the
+  ground-vibration-testing sub-skill.
+- Test point build-up and campaign planning questions route to the
+  flight-test-planning sub-skill; sensor, sample rate, and
+  anti-aliasing questions route to the flight-test-instrumentation
+  sub-skill.
 - Aircraft performance, structures, and certification questions
   route to their domain packs (flight-mechanics, structures,
   avionics).
