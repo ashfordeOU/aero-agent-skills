@@ -1,0 +1,12 @@
+# Hit@1 wave-5 fragment: unit-conversion (cross-cutting/units-atmos)
+# Two tasks per new leaf skill; uc1 and uc2 both target the unit
+# conversion leaf and must deterministically route to it.
+tasks:
+  - id: uc1
+    query: "convert 250 knots to meters per second for the airspeed conversion table"
+    intent: "cross-cutting; speed unit conversion from knots to m/s"
+    expected_skill: "cross-cutting/units-atmos/unit-conversion"
+  - id: uc2
+    query: "convert the sea level pressure of 1013.25 hPa to inHg and psi for the altimeter setting"
+    intent: "cross-cutting; pressure unit conversion from hPa to inHg and psi"
+    expected_skill: "cross-cutting/units-atmos/unit-conversion"
