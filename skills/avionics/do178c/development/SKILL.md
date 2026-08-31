@@ -1,6 +1,6 @@
 ---
 name: development
-description: "Use when you must develop DO-178C airborne software lifecycle data for avionics items: capture high-level and low-level requirements, maintain bidirectional requirement-to-code trace links, identify derived requirements, and apply project design and coding standards scaled to the software level. Produce the development-phase artifacts — requirement data, design data, source code, and the trace matrix — that the verification process consumes, with traceability closure required at every software level and independent review of the trace data at levels A and B. Trigger: DO-178C development, requirements traceability, derived requirements, low-level requirements, coding standards, software design, lifecycle data."
+description: "Use when you must develop DO-178C airborne software lifecycle data for avionics items: capture high-level and low-level requirements, maintain bidirectional requirement-to-code trace links, identify derived requirements, and apply project design and coding standards scaled to the software level. Produce the development-phase artifacts (requirement data, design data, source code, and the trace matrix) that the verification process consumes, with traceability closure required at every software level and independent review of the trace data at levels A and B. Trigger: DO-178C development, requirements traceability, derived requirements, low-level requirements, coding standards, software design, lifecycle data."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
