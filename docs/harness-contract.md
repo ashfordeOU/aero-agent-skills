@@ -20,6 +20,26 @@ tests; gate 5 runs 154 active corpus tasks (the 126 prior plus
 twenty-eight domain tasks sc1/sc2, vn1/vn2, rl1/rl2, lqr1/lqr2,
 nf1/nf2, df1/df2, dcm1/dcm2, sv1/sv2, ma1/ma2, fc1/fc2, res1/res2,
 lb1/lb2, nz1/nz2, bpr1/bpr2). Owner: Ops Manager, Wave 2 build.
+P5.2 (2026-08-31): Wave 3 fan-out build to eighty-three verified
+skills in twelve installable domain packs (95 SKILL.md under gate 1:
+12 routers + 83 leaves). Fourteen new leaves across nine families:
+flight-mechanics +2 (performance/climb-performance,
+performance/turn-performance), cross-cutting +2
+(documentation/engineering-margins,
+numerics/convergence-verification), vehicle-design +2
+(sizing/ws-tw-trade, cost-estimation/parametric-cost),
+flight-test-operations +2 (envelope/v-speeds,
+performance/accelerate-stop-distance), aerodynamics +2
+(high-speed/normal-shock, drag-polars/drag-polar),
+manufacturing-quality +1 (ndt/ndt-method-selection), propulsion +1
+(axial-compressor/axial-compressor-stage), gnc-autonomy +1
+(guidance/proportional-navigation), space-systems +1
+(orbit-mechanics/sun-synchronous-inclination). No standards-map
+changes (sixteen entries, ten gated). Gate 3 runs eighty-three
+contract tests; gate 5 runs 182 active corpus tasks (the 154 prior
+plus twenty-eight domain tasks roc1/roc2, em1/em2, wt1/wt2, ns1/ns2,
+turn1/turn2, vsp1/vsp2, pc1/pc2, pn1/pn2, ss1/ss2, dp1/dp2, nd1/nd2,
+acst1/acst2, asd1/asd2, cv1/cv2). Owner: Ops Manager, Wave 3 build.
 P5.1 (2026-08-31): Wave 5 library expansion to fifty-five verified
 skills in twelve installable domain packs (67 SKILL.md under gate 1:
 12 routers + 55 leaves). Twelve new leaves: propulsion +3
