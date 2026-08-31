@@ -1,0 +1,12 @@
+# Hit@1 wave-5 fragment: sysml-modeling (systems-engineering-safety/mbse)
+# Two tasks per new leaf skill; sys1 and sys2 both target the sysml
+# modeling leaf and must deterministically route to it.
+tasks:
+  - id: sys1
+    query: "which SysML diagram kind shows the internal connections and ports between the blocks of the landing gear system"
+    intent: "systems-engineering-safety; MBSE diagram selection for an internal block diagram"
+    expected_skill: "systems-engineering-safety/mbse/sysml-modeling"
+  - id: sys2
+    query: "draft a block definition diagram for the flight control system with every referenced element defined as a block part"
+    intent: "systems-engineering-safety; SysML block definition diagram structure check"
+    expected_skill: "systems-engineering-safety/mbse/sysml-modeling"
