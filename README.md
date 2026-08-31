@@ -1,10 +1,15 @@
 # AeroSkills
 
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+[![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
+[![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
+[![Status: draft](https://img.shields.io/badge/status-draft-orange)](README.md)
+
 Aerospace engineering skills for AI agents: standards-mapped,
 eval-gated, Apache-2.0. The knowledge layer for engineering agents,
 not the platform.
 
-*Draft v0.1. Buyer-facing draft, in-tree only; release is
+*Draft v0.2. Buyer-facing draft, in-tree only; release is
 founder-gated.*
 
 > **Compliance notice.** AeroSkills is an open, unrestricted library of
@@ -34,6 +39,19 @@ founder-gated.*
 >
 > See [SECURITY.md](SECURITY.md) · [CONTRIBUTING.md](CONTRIBUTING.md) · [STANDARDS.md](STANDARDS.md)
 
+## Table of contents
+
+- [Why AeroSkills](#why-aeroskills)
+- [What's here](#whats-here)
+- [Install](#install)
+- [Harness integration](#harness-integration)
+- [Verify](#verify)
+- [Standards map](#standards-map)
+- [Roadmap](#roadmap)
+- [Star request](#star-request)
+- [License and legal](#license-and-legal)
+- [Maintainers](#maintainers)
+
 ## Why AeroSkills
 
 Ask a general-purpose AI about DO-178C and you get a Wikipedia summary:
@@ -55,9 +73,9 @@ Two things separate this library from a folder of prompts:
   summarized, never copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
   ships: spec conformance, description quality, a DAL-determination
-  behavior test, a no-verbatim copyright scan, and a Hit@1 routing
-  corpus. Deterministic, offline, replayable. Verified means the
-  gates pass on the commit you are looking at; not certification,
+  behavior test, a no-verbatim copyright scan, and a 28-task Hit@1
+  routing corpus. Deterministic, offline, replayable. Verified means
+  the gates pass on the commit you are looking at; not certification,
   not approval, not airworthy.
 
 ## What's here
@@ -65,43 +83,78 @@ Two things separate this library from a folder of prompts:
 Twelve verified skills, each spec-linted, behavior-tested, and
 router-asserted by make validate:
 
-- avionics/do178c/planning: software level/DAL (A-E) from failure
-  severity; PSAC; planning-phase artifacts.
-- avionics/do178c/development: HLR/LLR/code traceability, derived
-  requirements.
-- avionics/do178c/verification: review, structural coverage per level,
-  independence.
-- avionics/do178c/configuration-management: baselines, problem
-  reports, release gate.
-- avionics/do254/hardware-planning: simple vs complex AEH, PHAC scope.
-- arp4754a/systems-planning: FDAL/IDAL allocation, certification and
-  system development plans.
-- arp4761a/safety-assessment: FHA/PSSA/SSA sequence, analysis set
-  (FTA/FMEA/CCA).
-- as9100/quality: aerospace QMS clauses, audit evidence, corrective
-  action closure.
-- avionics/far-cs25/airworthiness: certification basis, means of
-  compliance, 25.1309 applicability.
-- space/ecss/software-engineering: ECSS criticality (A-D), lifecycle
-  gates, heritage reuse.
-- mbse/systems-engineering: SysML modeling workflow, function
-  allocation, digital-thread traceability.
-- sep2640/skill-delivery: SKILL.md packaging and discovery over MCP.
+| Skill | Standard | Covers |
+|---|---|---|
+| avionics/do178c/planning | DO-178C | software level/DAL (A-E) from failure severity; PSAC; planning-phase artifacts |
+| avionics/do178c/development | DO-178C | HLR/LLR/code traceability, derived requirements |
+| avionics/do178c/verification | DO-178C | review, structural coverage per level, independence |
+| avionics/do178c/configuration-management | DO-178C | baselines, problem reports, release gate |
+| avionics/do254/hardware-planning | DO-254 | simple vs complex AEH, PHAC scope |
+| arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
+| arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
+| as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
+| avionics/far-cs25/airworthiness | FAR-25/CS-25 | certification basis, means of compliance, 25.1309 applicability |
+| space/ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
+| mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
+| sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
 
 Every skill ships its own behavior contract in skills/<path>/scripts/,
 exercised by make validate gate 3.
 
 ## Install
 
-Clone, verify, then point your agent host at the skills folder:
+Prereqs: git, make, python3 with PyYAML.
 
     git clone https://github.com/arjun-0077/aeroskills.git
     cd aeroskills
     make validate        # 5/5 REAL gates, offline
 
-Add skills/<path> to your host's skills directory (Claude Code,
-Hermes, OpenClaw, Codex, or any agentskills.io host). Each SKILL.md
-declares its compatibility in frontmatter.
+Then load the skills into your agent host. The install unit is the
+leaf folder that contains SKILL.md, for example
+skills/avionics/do178c/planning. Copy or symlink it into your host's
+skills directory, then restart the session. Full per-host walkthrough:
+[docs/harness-integration.md](docs/harness-integration.md).
+
+## Harness integration
+
+| Host | Mechanism | Install target |
+|---|---|---|
+| Claude Code | skills directory (project or user scope) | .claude/skills/ or ~/.claude/skills/ |
+| OpenAI Codex | skills directories (repo and user scope) | .agents/skills/ or ~/.agents/skills/ (legacy experimental: ~/.codex/skills/ behind a feature flag) |
+| DeepSeek (via harness) | run DeepSeek as the model provider in a SKILL.md host, then use that host's method | see the host row |
+| Gemini CLI | native SKILL.md support plus install/link commands | ~/.gemini/skills/ or .gemini/skills/ |
+| OpenCode | skills directory, native skill tool | .opencode/skills/ (also .claude/skills/, .agents/skills/) |
+| Cursor | skills directory, loads SKILL.md natively | .cursor/skills/ (also .claude/skills/, .codex/skills/, ~/.claude/skills/, ~/.codex/skills/) |
+| Generic agentskills.io host | any host that reads the format | host's skills directory |
+| SEP-2640 MCP | emerging skills-over-MCP adapter, skills served as resources | skill:// URIs behind directoryRead |
+
+Example, Claude Code user scope:
+
+    mkdir -p ~/.claude/skills
+    cp -r skills/avionics/do178c/planning ~/.claude/skills/planning
+
+Example, Gemini CLI via the native command:
+
+    gemini skills link "$PWD/skills/avionics/do178c/planning"
+
+Known constraint: the legacy experimental Codex loader caps skill
+descriptions at 500 characters; AeroSkills descriptions run 575 to
+716 characters, so that loader may skip or truncate them until
+trimmed (the current Codex skills docs use the agentskills.io format).
+Details and the rest of the per-host commands:
+[docs/harness-integration.md](docs/harness-integration.md).
+
+## Verify
+
+You do not need to trust the badge. Replay the gates on the commit you
+are looking at:
+
+    make validate        # 5/5 REAL gates: spec lint, desc lint, behavior tests, no-verbatim scan, Hit@1 corpus
+    make attest          # 3/3: number snapshot offline, brief audit, content-policy sweep
+
+Exit 0 means the commit passes. That is what "verified" means in this
+repository: nothing more. It is not certification, not approval, not
+airworthy.
 
 ## Standards map
 
