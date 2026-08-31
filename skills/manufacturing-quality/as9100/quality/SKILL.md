@@ -7,9 +7,11 @@ standards:
   - id: as9100
     reference-only: true
 gated: false
+domain: manufacturing-quality
+pack: manufacturing-quality
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
-  domain: manufacturing
+  domain: manufacturing-quality
   subdomain: as9100
   tags: [as9100, qms, quality, audit, counterfeit-prevention, corrective-action]
   version: 0.1.0

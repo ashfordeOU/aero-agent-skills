@@ -9,9 +9,11 @@ standards:
   - id: arp4754a
     reference-only: true
 gated: false
+domain: systems-engineering-safety
+pack: systems-engineering-safety
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
-  domain: avionics
+  domain: systems-engineering-safety
   subdomain: arp4761a
   tags: [arp4761a, fha, pssa, ssa, cca, fta, fmea, safety-assessment]
   version: 0.1.0
