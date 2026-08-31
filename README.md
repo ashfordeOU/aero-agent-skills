@@ -2,6 +2,8 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
+[![Skills: 12](https://img.shields.io/badge/skills-12-blue)](skills/)
+[![Standards: 9](https://img.shields.io/badge/standards-9-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: draft](https://img.shields.io/badge/status-draft-orange)](README.md)
 
@@ -47,10 +49,10 @@ founder-gated.*
 - [Harness integration](#harness-integration)
 - [Verify](#verify)
 - [Standards map](#standards-map)
+- [Security](#security)
 - [Roadmap](#roadmap)
-- [Star request](#star-request)
-- [License and legal](#license-and-legal)
-- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [FAQ](#faq)
 
 ## Why AeroSkills
 
@@ -115,6 +117,10 @@ skills/avionics/do178c/planning. Copy or symlink it into your host's
 skills directory, then restart the session. Full per-host walkthrough:
 [docs/harness-integration.md](docs/harness-integration.md).
 
+One-command registry installs (npx skills add, gh skill install) are
+listed for when the repository is public; the manual paths below work
+today.
+
 ## Harness integration
 
 | Host | Mechanism | Install target |
@@ -152,6 +158,14 @@ are looking at:
     make validate        # 5/5 REAL gates: spec lint, desc lint, behavior tests, no-verbatim scan, Hit@1 corpus
     make attest          # 3/3: number snapshot offline, brief audit, content-policy sweep
 
+| Gate | What it checks | How to run |
+|---|---|---|
+| 1 spec lint | agentskills.io conformance + compliance flags | make lint-spec |
+| 2 desc lint | description what + when + trigger | make desc-lint |
+| 3 behavior tests | per-skill DAL determination contract | make pytest-contract |
+| 4 no-verbatim | standards text copyright control | make no-verbatim |
+| 5 Hit@1 corpus | router selects the expected skill | make hit1 |
+
 Exit 0 means the commit passes. That is what "verified" means in this
 repository: nothing more. It is not certification, not approval, not
 airworthy.
@@ -164,6 +178,15 @@ applicability, and the summary-not-copy rule for every mapped standard.
 Gated standards (DO-178C, DO-254, ARP4754A, ARP4761A, AS9100) never
 appear verbatim anywhere in this repository; the no-verbatim gate
 enforces it.
+
+## Security
+
+Skills are folders that can carry scripts (skills/<path>/scripts/),
+and agent hosts execute what they load. Review the SKILL.md and any
+scripts before you install, the same way you would review any code
+dependency. The no-verbatim gate means standards text is referenced
+and summarized, never copied into the library. To report a
+vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
@@ -179,6 +202,22 @@ enforces it.
   adapter for enterprise delivery; marketplace listings.
 - Later: the same knowledge packaged as AI Department Operator packs:
   role charters, budget ledgers, schedules, evidence gates.
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR: one skill
+per PR, every contributor certifies their submission contains no
+controlled data and no verbatim standards text, and every merge must
+pass make validate (5/5) and make attest (3/3). Thin domains today:
+space/ecss (one skill) and mbse (one skill).
+
+## FAQ
+
+[docs/FAQ.md](docs/FAQ.md) covers the questions buyers actually ask:
+license, certification status, export control, what verified means,
+and affiliation. The short answers: Apache-2.0, not certified, not
+controlled as published, verified = replayable make validate 5/5, and
+not affiliated with RTCA, SAE, EASA, FAA, or any government.
 
 ## Star request
 
