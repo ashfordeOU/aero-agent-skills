@@ -9,8 +9,7 @@ P3.6 (2026-08-31): domain-pack restructure: the twenty-seven skills are
 organized into nine installable domain packs (avionics,
 space-systems, systems-engineering-safety, manufacturing-quality,
 cross-cutting, aerodynamics, gnc-autonomy, structures, vehicle-design)
-per the 12-discipline taxonomy
-(research/briefs/05-domain-taxonomy.md); every pack carries a router
+per the 12-discipline taxonomy; every pack carries a router
 SKILL.md (36 SKILL.md under gate 1: 9 routers + 27 leaves); every
 SKILL.md carries top-level `domain` and `pack` frontmatter
 (enforced by scripts/pack_inventory.py, listed via `make packs`);
@@ -28,8 +27,8 @@ pins promoted, t3 still pinned to manufacturing-quality/as9100/quality,
 plus adversarial cross-pair tasks xp1-xp8). pack_inventory.py now
 validates router pack-vs-folder and domain-vs-taxonomy; gate 4 scans
 README.md/STANDARDS.md/NOTICE alongside skills/ and docs/. Owner: Ops Manager, P3.5 build.
-Sources: research/briefs/03-router-design.md (routing, Hit@1), research/briefs/05-domain-taxonomy.md
-(skill anatomy, section 6), research/briefs/06-legal-export-control.md (compliance flags, section 8).
+Sources: internal design briefs (router design; domain taxonomy;
+legal/export-control compliance flags).
 
 ## Purpose
 

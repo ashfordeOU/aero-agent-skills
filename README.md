@@ -44,10 +44,11 @@ demand, no lock-in, works in any host that reads the format.
 Two things separate this library from a folder of prompts:
 
 - **Standards map.** Every skill carries standards frontmatter that
-  resolves against standards-map.yaml: DO-178C, DO-254, ARP4754A,
-  ARP4761A, AS9100, DO-330, DO-160G, AS9102, MMPDS, FAR-25, CS-25,
-  ECSS, SEP-2640, and NACA TR-824. Referenced and summarized, never
-  copied.
+  resolves against standards-map.yaml: the 13 domain standards
+  DO-178C, DO-254, ARP4754A, ARP4761A, AS9100, DO-330, DO-160G,
+  AS9102, MMPDS, FAR-25, CS-25, ECSS, and NACA TR-824, plus SEP-2640
+  as the delivery format (skills over MCP), separate from the domain
+  list. Referenced and summarized, never copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
   ships: spec conformance, description quality, a DAL-determination
   behavior test, a no-verbatim copyright scan, and a 66-task Hit@1
@@ -121,9 +122,8 @@ spec-linted, behavior-tested, and router-asserted by make validate:
 | vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | class-I weights, CG, envelope, weight and balance sheets |
 | cross-cutting | sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
 
-Domain packs follow the 12-discipline taxonomy
-(research/briefs/05-domain-taxonomy.md): aerodynamics, gnc-autonomy,
-structures, vehicle-design, avionics, space-systems,
+Domain packs follow the 12-discipline taxonomy: aerodynamics,
+gnc-autonomy, structures, vehicle-design, avionics, space-systems,
 systems-engineering-safety, manufacturing-quality, cross-cutting.
 Each pack has a router SKILL.md that describes the
 domain, lists its sub-skills, and tells an agent when to route to it;
