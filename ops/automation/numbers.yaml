@@ -61,7 +61,28 @@ derived:
     value: 228
     tolerance_pct: 10
     phrases: ["total stars across", "total combined star count", "total across all attempts", "total aerospace-skills attempts", "total aerospace"]
-    source: "brief 09 (2026-08-30) — sum of all aerospace-AI-skills attempts; informational, not re-derivable from tracked set"
+    composition:
+      # 228★ empty-lane claim — auditable composition (P3.2 rework).
+      # Scope: every repo row in research/briefs/09-competitor-deepdive.md
+      # §1.0 landscape table = all 11 aerospace-AI-skills attempts on GitHub.
+      # Count (values AS MEASURED when 228 was computed, 2026-08-30 research
+      # wave, commit 7434b7a):
+      #   devideamax 13 · ajhcs 19 · skyintel 19 · IO-Aerospace 15 ·
+      #   Soljourner 60 · LunCoSim 97 · ai4space 0 · cheesejaguar 4 ·
+      #   muroc 1 · deepsky 0 · hakimzulkufli 0
+      #   -> 13+19+19+15+60+97+0+4+1+0+0 = 228
+      # Excluded: aeroastro.org row (website, homepage of cheesejaguar — same
+      # project, double-count guard). Zero-star repos count (they are attempts).
+      # Named live trio (2026-08-31): Soljourner 62 · ajhcs 22 · devideamax 21;
+      # remainder = the other 8 lane repos (skyintel 19 · IO-Aerospace 15 ·
+      # LunCoSim 105 · ai4space 0 · cheesejaguar 4 · muroc 1 · deepsky 0 ·
+      # hakimzulkufli 0).
+      # Brief 09's table now sums ~247, not 228: rows were re-measured live
+      # (devideamax 13->21, ajhcs 19->22, LunCoSim 97->105, Soljourner 60->62)
+      # but the total line stayed frozen at 228. 228 is the historical
+      # whitespace claim — docs must keep quoting 228.
+      rule: "sum of brief 09 §1.0 landscape rows at original 2026-08-30 measurement, excluding the aeroastro.org website row; frozen at 228 despite later live re-measures (table now sums ~247); informational, not re-derivable from the tracked set"
+    source: "brief 09 (2026-08-30) §1.0 table sum at original measurement (commit 7434b7a); rows re-measured live 2026-08-30/31 so the table now sums ~247 — 228 is the frozen historical whitespace claim; informational, not re-derivable from tracked set"
   - id: largest_dedicated_skills_repo
     value: 62
     tolerance_pct: 5
