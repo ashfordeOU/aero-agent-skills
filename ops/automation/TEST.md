@@ -44,7 +44,7 @@ ambiguous, forcing the doc to name the repo).
 
 ## TDD evidence (observed exit codes, 2026-08-31)
 
-`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (19/19)**
+`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (35/35)**
 
 | Test | Assertion | Expected | Observed |
 |---|---|---|---|
@@ -67,6 +67,13 @@ ambiguous, forcing the doc to name the repo).
 | G4 | content-policy-sweep full repo | exit 0 | 0 |
 | G5 | brief-audit summary line ("total ≈ 228 / 31 repos") is NOT a largest-repo false positive (fixture) | exit 0 | 0 |
 | G6 | spec-lint gate on real skills tree (compliance flags enforced) | exit 0 | 0 |
+| P1–P9 | pack_inventory: real-repo counts 9 packs / 27 skills, per-pack/per-domain counts, missing frontmatter + router + taxonomy negatives | 0/1 | 0/1 |
+| N8 | stale-number guard flags stale counts in live marketing/ + docs/ (fixture; R3 adds 'five packs' + '3/3 corpus') | exit 1 | 1 |
+| N9 | stale-number guard exempts dated plans/ (supersede-not-delete) | exit 0 | 0 |
+| N10 | gated-set check flags stale gated-set/map-coverage count claims (fixture: 9 vs map 14, 5 gated vs 9) | exit 1 | 1 |
+| N11 | gated-set check passes clean enumerations (fixture: 14 map, 9 gated) | exit 0 | 0 |
+| G7 | stale-number guard on real repo (R3 patterns) | exit 0 | 0 |
+| G8 | gated-set check on real repo (no numeric count claims contradict standards-map.yaml) | exit 0 | 0 |
 
 Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
 `test/fixture-derived-stale.md`, `test/fixture-derived-summary.md`,

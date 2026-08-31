@@ -7,3 +7,5 @@
 - five installable domain packs per the taxonomy.
 - 12 verified skills shipped in Phase 1.
 - 12 aerospace engineering skills is the old marketing count.
+- The library ships five packs total.
+- Gate 5 resolves 3/3 corpus tasks.

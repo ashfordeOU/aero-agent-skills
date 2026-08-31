@@ -33,3 +33,45 @@ a run actually passes (verify-before-credit).
 
 Resolution: account owner (arjun-0077) must resolve payments / spending limit
 in GitHub "Billing & plans". Out of Ops scope.
+
+## Regression-guard hardening — P3.5 REWORK R3 (2026-08-31)
+
+Status: DONE at e783f56 → new HEAD. Two R3 re-grade gaps closed with
+test-first evidence (TDD red → green):
+
+1. Scout 9/10: stale-number-guard missed the literal pack-count phrase and
+   the literal corpus-ratio form (see guard header for exact tokens).
+   - Added the literal pack-count phrase (verified 0 legit live hits;
+     harness-contract now says 'nine installable domain packs').
+   - The bare corpus-ratio form '3/3' was NOT added — docs/ops-notes.md:30
+     legitimately says 'make attest (3/3)' (attest is 3/3 by design), so a
+     bare pattern would false-positive. Added only the corpus-context form
+     (verified 0 legit live hits). Skip decision documented in guard header.
+2. Content Writer 8/10: enumeration drift — docs/FAQ.md + docs/glossary.md
+   + marketing/positioning-1pager.md enumerate the gated set as 5 while
+   standards-map.yaml has 9 gated:true of 14 total. Root cause: the guard
+   greps number patterns only, so "map covers 9 standards" passes while the
+   map covers 14.
+   - New guard ops/automation/gated-set-check.sh (+ gated_set_check.py):
+     verifies numeric gated-set/map-coverage COUNT claims (digit + word
+     forms) against the LIVE standards-map.yaml (repo root — note: the
+     canonical map is repo-root standards-map.yaml, NOT
+     ops/automation/standards-map.yaml). Rules R1 '<N> gated standards' == 9,
+     R2 'covers/maps/spans <N> standards' == 14, R3 'all <N> of the gated
+     standards' == 9.
+   - Scope decision (documented in guard header): guard verifies COUNT
+     claims. Pure name-list drift (FAQ listing 5 names without a number) is
+     the Content Writer fix track — the live docs still carry those lists at
+     HEAD and the task forbids editing copy from the ops lane, so gating
+     them here would fail G8. Count-claim class now fails CI; name-list fix
+     is Content Writer's.
+   - Wired as N10 (stale fixture exit 1), N11 (clean fixture exit 0), G8
+     (real repo exit 0) in ops/automation/test/run-tests.sh. Full suite:
+     35/35 ALL PASS.
+   - Negative control (both guards): planted the literal pack-count phrase
+     plus a 5-gated enumeration plus a stale map-coverage count claim in a
+     temp tree → stale-number guard exit 1 AND gated-set check exit 1;
+     removed → both exit 0.
+
+Gates at new HEAD: make validate 5/5 (gate5 Hit@1 66/66), make attest 3/3,
+run-tests.sh ALL PASS (35/35), tree clean.

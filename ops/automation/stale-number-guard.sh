@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stale-number guard (R2 rework, Market rec #2; ops track extended R2).
+# Stale-number guard (R2 rework, Market rec #2; ops track extended R3).
 # Scans live marketing/ and docs/ for stale corpus/skill/pack count claims
 # that contradict the live repo state (66 tasks = 58 domain + 8 adversarial;
 # 27 skills; 9 installable packs). Patterns:
@@ -8,8 +8,14 @@
 #   'twelve skills'  P2.1-era skill count, word form (live: twenty-seven)
 #   'twenty-eight'   P2.1-era corpus count (live: sixty-six)
 #   'five installable'  P3.6-era pack count (live: nine)
+#   'five packs'     P3.6-era pack count, literal form (live: nine) [R3]
 #   '12 verified'    P2.1-era skill count, 'verified' form (live: 27)
 #   '12 aerospace'   P2.1-era skill count, marketing form (live: 27)
+#   '3/3 corpus'     P2.1-era corpus-ratio claim, corpus context (live: 66/66) [R3]
+# Skip decision (documented, R3): bare '3/3' is NOT in the pattern set —
+# live docs legitimately say 'make attest (3/3)' (docs/ops-notes.md:30) and
+# the attest gate is 3/3 by design, so a bare pattern would false-positive.
+# Only the corpus-context form '3/3 corpus' is guarded (0 legit hits live).
 # Scope decision: live docs only. Dated historical plan artifacts
 # (docs/superpowers/plans/) are EXCLUDED: supersede-not-delete - plan-time
 # counts record what was true when the plan was written and are not
@@ -19,7 +25,7 @@
 #   (optional root_dir override for fixture testing; default = repo root)
 set -u
 root="${1:-$(cd "$(dirname "$0")/../.." && pwd)}"
-patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|12 verified|12 aerospace'
+patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace|3/3 corpus'
 fail=0
 
 for root_name in marketing docs; do
@@ -38,6 +44,6 @@ for root_name in marketing docs; do
 done
 
 if [ "$fail" -eq 0 ]; then
-  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|12 verified|12 aerospace' in marketing/ + docs/ (dated plans/ excluded)"
+  echo "PASS stale-number-guard: no '28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|12 verified|12 aerospace|3/3 corpus' in marketing/ + docs/ (dated plans/ excluded)"
 fi
 exit "$fail"

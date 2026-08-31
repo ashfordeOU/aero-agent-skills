@@ -142,6 +142,18 @@ check "N8 stale-number guard flags stale counts in live marketing/ + docs/" 1 $?
 bash "$guard" "$auto/test/fixture-stale-plans-only" >/dev/null 2>&1
 check "N9 stale-number guard exempts dated plans/ (supersede-not-delete)" 0 $?
 
+# ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
+# Asserts numeric gated-set/map-coverage COUNT claims in the three
+# enumeration docs (FAQ.md, glossary.md, positioning-1pager.md) match the
+# live standards-map.yaml (9 gated:true of 14 total), and that explicit
+# "all N gated standards" completeness claims name every gated standard.
+note "== gated-set-check.sh =="
+gated_set="$auto/gated-set-check.sh"
+bash "$gated_set" "$auto/test/fixture-gated-stale" >/dev/null 2>&1
+check "N10 gated-set check flags stale enumerations in live docs" 1 $?
+bash "$gated_set" "$auto/test/fixture-gated-clean" >/dev/null 2>&1
+check "N11 gated-set check passes clean enumerations" 0 $?
+
 # ---- at-rest green ---------------------------------------------------------
 note "== at-rest (real repo) =="
 # Live snapshot once so offline has evidence, then offline audit
@@ -168,6 +180,12 @@ check "G6 spec-lint gate on real skills tree exits 0" 0 $?
 # G7: stale-number guard on the real repo must stay clean (R2 rework)
 bash "$auto/stale-number-guard.sh" >/dev/null 2>&1
 check "G7 stale-number guard on real repo exits 0" 0 $?
+
+# G8: gated-set enumeration-completeness check on the real repo must stay
+# clean (R3 rework). The live docs carry no numeric count claims that
+# contradict standards-map.yaml (14 map entries, 9 gated:true).
+bash "$auto/gated-set-check.sh" >/dev/null 2>&1
+check "G8 gated-set check on real repo exits 0" 0 $?
 
 # No restore needed: committed ops/automation/state was never touched; the
 # PID-scratch state dir is removed by the EXIT trap.
