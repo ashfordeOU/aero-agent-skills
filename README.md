@@ -2,7 +2,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 43](https://img.shields.io/badge/skills-43-blue)](skills/)
+[![Skills: 43 of 1,000+ target](https://img.shields.io/badge/skills-43%20of%201000%2B%20target-blue)](skills/)
 [![Standards: 14](https://img.shields.io/badge/standards-14-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
@@ -52,11 +52,13 @@ Two things separate this library from a folder of prompts:
   as the delivery format (skills over MCP), separate from the domain
   list. Referenced and summarized, never copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
-  ships: spec conformance, description quality, a DAL-determination
-  behavior test, a no-verbatim copyright scan, and a 102-task Hit@1
-  routing corpus. Deterministic, offline, replayable. Verified means
-  the gates pass on the commit you are looking at; not certification,
-  not approval, not airworthy.
+  ships: spec conformance, description quality, a per-skill behavior
+  contract test, a no-verbatim copyright scan, and a 102-task Hit@1
+  routing corpus. make attest adds 3: number snapshot, brief audit,
+  content policy. Deterministic, offline, replayable. Verified means
+  the full bar passes on the commit you are looking at: make validate
+  5/5 and make attest 3/3, every behavior contract green, router
+  deterministic. Not certification, not approval, not airworthy.
 
 ## Compliance notice
 
@@ -91,8 +93,9 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-Forty-three verified skills in nine installable domain packs, each
-spec-linted, behavior-tested, and router-asserted by make validate:
+Forty-three verified skills (as of 2026-08-31) in nine installable
+domain packs, each spec-linted, behavior-tested, and router-asserted
+by make validate:
 
 | Pack | Skill | Standard | Covers |
 |---|---|---|---|
@@ -142,7 +145,9 @@ spec-linted, behavior-tested, and router-asserted by make validate:
 Domain packs follow the 12-discipline taxonomy: aerodynamics,
 gnc-autonomy, structures, vehicle-design, avionics, space-systems,
 systems-engineering-safety, manufacturing-quality, cross-cutting.
-Each pack has a router SKILL.md that describes the
+Nine of the twelve disciplines have packs today; propulsion, flight
+mechanics, and flight test land in Wave 5. Each pack has a router
+SKILL.md that describes the
 domain, lists its sub-skills, and tells an agent when to route to it;
 every SKILL.md carries domain and pack frontmatter so routers and
 installers can filter on them. Run `make packs` for the machine
@@ -242,11 +247,16 @@ are looking at:
 |---|---|---|
 | 1 spec lint | agentskills.io conformance + compliance flags | make lint-spec |
 | 2 desc lint | description what + when + trigger | make desc-lint |
-| 3 behavior tests | per-skill DAL determination contract | make pytest-contract |
+| 3 behavior tests | per-skill behavior contract, DAL A-E determination | make pytest-contract |
 | 4 no-verbatim | standards text copyright control | make no-verbatim |
 | 5 Hit@1 corpus | router selects the expected skill | make hit1 |
 
-Exit 0 means the commit passes. That is what "verified" means in this
+Verified means the full bar passes on the commit you are looking at:
+make validate 5/5 (spec conformance, description quality, per-skill
+behavior contract, no-verbatim copyright control, Hit@1 routing) and
+make attest 3/3 (number snapshot against the canonical register,
+brief audit, content-policy sweep), with the offline router
+deterministic. That is what "verified" means in this
 repository: nothing more. It is not certification, not approval, not
 airworthy.
 
@@ -270,18 +280,27 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: the certification spine. DO-178C planning, development,
+- Shipped: 43 verified skills in nine installable domain packs as of
+  2026-08-31. The certification spine (DO-178C planning, development,
   verification, and configuration management; DO-254 hardware
   planning; ARP4754A systems planning; ARP4761A safety assessment;
-  AS9100 quality; FAR-25/CS-25 airworthiness; plus ECSS space
-  software, MBSE, and SEP-2640 skill delivery. All 27 gated by
-  make validate (5/5).
-- Next: breadth into the remaining discipline gaps (propulsion, flight
-  mechanics, flight test and operations) on the same eval-gated build;
-  reference builds; a SEP-2640-aligned MCP adapter for enterprise
-  delivery; marketplace listings.
-- Later: the same knowledge packaged as AI Department Operator packs:
-  role charters, budget ledgers, schedules, evidence gates.
+  AS9100 quality; FAR-25/CS-25 airworthiness; ECSS space software,
+  MBSE, SEP-2640 skill delivery) plus Wave 4 breadth across all nine
+  packs. Every skill gated by make validate (5/5) and make attest
+  (3/3).
+- Release bar (founder, 2026-08-31): 50+ domains x 20+ verified
+  skills = 1,000+ skills, all make-validate green, before any
+  release. The 12-discipline tree decomposes into 68 sub-domain packs
+  (1,360 skills at 20 each): a planning target, not a shipped count.
+  [development/50x20-domain-tree.md](development/50x20-domain-tree.md).
+- Next: fill the nine existing packs toward 20 skills each (43 ->
+  ~180), then Wave 5 opens new disciplines (propulsion, flight
+  mechanics, flight test and operations) on the same eval-gated
+  pipeline, then the remaining sub-domains.
+- Later: reference builds; a SEP-2640-aligned MCP adapter for
+  enterprise delivery; marketplace listings; the same knowledge
+  packaged as AI Department Operator packs (role charters, budget
+  ledgers, schedules, evidence gates).
 
 ## Contributing
 
@@ -290,17 +309,18 @@ per PR, every contributor certifies their submission contains no
 controlled data and no verbatim standards text, and every merge must
 pass make validate (5/5) and make attest (3/3). New skills land inside
 their domain pack (skills/<pack>/<standard>/<activity>/SKILL.md) and
-carry domain and pack frontmatter. Thin domains today:
-aerodynamics (one skill), vehicle-design (one skill), and
-cross-cutting (one skill).
+carry domain and pack frontmatter. Smallest packs today: cross-cutting
+(two skills), aerodynamics and vehicle-design (three each); every pack
+grows toward 20 per the 50x20 release bar.
 
 ## FAQ
 
 [docs/FAQ.md](docs/FAQ.md) covers the questions buyers actually ask:
 license, certification status, export control, what verified means,
 and affiliation. The short answers: Apache-2.0, not certified, not
-controlled as published, verified = replayable make validate 5/5, and
-not affiliated with RTCA, SAE, EASA, FAA, or any government.
+controlled as published, verified = replayable make validate 5/5 plus
+make attest 3/3 on the commit you are looking at, and not affiliated
+with RTCA, SAE, EASA, FAA, or any government.
 
 ## Star request
 
