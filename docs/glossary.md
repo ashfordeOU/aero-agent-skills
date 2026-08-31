@@ -155,3 +155,60 @@ artifact for complex airborne electronic hardware, covering
 requirements capture, design, verification, configuration management,
 and process assurance. Source: standards-map.yaml (do-254);
 skills/avionics/do254/hardware-planning.
+
+## ECSS
+
+European Cooperation for Space Standardization standards series — the
+European space procurement baseline. Includes E-ST-10C (systems
+engineering), E-ST-40C (software engineering), Q-ST-80C (software
+product assurance), and M-ST-40 (configuration management). Freely
+downloadable with ESA copyright; cite source and paraphrase.
+Source: standards-map.yaml (ecss).
+
+## Software criticality (ECSS)
+
+ECSS-E-ST-40C classification of space software by the consequences of
+failure: A = loss of life or total loss of mission, B = major mission
+degradation, C = minor degradation, D = negligible effects. Assurance
+and verification rigor scale with the category; heritage reuse
+demands a heritage assessment with full original verification
+evidence at categories A/B. Source: standards-map.yaml (ecss);
+skills/space/ecss/software-engineering.
+
+## SEP-2640
+
+The MCP working group's Skills Extension specification (Skills over
+MCP): skills are served as resources — skill:// URIs, resources/read,
+and directory listing behind the directoryRead capability. An
+emerging draft, not yet stable; an adapter layer over the
+agentskills.io SKILL.md format, never the source of truth. Open
+specification, quotable with citation. Source: standards-map.yaml
+(sep-2640); skills/sep2640/skill-delivery.
+
+## Certification basis
+
+The set of regulations, amendments, and special conditions a type
+certification program must show compliance with. For transport
+category: 14 CFR Part 25 (FAR-25) under FAA, CS-25 under EASA; the
+basis is negotiated with the certification authority and includes
+program-specific amendments and special conditions. Source:
+standards-map.yaml (far-25, cs-25);
+skills/avionics/far-cs25/airworthiness.
+
+## Means of compliance
+
+The accepted way of demonstrating that a requirement is met:
+analysis, test (ground and flight), inspection, similarity, and
+certification-program demonstrations. Agreed with the certification
+authority per area. Source: standards-map.yaml (cs-25);
+skills/avionics/far-cs25/airworthiness.
+
+## Model-based systems engineering (MBSE)
+
+A way of executing systems engineering with models as the primary
+artifacts: requirements modeled against functional and logical
+architectures, functions allocated to design elements, analysis run
+on the architecture, and traceability linking requirements through
+design to verification (the digital thread). Toolchains include
+Capella, OSATE/AADL, and Papyrus. Source:
+skills/mbse/systems-engineering; standards-map.yaml (arp4754a).

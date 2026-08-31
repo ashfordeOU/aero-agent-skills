@@ -60,7 +60,7 @@ tasks:
     expected_skill: "arp4754a/systems-planning"
 
   - id: sp2
-    query: "scope the certification plan and system development plan for a transport aircraft program"
+    query: "scope the certification plan and system development plan for a transport aircraft program per ARP4754A"
     intent: "ARP4754A systems planning; certification and development plans"
     expected_skill: "arp4754a/systems-planning"
 
@@ -73,6 +73,66 @@ tasks:
     query: "scope the plan for hardware aspects of certification for an FPGA-based avionics module"
     intent: "DO-254 hardware planning; PHAC scope for programmable logic"
     expected_skill: "avionics/do254/hardware-planning"
+
+  - id: sa1
+    query: "conduct a functional hazard assessment and classify failure condition severities per ARP4761A"
+    intent: "ARP4761A safety assessment; FHA severity classification"
+    expected_skill: "arp4761a/safety-assessment"
+
+  - id: sa2
+    query: "scope the safety assessment plan and select fault tree analysis and FMEA for a level A system"
+    intent: "ARP4761A safety assessment; analysis set selection (FTA/FMEA)"
+    expected_skill: "arp4761a/safety-assessment"
+
+  - id: q1
+    query: "prepare audit evidence for the AS9100 counterfeit prevention clause"
+    intent: "AS9100 quality; audit evidence for aerospace clause 8.1.4"
+    expected_skill: "as9100/quality"
+
+  - id: q2
+    query: "close a nonconformance with corrective action under the aerospace quality management system"
+    intent: "AS9100 quality; nonconformance and corrective action closure"
+    expected_skill: "as9100/quality"
+
+  - id: aw1
+    query: "determine the certification basis for a transport category airplane under FAR-25"
+    intent: "FAR-25/CS-25 airworthiness; certification basis"
+    expected_skill: "avionics/far-cs25/airworthiness"
+
+  - id: aw2
+    query: "evaluate means of compliance options for a FAR-25 certification program and confirm the 25.1309 safety assessment applies to the flight control system"
+    intent: "FAR-25/CS-25 airworthiness; means of compliance and 25.1309 applicability"
+    expected_skill: "avionics/far-cs25/airworthiness"
+
+  - id: e1
+    query: "classify space flight software criticality under ECSS and size verification rigor"
+    intent: "ECSS space software; criticality category and assurance rigor"
+    expected_skill: "space/ecss/software-engineering"
+
+  - id: e2
+    query: "assess heritage software reuse evidence for a category A space software item"
+    intent: "ECSS space software; heritage reuse evidence"
+    expected_skill: "space/ecss/software-engineering"
+
+  - id: m1
+    query: "build a SysML model of the functional architecture and allocate functions to design elements"
+    intent: "MBSE systems engineering; functional architecture and allocation"
+    expected_skill: "mbse/systems-engineering"
+
+  - id: m2
+    query: "run the model-based systems engineering traceability check and confirm full closure in the digital thread for the SysML architecture"
+    intent: "MBSE systems engineering; traceability closure and digital thread"
+    expected_skill: "mbse/systems-engineering"
+
+  - id: s1
+    query: "package a skill as an MCP resource with a skill URI per SEP-2640"
+    intent: "SEP-2640 skill delivery; skill URI and MCP resource packaging"
+    expected_skill: "sep2640/skill-delivery"
+
+  - id: s2
+    query: "verify an MCP server supports resources read and directory read for skill delivery"
+    intent: "SEP-2640 skill delivery; server readiness capabilities"
+    expected_skill: "sep2640/skill-delivery"
 
 future_pins:
   # Brief 03 section 5 canonical queries - promote when those skills publish.
