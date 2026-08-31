@@ -29,8 +29,9 @@ and let a human sign.
 
 ## Wedge: the standards map
 
-The machine-readable map (standards-map.yaml) covers DO-178C, DO-254,
-ARP4754A, ARP4761A, AS9100, FAR-25, CS-25, ECSS, and SEP-2640, with a
+The machine-readable map (standards-map.yaml) covers 14 standards:
+DO-178C, DO-254, ARP4754A, ARP4761A, AS9100, DO-330, DO-160G, AS9102,
+MMPDS, FAR-25, CS-25, ECSS, SEP-2640, and NACA TR-824, with a
 summary-not-copy rule and a gated-standard rule enforced by a real
 gate. Every skill carries standards frontmatter that resolves against
 the map. No aerospace repo has this. The map is the moat; the skills
@@ -70,11 +71,12 @@ content is itself a compliance failure (brief 06 §8.3.9).
 ## What ships
 
 The Phase 1 certification spine shipped first: DO-178C planning,
-development, verification, and configuration management; DO-254
-hardware planning; ARP4754A systems planning; ARP4761A safety
-assessment; AS9100 quality; FAR-25/CS-25 airworthiness; plus ECSS
-space software, MBSE systems engineering, and SEP-2640 skill delivery.
-The library now ships 27 skills across 9 packs, all gated by make
-validate on the commit you are looking at. Methodology that lives
-inside certified workflows, not certification itself. Draft is
-in-tree; release is founder-gated.
+development, verification, and configuration management, and DO-330
+tool qualification; DO-254 hardware planning; DO-160G environmental
+qualification; ARP4754A systems planning; ARP4761A safety assessment;
+AS9100 quality; AS9102 first-article inspection; MMPDS allowables;
+FAR-25/CS-25 airworthiness; plus ECSS space software, MBSE systems
+engineering, and SEP-2640 skill delivery. The library now ships 27
+skills across 9 packs, all gated by make validate on the commit you
+are looking at. Methodology that lives inside certified workflows,
+not certification itself. Draft is in-tree; release is founder-gated.

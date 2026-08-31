@@ -29,7 +29,8 @@ top of the README states the legal basis.
 No. The summary-not-copy rule (STANDARDS.md) allows only name +
 paraphrase + short attributed quotes under 100 words + a link to the
 publisher. Gated standards (DO-178C, DO-254, ARP4754A, ARP4761A,
-AS9100) never appear verbatim anywhere in this repository. A real
+AS9100, DO-330, DO-160G, AS9102, MMPDS) never appear verbatim anywhere
+in this repository. A real
 gate enforces it: make validate runs a no-verbatim scan over skills/
 and docs/ and requires zero matches.
 
