@@ -1,6 +1,6 @@
 ---
 name: structures
-description: "Use when a task concerns aerospace structures and materials: guide the router to the structures pack, whose calculix-linear covers linear finite element stress analysis, modal-analysis covers natural frequencies and mode shapes, residual-strength covers fracture and critical crack length, crack-growth covers fatigue crack propagation, miner-damage covers cumulative fatigue damage, laminate-stiffness covers CLT and ABD stiffness, failure-criteria covers Tsai-Wu and composite criteria, mmpsd-allowables covers metallic allowables, load-spectrum-counting covers rainflow counting and fatigue load spectra, and material-selection covers property-based material indices. Trigger: structures, FEM, stress analysis, margin of safety, CalculiX, modal analysis, natural frequency, residual strength, crack growth, fatigue, rainflow, Miner, laminate stiffness, Tsai-Wu, failure criteria, allowables, A-basis, B-basis, MMPDS, metallic materials, material selection."
+description: "Use when a task concerns aerospace structures and materials: guide the router to the structures pack, whose calculix-linear covers linear FEA, calculix-nonlinear covers Newton-Raphson and load stepping, modal-analysis covers natural frequencies, residual-strength covers fracture, crack-growth covers crack propagation, widespread-fatigue-damage covers MSD/MED, miner-damage covers cumulative damage, goodman-diagram covers mean-stress corrections, load-spectrum-counting covers rainflow, laminate-stiffness covers CLT/ABD, composite-bolted-joints covers bearing and bypass, sandwich-panels covers core shear and wrinkling, failure-criteria covers Tsai-Wu, mmpsd-allowables covers A-/B-basis, and material-selection covers property indices. Trigger: structures, FEM, stress analysis, margin of safety, CalculiX, nonlinear, modal, fatigue, crack growth, widespread fatigue damage, MSD, MED, Miner, Goodman, rainflow, laminate, Tsai-Wu, bolted joint, sandwich panel, allowables, MMPDS, material selection."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -38,12 +38,17 @@ material selection.
 | Path | Skill | When to route to it |
 |---|---|---|
 | structures/fem/calculix-linear | CalculiX linear FEM | static stress, margin of safety, unit discipline, von Mises |
+| structures/fem/calculix-nonlinear | CalculiX nonlinear FEM | Newton-Raphson, load stepping, convergence residual, state-dependent stiffness |
 | structures/fem/modal-analysis | Modal analysis | natural frequencies, mode shapes, resonance check |
 | structures/damage-tolerance/residual-strength | Residual strength | fracture toughness, critical crack length, limit-load margin |
 | structures/damage-tolerance/crack-growth | Crack growth | fatigue crack propagation, Paris law, growth life, inspection intervals |
+| structures/damage-tolerance/widespread-fatigue-damage | Widespread fatigue damage | MSD screening, MED classification, supplemental inspection |
 | structures/fatigue/miner-damage | Miner damage | cumulative fatigue damage, Palmgren-Miner sum, fatigue life |
+| structures/fatigue/goodman-diagram | Goodman diagram | mean-stress correction, Goodman/Gerber/Soderberg, Haigh diagram |
 | structures/fatigue/load-spectrum-counting | Load spectrum counting | rainflow counting, level crossing, exceedance spectra, mission load spectra, spectrum truncation |
 | structures/composites/laminate-stiffness | Laminate stiffness | CLT, lamina stiffness, laminate ABD matrix, ply layup |
+| structures/composites/composite-bolted-joints | Composite bolted joints | bearing stress, bypass load, net tension, shear-out, edge distance |
+| structures/composites/sandwich-panels | Sandwich panels | face stress, core shear, wrinkling, bending stiffness, core selection |
 | structures/composites/failure-criteria | Composite failure criteria | Tsai-Wu, Tsai-Hill, max-stress, lamina failure index |
 | structures/materials/mmpsd-allowables | MMPDS allowables | A-/B-basis, k-factors, metallic design values |
 | structures/materials/material-selection | Material selection | material families, stiffness/weight and strength/weight indices, cost, corrosion, temperature limits |
@@ -51,20 +56,28 @@ material selection.
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
-  sub-skill.
+  sub-skill; nonlinear state-dependent stiffness and convergence
+  questions route to the fem calculix-nonlinear sub-skill.
 - Modal questions (natural frequencies, mode shapes, resonance) route
   to the fem modal-analysis sub-skill.
 - Damage-tolerance residual-strength questions (Kc, critical crack
   length, margin) route to the damage-tolerance residual-strength
   sub-skill.
 - Fatigue crack growth and inspection interval questions route to the
-  damage-tolerance crack-growth sub-skill.
+  damage-tolerance crack-growth sub-skill; MSD/MED and supplemental
+  inspection questions route to the damage-tolerance
+  widespread-fatigue-damage sub-skill.
 - Cumulative damage and fatigue life questions route to the fatigue
-  miner-damage sub-skill.
+  miner-damage sub-skill; mean-stress correction and Haigh diagram
+  questions route to the fatigue goodman-diagram sub-skill.
 - Rainflow counting and load spectrum questions route to the fatigue
   load-spectrum-counting sub-skill.
 - Lamina and laminate stiffness questions (CLT, ABD) route to the
-  composites laminate-stiffness sub-skill.
+  composites laminate-stiffness sub-skill; bolted joint bearing,
+  bypass, net-tension and shear-out questions route to the composites
+  composite-bolted-joints sub-skill; sandwich panel face/core stress,
+  wrinkling, and core selection questions route to the composites
+  sandwich-panels sub-skill.
 - Composite lamina failure questions (Tsai-Wu, Tsai-Hill, max-stress)
   route to the composites failure-criteria sub-skill.
 - Allowable and statistical design-value questions route to the

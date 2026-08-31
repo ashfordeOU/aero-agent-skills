@@ -1,6 +1,6 @@
 ---
 name: space-systems
-description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS software-engineering sub-skill covers space software criticality, software-verification covers verification by criticality, systems-engineering covers lifecycle review gates, power-thermal-budget covers EPS and battery sizing, communication-link-budget covers link margin, thermal-design covers radiator sizing, sun-pointing covers sun vector geometry, attitude-control-sizing covers reaction wheel sizing, sun-synchronous-inclination covers J2 nodal regression, and keplerian-elements covers classical orbital elements from a state vector. This pack is the space counterpart of the avionics spine under the ECSS series. Trigger: space systems, spacecraft, space software, ECSS, power budget, battery sizing, EPS, link budget, thermal design, sun pointing, attitude control, sun synchronous orbit, inclination, keplerian elements, orbital elements, raan, true anomaly, periapsis, apoapsis."
+description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS software-engineering covers criticality, software-verification covers verification depth, systems-engineering covers lifecycle gates, power-thermal-budget covers EPS and battery sizing, communication-link-budget covers link margin, thermal-design covers radiator sizing, command-data-handling covers telemetry and downlink, sun-pointing covers sun vector geometry, star-tracker covers star identification, attitude-control-sizing covers reaction wheels, magnetorquer-control covers B-dot detumbling, sun-synchronous-inclination covers J2 nodal regression, and keplerian-elements covers orbital elements. Trigger: space systems, spacecraft, ECSS, power budget, battery, EPS, link budget, thermal, telemetry, downlink, sun pointing, star tracker, star identification, attitude control, magnetorquer, detumble, sun synchronous, inclination, keplerian, orbital elements, RAAN."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -42,8 +42,11 @@ selection, and classical orbital element determination.
 | space-systems/subsystems/power-thermal-budget | Power and thermal budget | EPS sizing, eclipse, battery and solar array budgets |
 | space-systems/subsystems/communication-link-budget | Communication link budget | EIRP, free-space path loss, C/N0, Eb/N0 margin, data rate |
 | space-systems/subsystems/thermal-design | Thermal design | thermal balance, radiator sizing, component temperatures |
+| space-systems/subsystems/command-data-handling | Command and data handling | telemetry framing, CCSDS packets, onboard storage, downlink budget, CRC, data bus |
 | space-systems/adcs/sun-pointing | Sun pointing | sun vector geometry, pointing constraints, solar beta angle |
+| space-systems/adcs/star-tracker | Star tracker | star identification, star catalog, centroid matching, boresight error, lost in space vs tracking |
 | space-systems/adcs/attitude-control-sizing | Attitude control sizing | reaction wheels, momentum management, control torque sizing |
+| space-systems/adcs/magnetorquer-control | Magnetorquer control | B-dot detumbling, dipole moment, torque from magnetic field, coil sizing |
 | space-systems/orbit-mechanics/sun-synchronous-inclination | Sun-synchronous inclination | J2 nodal regression, retrograde inclination, local time of ascending node |
 | space-systems/orbit-mechanics/keplerian-elements | Keplerian orbital elements | rv2coe state-vector conversion, semimajor axis, eccentricity, inclination, RAAN, argument of periapsis, true anomaly, orbital period, periapsis/apoapsis |
 
@@ -62,9 +65,13 @@ selection, and classical orbital element determination.
   route to the communication-link-budget sub-skill.
 - Thermal design questions (radiator sizing, component temperatures)
   route to the thermal-design sub-skill.
+- Telemetry, CCSDS framing, storage, and downlink questions route to
+  the subsystems command-data-handling sub-skill.
 - Sun vector and pointing questions route to the sun-pointing
   sub-skill; reaction wheel and momentum questions route to the
-  attitude-control-sizing sub-skill.
+  attitude-control-sizing sub-skill; star identification and boresight
+  questions route to the adcs star-tracker sub-skill; detumble and
+  dipole questions route to the adcs magnetorquer-control sub-skill.
 - Sun-synchronous orbit and J2 nodal regression questions route to the
   sun-synchronous-inclination sub-skill.
 - Classical orbital element questions (state vector to elements,

@@ -1,6 +1,6 @@
 ---
 name: vehicle-design
-description: "Use when a task concerns aircraft or vehicle conceptual design and sizing: guide the router to the vehicle-design pack, whose tow-estimation covers takeoff gross weight estimation, weight-estimation covers class-I weights and balance, fuselage-sizing covers cabin layout and diameter, tail-sizing covers tail volume coefficients, landing-gear-sizing covers strut loads and shock absorber stroke, ws-tw-trade covers wing loading and thrust-to-weight matching, inertia-estimation covers moments of inertia, cg-envelope covers forward/aft limits and static margin, parametric-cost covers cost estimating relationships, and life-cycle-cost covers LCC phases, CERs, learning curves, and present value. Trigger: vehicle design, aircraft design, sizing, weight estimation, weight and balance, takeoff gross weight, fuselage, tail volume coefficient, landing gear, strut loads, wing loading, thrust to weight, moment of inertia, cg envelope, static margin, parametric cost, life cycle cost, LCC, learning curve, present value."
+description: "Use when a task concerns aircraft or vehicle conceptual design and sizing: guide the router to the vehicle-design pack, whose tow-estimation covers takeoff gross weight, weight-estimation covers class-I weights, payload-range-diagram covers the Breguet payload-range trade, fuselage-sizing covers cabin layout, tail-sizing covers tail volume coefficients, landing-gear-sizing covers strut loads, ws-tw-trade covers wing loading and thrust-to-weight, inertia-estimation covers moments of inertia, cg-envelope covers static margin, parametric-cost covers CERs, and life-cycle-cost covers LCC and learning curves. Trigger: vehicle design, aircraft design, sizing, weight estimation, weight and balance, takeoff gross weight, payload range, Breguet, fuselage, tail volume, landing gear, strut loads, wing loading, thrust to weight, inertia, cg envelope, static margin, parametric cost, life cycle cost, LCC, learning curve."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -38,6 +38,7 @@ aerodynamic, structural, and performance disciplines together.
 | Path | Skill | When to route to it |
 |---|---|---|
 | vehicle-design/conceptual/tow-estimation | Takeoff gross weight estimation | fuel-fraction method, empty-weight fraction, sizing iteration |
+| vehicle-design/conceptual/payload-range-diagram | Payload-range diagram | payload vs range trade, max payload, max fuel, design range, ferry range, Breguet range, reserve fuel |
 | vehicle-design/sizing/weight-estimation | Weight estimation | class-I weights, weight and balance sheets, component weights |
 | vehicle-design/sizing/fuselage-sizing | Fuselage sizing | cabin length and width, fuselage diameter, L/D band, cargo volume check |
 | vehicle-design/sizing/tail-sizing | Tail sizing | horizontal and vertical tail volume coefficients, required tail area, tail arm |
@@ -52,6 +53,8 @@ aerodynamic, structural, and performance disciplines together.
 
 - Takeoff gross weight and fuel-fraction questions route to the
   conceptual tow-estimation sub-skill.
+- Payload-range and Breguet-range trade questions route to the
+  conceptual payload-range-diagram sub-skill.
 - Weight and balance sheet questions route to the weight-estimation
   sub-skill.
 - Cabin layout and fuselage diameter questions route to the sizing
