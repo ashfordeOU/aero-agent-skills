@@ -18,7 +18,7 @@ metadata:
   author: AeroSkills
 ---
 
-# ARP4761A Safety Assessment (arp4761a/safety-assessment)
+# ARP4761A Safety Assessment (systems-engineering-safety/arp4761a/safety-assessment)
 
 Use when the task is aircraft or system safety assessment per
 ARP4761A: severity classification, the FHA-PSSA-SSA sequence, and the

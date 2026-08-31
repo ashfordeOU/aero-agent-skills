@@ -16,7 +16,7 @@ metadata:
   author: AeroSkills
 ---
 
-# ECSS Space Software Engineering (space/ecss/software-engineering)
+# ECSS Space Software Engineering (space-systems/ecss/software-engineering)
 
 Use when the task is space software engineering under the ECSS
 series: criticality classification, assurance rigor, lifecycle

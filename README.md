@@ -92,13 +92,13 @@ router-asserted by make validate:
 | avionics/do178c/verification | DO-178C | review, structural coverage per level, independence |
 | avionics/do178c/configuration-management | DO-178C | baselines, problem reports, release gate |
 | avionics/do254/hardware-planning | DO-254 | simple vs complex AEH, PHAC scope |
-| arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
-| arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
-| as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
+| systems-engineering-safety/arp4754a/systems-planning | ARP4754A | FDAL/IDAL allocation, certification and system development plans |
+| systems-engineering-safety/arp4761a/safety-assessment | ARP4761A | FHA/PSSA/SSA sequence, analysis set (FTA/FMEA/CCA) |
+| manufacturing-quality/as9100/quality | AS9100 | aerospace QMS clauses, audit evidence, corrective action closure |
 | avionics/far-cs25/airworthiness | FAR-25/CS-25 | certification basis, means of compliance, 25.1309 applicability |
-| space/ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
-| mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
-| sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
+| space-systems/ecss/software-engineering | ECSS | ECSS criticality (A-D), lifecycle gates, heritage reuse |
+| systems-engineering-safety/mbse/systems-engineering | SysML | SysML modeling workflow, function allocation, digital-thread traceability |
+| cross-cutting/sep2640/skill-delivery | SEP-2640 | SKILL.md packaging and discovery over MCP |
 
 Every skill ships its own behavior contract in skills/<path>/scripts/,
 exercised by make validate gate 3.
@@ -209,7 +209,8 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR: one skill
 per PR, every contributor certifies their submission contains no
 controlled data and no verbatim standards text, and every merge must
 pass make validate (5/5) and make attest (3/3). Thin domains today:
-space/ecss (one skill) and mbse (one skill).
+space-systems (one skill), manufacturing-quality (one skill), and
+cross-cutting (one skill).
 
 ## FAQ
 

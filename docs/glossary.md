@@ -173,7 +173,7 @@ degradation, C = minor degradation, D = negligible effects. Assurance
 and verification rigor scale with the category; heritage reuse
 demands a heritage assessment with full original verification
 evidence at categories A/B. Source: standards-map.yaml (ecss);
-skills/space/ecss/software-engineering.
+skills/space-systems/ecss/software-engineering.
 
 ## SEP-2640
 
@@ -183,7 +183,7 @@ and directory listing behind the directoryRead capability. An
 emerging draft, not yet stable; an adapter layer over the
 agentskills.io SKILL.md format, never the source of truth. Open
 specification, quotable with citation. Source: standards-map.yaml
-(sep-2640); skills/sep2640/skill-delivery.
+(sep-2640); skills/cross-cutting/sep2640/skill-delivery.
 
 ## Certification basis
 
@@ -211,4 +211,4 @@ architectures, functions allocated to design elements, analysis run
 on the architecture, and traceability linking requirements through
 design to verification (the digital thread). Toolchains include
 Capella, OSATE/AADL, and Papyrus. Source:
-skills/mbse/systems-engineering; standards-map.yaml (arp4754a).
+skills/systems-engineering-safety/mbse/systems-engineering; standards-map.yaml (arp4754a).

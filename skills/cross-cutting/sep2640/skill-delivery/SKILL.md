@@ -16,7 +16,7 @@ metadata:
   author: AeroSkills
 ---
 
-# SEP-2640 Skill Delivery (sep2640/skill-delivery)
+# SEP-2640 Skill Delivery (cross-cutting/sep2640/skill-delivery)
 
 Use when the task is delivering skills over MCP per SEP-2640:
 package conformance, skill URIs, and server readiness.
