@@ -2,7 +2,7 @@
 """Gate 3 contract test: AS9100 aerospace quality management.
 
 Exercises scripts/quality_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — an audit focus area maps to
+Contract: docs/harness-contract.md gate 3 - an audit focus area maps to
 the aerospace clauses of AS9100 (operational risk, configuration
 management, product safety, counterfeit prevention, external providers,
 special processes); each clause carries the minimum evidence artifacts

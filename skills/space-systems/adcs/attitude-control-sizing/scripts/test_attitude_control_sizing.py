@@ -2,7 +2,7 @@
 """Gate 3 contract test: spacecraft attitude control sizing.
 
 Exercises scripts/attitude_control_sizing_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — momentum wheel
+offline). Contract: docs/harness-contract.md gate 3 - momentum wheel
 sizing for a slew, detumble rate checks, and wheel margin flags;
 invalid inputs raise ValueError.
 """

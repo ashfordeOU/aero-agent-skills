@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-160 environmental qualification.
 
 Exercises scripts/environmental_qualification_logic.py (stdlib
-unittest, offline). Contract: docs/harness-contract.md gate 3 — DO-160
+unittest, offline). Contract: docs/harness-contract.md gate 3 - DO-160
 section names resolve from section numbers; the required section set
 per category is the full test-condition set (exclusions confirmed
 against the current revision); the planned matrix is checked for

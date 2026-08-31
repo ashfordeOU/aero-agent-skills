@@ -14,7 +14,7 @@ include standards PDFs; never include material from illegally hosted
 copies.
 
 `gated: true` in the map means **verbatim text from that standard must
-NEVER appear anywhere in this repository** — a skill that references a
+NEVER appear anywhere in this repository** - a skill that references a
 gated standard must list it as `reference-only` (or carry `gated: true`).
 `gated: false` means the text is quotable with attribution (paraphrase
 still preferred).
@@ -64,20 +64,20 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | far-33 | Type-certification basis for aircraft engines: design and construction, ratings and operating limitations, endurance and calibration tests, and continued airworthiness; engine cycle work sits upstream of certification | US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity |
 | arinc-429 | Point-to-point 32-bit word digital information transfer standard for civil avionics: label, SDI, data, SSM, and parity bit layout; BNR/BCD coding and sign conventions; 12.5 and 100 kbit/s speeds; word format and equipment identification tables | Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim word-format tables or clause text |
 
-## Gated standards — verbatim text must NEVER appear
+## Gated standards - verbatim text must NEVER appear
 
-- **do-178c** (DO-178C, RTCA/EUROCAE) — gated
-- **do-254** (DO-254, RTCA/EUROCAE) — gated
-- **do-330** (DO-330, RTCA/EUROCAE) — gated
-- **do-160** (DO-160G, RTCA/EUROCAE) — gated
-- **arp4754a** (ARP4754A, SAE) — gated
-- **arp4761a** (ARP4761A, SAE) — gated
-- **as9100** (AS9100, IAQG/SAE) — gated
-- **as9102** (AS9102, IAQG/SAE) — gated
-- **mmpsd** (MMPDS, SAE) — gated
-- **arinc-429** (ARINC 429, ARINC/SAE ITC) — gated
+- **do-178c** (DO-178C, RTCA/EUROCAE) - gated
+- **do-254** (DO-254, RTCA/EUROCAE) - gated
+- **do-330** (DO-330, RTCA/EUROCAE) - gated
+- **do-160** (DO-160G, RTCA/EUROCAE) - gated
+- **arp4754a** (ARP4754A, SAE) - gated
+- **arp4761a** (ARP4761A, SAE) - gated
+- **as9100** (AS9100, IAQG/SAE) - gated
+- **as9102** (AS9102, IAQG/SAE) - gated
+- **mmpsd** (MMPDS, SAE) - gated
+- **arinc-429** (ARINC 429, ARINC/SAE ITC) - gated
 
-## Reference-only standards — quotable with citation
+## Reference-only standards - quotable with citation
 
 - **far-25** (public domain, US government work)
 - **cs-25** (EASA, attribution-only reproduction)

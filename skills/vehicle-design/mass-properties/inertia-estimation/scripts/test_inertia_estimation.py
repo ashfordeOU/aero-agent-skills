@@ -2,7 +2,7 @@
 """Gate 3 contract test: vehicle mass properties (inertia estimation).
 
 Exercises scripts/inertia_estimation_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — moment of
+offline). Contract: docs/harness-contract.md gate 3 - moment of
 inertia from radius of gyration, parallel-axis theorem, and
 gyration-radius sanity; invalid inputs raise ValueError.
 """

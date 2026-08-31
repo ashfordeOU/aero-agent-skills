@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-330 tool qualification.
 
 Exercises scripts/tool_qualification_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — tool criteria
+offline). Contract: docs/harness-contract.md gate 3 - tool criteria
 1-5 map to TQL-1..TQL-5, lower TQL ranks are stricter and satisfy
 higher-numbered requirements, the governing criterion is the maximum
 applicable one, TOR artifacts completeness is checked, and invalid

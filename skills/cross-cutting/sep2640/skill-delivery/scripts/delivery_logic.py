@@ -3,7 +3,7 @@
 
 Common-knowledge summary (standards-map.yaml, sep-2640: gated false,
 open specification): SEP-2640 is the MCP working group's Skills
-Extension draft — skills are served as resources (skill:// URIs,
+Extension draft - skills are served as resources (skill:// URIs,
 resources/read, and directory listing behind the directoryRead
 capability). The agentskills.io format stays the canonical content
 form; SEP-2640 is an adapter layer for discovery and delivery,
@@ -52,7 +52,7 @@ def skill_uri(namespace, skill_path):
     return "skill://%s/%s" % (ns, path)
 
 
-# SEP-2640 delivery model: skills are resources — addressable URIs,
+# SEP-2640 delivery model: skills are resources - addressable URIs,
 # single-resource read, and directory listing behind directoryRead.
 REQUIRED_CAPABILITIES = ("skill-uri", "resources-read", "directory-read")
 

@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-178C requirement-to-code traceability completeness.
 
 Exercises scripts/development_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — traceability closure per software
+Contract: docs/harness-contract.md gate 3 - traceability closure per software
 level: missing links fail at every level, derived items must be identified,
 and levels A/B require independent review of the trace data.
 """

@@ -3,7 +3,7 @@
 
 Common-knowledge summary (standards-map.yaml, ecss: gated false,
 quotable with citation): the ECSS series covers European space
-procurement — E-ST-40C (software engineering), Q-ST-80C (software
+procurement - E-ST-40C (software engineering), Q-ST-80C (software
 product assurance), M-ST-40 (configuration management), E-ST-10C
 (systems engineering). E-ST-40C classes software by the consequences
 of failure: A = loss of life or total loss of mission, B = major

@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-178C airworthiness / certification liaison.
 
 Exercises scripts/airworthiness_liaison_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — certification-basis coverage
+Contract: docs/harness-contract.md gate 3 - certification-basis coverage
 accounting, SOI (stage of involvement) audit readiness with level-dependent
 thresholds, and open-item liaison action flags; invalid inputs raise
 ValueError.

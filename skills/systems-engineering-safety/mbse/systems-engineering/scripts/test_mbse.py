@@ -2,7 +2,7 @@
 """Gate 3 contract test: model-based systems engineering (MBSE).
 
 Exercises scripts/mbse_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — the MBSE workflow follows
+Contract: docs/harness-contract.md gate 3 - the MBSE workflow follows
 an ordered stage sequence (requirements modeling through traceability);
 every function must be allocated to a design element before closure;
 traceability must be complete for safety-critical items; modeling

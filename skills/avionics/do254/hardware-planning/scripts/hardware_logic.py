@@ -3,9 +3,9 @@
 
 Common-knowledge summary (standards-map.yaml, do-254: gated): DO-254
 distinguishes simple from complex airborne electronic hardware (AEH).
-Complex AEH — programmable logic, processors, significant internal state,
+Complex AEH - programmable logic, processors, significant internal state,
 or hardware whose correct behavior cannot be fully established from
-top-level data alone, plus safety-significant items treated conservatively —
+top-level data alone, plus safety-significant items treated conservatively -
 follows the full design assurance process (PHAC through verification);
 simple AEH uses a reduced but still planned process.
 """

@@ -2,7 +2,7 @@
 """Gate 3 contract test: ARP4761A safety assessment process.
 
 Exercises scripts/safety_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — failure-condition severity maps
+Contract: docs/harness-contract.md gate 3 - failure-condition severity maps
 to a development assurance level; the assessment phase tracks design
 maturity (FHA before architecture, PSSA after architecture is proposed,
 SSA after implementation); the analysis set scales with the level

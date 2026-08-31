@@ -2,7 +2,7 @@
 """Gate 3 contract test: ECSS-E-ST-10C systems engineering.
 
 Exercises scripts/ecss_systems_engineering_logic.py (stdlib unittest,
-offline). Contract: docs/harness-contract.md gate 3 — the lifecycle
+offline). Contract: docs/harness-contract.md gate 3 - the lifecycle
 spans phases 0 through F with fixed names; each phase maps to its
 review gates (MDR, PRR/SRR, PDR, CDR, QR/AR/FRR, CRR/ER, none at F);
 phase-exit readiness requires all assigned reviews complete with the

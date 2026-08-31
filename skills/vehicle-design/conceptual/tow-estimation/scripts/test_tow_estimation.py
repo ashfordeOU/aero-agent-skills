@@ -2,7 +2,7 @@
 """Gate 3 contract test: conceptual takeoff gross weight estimation.
 
 Exercises scripts/tow_estimation_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — fuel-fraction TOW
+Contract: docs/harness-contract.md gate 3 - fuel-fraction TOW
 estimate, iteration convergence, and weight-breakdown checks;
 invalid inputs raise ValueError.
 """

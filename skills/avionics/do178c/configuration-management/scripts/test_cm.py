@@ -2,7 +2,7 @@
 """Gate 3 contract test: DO-178C configuration management change control.
 
 Exercises scripts/cm_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — baselined items are controlled,
+Contract: docs/harness-contract.md gate 3 - baselined items are controlled,
 changes to baselined data are reviewed at every level with independent
 approval at A/B, and release requires closed problem reports, a current
 baseline, and an archive/recovery capability.

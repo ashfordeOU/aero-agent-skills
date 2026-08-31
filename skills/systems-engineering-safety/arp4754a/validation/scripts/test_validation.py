@@ -2,7 +2,7 @@
 """Gate 3 contract test: ARP4754A requirements validation.
 
 Exercises scripts/validation_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — validation method checks,
+Contract: docs/harness-contract.md gate 3 - validation method checks,
 FDAL-based independence requirements, and validation closure
 accounting; invalid inputs raise ValueError.
 """

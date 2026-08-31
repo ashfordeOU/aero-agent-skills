@@ -2,7 +2,7 @@
 """Gate 3 contract test: SEP-2640 skill delivery over MCP.
 
 Exercises scripts/delivery_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — a skill package is
+Contract: docs/harness-contract.md gate 3 - a skill package is
 deliverable when it carries a conformant SKILL.md (kebab-case name,
 description present) at the package root; the SEP-2640 delivery model
 serves skills as resources under skill:// URIs with resources/read and

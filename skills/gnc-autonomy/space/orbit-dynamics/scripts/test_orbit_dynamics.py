@@ -2,7 +2,7 @@
 """Gate 3 contract test: two-body orbital mechanics.
 
 Exercises scripts/orbit_dynamics_logic.py (stdlib unittest, offline).
-Contract: docs/harness-contract.md gate 3 — vis-viva speed (circular
+Contract: docs/harness-contract.md gate 3 - vis-viva speed (circular
 case r == a gives sqrt(mu/r); LEO at 6878 km about 7.6-7.7 km/s);
 Hohmann transfer delta-v and transfer time between coplanar circular
 orbits, LEO-to-GEO total in the 3500-4300 m/s sanity band; J2 drift
