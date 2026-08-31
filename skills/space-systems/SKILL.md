@@ -34,8 +34,10 @@ Q-ST-80C product assurance), systems-engineering lifecycle management
 | Path | Skill | When to route to it |
 |---|---|---|
 | space-systems/ecss/software-engineering | ECSS space software | criticality A-D, lifecycle gates, heritage reuse |
-| space-systems/ecss/systems-engineering | ECSS systems engineering | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
-| space-systems/subsystems/power-thermal-budget | Power and thermal budget | EPS sizing, eclipse, battery and solar array budgets |
+| space-systems/ecss/systems-engineering |
+| space-systems/ecss/software-verification | ECSS software verification | verification methods, depth by criticality, verification records | ECSS systems engineering | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
+| space-systems/subsystems/power-thermal-budget |
+| space-systems/subsystems/communication-link-budget | Communication link budget | EIRP, free-space path loss, C/N0, Eb/N0 margin, data rate | Power and thermal budget | EPS sizing, eclipse, battery and solar array budgets |
 
 ## Routing guidance
 
@@ -43,8 +45,10 @@ Q-ST-80C product assurance), systems-engineering lifecycle management
   lifecycle reviews, heritage reuse) route to the ECSS software
   sub-skill.
 - Lifecycle and phase-gate questions (reviews, readiness) route to the
+- ECSS software-verification questions (methods, depth, records) route to the ecss software-verification sub-skill.
   ECSS systems-engineering sub-skill.
 - Power, battery, and thermal budgeting questions route to the
+- Communications questions (link budget, path loss, margins, data rate) route to the subsystems communication-link-budget sub-skill.
   subsystems sub-skill.
 - Aircraft software and hardware questions route to the avionics pack.
 

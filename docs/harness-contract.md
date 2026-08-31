@@ -2,6 +2,24 @@
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.
+P5.2 (2026-08-31): Wave 2 fan-out build to sixty-nine verified
+skills in twelve installable domain packs (81 SKILL.md under gate 1:
+12 routers + 69 leaves). Fourteen new leaves across seven families:
+avionics +3 (far-cs25/special-conditions,
+flight-management/vertical-navigation, do254/configuration-management),
+gnc-autonomy +3 (control/root-locus-design,
+optimal-control/lqr-design, navigation/navigation-frames opening the
+navigation pack), manufacturing-quality +1
+(as9102/delta-fai), space-systems +2 (ecss/software-verification,
+subsystems/communication-link-budget), structures +3
+(fem/modal-analysis, composites/failure-criteria,
+damage-tolerance/residual-strength), propulsion +2
+(rocket/nozzle-design, turbofan/bypass-ratio-trade). No standards-map
+changes (sixteen entries, ten gated). Gate 3 runs sixty-nine contract
+tests; gate 5 runs 154 active corpus tasks (the 126 prior plus
+twenty-eight domain tasks sc1/sc2, vn1/vn2, rl1/rl2, lqr1/lqr2,
+nf1/nf2, df1/df2, dcm1/dcm2, sv1/sv2, ma1/ma2, fc1/fc2, res1/res2,
+lb1/lb2, nz1/nz2, bpr1/bpr2). Owner: Ops Manager, Wave 2 build.
 P5.1 (2026-08-31): Wave 5 library expansion to fifty-five verified
 skills in twelve installable domain packs (67 SKILL.md under gate 1:
 12 routers + 55 leaves). Twelve new leaves: propulsion +3
@@ -88,7 +106,7 @@ exit 0 before any skill is committed as shippable.
 | 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
 | 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
 | 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
-| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 126/126 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
+| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 154/154 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
 
 ## Gate detail
 

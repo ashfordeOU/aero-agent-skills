@@ -34,14 +34,20 @@ metallic allowables (MMPDS A-/B-basis, k-factors).
 
 | Path | Skill | When to route to it |
 |---|---|---|
-| structures/fem/calculix-linear | CalculiX linear FEM | static stress, margin of safety, unit discipline, von Mises |
-| structures/materials/mmpsd-allowables | MMPDS allowables | A-/B-basis, k-factors, metallic design values |
+| structures/fem/calculix-linear |
+| structures/fem/modal-analysis | Modal analysis | natural frequencies, mode shapes, resonance check | CalculiX linear FEM | static stress, margin of safety, unit discipline, von Mises |
+| structures/materials/mmpsd-allowables |
+| structures/damage-tolerance/residual-strength | Residual strength | fracture toughness, critical crack length, limit-load margin |
+| structures/composites/failure-criteria | Composite failure criteria | Tsai-Wu, Tsai-Hill, max-stress, lamina failure index | MMPDS allowables | A-/B-basis, k-factors, metallic design values |
 
 ## Routing guidance
 
-- FEM and margin-of-safety questions route to the calculix-linear
+- FEM and margin-of-safety questions route to the
+- Modal questions (natural frequencies, mode shapes, resonance) route to the fem modal-analysis sub-skill. calculix-linear
   sub-skill.
 - Allowable and statistical design-value questions route to the
+- Damage-tolerance residual-strength questions (Kc, critical crack length, margin) route to the damage-tolerance residual-strength sub-skill.
+- Composite lamina failure questions (Tsai-Wu, Tsai-Hill, max-stress) route to the composites failure-criteria sub-skill.
   mmpsd-allowables sub-skill.
 - Airframe loads and certification questions route to the avionics
   far-cs25 sub-skill.
