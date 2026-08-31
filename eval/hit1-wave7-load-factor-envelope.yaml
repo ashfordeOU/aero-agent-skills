@@ -1,0 +1,13 @@
+# Hit@1 wave-7 fragment: load-factor-envelope (flight-test-operations)
+# Two tasks per new leaf skill; lf2 is adversarial (placard speed terms
+# could route to the v-speeds sibling, must deterministically route to
+# the load factor envelope leaf).
+tasks:
+  - id: lf1
+    query: "compute the corner point and the gust line increment for the transport load factor envelope V-n diagram flight test"
+    intent: "flight-test-operations; load factor envelope V-n diagram corner point and gust line"
+    expected_skill: "flight-test-operations/envelope/load-factor-envelope"
+  - id: lf2
+    query: "check the gust line against the placard speed and the corner point when building the load factor envelope V-n diagram"
+    intent: "flight-test-operations; load factor envelope gust line placard speed and corner point"
+    expected_skill: "flight-test-operations/envelope/load-factor-envelope"
