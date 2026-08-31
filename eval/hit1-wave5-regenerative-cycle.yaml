@@ -1,0 +1,12 @@
+# Hit@1 wave-5 fragment: regenerative-cycle (propulsion/gas-turbine-cycle)
+# Two tasks per new leaf skill; rgc1 and rgc2 both target the
+# regenerative Brayton cycle leaf and must deterministically route to it.
+tasks:
+  - id: rgc1
+    query: "compute the thermal efficiency of the regenerative Brayton cycle with a regenerator effectiveness of 0.8 at a pressure ratio of 6"
+    intent: "propulsion; regenerative Brayton cycle efficiency with regenerator effectiveness"
+    expected_skill: "propulsion/gas-turbine-cycle/regenerative-cycle"
+  - id: rgc2
+    query: "estimate the optimum pressure ratio for the regenerative-cycle gas turbine that uses a recuperator to recover turbine exhaust heat"
+    intent: "propulsion; optimum pressure ratio for the regenerative cycle with exhaust heat recovery"
+    expected_skill: "propulsion/gas-turbine-cycle/regenerative-cycle"
