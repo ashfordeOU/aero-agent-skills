@@ -1,0 +1,15 @@
+# Hit@1 wave-8 fragment: goodman-diagram (structures/fatigue)
+# Two tasks per new leaf; goodman-diagram-w8-1 routes on the modified
+# Goodman mean-stress correction for the infinite-life allowable
+# amplitude, goodman-diagram-w8-2 routes on the Gerber/Soderberg
+# comparison and the Haigh diagram / fatigue diagram verdict. Both must
+# deterministically hit structures/fatigue/goodman-diagram.
+tasks:
+  - id: goodman-diagram-w8-1
+    query: "apply the modified goodman mean-stress correction to compute the allowable stress amplitude for infinite-life from the endurance-limit and the ultimate strength"
+    intent: "structures; modified Goodman mean-stress correction, infinite-life allowable amplitude"
+    expected_skill: "structures/fatigue/goodman-diagram"
+  - id: goodman-diagram-w8-2
+    query: "compare the gerber and soderberg allowable amplitudes on the haigh-diagram and check the infinite-life fatigue-diagram verdict against the endurance-limit"
+    intent: "structures; Gerber vs Soderberg comparison, Haigh diagram / fatigue diagram infinite-life check"
+    expected_skill: "structures/fatigue/goodman-diagram"
