@@ -3,14 +3,15 @@
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.
 P2.1 (2026-08-31): twelve published skills; gate 3 runs twelve contract
-tests, gate 5 runs twenty-eight corpus tasks (twenty-five domain tasks +
-three adversarial cross-pair tasks added in the P2.1 rework).
+tests, gate 5 runs sixty-six corpus tasks (fifty-eight domain tasks +
+eight adversarial cross-pair tasks added across the P2.1 and P3.5 reworks).
 P3.6 (2026-08-31): domain-pack restructure: the twelve skills are
-organized into five installable domain packs (avionics,
+organized into nine installable domain packs (avionics,
 space-systems, systems-engineering-safety, manufacturing-quality,
-cross-cutting) per the 12-discipline taxonomy
+cross-cutting, aerodynamics, gnc-autonomy, structures, vehicle-design)
+per the 12-discipline taxonomy
 (research/briefs/05-domain-taxonomy.md); every pack carries a router
-SKILL.md (17 SKILL.md under gate 1: 5 routers + 12 leaves); every
+SKILL.md (36 SKILL.md under gate 1: 9 routers + 27 leaves); every
 SKILL.md carries top-level `domain` and `pack` frontmatter
 (enforced by scripts/pack_inventory.py, listed via `make packs`);
 corpus tasks and future pins use pack paths. Owner: Ops Manager, Phase 0 build.
@@ -57,7 +58,7 @@ exit 0 before any skill is committed as shippable.
 | 2 | Description lint (what+when+trigger) | description written for the orchestrator (brief 03 section 4) | description contains action/what clause, explicit "Use when ...", 'Trigger' keyword with >=2 trigger keywords; 50-150 words | REAL |
 | 3 | Per-skill pytest contract (DAL A-E determination) | skill behavior test per ARP4754A/ARP4761A | skill 1 test: failure-condition severity maps to correct DAL/FDAL/IDAL and DO-178C level; coverage depth A=MC/DC, B=decision, C=statement, D/E=none; all tests pass; stdlib-only imports | REAL |
 | 4 | No-verbatim RTCA/SAE/IAQG grep | copyright control (brief 06 section 5.2) | zero verbatim-text markers AND zero objective-table blocks across skills/ and docs/ | REAL |
-| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 3/3 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
+| 5 | Hit@1 corpus | router selection quality (brief 03 section 5) | 66/66 corpus tasks resolve to expected skill as top-1 (deterministic offline router) | REAL |
 
 ## Gate detail
 
@@ -106,8 +107,9 @@ implications (A=MC/DC, B=decision, C=statement, D=none, E=none). Tested
 logic and its test live with the skill:
 skills/avionics/do178c/planning/scripts/do178c_levels.py and
 scripts/test_do178c_levels.py (stdlib unittest, offline), the P2.1 rework
-moved skill 1's contract in-tree so all twelve skills are self-contained
-(superseded the repo-root scripts/ copy). Every skill ships its behavior
+moved skill 1's contract in-tree so all twelve skills were self-contained
+(superseded the repo-root scripts/ copy); P3.5 extends the same in-tree
+contract pattern to all twenty-seven skills. Every skill ships its behavior
 contract as skills/<path>/scripts/test_*.py alongside a sibling logic
 module. P2.1 ships eleven more across the
 certification spine: development (traceability closure per DAL), verification
@@ -143,26 +145,25 @@ Runner: scripts/gate-no-verbatim.sh (markers) + scripts/verbatim_table_scan.py (
 Fixed corpus of active tasks (eval/hit1-corpus.yaml), resolved by the
 flat+tags router (brief 03 section 5 layer 2 stage 1: token overlap over
 tags/name/description/body with tag boost; deterministic, offline). Pass =
-top-1 == expected_skill for all tasks (28 as of the P2.1 rework: 25
-domain tasks + 3 adversarial cross-pair tasks, xp1-xp3, whose wording
+top-1 == expected_skill for all tasks (66 as of the P3.5 rework: 58
+domain tasks + 8 adversarial cross-pair tasks, xp1-xp8, whose wording
 plausibly routes to 2+ domains and must resolve deterministically with no
 collision).
 
 Phase 0 pinned the active tasks to skill 1 (avionics/do178c/planning).
-P2.1 promotes tasks for every published skill: the corpus now carries
-twenty-eight active tasks across the twelve skills (three DO-178C planning,
-two development, two verification, two configuration-management, two
-ARP4754A systems-planning, two DO-254 hardware-planning, two ARP4761A
-safety-assessment, two AS9100 quality, two FAR-25/CS-25 airworthiness, two
-ECSS space software-engineering, two MBSE systems-engineering, two SEP-2640
-skill-delivery, three adversarial cross-pair). P3.6 (2026-08-31) updates
+P2.1 promotes tasks for every published skill; P3.5 expands the corpus:
+it now carries sixty-six active tasks across the twenty-seven skills
+(domain tasks for every leaf, the t1/t2/t4 pins promoted, t3 still
+pinned to manufacturing-quality/as9100/quality, plus adversarial
+cross-pair tasks xp1-xp8). P3.6 (2026-08-31) updates
 the expected paths to the domain-pack layout (e.g.
 systems-engineering-safety/arp4754a/systems-planning) and the future pins
 to pack-scheme names; the Phase-0 baseline is reconciled 5/5 in the corpus
-header (1 live task + 4 future_pins including the XFOIL NACA 0012 pin
-added in the rework). The brief-03 canonical queries (CubeSat battery,
-weight-and-balance, engine overhaul) are preserved as future_pins and
-promoted into tasks as those skills publish.
+header (4 live tasks + 1 future_pin; XFOIL NACA 0012 promoted to live
+at P3.5). The brief-03 canonical queries (CubeSat battery,
+weight-and-balance, XFOIL NACA 0012) are promoted to live tasks at P3.5;
+engine overhaul (t3) stays a future_pin until an MRO/maintenance skill
+publishes.
 
 Runner: scripts/gate-hit1-corpus.sh -> scripts/router_eval.py.
 
