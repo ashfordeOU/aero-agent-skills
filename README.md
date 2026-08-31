@@ -45,11 +45,12 @@ Two things separate this library from a folder of prompts:
 
 - **Standards map.** Every skill carries standards frontmatter that
   resolves against standards-map.yaml: DO-178C, DO-254, ARP4754A,
-  ARP4761A, AS9100, FAR-25, CS-25, ECSS, SEP-2640. Referenced and
-  summarized, never copied.
+  ARP4761A, AS9100, DO-330, DO-160G, AS9102, MMPDS, FAR-25, CS-25,
+  ECSS, SEP-2640, and NACA TR-824. Referenced and summarized, never
+  copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
   ships: spec conformance, description quality, a DAL-determination
-  behavior test, a no-verbatim copyright scan, and a 28-task Hit@1
+  behavior test, a no-verbatim copyright scan, and a 66-task Hit@1
   routing corpus. Deterministic, offline, replayable. Verified means
   the gates pass on the commit you are looking at; not certification,
   not approval, not airworthy.
@@ -62,11 +63,13 @@ Two things separate this library from a folder of prompts:
 > general engineering principles, processes, and tool-usage guidance. It
 > is **not** ITAR/EAR-controlled technical data, and no proprietary
 > standards text is reproduced. Standards are referenced and
-> summarized only: DO-178C, DO-254, ARP4754A, ARP4761A, and AS9100
-> remain the property of their publishers (© RTCA/SAE/IAQG) and must
-> be purchased from them; ECSS and FAR/CS-25 are freely available
-> (public regulations or free downloads); SEP-2640 is an open
-> specification from the MCP working group (see STANDARDS.md).
+> summarized only: DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
+> DO-330 (© RTCA/EUROCAE), DO-160G (© RTCA/EUROCAE ED-14G),
+> AS9102 (© IAQG/SAE), and MMPDS (© SAE) remain the property of
+> their publishers and must be purchased from them; ECSS and
+> FAR/CS-25 are freely available (public regulations or free
+> downloads); SEP-2640 is an open specification from the MCP working
+> group (see STANDARDS.md).
 >
 > As published, without restrictions on further dissemination, this
 > library falls within the EU dual-use "public domain" exclusion (Annex I
@@ -235,9 +238,9 @@ airworthy.
 standards-map.yaml is the machine-readable source of truth; STANDARDS.md
 is the human companion. The map records family, publisher, status,
 applicability, and the summary-not-copy rule for every mapped standard.
-Gated standards (DO-178C, DO-254, ARP4754A, ARP4761A, AS9100) never
-appear verbatim anywhere in this repository; the no-verbatim gate
-enforces it.
+Gated standards (DO-178C, DO-254, ARP4754A, ARP4761A, AS9100, DO-330,
+DO-160G, AS9102, MMPDS) never appear verbatim anywhere in this
+repository; the no-verbatim gate enforces it.
 
 ## Security
 
@@ -254,12 +257,12 @@ vulnerability, see [SECURITY.md](SECURITY.md).
   verification, and configuration management; DO-254 hardware
   planning; ARP4754A systems planning; ARP4761A safety assessment;
   AS9100 quality; FAR-25/CS-25 airworthiness; plus ECSS space
-  software, MBSE, and SEP-2640 skill delivery. All 12 gated by
+  software, MBSE, and SEP-2640 skill delivery. All 27 gated by
   make validate (5/5).
-- Next: breadth across the 12 aerospace disciplines (aerodynamics/XFOIL,
-  propulsion, structures, flight mechanics, spacecraft subsystems) on
-  the same eval-gated build; reference builds; a SEP-2640-aligned MCP
-  adapter for enterprise delivery; marketplace listings.
+- Next: breadth into the remaining discipline gaps (propulsion, flight
+  mechanics, flight test and operations) on the same eval-gated build;
+  reference builds; a SEP-2640-aligned MCP adapter for enterprise
+  delivery; marketplace listings.
 - Later: the same knowledge packaged as AI Department Operator packs:
   role charters, budget ledgers, schedules, evidence gates.
 
@@ -271,7 +274,7 @@ controlled data and no verbatim standards text, and every merge must
 pass make validate (5/5) and make attest (3/3). New skills land inside
 their domain pack (skills/<pack>/<standard>/<activity>/SKILL.md) and
 carry domain and pack frontmatter. Thin domains today:
-space-systems (one skill), manufacturing-quality (one skill), and
+aerodynamics (one skill), vehicle-design (one skill), and
 cross-cutting (one skill).
 
 ## FAQ
