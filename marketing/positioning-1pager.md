@@ -56,7 +56,7 @@ The aerospace lane is unserved. Total across all attempts is about 228★.
 The two live attempts: ajhcs/mbse-agents (22★) and
 devideamax/aerospace-team (21★). Adjacent domains prove the play:
 Anthropic-Cybersecurity-Skills (31,700★) and K-Dense Scientific Agent
-Skills (39,111★) both won on framework mapping and evals, the same
+Skills (39,503★) both won on framework mapping and evals, the same
 two things AeroSkills ships first.
 
 ## Compliance posture
