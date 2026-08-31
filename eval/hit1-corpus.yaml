@@ -71,6 +71,11 @@
 # skills (124 SKILL.md under gate 1: 12 routers + 112 leaves).
 # New leaves: see README table; corpus grew to 240 tasks with two
 # domain tasks per new leaf. Owner: Ops Manager, Wave 5 build.
+# P5.2 / Wave 6 (2026-08-31, re-dispatch #4): fan-out continues to
+# 122 verified skills (134 SKILL.md under gate 1: 12 routers + 122
+# leaves). Wave-6 new leaves: "aerodynamics/airfoil/airfoil-geometry", "flight-mechanics/performance/descent-performance", "flight-mechanics/stability-control/dynamic-stability", "gnc-autonomy/navigation/inertial-navigation", "vehicle-design/cost-estimation/life-cycle-cost", "structures/fatigue/load-spectrum-counting", "structures/materials/material-selection", "aerodynamics/high-speed/oblique-shock", "gnc-autonomy/guidance/pursuit-guidance".
+# Corpus: 258 tasks (240 prior plus 18 domain tasks). Owner: Ops
+# Manager, Wave 6 build (13th-kill rescue, fresh context).
 tasks:
   - id: p1
     query: determine the software level for a flight control function whose failure is catastrophic
@@ -1041,6 +1046,79 @@ tasks:
     query: convert the sea level pressure of 1013.25 hPa to inHg and psi for the altimeter setting
     intent: cross-cutting; pressure unit conversion from hPa to inHg and psi
     expected_skill: cross-cutting/units-atmos/unit-conversion
+  - id: ag1
+    query: "decode the NACA 23012 and 65-218 designations into camber, camber position, and thickness for the airfoil geometry definition"
+    intent: "aerodynamics; NACA 4/5/6-series designation decode into geometry parameters"
+    expected_skill: "aerodynamics/airfoil/airfoil-geometry"
+  - id: ag2
+    query: "compute the NACA 0012 thickness distribution ordinates, leading edge radius, and section area from the 4-digit geometry formulas"
+    intent: "aerodynamics; NACA 4-digit thickness distribution, leading-edge radius, and section area"
+    expected_skill: "aerodynamics/airfoil/airfoil-geometry"
+  - id: de1
+    query: "compute the rate of descent from the groundspeed and the descent gradient for the descent profile"
+    intent: "flight mechanics; rate of descent from groundspeed and descent gradient"
+    expected_skill: "flight-mechanics/performance/descent-performance"
+  - id: de2
+    query: "estimate the time to descend between flight levels at a given rate of descent and the fuel burned in the descent segment"
+    intent: "flight mechanics; descent segment time and fuel between flight levels"
+    expected_skill: "flight-mechanics/performance/descent-performance"
+  - id: ds1
+    query: "compute the short period and phugoid natural frequency and damping ratio from the longitudinal stability derivatives for the dynamic stability analysis"
+    intent: "flight mechanics; short period and phugoid modes from the longitudinal derivatives"
+    expected_skill: "flight-mechanics/stability-control/dynamic-stability"
+  - id: ds2
+    query: "classify the lateral-directional modes of an aircraft from the eigenvalues, check the roll subsidence time constant and the dutch roll damping criterion, and check the spiral time to double"
+    intent: "flight mechanics; lateral mode classification and damping criteria from eigenvalues"
+    expected_skill: "flight-mechanics/stability-control/dynamic-stability"
+  - id: in1
+    query: "estimate the position error growth of the inertial navigation system from the accelerometer bias and the gyro drift"
+    intent: "inertial navigation; position error growth from accelerometer bias double integration and gyro drift"
+    expected_skill: "gnc-autonomy/navigation/inertial-navigation"
+  - id: in2
+    query: "check the schuler period and the leveling response of the strapdown inertial navigation system and scope the gyrocompass alignment and the ins gps integration"
+    intent: "inertial navigation; Schuler tuning, strapdown mechanization, gyrocompass alignment, INS/GPS integration"
+    expected_skill: "gnc-autonomy/navigation/inertial-navigation"
+  - id: lc1
+    query: "estimate the total life-cycle-cost of the aircraft program by summing the r-d-t-e, production, operations-and-support, and disposal-cost phase costs"
+    intent: "vehicle design; LCC phase structure rollup (RDT&E, production, O&S, disposal) into total life-cycle cost"
+    expected_skill: "vehicle-design/cost-estimation/life-cycle-cost"
+  - id: lc2
+    query: "discount the operations-and-support cash flows to present-value at the discount-rate and check the inflation effect on the disposal-cost estimate with the uncertainty range"
+    intent: "vehicle design; present value discounting of the O&S stream, inflation effect on disposal, uncertainty band"
+    expected_skill: "vehicle-design/cost-estimation/life-cycle-cost"
+  - id: lsc1
+    query: "count the rainflow cycles in the wing load history and build the cycle range spectrum"
+    intent: "structures; rainflow cycle counting and cycle range spectrum from a load history"
+    expected_skill: "structures/fatigue/load-spectrum-counting"
+  - id: lsc2
+    query: "build the exceedance spectrum from the mission profile load levels and truncate the fatigue load spectrum"
+    intent: "structures; exceedance spectrum and mission spectrum truncation for fatigue"
+    expected_skill: "structures/fatigue/load-spectrum-counting"
+  - id: ms1
+    query: "compare candidate structural materials by stiffness-to-weight and strength-to-weight selection-indices for the airframe"
+    intent: "structures; material selection by stiffness-to-weight and strength-to-weight selection indices"
+    expected_skill: "structures/materials/material-selection"
+  - id: ms2
+    query: "rank aluminum-alloys, titanium-alloys, and steels for a high-temperature structural part by strength-to-weight and corrosion-resistance, and check temperature-limits"
+    intent: "structures; alloy family ranking with temperature and corrosion screening"
+    expected_skill: "structures/materials/material-selection"
+  - id: os1
+    query: "compute the oblique-shock wave angle beta and the downstream mach number for the deflection angle theta on the wedge"
+    intent: "high-speed aerodynamics; oblique shock wave angle and downstream Mach number at a wedge deflection"
+    expected_skill: "aerodynamics/high-speed/oblique-shock"
+  - id: os2
+    query: "find the weak solution and the strong solution for the oblique shock at the wedge deflection and the stagnation pressure loss"
+    intent: "high-speed aerodynamics; oblique shock weak and strong branches and stagnation pressure loss"
+    expected_skill: "aerodynamics/high-speed/oblique-shock"
+  - id: pg1
+    query: "compute the pure pursuit aim heading and the wrapped guidance error from the line of sight angle and the interceptor heading"
+    intent: "pursuit guidance; pure pursuit aim heading and wrapped heading error"
+    expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
+  - id: pg2
+    query: "find the lead angle for a lead pursuit collision course from the target to interceptor speed ratio and check the capture condition"
+    intent: "pursuit guidance; lead pursuit lead angle and speed capture condition"
+    expected_skill: "gnc-autonomy/guidance/pursuit-guidance"
+
 future_pins:
 - id: t3
   query: plan an engine-overhaul checklist
