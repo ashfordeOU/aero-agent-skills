@@ -1,0 +1,14 @@
+# Hit@1 wave-6 fragment: load-spectrum-counting (structures/fatigue)
+# Two tasks per new leaf skill; lsc1 routes on rainflow cycle counting
+# of a wing load history, lsc2 routes on exceedance spectrum and
+# mission profile spectrum building with truncation. Both must
+# deterministically hit structures/fatigue/load-spectrum-counting.
+tasks:
+  - id: lsc1
+    query: "count the rainflow cycles in the wing load history and build the cycle range spectrum"
+    intent: "structures; rainflow cycle counting and cycle range spectrum from a load history"
+    expected_skill: "structures/fatigue/load-spectrum-counting"
+  - id: lsc2
+    query: "build the exceedance spectrum from the mission profile load levels and truncate the fatigue load spectrum"
+    intent: "structures; exceedance spectrum and mission spectrum truncation for fatigue"
+    expected_skill: "structures/fatigue/load-spectrum-counting"
