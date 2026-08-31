@@ -96,6 +96,23 @@ tasks al1/al2, rc1/rc2, fp1/fp2, td1/td2, ac1/ac2, va1/va2, cc1/cc2,
 as1/as2, cfc1/cfc2, rp1/rp2, ls1/ls2, md1/md2, to1/to2, mi1/mi2,
 cp1/cp2, isa1/isa2 plus adversarial xp9-xp12). Owner: Ops Manager,
 Wave 4 build.
+P5.2 (2026-08-31): Wave 5 fan-out build to one hundred twelve
+verified skills in twelve installable domain packs (124 SKILL.md
+under gate 1: 12 routers + 112 leaves). Twelve new leaves across
+five families: propulsion +3 (axial-compressor/compressor-map,
+gas-turbine-cycle/regenerative-cycle, rocket/propellant-selection),
+cross-cutting +3 (sep2640/skill-evaluation,
+documentation/engineering-report, units-atmos/unit-conversion),
+flight-test-operations +2 (flutter/ground-vibration-testing,
+planning/flight-test-instrumentation), manufacturing-quality +2
+(as9100/calibration-control, ndt/ultrasonic-inspection),
+systems-engineering-safety +2 (mbse/sysml-modeling,
+arp4761a/particular-risk-analysis). No standards-map changes
+(sixteen entries, ten gated). Gate 3 runs one hundred twelve
+contract tests; gate 5 runs 240 active corpus tasks (the 216 prior
+plus twenty-four domain tasks cmap1/cmap2, rgc1/rgc2, rps1/rps2,
+ske1/ske2, er1/er2, uc1/uc2, gvt1/gvt2, fti1/fti2, cal1/cal2,
+ui1/ui2, sys1/sys2, pra1/pra2). Owner: Ops Manager, Wave 5 build.
 Sources: internal design briefs (router design; domain taxonomy;
 legal/export-control compliance flags).
 
