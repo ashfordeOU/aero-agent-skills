@@ -110,7 +110,7 @@ pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
 printf '%s\n' "$pack_out" | grep -q "packs=9 skills=43"
-check "P2 pack inventory counts 9 packs 43 skills" 0 $?
+check "P2 pack inventory reports 'packs=9 skills=43' (9 family routers / 43 leaf skills)" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
@@ -150,6 +150,18 @@ bash "$guard" "$auto/test/fixture-stale-roots-qualified" >/dev/null 2>&1
 check "N13 stale-number guard exempts qualified README planning-target line" 0 $?
 bash "$guard" "$auto/test/fixture-stale-builds-only" >/dev/null 2>&1
 check "N14 stale-number guard exempts dated development/builds/ reports" 0 $?
+# R3 re-grade (Ops track): 27/9/36-class stale counts ('27 skills',
+# '27 aerospace', '27 leaf skills', '9 packs', '9 domain packs',
+# '9 installable', '36 SKILL.md') that leaked past the R2/R4 patterns.
+# Live one-way vocabulary ('27 live sub-domain packs', '9 family
+# routers', '9 disciplines', '9 families', '73 sub-domain packs',
+# '43 leaf skills', '52 SKILL.md') must NOT trip the new patterns.
+bash "$guard" "$auto/test/fixture-stale-27-9-36" >/dev/null 2>&1
+check "N15 stale-number guard flags planted 27/9/36-class counts ('27 skills' ... '36 SKILL.md')" 1 $?
+bash "$guard" "$auto/test/fixture-legit-27-9" >/dev/null 2>&1
+check "N16 stale-number guard exempts legit live vocabulary ('27 live sub-domain packs', '9 families', '43 leaf skills', '52 SKILL.md')" 0 $?
+bash "$guard" "$auto/test/fixture-stale-9packs" >/dev/null 2>&1
+check "N17 stale-number guard flags bare '9 packs' family mislabel" 1 $?
 
 # ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
 # Asserts numeric gated-set/map-coverage COUNT claims in the three
