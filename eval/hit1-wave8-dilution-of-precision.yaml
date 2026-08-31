@@ -1,0 +1,14 @@
+# Hit@1 wave-8 fragment: dilution-of-precision (gnc-autonomy/navigation)
+# Two tasks per new leaf; dilution-of-precision-w8-1 routes on GDOP/PDOP
+# from the satellite geometry matrix, dilution-of-precision-w8-2 routes
+# on the elevation mask and best satellite subset selection. Both must
+# deterministically hit gnc-autonomy/navigation/dilution-of-precision.
+tasks:
+  - id: dilution-of-precision-w8-1
+    query: "compute the dilution of precision gdop pdop hdop vdop tdop from the satellite geometry and the position error from the uere"
+    intent: "GNSS; DOP values from the geometry matrix and 1-sigma position error from UERE"
+    expected_skill: "gnc-autonomy/navigation/dilution-of-precision"
+  - id: dilution-of-precision-w8-2
+    query: "apply the elevation mask to the visible satellites and select the four satellite subset with the lowest pdop"
+    intent: "GNSS; elevation mask filtering and best PDOP satellite subset selection"
+    expected_skill: "gnc-autonomy/navigation/dilution-of-precision"
