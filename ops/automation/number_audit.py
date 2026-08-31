@@ -40,7 +40,10 @@ DEFAULT_ROOTS = ["research", "marketing", "development", "docs", "README.md"]
 # - docs/superpowers/: planning/meta docs whose stale values (38.0k★, 31.9k,
 #   16★ ...) are intentional examples of what the audit catches — the audit's
 #   own spec and TDD fixture descriptions, not market claims.
-EXCLUDED_DIRS = ("development/builds", "docs/superpowers")
+# - research/peer-skill-repo-audit-2026-08-31.md: dated snapshot of peer repo
+#   states measured earlier on 2026-08-31 (K-Dense 39,855 etc.); renumbering
+#   it would falsify the recorded measurement. Same class as development/builds/.
+EXCLUDED_DIRS = ("development/builds", "docs/superpowers", "research/peer-skill-repo-audit")
 
 RANGE_RE = re.compile(r"\d[\d,.]*[kK]?\s*[–—\-→]\s*\d[\d,.]*[kK]?")
 FLOOR_RE = re.compile(r"\d[\d,.]*[kK]?\s*\+")
@@ -306,7 +309,10 @@ def iter_files(roots):
                 continue
             for fn in sorted(filenames):
                 if fn.endswith((".md", ".html", ".txt")):
-                    yield os.path.join(dirpath, fn)
+                    full = os.path.join(dirpath, fn)
+                    if any(ex in full for ex in EXCLUDED_DIRS):
+                        continue
+                    yield full
 
 
 def main():

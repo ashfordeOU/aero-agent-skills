@@ -26,6 +26,10 @@ Excluded (EXCLUDED_DIRS in number_audit.py):
 - `docs/superpowers/` — planning/meta docs whose stale values (38.0k★, 31.9k,
   16★ ...) are intentional examples of what the audit catches (the audit's own
   spec + fixture descriptions), not market claims.
+- `research/peer-skill-repo-audit-2026-08-31.md` — dated snapshot of peer repo
+  states measured earlier on 2026-08-31 (e.g. K-Dense 39,855★ at audit time);
+  renumbering it would falsify the recorded measurement. Same class as
+  `development/builds/` (supersede-not-delete).
 
 Checked patterns: `N★` / `Nk★` / `N stars` / `Nk stars`, `N forks` / `Nk forks`,
 `N skills` (with a repo alias on the line), the first pure-numeric cell after a

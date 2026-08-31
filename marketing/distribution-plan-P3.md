@@ -44,7 +44,7 @@ register + briefs.
 
 | Rank | Channel | Why this product | Evidence |
 |---|---|---|---|
-| 1 | **GitHub public flip + stars strategy** | The README is the landing page for an OSS skills library; star count is the social proof that compounds (cyber 31.7k★, K-Dense 39.9k★, anthropics/skills ≈172k★). K-Dense runs a star-request banner in its README and auto-versioned releases; both copied into our README/release plan. | brief 09 §2.1/2.2; numbers.yaml (cyber 31,700; kdense 39,925; anthropics 172,643) |
+| 1 | **GitHub public flip + stars strategy** | The README is the landing page for an OSS skills library; star count is the social proof that compounds (cyber 31.7k★, K-Dense 40.4k★, anthropics/skills ≈172k★). K-Dense runs a star-request banner in its README and auto-versioned releases; both copied into our README/release plan. | brief 09 §2.1/2.2; numbers.yaml (cyber 31,700; kdense 40,430; anthropics 172,643) |
 | 2 | **X / community** | The ASD-STE100 race was decided by distribution, not content: same week, three variants → SimpleEnglish (2,979★ live; launched with evals, 74.6% fewer violations) vs danyuchn (1,584★) vs hakimzulkufli (0★). Evals + launch marketing were the difference. X is where the dev-tools crowd finds OSS libraries (K-Dense runs X/LinkedIn/YouTube). | brief 09 §1.10/§2.2; numbers.yaml |
 | 3 | **Aerospace engineering communities** | Small (≈71.6K US aero engineers) but standards-bound and well-paid; the audience that actually cares about DO-178C/ARP4754A. Slower, higher-quality adoption. AIAA SciTech presence is the long play (brief 11 Phase 3). | brief 11 §2.2; brief 01 |
 | 4 | **Hacker News (Show HN)** | The OSS-library launch pattern; SimpleEnglish's HN launch (232 points) fed its star run. One post, no follow-ups, no voting rings. | brief 09 §1.10 |
@@ -68,7 +68,7 @@ The proof artifact is not a claim; it is a command:
   cross-pair tasks, all asserting top-1 routing (harness-contract.md).
   "Hit@1 66/66" is a headline number every reader can re-run.
 - The lane is empty: total aerospace ≈ 228★ across all attempts, vs
-  cybersecurity 31.7k★ and K-Dense Scientific Agent Skills 39.9k★
+  cybersecurity 31.7k★ and K-Dense Scientific Agent Skills 40.4k★
   adjacent. The largest dedicated aerospace skills repo is 62★
   (Soljourner, 3 commits, abandoned). The largest active aerospace
   repo is ajhcs/mbse-agents at 22★; devideamax/aerospace-team is 21★.

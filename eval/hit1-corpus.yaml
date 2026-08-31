@@ -268,6 +268,140 @@ tasks:
     intent: "manufacturing quality; delta FAI and completeness"
     expected_skill: "manufacturing-quality/as9102/first-article-inspection"
 
+  # Wave 4 (2026-08-31): sixteen new leaves across the nine packs (forty-three
+  # leaves total). Corpus grows to 102 active tasks: the sixty-six prior plus
+  # two per new skill (al1/al2, rc1/rc2, fp1/fp2, td1/td2, ac1/ac2, va1/va2,
+  # cc1/cc2, as1/as2, cfc1/cfc2, rp1/rp2, ls1/ls2, md1/md2, to1/to2, mi1/mi2,
+  # cp1/cp2, isa1/isa2) and four adversarial cross-pair tasks xp9-xp12.
+  - id: al1
+    query: "prepare the certification liaison records and check the certification basis coverage for a DO-178C item"
+    intent: "avionics; DO-178C airworthiness liaison and certification basis coverage"
+    expected_skill: "avionics/do178c/airworthiness-liaison"
+  - id: al2
+    query: "assess SOI audit readiness for level A software with open authority items"
+    intent: "avionics; SOI audit readiness and open item tracking"
+    expected_skill: "avionics/do178c/airworthiness-liaison"
+  - id: rc1
+    query: "capture DO-254 hardware requirements and check them for vague wording and trace links"
+    intent: "avionics hardware; DO-254 requirements capture characteristics"
+    expected_skill: "avionics/do254/requirements-capture"
+  - id: rc2
+    query: "classify derived hardware requirements for an FPGA module and score capture readiness"
+    intent: "avionics hardware; derived requirement classification and readiness"
+    expected_skill: "avionics/do254/requirements-capture"
+  - id: fp1
+    query: "build an FMS flight plan and compute the great-circle track distance between waypoints"
+    intent: "avionics; FMS flight plan geometry and track distance"
+    expected_skill: "avionics/flight-management/flight-planning"
+  - id: fp2
+    query: "check the vertical profile against the crossing constraints for the planned route"
+    intent: "avionics; FMS vertical profile constraint check"
+    expected_skill: "avionics/flight-management/flight-planning"
+  - id: td1
+    query: "size the radiator for the spacecraft thermal control subsystem from the heat load"
+    intent: "spacecraft thermal control; radiator sizing"
+    expected_skill: "space-systems/subsystems/thermal-design"
+  - id: td2
+    query: "solve the equilibrium radiator temperature and check the thermal margin for the dissipation budget"
+    intent: "spacecraft thermal control; equilibrium temperature and margin"
+    expected_skill: "space-systems/subsystems/thermal-design"
+  - id: ac1
+    query: "size the momentum wheel for a spacecraft slew and check the ADCS margin"
+    intent: "spacecraft attitude control; momentum wheel sizing"
+    expected_skill: "space-systems/adcs/attitude-control-sizing"
+  - id: ac2
+    query: "verify the detumble rate is within the allowed rate after separation"
+    intent: "spacecraft attitude control; detumble check"
+    expected_skill: "space-systems/adcs/attitude-control-sizing"
+  - id: va1
+    query: "validate system requirements per ARP4754A and check the validation method and independence"
+    intent: "systems engineering; ARP4754A requirements validation"
+    expected_skill: "systems-engineering-safety/arp4754a/validation"
+  - id: va2
+    query: "score validation closure before releasing requirements to design at level A"
+    intent: "systems engineering; validation closure at level A"
+    expected_skill: "systems-engineering-safety/arp4754a/validation"
+  - id: cc1
+    query: "run the zonal safety analysis for the equipment bay and score the zone items"
+    intent: "safety; zonal safety analysis zone scoring"
+    expected_skill: "systems-engineering-safety/arp4761a/common-cause-analysis"
+  - id: cc2
+    query: "check the common cause analysis set covers zonal, particular risk, and common mode studies"
+    intent: "safety; common cause analysis set completeness"
+    expected_skill: "systems-engineering-safety/arp4761a/common-cause-analysis"
+  - id: as1
+    query: "select an airfoil section for the wing by lift-to-drag ratio and minimum thickness"
+    intent: "aerodynamics; airfoil section selection"
+    expected_skill: "aerodynamics/airfoil/airfoil-selection"
+  - id: as2
+    query: "compare candidate NACA airfoils and pick the best qualified section for the design condition"
+    intent: "aerodynamics; candidate airfoil comparison"
+    expected_skill: "aerodynamics/airfoil/airfoil-selection"
+  - id: cfc1
+    query: "judge whether the CFD run converged from the residual history and Courant number"
+    intent: "aerodynamics; CFD residual and CFL convergence"
+    expected_skill: "aerodynamics/cfd/cfd-convergence"
+  - id: cfc2
+    query: "check mesh refinement convergence for the solver results"
+    intent: "aerodynamics; mesh refinement convergence"
+    expected_skill: "aerodynamics/cfd/cfd-convergence"
+  - id: rp1
+    query: "plan the rendezvous phasing maneuver and compute the drift rate and delta-v"
+    intent: "orbit dynamics; rendezvous phasing maneuver"
+    expected_skill: "gnc-autonomy/space/rendezvous-phasing"
+  - id: rp2
+    query: "check the closing rate for the final approach is within the allowed value"
+    intent: "orbit dynamics; rendezvous closing rate"
+    expected_skill: "gnc-autonomy/space/rendezvous-phasing"
+  - id: ls1
+    query: "compute the laminate A matrix for a symmetric composite layup with classical lamination theory"
+    intent: "structures; composite laminate stiffness"
+    expected_skill: "structures/composites/laminate-stiffness"
+  - id: ls2
+    query: "rotate the ply stiffness to the laminate axes and check the coupling terms"
+    intent: "structures; rotated ply stiffness and coupling"
+    expected_skill: "structures/composites/laminate-stiffness"
+  - id: md1
+    query: "sum the Palmgren-Miner damage fractions for the fatigue load spectrum"
+    intent: "structures; fatigue cumulative damage"
+    expected_skill: "structures/fatigue/miner-damage"
+  - id: md2
+    query: "check the cumulative fatigue damage against the life limit and report life consumed"
+    intent: "structures; fatigue life limit check"
+    expected_skill: "structures/fatigue/miner-damage"
+  - id: to1
+    query: "estimate the takeoff gross weight with the fuel fraction method for the conceptual design"
+    intent: "vehicle design; takeoff gross weight estimation"
+    expected_skill: "vehicle-design/conceptual/tow-estimation"
+  - id: to2
+    query: "iterate the takeoff weight estimate to convergence and balance the weight breakdown"
+    intent: "vehicle design; sizing iteration convergence"
+    expected_skill: "vehicle-design/conceptual/tow-estimation"
+  - id: mi1
+    query: "estimate the moment of inertia from the mass and radius of gyration for the component"
+    intent: "vehicle design; mass properties inertia"
+    expected_skill: "vehicle-design/mass-properties/inertia-estimation"
+  - id: mi2
+    query: "transfer the inertia to the reference axis with the parallel axis theorem"
+    intent: "vehicle design; parallel axis theorem"
+    expected_skill: "vehicle-design/mass-properties/inertia-estimation"
+  - id: cp1
+    query: "score the counterfeit risk for the aerospace procurement and check the controls"
+    intent: "manufacturing quality; counterfeit risk scoring"
+    expected_skill: "manufacturing-quality/as9100/counterfeit-prevention"
+  - id: cp2
+    query: "decide whether a suspect part must be reported and confirm the procurement control set"
+    intent: "manufacturing quality; counterfeit reporting trigger"
+    expected_skill: "manufacturing-quality/as9100/counterfeit-prevention"
+  - id: isa1
+    query: "read the ISA standard atmosphere temperature, pressure, and density at 5000 meters"
+    intent: "cross-cutting; ISA standard atmosphere state"
+    expected_skill: "cross-cutting/units-atmos/isa-atmosphere"
+  - id: isa2
+    query: "compute the atmospheric density at cruise altitude from the standard atmosphere model"
+    intent: "cross-cutting; standard atmosphere density"
+    expected_skill: "cross-cutting/units-atmos/isa-atmosphere"
+
   # Adversarial cross-pair tasks (P2.1 rework): each query plausibly routes
   # to 2+ domains; the assertion locks a deterministic top-1 with no collision.
   - id: xp1
@@ -307,6 +441,26 @@ tasks:
     query: "check the control loop gain and phase margins for stability"
     intent: "cross-pair: control design vs safety assessment vs DO-178C planning"
     expected_skill: "gnc-autonomy/control/python-control-design"
+
+  # Wave 4 adversarial cross-pairs: plausible 2+ routes among the new skills
+  # and their nearest neighbors; each asserts a deterministic top-1 with no
+  # collision (verified against the router at authoring time).
+  - id: xp9
+    query: "size the radiator and check the thermal balance for the satellite power subsystem"
+    intent: "cross-pair: thermal-design vs power-thermal-budget"
+    expected_skill: "space-systems/subsystems/thermal-design"
+  - id: xp10
+    query: "select an airfoil for the wing and validate the polar against the reference data"
+    intent: "cross-pair: airfoil-selection vs xfoil-analysis; polar validation anchor wins the boundary"
+    expected_skill: "aerodynamics/airfoil/xfoil-analysis"
+  - id: xp11
+    query: "estimate the takeoff gross weight and check the empty weight fraction for the transport"
+    intent: "cross-pair: tow-estimation vs weight-estimation"
+    expected_skill: "vehicle-design/conceptual/tow-estimation"
+  - id: xp12
+    query: "check the fatigue life and the margin of safety for the wing attachment"
+    intent: "cross-pair: miner-damage vs calculix-linear"
+    expected_skill: "structures/fatigue/miner-damage"
 
   # Brief 03 section 5 canonical queries promoted in P3.5 (t1/t2/t4 published).
   - id: t1

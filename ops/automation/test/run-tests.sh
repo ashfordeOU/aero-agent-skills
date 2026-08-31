@@ -109,18 +109,18 @@ note "== pack_inventory.py =="
 pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=9 skills=27"
-check "P2 pack inventory counts 9 packs 27 skills" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=9 skills=43"
+check "P2 pack inventory counts 9 packs 43 skills" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=1 skills=9"
-check "P4 pack inventory --pack avionics counts 9 leaves" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=12"
+check "P4 pack inventory --pack avionics counts 12 leaves" 0 $?
 
 pack_out=$(python3 "$pack_inv" --domain systems-engineering-safety 2>/dev/null)
 check "P5 pack inventory --domain systems-engineering-safety exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=1 skills=5"
-check "P6 pack inventory --domain systems-engineering-safety counts 5 leaves" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=1 skills=7"
+check "P6 pack inventory --domain systems-engineering-safety counts 7 leaves" 0 $?
 
 python3 "$pack_inv" "$auto/test/fixture-pack-bad" >/dev/null 2>&1
 check "P7 pack inventory flags missing domain/pack frontmatter" 1 $?
