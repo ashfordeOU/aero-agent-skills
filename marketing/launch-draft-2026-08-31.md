@@ -11,7 +11,7 @@ a format-level claim, not a per-host test report.
 
 ## Draft (5 lines, X thread style)
 
-1. AeroSkills ships: 12 aerospace engineering skills for AI agents,
+1. AeroSkills ships: 27 aerospace engineering skills for AI agents,
    mapped to the standards civil aerospace runs on (DO-178C, DO-254,
    ARP4754A, ARP4761A, AS9100, FAR-25/CS-25, ECSS), delivered as
    SKILL.md on the open agentskills.io format, SEP-2640-aligned.
