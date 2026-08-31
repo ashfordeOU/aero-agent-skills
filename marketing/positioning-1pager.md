@@ -69,7 +69,10 @@ content is itself a compliance failure (brief 06 §8.3.9).
 
 ## What ships
 
-Phase 1 is the certification spine, starting with
-avionics/do178c/planning: DAL determination, PSAC drafting, planning
-artifacts. Methodology that lives inside certified workflows, not
-certification itself. Draft is in-tree; release is founder-gated.
+The Phase 1 certification spine is shipped: 12 skills across DO-178C
+(planning, development, verification, configuration management),
+DO-254 hardware planning, ARP4754A systems planning, ARP4761A safety
+assessment, AS9100 quality, FAR-25/CS-25 airworthiness, ECSS space
+software, MBSE systems engineering, and SEP-2640 skill delivery.
+Methodology that lives inside certified workflows, not certification
+itself. Draft is in-tree; release is founder-gated.

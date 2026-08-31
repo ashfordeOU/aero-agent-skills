@@ -1,10 +1,10 @@
 # Marketing Department
 
-**Purpose:** how we're seen — positioning, content, GTM.
+**Purpose:** how we're seen: positioning, content, GTM.
 
 ## Workspace
-- `strategy/` — positioning, messaging, GTM plans
-- `content/` — drafts, posts, threads, pages
+- `positioning-1pager.md`: positioning and messaging, draft-in-tree and founder-gated
+- `content/`: drafts, posts, threads, pages
 
 ## Operating rules
 1. Founder-guided: no publish without explicit GO
