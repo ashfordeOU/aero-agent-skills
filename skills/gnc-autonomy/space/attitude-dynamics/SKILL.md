@@ -1,6 +1,6 @@
 ---
 name: attitude-dynamics
-description: "Model spacecraft attitude dynamics with the Euler rotational equations of motion: propagate quaternion kinematics from angular velocity, integrate the inertia tensor and applied torques into angular rates, and compute angular momentum, torque-free nutation, gravity-gradient torque, and momentum wheel effects. Use when the task is spacecraft attitude dynamics, rotational kinematics, or momentum management for ADCS analysis, simulation, or sizing. The stdlib logic is deterministic and offline: quaternion rate and Euler integration steps, body-cone nutation rates, gravity-gradient torque at a given orbital radius, and wheel angular momentum from spin rate. Trigger: quaternion, angular velocity, inertia tensor, nutation, gravity gradient, momentum wheel, euler equations."
+description: "Model spacecraft attitude dynamics with the Euler rotational equations of motion: propagate quaternion kinematics from angular velocity, integrate the inertia tensor and applied torques into angular rates, and compute angular momentum, torque-free nutation, gravity-gradient torque, and momentum wheel effects. Use when the task is spacecraft attitude dynamics, rotational kinematics, or momentum management for ADCS dynamics analysis and simulation. The stdlib logic is deterministic and offline: quaternion rate and Euler integration steps, body-cone nutation rates, gravity-gradient torque at a given orbital radius, and wheel angular momentum from spin rate. Trigger: quaternion, angular velocity, inertia tensor, nutation, gravity gradient, momentum wheel, euler equations."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -13,7 +13,7 @@ compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes,
 metadata:
   domain: gnc-autonomy
   subdomain: space
-  tags: [attitude, dynamics, quaternion, euler, kinematics, rotational, angular, momentum, inertia, torque, nutation, gravity, gradient, wheel, adcs, spacecraft]
+  tags: [attitude-dynamics, quaternion-kinematics, euler-equations, rotational-dynamics, angular-momentum, inertia-tensor, gravity-gradient, momentum-wheel, nutation]
   version: 0.1.0
   author: AeroSkills
 ---
