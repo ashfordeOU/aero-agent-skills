@@ -135,12 +135,21 @@ check "P9 pack inventory flags domain not in taxonomy" 1 $?
 # Greps live marketing/ + docs/ for stale corpus/skill/pack counts
 # ('28/28', '12 skills', 'twenty-eight', 'five installable'); dated plan
 # artifacts (docs/superpowers/plans/) are exempt (supersede-not-delete).
+# R4 (Bheem rec): scan roots extended to README.md + development/ (the
+# 68/1,360-class drift shipped twice inside those roots); dated
+# development/builds/ reports stay exempt like plans/.
 note "== stale-number-guard.sh =="
 guard="$auto/stale-number-guard.sh"
 bash "$guard" "$auto/test/fixture-stale-numbers" >/dev/null 2>&1
 check "N8 stale-number guard flags stale counts in live marketing/ + docs/" 1 $?
 bash "$guard" "$auto/test/fixture-stale-plans-only" >/dev/null 2>&1
 check "N9 stale-number guard exempts dated plans/ (supersede-not-delete)" 0 $?
+bash "$guard" "$auto/test/fixture-stale-roots" >/dev/null 2>&1
+check "N12 stale-number guard flags planted 68/1,360 in README.md + development/" 1 $?
+bash "$guard" "$auto/test/fixture-stale-roots-qualified" >/dev/null 2>&1
+check "N13 stale-number guard exempts qualified README planning-target line" 0 $?
+bash "$guard" "$auto/test/fixture-stale-builds-only" >/dev/null 2>&1
+check "N14 stale-number guard exempts dated development/builds/ reports" 0 $?
 
 # ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
 # Asserts numeric gated-set/map-coverage COUNT claims in the three
