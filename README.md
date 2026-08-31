@@ -2,7 +2,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 83 of 1,000+ target](https://img.shields.io/badge/skills-83%20of%201000%2B%20target-blue)](skills/)
+[![Skills: 100 of 1,000+ target](https://img.shields.io/badge/skills-100%20of%201000%2B%20target-blue)](skills/)
 [![Standards: 16](https://img.shields.io/badge/standards-16-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
@@ -95,7 +95,7 @@ Two things separate this library from a folder of prompts:
 
 ## What's here
 
-Eighty-three verified skills (as of 2026-08-31) across twelve
+One hundred verified skills (as of 2026-08-31) across twelve
 disciplines with live packs, each spec-linted, behavior-tested, and
 router-asserted by make validate:
 
@@ -107,6 +107,8 @@ router-asserted by make validate:
 | aerodynamics | cfd/cfd-turbulence-modeling | NACA TR-824 | Use when you must estimate the wall-normal first cell height for a CFD mesh: compute the y plus value from |
 | aerodynamics | drag-polars/drag-polar | NACA TR-824 | Use when you must construct the parabolic drag polar for a wing: compute the induced drag factor from the |
 | aerodynamics | high-speed/normal-shock | NACA TR-824 | Use when you must compute normal shock relations for compressible flow: find the downstream Mach number, |
+| aerodynamics | high-speed/prandtl-meyer | NACA TR-824 | Use when you must compute Prandtl-Meyer expansion relations for supersonic compressible flow: |
+| aerodynamics | drag-polars/lift-curve-slope | NACA TR-824 | Use when you must estimate the lift curve slope of a wing from section data: compute the |
 | avionics | do160/environmental-qualification | DO-160G | Use when planning or reviewing DO-160 environmental qualification of airborne equipment: map equipment |
 | avionics | do160/lightning-protection | DO-160G | Use when you must evaluate DO-160 lightning protection for airborne equipment: select the section 22 induced |
 | avionics | do178c/airworthiness-liaison | DO-178C | Use when you must manage DO-178C airworthiness and certification liaison for an airborne software item: |
@@ -127,15 +129,24 @@ router-asserted by make validate:
 | cross-cutting | documentation/engineering-margins | FAR-25/CS-25 | Use when you must compute the margin of safety for a structural element and state it in an engineering |
 | cross-cutting | numerics/convergence-verification | NACA TR-824 | Use when you must judge whether a mesh refinement study has converged: compute the observed order of |
 | cross-cutting | units-atmos/isa-atmosphere | ECSS | Use when you must apply the international standard atmosphere in aerospace calculations: read temperature, |
+| cross-cutting | numerics/least-squares-regression | NACA TR-824 | Use when you must fit a straight line to paired measurements by ordinary least squares: |
+| cross-cutting | numerics/uncertainty-propagation | NACA TR-824 | Use when you must propagate measurement uncertainties through a calculation with the GUM |
+| cross-cutting | numerics/numerical-integration | NACA TR-824 | Use when you must integrate a function numerically: select the composite trapezoid rule, the |
 | flight-mechanics | performance/breguet-range | FAR-25/CS-25 | Use when you must estimate the cruise range of a transport aircraft with the Breguet range equation: combine |
 | flight-mechanics | performance/climb-performance | FAR-25/CS-25 | Use when you must compute the climb performance of a fixed-wing aircraft from excess power: derive the rate |
 | flight-mechanics | performance/takeoff-performance | FAR-25/CS-25 | Use when you must compute takeoff performance from the aircraft weight, wing area, and thrust: determine the |
 | flight-mechanics | performance/turn-performance | FAR-25/CS-25 | Use when you must compute sustained turn performance for a fixed-wing aircraft: derive the load factor from |
 | flight-mechanics | stability-control/longitudinal-stability | FAR-25/CS-25 | Use when you must assess static longitudinal stability of an aircraft: compute the neutral point from the |
+| flight-mechanics | performance/breguet-endurance | FAR-25/CS-25 | Use when you must compute the loiter endurance time of an aircraft with the Breguet endurance |
+| flight-mechanics | performance/glide-performance | FAR-25/CS-25 | Use when you must compute unpowered glide performance for a fixed-wing aircraft: derive the |
+| flight-mechanics | stability-control/lateral-directional-stability | FAR-25/CS-25 | Use when you must assess the lateral-directional stability of an aircraft: compute the |
 | flight-test-operations | envelope/envelope-expansion | FAR-25/CS-25 | Use when you must plan flight test envelope expansion: compute the corner speed (maneuvering speed VA) from |
 | flight-test-operations | envelope/v-speeds | FAR-25/CS-25 | Use when you must compute the certification V-speeds for a flight test program: derive Vref, V2, and Vr from |
 | flight-test-operations | performance/accelerate-stop-distance | FAR-25/CS-25 | Use when you must compute the rejected takeoff accelerate-stop distance: accelerate to the decision speed V1 |
 | flight-test-operations | performance/stall-speed-determination | FAR-25/CS-25 | Use when you must determine the reference stall speed Vs1g for a flight test: derive it from the wing loading |
+| flight-test-operations | planning/flight-test-planning | FAR-25/CS-25 | Use when you must plan a flight test program: order the test points with the build-up |
+| flight-test-operations | performance/landing-distance-determination | FAR-25/CS-25 | Use when you must determine the landing distance for a flight test: derive the approach speed |
+| flight-test-operations | flutter/flutter-testing | FAR-25/CS-25 | Use when you must assess flutter clearance for a flight test: compute the required flutter |
 | gnc-autonomy | control/python-control-design | ARP4754A | Use when designing and validating feedback control laws with Python control-systems tooling: evaluate gain |
 | gnc-autonomy | control/root-locus-design | ARP4754A | Use when you must design a feedback loop with the classical root locus method: compute the closed loop pole |
 | gnc-autonomy | navigation/navigation-frames | ECSS | Use when you must convert navigation coordinate frames for an aircraft or spacecraft: transform geodetic |
@@ -149,6 +160,8 @@ router-asserted by make validate:
 | manufacturing-quality | as9102/delta-fai | AS9102 | Use when you must classify a change and determine the AS9102 delta first article inspection (delta FAI) |
 | manufacturing-quality | as9102/first-article-inspection | AS9102 | Use when preparing or reviewing an AS9102 first article inspection (FAI) report: determine whether forms 1, |
 | manufacturing-quality | ndt/ndt-method-selection | AS9100 | Use when you must select a non-destructive testing method for an aerospace part: filter the method set by |
+| manufacturing-quality | as9100/nonconformance-control | AS9100 | Determine and record the disposition of nonconforming aerospace product per AS9100 control of |
+| manufacturing-quality | as9100/supplier-control | AS9100 | Use when you must control externally provided processes, products, and services: classify the |
 | propulsion | axial-compressor/axial-compressor-stage | FAR-33 | Use when you must analyze a single axial compressor stage from its velocity triangle: compute the specific |
 | propulsion | gas-turbine-cycle/gas-turbine-cycle | FAR-33 | Use when you must compute the ideal gas turbine (Brayton) cycle: estimate the thermal efficiency, the |
 | propulsion | rocket/nozzle-design | ECSS | Use when you must design a rocket engine nozzle from the chamber conditions: compute the exit Mach number for |
@@ -164,6 +177,7 @@ router-asserted by make validate:
 | space-systems | subsystems/communication-link-budget | ECSS | Use when you must build or check a spacecraft communications link budget: compute the free space path loss |
 | space-systems | subsystems/power-thermal-budget | ECSS | Use when sizing spacecraft electrical power and thermal budgets per ECSS practice: estimate battery capacity |
 | space-systems | subsystems/thermal-design | ECSS | Use when you must size the thermal control subsystem for a spacecraft: compute the radiator area from the |
+| space-systems | orbit-mechanics/keplerian-elements | ECSS | Use when you must compute classical orbital elements from a position and velocity state |
 | structures | composites/failure-criteria | FAR-25 | Use when you must evaluate a composite lamina against strength failure criteria: compute the Tsai-Wu, |
 | structures | composites/laminate-stiffness | FAR-25/CS-25 | Use when you must compute the stiffness of a composite laminate with classical lamination theory: build the |
 | structures | damage-tolerance/crack-growth | FAR-25/CS-25 | Use when you must calculate fatigue crack growth for damage-tolerant structure: estimate the mode I stress |
@@ -184,6 +198,9 @@ router-asserted by make validate:
 | vehicle-design | mass-properties/inertia-estimation | FAR-25/CS-25 | Use when you must estimate mass properties for vehicle design: compute moments of inertia from masses and |
 | vehicle-design | sizing/weight-estimation | FAR-25/CS-25 | Use when performing class-I or class-II vehicle weight estimation: compute moments and center of gravity from |
 | vehicle-design | sizing/ws-tw-trade | FAR-25/CS-25 | Use when you must size the aircraft by matching wing loading and thrust to weight: compute the takeoff |
+| vehicle-design | sizing/tail-sizing | FAR-25/CS-25 | Use when you must size the empennage with tail volume coefficients: compute the horizontal |
+| vehicle-design | sizing/landing-gear-sizing | FAR-25/CS-25 | Use when you must size the landing gear for an aircraft at the sizing level: split the |
+| vehicle-design | mass-properties/cg-envelope | FAR-25/CS-25 | Use when you must analyze the center-of-gravity envelope of a vehicle: derive the cg station |
 Sub-domain packs follow the 12-discipline taxonomy: aerodynamics,
 gnc-autonomy, structures, vehicle-design, avionics, space-systems,
 systems-engineering-safety, manufacturing-quality, cross-cutting.
@@ -323,7 +340,7 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: 83 verified skills across twelve disciplines with live packs
+- Shipped: 100 verified skills across twelve disciplines with live packs
   as of 2026-08-31. The certification spine (DO-178C planning,
   development, verification, and configuration management; DO-254
   hardware planning; ARP4754A systems planning; ARP4761A safety
@@ -338,8 +355,8 @@ vulnerability, see [SECURITY.md](SECURITY.md).
   release. The 12-discipline tree decomposes into 73 sub-domain packs
   (1,460 skills at 20 each): a planning target, not a shipped count.
   [development/50x20-domain-tree.md](development/50x20-domain-tree.md).
-- Next: fill the 36 live sub-domain packs toward 20 skills each (83 ->
-  720). Wave 5 opened propulsion, flight mechanics, and flight test
+- Next: fill the 47 live sub-domain packs toward 20 skills each (100 ->
+  940). Wave 5 opened propulsion, flight mechanics, and flight test
   and operations on the same eval-gated pipeline; Wave 3 added the
   Wave-5-depth fan-out across all nine packs; the remaining
   sub-domains follow.
