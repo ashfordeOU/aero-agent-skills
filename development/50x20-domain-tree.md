@@ -174,7 +174,7 @@ uniform template.
 
 ## 5. SKU / bundle layer (buyer-facing, above packs)
 
-68 installable packs are an engineering decomposition, not a buyer
+73 installable packs are an engineering decomposition, not a buyer
 story (Intel lens). 19 bundles sit above the packs: 12 discipline
 bundles (one per family) plus 7 standard/program bundles. A bundle is
 a curated pack set with a program story; pricing and positioning are
@@ -258,7 +258,9 @@ At 1,460 leaves the budget is:
 
 - 2 tasks per leaf = 2,920 base tasks
 - ~10-15% adversarial cross-pair tasks = ~350-440 (router sharpness)
-- ~3,270-3,360 tasks total, roughly 2.4 per leaf on average
+- ~3,270-3,360 tasks total, roughly 2.2-2.3 per leaf on average
+  (3,270 / 1,460 = 2.24, 3,360 / 1,460 = 2.30; 2.4 would imply
+  3,504, outside the stated range)
 
 Per-skill budget is not uniform: cert-spine and safety-critical leaves
 get 3-4 tasks (DAL, coverage, traceability angles); commodity leaves

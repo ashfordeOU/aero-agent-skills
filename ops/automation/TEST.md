@@ -48,7 +48,7 @@ ambiguous, forcing the doc to name the repo).
 
 ## TDD evidence (observed exit codes, 2026-08-31)
 
-`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (35/35)**
+`bash ops/automation/test/run-tests.sh` → **exit 0, ALL TESTS PASS (38/38)**
 
 | Test | Assertion | Expected | Observed |
 |---|---|---|---|
@@ -74,18 +74,26 @@ ambiguous, forcing the doc to name the repo).
 | P1–P9 | pack_inventory: real-repo counts 9 packs / 27 skills, per-pack/per-domain counts, missing frontmatter + router + taxonomy negatives | 0/1 | 0/1 |
 | N8 | stale-number guard flags stale counts in live marketing/ + docs/ (fixture; R3 adds 'five packs' + '3/3 corpus') | exit 1 | 1 |
 | N9 | stale-number guard exempts dated plans/ (supersede-not-delete) | exit 0 | 0 |
+| N12 | stale-number guard flags planted 68/1,360 in README.md + development/ (R4 root extension) | exit 1 | 1 |
+| N13 | stale-number guard exempts qualified README planning-target line ('planning target, not a shipped count') | exit 0 | 0 |
+| N14 | stale-number guard exempts dated development/builds/ reports | exit 0 | 0 |
 | N10 | gated-set check flags stale gated-set/map-coverage count claims (fixture: 9 vs map 14, 5 gated vs 9) | exit 1 | 1 |
 | N11 | gated-set check passes clean enumerations (fixture: 14 map, 9 gated) | exit 0 | 0 |
-| G7 | stale-number guard on real repo (R3 patterns) | exit 0 | 0 |
+| G7 | stale-number guard on real repo (R4 patterns + roots: marketing/ + docs/ + development/ + README.md) | exit 0 | 0 |
 | G8 | gated-set check on real repo (no numeric count claims contradict standards-map.yaml) | exit 0 | 0 |
 
 Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
 `test/fixture-derived-stale.md`, `test/fixture-derived-summary.md`,
 `test/fixture-policy-bad.md`, `test/fixture-spec-{no-license,bad-license,
 bad-compliance,standards-unknown,gated-mismatch,gated-nonbool,no-metadata,
-empty-standards}.md`. Fixture comments keep numbers marker-free so only
-the content line is scanned. The suite preserves and restores the committed
-`state/` dir around its own live runs, so running it never dirties the tree.
+empty-standards}.md`, `test/fixture-stale-numbers/`,
+`test/fixture-stale-plans-only/`, `test/fixture-stale-roots/` (README +
+development plants), `test/fixture-stale-roots-qualified/` (README
+planning-target qualifier), `test/fixture-stale-builds-only/` (dated
+build report). Fixture comments keep numbers marker-free so only
+the content line is scanned. The suite preserves and restores the
+committed `state/` dir around its own live runs, so running it never
+dirties the tree.
 
 The suite covers the attestation scripts plus gate 1 spec-lint compliance
 flags (S-series) and the at-rest gate (G6) — the extended frontmatter
