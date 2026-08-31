@@ -12,10 +12,12 @@ founder-gated.*
 > Ashforde OU (Estonia) under Apache-2.0. The content is educational:
 > general engineering principles, processes, and tool-usage guidance. It
 > is **not** ITAR/EAR-controlled technical data, and no proprietary
-> standards text is reproduced. Standards (DO-178C, DO-254, ARP4754A,
-> ARP4761A, AS9100, FAR/CS-25, ECSS, SEP-2640) are referenced and
-> summarized only; the standards themselves remain the property of
-> their publishers and must be purchased from them (see STANDARDS.md).
+> standards text is reproduced. Standards are referenced and
+> summarized only: DO-178C, DO-254, ARP4754A, ARP4761A, and AS9100
+> remain the property of their publishers (© RTCA/SAE/IAQG) and must
+> be purchased from them; ECSS and FAR/CS-25 are freely available
+> (public regulations or free downloads); SEP-2640 is an open
+> specification from the MCP working group (see STANDARDS.md).
 >
 > As published, without restrictions on further dissemination, this
 > library falls within the EU dual-use "public domain" exclusion (Annex I
