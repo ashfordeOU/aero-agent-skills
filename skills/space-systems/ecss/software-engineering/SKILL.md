@@ -7,9 +7,11 @@ standards:
   - id: ecss
     reference-only: true
 gated: false
+domain: space-systems
+pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
-  domain: space
+  domain: space-systems
   subdomain: ecss
   tags: [ecss, space-software, e-st-40c, q-st-80c, criticality, heritage, product-assurance]
   version: 0.1.0

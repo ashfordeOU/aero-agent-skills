@@ -11,6 +11,8 @@ standards:
   - id: ARP4761A
     reference-only: true
 gated: false
+domain: avionics
+pack: avionics
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: avionics

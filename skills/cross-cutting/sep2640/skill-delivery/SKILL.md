@@ -7,9 +7,11 @@ standards:
   - id: sep-2640
     reference-only: true
 gated: false
+domain: cross-cutting
+pack: cross-cutting
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
-  domain: tooling
+  domain: cross-cutting
   subdomain: sep2640
   tags: [sep-2640, skills-over-mcp, mcp, skill-delivery, resources, skill-uri]
   version: 0.1.0

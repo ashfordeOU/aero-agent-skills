@@ -9,9 +9,11 @@ standards:
   - id: arp4761a
     reference-only: true
 gated: false
+domain: systems-engineering-safety
+pack: systems-engineering-safety
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
-  domain: avionics
+  domain: systems-engineering-safety
   subdomain: arp4754a
   tags: [arp4754a, arp4761a, fdal, idal, planning, safety, certification]
   version: 0.1.0
