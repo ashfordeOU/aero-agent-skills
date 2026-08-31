@@ -14,7 +14,7 @@ a format-level claim, not a per-host test report.
 1. AeroSkills ships: 12 aerospace engineering skills for AI agents,
    mapped to the standards civil aerospace runs on (DO-178C, DO-254,
    ARP4754A, ARP4761A, AS9100, FAR-25/CS-25, ECSS), delivered as
-   SKILL.md on the SEP-2640 skills-over-MCP protocol.
+   SKILL.md on the open agentskills.io format, SEP-2640-aligned.
 2. Not a folder of prompts. Every skill passes make validate: 5 real
    gates, spec conformance to Hit@1 routing. Deterministic, offline,
    replayable: clone, run, exit 0.
