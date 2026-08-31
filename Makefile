@@ -9,7 +9,8 @@
 #   gate 5 hit1           Hit@1 corpus eval, deterministic offline router
 
 .PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 \
-        attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep
+        attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep \
+        packs
 
 validate: lint-spec desc-lint pytest-contract no-verbatim hit1
 	@echo "AeroSkills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
@@ -28,6 +29,12 @@ no-verbatim:
 
 hit1:
 	@scripts/gate-hit1-corpus.sh
+
+# Per-domain install inventory (founder directive 2026-08-31): list the
+# domain packs and their leaf skills from frontmatter so an installer
+# can install only the pack the user needs. Deterministic, offline.
+packs:
+	@python3 scripts/pack_inventory.py
 
 # Attestation gates (milestone 2026-08-31): number snapshot (offline, at rest),
 # brief-audit against the canonical register, content-policy sweep. All three
