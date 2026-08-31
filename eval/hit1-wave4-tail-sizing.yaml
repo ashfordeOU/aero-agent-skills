@@ -1,0 +1,15 @@
+# Hit@1 wave-4 fragment: tail-sizing (vehicle-design/sizing)
+# Two tasks per new leaf skill; ts1 routes on the tail volume
+# coefficient computation from the tail arms and the wing reference
+# area, ts2 routes on the required tail area for a target tail volume
+# coefficient. Both must deterministically hit
+# vehicle-design/sizing/tail-sizing.
+tasks:
+  - id: ts1
+    query: "size the horizontal and vertical tail with the tail volume coefficients from the tail arm and the wing reference area"
+    intent: "vehicle design; empennage sizing with tail volume coefficients"
+    expected_skill: "vehicle-design/sizing/tail-sizing"
+  - id: ts2
+    query: "compute the required tail area for the target tail volume coefficient"
+    intent: "vehicle design; required tail area from a volume coefficient target"
+    expected_skill: "vehicle-design/sizing/tail-sizing"
