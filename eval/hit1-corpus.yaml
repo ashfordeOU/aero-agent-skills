@@ -42,9 +42,9 @@
 # (high-speed/normal-shock, drag-polars/drag-polar),
 # manufacturing-quality +1 (ndt-method-selection), propulsion +1
 # (axial-compressor-stage), gnc-autonomy +1 (proportional-navigation),
-# space-systems +1 (sun-synchronous-inclination). Corpus: 160 tasks
-# (154 prior plus 12 domain tasks roc1/roc2, em1/em2, wt1/wt2 and the
-# wave-3 fragments merged as each leaf lands). Owner: Ops Manager,
+# space-systems +1 (sun-synchronous-inclination). Corpus: 164 tasks
+# (154 prior plus 10 domain tasks roc1/roc2, em1/em2, wt1/wt2, ns1/ns2,
+# turn1/turn2 as the wave-3 fragments land). Owner: Ops Manager,
 # Wave 3 build.
 
 tasks:
@@ -760,6 +760,24 @@ tasks:
     query: "find the binding constraint and the minimum thrust to weight at a given wing loading"
     intent: "vehicle sizing; binding constraint and minimum thrust to weight at the wing loading"
     expected_skill: "vehicle-design/sizing/ws-tw-trade"
+
+  - id: ns1
+    query: "compute the downstream mach number and the static pressure ratio across the normal shock at the supersonic mach number"
+    intent: "high-speed aerodynamics; normal shock downstream Mach and static pressure ratio"
+    expected_skill: "aerodynamics/high-speed/normal-shock"
+  - id: ns2
+    query: "find the stagnation pressure loss and the density and temperature ratios for the normal shock relations"
+    intent: "high-speed aerodynamics; normal shock stagnation pressure loss and static ratios"
+    expected_skill: "aerodynamics/high-speed/normal-shock"
+
+  - id: turn1
+    query: "compute the turn rate and turn radius at the true airspeed for the sustained turn load factor"
+    intent: "flight mechanics; turn rate and turn radius from load factor and speed"
+    expected_skill: "flight-mechanics/performance/turn-performance"
+  - id: turn2
+    query: "find the bank angle for the level turn load factor and check the sustained turn against the available thrust"
+    intent: "flight mechanics; bank angle from load factor and sustained turn verdict"
+    expected_skill: "flight-mechanics/performance/turn-performance"
 
 future_pins:
   # Brief 03 section 5 canonical queries - t3 stays pinned: the engine-overhaul
