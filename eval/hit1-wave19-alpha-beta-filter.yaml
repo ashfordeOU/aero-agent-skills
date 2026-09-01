@@ -1,0 +1,11 @@
+# Hit@1 wave-19 fragment: alpha-beta-filter (gnc-autonomy)
+# Two tasks per new leaf skill; abf1 routes on alpha-beta tracking update, abf2 on steady-state gain selection.
+tasks:
+  - id: w19-alpha-beta-filter-1
+    query: "track the position and velocity of a constant velocity target with an alpha beta filter update from the noisy position measurement"
+    intent: "state estimation; alpha-beta filter position and velocity tracking update"
+    expected_skill: "gnc-autonomy/estimation-filtering/alpha-beta-filter"
+  - id: w19-alpha-beta-filter-2
+    query: "select the steady state alpha and beta gains of the alpha beta tracker from the target maneuverability index and smoothing factor"
+    intent: "state estimation; steady-state alpha-beta gain selection from smoothing factor"
+    expected_skill: "gnc-autonomy/estimation-filtering/alpha-beta-filter"
