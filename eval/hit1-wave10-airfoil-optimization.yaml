@@ -1,0 +1,15 @@
+# Hit@1 wave-10 fragment: airfoil-optimization (aerodynamics/airfoil)
+# Two tasks per new leaf skill; ao2 is cross-cutting (sensitivity
+# review and section-selection wording could route toward
+# airfoil-geometry or airfoil-selection, which also handle camber,
+# thickness, and section choice; the sensitivity-analysis and
+# drag-bucket-width anchors must deterministically route to the leaf).
+tasks:
+  - id: ao1
+    query: "optimize the airfoil shape in a trade-study over the design-space of naca-parameterization variables to maximize the lift to drag ratio subject to the geometric-constraints on thickness and camber"
+    intent: "airfoil optimization; trade study over NACA design variables with lift-to-drag objective and geometric constraints"
+    expected_skill: "aerodynamics/airfoil/airfoil-optimization"
+  - id: ao2
+    query: "review the sensitivity-analysis of the optimized airfoil thickness and camber and confirm the drag-bucket-width before selecting the final section in the trade-study"
+    intent: "airfoil optimization; sensitivity analysis and drag bucket check before section selection"
+    expected_skill: "aerodynamics/airfoil/airfoil-optimization"
