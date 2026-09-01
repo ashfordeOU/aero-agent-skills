@@ -1,0 +1,14 @@
+# Hit@1 wave-9 fragment: fai-revalidation (manufacturing-quality/as9102)
+# Two tasks per new leaf; rv1 routes on the revalidation due date and
+# interval terminology, rv2 routes on change-driven revalidation and
+# scope. Both must deterministically hit
+# manufacturing-quality/as9102/fai-revalidation.
+tasks:
+  - id: rv1
+    query: "compute the revalidation-due-date from the last-fai-date and the annual revalidation-interval for the as9102 first article inspection"
+    intent: "manufacturing quality; FAI revalidation due date and annual interval per AS9102"
+    expected_skill: "manufacturing-quality/as9102/fai-revalidation"
+  - id: rv2
+    query: "decide whether the process change triggers a change-driven-revalidation and schedule the next-revalidation-date with the revalidation-scope"
+    intent: "manufacturing quality; change-driven FAI revalidation trigger, next date, and re-verification scope"
+    expected_skill: "manufacturing-quality/as9102/fai-revalidation"
