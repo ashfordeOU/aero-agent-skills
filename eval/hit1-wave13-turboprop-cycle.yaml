@@ -1,0 +1,16 @@
+# Hit@1 wave-13 fragment: turboprop-cycle (propulsion/turboprop)
+# Two tasks per new leaf; tpc1 routes on propeller (Froude) efficiency
+# and static thrust from shaft power, tpc2 routes on equivalent shaft
+# power and overall efficiency with thermal-efficiency and fuel
+# consumption wording that could route to the gas-turbine-cycle or
+# free-turbine leaves. Both must deterministically hit
+# propulsion/turboprop/turboprop-cycle.
+tasks:
+  - id: tpc1
+    query: "compute the turboprop-cycle propeller-efficiency from the flight velocity and the slipstream velocity and the static-thrust from the shaft power and the propeller diameter"
+    intent: "propulsion; propeller Froude efficiency from flight and slipstream velocity, static thrust from shaft power and disk area"
+    expected_skill: "propulsion/turboprop/turboprop-cycle"
+  - id: tpc2
+    query: "estimate the overall efficiency and the equivalent-shaft-power of the turboprop-cycle powerplant from the thermal efficiency, the propeller-efficiency, and the specific fuel consumption at cruise"
+    intent: "adversarial: overall and thermal efficiency plus specific fuel consumption wording must route to the turboprop cycle, not the gas-turbine-cycle or free-turbine leaves"
+    expected_skill: "propulsion/turboprop/turboprop-cycle"
