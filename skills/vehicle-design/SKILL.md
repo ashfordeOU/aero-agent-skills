@@ -56,6 +56,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/cost-estimation/life-cycle-cost | Life cycle cost | LCC phases, power-law CERs, learning curve Nth unit, present value, inflation, uncertainty |
 | vehicle-design/structures-integration/wing-box-sizing | Wing box sizing | root bending moment, spar cap area, shear flow, ultimate load, factor of safety |
 | vehicle-design/structures-integration/fuselage-skin-stringer | Fuselage skin-stringer panel | skin thickness, hoop and longitudinal stress, stringer spacing, frame pitch, panel buckling |
+| vehicle-design/mdo/multidisciplinary-optimization | Multidisciplinary optimization | MDO, design variables, objective function, constraints, discipline coupling, aero-structural loop, fixed point iteration, design space search |
 
 ## Routing guidance
 
@@ -106,6 +107,7 @@ aerodynamic, structural, and performance disciplines together.
 
 - Wing box, spar, shear web, and root bending moment sizing questions route to the structures-integration wing-box-sizing sub-skill.
 - Fuselage skin thickness, stringer spacing, and frame pitch questions route to the structures-integration fuselage-skin-stringer sub-skill.
+- Multidisciplinary optimization, aero-structural coupling loops, fixed-point discipline iteration, and design-space search questions route to the mdo multidisciplinary-optimization sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

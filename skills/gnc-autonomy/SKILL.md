@@ -54,6 +54,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
 | gnc-autonomy/guidance/command-to-line-of-sight | Command to line of sight | CLOS guidance, line of sight angle, steering command, LOS error |
 | gnc-autonomy/guidance/impact-point-prediction | Impact point prediction | ballistic range equation, time of flight, impact coordinates, launch speed and angle sensitivity |
+| gnc-autonomy/guidance/midcourse-guidance | Midcourse guidance | midcourse guidance, waypoint steering, trajectory shaping, velocity to be gained, zero effort miss, handover, turn rate limit |
 | gnc-autonomy/control/lead-lag-compensation | Lead lag compensation | phase lead/lag compensator design, phase margin boost, gain crossover frequency, steady state error constant |
 | gnc-autonomy/control/frequency-response-design | Frequency response design | bode magnitude and phase, gain/phase crossover frequencies, gain margin, phase margin, stability from the margins |
 
@@ -90,6 +91,9 @@ and guidance laws (proportional navigation, pursuit).
 - Ballistic impact point, range equation, time of flight, and launch
   speed and angle sensitivity questions route to the guidance
   impact-point-prediction sub-skill.
+- Midcourse waypoint steering, trajectory shaping, velocity-to-be-gained,
+  zero-effort-miss, and terminal handover questions route to the guidance
+  midcourse-guidance sub-skill.
 - Certification and item-level assurance questions route to the
   avionics or systems-engineering-safety packs.
 
