@@ -54,6 +54,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/stability-control/aileron-reversal | Aileron reversal | control reversal speed, reversal dynamic pressure, torsional stiffness |
 | flight-mechanics/stability-control/control-surface-effectiveness | Control surface effectiveness | elevator authority, hinge moment, stick force, elevator deflection, tail volume coefficient, rotation authority |
 | flight-mechanics/stability-control/spin-recovery | Spin recovery | spin recovery, autorotation, spin modes, flat spin, incipient spin, post stall departure, anti-spin controls |
+| flight-mechanics/handling-qualities/cooper-harper-rating | Cooper-Harper rating | Cooper-Harper rating scale, pilot opinion, handling qualities level, adequate performance, desired tolerances, pilot compensation |
 
 ## Routing guidance
 
@@ -92,6 +93,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 - Control reversal speed and reversal dynamic pressure questions route to the stability-control aileron-reversal sub-skill.
 - Elevator authority, hinge moment, stick force, and takeoff rotation controllability questions route to the stability-control control-surface-effectiveness sub-skill.
 - Spin entry, autorotation, spin modes, flat spin, incipient spin, and anti-spin recovery control questions route to the stability-control spin-recovery sub-skill.
+- Cooper-Harper rating scale, pilot opinion ratings, handling qualities level, and pilot compensation assessment questions route to the handling-qualities cooper-harper-rating sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

@@ -56,6 +56,7 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/propellant-selection | Propellant selection | propellant families, density impulse, mixture ratio, storability, mass fraction |
 | propulsion/ramjet/ramjet-cycle | Ramjet cycle | ideal ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse |
 | propulsion/ramjet/ramjet-inlet | Ramjet inlet | supersonic inlet, Kantrowitz starting, normal shock pressure recovery, diffuser, contraction ratio |
+| propulsion/engine-airframe/engine-airframe-integration | Engine-airframe integration | installed thrust, intake momentum drag, nozzle gross thrust, nacelle drag, pylon drag, bleed extraction, thrust-drag bookkeeping |
 
 ## Routing guidance
 
@@ -101,6 +102,7 @@ compressor stage and operating-map analysis.
 
 - Ideal ramjet, fuel air ratio, and specific impulse questions route to the ramjet ramjet-cycle sub-skill.
 - Supersonic inlet starting, Kantrowitz criterion, and diffuser pressure recovery questions route to the ramjet ramjet-inlet sub-skill.
+- Installed thrust, intake momentum drag, nacelle and pylon drag, bleed extraction, and thrust-drag bookkeeping questions route to the engine-airframe engine-airframe-integration sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

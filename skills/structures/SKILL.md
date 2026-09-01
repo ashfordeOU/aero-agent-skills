@@ -57,6 +57,7 @@ material selection.
 | structures/materials/mmpsd-allowables | MMPDS allowables | A-/B-basis, k-factors, metallic design values |
 | structures/materials/material-selection | Material selection | material families, stiffness/weight and strength/weight indices, cost, corrosion, temperature limits |
 | structures/materials/ramberg-osgood | Ramberg-Osgood stress-strain | Ramberg-Osgood, elastic-plastic stress-strain, plastic strain, secant modulus, tangent modulus, stress from strain |
+| structures/materials/fracture-toughness | Fracture toughness | K_IC plane strain fracture toughness, stress intensity factor, critical crack size, geometry factor, plane strain validity |
 
 ## Routing guidance
 
@@ -105,6 +106,9 @@ material selection.
   material-selection sub-skill.
 - Elastic-plastic stress-strain, plastic strain, and Ramberg-Osgood
   questions route to the materials ramberg-osgood sub-skill.
+- Plane strain fracture toughness, stress intensity factor, critical
+  crack size, and geometry factor questions route to the materials
+  fracture-toughness sub-skill.
 - Airframe loads and certification questions route to the avionics
   far-cs25 sub-skill.
 

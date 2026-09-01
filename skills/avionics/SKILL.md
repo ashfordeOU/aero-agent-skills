@@ -65,6 +65,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/far-cs25/special-conditions | FAR-25/CS-25 special conditions | novel design features, FAR 25.17, special-condition scope |
 | avionics/flight-management/flight-planning | FMS flight planning | great-circle track distance, waypoints, leg geometry |
 | avionics/flight-management/vertical-navigation | FMS vertical navigation | top of descent, descent gradient, altitude constraints, VNAV path |
+| avionics/data-bus/arinc429-protocol | ARINC 429 protocol | ARINC 429 word format, octal label, SDI, BNR, BCD, SSM, odd parity, 12.5 or 100 kbps, transmitter receiver topology |
 
 ## Routing guidance
 
@@ -96,6 +97,9 @@ airworthiness certification (FAR-25/CS-25).
   safety) route to the far-cs25 special-conditions sub-skill.
 - FMS route questions (waypoints, leg geometry, TOD, VNAV constraints)
   route to the flight-management sub-skills.
+- ARINC 429 word encoding and decoding, octal label, SDI, BNR and BCD
+  data fields, SSM, and odd parity questions route to the data-bus
+  arinc429-protocol sub-skill.
 - System-level engineering and safety questions route to the
   systems-engineering-safety pack instead.
 

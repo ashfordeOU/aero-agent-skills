@@ -61,6 +61,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/fast-fourier-transform | Fast Fourier transform | DFT definition, radix-2 Cooley-Tukey FFT, magnitude and phase spectrum, inverse FFT, Parseval energy check |
 | cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
 | cross-cutting/tolerancing/position-tolerance-calc | GD&T position tolerance | true position, tolerance zone diameter, MMC bonus tolerance, virtual condition, hole and pin |
+| cross-cutting/numerics/eigenvalue-decomposition | Eigenvalue decomposition | eigenvalue, eigenvector, Jacobi algorithm, power iteration, deflation, Rayleigh quotient, symmetric matrix |
 
 ## Routing guidance
 
@@ -115,6 +116,7 @@ integration) for engineering calculations.
 
 - Tolerance stack-up, worst case, and root sum square assembly questions route to the tolerancing tolerance-stackup sub-skill.
 - True position, MMC bonus tolerance, and virtual condition questions route to the tolerancing position-tolerance-calc sub-skill.
+- Eigenvalue and eigenvector computation, Jacobi eigenvalue algorithm, power iteration, deflation, and Rayleigh quotient questions route to the numerics eigenvalue-decomposition sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
