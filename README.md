@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.svg" alt="AeroSkills logo — airfoil emblem" width="180">
+  <img src="docs/logo-mark.png" alt="AeroSkills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="235">
 </p>
 
 <p align="center">
@@ -14,17 +14,20 @@
   Standards-mapped skills that give a coding agent the certification process — not just the acronyms.
 </p>
 
+<!-- gen:badges -->
 <p align="center">
-  <code>1,460 skills · 294 live</code> · <code>73 domain packs</code> · <code>21 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-294-9fe870?style=for-the-badge&labelColor=171717" alt="skills 294"></a>
+  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-74-9fe870?style=for-the-badge&labelColor=171717" alt="packs 74"></a>
+  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-9fe870?style=for-the-badge&labelColor=171717" alt="families 12"></a>
+  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-21-4a90d9?style=for-the-badge&labelColor=171717" alt="standards 21"></a>
 </p>
-
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache-2.0"></a>
-  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-purple" alt="agentskills.io"></a>
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5%20REAL-green" alt="gates"></a>
-  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-21-blue" alt="standards"></a>
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-294-blue" alt="skills"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5_REAL-2ea043?style=for-the-badge&labelColor=171717" alt="gates 5%2F5 REAL"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=for-the-badge&labelColor=171717" alt="attest 3%2F3"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-602-2ea043?style=for-the-badge&labelColor=171717" alt="router tasks 602"></a>
+  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8250df?style=for-the-badge&labelColor=171717" alt="format agentskills.io"></a>
 </p>
+<!-- /gen:badges -->
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
@@ -37,6 +40,13 @@
   <a href="#faq">FAQ</a>
 </p>
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/stats-dark.svg">
+    <img src="docs/stats.svg" alt="AeroSkills instrument strip — verified skills, live packs, families, standards, router tasks, gates" width="100%">
+  </picture>
+</p>
+
 > **Note:** AeroSkills is currently a private development home, founder-gated for release. This README documents the release design. Skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
 
 ---
@@ -44,6 +54,8 @@
 Ask a general-purpose AI about DO-178C and you get a Wikipedia summary: the acronyms, none of the clauses. Aerospace engineering is standards-bound and evidence-driven. A number without a validation step is useless.
 
 **AeroSkills encodes the process** — when to use a standard, the workflow, the pitfalls, and the point where the agent must stop and let a human sign. Each skill is a `SKILL.md` on the open agentskills.io format: YAML frontmatter the router reads, a body the agent follows. Loaded on demand, no lock-in, works in any host that reads the format.
+
+Every number and chart in this README is **generated from the tree at HEAD** by `make visuals` and CI fails if they drift — the same fail-closed philosophy as the skill gates. No hand-counted claims.
 
 ## Quick start
 
@@ -72,42 +84,49 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 
 ### The domain map
 
-**294 verified skills** (as of 2026-09-01) across **12 families** and **74 live sub-domain packs**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
+<!-- gen:overview -->
+**294 verified skills** across **12 families** and **74 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **602-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+<!-- /gen:overview -->
 
 <p align="center">
-  <img src="docs/domain-radar.svg" alt="Domain coverage radar: 12 families, skills per domain" width="600">
-  <br>
-  <em>Radar: skills per domain — all 12 families covered</em>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/domain-radar-dark.svg">
+    <img src="docs/domain-radar.svg" alt="Domain coverage radar: live verified skills vs router assertions across 12 families" width="100%">
+  </picture>
 </p>
 
 <p align="center">
-  <img src="docs/domain-polar.svg" alt="Polar plot: live packs per family vs 73-pack target" width="480">
-  <br>
-  <em>Polar: live packs per family vs the 73-pack target</em>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/domain-polar-dark.svg">
+    <img src="docs/domain-polar.svg" alt="Polar rose: live installable packs per family, area-true" width="100%">
+  </picture>
 </p>
 
 Full per-pack skill lists: **[docs/DOMAINS.md](docs/DOMAINS.md)**.
 
 ### What's inside
 
-The 12-family summary. Every pack's full skill list lives in **[docs/DOMAINS.md](docs/DOMAINS.md)** — this table stays summary-only by design so the README does not grow with the library.
+The 12-family register — every count computed from the tree, regenerated on every change. Per-pack skill lists live in **[docs/DOMAINS.md](docs/DOMAINS.md)** so this table stays summary-only and the README does not grow with the library.
 
-| Family | Standard spine | Example skills |
-|---|---|---|
-| **Avionics** | DO-178C, DO-254, DO-330, DO-160G | planning, verification, configuration-management, tool-qualification |
-| **Aerodynamics** | NACA TR-824 | airfoil-selection, xfoil-analysis, cfd-convergence, normal-shock |
-| **Systems engineering & safety** | ARP4754A, ARP4761A | dal-allocation, safety-assessment |
-| **Flight mechanics** | FAR-25/CS-25 | breguet-range, climb-performance, longitudinal-stability |
-| **Flight test & operations** | FAR-25/CS-25 | v-speeds, flight-test-planning, flutter-testing |
-| **GNC & autonomy** | ARP4754A | root-locus-design, lqr-design, dymos-trajectory |
-| **Space systems** | ECSS | orbital-decay, isa-atmosphere |
-| **Structures** | FAR-25/CS-25 | fatigue-analysis, fem, damage-tolerance |
-| **Manufacturing quality** | AS9100, AS9102 | first-article-inspection |
-| **Propulsion** | FAR-33 | gas-turbine-cycle, rocket-propulsion, turbofan-sizing |
-| **Vehicle design** | FAR-25/CS-25 | sizing, mass-properties, conceptual-design |
-| **Cross-cutting** | SEP-2640 | numerics, units-atmosphere, skill-authoring |
+<!-- gen:family-table -->
+| Family | Standard spine | Packs | Skills | Router tasks |
+|---|---|---:|---:|---:|
+| **Aerodynamics** | NACA TR-824 | 10 | 25 | 52 |
+| **Avionics** | DO-178C / DO-254 / DO-160G | 7 | 25 | 53 |
+| **Cross-cutting** | SEP-2640 | 6 | 25 | 50 |
+| **Flight mechanics** | FAR-25 / CS-25 | 4 | 24 | 48 |
+| **Flight test & operations** | FAR-25 / CS-25 | 5 | 25 | 50 |
+| **GNC & autonomy** | ARP4754A | 6 | 24 | 49 |
+| **Manufacturing quality** | AS9100 / AS9102 | 5 | 25 | 52 |
+| **Propulsion** | FAR-33 | 9 | 24 | 48 |
+| **Space systems** | ECSS | 5 | 24 | 51 |
+| **Structures** | FAR-25 / CS-25 / MMPDS | 6 | 25 | 51 |
+| **Systems engineering & safety** | ARP4754A / ARP4761A | 5 | 24 | 50 |
+| **Vehicle design** | FAR-25 / CS-25 | 6 | 24 | 48 |
+| **Total** | 21 standards mapped | **74** | **294** | **602** |
+<!-- /gen:family-table -->
 
-Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md) · [docs/catalog.md](docs/catalog.md).
+Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
 
 ### See a skill
 
@@ -185,6 +204,16 @@ The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills
 
 ### How it works
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/how-it-works-dark.svg">
+    <img src="docs/how-it-works.svg" alt="Pipeline: agent task → router picks skill by description → SKILL.md loads workflow and gates → standards context from standards-map → agent executes with verification → stop gate: human sign-off" width="100%">
+  </picture>
+</p>
+
+<details>
+<summary>Mermaid source</summary>
+
 ```mermaid
 flowchart LR
     A[Agent task] --> B[Router picks skill by description]
@@ -193,6 +222,8 @@ flowchart LR
     D --> E[Agent executes with verification]
     E --> F[Stop gate: human sign-off]
 ```
+
+</details>
 
 - **Discovery:** the router reads only the description (`what + when + trigger`) — loaded on demand, no context bloat
 - **Determinism:** every skill's behavior contract runs offline; the router is deterministic
@@ -209,21 +240,26 @@ You do not need to trust the badge. Replay the gates on the commit you are looki
 | 2 desc lint | description what + when + trigger | `make desc-lint` |
 | 3 behavior tests | per-skill behavior contract, DAL A–E determination | `make pytest-contract` |
 | 4 no-verbatim | standards text copyright control | `make no-verbatim` |
-| 5 Hit@1 corpus | router selects the expected skill (602 tasks) | `make hit1` |
+| 5 Hit@1 corpus | router selects the expected skill | `make hit1` |
+<!-- gen:verify-extra -->
+| — visuals fresh | charts + README numbers regenerate to zero diff | `make visuals-check` |
+<!-- /gen:verify-extra -->
 
 ```bash
-make validate   # 5/5 REAL gates, deterministic, offline
-make attest     # 3/3: number snapshot, brief audit, content-policy sweep
+make validate       # 5/5 REAL gates, deterministic, offline
+make attest         # 3/3: number snapshot, brief audit, content-policy sweep
+make visuals-check  # charts + README numbers regenerate to zero diff
 ```
 
 Verified means the full bar passes on the commit you are looking at. That is what "verified" means in this repository: nothing more. It is not certification, not approval, not airworthy.
 
 ## Roadmap
 
-- **Shipped:** 294 verified skills across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
-- **Release bar (founder, 2026-08-31):** 50+ domains × 20+ verified skills = 1,000+ skills before any release. The 12-discipline tree decomposes into 73 sub-domain packs (1,460 skills · 294 live at 20 each). [development/50x20-domain-tree.md](development/50x20-domain-tree.md)
-- **Next:** fill live packs toward 20 skills each; open remaining packs on the same eval-gated pipeline
+<!-- gen:roadmap -->
+- **Shipped:** 294 verified skills in 74 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
+- **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; a SEP-2640-aligned MCP adapter; marketplace listings; AI Department Operator packs
+<!-- /gen:roadmap -->
 
 ## Contributing
 
