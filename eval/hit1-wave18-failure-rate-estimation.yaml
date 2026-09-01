@@ -1,0 +1,14 @@
+# Hit@1 wave-18 fragment: failure-rate-estimation (arp4761a)
+# Two tasks per new leaf; q1 routes on failure-rate point estimation and the
+# chi-square confidence upper-bound with MTBF bounds, q2 routes on the
+# zero-failure demonstration rule and test-hours planning. Both must
+# deterministically hit systems-engineering-safety/arp4761a/failure-rate-estimation.
+tasks:
+  - id: w18-failure-rate-estimation-1
+    query: "estimate the failure-rate of the actuator system from the test-hours and the number of failures, then compute the 80 percent confidence upper-bound with the poisson chi-square method and the MTBF lower-bound"
+    intent: "systems safety; failure-rate point estimate, chi-square confidence upper-bound, MTBF lower-bound from test data"
+    expected_skill: "systems-engineering-safety/arp4761a/failure-rate-estimation"
+  - id: w18-failure-rate-estimation-2
+    query: "how many test-hours with zero failures demonstrate the 1e-6 per hour failure-rate target at 80 percent confidence using the chi-square zero-failure rule"
+    intent: "systems safety; zero-failure demonstration test-hours planning against a target failure rate"
+    expected_skill: "systems-engineering-safety/arp4761a/failure-rate-estimation"
