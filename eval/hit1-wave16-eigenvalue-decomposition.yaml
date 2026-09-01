@@ -1,0 +1,14 @@
+# Hit@1 wave-16 fragment: eigenvalue-decomposition (cross-cutting/numerics)
+# Two tasks per new leaf; w16-eigenvalue-decomposition-1 routes on the Jacobi
+# symmetric-matrix decomposition statement, w16-eigenvalue-decomposition-2 on
+# the power iteration plus deflation pair extraction. Both must deterministically
+# hit cross-cutting/numerics/eigenvalue-decomposition.
+tasks:
+  - id: w16-eigenvalue-decomposition-1
+    query: "compute the eigenvalues and eigenvectors of a real symmetric matrix with the Jacobi method"
+    intent: "eigenvalue decomposition, Jacobi algorithm, symmetric matrix"
+    expected_skill: "cross-cutting/numerics/eigenvalue-decomposition"
+  - id: w16-eigenvalue-decomposition-2
+    query: "find the dominant eigenvalue and eigenvector of a square matrix by power iteration and deflate to get the second pair"
+    intent: "power iteration, dominant eigenvalue-eigenvector pair, deflation for the second eigenvalue"
+    expected_skill: "cross-cutting/numerics/eigenvalue-decomposition"
