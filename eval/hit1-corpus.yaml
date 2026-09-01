@@ -92,6 +92,11 @@
 # leaves). Wave-9 new leaves: "manufacturing-quality/as9100/corrective-action", "manufacturing-quality/as9100/document-control", "manufacturing-quality/as9102/fai-revalidation", "cross-cutting/numerics/finite-difference-derivatives", "vehicle-design/sizing/fuel-tank-sizing", "vehicle-design/mass-properties/mass-budget", "cross-cutting/numerics/monte-carlo-sampling", "vehicle-design/cost-estimation/operating-cost", "systems-engineering-safety/arp4761a/operating-support-hazard-analysis", "systems-engineering-safety/arp4754a/requirements-allocation", "flight-mechanics/performance/specific-range", "systems-engineering-safety/mbse/state-machine", "cross-cutting/units-atmos/temperature-conversion", "flight-mechanics/stability-control/trim-analysis", "flight-mechanics/performance/wind-effects".
 # Corpus: 338 tasks (308 prior plus 30 domain tasks). Owner: Ops
 # Manager, Wave 9 build.
+# P5.2 / Wave 10 (2026-09-01): fan-out continues to
+# 183 verified skills (195 SKILL.md under gate 1: 12 routers + 183
+# leaves). Wave-10 new leaves: "aerodynamics/airfoil/airfoil-optimization", "aerodynamics/boundary-layer/boundary-layer-theory", "flight-test-operations/stability/dynamic-stability-flight-test", "flight-test-operations/performance/engine-flight-test", "flight-test-operations/envelope/flight-loads-survey", "flight-test-operations/planning/flight-test-safety", "propulsion/turboprop/free-turbine", "flight-test-operations/performance/glide-flight-test", "aerodynamics/ground-effects/ground-effect", "aerodynamics/high-lift/high-lift-systems", "aerodynamics/cfd/panel-method", "flight-test-operations/envelope/stall-characteristics-testing", "aerodynamics/high-speed/supercritical-airfoil", "aerodynamics/high-speed/swept-wing-aerodynamics", "flight-test-operations/performance/takeoff-distance-determination", "flight-test-operations/planning/telemetry-data-acquisition", "flight-test-operations/planning/test-point-matrix-design", "aerodynamics/high-speed/transonic-similarity", "propulsion/axial-compressor/turbine-stage", "aerodynamics/cfd/vortex-lattice-method", "aerodynamics/high-speed/wave-drag-area-rule".
+# Corpus: 380 tasks (338 prior plus 42 domain tasks). Owner: Ops
+# Manager, Wave 10 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -1761,6 +1766,174 @@ tasks:
     query: "determine the wind correction angle and the groundspeed for the enroute leg with the crosswind component"
     intent: "flight mechanics; wind correction angle and groundspeed on the crosswind enroute leg"
     expected_skill: "flight-mechanics/performance/wind-effects"
+  - id: ao1
+    query: "optimize the airfoil shape in a trade-study over the design-space of naca-parameterization variables to maximize the lift to drag ratio subject to the geometric-constraints on thickness and camber"
+    intent: "airfoil optimization; trade study over NACA design variables with lift-to-drag objective and geometric constraints"
+    expected_skill: "aerodynamics/airfoil/airfoil-optimization"
+  - id: ao2
+    query: "review the sensitivity-analysis of the optimized airfoil thickness and camber and confirm the drag-bucket-width before selecting the final section in the trade-study"
+    intent: "airfoil optimization; sensitivity analysis and drag bucket check before section selection"
+    expected_skill: "aerodynamics/airfoil/airfoil-optimization"
+  - id: blt1
+    query: "estimate the displacement thickness and momentum thickness of the laminar boundary layer on a flat plate and the skin friction coefficient from the Reynolds number"
+    intent: "aerodynamics; laminar boundary layer displacement and momentum thickness and skin friction"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-theory"
+  - id: blt2
+    query: "estimate the boundary layer thickness growth and the transition Reynolds number on a smooth surface to decide whether the flow is laminar or turbulent"
+    intent: "aerodynamics; boundary layer thickness growth and laminar to turbulent transition regime"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-theory"
+  - id: dst1
+    query: "identify the short period damping ratio from an elevator doublet response using the log decrement over three cycles and return the handling qualities verdict"
+    intent: "flight test; dynamic stability mode identification and handling qualities verdict"
+    expected_skill: "flight-test-operations/stability/dynamic-stability-flight-test"
+  - id: dst2
+    query: "plan the dynamic stability flight test excitation with an elevator pulse for the phugoid and a rudder pulse for the Dutch roll, then reduce the records to time to half amplitude"
+    intent: "flight test; mode excitation selection and decaying oscillation reduction"
+    expected_skill: "flight-test-operations/stability/dynamic-stability-flight-test"
+  - id: eft1
+    query: "determine the installed engine thrust from the rate of climb and the measured drag in the engine flight test and check the exhaust gas temperature margin"
+    intent: "flight test; installed thrust from rate of climb and EGT margin"
+    expected_skill: "flight-test-operations/performance/engine-flight-test"
+  - id: eft2
+    query: "correct the fuel flow and the altitude thrust measured in the engine flight test against the predicted value and time the acceleration transient for the flight test program"
+    intent: "flight test; fuel flow and altitude thrust check with acceleration transient timing"
+    expected_skill: "flight-test-operations/performance/engine-flight-test"
+  - id: fls1
+    query: "calibrate the strain gauge load stations against known ground loads and reduce the load factor versus speed survey points to measured loads and lift coefficient for comparison with the predicted loads envelope"
+    intent: "flight test; loads survey strain gauge calibration and maneuver point reduction"
+    expected_skill: "flight-test-operations/envelope/flight-loads-survey"
+  - id: fls2
+    query: "compute the maneuver point feasibility of a symmetric pull-up at 100 m/s EAS with wing loading 6000 Pa and maximum lift coefficient 1.8"
+    intent: "flight test; survey maneuver point feasibility at a given dynamic pressure"
+    expected_skill: "flight-test-operations/envelope/flight-loads-survey"
+  - id: fsa1
+    query: "assess the flight test risks on the severity by likelihood risk matrix and run the go no go criteria gate before the flight"
+    intent: "flight test safety; hazard risk matrix scoring and go/no-go criteria verdict"
+    expected_skill: "flight-test-operations/planning/flight-test-safety"
+  - id: fsa2
+    query: "review the flight test safety assessment, confirm the emergency procedures cover the required conditions, and verify the safety pilot duties are assigned"
+    intent: "flight test safety; emergency procedure coverage and safety pilot duty assignment"
+    expected_skill: "flight-test-operations/planning/flight-test-safety"
+  - id: ft1
+    query: "compute the power turbine exit temperature and shaft power of a free turbine from the gas generator exhaust mass flow, inlet temperature, expansion ratio, and polytropic efficiency"
+    intent: "propulsion; free-turbine power section thermodynamic sizing"
+    expected_skill: "propulsion/turboprop/free-turbine"
+  - id: ft2
+    query: "match the power turbine speed to the propeller through the reduction gearbox and compute the flow function for spool compatibility of a turboshaft"
+    intent: "propulsion; power turbine to propeller gear ratio and corrected flow matching"
+    expected_skill: "propulsion/turboprop/free-turbine"
+  - id: glf1
+    query: "measure the sink rate and the lift to drag ratio from the idle thrust glide test and locate the best glide speed for the flight test"
+    intent: "flight test; idle thrust glide test sink rate and L/D measurement"
+    expected_skill: "flight-test-operations/performance/glide-flight-test"
+  - id: glf2
+    query: "correct the glide test sink rate for the weight change and the residual idle thrust and report the lift to drag ratio for the flight test program"
+    intent: "flight test; glide test corrections for weight and idle thrust"
+    expected_skill: "flight-test-operations/performance/glide-flight-test"
+  - id: ge1
+    query: "estimate the ground effect on the lift and induced drag of a wing at a low height to span ratio using the image vortex method"
+    intent: "aerodynamics; ground effect on lift and induced drag with the image vortex method"
+    expected_skill: "aerodynamics/ground-effects/ground-effect"
+  - id: ge2
+    query: "compute the image vortex correction and the induced drag reduction factor for the aircraft in ground effect"
+    intent: "aerodynamics; image vortex correction and induced drag reduction factor near the ground"
+    expected_skill: "aerodynamics/ground-effects/ground-effect"
+  - id: hls1
+    query: "estimate the wing maximum lift coefficient with 40 degree Fowler flaps and a leading edge slat on a 25 degree swept wing, then the stall speed at a 30000 N weight and 20 square meter wing area"
+    intent: "aerodynamics; flap and slat clmax increments, wing CLmax, stall speed"
+    expected_skill: "aerodynamics/high-lift/high-lift-systems"
+  - id: hls2
+    query: "compare trailing edge flap types plain split slotted and Fowler for the section lift increment at full deflection to choose the flap for a short field design"
+    intent: "aerodynamics; flap type selection by clmax increment"
+    expected_skill: "aerodynamics/high-lift/high-lift-systems"
+  - id: pnm1
+    query: "compute the pressure distribution and lift coefficient of a 2d airfoil using a source panel method with a neumann boundary condition"
+    intent: "aerodynamics; source panel method pressure and lift on an airfoil with the Neumann condition"
+    expected_skill: "aerodynamics/cfd/panel-method"
+  - id: pnm2
+    query: "apply a doublet panel method with a dirichlet boundary condition to find the surface pressure coefficient of a 3d body in incompressible potential flow"
+    intent: "aerodynamics; doublet panel Dirichlet solution for a 3D body in potential flow"
+    expected_skill: "aerodynamics/cfd/panel-method"
+  - id: sch1
+    query: "plan the stall characteristics flight test: entry techniques, buffet onset, stick shaker activation, and recovery checks per configuration"
+    intent: "flight test; stall characteristics test matrix, entry techniques, warning, recovery"
+    expected_skill: "flight-test-operations/envelope/stall-characteristics-testing"
+  - id: sch2
+    query: "confirm the natural stall warning margin and the recovery altitude loss from the accelerated stall entry meet the certification requirements"
+    intent: "flight test; stall warning onset margin and recovery altitude loss verdict"
+    expected_skill: "flight-test-operations/envelope/stall-characteristics-testing"
+  - id: sca1
+    query: "estimate the drag-divergence-mach number of a supercritical-airfoil section with 12 percent thickness at a cruise lift coefficient of 0.5 and compare the wave-drag penalty with a conventional section"
+    intent: "high-speed aerodynamics; supercritical airfoil drag divergence Mach and wave-drag penalty versus a conventional section"
+    expected_skill: "aerodynamics/high-speed/supercritical-airfoil"
+  - id: sca2
+    query: "find the terminating shock strength of the flat upper surface supercritical-airfoil at mach 0.8, the wave-drag reduction it buys, and the aft-loading pitching moment penalty"
+    intent: "high-speed aerodynamics; terminating shock strength, wave-drag reduction, and aft-loading pitching moment of a supercritical airfoil"
+    expected_skill: "aerodynamics/high-speed/supercritical-airfoil"
+  - id: swa1
+    query: "estimate the critical Mach number increase from a 35 degree leading edge sweep on a wing whose unswept section critical Mach is 0.7"
+    intent: "aerodynamics; sweep angle effect on critical Mach number via simple sweep theory"
+    expected_skill: "aerodynamics/high-speed/swept-wing-aerodynamics"
+  - id: swa2
+    query: "apply simple sweep theory to find the effective Mach number seen by the wing section at a flight Mach of 0.8 and a 30 degree leading edge sweep"
+    intent: "aerodynamics; effective Mach reduction and sweep theory for a yawed wing"
+    expected_skill: "aerodynamics/high-speed/swept-wing-aerodynamics"
+  - id: tkd1
+    query: "determine the takeoff-distance for the flight-test by integrating the ground-roll speed samples through rotation to the 35 ft climb segment"
+    intent: "flight test; takeoff distance from ground roll, rotation, and climb segments"
+    expected_skill: "flight-test-operations/performance/takeoff-distance-determination"
+  - id: tkd2
+    query: "reduce the takeoff-distance from the measured speed-time profile of the ground-roll and rotation segments in the flight test"
+    intent: "flight test; takeoff distance from the measured speed profile"
+    expected_skill: "flight-test-operations/performance/takeoff-distance-determination"
+  - id: tda1
+    query: "compute the pcm minor frame size and the telemetry bit rate for the flight test data acquisition, assign the supercommutated channel instances per frame, and encode the time of year in irig-b format"
+    intent: "flight test; PCM frame and bit rate sizing with supercommutation and IRIG time coding"
+    expected_skill: "flight-test-operations/planning/telemetry-data-acquisition"
+  - id: tda2
+    query: "check the flight test ground station telemetry link margin against the receiver sensitivity, condition the sensor bridge signal to the adc span, and flag the data quality when the bit error rate and dropout percentage exceed the limits"
+    intent: "flight test; ground station link margin, signal conditioning, and telemetry quality checks"
+    expected_skill: "flight-test-operations/planning/telemetry-data-acquisition"
+  - id: tpm1
+    query: "build the flight test point matrix from an altitude sweep at 10000 and 20000 feet, a speed sweep from 120 to 160 knots, and a weight sweep at 50000 and 55000 pounds, then mark every third point as a repeat point for data quality"
+    intent: "flight test; condition sweep grid expansion and repeat point marking"
+    expected_skill: "flight-test-operations/planning/test-point-matrix-design"
+  - id: tpm2
+    query: "sequence the flight test points so each configuration is swept once at one altitude before the next configuration, then check the steady state tolerance of the repeated speed sweep points"
+    intent: "flight test; efficiency sequencing of the test point matrix and steady state data quality check"
+    expected_skill: "flight-test-operations/planning/test-point-matrix-design"
+  - id: tns1
+    query: "apply the karman-tsien compressibility correction to the pressure coefficient at transonic mach and estimate the critical-mach number of the airfoil section"
+    intent: "high-speed aerodynamics; Karman-Tsien pressure coefficient correction and critical Mach estimation"
+    expected_skill: "aerodynamics/high-speed/transonic-similarity"
+  - id: tns2
+    query: "compute the transonic compressibility correction factor for the pressure coefficient at mach 0.85 using the karman-tsien rule and report the critical-mach number"
+    intent: "high-speed aerodynamics; Karman-Tsien compressibility correction factor and critical Mach number at high subsonic Mach"
+    expected_skill: "aerodynamics/high-speed/transonic-similarity"
+  - id: tst1
+    query: "compute the specific-work, stage-loading, degree-of-reaction, blade-row-loss, and total-to-total-efficiency of an axial-turbine-stage from the blade-speed, axial-velocity, and absolute flow angles of the turbine rotor"
+    intent: "propulsion; axial turbine stage velocity-triangle sizing with stage loading, reaction, and blade row losses"
+    expected_skill: "propulsion/axial-compressor/turbine-stage"
+  - id: tst2
+    query: "design the turbine stage of a gas turbine engine: set the degree-of-reaction and the blade-row-loss coefficients so the total-to-total-efficiency and the specific-work output meet the stage-loading target from the velocity-triangle"
+    intent: "propulsion; gas turbine engine turbine stage design with reaction and loss budget"
+    expected_skill: "propulsion/axial-compressor/turbine-stage"
+  - id: vlm1
+    query: "build a horseshoe vortex lattice panel model of a straight rectangular wing and solve the influence coefficient system for the spanwise lift distribution and the induced drag"
+    intent: "aerodynamics; horseshoe vortex lattice panel model for spanwise wing loading"
+    expected_skill: "aerodynamics/cfd/vortex-lattice-method"
+  - id: vlm2
+    query: "compute the downwash angle at each panel control point of a trapezoidal wing from the horseshoe vortex solution and derive the induced drag from the spanwise lift distribution"
+    intent: "aerodynamics; downwash angle and induced drag from a vortex lattice circulation solution"
+    expected_skill: "aerodynamics/cfd/vortex-lattice-method"
+  - id: wd1
+    query: "compute the zero-lift wave drag of the fuselage modeled as a Sears-Haack body with a length of 15 meters and a maximum radius of 0.54 meters"
+    intent: "aerodynamics; transonic zero-lift wave drag of a slender body via the Sears-Haack minimum-drag distribution"
+    expected_skill: "aerodynamics/high-speed/wave-drag-area-rule"
+  - id: wd2
+    query: "estimate the drag divergence Mach number of the transonic section and the wave drag rise at a flight Mach number 0.05 above it using the parabolic approximation"
+    intent: "aerodynamics; drag divergence and the parabolic transonic wave drag rise above the divergence Mach"
+    expected_skill: "aerodynamics/high-speed/wave-drag-area-rule"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
