@@ -14,15 +14,12 @@
   Standards-mapped skills that give a coding agent the certification process — not just the acronyms.
 </p>
 
-<!-- gen:statline -->
-<div align="center">
-
-$\large{\color{#0ea5e9}\textsf{\textbf{294}}}\ {\color{#8a93c4}\textsf{VERIFIED SKILLS}}$&nbsp;&nbsp;$\large{\color{#8b5cf6}\textsf{\textbf{74}}}\ {\color{#8a93c4}\textsf{LIVE PACKS}}$&nbsp;&nbsp;$\large{\color{#ec4899}\textsf{\textbf{12}}}\ {\color{#8a93c4}\textsf{FAMILIES}}$
-
-$\large{\color{#f97316}\textsf{\textbf{21}}}\ {\color{#8a93c4}\textsf{STANDARDS}}$&nbsp;&nbsp;$\large{\color{#0ea5e9}\textsf{\textbf{602}}}\ {\color{#8a93c4}\textsf{ROUTER TASKS}}$&nbsp;&nbsp;$\large{\color{#8b5cf6}\textsf{\textbf{8/8}}}\ {\color{#8a93c4}\textsf{GATES GREEN}}$
-
-</div>
-<!-- /gen:statline -->
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/statline-dark.svg">
+    <img src="docs/statline.svg" alt="294 verified skills · 74 live packs · 12 families · 21 standards · 602 router tasks · 8/8 gates green" width="100%">
+  </picture>
+</p>
 
 <!-- gen:badges -->
 <p align="center">
