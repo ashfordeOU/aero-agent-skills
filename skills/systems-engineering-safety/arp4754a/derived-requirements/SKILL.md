@@ -46,7 +46,7 @@ checklist before the requirement enters the requirements baseline.
 Worked example: a low-level requirement states "the backup power unit
 shall maintain 28 VDC output for 30 minutes after primary power loss."
 No high-level requirement or source document states this; the content
-came from a design decision on the power architecture. Classified as
+came from a design decision on the power architecture. Categorized as
 derived, source = design decision, rationale = the backup unit must
 cover the full diversion duration, impact = the electrical load
 analysis and the verification plan.
