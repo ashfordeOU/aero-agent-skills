@@ -17,12 +17,6 @@
   Standards-mapped skills that give a coding agent the certification process — not just the acronyms.
 </p>
 
-<!-- gen:statline -->
-<p align="center">
-  <code>289 verified skills</code> · <code>73 live packs</code> · <code>12 families</code> · <code>21 standards</code> · <code>578 router tasks</code> · <code>5/5 gates + 3/3 attest</code>
-</p>
-<!-- /gen:statline -->
-
 <!-- gen:badges -->
 <p align="center">
   <a href="skills/"><img src="https://img.shields.io/badge/skills-289-9fe870?style=for-the-badge&labelColor=171717" alt="skills 289"></a>
@@ -34,13 +28,7 @@
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5_REAL-2ea043?style=for-the-badge&labelColor=171717" alt="gates 5%2F5 REAL"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=for-the-badge&labelColor=171717" alt="attest 3%2F3"></a>
   <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-578-2ea043?style=for-the-badge&labelColor=171717" alt="router tasks 578"></a>
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/eval-deterministic_offline-555555?style=for-the-badge&labelColor=171717" alt="eval deterministic offline"></a>
-</p>
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-4a90d9?style=for-the-badge&labelColor=171717" alt="license Apache 2.0"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8250df?style=for-the-badge&labelColor=171717" alt="format agentskills.io"></a>
-  <a href="docs/harness-integration.md"><img src="https://img.shields.io/badge/harnesses-70%2B-555555?style=for-the-badge&labelColor=171717" alt="harnesses 70%2B"></a>
-  <a href="scripts/"><img src="https://img.shields.io/badge/python-stdlib_only-555555?style=for-the-badge&labelColor=171717" alt="python stdlib only"></a>
 </p>
 <!-- /gen:badges -->
 
@@ -219,6 +207,16 @@ The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills
 
 ### How it works
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/how-it-works-dark.svg">
+    <img src="docs/how-it-works.svg" alt="Pipeline: agent task → router picks skill by description → SKILL.md loads workflow and gates → standards context from standards-map → agent executes with verification → stop gate: human sign-off" width="100%">
+  </picture>
+</p>
+
+<details>
+<summary>Mermaid source</summary>
+
 ```mermaid
 flowchart LR
     A[Agent task] --> B[Router picks skill by description]
@@ -227,6 +225,8 @@ flowchart LR
     D --> E[Agent executes with verification]
     E --> F[Stop gate: human sign-off]
 ```
+
+</details>
 
 - **Discovery:** the router reads only the description (`what + when + trigger`) — loaded on demand, no context bloat
 - **Determinism:** every skill's behavior contract runs offline; the router is deterministic
