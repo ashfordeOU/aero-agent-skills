@@ -90,6 +90,27 @@ def main():
     if not skills:
         print("FAIL gate5-hit1: no skills indexed under skills/", file=sys.stderr)
         sys.exit(1)
+
+    # Coverage gate (founder mandate 2026-09-01): every leaf skill must have
+    # at least one corpus task, else the gate passes vacuously for skills
+    # that were never exercised. A leaf with no Hit@1 task is NOT verified.
+    leaves = {path for path in skills if "/" in path}
+    covered = {t.get("expected_skill") for t in tasks if t.get("expected_skill")}
+    uncovered = sorted(leaves - covered)
+    if uncovered:
+        for path in uncovered:
+            print(
+                "FAIL gate5-coverage: leaf '%s' has no corpus task (not verified)"
+                % path,
+                file=sys.stderr,
+            )
+        print(
+            "FAIL gate5-coverage: %d/%d leaves have corpus tasks"
+            % (len(leaves - set(uncovered)), len(leaves)),
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     fail = 0
     for t in tasks:
         q = t.get("query", "")
