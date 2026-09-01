@@ -1,0 +1,16 @@
+# Hit@1 wave-14 fragment: matrix-operations (cross-cutting/numerics)
+# Two tasks per new leaf skill; mo1 routes on Gaussian elimination with
+# partial pivoting, the determinant, the matrix inverse, and the residual
+# verification of the linear system solve; mo2 is adversarial: least-squares
+# normal-equation and differential-equation vocabulary must still route to
+# the dense linear-solve leaf, not least-squares-regression or ode-solvers.
+# Both must deterministically hit cross-cutting/numerics/matrix-operations.
+tasks:
+  - id: mo1
+    query: "solve the linear system Ax=b for the 3x3 matrix by gaussian elimination with partial pivoting, then compute the determinant and the matrix inverse and verify the solution with the residual check"
+    intent: "numerics; dense linear system solve by Gaussian elimination with partial pivoting, determinant, matrix inverse, residual verification"
+    expected_skill: "cross-cutting/numerics/matrix-operations"
+  - id: mo2
+    query: "the least-squares fit builds the normal equations A-transpose-A x = A-transpose-b: solve the 2x2 linear system by gaussian-elimination with partial-pivoting, take the matrix-inverse of the coefficient matrix for the parameter covariance, and check the singular-matrix verdict from the determinant, rather than time-marching the differential equation"
+    intent: "adversarial: least-squares normal-equation and differential-equation vocabulary must route to the dense linear-solve leaf, not the least-squares-regression fit leaf or the ode-solvers time-marching leaf"
+    expected_skill: "cross-cutting/numerics/matrix-operations"
