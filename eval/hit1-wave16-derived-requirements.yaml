@@ -1,0 +1,14 @@
+# Hit@1 wave-16 fragment: derived-requirements (systems-engineering-safety/arp4754a)
+# Two tasks per new leaf skill; dr1 routes on derived requirement
+# classification and rationale fields, dr2 is adversarial (an interface
+# resolution derivation must route to the derived-requirements leaf, not
+# to requirements-allocation, requirements-traceability, or validation).
+tasks:
+  - id: w16-derived-requirements-1
+    query: "classify a requirement with no parent trace and a design decision source as derived and list the rationale fields"
+    intent: "ARP4754A derived requirements classification and rationale"
+    expected_skill: "systems-engineering-safety/arp4754a/derived-requirements"
+  - id: w16-derived-requirements-2
+    query: "a low-level requirement arose from an interface resolution during design and has no parent trace: record the derivation source, the derivation rationale, and the impact analysis before it enters the requirements baseline"
+    intent: "adversarial: interface resolution derivation rationale must route to the derived-requirements leaf, not to requirements-allocation, requirements-traceability, or validation"
+    expected_skill: "systems-engineering-safety/arp4754a/derived-requirements"
