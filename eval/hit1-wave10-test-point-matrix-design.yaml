@@ -1,0 +1,14 @@
+# Hit@1 wave-10 fragment: test-point-matrix-design
+# (flight-test-operations/planning) Two tasks per new leaf skill; tpm2
+# is cross-cutting (sequence/steady state wording could route to
+# flight-test-planning, must deterministically route to
+# test-point-matrix-design).
+tasks:
+  - id: tpm1
+    query: "build the flight test point matrix from an altitude sweep at 10000 and 20000 feet, a speed sweep from 120 to 160 knots, and a weight sweep at 50000 and 55000 pounds, then mark every third point as a repeat point for data quality"
+    intent: "flight test; condition sweep grid expansion and repeat point marking"
+    expected_skill: "flight-test-operations/planning/test-point-matrix-design"
+  - id: tpm2
+    query: "sequence the flight test points so each configuration is swept once at one altitude before the next configuration, then check the steady state tolerance of the repeated speed sweep points"
+    intent: "flight test; efficiency sequencing of the test point matrix and steady state data quality check"
+    expected_skill: "flight-test-operations/planning/test-point-matrix-design"
