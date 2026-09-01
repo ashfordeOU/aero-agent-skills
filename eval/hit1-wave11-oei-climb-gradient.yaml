@@ -1,0 +1,16 @@
+# Hit@1 wave-11 fragment: oei-climb-gradient (flight-mechanics)
+# Two tasks per new leaf skill; ocg1 routes on the engine out
+# gradient inputs (OEI thrust, drag, weight, second segment), ocg2
+# routes on the certification clearance vocabulary (FAR-25.121
+# minimums, engine count, approach and landing climb) that spans
+# flight mechanics and the FAR/CS-25 certification domain. Both
+# must deterministically hit flight-mechanics/performance/oei-climb-gradient.
+tasks:
+  - id: ocg1
+    query: "compute the one engine inoperative climb gradient for the second segment of the takeoff from the oei thrust, drag, and weight"
+    intent: "flight mechanics; OEI climb gradient from thrust, drag, and weight"
+    expected_skill: "flight-mechanics/performance/oei-climb-gradient"
+  - id: ocg2
+    query: "verify the engine out takeoff climb gradient clears the far 25.121 second segment minimum gradient for the twin transport certification analysis"
+    intent: "flight mechanics; OEI climb gradient against the FAR-25.121 second segment minimum; spans the FAR/CS-25 certification domain"
+    expected_skill: "flight-mechanics/performance/oei-climb-gradient"
