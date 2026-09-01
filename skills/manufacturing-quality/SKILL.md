@@ -1,6 +1,6 @@
 ---
 name: manufacturing-quality
-description: "Use when a task concerns aerospace manufacturing and quality management: guide the router to the manufacturing-quality pack. AS9100 quality, nonconformance-control, supplier-control, counterfeit-prevention, calibration-control, corrective-action, document-control, and statistical-process-control cover QMS scoping, disposition, supplier risk, counterfeit scoring, calibration, CAPA closure, controlled documents, and SPC control limits; first-article-inspection, delta-fai, and fai-revalidation cover AS9102 FAI, change classification, and revalidation; ndt-method-selection and ultrasonic-inspection cover NDT selection and pulse-echo ultrasonic. Trigger: manufacturing quality, AS9100, AS9102, first article inspection, QMS, corrective action, CAPA, 8D, five whys, document control, FAI, revalidation, counterfeit prevention, nonconformance, disposition, MRB, supplier control, calibration, test accuracy ratio, statistical process control, SPC, control limits, Cpk, NDT, radiography, ultrasonic, pulse echo."
+description: "Use when a task concerns aerospace manufacturing and quality management: guide the router to the manufacturing-quality pack. AS9100 quality, nonconformance-control, supplier-control, counterfeit-prevention, calibration-control, corrective-action, document-control, and statistical-process-control cover QMS scoping, disposition, supplier risk, counterfeit scoring, calibration, CAPA closure, controlled documents, and SPC; first-article-inspection, delta-fai, and fai-revalidation cover AS9102 FAI; ndt-method-selection, ultrasonic-inspection, eddy-current-inspection, and radiographic-inspection cover NDT. Trigger: manufacturing quality, AS9100, AS9102, first article inspection, QMS, corrective action, CAPA, 8D, five whys, document control, FAI, revalidation, counterfeit prevention, nonconformance, disposition, MRB, supplier control, calibration, test accuracy ratio, statistical process control, SPC, Cpk, NDT, radiography, ultrasonic, eddy current, depth of penetration."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -52,7 +52,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/ultrasonic-inspection | Ultrasonic inspection | pulse-echo, time of flight to depth, wavelength, near field, discontinuity sizing |
 | manufacturing-quality/ndt/radiographic-inspection | Radiographic inspection | radiography, X-ray, gamma ray, geometric unsharpness, IQI, penetrameter, film density, porosity |
 | manufacturing-quality/as9100/statistical-process-control | Statistical process control | X-bar chart, R chart, control limits, Cp/Cpk, process capability, Western Electric rules |
-| manufacturing-quality/as9100/statistical-process-control | Statistical process control | X-bar chart, R chart, control limits, Cp/Cpk, process capability, Western Electric rules |
+| manufacturing-quality/ndt/eddy-current-inspection | Eddy current inspection | eddy current, depth of penetration, impedance plane, frequency selection, conductivity, subsurface flaw |
 
 ## Routing guidance
 
@@ -92,7 +92,7 @@ selection and ultrasonic inspection).
   systems-engineering-safety packs.
 
 - SPC, control chart, and process capability questions route to the AS9100 statistical-process-control sub-skill.
-- SPC, control chart, and process capability questions route to the AS9100 statistical-process-control sub-skill.
+- Eddy current, depth of penetration, and frequency-selection questions route to the ndt eddy-current-inspection sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
