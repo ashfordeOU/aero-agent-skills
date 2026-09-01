@@ -1,0 +1,14 @@
+# Hit@1 wave-18 fragment: tire-sizing (sizing)
+# Two tasks per new leaf; q1 routes on the tire diameter and width power
+# law fits from the static load per tire, q2 routes on the tire count,
+# inflation pressure, and footprint contact area. Both must
+# deterministically hit vehicle-design/sizing/tire-sizing.
+tasks:
+  - id: w18-tire-sizing-1
+    query: "size the main landing gear tires from the static load per tire and compute the tire diameter and width with the power law fit"
+    intent: "vehicle design; tire diameter and width power law fits from the static load per tire"
+    expected_skill: "vehicle-design/sizing/tire-sizing"
+  - id: w18-tire-sizing-2
+    query: "select the number of tires, the inflation pressure, and the footprint contact area for the landing gear tires from the static load per tire"
+    intent: "vehicle design; tire count, inflation pressure, and footprint contact area from the static load"
+    expected_skill: "vehicle-design/sizing/tire-sizing"
