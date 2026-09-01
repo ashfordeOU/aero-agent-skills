@@ -1,0 +1,13 @@
+# Hit@1 wave-12 fragment: eddy-current-inspection (manufacturing-quality/ndt)
+# Two tasks per new leaf skill; eci2 is cross-cutting (frequency selection
+# wording that could route to ndt-method-selection, must deterministically
+# route to eddy-current-inspection).
+tasks:
+  - id: eci1
+    query: "compute the standard depth of penetration for an eddy current inspection of copper at 100 kHz with 5.8e7 S/m conductivity, and the phase lag at one depth of penetration for the impedance plane"
+    intent: "manufacturing-quality; eddy current depth of penetration from frequency and conductivity, phase lag at one delta"
+    expected_skill: "manufacturing-quality/ndt/eddy-current-inspection"
+  - id: eci2
+    query: "select the eddy current test frequency for a subsurface flaw at 1 mm depth in aluminum with 30 percent IACS conductivity, keeping the flaw within one standard depth of penetration, and interpret the lift-off trajectory on the impedance plane"
+    intent: "adversarial: frequency selection and material wording (select, aluminum, conductivity) must route to eddy-current-inspection"
+    expected_skill: "manufacturing-quality/ndt/eddy-current-inspection"
