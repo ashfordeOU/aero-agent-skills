@@ -1,0 +1,15 @@
+# Hit@1 wave-9 fragment: trim-analysis (flight-mechanics)
+# Two tasks per new leaf skill; trm1 routes on stick fixed trim
+# terminology (elevator deflection, trim lift coefficient),
+# trm2 routes on the wider pitch trim phrasing (trim condition,
+# trim speed, level flight). Both must deterministically hit
+# flight-mechanics/stability-control/trim-analysis.
+tasks:
+  - id: trm1
+    query: "compute the elevator deflection required to trim the aircraft at the trim lift coefficient for the stick fixed analysis"
+    intent: "flight mechanics; elevator deflection to trim at the trim lift coefficient"
+    expected_skill: "flight-mechanics/stability-control/trim-analysis"
+  - id: trm2
+    query: "determine the trim condition and the trim speed for the level flight pitch trim assessment"
+    intent: "flight mechanics; trim condition and trim speed in level flight"
+    expected_skill: "flight-mechanics/stability-control/trim-analysis"
