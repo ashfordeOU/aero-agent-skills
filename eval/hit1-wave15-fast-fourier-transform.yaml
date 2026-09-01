@@ -1,0 +1,16 @@
+# Hit@1 wave-15 fragment: fast-fourier-transform (cross-cutting/numerics)
+# Two tasks per new leaf. fft1 routes on the radix-2 Cooley-Tukey FFT
+# of a sampled signal with magnitude and phase spectrum extraction;
+# fft2 is the cross-domain adversarial task that mentions integrating
+# and interpolating as decoys but must hit the fast Fourier transform
+# leaf. Both must deterministically hit
+# cross-cutting/numerics/fast-fourier-transform.
+tasks:
+  - id: fft1
+    query: "compute the radix-2 fast-fourier-transform of the sampled vibration signal with the cooley-tukey decomposition and extract the magnitude spectrum and the phase spectrum"
+    intent: "numerics; radix-2 Cooley-Tukey FFT of a sampled signal with magnitude and phase spectrum extraction"
+    expected_skill: "cross-cutting/numerics/fast-fourier-transform"
+  - id: fft2
+    query: "find the frequency bin of the dominant tone by computing the fourier spectrum of the sampled signal rather than integrating the waveform or interpolating between the sample points"
+    intent: "numerics; dominant tone frequency bin from the Fourier spectrum, adversarial against numerical-integration and interpolation routing"
+    expected_skill: "cross-cutting/numerics/fast-fourier-transform"
