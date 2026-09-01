@@ -1,0 +1,14 @@
+# Hit@1 wave-19 fragment: six-dof-simulation (flight-mechanics)
+# Two tasks per new leaf skill; sds1 routes on body-axis state propagation
+# (rigid body equations of motion, fourth order Runge Kutta), sds2 routes on
+# Euler angle kinematics (attitude rates from body angular velocities p q r).
+# Both must deterministically hit flight-mechanics/flight-dynamics-sim/six-dof-simulation.
+tasks:
+  - id: w19-six-dof-simulation-1
+    query: "propagate the rigid body aircraft state one step with the six degree of freedom body axis equations of motion using a fourth order runge kutta integrator"
+    intent: "flight dynamics; six-DOF body-axis state propagation with RK4"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/six-dof-simulation"
+  - id: w19-six-dof-simulation-2
+    query: "compute the euler angle rates from the body axis angular velocities p q r and integrate the attitude over the simulation step"
+    intent: "flight dynamics; Euler angle rate kinematics from body angular rates"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/six-dof-simulation"
