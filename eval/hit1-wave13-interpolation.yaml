@@ -1,0 +1,15 @@
+# Hit@1 wave-13 fragment: interpolation (cross-cutting/numerics)
+# Two tasks per new leaf; itp1 routes on linear table interpolation of
+# tabulated lift coefficient data, itp2 routes on natural cubic spline
+# interpolation of a drag polar table with wording that could route to
+# drag-polar or finite-difference-derivatives but must top-1 to
+# cross-cutting/numerics/interpolation.
+tasks:
+  - id: itp1
+    query: "use linear interpolation to interpolate the lift coefficient at alpha 6 degrees from the tabulated aerodynamic data table"
+    intent: "numerics; piecewise linear table interpolation of tabulated lift coefficient data"
+    expected_skill: "cross-cutting/numerics/interpolation"
+  - id: itp2
+    query: "interpolate between the tabulated data points of the drag polar table using a natural cubic spline and report the interpolated value at the intermediate point"
+    intent: "numerics; natural cubic spline interpolation over tabulated drag polar data, cross-cutting with aerodynamics data tables"
+    expected_skill: "cross-cutting/numerics/interpolation"
