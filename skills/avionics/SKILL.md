@@ -54,6 +54,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do178c/airworthiness-liaison | DO-178C airworthiness liaison | certification basis coverage, SOI audits, open items |
 | avionics/do160/environmental-qualification | DO-160 environmental qualification | test matrix per equipment category, temperature/vibration/EMC |
 | avionics/do160/lightning-protection | DO-160 lightning protection | section 22 induced transients, lightning protection zones |
+| avionics/do160/electrostatic-discharge | DO-160 electrostatic discharge | section 25 ESD air discharge level, 150 pF / 330 ohm generator model, test point applicability |
 | avionics/do160/radio-frequency-susceptibility | DO-160 RF susceptibility | RS103 radiated immunity, CS114 conducted immunity, field strength |
 | avionics/do160/power-input | DO-160 power input | section 16 voltage limits, sag/surge transients, frequency tolerance |
 | avionics/do254/hardware-planning | DO-254 hardware planning | simple vs complex AEH, PHAC |
@@ -77,6 +78,11 @@ airworthiness certification (FAR-25/CS-25).
 - Tool credit and qualification questions route to the DO-330 sub-skill.
 - Environmental test questions (temperature, vibration, EMC, lightning,
   RF immunity) route to the DO-160 sub-skills.
+- Electrostatic discharge questions (section 25 air discharge level,
+  150 pF / 330 ohm generator model, discharge counts, test point
+  applicability from personnel accessibility) route to the DO-160
+  electrostatic-discharge sub-skill, not to lightning-protection or
+  power-input.
 - Power-input questions (section 16 voltage limits, sag/surge transients,
   frequency tolerance, emergency power) route to the DO-160 power-input
   sub-skill.
