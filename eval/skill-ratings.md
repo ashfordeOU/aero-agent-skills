@@ -318,3 +318,4 @@ Total skills rated: 306
 | 310 | space-systems/mission-design/launch-window-analysis | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 311 | systems-engineering-safety/arp4754a/configuration-management | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
 | 312 | avionics/fsw/cfs-architecture | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 313 | vehicle-design/conceptual/sizing-mission-profile | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
