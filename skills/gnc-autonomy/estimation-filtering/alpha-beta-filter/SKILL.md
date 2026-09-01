@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: gnc-autonomy
-pack: estimation-filtering
+pack: gnc-autonomy
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: gnc-autonomy

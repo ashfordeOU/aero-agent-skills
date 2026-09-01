@@ -64,6 +64,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/eigenvalue-decomposition | Eigenvalue decomposition | eigenvalue, eigenvector, Jacobi algorithm, power iteration, deflation, Rayleigh quotient, symmetric matrix |
 | cross-cutting/numerics/root-finding | Root finding | bisection, Newton-Raphson, secant method, convergence tolerance, bracketing |
 | cross-cutting/units-atmos/dimensional-analysis | Dimensional analysis | Buckingham Pi theorem, dimensional homogeneity, Pi groups, Reynolds number, unit consistency |
+| cross-cutting/data-sources/aeronautical-data-sources | Aeronautical data sources | data source credibility, revision status, publisher, engineering reference, citation line, authoritative source |
 ## Routing guidance
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
@@ -120,6 +121,7 @@ integration) for engineering calculations.
 - Eigenvalue and eigenvector computation, Jacobi eigenvalue algorithm, power iteration, deflation, and Rayleigh quotient questions route to the numerics eigenvalue-decomposition sub-skill.
 - Bisection, Newton-Raphson, secant method, and convergence tolerance questions route to the numerics root-finding sub-skill.
 - Dimensional analysis, Buckingham Pi theorem, Pi group formation, and dimensional homogeneity checks route to the units-atmos dimensional-analysis sub-skill.
+- Data source credibility, revision control, and engineering citation questions route to the data-sources aeronautical-data-sources sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

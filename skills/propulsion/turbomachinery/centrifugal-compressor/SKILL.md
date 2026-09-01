@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: propulsion
-pack: turbomachinery
+pack: propulsion
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: propulsion

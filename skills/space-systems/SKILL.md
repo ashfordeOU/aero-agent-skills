@@ -58,6 +58,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/lambert-transfer | Lambert transfer | Lambert problem, two-position transfer, time of flight constraint, transfer orbit, transfer delta-v, short way, long way |
 | space-systems/orbit-mechanics/satellite-coverage | Satellite coverage | access circle, swath width, off-nadir angle, minimum elevation, revisit time, coverage fraction |
 | space-systems/orbit-mechanics/orbital-decay | Orbital decay | ballistic coefficient, atmospheric drag decay rate, deorbit lifetime, drag coefficient, LEO lifetime |
+| space-systems/mission-design/mission-delta-v-budget | Mission delta-v budget | delta v budget, insertion, transfer, station keeping, deorbit, margin, Tsiolkovsky propellant mass, specific impulse |
 ## Routing guidance
 
 - Space software questions (criticality classification, assurance rigor,
@@ -108,6 +109,7 @@ selection, and classical orbital element determination.
   packs (gnc-autonomy, propulsion, structures).
 - Access circle, swath width, off-nadir angle, minimum elevation constraint, and coverage fraction questions route to the orbit-mechanics satellite-coverage sub-skill.
 - Orbital decay and deorbit lifetime estimation, ballistic coefficient, and atmospheric drag effects on LEO spacecraft route to the orbit-mechanics orbital-decay sub-skill.
+- Mission delta-v budget summation, insertion and transfer contributions, margin allocation, and Tsiolkovsky propellant mass questions route to the mission-design mission-delta-v-budget sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: manufacturing-quality
-pack: additive
+pack: manufacturing-quality
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: manufacturing-quality
