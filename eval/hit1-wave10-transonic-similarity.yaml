@@ -3,13 +3,14 @@
 # correction wording could route toward drag-polars/lift-curve-slope,
 # which also applies the Prandtl-Glauert Mach correction; the
 # Karman-Tsien + critical-Mach phrasing must deterministically route to
-# transonic-similarity).
+# transonic-similarity). Ids prefixed tns to avoid collision with the
+# existing ts1/ts2 tail-sizing tasks.
 tasks:
-  - id: ts1
+  - id: tns1
     query: "apply the karman-tsien compressibility correction to the pressure coefficient at transonic mach and estimate the critical-mach number of the airfoil section"
     intent: "high-speed aerodynamics; Karman-Tsien pressure coefficient correction and critical Mach estimation"
     expected_skill: "aerodynamics/high-speed/transonic-similarity"
-  - id: ts2
+  - id: tns2
     query: "compute the transonic compressibility correction factor for the pressure coefficient at mach 0.85 using the karman-tsien rule and report the critical-mach number"
     intent: "high-speed aerodynamics; Karman-Tsien compressibility correction factor and critical Mach number at high subsonic Mach"
     expected_skill: "aerodynamics/high-speed/transonic-similarity"
