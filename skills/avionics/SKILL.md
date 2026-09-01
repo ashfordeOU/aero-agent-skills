@@ -54,6 +54,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do160/environmental-qualification | DO-160 environmental qualification | test matrix per equipment category, temperature/vibration/EMC |
 | avionics/do160/lightning-protection | DO-160 lightning protection | section 22 induced transients, lightning protection zones |
 | avionics/do160/radio-frequency-susceptibility | DO-160 RF susceptibility | RS103 radiated immunity, CS114 conducted immunity, field strength |
+| avionics/do160/power-input | DO-160 power input | section 16 voltage limits, sag/surge transients, frequency tolerance |
 | avionics/do254/hardware-planning | DO-254 hardware planning | simple vs complex AEH, PHAC |
 | avionics/do254/verification | DO-254 verification | verification methods per AEH class, independence, coverage |
 | avionics/do254/configuration-management | DO-254 configuration management | baselines, ECR/ECO, change class, hardware configuration index |
@@ -70,6 +71,9 @@ airworthiness certification (FAR-25/CS-25).
 - Tool credit and qualification questions route to the DO-330 sub-skill.
 - Environmental test questions (temperature, vibration, EMC, lightning,
   RF immunity) route to the DO-160 sub-skills.
+- Power-input questions (section 16 voltage limits, sag/surge transients,
+  frequency tolerance, emergency power) route to the DO-160 power-input
+  sub-skill.
 - Hardware assurance questions (AEH classification, PHAC, verification,
   requirements capture) route to the DO-254 sub-skills.
 - Hardware configuration and change-control questions (baselines,
