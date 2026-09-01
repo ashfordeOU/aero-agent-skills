@@ -46,6 +46,7 @@ material selection.
 | structures/fatigue/miner-damage | Miner damage | cumulative fatigue damage, Palmgren-Miner sum, fatigue life |
 | structures/fatigue/goodman-diagram | Goodman diagram | mean-stress correction, Goodman/Gerber/Soderberg, Haigh diagram |
 | structures/fatigue/load-spectrum-counting | Load spectrum counting | rainflow counting, level crossing, exceedance spectra, mission load spectra, spectrum truncation |
+| structures/fatigue/notch-sensitivity | Notch sensitivity | stress concentration factor Kt, fatigue notch factor Kf, Neuber, Peterson, notch root radius, effective stress amplitude, notched fatigue assessment |
 | structures/composites/laminate-stiffness | Laminate stiffness | CLT, lamina stiffness, laminate ABD matrix, ply layup |
 | structures/composites/composite-bolted-joints | Composite bolted joints | bearing stress, bypass load, net tension, shear-out, edge distance |
 | structures/composites/sandwich-panels | Sandwich panels | face stress, core shear, wrinkling, bending stiffness, core selection |
@@ -73,6 +74,9 @@ material selection.
   questions route to the fatigue goodman-diagram sub-skill.
 - Rainflow counting and load spectrum questions route to the fatigue
   load-spectrum-counting sub-skill.
+- Stress concentration, fatigue notch factor, Neuber, Peterson, and
+  notch sensitivity questions route to the fatigue notch-sensitivity
+  sub-skill.
 - Lamina and laminate stiffness questions (CLT, ABD) route to the
   composites laminate-stiffness sub-skill; bolted joint bearing,
   bypass, net-tension and shear-out questions route to the composites
