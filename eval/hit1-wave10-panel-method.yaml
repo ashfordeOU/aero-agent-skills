@@ -1,0 +1,13 @@
+# Hit@1 wave-10 fragment: panel-method (aerodynamics/cfd)
+# Two tasks per new leaf skill; pm2 is cross-cutting (3D body and
+# pressure wording could route to cfd-mesh-generation or
+# airfoil-geometry, must deterministically route to panel-method).
+tasks:
+  - id: pm1
+    query: "compute the pressure distribution and lift coefficient of a 2d airfoil using a source panel method with a neumann boundary condition"
+    intent: "aerodynamics; source panel method pressure and lift on an airfoil with the Neumann condition"
+    expected_skill: "aerodynamics/cfd/panel-method"
+  - id: pm2
+    query: "apply a doublet panel method with a dirichlet boundary condition to find the surface pressure coefficient of a 3d body in incompressible potential flow"
+    intent: "aerodynamics; doublet panel Dirichlet solution for a 3D body in potential flow"
+    expected_skill: "aerodynamics/cfd/panel-method"
