@@ -53,6 +53,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/guidance/pursuit-guidance | Pursuit guidance | pure pursuit aim heading, wrapped guidance error, lead pursuit lead angle, capture condition, intercept time |
 | gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
 | gnc-autonomy/guidance/command-to-line-of-sight | Command to line of sight | CLOS guidance, line of sight angle, steering command, LOS error |
+| gnc-autonomy/control/lead-lag-compensation | Lead lag compensation | phase lead/lag compensator design, phase margin boost, gain crossover frequency, steady state error constant |
 
 ## Routing guidance
 
@@ -89,6 +90,7 @@ and guidance laws (proportional navigation, pursuit).
 
 - Kalman filtering, state estimation, and sensor fusion questions route to the navigation kalman-filter-design sub-skill.
 - Command-to-line-of-sight and LOS error steering questions route to the guidance command-to-line-of-sight sub-skill.
+- Phase lead/lag compensator, phase margin boost, crossover placement, and steady state error constant questions route to the control lead-lag-compensation sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
