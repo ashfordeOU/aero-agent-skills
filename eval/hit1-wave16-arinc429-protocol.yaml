@@ -1,0 +1,15 @@
+# Hit@1 wave-16 fragment: arinc429-protocol (avionics/data-bus)
+# Two tasks per new leaf; w16-arinc429-protocol-1 routes on word encoding
+# (label, SDI, BNR data field, SSM, odd parity), w16-arinc429-protocol-2 on
+# decoding a received word (octal label, SDI, BCD data, parity check) at the
+# 100 kbps bus rate. Both must deterministically hit
+# avionics/data-bus/arinc429-protocol.
+tasks:
+  - id: w16-arinc429-protocol-1
+    query: "encode an ARINC 429 word with label, SDI, BNR data field, SSM, and odd parity"
+    intent: "ARINC 429 word format and BNR encoding"
+    expected_skill: "avionics/data-bus/arinc429-protocol"
+  - id: w16-arinc429-protocol-2
+    query: "decode the ARINC 429 data word received on the 100 kbps bus: extract the octal label, the SDI field, and the BCD data, then check the odd parity bit"
+    intent: "ARINC 429 word decode, octal label addressing, BCD data, and odd parity check"
+    expected_skill: "avionics/data-bus/arinc429-protocol"
