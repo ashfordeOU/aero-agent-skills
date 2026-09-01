@@ -68,6 +68,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/data-bus/arinc429-protocol | ARINC 429 protocol | ARINC 429 word format, octal label, SDI, BNR, BCD, SSM, odd parity, 12.5 or 100 kbps, transmitter receiver topology |
 | avionics/data-bus/mil-std-1553 | MIL-STD-1553 data bus | command word, remote terminal, bus controller, Manchester II, dual redundant bus, message format |
 | avionics/data-bus/arinc664-afdx | ARINC 664 AFDX network | virtual link, BAG, frame size, jitter, end system, switched ethernet, latency |
+| avionics/ima/ima-partitioning | IMA partitioning | ARINC 653 partition, major frame, partition schedule, sampling port, queuing port, inter-partition communication, health monitoring |
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
@@ -105,6 +106,7 @@ airworthiness certification (FAR-25/CS-25).
   systems-engineering-safety pack instead.
 - MIL-STD-1553 command word encoding, remote terminal and bus controller architecture, Manchester II, and dual redundant bus questions route to the data-bus mil-std-1553 sub-skill.
 - ARINC 664 AFDX virtual link bandwidth, BAG, jitter, end-to-end latency, and switched network configuration questions route to the data-bus arinc664-afdx sub-skill.
+- ARINC 653 partition scheduling, major frame feasibility, sampling and queuing ports, and IMA health monitoring questions route to the ima ima-partitioning sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

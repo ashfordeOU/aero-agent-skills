@@ -59,6 +59,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/mdo/multidisciplinary-optimization | Multidisciplinary optimization | MDO, design variables, objective function, constraints, discipline coupling, aero-structural loop, fixed point iteration, design space search |
 | vehicle-design/sizing/propeller-sizing | Propeller sizing | propeller diameter, blade count, solidity, activity factor, disk loading, advance ratio, ground clearance |
 | vehicle-design/sizing/tire-sizing | Tire sizing | tire diameter, tire width, static load per tire, gear load share, tire pressure, footprint |
+| vehicle-design/conceptual/constraint-analysis | Constraint analysis | matching chart, thrust to weight ratio, wing loading, stall constraint, climb gradient, takeoff distance, feasible region |
 ## Routing guidance
 
 - Takeoff gross weight and fuel-fraction questions route to the
@@ -111,6 +112,7 @@ aerodynamic, structural, and performance disciplines together.
 - Multidisciplinary optimization, aero-structural coupling loops, fixed-point discipline iteration, and design-space search questions route to the mdo multidisciplinary-optimization sub-skill.
 - Propeller diameter, blade count, solidity, activity factor, disk loading, and advance ratio questions route to the sizing propeller-sizing sub-skill.
 - Landing gear tire sizing, static load per tire, tire diameter and width, and tire pressure questions route to the sizing tire-sizing sub-skill.
+- Constraint analysis matching chart, thrust to weight ratio, wing loading, stall, climb gradient, and takeoff distance constraint questions route to the conceptual constraint-analysis sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

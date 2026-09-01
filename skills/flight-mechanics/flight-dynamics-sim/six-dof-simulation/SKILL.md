@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: flight-mechanics
-pack: flight-dynamics-sim
+pack: flight-mechanics
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: flight-mechanics

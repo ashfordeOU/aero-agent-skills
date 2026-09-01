@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: systems-engineering-safety
-pack: requirements
+pack: systems-engineering-safety
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: systems-engineering-safety

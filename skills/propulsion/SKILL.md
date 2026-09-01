@@ -59,6 +59,7 @@ compressor stage and operating-map analysis.
 | propulsion/engine-airframe/engine-airframe-integration | Engine-airframe integration | installed thrust, intake momentum drag, nozzle gross thrust, nacelle drag, pylon drag, bleed extraction, thrust-drag bookkeeping |
 | propulsion/rocket/thrust-vector-control | Thrust vector control | gimbal deflection, side force, control torque, axial thrust loss, actuator authority, TVC |
 | propulsion/rocket/combustion-chamber-design | Combustion chamber design | characteristic velocity, c-star, chamber pressure, throat area, chamber volume, residence time |
+| propulsion/turbomachinery/centrifugal-compressor | Centrifugal compressor | impeller tip speed, slip factor, Wiesner, work input coefficient, stage pressure ratio, isentropic efficiency |
 ## Routing guidance
 
 - Brayton/gas-turbine thermodynamics route to the gas-turbine-cycle
@@ -106,6 +107,7 @@ compressor stage and operating-map analysis.
 - Installed thrust, intake momentum drag, nacelle and pylon drag, bleed extraction, and thrust-drag bookkeeping questions route to the engine-airframe engine-airframe-integration sub-skill.
 - Gimbal deflection, side force, control torque, axial thrust loss, and actuator authority sizing questions route to the rocket thrust-vector-control sub-skill.
 - Rocket combustion chamber sizing, characteristic velocity c-star, chamber pressure and throat area, and residence time questions route to the rocket combustion-chamber-design sub-skill.
+- Centrifugal compressor impeller tip speed, slip factor, work input, stage pressure ratio, and isentropic efficiency questions route to the turbomachinery centrifugal-compressor sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

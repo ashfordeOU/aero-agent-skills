@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: aerodynamics
-pack: aeroelasticity
+pack: aerodynamics
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: aerodynamics

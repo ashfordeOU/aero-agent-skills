@@ -10,7 +10,7 @@ standards:
     reference-only: true
 gated: false
 domain: cross-cutting
-pack: data-sources
+pack: cross-cutting
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: cross-cutting
