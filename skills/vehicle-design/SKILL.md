@@ -1,6 +1,6 @@
 ---
 name: vehicle-design
-description: "Use when a task concerns aircraft or vehicle conceptual design and sizing: guide the router to the vehicle-design pack, whose tow-estimation covers takeoff gross weight, weight-estimation covers class-I weights, payload-range-diagram covers the Breguet payload-range trade, fuselage-sizing covers cabin layout, tail-sizing covers tail volume coefficients, landing-gear-sizing covers strut loads, ws-tw-trade covers wing loading and thrust-to-weight, inertia-estimation covers moments of inertia, cg-envelope covers static margin, parametric-cost covers CERs, and life-cycle-cost covers LCC and learning curves. Trigger: vehicle design, aircraft design, sizing, weight estimation, weight and balance, takeoff gross weight, payload range, Breguet, fuselage, tail volume, landing gear, strut loads, wing loading, thrust to weight, inertia, cg envelope, static margin, parametric cost, life cycle cost, LCC, learning curve."
+description: "Use when a task concerns aircraft or vehicle conceptual design and sizing: guide the router to the vehicle-design pack. tow-estimation covers takeoff gross weight, weight-estimation class-I weights, payload-range-diagram the Breguet payload-range trade, fuselage-sizing cabin layout, tail-sizing tail volume coefficients, landing-gear-sizing strut loads, ws-tw-trade wing loading and thrust-to-weight, fuel-tank-sizing fuel volume and ullage, inertia-estimation moments of inertia, cg-envelope static margin, mass-budget mass rollup and growth allowance, parametric-cost CERs, operating-cost DOC, life-cycle-cost LCC and learning curves. Trigger: vehicle design, aircraft design, sizing, weight estimation, takeoff gross weight, payload range, Breguet, fuselage, tail volume, landing gear, strut loads, wing loading, thrust to weight, fuel tank, ullage, inertia, cg envelope, static margin, mass budget, growth allowance, parametric cost, direct operating cost, life cycle cost, LCC, learning curve."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -44,9 +44,12 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/tail-sizing | Tail sizing | horizontal and vertical tail volume coefficients, required tail area, tail arm |
 | vehicle-design/sizing/landing-gear-sizing | Landing gear sizing | strut load distribution, nose/main gear loads from CG and wheelbase, shock absorber stroke |
 | vehicle-design/sizing/ws-tw-trade | W/S and T/W matching | wing loading, thrust-to-weight, matching chart, takeoff/climb/cruise constraints |
+| vehicle-design/sizing/fuel-tank-sizing | Fuel tank sizing | fuel volume from fuel mass, ullage allowance, required tank volume, wing/fuselage tank capacity fit |
 | vehicle-design/mass-properties/inertia-estimation | Inertia estimation | moments of inertia, radius of gyration, parallel axis theorem |
 | vehicle-design/mass-properties/cg-envelope | CG envelope | forward and aft limits, static margin from neutral point, envelope polygon, cg excursion with fuel burn |
+| vehicle-design/mass-properties/mass-budget | Mass budget | subsystem masses, growth allowance, contingency margin, rollup, MTOW target check |
 | vehicle-design/cost-estimation/parametric-cost | Parametric cost | CER, development cost, learning curve, unit cost, program cost |
+| vehicle-design/cost-estimation/operating-cost | Operating cost | direct operating cost, block fuel cost, crew cost, maintenance cost, insurance, cost per flight hour |
 | vehicle-design/cost-estimation/life-cycle-cost | Life cycle cost | LCC phases, power-law CERs, learning curve Nth unit, present value, inflation, uncertainty |
 
 ## Routing guidance
@@ -66,13 +69,19 @@ aerodynamic, structural, and performance disciplines together.
 - Wing loading and thrust to weight matching questions (the sizing
   matching chart, takeoff distance, climb gradient, and cruise
   constraints) route to the sizing/ws-tw-trade sub-skill.
+- Fuel volume, ullage, and tank capacity questions route to the
+  sizing fuel-tank-sizing sub-skill.
 - Moment of inertia and radius of gyration questions route to the
   mass-properties inertia-estimation sub-skill.
 - CG envelope questions (forward/aft limits, static margin, envelope
   polygon, cg excursion) route to the mass-properties cg-envelope
   sub-skill.
+- Mass rollup, growth allowance, and contingency margin questions
+  route to the mass-properties mass-budget sub-skill.
 - Cost estimating relationship and learning curve questions route to
   the cost-estimation parametric-cost sub-skill.
+- Direct operating cost, fuel, crew, and maintenance cost questions
+  route to the cost-estimation operating-cost sub-skill.
 - Life cycle cost, LCC phase, present value, and uncertainty
   questions route to the cost-estimation life-cycle-cost sub-skill.
 - Aerodynamic, structural, and certification questions route to their

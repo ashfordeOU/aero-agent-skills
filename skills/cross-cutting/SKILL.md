@@ -1,6 +1,6 @@
 ---
 name: cross-cutting
-description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack, whose SEP-2640 skill-delivery, skill-evaluation, and skill-authoring cover SKILL.md conformance, quality, and authoring, isa-atmosphere and unit-conversion cover atmosphere and units, engineering-margins and engineering-report cover margins and reports, and convergence-verification, least-squares-regression, uncertainty-propagation, numerical-integration cover Richardson, OLS, GUM, and quadrature. Trigger: skill delivery, SEP-2640, skill evaluation, skill authoring, SKILL.md, frontmatter, skill URI, standard atmosphere, ISA, unit conversion, margin of safety, engineering report, Richardson, GCI, least squares, regression, uncertainty, numerical integration, trapezoid, Simpson, Gauss-Legendre."
+description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack. SEP-2640 skill-delivery, skill-evaluation, and skill-authoring cover SKILL.md conformance, quality, and authoring; isa-atmosphere, unit-conversion, and temperature-conversion cover atmosphere and units; engineering-margins and engineering-report cover margins and reports; convergence-verification, least-squares-regression, uncertainty-propagation, numerical-integration, finite-difference-derivatives, and monte-carlo-sampling cover Richardson, OLS, GUM, quadrature, finite differences, and sampling. Trigger: skill delivery, SEP-2640, skill evaluation, skill authoring, SKILL.md, standard atmosphere, ISA, unit conversion, temperature conversion, margin of safety, engineering report, Richardson, GCI, least squares, uncertainty, numerical integration, trapezoid, Simpson, finite difference, central difference, monte carlo, histogram."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -46,12 +46,15 @@ integration) for engineering calculations.
 | cross-cutting/sep2640/skill-authoring | Skill authoring | frontmatter template, kebab-case name rule, pre-publish conformance check, required fields |
 | cross-cutting/units-atmos/isa-atmosphere | ISA atmosphere | standard atmosphere, temperature lapse, pressure altitude, density |
 | cross-cutting/units-atmos/unit-conversion | Unit conversion | SI/imperial/aviation units, length, speed, temperature, pressure, density, Mach |
+| cross-cutting/units-atmos/temperature-conversion | Temperature conversion | kelvin, celsius, fahrenheit, rankine, absolute zero, temperature difference |
 | cross-cutting/documentation/engineering-margins | Engineering margins | margin of safety, allowable vs applied load, limit and ultimate basis, report sentence |
 | cross-cutting/documentation/engineering-report | Engineering report | report anatomy, abstract length, required sections, completeness verdict |
 | cross-cutting/numerics/convergence-verification | Convergence verification | Richardson extrapolation, GCI, observed order, discretization error, mesh refinement |
 | cross-cutting/numerics/least-squares-regression | Least squares regression | OLS slope and intercept, residual standard deviation, R-squared, prediction |
 | cross-cutting/numerics/uncertainty-propagation | Uncertainty propagation | GUM first order law, sensitivity coefficients, combined uncertainty, coverage factor |
 | cross-cutting/numerics/numerical-integration | Numerical integration | trapezoid rule, Simpson rule, Gauss-Legendre quadrature, Richardson error estimate |
+| cross-cutting/numerics/finite-difference-derivatives | Finite difference derivatives | forward/backward/central difference, step size, second derivative, tabulated data |
+| cross-cutting/numerics/monte-carlo-sampling | Monte Carlo sampling | seeded draws, sample mean and standard deviation, percentile confidence interval, histogram |
 
 ## Routing guidance
 
@@ -62,7 +65,9 @@ integration) for engineering calculations.
   the skill-authoring sub-skill.
 - Standard atmosphere questions route to the units-atmos
   isa-atmosphere sub-skill; converting units between systems routes to
-  the unit-conversion sub-skill.
+  the unit-conversion sub-skill; converting between temperature
+  scales (kelvin, celsius, fahrenheit, rankine) routes to the
+  temperature-conversion sub-skill.
 - Margin of safety and report sentence questions route to the
   documentation engineering-margins sub-skill; report structure and
   completeness questions route to the engineering-report sub-skill.
@@ -78,6 +83,12 @@ integration) for engineering calculations.
 - Quadrature and integral-estimate questions (trapezoid, Simpson,
   Gauss-Legendre) route to the numerics numerical-integration
   sub-skill.
+- Numerical differentiation questions (forward, backward, central
+  difference, step size, tabulated derivatives) route to the numerics
+  finite-difference-derivatives sub-skill.
+- Sampling and distribution questions (seeded Monte Carlo draws,
+  percentiles, confidence intervals, histograms) route to the numerics
+  monte-carlo-sampling sub-skill.
 - Aerospace engineering questions route to their domain pack
   (avionics, space-systems, systems-engineering-safety,
   manufacturing-quality).
