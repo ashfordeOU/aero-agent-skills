@@ -1,0 +1,14 @@
+# Hit@1 wave-16 fragment: midcourse-guidance (gnc-autonomy/guidance)
+# Two tasks per new leaf; w16-midcourse-guidance-1 routes on waypoint
+# steering and terminal handover, w16-midcourse-guidance-2 routes on
+# velocity-to-be-gained and zero-effort-miss midcourse shaping. Both
+# must deterministically hit gnc-autonomy/guidance/midcourse-guidance.
+tasks:
+  - id: w16-midcourse-guidance-1
+    query: "shape a midcourse trajectory to a waypoint before terminal handover"
+    intent: "midcourse guidance waypoint steering and handover"
+    expected_skill: "gnc-autonomy/guidance/midcourse-guidance"
+  - id: w16-midcourse-guidance-2
+    query: "compute the velocity-to-be-gained and zero-effort-miss for the midcourse leg of the intercept"
+    intent: "GNC; vgo and ZEM midcourse shaping before terminal guidance"
+    expected_skill: "gnc-autonomy/guidance/midcourse-guidance"
