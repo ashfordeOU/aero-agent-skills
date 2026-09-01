@@ -1,0 +1,15 @@
+# Hit@1 wave-19 fragment: mission-delta-v-budget (space-systems)
+# Two tasks per new leaf skill; mdb1 routes on delta-v budget summation
+# (insertion, transfer, station keeping, deorbit, margin allocation),
+# mdb2 routes on propellant mass via the Tsiolkovsky rocket equation
+# (delta-v budget, dry mass, specific impulse). Both must deterministically
+# hit space-systems/mission-design/mission-delta-v-budget.
+tasks:
+  - id: w19-mission-delta-v-budget-1
+    query: "build the spacecraft mission delta v budget by summing the insertion, transfer, station keeping, and deorbit contributions with a margin allocation"
+    intent: "mission design; delta-v budget summation with margin"
+    expected_skill: "space-systems/mission-design/mission-delta-v-budget"
+  - id: w19-mission-delta-v-budget-2
+    query: "compute the propellant mass for the spacecraft from the delta v budget, the dry mass, and the specific impulse using the Tsiolkovsky rocket equation"
+    intent: "mission design; Tsiolkovsky propellant mass from delta-v and specific impulse"
+    expected_skill: "space-systems/mission-design/mission-delta-v-budget"
