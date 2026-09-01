@@ -1,0 +1,14 @@
+# Hit@1 wave-12 fragment: ramberg-osgood (structures/materials)
+# Two tasks per new leaf; ro1 routes on the Ramberg-Osgood model for an
+# aluminum stress-strain curve, ro2 routes on the plastic strain and
+# secant/tangent modulus derivation. Both must deterministically hit
+# structures/materials/ramberg-osgood.
+tasks:
+  - id: ro1
+    query: "compute the ramberg-osgood total strain at 400 mpa for the 7075 aluminum with e 70000 mpa, sigma 0.2 300 mpa and n 10, then invert the equation for the stress at a total strain of 0.006"
+    intent: "structures; Ramberg-Osgood strain at a stress and stress by inversion at a total strain"
+    expected_skill: "structures/materials/ramberg-osgood"
+  - id: ro2
+    query: "derive the plastic strain and the secant and tangent modulus along the ramberg-osgood stress-strain curve of the aluminum plate beyond the yield point"
+    intent: "structures; plastic strain and secant/tangent modulus from the elastic-plastic curve"
+    expected_skill: "structures/materials/ramberg-osgood"
