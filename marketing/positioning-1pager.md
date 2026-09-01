@@ -29,10 +29,10 @@ and let a human sign.
 
 ## Wedge: the standards map
 
-The machine-readable map (standards-map.yaml) covers 16 standards: the
-15 domain standards DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
+The machine-readable map (standards-map.yaml) covers 19 standards: the
+18 domain standards DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
 DO-330, DO-160G, AS9102, MMPDS, FAR-25, CS-25, FAR-33, ARINC 429,
-ECSS, and NACA TR-824,
+NAS 410, ASME Y14.5, ECSS, NACA TN 902, and NACA TR-824,
 plus SEP-2640 as the delivery format (skills over MCP), separate from
 the domain list. Every skill carries standards frontmatter that
 resolves against the map, with a summary-not-copy rule and a
@@ -59,7 +59,7 @@ The aerospace lane is unserved. Total across all attempts is about 228★.
 The two live attempts: ajhcs/mbse-agents (22★) and
 devideamax/aerospace-team (21★). Adjacent domains prove the play:
 Anthropic-Cybersecurity-Skills (31,700★) and K-Dense Scientific Agent
-Skills (40,430★) both won on framework mapping and evals, the same
+Skills (40,842★) both won on framework mapping and evals, the same
 two things AeroSkills ships first.
 
 ## Compliance posture
