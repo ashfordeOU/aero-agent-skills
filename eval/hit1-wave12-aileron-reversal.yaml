@@ -1,0 +1,13 @@
+# Hit@1 wave-12 fragment: aileron-reversal (flight-mechanics)
+# Two tasks per new leaf skill; alr2 is cross-cutting (flight test
+# phrasing must deterministically route to the aileron-reversal leaf,
+# not to the flutter-testing or lateral-directional leaves).
+tasks:
+  - id: alr1
+    query: "compute the aileron reversal dynamic pressure and the reversal speed from the wing torsional stiffness about the elastic axis"
+    intent: "flight mechanics; aileron reversal dynamic pressure and reversal speed from torsional stiffness"
+    expected_skill: "flight-mechanics/stability-control/aileron-reversal"
+  - id: alr2
+    query: "check whether the aileron control reversal occurs before the design dive speed given the wing torsional stiffness and the aileron effectiveness factor"
+    intent: "flight mechanics; control reversal verdict against the dive speed from torsional stiffness"
+    expected_skill: "flight-mechanics/stability-control/aileron-reversal"
