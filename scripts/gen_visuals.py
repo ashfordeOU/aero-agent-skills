@@ -271,9 +271,9 @@ def gen_radar(m, t):
         o.append(txt(bx + 14, yy, k, size=9, fill=pencil, ls=1))
         o.append(txt(bx + 66, yy, v, size=9, fill=ink))
 
-    o.append(txt(cx, H - 22, f'{m["leaves"]} VERIFIED SKILLS · {m["live_packs"]} LIVE PACKS · '
-                 f'{m["corpus_tasks"]} ROUTER TASKS · EVERY AXIS COMPUTED FROM THE TREE AT HEAD',
-                 size=10, fill=pencil, anchor="middle", ls=2))
+    # left-anchored + short so it ends clear of the title block (founder 2026-09-01)
+    o.append(txt(48, H - 22, f'{m["leaves"]} VERIFIED SKILLS · {m["live_packs"]} LIVE PACKS · '
+                 f'{m["corpus_tasks"]} ROUTER TASKS', size=10, fill=pencil, ls=2))
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
@@ -529,6 +529,60 @@ def gen_anatomy(t):
     return "\n".join(o) + "\n"
 
 
+
+
+# ----------------------------------------------------- hero title / statline
+# Transparent-background, text-only SVGs: render like colorful styled text on
+# any GitHub theme. Replaces the math-\color hack, which GitHub's parser
+# broke on (raw $...$ shown — founder screenshot 2026-09-01).
+
+TITLE_FONT = ('font-family="Poppins, Nunito, \'SF Pro Rounded\', \'Segoe UI\', '
+              'system-ui, -apple-system, sans-serif" font-weight="800"')
+
+
+def gen_title(t):
+    W, H = 760, 168
+    ramp = ["#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f97316", "#f59e0b"]
+    skills = "".join(f'<tspan fill="{c}">{ch}</tspan>'
+                     for ch, c in zip("Skills", ramp))
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip()]
+    o.append(f'<text x="{W / 2}" y="96" text-anchor="middle" font-size="88" '
+             f'{TITLE_FONT} fill="{t["ink"]}">Aero{skills}</text>')
+    o.append(f'<text class="mono" x="{W / 2}" y="146" text-anchor="middle" '
+             f'font-size="17" letter-spacing="4">'
+             f'<tspan fill="{t["cyan"]}">AEROSPACE</tspan>'
+             f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
+             f'<tspan fill="{t["violet"]}" dx="10">AGENT SKILLS</tspan>'
+             f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
+             f'<tspan fill="{t["orange"]}" dx="10">APACHE-2.0</tspan></text>')
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
+def gen_statline(m, t):
+    W, H = 1240, 74
+    stats = [
+        (m["leaves"], "VERIFIED SKILLS", t["cyan"]),
+        (m["live_packs"], "LIVE PACKS", t["violet"]),
+        (m["families"], "FAMILIES", t["magenta"]),
+        (m["standards"], "STANDARDS", t["orange"]),
+        (m["corpus_tasks"], "ROUTER TASKS", t["cyan"]),
+        ("8/8", "GATES GREEN", t["violet"]),
+    ]
+    spans = []
+    for k, (v, label, c) in enumerate(stats):
+        dx = ' dx="34"' if k else ""
+        spans.append(f'<tspan{dx} font-size="34" fill="{c}" font-weight="800">{v}</tspan>')
+        spans.append(f'<tspan dx="9" font-size="13" fill="{t["pencil"]}" '
+                     f'letter-spacing="2">{label}</tspan>')
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
+         f'<text class="mono" x="{W / 2}" y="47" text-anchor="middle">'
+         + "".join(spans) + "</text>", "</svg>"]
+    return "\n".join(o) + "\n"
+
+
 # -------------------------------------------------------------- DOMAINS.md
 
 def gen_domains(m):
@@ -619,26 +673,6 @@ def gen_flow(t):
 
 # --------------------------------------------------------------- README gen
 
-def block_statline(m):
-    """Colorful text stats via GitHub's math \\color — real text, no images
-    (founder 2026-09-01: banner + instrument strip become smart colorful text).
-    Mid-tone hues stay readable on both GitHub themes."""
-    stats = [
-        (m["leaves"], "verified skills", "#0ea5e9"),
-        (m["live_packs"], "live packs", "#8b5cf6"),
-        (m["families"], "families", "#ec4899"),
-        (m["standards"], "standards", "#f97316"),
-        (m["corpus_tasks"], "router tasks", "#0ea5e9"),
-        ("8/8", "gates green", "#8b5cf6"),
-    ]
-    parts = [(f'$\\large{{\\color{{{c}}}\\textsf{{\\textbf{{{v}}}}}}}'
-              f'\\ {{\\color{{#8a93c4}}\\textsf{{{label.upper()}}}}}$')
-             for v, label, c in stats]
-    return ('<div align="center">\n\n'
-            + '&nbsp;&nbsp;'.join(parts[:3]) + '\n\n'
-            + '&nbsp;&nbsp;'.join(parts[3:]) + '\n\n</div>')
-
-
 def block_badges(m):
     def b(label, msg, color, href):
         lab = label.replace("-", "--").replace(" ", "_")
@@ -702,7 +736,6 @@ def block_roadmap(m):
 
 
 BLOCKS = {
-    "statline": block_statline,
     "badges": block_badges,
     "overview": block_overview,
     "family-table": block_family_table,
@@ -726,6 +759,10 @@ def outputs(m):
     docs = REPO / "docs"
     return {
         docs / "metrics.json": json.dumps(m, indent=2, sort_keys=True) + "\n",
+        docs / "title.svg": gen_title(LIGHT),
+        docs / "title-dark.svg": gen_title(DARK),
+        docs / "statline.svg": gen_statline(m, LIGHT),
+        docs / "statline-dark.svg": gen_statline(m, DARK),
         docs / "domain-radar.svg": gen_radar(m, LIGHT),
         docs / "domain-radar-dark.svg": gen_radar(m, DARK),
         docs / "domain-polar.svg": gen_polar(m, LIGHT),
