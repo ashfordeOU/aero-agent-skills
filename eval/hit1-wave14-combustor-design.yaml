@@ -1,0 +1,16 @@
+# Hit@1 wave-14 fragment: combustor-design (propulsion/gas-turbine-cycle)
+# cbd1 routes on combustor vocabulary: stoichiometric and operating
+# fuel-air-ratio, heat release, and temperature rise across the
+# combustor. cbd2 is adversarial: "turbofan engine" and "design point"
+# wording could route to turbofan-cycle or gas-turbine-cycle, but the
+# adiabatic-flame-temperature and combustion-efficiency vocabulary must
+# Hit@1 combustor-design.
+tasks:
+  - id: cbd1
+    query: "compute the stoichiometric fuel-air-ratio from the kerosene fuel carbon and hydrogen mass fractions and the operating fuel-air-ratio from the combustor air flow and fuel flow, with the heat-release and the temperature rise across the combustor for the gas turbine combustor-design"
+    intent: "propulsion; stoichiometric and operating fuel-air-ratio, heat release, and temperature rise for the gas turbine combustor"
+    expected_skill: "propulsion/gas-turbine-cycle/combustor-design"
+  - id: cbd2
+    query: "estimate the adiabatic-flame-temperature and the combustion-efficiency for the turbofan engine combustor at the design point, then the heat-release and the temperature rise from the stoichiometric fuel-air-ratio"
+    intent: "propulsion; adiabatic flame temperature and combustion efficiency, adversarial against gas-turbine-cycle and turbofan-cycle"
+    expected_skill: "propulsion/gas-turbine-cycle/combustor-design"
