@@ -1,0 +1,13 @@
+# Hit@1 wave-12 fragment: fuselage-skin-stringer (vehicle-design/structures-integration)
+# Two tasks per new leaf skill; fss1 leaf-specific pressurized panel
+# sizing, fss2 cross-cutting stiffened panel closure check across the
+# skin, stringer, and frame sizing steps.
+tasks:
+  - id: fss1
+    query: "size the fuselage-skin-stringer panel: compute the skin-thickness from the hoop-stress of the pressurized cabin differential pressure with the 1.5 factor of safety and set the stringer-spacing and the frame-pitch from the panel-buckling allowable"
+    intent: "vehicle design; pressurized fuselage skin thickness, stringer spacing, and frame pitch sizing"
+    expected_skill: "vehicle-design/structures-integration/fuselage-skin-stringer"
+  - id: fss2
+    query: "check that the stiffened fuselage shell closes: the skin-thickness from the hoop-stress, the stringer-spacing from the panel-buckling allowable, the frame-pitch from the column-buckling length, and the stringer area from the effective-skin-width must all be consistent for the pressurized cabin"
+    intent: "vehicle design; stiffened fuselage panel closure check across skin, stringer, and frame"
+    expected_skill: "vehicle-design/structures-integration/fuselage-skin-stringer"
