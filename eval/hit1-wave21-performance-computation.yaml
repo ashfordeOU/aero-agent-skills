@@ -1,0 +1,11 @@
+# Hit@1 wave-21 fragment: performance-computation (avionics)
+# Two tasks per new leaf skill; w21pc1 routes on ECON cruise speed, w21pc2 on VNAV top of descent.
+tasks:
+  - id: w21-performance-computation-1
+    query: "compute the ECON cruise Mach for a given cost index and fuel price"
+    intent: "avionics; FMS cost index and ECON cruise speed selection"
+    expected_skill: "avionics/flight-management/performance-computation"
+  - id: w21-performance-computation-2
+    query: "calculate the top of descent distance and step climb benefit for the FMS vertical profile"
+    intent: "avionics; VNAV top of descent and step-climb logic"
+    expected_skill: "avionics/flight-management/performance-computation"
