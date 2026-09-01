@@ -117,6 +117,12 @@
 #   '249 SKILL.md'      Wave-15-close-era SKILL.md total (live: 259) [R18]
 #   '488/488'           Wave-15-close-era Hit@1 count (live: 508/508) [R18]
 #   '488 tasks'         Wave-15-close-era corpus count (live: 508) [R18]
+#   '247 skills'        Wave-16-close-era leaf count, bare/digit form (live: 259) [R19]
+#   '247 leaf skills'   Wave-16-close-era leaf count, 'leaf' form (live: 259) [R19]
+#   '247 verified'      Wave-16-close-era leaf count, 'verified' form (live: 259) [R19]
+#   '259 SKILL.md'      Wave-16-close-era SKILL.md total (live: 271) [R19]
+#   '508/508'           Wave-16-close-era Hit@1 count (live: 532/532) [R19]
+#   '508 tasks'         Wave-16-close-era corpus count (live: 532) [R19]
 # All new forms are digit-form on purpose: the live one-way
 # vocabulary ('twelve installable domain packs', '12 pack routers',
 # '12 disciplines', '12 families', '131 leaf skills', '143 SKILL.md',
@@ -162,7 +168,7 @@
 #   (optional root_dir override for fixture testing; default = repo root)
 set -u
 root="${1:-$(cd "$(dirname "$0")/../.." && pwd)}"
-patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|\b12 verified\b|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b|\b83 skills\b|\b83 leaf skills\b|\b83 verified\b|\b95 SKILL\.md\b|\b182/182\b|\b182 tasks\b|\b100 skills\b|\b100 leaf skills\b|\b100 verified\b|\b112 SKILL\.md\b|\b216/216\b|\b216 tasks\b|\b112 skills\b|\b112 leaf skills\b|\b112 verified\b|\b124 SKILL\.md\b|\b240/240\b|\b240 tasks\b|\b122 skills\b|\b122 leaf skills\b|\b122 verified\b|\b134 SKILL\.md\b|\b258/258\b|\b258 tasks\b|\b131 skills\b|\b131 leaf skills\b|\b131 verified\b|\b143 SKILL\.md\b|\b276/276\b|\b276 tasks\b|\b147 skills\b|\b147 leaf skills\b|\b147 verified\b|\b159 SKILL\.md\b|\b308/308\b|\b308 tasks\b|\b162 skills\b|\b162 leaf skills\b|\b162 verified\b|\b174 SKILL\.md\b|\b338/338\b|\b338 tasks\b|\b183 skills\b|\b183 leaf skills\b|\b183 verified\b|\b195 SKILL\.md\b|\b380/380\b|\b380 tasks\b|\b191 skills\b|\b191 leaf skills\b|\b191 verified\b|\b203 SKILL\.md\b|\b396/396\b|\b396 tasks\b|\b203 skills\b|\b203 leaf skills\b|\b203 verified\b|\b215 SKILL\.md\b|\b420/420\b|\b420 tasks\b|\b213 skills\b|\b213 leaf skills\b|\b213 verified\b|\b225 SKILL\.md\b|\b440/440\b|\b440 tasks\b|\b225 skills\b|\b225 leaf skills\b|\b225 verified\b|\b237 SKILL\.md\b|\b464/464\b|\b464 tasks\b|\b237 skills\b|\b237 leaf skills\b|\b237 verified\b|\b249 SKILL\.md\b|\b488/488\b|\b488 tasks\b'
+patterns='28/28|12 skills|twelve skills|twenty-eight|five installable|five packs|\b12 verified\b|12 aerospace( engineering)? skills|3/3 corpus|68 installable|1,360|\b27 skills\b|\b27 aerospace\b|\b27 leaf skills\b|\b9 packs\b|\b9 domain packs\b|\b9 installable\b|\b36 SKILL\.md\b|\b43 skills\b|\b43 leaf skills\b|\b43 verified\b|\b52 SKILL\.md\b|\b102/102\b|\b102 tasks\b|\b83 skills\b|\b83 leaf skills\b|\b83 verified\b|\b95 SKILL\.md\b|\b182/182\b|\b182 tasks\b|\b100 skills\b|\b100 leaf skills\b|\b100 verified\b|\b112 SKILL\.md\b|\b216/216\b|\b216 tasks\b|\b112 skills\b|\b112 leaf skills\b|\b112 verified\b|\b124 SKILL\.md\b|\b240/240\b|\b240 tasks\b|\b122 skills\b|\b122 leaf skills\b|\b122 verified\b|\b134 SKILL\.md\b|\b258/258\b|\b258 tasks\b|\b131 skills\b|\b131 leaf skills\b|\b131 verified\b|\b143 SKILL\.md\b|\b276/276\b|\b276 tasks\b|\b147 skills\b|\b147 leaf skills\b|\b147 verified\b|\b159 SKILL\.md\b|\b308/308\b|\b308 tasks\b|\b162 skills\b|\b162 leaf skills\b|\b162 verified\b|\b174 SKILL\.md\b|\b338/338\b|\b338 tasks\b|\b183 skills\b|\b183 leaf skills\b|\b183 verified\b|\b195 SKILL\.md\b|\b380/380\b|\b380 tasks\b|\b191 skills\b|\b191 leaf skills\b|\b191 verified\b|\b203 SKILL\.md\b|\b396/396\b|\b396 tasks\b|\b203 skills\b|\b203 leaf skills\b|\b203 verified\b|\b215 SKILL\.md\b|\b420/420\b|\b420 tasks\b|\b213 skills\b|\b213 leaf skills\b|\b213 verified\b|\b225 SKILL\.md\b|\b440/440\b|\b440 tasks\b|\b225 skills\b|\b225 leaf skills\b|\b225 verified\b|\b237 SKILL\.md\b|\b464/464\b|\b464 tasks\b|\b237 skills\b|\b237 leaf skills\b|\b237 verified\b|\b249 SKILL\.md\b|\b488/488\b|\b488 tasks\b|\b247 skills\b|\b247 leaf skills\b|\b247 verified\b|\b259 SKILL\.md\b|\b508/508\b|\b508 tasks\b'
 exempt='planning target, not a shipped count'
 fail=0
 
@@ -197,6 +203,6 @@ done
 [ -f "$root/README.md" ] && scan_file "$root/README.md"
 
 if [ "$fail" -eq 0 ]; then
-  echo "PASS stale-number-guard: no stale corpus/skill/pack count claims in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt; R18 includes wave-15-close era 237/249/488)"
+  echo "PASS stale-number-guard: no stale corpus/skill/pack count claims in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt; R19 includes wave-16-close era 247/259/508)"
 fi
 exit "$fail"

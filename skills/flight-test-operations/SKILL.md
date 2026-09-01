@@ -58,7 +58,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/planning/flight-test-safety | Flight test safety | risk assessment, go/no-go criteria, emergency procedures, safety pilot duties |
 | flight-test-operations/planning/telemetry-data-acquisition | Telemetry data acquisition | sample rates, anti-aliasing, PCM/IRIG formats, telemetry link, ground station, data quality |
 | flight-test-operations/planning/test-point-matrix-design | Test point matrix design | test conditions, altitude/speed/weight sweeps, configurations, repeat points, sequencing |
-
+| flight-test-operations/envelope/structural-coupling-test | Structural coupling test | gain margin, phase margin, frequency response, excitation sweep, flight control coupling |
 ## Routing guidance
 
 - Envelope expansion and corner speed questions route to the
@@ -99,7 +99,7 @@ flight test instrumentation, and campaign planning.
 - Aircraft performance, structures, and certification questions
   route to their domain packs (flight-mechanics, structures,
   avionics).
-
+- Structural coupling gain and phase margins, frequency response excitation sweeps, and flight control coupling questions route to the envelope structural-coupling-test sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

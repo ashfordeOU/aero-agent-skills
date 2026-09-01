@@ -57,7 +57,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/guidance/midcourse-guidance | Midcourse guidance | midcourse guidance, waypoint steering, trajectory shaping, velocity to be gained, zero effort miss, handover, turn rate limit |
 | gnc-autonomy/control/lead-lag-compensation | Lead lag compensation | phase lead/lag compensator design, phase margin boost, gain crossover frequency, steady state error constant |
 | gnc-autonomy/control/frequency-response-design | Frequency response design | bode magnitude and phase, gain/phase crossover frequencies, gain margin, phase margin, stability from the margins |
-
+| gnc-autonomy/control/gain-scheduling | Gain scheduling | gain schedule breakpoints, scheduling variable, dynamic pressure and Mach scheduling, gain interpolation |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -101,6 +101,7 @@ and guidance laws (proportional navigation, pursuit).
 - Command-to-line-of-sight and LOS error steering questions route to the guidance command-to-line-of-sight sub-skill.
 - Phase lead/lag compensator, phase margin boost, crossover placement, and steady state error constant questions route to the control lead-lag-compensation sub-skill.
 - Bode frequency response, gain crossover, phase crossover, gain margin, and phase margin questions route to the control frequency-response-design sub-skill.
+- Gain schedule breakpoint tables, scheduling variables (dynamic pressure, Mach), and gain interpolation questions route to the control gain-scheduling sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

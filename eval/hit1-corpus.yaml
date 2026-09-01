@@ -135,6 +135,11 @@
 # leaves). Wave-16 new leaves: "avionics/data-bus/arinc429-protocol", "flight-mechanics/handling-qualities/cooper-harper-rating", "systems-engineering-safety/arp4754a/derived-requirements", "cross-cutting/numerics/eigenvalue-decomposition", "propulsion/engine-airframe/engine-airframe-integration", "structures/materials/fracture-toughness", "space-systems/orbit-mechanics/lambert-transfer", "gnc-autonomy/guidance/midcourse-guidance", "vehicle-design/mdo/multidisciplinary-optimization", "manufacturing-quality/special-processes/special-process-qualification".
 # Corpus: 508 tasks (488 prior plus 20 domain tasks). Owner: Ops
 # Manager, Wave 16 build.
+# P5.2 / Wave 17 (2026-09-01): fan-out continues to
+# 259 verified skills (271 SKILL.md under gate 1: 12 routers + 259
+# leaves). Wave-17 new leaves: "structures/damage-tolerance/bird-strike", "systems-engineering-safety/arp4754a/development-assurance-levels", "gnc-autonomy/control/gain-scheduling", "manufacturing-quality/as9100/measurement-systems-analysis", "avionics/data-bus/mil-std-1553", "flight-mechanics/handling-qualities/pilot-induced-oscillation", "vehicle-design/sizing/propeller-sizing", "cross-cutting/numerics/root-finding", "space-systems/orbit-mechanics/satellite-coverage", "flight-test-operations/envelope/structural-coupling-test", "manufacturing-quality/ndt/thermography", "propulsion/rocket/thrust-vector-control".
+# Corpus: 532 tasks (508 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 17 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2485,6 +2490,102 @@ tasks:
     query: "build the process qualification record for a qualified welding process: parameters with qualified ranges, process variables, qualification date, and validity"
     intent: "process qualification record contents and special process control under AS9100 production control"
     expected_skill: "manufacturing-quality/special-processes/special-process-qualification"
+  - id: w17-bird-strike-1
+    query: "estimating bird strike impact energy for an 8 pound bird at cruise speed"
+    intent: "structures; bird strike impact kinetic energy for the 8 pound bird class at cruise speed"
+    expected_skill: "structures/damage-tolerance/bird-strike"
+  - id: w17-bird-strike-2
+    query: "assessing leading edge damage resistance against a soft body impact per FAR 25.631"
+    intent: "structures; leading edge damage resistance verdict against a soft body impact per FAR 25.631"
+    expected_skill: "structures/damage-tolerance/bird-strike"
+  - id: w17-development-assurance-levels-1
+    query: "assign the FDAL and IDAL for a function whose failure condition is catastrophic per ARP4754A development assurance"
+    intent: "FDAL and IDAL assignment for a catastrophic failure condition"
+    expected_skill: "systems-engineering-safety/arp4754a/development-assurance-levels"
+  - id: w17-development-assurance-levels-2
+    query: "map failure condition severity to development assurance level A through E per ARP4754A"
+    intent: "Failure condition severity to development assurance level A through E mapping"
+    expected_skill: "systems-engineering-safety/arp4754a/development-assurance-levels"
+  - id: w17-gain-scheduling-1
+    query: "schedule the controller gains against dynamic-pressure across the nonlinear flight envelope"
+    intent: "gain scheduling of controller gains against dynamic pressure across the nonlinear flight envelope"
+    expected_skill: "gnc-autonomy/control/gain-scheduling"
+  - id: w17-gain-scheduling-2
+    query: "interpolate the gain schedule breakpoint table across Mach-number operating points"
+    intent: "gain schedule breakpoint table interpolation across Mach number operating points"
+    expected_skill: "gnc-autonomy/control/gain-scheduling"
+  - id: w17-measurement-systems-analysis-1
+    query: "compute the gage repeatability and reproducibility percent grr from the measurement study using the operator part trial data and determine the number of distinct categories"
+    intent: "manufacturing quality; range-based gage repeatability and reproducibility percent GRR from a measurement study"
+    expected_skill: "manufacturing-quality/as9100/measurement-systems-analysis"
+  - id: w17-measurement-systems-analysis-2
+    query: "evaluate whether the measurement system is acceptable when the percent grr is under 10 percent for the variable gage study"
+    intent: "manufacturing quality; measurement system acceptability from percent GRR under 10 percent"
+    expected_skill: "manufacturing-quality/as9100/measurement-systems-analysis"
+  - id: w17-mil-std-1553-1
+    query: "encode a MIL-STD-1553 command word with remote terminal address, subaddress, word count, and parity"
+    intent: "encoding a MIL-STD-1553 command word with remote terminal address, subaddress, word count, and odd parity"
+    expected_skill: "avionics/data-bus/mil-std-1553"
+  - id: w17-mil-std-1553-2
+    query: "design a dual redundant MIL-STD-1553 bus with bus controller and remote terminal message scheduling"
+    intent: "dual redundant MIL-STD-1553 bus design with bus controller and remote terminal message scheduling"
+    expected_skill: "avionics/data-bus/mil-std-1553"
+  - id: w17-pilot-induced-oscillation-1
+    query: "assess the pilot-induced oscillation category for the aircraft pitch loop given the actuator rate limiting during the closed loop maneuver and classify the pio"
+    intent: "handling qualities; PIO category assessment with actuator rate limiting"
+    expected_skill: "flight-mechanics/handling-qualities/pilot-induced-oscillation"
+  - id: w17-pilot-induced-oscillation-2
+    query: "reduce the pilot-induced oscillation susceptibility from the excessive phase lag at the crossover frequency of the pitch control loop with phase compensation and gain reduction"
+    intent: "handling qualities; PIO susceptibility reduction from excessive phase lag at crossover"
+    expected_skill: "flight-mechanics/handling-qualities/pilot-induced-oscillation"
+  - id: w17-propeller-sizing-1
+    query: "size the propeller diameter and the blade count from the disk loading and the blade-tip constraint"
+    intent: "vehicle design; propeller diameter and blade count from the disk loading and the blade-tip constraint"
+    expected_skill: "vehicle-design/sizing/propeller-sizing"
+  - id: w17-propeller-sizing-2
+    query: "compute the advance ratio at the design point from the propeller diameter and the revolutions per second"
+    intent: "vehicle design; advance ratio operating point from the propeller diameter and the revolutions per second"
+    expected_skill: "vehicle-design/sizing/propeller-sizing"
+  - id: w17-root-finding-1
+    query: "find the root of the nonlinear equation with the bisection method to a tolerance of 1e-8"
+    intent: "root finding of a nonlinear equation by the bisection method to a specified tolerance"
+    expected_skill: "cross-cutting/numerics/root-finding"
+  - id: w17-root-finding-2
+    query: "solve for the Mach number root in the isentropic compressible flow relation with the secant method"
+    intent: "compressible flow Mach number root of the isentropic area-Mach relation by the secant method"
+    expected_skill: "cross-cutting/numerics/root-finding"
+  - id: w17-satellite-coverage-1
+    query: "compute the access circle central angle for a satellite with a minimum elevation constraint"
+    intent: "orbit mechanics; access circle central angle from orbital altitude and minimum elevation angle"
+    expected_skill: "space-systems/orbit-mechanics/satellite-coverage"
+  - id: w17-satellite-coverage-2
+    query: "estimate the swath width and the coverage fraction from the orbital altitude and the minimum elevation angle"
+    intent: "orbit mechanics; swath width and coverage fraction estimation from orbital altitude"
+    expected_skill: "space-systems/orbit-mechanics/satellite-coverage"
+  - id: w17-structural-coupling-test-1
+    query: "compute the structural coupling gain and phase margins from the flight control frequency response measured during the structural coupling test at the phase and gain crossings"
+    intent: "flight test; structural coupling gain and phase margin computation from the frequency response"
+    expected_skill: "flight-test-operations/envelope/structural-coupling-test"
+  - id: w17-structural-coupling-test-2
+    query: "plan the structural coupling test excitation sweep across the flight envelope with swept sine and chirp excitations and define the test points"
+    intent: "flight test; structural coupling test excitation sweep planning across the flight envelope"
+    expected_skill: "flight-test-operations/envelope/structural-coupling-test"
+  - id: w17-thermography-1
+    query: "evaluate the thermal contrast of a disbond or delamination detected by pulsed thermography in a composite skin and estimate the time of maximum contrast"
+    intent: "Disbond or delamination detection with pulsed thermography and thermal contrast evaluation"
+    expected_skill: "manufacturing-quality/ndt/thermography"
+  - id: w17-thermography-2
+    query: "select the flash thermography inspection parameters, heating pulse energy and observation time window, for a composite panel with a subsurface disbond"
+    intent: "Flash thermography inspection parameter selection, pulse energy and observation window, for a composite panel"
+    expected_skill: "manufacturing-quality/ndt/thermography"
+  - id: w17-thrust-vector-control-1
+    query: "size the gimbal actuator authority for a rocket thrust-vector-control system given the required control torque about the center of gravity and the moment arm"
+    intent: "TVC gimbal actuator authority sizing from control torque and moment arm"
+    expected_skill: "propulsion/rocket/thrust-vector-control"
+  - id: w17-thrust-vector-control-2
+    query: "estimate the side force and the axial thrust loss of a rocket engine with its nozzle deflected by a given tvc gimbal angle"
+    intent: "TVC side force and axial thrust loss from nozzle deflection angle"
+    expected_skill: "propulsion/rocket/thrust-vector-control"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

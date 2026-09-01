@@ -56,7 +56,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/hohmann-transfer | Hohmann transfer | coplanar circular-orbit transfer, transfer ellipse, delta-v budget, burn impulses, transfer time, rendezvous phase angle |
 | space-systems/orbit-mechanics/orbital-perturbations | Secular orbital perturbations | J2 nodal regression, RAAN drift rate, argument-of-perigee drift, nodal period change, perturbation magnitude vs altitude |
 | space-systems/orbit-mechanics/lambert-transfer | Lambert transfer | Lambert problem, two-position transfer, time of flight constraint, transfer orbit, transfer delta-v, short way, long way |
-
+| space-systems/orbit-mechanics/satellite-coverage | Satellite coverage | access circle, swath width, off-nadir angle, minimum elevation, revisit time, coverage fraction |
 ## Routing guidance
 
 - Space software questions (criticality classification, assurance rigor,
@@ -105,7 +105,7 @@ selection, and classical orbital element determination.
   the adcs attitude-determination-triad sub-skill.
 - GNC, propulsion, and structural questions route to their domain
   packs (gnc-autonomy, propulsion, structures).
-
+- Access circle, swath width, off-nadir angle, minimum elevation constraint, and coverage fraction questions route to the orbit-mechanics satellite-coverage sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

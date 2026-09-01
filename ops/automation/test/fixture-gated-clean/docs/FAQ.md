@@ -1,8 +1,8 @@
 # Gated-set clean fixture (docs) — N11 positive.
-# All count claims match the canonical standards-map.yaml (19 map entries,
+# All count claims match the canonical standards-map.yaml (20 map entries,
 # 12 gated: true). The guard must NOT trip on this fixture.
-- "The map covers 19 standards."
-- "map covers nineteen standards"
+- "The map covers 20 standards."
+- "map covers twenty standards"
 - "12 gated standards are tracked as gated: true."
 - "the twelve gated standards are reference-only"
 - "all 12 gated standards never appear verbatim"

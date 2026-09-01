@@ -29,10 +29,10 @@ and let a human sign.
 
 ## Wedge: the standards map
 
-The machine-readable map (standards-map.yaml) covers 19 standards: the
-18 domain standards DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
+The machine-readable map (standards-map.yaml) covers 20 standards: the
+19 domain standards DO-178C, DO-254, ARP4754A, ARP4761A, AS9100,
 DO-330, DO-160G, AS9102, MMPDS, FAR-25, CS-25, FAR-33, ARINC 429,
-NAS 410, ASME Y14.5, ECSS, NACA TN 902, and NACA TR-824,
+NAS 410, ASME Y14.5, ECSS, NACA TN 902, NACA TR-824, and MIL-STD-1553,
 plus SEP-2640 as the delivery format (skills over MCP), separate from
 the domain list. Every skill carries standards frontmatter that
 resolves against the map, with a summary-not-copy rule and a
