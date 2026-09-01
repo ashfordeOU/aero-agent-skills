@@ -1,6 +1,6 @@
 ---
 name: structures
-description: "Use when a task concerns aerospace structures and materials: guide the router to the structures pack, whose calculix-linear covers linear FEA, calculix-nonlinear covers Newton-Raphson and load stepping, modal-analysis covers natural frequencies, residual-strength covers fracture, crack-growth covers crack propagation, widespread-fatigue-damage covers MSD/MED, miner-damage covers cumulative damage, goodman-diagram covers mean-stress corrections, load-spectrum-counting covers rainflow, laminate-stiffness covers CLT/ABD, composite-bolted-joints covers bearing and bypass, sandwich-panels covers core shear and wrinkling, failure-criteria covers Tsai-Wu, mmpsd-allowables covers A-/B-basis, and material-selection covers property indices. Trigger: structures, FEM, stress analysis, margin of safety, CalculiX, nonlinear, modal, fatigue, crack growth, widespread fatigue damage, MSD, MED, Miner, Goodman, rainflow, laminate, Tsai-Wu, bolted joint, sandwich panel, allowables, MMPDS, material selection."
+description: "Use when a task concerns aerospace structures and materials: guide the router to the structures pack: calculix-linear linear FEA, calculix-nonlinear Newton-Raphson and load stepping, modal-analysis natural frequencies, residual-strength fracture, crack-growth crack propagation, widespread-fatigue-damage MSD/MED, miner-damage cumulative damage, goodman-diagram mean-stress corrections, load-spectrum-counting rainflow, laminate-stiffness CLT/ABD, composite-bolted-joints bearing and bypass, sandwich-panels core shear and wrinkling, failure-criteria Tsai-Wu, mmpsd-allowables A-/B-basis, material-selection property indices, ramberg-osgood elastic-plastic stress-strain. Trigger: structures, FEM, stress analysis, margin of safety, CalculiX, nonlinear, modal, fatigue, crack growth, widespread fatigue damage, MSD, MED, Miner, Goodman, rainflow, laminate, Tsai-Wu, bolted joint, sandwich panel, allowables, MMPDS, material selection, Ramberg-Osgood, plastic strain."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -52,6 +52,7 @@ material selection.
 | structures/composites/failure-criteria | Composite failure criteria | Tsai-Wu, Tsai-Hill, max-stress, lamina failure index |
 | structures/materials/mmpsd-allowables | MMPDS allowables | A-/B-basis, k-factors, metallic design values |
 | structures/materials/material-selection | Material selection | material families, stiffness/weight and strength/weight indices, cost, corrosion, temperature limits |
+| structures/materials/ramberg-osgood | Ramberg-Osgood stress-strain | Ramberg-Osgood, elastic-plastic stress-strain, plastic strain, secant modulus, tangent modulus, stress from strain |
 
 ## Routing guidance
 
@@ -84,6 +85,8 @@ material selection.
   materials mmpsd-allowables sub-skill.
 - Material family and property-index questions route to the materials
   material-selection sub-skill.
+- Elastic-plastic stress-strain, plastic strain, and Ramberg-Osgood
+  questions route to the materials ramberg-osgood sub-skill.
 - Airframe loads and certification questions route to the avionics
   far-cs25 sub-skill.
 

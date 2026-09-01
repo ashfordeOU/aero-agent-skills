@@ -1,6 +1,6 @@
 ---
 name: flight-mechanics
-description: "Use when a task concerns aircraft flight mechanics and performance: guide the router to the flight-mechanics pack. breguet-range covers cruise range, breguet-endurance loiter endurance, specific-range cruise fuel economy, takeoff-performance takeoff distance, climb-performance rate of climb, oei-climb-gradient OEI climb gradient, descent-performance descent, turn-performance turn rate and load factor, glide-performance glide ratio and sink rate, wind-effects wind triangle and groundspeed, longitudinal-stability neutral point and static margin, lateral-directional-stability dihedral and Dutch roll, dynamic-stability short period and phugoid, trim-analysis stick trim. Trigger: flight mechanics, breguet range, loiter endurance, fuel flow, takeoff, rate of climb, OEI, engine out, second segment, descent, turn rate, load factor, glide ratio, sink rate, groundspeed, static margin, neutral point, Dutch roll, short period, phugoid, trim."
+description: "Use when a task concerns aircraft flight mechanics: guide the router to the flight-mechanics pack. breguet-range cruise range, breguet-endurance loiter endurance, specific-range cruise fuel economy, takeoff-performance takeoff distance, climb-performance rate of climb, oei-climb-gradient OEI climb gradient, energy-height specific excess power, descent-performance descent, turn-performance turn rate and load factor, glide-performance glide ratio and sink rate, wind-effects wind triangle and groundspeed, longitudinal-stability neutral point and static margin, lateral-directional-stability dihedral and Dutch roll, dynamic-stability short period and phugoid, trim-analysis stick trim, aileron-reversal control reversal speed. Trigger: flight mechanics, breguet range, loiter endurance, fuel flow, takeoff, rate of climb, OEI, engine out, energy height, specific excess power, descent, turn rate, glide ratio, sink rate, static margin, Dutch roll, phugoid, trim, aileron reversal."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -49,7 +49,8 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/stability-control/dynamic-stability | Dynamic stability | short period, phugoid, Dutch roll, spiral, roll subsidence, stability derivatives, damping and frequency |
 | flight-mechanics/stability-control/trim-analysis | Trim analysis | stick fixed trim, trim lift coefficient, elevator deflection, trim speed, pitching moment closure |
 | flight-mechanics/performance/oei-climb-gradient | OEI climb gradient | OEI thrust, second segment, engine out, approach climb, landing climb gradient |
-| flight-mechanics/performance/oei-climb-gradient | OEI climb gradient | OEI thrust, second segment, engine out, approach climb, landing climb gradient |
+| flight-mechanics/performance/energy-height | Energy height | specific excess power, energy height, climb/cruise trade, Ps |
+| flight-mechanics/stability-control/aileron-reversal | Aileron reversal | control reversal speed, reversal dynamic pressure, torsional stiffness |
 
 ## Routing guidance
 
@@ -82,7 +83,8 @@ lateral-directional stability, and dynamic stability modes analysis.
   domain packs (propulsion, structures, avionics).
 
 - One-engine-inoperative, second segment, approach climb, and landing climb gradient questions route to the oei-climb-gradient sub-skill.
-- One-engine-inoperative, second segment, approach climb, and landing climb gradient questions route to the oei-climb-gradient sub-skill.
+- Energy height and specific excess power questions route to the performance energy-height sub-skill.
+- Control reversal speed and reversal dynamic pressure questions route to the stability-control aileron-reversal sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
