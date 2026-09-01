@@ -59,6 +59,7 @@ estimation, validated against classic reference data.
 | aerodynamics/wing-design/wing-planform-design | Wing planform design | root chord, tip chord, mean aerodynamic chord, taper ratio, spanwise loading, washout |
 | aerodynamics/aeroelasticity/divergence-speed | Divergence speed | divergence dynamic pressure, torsional stiffness, shear center offset, aerodynamic center, divergence margin, dive speed |
 | aerodynamics/wind-tunnel/windtunnel-data-reduction | Wind tunnel data reduction | wind tunnel data reduction, tare correction, blockage correction, wall interference, Reynolds correction, aerodynamic coefficients, pressure distribution, balance data, uncertainty estimation, experimental aerodynamics |
+| aerodynamics/aeroelasticity/flutter-speed-prediction | Flutter speed prediction | flutter speed, v-g method, bending torsion, typical section, damping crossing, frequency coalescence, flutter margin, theodorsen |
 
 ## Routing guidance
 
@@ -96,6 +97,7 @@ estimation, validated against classic reference data.
 - Structural, control, and certification questions route to their
   domain packs (structures, gnc-autonomy, avionics).
 - Wind tunnel test data reduction, tare, blockage, and wall interference corrections, and coefficient uncertainty estimation route to the wind-tunnel windtunnel-data-reduction sub-skill.
+- Classical wing flutter of the two-DOF typical section, the V-g method, structural damping crossing, frequency coalescence, and flutter margin questions route to the aeroelasticity flutter-speed-prediction sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

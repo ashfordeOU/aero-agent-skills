@@ -60,6 +60,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/failure-rate-estimation | Failure rate estimation | failure rate, test hours, zero-failure demonstration, chi-square bound, confidence level |
 | systems-engineering-safety/requirements/requirements-elicitation | Requirements elicitation | stakeholder needs, operational scenario, requirements baseline, atomicity, verifiability, weasel words, elicitation log |
 | systems-engineering-safety/certification/certification-basis | Certification basis | certification basis, type certificate, supplemental type certificate, TSO, special conditions, FAR applicability, CS-25, certification program, means of compliance, regulatory path |
+| systems-engineering-safety/arp4761a/preliminary-system-safety-assessment | Preliminary system safety assessment | PSSA, preliminary system safety assessment, safety requirements, FDAL, IDAL, allocation, architecture |
 
 ## Routing guidance
 
@@ -113,6 +114,7 @@ model-based systems engineering (SysML, digital thread).
 - Failure-rate estimation and demonstration from test or service data, zero-failure testing, and chi-square confidence bounds route to the ARP4761A failure-rate-estimation sub-skill.
 - Stakeholder needs capture, operational scenarios, elicitation log, and requirement statement quality (atomicity, verifiability, weasel words) questions route to the requirements requirements-elicitation sub-skill.
 - Certification regulation applicability, special condition determination, and TC, STC, and TSO path selection route to the certification certification-basis sub-skill.
+- PSSA derivation of safety requirements from FHA outcomes, FDAL/IDAL allocation, and quantitative safety target allocation across the architecture routes to the arp4761a preliminary-system-safety-assessment sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

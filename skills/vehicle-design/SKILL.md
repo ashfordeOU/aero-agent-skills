@@ -61,6 +61,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/tire-sizing | Tire sizing | tire diameter, tire width, static load per tire, gear load share, tire pressure, footprint |
 | vehicle-design/conceptual/constraint-analysis | Constraint analysis | matching chart, thrust to weight ratio, wing loading, stall constraint, climb gradient, takeoff distance, feasible region |
 | vehicle-design/conceptual/openvsp-geometry | Parametric aircraft geometry | parametric geometry, OpenVSP style, wing planform, mean aerodynamic chord, wetted area, fuselage geometry, component volume, sweep dihedral twist, mass properties input, conceptual design |
+| vehicle-design/sizing/nacelle-sizing | Nacelle sizing | nacelle sizing, highlight area, fan mass flow, inlet capture, lip area, nacelle length, wetted area, cowl thickness |
 
 ## Routing guidance
 
@@ -116,6 +117,7 @@ aerodynamic, structural, and performance disciplines together.
 - Landing gear tire sizing, static load per tire, tire diameter and width, and tire pressure questions route to the sizing tire-sizing sub-skill.
 - Constraint analysis matching chart, thrust to weight ratio, wing loading, stall, climb gradient, and takeoff distance constraint questions route to the conceptual constraint-analysis sub-skill.
 - Parametric aircraft geometry building, mean aerodynamic chord and wetted area computation, and component volume estimation route to the conceptual openvsp-geometry sub-skill.
+- Engine nacelle geometric sizing, highlight area from fan mass flow and Mach, inlet capture and lip areas, nacelle length, wetted area, and cowl thickness questions route to the sizing nacelle-sizing sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

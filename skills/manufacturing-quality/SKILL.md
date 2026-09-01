@@ -62,6 +62,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/measurement-systems-analysis | Measurement systems analysis | gage R and R, repeatability, reproducibility, percent GRR, distinct categories |
 | manufacturing-quality/additive/additive-manufacturing-qualification | Additive manufacturing qualification | volumetric energy density, laser power, scan speed, hatch spacing, layer height, witness coupon, material property verification, AM first article |
 | manufacturing-quality/additive/lpbf-parameter-development | LPBF parameter development | LPBF, laser powder bed fusion, volumetric energy density, scan speed, hatch spacing, layer thickness, melt pool, keyhole mode, conduction mode, process window |
+| manufacturing-quality/ndt/acoustic-emission-inspection | Acoustic emission inspection | acoustic emission, AE inspection, source location, Kaiser effect, Felicity ratio, hit, event, sensor |
 
 ## Routing guidance
 
@@ -111,6 +112,7 @@ selection and ultrasonic inspection).
 - Gage R and R, repeatability, reproducibility, percent GRR, and distinct category questions route to the AS9100 measurement-systems-analysis sub-skill.
 - Additive manufacturing energy density, parameter set, witness coupons, material property verification, and AM first article questions route to the additive additive-manufacturing-qualification sub-skill.
 - Laser powder bed fusion parameter development, volumetric energy density, process window classification, and qualification test matrix planning route to the additive lpbf-parameter-development sub-skill.
+- Acoustic emission NDT, AE sources, sensors and frequency bands, hit and event definitions, Kaiser effect and Felicity ratio, and linear and planar source location questions route to the ndt acoustic-emission-inspection sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

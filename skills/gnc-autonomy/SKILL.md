@@ -61,6 +61,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/observer-design | Observer design | Luenberger observer, observability matrix, estimator gain, pole placement, separation principle |
 | gnc-autonomy/estimation-filtering/alpha-beta-filter | Alpha-beta filter | alpha beta filter, constant velocity target, tracking update, smoothing factor, steady state gain, position and velocity tracking |
 | gnc-autonomy/estimation-filtering/unscented-kalman-filter | Unscented Kalman filter | unscented Kalman filter, sigma points, scaled unscented transform, nonlinear state estimation, state prediction, measurement update, innovation covariance, NEES, bearing-range tracking |
+| gnc-autonomy/estimation-filtering/extended-kalman-filter | Extended Kalman filter | extended kalman filter, EKF, Jacobian linearization, predict update, innovation covariance, kalman gain, nonlinear estimation |
 
 ## Routing guidance
 
@@ -109,6 +110,7 @@ and guidance laws (proportional navigation, pursuit).
 - Full-order state observer design, observability checks, estimator gain pole placement, and separation principle questions route to the control observer-design sub-skill.
 - Alpha-beta tracking, constant velocity target, smoothing factor, steady state gain, and position and velocity tracking questions route to the estimation-filtering alpha-beta-filter sub-skill.
 - Sigma-point nonlinear state estimation, scaled unscented transform, UKF predict and update, and innovation covariance checks route to the estimation-filtering unscented-kalman-filter sub-skill.
+- Extended Kalman filter design for nonlinear systems with Jacobian linearization, predict and update recursion, innovation covariance, and Kalman gain computation routes to the estimation-filtering extended-kalman-filter sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
