@@ -312,6 +312,7 @@ Total skills rated: 306
 | 304 | vehicle-design/sizing/ws-tw-trade | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
 | 305 | vehicle-design/structures-integration/fuselage-skin-stringer | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 306 | vehicle-design/structures-integration/wing-box-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 307 | flight-mechanics/handling-qualities/mil-std-1797a | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
 | 307 | propulsion/electric/hall-thruster | PASS | ✓ | ecss-e-st-35-03 | propulsion | 9.5 | PASS |
 | 308 | gnc-autonomy/optimal-control/model-predictive-control | PASS | ✓ | none | gnc-autonomy | 9.5 | PASS |
+| 309 | flight-mechanics/handling-qualities/mil-std-1797a | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
+| 310 | space-systems/mission-design/launch-window-analysis | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
