@@ -1,0 +1,15 @@
+# Hit@1 wave-10 fragment: engine-flight-test (flight-test-operations)
+# Two tasks per new leaf skill; eft2 is cross-cutting: the fuel flow
+# and altitude thrust wording overlaps propulsion (turbofan-off-design,
+# gas-turbine-cycle) and flight-mechanics specific-range, so the engine
+# flight test, exhaust gas temperature margin, and acceleration
+# transient anchors must deterministically route it to the leaf.
+tasks:
+  - id: eft1
+    query: "determine the installed engine thrust from the rate of climb and the measured drag in the engine flight test and check the exhaust gas temperature margin"
+    intent: "flight test; installed thrust from rate of climb and EGT margin"
+    expected_skill: "flight-test-operations/performance/engine-flight-test"
+  - id: eft2
+    query: "correct the fuel flow and the altitude thrust measured in the engine flight test against the predicted value and time the acceleration transient for the flight test program"
+    intent: "flight test; fuel flow and altitude thrust check with acceleration transient timing"
+    expected_skill: "flight-test-operations/performance/engine-flight-test"
