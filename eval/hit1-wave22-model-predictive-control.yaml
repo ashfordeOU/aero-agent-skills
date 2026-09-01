@@ -1,0 +1,14 @@
+# Hit@1 wave-22 fragment: model-predictive-control (gnc-autonomy/optimal-control)
+# Two tasks per new leaf skill: mpc1 routes on receding-horizon design
+# with quadratic cost and input constraints for the double integrator,
+# mpc2 routes on closed-loop simulation and origin convergence. Both
+# must deterministically hit gnc-autonomy/optimal-control/model-predictive-control.
+tasks:
+  - id: w22-model-predictive-control-1
+    query: "design an mpc receding horizon controller for the double integrator with quadratic cost and input constraints"
+    intent: "gnc-autonomy; MPC receding-horizon design with quadratic cost and input constraints"
+    expected_skill: "gnc-autonomy/optimal-control/model-predictive-control"
+  - id: w22-model-predictive-control-2
+    query: "run a closed loop simulation with the model predictive control and check the state converges to the origin"
+    intent: "gnc-autonomy; closed-loop simulation verifying MPC convergence to the origin"
+    expected_skill: "gnc-autonomy/optimal-control/model-predictive-control"
