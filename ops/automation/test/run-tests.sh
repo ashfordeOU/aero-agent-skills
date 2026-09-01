@@ -66,6 +66,17 @@ check "N3 brief-audit flags stale K-Dense 38.0k" 1 $?
 bash "$auto/brief-audit.sh" "$auto/test/fixture-derived-stale.md" >/dev/null 2>&1
 check "N5 brief-audit still flags largest-repo drift (19 vs 22)" 1 $?
 
+# ---- brief-audit table-row cell-dominance (N49/N50) ------------------------
+# docs/DOMAINS.md skill-inventory rows put backtick-quoted skill names in a
+# comma-separated cell (alias 'dymos' appears INSIDE 'dymos-trajectory'); the
+# trailing numeric cell is the pack skill count, NOT a star claim. Only
+# cell-dominant aliases (owner/repo path or alias == cell) count as repo
+# cells; real market tables must still trip on stale values.
+bash "$auto/brief-audit.sh" "$auto/test/fixture-table-skill-inventory.md" >/dev/null 2>&1
+check "N49 brief-audit ignores skill-inventory rows (alias inside skill-name list)" 0 $?
+bash "$auto/brief-audit.sh" "$auto/test/fixture-table-market-stale.md" >/dev/null 2>&1
+check "N50 brief-audit still flags stale market table (OpenMDAO/dymos 2 vs 296)" 1 $?
+
 # ---- content-policy-sweep.sh negative -------------------------------------
 note "== content-policy-sweep.sh =="
 # N4: ITAR-compliant claim in publishable content must exit 1
