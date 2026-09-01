@@ -2,7 +2,7 @@
 
 Audit: CEO (Arjun) - regenerated 2026-09-01 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 255
+Total skills rated: 259
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -97,167 +97,171 @@ Total skills rated: 255
 | 89 | flight-test-operations/envelope/flight-loads-survey | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 90 | flight-test-operations/envelope/load-factor-envelope | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 91 | flight-test-operations/envelope/stall-characteristics-testing | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 92 | flight-test-operations/envelope/v-speeds | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 93 | flight-test-operations/flutter/flutter-testing | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 94 | flight-test-operations/flutter/ground-vibration-testing | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 95 | flight-test-operations/flutter/limit-cycle-oscillation | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 96 | flight-test-operations/performance/accelerate-stop-distance | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 97 | flight-test-operations/performance/engine-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 98 | flight-test-operations/performance/glide-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 99 | flight-test-operations/performance/landing-distance-determination | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 100 | flight-test-operations/performance/stall-speed-determination | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 101 | flight-test-operations/performance/takeoff-distance-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 102 | flight-test-operations/planning/flight-test-data-reduction | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 103 | flight-test-operations/planning/flight-test-instrumentation | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 104 | flight-test-operations/planning/flight-test-planning | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
-| 105 | flight-test-operations/planning/flight-test-safety | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 106 | flight-test-operations/planning/telemetry-data-acquisition | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 107 | flight-test-operations/planning/test-point-matrix-design | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 108 | flight-test-operations/stability/dynamic-stability-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 109 | gnc-autonomy/control/frequency-response-design | PASS | ✓ | far-25, cs-25 | gnc-autonomy | 9.5 | PASS |
-| 110 | gnc-autonomy/control/gain-scheduling | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 111 | gnc-autonomy/control/lead-lag-compensation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 112 | gnc-autonomy/control/pid-control-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 113 | gnc-autonomy/control/python-control-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
-| 114 | gnc-autonomy/control/root-locus-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
-| 115 | gnc-autonomy/control/state-space-analysis | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 116 | gnc-autonomy/guidance/command-to-line-of-sight | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 117 | gnc-autonomy/guidance/impact-point-prediction | PASS | ✓ | far-25, cs-25 | gnc-autonomy | 9.5 | PASS |
-| 118 | gnc-autonomy/guidance/midcourse-guidance | PASS | ✓ | far-25, cs-25 | gnc-autonomy | 9.5 | PASS |
-| 119 | gnc-autonomy/guidance/proportional-navigation | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
-| 120 | gnc-autonomy/guidance/pursuit-guidance | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 121 | gnc-autonomy/navigation/dilution-of-precision | PASS | ✓ | arinc-429 | gnc-autonomy | 9.5 | PASS |
-| 122 | gnc-autonomy/navigation/inertial-navigation | PASS | ✓ | arinc-429 | gnc-autonomy | 9.5 | PASS |
-| 123 | gnc-autonomy/navigation/kalman-filter-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 124 | gnc-autonomy/navigation/navigation-frames | PASS | ✓ | ecss | gnc-autonomy | 9.6 | PASS |
-| 125 | gnc-autonomy/optimal-control/dymos-trajectory | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
-| 126 | gnc-autonomy/optimal-control/lqr-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
-| 127 | gnc-autonomy/space/attitude-dynamics | PASS | ✓ | ecss | gnc-autonomy | 9.5 | PASS |
-| 128 | gnc-autonomy/space/orbit-dynamics | PASS | ✓ | ecss | gnc-autonomy | 9.6 | PASS |
-| 129 | gnc-autonomy/space/rendezvous-phasing | PASS | ✓ | ecss | gnc-autonomy | 9.6 | PASS |
-| 130 | manufacturing-quality/as9100/calibration-control | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 131 | manufacturing-quality/as9100/corrective-action | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 132 | manufacturing-quality/as9100/counterfeit-prevention | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 133 | manufacturing-quality/as9100/document-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 134 | manufacturing-quality/as9100/nonconformance-control | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 135 | manufacturing-quality/as9100/quality | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 136 | manufacturing-quality/as9100/risk-management | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 137 | manufacturing-quality/as9100/statistical-process-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 138 | manufacturing-quality/as9100/supplier-control | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 139 | manufacturing-quality/as9102/ballooning | PASS | ✓ | as9102 | manufacturing-quality | 9.5 | PASS |
-| 140 | manufacturing-quality/as9102/delta-fai | PASS | ✓ | as9102 | manufacturing-quality | 9.6 | PASS |
-| 141 | manufacturing-quality/as9102/fai-revalidation | PASS | ✓ | as9102 | manufacturing-quality | 9.5 | PASS |
-| 142 | manufacturing-quality/as9102/first-article-inspection | PASS | ✓ | as9102 | manufacturing-quality | 9.6 | PASS |
-| 143 | manufacturing-quality/ndt/eddy-current-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
-| 144 | manufacturing-quality/ndt/liquid-penetrant-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
-| 145 | manufacturing-quality/ndt/magnetic-particle-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
-| 146 | manufacturing-quality/ndt/ndt-method-selection | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 147 | manufacturing-quality/ndt/radiographic-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 148 | manufacturing-quality/ndt/ultrasonic-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
-| 149 | manufacturing-quality/ndt/visual-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
-| 150 | manufacturing-quality/special-processes/special-process-qualification | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
-| 151 | propulsion/axial-compressor/axial-compressor-stage | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
-| 152 | propulsion/axial-compressor/compressor-map | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
-| 153 | propulsion/axial-compressor/multi-stage-compressor | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 154 | propulsion/axial-compressor/turbine-stage | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 155 | propulsion/engine-airframe/engine-airframe-integration | PASS | ✓ | far-33, far-25 | propulsion | 9.5 | PASS |
-| 156 | propulsion/gas-turbine-cycle/combustor-design | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 157 | propulsion/gas-turbine-cycle/gas-turbine-cycle | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
-| 158 | propulsion/gas-turbine-cycle/real-cycle-effects | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 159 | propulsion/gas-turbine-cycle/regenerative-cycle | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
-| 160 | propulsion/ramjet/ramjet-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 161 | propulsion/ramjet/ramjet-inlet | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 162 | propulsion/rocket/nozzle-design | PASS | ✓ | ecss | propulsion | 9.6 | PASS |
-| 163 | propulsion/rocket/propellant-selection | PASS | ✓ | ecss | propulsion | 9.6 | PASS |
-| 164 | propulsion/rocket/rocket-sizing | PASS | ✓ | ecss | propulsion | 9.6 | PASS |
-| 165 | propulsion/rocket/rocket-staging | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
-| 166 | propulsion/rocket/thrust-vector-control | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
-| 167 | propulsion/turbofan/bypass-ratio-trade | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
-| 168 | propulsion/turbofan/turbofan-cycle | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
-| 169 | propulsion/turbofan/turbofan-off-design | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 170 | propulsion/turboprop/free-turbine | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 171 | propulsion/turboprop/turboprop-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
-| 172 | space-systems/adcs/attitude-control-sizing | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 173 | space-systems/adcs/attitude-determination-triad | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 174 | space-systems/adcs/magnetorquer-control | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 175 | space-systems/adcs/star-tracker | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 176 | space-systems/adcs/sun-pointing | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 177 | space-systems/ecss/software-engineering | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 178 | space-systems/ecss/software-verification | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 179 | space-systems/ecss/systems-engineering | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 180 | space-systems/orbit-mechanics/eclipse-time | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 181 | space-systems/orbit-mechanics/ground-track-repeat | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 182 | space-systems/orbit-mechanics/hohmann-transfer | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 183 | space-systems/orbit-mechanics/keplerian-elements | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 184 | space-systems/orbit-mechanics/lambert-transfer | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 185 | space-systems/orbit-mechanics/orbital-perturbations | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 186 | space-systems/orbit-mechanics/satellite-coverage | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 187 | space-systems/orbit-mechanics/sun-synchronous-inclination | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 188 | space-systems/subsystems/command-data-handling | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 189 | space-systems/subsystems/communication-link-budget | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 190 | space-systems/subsystems/power-thermal-budget | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 191 | space-systems/subsystems/solar-array-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-| 192 | space-systems/subsystems/thermal-design | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
-| 193 | structures/composites/composite-bolted-joints | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 194 | structures/composites/failure-criteria | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 195 | structures/composites/laminate-stiffness | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 196 | structures/composites/sandwich-panels | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 197 | structures/damage-tolerance/crack-growth | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 198 | structures/damage-tolerance/residual-strength | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 199 | structures/damage-tolerance/widespread-fatigue-damage | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 200 | structures/fatigue/goodman-diagram | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 201 | structures/fatigue/load-spectrum-counting | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 202 | structures/fatigue/miner-damage | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 203 | structures/fatigue/notch-sensitivity | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 204 | structures/fatigue/stress-life-curve | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 205 | structures/fem/buckling-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
-| 206 | structures/fem/calculix-linear | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 207 | structures/fem/calculix-nonlinear | PASS | ✓ | far-25 | structures | 9.5 | PASS |
-| 208 | structures/fem/modal-analysis | PASS | ✓ | far-25 | structures | 9.6 | PASS |
-| 209 | structures/fem/truss-analysis | PASS | ✓ | far-25, mmpsd | structures | 9.5 | PASS |
-| 210 | structures/materials/fracture-toughness | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
-| 211 | structures/materials/material-selection | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
-| 212 | structures/materials/mmpsd-allowables | PASS | ✓ | mmpsd | structures | 9.6 | PASS |
-| 213 | structures/materials/ramberg-osgood | PASS | ✓ | naca-tn-902 | structures | 9.5 | PASS |
-| 214 | systems-engineering-safety/arp4754a/derived-requirements | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 215 | systems-engineering-safety/arp4754a/development-assurance-levels | PASS | ✓ | arp4754a, arp4761a | systems-engineering-safety | 9.5 | PASS |
-| 216 | systems-engineering-safety/arp4754a/requirements-allocation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 217 | systems-engineering-safety/arp4754a/requirements-traceability | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
-| 218 | systems-engineering-safety/arp4754a/systems-planning | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
-| 219 | systems-engineering-safety/arp4754a/validation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
-| 220 | systems-engineering-safety/arp4754a/verification-planning | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 221 | systems-engineering-safety/arp4761a/common-cause-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
-| 222 | systems-engineering-safety/arp4761a/fta-fmea | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
-| 223 | systems-engineering-safety/arp4761a/functional-hazard-assessment | PASS | ✓ | arp4761a, arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 224 | systems-engineering-safety/arp4761a/markov-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
-| 225 | systems-engineering-safety/arp4761a/operating-support-hazard-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
-| 226 | systems-engineering-safety/arp4761a/particular-risk-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
-| 227 | systems-engineering-safety/arp4761a/safety-assessment | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
-| 228 | systems-engineering-safety/arp4761a/zonal-safety-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
-| 229 | systems-engineering-safety/mbse/n2-diagram | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 230 | systems-engineering-safety/mbse/requirements-modeling | PASS | ✓ | arp4754a, arp4761a | systems-engineering-safety | 9.5 | PASS |
-| 231 | systems-engineering-safety/mbse/state-machine | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 232 | systems-engineering-safety/mbse/sysml-modeling | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
-| 233 | systems-engineering-safety/mbse/systems-engineering | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
-| 234 | systems-engineering-safety/mbse/trade-study-analysis | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 235 | vehicle-design/conceptual/payload-range-diagram | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 236 | vehicle-design/conceptual/tow-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 237 | vehicle-design/cost-estimation/life-cycle-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 238 | vehicle-design/cost-estimation/operating-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 239 | vehicle-design/cost-estimation/parametric-cost | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 240 | vehicle-design/mass-properties/cg-envelope | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 241 | vehicle-design/mass-properties/inertia-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 242 | vehicle-design/mass-properties/mass-budget | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 243 | vehicle-design/mdo/multidisciplinary-optimization | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 244 | vehicle-design/sizing/control-surface-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 245 | vehicle-design/sizing/engine-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 246 | vehicle-design/sizing/fuel-tank-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 247 | vehicle-design/sizing/fuselage-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 248 | vehicle-design/sizing/landing-gear-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 249 | vehicle-design/sizing/propeller-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 250 | vehicle-design/sizing/tail-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 251 | vehicle-design/sizing/weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 252 | vehicle-design/sizing/wing-planform-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 253 | vehicle-design/sizing/ws-tw-trade | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 254 | vehicle-design/structures-integration/fuselage-skin-stringer | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 255 | vehicle-design/structures-integration/wing-box-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 92 | flight-test-operations/envelope/structural-coupling-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 93 | flight-test-operations/envelope/v-speeds | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 94 | flight-test-operations/flutter/flutter-testing | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 95 | flight-test-operations/flutter/ground-vibration-testing | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 96 | flight-test-operations/flutter/limit-cycle-oscillation | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 97 | flight-test-operations/performance/accelerate-stop-distance | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 98 | flight-test-operations/performance/engine-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 99 | flight-test-operations/performance/glide-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 100 | flight-test-operations/performance/landing-distance-determination | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 101 | flight-test-operations/performance/stall-speed-determination | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 102 | flight-test-operations/performance/takeoff-distance-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 103 | flight-test-operations/planning/flight-test-data-reduction | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 104 | flight-test-operations/planning/flight-test-instrumentation | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 105 | flight-test-operations/planning/flight-test-planning | PASS | ✓ | far-25 | flight-test-operations | 9.6 | PASS |
+| 106 | flight-test-operations/planning/flight-test-safety | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 107 | flight-test-operations/planning/telemetry-data-acquisition | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 108 | flight-test-operations/planning/test-point-matrix-design | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 109 | flight-test-operations/stability/dynamic-stability-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 110 | gnc-autonomy/control/frequency-response-design | PASS | ✓ | far-25, cs-25 | gnc-autonomy | 9.5 | PASS |
+| 111 | gnc-autonomy/control/gain-scheduling | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 112 | gnc-autonomy/control/lead-lag-compensation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 113 | gnc-autonomy/control/pid-control-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 114 | gnc-autonomy/control/python-control-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
+| 115 | gnc-autonomy/control/root-locus-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
+| 116 | gnc-autonomy/control/state-space-analysis | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 117 | gnc-autonomy/guidance/command-to-line-of-sight | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 118 | gnc-autonomy/guidance/impact-point-prediction | PASS | ✓ | far-25, cs-25 | gnc-autonomy | 9.5 | PASS |
+| 119 | gnc-autonomy/guidance/midcourse-guidance | PASS | ✓ | far-25, cs-25 | gnc-autonomy | 9.5 | PASS |
+| 120 | gnc-autonomy/guidance/proportional-navigation | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
+| 121 | gnc-autonomy/guidance/pursuit-guidance | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 122 | gnc-autonomy/navigation/dilution-of-precision | PASS | ✓ | arinc-429 | gnc-autonomy | 9.5 | PASS |
+| 123 | gnc-autonomy/navigation/inertial-navigation | PASS | ✓ | arinc-429 | gnc-autonomy | 9.5 | PASS |
+| 124 | gnc-autonomy/navigation/kalman-filter-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 125 | gnc-autonomy/navigation/navigation-frames | PASS | ✓ | ecss | gnc-autonomy | 9.6 | PASS |
+| 126 | gnc-autonomy/optimal-control/dymos-trajectory | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
+| 127 | gnc-autonomy/optimal-control/lqr-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.6 | PASS |
+| 128 | gnc-autonomy/space/attitude-dynamics | PASS | ✓ | ecss | gnc-autonomy | 9.5 | PASS |
+| 129 | gnc-autonomy/space/orbit-dynamics | PASS | ✓ | ecss | gnc-autonomy | 9.6 | PASS |
+| 130 | gnc-autonomy/space/rendezvous-phasing | PASS | ✓ | ecss | gnc-autonomy | 9.6 | PASS |
+| 131 | manufacturing-quality/as9100/calibration-control | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 132 | manufacturing-quality/as9100/corrective-action | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 133 | manufacturing-quality/as9100/counterfeit-prevention | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 134 | manufacturing-quality/as9100/document-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 135 | manufacturing-quality/as9100/measurement-systems-analysis | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 136 | manufacturing-quality/as9100/nonconformance-control | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 137 | manufacturing-quality/as9100/quality | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 138 | manufacturing-quality/as9100/risk-management | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 139 | manufacturing-quality/as9100/statistical-process-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 140 | manufacturing-quality/as9100/supplier-control | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 141 | manufacturing-quality/as9102/ballooning | PASS | ✓ | as9102 | manufacturing-quality | 9.5 | PASS |
+| 142 | manufacturing-quality/as9102/delta-fai | PASS | ✓ | as9102 | manufacturing-quality | 9.6 | PASS |
+| 143 | manufacturing-quality/as9102/fai-revalidation | PASS | ✓ | as9102 | manufacturing-quality | 9.5 | PASS |
+| 144 | manufacturing-quality/as9102/first-article-inspection | PASS | ✓ | as9102 | manufacturing-quality | 9.6 | PASS |
+| 145 | manufacturing-quality/ndt/eddy-current-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
+| 146 | manufacturing-quality/ndt/liquid-penetrant-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
+| 147 | manufacturing-quality/ndt/magnetic-particle-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
+| 148 | manufacturing-quality/ndt/ndt-method-selection | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 149 | manufacturing-quality/ndt/radiographic-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 150 | manufacturing-quality/ndt/thermography | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 151 | manufacturing-quality/ndt/ultrasonic-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.6 | PASS |
+| 152 | manufacturing-quality/ndt/visual-inspection | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
+| 153 | manufacturing-quality/special-processes/special-process-qualification | PASS | ✓ | as9100, nas-410 | manufacturing-quality | 9.5 | PASS |
+| 154 | propulsion/axial-compressor/axial-compressor-stage | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
+| 155 | propulsion/axial-compressor/compressor-map | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
+| 156 | propulsion/axial-compressor/multi-stage-compressor | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 157 | propulsion/axial-compressor/turbine-stage | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 158 | propulsion/engine-airframe/engine-airframe-integration | PASS | ✓ | far-33, far-25 | propulsion | 9.5 | PASS |
+| 159 | propulsion/gas-turbine-cycle/combustor-design | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 160 | propulsion/gas-turbine-cycle/gas-turbine-cycle | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
+| 161 | propulsion/gas-turbine-cycle/real-cycle-effects | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 162 | propulsion/gas-turbine-cycle/regenerative-cycle | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
+| 163 | propulsion/ramjet/ramjet-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 164 | propulsion/ramjet/ramjet-inlet | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 165 | propulsion/rocket/nozzle-design | PASS | ✓ | ecss | propulsion | 9.6 | PASS |
+| 166 | propulsion/rocket/propellant-selection | PASS | ✓ | ecss | propulsion | 9.6 | PASS |
+| 167 | propulsion/rocket/rocket-sizing | PASS | ✓ | ecss | propulsion | 9.6 | PASS |
+| 168 | propulsion/rocket/rocket-staging | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 169 | propulsion/rocket/thrust-vector-control | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 170 | propulsion/turbofan/bypass-ratio-trade | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
+| 171 | propulsion/turbofan/turbofan-cycle | PASS | ✓ | far-33 | propulsion | 9.6 | PASS |
+| 172 | propulsion/turbofan/turbofan-off-design | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 173 | propulsion/turboprop/free-turbine | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 174 | propulsion/turboprop/turboprop-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 175 | space-systems/adcs/attitude-control-sizing | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 176 | space-systems/adcs/attitude-determination-triad | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 177 | space-systems/adcs/magnetorquer-control | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 178 | space-systems/adcs/star-tracker | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 179 | space-systems/adcs/sun-pointing | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 180 | space-systems/ecss/software-engineering | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 181 | space-systems/ecss/software-verification | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 182 | space-systems/ecss/systems-engineering | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 183 | space-systems/orbit-mechanics/eclipse-time | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 184 | space-systems/orbit-mechanics/ground-track-repeat | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 185 | space-systems/orbit-mechanics/hohmann-transfer | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 186 | space-systems/orbit-mechanics/keplerian-elements | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 187 | space-systems/orbit-mechanics/lambert-transfer | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 188 | space-systems/orbit-mechanics/orbital-perturbations | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 189 | space-systems/orbit-mechanics/satellite-coverage | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 190 | space-systems/orbit-mechanics/sun-synchronous-inclination | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 191 | space-systems/subsystems/command-data-handling | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 192 | space-systems/subsystems/communication-link-budget | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 193 | space-systems/subsystems/power-thermal-budget | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 194 | space-systems/subsystems/solar-array-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 195 | space-systems/subsystems/thermal-design | PASS | ✓ | ecss | space-systems | 9.6 | PASS |
+| 196 | structures/composites/composite-bolted-joints | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 197 | structures/composites/failure-criteria | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 198 | structures/composites/laminate-stiffness | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 199 | structures/composites/sandwich-panels | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 200 | structures/damage-tolerance/bird-strike | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 201 | structures/damage-tolerance/crack-growth | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 202 | structures/damage-tolerance/residual-strength | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 203 | structures/damage-tolerance/widespread-fatigue-damage | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 204 | structures/fatigue/goodman-diagram | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 205 | structures/fatigue/load-spectrum-counting | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 206 | structures/fatigue/miner-damage | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 207 | structures/fatigue/notch-sensitivity | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 208 | structures/fatigue/stress-life-curve | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 209 | structures/fem/buckling-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 210 | structures/fem/calculix-linear | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 211 | structures/fem/calculix-nonlinear | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 212 | structures/fem/modal-analysis | PASS | ✓ | far-25 | structures | 9.6 | PASS |
+| 213 | structures/fem/truss-analysis | PASS | ✓ | far-25, mmpsd | structures | 9.5 | PASS |
+| 214 | structures/materials/fracture-toughness | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
+| 215 | structures/materials/material-selection | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
+| 216 | structures/materials/mmpsd-allowables | PASS | ✓ | mmpsd | structures | 9.6 | PASS |
+| 217 | structures/materials/ramberg-osgood | PASS | ✓ | naca-tn-902 | structures | 9.5 | PASS |
+| 218 | systems-engineering-safety/arp4754a/derived-requirements | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 219 | systems-engineering-safety/arp4754a/development-assurance-levels | PASS | ✓ | arp4754a, arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 220 | systems-engineering-safety/arp4754a/requirements-allocation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 221 | systems-engineering-safety/arp4754a/requirements-traceability | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
+| 222 | systems-engineering-safety/arp4754a/systems-planning | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
+| 223 | systems-engineering-safety/arp4754a/validation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
+| 224 | systems-engineering-safety/arp4754a/verification-planning | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 225 | systems-engineering-safety/arp4761a/common-cause-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
+| 226 | systems-engineering-safety/arp4761a/fta-fmea | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
+| 227 | systems-engineering-safety/arp4761a/functional-hazard-assessment | PASS | ✓ | arp4761a, arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 228 | systems-engineering-safety/arp4761a/markov-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 229 | systems-engineering-safety/arp4761a/operating-support-hazard-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 230 | systems-engineering-safety/arp4761a/particular-risk-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
+| 231 | systems-engineering-safety/arp4761a/safety-assessment | PASS | ✓ | arp4761a | systems-engineering-safety | 9.6 | PASS |
+| 232 | systems-engineering-safety/arp4761a/zonal-safety-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 233 | systems-engineering-safety/mbse/n2-diagram | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 234 | systems-engineering-safety/mbse/requirements-modeling | PASS | ✓ | arp4754a, arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 235 | systems-engineering-safety/mbse/state-machine | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 236 | systems-engineering-safety/mbse/sysml-modeling | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
+| 237 | systems-engineering-safety/mbse/systems-engineering | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
+| 238 | systems-engineering-safety/mbse/trade-study-analysis | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 239 | vehicle-design/conceptual/payload-range-diagram | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 240 | vehicle-design/conceptual/tow-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 241 | vehicle-design/cost-estimation/life-cycle-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 242 | vehicle-design/cost-estimation/operating-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 243 | vehicle-design/cost-estimation/parametric-cost | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 244 | vehicle-design/mass-properties/cg-envelope | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 245 | vehicle-design/mass-properties/inertia-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 246 | vehicle-design/mass-properties/mass-budget | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 247 | vehicle-design/mdo/multidisciplinary-optimization | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 248 | vehicle-design/sizing/control-surface-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 249 | vehicle-design/sizing/engine-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 250 | vehicle-design/sizing/fuel-tank-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 251 | vehicle-design/sizing/fuselage-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 252 | vehicle-design/sizing/landing-gear-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 253 | vehicle-design/sizing/propeller-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 254 | vehicle-design/sizing/tail-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 255 | vehicle-design/sizing/weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 256 | vehicle-design/sizing/wing-planform-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 257 | vehicle-design/sizing/ws-tw-trade | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 258 | vehicle-design/structures-integration/fuselage-skin-stringer | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 259 | vehicle-design/structures-integration/wing-box-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
