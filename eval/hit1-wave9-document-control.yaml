@@ -1,0 +1,14 @@
+# Hit@1 wave-9 fragment: document-control (manufacturing-quality/as9100)
+# Two tasks per new leaf; dc1 routes on the master list / current
+# revision terminology, dc2 routes on revision control and obsolete
+# disposition. Both must deterministically hit
+# manufacturing-quality/as9100/document-control.
+tasks:
+  - id: dc1
+    query: "check the master-list to confirm the shop floor uses the current-revision of the controlled-document"
+    intent: "manufacturing quality; master list check, current revision in use for a controlled document"
+    expected_skill: "manufacturing-quality/as9100/document-control"
+  - id: dc2
+    query: "disposition the obsolete-revision and verify the approval and the revision-control for the document register"
+    intent: "manufacturing quality; obsolete revision disposition and approval plus revision control of the document register"
+    expected_skill: "manufacturing-quality/as9100/document-control"
