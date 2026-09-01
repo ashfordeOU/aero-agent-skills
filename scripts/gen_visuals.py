@@ -223,22 +223,23 @@ def gen_radar(m, t):
         o.append(txt(x - 4, y - 3, str(rv), size=10, fill=ink, anchor="end",
                      extra=' opacity="0.55"'))
 
-    # perimeter labels
-    for name, fam, a in axes:
+    # perimeter labels in each family's hue (matches rose + sunburst)
+    for i, (name, fam, a) in enumerate(axes):
         x, y = pt(cx, cy, R + 20, a)
         anchor = "middle" if abs(math.cos(math.radians(a))) < 0.35 else (
             "start" if math.cos(math.radians(a)) > 0 else "end")
         dy = 12 if math.sin(math.radians(a)) > 0.35 else (-6 if math.sin(math.radians(a)) < -0.35 else 4)
-        o.append(txt(x, y + dy, fam["label"], size=12, fill=pencil, anchor=anchor, ls=1))
+        o.append(txt(x, y + dy, fam["label"], size=12, fill=fam_color(t, i), anchor=anchor, ls=1))
 
-    # series 1: router-task pressure (ghost) — Hit@1 tasks asserting each family
+    # series 1: router-task pressure (magenta) — Hit@1 tasks asserting each family
+    mag = t["magenta"]
     task_pts = [pt(cx, cy, R * f["tasks"] / rmax, a) for _, f, a in axes]
-    o.append(poly(task_pts, fill=ink, fill_opacity="0.06", stroke=ink, stroke_width="1.6"))
+    o.append(poly(task_pts, fill=mag, fill_opacity="0.10", stroke=mag, stroke_width="2.2"))
     for x, y in task_pts:
         o.append(f'<rect x="{x - 3.2:.1f}" y="{y - 3.2:.1f}" width="6.4" height="6.4" '
-                 f'fill="{t["canvas"]}" stroke="{ink}" stroke-width="1.4"/>')
+                 f'fill="{t["canvas"]}" stroke="{mag}" stroke-width="1.6"/>')
 
-    # series 2: live verified leaves (mint)
+    # series 2: live verified leaves (cyan)
     live_pts = [pt(cx, cy, R * f["leaves"] / rmax, a) for _, f, a in axes]
     o.append(poly(live_pts, fill=mint, fill_opacity=t["fill_data"], stroke=mint, stroke_width="2.6"))
     for x, y in live_pts:
@@ -247,7 +248,7 @@ def gen_radar(m, t):
     # task value labels just outside each task vertex
     for (_, f, a), (x, y) in zip(axes, task_pts):
         lx, ly = pt(cx, cy, R * f["tasks"] / rmax + 14, a)
-        o.append(txt(lx, ly + 3, str(f["tasks"]), size=9.5, fill=ink, anchor="middle"))
+        o.append(txt(lx, ly + 3, str(f["tasks"]), size=9.5, fill=mag, anchor="middle"))
 
     # header
     o.append(txt(910, 74, "DOMAIN COVERAGE", cls="cond", size=34, fill=ink,
@@ -262,7 +263,7 @@ def gen_radar(m, t):
     o.append(f'<line x1="{bx}" y1="{by + 74}" x2="{bx + bw}" y2="{by + 74}" stroke="{faint}" stroke-width="0.8"/>')
     o.append(f'<circle cx="{bx + 22}" cy="{by + 24}" r="4" fill="{mint}" stroke="{ink}" stroke-width="1.2"/>')
     o.append(txt(bx + 36, by + 28, f'VERIFIED SKILLS · {m["leaves"]}', size=10.5, fill=ink))
-    o.append(f'<rect x="{bx + 18}" y="{by + 44}" width="8" height="8" fill="none" stroke="{ink}" stroke-width="1.4"/>')
+    o.append(f'<rect x="{bx + 18}" y="{by + 44}" width="8" height="8" fill="none" stroke="{t["magenta"]}" stroke-width="1.6"/>')
     o.append(txt(bx + 36, by + 52, f'ROUTER TASKS · {m["corpus_tasks"]}', size=10.5, fill=ink))
     rows = [("UNIT", "COUNT PER FAMILY"), ("SCALE", f"0–{int(rmax)} · RINGS {int(rings[0])}"),
             ("GATE", "HIT@1 · DETERMINISTIC"), ("SHEET", "RDR-01 · REV AUTO")]
@@ -378,15 +379,19 @@ def gen_structure(m, t):
         a0, a1 = a, a + fam_span
         o.append(annulus(cx, cy, r_hole + 8, r_fam, a0, a1, c, "0.9",
                          t["canvas"], "1.5"))
-        # pack ring inside the family arc
+        # pack ring inside the family arc; gap shrinks as packs multiply so a
+        # crowded family never runs out of arc (scale-ready for pack growth)
         pa = a0
-        pack_span_total = fam_span - pack_gap * (f["packs"] - 1)
+        npacks = max(f["packs"], 1)
+        pgap = min(pack_gap, fam_span * 0.25 / max(npacks - 1, 1)) if npacks > 1 else 0.0
+        pack_span_total = fam_span - pgap * (npacks - 1)
+        weight_total = sum(max(len(v), 1) for v in f["packs_detail"].values()) or 1
         for j, (pack, leaves) in enumerate(f["packs_detail"].items()):
-            ps = pack_span_total * max(len(leaves), 1) / max(f["leaves"], 1)
+            ps = pack_span_total * max(len(leaves), 1) / weight_total
             o.append(annulus(cx, cy, r_pack0, r_pack1, pa, pa + ps, c,
                              "0.55" if j % 2 == 0 else "0.32",
                              t["canvas"], "1"))
-            pa += ps + pack_gap
+            pa += ps + pgap
         # family label outside
         mid = (a0 + a1) / 2
         lx, ly = pt(cx, cy, r_pack1 + 22, mid)

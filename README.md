@@ -45,7 +45,7 @@
   <a href="#faq">FAQ</a>
 </p>
 
-> **Note:** AeroSkills is currently a private development home, founder-gated for release. This README documents the release design. Skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
+> **Works everywhere:** skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
 
 ---
 
@@ -305,4 +305,15 @@ Apache-2.0. See [LICENSE](LICENSE) · [NOTICE](NOTICE) · [SECURITY.md](SECURITY
 
 ---
 
-*If AeroSkills saves you an afternoon, star the repository — it tells us where to spend the next authoring pass.*
+<div align="center">
+
+### ⭐ Stars are our telemetry
+
+**Every star steers the flight plan — it decides which family gets the next authoring pass.**<br>
+**If a skill saved you an afternoon, send one back.**
+
+<!-- at public release, swap for the live count:
+     https://img.shields.io/github/stars/arjun-0077/aeroskills?style=for-the-badge&logo=github&labelColor=1a1e35&color=f97316 -->
+<a href="https://github.com/arjun-0077/aeroskills/stargazers"><img src="https://img.shields.io/badge/%E2%AD%90_STAR-AEROSKILLS-f97316?style=for-the-badge&labelColor=1a1e35" alt="Star AeroSkills on GitHub"></a>
+
+</div>
