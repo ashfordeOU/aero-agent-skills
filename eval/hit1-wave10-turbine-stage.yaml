@@ -1,13 +1,14 @@
 # Hit@1 wave-10 fragment: turbine-stage (propulsion/axial-compressor)
 # Two tasks per new leaf skill; ts2 is cross-cutting (gas-turbine-cycle
 # and axial-compressor-stage wording must deterministically route to
-# turbine-stage).
+# turbine-stage). Ids prefixed tst to avoid collision with the existing
+# ts1/ts2 tail-sizing tasks.
 tasks:
-  - id: ts1
+  - id: tst1
     query: "compute the specific-work, stage-loading, degree-of-reaction, blade-row-loss, and total-to-total-efficiency of an axial-turbine-stage from the blade-speed, axial-velocity, and absolute flow angles of the turbine rotor"
     intent: "propulsion; axial turbine stage velocity-triangle sizing with stage loading, reaction, and blade row losses"
     expected_skill: "propulsion/axial-compressor/turbine-stage"
-  - id: ts2
+  - id: tst2
     query: "design the turbine stage of a gas turbine engine: set the degree-of-reaction and the blade-row-loss coefficients so the total-to-total-efficiency and the specific-work output meet the stage-loading target from the velocity-triangle"
     intent: "propulsion; gas turbine engine turbine stage design with reaction and loss budget"
     expected_skill: "propulsion/axial-compressor/turbine-stage"
