@@ -41,6 +41,7 @@ material selection.
 | structures/fem/calculix-nonlinear | CalculiX nonlinear FEM | Newton-Raphson, load stepping, convergence residual, state-dependent stiffness |
 | structures/fem/modal-analysis | Modal analysis | natural frequencies, mode shapes, resonance check |
 | structures/fem/truss-analysis | Truss analysis | direct stiffness method, element stiffness matrices, global assembly, nodal displacements, member forces, support reactions |
+| structures/fem/buckling-analysis | Buckling analysis | euler critical buckling load, slenderness ratio, effective length factor, end conditions, buckling stress, radius of gyration, column instability |
 | structures/damage-tolerance/residual-strength | Residual strength | fracture toughness, critical crack length, limit-load margin |
 | structures/damage-tolerance/crack-growth | Crack growth | fatigue crack propagation, Paris law, growth life, inspection intervals |
 | structures/damage-tolerance/widespread-fatigue-damage | Widespread fatigue damage | MSD screening, MED classification, supplemental inspection |
@@ -67,6 +68,10 @@ material selection.
   assembly, nodal displacements by Gaussian elimination, member
   forces, support reactions) route to the fem truss-analysis
   sub-skill.
+- Column instability and Euler buckling questions (critical buckling
+  load, slenderness ratio, effective length factor, end conditions,
+  buckling stress, radius of gyration, cantilever columns) route to
+  the fem buckling-analysis sub-skill.
 - Damage-tolerance residual-strength questions (Kc, critical crack
   length, margin) route to the damage-tolerance residual-strength
   sub-skill.
