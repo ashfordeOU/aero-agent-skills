@@ -1,0 +1,14 @@
+# Hit@1 wave-12 fragment: position-tolerance-calc (cross-cutting/tolerancing)
+# Two tasks per new leaf; ptc1 routes on the GD&T position tolerance
+# computation (zone diameter, MMC bonus, virtual condition), ptc2 routes on
+# the feature-control-frame verification wording. Both must deterministically
+# hit cross-cutting/tolerancing/position-tolerance-calc.
+tasks:
+  - id: ptc1
+    query: "compute the position-tolerance zone diameter for the drilled hole from the actual center offset against the true-position and apply the mmc-bonus and the virtual-condition boundary per asme y14.5"
+    intent: "cross-cutting; GD&T position tolerance zone, MMC bonus tolerance, and virtual condition per ASME Y14.5"
+    expected_skill: "cross-cutting/tolerancing/position-tolerance-calc"
+  - id: ptc2
+    query: "verify the feature-control-frame callout for the machined hole by checking the position tolerance against the measured deviation and the maximum-material-condition bonus"
+    intent: "cross-domain; feature control frame verification, measured deviation versus position tolerance with MMC bonus"
+    expected_skill: "cross-cutting/tolerancing/position-tolerance-calc"
