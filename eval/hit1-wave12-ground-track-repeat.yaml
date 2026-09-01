@@ -1,0 +1,13 @@
+# Hit@1 wave-12 fragment: ground-track-repeat (space-systems/orbit-mechanics)
+# Two tasks per new leaf skill; gtr2 is adversarial (neighbor sun-sync
+# carries 'nodal regression' and 'ascending node' in its description,
+# must deterministically route to ground-track-repeat).
+tasks:
+  - id: gtr1
+    query: "compute the ground-track-repeat design for the sun-synchronous orbit at 888 km: revolutions-per-day against the sidereal-day from the nodal-period and j2 regression, then report the integer repeat cycle in days"
+    intent: "orbit mechanics; repeat ground track: nodal period, revolutions per sidereal day, integer repeat cycle"
+    expected_skill: "space-systems/orbit-mechanics/ground-track-repeat"
+  - id: gtr2
+    query: "check whether the constellation satellite retraces its ground-track-repeat on a whole-day cadence: nodal-period and revolutions-per-day from the j2 nodal regression, with the local time of ascending node held fixed"
+    intent: "orbit mechanics; repeat ground track verification against nodal period and revolutions per day"
+    expected_skill: "space-systems/orbit-mechanics/ground-track-repeat"
