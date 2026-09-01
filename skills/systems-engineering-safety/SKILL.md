@@ -41,6 +41,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4754a/requirements-allocation | ARP4754A requirements allocation | allocation to items and functions, allocation coverage, unallocated requirements, double allocation |
 | systems-engineering-safety/arp4754a/validation | ARP4754A validation | validation methods, requirements confirmation, validation scenarios |
 | systems-engineering-safety/arp4761a/safety-assessment | ARP4761A safety assessment | FHA/PSSA/SSA sequence, analysis set selection |
+| systems-engineering-safety/arp4761a/functional-hazard-assessment | ARP4761A functional hazard assessment | failure conditions, severity rating, probability targets, FHA worksheet, A-FHA, S-FHA |
 | systems-engineering-safety/arp4761a/fta-fmea | FTA and FMEA | fault trees, minimal cut sets, failure modes, common cause |
 | systems-engineering-safety/arp4761a/common-cause-analysis | Common cause analysis | common mode failures, zonal analysis, separation, independence |
 | systems-engineering-safety/arp4761a/zonal-safety-analysis | ARP4761A zonal safety analysis | zone identification, zonal hazard severity, separation, containment, zonal hazard checklist, ZSA report |
@@ -67,6 +68,12 @@ model-based systems engineering (SysML, digital thread).
   validation sub-skill.
 - Safety assessment questions (severity, FHA/PSSA/SSA, analysis set)
   route to the ARP4761A safety-assessment sub-skill.
+- Functional hazard assessment questions (failure condition
+  identification, severity rating into the five categories, probability
+  target mapping, FHA worksheet rows, A-FHA, S-FHA) route to the
+  ARP4761A functional-hazard-assessment sub-skill; the FHA/PSSA/SSA
+  sequence and analysis set selection stay with the safety-assessment
+  sub-skill.
 - Fault tree, FMEA, and cut-set questions route to the fta-fmea
   sub-skill; common mode and zonal independence questions route to
   the common-cause-analysis sub-skill.
