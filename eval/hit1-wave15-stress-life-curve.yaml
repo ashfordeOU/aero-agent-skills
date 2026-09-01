@@ -1,0 +1,10 @@
+# Hit@1 wave-15 fragment: stress-life-curve (structures/fatigue)
+tasks:
+  - id: slc1
+    query: "fit the basquin-equation to the stress-life-curve from the sn-curve fatigue test data with the log-log regression, determine the endurance-limit from the runout stress level at the 1e7 cycle runout, and make the fatigue-life-prediction at the 300 MPa stress amplitude"
+    intent: "structures; stress-life curve construction: Basquin equation fit by log-log regression, endurance limit from the runout stress level, fatigue life prediction at a given stress amplitude"
+    expected_skill: "structures/fatigue/stress-life-curve"
+  - id: slc2
+    query: "the wing spar lug sees a 250 MPa stress amplitude on the stress-life-curve fitted with the basquin-equation from the sn-curve test data: predict the fatigue-life-prediction in cycles before the endurance-limit, then compare the constant-amplitude life against the goodman-diagram mean-stress check and the miner-damage cumulative damage sum"
+    intent: "adversarial: constant-amplitude S-N life prediction wording (stress amplitude, endurance limit, goodman mean-stress check, miner cumulative damage) must route to the stress-life-curve leaf, not goodman-diagram or miner-damage"
+    expected_skill: "structures/fatigue/stress-life-curve"
