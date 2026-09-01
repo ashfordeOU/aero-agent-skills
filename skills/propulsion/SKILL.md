@@ -51,6 +51,7 @@ compressor stage and operating-map analysis.
 | propulsion/axial-compressor/multi-stage-compressor | Multi-stage compressor | overall pressure ratio, stage count, stage matching, reheat factor, annulus area, corrected speed |
 | propulsion/axial-compressor/turbine-stage | Turbine stage | stage loading, flow coefficient, reaction, blade row losses, total-to-total efficiency, velocity triangles |
 | propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
+| propulsion/rocket/rocket-staging | Rocket staging | stage mass ratio allocation, payload fraction, structural index, stage count optimization, per-stage delta-v |
 | propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion |
 | propulsion/rocket/propellant-selection | Propellant selection | propellant families, density impulse, mixture ratio, storability, mass fraction |
 | propulsion/ramjet/ramjet-cycle | Ramjet cycle | ideal ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse |
@@ -75,6 +76,10 @@ compressor stage and operating-map analysis.
   ratio, exit Mach, thrust, expansion) route to nozzle-design;
   propellant family, density impulse, and mixture ratio questions
   route to propellant-selection.
+- Multi-stage rocket staging questions (per-stage delta-v, stage mass
+  ratio and payload fraction allocation, structural index, stage count
+  optimization for a target total delta-v) route to the rocket-staging
+  sub-skill.
 - Axial compressor stage questions (velocity triangles, degree of
   reaction, stage pressure ratio) route to the
   axial-compressor-stage sub-skill; turbine stage questions (stage
