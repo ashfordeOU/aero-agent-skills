@@ -25,6 +25,7 @@ rules apply to any agent working in this repo.
 - ONE main branch. No feature branches. Everything lands on main.
 - Every commit complete (code + docs + tests + state together).
 - Clean at rest: zero uncommitted files.
+- **COMMIT IDENTITY (founder mandate 2026-09-01): every commit is authored and committed as `ashfordeOU <contact@ashforde.org>` — never Hermes, never a bot name. Repo-local git config already sets this; do not override with a global identity. Verify with `git log -1 --format='%an <%ae>'` after committing.**
 - Test-first: failing test → fix → passing test.
 - Minimal code. No speculative abstractions. Simplicity first.
 
