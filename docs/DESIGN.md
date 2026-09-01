@@ -78,5 +78,14 @@ source: "refero.design — Subframe (graphite blueprint on warm vellum), INVERSA
 applies_to:
   - docs/banner.svg (light vellum)
   - docs/banner-dark.svg (blueprint blue)
-  - docs/domain-map.svg (light vellum)
+  - docs/domain-map.svg (light vellum, legacy)
+  - docs/logo.svg / logo-dark.svg (GENERATED — scripts/gen_visuals.py)
+  - docs/domain-radar.svg / -dark (GENERATED — scripts/gen_visuals.py)
+  - docs/domain-polar.svg / -dark (GENERATED — scripts/gen_visuals.py)
+  - docs/stats.svg / -dark (GENERATED — scripts/gen_visuals.py)
   - any future AeroSkills visual artifact
+generated_note: >
+  Every chart, the logo, and every number quoted in README.md is emitted by
+  scripts/gen_visuals.py from the tree at HEAD (make visuals). Never edit
+  those SVGs or the README gen-blocks by hand — change the generator and
+  rerun. CI enforces freshness via make visuals-check.

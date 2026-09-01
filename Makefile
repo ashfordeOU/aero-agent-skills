@@ -10,7 +10,7 @@
 
 .PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 \
         attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep \
-        packs
+        packs visuals visuals-check
 
 validate: lint-spec desc-lint pytest-contract no-verbatim hit1
 	@echo "AeroSkills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
@@ -35,6 +35,16 @@ hit1:
 # can install only the pack the user needs. Deterministic, offline.
 packs:
 	@python3 scripts/pack_inventory.py
+
+# Generated visuals + README numbers (founder directive 2026-09-01): every
+# number and chart in the README is computed from the tree by
+# scripts/gen_visuals.py. `make visuals` regenerates; `make visuals-check`
+# fails when any artifact is stale (run in CI). Deterministic, offline.
+visuals:
+	@python3 scripts/gen_visuals.py
+
+visuals-check:
+	@python3 scripts/gen_visuals.py --check
 
 # Attestation gates (milestone 2026-08-31): number snapshot (offline, at rest),
 # brief-audit against the canonical register, content-policy sweep. All three
