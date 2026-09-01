@@ -1,0 +1,15 @@
+# Hit@1 wave-11 fragment: wing-box-sizing (vehicle-design)
+# Two tasks per new leaf skill; wbs1 routes on wing box sizing terms
+# (root bending moment, spar cap, allowable stress), wbs2 routes on the
+# load case and structure integration terms (ultimate moment, shear
+# flow, maneuvering load factor). Both must deterministically hit
+# vehicle-design/structures-integration/wing-box-sizing.
+tasks:
+  - id: wbs1
+    query: "size the wing box structure: compute the root bending moment from the load factor, weight, and span with the elliptical lift distribution, then size the spar cap area from the allowable stress"
+    intent: "vehicle design; wing box root bending moment and spar cap area from the elliptical load case"
+    expected_skill: "vehicle-design/structures-integration/wing-box-sizing"
+  - id: wbs2
+    query: "check the wing structure under the maneuvering load factor: ultimate moment from the 1.5 factor of safety, spar web shear flow, and web thickness at the wing root"
+    intent: "vehicle design; wing structure ultimate moment and shear flow integration under the load factor"
+    expected_skill: "vehicle-design/structures-integration/wing-box-sizing"
