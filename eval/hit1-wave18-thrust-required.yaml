@@ -1,0 +1,14 @@
+# Hit@1 wave-18 fragment: thrust-required (performance)
+# Two tasks per new leaf; q1 routes on the thrust required curve for
+# level flight from the drag polar, q2 routes on the minimum drag speed
+# and minimum power speed. Both must deterministically hit
+# flight-mechanics/performance/thrust-required.
+tasks:
+  - id: w18-thrust-required-1
+    query: "compute the thrust required curve versus airspeed for level flight from the drag polar with the weight, wing area, and sea level density"
+    intent: "flight mechanics; thrust required curve for level unaccelerated flight from the drag polar"
+    expected_skill: "flight-mechanics/performance/thrust-required"
+  - id: w18-thrust-required-2
+    query: "estimate the minimum drag speed and the minimum power speed for the aircraft from the zero lift drag and the induced drag factor at sea level"
+    intent: "flight mechanics; minimum drag speed and minimum power speed of the thrust required analysis"
+    expected_skill: "flight-mechanics/performance/thrust-required"
