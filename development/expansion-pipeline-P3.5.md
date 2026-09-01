@@ -152,3 +152,22 @@ clean (gate 4), corpus resolves (gate 5), committed with evidence.
   audit stays clean. The attestation register is unchanged.
 - Ordering: waves 1+2 first (floor twenty-seven); wave 3 is stretch. Each
   wave ends gate-green and committed; the library grows monotonically.
+
+## Rate-at-creation mandate (founder 2026-09-01, binding for all waves)
+
+Founder, verbatim: "they should be rated exactly at the time of creation
+and if they didnt achieve the score they get rebuilt in the same flow or
+same turn."
+
+Operating rule (encoded in every wave brief since wave-14):
+1. Every leaf is rated IN ITS BUILD TURN via
+   `python3 ops/automation/update-skill-ratings.py` — a leaf is not done
+   until it appears in eval/skill-ratings.md with CEO rating >= 9.5.
+2. The generator refuses to write ratings over a red tree (gates must
+   pass first), so a leaf that cannot pass gates never receives a
+   rating — it is rebuilt in-turn (max 2 attempts) or deleted with a
+   note (finish-or-delete).
+3. Below-score leaves are rebuilt in the same turn, never shipped and
+   backfilled later. The progress monitor emits `ledger_gap` so any
+   unrated leaf is surfaced at the next tick instead of silently
+   drifting.
