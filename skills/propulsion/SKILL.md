@@ -1,6 +1,6 @@
 ---
 name: propulsion
-description: "Use when a task concerns aircraft or rocket propulsion: guide the router to the propulsion pack, whose gas-turbine-cycle and regenerative-cycle sub-skills cover Brayton cycle and regenerator efficiency, turbofan-cycle and bypass-ratio-trade cover turbofan parameters and bypass design, rocket-sizing, nozzle-design, and propellant-selection cover rocket sizing, nozzles, and propellant trade, and axial-compressor-stage and compressor-map cover stage velocity triangles and compressor operating maps. This pack is the propulsion performance and sizing layer of the library. Trigger: propulsion, gas turbine, Brayton cycle, regenerator, turbofan, bypass ratio, rocket equation, delta-v, rocket nozzle, area ratio, exit Mach, propellant, density impulse, axial compressor, compressor map, surge margin, corrected flow, multi-stage compressor, off-design turbofan, real cycle, component efficiency."
+description: "Use when a task concerns aircraft or rocket propulsion: guide the router to the propulsion pack, whose gas-turbine-cycle covers the Brayton cycle, regenerative-cycle regenerator efficiency, real-cycle-effects component losses, turbofan-cycle turbofan parameters, bypass-ratio-trade bypass design, turbofan-off-design part-power behavior, free-turbine power turbine matching, turbine-stage stage velocity triangles, axial-compressor-stage compressor stage, compressor-map compressor operating maps, multi-stage-compressor stacked stages, rocket-sizing rocket sizing, nozzle-design nozzles, and propellant-selection propellant trade. Trigger: propulsion, gas turbine, Brayton cycle, regenerator, turbofan, bypass ratio, rocket equation, delta-v, rocket nozzle, area ratio, exit Mach, propellant, density impulse, axial compressor, compressor map, surge margin, corrected flow, multi-stage compressor, off-design turbofan, real cycle, component efficiency, free turbine, power turbine, turboshaft, turbine stage."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -43,40 +43,43 @@ compressor stage and operating-map analysis.
 | propulsion/turbofan/turbofan-cycle | Turbofan cycle | bypass ratio, propulsive efficiency, specific thrust, fan/core mass flow |
 | propulsion/turbofan/bypass-ratio-trade | Bypass ratio trade | BPR vs TSFC, thrust split, specific thrust, fan pressure ratio |
 | propulsion/turbofan/turbofan-off-design | Turbofan off-design | corrected mass flow, corrected spool speed, altitude thrust, ram drag, cruise SFC, throttle setting |
-| propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
-| propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion |
-| propulsion/rocket/propellant-selection | Propellant selection | propellant families, density impulse, mixture ratio, storability, mass fraction |
+| propulsion/turboprop/free-turbine | Free turbine | power turbine exit temperature, shaft power, torque, gear ratio, flow function, spool matching |
 | propulsion/axial-compressor/axial-compressor-stage | Axial compressor stage | velocity triangle, specific work, flow coefficient, degree of reaction, stage pressure ratio, blade loading |
 | propulsion/axial-compressor/compressor-map | Compressor map | surge line and margin, operating line, speed lines, corrected flow and speed, choke |
 | propulsion/axial-compressor/multi-stage-compressor | Multi-stage compressor | overall pressure ratio, stage count, stage matching, reheat factor, annulus area, corrected speed |
+| propulsion/axial-compressor/turbine-stage | Turbine stage | stage loading, flow coefficient, reaction, blade row losses, total-to-total efficiency, velocity triangles |
+| propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
+| propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion |
+| propulsion/rocket/propellant-selection | Propellant selection | propellant families, density impulse, mixture ratio, storability, mass fraction |
 
 ## Routing guidance
 
 - Brayton/gas-turbine thermodynamics route to the gas-turbine-cycle
   sub-skill; regenerator and recuperator cycle questions route to the
   regenerative-cycle sub-skill.
-- Turbofan bypass and efficiency questions route to turbofan-cycle.
-- Bypass-ratio design-trade questions (BPR vs TSFC, thrust split) route
-  to the turbofan bypass-ratio-trade sub-skill.
+- Turbofan bypass and efficiency questions route to turbofan-cycle;
+  BPR vs TSFC design-trade questions route to bypass-ratio-trade;
+  off-design and altitude behavior questions route to
+  turbofan-off-design.
+- Free-turbine and power-turbine matching questions (shaft power,
+  gear ratio, flow function) route to the free-turbine sub-skill.
 - Rocket equation, delta-v, staging, and propellant mass questions
-  route to the rocket-sizing sub-skill.
-- Rocket nozzle questions (area ratio, exit Mach, thrust, expansion)
-  route to the rocket nozzle-design sub-skill.
-- Propellant family, density impulse, and mixture ratio questions route
-  to the rocket propellant-selection sub-skill.
+  route to the rocket-sizing sub-skill; rocket nozzle questions (area
+  ratio, exit Mach, thrust, expansion) route to nozzle-design;
+  propellant family, density impulse, and mixture ratio questions
+  route to propellant-selection.
 - Axial compressor stage questions (velocity triangles, degree of
   reaction, stage pressure ratio) route to the
-  axial-compressor-stage sub-skill.
-- Compressor map questions (surge margin, operating line, speed lines,
-  corrected flow and speed) route to the compressor-map sub-skill.
-- Multi-stage compressor questions (overall pressure ratio, stage
-  count, stage matching, reheat factor, annulus area) route to the
-  multi-stage-compressor sub-skill.
+  axial-compressor-stage sub-skill; turbine stage questions (stage
+  loading, reaction, blade row losses, efficiency) route to the
+  turbine-stage sub-skill.
+- Compressor map questions (surge margin, operating line, speed
+  lines, corrected flow and speed) route to the compressor-map
+  sub-skill; multi-stage compressor questions (overall pressure
+  ratio, stage count, stage matching, reheat factor, annulus area)
+  route to the multi-stage-compressor sub-skill.
 - Non-ideal cycle questions (component efficiencies, pressure loss,
   real SFC) route to the real-cycle-effects sub-skill.
-- Off-design turbofan questions (corrected flow and speed, altitude
-  thrust, ram drag, cruise SFC, throttle setting) route to the
-  turbofan-off-design sub-skill.
 - Airframe, stability, and certification questions route to their
   domain packs (flight-mechanics, avionics).
 
