@@ -1,0 +1,14 @@
+# Hit@1 wave-11 fragment: ramjet-cycle (propulsion)
+# Two tasks per new leaf skill; rj1 routes on cycle terms (Mach number,
+# total temperature ratio, specific thrust), rj2 routes on cross-cutting
+# fuel and impulse vocabulary (fuel air ratio, specific impulse, hypersonic
+# cruise) that still lands deterministically on the ideal ramjet leaf.
+tasks:
+  - id: rj1
+    query: "compute the specific thrust of the ideal ramjet cycle from the flight mach number and the total temperature ratio"
+    intent: "propulsion; ideal ramjet specific thrust from Mach number and total temperature ratio"
+    expected_skill: "propulsion/ramjet/ramjet-cycle"
+  - id: rj2
+    query: "estimate the specific impulse and thermal efficiency of the ramjet from the fuel air ratio and lower heating value for the hypersonic cruise vehicle"
+    intent: "propulsion; ramjet specific impulse and thermal efficiency from fuel air ratio, cross-cutting with vehicle performance"
+    expected_skill: "propulsion/ramjet/ramjet-cycle"
