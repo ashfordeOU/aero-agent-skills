@@ -55,6 +55,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/ground-track-repeat | Ground track repeat | repeat ground track, nodal precession, orbital period, integer revolutions per day |
 | space-systems/orbit-mechanics/hohmann-transfer | Hohmann transfer | coplanar circular-orbit transfer, transfer ellipse, delta-v budget, burn impulses, transfer time, rendezvous phase angle |
 | space-systems/orbit-mechanics/orbital-perturbations | Secular orbital perturbations | J2 nodal regression, RAAN drift rate, argument-of-perigee drift, nodal period change, perturbation magnitude vs altitude |
+| space-systems/orbit-mechanics/lambert-transfer | Lambert transfer | Lambert problem, two-position transfer, time of flight constraint, transfer orbit, transfer delta-v, short way, long way |
 
 ## Routing guidance
 
@@ -94,6 +95,9 @@ selection, and classical orbital element determination.
   perigee drift, nodal period change, perturbation magnitude versus
   altitude) route to the orbit-mechanics orbital-perturbations
   sub-skill.
+- Two-position orbit transfers with a fixed transfer time, Lambert
+  problem solutions, and short-way/long-way branches route to the
+  orbit-mechanics lambert-transfer sub-skill.
 - Classical orbital element questions (state vector to elements,
   RAAN, argument of periapsis, true anomaly, period) route to the
   keplerian-elements sub-skill.

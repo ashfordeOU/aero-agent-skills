@@ -57,6 +57,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/liquid-penetrant-inspection | Liquid penetrant inspection | penetrant testing, capillary rise, washburn penetration depth, dwell time, developer time, bleed-out, indication sizing |
 | manufacturing-quality/ndt/magnetic-particle-inspection | Magnetic particle inspection | magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance |
 | manufacturing-quality/ndt/visual-inspection | Visual inspection | aperture ratio, magnification, lighting requirements, surface indication acceptance, borescope, field of view, working distance |
+| manufacturing-quality/special-processes/special-process-qualification | Special process qualification | special process, process qualification record, requalification trigger, parameter change, equipment change, NADCAP, process variables |
 
 ## Routing guidance
 
@@ -101,6 +102,7 @@ selection and ultrasonic inspection).
 - Liquid penetrant inspection questions (capillary action, washburn penetration, dwell time, developer time, bleed-out, indication sizing) route to the ndt liquid-penetrant-inspection sub-skill.
 - Magnetic particle inspection questions (magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance, residual field) route to the ndt magnetic-particle-inspection sub-skill.
 - Visual inspection questions (aperture ratio, magnification, lighting requirements, surface indication acceptance, borescope field of view, working distance) route to the ndt visual-inspection sub-skill.
+- Special process qualification, process qualification records, requalification triggers (parameter, equipment, personnel, interval change), and NADCAP evidence questions route to the special-processes special-process-qualification sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
