@@ -1,0 +1,16 @@
+# Hit@1 wave-13 fragment: engine-sizing (vehicle-design/sizing)
+# Two tasks per new leaf; esg1 routes on the sea level static thrust
+# from the design thrust to weight ratio and the thrust lapse to the
+# top of climb altitude, esg2 routes on the turbofan engine selection
+# with takeoff thrust and engine weight from the thrust to weight
+# ratio. Both must deterministically hit
+# vehicle-design/sizing/engine-sizing.
+tasks:
+  - id: esg1
+    query: "size the engines and compute the sea level static thrust from the design thrust to weight ratio and the takeoff gross weight for the transport aircraft then lapse the thrust to the top of climb altitude"
+    intent: "vehicle design; engine sizing, sea level static thrust from thrust to weight ratio and takeoff gross weight, thrust lapse to top of climb altitude"
+    expected_skill: "vehicle-design/sizing/engine-sizing"
+  - id: esg2
+    query: "select the turbofan engines and estimate the takeoff thrust and the engine weight for the twin engine transport given the required thrust to weight ratio at the top of climb"
+    intent: "vehicle design; turbofan engine selection with installed takeoff thrust and engine weight from the thrust to weight ratio, cross-cutting with propulsion and weight estimation wording"
+    expected_skill: "vehicle-design/sizing/engine-sizing"
