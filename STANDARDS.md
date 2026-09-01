@@ -42,6 +42,9 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | as9102 | AS9102: Aerospace First Article Inspection Requirements | quality | IAQG (develops) / SAE (publishes Americas; EN9102 Europe) | proprietary-sold | manufacturing quality; first article inspection; production assurance | yes |
 | mmpsd | MMPDS: Metallic Materials Properties Development and Standardization | materials | SAE International (successor to MIL-HDBK-5) | proprietary-sold | metallic materials; allowables; statistical design values | yes |
 | naca-tr-824 | NACA Report 824: Summary of Airfoil Data (Abbott, von Doenhoff, Stivers) | reference-data | NACA (US Government; NASA predecessor) | public-domain | airfoil aerodynamics; validation reference | no |
+| nas-410 | NAS 410: NAS Certification and Qualification of Nondestructive Test Personnel | quality | AIA (Aerospace Industries Association) | proprietary-sold | NDT personnel qualification; aerospace inspection; manufacturing and MRO | yes |
+| naca-tn-902 | NACA TN 902: Description of Stress-Strain Curves by Three Parameters (Ramberg, Osgood) | reference-data | NACA (US Government; NASA predecessor) | public-domain | metallic materials; elastic-plastic stress-strain modeling | no |
+| asme-y14-5 | ASME Y14.5: Dimensioning and Tolerancing | guidance | ASME (American Society of Mechanical Engineers) | proprietary-sold | mechanical design; geometric dimensioning and tolerancing (GD&T) | yes |
 
 ## Applicability
 
@@ -63,6 +66,9 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | naca-tr-824 | Classic airfoil section data (NACA 4/5-digit and 6-series) and wind-tunnel polars used as the validation anchor for airfoil analysis, e.g. the XFOIL NACA 0012 at Re=6M band | US government work; public domain; quotable with citation |
 | far-33 | Type-certification basis for aircraft engines: design and construction, ratings and operating limitations, endurance and calibration tests, and continued airworthiness; engine cycle work sits upstream of certification | US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity |
 | arinc-429 | Point-to-point 32-bit word digital information transfer standard for civil avionics: label, SDI, data, SSM, and parity bit layout; BNR/BCD coding and sign conventions; 12.5 and 100 kbit/s speeds; word format and equipment identification tables | Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim word-format tables or clause text |
+| nas-410 | NDT personnel qualification and certification (Levels I, II, III) for aerospace nondestructive testing: eddy current, ultrasonic, radiographic, penetrant, magnetic particle; training, experience, and examination requirements | Proprietary (AIA, sold via Accuris/Techstreet). Name + paraphrase + short attributed quotes + link only; no verbatim clause text |
+| naca-tn-902 | Ramberg-Osgood three-parameter model of the metallic stress-strain curve: total strain = stress/E + 0.002*(stress/sigma_0.2)^n, with secant and tangent modulus derivations, for elastic-plastic structural analysis | US government work; public domain; quotable with citation |
+| asme-y14-5 | GD&T rules and practices: datum reference frames, feature control frames, position/profile/runout tolerances, MMC/LMC modifiers, bonus tolerance, virtual condition; the aerospace detail and assembly drawing baseline | Proprietary (ASME). Name + paraphrase + short attributed quotes + link only; no verbatim symbol tables, rule text, or drawing examples |
 
 ## Gated standards - verbatim text must NEVER appear
 
@@ -76,6 +82,8 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 - **as9102** (AS9102, IAQG/SAE) - gated
 - **mmpsd** (MMPDS, SAE) - gated
 - **arinc-429** (ARINC 429, ARINC/SAE ITC) - gated
+- **nas-410** (NAS 410, AIA) - gated
+- **asme-y14-5** (ASME Y14.5, ASME) - gated
 
 ## Reference-only standards - quotable with citation
 
@@ -85,6 +93,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 - **ecss** (ESA, cite source)
 - **sep-2640** (open specification, cite with status note)
 - **naca-tr-824** (public domain, US government work)
+- **naca-tn-902** (public domain, US government work)
 
 ## Frontmatter enforcement
 
