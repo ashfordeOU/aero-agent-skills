@@ -130,6 +130,11 @@
 # leaves). Wave-15 new leaves: "structures/fem/buckling-analysis", "avionics/do160/electrostatic-discharge", "cross-cutting/numerics/fast-fourier-transform", "systems-engineering-safety/arp4761a/functional-hazard-assessment", "gnc-autonomy/guidance/impact-point-prediction", "manufacturing-quality/as9100/risk-management", "propulsion/rocket/rocket-staging", "space-systems/subsystems/solar-array-sizing", "flight-mechanics/stability-control/spin-recovery", "structures/fatigue/stress-life-curve", "manufacturing-quality/ndt/visual-inspection", "vehicle-design/sizing/wing-planform-sizing".
 # Corpus: 488 tasks (464 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 15 build.
+# P5.2 / Wave 16 (2026-09-01): fan-out continues to
+# 247 verified skills (259 SKILL.md under gate 1: 12 routers + 247
+# leaves). Wave-16 new leaves: "avionics/data-bus/arinc429-protocol", "flight-mechanics/handling-qualities/cooper-harper-rating", "systems-engineering-safety/arp4754a/derived-requirements", "cross-cutting/numerics/eigenvalue-decomposition", "propulsion/engine-airframe/engine-airframe-integration", "structures/materials/fracture-toughness", "space-systems/orbit-mechanics/lambert-transfer", "gnc-autonomy/guidance/midcourse-guidance", "vehicle-design/mdo/multidisciplinary-optimization", "manufacturing-quality/special-processes/special-process-qualification".
+# Corpus: 508 tasks (488 prior plus 20 domain tasks). Owner: Ops
+# Manager, Wave 16 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2400,6 +2405,86 @@ tasks:
     query: "determine the wing area and the planform dimensions for the 600000 newton takeoff gross weight at a 6000 newton per square meter wing loading: the span for the 9 aspect ratio, the root chord and the mean aerodynamic chord at the 0.3 taper ratio, and the sweep angle needed at the 0.8 cruise Mach"
     intent: "vehicle design; wing area and planform geometry from wing loading and takeoff gross weight, adversarial against ws-tw-trade matching and weight-estimation class-I weights"
     expected_skill: "vehicle-design/sizing/wing-planform-sizing"
+  - id: w16-arinc429-protocol-1
+    query: "encode an ARINC 429 word with label, SDI, BNR data field, SSM, and odd parity"
+    intent: "ARINC 429 word format and BNR encoding"
+    expected_skill: "avionics/data-bus/arinc429-protocol"
+  - id: w16-arinc429-protocol-2
+    query: "decode the ARINC 429 data word received on the 100 kbps bus: extract the octal label, the SDI field, and the BCD data, then check the odd parity bit"
+    intent: "ARINC 429 word decode, octal label addressing, BCD data, and odd parity check"
+    expected_skill: "avionics/data-bus/arinc429-protocol"
+  - id: w16-cooper-harper-rating-1
+    query: "rate the handling qualities of an aircraft that is controllable but requires considerable pilot compensation: assign the cooper-harper rating and classify the band"
+    intent: "Cooper-Harper rating assignment from evaluation descriptors: controllable, adequate performance, adequate tolerances, considerable compensation"
+    expected_skill: "flight-mechanics/handling-qualities/cooper-harper-rating"
+  - id: w16-cooper-harper-rating-2
+    query: "adequate performance is not attainable for the piloted evaluation task even with extensive compensation: determine the cooper-harper rating and the handling qualities level for the flyability assessment"
+    intent: "adversarial: inadequate performance with extensive compensation must route to the cooper-harper-rating leaf for the rating and level, not to longitudinal-stability or dynamic-stability"
+    expected_skill: "flight-mechanics/handling-qualities/cooper-harper-rating"
+  - id: w16-derived-requirements-1
+    query: "classify a requirement with no parent trace and a design decision source as derived and list the rationale fields"
+    intent: "ARP4754A derived requirements classification and rationale"
+    expected_skill: "systems-engineering-safety/arp4754a/derived-requirements"
+  - id: w16-derived-requirements-2
+    query: "a low-level requirement arose from an interface resolution during design and has no parent trace: record the derivation source, the derivation rationale, and the impact analysis before it enters the requirements baseline"
+    intent: "adversarial: interface resolution derivation rationale must route to the derived-requirements leaf, not to requirements-allocation, requirements-traceability, or validation"
+    expected_skill: "systems-engineering-safety/arp4754a/derived-requirements"
+  - id: w16-eigenvalue-decomposition-1
+    query: "compute the eigenvalues and eigenvectors of a real symmetric matrix with the Jacobi method"
+    intent: "eigenvalue decomposition, Jacobi algorithm, symmetric matrix"
+    expected_skill: "cross-cutting/numerics/eigenvalue-decomposition"
+  - id: w16-eigenvalue-decomposition-2
+    query: "find the dominant eigenvalue and eigenvector of a square matrix by power iteration and deflate to get the second pair"
+    intent: "power iteration, dominant eigenvalue-eigenvector pair, deflation for the second eigenvalue"
+    expected_skill: "cross-cutting/numerics/eigenvalue-decomposition"
+  - id: w16-engine-airframe-integration-1
+    query: "estimate installed thrust loss from intake drag and nacelle drag for a turbofan installation"
+    intent: "engine-airframe integration thrust-drag bookkeeping"
+    expected_skill: "propulsion/engine-airframe/engine-airframe-integration"
+  - id: w16-engine-airframe-integration-2
+    query: "account for pylon drag and bleed air extraction when sizing the installed engine thrust"
+    intent: "engine-airframe integration installation losses in installed thrust sizing"
+    expected_skill: "propulsion/engine-airframe/engine-airframe-integration"
+  - id: w16-fracture-toughness-1
+    query: "compute the critical crack size for a material with known plane strain fracture toughness under a given stress"
+    intent: "fracture toughness critical crack size computation"
+    expected_skill: "structures/materials/fracture-toughness"
+  - id: w16-fracture-toughness-2
+    query: "check whether the applied stress intensity factor exceeds the plane strain fracture toughness K_IC and whether the compact tension specimen is thick enough for a valid plane strain fracture toughness test"
+    intent: "fracture toughness failure criterion and plane strain validity check"
+    expected_skill: "structures/materials/fracture-toughness"
+  - id: w16-lambert-transfer-1
+    query: "solve the two-position orbit transfer between two points with a fixed transfer time"
+    intent: "Lambert problem orbit transfer with time of flight constraint"
+    expected_skill: "space-systems/orbit-mechanics/lambert-transfer"
+  - id: w16-lambert-transfer-2
+    query: "compute the required velocity vectors and delta-v for the short-way transfer between two position vectors in a given time"
+    intent: "Lambert problem; short-way branch endpoint velocities and transfer delta-v"
+    expected_skill: "space-systems/orbit-mechanics/lambert-transfer"
+  - id: w16-midcourse-guidance-1
+    query: "shape a midcourse trajectory to a waypoint before terminal handover"
+    intent: "midcourse guidance waypoint steering and handover"
+    expected_skill: "gnc-autonomy/guidance/midcourse-guidance"
+  - id: w16-midcourse-guidance-2
+    query: "compute the velocity-to-be-gained and zero-effort-miss for the midcourse leg of the intercept"
+    intent: "GNC; vgo and ZEM midcourse shaping before terminal guidance"
+    expected_skill: "gnc-autonomy/guidance/midcourse-guidance"
+  - id: w16-multidisciplinary-optimization-1
+    query: "set up a multidisciplinary optimization loop coupling aerodynamics and structures for a wing"
+    intent: "MDO formulation and aero-structural coupling"
+    expected_skill: "vehicle-design/mdo/multidisciplinary-optimization"
+  - id: w16-multidisciplinary-optimization-2
+    query: "formulate an mdo problem with design variables, an objective function, and constraints for the multidisciplinary optimization of a wing, then run the fixed point iteration between the aero load and the structural weight until convergence"
+    intent: "MDO problem formulation with design variables, objective, and constraints; aero-structural fixed point iteration to convergence"
+    expected_skill: "vehicle-design/mdo/multidisciplinary-optimization"
+  - id: w16-special-process-qualification-1
+    query: "determine whether a heat treat parameter change triggers requalification of a special process"
+    intent: "special process requalification trigger classification"
+    expected_skill: "manufacturing-quality/special-processes/special-process-qualification"
+  - id: w16-special-process-qualification-2
+    query: "build the process qualification record for a qualified welding process: parameters with qualified ranges, process variables, qualification date, and validity"
+    intent: "process qualification record contents and special process control under AS9100 production control"
+    expected_skill: "manufacturing-quality/special-processes/special-process-qualification"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
