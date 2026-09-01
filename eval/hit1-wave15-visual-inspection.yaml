@@ -1,0 +1,16 @@
+# Hit@1 wave-15 fragment: visual-inspection (manufacturing-quality/ndt)
+# Two tasks per new leaf. vi1 routes on the aperture ratio, the
+# magnification for a target surface indication size, and the
+# illuminance check against the lighting requirements; vi2 is the
+# cross-domain adversarial task that mentions surface indications and
+# liquid penetrant but must hit the visual inspection leaf. Both must
+# deterministically hit manufacturing-quality/ndt/visual-inspection.
+tasks:
+  - id: vi1
+    query: "compute the visual-inspection aperture-ratio for the borescope objective at the 100 mm working-distance, size the magnification to resolve a 25 micrometer surface indication at the 250 mm viewing distance, and check the illuminance from the 250 cd lamp at 0.5 m against the lighting-requirements"
+    intent: "manufacturing quality; visual inspection (VT) execution: borescope aperture ratio, magnification for a target surface indication size, and illuminance against the lighting requirements"
+    expected_skill: "manufacturing-quality/ndt/visual-inspection"
+  - id: vi2
+    query: "when surface indications on the machined steel part could need liquid penetrant, first compute the visual-inspection magnification and field-of-view for the borescope at the 60 degree angle and the 300 mm working-distance, then record the acceptance-verdict against the 1.0 mm indication-acceptance limit"
+    intent: "adversarial: surface indication and liquid penetrant wording must route to visual-inspection for magnification, field of view, and indication acceptance, not to liquid-penetrant-inspection or ndt-method-selection"
+    expected_skill: "manufacturing-quality/ndt/visual-inspection"

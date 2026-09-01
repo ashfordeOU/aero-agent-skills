@@ -55,6 +55,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/eddy-current-inspection | Eddy current inspection | eddy current, depth of penetration, impedance plane, frequency selection, conductivity, subsurface flaw |
 | manufacturing-quality/ndt/liquid-penetrant-inspection | Liquid penetrant inspection | penetrant testing, capillary rise, washburn penetration depth, dwell time, developer time, bleed-out, indication sizing |
 | manufacturing-quality/ndt/magnetic-particle-inspection | Magnetic particle inspection | magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance |
+| manufacturing-quality/ndt/visual-inspection | Visual inspection | aperture ratio, magnification, lighting requirements, surface indication acceptance, borescope, field of view, working distance |
 
 ## Routing guidance
 
@@ -97,6 +98,7 @@ selection and ultrasonic inspection).
 - Eddy current, depth of penetration, and frequency-selection questions route to the ndt eddy-current-inspection sub-skill.
 - Liquid penetrant inspection questions (capillary action, washburn penetration, dwell time, developer time, bleed-out, indication sizing) route to the ndt liquid-penetrant-inspection sub-skill.
 - Magnetic particle inspection questions (magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance, residual field) route to the ndt magnetic-particle-inspection sub-skill.
+- Visual inspection questions (aperture ratio, magnification, lighting requirements, surface indication acceptance, borescope field of view, working distance) route to the ndt visual-inspection sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
