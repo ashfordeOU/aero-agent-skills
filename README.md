@@ -11,15 +11,15 @@
 </p>
 
 <p align="center">
-  <code>1,460 skills</code> · <code>73 domain packs</code> · <code>20 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
+  <code>1,460 skills</code> · <code>73 domain packs</code> · <code>21 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache-2.0"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-purple" alt="agentskills.io"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5%20REAL-green" alt="gates"></a>
-  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-20-blue" alt="standards"></a>
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-263-blue" alt="skills"></a>
+  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-21-blue" alt="standards"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-270-blue" alt="skills"></a>
 </p>
 
 <p align="center">
@@ -67,7 +67,7 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 
 ### What's inside
 
-**263 verified skills** (as of 2026-09-01) across **12 disciplines**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
+**270 verified skills** (as of 2026-09-01) across **12 disciplines**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
 
 | Family | Live packs | Standard spine | Example skills |
 |---|---|---|---|
@@ -130,6 +130,7 @@ contract test** that runs offline. `make validate` checks all of it.
 | FAR-25 / CS-25 | Transport airworthiness | public |
 | FAR-33 | Engine airworthiness | public |
 | ARINC 429 | Avionics data bus | reference |
+| ARINC 664 | AFDX network | gated, summary-not-copy |
 | NAS 410 | NDT personnel | reference |
 | ASME Y14.5 | GD&T | reference |
 | ECSS | Space engineering | public |
@@ -167,7 +168,7 @@ You do not need to trust the badge. Replay the gates on the commit you are looki
 | 2 desc lint | description what + when + trigger | `make desc-lint` |
 | 3 behavior tests | per-skill behavior contract, DAL A–E determination | `make pytest-contract` |
 | 4 no-verbatim | standards text copyright control | `make no-verbatim` |
-| 5 Hit@1 corpus | router selects the expected skill (532 tasks) | `make hit1` |
+| 5 Hit@1 corpus | router selects the expected skill (554 tasks) | `make hit1` |
 
 ```bash
 make validate   # 5/5 REAL gates, deterministic, offline
@@ -178,7 +179,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 
 ## Roadmap
 
-- **Shipped:** 263 verified skills across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
+- **Shipped:** 270 verified skills across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
 - **Release bar (founder, 2026-08-31):** 50+ domains × 20+ verified skills = 1,000+ skills before any release. The 12-discipline tree decomposes into 73 sub-domain packs (1,460 skills at 20 each). [development/50x20-domain-tree.md](development/50x20-domain-tree.md)
 - **Next:** fill live packs toward 20 skills each; open remaining packs on the same eval-gated pipeline
 - **Later:** reference builds; a SEP-2640-aligned MCP adapter; marketplace listings; AI Department Operator packs
