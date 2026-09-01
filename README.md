@@ -2,13 +2,12 @@
   <img src="docs/logo-mark.png" alt="AeroSkills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="200">
 </p>
 
-<div align="center">
-
-$\Huge\textsf{\textbf{Aero}}{\color{#8b5cf6}\textsf{\textbf{S}}}{\color{#a855f7}\textsf{\textbf{k}}}{\color{#d946ef}\textsf{\textbf{i}}}{\color{#ec4899}\textsf{\textbf{l}}}{\color{#f97316}\textsf{\textbf{l}}}{\color{#f59e0b}\textsf{\textbf{s}}}$
-
-${\color{#22d3ee}\textsf{AEROSPACE}}\ {\color{#8a93c4}·}\ {\color{#8b5cf6}\textsf{AGENT SKILLS}}\ {\color{#8a93c4}·}\ {\color{#f97316}\textsf{APACHE-2.0}}$
-
-</div>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/title-dark.svg">
+    <img src="docs/title.svg" alt="AeroSkills — aerospace · agent skills · Apache-2.0" width="520">
+  </picture>
+</p>
 
 <p align="center">
   <strong>The aerospace knowledge layer for AI agents.</strong><br>
