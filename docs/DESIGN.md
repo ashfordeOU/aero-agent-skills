@@ -76,6 +76,7 @@ donts:
   - "Never reuse the void-black+white-text minimalism that founder rejected as 'too basic'"
 source: "refero.design — Subframe (graphite blueprint on warm vellum), INVERSA (topographic field terminal, survey-marker accent), SpaceX (instrument-panel type), Dayos (mint tags) — founder-selected 2026-09-01; design-taste-frontend skill (anti-slop)"
 applies_to:
+  - docs/logo-mark.png / logo-full.png (FOUNDER-SUPPLIED raster mark, 2026-09-01 — THE logo. Exempt from this design law and from the generator; never redesign or alter. logo-mark is the text-free emblem crop used in the README hero; logo-full keeps the baked-in wordmark for app-icon/social use)
   - docs/banner.svg / banner-dark.svg (GENERATED — scripts/gen_visuals.py, v5.1)
   - docs/how-it-works.svg / -dark (GENERATED — scripts/gen_visuals.py)
   - docs/domain-map.svg (light vellum, legacy)
