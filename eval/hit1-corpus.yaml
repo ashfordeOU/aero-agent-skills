@@ -140,6 +140,11 @@
 # leaves). Wave-17 new leaves: "structures/damage-tolerance/bird-strike", "systems-engineering-safety/arp4754a/development-assurance-levels", "gnc-autonomy/control/gain-scheduling", "manufacturing-quality/as9100/measurement-systems-analysis", "avionics/data-bus/mil-std-1553", "flight-mechanics/handling-qualities/pilot-induced-oscillation", "vehicle-design/sizing/propeller-sizing", "cross-cutting/numerics/root-finding", "space-systems/orbit-mechanics/satellite-coverage", "flight-test-operations/envelope/structural-coupling-test", "manufacturing-quality/ndt/thermography", "propulsion/rocket/thrust-vector-control".
 # Corpus: 532 tasks (508 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 17 build.
+# P5.2 / Wave 18 (2026-09-01): fan-out continues to
+# 270 verified skills (282 SKILL.md under gate 1: 12 routers + 270
+# leaves). Wave-18 new leaves: "avionics/data-bus/arinc664-afdx", "flight-test-operations/performance/climb-performance-flight-test", "propulsion/rocket/combustion-chamber-design", "cross-cutting/units-atmos/dimensional-analysis", "systems-engineering-safety/arp4761a/failure-rate-estimation", "gnc-autonomy/control/observer-design", "space-systems/orbit-mechanics/orbital-decay", "structures/fem/plate-buckling", "flight-mechanics/performance/thrust-required", "vehicle-design/sizing/tire-sizing", "aerodynamics/wing-design/wing-planform-design".
+# Corpus: 554 tasks (532 prior plus 22 domain tasks). Owner: Ops
+# Manager, Wave 18 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2586,6 +2591,94 @@ tasks:
     query: "estimate the side force and the axial thrust loss of a rocket engine with its nozzle deflected by a given tvc gimbal angle"
     intent: "TVC side force and axial thrust loss from nozzle deflection angle"
     expected_skill: "propulsion/rocket/thrust-vector-control"
+  - id: w18-arinc664-afdx-1
+    query: "size an ARINC 664 AFDX network: compute virtual link bandwidth for a 1518-byte frame at BAG 4 ms and check the virtual link set fits the 100 Mbps link"
+    intent: "AFDX network sizing: virtual link bandwidth from BAG and frame size, link utilization budget"
+    expected_skill: "avionics/data-bus/arinc664-afdx"
+  - id: w18-arinc664-afdx-2
+    query: "check AFDX jitter against the 500 us tolerance and estimate end-to-end latency for 1518-byte frames through two switches on the redundant network"
+    intent: "AFDX timing: jitter budget slack and end-to-end latency through the switched network"
+    expected_skill: "avionics/data-bus/arinc664-afdx"
+  - id: w18-climb-performance-flight-test-1
+    query: "reduce the steady climb flight test data to the corrected rate of climb in feet per minute from the pressure altitude change over the timed climb segment, corrected for weight and density altitude"
+    intent: "flight test; climb rate measurement and weight and density correction from timed climb segments"
+    expected_skill: "flight-test-operations/performance/climb-performance-flight-test"
+  - id: w18-climb-performance-flight-test-2
+    query: "determine the service ceiling and the time to climb from the best rate of climb schedule and check the climb gradient against the certification requirement for the climb flight test program"
+    intent: "flight test; service ceiling, time to climb, and climb gradient certification check"
+    expected_skill: "flight-test-operations/performance/climb-performance-flight-test"
+  - id: w18-combustion-chamber-design-1
+    query: "compute the characteristic-velocity and the required throat-area for the rocket combustion-chamber-design from the chamber-pressure, the propellant mass-flow, and the c-star, then derive the contraction-ratio and the chamber-volume from L-star"
+    intent: "rocket chamber sizing: characteristic velocity, throat area, contraction ratio, L-star volume"
+    expected_skill: "propulsion/rocket/combustion-chamber-design"
+  - id: w18-combustion-chamber-design-2
+    query: "estimate the thrust-coefficient and the vacuum-specific-impulse of the rocket combustion-chamber-design from the chamber-pressure and the throat-area, and check the contraction-ratio against the chamber-volume"
+    intent: "rocket chamber assessment: thrust coefficient, vacuum specific impulse, chamber volume"
+    expected_skill: "propulsion/rocket/combustion-chamber-design"
+  - id: w18-dimensional-analysis-1
+    query: "check whether the equation terms are dimensionally homogeneous and apply the buckingham pi theorem to form the dimensionless pi groups"
+    intent: "cross-cutting; dimensional analysis, equation homogeneity check, and Buckingham Pi dimensionless groups"
+    expected_skill: "cross-cutting/units-atmos/dimensional-analysis"
+  - id: w18-dimensional-analysis-2
+    query: "compute the reynolds number and mach number for a wind tunnel model and the required model speed to match the full-scale reynolds number under dynamic similarity"
+    intent: "cross-cutting; similarity numbers and wind tunnel model to full-scale Reynolds number matching under dynamic similarity"
+    expected_skill: "cross-cutting/units-atmos/dimensional-analysis"
+  - id: w18-failure-rate-estimation-1
+    query: "estimate the failure-rate of the actuator system from the test-hours and the number of failures, then compute the 80 percent confidence upper-bound with the poisson chi-square method and the MTBF lower-bound"
+    intent: "systems safety; failure-rate point estimate, chi-square confidence upper-bound, MTBF lower-bound from test data"
+    expected_skill: "systems-engineering-safety/arp4761a/failure-rate-estimation"
+  - id: w18-failure-rate-estimation-2
+    query: "how many test-hours with zero failures demonstrate the 1e-6 per hour failure-rate target at 80 percent confidence using the chi-square zero-failure rule"
+    intent: "systems safety; zero-failure demonstration test-hours planning against a target failure rate"
+    expected_skill: "systems-engineering-safety/arp4761a/failure-rate-estimation"
+  - id: w18-observer-design-1
+    query: "design a luenberger observer with pole placement to estimate the unmeasured states for feedback control"
+    intent: "GNC; full-order Luenberger observer gain by pole placement for unmeasured states"
+    expected_skill: "gnc-autonomy/control/observer-design"
+  - id: w18-observer-design-2
+    query: "compute the estimator gain matrix and verify the observer error dynamics are stable via the separation principle"
+    intent: "GNC; estimator gain matrix and stable observer error dynamics under the separation principle"
+    expected_skill: "gnc-autonomy/control/observer-design"
+  - id: w18-orbital-decay-1
+    query: "estimate the orbital decay rate and deorbit lifetime of a 500 km LEO satellite with mass 300 kg, drag area 1.5 m2 and drag coefficient 2.2, and check the 25-year disposal rule"
+    intent: "orbit mechanics; drag decay rate and deorbit lifetime from mass, drag area, and drag coefficient"
+    expected_skill: "space-systems/orbit-mechanics/orbital-decay"
+  - id: w18-orbital-decay-2
+    query: "compute the ballistic coefficient and decay per orbit for a small satellite so that atmospheric drag deorbits it within the 25-year lifetime limit from 600 km altitude"
+    intent: "orbit mechanics; ballistic coefficient sizing and 25-year disposal compliance for LEO decay"
+    expected_skill: "space-systems/orbit-mechanics/orbital-decay"
+  - id: w18-plate-buckling-1
+    query: "compute the plate buckling coefficient k and the critical compression buckling stress of the flat skin panel: aluminum skin with E = 70 GPa, Poisson ratio 0.33, thickness 2 mm and width 150 mm, simply supported on all edges with aspect ratio 2, use sigma_cr = k*pi^2*E/(12*(1-nu^2))*(t/b)^2"
+    intent: "structures; flat plate and skin panel compression buckling, buckling coefficient from edge conditions and aspect ratio, critical buckling stress"
+    expected_skill: "structures/fem/plate-buckling"
+  - id: w18-plate-buckling-2
+    query: "check the aluminum spar web for shear buckling: determine the shear buckling coefficient k_s from the web aspect ratio and the shear buckling stress tau_cr of the flat web, then run the combined compression-shear interaction check against the applied shear"
+    intent: "structures; spar web shear buckling, shear buckling coefficient and critical shear stress, combined compression-shear interaction"
+    expected_skill: "structures/fem/plate-buckling"
+  - id: w18-thrust-required-1
+    query: "compute the thrust required curve versus airspeed for level flight from the drag polar with the weight, wing area, and sea level density"
+    intent: "flight mechanics; thrust required curve for level unaccelerated flight from the drag polar"
+    expected_skill: "flight-mechanics/performance/thrust-required"
+  - id: w18-thrust-required-2
+    query: "estimate the minimum drag speed and the minimum power speed for the aircraft from the zero lift drag and the induced drag factor at sea level"
+    intent: "flight mechanics; minimum drag speed and minimum power speed of the thrust required analysis"
+    expected_skill: "flight-mechanics/performance/thrust-required"
+  - id: w18-tire-sizing-1
+    query: "size the main landing gear tires from the static load per tire and compute the tire diameter and width with the power law fit"
+    intent: "vehicle design; tire diameter and width power law fits from the static load per tire"
+    expected_skill: "vehicle-design/sizing/tire-sizing"
+  - id: w18-tire-sizing-2
+    query: "select the number of tires, the inflation pressure, and the footprint contact area for the landing gear tires from the static load per tire"
+    intent: "vehicle design; tire count, inflation pressure, and footprint contact area from the static load"
+    expected_skill: "vehicle-design/sizing/tire-sizing"
+  - id: w18-wing-planform-design-1
+    query: "derive the wing-planform-design reference geometry from the span, the area, and the taper-ratio: the root-chord, the tip-chord, the mean-geometric-chord, and the mean-aerodynamic-chord with its mac-span-station, then convert the leading-edge-sweep into the quarter-chord-sweep"
+    intent: "wing planform reference geometry: taper chords, mean geometric and mean aerodynamic chord, MAC span station, sweep line conversion"
+    expected_skill: "aerodynamics/wing-design/wing-planform-design"
+  - id: w18-wing-planform-design-2
+    query: "estimate the spanwise-load-distribution of the wing-planform-design with the schrenk-approximation from the wing lift coefficient, obtain the local-lift-coefficient at each span station, and size the washout-angle for the stall-sequencing so the root stalls before the tip"
+    intent: "wing spanwise loading: Schrenk approximation, local lift coefficient, washout angle for root-first stall sequencing"
+    expected_skill: "aerodynamics/wing-design/wing-planform-design"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
