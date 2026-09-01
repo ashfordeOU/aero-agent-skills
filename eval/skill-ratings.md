@@ -316,3 +316,5 @@ Total skills rated: 306
 | 308 | gnc-autonomy/optimal-control/model-predictive-control | PASS | ✓ | none | gnc-autonomy | 9.5 | PASS |
 | 309 | flight-mechanics/handling-qualities/mil-std-1797a | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
 | 310 | space-systems/mission-design/launch-window-analysis | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 311 | systems-engineering-safety/arp4754a/configuration-management | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 312 | avionics/fsw/cfs-architecture | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
