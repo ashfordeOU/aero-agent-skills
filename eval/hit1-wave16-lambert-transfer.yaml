@@ -1,0 +1,14 @@
+# Hit@1 wave-16 fragment: lambert-transfer (space-systems/orbit-mechanics)
+# Two tasks per new leaf; w16-lambert-transfer-1 routes on the two-position
+# time-of-flight problem statement, w16-lambert-transfer-2 on the short-way
+# branch endpoint velocities and transfer delta-v. Both must deterministically
+# hit space-systems/orbit-mechanics/lambert-transfer.
+tasks:
+  - id: w16-lambert-transfer-1
+    query: "solve the two-position orbit transfer between two points with a fixed transfer time"
+    intent: "Lambert problem orbit transfer with time of flight constraint"
+    expected_skill: "space-systems/orbit-mechanics/lambert-transfer"
+  - id: w16-lambert-transfer-2
+    query: "compute the required velocity vectors and delta-v for the short-way transfer between two position vectors in a given time"
+    intent: "Lambert problem; short-way branch endpoint velocities and transfer delta-v"
+    expected_skill: "space-systems/orbit-mechanics/lambert-transfer"
