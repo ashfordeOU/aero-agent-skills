@@ -1,6 +1,6 @@
 ---
 name: manufacturing-quality
-description: "Use when a task concerns aerospace manufacturing and quality management: guide the router to the manufacturing-quality pack, whose AS9100 quality, nonconformance-control, supplier-control, counterfeit-prevention, and calibration-control sub-skills cover QMS scoping, disposition, supplier risk, counterfeit scoring, and test-equipment calibration, first-article-inspection and delta-fai cover AS9102 FAI Forms 1-3, and ndt-method-selection and ultrasonic-inspection cover NDT method selection and pulse-echo ultrasonic execution. This pack is the production and quality assurance counterpart of the design certification spine. Trigger: manufacturing quality, AS9100, AS9102, first article inspection, QMS, audit evidence, corrective action, FAI, counterfeit prevention, nonconformance, disposition, MRB, supplier control, delegated verification, calibration, test accuracy ratio, NDT, radiography, ultrasonic, eddy current, penetrant, magnetic particle, pulse echo, discontinuity, ballooning."
+description: "Use when a task concerns aerospace manufacturing and quality management: guide the router to the manufacturing-quality pack. AS9100 quality, nonconformance-control, supplier-control, counterfeit-prevention, calibration-control, corrective-action, and document-control cover QMS scoping, disposition, supplier risk, counterfeit scoring, calibration, CAPA closure, and controlled documents; first-article-inspection, delta-fai, and fai-revalidation cover AS9102 FAI, change classification, and revalidation; ndt-method-selection and ultrasonic-inspection cover NDT selection and pulse-echo ultrasonic. Trigger: manufacturing quality, AS9100, AS9102, first article inspection, QMS, corrective action, CAPA, 8D, five whys, document control, master list, FAI, revalidation, counterfeit prevention, nonconformance, disposition, MRB, supplier control, calibration, test accuracy ratio, NDT, radiography, ultrasonic, eddy current, penetrant, magnetic particle, pulse echo, discontinuity."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -42,8 +42,11 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/supplier-control | Supplier control | supplier risk classification, required controls, delegated verification, external providers |
 | manufacturing-quality/as9100/counterfeit-prevention | Counterfeit prevention | counterfeit parts risk scoring, prevention planning, procurement controls |
 | manufacturing-quality/as9100/calibration-control | Calibration control | calibration system, traceability, intervals, TAR 4:1, out-of-tolerance handling, recall |
+| manufacturing-quality/as9100/corrective-action | Corrective action | CAPA record, 8D workflow, five whys, root cause, containment, effectiveness verification |
+| manufacturing-quality/as9100/document-control | Document control | master list, controlled documents, current revision, obsolete revision disposition |
 | manufacturing-quality/as9102/first-article-inspection | First article inspection | FAI Forms 1-3, characteristic accountability, delta FAI |
 | manufacturing-quality/as9102/delta-fai | AS9102 delta FAI | change classification, full vs delta FAI, forms scope |
+| manufacturing-quality/as9102/fai-revalidation | FAI revalidation | revalidation due date, interval, change-driven revalidation, re-verification scope |
 | manufacturing-quality/as9102/ballooning | Ballooning | balloon numbers, characteristic numbering, D-list, accountability matrix, verification method code |
 | manufacturing-quality/ndt/ndt-method-selection | NDT method selection | defect class, ferromagnetic/conductive material, radiography, ultrasonic, eddy current, penetrant, magnetic particle |
 | manufacturing-quality/ndt/ultrasonic-inspection | Ultrasonic inspection | pulse-echo, time of flight to depth, wavelength, near field, discontinuity sizing |
@@ -63,10 +66,16 @@ selection and ultrasonic inspection).
 - Calibration questions (traceability, intervals, test accuracy
   ratio, out-of-tolerance) route to the calibration-control
   sub-skill.
+- CAPA and root cause questions (8D, five whys, containment,
+  effectiveness) route to the corrective-action sub-skill.
+- Document questions (master list, current revision, obsolete
+  disposition) route to the document-control sub-skill.
 - First article and production-approval questions (forms,
   accountability, delta FAI) route to the AS9102 sub-skill.
 - Change-classification and delta-FAI-scope questions (full vs delta
   after a production change) route to the as9102 delta-fai sub-skill.
+- Revalidation and FAI currency questions (due date, interval,
+  change-driven) route to the as9102 fai-revalidation sub-skill.
 - Non-destructive testing method questions (defect class, material,
   method sensitivity) route to the ndt ndt-method-selection
   sub-skill; pulse-echo ultrasonic execution questions route to the
