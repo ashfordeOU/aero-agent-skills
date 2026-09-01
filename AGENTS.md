@@ -29,6 +29,17 @@ rules apply to any agent working in this repo.
 - Test-first: failing test → fix → passing test.
 - Minimal code. No speculative abstractions. Simplicity first.
 
+## Per-skill completeness standard (founder mandate 2026-09-01)
+EVERY leaf skill (skills/<family>/<pack>/<skill>/) ships ALL of:
+1. **SKILL.md** — agentskills.io conformant frontmatter (name + description) + body
+2. **scripts/** — at least one logic file implementing the skill
+3. **scripts/test_*.py** — behavior contract test, offline, deterministic
+4. **No broken refs** — every scripts//references//assets/ path in the body exists
+5. **references/** — WHEN the body inlines long external content (URLs, data tables) that belongs in a reference doc
+6. **assets/** — WHEN the body names templates/checklists/forms that should be bundled
+7. **eval/skill-eval/<name>.json** — value-delta record (with vs without)
+Run `make completeness` (required check) + `make value-delta` (sample proof) before finishing any skill wave. `make visuals` refreshes README numbers/charts (design is locked — numbers only).
+
 ## Departments
 - Work lands in its department folder (research/development/
   marketing/finance/ops/security/legal/people/support).
