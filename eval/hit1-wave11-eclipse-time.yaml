@@ -1,0 +1,15 @@
+# Hit@1 wave-11 fragment: eclipse-time (space-systems)
+# Two tasks per new leaf skill; ecl1 routes on eclipse geometry terms
+# (beta angle, shadow fraction, eclipse time), ecl2 routes on the
+# orbit and sun vocabulary (earth shadow, sun vector, orbit plane).
+# Both must deterministically hit
+# space-systems/orbit-mechanics/eclipse-time.
+tasks:
+  - id: ecl1
+    query: "compute the beta angle, shadow fraction, and eclipse time for the spacecraft orbit at 500 km altitude"
+    intent: "space systems; eclipse geometry from beta angle and shadow fraction"
+    expected_skill: "space-systems/orbit-mechanics/eclipse-time"
+  - id: ecl2
+    query: "how long is the satellite inside the earth shadow each orbit and what fraction of the orbit is sunlit for the sun vector geometry"
+    intent: "space systems; earth shadow and daylight fraction from orbit plane and sun vector"
+    expected_skill: "space-systems/orbit-mechanics/eclipse-time"
