@@ -1,0 +1,13 @@
+# Hit@1 wave-10 fragment: boundary-layer-theory (aerodynamics/boundary-layer)
+# Two tasks per new leaf skill; blt2 is cross-cutting (boundary-layer
+# thickness growth and laminar/turbulent transition, not drag buildup) and
+# must deterministically route to boundary-layer-theory.
+tasks:
+  - id: blt1
+    query: "estimate the displacement thickness and momentum thickness of the laminar boundary layer on a flat plate and the skin friction coefficient from the Reynolds number"
+    intent: "aerodynamics; laminar boundary layer displacement and momentum thickness and skin friction"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-theory"
+  - id: blt2
+    query: "estimate the boundary layer thickness growth and the transition Reynolds number on a smooth surface to decide whether the flow is laminar or turbulent"
+    intent: "aerodynamics; boundary layer thickness growth and laminar to turbulent transition regime"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-theory"
