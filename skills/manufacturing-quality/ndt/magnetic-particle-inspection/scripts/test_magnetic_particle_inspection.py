@@ -401,7 +401,7 @@ class EndToEndScenarioTest(unittest.TestCase):
 
     def test_particle_sensitivity_to_defect_match(self):
         # A tight fatigue crack needs high sensitivity particles; the
-        # extra-fine 8 um particle is classified high sensitivity.
+        # extra-fine 8 um particle is rated high sensitivity.
         self.assertEqual(mt.particle_size_class(8.0), "extra-fine")
         self.assertEqual(mt.particle_sensitivity(8.0), "high")
 

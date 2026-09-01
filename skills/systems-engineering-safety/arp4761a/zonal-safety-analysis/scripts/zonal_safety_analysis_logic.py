@@ -8,7 +8,7 @@ and common mode analysis. ZSA examines each physical zone of the
 aircraft: the components installed in the zone, the structure, the
 wiring, the plumbing, and the external threats that can enter the
 zone such as fire, fluid leaks, and impacts. Each zone hazard is
-classified by severity, separation and containment keep protected
+categorized by severity, separation and containment keep protected
 components away from the hazard sources, the zonal hazard checklist
 must be complete, and the ZSA report rolls the findings up for the
 safety assessment.
