@@ -1,31 +1,40 @@
 <p align="center">
-  <img src="docs/logo-mark.png" alt="AeroSkills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="235">
+  <img src="docs/logo-mark.png" alt="AeroSkills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="200">
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
-    <img src="docs/banner.svg" alt="AeroSkills — the aerospace knowledge layer for AI agents" width="100%">
-  </picture>
-</p>
+<div align="center">
+
+$\Huge\textsf{\textbf{Aero}}{\color{#8b5cf6}\textsf{\textbf{S}}}{\color{#a855f7}\textsf{\textbf{k}}}{\color{#d946ef}\textsf{\textbf{i}}}{\color{#ec4899}\textsf{\textbf{l}}}{\color{#f97316}\textsf{\textbf{l}}}{\color{#f59e0b}\textsf{\textbf{s}}}$
+
+${\color{#22d3ee}\textsf{AEROSPACE}}\ {\color{#8a93c4}·}\ {\color{#8b5cf6}\textsf{AGENT SKILLS}}\ {\color{#8a93c4}·}\ {\color{#f97316}\textsf{APACHE-2.0}}$
+
+</div>
 
 <p align="center">
   <strong>The aerospace knowledge layer for AI agents.</strong><br>
   Standards-mapped skills that give a coding agent the certification process — not just the acronyms.
 </p>
 
+<!-- gen:statline -->
+<div align="center">
+
+$\large{\color{#0ea5e9}\textsf{\textbf{294}}}\ {\color{#8a93c4}\textsf{VERIFIED SKILLS}}$&nbsp;&nbsp;$\large{\color{#8b5cf6}\textsf{\textbf{74}}}\ {\color{#8a93c4}\textsf{LIVE PACKS}}$&nbsp;&nbsp;$\large{\color{#ec4899}\textsf{\textbf{12}}}\ {\color{#8a93c4}\textsf{FAMILIES}}$
+
+$\large{\color{#f97316}\textsf{\textbf{21}}}\ {\color{#8a93c4}\textsf{STANDARDS}}$&nbsp;&nbsp;$\large{\color{#0ea5e9}\textsf{\textbf{602}}}\ {\color{#8a93c4}\textsf{ROUTER TASKS}}$&nbsp;&nbsp;$\large{\color{#8b5cf6}\textsf{\textbf{8/8}}}\ {\color{#8a93c4}\textsf{GATES GREEN}}$
+
+</div>
+<!-- /gen:statline -->
+
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-294-9fe870?style=for-the-badge&labelColor=171717" alt="skills 294"></a>
-  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-74-9fe870?style=for-the-badge&labelColor=171717" alt="packs 74"></a>
-  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-9fe870?style=for-the-badge&labelColor=171717" alt="families 12"></a>
-  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-21-4a90d9?style=for-the-badge&labelColor=171717" alt="standards 21"></a>
-</p>
-<p align="center">
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5_REAL-2ea043?style=for-the-badge&labelColor=171717" alt="gates 5%2F5 REAL"></a>
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=for-the-badge&labelColor=171717" alt="attest 3%2F3"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-602-2ea043?style=for-the-badge&labelColor=171717" alt="router tasks 602"></a>
-  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8250df?style=for-the-badge&labelColor=171717" alt="format agentskills.io"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-294-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 294"></a>
+  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-74-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 74"></a>
+  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
+  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-21-f97316?style=flat&labelColor=1a1e35" alt="standards 21"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5-2ea043?style=flat&labelColor=1a1e35" alt="gates 5%2F5"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=flat&labelColor=1a1e35" alt="attest 3%2F3"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-602-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 602"></a>
+  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <!-- /gen:badges -->
 
@@ -38,13 +47,6 @@
   <a href="#how-it-works">How it works</a> ·
   <a href="#roadmap">Roadmap</a> ·
   <a href="#faq">FAQ</a>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/stats-dark.svg">
-    <img src="docs/stats.svg" alt="AeroSkills instrument strip — verified skills, live packs, families, standards, router tasks, gates" width="100%">
-  </picture>
 </p>
 
 > **Note:** AeroSkills is currently a private development home, founder-gated for release. This README documents the release design. Skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
@@ -106,6 +108,13 @@ Full per-pack skill lists: **[docs/DOMAINS.md](docs/DOMAINS.md)**.
 
 ### What's inside
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/structure-dark.svg">
+    <img src="docs/structure.svg" alt="Repository structure sunburst: inner ring of 12 families, outer ring of installable packs, arc length proportional to verified skills" width="100%">
+  </picture>
+</p>
+
 The 12-family register — every count computed from the tree, regenerated on every change. Per-pack skill lists live in **[docs/DOMAINS.md](docs/DOMAINS.md)** so this table stays summary-only and the README does not grow with the library.
 
 <!-- gen:family-table -->
@@ -153,6 +162,13 @@ planning artifacts (PSAC, SDP, SVP, SCMP, SQAP) → the review gates →
 Every skill ships three things: a trigger-optimized description the router
 reads, a step-by-step workflow with verification gates, and a **behavior
 contract test** that runs offline. `make validate` checks all of it.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/skill-anatomy-dark.svg">
+    <img src="docs/skill-anatomy.svg" alt="Anatomy of a skill: frontmatter for the router, body workflow for the agent, offline behavior contract test, Hit@1 corpus tasks" width="100%">
+  </picture>
+</p>
 
 ### The standards map
 
@@ -233,6 +249,13 @@ flowchart LR
 ### Verify
 
 You do not need to trust the badge. Replay the gates on the commit you are looking at:
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/gates-dark.svg">
+    <img src="docs/gates.svg" alt="Verification battery: commit passes 5 validate gates, 3 attestation gates, and the visuals-freshness check before CI goes green" width="100%">
+  </picture>
+</p>
 
 | Gate | What it checks | How to run |
 |---|---|---|
