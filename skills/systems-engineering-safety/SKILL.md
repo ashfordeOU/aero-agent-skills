@@ -43,6 +43,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/safety-assessment | ARP4761A safety assessment | FHA/PSSA/SSA sequence, analysis set selection |
 | systems-engineering-safety/arp4761a/fta-fmea | FTA and FMEA | fault trees, minimal cut sets, failure modes, common cause |
 | systems-engineering-safety/arp4761a/common-cause-analysis | Common cause analysis | common mode failures, zonal analysis, separation, independence |
+| systems-engineering-safety/arp4761a/zonal-safety-analysis | ARP4761A zonal safety analysis | zone identification, zonal hazard severity, separation, containment, zonal hazard checklist, ZSA report |
 | systems-engineering-safety/arp4761a/particular-risk-analysis | Particular risk analysis | single-event risks, rotor burst, bird strike, conditional probability, containment |
 | systems-engineering-safety/arp4761a/operating-support-hazard-analysis | O&SHA | operating and support hazard analysis, maintenance hazards, ground operations, hazard register, risk index |
 | systems-engineering-safety/mbse/systems-engineering | MBSE systems engineering | SysML modeling, function allocation, traceability closure |
@@ -72,6 +73,12 @@ model-based systems engineering (SysML, digital thread).
 - Single-event hazard questions (rotor burst, bird strike, tire
   burst, fire, conditional probability, containment) route to the
   particular-risk-analysis sub-skill.
+- Zonal safety analysis questions (zone identification, zonal hazard
+  severity classification, separation and containment verdicts, zonal
+  hazard checklist completeness, ZSA report) route to the
+  zonal-safety-analysis sub-skill; common mode failures and analysis
+  set completeness questions route to the common-cause-analysis
+  sub-skill.
 - Operating and support hazard questions (maintenance tasks, ground
   operations, hazard register, risk index, acceptability) route to
   the operating-support-hazard-analysis sub-skill.
