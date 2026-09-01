@@ -10,6 +10,11 @@ rules apply to any agent working in this repo.
   from night burn).
 - Wave work queues and resumes at 10:00 UTC. If you are mid-task when
   the window opens, stop spending and queue the result.
+- PRE-SPAWN CHECK: before spawning any subagent or long work, run
+  OK: outside quiet window. (exit 0=OK,
+  2=in window stop, 3=pre-quiet do not spawn long work).
+- FUTURE JOBS: every new cron/job must respect the window (schedule
+  outside 00:00-10:00 UTC or attach the quiet-hours-gate.py monitor).
 - Outside 00:00-10:00 UTC: normal work, full speed, agent cadence.
 
 ## Writing
