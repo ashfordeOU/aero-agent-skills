@@ -52,6 +52,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/markov-analysis | Markov analysis | Markov chain, state probability, transition rate, failure rate, repair rate, availability, MTTF, k-out-of-n |
 | systems-engineering-safety/arp4754a/verification-planning | ARP4754A verification planning | verification methods, test/analysis/demonstration/inspection, verification coverage, derived requirements |
 | systems-engineering-safety/mbse/n2-diagram | N2 interface diagram | N2 diagram, interface matrix, data links, interface count, missing interfaces |
+| systems-engineering-safety/mbse/requirements-modeling | SysML requirements modeling | requirement stereotype, requirements diagram, derive/satisfy/verify links, status roll-up, vague term screening, verifiability |
 
 ## Routing guidance
 
@@ -87,6 +88,7 @@ model-based systems engineering (SysML, digital thread).
 - Markov chain, availability, MTTF, and transition rate questions route to the ARP4761A markov-analysis sub-skill.
 - Verification method, verification coverage, and derived-requirement verification questions route to the ARP4754A verification-planning sub-skill.
 - N2 diagram and interface matrix questions route to the MBSE n2-diagram sub-skill.
+- SysML requirement modeling questions (requirement stereotype attributes, derive/satisfy/verify links, status roll-up, vague term screening, verifiability, atomicity) route to the MBSE requirements-modeling sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
