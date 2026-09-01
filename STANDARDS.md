@@ -46,6 +46,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | naca-tn-902 | NACA TN 902: Description of Stress-Strain Curves by Three Parameters (Ramberg, Osgood) | reference-data | NACA (US Government; NASA predecessor) | public-domain | metallic materials; elastic-plastic stress-strain modeling | no |
 | asme-y14-5 | ASME Y14.5: Dimensioning and Tolerancing | guidance | ASME (American Society of Mechanical Engineers) | proprietary-sold | mechanical design; geometric dimensioning and tolerancing (GD&T) | yes |
 | mil-std-1553 | MIL-STD-1553B: Aircraft Internal Time Division Command/Response Multiplex Data Bus | regulation | US DoD (Department of Defense) | public-domain | avionics data bus; command/response multiplexing | no |
+| arinc-664 | ARINC 664: Aircraft Data Network, Part 7 (Avionics Full-Duplex Switched Ethernet, AFDX) | guidance | ARINC (AEEC; published via SAE ITC) | proprietary-sold | avionics data network; AFDX switched ethernet | yes |
 
 ## Applicability
 
@@ -67,6 +68,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | naca-tr-824 | Classic airfoil section data (NACA 4/5-digit and 6-series) and wind-tunnel polars used as the validation anchor for airfoil analysis, e.g. the XFOIL NACA 0012 at Re=6M band | US government work; public domain; quotable with citation |
 | far-33 | Type-certification basis for aircraft engines: design and construction, ratings and operating limitations, endurance and calibration tests, and continued airworthiness; engine cycle work sits upstream of certification | US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity |
 | arinc-429 | Point-to-point 32-bit word digital information transfer standard for civil avionics: label, SDI, data, SSM, and parity bit layout; BNR/BCD coding and sign conventions; 12.5 and 100 kbit/s speeds; word format and equipment identification tables | Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim word-format tables or clause text |
+| arinc-664 | Aircraft data network and AFDX switched Ethernet for civil avionics: virtual links, bandwidth allocation gap (BAG), frame sizing, jitter, end systems, switched network configuration | Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim tables or clause text |
 | nas-410 | NDT personnel qualification and certification (Levels I, II, III) for aerospace nondestructive testing: eddy current, ultrasonic, radiographic, penetrant, magnetic particle; training, experience, and examination requirements | Proprietary (AIA, sold via Accuris/Techstreet). Name + paraphrase + short attributed quotes + link only; no verbatim clause text |
 | naca-tn-902 | Ramberg-Osgood three-parameter model of the metallic stress-strain curve: total strain = stress/E + 0.002*(stress/sigma_0.2)^n, with secant and tangent modulus derivations, for elastic-plastic structural analysis | US government work; public domain; quotable with citation |
 | asme-y14-5 | GD&T rules and practices: datum reference frames, feature control frames, position/profile/runout tolerances, MMC/LMC modifiers, bonus tolerance, virtual condition; the aerospace detail and assembly drawing baseline | Proprietary (ASME). Name + paraphrase + short attributed quotes + link only; no verbatim symbol tables, rule text, or drawing examples |
@@ -84,6 +86,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 - **as9102** (AS9102, IAQG/SAE) - gated
 - **mmpsd** (MMPDS, SAE) - gated
 - **arinc-429** (ARINC 429, ARINC/SAE ITC) - gated
+- **arinc-664** (ARINC 664 Part 7 / AFDX, ARINC/SAE ITC) - gated
 - **nas-410** (NAS 410, AIA) - gated
 - **asme-y14-5** (ASME Y14.5, ASME) - gated
 
