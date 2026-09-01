@@ -1,0 +1,12 @@
+# Hit@1 wave-10 fragment: stall-characteristics-testing (flight-test-operations)
+# Two tasks per new leaf skill; sch2 is cross-cutting (warning margin and
+# recovery altitude loss; must not route to performance/stall-speed-determination).
+tasks:
+  - id: sch1
+    query: "plan the stall characteristics flight test: entry techniques, buffet onset, stick shaker activation, and recovery checks per configuration"
+    intent: "flight test; stall characteristics test matrix, entry techniques, warning, recovery"
+    expected_skill: "flight-test-operations/envelope/stall-characteristics-testing"
+  - id: sch2
+    query: "confirm the natural stall warning margin and the recovery altitude loss from the accelerated stall entry meet the certification requirements"
+    intent: "flight test; stall warning onset margin and recovery altitude loss verdict"
+    expected_skill: "flight-test-operations/envelope/stall-characteristics-testing"
