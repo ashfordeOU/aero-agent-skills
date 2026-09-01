@@ -1,0 +1,14 @@
+# Hit@1 wave-12 fragment: command-to-line-of-sight (gnc-autonomy/guidance)
+# Two tasks per new leaf; clos1 routes on the CLOS steering command from
+# the LOS error and LOS rate, clos2 routes on the beam riding cross track
+# offset and on line verdict. Both must deterministically hit
+# gnc-autonomy/guidance/command-to-line-of-sight.
+tasks:
+  - id: clos1
+    query: "compute the command-to-line-of-sight steering command from the los-error and los rate for the missile tracking the tracker target line"
+    intent: "CLOS guidance; steering command from LOS error and LOS rate"
+    expected_skill: "gnc-autonomy/guidance/command-to-line-of-sight"
+  - id: clos2
+    query: "check the cross-track-offset and on-line verdict for the clos beam riding law steering the missile back onto the tracker target line"
+    intent: "CLOS guidance; beam riding cross track offset and on line verdict"
+    expected_skill: "gnc-autonomy/guidance/command-to-line-of-sight"
