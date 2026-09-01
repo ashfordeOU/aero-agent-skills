@@ -321,3 +321,5 @@ Total skills rated: 306
 | 313 | vehicle-design/conceptual/sizing-mission-profile | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 314 | aerodynamics/cfd/cfd-validation | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 315 | manufacturing-quality/composites/layup-cure | PASS | ✓ | cmh-17 | manufacturing-quality | 9.5 | PASS |
+| 316 | cross-cutting/export-control/export-control-awareness | PASS | ✓ | itar-ear | cross-cutting | 9.5 | PASS |
+| 317 | structures/loads/gust-maneuver-loads | PASS | ✓ | far-25 | structures | 9.5 | PASS |
