@@ -42,6 +42,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/weight-estimation | Weight estimation | class-I weights, weight and balance sheets, component weights |
 | vehicle-design/sizing/fuselage-sizing | Fuselage sizing | cabin length and width, fuselage diameter, L/D band, cargo volume check |
 | vehicle-design/sizing/tail-sizing | Tail sizing | horizontal and vertical tail volume coefficients, required tail area, tail arm |
+| vehicle-design/sizing/control-surface-sizing | Control surface sizing | aileron and elevator and rudder area from control power, roll rate requirement, pitch moment requirement, yaw moment requirement, hinge moment, deflection limits |
 | vehicle-design/sizing/landing-gear-sizing | Landing gear sizing | strut load distribution, nose/main gear loads from CG and wheelbase, shock absorber stroke |
 | vehicle-design/sizing/ws-tw-trade | W/S and T/W matching | wing loading, thrust-to-weight, matching chart, takeoff/climb/cruise constraints |
 | vehicle-design/sizing/engine-sizing | Engine sizing | sea-level static thrust, thrust lapse with altitude, takeoff thrust, top-of-climb margin, SFC fuel flow, engine weight |
@@ -67,6 +68,11 @@ aerodynamic, structural, and performance disciplines together.
   fuselage-sizing sub-skill.
 - Empennage sizing questions (tail volume coefficients, required tail
   area) route to the sizing tail-sizing sub-skill.
+- Control surface sizing questions (aileron area from the roll rate
+  requirement, elevator area from the pitch moment requirement,
+  rudder area from the yaw moment requirement, hinge moment,
+  deflection limits) route to the sizing control-surface-sizing
+  sub-skill.
 - Landing gear questions (strut loads, gear loads, shock absorber
   stroke) route to the sizing landing-gear-sizing sub-skill.
 - Wing loading and thrust to weight matching questions (the sizing
