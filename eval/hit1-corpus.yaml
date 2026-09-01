@@ -120,6 +120,11 @@
 # leaves). Wave-13 new leaves: "vehicle-design/sizing/engine-sizing", "space-systems/orbit-mechanics/hohmann-transfer", "cross-cutting/numerics/interpolation", "flight-mechanics/performance/landing-performance", "gnc-autonomy/control/lead-lag-compensation", "manufacturing-quality/ndt/liquid-penetrant-inspection", "structures/fatigue/notch-sensitivity", "avionics/do160/radio-frequency-susceptibility", "systems-engineering-safety/mbse/requirements-modeling", "propulsion/turboprop/turboprop-cycle".
 # Corpus: 440 tasks (420 prior plus 20 domain tasks). Owner: Ops
 # Manager, Wave 13 build.
+# P5.2 / Wave 14 (2026-09-01): fan-out continues to
+# 225 verified skills (237 SKILL.md under gate 1: 12 routers + 225
+# leaves). Wave-14 new leaves: "propulsion/gas-turbine-cycle/combustor-design", "flight-mechanics/stability-control/control-surface-effectiveness", "vehicle-design/sizing/control-surface-sizing", "gnc-autonomy/control/frequency-response-design", "manufacturing-quality/ndt/magnetic-particle-inspection", "cross-cutting/numerics/matrix-operations", "cross-cutting/numerics/ode-solvers", "space-systems/orbit-mechanics/orbital-perturbations", "avionics/do160/power-input", "avionics/do178c/software-testing", "structures/fem/truss-analysis", "systems-engineering-safety/arp4761a/zonal-safety-analysis".
+# Corpus: 464 tasks (440 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 14 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2198,6 +2203,102 @@ tasks:
     query: "estimate the overall efficiency and the equivalent-shaft-power of the turboprop-cycle powerplant from the thermal efficiency, the propeller-efficiency, and the specific fuel consumption at cruise"
     intent: "adversarial: overall and thermal efficiency plus specific fuel consumption wording must route to the turboprop cycle, not the gas-turbine-cycle or free-turbine leaves"
     expected_skill: "propulsion/turboprop/turboprop-cycle"
+  - id: cbd1
+    query: "compute the stoichiometric fuel-air-ratio from the kerosene fuel carbon and hydrogen mass fractions and the operating fuel-air-ratio from the combustor air flow and fuel flow, with the heat-release and the temperature rise across the combustor for the gas turbine combustor-design"
+    intent: "propulsion; stoichiometric and operating fuel-air-ratio, heat release, and temperature rise for the gas turbine combustor"
+    expected_skill: "propulsion/gas-turbine-cycle/combustor-design"
+  - id: cbd2
+    query: "estimate the adiabatic-flame-temperature and the combustion-efficiency for the turbofan engine combustor at the design point, then the heat-release and the temperature rise from the stoichiometric fuel-air-ratio"
+    intent: "propulsion; adiabatic flame temperature and combustion efficiency, adversarial against gas-turbine-cycle and turbofan-cycle"
+    expected_skill: "propulsion/gas-turbine-cycle/combustor-design"
+  - id: cse1
+    query: "compute the elevator authority and the hinge moment requirements for the elevator control surface sizing of the transport airplane"
+    intent: "flight mechanics; elevator authority and hinge moment requirements for control surface sizing"
+    expected_skill: "flight-mechanics/stability-control/control-surface-effectiveness"
+  - id: cse2
+    query: "verify that the elevator authority can rotate the airplane at the takeoff lift off speed with the stick force within the controllability limit"
+    intent: "flight mechanics; elevator authority and stick force for the takeoff rotation controllability check"
+    expected_skill: "flight-mechanics/stability-control/control-surface-effectiveness"
+  - id: css1
+    query: "size the control-surface-sizing for the light twin: compute the aileron-sizing area from the roll-rate-requirement, the elevator-sizing area from the pitch-moment requirement, the rudder-sizing area from the yaw-moment requirement, then estimate the hinge-moment for the actuator and check the deflection-limits"
+    intent: "vehicle design; control surface sizing from control power: aileron area from the roll rate requirement, elevator area from the pitch moment requirement, rudder area from the yaw moment requirement, hinge moment for the actuator, deflection limits"
+    expected_skill: "vehicle-design/sizing/control-surface-sizing"
+  - id: css2
+    query: "the tail-volume-coefficient sets the horizontal tail area, but the control-surface-sizing must size the elevator-sizing area from the pitch-moment requirement for rotation and the rudder-sizing area from the yaw-moment requirement for the engine-out case, then verify the aileron roll-rate-requirement and the hinge-moment at the deflection-limits"
+    intent: "vehicle design; elevator and rudder area from the pitch and yaw moment requirements with the roll-rate-requirement and hinge-moment checks, adversarial against tail volume coefficient and engine-out vocabulary"
+    expected_skill: "vehicle-design/sizing/control-surface-sizing"
+  - id: fr1
+    query: "compute the bode frequency response of the open loop transfer function and find the gain-margin, phase-margin, gain crossover frequency and phase crossover frequency for the closed loop stability verdict"
+    intent: "guidance navigation control; Bode frequency response magnitude and phase with the gain/phase margins and the stability verdict"
+    expected_skill: "gnc-autonomy/control/frequency-response-design"
+  - id: fr2
+    query: "before selecting the gain for the closed loop poles, estimate the phase-margin and gain-margin from the bode frequency response of the open loop plant transfer function"
+    intent: "guidance navigation control; margins from the Bode frequency response before gain selection for the closed loop poles"
+    expected_skill: "gnc-autonomy/control/frequency-response-design"
+  - id: mpi1
+    query: "compute the magnetization-current for the circular-magnetization head-shot on the 2 inch diameter steel shaft, the ampere-turns for the longitudinal-magnetization encircling-coil from the effective ld-ratio, and verify the tangential field-strength against the 2400 to 4800 A per meter band and the 15 percent coverage-overlap between shots"
+    intent: "manufacturing quality; magnetic particle inspection magnetization current for circular and longitudinal magnetization with field strength and coverage verification"
+    expected_skill: "manufacturing-quality/ndt/magnetic-particle-inspection"
+  - id: mpi2
+    query: "before selecting the ndt method for the ferromagnetic steel part, compute the magnetic-particle-inspection circular-magnetization head-shot current for the longitudinal crack, classify the particle-sensitivity from the median particle size, and record the acceptance-verdict for the relevant magnetic-indication"
+    intent: "adversarial: method-selection and material wording (ndt method, ferromagnetic, steel, current) must route to magnetic-particle-inspection for the magnetization current, particle sensitivity, and indication acceptance decision"
+    expected_skill: "manufacturing-quality/ndt/magnetic-particle-inspection"
+  - id: mo1
+    query: "solve the linear system Ax=b for the 3x3 matrix by gaussian elimination with partial pivoting, then compute the determinant and the matrix inverse and verify the solution with the residual check"
+    intent: "numerics; dense linear system solve by Gaussian elimination with partial pivoting, determinant, matrix inverse, residual verification"
+    expected_skill: "cross-cutting/numerics/matrix-operations"
+  - id: mo2
+    query: "the least-squares fit builds the normal equations A-transpose-A x = A-transpose-b: solve the 2x2 linear system by gaussian-elimination with partial-pivoting, take the matrix-inverse of the coefficient matrix for the parameter covariance, and check the singular-matrix verdict from the determinant, rather than time-marching the differential equation"
+    intent: "adversarial: least-squares normal-equation and differential-equation vocabulary must route to the dense linear-solve leaf, not the least-squares-regression fit leaf or the ode-solvers time-marching leaf"
+    expected_skill: "cross-cutting/numerics/matrix-operations"
+  - id: ode1
+    query: "solve the ode-solvers initial-value-problem dy/dt = -y with y(0)=1 using explicit-euler and runge-kutta time marching and compare the numerical solution against the closed-form-solution e to the minus t"
+    intent: "numerics; explicit Euler and RK4 time marching of an initial-value problem with error comparison against a closed-form solution"
+    expected_skill: "cross-cutting/numerics/ode-solvers"
+  - id: ode2
+    query: "integrate the rate equation for the decaying state with heun-method and rk4 and run a step-size-convergence study to confirm the numerical error against the closed-form solution shrinks as the step size is halved"
+    intent: "adversarial: integrate and convergence wording must route to the ODE solvers leaf, not the numerical-integration quadrature leaf or the convergence-verification leaf"
+    expected_skill: "cross-cutting/numerics/ode-solvers"
+  - id: opb1
+    query: "compute the j2-nodal-regression raan-drift and argument-of-perigee-drift secular rates for the 500 km orbit at 30 deg inclination, then the nodal period change and the perturbation magnitude versus altitude"
+    intent: "space systems; secular J2 perturbations: raan-drift and argument-of-perigee-drift rates, nodal period change, perturbation magnitude versus altitude"
+    expected_skill: "space-systems/orbit-mechanics/orbital-perturbations"
+  - id: opb2
+    query: "the sun-synchronous satellite at 500 km has j2-nodal-regression raan-drift and argument-of-perigee-drift that shift the nodal period: compute the secular-drift rates in degrees per day and the perturbation magnitude against the two-body acceleration"
+    intent: "space systems; quantify the secular-drift rates and nodal period shift of the sun-synchronous orbit from the j2-nodal-regression and argument-of-perigee-drift, not the inclination selection"
+    expected_skill: "space-systems/orbit-mechanics/orbital-perturbations"
+  - id: pi1
+    query: "check the do-160 section 16 power-input voltage-sag and voltage-surge transient categories for the 28 volt dc equipment and verify the steady-state voltage limits"
+    intent: "avionics; DO-160 section 16 power input, sag and surge transient categories, steady-state voltage limits"
+    expected_skill: "avionics/do160/power-input"
+  - id: pi2
+    query: "confirm the do-160 section 16 power-input frequency-variation tolerance and transient-recovery time for the 400 hertz ac bus and whether the emergency-power voltage limits apply"
+    intent: "avionics; DO-160 section 16 power input, frequency variation and transient recovery, adversarial against environmental qualification and RF susceptibility"
+    expected_skill: "avionics/do160/power-input"
+  - id: rbt1
+    query: "generate the requirements-based-testing test cases for a DO-178C level A software compound boolean condition and compute the mc-dc test-case-count needed for full structural-coverage"
+    intent: "avionics; DO-178C requirements-based test case generation, MC/DC test case count for a compound boolean condition, structural coverage measurement"
+    expected_skill: "avionics/do178c/software-testing"
+  - id: rbt2
+    query: "confirm the mc-dc test-case-count and coverage-objectives for the structural-coverage analysis of a level A compound boolean condition in the DO-178C software testing program"
+    intent: "avionics; DO-178C software testing, MC/DC test case count and coverage objectives per software level, adversarial against do178c verification"
+    expected_skill: "avionics/do178c/software-testing"
+  - id: tru1
+    query: "solve the 2D plane-truss truss-analysis with the direct-stiffness-method: compute the element-stiffness-matrix for each bar, assemble the global-stiffness-matrix, apply the support-conditions, solve for the nodal-displacements by gaussian-elimination and report the member-forces and reaction-forces"
+    intent: "structures; 2D truss analysis by the direct stiffness method: element and global stiffness matrices, support conditions, nodal displacements, member forces and reactions"
+    expected_skill: "structures/fem/truss-analysis"
+  - id: tru2
+    query: "before running the linear static finite element analysis in CalculiX, hand-solve the pin-jointed truss with the direct-stiffness-method: assemble the element-stiffness-matrix into the global-stiffness-matrix, apply the support-conditions and find the nodal-displacements, member-forces and reaction-forces rather than the natural frequencies"
+    intent: "structures; hand truss solve with element/global stiffness assembly and Gaussian elimination, adversarial against CalculiX linear FEA and modal analysis"
+    expected_skill: "structures/fem/truss-analysis"
+  - id: zsa1
+    query: "perform the zonal-safety-analysis for the forward fuselage zone: identify the zone, classify the zonal-hazard severity, verify the separation and containment of the zone components, and confirm the zonal-hazard-checklist completeness before the ZSA report"
+    intent: "systems engineering; ARP4761A zonal safety analysis with zone identification, hazard severity classification, separation and containment verdicts, and checklist completeness"
+    expected_skill: "systems-engineering-safety/arp4761a/zonal-safety-analysis"
+  - id: zsa2
+    query: "before the safety-assessment closes, run the zonal-safety-analysis on the equipment zone: score the zone items, check the separation and containment verdicts, and confirm the zonal-hazard-checklist coverage rather than the fault-tree cut sets"
+    intent: "systems engineering; zonal safety analysis checklist coverage and separation and containment verdicts ahead of safety assessment closure, adversarial against safety-assessment and common-cause-analysis"
+    expected_skill: "systems-engineering-safety/arp4761a/zonal-safety-analysis"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
