@@ -15,6 +15,23 @@
 validate: lint-spec desc-lint pytest-contract no-verbatim hit1
 	@echo "AeroSkills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
 
+# Per-skill completeness standard (founder 2026-09-01): every leaf skill
+# must have SKILL.md + scripts/ + contract test + no broken refs, with
+# references/ + assets/ triaged as-needed. `make completeness` runs it;
+# `make completeness --strict` fails on as-needed gaps.
+completeness:
+	@python3 scripts/skill-completeness.py
+
+# Value-delta gate (founder 2026-08-31): every skill must prove it beats
+# NOT using it. Deterministic proxy: contract-test pass (with) minus
+# fact-vs-procedure baseline (without). Records land in eval/skill-eval/.
+# `make value-delta` samples 10; `make value-delta-all` runs the whole tree.
+value-delta:
+	@python3 scripts/skill-eval.py --report --threshold 0.2
+
+value-delta-all:
+	@python3 scripts/skill-eval.py --all --report --threshold 0.2
+
 lint-spec:
 	@scripts/gate-spec-lint.sh
 
