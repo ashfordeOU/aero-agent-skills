@@ -1,0 +1,13 @@
+# Hit@1 wave-19 fragment: constraint-analysis (vehicle-design)
+# Two tasks per new leaf skill; can1 routes on stall wing loading,
+# can2 routes on climb thrust to weight. Both must deterministically
+# hit vehicle-design/conceptual/constraint-analysis.
+tasks:
+  - id: w19-constraint-analysis-1
+    query: "compute the wing loading required by the stall constraint from the maximum lift coefficient and the stall speed in the constraint analysis"
+    intent: "vehicle design; stall-constrained wing loading in the matching chart"
+    expected_skill: "vehicle-design/conceptual/constraint-analysis"
+  - id: w19-constraint-analysis-2
+    query: "determine the thrust to weight ratio required by the climb gradient constraint from the excess thrust and the lift to drag ratio"
+    intent: "vehicle design; climb-gradient-constrained thrust to weight ratio"
+    expected_skill: "vehicle-design/conceptual/constraint-analysis"
