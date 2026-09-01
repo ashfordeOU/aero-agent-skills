@@ -4,7 +4,7 @@ description: "Use when you must design a model predictive control (MPC) receding
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
-  - id: none
+  - id: arp4754a
     reference-only: true
 gated: false
 domain: gnc-autonomy

@@ -13,7 +13,7 @@ compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes,
 metadata:
   domain: manufacturing-quality
   subdomain: composites
-  tags: [composites, composite, laminate, layup, ply, cure, cycle, cure-cycle, degree, degree-of-cure, arrhenius, kinetics, ply-book, autoclave, out-of-autoclave, ooa, glass-transition, c-scan, porosity, epoxy, symmetric, balanced]
+  tags: [cure-cycle, degree-of-cure, arrhenius, kinetics, ply-book, autoclave, out-of-autoclave, glass-transition, c-scan, porosity, epoxy]
   version: 0.1.0
   author: AeroSkills
 ---
@@ -187,7 +187,7 @@ Contract assertions include: the symmetric sequence
 asymmetric sequence fails; the standard 350F cycle (2 F/min ramp,
 350 F hold 120 min) reaches degree of cure >= 0.95; invalid ply
 orientation (99 deg) raises ValueError; balanced and unbalanced
-laminates are classified correctly; C-scan verdicts PASS and FAIL at
+laminates are categorized correctly; C-scan verdicts PASS and FAIL at
 the right thresholds.
 
 ## Compliance

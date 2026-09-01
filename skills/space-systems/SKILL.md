@@ -61,6 +61,7 @@ selection, and classical orbital element determination.
 | space-systems/mission-design/mission-delta-v-budget | Mission delta-v budget | delta v budget, insertion, transfer, station keeping, deorbit, margin, Tsiolkovsky propellant mass, specific impulse |
 | space-systems/mission-design/radiation-debris | Radiation and debris environment | radiation environment, trapped belts, total ionizing dose, single event effects, SEU rate, solar particle events, orbital debris, shielding attenuation, collision probability, mission design |
 | space-systems/mission-design/entry-descent-landing | Entry descent and landing | entry descent landing, entry corridor, ballistic coefficient, entry heating, sutton-graves, deceleration, parachute, terminal velocity |
+| space-systems/mission-design/launch-window-analysis | Launch Window Analysis | launch window, launch azimuth, inclination, sun-synchronous, ltan, raan, plane change, delta-v, orbital plane, direct injection, ksc. |
 
 ## Routing guidance
 
@@ -68,7 +69,8 @@ selection, and classical orbital element determination.
   lifecycle reviews, heritage reuse) route to the ECSS software
   sub-skill.
 - ECSS software-verification questions (methods, depth, records) route
-  to the ecss software-verification sub-skill.
+  to the ecss software- Launch window questions route to the mission-design launch-window-analysis sub-skill.
+-verification sub-skill.
 - Lifecycle and phase-gate questions (reviews, readiness) route to the
   ecss systems-engineering sub-skill.
 - Power and thermal budgeting questions (EPS sizing, eclipse, battery,

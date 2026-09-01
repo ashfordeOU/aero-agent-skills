@@ -61,6 +61,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/requirements/requirements-elicitation | Requirements elicitation | stakeholder needs, operational scenario, requirements baseline, atomicity, verifiability, weasel words, elicitation log |
 | systems-engineering-safety/certification/certification-basis | Certification basis | certification basis, type certificate, supplemental type certificate, TSO, special conditions, FAR applicability, CS-25, certification program, means of compliance, regulatory path |
 | systems-engineering-safety/arp4761a/preliminary-system-safety-assessment | Preliminary system safety assessment | PSSA, preliminary system safety assessment, safety requirements, FDAL, IDAL, allocation, architecture |
+| systems-engineering-safety/arp4754a/configuration-management | Configuration Management | configuration management, baseline, change control, change request, impact analysis, major change, minor change, safety critical requirement, certification data, interfaces, configuration item, change history, traceability closure. |
 
 ## Routing guidance
 
@@ -68,7 +69,8 @@ model-based systems engineering (SysML, digital thread).
   systems-planning sub-skill.
 - Traceability and closure questions route to the ARP4754A
   requirements-traceability sub-skill; allocating requirements to
-  items and functions, allocation coverage, and unallocated
+  items and functions, all- Configuration management questions route to the arp4754a configuration-management sub-skill.
+ocation coverage, and unallocated
   requirements route to the requirements-allocation sub-skill;
   validation methods and confirmation questions route to the
   validation sub-skill.

@@ -4,7 +4,7 @@ description: "Use when the task is Hall effect thruster (HET) design, sizing, or
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
-  - id: ecss-e-st-35-03
+  - id: ecss
     reference-only: true
 gated: false
 domain: propulsion

@@ -62,13 +62,15 @@ compressor stage and operating-map analysis.
 | propulsion/turbomachinery/centrifugal-compressor | Centrifugal compressor | impeller tip speed, slip factor, Wiesner, work input coefficient, stage pressure ratio, isentropic efficiency |
 | propulsion/combustion/cea-rocket-combustion | Rocket combustion thermochemistry | rocket combustion, adiabatic flame temperature, characteristic velocity, specific impulse, mixture ratio, frozen flow, chamber pressure, thermochemistry, c-star, propellant selection |
 | propulsion/rocket/solid-rocket-motor | Solid rocket motor | solid rocket motor, burn rate, chamber pressure, grain geometry, mass flow, thrust, total impulse, c star |
+| propulsion/electric/hall-thruster | Hall Thruster | hall thruster, electric propulsion, specific impulse, thrust-to-power, beam current, discharge power, xenon, krypton, propellant mass, delta-v. |
 
 ## Routing guidance
 
 - Brayton/gas-turbine thermodynamics route to the gas-turbine-cycle
   sub-skill; regenerator and recuperator cycle questions route to the
   regenerative-cycle sub-skill.
-- Turbofan bypass and efficiency questions route to turbofan-cycle;
+- Turbofan bypass and efficiency questions route - Hall thruster questions route to the electric hall-thruster sub-skill.
+to turbofan-cycle;
   BPR vs TSFC design-trade questions route to bypass-ratio-trade;
   off-design and altitude behavior questions route to
   turbofan-off-design.

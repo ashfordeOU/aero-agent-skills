@@ -21,7 +21,7 @@ metadata:
 # Part 107 and SORA UAS Risk Assessment (flight-test-operations/uas/part107-sora)
 
 Use when a small UAS (drone) operation must be screened for FAA 14 CFR
-Part 107 applicability and classified for risk under the EASA SORA
+Part 107 applicability and categorized for risk under the EASA SORA
 (Specific Operations Risk Assessment) methodology, ending in an
 operational safety case summary. The logic module
 scripts/part107_sora_logic.py implements the checks; the contract test

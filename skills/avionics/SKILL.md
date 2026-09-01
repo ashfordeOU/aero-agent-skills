@@ -71,13 +71,15 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/ima/ima-partitioning | IMA partitioning | ARINC 653 partition, major frame, partition schedule, sampling port, queuing port, inter-partition communication, health monitoring |
 | avionics/ima/do297 | IMA architecture and acceptance | integrated modular avionics, DO-297, module acceptance, incremental certification, partition allocation, resource budget, CPU memory I/O, integrity requirements, IMA architecture, shared resources |
 | avionics/flight-management/performance-computation | Performance computation | FMS performance, cost index, ECON, cruise Mach, step climb, top of descent, fuel time trade, VNAV |
+| avionics/fsw/cfs-architecture | Cfs Architecture | cFS, core flight software, cFE, OSAL, PSP, software bus, publish subscribe, app skeleton, telemetry pipeline. |
 
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
   baselines) route to the DO-178C sub-skills.
 - Requirements-based test case generation and structural coverage
-  measurement questions (MC/DC test case count, coverage objectives per
+  measurement questions (MC/DC t- Cfs questions route to the fsw cfs-architecture sub-skill.
+est case count, coverage objectives per
   level) route to the DO-178C software-testing sub-skill; verification
   process questions (reviews, analyses, independence) stay with the
   verification sub-skill.
