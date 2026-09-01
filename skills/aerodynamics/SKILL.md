@@ -56,6 +56,7 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/transonic-similarity | Transonic similarity | Karman-Tsien correction, critical Mach number, compressibility correction |
 | aerodynamics/high-speed/supercritical-airfoil | Supercritical airfoil | aft loading, flat upper surface, wave drag reduction, drag divergence Mach |
 | aerodynamics/high-speed/wave-drag-area-rule | Wave drag and area rule | transonic wave drag, cross-sectional area distribution, Sears-Haack body, area rule |
+| aerodynamics/wing-design/wing-planform-design | Wing planform design | root chord, tip chord, mean aerodynamic chord, taper ratio, spanwise loading, washout |
 
 ## Routing guidance
 
@@ -88,6 +89,7 @@ estimation, validated against classic reference data.
   route to boundary-layer-theory; in-ground-effect performance
   questions route to ground-effect; flap and slat clmax and stall
   speed questions route to high-lift-systems.
+- Wing planform reference geometry, root and tip chord, mean aerodynamic chord, taper ratio, and spanwise loading questions route to the wing-design wing-planform-design sub-skill.
 - Structural, control, and certification questions route to their
   domain packs (structures, gnc-autonomy, avionics).
 

@@ -63,6 +63,7 @@ integration) for engineering calculations.
 | cross-cutting/tolerancing/position-tolerance-calc | GD&T position tolerance | true position, tolerance zone diameter, MMC bonus tolerance, virtual condition, hole and pin |
 | cross-cutting/numerics/eigenvalue-decomposition | Eigenvalue decomposition | eigenvalue, eigenvector, Jacobi algorithm, power iteration, deflation, Rayleigh quotient, symmetric matrix |
 | cross-cutting/numerics/root-finding | Root finding | bisection, Newton-Raphson, secant method, convergence tolerance, bracketing |
+| cross-cutting/units-atmos/dimensional-analysis | Dimensional analysis | Buckingham Pi theorem, dimensional homogeneity, Pi groups, Reynolds number, unit consistency |
 ## Routing guidance
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
@@ -118,6 +119,7 @@ integration) for engineering calculations.
 - True position, MMC bonus tolerance, and virtual condition questions route to the tolerancing position-tolerance-calc sub-skill.
 - Eigenvalue and eigenvector computation, Jacobi eigenvalue algorithm, power iteration, deflation, and Rayleigh quotient questions route to the numerics eigenvalue-decomposition sub-skill.
 - Bisection, Newton-Raphson, secant method, and convergence tolerance questions route to the numerics root-finding sub-skill.
+- Dimensional analysis, Buckingham Pi theorem, Pi group formation, and dimensional homogeneity checks route to the units-atmos dimensional-analysis sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
