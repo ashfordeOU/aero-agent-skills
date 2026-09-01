@@ -110,6 +110,11 @@
 # Corpus: 396 tasks (380 prior plus 16 domain tasks ecl1/ecl2,
 # kf1/kf2, mk1/mk2, ocg1/ocg2, rj1/rj2, spc1/spc2, tsu1/tsu2, wbs1/wbs2).
 # Owner: Ops Manager, Wave 11 build.
+# P5.2 / Wave 12 (2026-09-01): fan-out continues to
+# 203 verified skills (215 SKILL.md under gate 1: 12 routers + 203
+# leaves). Wave-12 new leaves: "flight-mechanics/stability-control/aileron-reversal", "space-systems/adcs/attitude-determination-triad", "gnc-autonomy/guidance/command-to-line-of-sight", "manufacturing-quality/ndt/eddy-current-inspection", "flight-mechanics/performance/energy-height", "vehicle-design/structures-integration/fuselage-skin-stringer", "space-systems/orbit-mechanics/ground-track-repeat", "systems-engineering-safety/mbse/n2-diagram", "cross-cutting/tolerancing/position-tolerance-calc", "structures/materials/ramberg-osgood", "propulsion/ramjet/ramjet-inlet", "systems-engineering-safety/arp4754a/verification-planning".
+# Corpus: 420 tasks (396 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 12 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2012,6 +2017,102 @@ tasks:
     query: "check the wing structure under the maneuvering load factor: ultimate moment from the 1.5 factor of safety, spar web shear flow, and web thickness at the wing root"
     intent: "vehicle design; wing structure ultimate moment and shear flow integration under the load factor"
     expected_skill: "vehicle-design/structures-integration/wing-box-sizing"
+  - id: alr1
+    query: "compute the aileron reversal dynamic pressure and the reversal speed from the wing torsional stiffness about the elastic axis"
+    intent: "flight mechanics; aileron reversal dynamic pressure and reversal speed from torsional stiffness"
+    expected_skill: "flight-mechanics/stability-control/aileron-reversal"
+  - id: alr2
+    query: "check whether the aileron control reversal occurs before the design dive speed given the wing torsional stiffness and the aileron effectiveness factor"
+    intent: "flight mechanics; control reversal verdict against the dive speed from torsional stiffness"
+    expected_skill: "flight-mechanics/stability-control/aileron-reversal"
+  - id: tri1
+    query: "apply the triad algorithm to estimate the 3x3 attitude matrix from two non parallel vector observations in the body frame and their matching reference vectors"
+    intent: "spacecraft ADCS; TRIAD attitude matrix from two vector observations"
+    expected_skill: "space-systems/adcs/attitude-determination-triad"
+  - id: tri2
+    query: "determine the coarse spacecraft attitude from a sun sensor and magnetometer pair with the triad method using reference vectors computed in the orbit frame"
+    intent: "spacecraft ADCS; coarse attitude from sun sensor and magnetometer pair via TRIAD"
+    expected_skill: "space-systems/adcs/attitude-determination-triad"
+  - id: clos1
+    query: "compute the command-to-line-of-sight steering command from the los-error and los rate for the missile tracking the tracker target line"
+    intent: "CLOS guidance; steering command from LOS error and LOS rate"
+    expected_skill: "gnc-autonomy/guidance/command-to-line-of-sight"
+  - id: clos2
+    query: "check the cross-track-offset and on-line verdict for the clos beam riding law steering the missile back onto the tracker target line"
+    intent: "CLOS guidance; beam riding cross track offset and on line verdict"
+    expected_skill: "gnc-autonomy/guidance/command-to-line-of-sight"
+  - id: eci1
+    query: "compute the standard depth of penetration for an eddy current inspection of copper at 100 kHz with 5.8e7 S/m conductivity, and the phase lag at one depth of penetration for the impedance plane"
+    intent: "manufacturing-quality; eddy current depth of penetration from frequency and conductivity, phase lag at one delta"
+    expected_skill: "manufacturing-quality/ndt/eddy-current-inspection"
+  - id: eci2
+    query: "select the eddy current test frequency for a subsurface flaw at 1 mm depth in aluminum with 30 percent IACS conductivity, keeping the flaw within one standard depth of penetration, and interpret the lift-off trajectory on the impedance plane"
+    intent: "adversarial: frequency selection and material wording (select, aluminum, conductivity) must route to eddy-current-inspection"
+    expected_skill: "manufacturing-quality/ndt/eddy-current-inspection"
+  - id: eh1
+    query: "compute the energy-height and the specific-excess-power from thrust, drag, speed, weight, and altitude for the energy-maneuverability analysis"
+    intent: "flight mechanics; energy height and specific excess power from thrust, drag, speed, weight, and altitude"
+    expected_skill: "flight-mechanics/performance/energy-height"
+  - id: eh2
+    query: "trade the kinetic-height for altitude in the zoom-climb and check the energy-height conservation across the climb and cruise phases"
+    intent: "flight mechanics; zoom climb and kinetic height energy trade across climb and cruise; spans the mission analysis domain"
+    expected_skill: "flight-mechanics/performance/energy-height"
+  - id: fss1
+    query: "size the fuselage-skin-stringer panel: compute the skin-thickness from the hoop-stress of the pressurized cabin differential pressure with the 1.5 factor of safety and set the stringer-spacing and the frame-pitch from the panel-buckling allowable"
+    intent: "vehicle design; pressurized fuselage skin thickness, stringer spacing, and frame pitch sizing"
+    expected_skill: "vehicle-design/structures-integration/fuselage-skin-stringer"
+  - id: fss2
+    query: "check that the stiffened fuselage shell closes: the skin-thickness from the hoop-stress, the stringer-spacing from the panel-buckling allowable, the frame-pitch from the column-buckling length, and the stringer area from the effective-skin-width must all be consistent for the pressurized cabin"
+    intent: "vehicle design; stiffened fuselage panel closure check across skin, stringer, and frame"
+    expected_skill: "vehicle-design/structures-integration/fuselage-skin-stringer"
+  - id: gtr1
+    query: "compute the ground-track-repeat design for the sun-synchronous orbit at 888 km: revolutions-per-day against the sidereal-day from the nodal-period and j2 regression, then report the integer repeat cycle in days"
+    intent: "orbit mechanics; repeat ground track: nodal period, revolutions per sidereal day, integer repeat cycle"
+    expected_skill: "space-systems/orbit-mechanics/ground-track-repeat"
+  - id: gtr2
+    query: "check whether the constellation satellite retraces its ground-track-repeat on a whole-day cadence: nodal-period and revolutions-per-day from the j2 nodal regression, with the local time of ascending node held fixed"
+    intent: "orbit mechanics; repeat ground track verification against nodal period and revolutions per day"
+    expected_skill: "space-systems/orbit-mechanics/ground-track-repeat"
+  - id: n2d1
+    query: "build the n2-diagram interface matrix for the flight control system functions from the interface pair list and compute the interface-pair-count per element, then flag the missing-data-link pairs against the required interface list"
+    intent: "MBSE interface analysis; N2 matrix build with per-element interface counts and missing data link flags"
+    expected_skill: "systems-engineering-safety/mbse/n2-diagram"
+  - id: n2d2
+    query: "review the n2-interface-matrix of the subsystem model for missing-data-link pairs and isolated elements before the interface requirements review, and report the interface count per element"
+    intent: "MBSE interface completeness review; N2 matrix missing link and isolation check"
+    expected_skill: "systems-engineering-safety/mbse/n2-diagram"
+  - id: ptc1
+    query: "compute the position-tolerance zone diameter for the drilled hole from the actual center offset against the true-position and apply the mmc-bonus and the virtual-condition boundary per asme y14.5"
+    intent: "cross-cutting; GD&T position tolerance zone, MMC bonus tolerance, and virtual condition per ASME Y14.5"
+    expected_skill: "cross-cutting/tolerancing/position-tolerance-calc"
+  - id: ptc2
+    query: "verify the feature-control-frame callout for the machined hole by checking the position tolerance against the measured deviation and the maximum-material-condition bonus"
+    intent: "cross-domain; feature control frame verification, measured deviation versus position tolerance with MMC bonus"
+    expected_skill: "cross-cutting/tolerancing/position-tolerance-calc"
+  - id: ro1
+    query: "compute the ramberg-osgood total strain at 400 mpa for the 7075 aluminum with e 70000 mpa, sigma 0.2 300 mpa and n 10, then invert the equation for the stress at a total strain of 0.006"
+    intent: "structures; Ramberg-Osgood strain at a stress and stress by inversion at a total strain"
+    expected_skill: "structures/materials/ramberg-osgood"
+  - id: ro2
+    query: "derive the plastic strain and the secant and tangent modulus along the ramberg-osgood stress-strain curve of the aluminum plate beyond the yield point"
+    intent: "structures; plastic strain and secant/tangent modulus from the elastic-plastic curve"
+    expected_skill: "structures/materials/ramberg-osgood"
+  - id: rii1
+    query: "compute the kantrowitz starting limit mach number for the supersonic ramjet inlet with a contraction ratio of 1.2 and the diffuser total pressure recovery across the normal shock at the flight mach number"
+    intent: "propulsion; Kantrowitz starting limit Mach and normal shock diffuser pressure recovery for a supersonic ramjet inlet"
+    expected_skill: "propulsion/ramjet/ramjet-inlet"
+  - id: rii2
+    query: "check whether the ramjet inlet starts at mach 2.5 with a contraction ratio of 1.3 and compare the normal shock pressure recovery with the isentropic diffuser recovery for the hypersonic cruise vehicle"
+    intent: "propulsion; inlet start verdict from the Kantrowitz criterion and isentropic versus shock pressure recovery, cross-cutting with hypersonic vehicle performance"
+    expected_skill: "propulsion/ramjet/ramjet-inlet"
+  - id: vp1
+    query: "plan the system level verification per ARP4754A and assign the verification method (test, analysis, demonstration, inspection) to each requirement with coverage"
+    intent: "systems engineering; ARP4754A verification planning with the four verification methods"
+    expected_skill: "systems-engineering-safety/arp4754a/verification-planning"
+  - id: vp2
+    query: "plan verification coverage for the derived-requirement set from the system safety assessment and flag requirements without an assigned verification method per ARP4754A"
+    intent: "systems engineering; derived-requirement verification coverage per ARP4754A"
+    expected_skill: "systems-engineering-safety/arp4754a/verification-planning"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
