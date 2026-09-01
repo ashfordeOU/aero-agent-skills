@@ -27,11 +27,18 @@ Pro) — but keep the concurrency-capped discipline learned in wave-13
    vehicle-design). SKIP families at 21+ (fto 21, aerodynamics 22).
    Each subagent: brainstorm (Superpowers) → SKILL.md + scripts/
    contract test + corpus tasks + standards-map ext (if a NEW standard
-   is genuinely required) → 5 REAL gates → COMMIT ITS OWN LEAF
-   IMMEDIATELY (7-rule commit, subject ≤50 chars, imperative, no
-   period, body WHAT+WHY). Do NOT wait for other subagents. Do NOT
-   touch other leaves. On 429 mid-build: retry once after 60s; if still
-   429, finish that leaf yourself sequentially and commit.
+   is genuinely required) → 5 REAL gates → **RATE THE LEAF AT CREATION
+   (founder mandate): run `python3 ops/automation/update-skill-ratings.py`
+   so this leaf appears in eval/skill-ratings.md with CEO rating >= 9.5
+   in the SAME flow. If the leaf does NOT achieve >= 9.5 (or its gates
+   fail), REBUILD IT IN THE SAME TURN — fix, re-gate, re-rate; after 2
+   attempts delete the WIP dir and note it. A leaf is not done until it
+   is rated in the ledger.** → COMMIT ITS OWN LEAF IMMEDIATELY
+   (7-rule commit, subject ≤50 chars, imperative, no period, body
+   WHAT+WHY) INCLUDING its ratings-ledger row. Do NOT wait for other
+   subagents. Do NOT touch other leaves. On 429 mid-build: retry once
+   after 60s; if still 429, finish that leaf yourself sequentially and
+   commit.
 3. **Corpus merge** — eval/hit1-corpus.yaml 440 → 440 + 2N tasks
    (2 per leaf). Update header counts. DELETE fragment files after
    merge.
@@ -64,6 +71,12 @@ Pro) — but keep the concurrency-capped discipline learned in wave-13
 ## RULES
 - Incremental-commit mandate: every leaf committed immediately by its
   own subagent (or by you sequentially). Only committed work survives.
+- **RATE-AT-CREATION mandate (founder, verbatim): "they should be rated
+  exactly at the time of creation and if they didnt achieve the score
+  they get rebuilt in the same flow or same turn." A leaf is not done
+  until it is in eval/skill-ratings.md with CEO rating >= 9.5, written
+  in the same build turn. Below-score leaves are rebuilt in-turn, not
+  shipped and backfilled later.**
 - If a leaf cannot pass gates after 2 attempts, DELETE its WIP dir and
   note it (finish-or-delete; never ship unverified).
 - IF THE API BALANCE IS EXHAUSTED (402) and you cannot complete ANY
@@ -77,6 +90,7 @@ Pro) — but keep the concurrency-capped discipline learned in wave-13
   Commit with 7 rules.
 
 ## Return
-Leaf name(s) + commit hash(es), corpus count, router status, badge,
-gates verified (with receipts), push verified (ls-remote output), post
-SEND_EXIT, state note commit.
+Leaf name(s) + commit hash(es), **rating ledger count + per-leaf CEO
+rating (>= 9.5 required, rebuild in-turn if below)**, corpus count,
+router status, badge, gates verified (with receipts), push verified
+(ls-remote output), post SEND_EXIT, state note commit.
