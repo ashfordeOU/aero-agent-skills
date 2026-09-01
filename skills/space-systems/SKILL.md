@@ -52,6 +52,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/eclipse-time | Eclipse time | earth shadow, beta angle, shadow fraction, eclipse duration, daylight fraction |
 | space-systems/adcs/attitude-determination-triad | TRIAD attitude determination | TRIAD algorithm, attitude matrix, vector observations, body and reference vectors |
 | space-systems/orbit-mechanics/ground-track-repeat | Ground track repeat | repeat ground track, nodal precession, orbital period, integer revolutions per day |
+| space-systems/orbit-mechanics/hohmann-transfer | Hohmann transfer | coplanar circular-orbit transfer, transfer ellipse, delta-v budget, burn impulses, transfer time, rendezvous phase angle |
 
 ## Routing guidance
 
@@ -77,15 +78,20 @@ selection, and classical orbital element determination.
   dipole questions route to the adcs magnetorquer-control sub-skill.
 - Sun-synchronous orbit and J2 nodal regression questions route to the
   sun-synchronous-inclination sub-skill.
+- Eclipse duration, earth shadow, beta angle, and shadow fraction
+  questions route to the orbit-mechanics eclipse-time sub-skill.
+- Repeat ground track and integer-revolutions-per-day questions route
+  to the orbit-mechanics ground-track-repeat sub-skill.
+- Hohmann transfer, transfer-ellipse, burn-impulse, and transfer-time
+  questions route to the orbit-mechanics hohmann-transfer sub-skill.
 - Classical orbital element questions (state vector to elements,
   RAAN, argument of periapsis, true anomaly, period) route to the
   keplerian-elements sub-skill.
+- TRIAD, attitude-matrix, and vector-observation questions route to
+  the adcs attitude-determination-triad sub-skill.
 - GNC, propulsion, and structural questions route to their domain
   packs (gnc-autonomy, propulsion, structures).
 
-- Eclipse duration, earth shadow, beta angle, and shadow fraction questions route to the orbit-mechanics eclipse-time sub-skill.
-- TRIAD, attitude-matrix, and vector-observation questions route to the adcs attitude-determination-triad sub-skill.
-- Repeat ground track and integer-revolutions-per-day questions route to the orbit-mechanics ground-track-repeat sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
