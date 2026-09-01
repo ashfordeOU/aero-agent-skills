@@ -40,6 +40,7 @@ compressor stage and operating-map analysis.
 | propulsion/gas-turbine-cycle/gas-turbine-cycle | Gas turbine cycle | Brayton thermal efficiency, compressor/turbine exit temperatures, pressure ratio |
 | propulsion/gas-turbine-cycle/regenerative-cycle | Regenerative cycle | regenerator effectiveness, regenerative cycle efficiency, optimum pressure ratio, efficiency gain |
 | propulsion/gas-turbine-cycle/real-cycle-effects | Real cycle effects | component efficiency, isentropic efficiency, pressure loss, actual exit temperatures, real SFC |
+| propulsion/gas-turbine-cycle/combustor-design | Combustor design | stoichiometric fuel-air-ratio, operating fuel-air-ratio, combustion efficiency, heat release, temperature rise, adiabatic flame temperature |
 | propulsion/turbofan/turbofan-cycle | Turbofan cycle | bypass ratio, propulsive efficiency, specific thrust, fan/core mass flow |
 | propulsion/turbofan/bypass-ratio-trade | Bypass ratio trade | BPR vs TSFC, thrust split, specific thrust, fan pressure ratio |
 | propulsion/turbofan/turbofan-off-design | Turbofan off-design | corrected mass flow, corrected spool speed, altitude thrust, ram drag, cruise SFC, throttle setting |
@@ -86,6 +87,10 @@ compressor stage and operating-map analysis.
   route to the multi-stage-compressor sub-skill.
 - Non-ideal cycle questions (component efficiencies, pressure loss,
   real SFC) route to the real-cycle-effects sub-skill.
+- Combustor design questions (stoichiometric and operating
+  fuel-air-ratio, combustion efficiency, heat release, temperature
+  rise across the combustor, adiabatic flame temperature) route to
+  the combustor-design sub-skill.
 - Airframe, stability, and certification questions route to their
   domain packs (flight-mechanics, avionics).
 
