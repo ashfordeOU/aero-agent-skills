@@ -125,6 +125,11 @@
 # leaves). Wave-14 new leaves: "propulsion/gas-turbine-cycle/combustor-design", "flight-mechanics/stability-control/control-surface-effectiveness", "vehicle-design/sizing/control-surface-sizing", "gnc-autonomy/control/frequency-response-design", "manufacturing-quality/ndt/magnetic-particle-inspection", "cross-cutting/numerics/matrix-operations", "cross-cutting/numerics/ode-solvers", "space-systems/orbit-mechanics/orbital-perturbations", "avionics/do160/power-input", "avionics/do178c/software-testing", "structures/fem/truss-analysis", "systems-engineering-safety/arp4761a/zonal-safety-analysis".
 # Corpus: 464 tasks (440 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 14 build.
+# P5.2 / Wave 15 (2026-09-01): fan-out continues to
+# 237 verified skills (249 SKILL.md under gate 1: 12 routers + 237
+# leaves). Wave-15 new leaves: "structures/fem/buckling-analysis", "avionics/do160/electrostatic-discharge", "cross-cutting/numerics/fast-fourier-transform", "systems-engineering-safety/arp4761a/functional-hazard-assessment", "gnc-autonomy/guidance/impact-point-prediction", "manufacturing-quality/as9100/risk-management", "propulsion/rocket/rocket-staging", "space-systems/subsystems/solar-array-sizing", "flight-mechanics/stability-control/spin-recovery", "structures/fatigue/stress-life-curve", "manufacturing-quality/ndt/visual-inspection", "vehicle-design/sizing/wing-planform-sizing".
+# Corpus: 488 tasks (464 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 15 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2299,6 +2304,102 @@ tasks:
     query: "before the safety-assessment closes, run the zonal-safety-analysis on the equipment zone: score the zone items, check the separation and containment verdicts, and confirm the zonal-hazard-checklist coverage rather than the fault-tree cut sets"
     intent: "systems engineering; zonal safety analysis checklist coverage and separation and containment verdicts ahead of safety assessment closure, adversarial against safety-assessment and common-cause-analysis"
     expected_skill: "systems-engineering-safety/arp4761a/zonal-safety-analysis"
+  - id: bka1
+    query: "compute the euler critical buckling load of the slender steel column: for the pinned-pinned end condition with E = 200 GPa, I = 1e-6 m^4 and length 3 m, apply Pcr = pi^2*E*I/(K*L)^2 and report the slenderness ratio and the buckling stress"
+    intent: "structures; euler column buckling, critical buckling load, slenderness ratio, effective length factor, buckling stress"
+    expected_skill: "structures/fem/buckling-analysis"
+  - id: bka2
+    query: "check the vertical strut of the landing gear for elastic instability: the fixed-free cantilever column with E = 70 GPa and radius of gyration 0.02 m must not buckle under the limit axial load, so determine the effective length factor, the critical buckling load Pcr and the margin of safety without building any finite element model"
+    intent: "adversarial: strut instability wording (axial load, column, finite element model) must route to euler buckling analysis, not truss-analysis or calculix-linear"
+    expected_skill: "structures/fem/buckling-analysis"
+  - id: esd1
+    query: "plan the do-160 section 25 electrostatic-discharge test for the lru and compute the 15 kv air-discharge stored energy and discharge-waveform current from the 150 pf 330 ohm generator model"
+    intent: "avionics; DO-160 section 25 ESD test planning, air discharge level, stored energy and discharge waveform from the 150 pF / 330 ohm generator model"
+    expected_skill: "avionics/do160/electrostatic-discharge"
+  - id: esd2
+    query: "verify the do-160 section 25 electrostatic-discharge applicability for the personnel-accessible surfaces of the avionics unit, distinguishing the air-discharge test from the section 22 lightning induced transients and the section 16 power input sag and surge tests"
+    intent: "avionics; DO-160 section 25 ESD applicability from personnel accessibility, adversarial against lightning-protection and power-input routing"
+    expected_skill: "avionics/do160/electrostatic-discharge"
+  - id: fft1
+    query: "compute the radix-2 fast-fourier-transform of the sampled vibration signal with the cooley-tukey decomposition and extract the magnitude spectrum and the phase spectrum"
+    intent: "numerics; radix-2 Cooley-Tukey FFT of a sampled signal with magnitude and phase spectrum extraction"
+    expected_skill: "cross-cutting/numerics/fast-fourier-transform"
+  - id: fft2
+    query: "find the frequency bin of the dominant tone by computing the fourier spectrum of the sampled signal rather than integrating the waveform or interpolating between the sample points"
+    intent: "numerics; dominant tone frequency bin from the Fourier spectrum, adversarial against numerical-integration and interpolation routing"
+    expected_skill: "cross-cutting/numerics/fast-fourier-transform"
+  - id: fha1
+    query: "perform the functional-hazard-assessment for the autopilot: identify the failure-condition of the pitch control function, rate its severity into the categories catastrophic hazardous major minor or no safety effect, map the probability-targets for that severity, and populate the fha-worksheet rows with flight phase and safety objective"
+    intent: "systems engineering; ARP4761A functional hazard assessment with failure condition identification, severity rating into the five categories, probability target mapping, and FHA worksheet population"
+    expected_skill: "systems-engineering-safety/arp4761a/functional-hazard-assessment"
+  - id: fha2
+    query: "the safety assessment and the common cause analysis both build on the functional hazard assessment: for the loss of the rudder trim function identify the failure-condition, rate its severity as hazardous, look up the probability-targets band, and complete the fha-worksheet entry before any fault tree or zonal work"
+    intent: "systems engineering; FHA worksheet entry with severity rating and probability target band ahead of fault tree and zonal work, adversarial against safety-assessment and common-cause-analysis"
+    expected_skill: "systems-engineering-safety/arp4761a/functional-hazard-assessment"
+  - id: ipp1
+    query: "predict the ballistic impact point from the launch speed and the flight path angle with the flat earth range equation"
+    intent: "GNC; ballistic impact point prediction from launch speed and flight path angle via the range equation"
+    expected_skill: "gnc-autonomy/guidance/impact-point-prediction"
+  - id: ipp2
+    query: "estimate where the ballistic round will land and the total time of flight before the pursuit guidance handoff begins"
+    intent: "GNC; ballistic landing point and time of flight ahead of a guidance handoff"
+    expected_skill: "gnc-autonomy/guidance/impact-point-prediction"
+  - id: rm1
+    query: "assess the operational risk for the as9100 risk-management register of the new machining process: compute the fmea risk-priority-number from the severity 8, likelihood 5, and detection 3 ratings, classify the rpn band, compute the mitigated risk-priority-number after the severity 2, likelihood 3, and detection 1 reductions, and rank the risks for mitigation-planning priority with the residual-risk acceptance check"
+    intent: "manufacturing quality; AS9100D operational risk assessment and mitigation planning: FMEA risk priority number, RPN band classification, post-mitigation residual RPN, mitigation priority ranking, residual risk acceptance"
+    expected_skill: "manufacturing-quality/as9100/risk-management"
+  - id: rm2
+    query: "when the counterfeit risk scoring and the corrective action capa review could both apply to the supplier issue, first run the risk-assessment for the as9100 risk-management register: compute the fmea risk-priority-number with severity 9, likelihood 4, and detection 7, apply the 5x5 risk-matrix classification, and plan the mitigation with the residual-risk acceptance threshold of 40"
+    intent: "adversarial: counterfeit scoring and corrective action wording must route to risk-management for FMEA risk priority number, risk matrix classification, and residual risk acceptance, not to counterfeit-prevention or corrective-action"
+    expected_skill: "manufacturing-quality/as9100/risk-management"
+  - id: rstg1
+    query: "allocate the stage mass ratios and the payload fraction across the stages of the two-stage launch vehicle so the target total delta-v of 9000 m/s is met, computing the per-stage delta-v from the rocket equation"
+    intent: "propulsion; multi-stage rocket staging allocation of stage mass ratio and payload fraction for a target total delta-v"
+    expected_skill: "propulsion/rocket/rocket-staging"
+  - id: rstg2
+    query: "optimize the staging of the multistage rocket: choose the stage count and the structural index per stage so the target total delta-v is reached with the highest total payload fraction"
+    intent: "propulsion; rocket stage count and structural index optimization for total delta-v and payload fraction, adversarial against rocket-sizing propellant mass sizing"
+    expected_skill: "propulsion/rocket/rocket-staging"
+  - id: sas1
+    query: "compute the required array-area for the spacecraft from the bus power-demand, the orbit eclipse-fraction, the solar cell-efficiency, the packing-factor, the solar-irradiance, and the end-of-life degradation over the 10-year mission-life, sizing the photovoltaic array in square meters"
+    intent: "space systems; photovoltaic solar array area sizing from power demand, eclipse fraction, cell efficiency, packing factor, and end-of-life degradation"
+    expected_skill: "space-systems/subsystems/solar-array-sizing"
+  - id: sas2
+    query: "check the spacecraft power budget and the photovoltaic panel sizing: compute the array-area and the end-of-life power from the eclipse-fraction, the cell-efficiency, the packing-factor, and the annual degradation rate, then confirm the array can still meet the bus power-demand at end of life without touching the RF link budget"
+    intent: "space systems; solar array area and end-of-life power sizing, adversarial against power-thermal-budget (power budget, battery) and communication-link-budget (RF link budget)"
+    expected_skill: "space-systems/subsystems/solar-array-sizing"
+  - id: spr1
+    query: "analyze the spin-recovery problem for the stalled aircraft: find the autorotation-band from the stall angle and the post stall lift slope, estimate the spin descent rate and rotation rate, and classify the spin mode as steep or flat-spin"
+    intent: "flight mechanics; spin entry, autorotation, spin modes, developed spin rotation rate"
+    expected_skill: "flight-mechanics/stability-control/spin-recovery"
+  - id: spr2
+    query: "assess the landing-performance implication of the post stall departure: in the flat-spin the wing is fully stalled and autorotating, apply the anti-spin-controls rudder opposite and elevator forward, and estimate the rotation rate and the altitude lost during spin-recovery"
+    intent: "flight mechanics; spin recovery controls, flat spin mode, altitude lost during recovery"
+    expected_skill: "flight-mechanics/stability-control/spin-recovery"
+  - id: slc1
+    query: "fit the basquin-equation to the stress-life-curve from the sn-curve fatigue test data with the log-log regression, determine the endurance-limit from the runout stress level at the 1e7 cycle runout, and make the fatigue-life-prediction at the 300 MPa stress amplitude"
+    intent: "structures; stress-life curve construction: Basquin equation fit by log-log regression, endurance limit from the runout stress level, fatigue life prediction at a given stress amplitude"
+    expected_skill: "structures/fatigue/stress-life-curve"
+  - id: slc2
+    query: "the wing spar lug sees a 250 MPa stress amplitude on the stress-life-curve fitted with the basquin-equation from the sn-curve test data: predict the fatigue-life-prediction in cycles before the endurance-limit, then compare the constant-amplitude life against the goodman-diagram mean-stress check and the miner-damage cumulative damage sum"
+    intent: "adversarial: constant-amplitude S-N life prediction wording (stress amplitude, endurance limit, goodman mean-stress check, miner cumulative damage) must route to the stress-life-curve leaf, not goodman-diagram or miner-damage"
+    expected_skill: "structures/fatigue/stress-life-curve"
+  - id: vi1
+    query: "compute the visual-inspection aperture-ratio for the borescope objective at the 100 mm working-distance, size the magnification to resolve a 25 micrometer surface indication at the 250 mm viewing distance, and check the illuminance from the 250 cd lamp at 0.5 m against the lighting-requirements"
+    intent: "manufacturing quality; visual inspection (VT) execution: borescope aperture ratio, magnification for a target surface indication size, and illuminance against the lighting requirements"
+    expected_skill: "manufacturing-quality/ndt/visual-inspection"
+  - id: vi2
+    query: "when surface indications on the machined steel part could need liquid penetrant, first compute the visual-inspection magnification and field-of-view for the borescope at the 60 degree angle and the 300 mm working-distance, then record the acceptance-verdict against the 1.0 mm indication-acceptance limit"
+    intent: "adversarial: surface indication and liquid penetrant wording must route to visual-inspection for magnification, field of view, and indication acceptance, not to liquid-penetrant-inspection or ndt-method-selection"
+    expected_skill: "manufacturing-quality/ndt/visual-inspection"
+  - id: wps1
+    query: "size the wing planform for the transport: compute the required wing area by dividing the takeoff gross weight by the wing loading, find the span from the aspect ratio, derive the mean aerodynamic chord from the taper ratio, and select the sweep angle from the cruise Mach"
+    intent: "vehicle design; wing planform sizing of wing area, span, mean aerodynamic chord, and sweep angle from the design point"
+    expected_skill: "vehicle-design/sizing/wing-planform-sizing"
+  - id: wps2
+    query: "determine the wing area and the planform dimensions for the 600000 newton takeoff gross weight at a 6000 newton per square meter wing loading: the span for the 9 aspect ratio, the root chord and the mean aerodynamic chord at the 0.3 taper ratio, and the sweep angle needed at the 0.8 cruise Mach"
+    intent: "vehicle design; wing area and planform geometry from wing loading and takeoff gross weight, adversarial against ws-tw-trade matching and weight-estimation class-I weights"
+    expected_skill: "vehicle-design/sizing/wing-planform-sizing"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
