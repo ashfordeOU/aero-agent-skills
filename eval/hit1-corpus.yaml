@@ -115,6 +115,11 @@
 # leaves). Wave-12 new leaves: "flight-mechanics/stability-control/aileron-reversal", "space-systems/adcs/attitude-determination-triad", "gnc-autonomy/guidance/command-to-line-of-sight", "manufacturing-quality/ndt/eddy-current-inspection", "flight-mechanics/performance/energy-height", "vehicle-design/structures-integration/fuselage-skin-stringer", "space-systems/orbit-mechanics/ground-track-repeat", "systems-engineering-safety/mbse/n2-diagram", "cross-cutting/tolerancing/position-tolerance-calc", "structures/materials/ramberg-osgood", "propulsion/ramjet/ramjet-inlet", "systems-engineering-safety/arp4754a/verification-planning".
 # Corpus: 420 tasks (396 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 12 build.
+# P5.2 / Wave 13 (2026-09-01, re-dispatch #1): fan-out continues to
+# 213 verified skills (225 SKILL.md under gate 1: 12 routers + 213
+# leaves). Wave-13 new leaves: "vehicle-design/sizing/engine-sizing", "space-systems/orbit-mechanics/hohmann-transfer", "cross-cutting/numerics/interpolation", "flight-mechanics/performance/landing-performance", "gnc-autonomy/control/lead-lag-compensation", "manufacturing-quality/ndt/liquid-penetrant-inspection", "structures/fatigue/notch-sensitivity", "avionics/do160/radio-frequency-susceptibility", "systems-engineering-safety/mbse/requirements-modeling", "propulsion/turboprop/turboprop-cycle".
+# Corpus: 440 tasks (420 prior plus 20 domain tasks). Owner: Ops
+# Manager, Wave 13 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2113,6 +2118,86 @@ tasks:
     query: "plan verification coverage for the derived-requirement set from the system safety assessment and flag requirements without an assigned verification method per ARP4754A"
     intent: "systems engineering; derived-requirement verification coverage per ARP4754A"
     expected_skill: "systems-engineering-safety/arp4754a/verification-planning"
+  - id: esg1
+    query: "size the engines and compute the sea level static thrust from the design thrust to weight ratio and the takeoff gross weight for the transport aircraft then lapse the thrust to the top of climb altitude"
+    intent: "vehicle design; engine sizing, sea level static thrust from thrust to weight ratio and takeoff gross weight, thrust lapse to top of climb altitude"
+    expected_skill: "vehicle-design/sizing/engine-sizing"
+  - id: esg2
+    query: "select the turbofan engines and estimate the takeoff thrust and the engine weight for the twin engine transport given the required thrust to weight ratio at the top of climb"
+    intent: "vehicle design; turbofan engine selection with installed takeoff thrust and engine weight from the thrust to weight ratio, cross-cutting with propulsion and weight estimation wording"
+    expected_skill: "vehicle-design/sizing/engine-sizing"
+  - id: hoh1
+    query: "compute the hohmann-transfer delta-v budget and the transfer-time for the coplanar-transfer between two circular orbits using the vis-viva equation"
+    intent: "space systems; Hohmann transfer delta-v budget and transfer time between coplanar circular orbits via vis-viva"
+    expected_skill: "space-systems/orbit-mechanics/hohmann-transfer"
+  - id: hoh2
+    query: "estimate the hohmann-transfer burn-impulse delta-v for the orbit-raising transfer-orbit from the low earth orbit to the geostationary orbit and check the total impulse against the propellant budget"
+    intent: "space systems; Hohmann burn impulses and orbit-raising transfer-orbit delta-v, adversarial against rocket-equation propulsion sizing"
+    expected_skill: "space-systems/orbit-mechanics/hohmann-transfer"
+  - id: itp1
+    query: "use linear interpolation to interpolate the lift coefficient at alpha 6 degrees from the tabulated aerodynamic data table"
+    intent: "numerics; piecewise linear table interpolation of tabulated lift coefficient data"
+    expected_skill: "cross-cutting/numerics/interpolation"
+  - id: itp2
+    query: "interpolate between the tabulated data points of the drag polar table using a natural cubic spline and report the interpolated value at the intermediate point"
+    intent: "numerics; natural cubic spline interpolation over tabulated drag polar data, cross-cutting with aerodynamics data tables"
+    expected_skill: "cross-cutting/numerics/interpolation"
+  - id: lp1
+    query: "compute the landing distance and the ground roll stopping distance for the transport airplane given the approach speed and the braking coefficient"
+    intent: "flight mechanics; landing distance and ground roll stopping distance from approach speed and braking coefficient"
+    expected_skill: "flight-mechanics/performance/landing-performance"
+  - id: lp2
+    query: "estimate the stopping distance and the required landing field length for the transport aircraft touching down over the 50 foot obstacle with reverse thrust"
+    intent: "flight mechanics; stopping distance over the 50 foot obstacle with flare and reverse thrust, cross-cutting with field length and takeoff-adjacent wording"
+    expected_skill: "flight-mechanics/performance/landing-performance"
+  - id: llc1
+    query: "design a phase lead compensator to meet the phase margin specification"
+    intent: "GNC; phase lead compensator design from the plant phase margin"
+    expected_skill: "gnc-autonomy/control/lead-lag-compensation"
+  - id: llc2
+    query: "improve the closed loop stability margin by adding a lead lag network to the open loop transfer function"
+    intent: "GNC; lead lag network for the open loop transfer function to raise the stability margin"
+    expected_skill: "gnc-autonomy/control/lead-lag-compensation"
+  - id: lpi1
+    query: "compute the washburn-equation penetration-depth for the dye-penetrant in the surface crack after the dwell-time"
+    intent: "manufacturing quality; liquid penetrant capillary penetration depth via the Washburn equation over the dwell time"
+    expected_skill: "manufacturing-quality/ndt/liquid-penetrant-inspection"
+  - id: lpi2
+    query: "estimate the indication-sizing bleed-out width and the developer-time for the fluorescent-penetrant inspection of the surface crack"
+    intent: "manufacturing quality; penetrant bleed-out indication sizing and developer time, adversarial against NDT method selection"
+    expected_skill: "manufacturing-quality/ndt/liquid-penetrant-inspection"
+  - id: nsc1
+    query: "compute the fatigue notch factor with the peterson method for the plate with the circular hole using the stress concentration factor and the notch root radius"
+    intent: "structures; fatigue notch factor Kf by Peterson from Kt and the notch root radius"
+    expected_skill: "structures/fatigue/notch-sensitivity"
+  - id: nsc2
+    query: "estimate the fatigue strength reduction of the lug hole by computing the fatigue notch factor with the neuber method from the stress concentration factor and the effective stress amplitude for the endurance check"
+    intent: "structures; Neuber fatigue notch factor and effective stress amplitude feeding an endurance check"
+    expected_skill: "structures/fatigue/notch-sensitivity"
+  - id: rfs1
+    query: "plan the do-160 radio-frequency-susceptibility test for the lru and compute the rs103 field strength from the amplifier power antenna gain and distance"
+    intent: "avionics; DO-160 section 20 RF immunity test planning, RS103 radiated field strength from amplifier power"
+    expected_skill: "avionics/do160/radio-frequency-susceptibility"
+  - id: rfs2
+    query: "check the flight computer immunity to the radiated field in the avionics bay and verify the do-160 rs103 and cs114 susceptibility margins for the equipment"
+    intent: "avionics; radiated and conducted RF immunity margins, RS103 and CS114 checks"
+    expected_skill: "avionics/do160/radio-frequency-susceptibility"
+  - id: rqm1
+    query: "model the system requirements in a sysml requirements diagram with the requirement-stereotype attributes and compute the verification-status-rollup for the requirement-tree"
+    intent: "systems engineering; MBSE requirement modeling with stereotype attributes and verification status roll-up"
+    expected_skill: "systems-engineering-safety/mbse/requirements-modeling"
+  - id: rqm2
+    query: "check the sysml requirement diagram for vague-term-screening and requirement-atomicity before the verification planning review"
+    intent: "systems engineering; requirement quality screening (vague terms, atomicity) ahead of a verification planning review"
+    expected_skill: "systems-engineering-safety/mbse/requirements-modeling"
+  - id: tpc1
+    query: "compute the turboprop-cycle propeller-efficiency from the flight velocity and the slipstream velocity and the static-thrust from the shaft power and the propeller diameter"
+    intent: "propulsion; propeller Froude efficiency from flight and slipstream velocity, static thrust from shaft power and disk area"
+    expected_skill: "propulsion/turboprop/turboprop-cycle"
+  - id: tpc2
+    query: "estimate the overall efficiency and the equivalent-shaft-power of the turboprop-cycle powerplant from the thermal efficiency, the propeller-efficiency, and the specific fuel consumption at cruise"
+    intent: "adversarial: overall and thermal efficiency plus specific fuel consumption wording must route to the turboprop cycle, not the gas-turbine-cycle or free-turbine leaves"
+    expected_skill: "propulsion/turboprop/turboprop-cycle"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
