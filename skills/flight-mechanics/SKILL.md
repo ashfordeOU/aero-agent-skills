@@ -39,6 +39,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/breguet-endurance | Breguet endurance | loiter endurance, holding time, SFC, fuel burn, final weight |
 | flight-mechanics/performance/specific-range | Specific air range | specific air range, fuel flow, instantaneous range, fuel burn per sector |
 | flight-mechanics/performance/takeoff-performance | Takeoff performance | ground roll distance, lift-off speed, stall speed from wing loading |
+| flight-mechanics/performance/landing-performance | Landing performance | landing distance, approach speed, flare, ground roll, stopping distance, reverse thrust, braking coefficient |
 | flight-mechanics/performance/climb-performance | Climb performance | rate of climb, excess thrust, climb gradient, time to climb, service ceiling |
 | flight-mechanics/performance/descent-performance | Descent performance | descent profiles, glide range, rate of descent, energy management, VNAV step-down planning |
 | flight-mechanics/performance/turn-performance | Turn performance | turn rate, turn radius, bank angle, load factor, sustained turn |
@@ -60,6 +61,8 @@ lateral-directional stability, and dynamic stability modes analysis.
   fuel flow, and sector fuel burn questions route to the
   specific-range sub-skill.
 - Takeoff and ground-roll questions route to takeoff-performance.
+- Landing distance, approach speed, flare, ground roll, and stopping
+  distance questions route to the landing-performance sub-skill.
 - Rate of climb, excess thrust, climb gradient, time to climb, and
   service ceiling questions route to the climb-performance sub-skill.
 - Descent profile, glide-descent range, sink-rate, and energy
