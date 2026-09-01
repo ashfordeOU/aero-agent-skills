@@ -1,0 +1,13 @@
+# Hit@1 wave-10 fragment: dynamic-stability-flight-test
+# (flight-test-operations/stability) Two tasks per new leaf skill; dst2
+# is cross-cutting (excitation wording could route to longitudinal-
+# stability, must deterministically route to dynamic-stability-flight-test).
+tasks:
+  - id: dst1
+    query: "identify the short period damping ratio from an elevator doublet response using the log decrement over three cycles and return the handling qualities verdict"
+    intent: "flight test; dynamic stability mode identification and handling qualities verdict"
+    expected_skill: "flight-test-operations/stability/dynamic-stability-flight-test"
+  - id: dst2
+    query: "plan the dynamic stability flight test excitation with an elevator pulse for the phugoid and a rudder pulse for the Dutch roll, then reduce the records to time to half amplitude"
+    intent: "flight test; mode excitation selection and decaying oscillation reduction"
+    expected_skill: "flight-test-operations/stability/dynamic-stability-flight-test"
