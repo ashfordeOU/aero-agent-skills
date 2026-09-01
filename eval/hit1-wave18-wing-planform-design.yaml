@@ -1,0 +1,14 @@
+# Hit@1 wave-18 fragment: wing-planform-design (wing-design)
+# Two tasks per new leaf; q1 routes on planform reference geometry
+# (taper chords, MAC and its span station, sweep line conversion),
+# q2 routes on the Schrenk spanwise loading and the washout sizing.
+# Both must deterministically hit aerodynamics/wing-design/wing-planform-design.
+tasks:
+  - id: w18-wing-planform-design-1
+    query: "derive the wing-planform-design reference geometry from the span, the area, and the taper-ratio: the root-chord, the tip-chord, the mean-geometric-chord, and the mean-aerodynamic-chord with its mac-span-station, then convert the leading-edge-sweep into the quarter-chord-sweep"
+    intent: "wing planform reference geometry: taper chords, mean geometric and mean aerodynamic chord, MAC span station, sweep line conversion"
+    expected_skill: "aerodynamics/wing-design/wing-planform-design"
+  - id: w18-wing-planform-design-2
+    query: "estimate the spanwise-load-distribution of the wing-planform-design with the schrenk-approximation from the wing lift coefficient, obtain the local-lift-coefficient at each span station, and size the washout-angle for the stall-sequencing so the root stalls before the tip"
+    intent: "wing spanwise loading: Schrenk approximation, local lift coefficient, washout angle for root-first stall sequencing"
+    expected_skill: "aerodynamics/wing-design/wing-planform-design"
