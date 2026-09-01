@@ -58,6 +58,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/interpolation | Table interpolation | linear interpolation, piecewise linear, natural cubic spline, table lookup, tabulated data points, extrapolation |
 | cross-cutting/numerics/ode-solvers | ODE solvers | explicit Euler, Heun RK2, classical RK4, initial value problem, step size convergence, closed-form comparison |
 | cross-cutting/numerics/matrix-operations | Matrix operations | Gaussian elimination with partial pivoting, linear system solve Ax=b, determinant, matrix inverse, singularity detection |
+| cross-cutting/numerics/fast-fourier-transform | Fast Fourier transform | DFT definition, radix-2 Cooley-Tukey FFT, magnitude and phase spectrum, inverse FFT, Parseval energy check |
 | cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
 | cross-cutting/tolerancing/position-tolerance-calc | GD&T position tolerance | true position, tolerance zone diameter, MMC bonus tolerance, virtual condition, hole and pin |
 
@@ -104,6 +105,10 @@ integration) for engineering calculations.
 - Dense linear system and matrix questions (Gaussian elimination with
   partial pivoting, Ax=b solve, determinant, matrix inverse, singular
   matrix detection) route to the numerics matrix-operations sub-skill.
+- Frequency-domain and spectral questions (discrete Fourier transform,
+  radix-2 Cooley-Tukey FFT, magnitude and phase spectrum, inverse FFT,
+  Parseval energy check) route to the numerics fast-fourier-transform
+  sub-skill.
 - Aerospace engineering questions route to their domain pack
   (avionics, space-systems, systems-engineering-safety,
   manufacturing-quality).
