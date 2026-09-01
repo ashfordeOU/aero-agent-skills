@@ -61,6 +61,7 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/combustion-chamber-design | Combustion chamber design | characteristic velocity, c-star, chamber pressure, throat area, chamber volume, residence time |
 | propulsion/turbomachinery/centrifugal-compressor | Centrifugal compressor | impeller tip speed, slip factor, Wiesner, work input coefficient, stage pressure ratio, isentropic efficiency |
 | propulsion/combustion/cea-rocket-combustion | Rocket combustion thermochemistry | rocket combustion, adiabatic flame temperature, characteristic velocity, specific impulse, mixture ratio, frozen flow, chamber pressure, thermochemistry, c-star, propellant selection |
+| propulsion/rocket/solid-rocket-motor | Solid rocket motor | solid rocket motor, burn rate, chamber pressure, grain geometry, mass flow, thrust, total impulse, c star |
 
 ## Routing guidance
 
@@ -111,6 +112,7 @@ compressor stage and operating-map analysis.
 - Rocket combustion chamber sizing, characteristic velocity c-star, chamber pressure and throat area, and residence time questions route to the rocket combustion-chamber-design sub-skill.
 - Centrifugal compressor impeller tip speed, slip factor, work input, stage pressure ratio, and isentropic efficiency questions route to the turbomachinery centrifugal-compressor sub-skill.
 - Rocket combustion thermochemistry, adiabatic flame temperature, characteristic velocity, and ideal specific impulse from propellant and mixture ratio route to the combustion cea-rocket-combustion sub-skill.
+- Solid rocket motor ballistics, burn-rate law, chamber pressure equilibrium, grain geometry, mass flow, thrust, and total impulse questions route to the rocket solid-rocket-motor sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

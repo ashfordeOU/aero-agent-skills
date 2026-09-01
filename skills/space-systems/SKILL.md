@@ -60,6 +60,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/orbital-decay | Orbital decay | ballistic coefficient, atmospheric drag decay rate, deorbit lifetime, drag coefficient, LEO lifetime |
 | space-systems/mission-design/mission-delta-v-budget | Mission delta-v budget | delta v budget, insertion, transfer, station keeping, deorbit, margin, Tsiolkovsky propellant mass, specific impulse |
 | space-systems/mission-design/radiation-debris | Radiation and debris environment | radiation environment, trapped belts, total ionizing dose, single event effects, SEU rate, solar particle events, orbital debris, shielding attenuation, collision probability, mission design |
+| space-systems/mission-design/entry-descent-landing | Entry descent and landing | entry descent landing, entry corridor, ballistic coefficient, entry heating, sutton-graves, deceleration, parachute, terminal velocity |
 
 ## Routing guidance
 
@@ -113,6 +114,7 @@ selection, and classical orbital element determination.
 - Orbital decay and deorbit lifetime estimation, ballistic coefficient, and atmospheric drag effects on LEO spacecraft route to the orbit-mechanics orbital-decay sub-skill.
 - Mission delta-v budget summation, insertion and transfer contributions, margin allocation, and Tsiolkovsky propellant mass questions route to the mission-design mission-delta-v-budget sub-skill.
 - Space radiation and orbital debris environment assessment, trapped belt dose, single event effects, and collision probability over mission life route to the mission-design radiation-debris sub-skill.
+- Atmospheric entry corridor, ballistic coefficient, deceleration g-loads, Sutton-Graves convective heating, and parachute terminal velocity questions route to the mission-design entry-descent-landing sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

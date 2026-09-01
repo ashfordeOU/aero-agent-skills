@@ -66,6 +66,7 @@ integration) for engineering calculations.
 | cross-cutting/units-atmos/dimensional-analysis | Dimensional analysis | Buckingham Pi theorem, dimensional homogeneity, Pi groups, Reynolds number, unit consistency |
 | cross-cutting/data-sources/aeronautical-data-sources | Aeronautical data sources | data source credibility, revision status, publisher, engineering reference, citation line, authoritative source |
 | cross-cutting/tolerancing/datum-reference-frames | Datum reference frames | datum reference frames, GD&T, datum precedence, primary secondary tertiary, feature control frame, material condition, MMB LMB RMB, degrees of freedom, datum simulators, ASME Y14.5 |
+| cross-cutting/tolerancing/gdandt-basics | GD&T basics | GD&T, feature control frame, datum reference frame, form tolerance, orientation tolerance, MMC, LMC, RFS, bonus tolerance |
 
 ## Routing guidance
 
@@ -125,6 +126,7 @@ integration) for engineering calculations.
 - Dimensional analysis, Buckingham Pi theorem, Pi group formation, and dimensional homogeneity checks route to the units-atmos dimensional-analysis sub-skill.
 - Data source credibility, revision control, and engineering citation questions route to the data-sources aeronautical-data-sources sub-skill.
 - GD&T datum reference frame establishment, datum precedence, degrees of freedom constraint, and feature control frame construction route to the tolerancing datum-reference-frames sub-skill.
+- Geometric dimensioning and tolerancing fundamentals, feature control frames, datum reference frames, form and orientation tolerances, and MMC/LMC/RFS bonus tolerance questions route to the tolerancing gdandt-basics sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
