@@ -44,6 +44,7 @@ compressor stage and operating-map analysis.
 | propulsion/turbofan/bypass-ratio-trade | Bypass ratio trade | BPR vs TSFC, thrust split, specific thrust, fan pressure ratio |
 | propulsion/turbofan/turbofan-off-design | Turbofan off-design | corrected mass flow, corrected spool speed, altitude thrust, ram drag, cruise SFC, throttle setting |
 | propulsion/turboprop/free-turbine | Free turbine | power turbine exit temperature, shaft power, torque, gear ratio, flow function, spool matching |
+| propulsion/turboprop/turboprop-cycle | Turboprop cycle | propeller efficiency, static thrust, equivalent shaft power, advance ratio, power and thrust coefficients, SFC on shaft power |
 | propulsion/axial-compressor/axial-compressor-stage | Axial compressor stage | velocity triangle, specific work, flow coefficient, degree of reaction, stage pressure ratio, blade loading |
 | propulsion/axial-compressor/compressor-map | Compressor map | surge line and margin, operating line, speed lines, corrected flow and speed, choke |
 | propulsion/axial-compressor/multi-stage-compressor | Multi-stage compressor | overall pressure ratio, stage count, stage matching, reheat factor, annulus area, corrected speed |
@@ -64,7 +65,10 @@ compressor stage and operating-map analysis.
   off-design and altitude behavior questions route to
   turbofan-off-design.
 - Free-turbine and power-turbine matching questions (shaft power,
-  gear ratio, flow function) route to the free-turbine sub-skill.
+  gear ratio, flow function) route to the free-turbine sub-skill;
+  propeller-side cycle questions (propeller efficiency, static
+  thrust, equivalent shaft power, advance ratio, power and thrust
+  coefficients) route to the turboprop-cycle sub-skill.
 - Rocket equation, delta-v, staging, and propellant mass questions
   route to the rocket-sizing sub-skill; rocket nozzle questions (area
   ratio, exit Mach, thrust, expansion) route to nozzle-design;
