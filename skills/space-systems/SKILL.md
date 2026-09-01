@@ -53,6 +53,7 @@ selection, and classical orbital element determination.
 | space-systems/adcs/attitude-determination-triad | TRIAD attitude determination | TRIAD algorithm, attitude matrix, vector observations, body and reference vectors |
 | space-systems/orbit-mechanics/ground-track-repeat | Ground track repeat | repeat ground track, nodal precession, orbital period, integer revolutions per day |
 | space-systems/orbit-mechanics/hohmann-transfer | Hohmann transfer | coplanar circular-orbit transfer, transfer ellipse, delta-v budget, burn impulses, transfer time, rendezvous phase angle |
+| space-systems/orbit-mechanics/orbital-perturbations | Secular orbital perturbations | J2 nodal regression, RAAN drift rate, argument-of-perigee drift, nodal period change, perturbation magnitude vs altitude |
 
 ## Routing guidance
 
@@ -84,6 +85,10 @@ selection, and classical orbital element determination.
   to the orbit-mechanics ground-track-repeat sub-skill.
 - Hohmann transfer, transfer-ellipse, burn-impulse, and transfer-time
   questions route to the orbit-mechanics hohmann-transfer sub-skill.
+- J2 secular perturbation questions (RAAN drift rate, argument-of-
+  perigee drift, nodal period change, perturbation magnitude versus
+  altitude) route to the orbit-mechanics orbital-perturbations
+  sub-skill.
 - Classical orbital element questions (state vector to elements,
   RAAN, argument of periapsis, true anomaly, period) route to the
   keplerian-elements sub-skill.
