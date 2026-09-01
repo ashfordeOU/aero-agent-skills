@@ -1,0 +1,10 @@
+# Hit@1 wave-15 fragment: buckling-analysis (structures/fem)
+tasks:
+  - id: bka1
+    query: "compute the euler critical buckling load of the slender steel column: for the pinned-pinned end condition with E = 200 GPa, I = 1e-6 m^4 and length 3 m, apply Pcr = pi^2*E*I/(K*L)^2 and report the slenderness ratio and the buckling stress"
+    intent: "structures; euler column buckling, critical buckling load, slenderness ratio, effective length factor, buckling stress"
+    expected_skill: "structures/fem/buckling-analysis"
+  - id: bka2
+    query: "check the vertical strut of the landing gear for elastic instability: the fixed-free cantilever column with E = 70 GPa and radius of gyration 0.02 m must not buckle under the limit axial load, so determine the effective length factor, the critical buckling load Pcr and the margin of safety without building any finite element model"
+    intent: "adversarial: strut instability wording (axial load, column, finite element model) must route to euler buckling analysis, not truss-analysis or calculix-linear"
+    expected_skill: "structures/fem/buckling-analysis"
