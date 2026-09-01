@@ -2,7 +2,7 @@
 
 Audit: CEO (Arjun) - regenerated 2026-09-01 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 277
+Total skills rated: 278
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -261,25 +261,26 @@ Total skills rated: 277
 | 253 | systems-engineering-safety/mbse/systems-engineering | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
 | 254 | systems-engineering-safety/mbse/trade-study-analysis | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
 | 255 | systems-engineering-safety/requirements/requirements-elicitation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 256 | vehicle-design/conceptual/payload-range-diagram | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 257 | vehicle-design/conceptual/tow-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 258 | vehicle-design/cost-estimation/life-cycle-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 259 | vehicle-design/cost-estimation/operating-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 260 | vehicle-design/cost-estimation/parametric-cost | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 261 | vehicle-design/mass-properties/cg-envelope | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 262 | vehicle-design/mass-properties/inertia-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 263 | vehicle-design/mass-properties/mass-budget | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 264 | vehicle-design/mdo/multidisciplinary-optimization | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 265 | vehicle-design/sizing/control-surface-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 266 | vehicle-design/sizing/engine-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 267 | vehicle-design/sizing/fuel-tank-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 268 | vehicle-design/sizing/fuselage-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 269 | vehicle-design/sizing/landing-gear-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 270 | vehicle-design/sizing/propeller-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 271 | vehicle-design/sizing/tail-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 272 | vehicle-design/sizing/tire-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 273 | vehicle-design/sizing/weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 274 | vehicle-design/sizing/wing-planform-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 275 | vehicle-design/sizing/ws-tw-trade | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
-| 276 | vehicle-design/structures-integration/fuselage-skin-stringer | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
-| 277 | vehicle-design/structures-integration/wing-box-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 256 | vehicle-design/conceptual/constraint-analysis | PASS | — | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 257 | vehicle-design/conceptual/payload-range-diagram | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 258 | vehicle-design/conceptual/tow-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 259 | vehicle-design/cost-estimation/life-cycle-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 260 | vehicle-design/cost-estimation/operating-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 261 | vehicle-design/cost-estimation/parametric-cost | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 262 | vehicle-design/mass-properties/cg-envelope | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 263 | vehicle-design/mass-properties/inertia-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 264 | vehicle-design/mass-properties/mass-budget | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 265 | vehicle-design/mdo/multidisciplinary-optimization | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 266 | vehicle-design/sizing/control-surface-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 267 | vehicle-design/sizing/engine-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 268 | vehicle-design/sizing/fuel-tank-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 269 | vehicle-design/sizing/fuselage-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 270 | vehicle-design/sizing/landing-gear-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 271 | vehicle-design/sizing/propeller-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 272 | vehicle-design/sizing/tail-sizing | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 273 | vehicle-design/sizing/tire-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 274 | vehicle-design/sizing/weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 275 | vehicle-design/sizing/wing-planform-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 276 | vehicle-design/sizing/ws-tw-trade | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
+| 277 | vehicle-design/structures-integration/fuselage-skin-stringer | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 278 | vehicle-design/structures-integration/wing-box-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
