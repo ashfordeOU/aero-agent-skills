@@ -58,6 +58,7 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/wave-drag-area-rule | Wave drag and area rule | transonic wave drag, cross-sectional area distribution, Sears-Haack body, area rule |
 | aerodynamics/wing-design/wing-planform-design | Wing planform design | root chord, tip chord, mean aerodynamic chord, taper ratio, spanwise loading, washout |
 | aerodynamics/aeroelasticity/divergence-speed | Divergence speed | divergence dynamic pressure, torsional stiffness, shear center offset, aerodynamic center, divergence margin, dive speed |
+| aerodynamics/wind-tunnel/windtunnel-data-reduction | Wind tunnel data reduction | wind tunnel data reduction, tare correction, blockage correction, wall interference, Reynolds correction, aerodynamic coefficients, pressure distribution, balance data, uncertainty estimation, experimental aerodynamics |
 
 ## Routing guidance
 
@@ -94,7 +95,7 @@ estimation, validated against classic reference data.
 - Divergence dynamic pressure, torsional stiffness, aerodynamic center offset, and divergence margin questions route to the aeroelasticity divergence-speed sub-skill.
 - Structural, control, and certification questions route to their
   domain packs (structures, gnc-autonomy, avionics).
-
+- Wind tunnel test data reduction, tare, blockage, and wall interference corrections, and coefficient uncertainty estimation route to the wind-tunnel windtunnel-data-reduction sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
