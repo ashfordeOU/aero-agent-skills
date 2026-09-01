@@ -1,0 +1,14 @@
+# Hit@1 wave-17 fragment: pilot-induced-oscillation (flight-mechanics/handling-qualities)
+# Two tasks per new leaf; q1 routes on PIO category assessment with
+# actuator rate limiting, q2 routes on PIO suppression from excessive
+# phase lag at crossover. Both must deterministically hit
+# flight-mechanics/handling-qualities/pilot-induced-oscillation.
+tasks:
+  - id: w17-pilot-induced-oscillation-1
+    query: "assess the pilot-induced oscillation category for the aircraft pitch loop given the actuator rate limiting during the closed loop maneuver and classify the pio"
+    intent: "handling qualities; PIO category assessment with actuator rate limiting"
+    expected_skill: "flight-mechanics/handling-qualities/pilot-induced-oscillation"
+  - id: w17-pilot-induced-oscillation-2
+    query: "reduce the pilot-induced oscillation susceptibility from the excessive phase lag at the crossover frequency of the pitch control loop with phase compensation and gain reduction"
+    intent: "handling qualities; PIO susceptibility reduction from excessive phase lag at crossover"
+    expected_skill: "flight-mechanics/handling-qualities/pilot-induced-oscillation"
