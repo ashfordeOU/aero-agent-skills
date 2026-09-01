@@ -1,0 +1,16 @@
+# Hit@1 wave-14 fragment: software-testing (avionics/do178c)
+# rbt1 routes on requirements-based-testing and MC/DC test-case-count
+# vocabulary. rbt2 is adversarial: it mentions analysis and coverage
+# vocabulary that could route to the sibling do178c/verification leaf
+# (reviews, independence, verification results) but must Hit@1
+# software-testing because it asks for the test case count and the
+# coverage objectives per level.
+tasks:
+  - id: rbt1
+    query: "generate the requirements-based-testing test cases for a DO-178C level A software compound boolean condition and compute the mc-dc test-case-count needed for full structural-coverage"
+    intent: "avionics; DO-178C requirements-based test case generation, MC/DC test case count for a compound boolean condition, structural coverage measurement"
+    expected_skill: "avionics/do178c/software-testing"
+  - id: rbt2
+    query: "confirm the mc-dc test-case-count and coverage-objectives for the structural-coverage analysis of a level A compound boolean condition in the DO-178C software testing program"
+    intent: "avionics; DO-178C software testing, MC/DC test case count and coverage objectives per software level, adversarial against do178c verification"
+    expected_skill: "avionics/do178c/software-testing"
