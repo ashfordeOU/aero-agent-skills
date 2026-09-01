@@ -1,7 +1,7 @@
 # AeroSkills Domain Map
 
 Machine-readable source of truth: `skills/` tree. This page is the human
-companion — 12 families, 61 live sub-domain packs, 270 verified leaves
+companion — 12 families, 71 live sub-domain packs, 282 verified leaves
 (as of 2026-09-01), target 73 packs × 20 = 1,460.
 
 ```mermaid
@@ -9,6 +9,8 @@ graph TD
     ROOT[AeroSkills]
     aerodynamics[aerodynamics]
     ROOT --> aerodynamics
+    aerodynamics_aeroelasticity[aeroelasticity · 1]
+    aerodynamics --> aerodynamics_aeroelasticity
     aerodynamics_airfoil[airfoil · 4]
     aerodynamics --> aerodynamics_airfoil
     aerodynamics_boundary_layer[boundary-layer · 1]
@@ -39,8 +41,12 @@ graph TD
     avionics --> avionics_far_cs25
     avionics_flight_management[flight-management · 2]
     avionics --> avionics_flight_management
+    avionics_ima[ima · 1]
+    avionics --> avionics_ima
     cross_cutting[cross-cutting]
     ROOT --> cross_cutting
+    cross_cutting_data_sources[data-sources · 1]
+    cross_cutting --> cross_cutting_data_sources
     cross_cutting_documentation[documentation · 2]
     cross_cutting --> cross_cutting_documentation
     cross_cutting_numerics[numerics · 12]
@@ -53,6 +59,8 @@ graph TD
     cross_cutting --> cross_cutting_units_atmos
     flight_mechanics[flight-mechanics]
     ROOT --> flight_mechanics
+    flight_mechanics_flight_dynamics_sim[flight-dynamics-sim · 1]
+    flight_mechanics --> flight_mechanics_flight_dynamics_sim
     flight_mechanics_handling_qualities[handling-qualities · 2]
     flight_mechanics --> flight_mechanics_handling_qualities
     flight_mechanics_performance[performance · 13]
@@ -69,12 +77,14 @@ graph TD
     flight_test_operations --> flight_test_operations_performance
     flight_test_operations_planning[planning · 6]
     flight_test_operations --> flight_test_operations_planning
-    flight_test_operations_stability[stability · 1]
+    flight_test_operations_stability[stability · 2]
     flight_test_operations --> flight_test_operations_stability
     gnc_autonomy[gnc-autonomy]
     ROOT --> gnc_autonomy
     gnc_autonomy_control[control · 8]
     gnc_autonomy --> gnc_autonomy_control
+    gnc_autonomy_estimation_filtering[estimation-filtering · 1]
+    gnc_autonomy --> gnc_autonomy_estimation_filtering
     gnc_autonomy_guidance[guidance · 5]
     gnc_autonomy --> gnc_autonomy_guidance
     gnc_autonomy_navigation[navigation · 4]
@@ -85,6 +95,8 @@ graph TD
     gnc_autonomy --> gnc_autonomy_space
     manufacturing_quality[manufacturing-quality]
     ROOT --> manufacturing_quality
+    manufacturing_quality_additive[additive · 1]
+    manufacturing_quality --> manufacturing_quality_additive
     manufacturing_quality_as9100[as9100 · 10]
     manufacturing_quality --> manufacturing_quality_as9100
     manufacturing_quality_as9102[as9102 · 4]
@@ -107,6 +119,8 @@ graph TD
     propulsion --> propulsion_rocket
     propulsion_turbofan[turbofan · 3]
     propulsion --> propulsion_turbofan
+    propulsion_turbomachinery[turbomachinery · 1]
+    propulsion --> propulsion_turbomachinery
     propulsion_turboprop[turboprop · 2]
     propulsion --> propulsion_turboprop
     space_systems[space-systems]
@@ -115,6 +129,8 @@ graph TD
     space_systems --> space_systems_adcs
     space_systems_ecss[ecss · 3]
     space_systems --> space_systems_ecss
+    space_systems_mission_design[mission-design · 1]
+    space_systems --> space_systems_mission_design
     space_systems_orbit_mechanics[orbit-mechanics · 9]
     space_systems --> space_systems_orbit_mechanics
     space_systems_subsystems[subsystems · 5]
@@ -131,6 +147,8 @@ graph TD
     structures --> structures_fem
     structures_materials[materials · 4]
     structures --> structures_materials
+    structures_thermal_structures[thermal-structures · 1]
+    structures --> structures_thermal_structures
     systems_engineering_safety[systems-engineering-safety]
     ROOT --> systems_engineering_safety
     systems_engineering_safety_arp4754a[arp4754a · 7]
@@ -139,9 +157,11 @@ graph TD
     systems_engineering_safety --> systems_engineering_safety_arp4761a
     systems_engineering_safety_mbse[mbse · 6]
     systems_engineering_safety --> systems_engineering_safety_mbse
+    systems_engineering_safety_requirements[requirements · 1]
+    systems_engineering_safety --> systems_engineering_safety_requirements
     vehicle_design[vehicle-design]
     ROOT --> vehicle_design
-    vehicle_design_conceptual[conceptual · 2]
+    vehicle_design_conceptual[conceptual · 3]
     vehicle_design --> vehicle_design_conceptual
     vehicle_design_cost_estimation[cost-estimation · 3]
     vehicle_design --> vehicle_design_cost_estimation
@@ -155,14 +175,15 @@ graph TD
     vehicle_design --> vehicle_design_structures_integration
 ```
 
-*61 packs · 270 leaves rendered above.*
+*71 packs · 282 leaves rendered above.*
 
 ## aerodynamics
 
-**8 packs · 23 skills**
+**9 sub-domain packs · 24 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
+| `aeroelasticity` | `divergence-speed` | 1 |
 | `airfoil` | `airfoil-geometry`, `airfoil-optimization`, `airfoil-selection`, `xfoil-analysis` | 4 |
 | `boundary-layer` | `boundary-layer-theory` | 1 |
 | `cfd` | `cfd-convergence`, `cfd-mesh-generation`, `cfd-turbulence-modeling`, `panel-method`, `vortex-lattice-method` | 5 |
@@ -174,7 +195,7 @@ graph TD
 
 ## avionics
 
-**6 packs · 23 skills**
+**7 sub-domain packs · 24 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
@@ -184,13 +205,15 @@ graph TD
 | `do254` | `configuration-management`, `hardware-planning`, `requirements-capture`, `verification` | 4 |
 | `far-cs25` | `airworthiness`, `special-conditions` | 2 |
 | `flight-management` | `flight-planning`, `vertical-navigation` | 2 |
+| `ima` | `ima-partitioning` | 1 |
 
 ## cross-cutting
 
-**5 packs · 23 skills**
+**6 sub-domain packs · 24 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
+| `data-sources` | `aeronautical-data-sources` | 1 |
 | `documentation` | `engineering-margins`, `engineering-report` | 2 |
 | `numerics` | `convergence-verification`, `eigenvalue-decomposition`, `fast-fourier-transform`, `finite-difference-derivatives`, `interpolation`, `least-squares-regression`, `matrix-operations`, `monte-carlo-sampling`, `numerical-integration`, `ode-solvers`, `root-finding`, `uncertainty-propagation` | 12 |
 | `sep2640` | `skill-authoring`, `skill-delivery`, `skill-evaluation` | 3 |
@@ -199,17 +222,18 @@ graph TD
 
 ## flight-mechanics
 
-**3 packs · 22 skills**
+**4 sub-domain packs · 23 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
+| `flight-dynamics-sim` | `six-dof-simulation` | 1 |
 | `handling-qualities` | `cooper-harper-rating`, `pilot-induced-oscillation` | 2 |
 | `performance` | `breguet-endurance`, `breguet-range`, `climb-performance`, `descent-performance`, `energy-height`, `glide-performance`, `landing-performance`, `oei-climb-gradient`, `specific-range`, `takeoff-performance`, `thrust-required`, `turn-performance`, `wind-effects` | 13 |
 | `stability-control` | `aileron-reversal`, `control-surface-effectiveness`, `dynamic-stability`, `lateral-directional-stability`, `longitudinal-stability`, `spin-recovery`, `trim-analysis` | 7 |
 
 ## flight-test-operations
 
-**5 packs · 23 skills**
+**6 sub-domain packs · 24 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
@@ -217,15 +241,16 @@ graph TD
 | `flutter` | `flutter-testing`, `ground-vibration-testing`, `limit-cycle-oscillation` | 3 |
 | `performance` | `accelerate-stop-distance`, `climb-performance-flight-test`, `engine-flight-test`, `glide-flight-test`, `landing-distance-determination`, `stall-speed-determination`, `takeoff-distance-determination` | 7 |
 | `planning` | `flight-test-data-reduction`, `flight-test-instrumentation`, `flight-test-planning`, `flight-test-safety`, `telemetry-data-acquisition`, `test-point-matrix-design` | 6 |
-| `stability` | `dynamic-stability-flight-test` | 1 |
+| `stability` | `dynamic-stability-flight-test`, `static-stability-flight-test` | 2 |
 
 ## gnc-autonomy
 
-**5 packs · 22 skills**
+**6 sub-domain packs · 23 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
 | `control` | `frequency-response-design`, `gain-scheduling`, `lead-lag-compensation`, `observer-design`, `pid-control-design`, `python-control-design`, `root-locus-design`, `state-space-analysis` | 8 |
+| `estimation-filtering` | `alpha-beta-filter` | 1 |
 | `guidance` | `command-to-line-of-sight`, `impact-point-prediction`, `midcourse-guidance`, `proportional-navigation`, `pursuit-guidance` | 5 |
 | `navigation` | `dilution-of-precision`, `inertial-navigation`, `kalman-filter-design`, `navigation-frames` | 4 |
 | `optimal-control` | `dymos-trajectory`, `lqr-design` | 2 |
@@ -233,10 +258,11 @@ graph TD
 
 ## manufacturing-quality
 
-**4 packs · 23 skills**
+**5 sub-domain packs · 24 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
+| `additive` | `additive-manufacturing-qualification` | 1 |
 | `as9100` | `calibration-control`, `corrective-action`, `counterfeit-prevention`, `document-control`, `measurement-systems-analysis`, `nonconformance-control`, `quality`, `risk-management`, `statistical-process-control`, `supplier-control` | 10 |
 | `as9102` | `ballooning`, `delta-fai`, `fai-revalidation`, `first-article-inspection` | 4 |
 | `ndt` | `eddy-current-inspection`, `liquid-penetrant-inspection`, `magnetic-particle-inspection`, `ndt-method-selection`, `radiographic-inspection`, `thermography`, `ultrasonic-inspection`, `visual-inspection` | 8 |
@@ -244,7 +270,7 @@ graph TD
 
 ## propulsion
 
-**7 packs · 22 skills**
+**8 sub-domain packs · 23 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
@@ -254,22 +280,24 @@ graph TD
 | `ramjet` | `ramjet-cycle`, `ramjet-inlet` | 2 |
 | `rocket` | `combustion-chamber-design`, `nozzle-design`, `propellant-selection`, `rocket-sizing`, `rocket-staging`, `thrust-vector-control` | 6 |
 | `turbofan` | `bypass-ratio-trade`, `turbofan-cycle`, `turbofan-off-design` | 3 |
+| `turbomachinery` | `centrifugal-compressor` | 1 |
 | `turboprop` | `free-turbine`, `turboprop-cycle` | 2 |
 
 ## space-systems
 
-**4 packs · 22 skills**
+**5 sub-domain packs · 23 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
 | `adcs` | `attitude-control-sizing`, `attitude-determination-triad`, `magnetorquer-control`, `star-tracker`, `sun-pointing` | 5 |
 | `ecss` | `software-engineering`, `software-verification`, `systems-engineering` | 3 |
+| `mission-design` | `mission-delta-v-budget` | 1 |
 | `orbit-mechanics` | `eclipse-time`, `ground-track-repeat`, `hohmann-transfer`, `keplerian-elements`, `lambert-transfer`, `orbital-decay`, `orbital-perturbations`, `satellite-coverage`, `sun-synchronous-inclination` | 9 |
 | `subsystems` | `command-data-handling`, `communication-link-budget`, `power-thermal-budget`, `solar-array-sizing`, `thermal-design` | 5 |
 
 ## structures
 
-**5 packs · 23 skills**
+**6 sub-domain packs · 24 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
@@ -278,24 +306,26 @@ graph TD
 | `fatigue` | `goodman-diagram`, `load-spectrum-counting`, `miner-damage`, `notch-sensitivity`, `stress-life-curve` | 5 |
 | `fem` | `buckling-analysis`, `calculix-linear`, `calculix-nonlinear`, `modal-analysis`, `plate-buckling`, `truss-analysis` | 6 |
 | `materials` | `fracture-toughness`, `material-selection`, `mmpsd-allowables`, `ramberg-osgood` | 4 |
+| `thermal-structures` | `thermal-stress-analysis` | 1 |
 
 ## systems-engineering-safety
 
-**3 packs · 22 skills**
+**4 sub-domain packs · 23 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
 | `arp4754a` | `derived-requirements`, `development-assurance-levels`, `requirements-allocation`, `requirements-traceability`, `systems-planning`, `validation`, `verification-planning` | 7 |
 | `arp4761a` | `common-cause-analysis`, `failure-rate-estimation`, `fta-fmea`, `functional-hazard-assessment`, `markov-analysis`, `operating-support-hazard-analysis`, `particular-risk-analysis`, `safety-assessment`, `zonal-safety-analysis` | 9 |
 | `mbse` | `n2-diagram`, `requirements-modeling`, `state-machine`, `sysml-modeling`, `systems-engineering`, `trade-study-analysis` | 6 |
+| `requirements` | `requirements-elicitation` | 1 |
 
 ## vehicle-design
 
-**6 packs · 22 skills**
+**6 sub-domain packs · 23 skills**
 
 | Pack | Skills | Count |
 |---|---|---|
-| `conceptual` | `payload-range-diagram`, `tow-estimation` | 2 |
+| `conceptual` | `constraint-analysis`, `payload-range-diagram`, `tow-estimation` | 3 |
 | `cost-estimation` | `life-cycle-cost`, `operating-cost`, `parametric-cost` | 3 |
 | `mass-properties` | `cg-envelope`, `inertia-estimation`, `mass-budget` | 3 |
 | `mdo` | `multidisciplinary-optimization` | 1 |

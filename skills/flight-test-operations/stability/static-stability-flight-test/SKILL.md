@@ -10,7 +10,7 @@ standards:
     reference-only: true
 gated: false
 domain: flight-test-operations
-pack: stability
+pack: flight-test-operations
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: flight-test-operations

@@ -10,7 +10,7 @@ standards:
     reference-only: true
 gated: false
 domain: vehicle-design
-pack: conceptual
+pack: vehicle-design
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: vehicle-design

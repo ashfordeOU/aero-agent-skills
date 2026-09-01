@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <code>1,460 skills · 270 live</code> · <code>73 domain packs</code> · <code>21 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
+  <code>1,460 skills · 282 live</code> · <code>73 domain packs</code> · <code>21 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-purple" alt="agentskills.io"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5%20REAL-green" alt="gates"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-21-blue" alt="standards"></a>
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-270-blue" alt="skills"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-282-blue" alt="skills"></a>
 </p>
 
 <p align="center">
@@ -68,10 +68,10 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 
 ### The domain map
 
-**270 verified skills** (as of 2026-09-01) across **12 families** and **61 live sub-domain packs**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
+**282 verified skills** (as of 2026-09-01) across **12 families** and **71 live sub-domain packs**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
 
 <p align="center">
-  <img src="docs/domain-map.svg" alt="AeroSkills domain map — 12 families, 61 packs, 270 skills" width="100%">
+  <img src="docs/domain-map.svg" alt="AeroSkills domain map — 12 families, 71 packs, 282 skills" width="100%">
 </p>
 
 ```mermaid
@@ -235,7 +235,7 @@ You do not need to trust the badge. Replay the gates on the commit you are looki
 | 2 desc lint | description what + when + trigger | `make desc-lint` |
 | 3 behavior tests | per-skill behavior contract, DAL A–E determination | `make pytest-contract` |
 | 4 no-verbatim | standards text copyright control | `make no-verbatim` |
-| 5 Hit@1 corpus | router selects the expected skill (554 tasks) | `make hit1` |
+| 5 Hit@1 corpus | router selects the expected skill (578 tasks) | `make hit1` |
 
 ```bash
 make validate   # 5/5 REAL gates, deterministic, offline
@@ -246,8 +246,8 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 
 ## Roadmap
 
-- **Shipped:** 270 verified skills across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
-- **Release bar (founder, 2026-08-31):** 50+ domains × 20+ verified skills = 1,000+ skills before any release. The 12-discipline tree decomposes into 73 sub-domain packs (1,460 skills · 270 live at 20 each). [development/50x20-domain-tree.md](development/50x20-domain-tree.md)
+- **Shipped:** 282 verified skills across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
+- **Release bar (founder, 2026-08-31):** 50+ domains × 20+ verified skills = 1,000+ skills before any release. The 12-discipline tree decomposes into 73 sub-domain packs (1,460 skills · 282 live at 20 each). [development/50x20-domain-tree.md](development/50x20-domain-tree.md)
 - **Next:** fill live packs toward 20 skills each; open remaining packs on the same eval-gated pipeline
 - **Later:** reference builds; a SEP-2640-aligned MCP adapter; marketplace listings; AI Department Operator packs
 

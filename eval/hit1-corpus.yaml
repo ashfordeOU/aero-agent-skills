@@ -145,6 +145,11 @@
 # leaves). Wave-18 new leaves: "avionics/data-bus/arinc664-afdx", "flight-test-operations/performance/climb-performance-flight-test", "propulsion/rocket/combustion-chamber-design", "cross-cutting/units-atmos/dimensional-analysis", "systems-engineering-safety/arp4761a/failure-rate-estimation", "gnc-autonomy/control/observer-design", "space-systems/orbit-mechanics/orbital-decay", "structures/fem/plate-buckling", "flight-mechanics/performance/thrust-required", "vehicle-design/sizing/tire-sizing", "aerodynamics/wing-design/wing-planform-design".
 # Corpus: 554 tasks (532 prior plus 22 domain tasks). Owner: Ops
 # Manager, Wave 18 build.
+# P5.2 / Wave 19 (2026-09-01): fan-out continues to
+# 282 verified skills (294 SKILL.md under gate 1: 12 routers + 282
+# leaves). Wave-19 new leaves: "manufacturing-quality/additive/additive-manufacturing-qualification", "cross-cutting/data-sources/aeronautical-data-sources", "gnc-autonomy/estimation-filtering/alpha-beta-filter", "propulsion/turbomachinery/centrifugal-compressor", "vehicle-design/conceptual/constraint-analysis", "aerodynamics/aeroelasticity/divergence-speed", "avionics/ima/ima-partitioning", "space-systems/mission-design/mission-delta-v-budget", "systems-engineering-safety/requirements/requirements-elicitation", "flight-mechanics/flight-dynamics-sim/six-dof-simulation", "flight-test-operations/stability/static-stability-flight-test", "structures/thermal-structures/thermal-stress-analysis".
+# Corpus: 578 tasks (554 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 19 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2679,6 +2684,102 @@ tasks:
     query: "estimate the spanwise-load-distribution of the wing-planform-design with the schrenk-approximation from the wing lift coefficient, obtain the local-lift-coefficient at each span station, and size the washout-angle for the stall-sequencing so the root stalls before the tip"
     intent: "wing spanwise loading: Schrenk approximation, local lift coefficient, washout angle for root-first stall sequencing"
     expected_skill: "aerodynamics/wing-design/wing-planform-design"
+  - id: w19-additive-manufacturing-qualification-1
+    query: "compute the volumetric energy density of the additive manufacturing process from the laser power, the scan speed, the hatch spacing, and the layer height"
+    intent: "manufacturing quality; additive manufacturing volumetric energy density"
+    expected_skill: "manufacturing-quality/additive/additive-manufacturing-qualification"
+  - id: w19-additive-manufacturing-qualification-2
+    query: "plan the additive manufacturing qualification with witness coupons, material property verification, and the first article inspection checklist"
+    intent: "manufacturing quality; additive manufacturing qualification planning with witness coupons"
+    expected_skill: "manufacturing-quality/additive/additive-manufacturing-qualification"
+  - id: w19-aeronautical-data-sources-1
+    query: "assess the credibility and the revision status of the aeronautical data source before it is used as the engineering reference"
+    intent: "data sources; credibility and revision control assessment of an aeronautical reference"
+    expected_skill: "cross-cutting/data-sources/aeronautical-data-sources"
+  - id: w19-aeronautical-data-sources-2
+    query: "format the citation line for the engineering data source with publisher, edition, and access date for the report"
+    intent: "data sources; citation line formatting for an engineering data source"
+    expected_skill: "cross-cutting/data-sources/aeronautical-data-sources"
+  - id: w19-alpha-beta-filter-1
+    query: "track the position and velocity of a constant velocity target with an alpha beta filter update from the noisy position measurement"
+    intent: "state estimation; alpha-beta filter position and velocity tracking update"
+    expected_skill: "gnc-autonomy/estimation-filtering/alpha-beta-filter"
+  - id: w19-alpha-beta-filter-2
+    query: "select the steady state alpha and beta gains of the alpha beta tracker from the target maneuverability index and smoothing factor"
+    intent: "state estimation; steady-state alpha-beta gain selection from smoothing factor"
+    expected_skill: "gnc-autonomy/estimation-filtering/alpha-beta-filter"
+  - id: w19-centrifugal-compressor-1
+    query: "compute the impeller tip speed and the slip factor of a centrifugal compressor stage from the rotational speed, impeller diameter, and the Wiesner slip correlation"
+    intent: "turbomachinery; centrifugal compressor impeller tip speed and slip factor"
+    expected_skill: "propulsion/turbomachinery/centrifugal-compressor"
+  - id: w19-centrifugal-compressor-2
+    query: "estimate the total pressure ratio of the centrifugal compressor stage from the rotor work input, the isentropic efficiency, and the inlet total temperature"
+    intent: "turbomachinery; centrifugal compressor stage pressure ratio from work and efficiency"
+    expected_skill: "propulsion/turbomachinery/centrifugal-compressor"
+  - id: w19-constraint-analysis-1
+    query: "compute the wing loading required by the stall constraint from the maximum lift coefficient and the stall speed in the constraint analysis"
+    intent: "vehicle design; stall-constrained wing loading in the matching chart"
+    expected_skill: "vehicle-design/conceptual/constraint-analysis"
+  - id: w19-constraint-analysis-2
+    query: "determine the thrust to weight ratio required by the climb gradient constraint from the excess thrust and the lift to drag ratio"
+    intent: "vehicle design; climb-gradient-constrained thrust to weight ratio"
+    expected_skill: "vehicle-design/conceptual/constraint-analysis"
+  - id: w19-divergence-speed-1
+    query: "compute the static aeroelastic divergence dynamic pressure from the torsional stiffness, the lift curve slope, the reference area, and the offset between the aerodynamic center and the shear center"
+    intent: "aeroelasticity; divergence dynamic pressure from stiffness and geometry"
+    expected_skill: "aerodynamics/aeroelasticity/divergence-speed"
+  - id: w19-divergence-speed-2
+    query: "assess the static aeroelastic divergence margin by comparing the divergence speed of the lifting surface with the design dive speed"
+    intent: "aeroelasticity; divergence margin assessment against the dive speed"
+    expected_skill: "aerodynamics/aeroelasticity/divergence-speed"
+  - id: w19-ima-partitioning-1
+    query: "check the feasibility of the arinc 653 partition schedule by summing the partition durations within the major frame and verifying each partition gets its period slot"
+    intent: "avionics; ARINC 653 partition schedule feasibility within the major frame"
+    expected_skill: "avionics/ima/ima-partitioning"
+  - id: w19-ima-partitioning-2
+    query: "configure the inter-partition communication sampling port with its period and message size and estimate the port latency"
+    intent: "avionics; inter-partition sampling port configuration and latency"
+    expected_skill: "avionics/ima/ima-partitioning"
+  - id: w19-mission-delta-v-budget-1
+    query: "build the spacecraft mission delta v budget by summing the insertion, transfer, station keeping, and deorbit contributions with a margin allocation"
+    intent: "mission design; delta-v budget summation with margin"
+    expected_skill: "space-systems/mission-design/mission-delta-v-budget"
+  - id: w19-mission-delta-v-budget-2
+    query: "compute the propellant mass for the spacecraft from the delta v budget, the dry mass, and the specific impulse using the Tsiolkovsky rocket equation"
+    intent: "mission design; Tsiolkovsky propellant mass from delta-v and specific impulse"
+    expected_skill: "space-systems/mission-design/mission-delta-v-budget"
+  - id: w19-requirements-elicitation-1
+    query: "elicit the system requirements from the stakeholder needs and the operational scenarios and record them in the requirements elicitation log"
+    intent: "systems engineering; requirements elicitation from stakeholder needs and scenarios"
+    expected_skill: "systems-engineering-safety/requirements/requirements-elicitation"
+  - id: w19-requirements-elicitation-2
+    query: "check the requirement statement for atomicity, verifiability, and ambiguous weasel words before it enters the requirements baseline"
+    intent: "systems engineering; requirement statement quality criteria check"
+    expected_skill: "systems-engineering-safety/requirements/requirements-elicitation"
+  - id: w19-six-dof-simulation-1
+    query: "propagate the rigid body aircraft state one step with the six degree of freedom body axis equations of motion using a fourth order runge kutta integrator"
+    intent: "flight dynamics; six-DOF body-axis state propagation with RK4"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/six-dof-simulation"
+  - id: w19-six-dof-simulation-2
+    query: "compute the euler angle rates from the body axis angular velocities p q r and integrate the attitude over the simulation step"
+    intent: "flight dynamics; Euler angle rate kinematics from body angular rates"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/six-dof-simulation"
+  - id: w19-static-stability-flight-test-1
+    query: "reduce the static stability flight test data by fitting the elevator angle versus speed trim curve and compute the trim curve slope"
+    intent: "flight test; static stability trim curve slope from elevator versus speed data"
+    expected_skill: "flight-test-operations/stability/static-stability-flight-test"
+  - id: w19-static-stability-flight-test-2
+    query: "estimate the stick fixed neutral point and the static margin of the aircraft from the static stability flight test measurements"
+    intent: "flight test; stick fixed neutral point and static margin from flight test data"
+    expected_skill: "flight-test-operations/stability/static-stability-flight-test"
+  - id: w19-thermal-stress-analysis-1
+    query: "compute the thermal stress in the fully constrained structural member from the elastic modulus, the coefficient of thermal expansion, and the temperature change"
+    intent: "structures; constrained thermal stress from modulus, expansion coefficient, and temperature change"
+    expected_skill: "structures/thermal-structures/thermal-stress-analysis"
+  - id: w19-thermal-stress-analysis-2
+    query: "determine the thermal stress distribution and the curvature of the bimetallic strip subjected to the temperature change"
+    intent: "structures; bimetallic strip thermal stress and curvature from temperature change"
+    expected_skill: "structures/thermal-structures/thermal-stress-analysis"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

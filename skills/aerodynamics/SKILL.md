@@ -57,6 +57,7 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/supercritical-airfoil | Supercritical airfoil | aft loading, flat upper surface, wave drag reduction, drag divergence Mach |
 | aerodynamics/high-speed/wave-drag-area-rule | Wave drag and area rule | transonic wave drag, cross-sectional area distribution, Sears-Haack body, area rule |
 | aerodynamics/wing-design/wing-planform-design | Wing planform design | root chord, tip chord, mean aerodynamic chord, taper ratio, spanwise loading, washout |
+| aerodynamics/aeroelasticity/divergence-speed | Divergence speed | divergence dynamic pressure, torsional stiffness, shear center offset, aerodynamic center, divergence margin, dive speed |
 
 ## Routing guidance
 
@@ -90,6 +91,7 @@ estimation, validated against classic reference data.
   questions route to ground-effect; flap and slat clmax and stall
   speed questions route to high-lift-systems.
 - Wing planform reference geometry, root and tip chord, mean aerodynamic chord, taper ratio, and spanwise loading questions route to the wing-design wing-planform-design sub-skill.
+- Divergence dynamic pressure, torsional stiffness, aerodynamic center offset, and divergence margin questions route to the aeroelasticity divergence-speed sub-skill.
 - Structural, control, and certification questions route to their
   domain packs (structures, gnc-autonomy, avionics).
 

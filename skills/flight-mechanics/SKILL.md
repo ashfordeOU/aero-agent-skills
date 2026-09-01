@@ -57,6 +57,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/handling-qualities/cooper-harper-rating | Cooper-Harper rating | Cooper-Harper rating scale, pilot opinion, handling qualities level, adequate performance, desired tolerances, pilot compensation |
 | flight-mechanics/handling-qualities/pilot-induced-oscillation | Pilot-induced oscillation | PIO category, phase lag at crossover, actuator rate limiting, pilot-in-the-loop coupling, phase compensation |
 | flight-mechanics/performance/thrust-required | Thrust required | thrust required, power required, level flight drag polar, minimum drag speed, equivalent power |
+| flight-mechanics/flight-dynamics-sim/six-dof-simulation | Six-DOF simulation | six degree of freedom, body axis equations of motion, Euler angle rates, quaternion, RK4 propagation, rigid body state |
 ## Routing guidance
 
 - Cruise range and fuel-fraction questions route to the
@@ -97,6 +98,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 - Cooper-Harper rating scale, pilot opinion ratings, handling qualities level, and pilot compensation assessment questions route to the handling-qualities cooper-harper-rating sub-skill.
 - PIO category assessment, phase lag at crossover, actuator rate limiting, pilot-in-the-loop coupling, and phase compensation questions route to the handling-qualities pilot-induced-oscillation sub-skill.
 - Thrust-required and power-required curves for level unaccelerated flight, minimum-drag speed, and the drag polar force balance route to the performance thrust-required sub-skill.
+- Six-degree-of-freedom rigid body simulation, body-axis equations of motion, Euler angle integration, and RK4 propagation questions route to the flight-dynamics-sim six-dof-simulation sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

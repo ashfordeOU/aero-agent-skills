@@ -8,7 +8,7 @@ standards:
     reference-only: true
 gated: false
 domain: space-systems
-pack: mission-design
+pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
 metadata:
   domain: space-systems
