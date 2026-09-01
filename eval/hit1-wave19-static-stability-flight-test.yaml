@@ -1,0 +1,11 @@
+# Hit@1 wave-19 fragment: static-stability-flight-test (flight-test-operations)
+# Two tasks per new leaf skill; sst1 routes on trim curve slope, sst2 on neutral point assessment.
+tasks:
+  - id: w19-static-stability-flight-test-1
+    query: "reduce the static stability flight test data by fitting the elevator angle versus speed trim curve and compute the trim curve slope"
+    intent: "flight test; static stability trim curve slope from elevator versus speed data"
+    expected_skill: "flight-test-operations/stability/static-stability-flight-test"
+  - id: w19-static-stability-flight-test-2
+    query: "estimate the stick fixed neutral point and the static margin of the aircraft from the static stability flight test measurements"
+    intent: "flight test; stick fixed neutral point and static margin from flight test data"
+    expected_skill: "flight-test-operations/stability/static-stability-flight-test"
