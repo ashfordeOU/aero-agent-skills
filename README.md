@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="docs/logo.svg" alt="AeroSkills logo — airfoil emblem" width="180">
+</p>
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
     <img src="docs/banner.svg" alt="AeroSkills — the aerospace knowledge layer for AI agents" width="100%">
@@ -71,67 +75,37 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 **282 verified skills** (as of 2026-09-01) across **12 families** and **71 live sub-domain packs**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
 
 <p align="center">
-  <img src="docs/domain-map.svg" alt="AeroSkills domain map — 12 families, 71 packs, 282 skills" width="100%">
+  <img src="docs/domain-radar.svg" alt="Domain coverage radar: 12 families, skills per domain" width="600">
+  <br>
+  <em>Radar: skills per domain — all 12 families covered</em>
 </p>
 
-```mermaid
-graph TD
-    ROOT[AeroSkills · 12 families]
-    ROOT --> A[Aerodynamics]
-    ROOT --> B[Avionics]
-    ROOT --> C[Systems engineering & safety]
-    ROOT --> D[Flight mechanics]
-    ROOT --> E[Flight test & operations]
-    ROOT --> F[GNC & autonomy]
-    ROOT --> G[Space systems]
-    ROOT --> H[Structures]
-    ROOT --> I[Manufacturing quality]
-    ROOT --> J[Propulsion]
-    ROOT --> K[Vehicle design]
-    ROOT --> L[Cross-cutting · infra]
-    A --> A1[airfoil · 4]
-    A --> A2[cfd · 5]
-    A --> A3[high-speed · 7]
-    A --> A4[drag-polars · 3]
-    B --> B1[do178c · 7]
-    B --> B2[do254 · 4]
-    B --> B3[do160 · 5]
-    B --> B4[data-bus · 3]
-    C --> C1[arp4754a · 7]
-    C --> C2[arp4761a · 9]
-    C --> C3[mbse · 6]
-    F --> F1[control · 8]
-    F --> F2[guidance · 5]
-    F --> F3[navigation · 4]
-    J --> J1[rocket · 6]
-    J --> J2[turbofan · 3]
-    J --> J3[gas-turbine-cycle · 4]
-    G --> G1[orbit-mechanics · 9]
-    G --> G2[adcs · 5]
-    H --> H1[fem · 6]
-    H --> H2[fatigue · 5]
-    I --> I1[as9100 · 10]
-    I --> I2[ndt · 8]
-```
+<p align="center">
+  <img src="docs/domain-polar.svg" alt="Polar plot: live packs per family vs 73-pack target" width="480">
+  <br>
+  <em>Polar: live packs per family vs the 73-pack target</em>
+</p>
 
 Full per-pack skill lists: **[docs/DOMAINS.md](docs/DOMAINS.md)**.
 
 ### What's inside
 
-| Family | Live packs | Standard spine | Example skills |
-|---|---|---|---|
-| **Avionics** | do178c, do254, do160, far-cs25, data-bus, flight-management | DO-178C, DO-254, DO-330, DO-160G | planning, verification, configuration-management, tool-qualification |
-| **Aerodynamics** | airfoil, cfd, drag-polars, high-speed, boundary-layer, high-lift, ground-effects, wing-design | NACA TR-824 | airfoil-selection, xfoil-analysis, cfd-convergence, normal-shock |
-| **Systems engineering & safety** | arp4754a, arp4761a, mbse | ARP4754A, ARP4761A | dal-allocation, safety-assessment |
-| **Flight mechanics** | performance, stability-control, handling-qualities | FAR-25/CS-25 | breguet-range, climb-performance, longitudinal-stability |
-| **Flight test & operations** | envelope, performance, planning, flutter, stability | FAR-25/CS-25 | v-speeds, flight-test-planning, flutter-testing |
-| **GNC & autonomy** | control, navigation, optimal-control, guidance, space | ARP4754A | root-locus-design, lqr-design, dymos-trajectory |
-| **Space systems** | orbit-mechanics, adcs, subsystems, ecss | ECSS | orbital-decay, isa-atmosphere |
-| **Structures** | fatigue, fem, composites, damage-tolerance, materials | FAR-25/CS-25 | engineering-margins |
-| **Manufacturing quality** | as9100, as9102, ndt, special-processes | AS9100, AS9102 | first-article-inspection |
-| **Propulsion** | rocket, turbofan, turboprop, ramjet, gas-turbine-cycle, axial-compressor, engine-airframe | FAR-33 | rocket-sizing |
-| **Vehicle design** | conceptual, sizing, mass-properties, mdo, cost-estimation, structures-integration | FAR-25/CS-25 | — |
-| **Cross-cutting** | sep2640, numerics, units-atmos, documentation, tolerancing | SEP-2640 | skill-delivery, engineering-report, unit-conversion |
+The 12-family summary. Every pack's full skill list lives in **[docs/DOMAINS.md](docs/DOMAINS.md)** — this table stays summary-only by design so the README does not grow with the library.
+
+| Family | Standard spine | Example skills |
+|---|---|---|
+| **Avionics** | DO-178C, DO-254, DO-330, DO-160G | planning, verification, configuration-management, tool-qualification |
+| **Aerodynamics** | NACA TR-824 | airfoil-selection, xfoil-analysis, cfd-convergence, normal-shock |
+| **Systems engineering & safety** | ARP4754A, ARP4761A | dal-allocation, safety-assessment |
+| **Flight mechanics** | FAR-25/CS-25 | breguet-range, climb-performance, longitudinal-stability |
+| **Flight test & operations** | FAR-25/CS-25 | v-speeds, flight-test-planning, flutter-testing |
+| **GNC & autonomy** | ARP4754A | root-locus-design, lqr-design, dymos-trajectory |
+| **Space systems** | ECSS | orbital-decay, isa-atmosphere |
+| **Structures** | FAR-25/CS-25 | fatigue-analysis, fem, damage-tolerance |
+| **Manufacturing quality** | AS9100, AS9102 | first-article-inspection |
+| **Propulsion** | FAR-33 | gas-turbine-cycle, rocket-propulsion, turbofan-sizing |
+| **Vehicle design** | FAR-25/CS-25 | sizing, mass-properties, conceptual-design |
+| **Cross-cutting** | SEP-2640 | numerics, units-atmosphere, skill-authoring |
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md) · [docs/catalog.md](docs/catalog.md).
 
