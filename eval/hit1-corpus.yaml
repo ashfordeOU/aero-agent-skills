@@ -87,7 +87,11 @@
 # (cfd-mesh-generation, parasite-drag), vehicle-design +1 (payload-range-diagram),
 # cross-cutting +1 (skill-authoring). g3 repointed to pid-control-design (new best match).
 # Corpus: 308 tasks (276 prior plus 32 domain tasks). Owner: Ops Manager, Wave 8 build.
-
+# P5.2 / Wave 9 (2026-09-01): fan-out continues to
+# 162 verified skills (174 SKILL.md under gate 1: 12 routers + 162
+# leaves). Wave-9 new leaves: "manufacturing-quality/as9100/corrective-action", "manufacturing-quality/as9100/document-control", "manufacturing-quality/as9102/fai-revalidation", "cross-cutting/numerics/finite-difference-derivatives", "vehicle-design/sizing/fuel-tank-sizing", "vehicle-design/mass-properties/mass-budget", "cross-cutting/numerics/monte-carlo-sampling", "vehicle-design/cost-estimation/operating-cost", "systems-engineering-safety/arp4761a/operating-support-hazard-analysis", "systems-engineering-safety/arp4754a/requirements-allocation", "flight-mechanics/performance/specific-range", "systems-engineering-safety/mbse/state-machine", "cross-cutting/units-atmos/temperature-conversion", "flight-mechanics/stability-control/trim-analysis", "flight-mechanics/performance/wind-effects".
+# Corpus: 338 tasks (308 prior plus 30 domain tasks). Owner: Ops
+# Manager, Wave 9 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -1637,6 +1641,126 @@ tasks:
   \ damage med for the fatigue critical baseline structure"
     intent: "structures; supplemental inspection flag and MED classification per FAR 25.571"
     expected_skill: "structures/damage-tolerance/widespread-fatigue-damage"
+  - id: ca1
+    query: "run the 8d-report problem-solving workflow for the recurring nonconformance and verify the root-cause-analysis with the five-whys chain"
+    intent: "manufacturing quality; 8D problem solving and five-whys root cause analysis"
+    expected_skill: "manufacturing-quality/as9100/corrective-action"
+  - id: ca2
+    query: "close the capa-record only after the containment-action and the corrective-action are documented and the effectiveness-verification passes"
+    intent: "manufacturing quality; CAPA closure stages: containment, corrective action, effectiveness verification"
+    expected_skill: "manufacturing-quality/as9100/corrective-action"
+  - id: dc1
+    query: "check the master-list to confirm the shop floor uses the current-revision of the controlled-document"
+    intent: "manufacturing quality; master list check, current revision in use for a controlled document"
+    expected_skill: "manufacturing-quality/as9100/document-control"
+  - id: dc2
+    query: "disposition the obsolete-revision and verify the approval and the revision-control for the document register"
+    intent: "manufacturing quality; obsolete revision disposition and approval plus revision control of the document register"
+    expected_skill: "manufacturing-quality/as9100/document-control"
+  - id: rv1
+    query: "compute the revalidation-due-date from the last-fai-date and the annual revalidation-interval for the as9102 first article inspection"
+    intent: "manufacturing quality; FAI revalidation due date and annual interval per AS9102"
+    expected_skill: "manufacturing-quality/as9102/fai-revalidation"
+  - id: rv2
+    query: "decide whether the process change triggers a change-driven-revalidation and schedule the next-revalidation-date with the revalidation-scope"
+    intent: "manufacturing quality; change-driven FAI revalidation trigger, next date, and re-verification scope"
+    expected_skill: "manufacturing-quality/as9102/fai-revalidation"
+  - id: fd1
+    query: "compute the numerical derivatives of the function at the point with the central difference stencil and the step size for the finite difference analysis"
+    intent: "numerics; first derivative by the central difference stencil with a chosen step size"
+    expected_skill: "cross-cutting/numerics/finite-difference-derivatives"
+  - id: fd2
+    query: "differentiate the evenly spaced tabulated data with forward and backward one sided differences at the boundary and estimate the truncation error of the central difference"
+    intent: "numerics; tabulated data differentiation with one sided boundary stencils and truncation error"
+    expected_skill: "cross-cutting/numerics/finite-difference-derivatives"
+  - id: fts1
+    query: "size the fuel-tank for the transport aircraft from the fuel-mass and the fuel-density and compute the required fuel-volume with the ullage allowance"
+    intent: "vehicle sizing; fuel mass to volume conversion with density and ullage allowance for the fuel tank"
+    expected_skill: "vehicle-design/sizing/fuel-tank-sizing"
+  - id: fts2
+    query: "check the usable-fuel volume against the available tank-capacity in the wing box and give the fits verdict for the fuel-tank-sizing"
+    intent: "vehicle sizing; usable fuel volume versus available tank capacity fits verdict"
+    expected_skill: "vehicle-design/sizing/fuel-tank-sizing"
+  - id: mb1
+    query: "build the mass-budget for the aircraft by allocating the subsystem masses and applying the growth-allowance and contingency-margin policy"
+    intent: "mass properties; subsystem mass allocation with growth allowance and contingency margin into the mass budget"
+    expected_skill: "vehicle-design/mass-properties/mass-budget"
+  - id: mb2
+    query: "roll up the mass-breakdown with the margin-policy and check the estimated total mass against the mtow-target"
+    intent: "mass properties; mass breakdown rollup and MTOW target check"
+    expected_skill: "vehicle-design/mass-properties/mass-budget"
+  - id: mc1
+    query: "run a monte carlo sampling with 10000 random draws and a fixed random seed to estimate the mean and the standard deviation of the output distribution"
+    intent: "numerics; Monte Carlo sampling with seeded random draws and sample statistics"
+    expected_skill: "cross-cutting/numerics/monte-carlo-sampling"
+  - id: mc2
+    query: "estimate the 95 percent confidence interval and the histogram of the sampled distribution from the random draws"
+    intent: "numerics; percentile confidence interval and histogram of the sampled distribution"
+    expected_skill: "cross-cutting/numerics/monte-carlo-sampling"
+  - id: oc1
+    query: "estimate the direct-operating-cost of the regional jet from the block-fuel-cost the crew-cost and the maintenance-cost per flight hour"
+    intent: "operating economics; DOC element costs: block fuel, crew, maintenance per flight hour"
+    expected_skill: "vehicle-design/cost-estimation/operating-cost"
+  - id: oc2
+    query: "compute the cost-per-flight and the cost-per-flight-hour for the operating-cost assessment from the insurance-rate and the aircraft utilization"
+    intent: "operating economics; DOC per flight and per flight hour with insurance rate and utilization"
+    expected_skill: "vehicle-design/cost-estimation/operating-cost"
+  - id: osh1
+    query: "run the operating and support hazard analysis for the landing gear maintenance tasks and score each hazard on the risk matrix"
+    intent: "ARP4761A; operating and support hazard analysis with risk matrix scoring"
+    expected_skill: "systems-engineering-safety/arp4761a/operating-support-hazard-analysis"
+  - id: osh2
+    query: "identify the maintenance hazards in the ground operations scenarios and flag the safety critical tasks for the hazard log"
+    intent: "systems safety; maintenance and ground operations hazard identification with critical task flagging"
+    expected_skill: "systems-engineering-safety/arp4761a/operating-support-hazard-analysis"
+  - id: ra1
+    query: "allocate the system requirements to the line replaceable units per ARP4754A and check the allocation coverage"
+    intent: "ARP4754A; requirements allocation to items with allocation coverage check"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-allocation"
+  - id: ra2
+    query: "group the allocated requirements per item and list the unallocated ones before the item level development handoff"
+    intent: "systems engineering; allocated requirement grouping per item and unallocated list"
+    expected_skill: "systems-engineering-safety/arp4754a/requirements-allocation"
+  - id: sr1
+    query: "compute the specific air range in meters per kilogram from the true airspeed and the fuel flow for the cruise fuel economy check"
+    intent: "flight mechanics; specific air range from true airspeed and fuel flow"
+    expected_skill: "flight-mechanics/performance/specific-range"
+  - id: sr2
+    query: "find the fuel burn for the sector from the specific range and the block distance flown at the cruise fuel flow"
+    intent: "flight mechanics; sector fuel burn from specific range and block distance"
+    expected_skill: "flight-mechanics/performance/specific-range"
+  - id: sm1
+    query: "simulate the SysML state machine for the landing gear door with events and guards and list the reachable states"
+    intent: "MBSE; state machine simulation, firing trace, and reachable state set"
+    expected_skill: "systems-engineering-safety/mbse/state-machine"
+  - id: sm2
+    query: "model the behavior of the flight control computer with a statechart, then check for unreachable states and transition conflicts"
+    intent: "systems engineering; statechart behavior model review with unreachable states and transition conflicts"
+    expected_skill: "systems-engineering-safety/mbse/state-machine"
+  - id: tc1
+    query: "convert 300 kelvin to degrees celsius for the thermal soak test"
+    intent: "units; absolute temperature conversion from kelvin to celsius"
+    expected_skill: "cross-cutting/units-atmos/temperature-conversion"
+  - id: tc2
+    query: "convert the 40 degree celsius soak temperature to kelvin and rankine for the test"
+    intent: "units; temperature scale conversion from celsius to kelvin and rankine"
+    expected_skill: "cross-cutting/units-atmos/temperature-conversion"
+  - id: trm1
+    query: "compute the elevator deflection required to trim the aircraft at the trim lift coefficient for the stick fixed analysis"
+    intent: "flight mechanics; elevator deflection to trim at the trim lift coefficient"
+    expected_skill: "flight-mechanics/stability-control/trim-analysis"
+  - id: trm2
+    query: "determine the trim condition and the trim speed for the level flight pitch trim assessment"
+    intent: "flight mechanics; trim condition and trim speed in level flight"
+    expected_skill: "flight-mechanics/stability-control/trim-analysis"
+  - id: we1
+    query: "compute the headwind and crosswind components of the wind along the runway track for the takeoff wind check"
+    intent: "flight mechanics; headwind and crosswind components along the runway track"
+    expected_skill: "flight-mechanics/performance/wind-effects"
+  - id: we2
+    query: "determine the wind correction angle and the groundspeed for the enroute leg with the crosswind component"
+    intent: "flight mechanics; wind correction angle and groundspeed on the crosswind enroute leg"
+    expected_skill: "flight-mechanics/performance/wind-effects"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
