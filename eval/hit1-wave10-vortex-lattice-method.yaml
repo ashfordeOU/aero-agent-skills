@@ -1,0 +1,13 @@
+# Hit@1 wave-10 fragment: vortex-lattice-method (aerodynamics/cfd)
+# Two tasks per new leaf skill; vlm2 is cross-cutting (downwash and
+# induced drag wording could route to lift-curve-slope or drag-polar,
+# must deterministically route to vortex-lattice-method).
+tasks:
+  - id: vlm1
+    query: "build a horseshoe vortex lattice panel model of a straight rectangular wing and solve the influence coefficient system for the spanwise lift distribution and the induced drag"
+    intent: "aerodynamics; horseshoe vortex lattice panel model for spanwise wing loading"
+    expected_skill: "aerodynamics/cfd/vortex-lattice-method"
+  - id: vlm2
+    query: "compute the downwash angle at each panel control point of a trapezoidal wing from the horseshoe vortex solution and derive the induced drag from the spanwise lift distribution"
+    intent: "aerodynamics; downwash angle and induced drag from a vortex lattice circulation solution"
+    expected_skill: "aerodynamics/cfd/vortex-lattice-method"
