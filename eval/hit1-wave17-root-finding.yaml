@@ -1,0 +1,17 @@
+# Hit@1 wave-17 fragment: root-finding (cross-cutting/numerics)
+# Two tasks per new leaf; w17-root-finding-1 routes on finding the
+# root of a nonlinear equation with the bisection method to a
+# specified tolerance, w17-root-finding-2 on solving for the Mach
+# number root of the isentropic compressible flow area-Mach relation
+# with the secant method. Both must deterministically hit
+# cross-cutting/numerics/root-finding and not ode-solvers,
+# numerical-integration, interpolation, or finite-difference-derivatives.
+tasks:
+  - id: w17-root-finding-1
+    query: "find the root of the nonlinear equation with the bisection method to a tolerance of 1e-8"
+    intent: "root finding of a nonlinear equation by the bisection method to a specified tolerance"
+    expected_skill: "cross-cutting/numerics/root-finding"
+  - id: w17-root-finding-2
+    query: "solve for the Mach number root in the isentropic compressible flow relation with the secant method"
+    intent: "compressible flow Mach number root of the isentropic area-Mach relation by the secant method"
+    expected_skill: "cross-cutting/numerics/root-finding"
