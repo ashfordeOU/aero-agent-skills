@@ -53,6 +53,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/radiographic-inspection | Radiographic inspection | radiography, X-ray, gamma ray, geometric unsharpness, IQI, penetrameter, film density, porosity |
 | manufacturing-quality/as9100/statistical-process-control | Statistical process control | X-bar chart, R chart, control limits, Cp/Cpk, process capability, Western Electric rules |
 | manufacturing-quality/ndt/eddy-current-inspection | Eddy current inspection | eddy current, depth of penetration, impedance plane, frequency selection, conductivity, subsurface flaw |
+| manufacturing-quality/ndt/liquid-penetrant-inspection | Liquid penetrant inspection | penetrant testing, capillary rise, washburn penetration depth, dwell time, developer time, bleed-out, indication sizing |
 
 ## Routing guidance
 
@@ -93,6 +94,7 @@ selection and ultrasonic inspection).
 
 - SPC, control chart, and process capability questions route to the AS9100 statistical-process-control sub-skill.
 - Eddy current, depth of penetration, and frequency-selection questions route to the ndt eddy-current-inspection sub-skill.
+- Liquid penetrant inspection questions (capillary action, washburn penetration, dwell time, developer time, bleed-out, indication sizing) route to the ndt liquid-penetrant-inspection sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
