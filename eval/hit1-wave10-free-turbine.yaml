@@ -1,0 +1,13 @@
+# Hit@1 wave-10 fragment: free-turbine (propulsion/turboprop)
+# Two tasks per new leaf skill; ft2 is cross-cutting (gearbox wording
+# could route to turboprop-engine, must deterministically route to
+# free-turbine).
+tasks:
+  - id: ft1
+    query: "compute the power turbine exit temperature and shaft power of a free turbine from the gas generator exhaust mass flow, inlet temperature, expansion ratio, and polytropic efficiency"
+    intent: "propulsion; free-turbine power section thermodynamic sizing"
+    expected_skill: "propulsion/turboprop/free-turbine"
+  - id: ft2
+    query: "match the power turbine speed to the propeller through the reduction gearbox and compute the flow function for spool compatibility of a turboshaft"
+    intent: "propulsion; power turbine to propeller gear ratio and corrected flow matching"
+    expected_skill: "propulsion/turboprop/free-turbine"
