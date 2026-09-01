@@ -76,8 +76,8 @@ donts:
   - "Never reuse the void-black+white-text minimalism that founder rejected as 'too basic'"
 source: "refero.design — Subframe (graphite blueprint on warm vellum), INVERSA (topographic field terminal, survey-marker accent), SpaceX (instrument-panel type), Dayos (mint tags) — founder-selected 2026-09-01; design-taste-frontend skill (anti-slop)"
 applies_to:
-  - docs/banner.svg (light vellum)
-  - docs/banner-dark.svg (blueprint blue)
+  - docs/banner.svg / banner-dark.svg (GENERATED — scripts/gen_visuals.py, v5.1)
+  - docs/how-it-works.svg / -dark (GENERATED — scripts/gen_visuals.py)
   - docs/domain-map.svg (light vellum, legacy)
   - docs/logo.svg / logo-dark.svg (GENERATED — scripts/gen_visuals.py)
   - docs/domain-radar.svg / -dark (GENERATED — scripts/gen_visuals.py)
