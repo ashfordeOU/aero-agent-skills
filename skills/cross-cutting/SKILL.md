@@ -55,6 +55,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/numerical-integration | Numerical integration | trapezoid rule, Simpson rule, Gauss-Legendre quadrature, Richardson error estimate |
 | cross-cutting/numerics/finite-difference-derivatives | Finite difference derivatives | forward/backward/central difference, step size, second derivative, tabulated data |
 | cross-cutting/numerics/monte-carlo-sampling | Monte Carlo sampling | seeded draws, sample mean and standard deviation, percentile confidence interval, histogram |
+| cross-cutting/numerics/interpolation | Table interpolation | linear interpolation, piecewise linear, natural cubic spline, table lookup, tabulated data points, extrapolation |
 | cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
 | cross-cutting/tolerancing/position-tolerance-calc | GD&T position tolerance | true position, tolerance zone diameter, MMC bonus tolerance, virtual condition, hole and pin |
 
@@ -91,6 +92,10 @@ integration) for engineering calculations.
 - Sampling and distribution questions (seeded Monte Carlo draws,
   percentiles, confidence intervals, histograms) route to the numerics
   monte-carlo-sampling sub-skill.
+- Table lookup and interpolation questions (linear interpolation,
+  piecewise linear, natural cubic spline, tabulated data points,
+  extrapolation beyond the table ends) route to the numerics
+  interpolation sub-skill.
 - Aerospace engineering questions route to their domain pack
   (avionics, space-systems, systems-engineering-safety,
   manufacturing-quality).
