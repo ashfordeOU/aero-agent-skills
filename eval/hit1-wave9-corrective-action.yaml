@@ -1,0 +1,14 @@
+# Hit@1 wave-9 fragment: corrective-action (manufacturing-quality/as9100)
+# Two tasks per new leaf; ca1 routes on the 8D / five-whys terminology,
+# ca2 routes on the CAPA closure stages (containment, corrective action,
+# effectiveness verification). Both must deterministically hit
+# manufacturing-quality/as9100/corrective-action.
+tasks:
+  - id: ca1
+    query: "run the 8d-report problem-solving workflow for the recurring nonconformance and verify the root-cause-analysis with the five-whys chain"
+    intent: "manufacturing quality; 8D problem solving and five-whys root cause analysis"
+    expected_skill: "manufacturing-quality/as9100/corrective-action"
+  - id: ca2
+    query: "close the capa-record only after the containment-action and the corrective-action are documented and the effectiveness-verification passes"
+    intent: "manufacturing quality; CAPA closure stages: containment, corrective action, effectiveness verification"
+    expected_skill: "manufacturing-quality/as9100/corrective-action"
