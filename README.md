@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <code>1,460 skills</code> · <code>73 domain packs</code> · <code>21 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
+  <code>1,460 skills · 270 live</code> · <code>73 domain packs</code> · <code>21 standards</code> · <code>5/5 REAL gates</code> · <code>Apache-2.0</code>
 </p>
 
 <p align="center">
@@ -65,14 +65,62 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 
 ## For humans
 
-### What's inside
+### The domain map
 
-**270 verified skills** (as of 2026-09-01) across **12 disciplines**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
+**270 verified skills** (as of 2026-09-01) across **12 families** and **61 live sub-domain packs**, each spec-linted, behavior-tested, and router-asserted. Target: **73 packs × 20 skills = 1,460**.
+
+<p align="center">
+  <img src="docs/domain-map.svg" alt="AeroSkills domain map — 12 families, 61 packs, 270 skills" width="100%">
+</p>
+
+```mermaid
+graph TD
+    ROOT[AeroSkills · 12 families]
+    ROOT --> A[Aerodynamics]
+    ROOT --> B[Avionics]
+    ROOT --> C[Systems engineering & safety]
+    ROOT --> D[Flight mechanics]
+    ROOT --> E[Flight test & operations]
+    ROOT --> F[GNC & autonomy]
+    ROOT --> G[Space systems]
+    ROOT --> H[Structures]
+    ROOT --> I[Manufacturing quality]
+    ROOT --> J[Propulsion]
+    ROOT --> K[Vehicle design]
+    ROOT --> L[Cross-cutting · infra]
+    A --> A1[airfoil · 4]
+    A --> A2[cfd · 5]
+    A --> A3[high-speed · 7]
+    A --> A4[drag-polars · 3]
+    B --> B1[do178c · 7]
+    B --> B2[do254 · 4]
+    B --> B3[do160 · 5]
+    B --> B4[data-bus · 3]
+    C --> C1[arp4754a · 7]
+    C --> C2[arp4761a · 9]
+    C --> C3[mbse · 6]
+    F --> F1[control · 8]
+    F --> F2[guidance · 5]
+    F --> F3[navigation · 4]
+    J --> J1[rocket · 6]
+    J --> J2[turbofan · 3]
+    J --> J3[gas-turbine-cycle · 4]
+    G --> G1[orbit-mechanics · 9]
+    G --> G2[adcs · 5]
+    H --> H1[fem · 6]
+    H --> H2[fatigue · 5]
+    I --> I1[as9100 · 10]
+    I --> I2[ndt · 8]
+```
+
+Full per-pack skill lists: **[docs/DOMAINS.md](docs/DOMAINS.md)**.
+
+### What's inside
 
 | Family | Live packs | Standard spine | Example skills |
 |---|---|---|---|
 | **Avionics** | do178c, do254, do160, far-cs25, data-bus, flight-management | DO-178C, DO-254, DO-330, DO-160G | planning, verification, configuration-management, tool-qualification |
-| **Aerodynamics** | airfoil, cfd, drag-polars, high-speed, boundary-layer, high-lift, ground-effects | NACA TR-824 | airfoil-selection, xfoil-analysis, cfd-convergence, normal-shock |
+| **Aerodynamics** | airfoil, cfd, drag-polars, high-speed, boundary-layer, high-lift, ground-effects, wing-design | NACA TR-824 | airfoil-selection, xfoil-analysis, cfd-convergence, normal-shock |
 | **Systems engineering & safety** | arp4754a, arp4761a, mbse | ARP4754A, ARP4761A | dal-allocation, safety-assessment |
 | **Flight mechanics** | performance, stability-control, handling-qualities | FAR-25/CS-25 | breguet-range, climb-performance, longitudinal-stability |
 | **Flight test & operations** | envelope, performance, planning, flutter, stability | FAR-25/CS-25 | v-speeds, flight-test-planning, flutter-testing |
@@ -84,7 +132,7 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 | **Vehicle design** | conceptual, sizing, mass-properties, mdo, cost-estimation, structures-integration | FAR-25/CS-25 | — |
 | **Cross-cutting** | sep2640, numerics, units-atmos, documentation, tolerancing | SEP-2640 | skill-delivery, engineering-report, unit-conversion |
 
-Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/catalog.md](docs/catalog.md).
+Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md) · [docs/catalog.md](docs/catalog.md).
 
 ### See a skill
 
@@ -180,7 +228,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 - **Shipped:** 270 verified skills across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
-- **Release bar (founder, 2026-08-31):** 50+ domains × 20+ verified skills = 1,000+ skills before any release. The 12-discipline tree decomposes into 73 sub-domain packs (1,460 skills at 20 each). [development/50x20-domain-tree.md](development/50x20-domain-tree.md)
+- **Release bar (founder, 2026-08-31):** 50+ domains × 20+ verified skills = 1,000+ skills before any release. The 12-discipline tree decomposes into 73 sub-domain packs (1,460 skills · 270 live at 20 each). [development/50x20-domain-tree.md](development/50x20-domain-tree.md)
 - **Next:** fill live packs toward 20 skills each; open remaining packs on the same eval-gated pipeline
 - **Later:** reference builds; a SEP-2640-aligned MCP adapter; marketplace listings; AI Department Operator packs
 
