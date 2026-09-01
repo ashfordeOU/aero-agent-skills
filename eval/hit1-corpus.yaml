@@ -97,6 +97,19 @@
 # leaves). Wave-10 new leaves: "aerodynamics/airfoil/airfoil-optimization", "aerodynamics/boundary-layer/boundary-layer-theory", "flight-test-operations/stability/dynamic-stability-flight-test", "flight-test-operations/performance/engine-flight-test", "flight-test-operations/envelope/flight-loads-survey", "flight-test-operations/planning/flight-test-safety", "propulsion/turboprop/free-turbine", "flight-test-operations/performance/glide-flight-test", "aerodynamics/ground-effects/ground-effect", "aerodynamics/high-lift/high-lift-systems", "aerodynamics/cfd/panel-method", "flight-test-operations/envelope/stall-characteristics-testing", "aerodynamics/high-speed/supercritical-airfoil", "aerodynamics/high-speed/swept-wing-aerodynamics", "flight-test-operations/performance/takeoff-distance-determination", "flight-test-operations/planning/telemetry-data-acquisition", "flight-test-operations/planning/test-point-matrix-design", "aerodynamics/high-speed/transonic-similarity", "propulsion/axial-compressor/turbine-stage", "aerodynamics/cfd/vortex-lattice-method", "aerodynamics/high-speed/wave-drag-area-rule".
 # Corpus: 380 tasks (338 prior plus 42 domain tasks). Owner: Ops
 # Manager, Wave 10 build.
+# P5.2 / Wave 11 (2026-09-01): fan-out continues to
+# 191 verified skills (203 SKILL.md under gate 1: 12 routers + 191
+# leaves). Wave-11 new leaves: "cross-cutting/tolerancing/tolerance-stackup",
+# "flight-mechanics/performance/oei-climb-gradient",
+# "gnc-autonomy/navigation/kalman-filter-design",
+# "manufacturing-quality/as9100/statistical-process-control",
+# "propulsion/ramjet/ramjet-cycle",
+# "space-systems/orbit-mechanics/eclipse-time",
+# "systems-engineering-safety/arp4761a/markov-analysis",
+# "vehicle-design/structures-integration/wing-box-sizing".
+# Corpus: 396 tasks (380 prior plus 16 domain tasks ecl1/ecl2,
+# kf1/kf2, mk1/mk2, ocg1/ocg2, rj1/rj2, spc1/spc2, tsu1/tsu2, wbs1/wbs2).
+# Owner: Ops Manager, Wave 11 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -1934,6 +1947,71 @@ tasks:
     query: "estimate the drag divergence Mach number of the transonic section and the wave drag rise at a flight Mach number 0.05 above it using the parabolic approximation"
     intent: "aerodynamics; drag divergence and the parabolic transonic wave drag rise above the divergence Mach"
     expected_skill: "aerodynamics/high-speed/wave-drag-area-rule"
+
+  - id: ecl1
+    query: "compute the beta angle, shadow fraction, and eclipse time for the spacecraft orbit at 500 km altitude"
+    intent: "space systems; eclipse geometry from beta angle and shadow fraction"
+    expected_skill: "space-systems/orbit-mechanics/eclipse-time"
+  - id: ecl2
+    query: "how long is the satellite inside the earth shadow each orbit and what fraction of the orbit is sunlit for the sun vector geometry"
+    intent: "space systems; earth shadow and daylight fraction from orbit plane and sun vector"
+    expected_skill: "space-systems/orbit-mechanics/eclipse-time"
+  - id: kf1
+    query: "design the discrete-time kalman filter for the single axis: predict the state and error covariance, compute the kalman gain and innovation variance, and correct the state and covariance from the noisy measurement"
+    intent: "GNC estimation; discrete-time Kalman filter predict and update equations, gain and covariance"
+    expected_skill: "gnc-autonomy/navigation/kalman-filter-design"
+  - id: kf2
+    query: "estimate the position state recursively from the noisy measurements using the process noise and measurement noise covariances and report the corrected state with its error covariance"
+    intent: "GNC estimation; recursive single-axis state estimation from noisy measurements"
+    expected_skill: "gnc-autonomy/navigation/kalman-filter-design"
+  - id: mk1
+    query: "compute the state probabilities of the markov chain for the redundant actuation system with the failure and repair rates per ARP4761A"
+    intent: "systems safety; Markov chain state probabilities from transition rates"
+    expected_skill: "systems-engineering-safety/arp4761a/markov-analysis"
+  - id: mk2
+    query: "estimate the probability that the flight control system reaches the failed state within the mission time using a continuous time markov chain with the transition rates"
+    intent: "systems safety; mission reliability via continuous time Markov chain"
+    expected_skill: "systems-engineering-safety/arp4761a/markov-analysis"
+  - id: ocg1
+    query: "compute the one engine inoperative climb gradient for the second segment of the takeoff from the oei thrust, drag, and weight"
+    intent: "flight mechanics; OEI climb gradient from thrust, drag, and weight"
+    expected_skill: "flight-mechanics/performance/oei-climb-gradient"
+  - id: ocg2
+    query: "verify the engine out takeoff climb gradient clears the far 25.121 second segment minimum gradient for the twin transport certification analysis"
+    intent: "flight mechanics; OEI climb gradient against the FAR-25.121 second segment minimum; spans the FAR/CS-25 certification domain"
+    expected_skill: "flight-mechanics/performance/oei-climb-gradient"
+  - id: rj1
+    query: "compute the specific thrust of the ideal ramjet cycle from the flight mach number and the total temperature ratio"
+    intent: "propulsion; ideal ramjet specific thrust from Mach number and total temperature ratio"
+    expected_skill: "propulsion/ramjet/ramjet-cycle"
+  - id: rj2
+    query: "estimate the specific impulse and thermal efficiency of the ramjet from the fuel air ratio and lower heating value for the hypersonic cruise vehicle"
+    intent: "propulsion; ramjet specific impulse and thermal efficiency from fuel air ratio, cross-cutting with vehicle performance"
+    expected_skill: "propulsion/ramjet/ramjet-cycle"
+  - id: spc1
+    query: "compute the x-bar and r chart control limits and the cpk process capability index from the subgroup average and range with the a2 and d2 constants"
+    intent: "manufacturing quality; X-bar/R chart limits and Cp/Cpk capability indices from subgroup data"
+    expected_skill: "manufacturing-quality/as9100/statistical-process-control"
+  - id: spc2
+    query: "run the x-bar control chart on the machining subgroup data and flag any out of control points before the production quality review"
+    intent: "manufacturing quality; control chart monitoring and Western Electric out-of-control detection for production process control"
+    expected_skill: "manufacturing-quality/as9100/statistical-process-control"
+  - id: tsu1
+    query: "compute the worst case and root sum square tolerance stack-up for the assembly dimension chain and report the assembly limits and the dominant contributor"
+    intent: "cross-cutting; worst case and RSS tolerance stack-up with assembly limits"
+    expected_skill: "cross-cutting/tolerancing/tolerance-stackup"
+  - id: tsu2
+    query: "verify the fit of the structural assembly by evaluating the tolerance stack-up and the worst case limits against the drawing requirement"
+    intent: "cross-domain; structural assembly fit against the tolerance stack-up and drawing requirement"
+    expected_skill: "cross-cutting/tolerancing/tolerance-stackup"
+  - id: wbs1
+    query: "size the wing box structure: compute the root bending moment from the load factor, weight, and span with the elliptical lift distribution, then size the spar cap area from the allowable stress"
+    intent: "vehicle design; wing box root bending moment and spar cap area from the elliptical load case"
+    expected_skill: "vehicle-design/structures-integration/wing-box-sizing"
+  - id: wbs2
+    query: "check the wing structure under the maneuvering load factor: ultimate moment from the 1.5 factor of safety, spar web shear flow, and web thickness at the wing root"
+    intent: "vehicle design; wing structure ultimate moment and shear flow integration under the load factor"
+    expected_skill: "vehicle-design/structures-integration/wing-box-sizing"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

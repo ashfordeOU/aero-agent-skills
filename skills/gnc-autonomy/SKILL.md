@@ -1,6 +1,6 @@
 ---
 name: gnc-autonomy
-description: "Use when a task concerns guidance, navigation, and control for aerospace vehicles: guide the router to the gnc-autonomy pack, whose orbit-dynamics covers Hohmann and J2 drift, rendezvous-phasing covers phasing maneuvers, attitude-dynamics covers quaternion kinematics, navigation-frames covers ECEF/NED/WGS-84, inertial-navigation covers INS drift and Schuler, dilution-of-precision covers GDOP/PDOP, python-control-design covers PID margins, root-locus-design covers closed-loop poles, state-space-analysis covers controllability, pid-control-design covers Ziegler-Nichols, lqr-design covers Riccati gains, dymos-trajectory covers pseudospectral optimization, proportional-navigation covers the PN law, and pursuit-guidance covers capture conditions. Trigger: GNC, navigation, control, orbit dynamics, Hohmann, rendezvous, attitude dynamics, quaternion, ECEF, NED, WGS-84, INS, Schuler, dilution of precision, GDOP, PDOP, PID, root locus, state space, controllability, LQR, dymos, proportional navigation, pursuit guidance."
+description: "Use when a task concerns guidance, navigation, and control for aerospace vehicles: guide the router to the gnc-autonomy pack: orbit-dynamics Hohmann and J2 drift, rendezvous-phasing phasing maneuvers, attitude-dynamics quaternion kinematics, navigation-frames ECEF/NED/WGS-84, inertial-navigation INS drift and Schuler, dilution-of-precision GDOP/PDOP, python-control-design PID margins, root-locus-design closed-loop poles, state-space-analysis controllability, pid-control-design Ziegler-Nichols, lqr-design Riccati gains, dymos-trajectory pseudospectral optimization, proportional-navigation the PN law, pursuit-guidance capture conditions, kalman-filter-design state estimation. Trigger: GNC, navigation, control, orbit dynamics, Hohmann, rendezvous, attitude dynamics, quaternion, ECEF, NED, WGS-84, INS, Schuler, dilution of precision, GDOP, PID, root locus, state space, controllability, LQR, dymos, proportional navigation, pursuit guidance, kalman filter, state estimation."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -51,6 +51,8 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/optimal-control/dymos-trajectory | Trajectory optimization | dymos phases, convergence, launch/ascent delta-v bands |
 | gnc-autonomy/guidance/proportional-navigation | Proportional navigation | closing velocity, line of sight rate, navigation constant, commanded acceleration |
 | gnc-autonomy/guidance/pursuit-guidance | Pursuit guidance | pure pursuit aim heading, wrapped guidance error, lead pursuit lead angle, capture condition, intercept time |
+| gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
+| gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
 
 ## Routing guidance
 
@@ -85,6 +87,8 @@ and guidance laws (proportional navigation, pursuit).
 - Certification and item-level assurance questions route to the
   avionics or systems-engineering-safety packs.
 
+- Kalman filtering, state estimation, and sensor fusion questions route to the navigation kalman-filter-design sub-skill.
+- Kalman filtering, state estimation, and sensor fusion questions route to the navigation kalman-filter-design sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
