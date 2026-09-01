@@ -109,8 +109,8 @@ note "== pack_inventory.py =="
 pack_inv="$repo_root/scripts/pack_inventory.py"
 pack_out=$(python3 "$pack_inv" 2>/dev/null)
 check "P1 pack inventory on real repo exits 0" 0 $?
-printf '%s\n' "$pack_out" | grep -q "packs=12 skills=162"
-check "P2 pack inventory reports 'packs=12 skills=162' (12 family routers / 162 leaf skills)" 0 $?
+printf '%s\n' "$pack_out" | grep -q "packs=12 skills=183"
+check "P2 pack inventory reports 'packs=12 skills=183' (12 family routers / 183 leaf skills)" 0 $?
 
 pack_out=$(python3 "$pack_inv" --pack avionics 2>/dev/null)
 check "P3 pack inventory --pack avionics exits 0" 0 $?
@@ -175,48 +175,56 @@ check "N18 stale-number guard flags planted Wave-5-era counts ('43 skills' ... '
 # 100/112/216. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-83-class" >/dev/null 2>&1
 check "N19 stale-number guard flags planted Wave-4-era counts ('83 skills' ... '182 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-162-class" >/dev/null 2>&1
-check "N20 stale-number guard exempts live wave-9 vocabulary ('162 leaf skills' ... '338 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N20 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
 # R7 re-grade (Ops track): Wave-5-fanout stale class ('100 skills',
 # '100 leaf skills', '100 verified', '112 SKILL.md', '216/216',
 # '216 tasks') that became stale when the wave pushed live counts to
 # 112/124/240. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-100-class" >/dev/null 2>&1
 check "N21 stale-number guard flags planted Wave-5-era counts ('100 skills' ... '216 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-162-class" >/dev/null 2>&1
-check "N22 stale-number guard exempts live wave-9 vocabulary ('162 leaf skills' ... '338 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N22 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
 # R8 re-grade (Ops track): Wave-5-close stale class ('112 skills',
 # '112 leaf skills', '112 verified', '124 SKILL.md', '240/240',
 # '240 tasks') that became stale when Wave 6 pushed live counts to
 # 122/134/258. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-112-class" >/dev/null 2>&1
 check "N23 stale-number guard flags planted Wave-5-close-era counts ('112 skills' ... '240 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-162-class" >/dev/null 2>&1
-check "N24 stale-number guard exempts live wave-9 vocabulary ('162 leaf skills' ... '338 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N24 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
 # R9 re-grade (Ops track): Wave-6-close stale class ('122 skills',
 # '122 leaf skills', '122 verified', '134 SKILL.md', '258/258',
 # '258 tasks') that became stale when Wave 7 pushed live counts to
 # 131/143/276. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-122-class" >/dev/null 2>&1
 check "N25 stale-number guard flags planted Wave-6-close-era counts ('122 skills' ... '258 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-162-class" >/dev/null 2>&1
-check "N26 stale-number guard exempts live wave-9 vocabulary ('162 leaf skills' ... '338 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N26 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
 # R10 re-grade (Ops track): Wave-7-close stale class ('131 skills',
 # '131 leaf skills', '131 verified', '143 SKILL.md', '276/276',
 # '276 tasks') that became stale when Wave 8 pushed live counts to
 # 147/159/308. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-131-class" >/dev/null 2>&1
 check "N27 stale-number guard flags planted Wave-7-close-era counts ('131 skills' ... '276 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-162-class" >/dev/null 2>&1
-check "N28 stale-number guard exempts live wave-9 vocabulary ('162 leaf skills' ... '338 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N28 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
 # R11 re-grade (Ops track): Wave-8-close stale class ('147 skills',
 # '147 leaf skills', '147 verified', '159 SKILL.md', '308/308',
 # '308 tasks') that became stale when Wave 9 pushed live counts to
 # 162/174/338. Live vocabulary must NOT trip.
 bash "$guard" "$auto/test/fixture-stale-147-class" >/dev/null 2>&1
 check "N29 stale-number guard flags planted Wave-8-close-era counts ('147 skills' ... '308 tasks')" 1 $?
-bash "$guard" "$auto/test/fixture-legit-162-class" >/dev/null 2>&1
-check "N30 stale-number guard exempts live wave-9 vocabulary ('162 leaf skills' ... '338 tasks')" 0 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N30 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
+# R12 re-grade (Ops track): Wave-9-close stale class ('162 skills',
+# '162 leaf skills', '162 verified', '174 SKILL.md', '338/338',
+# '338 tasks') that became stale when Wave 10 pushed live counts to
+# 183/195/380. Live vocabulary must NOT trip.
+bash "$guard" "$auto/test/fixture-stale-162-class" >/dev/null 2>&1
+check "N31 stale-number guard flags planted Wave-9-close-era counts ('162 skills' ... '338 tasks')" 1 $?
+bash "$guard" "$auto/test/fixture-legit-183-class" >/dev/null 2>&1
+check "N32 stale-number guard exempts live wave-10 vocabulary ('183 leaf skills' ... '380 tasks')" 0 $?
 
 # ---- gated-set enumeration-completeness guard (R3 rework, Content rec #2) --
 # Asserts numeric gated-set/map-coverage COUNT claims in the three
