@@ -352,7 +352,7 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: 191 verified skills across twelve disciplines with live packs
+- Shipped: 203 verified skills across twelve disciplines with live packs
   as of 2026-09-01. The certification spine (DO-178C planning,
   development, verification, and configuration management; DO-254
   hardware planning; ARP4754A systems planning; ARP4761A safety
