@@ -1,0 +1,13 @@
+# Hit@1 wave-10 fragment: flight-test-safety (flight-test-operations/planning)
+# Two tasks per new leaf skill; fts2 is cross-cutting (emergency procedure
+# and safety assessment wording could route to systems-engineering-safety,
+# must deterministically route to flight-test-safety).
+tasks:
+  - id: fts1
+    query: "assess the flight test risks on the severity by likelihood risk matrix and run the go no go criteria gate before the flight"
+    intent: "flight test safety; hazard risk matrix scoring and go/no-go criteria verdict"
+    expected_skill: "flight-test-operations/planning/flight-test-safety"
+  - id: fts2
+    query: "review the flight test safety assessment, confirm the emergency procedures cover the required conditions, and verify the safety pilot duties are assigned"
+    intent: "flight test safety; emergency procedure coverage and safety pilot duty assignment"
+    expected_skill: "flight-test-operations/planning/flight-test-safety"
