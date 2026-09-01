@@ -1,0 +1,15 @@
+# Hit@1 wave-16 fragment: multidisciplinary-optimization (vehicle-design/mdo)
+# Two tasks per new leaf; w16-multidisciplinary-optimization-1 routes on the
+# MDO loop setup with aero-structural coupling, w16-multidisciplinary-optimization-2
+# on the problem formulation with design variables, objective, and constraints
+# plus the fixed-point coupling run to convergence. Both must deterministically
+# hit vehicle-design/mdo/multidisciplinary-optimization.
+tasks:
+  - id: w16-multidisciplinary-optimization-1
+    query: "set up a multidisciplinary optimization loop coupling aerodynamics and structures for a wing"
+    intent: "MDO formulation and aero-structural coupling"
+    expected_skill: "vehicle-design/mdo/multidisciplinary-optimization"
+  - id: w16-multidisciplinary-optimization-2
+    query: "formulate an mdo problem with design variables, an objective function, and constraints for the multidisciplinary optimization of a wing, then run the fixed point iteration between the aero load and the structural weight until convergence"
+    intent: "MDO problem formulation with design variables, objective, and constraints; aero-structural fixed point iteration to convergence"
+    expected_skill: "vehicle-design/mdo/multidisciplinary-optimization"
