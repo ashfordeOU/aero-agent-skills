@@ -54,6 +54,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
 | gnc-autonomy/guidance/command-to-line-of-sight | Command to line of sight | CLOS guidance, line of sight angle, steering command, LOS error |
 | gnc-autonomy/control/lead-lag-compensation | Lead lag compensation | phase lead/lag compensator design, phase margin boost, gain crossover frequency, steady state error constant |
+| gnc-autonomy/control/frequency-response-design | Frequency response design | bode magnitude and phase, gain/phase crossover frequencies, gain margin, phase margin, stability from the margins |
 
 ## Routing guidance
 
@@ -91,6 +92,7 @@ and guidance laws (proportional navigation, pursuit).
 - Kalman filtering, state estimation, and sensor fusion questions route to the navigation kalman-filter-design sub-skill.
 - Command-to-line-of-sight and LOS error steering questions route to the guidance command-to-line-of-sight sub-skill.
 - Phase lead/lag compensator, phase margin boost, crossover placement, and steady state error constant questions route to the control lead-lag-compensation sub-skill.
+- Bode frequency response, gain crossover, phase crossover, gain margin, and phase margin questions route to the control frequency-response-design sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
