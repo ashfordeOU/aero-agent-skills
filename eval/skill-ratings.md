@@ -30,7 +30,7 @@ Total skills rated: 270
 | 22 | aerodynamics/high-speed/wave-drag-area-rule | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 23 | aerodynamics/wing-design/wing-planform-design | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 24 | avionics/data-bus/arinc429-protocol | PASS | ✓ | arinc-429 | avionics | 9.5 | PASS |
-| 25 | avionics/data-bus/arinc664-afdx | PASS | ✓ | arinc-429 | avionics | 9.5 | PASS |
+| 25 | avionics/data-bus/arinc664-afdx | PASS | ✓ | arinc-664 | avionics | 9.5 | PASS |
 | 26 | avionics/data-bus/mil-std-1553 | PASS | ✓ | mil-std-1553 | avionics | 9.5 | PASS |
 | 27 | avionics/do160/electrostatic-discharge | PASS | ✓ | do-160 | avionics | 9.5 | PASS |
 | 28 | avionics/do160/environmental-qualification | PASS | ✓ | do-160 | avionics | 9.6 | PASS |

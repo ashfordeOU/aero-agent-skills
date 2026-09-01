@@ -4,7 +4,7 @@ description: "Size and validate ARINC 664 Part 7 Avionics Full-Duplex Switched E
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
-  - id: arinc-429
+  - id: arinc-664
     reference-only: true
 gated: false
 domain: avionics
