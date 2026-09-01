@@ -40,6 +40,7 @@ selection, and classical orbital element determination.
 | space-systems/ecss/software-verification | ECSS software verification | verification methods, depth by criticality, verification records |
 | space-systems/ecss/systems-engineering | ECSS systems engineering | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
 | space-systems/subsystems/power-thermal-budget | Power and thermal budget | EPS sizing, eclipse, battery and solar array budgets |
+| space-systems/subsystems/solar-array-sizing | Solar array sizing | array area from power demand, eclipse fraction, cell efficiency, packing factor, end-of-life degradation, photovoltaic panel sizing |
 | space-systems/subsystems/communication-link-budget | Communication link budget | EIRP, free-space path loss, C/N0, Eb/N0 margin, data rate |
 | space-systems/subsystems/thermal-design | Thermal design | thermal balance, radiator sizing, component temperatures |
 | space-systems/subsystems/command-data-handling | Command and data handling | telemetry framing, CCSDS packets, onboard storage, downlink budget, CRC, data bus |
@@ -66,6 +67,10 @@ selection, and classical orbital element determination.
   ecss systems-engineering sub-skill.
 - Power and thermal budgeting questions (EPS sizing, eclipse, battery,
   solar array) route to the power-thermal-budget sub-skill.
+- Solar array sizing questions (array area from power demand, cell
+  efficiency, packing factor, degradation over mission life, end-of-life
+  power) route to the subsystems solar-array-sizing sub-skill; overall
+  EPS budgets and battery sizing stay with power-thermal-budget.
 - Communication link budget questions (EIRP, path loss, link margin)
   route to the communication-link-budget sub-skill.
 - Thermal design questions (radiator sizing, component temperatures)
