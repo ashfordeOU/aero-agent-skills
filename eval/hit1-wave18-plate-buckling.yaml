@@ -1,0 +1,15 @@
+# Hit@1 wave-18 fragment: plate-buckling (fem)
+# Two tasks per new leaf; q1 routes on the plate buckling coefficient
+# and the compression critical buckling stress of a flat skin panel,
+# q2 routes on the shear buckling coefficient and stress of a spar web
+# plus the combined compression-shear interaction check. Both must
+# deterministically hit structures/fem/plate-buckling.
+tasks:
+  - id: w18-plate-buckling-1
+    query: "compute the plate buckling coefficient k and the critical compression buckling stress of the flat skin panel: aluminum skin with E = 70 GPa, Poisson ratio 0.33, thickness 2 mm and width 150 mm, simply supported on all edges with aspect ratio 2, use sigma_cr = k*pi^2*E/(12*(1-nu^2))*(t/b)^2"
+    intent: "structures; flat plate and skin panel compression buckling, buckling coefficient from edge conditions and aspect ratio, critical buckling stress"
+    expected_skill: "structures/fem/plate-buckling"
+  - id: w18-plate-buckling-2
+    query: "check the aluminum spar web for shear buckling: determine the shear buckling coefficient k_s from the web aspect ratio and the shear buckling stress tau_cr of the flat web, then run the combined compression-shear interaction check against the applied shear"
+    intent: "structures; spar web shear buckling, shear buckling coefficient and critical shear stress, combined compression-shear interaction"
+    expected_skill: "structures/fem/plate-buckling"
