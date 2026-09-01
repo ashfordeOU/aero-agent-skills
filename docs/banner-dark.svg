@@ -1,49 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360">
+  <!-- AeroSkills banner — mission-control instrument panel.
+       Design language (refero): SpaceX (void black, star-white type,
+       uppercase tracked labels, ghost outlines, no gradients/shadows)
+       + INVERSA (mono labels as telemetry). -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#070510"/>
-      <stop offset="100%" stop-color="#120a24"/>
-    </linearGradient>
-    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff5faf"/>
-      <stop offset="25%" stop-color="#d75fff"/>
-      <stop offset="55%" stop-color="#af87ff"/>
-      <stop offset="80%" stop-color="#5fd7ff"/>
-      <stop offset="100%" stop-color="#00ffff"/>
-    </linearGradient>
-    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ff5faf" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#00ffff" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#ff5faf" stop-opacity="0"/>
-    </linearGradient>
+    <style>
+      .display { font-family: "Barlow Condensed", "DIN Condensed", "Arial Narrow", sans-serif; font-weight: 700; text-transform: uppercase; }
+      .mono   { font-family: "JetBrains Mono", "IBM Plex Mono", "Menlo", monospace; }
+    </style>
   </defs>
 
-  <rect width="1280" height="360" fill="url(#bg)"/>
+  <!-- void black canvas -->
+  <rect width="1280" height="360" fill="#000000"/>
 
-  <g opacity="0.12" fill="none" stroke="url(#sweep)" stroke-width="2">
-    <ellipse cx="430" cy="150" rx="200" ry="120"/>
-    <ellipse cx="300" cy="230" rx="100" ry="60"/>
-    <ellipse cx="640" cy="180" rx="70" ry="70"/>
-    <ellipse cx="600" cy="270" rx="75" ry="45"/>
-    <path d="M520 260 L560 265 L600 330 L540 330 Z"/>
+  <!-- hairline frame (instrument panel edge) -->
+  <rect x="24" y="24" width="1232" height="312" fill="none" stroke="#1a1a1e" stroke-width="1"/>
+
+  <!-- top telemetry strip -->
+  <g class="mono" font-size="11" fill="#545457" letter-spacing="3">
+    <text x="44" y="52">AEROSKILLS // KNOWLEDGE LAYER</text>
+    <text x="1236" y="52" text-anchor="end">REV 0.1.0 — FOUNDER-GATED</text>
   </g>
 
-  <text x="640" y="120" text-anchor="middle" font-family="Menlo, Monaco, monospace" font-size="64" font-weight="700" fill="url(#sweep)" letter-spacing="6">AeroSkills</text>
+  <!-- title: uppercase tracked display -->
+  <text class="display" x="64" y="150" font-size="96" fill="#f0f0fa" letter-spacing="4">AeroSkills</text>
 
-  <text x="640" y="175" text-anchor="middle" font-family="Menlo, Monaco, monospace" font-size="22" fill="#ded9f2" letter-spacing="2">THE AEROSPACE KNOWLEDGE LAYER FOR AI AGENTS</text>
+  <!-- rule -->
+  <line x1="64" y1="170" x2="420" y2="170" stroke="#f0f0fa" stroke-width="1"/>
 
-  <text x="640" y="215" text-anchor="middle" font-family="Menlo, Monaco, monospace" font-size="15" fill="#9d97bd" letter-spacing="1">73 DOMAIN PACKS · 1,460 STANDARDS-MAPPED, EVAL-GATED SKILLS · APACHE-2.0</text>
+  <!-- tagline: wide-tracked uppercase instrument readout -->
+  <text class="mono" x="64" y="200" font-size="13" fill="#f0f0fa" letter-spacing="5">THE AEROSPACE ENGINEERING KNOWLEDGE LAYER FOR AI AGENTS</text>
 
-  <rect x="340" y="245" width="600" height="2" fill="url(#rule)"/>
+  <!-- stat line: telemetry -->
+  <text class="mono" x="64" y="228" font-size="12" fill="#545457" letter-spacing="2">
+    <tspan fill="#f0f0fa">1,460</tspan> SKILLS TARGET · <tspan fill="#f0f0fa">73</tspan> PACKS · <tspan fill="#f0f0fa">20</tspan> STANDARDS · <tspan fill="#f0f0fa">5/5</tspan> GATES
+  </text>
 
-  <g font-family="Menlo, Monaco, monospace" font-size="13" letter-spacing="1">
-    <rect x="440" y="270" width="110" height="28" rx="14" fill="none" stroke="#ff5faf" stroke-opacity="0.7"/>
-    <text x="495" y="289" text-anchor="middle" fill="#ffb3d9">DO-178C</text>
-    <rect x="565" y="270" width="110" height="28" rx="14" fill="none" stroke="#d75fff" stroke-opacity="0.7"/>
-    <text x="620" y="289" text-anchor="middle" fill="#e8c2ff">ARP4754A</text>
-    <rect x="690" y="270" width="100" height="28" rx="14" fill="none" stroke="#5fd7ff" stroke-opacity="0.7"/>
-    <text x="740" y="289" text-anchor="middle" fill="#aeeaff">AS9100</text>
+  <!-- ghost chips: standards (outlined, never filled) -->
+  <g class="mono" font-size="11" letter-spacing="2">
+    <rect x="64" y="252" width="120" height="30" fill="none" stroke="#f0f0fa" stroke-width="1"/>
+    <text x="124" y="272" text-anchor="middle" fill="#f0f0fa">DO-178C</text>
+
+    <rect x="196" y="252" width="130" height="30" fill="none" stroke="#f0f0fa" stroke-width="1"/>
+    <text x="261" y="272" text-anchor="middle" fill="#f0f0fa">ARP4754A</text>
+
+    <rect x="338" y="252" width="110" height="30" fill="none" stroke="#f0f0fa" stroke-width="1"/>
+    <text x="393" y="272" text-anchor="middle" fill="#f0f0fa">AS9100</text>
+
+    <rect x="460" y="252" width="130" height="30" fill="none" stroke="#545457" stroke-width="1"/>
+    <text x="525" y="272" text-anchor="middle" fill="#545457">+17 MORE</text>
   </g>
 
-  <text x="640" y="330" text-anchor="middle" font-family="Menlo, Monaco, monospace" font-size="13" fill="#7d7799" letter-spacing="2">make validate 5/5 · make attest 3/3 · HIT@1 ROUTING · REPLAYABLE BY ANYONE</text>
+  <!-- bottom verification line -->
+  <text class="mono" x="64" y="318" font-size="11" fill="#545457" letter-spacing="3">MAKE VALIDATE 5/5 · MAKE ATTEST 3/3 · HIT@1 ROUTING · REPLAYABLE BY ANYONE</text>
+
+  <!-- right-side glyph: minimal brain outline, etched (thin stroke, no fill, no glow) -->
+  <g stroke="#f0f0fa" stroke-opacity="0.14" stroke-width="1" fill="none">
+    <ellipse cx="980" cy="150" rx="150" ry="90"/>
+    <path d="M880 210 Q 920 260 980 280 Q 1040 300 1080 270"/>
+    <path d="M1000 90 Q 1040 70 1080 90 Q 1100 100 1090 120"/>
+    <line x1="930" y1="120" x2="1030" y2="120"/>
+    <line x1="940" y1="140" x2="1020" y2="140"/>
+    <line x1="950" y1="160" x2="1010" y2="160"/>
+  </g>
 </svg>
