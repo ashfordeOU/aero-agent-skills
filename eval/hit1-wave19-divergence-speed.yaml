@@ -1,0 +1,15 @@
+# Hit@1 wave-19 fragment: divergence-speed (aerodynamics)
+# Two tasks per new leaf skill; dvs1 routes on the static aeroelastic
+# divergence dynamic pressure from the torsional stiffness and the
+# aerodynamic-center-to-shear-center offset, dvs2 routes on the
+# divergence margin verdict against the design dive speed. Both must
+# deterministically hit aerodynamics/aeroelasticity/divergence-speed.
+tasks:
+  - id: w19-divergence-speed-1
+    query: "compute the static aeroelastic divergence dynamic pressure from the torsional stiffness, the lift curve slope, the reference area, and the offset between the aerodynamic center and the shear center"
+    intent: "aeroelasticity; divergence dynamic pressure from stiffness and geometry"
+    expected_skill: "aerodynamics/aeroelasticity/divergence-speed"
+  - id: w19-divergence-speed-2
+    query: "assess the static aeroelastic divergence margin by comparing the divergence speed of the lifting surface with the design dive speed"
+    intent: "aeroelasticity; divergence margin assessment against the dive speed"
+    expected_skill: "aerodynamics/aeroelasticity/divergence-speed"
