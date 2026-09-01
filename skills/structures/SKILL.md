@@ -1,6 +1,6 @@
 ---
 name: structures
-description: "Use when a task concerns aerospace structures and materials: guide the router to the structures pack: calculix-linear linear FEA, calculix-nonlinear Newton-Raphson and load stepping, modal-analysis natural frequencies, residual-strength fracture, crack-growth crack propagation, widespread-fatigue-damage MSD/MED, miner-damage cumulative damage, goodman-diagram mean-stress corrections, load-spectrum-counting rainflow, laminate-stiffness CLT/ABD, composite-bolted-joints bearing and bypass, sandwich-panels core shear and wrinkling, failure-criteria Tsai-Wu, mmpsd-allowables A-/B-basis, material-selection property indices, ramberg-osgood elastic-plastic stress-strain. Trigger: structures, FEM, stress analysis, margin of safety, CalculiX, nonlinear, modal, fatigue, crack growth, widespread fatigue damage, MSD, MED, Miner, Goodman, rainflow, laminate, Tsai-Wu, bolted joint, sandwich panel, allowables, MMPDS, material selection, Ramberg-Osgood, plastic strain."
+description: "Use when a task concerns aerospace structures and materials: guide the router to the structures pack: calculix-linear linear FEA, calculix-nonlinear Newton-Raphson and load stepping, modal-analysis natural frequencies, residual-strength fracture, crack-growth crack propagation, widespread-fatigue-damage MSD/MED, miner-damage cumulative damage, goodman-diagram mean-stress corrections, load-spectrum-counting rainflow, laminate-stiffness CLT/ABD, composite-bolted-joints bearing and bypass, sandwich-panels core shear and wrinkling, failure-criteria Tsai-Wu, mmpsd-allowables A-/B-basis, material-selection property indices, ramberg-osgood elastic-plastic stress-strain. Trigger: structures, FEM, stress analysis, margin of safety, CalculiX, nonlinear, modal, fatigue, crack growth, widespread fatigue damage, MSD, MED, Miner, Goodman, rainflow, laminate, Tsai-Wu, bolted joint, sandwich panel, allowables, MMPDS, material selection, Ramberg-Osgood, plastic strain, plate buckling, panel buckling, shear buckling."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -42,6 +42,7 @@ material selection.
 | structures/fem/modal-analysis | Modal analysis | natural frequencies, mode shapes, resonance check |
 | structures/fem/truss-analysis | Truss analysis | direct stiffness method, element stiffness matrices, global assembly, nodal displacements, member forces, support reactions |
 | structures/fem/buckling-analysis | Buckling analysis | euler critical buckling load, slenderness ratio, effective length factor, end conditions, buckling stress, radius of gyration, column instability |
+| structures/fem/plate-buckling | Plate buckling | flat plate and skin panel buckling, buckling coefficient, compression and shear buckling stress, spar web, effective width |
 | structures/damage-tolerance/residual-strength | Residual strength | fracture toughness, critical crack length, limit-load margin |
 | structures/damage-tolerance/crack-growth | Crack growth | fatigue crack propagation, Paris law, growth life, inspection intervals |
 | structures/damage-tolerance/widespread-fatigue-damage | Widespread fatigue damage | MSD screening, MED classification, supplemental inspection |
@@ -74,6 +75,11 @@ material selection.
   load, slenderness ratio, effective length factor, end conditions,
   buckling stress, radius of gyration, cantilever columns) route to
   the fem buckling-analysis sub-skill.
+- Flat plate and skin panel stability questions (plate buckling
+  coefficient, compression or shear buckling of a skin panel or spar
+  web, combined compression-shear interaction, effective width) route
+  to the fem plate-buckling sub-skill; column and strut Euler
+  buckling questions route to the fem buckling-analysis sub-skill.
 - Damage-tolerance residual-strength questions (Kc, critical crack
   length, margin) route to the damage-tolerance residual-strength
   sub-skill.
