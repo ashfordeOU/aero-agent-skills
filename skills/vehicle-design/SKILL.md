@@ -45,6 +45,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/control-surface-sizing | Control surface sizing | aileron and elevator and rudder area from control power, roll rate requirement, pitch moment requirement, yaw moment requirement, hinge moment, deflection limits |
 | vehicle-design/sizing/landing-gear-sizing | Landing gear sizing | strut load distribution, nose/main gear loads from CG and wheelbase, shock absorber stroke |
 | vehicle-design/sizing/ws-tw-trade | W/S and T/W matching | wing loading, thrust-to-weight, matching chart, takeoff/climb/cruise constraints |
+| vehicle-design/sizing/wing-planform-sizing | Wing planform sizing | wing area from wing loading and takeoff gross weight, aspect ratio and span, taper ratio and mean aerodynamic chord, sweep angle from cruise Mach |
 | vehicle-design/sizing/engine-sizing | Engine sizing | sea-level static thrust, thrust lapse with altitude, takeoff thrust, top-of-climb margin, SFC fuel flow, engine weight |
 | vehicle-design/sizing/fuel-tank-sizing | Fuel tank sizing | fuel volume from fuel mass, ullage allowance, required tank volume, wing/fuselage tank capacity fit |
 | vehicle-design/mass-properties/inertia-estimation | Inertia estimation | moments of inertia, radius of gyration, parallel axis theorem |
@@ -78,6 +79,10 @@ aerodynamic, structural, and performance disciplines together.
 - Wing loading and thrust to weight matching questions (the sizing
   matching chart, takeoff distance, climb gradient, and cruise
   constraints) route to the sizing/ws-tw-trade sub-skill.
+- Wing planform questions (wing area from wing loading and takeoff
+  gross weight, aspect ratio, span, taper ratio, mean aerodynamic
+  chord, sweep angle from cruise Mach) route to the sizing
+  wing-planform-sizing sub-skill.
 - Sea level static thrust, thrust lapse, takeoff thrust, top of climb
   margin, SFC fuel flow, and engine weight questions route to the
   sizing engine-sizing sub-skill.
