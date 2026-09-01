@@ -320,3 +320,4 @@ Total skills rated: 306
 | 312 | avionics/fsw/cfs-architecture | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 313 | vehicle-design/conceptual/sizing-mission-profile | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 314 | aerodynamics/cfd/cfd-validation | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 315 | manufacturing-quality/composites/layup-cure | PASS | ✓ | cmh-17 | manufacturing-quality | 9.5 | PASS |
