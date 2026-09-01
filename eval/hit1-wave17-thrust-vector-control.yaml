@@ -1,0 +1,15 @@
+# Hit@1 wave-17 fragment: thrust-vector-control (propulsion/rocket)
+# Two tasks per new leaf; w17-thrust-vector-control-1 routes on sizing the
+# gimbal actuator authority from the required control torque and the moment
+# arm, w17-thrust-vector-control-2 on estimating the side force and the axial
+# thrust loss from a deflected nozzle. Both must deterministically hit
+# propulsion/rocket/thrust-vector-control.
+tasks:
+  - id: w17-thrust-vector-control-1
+    query: "size the gimbal actuator authority for a rocket thrust-vector-control system given the required control torque about the center of gravity and the moment arm"
+    intent: "TVC gimbal actuator authority sizing from control torque and moment arm"
+    expected_skill: "propulsion/rocket/thrust-vector-control"
+  - id: w17-thrust-vector-control-2
+    query: "estimate the side force and the axial thrust loss of a rocket engine with its nozzle deflected by a given tvc gimbal angle"
+    intent: "TVC side force and axial thrust loss from nozzle deflection angle"
+    expected_skill: "propulsion/rocket/thrust-vector-control"
