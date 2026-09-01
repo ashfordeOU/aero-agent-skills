@@ -58,6 +58,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/lead-lag-compensation | Lead lag compensation | phase lead/lag compensator design, phase margin boost, gain crossover frequency, steady state error constant |
 | gnc-autonomy/control/frequency-response-design | Frequency response design | bode magnitude and phase, gain/phase crossover frequencies, gain margin, phase margin, stability from the margins |
 | gnc-autonomy/control/gain-scheduling | Gain scheduling | gain schedule breakpoints, scheduling variable, dynamic pressure and Mach scheduling, gain interpolation |
+| gnc-autonomy/control/observer-design | Observer design | Luenberger observer, observability matrix, estimator gain, pole placement, separation principle |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -102,6 +103,7 @@ and guidance laws (proportional navigation, pursuit).
 - Phase lead/lag compensator, phase margin boost, crossover placement, and steady state error constant questions route to the control lead-lag-compensation sub-skill.
 - Bode frequency response, gain crossover, phase crossover, gain margin, and phase margin questions route to the control frequency-response-design sub-skill.
 - Gain schedule breakpoint tables, scheduling variables (dynamic pressure, Mach), and gain interpolation questions route to the control gain-scheduling sub-skill.
+- Full-order state observer design, observability checks, estimator gain pole placement, and separation principle questions route to the control observer-design sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
