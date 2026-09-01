@@ -1,0 +1,16 @@
+# Hit@1 wave-11 fragment: kalman-filter-design (gnc-autonomy)
+# Two tasks per new leaf skill; kf1 routes on the filter equations
+# (predict, covariance, gain, innovation, corrected state), kf2
+# routes on estimation vocabulary (recursive state estimate from
+# noisy measurements, process noise, measurement noise, error
+# covariance). Both must deterministically hit
+# gnc-autonomy/navigation/kalman-filter-design.
+tasks:
+  - id: kf1
+    query: "design the discrete-time kalman filter for the single axis: predict the state and error covariance, compute the kalman gain and innovation variance, and correct the state and covariance from the noisy measurement"
+    intent: "GNC estimation; discrete-time Kalman filter predict and update equations, gain and covariance"
+    expected_skill: "gnc-autonomy/navigation/kalman-filter-design"
+  - id: kf2
+    query: "estimate the position state recursively from the noisy measurements using the process noise and measurement noise covariances and report the corrected state with its error covariance"
+    intent: "GNC estimation; recursive single-axis state estimation from noisy measurements"
+    expected_skill: "gnc-autonomy/navigation/kalman-filter-design"
