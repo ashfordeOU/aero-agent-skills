@@ -1,6 +1,6 @@
 ---
 name: systems-engineering-safety
-description: "Use when a task concerns aircraft or system-level engineering and safety assurance: guide the router to the systems-engineering-safety pack, covering ARP4754A systems planning, requirements traceability, requirements allocation, and validation, the ARP4761A safety assessment process, fault tree and FMEA analyses, common cause analysis, particular risk analysis, and operating and support hazard analysis, and model-based systems engineering with SysML modeling, state machine behavior, and trade study analysis. This pack is the systems-level spine above item-level software and hardware assurance. Trigger: systems engineering, systems safety, ARP4754A, ARP4761A, safety assessment, fault tree, FMEA, common cause, particular risk, rotor burst, traceability, validation, requirements allocation, O&SHA, operating and support hazard, state machine, reachability, MBSE, SysML, FDAL, IDAL, FHA, PSSA, SSA, trade study, Pugh matrix, decision criteria, weighted scoring."
+description: "Use when a task concerns aircraft or system-level engineering and safety assurance: guide the router to the systems-engineering-safety pack, covering ARP4754A systems-planning, requirements-traceability, requirements-allocation, and validation, ARP4761A safety-assessment, ftA-fmea, common-cause-analysis, particular-risk-analysis, operating-support-hazard-analysis, and markov-analysis, and MBSE systems-engineering, sysml-modeling, state-machine, and trade-study-analysis. This pack is the systems-level spine above item-level software and hardware assurance. Trigger: systems engineering, systems safety, ARP4754A, ARP4761A, safety assessment, fault tree, FMEA, common cause, particular risk, rotor burst, traceability, validation, allocation, O&SHA, state machine, reachability, MBSE, SysML, FDAL, IDAL, FHA, PSSA, SSA, trade study, Pugh matrix, Markov analysis, availability, MTTF."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -49,6 +49,8 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/mbse/sysml-modeling | SysML modeling | diagram kinds, BDD/IBD, requirement and parametric diagrams, viewpoints, governance |
 | systems-engineering-safety/mbse/state-machine | State machine modeling | SysML state machines, states, transitions, guards, events, reachability, firing trace |
 | systems-engineering-safety/mbse/trade-study-analysis | Trade study analysis | trade study, decision criteria, weighted scoring, Pugh matrix, sensitivity analysis, alternative selection |
+| systems-engineering-safety/arp4761a/markov-analysis | Markov analysis | Markov chain, state probability, transition rate, failure rate, repair rate, availability, MTTF, k-out-of-n |
+| systems-engineering-safety/arp4761a/markov-analysis | Markov analysis | Markov chain, state probability, transition rate, failure rate, repair rate, availability, MTTF, k-out-of-n |
 
 ## Routing guidance
 
@@ -81,6 +83,8 @@ model-based systems engineering (SysML, digital thread).
   trade-study-analysis sub-skill.
 - Item-level software or hardware questions route to the avionics pack.
 
+- Markov chain, availability, MTTF, and transition rate questions route to the ARP4761A markov-analysis sub-skill.
+- Markov chain, availability, MTTF, and transition rate questions route to the ARP4761A markov-analysis sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
