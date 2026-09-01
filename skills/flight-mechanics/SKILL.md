@@ -52,6 +52,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/oei-climb-gradient | OEI climb gradient | OEI thrust, second segment, engine out, approach climb, landing climb gradient |
 | flight-mechanics/performance/energy-height | Energy height | specific excess power, energy height, climb/cruise trade, Ps |
 | flight-mechanics/stability-control/aileron-reversal | Aileron reversal | control reversal speed, reversal dynamic pressure, torsional stiffness |
+| flight-mechanics/stability-control/control-surface-effectiveness | Control surface effectiveness | elevator authority, hinge moment, stick force, elevator deflection, tail volume coefficient, rotation authority |
 
 ## Routing guidance
 
@@ -88,6 +89,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 - One-engine-inoperative, second segment, approach climb, and landing climb gradient questions route to the oei-climb-gradient sub-skill.
 - Energy height and specific excess power questions route to the performance energy-height sub-skill.
 - Control reversal speed and reversal dynamic pressure questions route to the stability-control aileron-reversal sub-skill.
+- Elevator authority, hinge moment, stick force, and takeoff rotation controllability questions route to the stability-control control-surface-effectiveness sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
