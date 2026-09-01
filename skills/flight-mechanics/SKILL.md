@@ -58,6 +58,8 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/handling-qualities/pilot-induced-oscillation | Pilot-induced oscillation | PIO category, phase lag at crossover, actuator rate limiting, pilot-in-the-loop coupling, phase compensation |
 | flight-mechanics/performance/thrust-required | Thrust required | thrust required, power required, level flight drag polar, minimum drag speed, equivalent power |
 | flight-mechanics/flight-dynamics-sim/six-dof-simulation | Six-DOF simulation | six degree of freedom, body axis equations of motion, Euler angle rates, quaternion, RK4 propagation, rigid body state |
+| flight-mechanics/stability-control/stability-derivatives-avl | Stability derivative estimation | stability derivatives, lift curve slope, wing planform, aspect ratio, sweep effect, Mach correction, tail volume, neutral point, static margin, AVL-style estimation |
+
 ## Routing guidance
 
 - Cruise range and fuel-fraction questions route to the
@@ -99,6 +101,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 - PIO category assessment, phase lag at crossover, actuator rate limiting, pilot-in-the-loop coupling, and phase compensation questions route to the handling-qualities pilot-induced-oscillation sub-skill.
 - Thrust-required and power-required curves for level unaccelerated flight, minimum-drag speed, and the drag polar force balance route to the performance thrust-required sub-skill.
 - Six-degree-of-freedom rigid body simulation, body-axis equations of motion, Euler angle integration, and RK4 propagation questions route to the flight-dynamics-sim six-dof-simulation sub-skill.
+- Stability-derivative estimation from wing and tail geometry, lift curve slope with sweep and Mach corrections, and geometry-to-neutral-point questions route to the stability-control stability-derivatives-avl sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

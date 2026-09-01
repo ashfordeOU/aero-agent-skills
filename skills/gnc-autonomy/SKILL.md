@@ -60,6 +60,8 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/gain-scheduling | Gain scheduling | gain schedule breakpoints, scheduling variable, dynamic pressure and Mach scheduling, gain interpolation |
 | gnc-autonomy/control/observer-design | Observer design | Luenberger observer, observability matrix, estimator gain, pole placement, separation principle |
 | gnc-autonomy/estimation-filtering/alpha-beta-filter | Alpha-beta filter | alpha beta filter, constant velocity target, tracking update, smoothing factor, steady state gain, position and velocity tracking |
+| gnc-autonomy/estimation-filtering/unscented-kalman-filter | Unscented Kalman filter | unscented Kalman filter, sigma points, scaled unscented transform, nonlinear state estimation, state prediction, measurement update, innovation covariance, NEES, bearing-range tracking |
+
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -106,6 +108,7 @@ and guidance laws (proportional navigation, pursuit).
 - Gain schedule breakpoint tables, scheduling variables (dynamic pressure, Mach), and gain interpolation questions route to the control gain-scheduling sub-skill.
 - Full-order state observer design, observability checks, estimator gain pole placement, and separation principle questions route to the control observer-design sub-skill.
 - Alpha-beta tracking, constant velocity target, smoothing factor, steady state gain, and position and velocity tracking questions route to the estimation-filtering alpha-beta-filter sub-skill.
+- Sigma-point nonlinear state estimation, scaled unscented transform, UKF predict and update, and innovation covariance checks route to the estimation-filtering unscented-kalman-filter sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

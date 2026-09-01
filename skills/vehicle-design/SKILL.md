@@ -60,6 +60,8 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/propeller-sizing | Propeller sizing | propeller diameter, blade count, solidity, activity factor, disk loading, advance ratio, ground clearance |
 | vehicle-design/sizing/tire-sizing | Tire sizing | tire diameter, tire width, static load per tire, gear load share, tire pressure, footprint |
 | vehicle-design/conceptual/constraint-analysis | Constraint analysis | matching chart, thrust to weight ratio, wing loading, stall constraint, climb gradient, takeoff distance, feasible region |
+| vehicle-design/conceptual/openvsp-geometry | Parametric aircraft geometry | parametric geometry, OpenVSP style, wing planform, mean aerodynamic chord, wetted area, fuselage geometry, component volume, sweep dihedral twist, mass properties input, conceptual design |
+
 ## Routing guidance
 
 - Takeoff gross weight and fuel-fraction questions route to the
@@ -113,6 +115,7 @@ aerodynamic, structural, and performance disciplines together.
 - Propeller diameter, blade count, solidity, activity factor, disk loading, and advance ratio questions route to the sizing propeller-sizing sub-skill.
 - Landing gear tire sizing, static load per tire, tire diameter and width, and tire pressure questions route to the sizing tire-sizing sub-skill.
 - Constraint analysis matching chart, thrust to weight ratio, wing loading, stall, climb gradient, and takeoff distance constraint questions route to the conceptual constraint-analysis sub-skill.
+- Parametric aircraft geometry building, mean aerodynamic chord and wetted area computation, and component volume estimation route to the conceptual openvsp-geometry sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

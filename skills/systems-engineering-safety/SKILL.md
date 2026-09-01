@@ -59,6 +59,8 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4754a/development-assurance-levels | Development assurance levels | FDAL, IDAL, failure condition severity, DAL assignment A-E, independence |
 | systems-engineering-safety/arp4761a/failure-rate-estimation | Failure rate estimation | failure rate, test hours, zero-failure demonstration, chi-square bound, confidence level |
 | systems-engineering-safety/requirements/requirements-elicitation | Requirements elicitation | stakeholder needs, operational scenario, requirements baseline, atomicity, verifiability, weasel words, elicitation log |
+| systems-engineering-safety/certification/certification-basis | Certification basis | certification basis, type certificate, supplemental type certificate, TSO, special conditions, FAR applicability, CS-25, certification program, means of compliance, regulatory path |
+
 ## Routing guidance
 
 - Development assurance and planning questions route to the ARP4754A
@@ -110,6 +112,7 @@ model-based systems engineering (SysML, digital thread).
 - FDAL and IDAL assignment, failure condition severity to DAL mapping, and independence questions route to the ARP4754A development-assurance-levels sub-skill.
 - Failure-rate estimation and demonstration from test or service data, zero-failure testing, and chi-square confidence bounds route to the ARP4761A failure-rate-estimation sub-skill.
 - Stakeholder needs capture, operational scenarios, elicitation log, and requirement statement quality (atomicity, verifiability, weasel words) questions route to the requirements requirements-elicitation sub-skill.
+- Certification regulation applicability, special condition determination, and TC, STC, and TSO path selection route to the certification certification-basis sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

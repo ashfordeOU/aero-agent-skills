@@ -150,6 +150,11 @@
 # leaves). Wave-19 new leaves: "manufacturing-quality/additive/additive-manufacturing-qualification", "cross-cutting/data-sources/aeronautical-data-sources", "gnc-autonomy/estimation-filtering/alpha-beta-filter", "propulsion/turbomachinery/centrifugal-compressor", "vehicle-design/conceptual/constraint-analysis", "aerodynamics/aeroelasticity/divergence-speed", "avionics/ima/ima-partitioning", "space-systems/mission-design/mission-delta-v-budget", "systems-engineering-safety/requirements/requirements-elicitation", "flight-mechanics/flight-dynamics-sim/six-dof-simulation", "flight-test-operations/stability/static-stability-flight-test", "structures/thermal-structures/thermal-stress-analysis".
 # Corpus: 578 tasks (554 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 19 build.
+# P5.2 / Wave 20 (2026-09-01): fan-out continues to
+# 294 verified skills (306 SKILL.md under gate 1: 12 routers + 294
+# leaves). Wave-20 new leaves: "propulsion/combustion/cea-rocket-combustion", "systems-engineering-safety/certification/certification-basis", "structures/composites/cmh17-allowables", "cross-cutting/tolerancing/datum-reference-frames", "avionics/ima/do297", "flight-test-operations/envelope/high-angle-of-attack-testing", "manufacturing-quality/additive/lpbf-parameter-development", "vehicle-design/conceptual/openvsp-geometry", "space-systems/mission-design/radiation-debris", "flight-mechanics/stability-control/stability-derivatives-avl", "gnc-autonomy/estimation-filtering/unscented-kalman-filter", "aerodynamics/wind-tunnel/windtunnel-data-reduction".
+# Corpus: 602 tasks (578 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 20 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2780,6 +2785,102 @@ tasks:
     query: "determine the thermal stress distribution and the curvature of the bimetallic strip subjected to the temperature change"
     intent: "structures; bimetallic strip thermal stress and curvature from temperature change"
     expected_skill: "structures/thermal-structures/thermal-stress-analysis"
+  - id: w20-cea-rocket-combustion-1
+    query: "estimate the adiabatic flame temperature and chamber conditions for a LOX/RP-1 rocket engine at a given mixture ratio and chamber pressure"
+    intent: "propulsion; rocket combustion thermochemistry and chamber conditions"
+    expected_skill: "propulsion/combustion/cea-rocket-combustion"
+  - id: w20-cea-rocket-combustion-2
+    query: "predict the characteristic velocity and vacuum specific impulse of a rocket propellant combination from its thermochemistry"
+    intent: "propulsion; c* and ideal Isp from combustion thermochemistry"
+    expected_skill: "propulsion/combustion/cea-rocket-combustion"
+  - id: w20-certification-basis-1
+    query: "determine the applicable certification regulations for a transport category airplane and identify which FAR/CS parts apply to its certification basis"
+    intent: "systems engineering; certification regulation applicability for a transport category airplane"
+    expected_skill: "systems-engineering-safety/certification/certification-basis"
+  - id: w20-certification-basis-2
+    query: "decide whether a new avionics modification should follow a supplemental type certificate path and whether a special condition is needed for its novel feature"
+    intent: "systems engineering; STC path and special condition determination"
+    expected_skill: "systems-engineering-safety/certification/certification-basis"
+  - id: w20-cmh17-allowables-1
+    query: "compute the A-basis and B-basis composite material allowables from coupon test data using the tolerance k-factor method"
+    intent: "structures; composite A/B-basis allowables from coupon data"
+    expected_skill: "structures/composites/cmh17-allowables"
+  - id: w20-cmh17-allowables-2
+    query: "apply environmental and open hole knockdown factors to derive the laminate level allowables from the lamina allowables"
+    intent: "structures; laminate allowables with CMH-17 knockdown factors"
+    expected_skill: "structures/composites/cmh17-allowables"
+  - id: w20-datum-reference-frames-1
+    query: "establish the datum reference frame for a part using the primary, secondary, and tertiary datum precedence and determine the constrained degrees of freedom"
+    intent: "GD&T; datum reference frame establishment and DOF constraint"
+    expected_skill: "cross-cutting/tolerancing/datum-reference-frames"
+  - id: w20-datum-reference-frames-2
+    query: "build the feature control frame with material condition modifiers applied to the datum feature references"
+    intent: "GD&T; feature control frame construction with material condition"
+    expected_skill: "cross-cutting/tolerancing/datum-reference-frames"
+  - id: w20-do297-1
+    query: "plan the integrated modular avionics architecture by allocating applications to partitions with CPU, memory, and I/O budgets"
+    intent: "avionics; IMA partition and resource allocation"
+    expected_skill: "avionics/ima/do297"
+  - id: w20-do297-2
+    query: "define the module acceptance and incremental certification approach for an IMA platform per DO-297"
+    intent: "avionics; IMA module acceptance and incremental certification"
+    expected_skill: "avionics/ima/do297"
+  - id: w20-high-angle-of-attack-testing-1
+    query: "calibrate the angle of attack sensor position error from flight test data and plan the high angle of attack test points"
+    intent: "flight test; AoA sensor calibration and HiAOA test planning"
+    expected_skill: "flight-test-operations/envelope/high-angle-of-attack-testing"
+  - id: w20-high-angle-of-attack-testing-2
+    query: "assess the stall warning margin and departure resistance of the aircraft in the post-stall flight test envelope"
+    intent: "flight test; stall warning margin and departure resistance at high AoA"
+    expected_skill: "flight-test-operations/envelope/high-angle-of-attack-testing"
+  - id: w20-lpbf-parameter-development-1
+    query: "compute the volumetric energy density of a laser powder bed fusion process from laser power, scan speed, hatch spacing, and layer thickness"
+    intent: "manufacturing; LPBF volumetric energy density calculation"
+    expected_skill: "manufacturing-quality/additive/lpbf-parameter-development"
+  - id: w20-lpbf-parameter-development-2
+    query: "classify the LPBF process window as conduction or keyhole mode and build the parameter development matrix"
+    intent: "manufacturing; LPBF process window classification and parameter matrix"
+    expected_skill: "manufacturing-quality/additive/lpbf-parameter-development"
+  - id: w20-openvsp-geometry-1
+    query: "build a parametric aircraft geometry from wing and fuselage parameters and compute the mean aerodynamic chord and wetted areas"
+    intent: "vehicle design; parametric geometry modeling and derived geometry quantities"
+    expected_skill: "vehicle-design/conceptual/openvsp-geometry"
+  - id: w20-openvsp-geometry-2
+    query: "estimate the component volume and centroid inputs for the mass properties model from the OpenVSP-style fuselage and wing geometry"
+    intent: "vehicle design; component volumes and centroids from parametric geometry"
+    expected_skill: "vehicle-design/conceptual/openvsp-geometry"
+  - id: w20-radiation-debris-1
+    query: "estimate the total ionizing dose from the trapped radiation belts for a low Earth orbit mission as a function of altitude, inclination, and shielding thickness"
+    intent: "space systems; radiation environment dose estimation for mission design"
+    expected_skill: "space-systems/mission-design/radiation-debris"
+  - id: w20-radiation-debris-2
+    query: "assess the orbital debris collision probability for a spacecraft over its mission lifetime from the debris flux and cross-section"
+    intent: "space systems; orbital debris environment and collision risk assessment"
+    expected_skill: "space-systems/mission-design/radiation-debris"
+  - id: w20-stability-derivatives-avl-1
+    query: "estimate the wing lift curve slope and the stability derivatives from the wing planform aspect ratio, quarter-chord sweep, and Mach number"
+    intent: "flight mechanics; stability derivative estimation from wing planform geometry"
+    expected_skill: "flight-mechanics/stability-control/stability-derivatives-avl"
+  - id: w20-stability-derivatives-avl-2
+    query: "compute the directional stability derivatives Cn_beta and the static margin from the vertical tail geometry and the wing-body contribution"
+    intent: "flight mechanics; directional stability derivatives and static margin from geometry"
+    expected_skill: "flight-mechanics/stability-control/stability-derivatives-avl"
+  - id: w20-unscented-kalman-filter-1
+    query: "estimate the state of a nonlinear system with an unscented Kalman filter using sigma points and the scaled unscented transform"
+    intent: "GNC; sigma-point based nonlinear state estimation"
+    expected_skill: "gnc-autonomy/estimation-filtering/unscented-kalman-filter"
+  - id: w20-unscented-kalman-filter-2
+    query: "propagate a Gaussian state through a nonlinear measurement model and compute the innovation covariance and Kalman gain"
+    intent: "GNC; UKF measurement update and innovation covariance"
+    expected_skill: "gnc-autonomy/estimation-filtering/unscented-kalman-filter"
+  - id: w20-windtunnel-data-reduction-1
+    query: "correct wind tunnel balance measurements for tare, blockage, and wall interference and reduce them to lift and drag coefficients"
+    intent: "aerodynamics; wind tunnel data reduction and corrections"
+    expected_skill: "aerodynamics/wind-tunnel/windtunnel-data-reduction"
+  - id: w20-windtunnel-data-reduction-2
+    query: "estimate the uncertainty of the measured drag coefficient from repeated wind tunnel runs"
+    intent: "aerodynamics; measurement uncertainty from repeat runs"
+    expected_skill: "aerodynamics/wind-tunnel/windtunnel-data-reduction"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

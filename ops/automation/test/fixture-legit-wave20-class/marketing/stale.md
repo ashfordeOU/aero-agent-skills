@@ -3,5 +3,5 @@
 - The tree ships 294 leaf skills after Wave 20.
 - Gate 1 lints 306 SKILL.md (12 routers + 294 leaves).
 - Hit@1 runs 602/602 corpus tasks deterministically offline.
-- The corpus holds 602 tasks; 12 pack routers; 71 sub-domain packs.
+- The corpus holds 602 tasks; 12 pack routers; 74 sub-domain packs.
 - Roadmap: 294 -> 940 planning target, not a shipped count.

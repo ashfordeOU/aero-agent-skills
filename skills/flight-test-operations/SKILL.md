@@ -61,6 +61,8 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/envelope/structural-coupling-test | Structural coupling test | gain margin, phase margin, frequency response, excitation sweep, flight control coupling |
 | flight-test-operations/performance/climb-performance-flight-test | Climb performance flight test | rate of climb, climb gradient, pressure altitude change, temperature correction, weight correction |
 | flight-test-operations/stability/static-stability-flight-test | Static stability flight test | trim curve slope, elevator angle versus speed, stick fixed neutral point, static margin, elevator angle per g |
+| flight-test-operations/envelope/high-angle-of-attack-testing | High angle of attack testing | high angle of attack, post stall, deep stall, AoA calibration, position error correction, stall margin, departure resistance, spin entry, stall warning, flight test envelope |
+
 ## Routing guidance
 
 - Envelope expansion and corner speed questions route to the
@@ -104,6 +106,7 @@ flight test instrumentation, and campaign planning.
 - Structural coupling gain and phase margins, frequency response excitation sweeps, and flight control coupling questions route to the envelope structural-coupling-test sub-skill.
 - Climb performance flight test, measured rate of climb, pressure altitude change, and climb gradient correction questions route to the performance climb-performance-flight-test sub-skill.
 - Trim curve slope, elevator angle versus speed, stick-fixed neutral point, static margin, and elevator angle per g questions route to the stability static-stability-flight-test sub-skill.
+- High angle of attack flight test planning, AoA position error calibration, stall warning margin, and departure resistance assessment route to the envelope high-angle-of-attack-testing sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
