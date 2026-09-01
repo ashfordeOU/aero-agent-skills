@@ -155,6 +155,11 @@
 # leaves). Wave-20 new leaves: "propulsion/combustion/cea-rocket-combustion", "systems-engineering-safety/certification/certification-basis", "structures/composites/cmh17-allowables", "cross-cutting/tolerancing/datum-reference-frames", "avionics/ima/do297", "flight-test-operations/envelope/high-angle-of-attack-testing", "manufacturing-quality/additive/lpbf-parameter-development", "vehicle-design/conceptual/openvsp-geometry", "space-systems/mission-design/radiation-debris", "flight-mechanics/stability-control/stability-derivatives-avl", "gnc-autonomy/estimation-filtering/unscented-kalman-filter", "aerodynamics/wind-tunnel/windtunnel-data-reduction".
 # Corpus: 602 tasks (578 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 20 build.
+# P5.2 / Wave 21 (2026-09-01): fan-out continues to
+# 306 verified skills (318 SKILL.md under gate 1: 12 routers + 306
+# leaves). Wave-21 new leaves: "manufacturing-quality/ndt/acoustic-emission-inspection", "structures/fem/contact-analysis", "space-systems/mission-design/entry-descent-landing", "gnc-autonomy/estimation-filtering/extended-kalman-filter", "aerodynamics/aeroelasticity/flutter-speed-prediction", "cross-cutting/tolerancing/gdandt-basics", "vehicle-design/sizing/nacelle-sizing", "avionics/flight-management/performance-computation", "systems-engineering-safety/arp4761a/preliminary-system-safety-assessment", "flight-mechanics/stability-control/short-period-mode-analysis", "propulsion/rocket/solid-rocket-motor", "flight-test-operations/envelope/spin-testing".
+# Corpus: 626 tasks (602 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 21 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -2881,6 +2886,102 @@ tasks:
     query: "estimate the uncertainty of the measured drag coefficient from repeated wind tunnel runs"
     intent: "aerodynamics; measurement uncertainty from repeat runs"
     expected_skill: "aerodynamics/wind-tunnel/windtunnel-data-reduction"
+  - id: w21-acoustic-emission-inspection-1
+    query: "locate an acoustic emission source by planar triangulation from the sensor arrival times on a composite panel"
+    intent: "manufacturing-quality; planar AE source location from sensor arrival times"
+    expected_skill: "manufacturing-quality/ndt/acoustic-emission-inspection"
+  - id: w21-acoustic-emission-inspection-2
+    query: "evaluate the Kaiser effect and compute the Felicity ratio to judge whether damage is progressing during a pressure vessel reload test"
+    intent: "manufacturing-quality; Kaiser effect and Felicity ratio damage assessment for a reload cycle"
+    expected_skill: "manufacturing-quality/ndt/acoustic-emission-inspection"
+  - id: w21-contact-analysis-1
+    query: "compute the penalty contact force and penetration for a bolted joint FE model with a given contact stiffness"
+    intent: "structures; FEA penalty contact force and penetration check"
+    expected_skill: "structures/fem/contact-analysis"
+  - id: w21-contact-analysis-2
+    query: "determine whether a bolted joint interface is sticking or slipping using Coulomb friction from the normal contact force"
+    intent: "structures; Coulomb friction stick-slip state in FEA contact"
+    expected_skill: "structures/fem/contact-analysis"
+  - id: w21-entry-descent-landing-1
+    query: "estimate the peak deceleration g-load and stagnation point convective heat rate for a ballistic atmospheric entry at a given entry speed and flight path angle"
+    intent: "space-systems; ballistic entry corridor, deceleration g-load and Sutton-Graves heat rate"
+    expected_skill: "space-systems/mission-design/entry-descent-landing"
+  - id: w21-entry-descent-landing-2
+    query: "size the parachute descent for a lander: terminal velocity from the landed weight, canopy drag coefficient, reference area, and descent density at the deployment altitude"
+    intent: "space-systems; parachute descent terminal velocity and touchdown speed check"
+    expected_skill: "space-systems/mission-design/entry-descent-landing"
+  - id: w21-extended-kalman-filter-1
+    query: "estimate the state of a nonlinear system with an extended Kalman filter using Jacobian linearization of the dynamics and measurement models"
+    intent: "gnc-autonomy; nonlinear state estimation with EKF Jacobian linearization"
+    expected_skill: "gnc-autonomy/estimation-filtering/extended-kalman-filter"
+  - id: w21-extended-kalman-filter-2
+    query: "track a moving target from range and bearing measurements with an extended Kalman filter and report the innovation covariance and Kalman gain"
+    intent: "gnc-autonomy; EKF range/bearing tracking with innovation covariance"
+    expected_skill: "gnc-autonomy/estimation-filtering/extended-kalman-filter"
+  - id: w21-flutter-speed-prediction-1
+    query: "predict the flutter speed of a two-degree-of-freedom wing section using the V-g method"
+    intent: "aerodynamics; binary bending-torsion flutter speed via V-g damping crossing"
+    expected_skill: "aerodynamics/aeroelasticity/flutter-speed-prediction"
+  - id: w21-flutter-speed-prediction-2
+    query: "run a V-g flutter analysis on a two degree of freedom typical section wing model and find the flutter speed where the artificial structural damping crosses zero with Theodorsen unsteady aerodynamics"
+    intent: "aerodynamics; V-g flutter speed from damping crossing on a typical section"
+    expected_skill: "aerodynamics/aeroelasticity/flutter-speed-prediction"
+  - id: w21-gdandt-basics-1
+    query: "interpret a feature control frame with an MMC modifier and identify the tolerance zone, the tolerance category, and the datum reference frame"
+    intent: "cross-cutting; GD&T feature control frame interpretation and tolerance classification"
+    expected_skill: "cross-cutting/tolerancing/gdandt-basics"
+  - id: w21-gdandt-basics-2
+    query: "read a geometric dimensioning and tolerancing feature control frame, identify the tolerance zone category and material condition modifier, and compute the bonus tolerance when the feature departs from MMC"
+    intent: "cross-cutting; GD&T feature control frame interpretation and MMC bonus tolerance"
+    expected_skill: "cross-cutting/tolerancing/gdandt-basics"
+  - id: w21-nacelle-sizing-1
+    query: "size the nacelle highlight area for a turbofan given the fan face mass flow and Mach number"
+    intent: "vehicle-design; nacelle fan face and inlet highlight area from mass flow and Mach"
+    expected_skill: "vehicle-design/sizing/nacelle-sizing"
+  - id: w21-nacelle-sizing-2
+    query: "estimate the nacelle length, cowl thickness, wetted area and the friction, form and interference drag split for a high bypass turbofan nacelle"
+    intent: "vehicle-design; nacelle length and wetted area with drag bookkeeping"
+    expected_skill: "vehicle-design/sizing/nacelle-sizing"
+  - id: w21-performance-computation-1
+    query: "compute the ECON cruise Mach for a given cost index and fuel price"
+    intent: "avionics; FMS cost index and ECON cruise speed selection"
+    expected_skill: "avionics/flight-management/performance-computation"
+  - id: w21-performance-computation-2
+    query: "calculate the top of descent distance and step climb benefit for the FMS vertical profile"
+    intent: "avionics; VNAV top of descent and step-climb logic"
+    expected_skill: "avionics/flight-management/performance-computation"
+  - id: w21-preliminary-system-safety-assessment-1
+    query: "allocate the quantitative safety target across the system architecture in the PSSA to show the redundant channels meet the catastrophic failure condition probability"
+    intent: "systems engineering safety; PSSA quantitative target allocation across channels"
+    expected_skill: "systems-engineering-safety/arp4761a/preliminary-system-safety-assessment"
+  - id: w21-preliminary-system-safety-assessment-2
+    query: "derive the FDAL and IDAL for the system functions and items from the FHA failure condition severities during the preliminary system safety assessment"
+    intent: "systems engineering safety; PSSA FDAL/IDAL allocation from FHA severity"
+    expected_skill: "systems-engineering-safety/arp4761a/preliminary-system-safety-assessment"
+  - id: w21-short-period-mode-analysis-1
+    query: "compute the short-period natural frequency and damping ratio from the stability derivatives and check Level 1 flying qualities"
+    intent: "flight-mechanics; short-period mode natural frequency and damping from stability derivatives"
+    expected_skill: "flight-mechanics/stability-control/short-period-mode-analysis"
+  - id: w21-short-period-mode-analysis-2
+    query: "convert the dimensionless stability derivatives C_m_alpha, C_m_q and C_Z_alpha to dimensional form and assess the short period pitch oscillation damping"
+    intent: "flight-mechanics; dimensionless to dimensional derivative conversion and short period damping assessment"
+    expected_skill: "flight-mechanics/stability-control/short-period-mode-analysis"
+  - id: w21-solid-rocket-motor-1
+    query: "size a solid rocket motor grain and throat to hit a target chamber pressure of 10 MPa for an AP/HTPB propellant"
+    intent: "propulsion; solid rocket motor grain and throat sizing from burn rate equilibrium"
+    expected_skill: "propulsion/rocket/solid-rocket-motor"
+  - id: w21-solid-rocket-motor-2
+    query: "estimate the burn rate, mass flow, thrust, and total impulse of a solid propellant motor from its grain geometry and specific impulse"
+    intent: "propulsion; solid rocket motor ballistics from burn rate law and characteristic velocity"
+    expected_skill: "propulsion/rocket/solid-rocket-motor"
+  - id: w21-spin-testing-1
+    query: "plan a spin test point matrix across configurations, center of gravity, weight, and altitude and check the spin recovery criteria against the turn count and altitude loss limits"
+    intent: "flight-test-operations; spin test point matrix and recovery check"
+    expected_skill: "flight-test-operations/envelope/spin-testing"
+  - id: w21-spin-testing-2
+    query: "verify the FAR 25.201 spin resistance verdict with pro-spin controls held at the stall and decide whether the recovery parachute is required"
+    intent: "flight-test-operations; spin resistance and recovery parachute requirement"
+    expected_skill: "flight-test-operations/envelope/spin-testing"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

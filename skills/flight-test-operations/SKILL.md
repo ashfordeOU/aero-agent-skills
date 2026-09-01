@@ -62,6 +62,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/performance/climb-performance-flight-test | Climb performance flight test | rate of climb, climb gradient, pressure altitude change, temperature correction, weight correction |
 | flight-test-operations/stability/static-stability-flight-test | Static stability flight test | trim curve slope, elevator angle versus speed, stick fixed neutral point, static margin, elevator angle per g |
 | flight-test-operations/envelope/high-angle-of-attack-testing | High angle of attack testing | high angle of attack, post stall, deep stall, AoA calibration, position error correction, stall margin, departure resistance, spin entry, stall warning, flight test envelope |
+| flight-test-operations/envelope/spin-testing | Spin testing | spin testing, spin entry, spin recovery, recovery parachute, spin test point, spin resistance, FAR 25.201 |
 
 ## Routing guidance
 
@@ -107,6 +108,7 @@ flight test instrumentation, and campaign planning.
 - Climb performance flight test, measured rate of climb, pressure altitude change, and climb gradient correction questions route to the performance climb-performance-flight-test sub-skill.
 - Trim curve slope, elevator angle versus speed, stick-fixed neutral point, static margin, and elevator angle per g questions route to the stability static-stability-flight-test sub-skill.
 - High angle of attack flight test planning, AoA position error calibration, stall warning margin, and departure resistance assessment route to the envelope high-angle-of-attack-testing sub-skill.
+- Spin flight testing, spin entry and recovery procedure, recovery parachute requirements, spin test point matrix, and spin-resistance criteria route to the envelope spin-testing sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

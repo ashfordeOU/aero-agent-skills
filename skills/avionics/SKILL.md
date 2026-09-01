@@ -70,6 +70,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/data-bus/arinc664-afdx | ARINC 664 AFDX network | virtual link, BAG, frame size, jitter, end system, switched ethernet, latency |
 | avionics/ima/ima-partitioning | IMA partitioning | ARINC 653 partition, major frame, partition schedule, sampling port, queuing port, inter-partition communication, health monitoring |
 | avionics/ima/do297 | IMA architecture and acceptance | integrated modular avionics, DO-297, module acceptance, incremental certification, partition allocation, resource budget, CPU memory I/O, integrity requirements, IMA architecture, shared resources |
+| avionics/flight-management/performance-computation | Performance computation | FMS performance, cost index, ECON, cruise Mach, step climb, top of descent, fuel time trade, VNAV |
 
 ## Routing guidance
 
@@ -110,6 +111,7 @@ airworthiness certification (FAR-25/CS-25).
 - ARINC 664 AFDX virtual link bandwidth, BAG, jitter, end-to-end latency, and switched network configuration questions route to the data-bus arinc664-afdx sub-skill.
 - ARINC 653 partition scheduling, major frame feasibility, sampling and queuing ports, and IMA health monitoring questions route to the ima ima-partitioning sub-skill.
 - Integrated modular avionics architecture planning, partition allocation with resource budgets, and module acceptance criteria route to the ima do297 sub-skill.
+- FMS performance computation, cost index and ECON cruise speed, fuel-time trade, step-climb logic, and VNAV top-of-descent questions route to the flight-management performance-computation sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
