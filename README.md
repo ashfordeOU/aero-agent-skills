@@ -1,8 +1,5 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/logo-dark.svg">
-    <img src="docs/logo.svg" alt="AeroSkills — NACA 2412 roundel emblem" width="210">
-  </picture>
+  <img src="docs/logo-mark.png" alt="AeroSkills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="235">
 </p>
 
 <p align="center">
