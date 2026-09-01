@@ -48,6 +48,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do178c/planning | DO-178C planning | software level/DAL, PSAC, planning artifacts |
 | avionics/do178c/development | DO-178C development | requirement-to-code traceability, derived requirements |
 | avionics/do178c/verification | DO-178C verification | structural coverage, MC/DC, independence |
+| avionics/do178c/software-testing | DO-178C software testing | requirements-based test case generation, MC/DC test case count, coverage objectives per level |
 | avionics/do178c/configuration-management | DO-178C configuration management | baselines, problem reports, release gate |
 | avionics/do178c/tool-qualification | DO-330 tool qualification | TQL per tool criterion, tool credit, TOR |
 | avionics/do178c/airworthiness-liaison | DO-178C airworthiness liaison | certification basis coverage, SOI audits, open items |
@@ -68,6 +69,11 @@ airworthiness certification (FAR-25/CS-25).
 
 - Software certification questions (levels, PSAC, coverage, traceability,
   baselines) route to the DO-178C sub-skills.
+- Requirements-based test case generation and structural coverage
+  measurement questions (MC/DC test case count, coverage objectives per
+  level) route to the DO-178C software-testing sub-skill; verification
+  process questions (reviews, analyses, independence) stay with the
+  verification sub-skill.
 - Tool credit and qualification questions route to the DO-330 sub-skill.
 - Environmental test questions (temperature, vibration, EMC, lightning,
   RF immunity) route to the DO-160 sub-skills.
