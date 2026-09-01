@@ -2,8 +2,8 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 191 of 1,000+ target](https://img.shields.io/badge/skills-191%20of%201000%2B%20target-blue)](skills/)
-[![Standards: 16](https://img.shields.io/badge/standards-16-blue)](STANDARDS.md)
+[![Skills: 203 of 1,000+ target](https://img.shields.io/badge/skills-203%20of%201000%2B%20target-blue)](skills/)
+[![Standards: 19](https://img.shields.io/badge/standards-19-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
 
@@ -46,10 +46,10 @@ demand, no lock-in, works in any host that reads the format.
 Two things separate this library from a folder of prompts:
 
 - **Standards map.** Every skill carries standards frontmatter that
-  resolves against standards-map.yaml: the 15 domain standards
+  resolves against standards-map.yaml: the 18 domain standards
   DO-178C, DO-254, ARP4754A, ARP4761A, AS9100, DO-330, DO-160G,
-  AS9102, MMPDS, FAR-25, CS-25, FAR-33, ARINC 429, ECSS, and NACA
-  TR-824, plus SEP-2640
+  AS9102, MMPDS, FAR-25, CS-25, FAR-33, ARINC 429, NAS 410, ASME
+  Y14.5, ECSS, and NACA TR-824, plus SEP-2640
   as the delivery format (skills over MCP), separate from the domain
   list. Referenced and summarized, never copied.
 - **Eval gates.** make validate runs 5 REAL gates before anything
