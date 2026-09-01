@@ -2,7 +2,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-purple)](https://agentskills.io)
-[![Skills: 213 of 1,000+ target](https://img.shields.io/badge/skills-213%20of%201000%2B%20target-blue)](skills/)
+[![Skills: 225 of 1,000+ target](https://img.shields.io/badge/skills-225%20of%201000%2B%20target-blue)](skills/)
 [![Standards: 19](https://img.shields.io/badge/standards-19-blue)](STANDARDS.md)
 [![Gates: 5/5 REAL](https://img.shields.io/badge/gates-5%2F5%20REAL-green)](docs/harness-contract.md)
 [![Status: dev](https://img.shields.io/badge/status-dev-blue)](README.md)
@@ -352,7 +352,7 @@ vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-- Shipped: 213 verified skills across twelve disciplines with live packs
+- Shipped: 225 verified skills across twelve disciplines with live packs
   as of 2026-09-01. The certification spine (DO-178C planning,
   development, verification, and configuration management; DO-254
   hardware planning; ARP4754A systems planning; ARP4761A safety
