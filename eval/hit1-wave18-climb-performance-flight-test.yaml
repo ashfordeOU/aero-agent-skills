@@ -1,0 +1,18 @@
+# Hit@1 wave-18 fragment: climb-performance-flight-test (performance)
+# Two tasks per new leaf; q1 routes on the flight test measurement and
+# reduction angle (pressure altitude, timed climb segment, weight and
+# density corrections), q2 routes on the ceiling and gradient
+# determination angle (service ceiling, time to climb, climb gradient
+# check). Both must deterministically hit
+# flight-test-operations/performance/climb-performance-flight-test and
+# not the analytical flight-mechanics/performance/climb-performance
+# sibling or the neighboring flight-test-operations performance leaves.
+tasks:
+  - id: w18-climb-performance-flight-test-1
+    query: "reduce the steady climb flight test data to the corrected rate of climb in feet per minute from the pressure altitude change over the timed climb segment, corrected for weight and density altitude"
+    intent: "flight test; climb rate measurement and weight and density correction from timed climb segments"
+    expected_skill: "flight-test-operations/performance/climb-performance-flight-test"
+  - id: w18-climb-performance-flight-test-2
+    query: "determine the service ceiling and the time to climb from the best rate of climb schedule and check the climb gradient against the certification requirement for the climb flight test program"
+    intent: "flight test; service ceiling, time to climb, and climb gradient certification check"
+    expected_skill: "flight-test-operations/performance/climb-performance-flight-test"
