@@ -1,0 +1,14 @@
+# Hit@1 wave-22 fragment: part107-sora (flight-test-operations)
+# Two tasks per new leaf skill. Task 1 routes on Part 107 applicability
+# plus SORA category/GRC for a small drone. Task 2 routes on ARC from
+# airspace plus robustness and BVLOS waiver. Both must deterministically
+# hit flight-test-operations/uas/part107-sora.
+tasks:
+  - id: w22-part107-sora-1
+    query: "check part 107 applicability and sora ground risk class for my 2 kg drone over a sparsely populated area, is it open category"
+    intent: "flight-test-operations; Part 107 applicability screen and SORA category/GRC for a low-mass drone over sparse population"
+    expected_skill: "flight-test-operations/uas/part107-sora"
+  - id: w22-part107-sora-2
+    query: "compute the air risk class and robustness level with containment for a bvlos drone operation in class g airspace, what part 107 waiver applies"
+    intent: "flight-test-operations; ARC from airspace type, SORA robustness/containment and BVLOS waiver considerations for a drone operation"
+    expected_skill: "flight-test-operations/uas/part107-sora"
