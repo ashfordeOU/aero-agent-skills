@@ -26,13 +26,14 @@
   <a href="#quick-start">Quick start</a> ·
   <a href="#for-humans">For humans</a> ·
   <a href="#for-agents">For agents</a> ·
+  <a href="#compatibility">Compatibility</a> ·
   <a href="#the-standards-map">Standards map</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#roadmap">Roadmap</a> ·
   <a href="#faq">FAQ</a>
 </p>
 
-> **Note:** AeroSkills is currently a private development home, founder-gated for release. This README documents the release design. Skills follow the open [agentskills.io](https://agentskills.io) spec and install into **Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, and 70+ more** agents.
+> **Note:** AeroSkills is currently a private development home, founder-gated for release. This README documents the release design. Skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
 
 ---
 
@@ -189,6 +190,24 @@ contract test** that runs offline. `make validate` checks all of it.
 Gated standards never appear verbatim anywhere in this repository — the no-verbatim gate enforces it.
 
 ## For agents
+
+### Compatibility
+
+Skills are plain `SKILL.md` folders on the open agentskills.io spec — any host that reads the format can load them. Verified per-harness (sources + exact commands in [docs/harness-integration.md](docs/harness-integration.md)):
+
+| Harness | Skill root | Install |
+|---|---|---|
+| **Claude Code** | `~/.claude/skills/<name>/` or `.claude/skills/` | copy or symlink the skill folder; `claude plugin` for plugin packaging |
+| **OpenAI Codex** | `.agents/skills/<name>/` | copy or symlink; consumes the root `AGENTS.md` automatically |
+| **Gemini CLI** | `~/.gemini/skills/` or `.agents/skills/` | `gemini skills link <path>` |
+| **Cursor** | `.cursor/skills/` (recursive walk) | copy or symlink |
+| **OpenCode** | `.agents/skills/<name>/` | copy or symlink |
+| **DeepSeek (via harness)** | `.agents/skills/` (DeepSeek Harness / dsh) | `npx @deepseek-ai/dsh web`; or any SKILL.md harness with DeepSeek as model (Cline, Continue, Deep Code) |
+| **GitHub Copilot, Kimi, Cline/Roo, Continue** | `.agents/skills/` (cross-client convention) | any SKILL.md-capable agent with `.agents/skills/` support |
+| **Hermes, OpenClaw** | profile skills dirs | native SKILL.md consumption |
+| **Any agentskills.io host** | per-host root | copy the folder, done |
+
+The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills)) installs into 70+ of these automatically.
 
 ### How it works
 
