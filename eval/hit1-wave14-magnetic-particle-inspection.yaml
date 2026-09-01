@@ -1,0 +1,16 @@
+# Hit@1 wave-14 fragment: magnetic-particle-inspection (manufacturing-quality/ndt)
+# Two tasks per new leaf; mpi1 routes on the magnetization current,
+# ampere-turns, field strength, and coverage vocabulary, mpi2 is
+# adversarial against ndt-method-selection and the sibling NDT leaves
+# (method selection wording, ferromagnetic material, current) but must
+# Hit@1 magnetic-particle-inspection. Both must deterministically hit
+# manufacturing-quality/ndt/magnetic-particle-inspection.
+tasks:
+  - id: mpi1
+    query: "compute the magnetization-current for the circular-magnetization head-shot on the 2 inch diameter steel shaft, the ampere-turns for the longitudinal-magnetization encircling-coil from the effective ld-ratio, and verify the tangential field-strength against the 2400 to 4800 A per meter band and the 15 percent coverage-overlap between shots"
+    intent: "manufacturing quality; magnetic particle inspection magnetization current for circular and longitudinal magnetization with field strength and coverage verification"
+    expected_skill: "manufacturing-quality/ndt/magnetic-particle-inspection"
+  - id: mpi2
+    query: "before selecting the ndt method for the ferromagnetic steel part, compute the magnetic-particle-inspection circular-magnetization head-shot current for the longitudinal crack, classify the particle-sensitivity from the median particle size, and record the acceptance-verdict for the relevant magnetic-indication"
+    intent: "adversarial: method-selection and material wording (ndt method, ferromagnetic, steel, current) must route to magnetic-particle-inspection for the magnetization current, particle sensitivity, and indication acceptance decision"
+    expected_skill: "manufacturing-quality/ndt/magnetic-particle-inspection"

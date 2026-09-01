@@ -54,6 +54,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/statistical-process-control | Statistical process control | X-bar chart, R chart, control limits, Cp/Cpk, process capability, Western Electric rules |
 | manufacturing-quality/ndt/eddy-current-inspection | Eddy current inspection | eddy current, depth of penetration, impedance plane, frequency selection, conductivity, subsurface flaw |
 | manufacturing-quality/ndt/liquid-penetrant-inspection | Liquid penetrant inspection | penetrant testing, capillary rise, washburn penetration depth, dwell time, developer time, bleed-out, indication sizing |
+| manufacturing-quality/ndt/magnetic-particle-inspection | Magnetic particle inspection | magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance |
 
 ## Routing guidance
 
@@ -95,6 +96,7 @@ selection and ultrasonic inspection).
 - SPC, control chart, and process capability questions route to the AS9100 statistical-process-control sub-skill.
 - Eddy current, depth of penetration, and frequency-selection questions route to the ndt eddy-current-inspection sub-skill.
 - Liquid penetrant inspection questions (capillary action, washburn penetration, dwell time, developer time, bleed-out, indication sizing) route to the ndt liquid-penetrant-inspection sub-skill.
+- Magnetic particle inspection questions (magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance, residual field) route to the ndt magnetic-particle-inspection sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
