@@ -40,6 +40,7 @@ material selection.
 | structures/fem/calculix-linear | CalculiX linear FEM | static stress, margin of safety, unit discipline, von Mises |
 | structures/fem/calculix-nonlinear | CalculiX nonlinear FEM | Newton-Raphson, load stepping, convergence residual, state-dependent stiffness |
 | structures/fem/modal-analysis | Modal analysis | natural frequencies, mode shapes, resonance check |
+| structures/fem/truss-analysis | Truss analysis | direct stiffness method, element stiffness matrices, global assembly, nodal displacements, member forces, support reactions |
 | structures/damage-tolerance/residual-strength | Residual strength | fracture toughness, critical crack length, limit-load margin |
 | structures/damage-tolerance/crack-growth | Crack growth | fatigue crack propagation, Paris law, growth life, inspection intervals |
 | structures/damage-tolerance/widespread-fatigue-damage | Widespread fatigue damage | MSD screening, MED classification, supplemental inspection |
@@ -62,6 +63,10 @@ material selection.
   questions route to the fem calculix-nonlinear sub-skill.
 - Modal questions (natural frequencies, mode shapes, resonance) route
   to the fem modal-analysis sub-skill.
+- Truss questions (element stiffness matrices, global stiffness
+  assembly, nodal displacements by Gaussian elimination, member
+  forces, support reactions) route to the fem truss-analysis
+  sub-skill.
 - Damage-tolerance residual-strength questions (Kc, critical crack
   length, margin) route to the damage-tolerance residual-strength
   sub-skill.
