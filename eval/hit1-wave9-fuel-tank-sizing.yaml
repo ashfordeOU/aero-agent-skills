@@ -1,0 +1,14 @@
+# Hit@1 wave-9 fragment: fuel-tank-sizing (vehicle-design)
+# Two tasks per new leaf skill; fts1 routes on fuel mass to volume
+# conversion with density and ullage, fts2 routes on the usable fuel
+# volume versus available tank capacity fits verdict. Both must
+# deterministically hit vehicle-design/sizing/fuel-tank-sizing.
+tasks:
+  - id: fts1
+    query: "size the fuel-tank for the transport aircraft from the fuel-mass and the fuel-density and compute the required fuel-volume with the ullage allowance"
+    intent: "vehicle sizing; fuel mass to volume conversion with density and ullage allowance for the fuel tank"
+    expected_skill: "vehicle-design/sizing/fuel-tank-sizing"
+  - id: fts2
+    query: "check the usable-fuel volume against the available tank-capacity in the wing box and give the fits verdict for the fuel-tank-sizing"
+    intent: "vehicle sizing; usable fuel volume versus available tank capacity fits verdict"
+    expected_skill: "vehicle-design/sizing/fuel-tank-sizing"
