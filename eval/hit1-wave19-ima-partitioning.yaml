@@ -1,0 +1,14 @@
+# Hit@1 wave-19 fragment: ima-partitioning (avionics)
+# Two tasks per new leaf skill; imp1 routes on partition schedule feasibility
+# (frame load within the major frame, period slots), imp2 routes on
+# inter-partition communication (sampling port period, message size, latency).
+# Both must deterministically hit avionics/ima/ima-partitioning.
+tasks:
+  - id: w19-ima-partitioning-1
+    query: "check the feasibility of the arinc 653 partition schedule by summing the partition durations within the major frame and verifying each partition gets its period slot"
+    intent: "avionics; ARINC 653 partition schedule feasibility within the major frame"
+    expected_skill: "avionics/ima/ima-partitioning"
+  - id: w19-ima-partitioning-2
+    query: "configure the inter-partition communication sampling port with its period and message size and estimate the port latency"
+    intent: "avionics; inter-partition sampling port configuration and latency"
+    expected_skill: "avionics/ima/ima-partitioning"
