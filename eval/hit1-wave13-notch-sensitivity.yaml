@@ -1,0 +1,15 @@
+# Hit@1 wave-13 fragment: notch-sensitivity (structures/fatigue)
+# Two tasks per new leaf; nsc1 routes on the fatigue notch factor from
+# the Peterson method with the stress concentration factor and notch
+# root radius, nsc2 routes on the Neuber fatigue notch factor and the
+# effective stress amplitude for an endurance check with wording that
+# could route to goodman-diagram but must top-1 to notch-sensitivity.
+tasks:
+  - id: nsc1
+    query: "compute the fatigue notch factor with the peterson method for the plate with the circular hole using the stress concentration factor and the notch root radius"
+    intent: "structures; fatigue notch factor Kf by Peterson from Kt and the notch root radius"
+    expected_skill: "structures/fatigue/notch-sensitivity"
+  - id: nsc2
+    query: "estimate the fatigue strength reduction of the lug hole by computing the fatigue notch factor with the neuber method from the stress concentration factor and the effective stress amplitude for the endurance check"
+    intent: "structures; Neuber fatigue notch factor and effective stress amplitude feeding an endurance check"
+    expected_skill: "structures/fatigue/notch-sensitivity"
