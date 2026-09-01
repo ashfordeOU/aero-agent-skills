@@ -12,7 +12,10 @@ Scope (documented in ops/automation/TEST.md):
 - Checked: star counts (N★ / Nk★ / "N stars" / "Nk stars"), fork counts
   ("N forks" / "Nk forks"), skill counts ("N skills" — only when a repo alias
   is on the line, value >= 10), the first numeric cell after a repo alias in a
-  pipe-table row (star column, pure-number cell only), and derived claims
+  pipe-table row (star column, pure-number cell only; alias must be
+  cell-dominant: cell is owner/repo or alias == cell after markdown
+  stripping, so comma-separated skill-name lists are never repo cells),
+  and derived claims
   (total/largest phrases with the number following the phrase).
 - Excluded: ranges (N–M / N→M, self-consistent), floors (N+), 4-digit years,
   dates, identifier-embedded numbers (SEP-2640, v1.1.0), bare prose numbers
@@ -225,6 +228,21 @@ def unique_match(reg, found, field="stars"):
     return matches
 
 
+def alias_dominates_cell(alias, cell_lower):
+    """True when the alias is cell-dominant: it equals the cell's whole content
+    (after markdown stripping) or is the repo-name part of an owner/repo path.
+    A comma-separated list (e.g. docs/DOMAINS.md backtick-quoted skill names) is
+    never a repo cell even when an alias appears inside one of its items."""
+    if "," in cell_lower:
+        return False
+    plain = cell_lower.strip().strip("`*~≈ ").strip()
+    if plain == alias:
+        return True
+    if "/" in plain:
+        return plain.rsplit("/", 1)[-1] == alias
+    return False
+
+
 def scan_file(reg, aliases, measurements, filepath, out):
     try:
         with open(filepath, "r", encoding="utf-8", errors="replace") as fh:
@@ -240,12 +258,20 @@ def scan_file(reg, aliases, measurements, filepath, out):
         hits = find_aliases(line_lower, aliases)
         is_table = line.lstrip().startswith("|")
 
-        # table rows: first PURE-numeric cell after an alias cell = star column
+        # table rows: first PURE-numeric cell after a cell-dominant alias cell
+        # = star column (alias must BE the cell, not a substring of a list item)
         if is_table and hits:
             cells = [c.strip() for c in line.split("|")]
             for idx, cell in enumerate(cells):
                 cell_lower = cell.lower()
                 hit_here = [h for h in hits if h[1] in cell_lower]
+                if not hit_here:
+                    continue
+                # cell-dominant only: alias must BE the cell (owner/repo path or
+                # alias == cell after markdown stripping). An alias substring
+                # inside a comma-separated skill-name list (docs/DOMAINS.md
+                # inventory rows) is not a repo cell; see N49/N50 fixtures.
+                hit_here = [h for h in hit_here if alias_dominates_cell(h[1], cell_lower)]
                 if not hit_here:
                     continue
                 # most specific alias in this cell wins (e.g. ai4space over LunCoSim)

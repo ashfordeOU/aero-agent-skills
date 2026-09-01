@@ -33,7 +33,10 @@ Excluded (EXCLUDED_DIRS in number_audit.py):
 
 Checked patterns: `N★` / `Nk★` / `N stars` / `Nk stars`, `N forks` / `Nk forks`,
 `N skills` (with a repo alias on the line), the first pure-numeric cell after a
-repo alias in a pipe-table row, and derived claims (total/largest phrases) —
+cell-dominant repo alias in a pipe-table row (alias == cell after markdown
+stripping, or owner/repo path; a comma-separated skill-name list such as
+docs/DOMAINS.md inventory rows is never a repo cell), and derived claims
+(total/largest phrases) —
 position-aware: the number must sit NEAR the phrase (≤40 chars before, ≤60
 after), so a `Total ≈ 228★ (31 repos)` summary line is never read as a
 largest-repo claim. Excluded: ranges (`N–M`), floors (`N+`), 4-digit years,
@@ -56,6 +59,8 @@ ambiguous, forcing the doc to name the repo).
 | N2 | snapshot offline without snapshot (never silent drift) | exit 1 | 1 |
 | N3 | brief-audit flags stale K-Dense 38.0k (fixture) | exit 1 | 1 |
 | N5 | brief-audit still flags largest-repo drift 19 vs 22 (fixture, post-tuning) | exit 1 | 1 |
+| N49 | brief-audit ignores skill-inventory table rows (alias 'dymos' inside backtick-quoted 'dymos-trajectory'; trailing 2 is a pack count, not a star claim) | exit 0 | 0 |
+| N50 | brief-audit still flags stale market table (OpenMDAO/dymos 2 vs 296; cell-dominant rule keeps the honest check) | exit 1 | 1 |
 | N4 | content-policy-sweep flags "ITAR-compliant" (fixture) | exit 1 | 1 |
 | S.no-license | spec-lint flags missing license (fixture) | exit 1 | 1 |
 | S.bad-license | spec-lint flags license != Apache-2.0 (fixture) | exit 1 | 1 |
@@ -87,6 +92,10 @@ ambiguous, forcing the doc to name the repo).
 
 Fixtures: `test/fixture-tracked-wrong.yaml`, `test/fixture-brief-stale.md`,
 `test/fixture-derived-stale.md`, `test/fixture-derived-summary.md`,
+`test/fixture-table-skill-inventory.md` (docs/DOMAINS.md-style inventory
+row: alias inside a comma-separated skill-name list must not trip),
+`test/fixture-table-market-stale.md` (real market table with a stale star
+value must still trip),
 `test/fixture-policy-bad.md`, `test/fixture-spec-{no-license,bad-license,
 bad-compliance,standards-unknown,gated-mismatch,gated-nonbool,no-metadata,
 empty-standards}.md`, `test/fixture-stale-numbers/`,
