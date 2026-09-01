@@ -261,7 +261,7 @@ Total skills rated: 278
 | 253 | systems-engineering-safety/mbse/systems-engineering | PASS | ✓ | arp4754a | systems-engineering-safety | 9.6 | PASS |
 | 254 | systems-engineering-safety/mbse/trade-study-analysis | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
 | 255 | systems-engineering-safety/requirements/requirements-elicitation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
-| 256 | vehicle-design/conceptual/constraint-analysis | PASS | — | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 256 | vehicle-design/conceptual/constraint-analysis | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 257 | vehicle-design/conceptual/payload-range-diagram | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 258 | vehicle-design/conceptual/tow-estimation | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
 | 259 | vehicle-design/cost-estimation/life-cycle-cost | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
