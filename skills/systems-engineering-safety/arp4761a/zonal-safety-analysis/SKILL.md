@@ -69,7 +69,7 @@ ZSA report that rolls the findings up for the safety assessment.
 ## Pitfalls
 
 - Confusing ZSA with the ARP4761A safety-assessment skill: severity
-  here is classified per physical zone content and external threats,
+  here is categorized per physical zone content and external threats,
   not per failure condition in the FHA/PSSA/SSA sequence.
 - Confusing ZSA with the whole common-cause-analysis skill: CCA
   covers ZSA, PRA, and CMA; a zonal pass list alone is not a
