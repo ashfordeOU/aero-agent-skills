@@ -50,28 +50,36 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do178c/verification | DO-178C verification | structural coverage, MC/DC, independence |
 | avionics/do178c/configuration-management | DO-178C configuration management | baselines, problem reports, release gate |
 | avionics/do178c/tool-qualification | DO-330 tool qualification | TQL per tool criterion, tool credit, TOR |
+| avionics/do178c/airworthiness-liaison | DO-178C airworthiness liaison | certification basis coverage, SOI audits, open items |
 | avionics/do160/environmental-qualification | DO-160 environmental qualification | test matrix per equipment category, temperature/vibration/EMC |
+| avionics/do160/lightning-protection | DO-160 lightning protection | section 22 induced transients, lightning protection zones |
+| avionics/do160/radio-frequency-susceptibility | DO-160 RF susceptibility | RS103 radiated immunity, CS114 conducted immunity, field strength |
 | avionics/do254/hardware-planning | DO-254 hardware planning | simple vs complex AEH, PHAC |
-| avionics/do254/verification |
-| avionics/do254/configuration-management | DO-254 configuration management | baselines, ECR/ECO, change class, hardware configuration index | DO-254 verification | verification methods per AEH class, independence, coverage |
-| avionics/far-cs25/airworthiness |
+| avionics/do254/verification | DO-254 verification | verification methods per AEH class, independence, coverage |
+| avionics/do254/configuration-management | DO-254 configuration management | baselines, ECR/ECO, change class, hardware configuration index |
+| avionics/do254/requirements-capture | DO-254 requirements capture | requirement characteristics, derived requirements, trace links |
+| avionics/far-cs25/airworthiness | FAR-25/CS-25 airworthiness | certification basis, means of compliance, 25.1309 |
+| avionics/far-cs25/special-conditions | FAR-25/CS-25 special conditions | novel design features, FAR 25.17, special-condition scope |
+| avionics/flight-management/flight-planning | FMS flight planning | great-circle track distance, waypoints, leg geometry |
 | avionics/flight-management/vertical-navigation | FMS vertical navigation | top of descent, descent gradient, altitude constraints, VNAV path |
-| avionics/far-cs25/special-conditions | FAR-25/CS-25 special conditions | novel design features, FAR 25.17, special-condition scope, means of compliance | FAR-25/CS-25 airworthiness | certification basis, means of compliance, 25.1309 |
 
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
   baselines) route to the DO-178C sub-skills.
 - Tool credit and qualification questions route to the DO-330 sub-skill.
-- Environmental test questions (temperature, vibration, EMC, lightning)
-  route to the DO-160 sub-skill.
-- Hardware assurance questions (AEH classification, PHAC, verification)
-- Hardware configuration and change-control questions (baselines, ECR/ECO, HCI) route to the do254 configuration-management sub-skill.
-  route to the DO-254 sub-skills.
+- Environmental test questions (temperature, vibration, EMC, lightning,
+  RF immunity) route to the DO-160 sub-skills.
+- Hardware assurance questions (AEH classification, PHAC, verification,
+  requirements capture) route to the DO-254 sub-skills.
+- Hardware configuration and change-control questions (baselines,
+  ECR/ECO, HCI) route to the DO-254 configuration-management sub-skill.
 - Type-certification basis questions (FAR-25 vs CS-25, 25.1309) route to
-- FMS vertical profile questions (TOD, gradients, VNAV constraints) route to the flight-management vertical-navigation sub-skill.
-- Novel-feature questions (special conditions, FAR 25.17, equivalent safety) route to the far-cs25 special-conditions sub-skill.
-  the far-cs25 sub-skill.
+  the far-cs25 airworthiness sub-skill.
+- Novel-feature questions (special conditions, FAR 25.17, equivalent
+  safety) route to the far-cs25 special-conditions sub-skill.
+- FMS route questions (waypoints, leg geometry, TOD, VNAV constraints)
+  route to the flight-management sub-skills.
 - System-level engineering and safety questions route to the
   systems-engineering-safety pack instead.
 
