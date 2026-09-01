@@ -58,7 +58,7 @@ material selection.
 | structures/materials/material-selection | Material selection | material families, stiffness/weight and strength/weight indices, cost, corrosion, temperature limits |
 | structures/materials/ramberg-osgood | Ramberg-Osgood stress-strain | Ramberg-Osgood, elastic-plastic stress-strain, plastic strain, secant modulus, tangent modulus, stress from strain |
 | structures/materials/fracture-toughness | Fracture toughness | K_IC plane strain fracture toughness, stress intensity factor, critical crack size, geometry factor, plane strain validity |
-
+| structures/damage-tolerance/bird-strike | Bird strike | impact energy, soft body impact, leading edge, FAR 25.631, residual strength |
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
@@ -111,7 +111,7 @@ material selection.
   fracture-toughness sub-skill.
 - Airframe loads and certification questions route to the avionics
   far-cs25 sub-skill.
-
+- Bird strike impact energy, soft body impact, leading edge resistance, and FAR 25.631 compliance questions route to the damage-tolerance bird-strike sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

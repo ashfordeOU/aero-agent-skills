@@ -58,8 +58,8 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/magnetic-particle-inspection | Magnetic particle inspection | magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance |
 | manufacturing-quality/ndt/visual-inspection | Visual inspection | aperture ratio, magnification, lighting requirements, surface indication acceptance, borescope, field of view, working distance |
 | manufacturing-quality/special-processes/special-process-qualification | Special process qualification | special process, process qualification record, requalification trigger, parameter change, equipment change, NADCAP, process variables |
-
-## Routing guidance
+| manufacturing-quality/ndt/thermography | Infrared thermography | flash thermography, thermal contrast, disbond, delamination, lock-in, inspection parameters |
+| manufacturing-quality/as9100/measurement-systems-analysis | Measurement systems analysis | gage R and R, repeatability, reproducibility, percent GRR, distinct categories |## Routing guidance
 
 - Quality management questions (audits, clause scope, evidence,
   corrective action) route to the AS9100 sub-skill.
@@ -103,6 +103,8 @@ selection and ultrasonic inspection).
 - Magnetic particle inspection questions (magnetization current, circular and longitudinal magnetization, field strength band, coverage overlap, particle sensitivity, indication acceptance, residual field) route to the ndt magnetic-particle-inspection sub-skill.
 - Visual inspection questions (aperture ratio, magnification, lighting requirements, surface indication acceptance, borescope field of view, working distance) route to the ndt visual-inspection sub-skill.
 - Special process qualification, process qualification records, requalification triggers (parameter, equipment, personnel, interval change), and NADCAP evidence questions route to the special-processes special-process-qualification sub-skill.
+- Flash thermography, thermal contrast, disbond and delamination detection, and lock-in questions route to the ndt thermography sub-skill.
+- Gage R and R, repeatability, reproducibility, percent GRR, and distinct category questions route to the AS9100 measurement-systems-analysis sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

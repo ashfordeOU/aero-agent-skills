@@ -66,7 +66,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/flight-management/flight-planning | FMS flight planning | great-circle track distance, waypoints, leg geometry |
 | avionics/flight-management/vertical-navigation | FMS vertical navigation | top of descent, descent gradient, altitude constraints, VNAV path |
 | avionics/data-bus/arinc429-protocol | ARINC 429 protocol | ARINC 429 word format, octal label, SDI, BNR, BCD, SSM, odd parity, 12.5 or 100 kbps, transmitter receiver topology |
-
+| avionics/data-bus/mil-std-1553 | MIL-STD-1553 data bus | command word, remote terminal, bus controller, Manchester II, dual redundant bus, message format |
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
@@ -102,7 +102,7 @@ airworthiness certification (FAR-25/CS-25).
   arinc429-protocol sub-skill.
 - System-level engineering and safety questions route to the
   systems-engineering-safety pack instead.
-
+- MIL-STD-1553 command word encoding, remote terminal and bus controller architecture, Manchester II, and dual redundant bus questions route to the data-bus mil-std-1553 sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
