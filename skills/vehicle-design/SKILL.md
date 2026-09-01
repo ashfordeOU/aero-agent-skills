@@ -1,6 +1,6 @@
 ---
 name: vehicle-design
-description: "Use when a task concerns aircraft or vehicle conceptual design and sizing: guide the router to the vehicle-design pack. tow-estimation covers takeoff gross weight, weight-estimation class-I weights, payload-range-diagram the Breguet payload-range trade, fuselage-sizing cabin layout, tail-sizing tail volume coefficients, landing-gear-sizing strut loads, ws-tw-trade wing loading and thrust-to-weight, fuel-tank-sizing fuel volume and ullage, inertia-estimation moments of inertia, cg-envelope static margin, mass-budget mass rollup and growth allowance, wing-box-sizing spar sizing, parametric-cost CERs, operating-cost DOC, life-cycle-cost LCC and learning curves. Trigger: vehicle design, aircraft design, sizing, weight estimation, takeoff gross weight, payload range, fuselage, tail volume, landing gear, strut loads, wing loading, thrust to weight, fuel tank, cg envelope, static margin, mass budget, growth allowance, wing box, spar, shear flow, parametric cost, direct operating cost, life cycle cost, LCC."
+description: "Use when a task concerns aircraft or vehicle conceptual design and sizing: guide the router to the vehicle-design pack: tow-estimation takeoff gross weight, weight-estimation class-I weights, payload-range-diagram payload-range trade, fuselage-sizing cabin layout, tail-sizing tail volume coefficients, landing-gear-sizing strut loads, ws-tw-trade wing loading and thrust-to-weight, fuel-tank-sizing fuel volume and ullage, inertia-estimation moments of inertia, cg-envelope static margin, mass-budget mass rollup and growth allowance, wing-box-sizing spar sizing, fuselage-skin-stringer panel sizing, parametric-cost CERs, operating-cost DOC, life-cycle-cost LCC and learning curves. Trigger: vehicle design, sizing, weight estimation, takeoff gross weight, payload range, fuselage, tail volume, landing gear, strut loads, wing loading, thrust to weight, fuel tank, cg envelope, static margin, mass budget, growth allowance, wing box, spar, skin stringer, parametric cost, direct operating cost, life cycle cost, LCC."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -52,7 +52,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/cost-estimation/operating-cost | Operating cost | direct operating cost, block fuel cost, crew cost, maintenance cost, insurance, cost per flight hour |
 | vehicle-design/cost-estimation/life-cycle-cost | Life cycle cost | LCC phases, power-law CERs, learning curve Nth unit, present value, inflation, uncertainty |
 | vehicle-design/structures-integration/wing-box-sizing | Wing box sizing | root bending moment, spar cap area, shear flow, ultimate load, factor of safety |
-| vehicle-design/structures-integration/wing-box-sizing | Wing box sizing | root bending moment, spar cap area, shear flow, ultimate load, factor of safety |
+| vehicle-design/structures-integration/fuselage-skin-stringer | Fuselage skin-stringer panel | skin thickness, hoop and longitudinal stress, stringer spacing, frame pitch, panel buckling |
 
 ## Routing guidance
 
@@ -90,7 +90,7 @@ aerodynamic, structural, and performance disciplines together.
   domain packs (aerodynamics, structures, avionics).
 
 - Wing box, spar, shear web, and root bending moment sizing questions route to the structures-integration wing-box-sizing sub-skill.
-- Wing box, spar, shear web, and root bending moment sizing questions route to the structures-integration wing-box-sizing sub-skill.
+- Fuselage skin thickness, stringer spacing, and frame pitch questions route to the structures-integration fuselage-skin-stringer sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

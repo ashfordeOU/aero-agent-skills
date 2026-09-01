@@ -1,6 +1,6 @@
 ---
 name: systems-engineering-safety
-description: "Use when a task concerns aircraft or system-level engineering and safety assurance: guide the router to the systems-engineering-safety pack, covering ARP4754A systems-planning, requirements-traceability, requirements-allocation, and validation, ARP4761A safety-assessment, ftA-fmea, common-cause-analysis, particular-risk-analysis, operating-support-hazard-analysis, and markov-analysis, and MBSE systems-engineering, sysml-modeling, state-machine, and trade-study-analysis. This pack is the systems-level spine above item-level software and hardware assurance. Trigger: systems engineering, systems safety, ARP4754A, ARP4761A, safety assessment, fault tree, FMEA, common cause, particular risk, rotor burst, traceability, validation, allocation, O&SHA, state machine, reachability, MBSE, SysML, FDAL, IDAL, FHA, PSSA, SSA, trade study, Pugh matrix, Markov analysis, availability, MTTF."
+description: "Use when a task concerns aircraft or system-level engineering and safety assurance: guide the router to the systems-engineering-safety pack, covering ARP4754A systems-planning, requirements-traceability, requirements-allocation, verification-planning, and validation, ARP4761A safety-assessment, fta-fmea, common-cause-analysis, particular-risk-analysis, operating-support-hazard-analysis, and markov-analysis, and MBSE systems-engineering, sysml-modeling, state-machine, n2-diagram, and trade-study-analysis. This pack is the systems-level spine above item-level software and hardware assurance. Trigger: systems engineering, systems safety, ARP4754A, ARP4761A, safety assessment, fault tree, FMEA, common cause, particular risk, rotor burst, traceability, validation, allocation, verification planning, O&SHA, state machine, reachability, MBSE, SysML, N2 diagram, interface matrix, FDAL, IDAL, FHA, PSSA, SSA, trade study, Pugh matrix, Markov analysis, availability, MTTF."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -50,7 +50,8 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/mbse/state-machine | State machine modeling | SysML state machines, states, transitions, guards, events, reachability, firing trace |
 | systems-engineering-safety/mbse/trade-study-analysis | Trade study analysis | trade study, decision criteria, weighted scoring, Pugh matrix, sensitivity analysis, alternative selection |
 | systems-engineering-safety/arp4761a/markov-analysis | Markov analysis | Markov chain, state probability, transition rate, failure rate, repair rate, availability, MTTF, k-out-of-n |
-| systems-engineering-safety/arp4761a/markov-analysis | Markov analysis | Markov chain, state probability, transition rate, failure rate, repair rate, availability, MTTF, k-out-of-n |
+| systems-engineering-safety/arp4754a/verification-planning | ARP4754A verification planning | verification methods, test/analysis/demonstration/inspection, verification coverage, derived requirements |
+| systems-engineering-safety/mbse/n2-diagram | N2 interface diagram | N2 diagram, interface matrix, data links, interface count, missing interfaces |
 
 ## Routing guidance
 
@@ -84,7 +85,8 @@ model-based systems engineering (SysML, digital thread).
 - Item-level software or hardware questions route to the avionics pack.
 
 - Markov chain, availability, MTTF, and transition rate questions route to the ARP4761A markov-analysis sub-skill.
-- Markov chain, availability, MTTF, and transition rate questions route to the ARP4761A markov-analysis sub-skill.
+- Verification method, verification coverage, and derived-requirement verification questions route to the ARP4754A verification-planning sub-skill.
+- N2 diagram and interface matrix questions route to the MBSE n2-diagram sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

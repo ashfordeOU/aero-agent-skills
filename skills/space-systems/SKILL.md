@@ -1,6 +1,6 @@
 ---
 name: space-systems
-description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS software-engineering covers criticality, software-verification verification depth, systems-engineering lifecycle gates, power-thermal-budget EPS and battery sizing, communication-link-budget link margin, thermal-design radiator sizing, command-data-handling telemetry and downlink, sun-pointing sun vector geometry, star-tracker star identification, attitude-control-sizing reaction wheels, magnetorquer-control B-dot detumbling, sun-synchronous-inclination J2 nodal regression, keplerian-elements orbital elements, and eclipse-time eclipse duration and shadow fraction. Trigger: space systems, spacecraft, ECSS, power budget, battery, EPS, link budget, thermal, telemetry, downlink, sun pointing, star tracker, attitude control, magnetorquer, detumble, sun synchronous, inclination, keplerian, orbital elements, RAAN, eclipse time, earth shadow, beta angle."
+description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack. ECSS software-engineering criticality, software-verification verification depth, systems-engineering lifecycle gates, power-thermal-budget EPS and battery sizing, communication-link-budget link margin, thermal-design radiator sizing, command-data-handling telemetry, sun-pointing sun vector geometry, star-tracker star identification, attitude-control-sizing reaction wheels, attitude-determination-triad TRIAD, magnetorquer-control B-dot detumbling, sun-synchronous-inclination J2 nodal regression, keplerian-elements orbital elements, ground-track-repeat repeat ground track, eclipse-time duration and shadow fraction. Trigger: space systems, ECSS, power budget, battery, link budget, thermal, telemetry, sun pointing, star tracker, attitude control, TRIAD, attitude determination, magnetorquer, sun synchronous, inclination, orbital elements, ground track, eclipse time, beta angle."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -50,7 +50,8 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/sun-synchronous-inclination | Sun-synchronous inclination | J2 nodal regression, retrograde inclination, local time of ascending node |
 | space-systems/orbit-mechanics/keplerian-elements | Keplerian orbital elements | rv2coe state-vector conversion, semimajor axis, eccentricity, inclination, RAAN, argument of periapsis, true anomaly, orbital period, periapsis/apoapsis |
 | space-systems/orbit-mechanics/eclipse-time | Eclipse time | earth shadow, beta angle, shadow fraction, eclipse duration, daylight fraction |
-| space-systems/orbit-mechanics/eclipse-time | Eclipse time | earth shadow, beta angle, shadow fraction, eclipse duration, daylight fraction |
+| space-systems/adcs/attitude-determination-triad | TRIAD attitude determination | TRIAD algorithm, attitude matrix, vector observations, body and reference vectors |
+| space-systems/orbit-mechanics/ground-track-repeat | Ground track repeat | repeat ground track, nodal precession, orbital period, integer revolutions per day |
 
 ## Routing guidance
 
@@ -83,7 +84,8 @@ selection, and classical orbital element determination.
   packs (gnc-autonomy, propulsion, structures).
 
 - Eclipse duration, earth shadow, beta angle, and shadow fraction questions route to the orbit-mechanics eclipse-time sub-skill.
-- Eclipse duration, earth shadow, beta angle, and shadow fraction questions route to the orbit-mechanics eclipse-time sub-skill.
+- TRIAD, attitude-matrix, and vector-observation questions route to the adcs attitude-determination-triad sub-skill.
+- Repeat ground track and integer-revolutions-per-day questions route to the orbit-mechanics ground-track-repeat sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
