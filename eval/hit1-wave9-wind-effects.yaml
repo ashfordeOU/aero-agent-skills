@@ -1,0 +1,15 @@
+# Hit@1 wave-9 fragment: wind-effects (flight-mechanics)
+# Two tasks per new leaf skill; we1 routes on wind-component
+# terminology (headwind, crosswind, runway track), we2 routes on
+# the wider enroute phrasing (wind correction angle, groundspeed,
+# crosswind leg). Both must deterministically hit
+# flight-mechanics/performance/wind-effects.
+tasks:
+  - id: we1
+    query: "compute the headwind and crosswind components of the wind along the runway track for the takeoff wind check"
+    intent: "flight mechanics; headwind and crosswind components along the runway track"
+    expected_skill: "flight-mechanics/performance/wind-effects"
+  - id: we2
+    query: "determine the wind correction angle and the groundspeed for the enroute leg with the crosswind component"
+    intent: "flight mechanics; wind correction angle and groundspeed on the crosswind enroute leg"
+    expected_skill: "flight-mechanics/performance/wind-effects"
