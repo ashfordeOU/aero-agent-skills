@@ -312,3 +312,4 @@ Total skills rated: 306
 | 304 | vehicle-design/sizing/ws-tw-trade | PASS | ✓ | far-25 | vehicle-design | 9.6 | PASS |
 | 305 | vehicle-design/structures-integration/fuselage-skin-stringer | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 306 | vehicle-design/structures-integration/wing-box-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 307 | propulsion/electric/hall-thruster | PASS | ✓ | ecss-e-st-35-03 | propulsion | 9.5 | PASS |
