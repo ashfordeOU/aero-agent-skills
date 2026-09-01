@@ -33,7 +33,13 @@ sequential fallback on 429/402; cap 3-4 concurrent subagents).
    the leaf does NOT achieve >= 9.5 (or its gates fail), REBUILD IT IN
    THE SAME TURN — fix, re-gate, re-rate; after 2 attempts delete the
    WIP dir and note it. A leaf is not done until it is rated in the
-   ledger.** → COMMIT ITS OWN LEAF IMMEDIATELY (7-rule commit, subject
+   ledger.** **COVERAGE IS PART OF THE GATE (founder mandate): a leaf
+   is not done until its corpus tasks are MERGED into
+   eval/hit1-corpus.yaml (2 tasks per leaf, expected_skill set) — a
+   leaf with no Hit@1 task passes gate 5 vacuously and is NOT
+   verified. Run the wave corpus-merge BEFORE your final make validate
+   so the tree can only go green with full coverage.** → COMMIT ITS
+   OWN LEAF IMMEDIATELY (7-rule commit, subject
    ≤50 chars, imperative, no period, body WHAT+WHY) INCLUDING its
    ratings-ledger row. Do NOT wait for other subagents. Do NOT touch
    other leaves. On 429 mid-build: retry once after 60s; if still 429,
@@ -50,7 +56,9 @@ sequential fallback on 429/402; cap 3-4 concurrent subagents).
    N42 exempts live wave-15 vocabulary); update stale-number-guard.sh
    pattern set if needed.
 6. **Gates FRESH** (replay every one, do not trust prior runs):
-   make validate → 5/5 PASS (all tasks Hit@1 deterministic offline);
+   make validate → 5/5 PASS (all tasks Hit@1 deterministic offline;
+   **coverage enforced: every leaf must have >=1 corpus task — a leaf
+   with none fails the gate, not passes vacuously**);
    make attest → 3/3 PASS; bash ops/automation/test/run-tests.sh →
    ALL TESTS PASS (incl N41/N42); python3
    ops/automation/state/wave7-emdash-live.py → em dashes: 0;
