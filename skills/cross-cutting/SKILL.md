@@ -56,6 +56,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/finite-difference-derivatives | Finite difference derivatives | forward/backward/central difference, step size, second derivative, tabulated data |
 | cross-cutting/numerics/monte-carlo-sampling | Monte Carlo sampling | seeded draws, sample mean and standard deviation, percentile confidence interval, histogram |
 | cross-cutting/numerics/interpolation | Table interpolation | linear interpolation, piecewise linear, natural cubic spline, table lookup, tabulated data points, extrapolation |
+| cross-cutting/numerics/ode-solvers | ODE solvers | explicit Euler, Heun RK2, classical RK4, initial value problem, step size convergence, closed-form comparison |
 | cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
 | cross-cutting/tolerancing/position-tolerance-calc | GD&T position tolerance | true position, tolerance zone diameter, MMC bonus tolerance, virtual condition, hole and pin |
 
@@ -96,6 +97,9 @@ integration) for engineering calculations.
   piecewise linear, natural cubic spline, tabulated data points,
   extrapolation beyond the table ends) route to the numerics
   interpolation sub-skill.
+- Initial-value problem and differential-equation questions (explicit
+  Euler, Heun RK2, classical RK4, step size convergence, error against
+  a closed-form solution) route to the numerics ode-solvers sub-skill.
 - Aerospace engineering questions route to their domain pack
   (avionics, space-systems, systems-engineering-safety,
   manufacturing-quality).
