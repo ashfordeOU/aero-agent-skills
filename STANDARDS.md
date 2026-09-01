@@ -45,6 +45,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | nas-410 | NAS 410: NAS Certification and Qualification of Nondestructive Test Personnel | quality | AIA (Aerospace Industries Association) | proprietary-sold | NDT personnel qualification; aerospace inspection; manufacturing and MRO | yes |
 | naca-tn-902 | NACA TN 902: Description of Stress-Strain Curves by Three Parameters (Ramberg, Osgood) | reference-data | NACA (US Government; NASA predecessor) | public-domain | metallic materials; elastic-plastic stress-strain modeling | no |
 | asme-y14-5 | ASME Y14.5: Dimensioning and Tolerancing | guidance | ASME (American Society of Mechanical Engineers) | proprietary-sold | mechanical design; geometric dimensioning and tolerancing (GD&T) | yes |
+| mil-std-1553 | MIL-STD-1553B: Aircraft Internal Time Division Command/Response Multiplex Data Bus | regulation | US DoD (Department of Defense) | public-domain | avionics data bus; command/response multiplexing | no |
 
 ## Applicability
 
@@ -69,6 +70,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 | nas-410 | NDT personnel qualification and certification (Levels I, II, III) for aerospace nondestructive testing: eddy current, ultrasonic, radiographic, penetrant, magnetic particle; training, experience, and examination requirements | Proprietary (AIA, sold via Accuris/Techstreet). Name + paraphrase + short attributed quotes + link only; no verbatim clause text |
 | naca-tn-902 | Ramberg-Osgood three-parameter model of the metallic stress-strain curve: total strain = stress/E + 0.002*(stress/sigma_0.2)^n, with secant and tangent modulus derivations, for elastic-plastic structural analysis | US government work; public domain; quotable with citation |
 | asme-y14-5 | GD&T rules and practices: datum reference frames, feature control frames, position/profile/runout tolerances, MMC/LMC modifiers, bonus tolerance, virtual condition; the aerospace detail and assembly drawing baseline | Proprietary (ASME). Name + paraphrase + short attributed quotes + link only; no verbatim symbol tables, rule text, or drawing examples |
+| mil-std-1553 | Military avionics 1 Mbps command/response multiplex data bus: bus controller and remote terminal architecture, 20-bit command/status/data word formats, Manchester II biphase encoding, dual redundant buses, and message transfer formats | US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity |
 
 ## Gated standards - verbatim text must NEVER appear
 
@@ -94,6 +96,7 @@ channels. Purchase links live in `standards-map.yaml` (`purchase:`).
 - **sep-2640** (open specification, cite with status note)
 - **naca-tr-824** (public domain, US government work)
 - **naca-tn-902** (public domain, US government work)
+- **mil-std-1553** (public domain, US government work)
 
 ## Frontmatter enforcement
 

@@ -56,7 +56,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/mbse/n2-diagram | N2 interface diagram | N2 diagram, interface matrix, data links, interface count, missing interfaces |
 | systems-engineering-safety/mbse/requirements-modeling | SysML requirements modeling | requirement stereotype, requirements diagram, derive/satisfy/verify links, status roll-up, vague term screening, verifiability |
 | systems-engineering-safety/arp4754a/derived-requirements | ARP4754A derived requirements | derived requirement, derivation rationale, design decision source, implementation constraint, interface resolution, traceability path |
-
+| systems-engineering-safety/arp4754a/development-assurance-levels | Development assurance levels | FDAL, IDAL, failure condition severity, DAL assignment A-E, independence |
 ## Routing guidance
 
 - Development assurance and planning questions route to the ARP4754A
@@ -105,6 +105,7 @@ model-based systems engineering (SysML, digital thread).
 - N2 diagram and interface matrix questions route to the MBSE n2-diagram sub-skill.
 - SysML requirement modeling questions (requirement stereotype attributes, derive/satisfy/verify links, status roll-up, vague term screening, verifiability, atomicity) route to the MBSE requirements-modeling sub-skill.
 - Derived requirement classification, derivation rationale, design decision and implementation constraint sources, and derived-requirement traceability questions route to the ARP4754A derived-requirements sub-skill.
+- FDAL and IDAL assignment, failure condition severity to DAL mapping, and independence questions route to the ARP4754A development-assurance-levels sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
