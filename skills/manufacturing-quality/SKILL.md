@@ -60,7 +60,10 @@ selection and ultrasonic inspection).
 | manufacturing-quality/special-processes/special-process-qualification | Special process qualification | special process, process qualification record, requalification trigger, parameter change, equipment change, NADCAP, process variables |
 | manufacturing-quality/ndt/thermography | Infrared thermography | flash thermography, thermal contrast, disbond, delamination, lock-in, inspection parameters |
 | manufacturing-quality/as9100/measurement-systems-analysis | Measurement systems analysis | gage R and R, repeatability, reproducibility, percent GRR, distinct categories |
-| manufacturing-quality/additive/additive-manufacturing-qualification | Additive manufacturing qualification | volumetric energy density, laser power, scan speed, hatch spacing, layer height, witness coupon, material property verification, AM first article |## Routing guidance
+| manufacturing-quality/additive/additive-manufacturing-qualification | Additive manufacturing qualification | volumetric energy density, laser power, scan speed, hatch spacing, layer height, witness coupon, material property verification, AM first article |
+| manufacturing-quality/additive/lpbf-parameter-development | LPBF parameter development | LPBF, laser powder bed fusion, volumetric energy density, scan speed, hatch spacing, layer thickness, melt pool, keyhole mode, conduction mode, process window |
+
+## Routing guidance
 
 - Quality management questions (audits, clause scope, evidence,
   corrective action) route to the AS9100 sub-skill.
@@ -107,6 +110,7 @@ selection and ultrasonic inspection).
 - Flash thermography, thermal contrast, disbond and delamination detection, and lock-in questions route to the ndt thermography sub-skill.
 - Gage R and R, repeatability, reproducibility, percent GRR, and distinct category questions route to the AS9100 measurement-systems-analysis sub-skill.
 - Additive manufacturing energy density, parameter set, witness coupons, material property verification, and AM first article questions route to the additive additive-manufacturing-qualification sub-skill.
+- Laser powder bed fusion parameter development, volumetric energy density, process window classification, and qualification test matrix planning route to the additive lpbf-parameter-development sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
