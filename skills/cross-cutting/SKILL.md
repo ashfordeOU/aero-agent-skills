@@ -1,6 +1,6 @@
 ---
 name: cross-cutting
-description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack. SEP-2640 skill-delivery, skill-evaluation, and skill-authoring cover SKILL.md conformance, quality, and authoring; isa-atmosphere, unit-conversion, and temperature-conversion cover atmosphere and units; engineering-margins and engineering-report cover margins and reports; convergence-verification, least-squares-regression, uncertainty-propagation, numerical-integration, finite-difference-derivatives, and monte-carlo-sampling cover Richardson, OLS, GUM, quadrature, finite differences, and sampling. Trigger: skill delivery, SEP-2640, skill evaluation, skill authoring, SKILL.md, standard atmosphere, ISA, unit conversion, temperature conversion, margin of safety, engineering report, Richardson, GCI, least squares, uncertainty, numerical integration, trapezoid, Simpson, finite difference, central difference, monte carlo, histogram."
+description: "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack. SEP-2640 skill-delivery, skill-evaluation, and skill-authoring cover SKILL.md conformance, quality, and authoring; isa-atmosphere, unit-conversion, and temperature-conversion cover atmosphere and units; engineering-margins and engineering-report cover margins and reports; tolerance-stackup covers assembly tolerancing; convergence-verification, least-squares-regression, uncertainty-propagation, numerical-integration, finite-difference-derivatives, and monte-carlo-sampling cover Richardson, OLS, GUM, quadrature, finite differences, and sampling. Trigger: skill delivery, SEP-2640, skill evaluation, skill authoring, SKILL.md, ISA, unit conversion, temperature conversion, margin of safety, tolerance stack-up, worst case, RSS, engineering report, Richardson, least squares, uncertainty, numerical integration, finite difference, monte carlo."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -55,6 +55,8 @@ integration) for engineering calculations.
 | cross-cutting/numerics/numerical-integration | Numerical integration | trapezoid rule, Simpson rule, Gauss-Legendre quadrature, Richardson error estimate |
 | cross-cutting/numerics/finite-difference-derivatives | Finite difference derivatives | forward/backward/central difference, step size, second derivative, tabulated data |
 | cross-cutting/numerics/monte-carlo-sampling | Monte Carlo sampling | seeded draws, sample mean and standard deviation, percentile confidence interval, histogram |
+| cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
+| cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
 
 ## Routing guidance
 
@@ -93,6 +95,8 @@ integration) for engineering calculations.
   (avionics, space-systems, systems-engineering-safety,
   manufacturing-quality).
 
+- Tolerance stack-up, worst case, and root sum square assembly questions route to the tolerancing tolerance-stackup sub-skill.
+- Tolerance stack-up, worst case, and root sum square assembly questions route to the tolerancing tolerance-stackup sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

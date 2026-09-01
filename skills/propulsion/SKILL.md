@@ -1,6 +1,6 @@
 ---
 name: propulsion
-description: "Use when a task concerns aircraft or rocket propulsion: guide the router to the propulsion pack, whose gas-turbine-cycle covers the Brayton cycle, regenerative-cycle regenerator efficiency, real-cycle-effects component losses, turbofan-cycle turbofan parameters, bypass-ratio-trade bypass design, turbofan-off-design part-power behavior, free-turbine power turbine matching, turbine-stage stage velocity triangles, axial-compressor-stage compressor stage, compressor-map compressor operating maps, multi-stage-compressor stacked stages, rocket-sizing rocket sizing, nozzle-design nozzles, and propellant-selection propellant trade. Trigger: propulsion, gas turbine, Brayton cycle, regenerator, turbofan, bypass ratio, rocket equation, delta-v, rocket nozzle, area ratio, exit Mach, propellant, density impulse, axial compressor, compressor map, surge margin, corrected flow, multi-stage compressor, off-design turbofan, real cycle, component efficiency, free turbine, power turbine, turboshaft, turbine stage."
+description: "Use when a task concerns aircraft or rocket propulsion: guide the router to the propulsion pack, whose gas-turbine-cycle covers the Brayton cycle, regenerative-cycle regenerator efficiency, real-cycle-effects component losses, turbofan-cycle turbofan parameters, bypass-ratio-trade bypass design, turbofan-off-design part-power behavior, free-turbine power turbine matching, turbine-stage stage velocity triangles, axial-compressor-stage compressor stage, compressor-map compressor operating maps, multi-stage-compressor stacked stages, rocket-sizing rocket sizing, nozzle-design nozzles, propellant-selection propellant trade, and ramjet-cycle ideal ramjet performance. Trigger: propulsion, gas turbine, Brayton cycle, regenerator, turbofan, bypass ratio, rocket equation, delta-v, rocket nozzle, area ratio, exit Mach, propellant, axial compressor, compressor map, multi-stage compressor, off-design turbofan, real cycle, free turbine, power turbine, turboshaft, ramjet, specific thrust, specific impulse."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -51,6 +51,8 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
 | propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion |
 | propulsion/rocket/propellant-selection | Propellant selection | propellant families, density impulse, mixture ratio, storability, mass fraction |
+| propulsion/ramjet/ramjet-cycle | Ramjet cycle | ideal ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse |
+| propulsion/ramjet/ramjet-cycle | Ramjet cycle | ideal ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse |
 
 ## Routing guidance
 
@@ -83,6 +85,8 @@ compressor stage and operating-map analysis.
 - Airframe, stability, and certification questions route to their
   domain packs (flight-mechanics, avionics).
 
+- Ideal ramjet, fuel air ratio, and specific impulse questions route to the ramjet ramjet-cycle sub-skill.
+- Ideal ramjet, fuel air ratio, and specific impulse questions route to the ramjet ramjet-cycle sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

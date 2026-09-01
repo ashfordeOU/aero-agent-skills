@@ -1,6 +1,6 @@
 ---
 name: space-systems
-description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS software-engineering covers criticality, software-verification covers verification depth, systems-engineering covers lifecycle gates, power-thermal-budget covers EPS and battery sizing, communication-link-budget covers link margin, thermal-design covers radiator sizing, command-data-handling covers telemetry and downlink, sun-pointing covers sun vector geometry, star-tracker covers star identification, attitude-control-sizing covers reaction wheels, magnetorquer-control covers B-dot detumbling, sun-synchronous-inclination covers J2 nodal regression, and keplerian-elements covers orbital elements. Trigger: space systems, spacecraft, ECSS, power budget, battery, EPS, link budget, thermal, telemetry, downlink, sun pointing, star tracker, star identification, attitude control, magnetorquer, detumble, sun synchronous, inclination, keplerian, orbital elements, RAAN."
+description: "Use when a task concerns space systems engineering for European space projects: guide the router to the space-systems pack, whose ECSS software-engineering covers criticality, software-verification verification depth, systems-engineering lifecycle gates, power-thermal-budget EPS and battery sizing, communication-link-budget link margin, thermal-design radiator sizing, command-data-handling telemetry and downlink, sun-pointing sun vector geometry, star-tracker star identification, attitude-control-sizing reaction wheels, magnetorquer-control B-dot detumbling, sun-synchronous-inclination J2 nodal regression, keplerian-elements orbital elements, and eclipse-time eclipse duration and shadow fraction. Trigger: space systems, spacecraft, ECSS, power budget, battery, EPS, link budget, thermal, telemetry, downlink, sun pointing, star tracker, attitude control, magnetorquer, detumble, sun synchronous, inclination, keplerian, orbital elements, RAAN, eclipse time, earth shadow, beta angle."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -49,6 +49,8 @@ selection, and classical orbital element determination.
 | space-systems/adcs/magnetorquer-control | Magnetorquer control | B-dot detumbling, dipole moment, torque from magnetic field, coil sizing |
 | space-systems/orbit-mechanics/sun-synchronous-inclination | Sun-synchronous inclination | J2 nodal regression, retrograde inclination, local time of ascending node |
 | space-systems/orbit-mechanics/keplerian-elements | Keplerian orbital elements | rv2coe state-vector conversion, semimajor axis, eccentricity, inclination, RAAN, argument of periapsis, true anomaly, orbital period, periapsis/apoapsis |
+| space-systems/orbit-mechanics/eclipse-time | Eclipse time | earth shadow, beta angle, shadow fraction, eclipse duration, daylight fraction |
+| space-systems/orbit-mechanics/eclipse-time | Eclipse time | earth shadow, beta angle, shadow fraction, eclipse duration, daylight fraction |
 
 ## Routing guidance
 
@@ -80,6 +82,8 @@ selection, and classical orbital element determination.
 - GNC, propulsion, and structural questions route to their domain
   packs (gnc-autonomy, propulsion, structures).
 
+- Eclipse duration, earth shadow, beta angle, and shadow fraction questions route to the orbit-mechanics eclipse-time sub-skill.
+- Eclipse duration, earth shadow, beta angle, and shadow fraction questions route to the orbit-mechanics eclipse-time sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
