@@ -1,0 +1,16 @@
+# Hit@1 wave-12 fragment: energy-height (flight-mechanics)
+# Two tasks per new leaf skill; eh1 routes on the energy state
+# inputs (specific excess power, energy height, thrust, drag,
+# speed, weight, altitude), eh2 routes on the energy trade
+# vocabulary (zoom climb, kinetic height, climb and cruise energy
+# exchange) that spans flight mechanics and mission analysis. Both
+# must deterministically hit flight-mechanics/performance/energy-height.
+tasks:
+  - id: eh1
+    query: "compute the energy-height and the specific-excess-power from thrust, drag, speed, weight, and altitude for the energy-maneuverability analysis"
+    intent: "flight mechanics; energy height and specific excess power from thrust, drag, speed, weight, and altitude"
+    expected_skill: "flight-mechanics/performance/energy-height"
+  - id: eh2
+    query: "trade the kinetic-height for altitude in the zoom-climb and check the energy-height conservation across the climb and cruise phases"
+    intent: "flight mechanics; zoom climb and kinetic height energy trade across climb and cruise; spans the mission analysis domain"
+    expected_skill: "flight-mechanics/performance/energy-height"
