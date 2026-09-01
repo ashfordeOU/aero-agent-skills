@@ -1,0 +1,14 @@
+# Hit@1 wave-10 fragment: takeoff-distance-determination (flight-test-operations)
+# Two tasks per new leaf skill; tkd1 is leaf-specific (ground roll
+# integration, rotation, climb to the 35 ft obstacle), tkd2 is
+# cross-cutting (speed profile reduction, must still route to this
+# leaf, not to accelerate-stop-distance or takeoff-performance).
+tasks:
+  - id: tkd1
+    query: "determine the takeoff-distance for the flight-test by integrating the ground-roll speed samples through rotation to the 35 ft climb segment"
+    intent: "flight test; takeoff distance from ground roll, rotation, and climb segments"
+    expected_skill: "flight-test-operations/performance/takeoff-distance-determination"
+  - id: tkd2
+    query: "reduce the takeoff-distance from the measured speed-time profile of the ground-roll and rotation segments in the flight test"
+    intent: "flight test; takeoff distance from the measured speed profile"
+    expected_skill: "flight-test-operations/performance/takeoff-distance-determination"
