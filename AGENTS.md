@@ -3,6 +3,15 @@
 AeroSkills runs as a company of departments (see README.md). These
 rules apply to any agent working in this repo.
 
+## QUIET HOURS (founder mandate, PINNED)
+- **00:00-10:00 UTC = NULL BURN WINDOW.** No work, no skill builds, no
+  subagent dispatch, no jobs, no token-spending activity during this
+  window (DeepSeek peak pricing — the company ran out of API credits
+  from night burn).
+- Wave work queues and resumes at 10:00 UTC. If you are mid-task when
+  the window opens, stop spending and queue the result.
+- Outside 00:00-10:00 UTC: normal work, full speed, agent cadence.
+
 ## Writing
 - Few words, every word picked. No superlatives, no praise.
 - Cold hard truth. Verify-before-credit: "done" needs artifact proof.
