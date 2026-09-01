@@ -60,13 +60,15 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/flight-dynamics-sim/six-dof-simulation | Six-DOF simulation | six degree of freedom, body axis equations of motion, Euler angle rates, quaternion, RK4 propagation, rigid body state |
 | flight-mechanics/stability-control/stability-derivatives-avl | Stability derivative estimation | stability derivatives, lift curve slope, wing planform, aspect ratio, sweep effect, Mach correction, tail volume, neutral point, static margin, AVL-style estimation |
 | flight-mechanics/stability-control/short-period-mode-analysis | Short-period mode analysis | short period mode, short-period, natural frequency, damping ratio, stability derivatives, flying qualities, level 1 |
+| flight-mechanics/handling-qualities/mil-std-1797a | Mil Std 1797a | mil-std-1797a, flying qualities, handling qualities levels, short period damping, dutch roll, phugoid, spiral mode, roll mode, roll performance, flight phase category, aircraft class, cooper-harper band. |
 
 ## Routing guidance
 
 - Cruise range and fuel-fraction questions route to the
   breguet-range sub-skill; loiter endurance and holding questions
   route to the breguet-endurance sub-skill; specific air range,
-  fuel flow, and sector fuel burn questions route to the
+  fuel flow, and sector fuel burn questions route - Mil-std-1797a questions route to the handling-qualities mil-std-1797a sub-skill.
+to the
   specific-range sub-skill.
 - Takeoff and ground-roll questions route to takeoff-performance.
 - Landing distance, approach speed, flare, ground roll, and stopping

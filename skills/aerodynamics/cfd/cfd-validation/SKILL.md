@@ -13,7 +13,7 @@ compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes,
 metadata:
   domain: aerodynamics
   subdomain: cfd
-  tags: [cfd-validation, validation, verification-validation, richardson-extrapolation, richardson, extrapolation, grid-convergence, grid, convergence, error-metrics, error, metrics, naca-0012, naca-4412, onera-m6, dlr-f6, validation-uncertainty, uncertainty, cfd, transonic, wing, airfoil, drag, verdict, report, boundary-layer]
+  tags: [cfd-validation, verification-validation, richardson-extrapolation, grid-convergence, error-metrics, naca-0012, naca-4412, onera-m6, dlr-f6, validation-uncertainty, boundary-layer]
   version: 0.1.0
   author: AeroSkills
 ---

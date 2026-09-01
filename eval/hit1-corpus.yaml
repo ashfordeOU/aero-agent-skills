@@ -160,6 +160,11 @@
 # leaves). Wave-21 new leaves: "manufacturing-quality/ndt/acoustic-emission-inspection", "structures/fem/contact-analysis", "space-systems/mission-design/entry-descent-landing", "gnc-autonomy/estimation-filtering/extended-kalman-filter", "aerodynamics/aeroelasticity/flutter-speed-prediction", "cross-cutting/tolerancing/gdandt-basics", "vehicle-design/sizing/nacelle-sizing", "avionics/flight-management/performance-computation", "systems-engineering-safety/arp4761a/preliminary-system-safety-assessment", "flight-mechanics/stability-control/short-period-mode-analysis", "propulsion/rocket/solid-rocket-motor", "flight-test-operations/envelope/spin-testing".
 # Corpus: 626 tasks (602 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 21 build.
+# P5.2 / Wave 22 (2026-09-02): fan-out continues to
+# 318 verified skills (330 SKILL.md under gate 1: 12 routers + 318
+# leaves). Wave-22 new leaves: "aerodynamics/cfd/cfd-validation", "avionics/fsw/cfs-architecture", "systems-engineering-safety/arp4754a/configuration-management", "cross-cutting/export-control/export-control-awareness", "structures/loads/gust-maneuver-loads", "propulsion/electric/hall-thruster", "space-systems/mission-design/launch-window-analysis", "manufacturing-quality/composites/layup-cure", "flight-mechanics/handling-qualities/mil-std-1797a", "gnc-autonomy/optimal-control/model-predictive-control", "flight-test-operations/uas/part107-sora", "vehicle-design/conceptual/sizing-mission-profile".
+# Corpus: 650 tasks (626 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 22 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -496,12 +501,11 @@ tasks:
     intent: "orbit dynamics; rendezvous closing rate"
     expected_skill: "gnc-autonomy/space/rendezvous-phasing"
   - id: ls1
-    query: "compute the laminate A matrix for a symmetric composite layup with classical lamination\
-  \ theory"
+    query: "compute the laminate in-plane A matrix for a symmetric composite laminate with classical lamination theory using the rotated ply-stiffness"
     intent: "structures; composite laminate stiffness"
     expected_skill: "structures/composites/laminate-stiffness"
   - id: ls2
-    query: "rotate the ply stiffness to the laminate axes and check the coupling terms"
+    query: "rotate the lamina stiffness matrix to the laminate axes with classical lamination theory and check the coupling terms in the A matrix"
     intent: "structures; rotated ply stiffness and coupling"
     expected_skill: "structures/composites/laminate-stiffness"
   - id: md1
@@ -587,7 +591,7 @@ tasks:
     intent: "cross-pair: thermal-design vs power-thermal-budget"
     expected_skill: "space-systems/subsystems/thermal-design"
   - id: xp10
-    query: "select an airfoil for the wing and validate the polar against the reference data"
+    query: "select an airfoil for the wing and run xfoil to compute the polar and validate it against the reference data"
     intent: "cross-pair: airfoil-selection vs xfoil-analysis; polar validation anchor wins the\
   \ boundary"
     expected_skill: "aerodynamics/airfoil/xfoil-analysis"
@@ -876,8 +880,7 @@ tasks:
     intent: "cross-cutting; margin of safety from allowable vs applied load"
     expected_skill: "cross-cutting/documentation/engineering-margins"
   - id: em2
-    query: "write the margin statement and check the limit vs ultimate margin verdict for the\
-  \ engineering report"
+    query: "write the margin of safety statement and check the limit vs ultimate margin verdict for the engineering report"
     intent: "cross-cutting; engineering report margin sentence and limit vs ultimate verdict"
     expected_skill: "cross-cutting/documentation/engineering-margins"
   - id: wt1
@@ -1003,8 +1006,7 @@ tasks:
   \ verdict"
     expected_skill: "flight-test-operations/performance/accelerate-stop-distance"
   - id: cv1
-    query: "run a richardson extrapolation with the grid convergence index and safety factor\
-  \ 1.25 on the three mesh levels"
+    query: "run a richardson extrapolation with the grid convergence index gci and safety factor 1.25 on the three mesh levels and report the observed order of accuracy"
     intent: "numerical verification; Richardson extrapolation and GCI with 1.25 safety factor\
   \ on a mesh sequence"
     expected_skill: "cross-cutting/numerics/convergence-verification"
@@ -1152,8 +1154,7 @@ tasks:
   \ Gauss-Legendre"
     expected_skill: "cross-cutting/numerics/numerical-integration"
   - id: ni2
-    query: "estimate the error of the composite trapezoid rule with richardson extrapolation\
-  \ and refine the subintervals for the definite integral"
+    query: "estimate the error of the composite trapezoid rule with richardson extrapolation and refine the subintervals for the definite integral using quadrature"
     intent: "numerical integration; Richardson error estimate of the trapezoid rule and refinement"
     expected_skill: "cross-cutting/numerics/numerical-integration"
   - id: pm1
@@ -1469,8 +1470,7 @@ tasks:
     intent: "flight-test-operations; load factor envelope V-n diagram corner point and gust line"
     expected_skill: "flight-test-operations/envelope/load-factor-envelope"
   - id: lf2
-    query: "check the gust line against the placard speed and the corner point when building\
-  \ the load factor envelope V-n diagram"
+    query: "check the gust-line against the placard-speed and the corner-point when building the load-factor-envelope V-n diagram"
     intent: "flight-test-operations; load factor envelope gust line placard speed and corner point"
     expected_skill: "flight-test-operations/envelope/load-factor-envelope"
   - id: msc1
@@ -2982,6 +2982,102 @@ tasks:
     query: "verify the FAR 25.201 spin resistance verdict with pro-spin controls held at the stall and decide whether the recovery parachute is required"
     intent: "flight-test-operations; spin resistance and recovery parachute requirement"
     expected_skill: "flight-test-operations/envelope/spin-testing"
+  - id: w22-cfd-validation-1
+    query: "cfd-validation of my naca-0012 airfoil drag prediction at mach 0.3 and reynolds 6 million against the classic reference data, with a pass or fail verdict"
+    intent: "aerodynamics; CFD validation of a NACA 0012 drag prediction against the classic reference within a tolerance band"
+    expected_skill: "aerodynamics/cfd/cfd-validation"
+  - id: w22-cfd-validation-2
+    query: "check grid convergence with richardson extrapolation and report the validation uncertainty for my onera m6 transonic wing drag results"
+    intent: "aerodynamics; grid convergence and validation uncertainty for ONERA M6 transonic wing CFD results"
+    expected_skill: "aerodynamics/cfd/cfd-validation"
+  - id: w22-cfs-architecture-1
+    query: "design a cfs flight software app using the classic APP_Init APP_Execute APP_Data pattern and subscribe it to commands on the software bus by message id"
+    intent: "avionics; cFS app lifecycle pattern and software bus subscribe flow for flight software"
+    expected_skill: "avionics/fsw/cfs-architecture"
+  - id: w22-cfs-architecture-2
+    query: "explain the cFE OSAL PSP layering of nasa core flight software and how event services log messages by severity"
+    intent: "avionics; cFS three-layer architecture and event service severity logging"
+    expected_skill: "avionics/fsw/cfs-architecture"
+  - id: w22-configuration-management-1
+    query: "create a configuration baseline for the flight control system requirements and design data per arp4754a and list which configuration items go under configuration management"
+    intent: "systems-engineering-safety; ARP4754A baseline creation and configuration item identification for aircraft system data"
+    expected_skill: "systems-engineering-safety/arp4754a/configuration-management"
+  - id: w22-configuration-management-2
+    query: "classify a proposed change to a safety critical requirement as major or minor per arp4754a and identify which design elements, tests, and analyses are affected by the change"
+    intent: "systems-engineering-safety; ARP4754A change control with impact analysis and minor vs major classification"
+    expected_skill: "systems-engineering-safety/arp4754a/configuration-management"
+  - id: w22-export-control-awareness-1
+    query: "export control assessment for a turbine blade alloy specification before sharing it with a foreign collaborator"
+    intent: "cross-cutting; export control screening and verdict for a restricted aerospace material before foreign release"
+    expected_skill: "cross-cutting/export-control/export-control-awareness"
+  - id: w22-export-control-awareness-2
+    query: "check whether sharing gas turbine engine technical data with a foreign collaborator needs a license under ITAR or EAR"
+    intent: "cross-cutting; ITAR/EAR jurisdiction check for aerospace technical data release to a foreign person"
+    expected_skill: "cross-cutting/export-control/export-control-awareness"
+  - id: w22-gust-maneuver-loads-1
+    query: "compute the discrete gust load factor for my transport at speed VB with a 50 fps one cosine gust per far 25.341, including the gust alleviation factor, and build the v-n diagram with gust lines at vb vc and vd"
+    intent: "structures; FAR 25.341 discrete gust load factor, alleviation factor, and V-n diagram construction"
+    expected_skill: "structures/loads/gust-maneuver-loads"
+  - id: w22-gust-maneuver-loads-2
+    query: "what is the limit maneuvering load factor at va for a normal category airplane per far 25.337, and check whether a 2.3 g pull at 400 ft per second passes the positive envelope with a margin check"
+    intent: "structures; FAR 25.337 limit maneuvering load factor and envelope pass/fail margin check"
+    expected_skill: "structures/loads/gust-maneuver-loads"
+  - id: w22-hall-thruster-1
+    query: "size a 5 kW hall thruster for a 2000 m/s delta-v mission: compute thrust, mass flow and propellant mass from power, total efficiency and specific impulse"
+    intent: "propulsion; hall thruster sizing from power, efficiency and specific impulse with the rocket equation"
+    expected_skill: "propulsion/electric/hall-thruster"
+  - id: w22-hall-thruster-2
+    query: "compare xenon and krypton as hall thruster propellants: exhaust velocity, ionization energy and beam current at the same discharge power"
+    intent: "propulsion; xenon vs krypton propellant trade for a hall thruster"
+    expected_skill: "propulsion/electric/hall-thruster"
+  - id: w22-launch-window-analysis-1
+    query: "compute the launch azimuth and daily launch window for a sun-synchronous orbit at 700 km with a 10:30 LTAN from the launch site"
+    intent: "space-systems; launch azimuth from inclination and daily window from the orbit plane crossing the launch site"
+    expected_skill: "space-systems/mission-design/launch-window-analysis"
+  - id: w22-launch-window-analysis-2
+    query: "when can we launch into a sun-synchronous orbit with an 18:00 LTAN and what RAAN and plane change delta-v does the mission need"
+    intent: "space-systems; LTAN to RAAN conversion plus plane change delta-v penalty for the launch window"
+    expected_skill: "space-systems/mission-design/launch-window-analysis"
+  - id: w22-layup-cure-1
+    query: "design the cure cycle for my composite laminate, ramp 2 degrees f per minute to 350 f, hold 120 minutes, and check the degree of cure with an arrhenius kinetics model"
+    intent: "manufacturing-quality; cure cycle timeline design and Arrhenius degree of cure prediction for a 350F epoxy composite laminate"
+    expected_skill: "manufacturing-quality/composites/layup-cure"
+  - id: w22-layup-cure-2
+    query: "verify my laminate is symmetric and balanced, then check porosity from the c-scan and decide pass or fail acceptance"
+    intent: "manufacturing-quality; symmetric and balanced ply sequence checks plus C-scan porosity acceptance verdict"
+    expected_skill: "manufacturing-quality/composites/layup-cure"
+  - id: w22-mil-std-1797a-1
+    query: "assess the flying qualities of a fighter aircraft against mil-std-1797a short period damping and frequency level criteria"
+    intent: "flight mechanics; flying qualities level classification of the short period mode per MIL-STD-1797A"
+    expected_skill: "flight-mechanics/handling-qualities/mil-std-1797a"
+  - id: w22-mil-std-1797a-2
+    query: "check the dutch roll and spiral mode flying qualities levels for category A per mil-std-1797a and give the cooper-harper band"
+    intent: "flight mechanics; lateral-directional mode level verdicts and Cooper-Harper tie-in per MIL-STD-1797A"
+    expected_skill: "flight-mechanics/handling-qualities/mil-std-1797a"
+  - id: w22-model-predictive-control-1
+    query: "design an mpc receding horizon controller for the double integrator with quadratic cost and input constraints"
+    intent: "gnc-autonomy; MPC receding-horizon design with quadratic cost and input constraints"
+    expected_skill: "gnc-autonomy/optimal-control/model-predictive-control"
+  - id: w22-model-predictive-control-2
+    query: "run a closed loop simulation with the model predictive control and check the state converges to the origin"
+    intent: "gnc-autonomy; closed-loop simulation verifying MPC convergence to the origin"
+    expected_skill: "gnc-autonomy/optimal-control/model-predictive-control"
+  - id: w22-part107-sora-1
+    query: "check part 107 applicability and sora ground risk class for my 2 kg drone over a sparsely populated area, is it open category"
+    intent: "flight-test-operations; Part 107 applicability screen and SORA category/GRC for a low-mass drone over sparse population"
+    expected_skill: "flight-test-operations/uas/part107-sora"
+  - id: w22-part107-sora-2
+    query: "compute the air risk class and robustness level with containment for a bvlos drone operation in class g airspace, what part 107 waiver applies"
+    intent: "flight-test-operations; ARC from airspace type, SORA robustness/containment and BVLOS waiver considerations for a drone operation"
+    expected_skill: "flight-test-operations/uas/part107-sora"
+  - id: w22-sizing-mission-profile-1
+    query: "define the design mission profile and estimate block fuel and block time for a turbofan transport with 3000 nm cruise range"
+    intent: "vehicle-design; design mission profile segment definition with block fuel and block time estimation"
+    expected_skill: "vehicle-design/conceptual/sizing-mission-profile"
+  - id: w22-sizing-mission-profile-2
+    query: "compute the reserve fuel for a 45 minute hold at 1500 ft plus 5 percent contingency and the total required fuel for the mission"
+    intent: "vehicle-design; reserve fuel rule application and required fuel sizing including reserves"
+    expected_skill: "vehicle-design/conceptual/sizing-mission-profile"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

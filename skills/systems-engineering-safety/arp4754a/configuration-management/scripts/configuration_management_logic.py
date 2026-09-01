@@ -382,7 +382,7 @@ def record_change(
         "record_id": len(history) + 1,
         "change_id": change["id"],
         "description": change.get("description", ""),
-        "classification": change.get("classification", "UNCLASSIFIED"),
+        "classification": change.get("classification", "UNCATEGORIZED"),
         "status": status,
         "date": date if date else datetime.date.today().isoformat(),
     }
