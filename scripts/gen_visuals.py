@@ -66,6 +66,8 @@ LIGHT = {
     "pencil": "#5c5c5c",     # Pencil
     "faint": "#a3a3a3",      # Faint Graphite
     "mint": "#9fe870",       # Survey Mint — THE accent
+    "fill_data": "0.30",     # translucent mint data fills (radar polygon)
+    "fill_rose": "0.30",     # rose wedge fills
 }
 DARK = {
     "canvas": "#0d1b33",     # Blueprint Blue
@@ -74,11 +76,16 @@ DARK = {
     "pencil": "#5f7ba8",     # Blueprint Muted
     "faint": "#3a5a8f",      # Blueprint Border
     "mint": "#9fe870",
+    # lower fill opacity on navy: full-strength mint over blueprint blue
+    # muddies to olive (founder screenshot 2026-09-01)
+    "fill_data": "0.14",
+    "fill_rose": "0.16",
 }
 
 STYLE = """  <style>
     .mono { font-family: "JetBrains Mono", "IBM Plex Mono", "Menlo", monospace; }
     .cond { font-family: "Barlow Condensed", "DIN Condensed", "Arial Narrow", sans-serif; font-weight: 700; text-transform: uppercase; }
+    .serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; }
   </style>
 """
 
@@ -279,10 +286,12 @@ def gen_radar(m, t):
         x, y = pt(cx, cy, R, a)
         o.append(f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}" '
                  f'stroke="{faint}" stroke-width="0.8" stroke-opacity="0.4"/>')
-    # ring value labels on the upper-left inter-axis diagonal (ref: AEI plot)
+    # ring value labels on the upper-left inter-axis diagonal (ref: AEI plot);
+    # ink at reduced opacity stays readable over the mint fill in both themes
     for rv in rings:
         x, y = pt(cx, cy, R * rv / rmax, -105)
-        o.append(txt(x - 4, y - 3, str(rv), size=10, fill=pencil, anchor="end"))
+        o.append(txt(x - 4, y - 3, str(rv), size=10, fill=ink, anchor="end",
+                     extra=' opacity="0.55"'))
 
     # perimeter labels
     for name, fam, a in axes:
@@ -301,7 +310,7 @@ def gen_radar(m, t):
 
     # series 2: live verified leaves (mint)
     live_pts = [pt(cx, cy, R * f["leaves"] / rmax, a) for _, f, a in axes]
-    o.append(poly(live_pts, fill=mint, fill_opacity="0.28", stroke=mint, stroke_width="2.6"))
+    o.append(poly(live_pts, fill=mint, fill_opacity=t["fill_data"], stroke=mint, stroke_width="2.6"))
     for x, y in live_pts:
         o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.6" fill="{mint}" stroke="{ink}" stroke-width="1.2"/>')
 
@@ -368,7 +377,7 @@ def gen_polar(m, t):
         x0, y0 = pt(cx, cy, r, a0)
         x1, y1 = pt(cx, cy, r, a1)
         o.append(f'<path d="M {cx} {cy} L {x0:.1f} {y0:.1f} A {r:.1f} {r:.1f} 0 0 1 '
-                 f'{x1:.1f} {y1:.1f} Z" fill="{mint}" fill-opacity="0.3" '
+                 f'{x1:.1f} {y1:.1f} Z" fill="{mint}" fill-opacity="{t["fill_rose"]}" '
                  f'stroke="{mint}" stroke-width="2"/>')
         vx, vy = pt(cx, cy, r + 13, a)
         o.append(txt(vx, vy + 3.5, str(fam["packs"]), size=10.5, fill=ink, anchor="middle"))
@@ -386,7 +395,7 @@ def gen_polar(m, t):
         o.append(f'<rect x="{px}" y="{yy + 7}" width="{tw}" height="9" fill="none" '
                  f'stroke="{faint}" stroke-width="0.8"/>')
         o.append(f'<rect x="{px}" y="{yy + 7}" width="{tw * fam["packs"] / vmax:.1f}" '
-                 f'height="9" fill="{mint}" fill-opacity="0.65"/>')
+                 f'height="9" fill="{mint}"/>')
         o.append(txt(px + tw + 12, yy + 15,
                      f'{fam["packs"]}P · {fam["leaves"]} SKILLS', size=10, fill=ink))
 
@@ -482,37 +491,133 @@ def gen_domains(m):
     return "\n".join(out) + "\n"
 
 
-# ------------------------------------------------------------- banner stats
+# ------------------------------------------------------------------ banner
 
-def render_banner(m, src):
-    """Rewrite the four stat value/label pairs in the hand-authored banner
-    (both themes share coordinates). Idempotent; fails loud if the banner
-    layout changes so the slots can be re-anchored."""
-    slots = {
-        ("60", "292"): str(m["leaves"]), ("60", "310"): "VERIFIED SKILLS",
-        ("190", "292"): str(m["live_packs"]), ("190", "310"): "LIVE PACKS",
-        ("320", "292"): str(m["standards"]), ("320", "310"): "STANDARDS",
-        ("450", "292"): str(m["corpus_tasks"]), ("450", "310"): "ROUTER TASKS",
-    }
-    for (x, y), value in slots.items():
-        pat = re.compile(rf'(<text class="mono" x="{x}" y="{y}"[^>]*>)[^<]*(</text>)')
-        if not pat.search(src):
-            raise SystemExit(f"banner: stat slot x={x} y={y} not found — re-anchor render_banner")
-        src = pat.sub(rf"\g<1>{value}\g<2>", src)
-    return src
+def gen_banner(m, t):
+    """Hero banner, fully generated (replaces the hand-authored v4 banner
+    whose fig-box and title-block labels overlapped — founder 2026-09-01).
+    Left: editorial wordmark + tagline + live stat row. Right: computed
+    NACA 2412 outline with mint camber. No fake drawing furniture."""
+    W, H = 1500, 420
+    ink, mint, pencil, faint = t["ink"], t["mint"], t["pencil"], t["faint"]
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
+         f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>']
+
+    # hairline frame + corner station marks
+    fx, fy, fw, fh = 24, 24, W - 48, H - 48
+    o.append(f'<rect x="{fx}" y="{fy}" width="{fw}" height="{fh}" fill="none" '
+             f'stroke="{ink}" stroke-width="1.2"/>')
+    for (x, y, dx, dy) in [(fx, fy, 1, 1), (fx + fw, fy, -1, 1),
+                           (fx, fy + fh, 1, -1), (fx + fw, fy + fh, -1, -1)]:
+        o.append(f'<line x1="{x}" y1="{y + 10 * dy}" x2="{x}" y2="{y + 22 * dy}" stroke="{ink}" stroke-width="2.5"/>')
+        o.append(f'<line x1="{x + 10 * dx}" y1="{y}" x2="{x + 22 * dx}" y2="{y}" stroke="{ink}" stroke-width="2.5"/>')
+
+    # top rule
+    o.append(txt(52, 64, "AEROSKILLS / THE AEROSPACE KNOWLEDGE LAYER FOR AI AGENTS",
+                 size=11, fill=pencil, ls=2))
+    o.append(txt(W - 52, 64, "APACHE-2.0 · AGENTSKILLS.IO", size=11, fill=pencil,
+                 anchor="end", ls=2))
+    o.append(f'<line x1="52" y1="80" x2="{W - 52}" y2="80" stroke="{faint}" stroke-width="0.8"/>')
+
+    # wordmark: condensed AERO + italic serif Skills (design-law signature);
+    # one text element with tspans so the pair can never overlap regardless
+    # of which fallback font a platform substitutes
+    o.append(f'<text x="48" y="218" fill="{ink}">'
+             f'<tspan class="cond" font-size="132" letter-spacing="2">AERO</tspan>'
+             f'<tspan class="serif" font-size="126" dx="18">Skills</tspan></text>')
+    o.append(txt(52, 258, "VERIFIED ENGINEERING KNOWLEDGE, LOADED AS AGENT SKILLS",
+                 size=14, fill=pencil, ls=2))
+
+    # live stat row
+    stats = [(str(m["leaves"]), "VERIFIED SKILLS"), (str(m["live_packs"]), "LIVE PACKS"),
+             (str(m["standards"]), "STANDARDS"), (str(m["corpus_tasks"]), "ROUTER TASKS")]
+    for i, (value, label) in enumerate(stats):
+        x = 52 + i * 172
+        o.append(txt(x, 322, value, cls="cond", size=40, fill=ink, ls=1))
+        o.append(txt(x, 344, label, size=9.5, fill=pencil, ls=2))
+
+    # right: computed NACA 2412 outline, mint camber, quarter-chord datum
+    acx, acy, chord = 1130, 205, 560
+    surf = translate(naca2412(chord), acx - chord / 2, acy)
+    camb = translate(camber2412(chord), acx - chord / 2, acy)
+    o.append(f'<line x1="{acx - chord / 2:.1f}" y1="{acy}" x2="{acx + chord / 2:.1f}" y2="{acy}" '
+             f'stroke="{ink}" stroke-width="1" stroke-dasharray="7 5" stroke-opacity="0.45"/>')
+    o.append(poly(surf, fill="none", stroke=ink, stroke_width="2.4"))
+    p = " ".join(f"{x:.1f},{y:.1f}" for x, y in camb)
+    o.append(f'<polyline points="{p}" fill="none" stroke="{mint}" stroke-width="3" stroke-linecap="round"/>')
+    o.append(f'<circle cx="{acx - chord / 4:.1f}" cy="{acy - 2}" r="5.5" fill="{mint}" '
+             f'stroke="{ink}" stroke-width="1.4"/>')
+    o.append(txt(acx - chord / 2, acy - 62, "LE", size=10, fill=pencil, anchor="middle", ls=1))
+    o.append(txt(acx + chord / 2, acy - 62, "TE", size=10, fill=pencil, anchor="middle", ls=1))
+    o.append(txt(acx, acy - 88, "FIG. 1 — NACA 2412 SECTION", size=11, fill=pencil,
+                 anchor="middle", ls=2))
+    # chord station ticks at 25/50/75%
+    for frac in (0.25, 0.5, 0.75):
+        x = acx - chord / 2 + chord * frac
+        o.append(f'<line x1="{x:.1f}" y1="{acy + 42}" x2="{x:.1f}" y2="{acy + 50}" '
+                 f'stroke="{faint}" stroke-width="1"/>')
+        o.append(txt(x, acy + 64, f"{int(frac * 100)}%", size=9, fill=pencil, anchor="middle"))
+    o.append(txt(acx, acy + 92, "2% CAMBER @ 40% CHORD · 12% THICK", size=9.5,
+                 fill=pencil, anchor="middle", ls=1))
+
+    # bottom rule
+    o.append(f'<line x1="52" y1="{H - 66}" x2="{W - 52}" y2="{H - 66}" stroke="{faint}" stroke-width="0.8"/>')
+    o.append(txt(52, H - 42, "EVERY SKILL VERIFIED · MAKE VALIDATE 5/5 · "
+                 "REPLAYABLE OFFLINE · AGENTSKILLS.IO FORMAT", size=10, fill=pencil, ls=2))
+    o.append(txt(W - 52, H - 42, f'{m["families"]} FAMILIES · {m["live_packs"]} PACKS',
+                 size=10, fill=pencil, anchor="end", ls=2))
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
+# ---------------------------------------------------------- how-it-works
+
+def gen_flow(t):
+    """How-it-works pipeline as a generated diagram (replaces inline mermaid,
+    which GitHub renders cramped behind zoom controls — founder 2026-09-01)."""
+    W, H = 1500, 250
+    ink, mint, pencil, faint = t["ink"], t["mint"], t["pencil"], t["faint"]
+    steps = [
+        ("01", ["AGENT TASK"], False),
+        ("02", ["ROUTER PICKS SKILL", "BY DESCRIPTION"], False),
+        ("03", ["SKILL.MD LOADS:", "WORKFLOW + GATES"], False),
+        ("04", ["STANDARDS CONTEXT", "FROM STANDARDS-MAP"], False),
+        ("05", ["AGENT EXECUTES", "WITH VERIFICATION"], False),
+        ("06", ["STOP GATE:", "HUMAN SIGN-OFF"], True),
+    ]
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
+         f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>']
+
+    n, bw, bh, mx = len(steps), 200, 84, 48
+    gap = (W - 2 * mx - n * bw) / (n - 1)
+    by = 84
+    for i, (num, lines, accent) in enumerate(steps):
+        x = mx + i * (bw + gap)
+        stroke = mint if accent else ink
+        o.append(f'<rect x="{x:.1f}" y="{by}" width="{bw}" height="{bh}" fill="{t["surface"]}" '
+                 f'stroke="{stroke}" stroke-width="{2.4 if accent else 1.4}"/>')
+        o.append(txt(x + 2, by - 12, num, size=11, fill=mint if accent else pencil, ls=2))
+        cy0 = by + bh / 2 - (len(lines) - 1) * 9 + 4
+        for j, line in enumerate(lines):
+            o.append(txt(x + bw / 2, cy0 + j * 18, line, size=11.5,
+                         fill=ink, anchor="middle", ls=1))
+        if i < n - 1:
+            ax0, ax1, ay = x + bw + 6, x + bw + gap - 6, by + bh / 2
+            o.append(f'<line x1="{ax0:.1f}" y1="{ay}" x2="{ax1 - 8:.1f}" y2="{ay}" '
+                     f'stroke="{ink}" stroke-width="1.4"/>')
+            o.append(f'<path d="M {ax1:.1f} {ay} l -9 -4.5 v 9 Z" fill="{ink}"/>')
+
+    o.append(txt(mx, H - 40, "DETERMINISTIC ROUTER · OFFLINE GATES · "
+                 "THE TERMINAL NODE IS ALWAYS A HUMAN", size=10.5, fill=pencil, ls=2))
+    o.append(f'<line x1="{mx}" y1="{H - 60}" x2="{W - mx}" y2="{H - 60}" '
+             f'stroke="{faint}" stroke-width="0.8"/>')
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
 
 
 # --------------------------------------------------------------- README gen
-
-def block_statline(m):
-    return (f'<p align="center">\n'
-            f'  <code>{m["leaves"]} verified skills</code> · '
-            f'<code>{m["live_packs"]} live packs</code> · '
-            f'<code>{m["families"]} families</code> · '
-            f'<code>{m["standards"]} standards</code> · '
-            f'<code>{m["corpus_tasks"]} router tasks</code> · '
-            f'<code>5/5 gates + 3/3 attest</code>\n</p>')
-
 
 def block_badges(m):
     def b(label, msg, color, href):
@@ -530,17 +635,10 @@ def block_badges(m):
         b("gates", "5%2F5 REAL", "2ea043", "docs/harness-contract.md"),
         b("attest", "3%2F3", "2ea043", "docs/harness-contract.md"),
         b("router tasks", str(m["corpus_tasks"]), "2ea043", "eval/"),
-        b("eval", "deterministic offline", "555555", "docs/harness-contract.md"),
-    ]
-    row3 = [
-        b("license", "Apache 2.0", "4a90d9", "LICENSE"),
         b("format", "agentskills.io", "8250df", "https://agentskills.io"),
-        b("harnesses", "70%2B", "555555", "docs/harness-integration.md"),
-        b("python", "stdlib only", "555555", "scripts/"),
     ]
     return ("<p align=\"center\">\n" + "\n".join(row1)
-            + "\n</p>\n<p align=\"center\">\n" + "\n".join(row2)
-            + "\n</p>\n<p align=\"center\">\n" + "\n".join(row3) + "\n</p>")
+            + "\n</p>\n<p align=\"center\">\n" + "\n".join(row2) + "\n</p>")
 
 
 def block_overview(m):
@@ -587,7 +685,6 @@ def block_roadmap(m):
 
 
 BLOCKS = {
-    "statline": block_statline,
     "badges": block_badges,
     "overview": block_overview,
     "family-table": block_family_table,
@@ -619,6 +716,10 @@ def outputs(m):
         docs / "domain-polar-dark.svg": gen_polar(m, DARK),
         docs / "stats.svg": gen_stats(m, LIGHT),
         docs / "stats-dark.svg": gen_stats(m, DARK),
+        docs / "banner.svg": gen_banner(m, LIGHT),
+        docs / "banner-dark.svg": gen_banner(m, DARK),
+        docs / "how-it-works.svg": gen_flow(LIGHT),
+        docs / "how-it-works-dark.svg": gen_flow(DARK),
         docs / "DOMAINS.md": gen_domains(m),
     }
 
@@ -629,9 +730,6 @@ def main():
     out = outputs(m)
     readme_path = REPO / "README.md"
     out[readme_path] = render_readme(m, readme_path.read_text(encoding="utf-8"))
-    for banner in ("banner.svg", "banner-dark.svg"):
-        path = REPO / "docs" / banner
-        out[path] = render_banner(m, path.read_text(encoding="utf-8"))
 
     stale = []
     for path, content in sorted(out.items()):
