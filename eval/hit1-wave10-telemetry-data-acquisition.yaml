@@ -1,0 +1,15 @@
+# Hit@1 wave-10 fragment: telemetry-data-acquisition
+# (flight-test-operations/planning) Two tasks per new leaf skill; tda2
+# is cross-cutting (ground station link margin and signal conditioning
+# wording could route to communication-link-budget or flight-test-
+# instrumentation, must deterministically route to telemetry-data-
+# acquisition).
+tasks:
+  - id: tda1
+    query: "compute the pcm minor frame size and the telemetry bit rate for the flight test data acquisition, assign the supercommutated channel instances per frame, and encode the time of year in irig-b format"
+    intent: "flight test; PCM frame and bit rate sizing with supercommutation and IRIG time coding"
+    expected_skill: "flight-test-operations/planning/telemetry-data-acquisition"
+  - id: tda2
+    query: "check the flight test ground station telemetry link margin against the receiver sensitivity, condition the sensor bridge signal to the adc span, and flag the data quality when the bit error rate and dropout percentage exceed the limits"
+    intent: "flight test; ground station link margin, signal conditioning, and telemetry quality checks"
+    expected_skill: "flight-test-operations/planning/telemetry-data-acquisition"
