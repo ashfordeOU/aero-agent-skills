@@ -1,13 +1,13 @@
-# Hit@1 corpus fragment (gate 5 close-merge input): wave 16 leaf
-# propulsion/engine-airframe/engine-airframe-integration. Two tasks,
-# ids w16-engine-airframe-integration-1/2 (verified absent from
-# eval/hit1-corpus.yaml). Merged by ops/automation at wave close; do
-# not edit eval/hit1-corpus.yaml directly.
-- id: w16-engine-airframe-integration-1
-  query: "estimate installed thrust loss from intake drag and nacelle drag for a turbofan installation"
-  intent: "engine-airframe integration thrust-drag bookkeeping"
-  expected_skill: "propulsion/engine-airframe/engine-airframe-integration"
-- id: w16-engine-airframe-integration-2
-  query: "account for pylon drag and bleed air extraction when sizing the installed engine thrust"
-  intent: "engine-airframe integration installation losses in installed thrust sizing"
-  expected_skill: "propulsion/engine-airframe/engine-airframe-integration"
+# Hit@1 wave-16 fragment: engine-airframe-integration (propulsion/engine-airframe)
+# Two tasks per new leaf; w16-engine-airframe-integration-1 routes on
+# installed thrust loss from intake and nacelle drag, -2 on pylon drag
+# and bleed extraction in installed thrust sizing.
+tasks:
+  - id: w16-engine-airframe-integration-1
+    query: "estimate installed thrust loss from intake drag and nacelle drag for a turbofan installation"
+    intent: "engine-airframe integration thrust-drag bookkeeping"
+    expected_skill: "propulsion/engine-airframe/engine-airframe-integration"
+  - id: w16-engine-airframe-integration-2
+    query: "account for pylon drag and bleed air extraction when sizing the installed engine thrust"
+    intent: "engine-airframe integration installation losses in installed thrust sizing"
+    expected_skill: "propulsion/engine-airframe/engine-airframe-integration"
