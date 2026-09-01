@@ -91,7 +91,7 @@ REQ-101 braking limits.
   verification mapping (check_traceability_closure closed True).
 - Every derived requirement has a source.
 - No change affecting safety-relevant requirements, interfaces, or
-  certification data is classified minor.
+  certification data is categorized as minor.
 - Impact analysis lists every affected requirement, design element,
   verification method, and analysis before approval.
 - Every change has a history record with classification and status.

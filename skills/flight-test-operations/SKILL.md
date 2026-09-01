@@ -63,13 +63,15 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/stability/static-stability-flight-test | Static stability flight test | trim curve slope, elevator angle versus speed, stick fixed neutral point, static margin, elevator angle per g |
 | flight-test-operations/envelope/high-angle-of-attack-testing | High angle of attack testing | high angle of attack, post stall, deep stall, AoA calibration, position error correction, stall margin, departure resistance, spin entry, stall warning, flight test envelope |
 | flight-test-operations/envelope/spin-testing | Spin testing | spin testing, spin entry, spin recovery, recovery parachute, spin test point, spin resistance, FAR 25.201 |
+| flight-test-operations/uas/part107-sora | Part107 Sora | part 107 applicability, part107 sora, sora operational category, ground risk class, air risk class, arc, grc, robustness level, containment, bvlos waiver, drone risk assessment, uas risk, remote pilot certificate, 400 ft agl, visual line of sight. |
 
 ## Routing guidance
 
 - Envelope expansion and corner speed questions route to the
   envelope-expansion sub-skill; certification speed questions route
   to the v-speeds sub-skill; V-n diagram and load factor questions
-  route to load-factor-envelope.
+  route to load-f- Part 107 applicability questions route to the uas part107-sora sub-skill.
+actor-envelope.
 - Stall behavior questions (1-g stalls, accelerated stalls, warning
   margins) route to stall-characteristics-testing; reference stall
   speed questions route to stall-speed-determination; loads survey

@@ -60,13 +60,15 @@ estimation, validated against classic reference data.
 | aerodynamics/aeroelasticity/divergence-speed | Divergence speed | divergence dynamic pressure, torsional stiffness, shear center offset, aerodynamic center, divergence margin, dive speed |
 | aerodynamics/wind-tunnel/windtunnel-data-reduction | Wind tunnel data reduction | wind tunnel data reduction, tare correction, blockage correction, wall interference, Reynolds correction, aerodynamic coefficients, pressure distribution, balance data, uncertainty estimation, experimental aerodynamics |
 | aerodynamics/aeroelasticity/flutter-speed-prediction | Flutter speed prediction | flutter speed, v-g method, bending torsion, typical section, damping crossing, frequency coalescence, flutter margin, theodorsen |
+| aerodynamics/cfd/cfd-validation | Cfd Validation | cfd validation, validation case selection, richardson extrapolation, grid convergence, naca 0012 drag, onera m6, dlr f6, error metrics, validation uncertainty, validation report. |
 
 ## Routing guidance
 
 - Airfoil family and section constraint questions route to the
   airfoil-selection sub-skill; XFOIL runs and polar validation route
   to xfoil-analysis; NACA geometry and naming questions route to
-  airfoil-geometry; shape trade and objective studies route to
+  airfoil-geometry; shape trade and - Cfd validation questions route to the cfd cfd-validation sub-skill.
+objective studies route to
   airfoil-optimization.
 - CFD solver-convergence questions (residuals, Courant, mesh
   refinement) route to cfd-convergence; turbulence model and

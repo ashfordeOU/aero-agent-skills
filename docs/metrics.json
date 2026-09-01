@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 626,
+  "corpus_tasks": 650,
   "families": 12,
-  "leaves": 306,
-  "live_packs": 74,
+  "leaves": 318,
+  "live_packs": 80,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -38,6 +38,7 @@
           "cfd-convergence",
           "cfd-mesh-generation",
           "cfd-turbulence-modeling",
+          "cfd-validation",
           "panel-method",
           "vortex-lattice-method"
         ],
@@ -69,11 +70,11 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 54
+      "tasks": 56
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "data-bus",
         "do160",
@@ -81,9 +82,10 @@
         "do254",
         "far-cs25",
         "flight-management",
+        "fsw",
         "ima"
       ],
-      "packs": 7,
+      "packs": 8,
       "packs_detail": {
         "data-bus": [
           "arinc429-protocol",
@@ -121,26 +123,30 @@
           "performance-computation",
           "vertical-navigation"
         ],
+        "fsw": [
+          "cfs-architecture"
+        ],
         "ima": [
           "do297",
           "ima-partitioning"
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 55
+      "tasks": 57
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "data-sources",
         "documentation",
+        "export-control",
         "numerics",
         "sep2640",
         "tolerancing",
         "units-atmos"
       ],
-      "packs": 6,
+      "packs": 7,
       "packs_detail": {
         "data-sources": [
           "aeronautical-data-sources"
@@ -148,6 +154,9 @@
         "documentation": [
           "engineering-margins",
           "engineering-report"
+        ],
+        "export-control": [
+          "export-control-awareness"
         ],
         "numerics": [
           "convergence-verification",
@@ -182,11 +191,11 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 52
+      "tasks": 54
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 25,
+      "leaves": 26,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -200,6 +209,7 @@
         ],
         "handling-qualities": [
           "cooper-harper-rating",
+          "mil-std-1797a",
           "pilot-induced-oscillation"
         ],
         "performance": [
@@ -230,19 +240,20 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 50
+      "tasks": 52
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "envelope",
         "flutter",
         "performance",
         "planning",
-        "stability"
+        "stability",
+        "uas"
       ],
-      "packs": 5,
+      "packs": 6,
       "packs_detail": {
         "envelope": [
           "envelope-expansion",
@@ -279,14 +290,17 @@
         "stability": [
           "dynamic-stability-flight-test",
           "static-stability-flight-test"
+        ],
+        "uas": [
+          "part107-sora"
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 52
+      "tasks": 54
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 25,
+      "leaves": 26,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -327,7 +341,8 @@
         ],
         "optimal-control": [
           "dymos-trajectory",
-          "lqr-design"
+          "lqr-design",
+          "model-predictive-control"
         ],
         "space": [
           "attitude-dynamics",
@@ -336,19 +351,20 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 51
+      "tasks": 53
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "additive",
         "as9100",
         "as9102",
+        "composites",
         "ndt",
         "special-processes"
       ],
-      "packs": 5,
+      "packs": 6,
       "packs_detail": {
         "additive": [
           "additive-manufacturing-qualification",
@@ -372,6 +388,9 @@
           "fai-revalidation",
           "first-article-inspection"
         ],
+        "composites": [
+          "layup-cure"
+        ],
         "ndt": [
           "acoustic-emission-inspection",
           "eddy-current-inspection",
@@ -388,14 +407,15 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 54
+      "tasks": 56
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 25,
+      "leaves": 26,
       "pack_names": [
         "axial-compressor",
         "combustion",
+        "electric",
         "engine-airframe",
         "gas-turbine-cycle",
         "ramjet",
@@ -404,7 +424,7 @@
         "turbomachinery",
         "turboprop"
       ],
-      "packs": 9,
+      "packs": 10,
       "packs_detail": {
         "axial-compressor": [
           "axial-compressor-stage",
@@ -414,6 +434,9 @@
         ],
         "combustion": [
           "cea-rocket-combustion"
+        ],
+        "electric": [
+          "hall-thruster"
         ],
         "engine-airframe": [
           "engine-airframe-integration"
@@ -451,11 +474,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 50
+      "tasks": 52
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 25,
+      "leaves": 26,
       "pack_names": [
         "adcs",
         "ecss",
@@ -479,6 +502,7 @@
         ],
         "mission-design": [
           "entry-descent-landing",
+          "launch-window-analysis",
           "mission-delta-v-budget",
           "radiation-debris"
         ],
@@ -502,20 +526,21 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 53
+      "tasks": 55
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "composites",
         "damage-tolerance",
         "fatigue",
         "fem",
+        "loads",
         "materials",
         "thermal-structures"
       ],
-      "packs": 6,
+      "packs": 7,
       "packs_detail": {
         "composites": [
           "cmh17-allowables",
@@ -546,6 +571,9 @@
           "plate-buckling",
           "truss-analysis"
         ],
+        "loads": [
+          "gust-maneuver-loads"
+        ],
         "materials": [
           "fracture-toughness",
           "material-selection",
@@ -557,11 +585,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 53
+      "tasks": 55
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 25,
+      "leaves": 26,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -572,6 +600,7 @@
       "packs": 5,
       "packs_detail": {
         "arp4754a": [
+          "configuration-management",
           "derived-requirements",
           "development-assurance-levels",
           "requirements-allocation",
@@ -608,11 +637,11 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 52
+      "tasks": 54
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 25,
+      "leaves": 26,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -627,6 +656,7 @@
           "constraint-analysis",
           "openvsp-geometry",
           "payload-range-diagram",
+          "sizing-mission-profile",
           "tow-estimation"
         ],
         "cost-estimation": [
@@ -662,9 +692,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 50
+      "tasks": 52
     }
   },
-  "skill_files": 318,
-  "standards": 21
+  "skill_files": 330,
+  "standards": 25
 }

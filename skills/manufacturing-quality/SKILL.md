@@ -63,6 +63,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/additive/additive-manufacturing-qualification | Additive manufacturing qualification | volumetric energy density, laser power, scan speed, hatch spacing, layer height, witness coupon, material property verification, AM first article |
 | manufacturing-quality/additive/lpbf-parameter-development | LPBF parameter development | LPBF, laser powder bed fusion, volumetric energy density, scan speed, hatch spacing, layer thickness, melt pool, keyhole mode, conduction mode, process window |
 | manufacturing-quality/ndt/acoustic-emission-inspection | Acoustic emission inspection | acoustic emission, AE inspection, source location, Kaiser effect, Felicity ratio, hit, event, sensor |
+| manufacturing-quality/composites/layup-cure | Layup Cure | composite layup, ply book, laminate, symmetric, balanced, cure cycle, autoclave, out-of-autoclave, OOA, degree of cure, epoxy, 350F, glass transition, Tg, C-scan, porosity. |
 
 ## Routing guidance
 
@@ -71,7 +72,8 @@ selection and ultrasonic inspection).
 - Nonconforming product questions (disposition, rework, repair,
   scrap, use-as-is, MRB) route to the nonconformance-control
   sub-skill.
-- External provider and supplier questions (classification, controls,
+- Ext- Composite layup questions route to the composites layup-cure sub-skill.
+ernal provider and supplier questions (classification, controls,
   delegated verification) route to the supplier-control sub-skill.
 - Counterfeit risk and prevention questions route to the
   counterfeit-prevention sub-skill.

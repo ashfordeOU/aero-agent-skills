@@ -63,13 +63,15 @@ material selection.
 | structures/thermal-structures/thermal-stress-analysis | Thermal stress analysis | thermal stress, coefficient of thermal expansion, temperature change, bimetallic strip, thermal strain, constrained member |
 | structures/composites/cmh17-allowables | CMH-17 composite allowables | CMH-17 allowables, composite allowables, A-basis, B-basis, tolerance k-factors, pooling, laminate allowables, knockdown factors, environmental conditioning, open hole |
 | structures/fem/contact-analysis | Contact analysis | contact analysis, penalty method, Lagrange, contact stiffness, penetration, friction, stick slip, master slave |
+| structures/loads/gust-maneuver-loads | Gust Maneuver Loads | gust loads, maneuver loads, gust load factor, V-n diagram, flight envelope, FAR 25.341, FAR 25.337, discrete gust, 1-cosine gust, gust alleviation factor, mass ratio, load factor, corner point, maneuvering speed, VA VB VC VD, margin check. |
 
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
   sub-skill; nonlinear state-dependent stiffness and convergence
   questions route to the fem calculix-nonlinear sub-skill.
-- Modal questions (natural frequencies, mode shapes, resonance) route
+- Modal questions (natural frequencies, mode shapes, reson- Gust loads questions route to the loads gust-maneuver-loads sub-skill.
+ance) route
   to the fem modal-analysis sub-skill.
 - Truss questions (element stiffness matrices, global stiffness
   assembly, nodal displacements by Gaussian elimination, member

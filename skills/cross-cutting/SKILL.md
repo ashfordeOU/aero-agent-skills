@@ -67,13 +67,15 @@ integration) for engineering calculations.
 | cross-cutting/data-sources/aeronautical-data-sources | Aeronautical data sources | data source credibility, revision status, publisher, engineering reference, citation line, authoritative source |
 | cross-cutting/tolerancing/datum-reference-frames | Datum reference frames | datum reference frames, GD&T, datum precedence, primary secondary tertiary, feature control frame, material condition, MMB LMB RMB, degrees of freedom, datum simulators, ASME Y14.5 |
 | cross-cutting/tolerancing/gdandt-basics | GD&T basics | GD&T, feature control frame, datum reference frame, form tolerance, orientation tolerance, MMC, LMC, RFS, bonus tolerance |
+| cross-cutting/export-control/export-control-awareness | Export Control Awareness | ITAR, EAR, USML, EAR99, 600-series, defense articles, technical data, export control, deemed export, fundamental research, public domain, compliance review, sharing data with foreign collaborators. |
 
 ## Routing guidance
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
   skill-delivery sub-skill; evaluating a delivered skill's conformance
   and quality routes to the skill-evaluation sub-skill; authoring a
-  new SKILL.md (template, kebab-case name, required fields) routes to
+  new SKILL.md (template, kebab-case name, required fields)- Itar questions route to the export-control export-control-awareness sub-skill.
+ routes to
   the skill-authoring sub-skill.
 - Standard atmosphere questions route to the units-atmos
   isa-atmosphere sub-skill; converting units between systems routes to

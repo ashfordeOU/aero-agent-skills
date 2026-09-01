@@ -62,6 +62,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/estimation-filtering/alpha-beta-filter | Alpha-beta filter | alpha beta filter, constant velocity target, tracking update, smoothing factor, steady state gain, position and velocity tracking |
 | gnc-autonomy/estimation-filtering/unscented-kalman-filter | Unscented Kalman filter | unscented Kalman filter, sigma points, scaled unscented transform, nonlinear state estimation, state prediction, measurement update, innovation covariance, NEES, bearing-range tracking |
 | gnc-autonomy/estimation-filtering/extended-kalman-filter | Extended Kalman filter | extended kalman filter, EKF, Jacobian linearization, predict update, innovation covariance, kalman gain, nonlinear estimation |
+| gnc-autonomy/optimal-control/model-predictive-control | Model Predictive Control | mpc, model predictive control, receding horizon, quadratic cost, prediction horizon, control horizon, input constraints, state constraints, terminal cost, double integrator, constrained control, closed loop simulation, kkt system, active set. |
 
 ## Routing guidance
 
@@ -69,7 +70,8 @@ and guidance laws (proportional navigation, pursuit).
 - Phasing and rendezvous planning questions route to the
   rendezvous-phasing sub-skill.
 - Attitude dynamics, quaternion kinematics, and momentum questions
-  route to the space attitude-dynamics sub-skill.
+  route to the space attitude-dyn- Mpc questions route to the optimal-control model-predictive-control sub-skill.
+amics sub-skill.
 - Coordinate-frame and navigation-solution questions (ECEF/NED/geodetic,
   WGS-84) route to the navigation navigation-frames sub-skill.
 - Inertial navigation, drift, and Schuler questions route to the

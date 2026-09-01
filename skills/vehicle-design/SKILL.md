@@ -62,6 +62,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/conceptual/constraint-analysis | Constraint analysis | matching chart, thrust to weight ratio, wing loading, stall constraint, climb gradient, takeoff distance, feasible region |
 | vehicle-design/conceptual/openvsp-geometry | Parametric aircraft geometry | parametric geometry, OpenVSP style, wing planform, mean aerodynamic chord, wetted area, fuselage geometry, component volume, sweep dihedral twist, mass properties input, conceptual design |
 | vehicle-design/sizing/nacelle-sizing | Nacelle sizing | nacelle sizing, highlight area, fan mass flow, inlet capture, lip area, nacelle length, wetted area, cowl thickness |
+| vehicle-design/conceptual/sizing-mission-profile | Sizing Mission Profile | mission profile, block fuel, block time, breguet range, breguet endurance, reserve fuel, loiter, hold, fuel fraction, required fuel, climb, cruise, descent, taxi, takeoff, FAR 121, payload range. |
 
 ## Routing guidance
 
@@ -69,7 +70,8 @@ aerodynamic, structural, and performance disciplines together.
   conceptual tow-estimation sub-skill.
 - Payload-range and Breguet-range trade questions route to the
   conceptual payload-range-diagram sub-skill.
-- Weight and balance sheet questions route to the weight-estimation
+- Weight and balance sheet questi- Mission profile questions route to the conceptual sizing-mission-profile sub-skill.
+ons route to the weight-estimation
   sub-skill.
 - Cabin layout and fuselage diameter questions route to the sizing
   fuselage-sizing sub-skill.
