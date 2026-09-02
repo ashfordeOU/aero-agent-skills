@@ -703,11 +703,11 @@ def gen_flow(t):
 # --------------------------------------------------------------- README gen
 
 def block_badges(m):
-    def b(label, msg, color, href):
+    def b(label, msg, color, href, alt=None):
         lab = label.replace("-", "--").replace(" ", "_")
         enc = msg.replace("-", "--").replace(" ", "_")
         return (f'  <a href="{href}"><img src="https://img.shields.io/badge/'
-                f'{lab}-{enc}-{color}?style=flat&labelColor=1a1e35" alt="{label} {msg}"></a>')
+                f'{lab}-{enc}-{color}?style=flat&labelColor=1a1e35" alt="{alt or (label + " " + msg)}"></a>')
     row = [
         b("skills", str(m["leaves"]), "0ea5e9", "skills/"),
         b("packs", str(m["live_packs"]), "8b5cf6", "docs/DOMAINS.md"),
@@ -718,7 +718,17 @@ def block_badges(m):
         b("router tasks", str(m["corpus_tasks"]), "0ea5e9", "eval/"),
         b("format", "agentskills.io", "8b5cf6", "https://agentskills.io"),
     ]
-    return "<p align=\"center\">\n" + "\n".join(row) + "\n</p>"
+    # Distribution row: how the library ships. Static npm badge on purpose —
+    # flip to a live shields npm/v badge at public release (runbook 3b).
+    dist = [
+        b("npm", "aero-agent-skills", "0ea5e9", "https://www.npmjs.com/package/aero-agent-skills"),
+        b("cli", "aero-skills", "8b5cf6", "packages/aero-agent-skills/"),
+        b("mcp server", "jetbrains_%C2%B7_claude_%C2%B7_vscode_%C2%B7_cursor", "ec4899", "docs/harness-integration.md",
+          alt="MCP server for JetBrains, Claude Desktop, VS Code, Cursor"),
+        b("claude code", "plugin", "f97316", ".claude-plugin/"),
+    ]
+    return ("<p align=\"center\">\n" + "\n".join(row) + "\n</p>\n"
+            + "<p align=\"center\">\n" + "\n".join(dist) + "\n</p>")
 
 
 def block_overview(m):
