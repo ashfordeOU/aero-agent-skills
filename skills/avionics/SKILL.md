@@ -72,6 +72,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/ima/do297 | IMA architecture and acceptance | integrated modular avionics, DO-297, module acceptance, incremental certification, partition allocation, resource budget, CPU memory I/O, integrity requirements, IMA architecture, shared resources |
 | avionics/flight-management/performance-computation | Performance computation | FMS performance, cost index, ECON, cruise Mach, step climb, top of descent, fuel time trade, VNAV |
 | avionics/fsw/cfs-architecture | Cfs Architecture | cFS, core flight software, cFE, OSAL, PSP, software bus, publish subscribe, app skeleton, telemetry pipeline. |
+| avionics/fsw/fprime-component | F Prime component | F Prime, F-prime component framework, topology, rate group, command dispatch, port connection |
 
 ## Routing guidance
 
@@ -118,3 +119,4 @@ est case count, coverage objectives per
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- F Prime component and topology questions route to the fsw fprime-component sub-skill.

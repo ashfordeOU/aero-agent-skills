@@ -62,6 +62,7 @@ selection, and classical orbital element determination.
 | space-systems/mission-design/radiation-debris | Radiation and debris environment | radiation environment, trapped belts, total ionizing dose, single event effects, SEU rate, solar particle events, orbital debris, shielding attenuation, collision probability, mission design |
 | space-systems/mission-design/entry-descent-landing | Entry descent and landing | entry descent landing, entry corridor, ballistic coefficient, entry heating, sutton-graves, deceleration, parachute, terminal velocity |
 | space-systems/mission-design/launch-window-analysis | Launch Window Analysis | launch window, launch azimuth, inclination, sun-synchronous, ltan, raan, plane change, delta-v, orbital plane, direct injection, ksc. |
+| space-systems/orbit-mechanics/low-thrust-spiral | Low-thrust spiral transfer | low-thrust transfer, Edelbaum, continuous thrust spiral, inclination change, spiral transfer time |
 
 ## Routing guidance
 
@@ -121,3 +122,4 @@ selection, and classical orbital element determination.
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- Low-thrust spiral and Edelbaum transfer questions route to the orbit-mechanics low-thrust-spiral sub-skill.

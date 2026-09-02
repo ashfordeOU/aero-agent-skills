@@ -63,6 +63,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/estimation-filtering/unscented-kalman-filter | Unscented Kalman filter | unscented Kalman filter, sigma points, scaled unscented transform, nonlinear state estimation, state prediction, measurement update, innovation covariance, NEES, bearing-range tracking |
 | gnc-autonomy/estimation-filtering/extended-kalman-filter | Extended Kalman filter | extended kalman filter, EKF, Jacobian linearization, predict update, innovation covariance, kalman gain, nonlinear estimation |
 | gnc-autonomy/optimal-control/model-predictive-control | Model Predictive Control | mpc, model predictive control, receding horizon, quadratic cost, prediction horizon, control horizon, input constraints, state constraints, terminal cost, double integrator, constrained control, closed loop simulation, kkt system, active set. |
+| gnc-autonomy/estimation-filtering/particle-filter | Particle filter | particle filter, bootstrap filter, sequential Monte Carlo, SIR resampling, non-Gaussian estimation, effective sample size |
 
 ## Routing guidance
 
@@ -117,3 +118,4 @@ amics sub-skill.
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- Particle filter and non-Gaussian nonlinear estimation questions route to the estimation-filtering particle-filter sub-skill.
