@@ -12,7 +12,7 @@ import pathlib
 import re
 import sys
 
-ROOT = pathlib.Path("/Users/enterprisehq/AeroSkills")
+ROOT = pathlib.Path(__file__).resolve().parents[3]
 CORPUS = ROOT / "eval" / "hit1-corpus.yaml"
 BASE_LEAVES = 191   # wave-11 close
 BASE_SKILL = 203    # 12 routers + 191 leaves

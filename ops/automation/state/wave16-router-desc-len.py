@@ -4,7 +4,7 @@ import pathlib
 import sys
 import yaml
 
-ROOT = pathlib.Path("/Users/enterprisehq/AeroSkills")
+ROOT = pathlib.Path(__file__).resolve().parents[3]
 SKILLS = ROOT / "skills"
 
 fail = False
