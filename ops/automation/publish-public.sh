@@ -86,8 +86,14 @@ git archive --format=tar HEAD -- \
 printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
 
 # --- 2. hygiene: secrets + excluded-name leak check (fail closed) ---
+# Patterns require a REALISTIC token shape (prefix + a real alnum run),
+# not a bare prefix literal — this script itself ships inside the export
+# (ops/automation/) and its own source necessarily contains the bare
+# strings "ghp_"/"sk-" as pattern text; a bare-prefix match would flag
+# itself every run. A prefix immediately followed by 25+ alnum chars is
+# never true of the pattern SOURCE, only of an actual leaked token.
 log "secrets + leak sweep…"
-if grep -rniE 'ghp_|github_pat_|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY' "$EXPORT" 2>/dev/null | grep -q .; then
+if grep -rnE 'ghp_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9]{25,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY' "$EXPORT" 2>/dev/null | grep -q .; then
   log "FAIL: secret-shaped string found in export — aborting, nothing pushed"
   exit 1
 fi
