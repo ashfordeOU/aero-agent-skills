@@ -40,7 +40,7 @@ jobs:
           if [ $RC -ne 0 ]; then
             # Distinguish "version exists" (already uploaded, e.g. re-run of a tag)
             # from a genuine failure. ONLY skip when the marketplace confirms it.
-            if grep -qiE "already contains version|version .* already|HTTP.*409|conflict" /tmp/jb_publish.log; then
+            if grep -qiE "already contains version|version .* already|HTTP.*409|conflict|HTTP.*422" /tmp/jb_publish.log; then
               echo "::warning::Version already on marketplace — treating as success (re-run idempotent)"
             else
               cat /tmp/jb_publish.log
@@ -48,6 +48,9 @@ jobs:
             fi
           fi
         env:
+          # Signing is OPTIONAL: when the cert secrets are absent, the plugin
+          # uploads unsigned (listing exists — plugin id com.ashforde.aeroskills).
+          # Add the secrets to get the JetBrains "Verified" badge.
           PLUGIN_CERTIFICATE_CHAIN: ${{ secrets.PLUGIN_CERTIFICATE_CHAIN }}
           PLUGIN_PRIVATE_KEY: ${{ secrets.PLUGIN_PRIVATE_KEY }}
           PLUGIN_PRIVATE_KEY_PASSWORD: ${{ secrets.PLUGIN_PRIVATE_KEY_PASSWORD }}
