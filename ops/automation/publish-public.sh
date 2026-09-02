@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sync the dev tree (arjun-0077, private TEST environment) to the public
+# Sync the dev tree (a private TEST environment) to the public
 # release repo (github.com/ashfordeOU/aero-agent-skills). Founder
 # 2026-09-02: "focus on maintaining public repo from now on... push
 # everything to public repo, the entire local repo" — this script now
