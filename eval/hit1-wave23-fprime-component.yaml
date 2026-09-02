@@ -1,0 +1,16 @@
+# Hit@1 wave-23 fragment: fprime-component (avionics/fsw)
+# Two tasks per new leaf skill. w23-fprime-component-1 routes on F Prime
+# component topology design with typed port connections and rate group
+# scheduling; w23-fprime-component-2 routes on F´ component definition
+# validation (opcode uniqueness, port type matching) and scaffold manifest
+# generation. Both must deterministically hit avionics/fsw/fprime-component
+# and must NOT route to the cFS software bus tasks w22-cfs-architecture-1/2.
+tasks:
+  - id: w23-fprime-component-1
+    query: "design an F Prime component topology for the smallsat flight software: choose active and queued components, wire the typed port connections between their input and output ports, and schedule the component run inputs in a rate group schedule"
+    intent: "avionics; F Prime component topology with typed port connections and rate group scheduling of component run inputs"
+    expected_skill: "avionics/fsw/fprime-component"
+  - id: w23-fprime-component-2
+    query: "validate the F´ component definitions for my flight software: check command opcode uniqueness across each active component, verify the typed port connection data types match, and generate the scaffold manifest with header guard and command dispatch entries"
+    intent: "avionics; F Prime component definition validation of command opcode uniqueness and port type matching plus scaffold manifest generation"
+    expected_skill: "avionics/fsw/fprime-component"
