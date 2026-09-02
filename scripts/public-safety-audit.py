@@ -43,7 +43,8 @@ def files_in(sha):
 
 def grep_in(sha, pattern):
     """grep -l across all files at a commit; returns matching paths."""
-    files = files_in(sha)
+    files = [f for f in files_in(sha)
+             if f not in TOOLING_FILES]  # never flag the audit tooling itself
     if not files:
         return []
     # batch in chunks to avoid argv limits
@@ -71,6 +72,14 @@ PATTERNS = {
 }
 
 ENV_FILE_RE = re.compile(r"(\.env($|\.)|\.pem$|\.key$|\.p12$|\.pfx$|id_rsa|id_ed25519|\.netrc|credentials)", re.I)
+
+# Audit tooling files: their source legitimately contains detection-pattern
+# strings (split or as documentation). Never flag them — same rule as the
+# secret sweep in publish-public.sh, which must not match its own patterns.
+TOOLING_FILES = {
+    "scripts/public-safety-audit.py",
+    "ops/automation/publish-public.sh",
+}
 
 def main():
     # If the target has no .git (e.g. a git-archive export), scan the working
@@ -143,10 +152,7 @@ def scan_tree(root):
             except Exception:
                 continue
             for name, pattern in PATTERNS.items():
-                # never flag the audit tooling itself: public-safety-audit.py
-                # and publish-public.sh carry split patterns/documentation that
-                # legitimately mention these strings as detection examples
-                if rel in ("scripts/public-safety-audit.py", "ops/automation/publish-public.sh"):
+                if rel in TOOLING_FILES:
                     continue
                 if re.search(pattern, content):
                     matches.setdefault(rel, set()).add(name)
