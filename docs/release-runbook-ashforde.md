@@ -166,6 +166,54 @@ test/ are present). The run-tests.sh negative-control step is dev-only
 and is skipped when ops/automation/test/ is absent (the workflow
 checks for the file).
 
+## 3b. Amendment 2026-09-02: distribution channels (npm + MCP + Claude Code plugin)
+
+Distribution channels shipped at dev HEAD 17615ea, AFTER the RC tag and
+after the Design v5 generated-README rework — so sections 3/3a above are
+stale in two ways this amendment corrects. Apply all of it at GO.
+
+Allowlist ADDITIONS (the public tree is broken without them):
+
+- `.claude-plugin/` (plugin.json + marketplace.json): README's
+  `claude plugin marketplace add` command fails without them. Both pass
+  `claude plugin validate --strict`.
+- `packages/aero-agent-skills/` (npm CLI + MCP server sources,
+  generated manifest.json, smoke battery): README + harness-integration
+  sections 8-9 document it, `.ci-native` runs `make package-test` (full
+  Hit@1 corpus replayed through the JS router), and the npm publish must
+  build from the public tree. The skills/LICENSE/NOTICE/standards-map
+  payload inside the package dir is gitignored and produced by prepack —
+  ship the sources, not a payload copy.
+- Generated visuals + data the post-v5 README embeds: docs/metrics.json,
+  docs/DOMAINS.md, and every docs/*.png + docs/*.svg (logo, title,
+  statline, radar, polar, structure, anatomy, how-it-works, gates).
+  Without them the public README renders broken images and
+  `make visuals-check` fails inside the package.
+
+Frozen numbers: the examples above say 69 skills / 36 packs / Hit@1
+154 — those are the 08-31 RC snapshot. At GO, regenerate with
+`make visuals` and take every count from docs/metrics.json at the
+packaged commit; hand-carrying any number violates the visuals law.
+
+npm registry state (2026-09-02): `aero-agent-skills@0.0.1` and
+`aero-skills@0.0.1` are LIVE as README-only name reservations,
+publisher `ashfordeou`, no repository field (dev account never appears
+publicly). GO-day step: from the PUBLIC packaged tree,
+`cd packages/aero-agent-skills && npm publish` (0.1.0 supersedes the
+placeholder; `aero-skills` stays a reservation pointing at the
+canonical name). Verify with `npm view aero-agent-skills version` —
+never with exit codes or job status; a fresh publish 404s on read for
+about a minute (replication lag), so poll before concluding failure.
+
+README slug flips (add to the section 5 checklist): the install
+commands `npx skills add arjun-0077/...`, `claude plugin marketplace
+add arjun-0077/...`, the clone URL, and packages/aero-agent-skills/
+package.json `repository` all carry the dev slug — flip every one to
+the org slug before the org push. Release notes for v1.0.0 must gain a
+Distribution section (npm CLI, MCP server + host list, Claude Code
+plugin, npx skills); the ashforde.org/aeroagentskills landing page
+gains its npm/MCP install blocks the same day, not before.
+
 ## 4. Tag the org repo
 
 Annotated tag, same message discipline as the private tag:
