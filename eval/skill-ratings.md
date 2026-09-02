@@ -328,3 +328,5 @@ Total skills rated: 318
 | 320 | flight-mechanics/stability-control/phugoid-mode-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
 | 321 | space-systems/orbit-mechanics/low-thrust-spiral | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 322 | gnc-autonomy/estimation-filtering/particle-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 323 | aerodynamics/wind-tunnel/windtunnel-wall-corrections | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 324 | vehicle-design/mdo/design-of-experiments | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
