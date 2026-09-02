@@ -64,6 +64,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/envelope/high-angle-of-attack-testing | High angle of attack testing | high angle of attack, post stall, deep stall, AoA calibration, position error correction, stall margin, departure resistance, spin entry, stall warning, flight test envelope |
 | flight-test-operations/envelope/spin-testing | Spin testing | spin testing, spin entry, spin recovery, recovery parachute, spin test point, spin resistance, FAR 25.201 |
 | flight-test-operations/uas/part107-sora | Part107 Sora | part 107 applicability, part107 sora, sora operational category, ground risk class, air risk class, arc, grc, robustness level, containment, bvlos waiver, drone risk assessment, uas risk, remote pilot certificate, 400 ft agl, visual line of sight. |
+| flight-test-operations/performance/level-acceleration-test | Level acceleration test | level acceleration, accelerated level flight, specific excess power, total energy method, excess thrust |
 
 ## Routing guidance
 
@@ -115,3 +116,4 @@ actor-envelope.
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- Level-acceleration and specific-excess-power flight test questions route to the performance level-acceleration-test sub-skill.

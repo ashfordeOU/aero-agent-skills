@@ -62,6 +62,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/certification/certification-basis | Certification basis | certification basis, type certificate, supplemental type certificate, TSO, special conditions, FAR applicability, CS-25, certification program, means of compliance, regulatory path |
 | systems-engineering-safety/arp4761a/preliminary-system-safety-assessment | Preliminary system safety assessment | PSSA, preliminary system safety assessment, safety requirements, FDAL, IDAL, allocation, architecture |
 | systems-engineering-safety/arp4754a/configuration-management | Configuration Management | configuration management, baseline, change control, change request, impact analysis, major change, minor change, safety critical requirement, certification data, interfaces, configuration item, change history, traceability closure. |
+| systems-engineering-safety/arp4761a/reliability-block-diagram | Reliability block diagram | reliability block diagram, RBD, series parallel reliability, k-out-of-n, standby redundancy, MTBF |
 
 ## Routing guidance
 
@@ -121,3 +122,4 @@ ocation coverage, and unallocated
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- RBD series parallel and redundancy reliability questions route to the arp4761a reliability-block-diagram sub-skill.

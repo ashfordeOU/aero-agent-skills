@@ -165,6 +165,11 @@
 # leaves). Wave-22 new leaves: "aerodynamics/cfd/cfd-validation", "avionics/fsw/cfs-architecture", "systems-engineering-safety/arp4754a/configuration-management", "cross-cutting/export-control/export-control-awareness", "structures/loads/gust-maneuver-loads", "propulsion/electric/hall-thruster", "space-systems/mission-design/launch-window-analysis", "manufacturing-quality/composites/layup-cure", "flight-mechanics/handling-qualities/mil-std-1797a", "gnc-autonomy/optimal-control/model-predictive-control", "flight-test-operations/uas/part107-sora", "vehicle-design/conceptual/sizing-mission-profile".
 # Corpus: 650 tasks (626 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 22 build.
+# P5.2 / Wave 23 (2026-09-02): fan-out continues to
+# 330 verified skills (342 SKILL.md under gate 1: 12 routers + 330
+# leaves). Wave-23 new leaves: "vehicle-design/mdo/design-of-experiments", "avionics/fsw/fprime-component", "propulsion/electric/gridded-ion-thruster", "manufacturing-quality/as9103/key-characteristic-management", "flight-test-operations/performance/level-acceleration-test", "space-systems/orbit-mechanics/low-thrust-spiral", "cross-cutting/numerics/optimization-algorithms", "gnc-autonomy/estimation-filtering/particle-filter", "flight-mechanics/stability-control/phugoid-mode-analysis", "structures/loads/random-vibration-analysis", "systems-engineering-safety/arp4761a/reliability-block-diagram", "aerodynamics/wind-tunnel/windtunnel-wall-corrections".
+# Corpus: 674 tasks (650 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 23 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -3078,6 +3083,102 @@ tasks:
     query: "compute the reserve fuel for a 45 minute hold at 1500 ft plus 5 percent contingency and the total required fuel for the mission"
     intent: "vehicle-design; reserve fuel rule application and required fuel sizing including reserves"
     expected_skill: "vehicle-design/conceptual/sizing-mission-profile"
+  - id: w23-design-of-experiments-1
+    query: "set up a design of experiments to screen wing planform factors in a conceptual study: build a two-factor full factorial design over aspect ratio and sweep with coded levels, add a latin hypercube sample of 20 runs at a fixed seed, evaluate every row, and rank the main effects from the factorial responses for factor screening"
+    intent: "vehicle-design; full factorial and latin hypercube design of experiments with main effects ranking for factor screening"
+    expected_skill: "vehicle-design/mdo/design-of-experiments"
+  - id: w23-design-of-experiments-2
+    query: "build a central composite design around the baseline wing loading point with two center runs and axial spacing, evaluate the responses at every design point, and compute the two-factor interaction effects to see which planform variable pair couples before optimization"
+    intent: "vehicle-design; central composite design around a baseline design point with interaction effects analysis"
+    expected_skill: "vehicle-design/mdo/design-of-experiments"
+  - id: w23-fprime-component-1
+    query: "design an F Prime component topology for the smallsat flight software: choose active and queued components, wire the typed port connections between their input and output ports, and schedule the component run inputs in a rate group schedule"
+    intent: "avionics; F Prime component topology with typed port connections and rate group scheduling of component run inputs"
+    expected_skill: "avionics/fsw/fprime-component"
+  - id: w23-fprime-component-2
+    query: "validate the F´ component definitions for my flight software: check command opcode uniqueness across each active component, verify the typed port connection data types match, and generate the scaffold manifest with header guard and command dispatch entries"
+    intent: "avionics; F Prime component definition validation of command opcode uniqueness and port type matching plus scaffold manifest generation"
+    expected_skill: "avionics/fsw/fprime-component"
+  - id: w23-gridded-ion-thruster-1
+    query: "size a gridded ion thruster for a 2000 m/s deep-space delta-v on 1000 kg dry mass: thrust and specific impulse from beam current and net voltage, check the Child-Langmuir perveance limit of the accelerator grid, and propellant mass"
+    intent: "propulsion; gridded ion thruster sizing from beam current and net voltage with the accelerator grid perveance check and the rocket equation"
+    expected_skill: "propulsion/electric/gridded-ion-thruster"
+  - id: w23-gridded-ion-thruster-2
+    query: "compare a gridded ion thruster against a hall thruster for a deep-space science mission at equal power: specific impulse, thrust density of the ion optics and perveance margin"
+    intent: "propulsion; gridded ion thruster versus hall thruster trade at equal power on specific impulse, thrust density and perveance margin"
+    expected_skill: "propulsion/electric/gridded-ion-thruster"
+  - id: w23-key-characteristic-management-1
+    query: "identify the key characteristics from the drawing and process history for the actuator housing: classify each characteristic record as a key characteristic or non-key, rank the KCs by risk score, and assign the variation management plan with control method, sampling frequency, and Cpk targets for the key characteristics"
+    intent: "manufacturing-quality; AS9103 key characteristic identification, KC risk ranking, and variation management plan assignment with Cpk targets"
+    expected_skill: "manufacturing-quality/as9103/key-characteristic-management"
+  - id: w23-key-characteristic-management-2
+    query: "the tooling changed for a key characteristic part, does the change trigger KC revalidation and what evidence is needed before production restarts"
+    intent: "manufacturing-quality; KC revalidation trigger decision and required evidence for a tooling change on a key characteristic"
+    expected_skill: "manufacturing-quality/as9103/key-characteristic-management"
+  - id: w23-level-acceleration-test-1
+    query: "reduce the level acceleration run from the flight test: smooth the airspeed trace with a moving average over the odd window, compute the acceleration and the specific excess power with the total energy method, and estimate the excess thrust at the test weight from the measured P_s"
+    intent: "flight-test-operations; reduction of an accelerated level flight run: smoothing the airspeed trace, central-difference acceleration, specific excess power by the total energy method and excess thrust at the test weight"
+    expected_skill: "flight-test-operations/performance/level-acceleration-test"
+  - id: w23-level-acceleration-test-2
+    query: "determine the sustained acceleration capability and the thrust available at altitude from an accelerated level flight test using the total energy method: report the specific excess power and the acceleration, and check at which speeds the excess thrust stays positive against the drag from the polar"
+    intent: "flight-test-operations; sustained level acceleration capability and thrust available estimate from an accelerated level flight test with the total energy method, excess thrust against the polar drag"
+    expected_skill: "flight-test-operations/performance/level-acceleration-test"
+  - id: w23-low-thrust-spiral-1
+    query: "size a low-thrust spiral transfer with the Edelbaum approximation for the ion propulsion trajectory from low earth orbit to geostationary orbit: delta-v including the 28.5 degree inclination change, propellant mass, and transfer time for a 0.5 N continuous thrust thruster at 3000 s specific impulse"
+    intent: "space-systems; Edelbaum low-thrust spiral delta-v with inclination change, propellant mass, and transfer time sizing"
+    expected_skill: "space-systems/orbit-mechanics/low-thrust-spiral"
+  - id: w23-low-thrust-spiral-2
+    query: "compare the low-thrust continuous thrust spiral transfer against an impulsive Hohmann transfer with plane change for the smallsat mission, and estimate the transfer time the electric propulsion trajectory needs"
+    intent: "space-systems; low-thrust spiral versus impulsive Hohmann comparison with plane change for a smallsat"
+    expected_skill: "space-systems/orbit-mechanics/low-thrust-spiral"
+  - id: w23-optimization-algorithms-1
+    query: "minimize a scalar design objective numerically: I have a bracket on a smooth one-variable objective with the minimum inside, run a golden section search over the bracket to locate the minimum at a tolerance, then refine the converged point with Newton's method on the derivative and report both minima with their function values and iteration counts"
+    intent: "cross-cutting; golden-section search on a bracketed unimodal scalar objective plus Newton's method on the derivative for a smooth minimum"
+    expected_skill: "cross-cutting/numerics/optimization-algorithms"
+  - id: w23-optimization-algorithms-2
+    query: "compare two minimizers on a multivariate objective: run gradient descent with a backtracking line search from a starting point, run the Nelder-Mead simplex method from the same point, and compare the converged minima, function values, and iteration counts at equal tolerance"
+    intent: "cross-cutting; gradient descent with line search versus Nelder-Mead simplex on a multivariate objective with converged minima comparison"
+    expected_skill: "cross-cutting/numerics/optimization-algorithms"
+  - id: w23-particle-filter-1
+    query: "run a bootstrap particle filter to track a maneuvering target through a nonlinear range squared measurement, weight the particles with the Gaussian likelihood, and report the weighted mean and effective sample size at every step"
+    intent: "gnc-autonomy; bootstrap SIR particle filter tracking through a nonlinear measurement with importance weights"
+    expected_skill: "gnc-autonomy/estimation-filtering/particle-filter"
+  - id: w23-particle-filter-2
+    query: "estimate the target position with a sequential Monte Carlo particle filter when the measurement likelihood is bimodal, using systematic resampling triggered by the effective sample size below half the particle count"
+    intent: "gnc-autonomy; particle filter with systematic resampling on a bimodal non-Gaussian posterior"
+    expected_skill: "gnc-autonomy/estimation-filtering/particle-filter"
+  - id: w23-phugoid-mode-analysis-1
+    query: "estimate the phugoid period, damping ratio and time to half amplitude for my transport at 250 m/s cruise with a lift-to-drag ratio of 18 using the Lanchester approximation"
+    intent: "flight-mechanics; Lanchester phugoid period, drag damping and time to half amplitude from cruise speed and lift-to-drag"
+    expected_skill: "flight-mechanics/stability-control/phugoid-mode-analysis"
+  - id: w23-phugoid-mode-analysis-2
+    query: "after a speed disturbance my airliner shows a slow long-period airspeed oscillation, how many cycles to half amplitude and is the Lanchester small damping model valid at a lift-to-drag of 12"
+    intent: "flight-mechanics; long-period phugoid cycles to half amplitude and small-damping validity from lift-to-drag"
+    expected_skill: "flight-mechanics/stability-control/phugoid-mode-analysis"
+  - id: w23-random-vibration-analysis-1
+    query: "compute the random vibration response of the equipment at 40 Hz natural frequency under the 0.01 g2/Hz flat base excitation power spectral density: RMS g-rms via the Miles equation and the 3-sigma peak level"
+    intent: "structures; SDOF random vibration response to a flat base-excitation PSD via the Miles equation with RMS g-rms and 3-sigma peak"
+    expected_skill: "structures/loads/random-vibration-analysis"
+  - id: w23-random-vibration-analysis-2
+    query: "integrate the response PSD over the given vibration spectrum for the avionics box with the transmissibility model and report the g-rms response and the equivalent static load factor for vibration qualification screening"
+    intent: "structures; numerical response PSD integration over a supplied base-excitation spectrum with g-rms and equivalent static load factor, adversarial to discrete gust loads and modal analysis"
+    expected_skill: "structures/loads/random-vibration-analysis"
+  - id: w23-reliability-block-diagram-1
+    query: "build the reliability block diagram for the redundant flight control actuation system with two hydraulic actuators in active parallel, each with failure rate 1e-4 per hour, in series with a controller at 5e-5 per hour, and compute the system mission reliability, the per-block reliabilities and the MTBF at the 10 hour design life"
+    intent: "systems-engineering-safety; reliability block diagram evaluation of a series-parallel structure: mission reliability, per-block reliabilities and system MTBF at the design life"
+    expected_skill: "systems-engineering-safety/arp4761a/reliability-block-diagram"
+  - id: w23-reliability-block-diagram-2
+    query: "compare active parallel against 2-of-3 voting and cold standby for three identical units with a 1e-4 per hour failure rate at a 100 hour mission: which redundancy arrangement gives the highest mission reliability and MTBF, and how does the redundant pair compare with the single unit"
+    intent: "systems-engineering-safety; redundancy arrangement comparison (active parallel, k-out-of-n voting, cold standby) on mission reliability and MTBF for identical components"
+    expected_skill: "systems-engineering-safety/arp4761a/reliability-block-diagram"
+  - id: w23-windtunnel-wall-corrections-1
+    query: "I measured lift and drag on a wing model in our closed-wall tunnel and need the wall-correction pass: apply the solid-blockage and wake-blockage corrections to the measured coefficients and add the buoyancy drag increment from the empty-test-section pressure gradient"
+    intent: "aerodynamics; applying the closed-wall correction set to measured lift and drag: solid-blockage, wake-blockage, total blockage and the buoyancy drag increment with test-section constraint checks"
+    expected_skill: "aerodynamics/wind-tunnel/windtunnel-wall-corrections"
+  - id: w23-windtunnel-wall-corrections-2
+    query: "correct the measured polar from my 1.4 m closed test section for wall interference and streamline curvature: report the corrected alpha and the corrected lift and drag coefficient for each point of the polar with the blockage corrections included"
+    intent: "aerodynamics; wall-interference and streamline-curvature correction of a measured polar from a closed test section, reporting corrected alpha and corrected coefficients with solid and wake blockage"
+    expected_skill: "aerodynamics/wind-tunnel/windtunnel-wall-corrections"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

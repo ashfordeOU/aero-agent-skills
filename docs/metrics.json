@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 650,
+  "corpus_tasks": 674,
   "families": 12,
-  "leaves": 318,
-  "live_packs": 80,
+  "leaves": 330,
+  "live_packs": 81,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 27,
+      "leaves": 28,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -63,18 +63,19 @@
           "wave-drag-area-rule"
         ],
         "wind-tunnel": [
-          "windtunnel-data-reduction"
+          "windtunnel-data-reduction",
+          "windtunnel-wall-corrections"
         ],
         "wing-design": [
           "wing-planform-design"
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 56
+      "tasks": 58
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 27,
+      "leaves": 28,
       "pack_names": [
         "data-bus",
         "do160",
@@ -124,7 +125,8 @@
           "vertical-navigation"
         ],
         "fsw": [
-          "cfs-architecture"
+          "cfs-architecture",
+          "fprime-component"
         ],
         "ima": [
           "do297",
@@ -132,11 +134,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 57
+      "tasks": 59
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 27,
+      "leaves": 28,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -169,6 +171,7 @@
           "monte-carlo-sampling",
           "numerical-integration",
           "ode-solvers",
+          "optimization-algorithms",
           "root-finding",
           "uncertainty-propagation"
         ],
@@ -191,11 +194,11 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 54
+      "tasks": 56
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -233,6 +236,7 @@
           "dynamic-stability",
           "lateral-directional-stability",
           "longitudinal-stability",
+          "phugoid-mode-analysis",
           "short-period-mode-analysis",
           "spin-recovery",
           "stability-derivatives-avl",
@@ -240,11 +244,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 52
+      "tasks": 54
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 27,
+      "leaves": 28,
       "pack_names": [
         "envelope",
         "flutter",
@@ -276,6 +280,7 @@
           "engine-flight-test",
           "glide-flight-test",
           "landing-distance-determination",
+          "level-acceleration-test",
           "stall-speed-determination",
           "takeoff-distance-determination"
         ],
@@ -296,11 +301,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 54
+      "tasks": 56
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -324,6 +329,7 @@
         "estimation-filtering": [
           "alpha-beta-filter",
           "extended-kalman-filter",
+          "particle-filter",
           "unscented-kalman-filter"
         ],
         "guidance": [
@@ -351,20 +357,21 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 53
+      "tasks": 55
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 27,
+      "leaves": 28,
       "pack_names": [
         "additive",
         "as9100",
         "as9102",
+        "as9103",
         "composites",
         "ndt",
         "special-processes"
       ],
-      "packs": 6,
+      "packs": 7,
       "packs_detail": {
         "additive": [
           "additive-manufacturing-qualification",
@@ -388,6 +395,9 @@
           "fai-revalidation",
           "first-article-inspection"
         ],
+        "as9103": [
+          "key-characteristic-management"
+        ],
         "composites": [
           "layup-cure"
         ],
@@ -407,11 +417,11 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 56
+      "tasks": 58
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -436,6 +446,7 @@
           "cea-rocket-combustion"
         ],
         "electric": [
+          "gridded-ion-thruster",
           "hall-thruster"
         ],
         "engine-airframe": [
@@ -474,11 +485,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 52
+      "tasks": 54
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "adcs",
         "ecss",
@@ -512,6 +523,7 @@
           "hohmann-transfer",
           "keplerian-elements",
           "lambert-transfer",
+          "low-thrust-spiral",
           "orbital-decay",
           "orbital-perturbations",
           "satellite-coverage",
@@ -526,11 +538,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 55
+      "tasks": 57
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 27,
+      "leaves": 28,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -572,7 +584,8 @@
           "truss-analysis"
         ],
         "loads": [
-          "gust-maneuver-loads"
+          "gust-maneuver-loads",
+          "random-vibration-analysis"
         ],
         "materials": [
           "fracture-toughness",
@@ -585,11 +598,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 55
+      "tasks": 57
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -618,6 +631,7 @@
           "operating-support-hazard-analysis",
           "particular-risk-analysis",
           "preliminary-system-safety-assessment",
+          "reliability-block-diagram",
           "safety-assessment",
           "zonal-safety-analysis"
         ],
@@ -637,11 +651,11 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 54
+      "tasks": 56
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 26,
+      "leaves": 27,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -670,6 +684,7 @@
           "mass-budget"
         ],
         "mdo": [
+          "design-of-experiments",
           "multidisciplinary-optimization"
         ],
         "sizing": [
@@ -692,9 +707,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 52
+      "tasks": 54
     }
   },
-  "skill_files": 330,
+  "skill_files": 342,
   "standards": 25
 }
