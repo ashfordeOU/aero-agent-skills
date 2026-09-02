@@ -117,6 +117,16 @@ if find "$EXPORT" -iname 'social-card*' -o -iname 'ashforde-seal*' -o -iname 'lo
   exit 1
 fi
 
+# --- 2b. public-safety audit (founder 2026-09-02): the exported tree must
+# contain NO local paths/usernames/tokens/IPs/secrets in ANY commit that
+# would ship. Script lives in the repo and is run on the fresh export.
+log "public-safety audit (history scan)…"
+if ! python3 "$DEV_REPO/scripts/public-safety-audit.py" --repo "$EXPORT" > /tmp/public-safety-audit.log 2>&1; then
+  log "FAIL: public-safety audit found violations in the export — aborting, nothing pushed"
+  tail -20 /tmp/public-safety-audit.log
+  exit 1
+fi
+
 # --- 3. prove the export is self-contained: run the REAL gates inside it ---
 log "running full gate battery INSIDE the export (several minutes)…"
 ( cd "$EXPORT" && make validate && make attest && make visuals-check && make package-test ) \
