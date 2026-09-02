@@ -1,0 +1,19 @@
+# Hit@1 wave-23 fragment: windtunnel-wall-corrections (aerodynamics)
+# Two tasks per new leaf skill. w23-windtunnel-wall-corrections-1 routes
+# on applying the closed-wall correction set (solid blockage, wake
+# blockage, buoyancy drag increment) to measured lift and drag;
+# w23-windtunnel-wall-corrections-2 routes on correcting a measured
+# polar from a closed test section for wall interference and streamline
+# curvature. Both use the wall-correction vocabulary so they do not
+# route to windtunnel-data-reduction (raw balance runs, tare, Reynolds
+# or uncertainty wording) or to drag-polar (polar fitting, Oswald or
+# induced-drag wording).
+tasks:
+  - id: w23-windtunnel-wall-corrections-1
+    query: "I measured lift and drag on a wing model in our closed-wall tunnel and need the wall-correction pass: apply the solid-blockage and wake-blockage corrections to the measured coefficients and add the buoyancy drag increment from the empty-test-section pressure gradient"
+    intent: "aerodynamics; applying the closed-wall correction set to measured lift and drag: solid-blockage, wake-blockage, total blockage and the buoyancy drag increment with test-section constraint checks"
+    expected_skill: "aerodynamics/wind-tunnel/windtunnel-wall-corrections"
+  - id: w23-windtunnel-wall-corrections-2
+    query: "correct the measured polar from my 1.4 m closed test section for wall interference and streamline curvature: report the corrected alpha and the corrected lift and drag coefficient for each point of the polar with the blockage corrections included"
+    intent: "aerodynamics; wall-interference and streamline-curvature correction of a measured polar from a closed test section, reporting corrected alpha and corrected coefficients with solid and wake blockage"
+    expected_skill: "aerodynamics/wind-tunnel/windtunnel-wall-corrections"
