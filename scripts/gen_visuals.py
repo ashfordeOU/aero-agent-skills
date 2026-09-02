@@ -104,6 +104,16 @@ DARK = {
 
 RAMP = ["cyan", "violet", "magenta", "orange"]  # family color cycle
 
+# The Ashforde OÜ corporate seal, vendored verbatim from the founder's brand
+# system (ashforde-site/assets/brand/seal-mono-white.svg — a 512x512 mono
+# mark meant for dark grounds) as docs/ashforde-seal.svg. This is the
+# COMPANY mark, distinct from docs/logo-mark.png (the Aero Agent Skills
+# paper-plane PRODUCT emblem) — founder 2026-09-02, correcting a card that
+# had locked the product mark up with "ASHFORDE OÜ" and called it the logo.
+# Extracted once at import time; never edited, never regenerated.
+_seal_src = (REPO / "docs" / "ashforde-seal.svg").read_text(encoding="utf-8")
+ASHFORDE_SEAL_SVG = re.sub(r"^<svg[^>]*>|</svg>\s*$", "", _seal_src.strip())
+
 
 def fam_color(t, i):
     """Stable per-family accent: cycle the four logo hues by family index."""
@@ -610,29 +620,130 @@ def gen_statline(m, t):
     return "\n".join(o) + "\n"
 
 
+def ashforde_seal(x, y, size, opacity="1"):
+    """The real Ashforde OÜ corporate seal (mono-white variant), sourced from
+    the founder's brand system at ashforde-site/assets/brand/seal-mono-white.svg
+    and vendored unaltered at docs/ashforde-seal.svg (founder 2026-09-02:
+    the Aero Agent Skills paper-plane emblem is the PRODUCT mark, not
+    Ashforde's own logo — do not lock the two together and call it
+    "Ashforde's logo"). 512x512 viewBox, scaled+translated into place."""
+    inner = ASHFORDE_SEAL_SVG
+    s = size / 512.0
+    return f'<g transform="translate({x},{y}) scale({s:.5f})" opacity="{opacity}">{inner}</g>'
+
+
 def gen_social(m, t):
-    """LinkedIn/social hero card (1200x627, 1.91:1), dark brand look only.
-    Attach docs/social-card-dark.png to the launch post, or reuse wherever a
-    share card is needed. Same generated-numbers law as every artifact."""
-    W, H = 1200, 627
+    """LinkedIn/social hero card (1200x627, 1.91:1). MARKETING COLLATERAL —
+    dev-repo only, never in the public-tree allowlist (founder 2026-09-02:
+    "marketing and branding stuff can't be pushed to public repo" — see
+    docs/release-runbook-ashforde.md 3b). Because it never ships in the
+    public package it can carry more visual weight than the flat-fill
+    README diagrams (docs/DESIGN.md's law governs those, not this).
+
+    Rebuilt 2026-09-02 per founder review of the first draft: (1) the
+    per-family bar chart was dead weight — every family is 27 or 28
+    leaves, so bars carried no story — replaced with a real diagram (a
+    compact two-ring sunburst, same construction as gen_structure) and
+    the real how-it-works icon timeline (same icon set as the landing
+    page); (2) the product logo (docs/logo-mark.png, the paper-plane
+    emblem) was missing near the title — the README hero always leads
+    with it, this card now does too; (3) the bottom-corner mark
+    wrongly locked the PRODUCT logo up with "ASHFORDE OÜ", implying
+    that emblem is Ashforde's own logo — it is not, it is Aero Agent
+    Skills' mark. Fixed: the bottom corner now carries the founder's
+    actual Ashforde seal (see ashforde_seal() above)."""
+    import base64
+    W, H = 1200, 900
     ramp = ["#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f97316", "#f59e0b"]
     skills = "".join(f'<tspan fill="{c}">{ch}</tspan>'
                      for ch, c in zip("Skills", ramp))
+    glow_id = "socialGlow"
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
-         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
-         f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>']
-    o.append(f'<text x="{W / 2}" y="238" text-anchor="middle" font-size="92" '
-             f'{TITLE_FONT} fill="{t["ink"]}">Aero <tspan fill="{t["cyan"]}">Agent</tspan> '
-             f'{skills}</text>')
-    o.append(f'<text class="mono" x="{W / 2}" y="296" text-anchor="middle" '
-             f'font-size="17" letter-spacing="4">'
-             f'<tspan fill="{t["cyan"]}">AEROSPACE ENGINEERING</tspan>'
-             f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
-             f'<tspan fill="{t["violet"]}" dx="10">BY ASHFORDE OÜ</tspan>'
-             f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
-             f'<tspan fill="{t["orange"]}" dx="10">APACHE-2.0</tspan></text>')
-    o.append(txt(W / 2, 366, "The aerospace knowledge layer for AI agents.",
-                 size=24, fill=t["ink"], anchor="middle"))
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip()]
+    o.append(f'<defs><radialGradient id="{glow_id}" cx="50%" cy="0%" r="75%">'
+              f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0.16"/>'
+              f'<stop offset="45%" stop-color="{t["violet"]}" stop-opacity="0.07"/>'
+              f'<stop offset="100%" stop-color="{t["canvas"]}" stop-opacity="0"/>'
+              f'</radialGradient></defs>')
+    o.append(f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>')
+    o.append(f'<rect width="{W}" height="{H}" fill="url(#{glow_id})"/>')
+    o.append(f'<circle cx="{W + 60}" cy="-40" r="380" fill="none" '
+              f'stroke="{t["cyan"]}" stroke-opacity="0.10" stroke-width="2"/>')
+    o.append(f'<circle cx="{W + 60}" cy="-40" r="300" fill="none" '
+              f'stroke="{t["violet"]}" stroke-opacity="0.08" stroke-width="1.5"/>')
+
+    # --- header: product logo above the title, mirroring the README hero.
+    # Founder 2026-09-02: "we need this logo big on the social card" — up
+    # from 46 to 130px, the card's dominant top-of-fold visual. ---
+    logo_path = REPO / "docs" / "logo-mark.png"
+    logo_b64 = base64.b64encode(logo_path.read_bytes()).decode("ascii")
+    hero_logo_sz = 130
+    o.append(f'<image x="{W / 2 - hero_logo_sz / 2:.1f}" y="18" '
+              f'width="{hero_logo_sz}" height="{hero_logo_sz}" '
+              f'href="data:image/png;base64,{logo_b64}"/>')
+    o.append(f'<text class="mono" x="{W / 2}" y="182" text-anchor="middle" '
+              f'font-size="14" letter-spacing="3.5">'
+              f'<tspan fill="{t["cyan"]}">AEROSPACE ENGINEERING</tspan>'
+              f'<tspan fill="{t["pencil"]}" dx="8">·</tspan>'
+              f'<tspan fill="{t["violet"]}" dx="8">BY ASHFORDE OÜ</tspan>'
+              f'<tspan fill="{t["pencil"]}" dx="8">·</tspan>'
+              f'<tspan fill="{t["orange"]}" dx="8">APACHE-2.0</tspan></text>')
+    o.append(f'<text x="{W / 2}" y="244" text-anchor="middle" font-size="58" '
+              f'{TITLE_FONT} fill="{t["ink"]}">Aero <tspan fill="{t["cyan"]}">Agent</tspan> '
+              f'{skills}</text>')
+    o.append(txt(W / 2, 274, "The aerospace knowledge layer for AI agents.",
+                 size=16, fill=t["pencil"], anchor="middle"))
+
+    # --- left: compact sunburst (same construction as gen_structure),
+    # enlarged with real per-family labels — founder 2026-09-02: the first
+    # cut had no family/domain labels and the pack-ring slivers were thin
+    # enough to read as overlapping; both fixed by more radius + labels. ---
+    fams = m["per_family"]
+    names = sorted(fams)
+    short = {
+        "aerodynamics": "AERO", "avionics": "AVIONICS", "cross-cutting": "X-CUT",
+        "flight-mechanics": "FLT MECH", "flight-test-operations": "FLT TEST",
+        "gnc-autonomy": "GNC", "manufacturing-quality": "MFG QA",
+        "propulsion": "PROPULSION", "space-systems": "SPACE",
+        "structures": "STRUCTURES", "systems-engineering-safety": "SYS ENG",
+        "vehicle-design": "VEHICLE",
+    }
+    cx, cy = 330, 490
+    r_hole, r_fam, r_pack0, r_pack1 = 46, 78, 82, 128
+    fam_gap = 2.8
+    total = sum(fams[n]["leaves"] for n in names)
+    span = 360.0 - fam_gap * len(names)
+    a = -90.0
+    for i, name in enumerate(names):
+        f = fams[name]
+        c = fam_color(t, i)
+        fam_span = span * f["leaves"] / total
+        a0, a1 = a, a + fam_span
+        o.append(annulus(cx, cy, r_hole + 4, r_fam, a0, a1, c, "0.9", t["canvas"], "1.2"))
+        pa = a0
+        npacks = max(f["packs"], 1)
+        pgap = min(1.1, fam_span * 0.25 / max(npacks - 1, 1)) if npacks > 1 else 0.0
+        pack_span_total = fam_span - pgap * (npacks - 1)
+        weight_total = sum(max(len(v), 1) for v in f["packs_detail"].values()) or 1
+        for j, (pack, leaves) in enumerate(f["packs_detail"].items()):
+            ps = pack_span_total * max(len(leaves), 1) / weight_total
+            o.append(annulus(cx, cy, r_pack0, r_pack1, pa, pa + ps, c,
+                             "0.55" if j % 2 == 0 else "0.32", t["canvas"], "0.8"))
+            pa += ps + pgap
+        mid = (a0 + a1) / 2
+        lx, ly = pt(cx, cy, r_pack1 + 16, mid)
+        cosm = math.cos(math.radians(mid))
+        anchor = "middle" if abs(cosm) < 0.35 else ("start" if cosm > 0 else "end")
+        dy = 4 if math.sin(math.radians(mid)) > 0.35 else (-2 if math.sin(math.radians(mid)) < -0.35 else 3)
+        o.append(txt(lx, ly + dy, short.get(name, name.upper()), size=9, fill=c, anchor=anchor, ls=1))
+        a = a1 + fam_gap
+    o.append(txt(cx, cy - 6, str(m["leaves"]), cls="cond", size=34, fill=t["ink"], anchor="middle", ls=1))
+    o.append(txt(cx, cy + 17, "SKILLS", size=10, fill=t["pencil"], anchor="middle", ls=2))
+    o.append(txt(cx, 328, "REPOSITORY STRUCTURE", size=12, fill=t["pencil"], anchor="middle", ls=2))
+    o.append(txt(cx, 664, f'{m["live_packs"]} PACKS · {m["families"]} FAMILIES · ARC = SKILLS',
+                 size=10, fill=t["pencil"], anchor="middle", ls=1))
+
+    # --- right: stat chips, 2x3 grid (companion readout to the diagram) ---
     stats = [
         (m["leaves"], "VERIFIED SKILLS", t["cyan"]),
         (m["live_packs"], "LIVE PACKS", t["violet"]),
@@ -641,19 +752,55 @@ def gen_social(m, t):
         (m["corpus_tasks"], "ROUTER TASKS", t["cyan"]),
         ("8/8", "GATES GREEN", t["violet"]),
     ]
-    spans = []
-    for k, (v, label, c) in enumerate(stats):
-        dx = ' dx="26"' if k else ""
-        spans.append(f'<tspan{dx} font-size="32" fill="{c}" font-weight="800">{v}</tspan>')
-        spans.append(f'<tspan dx="8" font-size="12" fill="{t["pencil"]}" '
-                     f'letter-spacing="2">{label}</tspan>')
-    o.append(f'<text class="mono" x="{W / 2}" y="462" text-anchor="middle">'
-             + "".join(spans) + "</text>")
-    o.append(f'<line x1="120" y1="520" x2="{W - 120}" y2="520" '
-             f'stroke="{t["faint"]}" stroke-width="1"/>')
-    o.append(txt(120, 572, "ashforde.org/aeroagentskills", size=16,
-                 fill=t["cyan"], anchor="start", ls=2))
-    o.append(ownermark(t, W - 120, 572))
+    gx0, gy0, chip_w, chip_h, ggap = 660, 428, 156, 56, 12
+    for i, (v, label, c) in enumerate(stats):
+        col, row = i % 3, i // 3
+        gx = gx0 + col * (chip_w + ggap)
+        gy = gy0 + row * (chip_h + ggap)
+        o.append(f'<rect x="{gx}" y="{gy}" width="{chip_w}" height="{chip_h}" rx="10" '
+                  f'fill="{c}" fill-opacity="0.12" stroke="{c}" stroke-opacity="0.4" stroke-width="1"/>')
+        o.append(f'<text class="mono" x="{gx + 14}" y="{gy + 24}">'
+                  f'<tspan font-size="21" font-weight="800" fill="{c}">{v}</tspan></text>')
+        o.append(txt(gx + 14, gy + 42, label, size=9.5, fill=t["pencil"], anchor="start", ls=1.3))
+
+    # --- full-width: how-it-works icon timeline (same icon set as the site) ---
+    steps = [
+        ("01", "AGENT TASK", '<path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-4 4v-4H6a2 2 0 0 1-2-2z"/><path d="M8 9h8M8 12.5h5"/>'),
+        ("02", "ROUTER PICKS SKILL", '<path d="M4 12h6M14 12h6"/><path d="M10 12c2.5 0 2.5-6 5-6h5M10 12c2.5 0 2.5 6 5 6h5"/><path d="M17 3.5L20 6l-3 2.5M17 15.5L20 18l-3 2.5"/>'),
+        ("03", "SKILL.MD LOADS", '<path d="M13.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M13.5 3v5.5H19"/><path d="M9 13.5h6M9 17h4"/>'),
+        ("04", "STANDARDS CONTEXT", '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/><path d="M9 8h7M9 11.5h5"/>'),
+        ("05", "AGENT EXECUTES", '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12.5 15H17"/>'),
+        ("06", "HUMAN SIGN-OFF", '<path d="M12 3l7 3v5c0 4.6-3 8.2-7 10-4-1.8-7-5.4-7-10V6z"/><path d="M12 8v4M12 15.5v.5"/>'),
+    ]
+    tl_caption_y, tl_y, tl_r, tl_x0, tl_x1 = 704, 759, 18, 110, 1090
+    n = len(steps)
+    step = (tl_x1 - tl_x0) / (n - 1)
+    o.append(txt(tl_x0, tl_caption_y, "HOW IT WORKS · DETERMINISTIC ROUTER · THE TERMINAL NODE IS ALWAYS A HUMAN",
+                 size=10.5, fill=t["pencil"], anchor="start", ls=1.5))
+    o.append(f'<line x1="{tl_x0}" y1="{tl_y}" x2="{tl_x1}" y2="{tl_y}" stroke="{t["faint"]}" stroke-width="1"/>')
+    for i, (num, label, icon) in enumerate(steps):
+        x = tl_x0 + i * step
+        accent = t["orange"] if i == n - 1 else t["cyan"]
+        o.append(f'<circle cx="{x:.1f}" cy="{tl_y}" r="{tl_r}" fill="{t["canvas"]}" '
+                  f'stroke="{accent}" stroke-opacity="0.7" stroke-width="1.6"/>')
+        isz = 20
+        o.append(f'<svg x="{x - isz / 2:.1f}" y="{tl_y - isz / 2:.1f}" width="{isz}" height="{isz}" '
+                  f'viewBox="0 0 24 24" fill="none" stroke="{t["ink"]}" stroke-width="1.6" '
+                  f'stroke-linecap="round" stroke-linejoin="round">{icon}</svg>')
+        o.append(txt(x, tl_y - tl_r - 10, num, size=9.5, fill=accent, anchor="middle", ls=1.5))
+        o.append(txt(x, tl_y + tl_r + 20, label, size=9, fill=t["pencil"], anchor="middle", ls=0.8))
+
+    # --- footer: site link (left) + the ACTUAL Ashforde seal + name (right) ---
+    footer_line_y, footer_text_y = 829, 869
+    o.append(f'<line x1="110" y1="{footer_line_y}" x2="{W - 110}" y2="{footer_line_y}" '
+              f'stroke="{t["faint"]}" stroke-width="1"/>')
+    o.append(txt(110, footer_text_y, "ashforde.org/aeroagentskills", size=16, fill=t["cyan"], anchor="start", ls=2))
+    seal_sz, name_w, gap = 40, 150, 12
+    seal_x = W - 110 - name_w - seal_sz - gap
+    seal_y = footer_text_y - seal_sz + 10
+    o.append(ashforde_seal(seal_x, seal_y, seal_sz, opacity="0.92"))
+    o.append(txt(seal_x + seal_sz + gap, footer_text_y, "ASHFORDE OÜ", size=16,
+                 fill=t["ink"], anchor="start", ls=2, extra=' font-weight="600"'))
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
@@ -670,10 +817,9 @@ GENERATED by `make visuals` from the tree at HEAD. Numbers refresh on every
 run and `make visuals-check` fails if this file drifts. Do not edit by hand:
 edit gen_launch_post() in scripts/gen_visuals.py.
 
-FOUNDER-GATED: post only on GO day, after the public repo and the real npm
-publish are live (docs/release-runbook-ashforde.md amendment 3b). That
-morning: regenerate so the figures match the published tree, replace the
-repo link placeholder with the final org slug, and attach
+FOUNDER-GATED: post only once the public repo and the real npm publish are
+live (docs/release-runbook-ashforde.md amendment 3b). Before posting:
+regenerate so the figures match the published tree, and attach
 docs/social-card-dark.png as the image.
 
 ---
@@ -696,7 +842,7 @@ npx aero-agent-skills
 
 Apache-2.0. Built and maintained by Ashforde OÜ.
 
-Repo: https://github.com/REPLACE-AT-GO/aero-agent-skills
+Repo: https://github.com/ashfordeOU/aero-agent-skills
 Site: https://ashforde.org/aeroagentskills
 npm: https://www.npmjs.com/package/aero-agent-skills
 
