@@ -17,7 +17,7 @@ metadata:
   subdomain: structures-integration
   tags: [wing-box-sizing, wing-box, root-bending-moment, spar-cap, spar-web, shear-flow, box-beam, ultimate-load, factor-of-safety, allowable-stress]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Wing Box Sizing (vehicle-design/structures-integration/wing-box-sizing)
 

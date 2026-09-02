@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [weight-estimation, weight-and-balance, center-of-gravity, cg-envelope, mass, weight-fraction, moment, class-i, class-ii]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Vehicle Weight Estimation (vehicle-design/sizing/weight-estimation)

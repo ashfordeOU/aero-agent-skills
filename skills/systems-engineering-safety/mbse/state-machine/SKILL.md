@@ -15,7 +15,7 @@ metadata:
   subdomain: mbse
   tags: [state-machine, state-transitions, event-guards, orthogonal-regions, reachability-analysis, transition-conflict]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # SysML State Machine Modeling (systems-engineering-safety/mbse/state-machine)

@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [loads-survey, strain-gauges, load-factor, envelope, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight Loads Survey (flight-test-operations/envelope/flight-loads-survey)

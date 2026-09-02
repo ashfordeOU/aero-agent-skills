@@ -15,7 +15,7 @@ metadata:
   subdomain: flight-dynamics-sim
   tags: [six-dof-simulation, body-axis, runge-kutta, euler-angles, rigid-body, equations-of-motion, state-vector, angular-velocities, rk4, attitude-kinematics]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Six-DOF Simulation (flight-mechanics/flight-dynamics-sim/six-dof-simulation)

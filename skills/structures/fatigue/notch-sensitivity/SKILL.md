@@ -17,7 +17,7 @@ metadata:
   subdomain: fatigue
   tags: [notch-sensitivity, stress-concentration-factor, fatigue-notch-factor, neuber-method, peterson-method, notch-root-radius, effective-stress-amplitude, elliptical-hole, circular-hole, finite-width-plate, material-constant, elastic-peak-stress]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Notch Sensitivity and Fatigue Notch Factor (structures/fatigue/notch-sensitivity)

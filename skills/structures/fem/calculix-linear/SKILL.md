@@ -15,7 +15,7 @@ metadata:
   subdomain: fem
   tags: [finite-element, fea, calculix, ccx, stress-analysis, margin-of-safety, von-mises, unit-discipline, static-analysis]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CalculiX Linear Static FEA (structures/fem/calculix-linear)

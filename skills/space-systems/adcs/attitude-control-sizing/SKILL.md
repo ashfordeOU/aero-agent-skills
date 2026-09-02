@@ -15,7 +15,7 @@ metadata:
   subdomain: adcs
   tags: [attitude-control, momentum-wheel, adcs-sizing, slew-rate, detumble, spacecraft-pointing]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spacecraft Attitude Control Sizing (space-systems/adcs/attitude-control-sizing)

@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [longitudinal-stability, neutral-point, static-margin, pitch-stability, center-of-gravity, tail-volume]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Static Longitudinal Stability (flight-mechanics/stability-control/longitudinal-stability)

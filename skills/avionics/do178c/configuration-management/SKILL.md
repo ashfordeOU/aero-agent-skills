@@ -19,7 +19,7 @@ metadata:
   subdomain: do178c
   tags: [do-178c, configuration, baselines, changes, release]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-178C Configuration Management (avionics/do178c/configuration-management)

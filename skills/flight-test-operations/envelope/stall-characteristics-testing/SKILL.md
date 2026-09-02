@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [stall-testing, stall-characteristics, buffet, stick-shaker, departure-resistance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Stall Characteristics Testing (flight-test-operations/envelope/stall-characteristics-testing)

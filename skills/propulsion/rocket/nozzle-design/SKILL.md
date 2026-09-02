@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [nozzle-design, nozzle, area-ratio, exit-mach, mass-flow, ideal-thrust, expansion-ratio, choked-throat]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Nozzle Design (propulsion/rocket/nozzle-design)

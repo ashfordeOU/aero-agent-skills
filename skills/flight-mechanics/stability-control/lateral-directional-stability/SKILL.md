@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [lateral-directional-stability, directional-stability, dihedral-effect, vertical-tail-volume, dutch-roll, roll-mode, spiral-mode, sideslip, roll-stability, yaw-stability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Lateral-Directional Stability (flight-mechanics/stability-control/lateral-directional-stability)

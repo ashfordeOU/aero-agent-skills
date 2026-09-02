@@ -17,7 +17,7 @@ metadata:
   subdomain: damage-tolerance
   tags: [crack-growth, paris-law, stress-intensity, damage-tolerance, fatigue-crack, fracture-mechanics]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fatigue Crack Growth (structures/damage-tolerance/crack-growth)

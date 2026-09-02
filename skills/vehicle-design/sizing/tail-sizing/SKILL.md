@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [tail-sizing, horizontal-tail, vertical-tail, tail-volume-coefficient, empennage, tail-arm, stabilizer-sizing]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Tail Sizing (vehicle-design/sizing/tail-sizing)

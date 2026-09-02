@@ -15,7 +15,7 @@ metadata:
   subdomain: do254
   tags: [hardware-requirements, requirements-capture, derived-requirements, traceability, requirement-characteristics, hardware, derived, requirements, capture]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-254 Hardware Requirements Capture (avionics/do254/requirements-capture)

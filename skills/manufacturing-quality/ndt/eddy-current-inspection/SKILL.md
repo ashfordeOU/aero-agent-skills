@@ -17,7 +17,7 @@ metadata:
   subdomain: ndt
   tags: [eddy-current-inspection, eddy-current, depth-of-penetration, impedance-plane, standard-depth-of-penetration, subsurface-flaw, surface-crack, lift-off, phase-lag, iacs-conductivity, test-frequency, skin-effect, coil-impedance, flaw-depth]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Eddy Current Inspection (manufacturing-quality/ndt/eddy-current-inspection)

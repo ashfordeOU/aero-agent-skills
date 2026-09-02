@@ -15,7 +15,7 @@ metadata:
   subdomain: mission-design
   tags: [launch-window, launch-azimuth, launch, azimuth, window, inclination, sun-synchronous, ltan, raan, delta-v, plane-change, direct-injection, elevation, beta-angle, ksc, mission-design]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Launch Window Analysis (space-systems/mission-design/launch-window-analysis)

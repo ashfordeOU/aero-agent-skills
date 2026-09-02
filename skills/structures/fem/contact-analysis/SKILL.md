@@ -17,7 +17,7 @@ metadata:
   subdomain: fem
   tags: [contact-analysis, fea-contact, penalty-method, lagrange-multiplier, contact-stiffness, penetration, coulomb-friction, stick-slip, master-slave, node-to-surface, tie-constraint, bolted-joint, bearing-contact]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Contact Analysis (structures/fem/contact-analysis)

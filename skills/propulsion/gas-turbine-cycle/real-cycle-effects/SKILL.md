@@ -15,7 +15,7 @@ metadata:
   subdomain: gas-turbine-cycle
   tags: [real-cycle, component-efficiency, isentropic-efficiency, pressure-loss, combustor-loss, actual-sfc, off-ideal-brayton, component-losses, non-ideal]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Real Cycle Effects (propulsion/gas-turbine-cycle/real-cycle-effects)

@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [fast-fourier-transform, discrete-fourier-transform, cooley-tukey, radix-2, magnitude-spectrum, phase-spectrum, inverse-fft, parseval]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fast Fourier Transform (cross-cutting/numerics/fast-fourier-transform)

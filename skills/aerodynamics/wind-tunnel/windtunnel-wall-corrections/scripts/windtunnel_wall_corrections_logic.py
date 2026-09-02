@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Classical closed-wall wind tunnel wall corrections (stdlib only).
 
-Reference implementation for the AeroSkills leaf
+Reference implementation for the Aero Agent Skills leaf
 skills/aerodynamics/wind-tunnel/windtunnel-wall-corrections.
 
 Applies the classical low-speed wall corrections of a closed solid-wall

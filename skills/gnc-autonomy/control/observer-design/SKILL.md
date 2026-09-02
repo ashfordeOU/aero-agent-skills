@@ -17,7 +17,7 @@ metadata:
   subdomain: control
   tags: [observer, luenberger, estimator, ackermann, pole, placement, unmeasured, settling, hurwitz, feedback, principle, error, observer-design, full-order-observer, luenberger-observer, estimator-gain, separation-principle, error-dynamics, routh-hurwitz]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Observer Design (gnc-autonomy/control/observer-design)

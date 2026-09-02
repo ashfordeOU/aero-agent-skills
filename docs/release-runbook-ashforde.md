@@ -1,4 +1,4 @@
-# AeroSkills release runbook: Ashforde public publish
+# Aero Agent Skills release runbook: Ashforde public publish
 
 **Status:** runbook, executable-on-GO. Nothing here executes without
 founder GO (publish = founder VETO, AGENTS.md). This document is the
@@ -48,7 +48,7 @@ token") after the 9.5 audit.
 
 ## 1. Verify the release source
 
-From the PRIVATE dev repo (/Users/enterprisehq/AeroSkills):
+From the PRIVATE dev repo (/Users/enterprisehq/Aero Agent Skills):
 
     git log --oneline -1        # expect the final RC commit (tagged v1.0.0-rc1)
     git rev-parse --short v1.0.0-rc1^{commit}   # prints the same short hash
@@ -61,7 +61,7 @@ From the PRIVATE dev repo (/Users/enterprisehq/AeroSkills):
     bash ops/automation/test/run-tests.sh   # expect ALL TESTS PASS
 
 Release package (local, not pushed anywhere): the clean tree at HEAD
-already built at /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1/
+already built at /Users/enterprisehq/releases/aero-agent-skills-v1.0.0-rc1/
 (144 files, no .git, no dev fixtures, secrets sweep 0 hits,
 content-policy sweep 0 hits, make validate PASS inside the package).
 Rebuild command and exact contents: section 3a.
@@ -72,11 +72,11 @@ The org repo must NOT be created with --source: that would push the
 dev repo's full history. Create it empty, private, then push the CLEAN
 tree as a single initial commit.
 
-    gh repo create Ashforde/aeroskills --private --description \
+    gh repo create Ashforde/aero-agent-skills --private --description \
       "Aerospace engineering skills for AI agents: standards-mapped, eval-gated, Apache-2.0"
 
 (The org slug and repo name to be confirmed by the founder at token
-connect; `aeroskills` is the working name everywhere in this repo.)
+connect; `aero-agent-skills` is the working name everywhere in this repo.)
 
 ## 3. Build + push the clean tree (single squashed commit)
 
@@ -86,20 +86,20 @@ package: it reproduces the public tree EXACTLY (section 3a allowlist;
 no drift, no extra files). Do not use a bare `git archive HEAD -- .`
 or `cp -R` of the dev tree: that ships internal docs.
 
-    mkdir -p /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
-    cd /Users/enterprisehq/AeroSkills
+    mkdir -p /Users/enterprisehq/releases/aero-agent-skills-v1.0.0-rc1
+    cd /Users/enterprisehq/Aero Agent Skills
     git archive --format=tar HEAD -- \
       .gitignore .github/ CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE Makefile NOTICE README.md SECURITY.md STANDARDS.md standards-map.yaml \
       skills/ scripts/ eval/ \
       docs/FAQ.md docs/glossary.md docs/harness-contract.md docs/harness-integration.md docs/company-of-departments.md \
       marketing/README.md marketing/release-notes-v1.0.0-rc1.md marketing/positioning-1pager.md \
       ops/automation/ ':(exclude)ops/automation/test' \
-      | tar -x -C /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
+      | tar -x -C /Users/enterprisehq/releases/aero-agent-skills-v1.0.0-rc1
 
-    cd /Users/enterprisehq/releases/aeroskills-v1.0.0-rc1
+    cd /Users/enterprisehq/releases/aero-agent-skills-v1.0.0-rc1
     git init -b main
     git add -A
-    git commit -m "AeroSkills v1.0.0-rc1: 69 skills, 36 sub-domain packs, eval-gated
+    git commit -m "Aero Agent Skills v1.0.0-rc1: 69 skills, 36 sub-domain packs, eval-gated
 
 69 aerospace engineering skills across 36 installable sub-domain packs
 in 12 families, each passing make validate 5/5 (spec lint, desc lint,
@@ -109,7 +109,7 @@ content policy green. Public-tree allowlist only: skills, scripts,
 eval, standards-map, docs (5 public files), marketing (3 public
 files), ops/automation (minus dev fixtures). Apache-2.0, published by
 Ashforde OU (Estonia)."
-    git remote add origin https://github.com/Ashforde/aeroskills.git
+    git remote add origin https://github.com/Ashforde/aero-agent-skills.git
     git push -u origin main
 
 Pre-push hygiene (every one must pass before the push):
@@ -170,7 +170,7 @@ checks for the file).
 
 Annotated tag, same message discipline as the private tag:
 
-    git tag -a v1.0.0-rc1 -m "AeroSkills v1.0.0-rc1: clean public tree, gates validate 5/5 + attest 3/3"
+    git tag -a v1.0.0-rc1 -m "Aero Agent Skills v1.0.0-rc1: clean public tree, gates validate 5/5 + attest 3/3"
     git push origin v1.0.0-rc1
 
 At final release (after any RC review fixes), tag v1.0.0 the same way
@@ -186,7 +186,7 @@ consumers):
 
     git tag -d v1.0.0-rc1
     git push origin :refs/tags/v1.0.0-rc1
-    git tag -a v1.0.0-rc1 -m "AeroSkills v1.0.0-rc1 (final RC commit): clean package, gates validate 5/5 + attest 3/3, public-tree allowlist"
+    git tag -a v1.0.0-rc1 -m "Aero Agent Skills v1.0.0-rc1 (final RC commit): clean package, gates validate 5/5 + attest 3/3, public-tree allowlist"
     git push origin v1.0.0-rc1
 
 This is the ONLY sanctioned force-push/delete-recreate on the private
@@ -200,7 +200,7 @@ forbids pushing dev history or force-pushing main.
       italic line `*Draft v0.2. Buyer-facing draft, in-tree only;
       release is founder-gated.*` (README.md lines ~8 and ~14).
 - [ ] Update the clone URL in Install (currently
-      https://github.com/arjun-0077/aeroskills.git) to the Ashforde
+      https://github.com/arjun-0077/aero-agent-skills.git) to the Ashforde
       org URL.
 - [ ] Verify the badge counts still match the tree: Skills 43,
       Standards 14, Gates 5/5 REAL. The standards-map badge stays 14
@@ -213,7 +213,7 @@ forbids pushing dev history or force-pushing main.
 
 ## 6. Visibility flip (the GO event)
 
-    gh repo edit Ashforde/aeroskills --visibility public
+    gh repo edit Ashforde/aero-agent-skills --visibility public
 
 This is the single publish event (plan P3 section 4.1). It is the
 founder-timed GO; nobody flips it early. After the flip:
@@ -224,7 +224,7 @@ founder-timed GO; nobody flips it early. After the flip:
 - [ ] `make validate` exits 0 on a fresh PUBLIC clone (replayable
       proof, this is the only "verified" claim that ships).
 - [ ] Secrets re-sweep on the public clone returns zero hits.
-- [ ] arjun-0077/aeroskills remains PRIVATE. Never flip it.
+- [ ] arjun-0077/aero-agent-skills remains PRIVATE. Never flip it.
 
 ## 7. Launch (per marketing/distribution-plan-P3.md)
 
@@ -274,7 +274,7 @@ guard and misstate map coverage.
 
 ## 9. Guardrails (never)
 
-- Never flip arjun-0077/aeroskills public.
+- Never flip arjun-0077/aero-agent-skills public.
 - Never push the dev repo history (no --source, no force-push of
   main on the dev repo). The ONE exception is the RC-tag pointer
   correction documented in section 4a (tag ref only, private origin,

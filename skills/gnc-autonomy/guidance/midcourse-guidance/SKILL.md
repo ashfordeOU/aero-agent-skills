@@ -17,7 +17,7 @@ metadata:
   subdomain: guidance
   tags: [midcourse-guidance, waypoint-steering, trajectory-shaping, velocity-to-be-gained, zero-effort-miss, handover-condition, turn-rate-limit, gravity-compensated-ascent, intercept-guidance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Midcourse Guidance (gnc-autonomy/guidance/midcourse-guidance)

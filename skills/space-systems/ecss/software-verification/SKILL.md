@@ -15,7 +15,7 @@ metadata:
   subdomain: ecss
   tags: [ecss, verification, verification-method, test-method, verification-depth, verification-records, e-st-40c]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ECSS Software Verification (space-systems/ecss/software-verification)

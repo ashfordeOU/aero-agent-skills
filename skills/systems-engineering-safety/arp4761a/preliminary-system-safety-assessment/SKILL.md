@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [arp4761a, pssa, safety-target-allocation, fdal, idal, development-assurance, fta, quantitative-safety-requirement, redundant-channels]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Preliminary System Safety Assessment (systems-engineering-safety/arp4761a/preliminary-system-safety-assessment)

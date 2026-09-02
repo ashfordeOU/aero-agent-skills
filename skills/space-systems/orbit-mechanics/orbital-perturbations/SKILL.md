@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [orbital-perturbations, j2-nodal-regression, raan-drift, argument-of-perigee-drift, secular-drift, nodal-precession]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Orbital Perturbations (space-systems/orbit-mechanics/orbital-perturbations)

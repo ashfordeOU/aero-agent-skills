@@ -15,7 +15,7 @@ metadata:
   subdomain: optimal-control
   tags: [lqr-design, linear-quadratic-regulator, riccati, gain-matrix, state-feedback, closed-loop-stability, control-effort, spacecraft-attitude-control]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # LQR Design (gnc-autonomy/optimal-control/lqr-design)

@@ -19,7 +19,7 @@ metadata:
   subdomain: do178c
   tags: [do-178c, requirements, traceability, derived, development, lifecycle-data]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-178C Development (avionics/do178c/development)

@@ -19,7 +19,7 @@ metadata:
   subdomain: do178c
   tags: [do-178c, verification, coverage, independence, testing]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-178C Verification (avionics/do178c/verification)

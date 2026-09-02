@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [propellant-selection, specific-impulse, density-impulse, mixture-ratio, o-f-ratio, hypergolic, cryogenic, storable, solid-propellant, storability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Propellant Selection (propulsion/rocket/propellant-selection)

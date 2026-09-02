@@ -15,7 +15,7 @@ metadata:
   subdomain: control
   tags: [state-space-analysis, state-space, controllability, observability, state-transition-matrix, eigenvalues, stability, canonical-form, linear-systems]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # State Space Analysis (gnc-autonomy/control/state-space-analysis)

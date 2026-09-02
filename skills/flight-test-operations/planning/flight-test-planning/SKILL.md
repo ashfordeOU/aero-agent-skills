@@ -17,7 +17,7 @@ metadata:
   subdomain: planning
   tags: [flight-test-planning, build-up-approach, test-matrix, instrumentation, go-no-go, flight-test, safety-review, envelope-expansion, prerequisites, test-point, risk-ordered]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight Test Planning (flight-test-operations/planning/flight-test-planning)

@@ -15,7 +15,7 @@ metadata:
   subdomain: adcs
   tags: [adcs, magnetorquer, magnetic, dipole, moment, torque, detumbling, b-dot, cross-product, spacecraft, coil, field, torque-authority, b-field]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Magnetorquer Control (space-systems/adcs/magnetorquer-control)

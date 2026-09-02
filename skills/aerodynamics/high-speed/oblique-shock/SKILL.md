@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [oblique-shock, theta-beta, shock-polar, weak-solution, strong-solution, deflection-angle, mach-number, supersonic, compressible-flow, wedge]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Oblique Shock Relations (aerodynamics/high-speed/oblique-shock)

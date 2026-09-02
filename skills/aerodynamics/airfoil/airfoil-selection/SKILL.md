@@ -15,7 +15,7 @@ metadata:
   subdomain: airfoil
   tags: [airfoil-selection, wing-design, lift-to-drag-ratio, thickness, naca-airfoils, section-selection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Airfoil Section Selection (aerodynamics/airfoil/airfoil-selection)

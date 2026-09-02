@@ -15,7 +15,7 @@ metadata:
   subdomain: ecss
   tags: [ecss, e-st-10c, lifecycle, phase-gate, review, systems-engineering]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ECSS Systems Engineering (space-systems/ecss/systems-engineering)

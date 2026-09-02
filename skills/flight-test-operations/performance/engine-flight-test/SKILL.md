@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [engine-flight-test, thrust-determination, fuel-flow-measurement, egt-margin, altitude-performance, acceleration-transient, deceleration-transient]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Engine Flight Test (flight-test-operations/performance/engine-flight-test)

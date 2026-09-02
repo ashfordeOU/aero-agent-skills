@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [spin-recovery, autorotation-band, spin-modes, flat-spin, incipient-spin, anti-spin-controls, post-stall-departure]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spin Recovery (flight-mechanics/stability-control/spin-recovery)

@@ -15,7 +15,7 @@ metadata:
   subdomain: additive
   tags: [lpbf, laser-powder-bed-fusion, volumetric-energy-density, scan-speed, hatch-spacing, layer-thickness, melt-pool, keyhole-mode, conduction-mode, process-window, laser, power, scan, speed, hatch, spacing, layer, volumetric, energy, density, powder, bed, fusion]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # LPBF Parameter Development (manufacturing-quality/additive/lpbf-parameter-development)

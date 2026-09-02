@@ -15,7 +15,7 @@ metadata:
   subdomain: axial-compressor
   tags: [multi-stage, multi-stage-compressor, stage-matching, overall-pressure-ratio, stage-count, reheat-factor, annulus-area, work-distribution, corrected-speed, axial-compressor]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Multi-Stage Compressor (propulsion/axial-compressor/multi-stage-compressor)

@@ -15,7 +15,7 @@ metadata:
   subdomain: mission-design
   tags: [entry-descent-landing, entry-corridor, flight-path-angle, ballistic-coefficient, deceleration-g-load, sutton-graves, convective-heating, heat-load, parachute-terminal-velocity, mars-entry]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Entry Descent and Landing (space-systems/mission-design/entry-descent-landing)

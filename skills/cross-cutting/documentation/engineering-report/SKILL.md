@@ -15,7 +15,7 @@ metadata:
   subdomain: documentation
   tags: [engineering-report, report-structure, abstract-length, required-sections, completeness, units-statement, uncertainty-statement, traceability, review-gate, version-control, documentation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Engineering Report (cross-cutting/documentation/engineering-report)

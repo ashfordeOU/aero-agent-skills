@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [wing-loading, thrust-to-weight, matching-chart, sizing, takeoff-distance, climb-gradient]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # W/S and T/W Matching (vehicle-design/sizing/ws-tw-trade)

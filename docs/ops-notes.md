@@ -1,6 +1,6 @@
-# Ops notes - AeroSkills
+# Ops notes - Aero Agent Skills
 
-Durable operations notes for the AeroSkills repo (private, arjun-0077/aeroskills).
+Durable operations notes for the Aero Agent Skills repo (private, arjun-0077/aero-agent-skills).
 Ops Manager keeps incident records and runbook facts here. Supersede-not-delete:
 append, never rewrite history.
 

@@ -15,7 +15,7 @@ metadata:
   subdomain: units-atmos
   tags: [temperature-conversion, kelvin, celsius, fahrenheit, rankine, absolute-zero, delta-temperature, temperature-scale]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Temperature Conversion (cross-cutting/units-atmos/temperature-conversion)

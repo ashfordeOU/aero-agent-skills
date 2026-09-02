@@ -31,7 +31,7 @@ metadata:
   subdomain: sep2640
   tags: [demo]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 Body text.
 """

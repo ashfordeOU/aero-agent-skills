@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [landing-gear-sizing, landing-gear, strut-load, wheelbase, nose-gear, main-gear, shock-absorber-stroke, sink-speed, tire-rating, landing-load-factor]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Landing Gear Sizing (vehicle-design/sizing/landing-gear-sizing)
 

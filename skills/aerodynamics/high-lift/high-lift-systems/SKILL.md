@@ -17,7 +17,7 @@ metadata:
   subdomain: high-lift
   tags: [high-lift-systems, trailing-edge-flaps, leading-edge-devices, clmax, stall-speed]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # High-Lift Systems (aerodynamics/high-lift/high-lift-systems)

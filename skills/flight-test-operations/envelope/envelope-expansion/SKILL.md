@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [envelope-expansion, corner-speed, airspeed-classification, load-factor, expansion-step, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Envelope Expansion (flight-test-operations/envelope/envelope-expansion)

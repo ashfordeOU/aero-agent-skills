@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [zonal-safety-analysis, zonal-hazard, zone-identification, hazard-severity, fire-zone, separation, containment, zsa, arp4761a]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A Zonal Safety Analysis (systems-engineering-safety/arp4761a/zonal-safety-analysis)

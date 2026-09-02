@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4754a
   tags: [verification-planning, verification-method, derived-requirement, verification-coverage, method-register, system-verification-plan]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4754A System Verification Planning (systems-engineering-safety/arp4754a/verification-planning)

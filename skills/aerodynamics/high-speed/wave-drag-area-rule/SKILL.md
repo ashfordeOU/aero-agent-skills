@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [wave-drag, area-rule, sears-haack, drag-divergence, cross-sectional-area]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Wave Drag and the Whitcomb Area Rule (aerodynamics/high-speed/wave-drag-area-rule)

@@ -1,4 +1,4 @@
-# AeroSkills Domain Map
+# Aero Agent Skills Domain Map
 
 Machine-readable source of truth: `skills/` tree. This page is the human
 companion — 12 families, 81 live sub-domain packs, 330 verified leaves.
@@ -8,7 +8,7 @@ CI fails if this page drifts from the tree.
 
 ```mermaid
 graph TD
-    ROOT[AeroSkills]
+    ROOT[Aero Agent Skills]
     aerodynamics[aerodynamics]
     ROOT --> aerodynamics
     aerodynamics_aeroelasticity[aeroelasticity · 2]

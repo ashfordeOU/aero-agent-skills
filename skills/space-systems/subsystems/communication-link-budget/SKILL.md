@@ -15,7 +15,7 @@ metadata:
   subdomain: subsystems
   tags: [communication-link-budget, eirp, free-space-path-loss, c-n0, eb-n0, link-margin, data-rate, spacecraft-communications]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spacecraft Communication Link Budget (space-systems/subsystems/communication-link-budget)

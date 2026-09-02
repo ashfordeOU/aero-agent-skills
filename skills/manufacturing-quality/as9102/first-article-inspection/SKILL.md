@@ -17,7 +17,7 @@ metadata:
   subdomain: as9102
   tags: [as9102, fai, first-article-inspection, form-1, form-2, form-3, delta-fai]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # AS9102 First Article Inspection (manufacturing-quality/as9102/first-article-inspection)

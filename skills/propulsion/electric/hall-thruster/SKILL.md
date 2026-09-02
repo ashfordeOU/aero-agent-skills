@@ -15,7 +15,7 @@ metadata:
   subdomain: electric
   tags: [hall-thruster, electric-propulsion, specific-impulse, thrust-to-power, beam-current, xenon, krypton]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Hall Effect Thruster (propulsion/electric/hall-thruster)

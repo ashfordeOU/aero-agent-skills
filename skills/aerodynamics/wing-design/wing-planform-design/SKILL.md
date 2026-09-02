@@ -15,7 +15,7 @@ metadata:
   subdomain: wing-design
   tags: [wing-planform-design, planform-geometry, taper-ratio, root-chord, tip-chord, mean-geometric-chord, mean-aerodynamic-chord, mac-span-station, quarter-chord-sweep, sweep-reference-conversion, schrenk-approximation, spanwise-load-distribution, local-lift-coefficient, washout-angle, stall-sequencing]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Wing Planform Design (aerodynamics/wing-design/wing-planform-design)

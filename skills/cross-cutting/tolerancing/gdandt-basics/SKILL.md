@@ -15,7 +15,7 @@ metadata:
   subdomain: tolerancing
   tags: [gdandt-basics, gdandt, feature-control-frame, datum-reference-frame, form-tolerances, orientation-tolerances, position-tolerance, profile-tolerance, runout, mmc, lmc, rfs, bonus-tolerance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # GDandT Basics (cross-cutting/tolerancing/gdandt-basics)
 

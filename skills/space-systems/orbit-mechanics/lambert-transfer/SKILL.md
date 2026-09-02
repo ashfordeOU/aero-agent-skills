@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [lambert-transfer, lambert-problem, p-iteration, transfer-time, time-of-flight, two-position-transfer, short-way, long-way, multi-revolution, delta-v]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Lambert Transfer (space-systems/orbit-mechanics/lambert-transfer)

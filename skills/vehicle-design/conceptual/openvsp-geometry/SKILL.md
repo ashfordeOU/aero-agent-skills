@@ -17,7 +17,7 @@ metadata:
   subdomain: conceptual
   tags: [parametric-geometry, openvsp-style, wing-planform, mean-aerodynamic-chord, wetted-area, fuselage-geometry, component-volume, sweep-dihedral-twist, mass-properties-input, conceptual-design]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Parametric Geometry (vehicle-design/conceptual/openvsp-geometry)

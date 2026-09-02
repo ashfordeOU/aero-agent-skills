@@ -15,7 +15,7 @@ metadata:
   subdomain: composites
   tags: [failure-criteria, tsai-wu, tsai-hill, max-stress, failure-index, lamina, ply-allowables, composite-lamina]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Lamina Failure Criteria (structures/composites/failure-criteria)

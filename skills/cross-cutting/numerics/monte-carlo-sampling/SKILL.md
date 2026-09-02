@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [monte-carlo-sampling, random-seed, sample-size, percentile, confidence-interval, histogram, pseudo-random, uniform-distribution]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Monte Carlo Sampling (cross-cutting/numerics/monte-carlo-sampling)

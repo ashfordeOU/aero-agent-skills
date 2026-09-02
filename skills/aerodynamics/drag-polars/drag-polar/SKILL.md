@@ -15,7 +15,7 @@ metadata:
   subdomain: drag-polars
   tags: [drag-polar, parabolic, oswald, span-efficiency, aspect-ratio, induced-drag, zero-lift-drag, cd0, lift-to-drag]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Parabolic Drag Polar Analysis (aerodynamics/drag-polars/drag-polar)

@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [wing-planform-sizing, wing-area, wing-loading, aspect-ratio, span-sizing, taper-ratio, mean-aerodynamic-chord, sweep-angle, cruise-mach, takeoff-gross-weight]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Wing Planform Sizing (vehicle-design/sizing/wing-planform-sizing)

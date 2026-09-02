@@ -15,7 +15,7 @@ metadata:
   subdomain: do160
   tags: [electrostatic-discharge, esd-testing, air-discharge, discharge-waveform, test-levels, personnel-access, connector-pins, generator-model]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Electrostatic Discharge (avionics/do160/electrostatic-discharge)

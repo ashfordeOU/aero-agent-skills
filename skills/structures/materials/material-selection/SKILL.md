@@ -15,7 +15,7 @@ metadata:
   subdomain: materials
   tags: [material-selection, selection-indices, stiffness-to-weight, strength-to-weight, specific-stiffness, specific-strength, aluminum-alloys, titanium-alloys, steels, composites, corrosion-resistance, temperature-limits, design-drivers, airframe-materials]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Material Selection (structures/materials/material-selection)

@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [turn-rate, turn-radius, bank-angle, load-factor, sustained-turn, maneuvering]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Turn Performance (flight-mechanics/performance/turn-performance)

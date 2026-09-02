@@ -17,7 +17,7 @@ metadata:
   subdomain: conceptual
   tags: [constraint-analysis, matching-chart, feasible-region, stall-constraint, takeoff-constraint, climb-gradient, cruise-constraint, maneuvering-constraint, load-factor, wing-loading, thrust-to-weight]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Aircraft Constraint Analysis (vehicle-design/conceptual/constraint-analysis)

@@ -15,7 +15,7 @@ metadata:
   subdomain: do254
   tags: [do-254, configuration, change-class, ecr, eco, hci, hardware, review-independence]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-254 Configuration Management (avionics/do254/configuration-management)

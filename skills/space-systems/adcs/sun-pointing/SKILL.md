@@ -15,7 +15,7 @@ metadata:
   subdomain: adcs
   tags: [sun-pointing, safe-hold, sun-acquisition, solar-illumination, pointing-tolerance, slew-rate]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spacecraft Sun Pointing (space-systems/adcs/sun-pointing)

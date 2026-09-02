@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [nonconformance-control, nonconforming-product, material-review-board, mrb, disposition, rework, repair, scrap, use-as-is, segregation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Nonconformance Control (manufacturing-quality/as9100/nonconformance-control)

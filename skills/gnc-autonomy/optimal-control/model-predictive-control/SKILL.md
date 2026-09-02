@@ -15,7 +15,7 @@ metadata:
   subdomain: optimal-control
   tags: [model-predictive-control, mpc, receding-horizon, quadratic-cost, constraint-handling, double-integrator]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Model Predictive Control (gnc-autonomy/optimal-control/model-predictive-control)

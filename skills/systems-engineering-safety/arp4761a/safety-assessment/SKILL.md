@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4761a
   tags: [arp4761a, fha, pssa, ssa, cca, fta, fmea, safety-assessment]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A Safety Assessment (systems-engineering-safety/arp4761a/safety-assessment)

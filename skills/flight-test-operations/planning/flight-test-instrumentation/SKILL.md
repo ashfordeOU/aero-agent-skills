@@ -17,7 +17,7 @@ metadata:
   subdomain: planning
   tags: [flight-test-instrumentation, instrumentation-design, sample-rate, anti-aliasing, nyquist, sensor-selection, telemetry, calibration, measurement-uncertainty, data-acquisition]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight Test Instrumentation (flight-test-operations/planning/flight-test-instrumentation)

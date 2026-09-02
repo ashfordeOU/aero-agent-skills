@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [calibration-control, calibration, tar, test-accuracy-ratio, out-of-tolerance, calibration-due, instrument-recall, traceability, as9100, metrology]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Calibration Control (manufacturing-quality/as9100/calibration-control)

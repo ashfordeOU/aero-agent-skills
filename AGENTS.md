@@ -1,6 +1,6 @@
-# AGENTS.md — AeroSkills project rules
+# AGENTS.md — Aero Agent Skills project rules
 
-AeroSkills runs as a company of departments (see README.md). These
+Aero Agent Skills runs as a company of departments (see README.md). These
 rules apply to any agent working in this repo.
 
 ## QUIET HOURS (founder mandate, PINNED)

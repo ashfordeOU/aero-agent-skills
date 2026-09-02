@@ -15,7 +15,7 @@ metadata:
   subdomain: conceptual
   tags: [mission-profile, block-fuel, block-time, breguet, reserve-fuel, payload-range, conceptual-design]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Design Mission Profile and Block Fuel/Time (vehicle-design/conceptual/sizing-mission-profile)

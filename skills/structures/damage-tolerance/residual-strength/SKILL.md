@@ -15,7 +15,7 @@ metadata:
   subdomain: damage-tolerance
   tags: [residual-strength, critical-crack-length, fracture-toughness, limit-load, stress-intensity, damage-tolerance, crack-length]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Residual Strength (structures/damage-tolerance/residual-strength)

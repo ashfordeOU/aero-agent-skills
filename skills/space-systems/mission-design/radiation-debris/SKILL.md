@@ -15,7 +15,7 @@ metadata:
   subdomain: mission-design
   tags: [radiation-environment, trapped-belts, total-ionizing-dose, single-event-effects, seu-rate, solar-particle-events, orbital-debris, shielding-attenuation, collision-probability, mission-design]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Radiation and Debris Environment Assessment (space-systems/mission-design/radiation-debris)

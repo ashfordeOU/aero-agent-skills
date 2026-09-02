@@ -19,7 +19,7 @@ metadata:
   subdomain: do178c
   tags: [do-178c, dal, psac, certification, arp4754a, arp4761a, software-levels]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-178C Planning (avionics/do178c/planning)

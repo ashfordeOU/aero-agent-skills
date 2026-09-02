@@ -94,7 +94,7 @@ def main() -> int:
 
     import datetime
     lines = [
-        "# AeroSkills Per-Skill Ratings Ledger",
+        "# Aero Agent Skills Per-Skill Ratings Ledger",
         "",
         AUDIT_LINE.format(date=datetime.date.today().isoformat()),
         METHOD_LINE,

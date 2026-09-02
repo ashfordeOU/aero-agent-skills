@@ -16,7 +16,7 @@ metadata:
   domain: structures
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Structures and materials domain pack (router)

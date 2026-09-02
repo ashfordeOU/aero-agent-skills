@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# AeroSkills brief-audit gate (attestation part 2).
+# Aero Agent Skills brief-audit gate (attestation part 2).
 # Scans repo docs for quoted market numbers and resolves each against
 # ops/automation/numbers.yaml (canonical register). Exit 0 = every quoted
 # number resolves; exit 1 = drift with a diff (file, line, expected, found).

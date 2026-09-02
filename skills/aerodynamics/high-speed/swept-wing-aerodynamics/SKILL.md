@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [swept-wing, sweep-angle, critical-mach, simple-sweep-theory, leading-edge-sweep]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Swept Wing Aerodynamics (aerodynamics/high-speed/swept-wing-aerodynamics)

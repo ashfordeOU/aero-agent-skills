@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AeroSkills value-delta harness — proves each skill beats NOT using it.
+"""Aero Agent Skills value-delta harness — proves each skill beats NOT using it.
 
 For a sampled set of skills (or --all), run the skill's own behavior test
 and a with/without task probe:

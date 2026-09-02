@@ -17,7 +17,7 @@ metadata:
   subdomain: certification
   tags: [certification-basis, type-certificate, supplemental-type-certificate, tso, special-conditions, far-25-applicability, cs-25, certification-program, means-of-compliance, regulatory-path]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Certification Basis (systems-engineering-safety/certification/certification-basis)

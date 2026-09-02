@@ -15,7 +15,7 @@ metadata:
   subdomain: space
   tags: [rendezvous, phasing-orbit, closing-rate, orbital-maneuver, delta-v, chase]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Orbital Rendezvous Phasing (gnc-autonomy/space/rendezvous-phasing)

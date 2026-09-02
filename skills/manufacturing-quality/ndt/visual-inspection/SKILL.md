@@ -17,7 +17,7 @@ metadata:
   subdomain: ndt
   tags: [visual-inspection, aperture-ratio, magnification, lighting-requirements, surface-indications, indication-acceptance, resolution-limit, working-distance, field-of-view, illuminance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Visual Inspection (manufacturing-quality/ndt/visual-inspection)

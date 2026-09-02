@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [landing-performance, landing-distance, approach-speed, flare-radius, flare-height, flare-distance, ground-roll, stopping-distance, touchdown-speed, braking-coefficient, reverse-thrust, 50-foot-obstacle, air-distance, landing-field-length, certified-landing-distance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Landing Performance (flight-mechanics/performance/landing-performance)

@@ -15,7 +15,7 @@ metadata:
   subdomain: turbofan
   tags: [turbofan, bypass-ratio, propulsive-efficiency, specific-thrust, fan-flow, mass-flow]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Turbofan Cycle (propulsion/turbofan/turbofan-cycle)

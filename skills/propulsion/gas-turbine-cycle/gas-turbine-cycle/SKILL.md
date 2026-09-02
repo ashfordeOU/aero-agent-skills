@@ -15,7 +15,7 @@ metadata:
   subdomain: gas-turbine-cycle
   tags: [gas-turbine, brayton-cycle, thermal-efficiency, compressor, turbine, pressure-ratio, engine-cycle]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ideal Gas Turbine Cycle (propulsion/gas-turbine-cycle)

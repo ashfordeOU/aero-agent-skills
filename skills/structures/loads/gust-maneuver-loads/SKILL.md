@@ -15,7 +15,7 @@ metadata:
   subdomain: loads
   tags: [gust-loads, maneuver-loads, v-n-diagram, far-25-341, far-25-337, load-factor, envelope, discrete-gust, 1-cosine, gust-alleviation-factor, mass-ratio, maneuvering-speed, corner-point, margin-check, limit-load-factor]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Gust and Maneuver Loads (structures/loads/gust-maneuver-loads)

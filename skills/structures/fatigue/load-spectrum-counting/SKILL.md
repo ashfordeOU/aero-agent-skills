@@ -17,7 +17,7 @@ metadata:
   subdomain: fatigue
   tags: [rainflow, cycle-counting, exceedance-spectrum, level-crossing, load-spectrum, mission-profile, spectrum-truncation, fatigue]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fatigue Load Spectrum Counting (structures/fatigue/load-spectrum-counting)

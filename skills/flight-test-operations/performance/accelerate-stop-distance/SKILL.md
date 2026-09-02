@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [v1, braking, deceleration, runway, rejected-takeoff, balanced-field-length]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Accelerate Stop Distance (flight-test-operations/performance/accelerate-stop-distance)

@@ -16,7 +16,7 @@ metadata:
   domain: vehicle-design
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Vehicle design domain pack (router)

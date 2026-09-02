@@ -15,7 +15,7 @@ metadata:
   subdomain: do178c
   tags: [requirements-based-testing, structural-coverage, mc-dc, statement-coverage, decision-coverage, test-case-count, coverage-objectives]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-178C Requirements-Based Software Testing (avionics/do178c/software-testing)

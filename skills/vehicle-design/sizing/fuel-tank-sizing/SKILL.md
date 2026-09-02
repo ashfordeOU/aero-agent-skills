@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [fuel-tank-sizing, fuel-volume, usable-fuel, ullage, fuel-density, tank-capacity, fuel-mass]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fuel Tank Sizing (vehicle-design/sizing/fuel-tank-sizing)

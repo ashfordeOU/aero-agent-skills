@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [specific-air-range, fuel-flow, instantaneous-range, meters-per-kilogram, cruise-fuel-economy, sector-fuel-burn]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Specific Range (flight-mechanics/performance/specific-range)

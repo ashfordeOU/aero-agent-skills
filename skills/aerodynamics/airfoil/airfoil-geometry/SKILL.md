@@ -15,7 +15,7 @@ metadata:
   subdomain: airfoil
   tags: [airfoil-geometry, naca, camber, thickness-distribution, mean-line, leading-edge-radius, section-area, airfoil-coordinates]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # NACA Airfoil Geometry (aerodynamics/airfoil/airfoil-geometry)

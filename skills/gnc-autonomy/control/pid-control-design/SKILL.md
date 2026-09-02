@@ -15,7 +15,7 @@ metadata:
   subdomain: control
   tags: [pid-control-design, pid, controller-tuning, proportional, integral, derivative, ziegler-nichols, ultimate-gain, ultimate-period, pole-placement, anti-windup, integrator-clamp, phase-margin, gain-margin, discrete-derivative]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # PID Control Design (gnc-autonomy/control/pid-control-design)

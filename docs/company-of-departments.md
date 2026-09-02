@@ -1,6 +1,6 @@
-# AeroSkills: Company Structure
+# Aero Agent Skills: Company Structure
 
-AeroSkills runs as a company of departments, following the proven
+Aero Agent Skills runs as a company of departments, following the proven
 Department-as-Code pattern (Veda reference implementation). Each
 department is a folder with a README (what it does + how to run it)
 and its own workspace.
@@ -30,7 +30,7 @@ proves the product (ops/automation). Internal department workspaces
 are kept out of the public package.
 
 ```
-AeroSkills/              # public tree
+Aero Agent Skills/              # public tree
 ├── README.md            # public landing page
 ├── skills/              # the library (69 skills, 36 sub-domain packs)
 ├── scripts/             # gate + eval machinery

@@ -15,7 +15,7 @@ metadata:
   subdomain: optimal-control
   tags: [trajectory-optimization, optimal-control, dymos, pseudospectral, phase, convergence, collocation, launch-ascent, bounds]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Dymos Trajectory Optimization (gnc-autonomy/optimal-control/dymos-trajectory)

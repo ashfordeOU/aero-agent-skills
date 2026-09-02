@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [engine-sizing, sea-level-static-thrust, thrust-lapse, takeoff-thrust, top-of-climb, thrust-margin, specific-fuel-consumption, engine-weight, installed-thrust-loss, altitude-thrust, thrust-per-engine, thrust-to-weight-ratio]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Engine Sizing (vehicle-design/sizing/engine-sizing)

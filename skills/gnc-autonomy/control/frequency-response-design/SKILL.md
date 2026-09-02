@@ -17,7 +17,7 @@ metadata:
   subdomain: control
   tags: [frequency-response, bode-analysis, gain-margin, phase-margin, gain-crossover-frequency, phase-crossover-frequency, crossover-frequency, stability-margins]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Frequency Response Design (gnc-autonomy/control/frequency-response-design)

@@ -15,7 +15,7 @@ metadata:
   subdomain: cfd
   tags: [cfd-validation, verification-validation, richardson-extrapolation, grid-convergence, error-metrics, naca-0012, naca-4412, onera-m6, dlr-f6, validation-uncertainty, boundary-layer]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CFD Validation (aerodynamics/cfd/cfd-validation)

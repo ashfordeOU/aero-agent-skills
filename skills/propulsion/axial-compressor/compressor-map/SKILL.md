@@ -15,7 +15,7 @@ metadata:
   subdomain: axial-compressor
   tags: [compressor-map, surge-line, surge-margin, operating-line, corrected-flow, corrected-speed, choke-line, map-point, engine-acceleration, axial-compressor]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Compressor Map (propulsion/axial-compressor/compressor-map)

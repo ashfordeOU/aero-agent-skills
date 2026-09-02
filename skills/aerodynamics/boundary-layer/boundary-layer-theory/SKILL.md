@@ -15,7 +15,7 @@ metadata:
   subdomain: boundary-layer
   tags: [boundary-layer, displacement-thickness, momentum-thickness, skin-friction, transition]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Boundary Layer Theory (aerodynamics/boundary-layer/boundary-layer-theory)

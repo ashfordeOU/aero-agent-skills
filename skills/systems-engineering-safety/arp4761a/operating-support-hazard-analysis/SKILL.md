@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [operating-support-hazard-analysis, oshsa, maintenance-hazard, ground-operations-hazard, risk-matrix-scoring, hazard-log, critical-task]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Operating and Support Hazard Analysis (systems-engineering-safety/arp4761a/operating-support-hazard-analysis)

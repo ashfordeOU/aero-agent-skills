@@ -16,7 +16,7 @@ metadata:
   domain: manufacturing-quality
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Manufacturing and quality domain pack (router)

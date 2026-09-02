@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [phugoid-mode-analysis, lanchester-approximation, long-period-mode, airspeed-oscillation, time-to-half-amplitude, height-velocity-exchange, phugoid-damping, drag-damping]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Phugoid Mode Analysis (flight-mechanics/stability-control/phugoid-mode-analysis)

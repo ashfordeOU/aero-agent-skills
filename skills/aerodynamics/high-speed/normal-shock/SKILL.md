@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [normal-shock, compressible-flow, mach-number, shock-relations, supersonic, stagnation-pressure]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Normal Shock Relations (aerodynamics/high-speed/normal-shock)

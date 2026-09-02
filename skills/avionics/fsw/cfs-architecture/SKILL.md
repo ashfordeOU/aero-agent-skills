@@ -15,7 +15,7 @@ metadata:
   subdomain: fsw
   tags: [cfs, core-flight-software, cfe, osal, software-bus, publish-subscribe, app-skeleton]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # cFS Architecture (avionics/fsw/cfs-architecture)

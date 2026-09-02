@@ -15,7 +15,7 @@ metadata:
   subdomain: do254
   tags: [do-254, hardware, phac, certification, verification, planning]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-254 Hardware Planning (avionics/do254/hardware-planning)

@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [sun-synchronous, inclination, nodal-regression, ascending-node, local-solar-time, dawn-dusk, retrograde]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Sun-Synchronous Inclination (space-systems/orbit-mechanics/sun-synchronous-inclination)

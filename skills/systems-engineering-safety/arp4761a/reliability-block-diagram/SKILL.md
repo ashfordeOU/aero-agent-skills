@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [reliability-block-diagram, series-parallel-reliability, rbd, redundancy-modeling, k-out-of-n-reliability, cold-standby, mtbf, mission-reliability, failure-rate, dominant-component]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Reliability Block Diagram (systems-engineering-safety/arp4761a/reliability-block-diagram)

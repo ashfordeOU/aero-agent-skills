@@ -1,4 +1,4 @@
-# AeroSkills glossary
+# Aero Agent Skills glossary
 
 Terms as used in this repository. Sources: standards-map.yaml,
 STANDARDS.md, docs/harness-contract.md, and the seed skill

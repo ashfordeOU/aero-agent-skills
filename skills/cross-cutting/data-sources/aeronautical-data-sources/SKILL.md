@@ -17,7 +17,7 @@ metadata:
   subdomain: data-sources
   tags: [data-source, data-source-registry, credibility, credibility-score, revision, revision-status, status, publisher, edition, access-date, citation-line, authoritative-data-type, review-status, regulatory-data, vendor-source, community-source, materials-properties, atmospheric-model, aerodynamic-database, standard-part-library, engineering-reference]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Aeronautical Data Sources (cross-cutting/data-sources/aeronautical-data-sources)

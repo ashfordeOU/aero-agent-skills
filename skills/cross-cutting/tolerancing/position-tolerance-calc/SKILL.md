@@ -15,7 +15,7 @@ metadata:
   subdomain: tolerancing
   tags: [position-tolerance-calc, position-tolerance, true-position, mmc-bonus, virtual-condition, feature-control-frame, maximum-material-condition]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Position Tolerance Calculation (cross-cutting/tolerancing/position-tolerance-calc)
 

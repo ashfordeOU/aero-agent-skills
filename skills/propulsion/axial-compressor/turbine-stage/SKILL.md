@@ -15,7 +15,7 @@ metadata:
   subdomain: axial-compressor
   tags: [axial-turbine-stage, velocity-triangle, stage-loading, flow-coefficient, degree-of-reaction, blade-row-loss, turbine-efficiency, specific-work, total-to-total-efficiency, axial-velocity, blade-speed]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Axial Turbine Stage (propulsion/axial-compressor/turbine-stage)
