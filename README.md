@@ -4,8 +4,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/title-dark.svg">
-    <img src="docs/title.svg" alt="AeroSkills — aerospace · agent skills · Apache-2.0" width="520">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/title-dark.png">
+    <img src="docs/title.png" alt="AeroSkills — aerospace · agent skills · Apache-2.0" width="520">
   </picture>
 </p>
 
@@ -16,8 +16,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/statline-dark.svg">
-    <img src="docs/statline.svg" alt="330 verified skills · 81 live packs · 12 families · 25 standards · 674 router tasks · 8/8 gates green" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/statline-dark.png">
+    <img src="docs/statline.png" alt="330 verified skills · 81 live packs · 12 families · 25 standards · 674 router tasks · 8/8 gates green" width="100%">
   </picture>
 </p>
 
@@ -88,15 +88,15 @@ cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/domain-radar-dark.svg">
-    <img src="docs/domain-radar.svg" alt="Domain coverage radar: live verified skills vs router assertions across 12 families" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/domain-radar-dark.png">
+    <img src="docs/domain-radar.png" alt="Domain coverage radar: live verified skills vs router assertions across 12 families" width="100%">
   </picture>
 </p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/domain-polar-dark.svg">
-    <img src="docs/domain-polar.svg" alt="Polar rose: live installable packs per family, area-true" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/domain-polar-dark.png">
+    <img src="docs/domain-polar.png" alt="Polar rose: live installable packs per family, area-true" width="100%">
   </picture>
 </p>
 
@@ -106,8 +106,8 @@ Full per-pack skill lists: **[docs/DOMAINS.md](docs/DOMAINS.md)**.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/structure-dark.svg">
-    <img src="docs/structure.svg" alt="Repository structure sunburst: inner ring of 12 families, outer ring of installable packs, arc length proportional to verified skills" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/structure-dark.png">
+    <img src="docs/structure.png" alt="Repository structure sunburst: inner ring of 12 families, outer ring of installable packs, arc length proportional to verified skills" width="100%">
   </picture>
 </p>
 
@@ -161,8 +161,8 @@ contract test** that runs offline. `make validate` checks all of it.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/skill-anatomy-dark.svg">
-    <img src="docs/skill-anatomy.svg" alt="Anatomy of a skill: frontmatter for the router, body workflow for the agent, offline behavior contract test, Hit@1 corpus tasks" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/skill-anatomy-dark.png">
+    <img src="docs/skill-anatomy.png" alt="Anatomy of a skill: frontmatter for the router, body workflow for the agent, offline behavior contract test, Hit@1 corpus tasks" width="100%">
   </picture>
 </p>
 
@@ -218,8 +218,8 @@ The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/how-it-works-dark.svg">
-    <img src="docs/how-it-works.svg" alt="Pipeline: agent task → router picks skill by description → SKILL.md loads workflow and gates → standards context from standards-map → agent executes with verification → stop gate: human sign-off" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/how-it-works-dark.png">
+    <img src="docs/how-it-works.png" alt="Pipeline: agent task → router picks skill by description → SKILL.md loads workflow and gates → standards context from standards-map → agent executes with verification → stop gate: human sign-off" width="100%">
   </picture>
 </p>
 
@@ -248,8 +248,8 @@ You do not need to trust the badge. Replay the gates on the commit you are looki
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/gates-dark.svg">
-    <img src="docs/gates.svg" alt="Verification battery: commit passes 5 validate gates, 3 attestation gates, and the visuals-freshness check before CI goes green" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/gates-dark.png">
+    <img src="docs/gates.png" alt="Verification battery: commit passes 5 validate gates, 3 attestation gates, and the visuals-freshness check before CI goes green" width="100%">
   </picture>
 </p>
 
