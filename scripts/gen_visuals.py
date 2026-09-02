@@ -757,10 +757,12 @@ def block_verify_extra(m):
 
 def block_roadmap(m):
     return (f'- **Shipped:** {m["leaves"]} verified skills in {m["live_packs"]} packs across '
-            f'{m["families"]} disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)\n'
+            f'{m["families"]} disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); '
+            f'distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the '
+            f'full {m["corpus_tasks"]}-task corpus) and Claude Code plugin packaging\n'
             f'- **Now:** deepening every live pack and opening new sub-domain packs on the same '
             f'eval-gated pipeline — every addition lands with its behavior contract and router tasks\n'
-            f'- **Later:** reference builds; a SEP-2640-aligned MCP adapter; marketplace listings; '
+            f'- **Later:** reference builds; marketplace listings; '
             f'AI Department Operator packs')
 
 
