@@ -63,6 +63,7 @@ compressor stage and operating-map analysis.
 | propulsion/combustion/cea-rocket-combustion | Rocket combustion thermochemistry | rocket combustion, adiabatic flame temperature, characteristic velocity, specific impulse, mixture ratio, frozen flow, chamber pressure, thermochemistry, c-star, propellant selection |
 | propulsion/rocket/solid-rocket-motor | Solid rocket motor | solid rocket motor, burn rate, chamber pressure, grain geometry, mass flow, thrust, total impulse, c star |
 | propulsion/electric/hall-thruster | Hall Thruster | hall thruster, electric propulsion, specific impulse, thrust-to-power, beam current, discharge power, xenon, krypton, propellant mass, delta-v. |
+| propulsion/electric/gridded-ion-thruster | Gridded ion thruster | gridded ion thruster, Kaufman thruster, accelerator grid, perveance limit, beam extraction, ion optics |
 
 ## Routing guidance
 
@@ -119,3 +120,4 @@ to turbofan-cycle;
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- Gridded ion thruster and ion-optics perveance questions route to the electric gridded-ion-thruster sub-skill.

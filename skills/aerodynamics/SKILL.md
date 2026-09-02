@@ -61,6 +61,7 @@ estimation, validated against classic reference data.
 | aerodynamics/wind-tunnel/windtunnel-data-reduction | Wind tunnel data reduction | wind tunnel data reduction, tare correction, blockage correction, wall interference, Reynolds correction, aerodynamic coefficients, pressure distribution, balance data, uncertainty estimation, experimental aerodynamics |
 | aerodynamics/aeroelasticity/flutter-speed-prediction | Flutter speed prediction | flutter speed, v-g method, bending torsion, typical section, damping crossing, frequency coalescence, flutter margin, theodorsen |
 | aerodynamics/cfd/cfd-validation | Cfd Validation | cfd validation, validation case selection, richardson extrapolation, grid convergence, naca 0012 drag, onera m6, dlr f6, error metrics, validation uncertainty, validation report. |
+| aerodynamics/wind-tunnel/windtunnel-wall-corrections | Wind tunnel wall corrections | wall corrections, solid blockage, wake blockage, lift interference, test section constraint, corrected drag |
 
 ## Routing guidance
 
@@ -104,3 +105,4 @@ objective studies route to
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- Wind tunnel wall and blockage correction questions route to the wind-tunnel windtunnel-wall-corrections sub-skill.

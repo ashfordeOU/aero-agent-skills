@@ -63,6 +63,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/conceptual/openvsp-geometry | Parametric aircraft geometry | parametric geometry, OpenVSP style, wing planform, mean aerodynamic chord, wetted area, fuselage geometry, component volume, sweep dihedral twist, mass properties input, conceptual design |
 | vehicle-design/sizing/nacelle-sizing | Nacelle sizing | nacelle sizing, highlight area, fan mass flow, inlet capture, lip area, nacelle length, wetted area, cowl thickness |
 | vehicle-design/conceptual/sizing-mission-profile | Sizing Mission Profile | mission profile, block fuel, block time, breguet range, breguet endurance, reserve fuel, loiter, hold, fuel fraction, required fuel, climb, cruise, descent, taxi, takeoff, FAR 121, payload range. |
+| vehicle-design/mdo/design-of-experiments | Design of experiments | design of experiments, DOE, factorial design, latin hypercube, central composite, main effects |
 
 ## Routing guidance
 
@@ -124,3 +125,4 @@ ons route to the weight-estimation
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- DOE factorial and latin-hypercube design space screening questions route to the mdo design-of-experiments sub-skill.

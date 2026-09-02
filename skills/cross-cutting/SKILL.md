@@ -68,6 +68,7 @@ integration) for engineering calculations.
 | cross-cutting/tolerancing/datum-reference-frames | Datum reference frames | datum reference frames, GD&T, datum precedence, primary secondary tertiary, feature control frame, material condition, MMB LMB RMB, degrees of freedom, datum simulators, ASME Y14.5 |
 | cross-cutting/tolerancing/gdandt-basics | GD&T basics | GD&T, feature control frame, datum reference frame, form tolerance, orientation tolerance, MMC, LMC, RFS, bonus tolerance |
 | cross-cutting/export-control/export-control-awareness | Export Control Awareness | ITAR, EAR, USML, EAR99, 600-series, defense articles, technical data, export control, deemed export, fundamental research, public domain, compliance review, sharing data with foreign collaborators. |
+| cross-cutting/numerics/optimization-algorithms | Optimization algorithms | minimize, golden section search, gradient descent, Nelder-Mead, line search, unconstrained optimum |
 
 ## Routing guidance
 
@@ -133,3 +134,4 @@ integration) for engineering calculations.
 
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
+- Numerical minimization (golden section, gradient descent, Nelder-Mead) questions route to the numerics optimization-algorithms sub-skill.
