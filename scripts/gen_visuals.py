@@ -288,7 +288,7 @@ def gen_radar(m, t):
     # left-anchored + short so it ends clear of the title block (founder 2026-09-01)
     o.append(txt(48, H - 22, f'{m["leaves"]} VERIFIED SKILLS · {m["live_packs"]} LIVE PACKS · '
                  f'{m["corpus_tasks"]} ROUTER TASKS', size=10, fill=pencil, ls=2))
-    o.append(ownermark(t, bx + bw, H - 22))
+    o.append(ownermark(t, bx + bw, H - 8))
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
