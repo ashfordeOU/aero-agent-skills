@@ -4,7 +4,7 @@ AeroSkills runs as a company of departments (see README.md). These
 rules apply to any agent working in this repo.
 
 ## QUIET HOURS (founder mandate, PINNED)
-- **00:00-10:00 UTC = NULL BURN WINDOW.** No work, no skill builds, no
+- **20:00-08:00 UTC (22:00-10:00 CEST) = NULL BURN WINDOW.** No work, no skill builds, no
   subagent dispatch, no jobs, no token-spending activity during this
   window (DeepSeek peak pricing — the company ran out of API credits
   from night burn).
@@ -14,8 +14,8 @@ rules apply to any agent working in this repo.
   OK: outside quiet window. (exit 0=OK,
   2=in window stop, 3=pre-quiet do not spawn long work).
 - FUTURE JOBS: every new cron/job must respect the window (schedule
-  outside 00:00-10:00 UTC or attach the quiet-hours-gate.py monitor).
-- Outside 00:00-10:00 UTC: normal work, full speed, agent cadence.
+  outside 20:00-08:00 UTC (22:00-10:00 CEST) or attach the quiet-hours-gate.py monitor).
+- Outside 20:00-08:00 UTC (22:00-10:00 CEST): normal work, full speed, agent cadence.
 
 ## Writing
 - Few words, every word picked. No superlatives, no praise.
