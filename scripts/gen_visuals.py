@@ -24,6 +24,10 @@ Outputs (all overwritten in place):
   docs/skill-anatomy[-dark].svg    exploded view of one skill folder
   docs/DOMAINS.md                  full generated domain map
   README.md                        every <!-- gen:NAME --> block rewritten
+  docs/*.png                       2x raster of every SVG above — the README
+                                   embeds the PNGs because GitHub Mobile does
+                                   not render SVG images (SVGs stay in-repo as
+                                   the vector source of truth)
 
 The logo is founder-supplied raster (docs/logo-mark.png) — never generated,
 never altered.
@@ -39,6 +43,8 @@ violet/magenta/orange, flat fills, mono uppercase labels, title blocks).
 import json
 import math
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -800,6 +806,24 @@ def main():
             else:
                 path.write_text(content, encoding="utf-8")
                 print(f"wrote {path.relative_to(REPO)}")
+
+    # 2x PNG rasters for GitHub Mobile (no SVG support in the app). Bytes are
+    # rasterizer-version dependent, so --check asserts existence only; the
+    # push machine regenerates real pixels via make visuals.
+    rsvg = shutil.which("rsvg-convert")
+    for svg_path in sorted(p for p in out if p.suffix == ".svg"):
+        png_path = svg_path.with_suffix(".png")
+        if check:
+            if not png_path.exists():
+                stale.append(png_path.relative_to(REPO))
+            continue
+        if not rsvg:
+            print(f"WARN rsvg-convert not found — skipped {png_path.name}")
+            continue
+        w = int(re.search(r'width="(\d+)"', out[svg_path]).group(1))
+        subprocess.run([rsvg, "-w", str(w * 2), str(svg_path), "-o", str(png_path)],
+                       check=True)
+        print(f"wrote {png_path.relative_to(REPO)}")
     if check:
         if stale:
             print(f"FAIL visuals-check: {len(stale)} stale artifact(s) — run `make visuals`:")
