@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 # Sync the dev tree (arjun-0077, private TEST environment) to the public
 # release repo (github.com/ashfordeOU/aero-agent-skills). Founder
-# 2026-09-02: "arjun repo stays for testing only... the pipelines
-# shouldn't fail" — this script IS the pipeline. It is the single source
-# of truth for the public-tree allowlist; docs/release-runbook-ashforde.md
-# section 10 documents the reasoning, this script is what actually runs.
+# 2026-09-02: "focus on maintaining public repo from now on... push
+# everything to public repo, the entire local repo" — this script now
+# exports the FULL tree (see step 1: the old curated allowlist is gone
+# because the marketing/branding/internal-strategy content it used to
+# exclude has been physically relocated out of this repo entirely, to
+# ~/Documents/Code/Claudecode/aeroskills-internal/).
 #
 # Safety model ("shouldn't fail" = never publish a broken state, not
 # "never encounters an error"):
-#   1. Export the allowlist to a scratch dir via `git archive` (never a
-#      raw copy — that ships internal docs, see the runbook).
+#   1. Export the full tree to a scratch dir via `git archive` (never a
+#      raw copy of the working tree — archive only ships what's
+#      actually committed).
 #   2. Run the REAL gate battery INSIDE the export before touching git
 #      or GitHub. If anything fails, abort — the public repo is never
-#      touched. This step has caught two real bugs that "the allowlist
-#      looks right" did not (see runbook section 10, items 1-2).
+#      touched.
 #   3. Sync a PERSISTENT local mirror clone (never re-init a fresh repo
 #      per run — that would force a non-fast-forward push every time,
 #      and this project's rule is NEVER force-push without explicit
@@ -21,8 +23,8 @@
 #      export, commit ON TOP of its existing history, push normally. If
 #      the push is rejected (someone pushed to the public repo out of
 #      band), STOP and report — do not force.
-#   4. No-op if nothing on the allowlist actually changed — safe to run
-#      on a timer without spamming empty commits.
+#   4. No-op if nothing actually changed — safe to run on a timer
+#      without spamming empty commits.
 #
 # Does NOT publish npm or touch the Claude Code plugin channel: the
 # plugin channel needs no action (it always resolves live against the
@@ -65,33 +67,23 @@ make visuals-check >/tmp/publish-public-devcheck.log 2>&1 || {
   exit 1
 }
 
-# --- 1. export the allowlist (single source of truth — keep this list in
-#        sync with docs/release-runbook-ashforde.md section 3/3b: ship
-#        everything scripts/gen_visuals.py's outputs() manages, never
-#        marketing/ or the brand-only assets) ---
+# --- 1. export the FULL tree ---
+# Founder 2026-09-02: "push everything to public repo... the entire
+# local repo" — marketing/branding/internal-strategy content (the old
+# allowlist's exclusion set: marketing/, AGENTS.md, docs/ops-notes.md,
+# docs/DESIGN.md, docs/release-runbook-ashforde.md, docs/ashforde-seal.svg,
+# docs/logo-full.png, docs/social-card-dark.*, docs/superpowers/) was
+# physically relocated out of this repo to
+# ~/Documents/Code/Claudecode/aeroskills-internal/ so it no longer
+# exists in the tree at all — a full `git archive HEAD` is now safe by
+# construction, no curated path list to keep in sync.
 EXPORT="$SCRATCH/export"
 mkdir -p "$EXPORT"
-log "exporting public-tree allowlist to ${EXPORT}…"
-git archive --format=tar HEAD -- \
-  .gitignore .github CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md \
-  LICENSE Makefile NOTICE README.md SECURITY.md STANDARDS.md standards-map.yaml \
-  .claude-plugin skills scripts eval packages/aero-agent-skills \
-  docs/FAQ.md docs/glossary.md docs/harness-contract.md \
-  docs/harness-integration.md docs/company-of-departments.md \
-  docs/metrics.json docs/DOMAINS.md docs/logo-mark.png \
-  docs/title.svg docs/title.png docs/title-dark.svg docs/title-dark.png \
-  docs/statline.svg docs/statline.png docs/statline-dark.svg docs/statline-dark.png \
-  docs/domain-radar.svg docs/domain-radar.png docs/domain-radar-dark.svg docs/domain-radar-dark.png \
-  docs/domain-polar.svg docs/domain-polar.png docs/domain-polar-dark.svg docs/domain-polar-dark.png \
-  docs/structure.svg docs/structure.png docs/structure-dark.svg docs/structure-dark.png \
-  docs/skill-anatomy.svg docs/skill-anatomy.png docs/skill-anatomy-dark.svg docs/skill-anatomy-dark.png \
-  docs/how-it-works.svg docs/how-it-works.png docs/how-it-works-dark.svg docs/how-it-works-dark.png \
-  docs/gates.svg docs/gates.png docs/gates-dark.svg docs/gates-dark.png \
-  ops/automation ':(exclude)ops/automation/test' \
-  | tar -x -C "$EXPORT"
+log "exporting the full tree to ${EXPORT}…"
+git archive --format=tar HEAD -- . ':(exclude)ops/automation/test' | tar -x -C "$EXPORT"
 printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
 
-# --- 2. hygiene: secrets + excluded-name leak check (fail closed) ---
+# --- 2. hygiene: secrets sweep + defense-in-depth name check (fail closed) ---
 # Patterns require a REALISTIC token shape (prefix + a real alnum run),
 # not a bare prefix literal — this script itself ships inside the export
 # (ops/automation/) and its own source necessarily contains the bare
@@ -103,6 +95,9 @@ if grep -rnE 'ghp_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9]{2
   log "FAIL: secret-shaped string found in export — aborting, nothing pushed"
   exit 1
 fi
+# Belt-and-suspenders: these paths should no longer exist in the tree at
+# all (relocated above), so this should always be empty; kept as a
+# tripwire in case one is ever re-added without also being relocated.
 if find "$EXPORT" -iname 'social-card*' -o -iname 'ashforde-seal*' -o -iname 'logo-full*' \
      -o -iname 'DESIGN.md' -o -type d -iname 'marketing' -o -iname 'ops-notes.md' \
      -o -iname 'release-runbook-ashforde.md' -o -type d -iname 'superpowers' -o -iname 'AGENTS.md' \
