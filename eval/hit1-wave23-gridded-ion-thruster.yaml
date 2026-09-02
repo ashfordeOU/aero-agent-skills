@@ -1,0 +1,17 @@
+# Hit@1 wave-23 fragment: gridded-ion-thruster (propulsion)
+# Two tasks per new leaf skill. w23-gridded-ion-thruster-1 routes on
+# gridded thruster sizing vocabulary (accelerator grid, net voltage,
+# beam current, perveance, beam extraction); w23-gridded-ion-thruster-2
+# routes on the gridded versus hall technology trade (ion optics,
+# perveance margin, deep-space science mission). Neither overlaps the
+# w22-hall-thruster tasks, which route on hall thruster sizing from
+# power and the xenon vs krypton propellant trade.
+tasks:
+  - id: w23-gridded-ion-thruster-1
+    query: "size a gridded ion thruster for a 2000 m/s deep-space delta-v on 1000 kg dry mass: thrust and specific impulse from beam current and net voltage, check the Child-Langmuir perveance limit of the accelerator grid, and propellant mass"
+    intent: "propulsion; gridded ion thruster sizing from beam current and net voltage with the accelerator grid perveance check and the rocket equation"
+    expected_skill: "propulsion/electric/gridded-ion-thruster"
+  - id: w23-gridded-ion-thruster-2
+    query: "compare a gridded ion thruster against a hall thruster for a deep-space science mission at equal power: specific impulse, thrust density of the ion optics and perveance margin"
+    intent: "propulsion; gridded ion thruster versus hall thruster trade at equal power on specific impulse, thrust density and perveance margin"
+    expected_skill: "propulsion/electric/gridded-ion-thruster"
