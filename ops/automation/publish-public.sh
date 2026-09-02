@@ -81,7 +81,7 @@ EXPORT="$SCRATCH/export"
 mkdir -p "$EXPORT"
 log "exporting the full tree to ${EXPORT}…"
 git archive --format=tar HEAD -- . ':(exclude)ops/automation/test' | tar -x -C "$EXPORT"
-printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
+printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\nbash ops/automation/update-about.sh --best-effort\n' > "$EXPORT/.ci-native"
 
 # --- 2. hygiene: secrets sweep + defense-in-depth name check (fail closed) ---
 # Patterns require a REALISTIC token shape (prefix + a real alnum run),
