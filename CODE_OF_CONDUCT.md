@@ -36,7 +36,7 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement (the AeroSkills maintainers, Ashforde OÜ) privately via the repository's security advisory path (https://github.com/arjun-0077/aeroskills/security/advisories/new) or the contact address listed on the repository's GitHub profile. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement (the AeroSkills maintainers, Ashforde OÜ) privately at **contact@ashforde.org**, or via this repository's **Security tab → Report a vulnerability** (private advisory). All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 
