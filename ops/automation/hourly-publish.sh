@@ -25,12 +25,12 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 echo "===== $(date -u +%FT%TZ) hourly-publish starting ====="
 
 echo "--- public repo sync ---"
-if ! bash /Users/chak/Code/aeroskills/ops/automation/publish-public.sh; then
+if ! bash /Users/enterprisehq/AeroSkills/ops/automation/publish-public.sh; then
   echo "!!! public repo sync FAILED — see above, nothing was published to ashfordeOU/aero-agent-skills"
 fi
 
 echo "--- landing page sync ---"
-if ! bash /Users/chak/Documents/Code/Claudecode/ashforde-site/aeroagentskills/sync-and-publish.sh; then
+if ! bash /Users/enterprisehq/Documents/Code/Claudecode/ashforde-site/aeroagentskills/sync-and-publish.sh; then
   echo "!!! landing page sync FAILED — see above, ashforde.org/aeroagentskills not updated"
 fi
 
