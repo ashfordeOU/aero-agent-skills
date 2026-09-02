@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [takeoff-distance, ground-roll, rotation, flight-test, v1]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Takeoff Distance Determination (flight-test-operations/performance/takeoff-distance-determination)

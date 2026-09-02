@@ -1,11 +1,11 @@
-# AeroSkills FAQ
+# Aero Agent Skills FAQ
 
 Answers grounded in the repo as it stands. Where a claim points at an
 artifact, the artifact is named so you can check it yourself.
 
-## Is AeroSkills certified?
+## Is Aero Agent Skills certified?
 
-No. AeroSkills is not a certification body, and nothing here is
+No. Aero Agent Skills is not a certification body, and nothing here is
 approved by FAA, EASA, RTCA, SAE, or IAQG for any specific program.
 The skills encode methodology: the planning, DAL determination, and
 verification steps that live inside certified workflows. The
@@ -14,7 +14,7 @@ their publishers (STANDARDS.md).
 
 ## What is the export-control status?
 
-As published, AeroSkills is not ITAR- or EAR-controlled technical
+As published, Aero Agent Skills is not ITAR- or EAR-controlled technical
 data, and EU dual-use export authorization does not apply
 (public-domain exclusion, Regulation (EU) 2021/821, Annex I General
 Technology Note). Verify before use. The library is open and
@@ -77,5 +77,5 @@ standards text. Report security issues through SECURITY.md.
 
 ## Are you affiliated with the standards bodies?
 
-No. AeroSkills is not affiliated with or endorsed by RTCA, EUROCAE,
+No. Aero Agent Skills is not affiliated with or endorsed by RTCA, EUROCAE,
 SAE International, IAQG, EASA, FAA, or any government.

@@ -15,7 +15,7 @@ metadata:
   subdomain: composites
   tags: [cure-cycle, degree-of-cure, arrhenius, kinetics, ply-book, autoclave, out-of-autoclave, glass-transition, c-scan, porosity, epoxy]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Composite Laminate Layup and Cure (manufacturing-quality/composites/layup-cure)

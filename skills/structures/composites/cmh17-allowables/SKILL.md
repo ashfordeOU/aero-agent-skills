@@ -17,7 +17,7 @@ metadata:
   subdomain: composites
   tags: [cmh-17-allowables, composite-allowables, a-basis, b-basis, k-factor, tolerance-k-factors, pooling, laminate-allowables, knockdown-factors, environmental-conditioning, open-hole]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CMH-17 Composite Allowables (structures/composites/cmh17-allowables)

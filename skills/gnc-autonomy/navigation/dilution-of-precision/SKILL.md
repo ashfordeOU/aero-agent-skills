@@ -15,7 +15,7 @@ metadata:
   subdomain: navigation
   tags: [dilution-of-precision, gdop, pdop, hdop, vdop, tdop, satellite-geometry, elevation-mask, uere, gnss, satellite-selection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Dilution of Precision (gnc-autonomy/navigation/dilution-of-precision)

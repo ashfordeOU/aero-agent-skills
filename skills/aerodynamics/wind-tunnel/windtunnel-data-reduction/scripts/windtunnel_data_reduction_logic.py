@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Wind tunnel test data reduction (stdlib only).
 
-Reference implementation for the AeroSkills leaf
+Reference implementation for the Aero Agent Skills leaf
 skills/aerodynamics/wind-tunnel/windtunnel-data-reduction.
 
 Reduces raw balance and pressure measurements to standard aerodynamic

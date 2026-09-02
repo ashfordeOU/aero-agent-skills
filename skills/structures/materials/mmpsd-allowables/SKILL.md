@@ -15,7 +15,7 @@ metadata:
   subdomain: materials
   tags: [allowables, a-basis, b-basis, k-factor, metallic-materials, sample-statistics, design-values, mil-hdbk-5, test-specimens]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # MMPDS Metallic Allowables (structures/materials/mmpsd-allowables)

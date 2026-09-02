@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [trim-analysis, elevator-deflection, trim-speed, trim-lift-coefficient, stick-fixed-trim, elevator-effectiveness, pitching-moment]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Trim Analysis (flight-mechanics/stability-control/trim-analysis)

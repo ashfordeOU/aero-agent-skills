@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [statistical-process-control, x-bar-chart, r-chart, control-limits, process-capability, cpk-index, out-of-control-rules, western-electric-rules]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Statistical Process Control (manufacturing-quality/as9100/statistical-process-control)

@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4761a
   tags: [failure-rate, failure-rate-estimation, test-hours, chi-square, poisson, mtbf, upper-bound, lower-bound, zero-failure, demonstrate, arp4761a, reliability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Failure-Rate Estimation (systems-engineering-safety/arp4761a/failure-rate-estimation)

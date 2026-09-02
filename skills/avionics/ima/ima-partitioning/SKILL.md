@@ -15,7 +15,7 @@ metadata:
   subdomain: ima
   tags: [arinc-653, ima, partition, partitioning, major-frame, maf, sampling-port, queuing-port, inter-partition-communication, health-monitoring, partition-configuration-table]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARINC 653 IMA Partitioning (avionics/ima/ima-partitioning)

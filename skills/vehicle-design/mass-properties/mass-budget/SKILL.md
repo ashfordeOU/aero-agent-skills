@@ -17,7 +17,7 @@ metadata:
   subdomain: mass-properties
   tags: [mass-budget, mass-allocation, growth-allowance, contingency-margin, margin-policy, mtow-target, mass-breakdown]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Mass Budget (vehicle-design/mass-properties/mass-budget)

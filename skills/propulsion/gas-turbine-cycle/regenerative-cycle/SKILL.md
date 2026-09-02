@@ -15,7 +15,7 @@ metadata:
   subdomain: gas-turbine-cycle
   tags: [regenerative-cycle, regenerator, recuperator, effectiveness, exhaust-heat, optimum-pressure-ratio, thermal-efficiency, brayton-cycle, turbine]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Regenerative Cycle (propulsion/gas-turbine-cycle)

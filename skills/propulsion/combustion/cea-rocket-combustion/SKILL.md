@@ -15,7 +15,7 @@ metadata:
   subdomain: combustion
   tags: [rocket-combustion, adiabatic-flame-temperature, characteristic-velocity, specific-impulse, mixture-ratio, frozen-flow, chamber-pressure, thermochemistry, c-star, propellant-selection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Rocket Combustion Thermochemistry (propulsion/combustion/cea-rocket-combustion)

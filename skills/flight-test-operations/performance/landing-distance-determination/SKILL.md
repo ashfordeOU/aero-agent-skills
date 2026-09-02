@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [landing-distance-determination, landing-distance, vref, approach-speed, flare, ground-roll, braking, field-length-factor, runway-length, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Landing Distance Determination (flight-test-operations/performance/landing-distance-determination)

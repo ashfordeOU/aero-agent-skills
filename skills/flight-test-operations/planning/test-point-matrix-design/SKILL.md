@@ -17,7 +17,7 @@ metadata:
   subdomain: planning
   tags: [test-point-matrix-design, condition-sweep, altitude-sweep, speed-sweep, weight-sweep, configuration-change, repeat-point, steady-state-tolerance, test-sequencing, flight-test-efficiency]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Test Point Matrix Design (flight-test-operations/planning/test-point-matrix-design)

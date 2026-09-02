@@ -15,7 +15,7 @@ metadata:
   subdomain: adcs
   tags: [triad-algorithm, triad-attitude-determination, vector-observation, reference-vector, attitude-matrix, coarse-attitude, sun-sensor-magnetometer, orthonormal-triad]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # TRIAD Attitude Determination (space-systems/adcs/attitude-determination-triad)

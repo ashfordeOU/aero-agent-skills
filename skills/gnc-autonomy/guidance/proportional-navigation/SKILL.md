@@ -15,7 +15,7 @@ metadata:
   subdomain: guidance
   tags: [proportional-navigation, planar-intercept, closing-velocity, line-of-sight-rate, navigation-constant, intercept-guidance, terminal-guidance, engagement-geometry]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Proportional Navigation (gnc-autonomy/guidance/proportional-navigation)

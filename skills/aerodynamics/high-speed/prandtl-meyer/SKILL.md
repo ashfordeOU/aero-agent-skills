@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [prandtl-meyer, expansion-fan, mach-number, supersonic, turning-angle, compressible-flow, isentropic-expansion]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Prandtl-Meyer Expansion (aerodynamics/high-speed/prandtl-meyer)

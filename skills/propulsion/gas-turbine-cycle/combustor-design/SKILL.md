@@ -15,7 +15,7 @@ metadata:
   subdomain: gas-turbine-cycle
   tags: [combustor-design, fuel-air-ratio, stoichiometric-fuel-air-ratio, adiabatic-flame-temperature, combustion-efficiency, heat-release]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Combustor Design (propulsion/gas-turbine-cycle/combustor-design)

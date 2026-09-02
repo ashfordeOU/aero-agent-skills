@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4761a
   tags: [functional-hazard-assessment, failure-condition, severity-classification, probability-targets, fha-worksheet]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A Functional Hazard Assessment (systems-engineering-safety/arp4761a/functional-hazard-assessment)

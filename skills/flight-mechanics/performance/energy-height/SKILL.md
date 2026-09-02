@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [energy-height, specific-excess-power, energy-maneuverability, zoom-climb, kinetic-height, excess-power, energy-state]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Energy Height and Specific Excess Power (flight-mechanics/performance/energy-height)

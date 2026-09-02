@@ -15,7 +15,7 @@ metadata:
   subdomain: materials
   tags: [ramberg-osgood, stress-strain-curve, plastic-strain, secant-modulus, tangent-modulus, offset-yield-strength, strain-hardening, elastic-plastic]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ramberg-Osgood Stress-Strain (structures/materials/ramberg-osgood)

@@ -15,7 +15,7 @@ metadata:
   subdomain: as9102
   tags: [ballooning, balloon-number, characteristic-numbering, d-list, accountability-matrix, verification-method-code, as9102, fai, drawing-characteristics]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Drawing Characteristic Ballooning (manufacturing-quality/as9102/ballooning)

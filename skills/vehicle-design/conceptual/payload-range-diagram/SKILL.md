@@ -17,7 +17,7 @@ metadata:
   subdomain: conceptual
   tags: [payload-range-diagram, payload-range-trade, max-payload, max-fuel, ferry-range, design-range, reserve-fuel, breguet-range, fuel-fraction]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Payload-Range Diagram (vehicle-design/conceptual/payload-range-diagram)

@@ -15,7 +15,7 @@ metadata:
   subdomain: guidance
   tags: [command-to-line-of-sight, clos-guidance, los-angle-tracking, beam-riding, los-error, steering-command, cross-track-offset, tracker-target-line]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Command to Line of Sight Guidance (gnc-autonomy/guidance/command-to-line-of-sight)

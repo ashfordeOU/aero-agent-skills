@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [tire-sizing, tire, tires, tire-diameter, tire-width, static-load, inflation-pressure, tire-pressure, footprint, rolling-radius, number-of-tires, wheel, wheels]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Tire Sizing (vehicle-design/sizing/tire-sizing)
 

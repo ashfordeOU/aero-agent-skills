@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AeroSkills per-skill completeness gate — the standard for "everything done".
+"""Aero Agent Skills per-skill completeness gate — the standard for "everything done".
 
 For EVERY skill in the tree, verify the full agentskills.io conformance:
   [REQUIRED] SKILL.md (frontmatter name/description + body)
@@ -135,7 +135,7 @@ def main() -> int:
             else:
                 warnings.append(f"{name}: {need}")
 
-    print(f"AeroSkills completeness: {counts['skills']} skills")
+    print(f"Aero Agent Skills completeness: {counts['skills']} skills")
     print(f"  scripts:    {counts['scripts']}/{counts['skills']} ({100*counts['scripts']//max(counts['skills'],1)}%)")
     print(f"  tests:      {counts['tests']}/{counts['skills']} ({100*counts['tests']//max(counts['skills'],1)}%)")
     print(f"  references: {counts['refs']} skills have them | flagged as-needed: {counts['needs_refs']}")

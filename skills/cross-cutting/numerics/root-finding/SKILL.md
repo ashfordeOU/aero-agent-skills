@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [root-finding, bisection, newton-raphson, secant-method, secant, fixed-point-iteration, mach-number, nonlinear-equation, zero-finding, convergence-criteria, initial-guess, bracket]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Root Finding (cross-cutting/numerics/root-finding)

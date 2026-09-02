@@ -15,7 +15,7 @@ metadata:
   subdomain: aeroelasticity
   tags: [divergence, aeroelastic, divergence-speed, divergence-dynamic-pressure, divergence-margin, torsional-stiffness, shear-center, aerodynamic-center, dive-speed, lifting-surface, static-aeroelasticity]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Static Aeroelastic Divergence (aerodynamics/aeroelasticity/divergence-speed)

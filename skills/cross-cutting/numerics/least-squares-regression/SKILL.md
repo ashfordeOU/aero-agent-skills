@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [least-squares-regression, linear-regression, best-fit-line, slope, intercept, residual-standard-deviation, coefficient-of-determination, r-squared, prediction, goodness-of-fit]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Least Squares Regression (cross-cutting/numerics/least-squares-regression)
 

@@ -1,4 +1,4 @@
-"""Rocket combustion thermochemistry in the spirit of NASA CEA (AeroSkills).
+"""Rocket combustion thermochemistry in the spirit of NASA CEA (Aero Agent Skills).
 
 Simplified frozen-flow equilibrium model, pure Python stdlib, offline and
 deterministic. Computes the adiabatic flame temperature and chamber

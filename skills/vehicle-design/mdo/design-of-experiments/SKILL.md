@@ -17,7 +17,7 @@ metadata:
   subdomain: mdo
   tags: [design-of-experiments, doe, factorial-design, fractional-factorial, latin-hypercube, central-composite, main-effects, interaction-effects, factor-screening, design-space-exploration]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Design of Experiments (vehicle-design/mdo/design-of-experiments)

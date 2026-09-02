@@ -17,7 +17,7 @@ metadata:
   subdomain: conceptual
   tags: [takeoff-gross-weight, conceptual-sizing, fuel-fraction, empty-weight-fraction, sizing-iteration]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Takeoff Gross Weight Estimation (vehicle-design/conceptual/tow-estimation)

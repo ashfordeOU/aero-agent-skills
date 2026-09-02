@@ -15,7 +15,7 @@ metadata:
   subdomain: handling-qualities
   tags: [mil-std-1797a, flying-qualities, short-period, dutch-roll, phugoid, spiral-mode, roll-mode, roll-performance, flight-phase-category, aircraft-class, cooper-harper-band]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # MIL-STD-1797A Flying Qualities Assessment (flight-mechanics/handling-qualities/mil-std-1797a)

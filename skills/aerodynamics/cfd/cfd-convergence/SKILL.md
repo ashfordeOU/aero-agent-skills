@@ -15,7 +15,7 @@ metadata:
   subdomain: cfd
   tags: [cfd-convergence, residual-convergence, courant-number, mesh-refinement, solver-stability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CFD Convergence Checks (aerodynamics/cfd/cfd-convergence)

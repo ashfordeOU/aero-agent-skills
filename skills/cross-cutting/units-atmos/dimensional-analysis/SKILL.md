@@ -15,7 +15,7 @@ metadata:
   subdomain: units-atmos
   tags: [dimensional-analysis, buckingham-pi, pi-groups, dimensionless-numbers, homogeneity-check, reynolds-number, mach-number, froude-number, dynamic-similarity, wind-tunnel-model, model-scale, similarity-scaling]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Dimensional Analysis (cross-cutting/units-atmos/dimensional-analysis)

@@ -15,7 +15,7 @@ metadata:
   subdomain: requirements
   tags: [requirements-elicitation, stakeholder-needs, needs-capture, operational-scenario, elicitation-log, requirement-statement, requirement-quality-criteria, weasel-words, unambiguity, atomicity, verifiability, completeness-checklist]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Requirements Elicitation (systems-engineering-safety/requirements/requirements-elicitation)

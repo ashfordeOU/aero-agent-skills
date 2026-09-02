@@ -15,7 +15,7 @@ metadata:
   subdomain: turbofan
   tags: [bypass-ratio-trade, bypass-ratio, bpr, specific-thrust, tsfc, fan-pressure-ratio, turbofan]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Bypass Ratio Trade (propulsion/turbofan/bypass-ratio-trade)

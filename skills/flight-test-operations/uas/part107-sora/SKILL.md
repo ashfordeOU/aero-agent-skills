@@ -15,7 +15,7 @@ metadata:
   subdomain: uas
   tags: [uas, part-107, part107, sora, ground-risk-class, air-risk-class, bvlos, drone-ops, kinetic-energy, population-density, robustness, containment, waiver, remote-pilot-certificate, visual-line-of-sight, airspace, grc, arc, open, specific, certified, safety-case, drone, risk-assessment, applicability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Part 107 and SORA UAS Risk Assessment (flight-test-operations/uas/part107-sora)

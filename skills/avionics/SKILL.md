@@ -24,7 +24,7 @@ metadata:
   domain: avionics
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Avionics domain pack (router)

@@ -17,7 +17,7 @@ metadata:
   subdomain: cost-estimation
   tags: [parametric-cost, cost-estimation, cost-estimating-relationship, cer, learning-curve, unit-cost, development-cost, program-cost, cumulative-average]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Parametric Cost Estimation (vehicle-design/cost-estimation/parametric-cost)

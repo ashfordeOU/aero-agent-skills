@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [markov-analysis, markov-chain, state-probability, transition-rate, absorbing-state, mission-reliability, mean-time-to-failure, availability-analysis, k-out-of-n-reliability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A Markov Analysis (systems-engineering-safety/arp4761a/markov-analysis)

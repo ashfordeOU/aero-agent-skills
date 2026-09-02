@@ -14,7 +14,7 @@ metadata:
   domain: space-systems
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Space systems domain pack (router)

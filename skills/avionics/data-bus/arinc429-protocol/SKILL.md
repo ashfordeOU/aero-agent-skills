@@ -15,7 +15,7 @@ metadata:
   subdomain: data-bus
   tags: [arinc-429, data-bus, word-format, octal-label, sdi, ssm, odd-parity, bnr, bcd, 100-kbps, 12.5-kbps, twisted-shielded-pair]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARINC 429 Data Bus Protocol (avionics/data-bus/arinc429-protocol)

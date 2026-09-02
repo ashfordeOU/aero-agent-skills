@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [measurement-systems-analysis, gage-r-and-r, repeatability, reproducibility, percent-grr, distinct-categories, variable-gage-study, attribute-gage-study, equipment-variation, appraiser-variation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Measurement Systems Analysis (manufacturing-quality/as9100/measurement-systems-analysis)

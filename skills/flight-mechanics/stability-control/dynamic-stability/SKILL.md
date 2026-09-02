@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [dynamic-stability, short-period, phugoid, stability-derivatives, classify-modes, damping-ratio, natural-frequency, eigenvalues, time-to-double, roll-subsidence]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Dynamic Stability (flight-mechanics/stability-control/dynamic-stability)

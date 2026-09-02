@@ -17,7 +17,7 @@ metadata:
   subdomain: planning
   tags: [pcm-telemetry-formats, irig-time-coding, signal-conditioning, ground-station-link, data-latency, bit-error-rate, telemetry-quality-checks, supercommutated-channels, subcommutated-channels, frame-synchronization]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight Test Telemetry and Data Acquisition (flight-test-operations/planning/telemetry-data-acquisition)

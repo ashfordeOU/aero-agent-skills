@@ -17,7 +17,7 @@ metadata:
   subdomain: do178c
   tags: [airworthiness-liaison, certification-liaison, soi-audit, certification-basis, authority-communication, audit-readiness, certification, liaison]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-178C Airworthiness Liaison (avionics/do178c/airworthiness-liaison)

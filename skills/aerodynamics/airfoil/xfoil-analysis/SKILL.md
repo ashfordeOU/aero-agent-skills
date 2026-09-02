@@ -15,7 +15,7 @@ metadata:
   subdomain: airfoil
   tags: [xfoil, airfoil, polar, lift-coefficient, drag-coefficient, naca, viscous-analysis, reynolds-number, transition]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # XFOIL Airfoil Polar Analysis (aerodynamics/airfoil/xfoil-analysis)

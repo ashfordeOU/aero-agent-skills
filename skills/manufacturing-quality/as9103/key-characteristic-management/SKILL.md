@@ -15,7 +15,7 @@ metadata:
   subdomain: as9103
   tags: [key-characteristic-management, as9103, variation-management, kc-identification, critical-characteristic, characteristic-accountability, cpk-target, revalidation-trigger]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Key Characteristic Management (manufacturing-quality/as9103/key-characteristic-management)

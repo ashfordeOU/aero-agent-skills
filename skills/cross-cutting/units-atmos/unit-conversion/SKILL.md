@@ -15,7 +15,7 @@ metadata:
   subdomain: units-atmos
   tags: [unit-conversion, convert-units, knots, mach-number, temperature-conversion, pressure-altitude, si-imperial]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Unit Conversion (cross-cutting/units-atmos/unit-conversion)

@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [counterfeit-prevention, counterfeit-parts, procurement-control, supply-chain, incoming-inspection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # AS9100 Counterfeit Prevention (manufacturing-quality/as9100/counterfeit-prevention)

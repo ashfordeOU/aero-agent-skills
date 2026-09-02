@@ -15,7 +15,7 @@ metadata:
   subdomain: units-atmos
   tags: [standard-atmosphere, isa, atmospheric-density, temperature-lapse, pressure-altitude, troposphere]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ISA Standard Atmosphere (cross-cutting/units-atmos/isa-atmosphere)

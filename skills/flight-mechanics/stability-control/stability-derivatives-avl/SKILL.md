@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [stability-derivatives, lift-curve-slope, wing-planform, aspect-ratio, sweep-effect, mach-correction, tail-volume, neutral-point, static-margin, avl-style]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Stability Derivative Estimation (flight-mechanics/stability-control/stability-derivatives-avl)

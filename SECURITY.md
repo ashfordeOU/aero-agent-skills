@@ -1,6 +1,6 @@
 # Security Policy
 
-AeroSkills takes security and trust seriously. This policy covers the
+Aero Agent Skills takes security and trust seriously. This policy covers the
 repository code and automation (scripts/, ops/, .github/) and the skills
 content it ships.
 

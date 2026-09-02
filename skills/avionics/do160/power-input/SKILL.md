@@ -15,7 +15,7 @@ metadata:
   subdomain: do160
   tags: [power-input, voltage-sag, voltage-surge, frequency-variation, transient-recovery, voltage-limits, steady-state-limits, emergency-power]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-160 Power Input (avionics/do160/power-input)

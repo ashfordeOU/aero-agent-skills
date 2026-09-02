@@ -17,7 +17,7 @@ metadata:
   subdomain: handling-qualities
   tags: [pilot-induced-oscillation, pio, pio-categories, phase-lag, crossover-frequency, equivalent-time-delay, actuator-rate-limiting, bandwidth, notch-filter, pilot-in-the-loop-coupling, suppression-measures, flight-test-detection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Pilot-Induced Oscillation (flight-mechanics/handling-qualities/pilot-induced-oscillation)

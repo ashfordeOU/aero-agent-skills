@@ -1,4 +1,4 @@
-# AeroSkills Standards Reference (STANDARDS.md)
+# Aero Agent Skills Standards Reference (STANDARDS.md)
 
 Human-readable companion to `standards-map.yaml` (the machine-readable
 source of truth; every skill's `standards:` frontmatter entries resolve

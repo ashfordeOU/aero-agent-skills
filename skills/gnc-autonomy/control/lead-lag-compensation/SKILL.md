@@ -15,7 +15,7 @@ metadata:
   subdomain: control
   tags: [lead-lag-compensation, phase-lead-compensator, phase-lag-compensator, lead-network, lag-network, phase-margin-boost, gain-crossover-frequency, steady-state-error, error-constant, compensator-zero-pole]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Lead Lag Compensation (gnc-autonomy/control/lead-lag-compensation)

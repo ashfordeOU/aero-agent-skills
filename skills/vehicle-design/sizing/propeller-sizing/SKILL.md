@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [propeller-sizing, propeller-diameter, blade-count, blade-number, activity-factor, solidity, disk-loading, ground-clearance, advance-ratio]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Propeller Sizing (vehicle-design/sizing/propeller-sizing)

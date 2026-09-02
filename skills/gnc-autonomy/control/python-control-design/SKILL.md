@@ -15,7 +15,7 @@ metadata:
   subdomain: control
   tags: [control-law, pid, transfer-function, state-space, gain-margin, phase-margin, root-locus, bode, stability, controller-tuning]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Python Control Design (gnc-autonomy/control/python-control-design)

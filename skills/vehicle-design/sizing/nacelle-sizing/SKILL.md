@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [nacelle-sizing, inlet-highlight-area, fan-face-area, lip-area-ratio, capture-area-ratio, nacelle-length, cowl-thickness-ratio, wetted-area, nacelle-drag, pylon-integration, high-bypass-turbofan]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Nacelle Sizing (vehicle-design/sizing/nacelle-sizing)

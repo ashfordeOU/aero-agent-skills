@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [orbital-decay, atmospheric-drag, ballistic-coefficient, deorbit-lifetime, decay-rate, drag-area, 25-year-disposal-rule, leo-disposal, decay-per-orbit, drag-augmentation, decay-per-day]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Orbital Decay and Deorbit Lifetime (space-systems/orbit-mechanics/orbital-decay)

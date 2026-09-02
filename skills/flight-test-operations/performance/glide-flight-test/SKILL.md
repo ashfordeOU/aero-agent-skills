@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [glide-testing, sink-rate, lift-to-drag, idle-thrust, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Glide Flight Test (flight-test-operations/performance/glide-flight-test)

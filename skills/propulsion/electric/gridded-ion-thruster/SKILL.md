@@ -15,7 +15,7 @@ metadata:
   subdomain: electric
   tags: [gridded-ion-thruster, kaufman-thruster, electrostatic-propulsion, ion-optics, accelerator-grid, perveance-margin, beam-extraction, net-voltage]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Gridded Ion Thruster (propulsion/electric/gridded-ion-thruster)

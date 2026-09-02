@@ -17,7 +17,7 @@ metadata:
   subdomain: special-processes
   tags: [special, process, qualification, requalification, pqr, nadcap, welding, heat, treatment, ndt, surface, finishing, composites, process-control]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Special Process Qualification (manufacturing-quality/special-processes/special-process-qualification)

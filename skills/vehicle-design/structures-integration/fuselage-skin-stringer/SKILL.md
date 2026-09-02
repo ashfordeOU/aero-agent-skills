@@ -17,7 +17,7 @@ metadata:
   subdomain: structures-integration
   tags: [fuselage-skin-stringer, skin-stringer-panel, pressurized-fuselage, hoop-stress, skin-thickness, stringer-spacing, frame-pitch, panel-buckling, effective-skin-width, column-buckling]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fuselage Skin-Stringer Panel (vehicle-design/structures-integration/fuselage-skin-stringer)

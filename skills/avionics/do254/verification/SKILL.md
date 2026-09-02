@@ -15,7 +15,7 @@ metadata:
   subdomain: do254
   tags: [do-254, verification, aehl, hardware-design-assurance, requirements-based-test, hwsw-integration]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-254 Verification (avionics/do254/verification)

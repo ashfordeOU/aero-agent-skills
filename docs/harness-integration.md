@@ -3,7 +3,7 @@
 Status: verified against official docs on 2026-08-31. Every mechanism below
 was checked against the cited source on that date; sources are listed in the
 Source table at the end. This file is the evidence base for README v0.2:
-it documents how an AeroSkills SKILL.md is actually consumed by each host.
+it documents how an Aero Agent Skills SKILL.md is actually consumed by each host.
 
 ## Headline finding
 
@@ -94,7 +94,7 @@ disclosure):
   Files merge root-down; combined size capped at 32 KiB
   (`project_doc_max_bytes`); fallback filenames configurable
   (`project_doc_fallback_filenames`).
-- AeroSkills ships a root `AGENTS.md`; Codex consumes it automatically.
+- Aero Agent Skills ships a root `AGENTS.md`; Codex consumes it automatically.
 
 Mechanism 2 - Skills (progressive disclosure: only name, description, and
 file path are injected; the SKILL.md body loads on demand):

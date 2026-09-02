@@ -15,7 +15,7 @@ metadata:
   subdomain: data-bus
   tags: [mil-std-1553, '1553', command-response, remote-terminal, bus-controller, dual-redundant, manchester-ii, word-format, command-word, status-word, data-word, odd-parity, mode-code, broadcast, rt-to-bc, bc-to-rt, bus-monitor, 1-mbps]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # MIL-STD-1553 Data Bus Protocol (avionics/data-bus/mil-std-1553)

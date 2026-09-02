@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [stall-speed, vs1g, wing-loading, stall-margin, weight-correction, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Stall Speed Determination (flight-test-operations/performance/stall-speed-determination)

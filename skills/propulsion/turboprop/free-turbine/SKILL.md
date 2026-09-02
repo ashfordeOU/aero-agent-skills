@@ -15,7 +15,7 @@ metadata:
   subdomain: turboprop
   tags: [free-turbine, power-turbine, turboprop, turboshaft, gas-generator, spool-matching]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Free Turbine (propulsion/turboprop/free-turbine)

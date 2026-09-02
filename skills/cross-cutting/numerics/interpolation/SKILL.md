@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [linear-interpolation, piecewise-linear, cubic-spline, natural-cubic-spline, table-lookup, data-table, spline-coefficients, tabular-data, boundary-extrapolation, aerodynamic-data-table, interpolated-value]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Table Interpolation (cross-cutting/numerics/interpolation)

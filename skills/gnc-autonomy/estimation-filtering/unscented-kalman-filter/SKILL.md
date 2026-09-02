@@ -15,7 +15,7 @@ metadata:
   subdomain: estimation-filtering
   tags: [unscented-kalman-filter, sigma-points, nonlinear-estimation, scaled-unscented-transform, state-prediction, measurement-update, innovation-covariance, nees, bearing-range-tracking]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Unscented Kalman Filter (gnc-autonomy/estimation-filtering/unscented-kalman-filter)

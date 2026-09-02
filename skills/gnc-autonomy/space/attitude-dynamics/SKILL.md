@@ -15,7 +15,7 @@ metadata:
   subdomain: space
   tags: [attitude-dynamics, quaternion-kinematics, euler-equations, rotational-dynamics, angular-momentum, inertia-tensor, gravity-gradient, momentum-wheel, nutation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Attitude Dynamics (gnc-autonomy/space/attitude-dynamics)

@@ -15,7 +15,7 @@ metadata:
   subdomain: mbse
   tags: [n2-diagram, n2-interface-matrix, n2-chart, interface-pair-count, missing-data-link]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # N2 Interface Diagram (systems-engineering-safety/mbse/n2-diagram)

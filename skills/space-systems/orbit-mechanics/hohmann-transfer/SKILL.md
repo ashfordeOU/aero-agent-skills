@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [hohmann-transfer, transfer-orbit, burn-impulse, circular-orbit-velocity, transfer-time, orbit-raising, orbit-lowering, coplanar-transfer, rendezvous-phase-angle]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Hohmann Transfer (space-systems/orbit-mechanics/hohmann-transfer)

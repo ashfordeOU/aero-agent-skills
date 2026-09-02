@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [supplier-control, external-provider, approved-supplier-list, flow-down, supplier-evaluation, supplier-monitoring, as9100, procurement-control]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Supplier Control (manufacturing-quality/as9100/supplier-control)

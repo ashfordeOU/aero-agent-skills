@@ -16,7 +16,7 @@ metadata:
   domain: flight-test-operations
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight test operations domain pack (router)

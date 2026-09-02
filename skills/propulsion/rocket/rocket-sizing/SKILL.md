@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [rocket-equation, delta-v, mass-ratio, propellant-mass, staging, specific-impulse]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Rocket Sizing (propulsion/rocket/rocket-sizing)

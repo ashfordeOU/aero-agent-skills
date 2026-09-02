@@ -15,7 +15,7 @@ metadata:
   subdomain: navigation
   tags: [navigation-frames, ecef, ned, geodetic, wgs-84, earth-rotation, coordinate-conversion, gmst]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Navigation Coordinate Frames (gnc-autonomy/navigation/navigation-frames)

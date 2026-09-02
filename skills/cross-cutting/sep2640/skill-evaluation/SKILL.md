@@ -15,7 +15,7 @@ metadata:
   subdomain: sep2640
   tags: [sep-2640, skill-evaluation, conformance-check, acceptance-verdict, quality-score, coverage-ratio, skill-review]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # SEP-2640 Skill Evaluation (cross-cutting/sep2640/skill-evaluation)

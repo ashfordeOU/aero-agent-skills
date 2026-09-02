@@ -17,7 +17,7 @@ metadata:
   subdomain: fem
   tags: [euler-buckling, critical-buckling-load, slenderness-ratio, effective-length-factor, end-conditions, buckling-stress, radius-of-gyration, cantilever-column, pinned-pinned, fixed-fixed]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Buckling Analysis (structures/fem/buckling-analysis)

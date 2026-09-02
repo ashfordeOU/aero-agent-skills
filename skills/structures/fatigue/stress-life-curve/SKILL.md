@@ -19,7 +19,7 @@ metadata:
   subdomain: fatigue
   tags: [stress-life-curve, sn-curve, basquin-equation, endurance-limit, fatigue-life-prediction]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Stress-Life (S-N) Fatigue Curve (structures/fatigue/stress-life-curve)

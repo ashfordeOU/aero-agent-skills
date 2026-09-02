@@ -15,7 +15,7 @@ metadata:
   subdomain: materials
   tags: [fracture-toughness, kic, stress-intensity-factor, critical-crack-size, plane-strain, fast-fracture, damage-tolerance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fracture Toughness (structures/materials/fracture-toughness)

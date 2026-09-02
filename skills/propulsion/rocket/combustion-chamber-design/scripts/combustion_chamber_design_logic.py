@@ -1,4 +1,4 @@
-"""Rocket combustion chamber design logic (AeroSkills propulsion).
+"""Rocket combustion chamber design logic (Aero Agent Skills propulsion).
 
 Pure functions, stdlib only. Real engineering math for the chamber
 upstream of the nozzle throat: characteristic velocity c-star, thrust

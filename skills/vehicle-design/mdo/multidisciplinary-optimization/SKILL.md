@@ -17,7 +17,7 @@ metadata:
   subdomain: mdo
   tags: [multidisciplinary-optimization, mdo, aero-structural-coupling, fixed-point-iteration, design-variables, objective-function, constraints, coupling, disciplines, convergence-tolerance, sensitivity-analysis, aerodynamics, structures]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Multidisciplinary Design Optimization (vehicle-design/mdo/multidisciplinary-optimization)

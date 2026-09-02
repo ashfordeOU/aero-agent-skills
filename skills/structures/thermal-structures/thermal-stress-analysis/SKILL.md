@@ -15,7 +15,7 @@ metadata:
   subdomain: thermal-structures
   tags: [thermal-stress, thermal-expansion, coefficient-of-thermal-expansion, bimetallic-strip, constrained-expansion, free-expansion, thermal-buckling, temperature-change, thermal-strain, thermal-load]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Thermal Stress Analysis (structures/thermal-structures/thermal-stress-analysis)

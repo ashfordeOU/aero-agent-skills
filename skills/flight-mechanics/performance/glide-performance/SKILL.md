@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [glide-performance, glide-ratio, sink-rate, best-glide-speed, descent-angle, lift-to-drag, unpowered-glide, time-to-descend]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Glide Performance (flight-mechanics/performance/glide-performance)

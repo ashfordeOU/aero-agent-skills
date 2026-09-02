@@ -17,7 +17,7 @@ metadata:
   subdomain: drag-polars
   tags: [parasite-drag, zero-lift-drag, skin-friction, wetted-area, form-factor, interference-factor, drag-buildup, flat-plate, reynolds-number, equivalent-skin-friction, fuselage, nacelle, wing, tail]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Parasite Drag Buildup (aerodynamics/drag-polars/parasite-drag)

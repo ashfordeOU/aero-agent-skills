@@ -16,7 +16,7 @@ metadata:
   domain: systems-engineering-safety
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Systems engineering and safety domain pack (router)

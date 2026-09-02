@@ -15,7 +15,7 @@ metadata:
   subdomain: cfd
   tags: [cfd, turbulence-modeling, y-plus, friction-velocity, boundary-layer, wall-treatment]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CFD Turbulence Modeling (aerodynamics/cfd/cfd-turbulence-modeling)

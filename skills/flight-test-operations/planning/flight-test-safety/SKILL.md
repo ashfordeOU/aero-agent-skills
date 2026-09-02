@@ -17,7 +17,7 @@ metadata:
   subdomain: planning
   tags: [flight-test-safety, risk-assessment, risk-matrix, flight-envelope-limits, emergency-procedures, safety-pilot-duties, go-no-go-criteria, risk-mitigation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight Test Safety (flight-test-operations/planning/flight-test-safety)

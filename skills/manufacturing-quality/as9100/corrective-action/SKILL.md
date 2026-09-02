@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [corrective-action, capa-record, 8d-report, five-whys, root-cause-analysis, containment-action, effectiveness-verification, preventive-action, problem-solving]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Corrective Action (manufacturing-quality/as9100/corrective-action)

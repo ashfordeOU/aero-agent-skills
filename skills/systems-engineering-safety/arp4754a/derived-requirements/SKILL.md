@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4754a
   tags: [derived-requirements, derivation-rationale, derivation-source, impact-analysis, requirements-baseline, design-decision]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4754A Derived Requirements (systems-engineering-safety/arp4754a/derived-requirements)

@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="docs/logo-mark.png" alt="AeroSkills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="200">
+  <img src="docs/logo-mark.png" alt="Aero Agent Skills — paper plane climbing through an orbit ring, linked to AI, code, and launch nodes" width="200">
 </p>
 
 <p align="center">
-  <img src="docs/title-dark.png" alt="AeroSkills — aerospace · agent skills · Apache-2.0" width="520">
+  <img src="docs/title-dark.png" alt="Aero Agent Skills — aerospace engineering · agentskills.io format · Apache-2.0" width="620">
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@
 
 Ask a general-purpose AI about DO-178C and you get a Wikipedia summary: the acronyms, none of the clauses. Aerospace engineering is standards-bound and evidence-driven. A number without a validation step is useless.
 
-**AeroSkills encodes the process** — when to use a standard, the workflow, the pitfalls, and the point where the agent must stop and let a human sign. Each skill is a `SKILL.md` on the open agentskills.io format: YAML frontmatter the router reads, a body the agent follows. Loaded on demand, no lock-in, works in any host that reads the format.
+**Aero Agent Skills encodes the process** — when to use a standard, the workflow, the pitfalls, and the point where the agent must stop and let a human sign. Each skill is a `SKILL.md` on the open agentskills.io format: YAML frontmatter the router reads, a body the agent follows. Loaded on demand, no lock-in, works in any host that reads the format.
 
 Every number and chart in this README is **generated from the tree at HEAD** by `make visuals` and CI fails if they drift — the same fail-closed philosophy as the skill gates. No hand-counted claims.
 
@@ -54,20 +54,20 @@ Every number and chart in this README is **generated from the tree at HEAD** by 
 **Install everything — one command, any agent:**
 
 ```bash
-npx skills add arjun-0077/aeroskills
+npx skills add arjun-0077/aero-agent-skills
 ```
 
 **Try one skill without installing:**
 
 ```bash
-npx skills use arjun-0077/aeroskills --skill avionics/do178c/planning | claude
+npx skills use arjun-0077/aero-agent-skills --skill avionics/do178c/planning | claude
 ```
 
 **Or copy a folder** — skills are just files:
 
 ```bash
-git clone https://github.com/arjun-0077/aeroskills
-cp -r aeroskills/skills/avionics/do178c/planning ~/.claude/skills/
+git clone https://github.com/arjun-0077/aero-agent-skills
+cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 ```
 
 **You know it worked when** your agent drafts a DO-178C verification plan with DAL allocation and a "stop — human sign-off required" gate, instead of a Wikipedia summary.
@@ -271,7 +271,7 @@ Skills are folders that can carry scripts, and agent hosts execute what they loa
 <details>
 <summary><b>Compliance notice</b></summary>
 
-AeroSkills is an open, unrestricted library of *civil aerospace engineering methodology* for AI agents, published by Ashforde OÜ (Estonia) under Apache-2.0. The content is educational: general engineering principles, processes, and tool-usage guidance. It is **not** ITAR/EAR-controlled technical data, and no proprietary standards text is reproduced. Standards are referenced and summarized only (see [STANDARDS.md](STANDARDS.md)). As published, this library falls within the EU dual-use "public domain" exclusion (Annex I General Technology Note, Regulation (EU) 2021/821). Users are solely responsible for their own compliance. **Not affiliated with or endorsed by** RTCA, EUROCAE, SAE International, IAQG, EASA, FAA, or any government.
+Aero Agent Skills is an open, unrestricted library of *civil aerospace engineering methodology* for AI agents, published by Ashforde OÜ (Estonia) under Apache-2.0. The content is educational: general engineering principles, processes, and tool-usage guidance. It is **not** ITAR/EAR-controlled technical data, and no proprietary standards text is reproduced. Standards are referenced and summarized only (see [STANDARDS.md](STANDARDS.md)). As published, this library falls within the EU dual-use "public domain" exclusion (Annex I General Technology Note, Regulation (EU) 2021/821). Users are solely responsible for their own compliance. **Not affiliated with or endorsed by** RTCA, EUROCAE, SAE International, IAQG, EASA, FAA, or any government.
 
 </details>
 
@@ -279,7 +279,7 @@ AeroSkills is an open, unrestricted library of *civil aerospace engineering meth
 
 Apache-2.0. See [LICENSE](LICENSE) · [NOTICE](NOTICE) · [SECURITY.md](SECURITY.md) · [CONTRIBUTING.md](CONTRIBUTING.md) · [STANDARDS.md](STANDARDS.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
-AeroSkills is built and maintained by **[Ashforde OÜ](https://ashforde.org)** (Estonia). Copyright © 2026 Ashforde OÜ.
+Aero Agent Skills is built and maintained by **[Ashforde OÜ](https://ashforde.org)** (Estonia). Copyright © 2026 Ashforde OÜ.
 
 ---
 
@@ -291,7 +291,7 @@ AeroSkills is built and maintained by **[Ashforde OÜ](https://ashforde.org)** (
 **If a skill saved you an afternoon, send one back.**
 
 <!-- at public release, swap for the live count:
-     https://img.shields.io/github/stars/arjun-0077/aeroskills?style=for-the-badge&logo=github&labelColor=1a1e35&color=f97316 -->
-<a href="https://github.com/arjun-0077/aeroskills/stargazers"><img src="https://img.shields.io/badge/%E2%AD%90_STAR-AEROSKILLS-f97316?style=for-the-badge&labelColor=1a1e35" alt="Star AeroSkills on GitHub"></a>
+     https://img.shields.io/github/stars/arjun-0077/aero-agent-skills?style=for-the-badge&logo=github&labelColor=1a1e35&color=f97316 -->
+<a href="https://github.com/arjun-0077/aero-agent-skills/stargazers"><img src="https://img.shields.io/badge/%E2%AD%90_STAR-AERO AGENT SKILLS-f97316?style=for-the-badge&labelColor=1a1e35" alt="Star Aero Agent Skills on GitHub"></a>
 
 </div>

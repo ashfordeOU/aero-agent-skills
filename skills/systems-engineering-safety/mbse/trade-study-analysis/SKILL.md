@@ -15,7 +15,7 @@ metadata:
   subdomain: mbse
   tags: [trade-study-analysis, trade-study, trade-off, pugh-matrix, decision-criteria, weighted-scoring, sensitivity-analysis, alternative-selection, selection-margin, mbse]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Trade Study Analysis (systems-engineering-safety/mbse/trade-study-analysis)

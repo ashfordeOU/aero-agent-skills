@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [eigenvalue-decomposition, eigenvalues, eigenvectors, jacobi, power-iteration, deflation, rayleigh-quotient, symmetric-matrix, spectral-decomposition]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Eigenvalue Decomposition (cross-cutting/numerics/eigenvalue-decomposition)
 

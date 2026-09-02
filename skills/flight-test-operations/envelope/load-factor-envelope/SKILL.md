@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [v-n-diagram, load-factor-envelope, gust-line, corner-point, placard-speed, gust-load-factor, stall-speed-boundary, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Load Factor Envelope (flight-test-operations/envelope/load-factor-envelope)

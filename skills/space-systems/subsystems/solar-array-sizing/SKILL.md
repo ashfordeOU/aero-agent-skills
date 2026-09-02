@@ -15,7 +15,7 @@ metadata:
   subdomain: subsystems
   tags: [solar-array-sizing, array-area, eclipse-fraction, cell-efficiency, power-demand, packing-factor, solar-irradiance, end-of-life, mission-life, photovoltaic-array]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Solar Array Sizing (space-systems/subsystems/solar-array-sizing)

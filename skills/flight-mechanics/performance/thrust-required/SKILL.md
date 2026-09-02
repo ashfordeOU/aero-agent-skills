@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [thrust-required, power-required, minimum-drag-speed, minimum-power-speed, level-flight, drag-polar, induced-drag-factor, zero-lift-drag, lift-to-drag]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Thrust Required (flight-mechanics/performance/thrust-required)

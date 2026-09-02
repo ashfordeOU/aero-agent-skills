@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [ode-solvers, explicit-euler, runge-kutta, heun-method, initial-value-problem, step-size-convergence, closed-form-solution, differential-equation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ODE Solvers (cross-cutting/numerics/ode-solvers)

@@ -15,7 +15,7 @@ metadata:
   subdomain: as9102
   tags: [delta-fai, change-classification, as9102, full-new-fai, material-change, process-change, tooling-change, drawing-revision]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Delta First Article Inspection (manufacturing-quality/as9102/delta-fai)

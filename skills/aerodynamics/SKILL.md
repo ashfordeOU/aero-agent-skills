@@ -14,7 +14,7 @@ metadata:
   domain: aerodynamics
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Aerodynamics domain pack (router)

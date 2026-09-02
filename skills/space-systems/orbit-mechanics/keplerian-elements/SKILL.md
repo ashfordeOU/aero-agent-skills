@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [keplerian-elements, orbital-elements, rv2coe, state-vector, raan, argument-of-periapsis, true-anomaly, inclination, semimajor-axis, eccentricity, orbital-period, periapsis, apoapsis]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Keplerian Elements (space-systems/orbit-mechanics/keplerian-elements)

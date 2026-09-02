@@ -15,7 +15,7 @@ metadata:
   subdomain: space
   tags: [orbit, orbital-mechanics, hohmann-transfer, delta-v, vis-viva, orbital-elements, j2-perturbation, propagation, transfer-time]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Orbit Dynamics (gnc-autonomy/space/orbit-dynamics)

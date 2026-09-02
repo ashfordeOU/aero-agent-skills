@@ -15,7 +15,7 @@ metadata:
   subdomain: fsw
   tags: [fprime-component, active-component, queued-component, passive-component, typed-port, command-opcode, rate-group, telemetry-channel]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # F Prime Component Framework (avionics/fsw/fprime-component)

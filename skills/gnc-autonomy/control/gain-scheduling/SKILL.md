@@ -15,7 +15,7 @@ metadata:
   subdomain: control
   tags: [gain-scheduling, gain-schedule, scheduling-variable, dynamic-pressure, mach-number, angle-of-attack, altitude, breakpoint-table, schedule-table, interpolation, nearest, linear, spline, rate-limiting, gain-updating, anti-windup, flight-envelope, autopilot-gains, flight-control-gains]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Gain Scheduling (gnc-autonomy/control/gain-scheduling)

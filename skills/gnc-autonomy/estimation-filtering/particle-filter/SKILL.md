@@ -15,7 +15,7 @@ metadata:
   subdomain: estimation-filtering
   tags: [particle-filter, sampling-importance-resampling, sequential-monte-carlo, bootstrap-filter, systematic-resampling, effective-sample-size, importance-weights, non-gaussian-posterior, nonlinear-state-estimation, multimodal-tracking]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Particle Filter (gnc-autonomy/estimation-filtering/particle-filter)

@@ -17,7 +17,7 @@ metadata:
   subdomain: mass-properties
   tags: [mass-properties, moment-of-inertia, radius-of-gyration, parallel-axis-theorem, inertia-estimation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Mass Properties Inertia Estimation (vehicle-design/mass-properties/inertia-estimation)

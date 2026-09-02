@@ -1,4 +1,4 @@
-# AeroSkills Per-Skill Ratings Ledger
+# Aero Agent Skills Per-Skill Ratings Ledger
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.

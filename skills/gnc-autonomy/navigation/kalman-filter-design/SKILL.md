@@ -15,7 +15,7 @@ metadata:
   subdomain: navigation
   tags: [kalman-filter-design, discrete-time-filter, single-axis-estimation, state-estimation, kalman-gain, innovation-variance, error-covariance, process-noise, measurement-noise, estimator-design]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Kalman Filter Design (gnc-autonomy/navigation/kalman-filter-design)
