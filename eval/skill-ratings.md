@@ -330,3 +330,4 @@ Total skills rated: 318
 | 322 | gnc-autonomy/estimation-filtering/particle-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 323 | aerodynamics/wind-tunnel/windtunnel-wall-corrections | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 324 | vehicle-design/mdo/design-of-experiments | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 325 | avionics/fsw/fprime-component | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
