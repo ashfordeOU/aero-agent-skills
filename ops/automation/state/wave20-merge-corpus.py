@@ -16,7 +16,7 @@ import pathlib
 import re
 import sys
 
-ROOT = pathlib.Path(__file__).resolve().parents[3]
+ROOT = pathlib.Path("<AEROSKILLS-ROOT>")
 CORPUS = ROOT / "eval" / "hit1-corpus.yaml"
 BASE_LEAVES = 282   # wave-19 close
 BASE_SKILL = 294    # 12 routers + 282 leaves
