@@ -1,0 +1,17 @@
+# Hit@1 wave-23 fragment: random-vibration-analysis (structures)
+# Two tasks per new leaf skill. w23-random-vibration-analysis-1 routes on
+# the Miles equation closed-form response to a flat base-excitation PSD
+# (RMS g-rms and 3-sigma peak); w23-random-vibration-analysis-2 routes on
+# numerical response PSD integration over a supplied spectrum with the
+# equivalent static load factor. Neither overlaps the w22-gust-maneuver-loads
+# tasks (discrete 1-cosine gust load factor and V-n diagram) or the modal
+# analysis tasks (natural frequencies and mode shapes).
+tasks:
+  - id: w23-random-vibration-analysis-1
+    query: "compute the random vibration response of the equipment at 40 Hz natural frequency under the 0.01 g2/Hz flat base excitation power spectral density: RMS g-rms via the Miles equation and the 3-sigma peak level"
+    intent: "structures; SDOF random vibration response to a flat base-excitation PSD via the Miles equation with RMS g-rms and 3-sigma peak"
+    expected_skill: "structures/loads/random-vibration-analysis"
+  - id: w23-random-vibration-analysis-2
+    query: "integrate the response PSD over the given vibration spectrum for the avionics box with the transmissibility model and report the g-rms response and the equivalent static load factor for vibration qualification screening"
+    intent: "structures; numerical response PSD integration over a supplied base-excitation spectrum with g-rms and equivalent static load factor, adversarial to discrete gust loads and modal analysis"
+    expected_skill: "structures/loads/random-vibration-analysis"
