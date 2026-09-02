@@ -557,7 +557,8 @@ def gen_title(t):
     skills = "".join(f'<tspan fill="{c}">{ch}</tspan>'
                      for ch, c in zip("Skills", ramp))
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
-         f'viewBox="0 0 {W} {H}">', STYLE.rstrip()]
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
+         f'<rect width="{W}" height="{H}" rx="22" fill="{t["canvas"]}"/>']
     o.append(f'<text x="{W / 2}" y="96" text-anchor="middle" font-size="88" '
              f'{TITLE_FONT} fill="{t["ink"]}">Aero{skills}</text>')
     o.append(f'<text class="mono" x="{W / 2}" y="146" text-anchor="middle" '
@@ -589,6 +590,7 @@ def gen_statline(m, t):
                      f'letter-spacing="2">{label}</tspan>')
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
          f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
+         f'<rect width="{W}" height="{H}" rx="16" fill="{t["canvas"]}"/>',
          f'<text class="mono" x="{W / 2}" y="47" text-anchor="middle">'
          + "".join(spans) + "</text>", "</svg>"]
     return "\n".join(o) + "\n"
