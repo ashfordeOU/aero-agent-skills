@@ -1,0 +1,48 @@
+<idea-plugin>
+    <id>com.ashforde.aeroskills</id>
+    <name>Aero Agent Skills</name>
+    <vendor email="contact@ashforde.org" url="https://ashforde.org">Ashforde OÜ</vendor>
+
+    <description><![CDATA[
+        <p><b>Aero Agent Skills</b> — the aerospace knowledge layer for AI agents.</p>
+        <p>Standards-mapped skills (ECSS · DO-178C · NASA · ARP4754A) that give your AI
+        assistant the certification process — not just the acronyms. 330+ verified skills,
+        each a checked workflow: steps, pitfalls, gates, human sign-off.</p>
+        <ul>
+            <li>Skill catalog browser (search any of 330+ skills in the IDE)</li>
+            <li>One-click MCP registration for JetBrains AI Assistant / Junie</li>
+            <li>Agent Skills external-registry link (install skills via the Skills Manager)</li>
+        </ul>
+        <p>Apache-2.0 · <a href="https://github.com/ashfordeOU/aero-agent-skills">github.com/ashfordeOU/aero-agent-skills</a></p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Aero Agent Skills"
+                    anchor="right"
+                    icon="/icons/aero-toolwindow.svg"
+                    factoryClass="com.ashforde.aeroskills.AeroSkillsToolWindowFactory"/>
+    </extensions>
+
+    <actions>
+        <action id="aeroskills.copyMcpConfig"
+                class="com.ashforde.aeroskills.CopyMcpConfigAction"
+                text="Copy MCP Server Config (AI Assistant / Junie)"
+                description="Copies the MCP registration JSON for JetBrains AI Assistant or Junie">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="aeroskills.copyRegistryUrl"
+                class="com.ashforde.aeroskills.CopyRegistryUrlAction"
+                text="Copy Agent Skills Registry URL"
+                description="Copies the GitHub registry URL to add in Settings | AI Assistant | Skills">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="aeroskills.openDocs"
+                class="com.ashforde.aeroskills.OpenDocsAction"
+                text="Aero Agent Skills Docs &amp; Harness Guide"
+                description="Opens the harness-integration docs in your browser">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
