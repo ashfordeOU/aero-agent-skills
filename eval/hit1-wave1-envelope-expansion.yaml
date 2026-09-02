@@ -1,0 +1,13 @@
+# Hit@1 wave-1 fragment: envelope-expansion (flight-test-operations)
+# Two tasks per new leaf skill; ee2 is adversarial (plausibly routes to
+# the neighbor flight-test-operations pack, must deterministically route
+# to envelope-expansion).
+tasks:
+  - id: ee1
+    query: "plan the envelope expansion steps and compute the corner speed against the load factor envelope"
+    intent: "flight test; envelope expansion steps and corner speed"
+    expected_skill: "flight-test-operations/envelope/envelope-expansion"
+  - id: ee2
+    query: "classify the airspeed into the flight test speed categories for the envelope expansion program"
+    intent: "flight test; airspeed classification for envelope expansion"
+    expected_skill: "flight-test-operations/envelope/envelope-expansion"
