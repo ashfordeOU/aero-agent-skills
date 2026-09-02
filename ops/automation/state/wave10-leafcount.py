@@ -2,7 +2,7 @@
 """Wave-10: count leaf SKILL.md files per family and list leaf paths."""
 import os
 
-ROOT = str(pathlib.Path(__file__).resolve().parents[3] / "skills")
+ROOT = "<AEROSKILLS-ROOT>/skills"
 families = [
     "aerodynamics",
     "flight-test-operations",

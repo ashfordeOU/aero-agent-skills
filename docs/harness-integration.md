@@ -399,4 +399,4 @@ Added 2026-09-02. Three first-party channels beyond `npx skills`:
 | Implementor guide | https://agentskills.io (llms-full.txt) | 2026-08-31 |
 | MCP spec (stdio transport, tools) | https://modelcontextprotocol.io/specification | 2026-09-02 (from working knowledge; server smoke-tested locally against the JSON-RPC contract) |
 | JetBrains AI Assistant MCP | https://www.jetbrains.com/help/ai-assistant/mcp.html | 2026-09-02 (transcribed, not live-exercised) |
-| Claude Code plugin manifests | `claude plugin validate --strict` + local install + `claude plugin details` | 2026-09-02 (exercised) |
+| Claude Code plugin manifests | `claude plugin validate --strict` + local install + `claude plugin details` | 2026-09-02 (exercised on this machine) |
