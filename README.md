@@ -60,13 +60,13 @@ Every number and chart in this README is **generated from the tree at HEAD** by 
 **Install everything — one command, any agent:**
 
 ```bash
-npx skills add arjun-0077/aero-agent-skills
+npx skills add ashfordeOU/aero-agent-skills
 ```
 
 **Try one skill without installing:**
 
 ```bash
-npx skills use arjun-0077/aero-agent-skills --skill avionics/do178c/planning | claude
+npx skills use ashfordeOU/aero-agent-skills --skill avionics/do178c/planning | claude
 ```
 
 **Or the npm CLI** — list, search, show, install, and the MCP server in one zero-dependency binary:
@@ -92,14 +92,14 @@ Publisher page: [npmjs.com/package/aero-agent-skills](https://www.npmjs.com/pack
 **Or as a Claude Code plugin** — the twelve family routers load always-on (a few hundred tokens each) and pull leaf skills on demand:
 
 ```bash
-claude plugin marketplace add arjun-0077/aero-agent-skills
+claude plugin marketplace add ashfordeOU/aero-agent-skills
 claude plugin install aero-agent-skills@aero-agent-skills
 ```
 
 **Or copy a folder** — skills are just files:
 
 ```bash
-git clone https://github.com/arjun-0077/aero-agent-skills
+git clone https://github.com/ashfordeOU/aero-agent-skills
 cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 ```
 
@@ -227,7 +227,7 @@ Skills are plain `SKILL.md` folders on the open agentskills.io spec — any host
 | **Hermes, OpenClaw** | profile skills dirs | native SKILL.md consumption |
 | **JetBrains (AI Assistant / Junie)** | MCP | `npx -y aero-agent-skills mcp` in the IDE's MCP settings |
 | **Claude Desktop, VS Code, Windsurf** | MCP | same one-line server in each host's MCP config |
-| **Claude Code (plugin)** | plugin marketplace | `claude plugin marketplace add arjun-0077/aero-agent-skills` |
+| **Claude Code (plugin)** | plugin marketplace | `claude plugin marketplace add ashfordeOU/aero-agent-skills` |
 | **Any agentskills.io host** | per-host root | copy the folder, done |
 
 The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills)) installs into 70+ of these automatically; the repo's own `aero-skills install` (npm) flattens any selection into `claude`, `codex`, `gemini`, `cursor`, `opencode`, or a `--dest` of your choice — and qualifies folder names when a selection contains duplicate skill names.
@@ -326,8 +326,6 @@ Aero Agent Skills is built and maintained by **[Ashforde OÜ](https://ashforde.o
 **Every star steers the flight plan — it decides which family gets the next authoring pass.**<br>
 **If a skill saved you an afternoon, send one back.**
 
-<!-- at public release, swap for the live count:
-     https://img.shields.io/github/stars/arjun-0077/aero-agent-skills?style=for-the-badge&logo=github&labelColor=1a1e35&color=f97316 -->
-<a href="https://github.com/arjun-0077/aero-agent-skills/stargazers"><img src="https://img.shields.io/badge/%E2%AD%90_STAR-AERO AGENT SKILLS-f97316?style=for-the-badge&labelColor=1a1e35" alt="Star Aero Agent Skills on GitHub"></a>
+<a href="https://github.com/ashfordeOU/aero-agent-skills/stargazers"><img src="https://img.shields.io/github/stars/ashfordeOU/aero-agent-skills?style=for-the-badge&logo=github&labelColor=1a1e35&color=f97316" alt="Star Aero Agent Skills on GitHub"></a>
 
 </div>
