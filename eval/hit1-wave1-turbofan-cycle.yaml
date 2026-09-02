@@ -1,0 +1,13 @@
+# Hit@1 wave-1 fragment: turbofan-cycle (propulsion)
+# Two tasks per new leaf skill; the queries share vocabulary with the
+# propulsion pack router and the future gas-turbine-cycle leaf (Brayton
+# cycle), so they must deterministically route to turbofan-cycle.
+tasks:
+  - id: tf1
+    query: "compute the bypass ratio and propulsive efficiency for the turbofan engine"
+    intent: "propulsion; turbofan bypass ratio and propulsive efficiency"
+    expected_skill: "propulsion/turbofan/turbofan-cycle"
+  - id: tf2
+    query: "estimate the specific thrust and net thrust of the turbofan from the mass flow and jet velocity"
+    intent: "propulsion; turbofan specific thrust from mass flow and jet velocity"
+    expected_skill: "propulsion/turbofan/turbofan-cycle"
