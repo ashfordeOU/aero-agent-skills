@@ -57,7 +57,7 @@ print(json.dumps({"description": desc, "homepage": "https://ashforde.org"}))
 PY
 )
 
-topics='{"names":["aerospace","aerospace-engineering","ai-agents","agent-skills","llm","claude-code","skills-library","avionics","do-178c","ecss","arp4754a","systems-engineering","gnc","propulsion","aerodynamics","space-systems","flight-test","standards-compliance"]}'
+topics='{"names":["aerospace","aerospace-engineering","ai-agents","agent-skills","llm","claude-code","skills-library","avionics","do-178c","ecss","arp4754a","systems-engineering","gnc","propulsion","aerodynamics","space-systems","flight-test","standards-compliance","mcp"]}'
 
 resp=$(mktemp)
 trap 'rm -f "$resp"' EXIT
