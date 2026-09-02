@@ -156,8 +156,9 @@ section 10 (the actual working procedure, superseding the
    system). Canvas grown 627->900 tall across the rounds to fit
    without crowding.
 7. content-policy-sweep.sh fixed: a base64-embedded logo in the social
-   card tripped the P/N part-number pattern by pure chance at ~480KB
-   of base64 alphabet. First fix (elide per pattern per file)
+   card tripped the part-number pattern (a "P", then "/", then a
+   4+ char alnum run) by pure chance at ~480KB of base64 alphabet.
+   First fix (elide per pattern per file)
    regressed both the meta-doc exemption and speed (~13,000
    subprocess spawns); rewritten to elide once per file into a scratch
    mirror, then grep natively per pattern — correctness and ~14s speed
