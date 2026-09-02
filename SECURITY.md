@@ -9,10 +9,10 @@ content it ships.
 Report suspected vulnerabilities PRIVATELY. Do not open a public issue or
 pull request that describes the vulnerability before a fix is available.
 
-- Preferred: GitHub private security advisory
-  https://github.com/arjun-0077/aeroskills/security/advisories/new
-- Alternative: contact the maintainers privately through the contact
-  address listed on the repository's GitHub profile.
+- Preferred: a GitHub private security advisory — this repository's
+  **Security tab → Report a vulnerability**.
+- Alternative: email the maintainers privately at **contact@ashforde.org**
+  (Ashforde OÜ).
 
 ## What to include
 
