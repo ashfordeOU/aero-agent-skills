@@ -1,0 +1,15 @@
+# Hit@1 wave-23 fragment: design-of-experiments (vehicle-design/mdo)
+# Two tasks per new leaf skill. w23-design-of-experiments-1 routes on a full
+# factorial and a latin hypercube screening study with main effects ranking;
+# w23-design-of-experiments-2 routes on a central composite design around a
+# baseline with interaction effects. Both must deterministically hit
+# vehicle-design/mdo/design-of-experiments.
+tasks:
+  - id: w23-design-of-experiments-1
+    query: "set up a design of experiments to screen wing planform factors in a conceptual study: build a two-factor full factorial design over aspect ratio and sweep with coded levels, add a latin hypercube sample of 20 runs at a fixed seed, evaluate every row, and rank the main effects from the factorial responses for factor screening"
+    intent: "vehicle-design; full factorial and latin hypercube design of experiments with main effects ranking for factor screening"
+    expected_skill: "vehicle-design/mdo/design-of-experiments"
+  - id: w23-design-of-experiments-2
+    query: "build a central composite design around the baseline wing loading point with two center runs and axial spacing, evaluate the responses at every design point, and compute the two-factor interaction effects to see which planform variable pair couples before optimization"
+    intent: "vehicle-design; central composite design around a baseline design point with interaction effects analysis"
+    expected_skill: "vehicle-design/mdo/design-of-experiments"
