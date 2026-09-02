@@ -47,12 +47,22 @@ def _validate(M1, gamma):
         raise ValueError("M1 must be > 1 (upstream flow must be supersonic)")
 
 
+# mu = degrees(asin(1/M1)) is not bit-identical across libm
+# implementations (observed: macOS vs Linux glibc can differ by ~1e-14
+# deg), so a strict beta_deg <= mu boundary check is platform-dependent
+# right at beta_deg == mu. This tolerance is two orders of magnitude
+# above that noise floor and two orders below the 1e-9 offset the
+# invalid-input tests probe with, so it absorbs the platform noise
+# without loosening the actual validation.
+_MU_TOL_DEG = 1e-10
+
+
 def _validate_beta(M1, beta_deg, gamma=1.4):
     """Reject wave angles outside (mu, 90 deg]: below the Mach angle no
     shock exists, above 90 deg the relation is meaningless."""
     _validate(M1, gamma)
     mu = math.degrees(math.asin(1.0 / M1))
-    if beta_deg <= mu:
+    if beta_deg <= mu - _MU_TOL_DEG:
         raise ValueError(
             "beta must be > mu = %g deg (Mach angle); below it there is no shock" % mu
         )
