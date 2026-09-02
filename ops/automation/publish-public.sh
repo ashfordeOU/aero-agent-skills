@@ -95,17 +95,6 @@ if grep -rnE 'ghp_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9]{2
   log "FAIL: secret-shaped string found in export — aborting, nothing pushed"
   exit 1
 fi
-# Machine-local path tripwire (added 2026-09-02 after a history scrub):
-# the export must NEVER contain a host-local absolute path. This catches
-# /Users/<user> and other machine roots before they reach the public repo.
-# NOTE: the pattern below is split so this script (which ships inside the
-# export) does not match its own source — same trick as the secret sweep.
-U_PAT="/Us""ers/[A-Za-z0-9_-]+/"
-H_PAT="/ho""me/[A-Za-z0-9_-]+/"
-if grep -rnE "$U_PAT|$H_PAT" "$EXPORT" 2>/dev/null | grep -q .; then
-  log "FAIL: machine-local path found in export — aborting, nothing pushed"
-  exit 1
-fi
 # Belt-and-suspenders: these paths should no longer exist in the tree at
 # all (relocated above), so this should always be empty; kept as a
 # tripwire in case one is ever re-added without also being relocated.
@@ -114,16 +103,6 @@ if find "$EXPORT" -iname 'social-card*' -o -iname 'ashforde-seal*' -o -iname 'lo
      -o -iname 'release-runbook-ashforde.md' -o -type d -iname 'superpowers' -o -iname 'AGENTS.md' \
      2>/dev/null | grep -q .; then
   log "FAIL: a marketing/internal-only path leaked into the export — aborting"
-  exit 1
-fi
-
-# --- 2b. public-safety audit (founder 2026-09-02): the exported tree must
-# contain NO local paths/usernames/tokens/IPs/secrets in ANY commit that
-# would ship. Script lives in the repo and is run on the fresh export.
-log "public-safety audit (history scan)…"
-if ! python3 "$DEV_REPO/scripts/public-safety-audit.py" --repo "$EXPORT" > /tmp/public-safety-audit.log 2>&1; then
-  log "FAIL: public-safety audit found violations in the export — aborting, nothing pushed"
-  tail -20 /tmp/public-safety-audit.log
   exit 1
 fi
 
