@@ -74,12 +74,44 @@ skip_exempt() {
   done
   return 0
 }
+# Base64-embedded assets (e.g. a raster <image> inlined into a generated
+# SVG) are binary-as-text: at any real size their alphabet trivially
+# produces false hits on P/N-, NSN-, CAGE-style patterns by pure chance —
+# a 200+ char unbroken base64-alphabet run is never itself policy-relevant
+# prose (that length rules out any real part number/marking living inside
+# one). Elide such runs before pattern matching so the sweep still covers
+# the surrounding markup/text, added 2026-09-02 after docs/social-card-dark.svg
+# (a base64-embedded logo) tripped the part-number pattern.
+#
+# Elision happens ONCE per file into a scratch mirror (not once per
+# pattern x file — that first cut spawned a sed+grep pair per pattern per
+# candidate, ~13,000 subprocesses, and was too slow for the pre-push gate).
+# The mirror preserves each file's full absolute path under $scratch, so
+# after grep -r finds matches there, stripping the $scratch prefix restores
+# exactly the original "<abs-path>:<line>:<content>" shape skip_exempt and
+# the FAIL message expect — same multi-file-per-pattern grep speed as the
+# original single-pass design.
+scratch="$(mktemp -d)"
+trap 'rm -rf "$scratch"' EXIT
+
+# Text-vs-binary detection matches grep -I's own heuristic (a NUL byte
+# anywhere marks a file binary) so this candidate list covers exactly what
+# the original whole-directory `grep -rI` scanned — true binaries (.png,
+# .pyc) are skipped the same way, nothing new is silently excluded.
+while IFS= read -r f; do
+  [ -f "$f" ] || continue
+  mkdir -p "$scratch$(dirname "$f")"
+  sed -E 's/[A-Za-z0-9+\/=]{200,}/[BASE64-DATA-ELIDED]/g' "$f" > "$scratch$f"
+done < <(find "${roots[@]}" -type f -print0 2>/dev/null \
+  | xargs -0 grep -IlZ . 2>/dev/null | tr '\0' '\n' || true)
+
 for pat in "${patterns[@]}"; do
-  while IFS= read -r line; do
+  while IFS= read -r scratch_line; do
+    line="${scratch_line#"$scratch"}"
     skip_exempt "$line" || continue
     echo "FAIL content-policy-sweep: $line" >&2
     hits=$((hits + 1))
-  done < <(grep -rniIE -- "$pat" "${roots[@]}" 2>/dev/null || true)
+  done < <(grep -rniIE -- "$pat" "$scratch" 2>/dev/null || true)
 done
 
 if [ "$hits" -ne 0 ]; then
