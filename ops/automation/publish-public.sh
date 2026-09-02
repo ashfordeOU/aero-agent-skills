@@ -39,6 +39,12 @@
 #   bash ops/automation/publish-public.sh --dry-run     # export + gate only, never touches the mirror or pushes
 set -euo pipefail
 
+# launchd GUI agents get a minimal PATH (no shell rc files sourced), so
+# `node` etc. are invisible even though they work fine interactively —
+# found by actually kickstarting this via launchd, not by re-reading the
+# script. Prepend the common dev-tool locations explicitly.
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+
 DEV_REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 PUBLIC_REMOTE="https://github.com/ashfordeOU/aero-agent-skills.git"
 MIRROR="$HOME/Code/.aero-agent-skills-public-mirror"

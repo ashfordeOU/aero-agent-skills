@@ -12,6 +12,7 @@
 # state, they just abort and log instead of throwing away the other
 # surface's chance to update.
 set -uo pipefail
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 echo "===== $(date -u +%FT%TZ) hourly-publish starting ====="
 
