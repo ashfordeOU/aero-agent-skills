@@ -2,7 +2,7 @@
 
 **The aerospace knowledge layer for AI agents** — standards-mapped `SKILL.md` workflows with verification gates and human sign-off stops, shipped as an npm CLI and an MCP server. Built and maintained by [Ashforde OÜ](https://ashforde.org).
 
-Full library, figures, and provenance: [github.com/arjun-0077/aero-agent-skills](https://github.com/arjun-0077/aero-agent-skills) · [ashforde.org/aeroagentskills](https://ashforde.org/aeroagentskills)
+Full library, figures, and provenance: [github.com/ashfordeOU/aero-agent-skills](https://github.com/ashfordeOU/aero-agent-skills) · [ashforde.org/aeroagentskills](https://ashforde.org/aeroagentskills)
 
 Every skill follows the open [agentskills.io](https://agentskills.io) format and is gated by a replayable offline battery (spec lint, description lint, behavior contracts, no-verbatim sweep, Hit@1 router corpus). This package bundles the tree at the released commit; live counts come from `aero-skills list`, never from this README.
 

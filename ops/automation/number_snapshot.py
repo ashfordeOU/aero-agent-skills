@@ -2,7 +2,7 @@
 """Aero Agent Skills number snapshot engine (deterministic, no LLM).
 
 Live-verifies the `tracked` section of ops/automation/numbers.yaml against the
-GitHub API via `gh` (authed as arjun-0077). Writes a timestamped snapshot JSON
+GitHub API via `gh` (needs a locally authed account). Writes a timestamped snapshot JSON
 to the snapshot state dir (default ops/automation/state/). Exit 0 only when
 every tracked repo's live stars are within the expected range AND the derived
 "largest aerospace repo" matches; exit 1 on drift with a diff; exit 2 on API
