@@ -1,0 +1,20 @@
+{
+  "skill": "avionics/do178c/development",
+  "optimizer": "gepa",
+  "date": "2026-09-02",
+  "model": "deepseek/deepseek-chat",
+  "objective": "win held-out confusable queries (ARP4754A traceability, ECSS verification) without main-corpus regression",
+  "baseline_held_out_hit@1": "2/4 (50%)",
+  "optimized_held_out_hit@1": "3/4 (75%) under 1024-char lint cap",
+  "full_gepa_run_hit@1": "4/4 (100%) at 1492 chars — trimmed to fit desc-lint cap; 4th loss is family/leaf tie vs 'avionics' (router tiebreak, corpus ambiguity not description)",
+  "main_corpus_regression": "none — 674/674 Hit@1 verified after change",
+  "desc_chars": "1019 (limit 1024)",
+  "asi_design": "dict side-info logging confusable winners per query (GEPA gotcha: ASI is the gradient)",
+  "env_lessons": [
+    "background procs do NOT inherit DEEPSEEK_API_KEY — export from temp file (0600)",
+    "litellm needs tenacity + cloudpickle in gepa venv",
+    "reflection_lm_kwargs api_key='' overrides env — omit api_key, let litellm read env",
+    "evaluator side_info must be a dict (GEPA wraps dict(side_info))"
+  ],
+  "harness": "scripts/gepa-live-run.py (single-skill) + scripts/gepa-desc-opt.py (dry-run weak-set finder)"
+}
