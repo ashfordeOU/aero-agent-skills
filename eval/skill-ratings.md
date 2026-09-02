@@ -324,3 +324,4 @@ Total skills rated: 318
 | 316 | cross-cutting/export-control/export-control-awareness | PASS | ✓ | itar-ear | cross-cutting | 9.5 | PASS |
 | 317 | structures/loads/gust-maneuver-loads | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 318 | flight-test-operations/uas/part107-sora | PASS | ✓ | far-107 | flight-test-operations | 9.5 | PASS |
+| 319 | propulsion/electric/gridded-ion-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
