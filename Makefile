@@ -59,9 +59,18 @@ packs:
 # fails when any artifact is stale (run in CI). Deterministic, offline.
 visuals:
 	@python3 scripts/gen_visuals.py
+	@python3 scripts/gen_manifest.py
 
 visuals-check:
 	@python3 scripts/gen_visuals.py --check
+	@python3 scripts/gen_manifest.py --check
+
+# npm package battery (founder 2026-09-02): manifest invariants, FULL Hit@1
+# corpus replay through the JS router port (674/674 or fail), installer
+# flatten + collision handling, MCP stdio round-trip, CLI smoke. Offline.
+.PHONY: package-test
+package-test:
+	@node packages/aero-agent-skills/test/smoke.mjs
 
 # GitHub About sidebar synced from docs/metrics.json (founder 2026-09-02).
 # Needs network + the origin remote's token, so it is NOT an offline gate —

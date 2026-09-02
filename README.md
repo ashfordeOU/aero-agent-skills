@@ -39,7 +39,7 @@
   <a href="#faq">FAQ</a>
 </p>
 
-> **Works everywhere:** skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
+> **Works everywhere:** skills follow the open [agentskills.io](https://agentskills.io) spec — any SKILL.md host can load them. Install and use in **Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenCode, DeepSeek (via harness), GitHub Copilot, Kimi, Cline/Roo, Continue**, and 70+ more — or connect over **MCP** (JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Windsurf) via the `aero-agent-skills` npm package. Verified per-harness details: [docs/harness-integration.md](docs/harness-integration.md).
 
 ---
 
@@ -61,6 +61,31 @@ npx skills add arjun-0077/aero-agent-skills
 
 ```bash
 npx skills use arjun-0077/aero-agent-skills --skill avionics/do178c/planning | claude
+```
+
+**Or the npm CLI** — list, search, show, install, and the MCP server in one zero-dependency binary:
+
+```bash
+npm i -g aero-agent-skills            # or: npx aero-agent-skills <command>
+aero-skills search "draft a PSAC for a DAL B system"
+aero-skills install avionics/do178c --harness claude
+```
+
+**Or as an MCP server** — JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, or any Model Context Protocol host. The `search_skills` tool is the same deterministic router the Hit@1 gate proves; `get_skill` streams the full SKILL.md:
+
+```json
+{
+  "mcpServers": {
+    "aero-agent-skills": { "command": "npx", "args": ["-y", "aero-agent-skills", "mcp"] }
+  }
+}
+```
+
+**Or as a Claude Code plugin** — the twelve family routers load always-on (a few hundred tokens each) and pull leaf skills on demand:
+
+```bash
+claude plugin marketplace add arjun-0077/aero-agent-skills
+claude plugin install aero-agent-skills@aero-agent-skills
 ```
 
 **Or copy a folder** — skills are just files:
@@ -192,9 +217,12 @@ Skills are plain `SKILL.md` folders on the open agentskills.io spec — any host
 | **DeepSeek (via harness)** | `.agents/skills/` (DeepSeek Harness / dsh) | `npx @deepseek-ai/dsh web`; or any SKILL.md harness with DeepSeek as model (Cline, Continue, Deep Code) |
 | **GitHub Copilot, Kimi, Cline/Roo, Continue** | `.agents/skills/` (cross-client convention) | any SKILL.md-capable agent with `.agents/skills/` support |
 | **Hermes, OpenClaw** | profile skills dirs | native SKILL.md consumption |
+| **JetBrains (AI Assistant / Junie)** | MCP | `npx -y aero-agent-skills mcp` in the IDE's MCP settings |
+| **Claude Desktop, VS Code, Windsurf** | MCP | same one-line server in each host's MCP config |
+| **Claude Code (plugin)** | plugin marketplace | `claude plugin marketplace add arjun-0077/aero-agent-skills` |
 | **Any agentskills.io host** | per-host root | copy the folder, done |
 
-The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills)) installs into 70+ of these automatically.
+The `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills)) installs into 70+ of these automatically; the repo's own `aero-skills install` (npm) flattens any selection into `claude`, `codex`, `gemini`, `cursor`, `opencode`, or a `--dest` of your choice — and qualifies folder names when a selection contains duplicate skill names.
 
 ### How it works
 
@@ -251,9 +279,9 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 330 verified skills in 81 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3)
+- **Shipped:** 330 verified skills in 81 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 674-task corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
-- **Later:** reference builds; a SEP-2640-aligned MCP adapter; marketplace listings; AI Department Operator packs
+- **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->
 
 ## Contributing
