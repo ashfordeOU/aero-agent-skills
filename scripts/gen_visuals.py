@@ -110,9 +110,26 @@ RAMP = ["cyan", "violet", "magenta", "orange"]  # family color cycle
 # COMPANY mark, distinct from docs/logo-mark.png (the Aero Agent Skills
 # paper-plane PRODUCT emblem) — founder 2026-09-02, correcting a card that
 # had locked the product mark up with "ASHFORDE OÜ" and called it the logo.
-# Extracted once at import time; never edited, never regenerated.
-_seal_src = (REPO / "docs" / "ashforde-seal.svg").read_text(encoding="utf-8")
-ASHFORDE_SEAL_SVG = re.sub(r"^<svg[^>]*>|</svg>\s*$", "", _seal_src.strip())
+#
+# LAZY on purpose: docs/ashforde-seal.svg is marketing-only and excluded
+# from the public-tree allowlist (release-runbook-ashforde.md 3b), so this
+# module must still import cleanly in a public checkout where the file is
+# legitimately absent. Its presence is also how outputs() below decides
+# whether it is running in dev (generate the social card + launch post) or
+# in the exported public tree (skip them, don't fail).
+_ASHFORDE_SEAL_SVG_CACHE = None
+
+
+def ashforde_seal_available():
+    return (REPO / "docs" / "ashforde-seal.svg").exists()
+
+
+def ashforde_seal_svg():
+    global _ASHFORDE_SEAL_SVG_CACHE
+    if _ASHFORDE_SEAL_SVG_CACHE is None:
+        src = (REPO / "docs" / "ashforde-seal.svg").read_text(encoding="utf-8")
+        _ASHFORDE_SEAL_SVG_CACHE = re.sub(r"^<svg[^>]*>|</svg>\s*$", "", src.strip())
+    return _ASHFORDE_SEAL_SVG_CACHE
 
 
 def fam_color(t, i):
@@ -627,7 +644,7 @@ def ashforde_seal(x, y, size, opacity="1"):
     the Aero Agent Skills paper-plane emblem is the PRODUCT mark, not
     Ashforde's own logo — do not lock the two together and call it
     "Ashforde's logo"). 512x512 viewBox, scaled+translated into place."""
-    inner = ASHFORDE_SEAL_SVG
+    inner = ashforde_seal_svg()
     s = size / 512.0
     return f'<g transform="translate({x},{y}) scale({s:.5f})" opacity="{opacity}">{inner}</g>'
 
@@ -1037,6 +1054,11 @@ def render_readme(m, src):
 # -------------------------------------------------------------------- main
 
 def outputs(m):
+    """The PUBLIC artifact set: every file here ships in the public tree
+    (release-runbook-ashforde.md 3b) and must exist/regenerate in both the
+    dev checkout and an exported public copy. Marketing-only artifacts
+    (the social card, the launch post) are NOT here — see
+    marketing_outputs() below, which is conditional and best-effort."""
     docs = REPO / "docs"
     return {
         docs / "metrics.json": json.dumps(m, indent=2, sort_keys=True) + "\n",
@@ -1056,8 +1078,23 @@ def outputs(m):
         docs / "gates-dark.svg": gen_gates(m, DARK),
         docs / "skill-anatomy.svg": gen_anatomy(LIGHT),
         docs / "skill-anatomy-dark.svg": gen_anatomy(DARK),
-        docs / "social-card-dark.svg": gen_social(m, DARK),
         docs / "DOMAINS.md": gen_domains(m),
+    }
+
+
+def marketing_outputs(m):
+    """MARKETING-ONLY artifacts (docs/release-runbook-ashforde.md 3b):
+    the social card and the LinkedIn launch post. Gated on
+    ashforde_seal_available() — docs/ashforde-seal.svg is excluded from
+    the public-tree allowlist by design, so its absence IS the signal
+    that this is an exported public checkout, not a missing dependency.
+    Returns {} there so make visuals/visuals-check neither generates nor
+    requires these files outside dev; a public visuals-check must never
+    fail over marketing collateral it was never supposed to ship."""
+    if not ashforde_seal_available():
+        return {}
+    return {
+        REPO / "docs" / "social-card-dark.svg": gen_social(m, DARK),
         REPO / "marketing" / "launch-post-linkedin.md": gen_launch_post(m),
     }
 
@@ -1066,6 +1103,11 @@ def main():
     check = "--check" in sys.argv
     m = collect_metrics()
     out = outputs(m)
+    mktg = marketing_outputs(m)
+    if mktg:
+        out.update(mktg)
+    elif not check:
+        print("skip marketing artifacts (docs/ashforde-seal.svg absent — public tree, by design)")
     readme_path = REPO / "README.md"
     out[readme_path] = render_readme(m, readme_path.read_text(encoding="utf-8"))
 
