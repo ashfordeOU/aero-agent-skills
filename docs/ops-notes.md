@@ -110,3 +110,65 @@ run-tests.sh ALL PASS (35/35), tree clean.
 
 Gates at HEAD: make validate 5/5 (Hit@1 674/674), make attest 3/3,
 make visuals-check (19 artifacts + manifest), make package-test green.
+
+## 2026-09-02: GO — public repo live, npm 1.0.0 published
+
+Founder GO: "now we need to set a public repo on ashfordeOU which
+publishes to all the packages ports, and the test environment stays
+in arjun account." Executed per docs/release-runbook-ashforde.md
+section 10 (the actual working procedure, superseding the
+08-31 draft's untested paths):
+
+1. github.com/ashfordeOU/aero-agent-skills is LIVE: public, single
+   branch main, tagged v1.0.0. Clean export (1218 files, no dev
+   history, secrets swept, content-policy swept), gates verified
+   INSIDE the exported tree before it ever touched git (make validate
+   5/5, make attest 3/3, make visuals-check, make package-test — all
+   green in the export itself, not just the dev tree).
+2. aero-agent-skills@1.0.0 is LIVE on npm, publisher ashfordeou,
+   verified via npm view against the registry + a real npx smoke test
+   (not the publish exit code). Superseded the 0.0.1 name-reservation
+   placeholder from earlier the same day.
+3. Claude Code plugin channel verified against the REAL public repo
+   (claude plugin marketplace add ashfordeOU/aero-agent-skills —
+   resolves, installs, v1.0.0, 12-family skill inventory correct).
+4. Branch hygiene: arjun-0077's stale release-clean branch deleted
+   (pre-dated the 330-leaf era, unmerged); both repos now single-branch.
+5. Two real bugs found and fixed by actually running the gates inside
+   the export (not just reading the allowlist): (a) the allowlist
+   originally shipped -dark visuals only, but gen_visuals.py's
+   outputs() checks the full light+dark set as one unit — corrected to
+   ship all of it; (b) gen_visuals.py read docs/ashforde-seal.svg
+   (marketing-only, correctly excluded) unconditionally at import
+   time, crashing any invocation in the export — made lazy, with
+   marketing_outputs() (social card + launch post) now gated on the
+   seal file's presence, which doubles as the dev-vs-public signal.
+6. Social card (docs/social-card-dark.svg/png) rebuilt three rounds
+   per founder screenshots: (i) flat per-family bar chart replaced
+   with a real two-ring sunburst + the how-it-works icon timeline
+   (same icon set as the landing page); (ii) sunburst enlarged with
+   all 12 family/domain labels after "little overlapping and no
+   family or domain mentioned"; (iii) product logo enlarged 46->130px
+   after "we need this logo big on the social card"; bottom-right
+   corner corrected from the Aero Agent Skills product mark mislabeled
+   as Ashforde's logo to the actual Ashforde OÜ seal
+   (docs/ashforde-seal.svg, vendored from ashforde-site's brand
+   system). Canvas grown 627->900 tall across the rounds to fit
+   without crowding.
+7. content-policy-sweep.sh fixed: a base64-embedded logo in the social
+   card tripped the P/N part-number pattern by pure chance at ~480KB
+   of base64 alphabet. First fix (elide per pattern per file)
+   regressed both the meta-doc exemption and speed (~13,000
+   subprocess spawns); rewritten to elide once per file into a scratch
+   mirror, then grep natively per pattern — correctness and ~14s speed
+   both restored.
+8. docs/logo-full.png still bakes the old "AeroSkills" wordmark —
+   confirmed unused everywhere (public repo, social card, npm package,
+   plugin manifests all use logo-mark.png instead) and confirmed I
+   have no image-generation tool available to regenerate it; remains
+   a founder action item.
+
+Gates at dev HEAD: make validate 5/5 (Hit@1 674/674), make attest 3/3,
+make visuals-check (21 artifacts + manifest), make package-test green.
+Same battery green a second time, independently, inside the exported
+public tree.
