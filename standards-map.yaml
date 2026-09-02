@@ -1,0 +1,290 @@
+# Aero Agent Skills standards map (machine-readable)
+# Source: research/briefs/05-domain-taxonomy.md section 2 (compliance backbone),
+#         section 5.12 found/compliance/standards-map (P0).
+# Policy: research/briefs/06-legal-export-control.md section 5.2 (copyright rules),
+#         section 8.3 (frontmatter flags, no-verbatim discipline).
+# Field guide:
+#   family: regulation | guidance | quality | space | open-spec | materials | reference-data
+#   status: public-domain | proprietary-sold | free-download | open-spec
+#   summary_not_copy: the only allowed way to reference this standard (brief 06 section 5.2)
+#   gated: true  = verbatim text must never appear in the repo
+#          false = text quotable with attribution (paraphrase still preferred)
+schema_version: 1
+generated_from: research/briefs/05-domain-taxonomy.md
+policy_ref: research/briefs/06-legal-export-control.md
+standards:
+  - id: far-25
+    name: "14 CFR Part 25: Airworthiness Standards for Transport Category Airplanes"
+    family: regulation
+    publisher: FAA (US Government)
+    status: public-domain
+    domain: "airworthiness certification; aircraft design; systems safety (25.1309)"
+    applicability: "Type-certification basis for transport-category airplanes; airframe loads and structures, systems, flight characteristics, safety assessment"
+    summary_not_copy: "US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity"
+    gated: false
+    purchase: https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-25
+
+  - id: cs-25
+    name: "CS-25: Certification Specifications and Acceptable Means of Compliance for Large Aeroplanes"
+    family: regulation
+    publisher: EASA
+    status: free-download
+    domain: "airworthiness certification; large aeroplane design"
+    applicability: "EASA certification basis for large aeroplanes; mirrors FAR-25 with EU amendments; AMC-25 acceptable means"
+    summary_not_copy: "Reproduction authorised provided source is acknowledged (EASA copyright notice); free PDFs; paraphrase preferred"
+    gated: false
+    purchase: https://www.easa.europa.eu/en/document-library/easy-access-rules
+
+  - id: arp4754a
+    name: "ARP4754A: Guidelines for Development of Civil Aircraft and Systems"
+    family: guidance
+    publisher: SAE International
+    status: proprietary-sold
+    domain: "systems engineering; development assurance (FDAL/IDAL)"
+    applicability: "System development process and development assurance; aircraft and systems certification coordination; FDAL/IDAL assignment; ARP4754B (2023) supersedes"
+    revision_decision: "Keyed to ARP4754A by design (P2.1 rework 2026-08-31): A is the certification-baseline revision — FAA AC 20-174 (Sept 2011) and AC 25-1309 recognize ARP4754A as acceptable means of compliance for development assurance, and the DO-178C/DO-254 ecosystem references A. ARP4754B (SAE, revised 2023-12) supersedes A; it is tracked here in applicability. B aligns primarily with ARP4761A with no significant change in development principles. Skills key to A to match current TC/STC certification-baseline practice; revisit if ACs move to B."
+    summary_not_copy: "Proprietary (SAE, circa USD 180). Name + paraphrase + short attributed quotes (<100 words) + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.sae.org/standards/content/arp4754a/
+
+  - id: arp4761a
+    name: "ARP4761A: Guidelines for Conducting the Safety Assessment Process on Civil Aircraft, Systems, and Equipment"
+    family: guidance
+    publisher: SAE International
+    status: proprietary-sold
+    domain: "systems safety; FHA/PSSA/SSA/CCA; DAL determination"
+    applicability: "Safety assessment process: FHA, PSSA, SSA, CCA (ZSA/PRA/CMA), FTA/FMEA; severity-to-DAL propagation (A-E)"
+    summary_not_copy: "Proprietary (SAE). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.sae.org/standards/content/arp4761a/
+
+  - id: do-178c
+    name: "DO-178C: Software Considerations in Airborne Systems and Equipment Certification"
+    family: guidance
+    publisher: RTCA (joint EUROCAE twin ED-12C)
+    status: proprietary-sold
+    domain: "avionics flight software; airborne software certification"
+    applicability: "Software lifecycle (planning/development/verification/configuration management/airworthiness liaison); software levels A-E; coverage depth per level; objectives tables A-1..A-10; supplements DO-330/331/332/333; accepted via AC 20-115D"
+    summary_not_copy: "Proprietary (RTCA, DRM-protected, single-user license). Name + paraphrase + short attributed quotes + link only; never reproduce objective tables, appendix text, or multi-line verbatim blocks"
+    gated: true
+    purchase: https://www.rtca.org/products/
+
+  - id: do-254
+    name: "DO-254: Design Assurance Guidance for Airborne Electronic Hardware"
+    family: guidance
+    publisher: RTCA (joint EUROCAE twin ED-80)
+    status: proprietary-sold
+    domain: "avionics hardware; complex airborne electronic hardware (AEH)"
+    applicability: "Hardware design assurance: simple vs complex AEH, PHAC, requirements capture, verification, configuration management; accepted via AC 20-152A"
+    summary_not_copy: "Proprietary (RTCA). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.rtca.org/products/
+
+  - id: as9100
+    name: "AS9100: Quality Management Systems: Requirements for Aviation, Space and Defense Organizations"
+    family: quality
+    publisher: IAQG (develops) / SAE (publishes Americas; EN9100 Europe)
+    status: proprietary-sold
+    domain: "manufacturing and quality; QMS; production assurance"
+    applicability: "QMS requirements: ISO 9001:2015 plus aerospace clauses (8.1.1 operational risk, 8.1.2 configuration mgmt, 8.1.3 product safety, 8.1.4 counterfeit prevention, 8.4.1 external providers, 8.5.1.3 special processes)"
+    summary_not_copy: "Proprietary (IAQG/SAE). Name + paraphrase + short attributed quotes + link only; no verbatim clause text"
+    gated: true
+    purchase: https://www.sae.org/standards/content/as9100/
+
+  - id: ecss
+    name: "ECSS standards series (E-ST-10C SE, E-ST-40C SW, Q-ST-80C SW assurance, M-ST-40 CM)"
+    family: space
+    publisher: European Cooperation for Space Standardization (ESA)
+    status: free-download
+    domain: "space systems; spacecraft engineering and software"
+    applicability: "Space project engineering/software/quality/management standards; European space procurement baseline"
+    summary_not_copy: "Freely downloadable; copyright ESA; cite source; paraphrase preferred"
+    gated: false
+    purchase: https://ecss.nl/standards/
+
+  - id: sep-2640
+    name: "SEP-2640: Skills-over-MCP specification (MCP working group)"
+    family: open-spec
+    publisher: MCP Skills-over-MCP working group
+    status: open-spec
+    domain: "skill delivery; router interoperability; agentskills.io alignment"
+    applicability: "Standardizing skill representation and discovery inside MCP; emerging, not yet stable; adapter layer, never the source of truth"
+    summary_not_copy: "Open specification; quote with citation; note status (emerging, not yet stable)"
+    gated: false
+    purchase: https://modelcontextprotocol.io/
+
+  - id: do-330
+    name: "DO-330: Software Tool Qualification Considerations"
+    family: guidance
+    publisher: RTCA (joint EUROCAE twin ED-215)
+    status: proprietary-sold
+    domain: "software tool qualification; DO-178C/DO-254 tool credit"
+    applicability: "Qualification of software tools used in airborne software and hardware programs: tool criteria 1-5, tool qualification levels TQL-1..TQL-5, tool operational requirements; referenced by DO-178C and accepted via AC 20-115D"
+    summary_not_copy: "Proprietary (RTCA). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.rtca.org/products/
+
+  - id: do-160
+    name: "DO-160G: Environmental Conditions and Test Procedures for Airborne Equipment"
+    family: guidance
+    publisher: RTCA (joint EUROCAE twin ED-14G)
+    status: proprietary-sold
+    domain: "avionics environmental qualification; test procedures"
+    applicability: "Environmental test procedures for airborne equipment: temperature, altitude, humidity, vibration, EMC, lightning, and others; equipment categories and test conditions per section"
+    summary_not_copy: "Proprietary (RTCA). Name + paraphrase + short attributed quotes + link only; no verbatim tables or sections"
+    gated: true
+    purchase: https://www.rtca.org/products/
+
+  - id: as9102
+    name: "AS9102: Aerospace First Article Inspection Requirements"
+    family: quality
+    publisher: IAQG (develops) / SAE (publishes Americas; EN9102 Europe)
+    status: proprietary-sold
+    domain: "manufacturing quality; first article inspection; production assurance"
+    applicability: "First article inspection process: Form 1 part accountability, Form 2 material/special processes, Form 3 characteristic accountability; delta/partial FAI after changes; production lot acceptance context"
+    summary_not_copy: "Proprietary (IAQG/SAE). Name + paraphrase + short attributed quotes + link only; no verbatim form layouts or clause text"
+    gated: true
+    purchase: https://www.sae.org/standards/content/as9102/
+
+  - id: nas-410
+    name: "NAS 410: NAS Certification and Qualification of Nondestructive Test Personnel"
+    family: quality
+    publisher: AIA (Aerospace Industries Association)
+    status: proprietary-sold
+    domain: "NDT personnel qualification; aerospace inspection; manufacturing and MRO"
+    applicability: "Minimum requirements for qualification and certification of NDT/NDI/NDE personnel (Levels I, II, III) performing aerospace nondestructive testing including eddy current, ultrasonic, radiographic, penetrant, and magnetic particle methods; training, experience, and examination requirements"
+    summary_not_copy: "Proprietary (AIA, sold via Accuris/Techstreet). Name + paraphrase + short attributed quotes + link only; no verbatim clause text"
+    gated: true
+    purchase: https://store.accuristech.com/standards/aia-nas410
+
+  - id: mmpsd
+    name: "MMPDS: Metallic Materials Properties Development and Standardization"
+    family: materials
+    publisher: SAE International (successor to MIL-HDBK-5)
+    status: proprietary-sold
+    domain: "metallic materials; allowables; statistical design values"
+    applicability: "Statistically based metallic material design allowables: A-basis (95% confidence, 99% content) and B-basis (95% confidence, 90% content) with k-factors; fastener and joint allowables"
+    summary_not_copy: "Proprietary (SAE, successor to the public-domain MIL-HDBK-5). Name + paraphrase + short attributed quotes + link only; never reproduce design-value tables"
+    gated: true
+    purchase: https://www.sae.org/standards/content/mmpds/
+
+  - id: naca-tr-824
+    name: "NACA Report 824: Summary of Airfoil Data (Abbott, von Doenhoff, Stivers)"
+    family: reference-data
+    publisher: NACA (US Government; NASA predecessor)
+    status: public-domain
+    domain: "airfoil aerodynamics; validation reference"
+    applicability: "Classic airfoil section data (NACA 4/5-digit and 6-series) and wind-tunnel polars used as the validation anchor for airfoil analysis, e.g. the XFOIL NACA 0012 at Re=6M band (brief 05 section 6 item 7)"
+    summary_not_copy: "US government work; public domain; quotable with citation"
+    gated: false
+    purchase: https://ntrs.nasa.gov/
+
+  - id: naca-tn-902
+    name: "NACA TN 902: Description of Stress-Strain Curves by Three Parameters (Ramberg, Osgood)"
+    family: reference-data
+    publisher: NACA (US Government; NASA predecessor)
+    status: public-domain
+    domain: "metallic materials; elastic-plastic stress-strain modeling"
+    applicability: "Three-parameter Ramberg-Osgood model of the metallic stress-strain curve: total strain = stress/E + 0.002*(stress/sigma_0.2)^n, with the secant and tangent modulus derivations, used for elastic-plastic structural analysis"
+    summary_not_copy: "US government work; public domain; quotable with citation"
+    gated: false
+    purchase: https://ntrs.nasa.gov/
+
+  - id: far-33
+    name: "14 CFR Part 33: Airworthiness Standards for Aircraft Engines"
+    family: regulation
+    publisher: FAA (US Government)
+    status: public-domain
+    domain: "engine airworthiness; gas turbine and piston engine design and ratings"
+    applicability: "Type-certification basis for aircraft engines: design and construction, ratings and operating limitations, endurance and calibration tests, and continued airworthiness; engine thermodynamic-cycle and performance work sits upstream of the certification basis"
+    summary_not_copy: "US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity"
+    gated: false
+    purchase: https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33
+
+  - id: arinc-429
+    name: "ARINC 429: Digital Information Transfer System (DITS), Mark 33"
+    family: guidance
+    publisher: ARINC (AEEC; published via SAE ITC)
+    status: proprietary-sold
+    domain: "avionics data bus; digital information transfer"
+    applicability: "Point-to-point 32-bit word digital information transfer standard for civil avionics: label, SDI, data, SSM, and parity bit layout; BNR/BCD coding and sign conventions; 12.5 and 100 kbit/s speeds; word format and equipment identification tables"
+    summary_not_copy: "Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim word-format tables or clause text"
+    gated: true
+    purchase: https://www.sae.org/standards/content/arinc429/
+
+  - id: arinc-664
+    name: "ARINC 664: Aircraft Data Network, Part 7 (Avionics Full-Duplex Switched Ethernet, AFDX)"
+    family: guidance
+    publisher: ARINC (AEEC; published via SAE ITC)
+    status: proprietary-sold
+    domain: "avionics data network; AFDX switched ethernet"
+    applicability: "Aircraft data network and AFDX switched Ethernet for civil avionics: virtual links, bandwidth allocation gap (BAG), frame sizing, jitter, end systems, switched network configuration"
+    summary_not_copy: "Proprietary (ARINC/SAE ITC). Name + paraphrase + short attributed quotes + link only; no verbatim tables or clause text"
+    gated: true
+    purchase: https://www.sae.org/standards/content/arinc664p7-0/
+
+  - id: asme-y14-5
+    name: "ASME Y14.5: Dimensioning and Tolerancing"
+    family: guidance
+    publisher: ASME (American Society of Mechanical Engineers)
+    status: proprietary-sold
+    domain: "mechanical design; geometric dimensioning and tolerancing (GD&T)"
+    applicability: "GD&T rules and practices: datum reference frames, feature control frames, position, profile, and runout tolerances, MMC/LMC modifiers, bonus tolerance, virtual condition; the industry baseline for aerospace detail and assembly drawings"
+    summary_not_copy: "Proprietary (ASME). Name + paraphrase + short attributed quotes + link only; no verbatim symbol tables, rule text, or drawing examples"
+    gated: true
+    purchase: https://www.asme.org/codes-standards/find-codes-standards/y14-5-dimensioning-tolerancing
+
+  - id: mil-std-1553
+    name: "MIL-STD-1553B: Aircraft Internal Time Division Command/Response Multiplex Data Bus"
+    family: regulation
+    publisher: US DoD (Department of Defense)
+    status: public-domain
+    domain: "avionics data bus; command/response multiplexing"
+    applicability: "Military avionics 1 Mbps command/response multiplex data bus: bus controller and remote terminal architecture, 20-bit command/status/data word formats, Manchester II biphase encoding, dual redundant buses, and message transfer formats; the civil arinc-429 point-to-point bus is the sibling standard"
+    summary_not_copy: "US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity"
+    gated: false
+    purchase: https://quicksearch.dla.mil/
+
+  - id: mil-std-1797a
+    name: "MIL-STD-1797A: Flying Qualities of Piloted Aircraft"
+    family: guidance
+    publisher: US DoD (Department of Defense)
+    status: public-domain
+    domain: "flying qualities; handling qualities; flight control"
+    applicability: "Flying qualities requirements and assessment for piloted aircraft: flight phase categories A/B/C, aircraft classes I-IV, level 1-3 criteria for short period, phugoid, dutch roll, spiral, roll mode, and roll performance"
+    summary_not_copy: "US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity"
+    gated: false
+    purchase: https://quicksearch.dla.mil/
+
+  - id: far-107
+    name: "14 CFR Part 107: Small Unmanned Aircraft Systems"
+    family: regulation
+    publisher: FAA (US Government)
+    status: public-domain
+    domain: "UAS operations; drone regulation"
+    applicability: "Small UAS (under 55 lb) commercial operations in the US: remote pilot certification, visual line of sight, daylight operations, altitude and airspace limits"
+    summary_not_copy: "US government work (17 U.S.C. 105); quotable with citation; paraphrase preferred for clarity"
+    gated: false
+    purchase: https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-107
+
+  - id: cmh-17
+    name: "CMH-17: Composite Materials Handbook"
+    family: materials
+    publisher: SAE International
+    status: proprietary-sold
+    domain: "composite materials; polymer matrix composites"
+    applicability: "Composite material properties and allowables, design, manufacturing, and inspection practices including laminate layup and cure"
+    summary_not_copy: "Copyrighted SAE handbook; name + paraphrase + link only; no verbatim excerpts"
+    gated: true
+    purchase: https://www.sae.org/publications/cmh-17
+
+  - id: itar-ear
+    name: "ITAR/EAR: US Export Control Framework (22 CFR 120-130, 15 CFR 730-774)"
+    family: regulation
+    publisher: US Government (DDTC / BIS)
+    status: public-domain
+    domain: "export control; defense articles; dual-use items"
+    applicability: "Export control classification and handling of defense articles and technical data (ITAR) and dual-use items (EAR); fundamental research and public domain exclusions"
+    summary_not_copy: "US government regulations; quotable with citation; paraphrase preferred; never claim compliance marking"
+    gated: false
+    purchase: https://www.ecfr.gov/

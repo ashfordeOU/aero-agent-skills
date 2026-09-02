@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: modal-analysis (structures/fem)
+# Two tasks per new leaf skill; ma1 routes on natural frequency and
+# mode shape computation, ma2 routes on resonance checking against
+# the natural frequencies. Both must deterministically hit
+# structures/fem/modal-analysis.
+tasks:
+  - id: ma1
+    query: "compute the natural frequencies and mode shape ratios for the two degree of freedom structural model"
+    intent: "structural dynamics; 2-DOF natural frequencies and mode shape ratios"
+    expected_skill: "structures/fem/modal-analysis"
+  - id: ma2
+    query: "check whether the excitation frequency is near a structural natural frequency and would cause resonance"
+    intent: "structural dynamics; resonance check against natural frequencies"
+    expected_skill: "structures/fem/modal-analysis"

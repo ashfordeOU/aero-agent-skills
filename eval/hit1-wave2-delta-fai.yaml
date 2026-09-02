@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: delta-fai (manufacturing-quality/as9102)
+# Two tasks per new leaf; df1 routes on change classification (material
+# change: full new FAI or delta FAI per AS9102), df2 routes on delta FAI
+# scope (forms and affected characteristics for a process change). Both
+# must deterministically hit manufacturing-quality/as9102/delta-fai.
+tasks:
+  - id: df1
+    query: "classify the material change and determine whether a full new fai or a delta fai is required per as9102"
+    intent: "manufacturing quality; change classification, full new FAI vs delta FAI per AS9102"
+    expected_skill: "manufacturing-quality/as9102/delta-fai"
+  - id: df2
+    query: "scope the delta first article inspection forms and affected characteristics for the process change"
+    intent: "manufacturing quality; delta FAI forms and affected characteristics scope"
+    expected_skill: "manufacturing-quality/as9102/delta-fai"

@@ -1,0 +1,15 @@
+# Hit@1 wave-2 fragment: nozzle-design (propulsion/rocket)
+# Two tasks per new leaf; nz1 routes on the nozzle area ratio and exit
+# Mach number from chamber conditions, nz2 routes on the ideal thrust
+# with the pressure term and the expansion verdict against the ambient
+# pressure. Both must deterministically hit
+# propulsion/rocket/nozzle-design.
+tasks:
+  - id: nz1
+    query: "compute the rocket nozzle area ratio and exit mach number for the design chamber conditions"
+    intent: "propulsion; nozzle area ratio and exit Mach number from chamber conditions"
+    expected_skill: "propulsion/rocket/nozzle-design"
+  - id: nz2
+    query: "calculate the ideal thrust with the pressure term and check the nozzle expansion against the ambient pressure"
+    intent: "propulsion; ideal thrust with pressure term and expansion verdict vs ambient pressure"
+    expected_skill: "propulsion/rocket/nozzle-design"

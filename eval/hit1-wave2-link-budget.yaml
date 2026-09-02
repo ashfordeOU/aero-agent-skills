@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: communication-link-budget (space-systems/subsystems)
+# Two tasks per new leaf; lb1 routes on free-space path loss and
+# received power, lb2 routes on link margin against the required
+# energy per bit to noise ratio at the data rate. Both must
+# deterministically hit space-systems/subsystems/communication-link-budget.
+tasks:
+  - id: lb1
+    query: "compute the free space path loss and received power for the spacecraft link budget at the given frequency and distance"
+    intent: "communications; free-space path loss and received power from EIRP and gain"
+    expected_skill: "space-systems/subsystems/communication-link-budget"
+  - id: lb2
+    query: "check the link margin against the required energy per bit to noise ratio at the data rate"
+    intent: "communications; link margin versus required Eb/N0 at the data rate"
+    expected_skill: "space-systems/subsystems/communication-link-budget"

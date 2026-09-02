@@ -1,0 +1,12 @@
+# Hit@1 wave-1 fragment: gas-turbine-cycle (propulsion)
+# Two tasks per new leaf skill; gt1 and gt2 both target the ideal
+# Brayton cycle leaf and must deterministically route to it.
+tasks:
+  - id: gt1
+    query: "compute the ideal Brayton cycle thermal efficiency and compressor exit temperature for the gas turbine at a pressure ratio of 8"
+    intent: "propulsion; ideal Brayton cycle efficiency and compressor exit temperature"
+    expected_skill: "propulsion/gas-turbine-cycle/gas-turbine-cycle"
+  - id: gt2
+    query: "estimate the turbine exit temperature for the ideal gas turbine engine cycle"
+    intent: "propulsion; gas turbine turbine exit temperature"
+    expected_skill: "propulsion/gas-turbine-cycle/gas-turbine-cycle"

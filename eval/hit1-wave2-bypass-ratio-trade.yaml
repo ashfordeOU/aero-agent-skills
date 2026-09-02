@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: bypass-ratio-trade (propulsion/turbofan)
+# Two tasks per new leaf; bpr1 routes on the thrust split and specific
+# thrust at the bypass ratio, bpr2 routes on the TSFC across bypass
+# ratios and the trade verdict. Both must deterministically hit
+# propulsion/turbofan/bypass-ratio-trade.
+tasks:
+  - id: bpr1
+    query: "compute the thrust split and specific thrust for the turbofan at the bypass ratio"
+    intent: "propulsion; turbofan thrust split and specific thrust at the bypass ratio"
+    expected_skill: "propulsion/turbofan/bypass-ratio-trade"
+  - id: bpr2
+    query: "compare the tsfc across bypass ratios and give the bypass ratio trade verdict"
+    intent: "propulsion; TSFC across bypass ratios and the bypass ratio trade verdict"
+    expected_skill: "propulsion/turbofan/bypass-ratio-trade"

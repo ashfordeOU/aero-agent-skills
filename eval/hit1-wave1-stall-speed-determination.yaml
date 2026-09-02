@@ -1,0 +1,14 @@
+# Hit@1 wave-1 fragment: stall-speed-determination (flight-test-operations)
+# Two tasks per new leaf skill; vs1 derives the reference stall speed
+# from wing loading (neighbor risk: flight-mechanics pack wording
+# "stall speed from wing loading"), vs2 covers weight correction and
+# the stall margin.
+tasks:
+  - id: vs1
+    query: "determine the reference stall speed vs1g from the wing loading and maximum lift coefficient for the flight test"
+    intent: "flight test; Vs1g reference stall speed from wing loading"
+    expected_skill: "flight-test-operations/performance/stall-speed-determination"
+  - id: vs2
+    query: "correct the stall speed for the weight change and check the stall margin for the flight test"
+    intent: "flight test; weight-corrected stall speed and stall margin"
+    expected_skill: "flight-test-operations/performance/stall-speed-determination"

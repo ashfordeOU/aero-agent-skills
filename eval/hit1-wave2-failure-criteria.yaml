@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: failure-criteria (structures/composites)
+# Two tasks per new leaf; fc1 routes on the Tsai-Wu failure index for
+# a lamina under in-plane stress, fc2 routes on the max-stress and
+# Tsai-Hill checks with a failure verdict. Both must deterministically
+# hit structures/composites/failure-criteria.
+tasks:
+  - id: fc1
+    query: "compute the tsai wu failure index for the lamina under the in plane stress state"
+    intent: "structures; lamina Tsai-Wu failure index under in-plane stress"
+    expected_skill: "structures/composites/failure-criteria"
+  - id: fc2
+    query: "check the composite ply against the max stress and tsai hill criteria and give the failure verdict"
+    intent: "structures; max-stress and Tsai-Hill checks with failure verdict"
+    expected_skill: "structures/composites/failure-criteria"
