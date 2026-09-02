@@ -5,8 +5,8 @@ Optimizes a skill description against held-out confusable queries using
 GEPA with DeepSeek reflection. Evaluator returns (score, side_info) —
 ASI is the gradient: logs which confusable standard stole each query.
 
-Run with gepa venv:
-  /tmp/gepa-venv/bin/python scripts/gepa-live-run.py
+Run from a venv with gepa installed:
+  python scripts/gepa-live-run.py
 
 Requires: gepa + litellm installed in the venv, DEEPSEEK_API_KEY set.
 """
@@ -83,7 +83,7 @@ def main() -> int:
     engine = oa.EngineConfig(
         max_metric_calls=50,
         max_candidate_proposals=8,
-        run_dir="/tmp/gepa-run-do178c-dev2",
+        run_dir="/tmp/gepa-run-do178c-dev",
     )
     reflection = oa.ReflectionConfig(
         reflection_lm="deepseek/deepseek-chat",
