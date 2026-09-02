@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [thrust-vector-control, tvc, gimbal-deflection, nozzle-deflection, side-force, control-torque, axial-thrust-loss, actuator-authority, jet-vanes, flex-seal-nozzle, liquid-injection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Thrust Vector Control (propulsion/rocket/thrust-vector-control)

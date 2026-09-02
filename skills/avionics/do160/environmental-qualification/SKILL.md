@@ -15,7 +15,7 @@ metadata:
   subdomain: do160
   tags: [do-160, environmental-qualification, test-conditions, temperature, altitude, vibration, emc, lightning, humidity, equipment-category]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-160 Environmental Qualification (avionics/do160/environmental-qualification)

@@ -17,7 +17,7 @@ metadata:
   subdomain: tolerancing
   tags: [tolerance-stackup, worst-case-stackup, rss-stackup, assembly-limits, dominant-contributor, dimension-chain, statistical-stackup, fit-assessment]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Tolerance Stack-up (cross-cutting/tolerancing/tolerance-stackup)
 

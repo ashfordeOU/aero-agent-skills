@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [solid-rocket-motor, burn-rate, chamber-pressure, grain-geometry, mass-flow, thrust, total-impulse, characteristic-velocity, web-thickness, burn-progression]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Solid Rocket Motor (propulsion/rocket/solid-rocket-motor)

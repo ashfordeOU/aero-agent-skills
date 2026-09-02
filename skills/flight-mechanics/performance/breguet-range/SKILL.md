@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [breguet-range, cruise-range, tsfc, lift-to-drag, fuel-fraction, cruise-time]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Breguet Range (flight-mechanics/performance/breguet-range)

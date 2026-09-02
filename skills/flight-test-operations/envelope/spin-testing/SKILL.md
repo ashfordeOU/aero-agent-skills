@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [spin-testing, spin-entry, incipient-spin, developed-spin, spin-recovery, recovery-parachute, spin-resistance, pro-spin-controls, spin-test-point-matrix, flight-test-envelope]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spin Testing (flight-test-operations/envelope/spin-testing)

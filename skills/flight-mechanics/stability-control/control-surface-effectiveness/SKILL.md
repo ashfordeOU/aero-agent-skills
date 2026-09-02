@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [control-surface-effectiveness, elevator-authority, hinge-moment, hinge-moment-coefficient, stick-force, elevator-deflection, tail-volume-coefficient, elevator-effectiveness, maneuver-load-factor, rotation-authority]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Control Surface Effectiveness (flight-mechanics/stability-control/control-surface-effectiveness)

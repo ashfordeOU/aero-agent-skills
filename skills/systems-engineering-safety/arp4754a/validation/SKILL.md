@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4754a
   tags: [requirements-validation, validation-method, independent-validation, development-assurance, validation-closure]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4754A Requirements Validation (systems-engineering-safety/arp4754a/validation)

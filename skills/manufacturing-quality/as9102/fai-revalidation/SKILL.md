@@ -15,7 +15,7 @@ metadata:
   subdomain: as9102
   tags: [fai-revalidation, revalidation-due-date, revalidation-interval, revalidation-frequency, revalidation-scope, last-fai-date, annual-revalidation, change-driven-revalidation, next-revalidation-date, as9102]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # FAI Revalidation (manufacturing-quality/as9102/fai-revalidation)

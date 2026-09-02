@@ -17,7 +17,7 @@ metadata:
   subdomain: ndt
   tags: [liquid-penetrant-inspection, penetrant-testing, dye-penetrant, fluorescent-penetrant, capillary-action, capillary-rise, washburn-equation, dwell-time, developer-time, bleed-out, indication-sizing, penetration-depth, contact-angle, surface-tension, crack-width, sensitivity-level]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Liquid Penetrant Inspection (manufacturing-quality/ndt/liquid-penetrant-inspection)

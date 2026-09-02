@@ -17,7 +17,7 @@ metadata:
   subdomain: planning
   tags: [flight-test-data-reduction, data-reduction, calibration-correction, time-alignment, moving-average, filtering, measurement-uncertainty, corrected-airspeed, post-flight, rss, data-quality, gap-detection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight Test Data Reduction (flight-test-operations/planning/flight-test-data-reduction)

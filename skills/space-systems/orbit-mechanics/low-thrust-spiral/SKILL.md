@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [low-thrust-spiral, edelbaum-approximation, continuous-thrust-transfer, spiral-transfer, inclination-change, ion-propulsion-trajectory, circular-orbit-velocity, transfer-time, propellant-mass, electric-propulsion]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Low-Thrust Spiral Transfer (space-systems/orbit-mechanics/low-thrust-spiral)

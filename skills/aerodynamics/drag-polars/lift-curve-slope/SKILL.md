@@ -15,7 +15,7 @@ metadata:
   subdomain: drag-polars
   tags: [lift-curve-slope, thin-airfoil-theory, finite-wing-correction, aspect-ratio, sweep-correction, prandtl-glauert, lift-coefficient, angle-of-attack]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Lift Curve Slope Estimation (aerodynamics/drag-polars/lift-curve-slope)

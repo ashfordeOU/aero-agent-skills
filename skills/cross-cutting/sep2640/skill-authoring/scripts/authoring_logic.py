@@ -316,7 +316,7 @@ def build_frontmatter_template(name, description):
             "subdomain": "sep2640",
             "tags": ["sep-2640", "skill-authoring", "frontmatter", "kebab-case"],
             "version": "0.1.0",
-            "author": "AeroSkills",
+            "author": "Aero Agent Skills",
         },
     }
     return _render_frontmatter(fields)

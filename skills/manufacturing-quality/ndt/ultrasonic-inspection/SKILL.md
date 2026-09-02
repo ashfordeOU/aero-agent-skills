@@ -15,7 +15,7 @@ metadata:
   subdomain: ndt
   tags: [ultrasonic-inspection, ultrasonic, pulse-echo, time-of-flight, shear-wave, transducer, near-field, flat-bottom-hole, calibration-block, longitudinal-wave, decibel, dead-zone, acceptance-criteria, wavelength]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ultrasonic Inspection (manufacturing-quality/ndt/ultrasonic-inspection)

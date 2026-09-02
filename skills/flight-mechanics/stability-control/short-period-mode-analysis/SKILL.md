@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [short-period, short-period-mode, natural-frequency, damping-ratio, flying-qualities, stability-derivatives, dimensionless-conversion, pitch-oscillation, phugoid-separation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Short-Period Mode Analysis (flight-mechanics/stability-control/short-period-mode-analysis)

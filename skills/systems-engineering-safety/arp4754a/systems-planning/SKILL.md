@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4754a
   tags: [arp4754a, arp4761a, fdal, idal, planning, safety, certification]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4754A Systems Planning (systems-engineering-safety/arp4754a/systems-planning)

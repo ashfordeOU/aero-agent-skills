@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [matrix-operations, linear-solve, gaussian-elimination, partial-pivoting, determinant, matrix-inverse, singular-matrix]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Matrix Operations (cross-cutting/numerics/matrix-operations)
 

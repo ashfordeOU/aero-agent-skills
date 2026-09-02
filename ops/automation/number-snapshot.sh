@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# AeroSkills number snapshot gate (attestation part 1).
+# Aero Agent Skills number snapshot gate (attestation part 1).
 # Live: reads ops/automation/numbers.yaml (tracked + derived.largest), calls
 # GitHub API via gh (authed arjun-0077) for each tracked repo, writes a
 # timestamped snapshot to ops/automation/state/, exits 0 only when live stars

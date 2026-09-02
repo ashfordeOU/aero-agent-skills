@@ -15,7 +15,7 @@ metadata:
   subdomain: wind-tunnel
   tags: [windtunnel-wall-corrections, solid-blockage, wake-blockage, wall-interference, lift-interference, streamline-curvature, buoyancy-drag, test-section-constraint, corrected-drag-coefficient, closed-wall-tunnel]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Wind Tunnel Wall Corrections (aerodynamics/wind-tunnel/windtunnel-wall-corrections)

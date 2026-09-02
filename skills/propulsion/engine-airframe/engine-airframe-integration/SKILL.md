@@ -17,7 +17,7 @@ metadata:
   subdomain: engine-airframe
   tags: [engine-airframe-integration, installed-thrust, ram-drag, intake-momentum-drag, nacelle-drag, pylon-drag, thrust-drag-bookkeeping]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Engine-Airframe Integration (propulsion/engine-airframe/engine-airframe-integration)

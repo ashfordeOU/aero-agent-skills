@@ -17,7 +17,7 @@ metadata:
   subdomain: flutter
   tags: [limit-cycle-oscillation, lco, sustained-oscillation, freeplay, nonlinear-damping, amplitude-stability, log-decrement, amplitude-margin, damping-ratio, growth-rate, flutter, clearance, airspeed, oscillation, damping]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Limit Cycle Oscillation (flight-test-operations/flutter/limit-cycle-oscillation)

@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [rocket-staging, delta-v, mass-ratio, payload-fraction, structural-index, stage-optimization, stage-count]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Rocket Staging (propulsion/rocket/rocket-staging)

@@ -15,7 +15,7 @@ metadata:
   subdomain: cfd
   tags: [panel-method, source-panel, doublet-panel, vortex-panel, potential-flow, neumann-boundary-condition, dirichlet-boundary-condition, kutta-condition, pressure-coefficient, surface-velocity, incompressible-flow, 3d-body-aerodynamics, trailing-edge-circulation, sphere-validation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Surface Panel Method (aerodynamics/cfd/panel-method)

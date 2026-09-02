@@ -17,7 +17,7 @@ metadata:
   subdomain: fatigue
   tags: [fatigue, mean-stress, goodman, gerber, soderberg, haigh-diagram, endurance-limit, infinite-life]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Mean-Stress Fatigue Corrections (structures/fatigue/goodman-diagram)

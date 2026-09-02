@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [convergence-verification, richardson-extrapolation, grid-convergence-index, gci, observed-order, discretization-error, refinement-ratio, richardson, extrapolation, oscillatory]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Convergence Verification (cross-cutting/numerics/convergence-verification)
 

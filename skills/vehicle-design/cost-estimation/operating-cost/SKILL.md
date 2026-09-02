@@ -17,7 +17,7 @@ metadata:
   subdomain: cost-estimation
   tags: [operating-cost, direct-operating-cost, block-fuel-cost, crew-cost, maintenance-cost, insurance-rate, flight-hour-cost, cost-per-flight, utilization]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Operating Cost Estimation (vehicle-design/cost-estimation/operating-cost)

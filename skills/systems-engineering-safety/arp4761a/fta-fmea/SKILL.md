@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4761a
   tags: [arp4761a, fta, fmea, fmeca, cut-set, minimal-cut-set, common-cause, severity, probability]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A FTA/FMEA (systems-engineering-safety/arp4761a/fta-fmea)

@@ -17,7 +17,7 @@ metadata:
   subdomain: guidance
   tags: [impact-point-prediction, ballistic-trajectory, range-equation, time-of-flight, flight-path-angle, launch-speed, projectile-landing, flat-earth-vacuum]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Impact Point Prediction (gnc-autonomy/guidance/impact-point-prediction)

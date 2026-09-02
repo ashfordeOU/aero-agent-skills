@@ -15,7 +15,7 @@ metadata:
   subdomain: subsystems
   tags: [power-budget, thermal-budget, eps, eclipse, battery-sizing, solar-array, spacecraft, orbit-period, power-margin]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spacecraft Power / Thermal Budget (space-systems/subsystems/power-thermal-budget)

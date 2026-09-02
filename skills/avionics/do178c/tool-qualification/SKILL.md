@@ -17,7 +17,7 @@ metadata:
   subdomain: do178c
   tags: [do-330, do-178c, tql, tool-criteria, tor, tool-qualification, tool-credit]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-330 Tool Qualification (avionics/do178c/tool-qualification)

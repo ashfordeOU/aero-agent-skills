@@ -15,7 +15,7 @@ metadata:
   subdomain: estimation-filtering
   tags: [alpha-beta-filter, alpha-beta, tracking-filter, constant-velocity-target, position-tracking, velocity-tracking, steady-state-gains, smoothing-factor, maneuverability-index, target-tracking]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Alpha-Beta Filter (gnc-autonomy/estimation-filtering/alpha-beta-filter)

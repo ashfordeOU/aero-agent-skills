@@ -15,7 +15,7 @@ metadata:
   subdomain: tolerancing
   tags: [datum-reference-frames, gdt, datum-precedence, primary-secondary-tertiary, feature-control-frame, material-condition, mmb-lmb-rmb, degrees-of-freedom, datum-simulators, asme-y14-5]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Datum Reference Frames (cross-cutting/tolerancing/datum-reference-frames)
 

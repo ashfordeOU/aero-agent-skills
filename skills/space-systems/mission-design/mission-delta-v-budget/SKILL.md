@@ -15,7 +15,7 @@ metadata:
   subdomain: mission-design
   tags: [mission-delta-v-budget, delta-v-budget, launch-insertion, station-keeping, deorbit, propellant-mass, specific-impulse, dry-mass, margin-allocation, tsiolkovsky]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Mission Delta-V Budget (space-systems/mission-design/mission-delta-v-budget)

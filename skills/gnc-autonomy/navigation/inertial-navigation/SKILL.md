@@ -15,7 +15,7 @@ metadata:
   subdomain: navigation
   tags: [inertial-navigation, strapdown, gimbaled, gyro-drift, accelerometer-bias, schuler, gyrocompass, alignment, ins-gps-integration, inertial-measurement-unit]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Inertial Navigation (gnc-autonomy/navigation/inertial-navigation)

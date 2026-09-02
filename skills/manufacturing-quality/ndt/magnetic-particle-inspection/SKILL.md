@@ -17,7 +17,7 @@ metadata:
   subdomain: ndt
   tags: [magnetic-particle-inspection, magnetization-current, circular-magnetization, longitudinal-magnetization, field-strength, coverage-overlap, ampere-turns, encircling-coil, ld-ratio, head-shot, central-conductor, particle-sensitivity, particle-size-class, bath-concentration, magnetic-indication, acceptance-verdict, residual-field, demagnetization]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Magnetic Particle Inspection (manufacturing-quality/ndt/magnetic-particle-inspection)

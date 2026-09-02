@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [risk-management, risk-assessment, mitigation-planning, operational-risk, risk-priority-number, risk-matrix, residual-risk, fmea, likelihood-rating, detection-rating]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Risk Management (manufacturing-quality/as9100/risk-management)

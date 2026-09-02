@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [climb-flight-test, rate-of-climb, pressure-altitude, service-ceiling, climb-gradient, time-to-climb, steady-climb, ceiling-determination]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Climb Performance Flight Test (flight-test-operations/performance/climb-performance-flight-test)

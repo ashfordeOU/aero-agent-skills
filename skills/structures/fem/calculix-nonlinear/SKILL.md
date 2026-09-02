@@ -15,7 +15,7 @@ metadata:
   subdomain: fem
   tags: [calculix-nonlinear, calculix, ccx, nonlinear-fem, newton-raphson, load-stepping, convergence, residual, tangent-stiffness, geometric-nonlinearity]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CalculiX Nonlinear Analysis (structures/fem/calculix-nonlinear)

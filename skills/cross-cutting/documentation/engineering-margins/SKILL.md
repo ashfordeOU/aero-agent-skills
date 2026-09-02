@@ -17,7 +17,7 @@ metadata:
   subdomain: documentation
   tags: [margin-of-safety, engineering-report, allowable, limit-load, ultimate-load, documentation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Engineering Margins (cross-cutting/documentation/engineering-margins)

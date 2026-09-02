@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [particular-risk-analysis, arp4761a, rotor-burst, tire-burst, bird-strike, containment, hazard-zone, pra]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A Particular Risk Analysis (systems-engineering-safety/arp4761a/particular-risk-analysis)

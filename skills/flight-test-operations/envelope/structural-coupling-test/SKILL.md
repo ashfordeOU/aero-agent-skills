@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [structural-coupling-test, structural-coupling, gain-margin, phase-margin, frequency-response, swept-sine, chirp, impulse-excitation, closed-loop-control, airframe-structural-modes, margin-criteria, flight-envelope, test-points, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Structural Coupling Test (flight-test-operations/envelope/structural-coupling-test)

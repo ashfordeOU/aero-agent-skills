@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [satellite-coverage, coverage-analysis, access-circle, central-angle, swath-width, off-nadir-angle, elevation-angle, coverage-fraction, revisit-time, access-time, minimum-elevation, constellation-coverage]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Satellite Ground Coverage (space-systems/orbit-mechanics/satellite-coverage)

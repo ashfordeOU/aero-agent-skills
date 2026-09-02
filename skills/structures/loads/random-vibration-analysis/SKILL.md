@@ -15,7 +15,7 @@ metadata:
   subdomain: loads
   tags: [random-vibration-analysis, psd-response, miles-equation, transmissibility, base-excitation, g-rms, power-spectral-density, vibration-qualification, random-vibration, equivalent-static-load-factor]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Random Vibration Response Analysis (structures/loads/random-vibration-analysis)

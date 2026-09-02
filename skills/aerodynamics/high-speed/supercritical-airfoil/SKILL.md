@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [supercritical-airfoil, drag-divergence-mach, aft-loading, flat-upper-surface, wave-drag-reduction, terminating-shock-strength, cruise-lift-coefficient]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Supercritical Airfoil Design and Analysis (aerodynamics/high-speed/supercritical-airfoil)

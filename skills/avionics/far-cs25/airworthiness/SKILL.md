@@ -17,7 +17,7 @@ metadata:
   subdomain: far-cs25
   tags: [far-25, cs-25, airworthiness, certification, means-of-compliance, type-certificate]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # FAR/CS-25 Airworthiness (avionics/far-cs25/airworthiness)

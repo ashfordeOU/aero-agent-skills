@@ -17,7 +17,7 @@ metadata:
   subdomain: stability
   tags: [dynamic-stability, short-period, phugoid, dutch-roll, log-decrement, handling-qualities]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Dynamic Stability Flight Test (flight-test-operations/stability/dynamic-stability-flight-test)

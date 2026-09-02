@@ -15,7 +15,7 @@ metadata:
   subdomain: flight-management
   tags: [flight-planning, flight-management-system, waypoints, vertical-profile, track-distance, fms]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # FMS Flight Planning (avionics/flight-management/flight-planning)

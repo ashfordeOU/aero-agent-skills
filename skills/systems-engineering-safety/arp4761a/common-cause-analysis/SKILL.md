@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4761a
   tags: [common-cause-analysis, zonal-safety-analysis, particular-risk-analysis, common-mode-analysis, zsa]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4761A Common Cause Analysis (systems-engineering-safety/arp4761a/common-cause-analysis)

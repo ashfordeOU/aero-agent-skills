@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AeroSkills number snapshot engine (deterministic, no LLM).
+"""Aero Agent Skills number snapshot engine (deterministic, no LLM).
 
 Live-verifies the `tracked` section of ops/automation/numbers.yaml against the
 GitHub API via `gh` (authed as arjun-0077). Writes a timestamped snapshot JSON

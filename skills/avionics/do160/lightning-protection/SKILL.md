@@ -15,7 +15,7 @@ metadata:
   subdomain: do160
   tags: [lightning, lightning-protection, do-160, waveform, test-level, transient-susceptibility]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Lightning Protection (avionics/do160/lightning-protection)

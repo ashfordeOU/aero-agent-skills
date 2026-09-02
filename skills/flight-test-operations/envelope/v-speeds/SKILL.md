@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [v-speeds, vref, v2, vr, vs0, vs1, vno, vne, stall-speed, rotation-speed, takeoff-safety-speed, reference-landing-speed, never-exceed]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # V-Speeds (flight-test-operations/envelope/v-speeds)

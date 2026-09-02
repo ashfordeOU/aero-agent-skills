@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AeroSkills visuals + metrics generator (deterministic, stdlib-only, offline).
+"""Aero Agent Skills visuals + metrics generator (deterministic, stdlib-only, offline).
 
 Single source of truth for every number shown in the README and in
 docs/*.svg charts. Everything is computed from the tree at HEAD:
@@ -552,22 +552,23 @@ TITLE_FONT = ('font-family="Poppins, Nunito, \'SF Pro Rounded\', \'Segoe UI\', '
 
 
 def gen_title(t):
-    W, H = 760, 168
+    W, H = 960, 168
     ramp = ["#8b5cf6", "#a855f7", "#d946ef", "#ec4899", "#f97316", "#f59e0b"]
     skills = "".join(f'<tspan fill="{c}">{ch}</tspan>'
                      for ch, c in zip("Skills", ramp))
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
          f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
          f'<rect width="{W}" height="{H}" rx="22" fill="{t["canvas"]}"/>']
-    o.append(f'<text x="{W / 2}" y="96" text-anchor="middle" font-size="88" '
-             f'{TITLE_FONT} fill="{t["ink"]}">Aero{skills}</text>')
-    o.append(f'<text class="mono" x="{W / 2}" y="146" text-anchor="middle" '
-             f'font-size="17" letter-spacing="4">'
-             f'<tspan fill="{t["cyan"]}">AEROSPACE</tspan>'
+    o.append(f'<text x="{W / 2}" y="92" text-anchor="middle" font-size="72" '
+             f'{TITLE_FONT} fill="{t["ink"]}">Aero <tspan fill="{t["cyan"]}">Agent</tspan> '
+             f'{skills}</text>')
+    o.append(f'<text class="mono" x="{W / 2}" y="142" text-anchor="middle" '
+             f'font-size="16" letter-spacing="4">'
+             f'<tspan fill="{t["cyan"]}">AEROSPACE ENGINEERING</tspan>'
              f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
-             f'<tspan fill="{t["violet"]}" dx="10">AGENT SKILLS</tspan>'
+             f'<tspan fill="{t["violet"]}">AGENTSKILLS.IO FORMAT</tspan>'
              f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
-             f'<tspan fill="{t["orange"]}" dx="10">APACHE-2.0</tspan></text>')
+             f'<tspan fill="{t["orange"]}">APACHE-2.0</tspan></text>')
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
@@ -603,7 +604,7 @@ def gen_domains(m):
         return s.replace("-", "_")
 
     out = [
-        "# AeroSkills Domain Map",
+        "# Aero Agent Skills Domain Map",
         "",
         "Machine-readable source of truth: `skills/` tree. This page is the human",
         f'companion — {m["families"]} families, {m["live_packs"]} live sub-domain packs, '
@@ -614,7 +615,7 @@ def gen_domains(m):
         "",
         "```mermaid",
         "graph TD",
-        "    ROOT[AeroSkills]",
+        "    ROOT[Aero Agent Skills]",
     ]
     fams = m["per_family"]
     for name in sorted(fams):

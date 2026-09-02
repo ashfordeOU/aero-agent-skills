@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4754a
   tags: [requirements-allocation, allocation-coverage, item-allocation, unallocated-requirements, allocation-conflict, arp4754a]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Requirements Allocation (systems-engineering-safety/arp4754a/requirements-allocation)

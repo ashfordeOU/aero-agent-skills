@@ -15,7 +15,7 @@ metadata:
   subdomain: flight-management
   tags: [vertical-navigation, vnav, top-of-descent, descent-gradient, flight-path-angle, altitude-constraints, fms]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # FMS Vertical Navigation (avionics/flight-management/vertical-navigation)

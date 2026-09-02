@@ -15,7 +15,7 @@ metadata:
   subdomain: ground-effects
   tags: [ground-effect, induced-drag, image-vortex, height-to-span, cushion]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ground Effect (aerodynamics/ground-effects/ground-effect)

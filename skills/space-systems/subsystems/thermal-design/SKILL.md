@@ -15,7 +15,7 @@ metadata:
   subdomain: subsystems
   tags: [thermal-design, radiator-sizing, thermal-balance, heat-load, spacecraft-thermal-control]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spacecraft Thermal Design (space-systems/subsystems/thermal-design)

@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [numerical-integration, trapezoid-rule, simpson-rule, gauss-legendre, quadrature, error-estimate, richardson-extrapolation, definite-integral]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Numerical Integration (cross-cutting/numerics/numerical-integration)

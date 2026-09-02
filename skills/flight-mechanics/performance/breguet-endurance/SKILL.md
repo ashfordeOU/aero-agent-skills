@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [breguet-endurance, loiter, endurance, holding, specific-fuel-consumption, lift-to-drag, fuel-burn]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Breguet Endurance (flight-mechanics/performance/breguet-endurance)

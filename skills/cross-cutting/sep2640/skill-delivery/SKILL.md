@@ -15,7 +15,7 @@ metadata:
   subdomain: sep2640
   tags: [sep-2640, skills-over-mcp, mcp, skill-delivery, resources, skill-uri]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # SEP-2640 Skill Delivery (cross-cutting/sep2640/skill-delivery)

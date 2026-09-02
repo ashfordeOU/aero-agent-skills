@@ -15,7 +15,7 @@ metadata:
   subdomain: subsystems
   tags: [command-data-handling, telemetry, telecommand, ccsds, packetization, downlink, crc-16, onboard, storage, payload, data, bus, spacewire, mil-std-1553, redundancy, frame, orbit, data-bus, onboard-storage]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Spacecraft Command and Data Handling (space-systems/subsystems/command-data-handling)

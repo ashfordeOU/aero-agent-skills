@@ -17,7 +17,7 @@ metadata:
   subdomain: ndt
   tags: [acoustic-emission, ae-monitoring, source-location, kaiser-effect, felicity-ratio, hit-threshold, planar-triangulation, ndt]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Acoustic Emission Inspection (manufacturing-quality/ndt/acoustic-emission-inspection)

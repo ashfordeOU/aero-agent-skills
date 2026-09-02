@@ -16,7 +16,7 @@ metadata:
   domain: flight-mechanics
   tags: []
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flight mechanics domain pack (router)

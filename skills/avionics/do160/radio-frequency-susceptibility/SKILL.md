@@ -15,7 +15,7 @@ metadata:
   subdomain: do160
   tags: [radio-frequency-susceptibility, radiated-susceptibility, conducted-susceptibility, rf-immunity-testing, rs103, cs114, field-strength, amplifier-power-sizing, do-160-section-20, calibration-margin]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-160 Radio Frequency Susceptibility (avionics/do160/radio-frequency-susceptibility)

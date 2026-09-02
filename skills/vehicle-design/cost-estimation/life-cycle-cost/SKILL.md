@@ -17,7 +17,7 @@ metadata:
   subdomain: cost-estimation
   tags: [life-cycle-cost, cost-estimation, present-value, discount-rate, operations-and-support, disposal-cost, inflation, uncertainty, cost-driver]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Life-Cycle Cost Estimation (vehicle-design/cost-estimation/life-cycle-cost)

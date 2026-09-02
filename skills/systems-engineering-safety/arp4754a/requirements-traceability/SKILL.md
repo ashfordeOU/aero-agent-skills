@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4754a
   tags: [arp4754a, traceability, requirements-closure, srats, hlr, llr, derived-requirements, verification]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4754A Requirements Traceability (systems-engineering-safety/arp4754a/requirements-traceability)

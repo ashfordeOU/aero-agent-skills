@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [as9100, qms, quality, audit, counterfeit-prevention, corrective-action]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # AS9100 Quality Management (manufacturing-quality/as9100/quality)

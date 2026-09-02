@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [uncertainty-propagation, combined-standard-uncertainty, expanded-uncertainty, coverage-factor, sensitivity-coefficient, gum, variance-contribution, dominant-contribution, uncertainty-budget]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 # Uncertainty Propagation (cross-cutting/numerics/uncertainty-propagation)
 

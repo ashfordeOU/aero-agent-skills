@@ -15,7 +15,7 @@ metadata:
   subdomain: axial-compressor
   tags: [axial-compressor, velocity-triangle, degree-of-reaction, flow-coefficient, work-coefficient, blade-speed, axial-velocity, compressor-stage]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Axial Compressor Stage (propulsion/axial-compressor/axial-compressor-stage)

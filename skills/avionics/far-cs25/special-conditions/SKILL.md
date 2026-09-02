@@ -17,7 +17,7 @@ metadata:
   subdomain: far-cs25
   tags: [special-conditions, far-25, cs-25, novel-design-feature, fly-by-wire, means-of-compliance, transport-category, envelope-protection]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Special Conditions (avionics/far-cs25/special-conditions)

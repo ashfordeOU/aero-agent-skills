@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [level-acceleration-test, accelerated-level-flight, specific-excess-power, total-energy-method, excess-thrust-flight-test, level-acceleration-run, thrust-available, acceleration-capability, constant-altitude-run]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Level Acceleration Flight Test (flight-test-operations/performance/level-acceleration-test)

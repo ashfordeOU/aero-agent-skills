@@ -1,6 +1,6 @@
-# Contributing to AeroSkills
+# Contributing to Aero Agent Skills
 
-AeroSkills is an open library of civil aerospace engineering methodology
+Aero Agent Skills is an open library of civil aerospace engineering methodology
 for AI agents, published by Ashforde OÜ (Estonia) under Apache-2.0.
 
 ## Ground rules (AGENTS.md)

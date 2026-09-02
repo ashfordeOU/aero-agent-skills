@@ -17,7 +17,7 @@ metadata:
   subdomain: composites
   tags: [composites, bolted-joints, bearing, bypass, net-tension, shear-out, fastener, joint-margin]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Composite Bolted Joints (structures/composites/composite-bolted-joints)

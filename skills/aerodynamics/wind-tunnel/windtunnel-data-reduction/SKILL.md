@@ -15,7 +15,7 @@ metadata:
   subdomain: wind-tunnel
   tags: [windtunnel-data-reduction, tare-correction, blockage-correction, wall-interference, reynolds-correction, aerodynamic-coefficients, pressure-distribution, balance-data, uncertainty-estimation, experimental-aerodynamics]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Wind Tunnel Data Reduction (aerodynamics/wind-tunnel/windtunnel-data-reduction)

@@ -15,7 +15,7 @@ metadata:
   subdomain: as9100
   tags: [document-control, revision-control, master-list, current-revision, controlled-document, obsolete-revision, approval-before-issue, doc-number]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Document Control (manufacturing-quality/as9100/document-control)

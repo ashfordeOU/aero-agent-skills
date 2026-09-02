@@ -15,7 +15,7 @@ metadata:
   subdomain: turbomachinery
   tags: [centrifugal-compressor, impeller, slip-factor, wiesner-correlation, work-input-coefficient, back-sweep-angle, diffusion-ratio, de-haller-number, tip-speed, velocity-triangle]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Centrifugal Compressor Stage (propulsion/turbomachinery/centrifugal-compressor)

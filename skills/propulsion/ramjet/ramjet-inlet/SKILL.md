@@ -15,7 +15,7 @@ metadata:
   subdomain: ramjet
   tags: [ramjet-inlet, kantrowitz-starting, inlet-pressure-recovery, supersonic-diffuser, normal-shock-recovery, isentropic-diffuser, starting-criterion, contraction-ratio]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ramjet Inlet (propulsion/ramjet/ramjet-inlet)

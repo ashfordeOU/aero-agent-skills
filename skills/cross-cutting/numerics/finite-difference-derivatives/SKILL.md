@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [finite-difference, central-difference, forward-difference, backward-difference, truncation-error, step-size, second-derivative, tabulated-data]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Finite Difference Derivatives (cross-cutting/numerics/finite-difference-derivatives)

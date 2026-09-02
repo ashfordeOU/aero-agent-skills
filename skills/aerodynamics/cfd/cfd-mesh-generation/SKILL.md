@@ -15,7 +15,7 @@ metadata:
   subdomain: cfd
   tags: [cfd, mesh-generation, grid-types, structured-grid, unstructured-grid, hybrid-grid, prism-layers, first-cell-height, y-plus, skewness, orthogonality, aspect-ratio, domain-sizing, mesh-refinement]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CFD Mesh Generation (aerodynamics/cfd/cfd-mesh-generation)

@@ -15,7 +15,7 @@ metadata:
   subdomain: export-control
   tags: [export-control, export, control, itar, ear, usml, ear99, defense-articles, technical-data]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Export Control Awareness (cross-cutting/export-control/export-control-awareness)

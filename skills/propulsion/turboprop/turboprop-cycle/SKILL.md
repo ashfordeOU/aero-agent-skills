@@ -15,7 +15,7 @@ metadata:
   subdomain: turboprop
   tags: [turboprop-cycle, propeller-efficiency, froude-efficiency, static-thrust, equivalent-shaft-power, advance-ratio, power-coefficient, thrust-coefficient, specific-fuel-consumption, overall-efficiency, slipstream-velocity, propeller-disk-area]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Turboprop Cycle (propulsion/turboprop/turboprop-cycle)

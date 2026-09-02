@@ -15,7 +15,7 @@ metadata:
   subdomain: cfd
   tags: [vortex-lattice-method, horseshoe-vortex, panel-lattice, influence-coefficient, spanwise-lift-distribution, downwash-angle, trefftz-plane]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Vortex Lattice Method (aerodynamics/cfd/vortex-lattice-method)

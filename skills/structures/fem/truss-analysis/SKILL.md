@@ -17,7 +17,7 @@ metadata:
   subdomain: fem
   tags: [truss-analysis, direct-stiffness-method, nodal-displacements, member-forces, gaussian-elimination, element-stiffness-matrix, global-stiffness-matrix, support-conditions, reaction-forces, plane-truss]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Truss Analysis (structures/fem/truss-analysis)

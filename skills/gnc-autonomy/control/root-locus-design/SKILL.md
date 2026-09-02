@@ -15,7 +15,7 @@ metadata:
   subdomain: control
   tags: [root-locus-design, root-locus, closed-loop-poles, damping-ratio, gain-selection, characteristic-equation, stability, zeta]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Root Locus Design (gnc-autonomy/control/root-locus-design)

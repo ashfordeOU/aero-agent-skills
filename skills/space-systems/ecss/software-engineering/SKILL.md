@@ -15,7 +15,7 @@ metadata:
   subdomain: ecss
   tags: [ecss, space-software, e-st-40c, q-st-80c, criticality, heritage, product-assurance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ECSS Space Software Engineering (space-systems/ecss/software-engineering)

@@ -15,7 +15,7 @@ metadata:
   subdomain: airfoil
   tags: [airfoil-optimization, shape-optimization, design-space, trade-study, drag-bucket-width, parsec-parameterization, naca-parameterization, sensitivity-analysis, geometric-constraints]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Airfoil Shape Optimization (aerodynamics/airfoil/airfoil-optimization)

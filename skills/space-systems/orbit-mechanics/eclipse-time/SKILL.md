@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [eclipse-time, earth-shadow, beta-angle, shadow-fraction, eclipse-duration, orbit-plane, sun-vector, orbit-period]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Eclipse Time (space-systems/orbit-mechanics/eclipse-time)

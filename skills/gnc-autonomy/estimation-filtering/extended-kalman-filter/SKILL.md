@@ -15,7 +15,7 @@ metadata:
   subdomain: estimation-filtering
   tags: [extended-kalman-filter, jacobian-linearization, nonlinear-state-estimation, innovation-covariance, kalman-gain, predict-update-recursion, range-bearing-tracking, state-covariance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Extended Kalman Filter (gnc-autonomy/estimation-filtering/extended-kalman-filter)

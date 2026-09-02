@@ -17,7 +17,7 @@ metadata:
   subdomain: handling-qualities
   tags: [cooper-harper-rating, handling-qualities, pilot-rating, flyability, decision-tree, rating-bands, pilot-compensation, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Cooper-Harper Rating (flight-mechanics/handling-qualities/cooper-harper-rating)

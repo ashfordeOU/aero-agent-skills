@@ -17,7 +17,7 @@ metadata:
   subdomain: mass-properties
   tags: [cg-envelope, static-margin, neutral-point, forward-limit, aft-limit, envelope-polygon, cg-excursion, fuel-burn]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # CG Envelope (vehicle-design/mass-properties/cg-envelope)

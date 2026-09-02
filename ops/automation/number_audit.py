@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AeroSkills brief-audit engine (deterministic, no LLM).
+"""Aero Agent Skills brief-audit engine (deterministic, no LLM).
 
 Scans repo docs (research/, marketing/, development/, docs/, README.md — or
 explicit paths given as args; development/builds/ and docs/superpowers/ are
@@ -19,7 +19,7 @@ Scope (documented in ops/automation/TEST.md):
   (total/largest phrases with the number following the phrase).
 - Excluded: ranges (N–M / N→M, self-consistent), floors (N+), 4-digit years,
   dates, identifier-embedded numbers (SEP-2640, v1.1.0), bare prose numbers
-  without a market marker, internal AeroSkills target/design figures (no repo
+  without a market marker, internal Aero Agent Skills target/design figures (no repo
   alias, no external truth to verify), attributed historical quotes
   ("measured N", "brief says N", "same week") which resolve against the
   register's `measurements` section.

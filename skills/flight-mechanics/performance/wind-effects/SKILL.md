@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [wind-effects, headwind, tailwind, crosswind, wind-correction-angle, groundspeed, crab-angle, enroute-time]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Wind Effects (flight-mechanics/performance/wind-effects)

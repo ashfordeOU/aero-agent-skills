@@ -17,7 +17,7 @@ metadata:
   subdomain: composites
   tags: [sandwich, panel, honeycomb, foam, core, shear, wrinkling, deflection, bending, stiffness, composites]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Sandwich Panel Design (structures/composites/sandwich-panels)

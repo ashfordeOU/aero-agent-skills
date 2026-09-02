@@ -17,7 +17,7 @@ metadata:
   subdomain: stability-control
   tags: [aileron-reversal, control-reversal, reversal-speed, reversal-dynamic-pressure, torsional-stiffness, elastic-axis, aileron-effectiveness]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Aileron Reversal (flight-mechanics/stability-control/aileron-reversal)

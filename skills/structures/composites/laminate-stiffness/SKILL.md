@@ -17,7 +17,7 @@ metadata:
   subdomain: composites
   tags: [composite-laminate, classical-lamination-theory, ply-stiffness, laminate-a-matrix, symmetric-laminate, composites]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Composite Laminate Stiffness (structures/composites/laminate-stiffness)

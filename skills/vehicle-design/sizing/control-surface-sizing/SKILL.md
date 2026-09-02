@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [control-surface-sizing, aileron-sizing, elevator-sizing, rudder-sizing, hinge-moment, control-power, deflection-limits, roll-rate-requirement]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Control Surface Sizing (vehicle-design/sizing/control-surface-sizing)

@@ -15,7 +15,7 @@ metadata:
   subdomain: orbit-mechanics
   tags: [ground-track-repeat, repeat-ground-track, nodal-period, revolutions-per-day, sidereal-day, integer-revolutions, nodal-regression]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Repeating Ground Track (space-systems/orbit-mechanics/ground-track-repeat)

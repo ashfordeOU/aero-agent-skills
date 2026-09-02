@@ -15,7 +15,7 @@ metadata:
   subdomain: arp4754a
   tags: [arp4754a, configuration-management, change-control, baseline, traceability, impact-analysis, change-request, configuration-item]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARP4754A Configuration Management (systems-engineering-safety/arp4754a/configuration-management)

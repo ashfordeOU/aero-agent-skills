@@ -17,7 +17,7 @@ metadata:
   subdomain: flutter
   tags: [ground-vibration-testing, ground-vibration-test, modal-damping, half-power-bandwidth, frequency-response-function, mode-shapes, accelerometer, frf, gvt, modal-analysis, flutter, damping]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ground Vibration Testing (flight-test-operations/flutter/ground-vibration-testing)

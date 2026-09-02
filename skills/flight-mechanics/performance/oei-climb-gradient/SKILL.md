@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [oei-climb-gradient, one-engine-inoperative, second-segment, engine-out, approach-climb, landing-climb, climb-gradient, takeoff-climb]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # One-Engine-Inoperative Climb Gradient (flight-mechanics/performance/oei-climb-gradient)

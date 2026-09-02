@@ -15,7 +15,7 @@ metadata:
   subdomain: sep2640
   tags: [sep-2640, skill-authoring, skill-md-template, frontmatter, kebab-case, conformance-check, pre-publish]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # SEP-2640 Skill Authoring (cross-cutting/sep2640/skill-authoring)

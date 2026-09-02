@@ -1,4 +1,4 @@
-# AeroSkills Eval Harness Contract (Phase 0)
+# Aero Agent Skills Eval Harness Contract (Phase 0)
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.

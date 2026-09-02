@@ -15,7 +15,7 @@ metadata:
   subdomain: ndt
   tags: [ndt, radiography, ultrasonic, eddy, current, penetrant, magnetic, particle, ferromagnetic, conductive]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # NDT Method Selection (manufacturing-quality/ndt/ndt-method-selection)

@@ -17,7 +17,7 @@ metadata:
   subdomain: stability
   tags: [static-stability, trim-curve, elevator-angle, neutral-point, static-margin, stick-fixed, stick-free, elevator-angle-per-g, flight-test]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Static Stability Flight Test (flight-test-operations/stability/static-stability-flight-test)

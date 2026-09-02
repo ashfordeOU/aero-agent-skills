@@ -17,7 +17,7 @@ metadata:
   subdomain: envelope
   tags: [high-angle-of-attack, post-stall, deep-stall, aoa-calibration, position-error-correction, stall-margin, departure-resistance, spin-entry, stall-warning, flight-test-envelope]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # High Angle of Attack Testing (flight-test-operations/envelope/high-angle-of-attack-testing)

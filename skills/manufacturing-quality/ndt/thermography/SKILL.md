@@ -15,7 +15,7 @@ metadata:
   subdomain: ndt
   tags: [thermography, infrared-thermography, flash-thermography, pulsed-thermography, lock-in, thermal-contrast, thermal, contrast, disbond, delamination, void, corrosion, active-thermography, passive-thermography, semi-infinite-solid, thermal-diffusivity, heating-pulse, pulse-energy, observation-window, acquisition-rate, composite, composite-panel, subsurface-defect]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Thermography (manufacturing-quality/ndt/thermography)

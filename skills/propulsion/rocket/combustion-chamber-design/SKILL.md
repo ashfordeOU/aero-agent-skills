@@ -15,7 +15,7 @@ metadata:
   subdomain: rocket
   tags: [combustion-chamber-design, rocket-combustion-chamber, characteristic-velocity, c-star, thrust-coefficient, contraction-ratio, chamber-pressure, chamber-volume, l-star, throat-area, mass-flow, vacuum-specific-impulse]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Combustion Chamber Design (propulsion/rocket/combustion-chamber-design)

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# AeroSkills content-policy sweep (attestation part 3).
+# Aero Agent Skills content-policy sweep (attestation part 3).
 # Scans publishable content for red-flag terms per research/briefs/
 # 06-legal-export-control.md s8.3.6 / s8.3.9 (content policy) + task list:
 #   - ITAR/EAR/export compliance CLAIMS ("ITAR-compliant", "ITAR certified",

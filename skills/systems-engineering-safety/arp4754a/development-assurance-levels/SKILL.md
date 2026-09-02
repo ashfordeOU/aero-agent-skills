@@ -17,7 +17,7 @@ metadata:
   subdomain: arp4754a
   tags: [development-assurance-levels, dal, fdal, idal, severity-categorization, severity-to-dal-mapping, dal-propagation, arp4754a, arp4761a]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Development Assurance Levels (systems-engineering-safety/arp4754a/development-assurance-levels)

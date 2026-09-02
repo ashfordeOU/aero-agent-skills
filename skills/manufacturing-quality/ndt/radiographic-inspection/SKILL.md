@@ -15,7 +15,7 @@ metadata:
   subdomain: ndt
   tags: [radiographic-inspection, radiography, x-ray, gamma-ray, iqi, penetrameter, geometric-unsharpness, unsharpness, film-density, film, density, porosity, exposure-time, inverse-square, source-to-object, object-to-detector, sensitivity, weld, casting, radiograph]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Radiographic Inspection (manufacturing-quality/ndt/radiographic-inspection)

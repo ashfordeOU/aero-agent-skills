@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [rate-of-climb, climb-performance, excess-thrust, time-to-climb, service-ceiling, climb-gradient]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Climb Performance (flight-mechanics/performance/climb-performance)

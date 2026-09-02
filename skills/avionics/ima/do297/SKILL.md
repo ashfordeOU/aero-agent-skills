@@ -17,7 +17,7 @@ metadata:
   subdomain: ima
   tags: [integrated-modular-avionics, do297, module-acceptance, incremental-certification, partition-allocation, resource-budget, cpu-memory-io, integrity-requirements, ima-architecture, shared-resources]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # DO-297 IMA Architecture and Acceptance (avionics/ima/do297)

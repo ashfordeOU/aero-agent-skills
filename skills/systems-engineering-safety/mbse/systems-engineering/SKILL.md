@@ -17,7 +17,7 @@ metadata:
   subdomain: mbse
   tags: [mbse, sysml, architecture, modeling, capella, osate, digital-thread, allocation]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # MBSE Systems Engineering (systems-engineering-safety/mbse/systems-engineering)

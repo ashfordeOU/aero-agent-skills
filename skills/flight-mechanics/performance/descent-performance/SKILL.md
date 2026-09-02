@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [descent-performance, rate-of-descent, descent-gradient, glide-range, descent-fuel, descent-time, step-down-descent, wing-loading]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Descent Performance (flight-mechanics/performance/descent-performance)

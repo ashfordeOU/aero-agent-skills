@@ -15,7 +15,7 @@ metadata:
   subdomain: turbofan
   tags: [turbofan-off-design, off-design, corrected-mass-flow, corrected-speed, altitude-thrust, ram-drag, cruise-sfc, throttle-setting, component-matching, fan-matching, core-matching]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Turbofan Off-Design (propulsion/turbofan/turbofan-off-design)

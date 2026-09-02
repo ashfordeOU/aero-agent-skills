@@ -15,7 +15,7 @@ metadata:
   subdomain: fem
   tags: [modal-analysis, natural-frequency, mode-shape, resonance, eigenvalue, vibration, two-dof, structural-dynamics]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Modal Analysis (structures/fem/modal-analysis)

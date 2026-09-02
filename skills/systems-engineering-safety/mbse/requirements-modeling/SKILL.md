@@ -17,7 +17,7 @@ metadata:
   subdomain: mbse
   tags: [requirements-modeling, sysml-requirement-diagram, requirement-stereotype, requirement-tree, derive-relationship, satisfy-relationship, verify-relationship, trace-relationship, verification-status-rollup, vague-term-screening, requirement-atomicity, requirement-id-validation, requirement-verifiability, requirement-coverage]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # SysML Requirements Modeling (systems-engineering-safety/mbse/requirements-modeling)

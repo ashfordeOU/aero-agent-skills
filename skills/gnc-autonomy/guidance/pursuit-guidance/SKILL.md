@@ -15,7 +15,7 @@ metadata:
   subdomain: guidance
   tags: [pursuit-guidance, pure-pursuit, lead-pursuit, lead-angle, guidance-error, heading-error, capture-condition, collision-course, intercept-time, terminal-homing]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Pursuit Guidance (gnc-autonomy/guidance/pursuit-guidance)

@@ -15,7 +15,7 @@ metadata:
   subdomain: ramjet
   tags: [ramjet-cycle, ideal-ramjet, specific-thrust, fuel-air-ratio, total-temperature-ratio, specific-impulse, thermal-efficiency]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Ramjet Cycle (propulsion/ramjet/ramjet-cycle)

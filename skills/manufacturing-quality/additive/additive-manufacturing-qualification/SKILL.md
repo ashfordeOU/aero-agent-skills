@@ -15,7 +15,7 @@ metadata:
   subdomain: additive
   tags: [additive, manufacturing, qualification, laser, power, scan, speed, hatch, spacing, layer, height, energy, density, volumetric, witness, coupon, powder, bed, fusion, am, build, parameter, material, property, verification]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Additive Manufacturing Qualification (manufacturing-quality/additive/additive-manufacturing-qualification)

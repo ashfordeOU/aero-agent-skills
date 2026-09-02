@@ -17,7 +17,7 @@ metadata:
   subdomain: fatigue
   tags: [fatigue, cumulative-damage, palmgren-miner, load-spectrum, fatigue-life, damage-tolerance]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fatigue Cumulative Damage (structures/fatigue/miner-damage)

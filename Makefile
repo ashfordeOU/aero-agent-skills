@@ -1,4 +1,4 @@
-# AeroSkills eval harness (Phase 0 -> REAL)
+# Aero Agent Skills eval harness (Phase 0 -> REAL)
 # Full 5-gate contract: docs/harness-contract.md
 # All gates REAL as of the 09-04 milestone (landed early). Deterministic, no network.
 #
@@ -13,7 +13,7 @@
         packs visuals visuals-check
 
 validate: lint-spec desc-lint pytest-contract no-verbatim hit1
-	@echo "AeroSkills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
+	@echo "Aero Agent Skills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
 # must have SKILL.md + scripts/ + contract test + no broken refs, with
@@ -69,7 +69,7 @@ visuals-check:
 # runs BEFORE committing (a fresh state snapshot is part of each complete commit).
 .PHONY: attest
 attest: number-snapshot-offline brief-audit content-policy-sweep
-	@echo "AeroSkills attest: PASS (number snapshot offline + brief audit + content policy green)"
+	@echo "Aero Agent Skills attest: PASS (number snapshot offline + brief audit + content policy green)"
 
 snapshot-live:
 	@ops/automation/number-snapshot.sh --live

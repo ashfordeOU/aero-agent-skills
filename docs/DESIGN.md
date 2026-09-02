@@ -1,5 +1,5 @@
 ---
-name: AeroSkills Design System
+name: Aero Agent Skills Design System
 north_star: "The repo wears the logo's universe: deep space navy, a paper plane's clean white geometry, and the logo's four hues — cyan orbit, violet sky, magenta cloud, orange exhaust — used as flat, disciplined accents over engineering-drawing conventions (mono uppercase labels, hairline frames, title blocks)."
 theme: dual
 logo:

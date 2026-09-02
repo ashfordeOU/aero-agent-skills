@@ -17,7 +17,7 @@ metadata:
   subdomain: performance
   tags: [takeoff-performance, ground-roll, lift-off-speed, stall-speed, wing-loading, liftoff]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Takeoff Performance (flight-mechanics/performance/takeoff-performance)

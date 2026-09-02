@@ -17,7 +17,7 @@ metadata:
   subdomain: flutter
   tags: [flutter-testing, flutter-margin, damping-trend, flutter-speed, frequency-separation, frequency-coalescence, design-dive-speed, structural-modes, aeroelasticity, flutter-clearance, flutter, damping]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flutter Testing (flight-test-operations/flutter/flutter-testing)

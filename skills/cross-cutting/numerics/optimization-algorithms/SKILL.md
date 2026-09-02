@@ -15,7 +15,7 @@ metadata:
   subdomain: numerics
   tags: [optimization-algorithms, golden-section-search, gradient-descent, nelder-mead, newton-method, line-search, unconstrained-minimum]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Optimization Algorithms (cross-cutting/numerics/optimization-algorithms)

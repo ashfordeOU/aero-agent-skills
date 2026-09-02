@@ -17,7 +17,7 @@ metadata:
   subdomain: damage-tolerance
   tags: [bird-strike, birdstrike, soft-body-impact, impact-energy, leading-edge, energy-absorption, residual-strength, windshield-impact, radome-impact, engine-inlet]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Bird Strike (structures/damage-tolerance/bird-strike)

@@ -15,7 +15,7 @@ metadata:
   subdomain: mbse
   tags: [sysml-modeling, sysml, block-definition-diagram, bdd, internal-block-diagram, ibd, parametric-diagram, requirements-diagram, traceability, mbse]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # SysML Modeling (systems-engineering-safety/mbse/sysml-modeling)

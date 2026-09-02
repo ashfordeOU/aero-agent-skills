@@ -17,7 +17,7 @@ metadata:
   subdomain: fem
   tags: [plate-buckling, panel-buckling, buckling-coefficient, compression-buckling, shear-buckling, skin-panel, spar-web, effective-width, critical-buckling-stress, flat-plate]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Plate Buckling (structures/fem/plate-buckling)

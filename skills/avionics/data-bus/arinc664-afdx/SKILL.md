@@ -15,7 +15,7 @@ metadata:
   subdomain: data-bus
   tags: [afdx, arinc-664, virtual-link, bag, jitter, end-system, switched-ethernet, avionics-network, bandwidth, latency, redundancy, full-duplex]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # ARINC 664 AFDX Switched Network (avionics/data-bus/arinc664-afdx)

@@ -17,7 +17,7 @@ metadata:
   subdomain: sizing
   tags: [fuselage-sizing, cabin-length, fuselage-diameter, seats-abreast, seat-pitch, cabin-width, aisle-width, cargo-volume]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Fuselage Sizing (vehicle-design/sizing/fuselage-sizing)

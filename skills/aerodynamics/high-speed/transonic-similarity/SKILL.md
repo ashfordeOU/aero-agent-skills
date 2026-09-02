@@ -15,7 +15,7 @@ metadata:
   subdomain: high-speed
   tags: [prandtl-glauert, karman-tsien, transonic, compressibility-correction, critical-mach]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Transonic Similarity Corrections (aerodynamics/high-speed/transonic-similarity)

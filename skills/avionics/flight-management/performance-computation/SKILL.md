@@ -17,7 +17,7 @@ metadata:
   subdomain: flight-management
   tags: [performance-computation, cost-index, econ-cruise-speed, fuel-time-trade, step-climb, top-of-descent, vnav, flight-management-system, fms]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Performance Computation (avionics/flight-management/performance-computation)

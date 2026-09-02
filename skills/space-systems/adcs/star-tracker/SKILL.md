@@ -15,7 +15,7 @@ metadata:
   subdomain: adcs
   tags: [adcs, star-tracker, star-identification, star-catalog, boresight, attitude-determination, lost-in-space, field-of-view]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Star Tracker Attitude Determination (space-systems/adcs/star-tracker)

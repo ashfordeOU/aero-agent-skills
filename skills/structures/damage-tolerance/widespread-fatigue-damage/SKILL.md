@@ -17,7 +17,7 @@ metadata:
   subdomain: damage-tolerance
   tags: [damage-tolerance, widespread-fatigue-damage, msd, med, multiple-site-damage, multiple-element-damage, supplemental-inspection, far-25-571]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Widespread Fatigue Damage (structures/damage-tolerance/widespread-fatigue-damage)

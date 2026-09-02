@@ -17,7 +17,7 @@ metadata:
   subdomain: aeroelasticity
   tags: [flutter-speed, v-g-method, bending-torsion, typical-section, frequency-coalescence, flutter-margin, theodorsen, reduced-frequency, far-25-629, aeroelasticity]
   version: 0.1.0
-  author: AeroSkills
+  author: Aero Agent Skills
 ---
 
 # Flutter Speed Prediction (aerodynamics/aeroelasticity/flutter-speed-prediction)
