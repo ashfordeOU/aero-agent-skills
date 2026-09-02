@@ -143,8 +143,11 @@ def scan_tree(root):
             except Exception:
                 continue
             for name, pattern in PATTERNS.items():
-                # skip the audit script itself (its patterns are split anyway,
-                # but be safe) and publish-public.sh (documents the tripwire)
+                # never flag the audit tooling itself: public-safety-audit.py
+                # and publish-public.sh carry split patterns/documentation that
+                # legitimately mention these strings as detection examples
+                if rel in ("scripts/public-safety-audit.py", "ops/automation/publish-public.sh"):
+                    continue
                 if re.search(pattern, content):
                     matches.setdefault(rel, set()).add(name)
     return matches
