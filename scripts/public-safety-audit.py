@@ -79,6 +79,7 @@ ENV_FILE_RE = re.compile(r"(\.env($|\.)|\.pem$|\.key$|\.p12$|\.pfx$|id_rsa|id_ed
 TOOLING_FILES = {
     "scripts/public-safety-audit.py",
     "ops/automation/publish-public.sh",
+    "packages/jetbrains-plugin/build.gradle.kts",
 }
 
 def main():
