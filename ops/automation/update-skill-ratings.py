@@ -22,7 +22,7 @@ LEDGER = ROOT / "eval" / "skill-ratings.md"
 SKILLS = ROOT / "skills"
 STD_MAP = ROOT / "standards-map.yaml"
 
-AUDIT_LINE = "Audit: CEO (Arjun) - regenerated {date} · Founder directive: \"run the checks and ratings on them too\""
+AUDIT_LINE = "Audit: CEO, Ashforde OÜ - regenerated {date} · Founder directive: \"run the checks and ratings on them too\""
 METHOD_LINE = "Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check."
 
 

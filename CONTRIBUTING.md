@@ -1,7 +1,7 @@
 # Contributing to AeroSkills
 
 AeroSkills is an open library of civil aerospace engineering methodology
-for AI agents, published by Ashforde OU (Estonia) under Apache-2.0.
+for AI agents, published by Ashforde OÜ (Estonia) under Apache-2.0.
 
 ## Ground rules (AGENTS.md)
 
