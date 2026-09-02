@@ -1,5 +1,18 @@
 # Aero Agent Skills release runbook: Ashforde public publish
 
+**Status: EXECUTED 2026-09-02.** github.com/ashfordeOU/aero-agent-skills
+is LIVE (public, single branch `main`, tagged `v1.0.0`), and
+`aero-agent-skills@1.0.0` is LIVE on npm (verified via `npx
+aero-agent-skills search` against the published registry copy, not
+just the publish exit code). arjun-0077/aero-agent-skills remains the
+private TEST environment (founder 2026-09-02: "we will maintain test
+environment in arjun account and publish the public release via
+ashfordeOU"). Section 10 below is the actual command sequence that
+worked, superseding the fictional `/Users/enterprisehq/...` paths and
+untested assumptions in sections 1-7 (kept for their reasoning, not
+their exact paths — three assumptions in the original draft turned out
+wrong when actually executed, see section 10's notes).
+
 **Status:** runbook, executable-on-GO. Nothing here executes without
 founder GO (publish = founder VETO, AGENTS.md). This document is the
 operating procedure for the CORRECTED publish path.
@@ -386,7 +399,110 @@ guard and misstate map coverage.
   scratch, ops/automation/test/ fixtures, or any path not on the
   section 3a allowlist.
 
-## 10. Related
+## 10. Actual execution log (2026-09-02) — the proven procedure
+
+What actually ran, from the dev checkout (~/Code/aeroskills, ordinary
+local path — no iCloud, no scratch-clone dance needed for THIS repo):
+
+    # 1. Export the clean tree. This exact pathspec list is the
+    #    corrected allowlist (section 3a/3b): everything
+    #    scripts/gen_visuals.py's outputs() manages (full light+dark
+    #    set, not just -dark), .claude-plugin/, packages/aero-agent-skills/,
+    #    skills/ scripts/ eval/, the curated docs/*.md set, ops/automation
+    #    minus test/. Never marketing/, never the seal/social-card/
+    #    logo-full/DESIGN.md marketing-only assets.
+    rm -rf /tmp/aero-public-release && mkdir -p /tmp/aero-public-release
+    git archive --format=tar HEAD -- \
+      .gitignore .github CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md \
+      LICENSE Makefile NOTICE README.md SECURITY.md STANDARDS.md standards-map.yaml \
+      .claude-plugin skills scripts eval packages/aero-agent-skills \
+      docs/FAQ.md docs/glossary.md docs/harness-contract.md \
+      docs/harness-integration.md docs/company-of-departments.md \
+      docs/metrics.json docs/DOMAINS.md docs/logo-mark.png \
+      docs/title.svg docs/title.png docs/title-dark.svg docs/title-dark.png \
+      docs/statline.svg docs/statline.png docs/statline-dark.svg docs/statline-dark.png \
+      docs/domain-radar.svg docs/domain-radar.png docs/domain-radar-dark.svg docs/domain-radar-dark.png \
+      docs/domain-polar.svg docs/domain-polar.png docs/domain-polar-dark.svg docs/domain-polar-dark.png \
+      docs/structure.svg docs/structure.png docs/structure-dark.svg docs/structure-dark.png \
+      docs/skill-anatomy.svg docs/skill-anatomy.png docs/skill-anatomy-dark.svg docs/skill-anatomy-dark.png \
+      docs/how-it-works.svg docs/how-it-works.png docs/how-it-works-dark.svg docs/how-it-works-dark.png \
+      docs/gates.svg docs/gates.png docs/gates-dark.svg docs/gates-dark.png \
+      ops/automation ':(exclude)ops/automation/test' \
+      | tar -x -C /tmp/aero-public-release
+
+    # 2. Hygiene: secrets grep (0 hits), stray __pycache__/.pyc check
+    #    (git handles this via .gitignore once init'd), excluded-name
+    #    leak check for social-card/ashforde-seal/logo-full/DESIGN.md/
+    #    marketing — all clean.
+
+    # 3. PROVE the export is self-contained: run the real gates INSIDE
+    #    it before touching git or GitHub. This caught two real bugs
+    #    (below) that a "looks right" read of the allowlist would have
+    #    missed — never skip this step.
+    cd /tmp/aero-public-release
+    make validate && make attest && make visuals-check && make package-test
+
+    # 4. Init, commit, create the repo, push, tag.
+    git init -b main
+    git config user.name "ashfordeOU"; git config user.email "contact@ashforde.org"
+    git add -A && git commit -m "Aero Agent Skills v1.0.0: ..."
+    gh repo create ashfordeOU/aero-agent-skills --public \
+      --description "..." --homepage "https://ashforde.org/aeroagentskills"
+    git remote add origin https://github.com/ashfordeOU/aero-agent-skills.git
+    # the machine's global fail-closed pre-push hook needs a LOCAL gate
+    # declaration in the export too — same requirement as any repo:
+    printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > .ci-native
+    git add .ci-native && git commit -m "ci: add local pre-push gate"
+    git push -u origin main   # replays the battery again, ~7 min; run in background
+    git tag -a v1.0.0 -m "..."
+    git push origin v1.0.0    # tag pushes ALSO trigger the pre-push hook — background this too
+
+    # 5. Publish npm from THIS tree, not the dev tree (npm token
+    #    already configured machine-local as `ashfordeou`):
+    cd packages/aero-agent-skills && npm publish --access public
+    # verify against the registry directly, never the exit code:
+    npm view aero-agent-skills version   # poll — replication lag ~1 min on a fresh version
+    npx aero-agent-skills@1.0.0 search "..."   # real end-user smoke test
+
+    # 6. Verify the Claude Code plugin channel against the REAL repo
+    #    (not a local-path marketplace, which only proves the manifest
+    #    parses — this proves GitHub resolution + discovery):
+    claude plugin marketplace add ashfordeOU/aero-agent-skills
+    claude plugin install aero-agent-skills@aero-agent-skills
+    claude plugin details aero-agent-skills   # confirm version + skill inventory
+    claude plugin uninstall aero-agent-skills; claude plugin marketplace remove aero-agent-skills
+
+Three assumptions in the original draft (sections 1-7) that step 3
+proved WRONG on first attempt — fix before trusting this runbook's
+older prose over this log:
+
+1. The original allowlist had NO docs/*.png or docs/*.svg at all
+   (written before Design v5 existed). A "-dark only" first correction
+   also failed: scripts/gen_visuals.py's outputs() checks the FULL
+   light+dark set as one unit, so shipping half fails the export's own
+   `make visuals-check`. Fix: ship everything outputs() manages — see
+   section 3b's final form.
+2. scripts/gen_visuals.py originally read docs/ashforde-seal.svg (a
+   marketing-only vendored asset, correctly excluded from the public
+   tree) unconditionally at import time. Any invocation of the script
+   in the exported tree crashed. Fixed in the script itself:
+   ashforde_seal_svg() is lazy, and marketing_outputs() (the social
+   card + launch post) is gated on the seal file's existence — its
+   absence in an export IS the public-tree signal.
+3. Every dev-repo push and the export's own bootstrap push HANGS past
+   the default 60s tool timeout because the pre-push hook replays the
+   ~7-minute battery — this includes branch DELETES and TAG pushes,
+   not just content pushes. Always background these, then verify with
+   `git ls-remote` / `git rev-parse` rather than trusting a timed-out
+   foreground command's silence.
+
+Branch hygiene enforced same day (founder: "both repos only maintain
+one branch"): arjun-0077's stale `release-clean` branch (pre-dated the
+330-leaf/identity-rewrite era, never merged into main) was deleted;
+ashfordeOU/aero-agent-skills was git-init'd fresh with only `main`, so
+it was single-branch from birth.
+
+## 11. Related
 
 - Plan: marketing/distribution-plan-P3.md (launch sequence, targets,
   risks) and marketing/launch-draft-2026-08-31.md (X thread copy).
