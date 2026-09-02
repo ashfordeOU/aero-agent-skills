@@ -1,0 +1,16 @@
+# Hit@1 wave-23 fragment: optimization-algorithms (cross-cutting/numerics)
+# Two tasks per new leaf skill. w23-optimization-algorithms-1 routes on
+# golden-section search over a bracketed scalar objective plus Newton's
+# method on the derivative; w23-optimization-algorithms-2 routes on
+# gradient descent with a line search versus the Nelder-Mead simplex on a
+# multivariate objective. Both route on method-level vocabulary and must
+# deterministically hit cross-cutting/numerics/optimization-algorithms.
+tasks:
+  - id: w23-optimization-algorithms-1
+    query: "minimize a scalar design objective numerically: I have a bracket on a smooth one-variable objective with the minimum inside, run a golden section search over the bracket to locate the minimum at a tolerance, then refine the converged point with Newton's method on the derivative and report both minima with their function values and iteration counts"
+    intent: "cross-cutting; golden-section search on a bracketed unimodal scalar objective plus Newton's method on the derivative for a smooth minimum"
+    expected_skill: "cross-cutting/numerics/optimization-algorithms"
+  - id: w23-optimization-algorithms-2
+    query: "compare two minimizers on a multivariate objective: run gradient descent with a backtracking line search from a starting point, run the Nelder-Mead simplex method from the same point, and compare the converged minima, function values, and iteration counts at equal tolerance"
+    intent: "cross-cutting; gradient descent with line search versus Nelder-Mead simplex on a multivariate objective with converged minima comparison"
+    expected_skill: "cross-cutting/numerics/optimization-algorithms"
