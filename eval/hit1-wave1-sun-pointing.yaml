@@ -1,0 +1,13 @@
+# Hit@1 wave-1 fragment: sun-pointing (space-systems/adcs)
+# Two tasks per new leaf skill; spt2 is adversarial (neighbor
+# attitude-control-sizing carries 'slew rate' in its description and
+# tags, must deterministically route to sun-pointing).
+tasks:
+  - id: spt1
+    query: "compute the sun pointing angle and check the attitude is within tolerance for the spacecraft safe hold"
+    intent: "spacecraft ADCS; sun pointing angle and safe hold tolerance"
+    expected_skill: "space-systems/adcs/sun-pointing"
+  - id: spt2
+    query: "size the slew rate to acquire the sun and estimate the solar illumination factor at the sun angle"
+    intent: "spacecraft ADCS; sun acquisition slew rate and solar illumination factor"
+    expected_skill: "space-systems/adcs/sun-pointing"

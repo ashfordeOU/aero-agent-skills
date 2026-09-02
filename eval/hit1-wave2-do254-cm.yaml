@@ -1,0 +1,14 @@
+# Hit@1 wave-2 fragment: configuration-management (avionics/do254)
+# Two tasks per new leaf; dcm1 routes on change class and the
+# ECR/ECO decision, dcm2 routes on review independence for complex
+# hardware. Both must deterministically hit
+# avionics/do254/configuration-management.
+tasks:
+  - id: dcm1
+    query: "classify the do 254 hardware change and decide whether an engineering change order with reverification is required"
+    intent: "avionics hardware; DO-254 change class and ECR/ECO decision"
+    expected_skill: "avionics/do254/configuration-management"
+  - id: dcm2
+    query: "check the review independence needed for the complex hardware configuration change"
+    intent: "avionics hardware; DO-254 review independence for complex hardware CM"
+    expected_skill: "avionics/do254/configuration-management"

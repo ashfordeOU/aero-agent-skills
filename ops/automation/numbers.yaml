@@ -1,0 +1,423 @@
+# Aero Agent Skills canonical number register — single source of truth for every
+# quoted number in the repo. brief-audit.sh resolves docs against this file;
+# number-snapshot.sh live-verifies the `tracked` section via GitHub API.
+#
+# Live baseline: 2026-08-31, verified via `gh api repos/{repo}` (authed
+# arjun-0077). tracked = must stay within tolerance of live; derived = claims
+# derived from live; repos = every other quoted repo (value = live where the
+# repo exists, verified:false + documented value where it does not).
+#
+# Tolerance semantics: tolerance_pct applies to stars/forks; tolerance_abs for
+# small counts. Values quoted in docs as "Nk" (31.7k) or "N★" are normalized
+# to integers before comparison. `measurements` = attributed historical quotes
+# ("measured N", "same week") that never override canonical live values.
+
+as_of: "2026-08-31"
+note: >
+  Reconcile target for docs: K-Dense 40,842 · cyber 31,700 · devideamax 21 ·
+  ajhcs 22 · largest aerospace repo 22 · total aerospace ≈ 228.
+  Never prosa away a number — fix it or gate it.
+
+tracked:
+  - id: kdense
+    repo: K-Dense-AI/scientific-agent-skills
+    stars: 41986
+    forks: 3801
+    skills: 163
+    tolerance_pct: 1
+    aliases: ["K-Dense", "scientific-agent-skills", "K-Dense Scientific", "K-Dense Scientific Agent Skills", "scientific skills"]
+    source: "GitHub API 2026-09-02 (distribution-channels rebaseline; live growth 41256->41986)"
+  - id: cyber
+    repo: mukul975/Anthropic-Cybersecurity-Skills
+    stars: 31987
+    forks: 3818
+    skills: 818
+    tolerance_pct: 1
+    aliases: ["mukul975", "Anthropic-Cybersecurity-Skills", "Anthropic Cybersecurity Skills", "Anthropic-Cybersecurity", "cybersecurity skills", "Cybersecurity Skills", "cybersecurity"]
+    source: "GitHub API 2026-09-02 (distribution-channels rebaseline; was at +0.9% of the 1% band)"
+  - id: devideamax
+    repo: devideamax/aerospace-team
+    stars: 21
+    forks: 0
+    skills: 12
+    tolerance_abs: 1
+    aliases: ["devideamax", "aerospace-team", "IDEAMAX"]
+    source: "GitHub API 2026-08-31 (task baseline)"
+  - id: ajhcs
+    repo: ajhcs/mbse-agents
+    stars: 22
+    tolerance_abs: 1
+    aliases: ["ajhcs", "mbse-agents", "MBSE Agents"]
+    source: "GitHub API 2026-08-31 (task baseline)"
+
+derived:
+  - id: largest_aerospace_repo
+    value: 22
+    tolerance_abs: 1
+    derived_from: "max(live ajhcs, live devideamax)"
+    phrases: ["largest active aerospace repo", "largest active repo", "largest aerospace agent repo", "largest active"]
+    source: "GitHub API 2026-08-31"
+  - id: total_aerospace_stars
+    value: 228
+    tolerance_pct: 10
+    phrases: ["total stars across", "total combined star count", "total across all attempts", "total aerospace-skills attempts", "total aerospace"]
+    composition:
+      # 228★ empty-lane claim — auditable composition (P3.2 rework).
+      # Scope: every repo row in research/briefs/09-competitor-deepdive.md
+      # §1.0 landscape table = all 11 aerospace-AI-skills attempts on GitHub.
+      # Count (values AS MEASURED when 228 was computed, 2026-08-30 research
+      # wave, commit 7434b7a):
+      #   devideamax 13 · ajhcs 19 · skyintel 19 · IO-Aerospace 15 ·
+      #   Soljourner 60 · LunCoSim 97 · ai4space 0 · cheesejaguar 4 ·
+      #   muroc 1 · deepsky 0 · hakimzulkufli 0
+      #   -> 13+19+19+15+60+97+0+4+1+0+0 = 228
+      # Excluded: aeroastro.org row (website, homepage of cheesejaguar — same
+      # project, double-count guard). Zero-star repos count (they are attempts).
+      # Named live trio (2026-08-31): Soljourner 62 · ajhcs 22 · devideamax 21;
+      # remainder = the other 8 lane repos (skyintel 19 · IO-Aerospace 15 ·
+      # LunCoSim 105 · ai4space 0 · cheesejaguar 4 · muroc 1 · deepsky 0 ·
+      # hakimzulkufli 0).
+      # Brief 09's table now sums ~247, not 228: rows were re-measured live
+      # (devideamax 13->21, ajhcs 19->22, LunCoSim 97->105, Soljourner 60->62)
+      # but the total line stayed frozen at 228. 228 is the historical
+      # whitespace claim — docs must keep quoting 228.
+      rule: "sum of brief 09 §1.0 landscape rows at original 2026-08-30 measurement, excluding the aeroastro.org website row; frozen at 228 despite later live re-measures (table now sums ~247); informational, not re-derivable from the tracked set"
+    source: "brief 09 (2026-08-30) §1.0 table sum at original measurement (commit 7434b7a); rows re-measured live 2026-08-30/31 so the table now sums ~247 — 228 is the frozen historical whitespace claim; informational, not re-derivable from tracked set"
+  - id: largest_dedicated_skills_repo
+    value: 62
+    tolerance_pct: 5
+    derived_from: "soljourner/claude-engineering-skills live (62)"
+    phrases: ["largest dedicated aerospace skills repo", "largest aerospace skills repo by stars", "largest dedicated repo"]
+    source: "GitHub API 2026-08-31"
+
+# Every other quoted repo. verified:true = live GitHub API 2026-08-31.
+repos:
+  - id: anthropics
+    repo: anthropics/skills
+    stars: 172643
+    forks: 20509
+    tolerance_pct: 5
+    verified: true
+    aliases: ["anthropics/skills", "anthropics skills"]
+    source: "GitHub API 2026-08-31"
+  - id: addyosmani
+    repo: addyosmani/agent-skills
+    stars: 90930
+    tolerance_pct: 5
+    verified: true
+    aliases: ["addyosmani", "addyosmani/agent-skills"]
+    source: "GitHub API 2026-08-31"
+  - id: sickn33
+    repo: sickn33/agentic-awesome-skills
+    stars: 45706
+    tolerance_pct: 5
+    verified: true
+    aliases: ["sickn33", "sickn33/agentic-awesome-skills"]
+    source: "GitHub API 2026-08-31"
+  - id: voltagent
+    repo: VoltAgent/awesome-agent-skills
+    stars: 33387
+    tolerance_pct: 5
+    verified: true
+    aliases: ["VoltAgent", "VoltAgent/awesome-agent-skills", "awesome-agent-skills"]
+    source: "GitHub API 2026-08-31"
+  - id: voltagent-openclaw
+    repo: VoltAgent/awesome-openclaw-skills
+    stars: 52275
+    tolerance_pct: 5
+    verified: true
+    aliases: ["VoltAgent/awesome-openclaw-skills", "awesome-openclaw-skills"]
+    source: "GitHub API 2026-08-31 (peer audit reconciliation, Scout 089dacd)"
+  - id: trailofbits
+    repo: trailofbits/skills
+    stars: 6919
+    tolerance_pct: 5
+    verified: true
+    aliases: ["trailofbits", "trailofbits/skills"]
+    source: "GitHub API 2026-08-31"
+  - id: hashicorp
+    repo: hashicorp/agent-skills
+    stars: 855
+    tolerance_pct: 5
+    verified: true
+    aliases: ["hashicorp", "hashicorp/agent-skills"]
+    source: "GitHub API 2026-08-31"
+  - id: gptomics
+    repo: GPTomics/bioSkills
+    stars: 1198
+    tolerance_pct: 5
+    verified: true
+    aliases: ["GPTomics", "bioSkills"]
+    source: "GitHub API 2026-08-31"
+  - id: briirussell
+    repo: briiirussell/cybersecurity-skills
+    stars: 371
+    tolerance_pct: 5
+    verified: true
+    aliases: ["briiirussell"]
+    source: "GitHub API 2026-08-31"
+  - id: christophacham
+    repo: christophacham/agent-skills-library
+    stars: 60
+    skills: 2622
+    tolerance_pct: 10
+    verified: false
+    aliases: ["christophacham", "agent-skills-library"]
+    source: "brief 01 (2026-08-30); repo 404 live 2026-08-31"
+  - id: agent-skills-hub
+    repo: agent-skills-hub/agent-skills-hub
+    stars: 90
+    tolerance_pct: 5
+    verified: true
+    aliases: ["agent-skills-hub"]
+    source: "GitHub API 2026-08-31"
+  - id: luncosim
+    repo: LunCoSim/lunco-sim
+    stars: 105
+    tolerance_pct: 5
+    verified: true
+    aliases: ["LunCoSim", "lunco-sim", "luncosim"]
+    source: "GitHub API 2026-08-31"
+  - id: ai4space
+    repo: LunCoSim/ai4space
+    stars: 0
+    tolerance_abs: 1
+    verified: true
+    aliases: ["ai4space"]
+    source: "GitHub API 2026-08-31"
+  - id: soljourner
+    repo: Soljourner/claude-engineering-skills
+    stars: 62
+    tolerance_pct: 5
+    verified: true
+    aliases: ["Soljourner", "claude-engineering-skills"]
+    source: "GitHub API 2026-08-31"
+  - id: skyintel
+    repo: 0xchamin/skyintel
+    stars: 19
+    tolerance_abs: 2
+    verified: true
+    aliases: ["skyintel", "VoyageIntel", "0xchamin"]
+    source: "GitHub API 2026-08-31"
+  - id: io-aerospace
+    repo: IO-Aerospace-software-engineering/mcp-server
+    stars: 15
+    forks: 2
+    tolerance_abs: 2
+    verified: false
+    aliases: ["IO-Aerospace", "io-aerospace", "IO-Aerospace-software-engineering/mcp-server"]
+    source: "brief 01/09 (2026-08-30); repo 404 live 2026-08-31 (org renamed)"
+  - id: cheesejaguar
+    repo: cheesejaguar/aerospace-mcp
+    stars: 4
+    tolerance_abs: 2
+    verified: true
+    aliases: ["cheesejaguar", "cheesejaguar/aerospace-mcp"]
+    source: "GitHub API 2026-08-31"
+  - id: muroc
+    repo: muroc-aero/the-hangar
+    stars: 1
+    tolerance_abs: 2
+    verified: true
+    aliases: ["muroc-aero", "the-hangar", "muroc-aero/the-hangar"]
+    source: "GitHub API 2026-08-31"
+  - id: deepsky
+    repo: deepskyai/agent-tools
+    stars: 1
+    forks: 1
+    tolerance_abs: 2
+    verified: true
+    aliases: ["deepskyai", "deepskyai/agent-tools"]
+    source: "GitHub API 2026-08-31"
+  - id: hakimzulkufli
+    repo: hakimzulkufli/asd-ste100-skills
+    stars: 0
+    skills: 2
+    tolerance_abs: 2
+    verified: true
+    aliases: ["hakimzulkufli", "hakimzulkufli/asd-ste100-skills"]
+    source: "GitHub API 2026-08-31"
+  - id: simpleenglish
+    repo: AminBlg/SimpleEnglish
+    stars: 2979
+    tolerance_pct: 5
+    verified: true
+    aliases: ["SimpleEnglish", "AminBlg"]
+    source: "GitHub API 2026-08-31"
+  - id: danyuchn
+    repo: danyuchn/asd-ste100-skill
+    stars: 1584
+    tolerance_pct: 5
+    verified: true
+    aliases: ["danyuchn", "asd-ste100-skill"]
+    source: "GitHub API 2026-08-31"
+  - id: ste-code
+    repo: NikolaRHristov/STE-Code
+    stars: 15
+    tolerance_abs: 2
+    verified: true
+    aliases: ["STE-Code", "NikolaRHristov", "ste-code"]
+    source: "GitHub API 2026-08-31"
+  - id: mcp-exp-ext-skills
+    repo: modelcontextprotocol/experimental-ext-skills
+    stars: 200
+    forks: 29
+    tolerance_pct: 5
+    verified: true
+    aliases: ["experimental-ext-skills", "modelcontextprotocol"]
+    source: "GitHub API 2026-08-31"
+  - id: paraview
+    repo: Kitware/ParaView
+    stars: 1690
+    tolerance_pct: 5
+    verified: true
+    aliases: ["ParaView"]
+    source: "GitHub API 2026-08-31"
+  - id: vtk
+    repo: Kitware/VTK
+    stars: 3205
+    tolerance_pct: 5
+    verified: true
+    aliases: ["VTK"]
+    source: "GitHub API 2026-08-31"
+  - id: orekit
+    repo: CS-SI/Orekit
+    stars: 291
+    tolerance_pct: 5
+    verified: true
+    aliases: ["Orekit"]
+    source: "GitHub API 2026-08-31"
+  - id: openfoam
+    repo: OpenFOAM/OpenFOAM-dev
+    stars: 2216
+    forks: 728
+    tolerance_pct: 5
+    verified: true
+    aliases: ["OpenFOAM", "OpenFOAM-dev"]
+    source: "GitHub API 2026-08-31"
+  - id: su2
+    repo: su2code/SU2
+    stars: 1787
+    tolerance_pct: 5
+    verified: true
+    aliases: ["SU2", "su2code"]
+    source: "GitHub API 2026-08-31"
+  - id: jsbsim
+    repo: JSBSim-Team/jsbsim
+    stars: 2219
+    tolerance_pct: 5
+    verified: true
+    aliases: ["JSBSim", "jsbsim"]
+    source: "GitHub API 2026-08-31"
+  - id: openvsp
+    repo: OpenVSP/OpenVSP
+    stars: 832
+    tolerance_pct: 5
+    verified: true
+    aliases: ["OpenVSP"]
+    source: "GitHub API 2026-08-31"
+  - id: poliastro
+    repo: poliastro/poliastro
+    stars: 1013
+    tolerance_pct: 5
+    verified: true
+    aliases: ["poliastro"]
+    source: "GitHub API 2026-08-31"
+  - id: gmat
+    repo: nasa/GMAT
+    stars: 94
+    tolerance_pct: 5
+    verified: true
+    aliases: ["GMAT", "nasa/GMAT"]
+    source: "GitHub API 2026-08-31"
+  - id: dymos
+    repo: OpenMDAO/dymos
+    stars: 296
+    tolerance_pct: 5
+    verified: true
+    aliases: ["dymos"]
+    source: "GitHub API 2026-08-31"
+  - id: cfs
+    repo: nasa/cFS
+    stars: 1476
+    tolerance_pct: 5
+    verified: true
+    aliases: ["cFS", "nasa/cFS"]
+    source: "GitHub API 2026-08-31"
+  - id: fprime
+    repo: nasa/fprime
+    stars: 11714
+    tolerance_pct: 5
+    verified: true
+    aliases: ["fprime", "nasa/fprime", "F´", "F'"]
+    source: "GitHub API 2026-08-31"
+  - id: openmdao
+    repo: OpenMDAO/OpenMDAO
+    stars: 777
+    tolerance_pct: 5
+    verified: true
+    aliases: ["OpenMDAO", "OpenMDAO/OpenMDAO"]
+    source: "GitHub API 2026-08-31"
+  - id: frontieragent
+    repo: "FrontierAgent (owner unknown)"
+    stars: 1149
+    tolerance_abs: 50
+    verified: false
+    aliases: ["FrontierAgent"]
+    source: "brief 11 (2026-08-28); not found in live search 2026-08-31"
+  - id: halofy
+    repo: "halofy (owner unknown)"
+    stars: 446
+    tolerance_abs: 50
+    verified: false
+    aliases: ["halofy"]
+    source: "brief 11 (2026-08-28); not found in live search 2026-08-31"
+  - id: composiohq
+    repo: "ComposioHQ/awesome-claude-skills"
+    stars: 74000
+    tolerance_pct: 5
+    verified: false
+    aliases: ["composiohq/awesome-claude-skills", "composiohq"]
+    source: "development/readme-design-brief.md 2026-09-01 (README redesign benchmark)"
+  - id: vercel-labs-skills
+    repo: "vercel-labs/skills"
+    stars: 30000
+    tolerance_pct: 5
+    verified: false
+    aliases: ["vercel-labs/skills", "vercel-labs"]
+    source: "development/readme-design-brief.md 2026-09-01 (README redesign benchmark)"
+  - id: shadcn-ui
+    repo: "shadcn/ui"
+    stars: 122000
+    tolerance_pct: 5
+    verified: false
+    aliases: ["shadcn/ui", "shadcn"]
+    source: "development/readme-design-brief.md 2026-09-01 (README redesign benchmark)"
+
+# Exact historical measurements quoted in docs with attribution ("measured ...",
+# "brief says ...", "same week ..."). They never override canonical live values.
+measurements:
+  - repo: cyber
+    value: 31136
+    source: "skillsllm.com 2026-08-30 (quoted brief 09)"
+  - repo: cyber
+    value: 31246
+    source: "brief 01 2026-08-30"
+  - repo: kdense
+    value: 37955
+    source: "brief 01 2026-08-30"
+  - repo: kdense
+    value: 39109
+    source: "security attestation 2026-08-30 (commit 1858250)"
+  - repo: devideamax
+    value: 16
+    source: "task brief said 16 (brief 09 §1.1)"
+  - repo: devideamax
+    value: 13
+    source: "brief 09 measured 13 on 2026-08-30"
+  - repo: ajhcs
+    value: 19
+    source: "brief 09 measured 19 on 2026-08-30"
+  - repo: ste-code
+    value: 0
+    source: "ASD-STE100 race week 2026-07 (no distribution); live 15★ 2026-08-31"
