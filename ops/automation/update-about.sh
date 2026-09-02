@@ -28,8 +28,13 @@ cd "$(git rev-parse --show-toplevel)"
 url=$(git remote get-url origin)
 token=$(printf '%s' "$url" | sed -E 's#https://[^:]+:([^@]+)@.*#\1#')
 slug=$(printf '%s' "$url" | sed -E -e 's#.*github\.com/##' -e 's#\.git$##')
-if [ "$token" = "$url" ] || [ "$slug" = "$url" ]; then
-  echo "FAIL about: origin remote has no embedded token or unexpected shape" >&2
+# Not every clone embeds a token in the remote URL (e.g. the public-repo
+# mirror pushes via a credential helper) — fall back to gh's own token.
+if [ "$token" = "$url" ] && command -v gh >/dev/null 2>&1; then
+  token=$(gh auth token 2>/dev/null || true)
+fi
+if [ -z "$token" ] || [ "$slug" = "$url" ]; then
+  echo "FAIL about: no usable token (neither embedded in origin nor via gh auth token) or unexpected remote shape" >&2
   exit 1
 fi
 
