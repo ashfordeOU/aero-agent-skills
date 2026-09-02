@@ -6,7 +6,7 @@ import pathlib
 import re
 import sys
 
-ROOT = pathlib.Path(__file__).resolve().parents[3]
+ROOT = pathlib.Path("<AEROSKILLS-ROOT>")
 skills = ROOT / "skills"
 
 def desc_of(path):
