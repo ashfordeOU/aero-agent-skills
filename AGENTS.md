@@ -40,6 +40,33 @@ EVERY leaf skill (skills/<family>/<pack>/<skill>/) ships ALL of:
 7. **eval/skill-eval/<name>.json** — value-delta record (with vs without)
 Run `make completeness` (required check) + `make value-delta` (sample proof) before finishing any skill wave. `make visuals` refreshes README numbers/charts (design is locked — numbers only).
 
+## Wave discipline — HoH doctrine (founder 2026-09-02, arXiv 2609.01481 ADAPT)
+Veda's wave build IS a Harness-of-Harness loop. Sharpened rules:
+1. **Evidence-bundle handoff**: each wave/leaf gate output is a structured
+   record: claim → verified/gap → record path → status. The next wave's
+   planner consumes that record (not vibes). Verified records become
+   PRESERVATION constraints; gaps become update targets with validation
+   requirements.
+2. **Planner pass between waves**: CEO phase-gate carries two lists into
+   the next wave: "verified, must preserve" and "gaps/reopens, candidate
+   leaves" — evidence-conditioned, never frozen-spec-conditioned.
+3. **Warm-start is sacred**: every wave continues from the versioned
+   workspace. NEVER restart from the spec. (Ablation: no warm-start =
+   −7.85 AND +32% tokens.)
+4. **Freeze before eval**: the QA/Tester role evaluates the artifact AS
+   COMMITTED at the gate (read-only, by a role that cannot edit mid-eval).
+   No silent repair while judging.
+5. **Bounded, locally-complete leaves**: one leaf = one coherent
+   observable behavior with observable completion conditions. Unrelated
+   refactors/feature creep = separate leaf. "Related changes across files
+   OK; unrelated changes = separate leaf."
+6. **Regressions are first-class work**: record "previously verified →
+   now failing" transitions (status flips, not just new bugs) so the next
+   planner prioritizes regression repair without re-deriving history.
+7. **Role prompts constrain outputs, not workflows**: specify the output
+   contract (fields, evidence schema, status vocabulary); leave tool/
+   algorithm choice free.
+
 ## Departments
 - Work lands in its department folder (research/development/
   marketing/finance/ops/security/legal/people/support).
