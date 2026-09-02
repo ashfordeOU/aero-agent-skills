@@ -26,6 +26,12 @@
   <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-674-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 674"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/aero-agent-skills"><img src="https://img.shields.io/badge/npm-aero--agent--skills-0ea5e9?style=flat&labelColor=1a1e35" alt="npm aero-agent-skills"></a>
+  <a href="packages/aero-agent-skills/"><img src="https://img.shields.io/badge/cli-aero--skills-8b5cf6?style=flat&labelColor=1a1e35" alt="cli aero-skills"></a>
+  <a href="docs/harness-integration.md"><img src="https://img.shields.io/badge/mcp_server-jetbrains_%C2%B7_claude_%C2%B7_vscode_%C2%B7_cursor-ec4899?style=flat&labelColor=1a1e35" alt="MCP server for JetBrains, Claude Desktop, VS Code, Cursor"></a>
+  <a href=".claude-plugin/"><img src="https://img.shields.io/badge/claude_code-plugin-f97316?style=flat&labelColor=1a1e35" alt="claude code plugin"></a>
+</p>
 <!-- /gen:badges -->
 
 <p align="center">
@@ -80,6 +86,8 @@ aero-skills install avionics/do178c --harness claude
   }
 }
 ```
+
+Publisher page: [npmjs.com/package/aero-agent-skills](https://www.npmjs.com/package/aero-agent-skills) (published by Ashforde OÜ). Per-host setup paths: [docs/harness-integration.md](docs/harness-integration.md).
 
 **Or as a Claude Code plugin** — the twelve family routers load always-on (a few hundred tokens each) and pull leaf skills on demand:
 

@@ -212,7 +212,11 @@ package.json `repository` all carry the dev slug — flip every one to
 the org slug before the org push. Release notes for v1.0.0 must gain a
 Distribution section (npm CLI, MCP server + host list, Claude Code
 plugin, npx skills); the ashforde.org/aeroagentskills landing page
-gains its npm/MCP install blocks the same day, not before.
+gains its npm/MCP install blocks the same day, not before. After the
+real npm publish, list the MCP server in the official MCP registry
+(registry.modelcontextprotocol.io) and the community directories so
+MCP hosts can discover it from their publisher catalogs, and flip the
+README's static npm badge to a live shields npm/v badge.
 
 ## 4. Tag the org repo
 
