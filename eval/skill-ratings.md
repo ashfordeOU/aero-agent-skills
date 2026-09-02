@@ -335,3 +335,4 @@ Total skills rated: 318
 | 327 | structures/loads/random-vibration-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 328 | manufacturing-quality/as9103/key-characteristic-management | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 329 | cross-cutting/numerics/optimization-algorithms | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 330 | flight-test-operations/performance/level-acceleration-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
