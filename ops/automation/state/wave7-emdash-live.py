@@ -5,7 +5,7 @@ Matches the wave close-out scope."""
 import pathlib
 import sys
 
-root = pathlib.Path(__file__).resolve().parents[3]
+root = pathlib.Path("<AEROSKILLS-ROOT>")
 hits = []
 check = []
 check.append(root / "skills")

@@ -161,8 +161,7 @@ def main() -> int:
     try:
         import gepa  # noqa: F401
     except ImportError:
-        print("ERROR: gepa not installed. Create a venv and install gepa, e.g.:")
-        print("  python3 -m venv /tmp/gepa-venv && /tmp/gepa-venv/bin/pip install gepa")
+        print("ERROR: gepa not installed. Run: /opt/homebrew/bin/python3.12 -m venv /tmp/gepa-venv && /tmp/gepa-venv/bin/pip install gepa")
         print("Then re-run with: /tmp/gepa-venv/bin/python scripts/gepa-desc-opt.py ...")
         return 1
 
