@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Aero Agent Skills number snapshot gate (attestation part 1).
 # Live: reads ops/automation/numbers.yaml (tracked + derived.largest), calls
-# GitHub API via gh (authed arjun-0077) for each tracked repo, writes a
+# GitHub API via gh (needs a locally authed account) for each tracked repo, writes a
 # timestamped snapshot to ops/automation/state/, exits 0 only when live stars
 # are within expected range (else 1 with diff). API failure -> exit 2, no
 # silent fallback.
