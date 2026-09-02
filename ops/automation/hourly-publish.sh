@@ -11,6 +11,14 @@
 # battery is still fail-closed — neither script will ever push a broken
 # state, they just abort and log instead of throwing away the other
 # surface's chance to update.
+#
+# Founder 2026-09-02: "focus on maintaining public repo from now on...
+# make the public repo update the states on the site" — step 2 now
+# pulls the landing page's metrics straight from the PUBLIC repo's main
+# branch (raw.githubusercontent.com), not the local dev tree, so it
+# only ever shows what is actually live and public. Step 1 still exists
+# to carry any future dev-tree fix out to the public repo; it is not
+# run on a content-growth cadence anymore.
 set -uo pipefail
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
