@@ -79,7 +79,7 @@ for pat in "${patterns[@]}"; do
     skip_exempt "$line" || continue
     echo "FAIL content-policy-sweep: $line" >&2
     hits=$((hits + 1))
-  done < <(grep -rniE -- "$pat" "${roots[@]}" 2>/dev/null || true)
+  done < <(grep -rniIE -- "$pat" "${roots[@]}" 2>/dev/null || true)
 done
 
 if [ "$hits" -ne 0 ]; then
