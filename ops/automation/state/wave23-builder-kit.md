@@ -1,7 +1,7 @@
 # Wave-23 builder kit (AeroSkills) — shared rules for leaf subagents
 
 You are building ONE new leaf skill for the AeroSkills library at
-<AEROSKILLS-ROOT>. Follow this kit exactly, then your
+<repo-root>. Follow this kit exactly, then your
 task-specific engineering spec (sent in your goal). Commit your own
 leaf IMMEDIATELY when complete. Do not delegate, do not ask questions.
 
