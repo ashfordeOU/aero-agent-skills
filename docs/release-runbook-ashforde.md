@@ -187,32 +187,37 @@ Allowlist ADDITIONS (the public tree is broken without them):
 - Generated data + EXACTLY the images the README embeds (verified by
   grepping README.md's `src="docs/...` — do not ship the whole docs/
   image set, only what's actually `<img>`-referenced): docs/metrics.json,
-  docs/DOMAINS.md, docs/logo-mark.png, docs/title-dark.png,
-  docs/statline-dark.png, docs/domain-radar-dark.png,
-  docs/domain-polar-dark.png, docs/structure-dark.png,
-  docs/skill-anatomy-dark.png, docs/how-it-works-dark.png,
-  docs/gates-dark.png. Without them the public README renders broken
-  images and `make visuals-check` fails inside the package. The
-  matching *-dark.svg vector sources travel with each PNG (same
-  visuals-check freshness pair); the LIGHT-theme variants (title.png,
-  statline.png, etc., no "-dark" suffix) are unreferenced dev-only
-  source — do not ship them.
+  docs/DOMAINS.md, docs/logo-mark.png, and the FULL matched light+dark
+  set scripts/gen_visuals.py's outputs() manages — title[.svg/.png],
+  title-dark[.svg/.png], statline[-dark], domain-radar[-dark],
+  domain-polar[-dark], structure[-dark], skill-anatomy[-dark],
+  how-it-works[-dark], gates[-dark]. README only embeds the -dark
+  PNGs, but the light variants are the SAME public diagrams (not
+  marketing collateral) and outputs() checks both — an export missing
+  either half fails that export's own `make visuals-check` (learned
+  the hard way 2026-09-02: a first cut shipped -dark only, and
+  visuals-check inside the exported tree immediately flagged every
+  missing light .svg/.png as stale). Rule of thumb: whatever
+  scripts/gen_visuals.py's outputs() function generates IS the public
+  set, by definition — ship all of it, don't hand-pick a subset.
 
-  EXPLICIT EXCLUSION (founder 2026-09-02, correcting an over-broad
-  first draft of this section that said "every docs/*.png +
-  docs/*.svg" — that draft would have shipped this list): NEVER ship
+  EXPLICIT EXCLUSION (founder 2026-09-02: "marketing and branding
+  stuff can't be pushed to public repo"): NEVER ship
   docs/logo-full.png (unused raw brand asset, wordmark not yet
-  regenerated), docs/social-card-dark.svg/.png (LinkedIn/marketing
-  card — never embedded in README, exists solely to attach to the
-  launch post), docs/ashforde-seal.svg (the Ashforde OÜ corporate
-  seal, vendored from ashforde-site/assets/brand/ solely for the
-  social card's footer lockup — not the Aero Agent Skills product
-  logo, not referenced by README), docs/DESIGN.md (internal build
-  law), or anything under marketing/. Founder doctrine: "marketing and branding stuff can't be
-  pushed to public repo." If a new generated artifact is not directly
-  `<img>`-referenced or `(docs/...)`-linked from the live README, it
-  is marketing/branding-adjacent by default and stays out — add it to
-  this allowlist explicitly only when the README embeds it.
+  regenerated), anything scripts/gen_visuals.py's marketing_outputs()
+  produces — docs/social-card-dark.svg/.png and
+  marketing/launch-post-linkedin.md (LinkedIn collateral, never
+  embedded in README), docs/ashforde-seal.svg (the Ashforde OÜ
+  corporate seal, vendored from ashforde-site/assets/brand/ solely for
+  the social card's footer lockup — not the Aero Agent Skills product
+  logo, not a gen_visuals PUBLIC output), docs/DESIGN.md (internal
+  build law), or anything under marketing/. marketing_outputs() is
+  itself gated on docs/ashforde-seal.svg existing, so an export that
+  omits the seal file naturally can't generate or require these two —
+  that gating is what makes a public checkout's own visuals-check
+  pass without them (see the gen_visuals.py commit fixing the
+  FileNotFoundError this exclusion caused on the first export
+  attempt).
 
 Frozen numbers: the examples above say 69 skills / 36 packs / Hit@1
 154 — those are the 08-31 RC snapshot. At GO, regenerate with
