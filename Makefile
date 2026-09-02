@@ -63,6 +63,13 @@ visuals:
 visuals-check:
 	@python3 scripts/gen_visuals.py --check
 
+# GitHub About sidebar synced from docs/metrics.json (founder 2026-09-02).
+# Needs network + the origin remote's token, so it is NOT an offline gate —
+# run after leaf counts change so the public description never goes stale.
+.PHONY: about
+about:
+	@bash ops/automation/update-about.sh
+
 # Attestation gates (milestone 2026-08-31): number snapshot (offline, at rest),
 # brief-audit against the canonical register, content-policy sweep. All three
 # deterministic, no network. `make snapshot-live` refreshes the evidence and
