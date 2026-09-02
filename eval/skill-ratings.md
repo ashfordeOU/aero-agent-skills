@@ -326,3 +326,4 @@ Total skills rated: 318
 | 318 | flight-test-operations/uas/part107-sora | PASS | ✓ | far-107 | flight-test-operations | 9.5 | PASS |
 | 319 | propulsion/electric/gridded-ion-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 320 | flight-mechanics/stability-control/phugoid-mode-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 321 | space-systems/orbit-mechanics/low-thrust-spiral | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
