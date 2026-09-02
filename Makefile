@@ -79,6 +79,22 @@ package-test:
 about:
 	@bash ops/automation/update-about.sh
 
+# Sync the dev/test tree to the public release repo, github.com/ashfordeOU/
+# aero-agent-skills (founder 2026-09-02: arjun-0077 stays test-only, the
+# public repo is where releases ship). Exports the allowlist, runs the
+# FULL gate battery inside that export before touching git, then pushes
+# through a persistent local mirror (fast-forward only, never force). A
+# safe no-op when nothing on the allowlist changed. `publish-public-dry`
+# stops after the gate battery — no mirror, no push. See
+# ops/automation/publish-public.sh and docs/release-runbook-ashforde.md
+# section 10 for the full reasoning.
+.PHONY: publish-public publish-public-dry
+publish-public:
+	@bash ops/automation/publish-public.sh
+
+publish-public-dry:
+	@bash ops/automation/publish-public.sh --dry-run
+
 # Attestation gates (milestone 2026-08-31): number snapshot (offline, at rest),
 # brief-audit against the canonical register, content-policy sweep. All three
 # deterministic, no network. `make snapshot-live` refreshes the evidence and
