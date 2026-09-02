@@ -48,9 +48,17 @@ def build_eval(skills, held):
             scored = [(score(s, t["query"]), p) for p, s in mod.items()]
             scored.sort(key=lambda pair: (-pair[0], pair[1]))
             if scored[0][1] != TARGET:
-                return (-1.0, ["REGRESSION on main corpus: " + t["query"][:60]])
+                return (-1.0, {"regression": t["query"][:120]})
         wins = sum(1 for i in info if i.startswith("WIN"))
-        return (wins / len(HELD_OUT_QUERIES), info)
+        # ASI must be a dict (GEPA wraps dict(side_info)); keep failures + vocab
+        fails = [i for i in info if i.startswith("LOSE")]
+        return (wins / len(HELD_OUT_QUERIES), {
+            "losses": fails[:6],
+            "n_wins": wins,
+            "n_queries": len(HELD_OUT_QUERIES),
+            "hint": "Add the trigger vocabulary the losing queries share (traceability, "
+                    "protection, coverage, assurance) into the description naturally." if fails else "",
+        })
 
     return eval_desc
 
@@ -79,10 +87,7 @@ def main() -> int:
     )
     reflection = oa.ReflectionConfig(
         reflection_lm="deepseek/deepseek-chat",
-        reflection_lm_kwargs={
-            "api_key": os.environ.get("DEEPSEEK_API_KEY", ""),
-            "temperature": 0.5,
-        },
+        reflection_lm_kwargs={"temperature": 0.5},
     )
     config = GEPAConfig(engine=engine, reflection=reflection)
 
