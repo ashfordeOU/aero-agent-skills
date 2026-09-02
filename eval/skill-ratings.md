@@ -331,3 +331,4 @@ Total skills rated: 318
 | 323 | aerodynamics/wind-tunnel/windtunnel-wall-corrections | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 324 | vehicle-design/mdo/design-of-experiments | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 325 | avionics/fsw/fprime-component | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 326 | systems-engineering-safety/arp4761a/reliability-block-diagram | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
