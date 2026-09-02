@@ -22,15 +22,28 @@
 set -uo pipefail
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
+# Machine-portable on purpose: this script has been hand-edited with a
+# different developer's absolute home directory more than once by
+# concurrent sessions on different machines, each silently breaking the
+# other's launchd job. publish-public.sh is a sibling in this same repo,
+# so it's found relative to this script's own location, not hardcoded.
+# The site repo is a genuinely separate clone whose location is
+# machine-specific — override with ASHFORDE_SITE_REPO (e.g. in the
+# launchd plist's EnvironmentVariables) rather than hand-editing this
+# file; the default below is only a fallback for whichever machine
+# hasn't set it.
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SITE_REPO="${ASHFORDE_SITE_REPO:-$HOME/Documents/Code/Claudecode/ashforde-site}"
+
 echo "===== $(date -u +%FT%TZ) hourly-publish starting ====="
 
 echo "--- public repo sync ---"
-if ! bash /Users/enterprisehq/AeroSkills/ops/automation/publish-public.sh; then
+if ! bash "$SCRIPT_DIR/publish-public.sh"; then
   echo "!!! public repo sync FAILED — see above, nothing was published to ashfordeOU/aero-agent-skills"
 fi
 
 echo "--- landing page sync ---"
-if ! bash /Users/enterprisehq/Documents/Code/Claudecode/ashforde-site/aeroagentskills/sync-and-publish.sh; then
+if ! bash "$SITE_REPO/aeroagentskills/sync-and-publish.sh"; then
   echo "!!! landing page sync FAILED — see above, ashforde.org/aeroagentskills not updated"
 fi
 
