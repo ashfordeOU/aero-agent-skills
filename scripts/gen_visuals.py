@@ -566,9 +566,7 @@ def gen_title(t):
              f'font-size="16" letter-spacing="4">'
              f'<tspan fill="{t["cyan"]}">AEROSPACE ENGINEERING</tspan>'
              f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
-             f'<tspan fill="{t["violet"]}">AGENTSKILLS.IO FORMAT</tspan>'
-             f'<tspan fill="{t["pencil"]}" dx="10">·</tspan>'
-             f'<tspan fill="{t["orange"]}">APACHE-2.0</tspan></text>')
+             f'<tspan fill="{t["orange"]}" dx="10">APACHE-2.0</tspan></text>')
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
