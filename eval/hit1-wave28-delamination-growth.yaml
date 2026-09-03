@@ -1,0 +1,18 @@
+# Hit@1 wave-28 fragment: delamination-growth (structures)
+# Two tasks per new leaf skill. w28-delamination-growth-1 routes on the
+# fracture-mechanics delamination assessment of the composite laminate:
+# mode I strain energy release rate of the DCB double cantilever beam
+# specimen and mode II rate of the ENF end-notched flexure specimen at
+# the crack length. w28-delamination-growth-2 routes on the mixed-mode
+# onset check with the Benzeggagh-Kenane criterion, the comparison of
+# the total energy release rate against the critical rate and the
+# growth verdict.
+tasks:
+  - id: w28-delamination-growth-1
+    query: "assess delamination growth in the composite laminate: compute the mode I strain energy release rate of the DCB specimen and the mode II rate of the ENF specimen at the crack length"
+    intent: "structures; delamination growth fracture assessment with the mode I strain energy release rate of the DCB double cantilever beam specimen and the mode II rate of the ENF end-notched flexure specimen at the crack length"
+    expected_skill: "structures/composites/delamination-growth"
+  - id: w28-delamination-growth-2
+    query: "check mixed mode delamination onset with the Benzeggagh Kenane criterion: compare the total energy release rate against the critical rate and return the growth verdict"
+    intent: "structures; mixed mode fracture onset check with the Benzeggagh Kenane criterion comparing the total energy release rate against the critical rate and returning the mode I mode II delamination growth verdict"
+    expected_skill: "structures/composites/delamination-growth"
