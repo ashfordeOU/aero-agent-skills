@@ -7,10 +7,11 @@ and round-trip identities. Deterministic, no network, exits 0.
 """
 
 import math
+import os
 import sys
 import unittest
 
-sys.path.insert(0, "/Users/enterprisehq/AeroSkills/skills/structures/composites/adhesive-bonded-joints/scripts")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import adhesive_bonded_joints_logic as abj
 
 # Worked example constants: aluminum adherends E 70 GPa, t 2 mm,
