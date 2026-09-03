@@ -374,3 +374,4 @@ Total skills rated: 365
 | 366 | aerodynamics/wing-design/winglet-design | PASS | ✓ | naca-tr-824, far-25 | aerodynamics | 9.5 | PASS |
 | 367 | flight-mechanics/stability-control/deep-stall-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
 | 368 | flight-mechanics/performance/speed-stability | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 369 | flight-mechanics/handling-qualities/pitch-bandwidth-criteria | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
