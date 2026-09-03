@@ -1,0 +1,16 @@
+# Hit@1 wave-27 fragment: adhesive-bonded-joints (structures)
+# Two tasks per new leaf skill. w27-adhesive-bonded-joints-1 routes on
+# the single lap adhesive bonded joint shear lag analysis of the
+# bondline peak stress against the adhesive allowable;
+# w27-adhesive-bonded-joints-2 routes on the shear lag parameter and
+# peak to average concentration with the joint margin. Both must
+# deterministically hit structures/composites/adhesive-bonded-joints.
+tasks:
+  - id: w27-adhesive-bonded-joints-1
+    query: "analyze the single lap adhesive bonded joint in the composite structure: 10 kN load over a 25 mm overlap and 25 mm width with the shear lag correction, check the peak adhesive shear stress against the 25 MPa allowable"
+    intent: "structures; single lap adhesive bonded joint bondline analysis with the shear lag correction, peak adhesive shear stress against the adhesive allowable"
+    expected_skill: "structures/composites/adhesive-bonded-joints"
+  - id: w27-adhesive-bonded-joints-2
+    query: "compute the shear lag parameter and the peak to average shear concentration for the bonded lap joint with the aluminum adherends and report the joint margin"
+    intent: "structures; shear lag parameter and peak to average shear concentration for a bonded lap joint with the joint margin verdict"
+    expected_skill: "structures/composites/adhesive-bonded-joints"
