@@ -62,6 +62,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/stability-control/short-period-mode-analysis | Short-period mode analysis | short period mode, short-period, natural frequency, damping ratio, stability derivatives, flying qualities, level 1 |
 | flight-mechanics/handling-qualities/mil-std-1797a | Mil Std 1797a | mil-std-1797a, flying qualities, handling qualities levels, short period damping, dutch roll, phugoid, spiral mode, roll mode, roll performance, flight phase category, aircraft class, cooper-harper band. |
 | flight-mechanics/stability-control/phugoid-mode-analysis | Phugoid mode analysis | phugoid period, Lanchester approximation, long-period oscillation, time to half amplitude, airspeed oscillation |
+| flight-mechanics/flight-dynamics-sim/point-mass-trajectory | Point-mass trajectory | point-mass trajectory, flight-path angle, RK4 integration, speed-altitude history, vertical-plane profile, climb path integration |
 
 ## Routing guidance
 
@@ -112,3 +113,4 @@ to the
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Phugoid period, damping, and time to half amplitude questions route to the stability-control phugoid-mode-analysis sub-skill.
+- Point-mass climb trajectory and flight-path-angle history questions route to the flight-dynamics-sim point-mass-trajectory sub-skill.

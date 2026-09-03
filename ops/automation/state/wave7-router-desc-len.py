@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import pathlib, sys
 for fam in ["flight-test-operations", "manufacturing-quality", "propulsion", "systems-engineering-safety"]:
-    p = pathlib.Path("<AEROSKILLS-ROOT>/skills") / fam / "SKILL.md"
+    p = pathlib.Path(__file__).resolve().parents[3] / "skills" / fam / "SKILL.md"
     txt = p.read_text(encoding="utf-8")
     # extract frontmatter description value (single-line double-quoted)
     import re

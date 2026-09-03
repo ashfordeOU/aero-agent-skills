@@ -170,6 +170,11 @@
 # leaves). Wave-23 new leaves: "vehicle-design/mdo/design-of-experiments", "avionics/fsw/fprime-component", "propulsion/electric/gridded-ion-thruster", "manufacturing-quality/as9103/key-characteristic-management", "flight-test-operations/performance/level-acceleration-test", "space-systems/orbit-mechanics/low-thrust-spiral", "cross-cutting/numerics/optimization-algorithms", "gnc-autonomy/estimation-filtering/particle-filter", "flight-mechanics/stability-control/phugoid-mode-analysis", "structures/loads/random-vibration-analysis", "systems-engineering-safety/arp4761a/reliability-block-diagram", "aerodynamics/wind-tunnel/windtunnel-wall-corrections".
 # Corpus: 674 tasks (650 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 23 build.
+# P5.2 / Wave 24R (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 341 verified skills (353 SKILL.md under gate 1: 12 routers + 341
+# leaves). Wave-24R new leaves: "aerodynamics/aeroelasticity/aeroelastic-gust-response", "space-systems/orbit-mechanics/clohessy-wiltshire", "gnc-autonomy/estimation-filtering/complementary-filter", "propulsion/electric/electrothermal-thruster", "systems-engineering-safety/certification/means-of-compliance", "gnc-autonomy/space/orbit-determination", "flight-mechanics/flight-dynamics-sim/point-mass-trajectory", "space-systems/adcs/reaction-wheel-control", "propulsion/rocket/rocket-engine-cycle", "aerodynamics/high-speed/shock-expansion-airfoil", "structures/fatigue/strain-life-fatigue".
+# Corpus: 696 tasks (674 prior plus 22 domain tasks). Owner: Ops
+# Manager, Wave 24R build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -3179,6 +3184,94 @@ tasks:
     query: "correct the measured polar from my 1.4 m closed test section for wall interference and streamline curvature: report the corrected alpha and the corrected lift and drag coefficient for each point of the polar with the blockage corrections included"
     intent: "aerodynamics; wall-interference and streamline-curvature correction of a measured polar from a closed test section, reporting corrected alpha and corrected coefficients with solid and wake blockage"
     expected_skill: "aerodynamics/wind-tunnel/windtunnel-wall-corrections"
+  - id: w24r-aeroelastic-gust-response-1
+    query: "compute the dynamic aeroelastic gust response of the typical wing section with the Kussner and Wagner indicial functions: run the lag-state unsteady lift model for the one-minus-cosine gust and report the dynamic magnification factor of the peak lift over the quasi-steady value"
+    intent: "aerodynamics; dynamic indicial gust response of the flexible 2-DOF typical section with Kussner and Wagner lag-state unsteady lift and the dynamic magnification factor"
+    expected_skill: "aerodynamics/aeroelasticity/aeroelastic-gust-response"
+  - id: w24r-aeroelastic-gust-response-2
+    query: "evaluate the flexible wing section response to a sharp gust input in the time domain with the two-term exponential indicial aerodynamics approximations and check the peak load against the limit, reporting the margin"
+    intent: "aerodynamics; flexible typical-section time-domain gust response with two-term exponential indicial approximations and peak-load verdict with margin"
+    expected_skill: "aerodynamics/aeroelasticity/aeroelastic-gust-response"
+  - id: w24r-clohessy-wiltshire-1
+    query: "propagate the deputy relative motion about the chief in its 500 km circular orbit with the Clohessy-Wiltshire state transition matrix: the deputy starts 1 km radial and 500 m cross-track away, check the bounded relative orbit condition, and report the trajectory after one orbit"
+    intent: "space-systems; CW relative-motion propagation with the state transition matrix and the bounded-orbit condition check"
+    expected_skill: "space-systems/orbit-mechanics/clohessy-wiltshire"
+  - id: w24r-clohessy-wiltshire-2
+    query: "size the two-impulse Clohessy-Wiltshire targeting maneuver to bring the deputy to the chief origin at the half-orbit transfer time and compute the total delta-v, flagging the singular one-orbit transfer case"
+    intent: "space-systems; two-impulse CW targeting delta-v budget and the singular one-orbit transfer rejection"
+    expected_skill: "space-systems/orbit-mechanics/clohessy-wiltshire"
+  - id: w24r-complementary-filter-1
+    query: "fuse the spacecraft rate gyro with the sun vector and magnetometer measurements in a mahony complementary filter on so3 to estimate the attitude quaternion online and the gyro bias with the proportional and integral correction gains and report the innovation norm convergence over the run"
+    intent: "gnc-autonomy; Mahony explicit complementary filter on so3 with gyro-bias-estimation from vector-measurement fusion"
+    expected_skill: "gnc-autonomy/estimation-filtering/complementary-filter"
+  - id: w24r-complementary-filter-2
+    query: "run an explicit complementary filter attitude observer for the air vehicle that combines the high-rate gyro angular rates with the low-rate absolute vector measurements so the gyro bias is estimated and the roll pitch yaw estimate does not drift and verify the steady state innovation"
+    intent: "gnc-autonomy; explicit complementary filter so3 attitude observer with vector-measurement fusion and drift-free attitude"
+    expected_skill: "gnc-autonomy/estimation-filtering/complementary-filter"
+  - id: w24r-electrothermal-thruster-1
+    query: "analyze the resistojet operating point for the smallsat: with 1 kW input heating ammonia propellant from 300 K to 1200 K at 85 percent heating efficiency, compute the mass flow, exhaust velocity, thrust, specific impulse, and thrust-to-power ratio"
+    intent: "propulsion; single-point electrothermal-thruster resistojet performance from power, temperatures and heating efficiency"
+    expected_skill: "propulsion/electric/electrothermal-thruster"
+  - id: w24r-electrothermal-thruster-2
+    query: "compare the electrothermal-thruster family options for the station keeping burn: run the resistojet and arcjet performance models on the same 500 W input and report which gives the higher specific impulse and whether each point lies in its typical operating band"
+    intent: "propulsion; electrothermal-thruster resistojet vs arcjet family comparison with heated-propellant models and operating-band verdicts"
+    expected_skill: "propulsion/electric/electrothermal-thruster"
+  - id: w24r-means-of-compliance-1
+    query: "build the means-of-compliance matrix for my certification items: for each FAR-25 paragraph assign the acceptable MOC (moc-1 analysis, moc-2 ground test, moc-3 flight test, moc-6 safety assessment), require moc-6 for the catastrophic flight control system, and score the compliance matrix coverage"
+    intent: "systems engineering; per-certification-item MOC assignment, moc-6 gate for catastrophic systems, and compliance matrix coverage scoring"
+    expected_skill: "systems-engineering-safety/certification/means-of-compliance"
+  - id: w24r-means-of-compliance-2
+    query: "select the means of compliance for the novel primary structure item and the powerplant installation: run the moc suitability rules with the novelty screening and report the recommended moc set per certification item with the compliance verdict"
+    intent: "systems engineering; moc suitability with novelty screening per certification item and certification plan readiness verdict"
+    expected_skill: "systems-engineering-safety/certification/means-of-compliance"
+  - id: w24r-orbit-determination-1
+    query: "determine the initial orbit of the debris object from three inertial position vectors: run the Gibbs method to recover the velocity at the central observation and convert the state to classical orbital elements with the vis-viva consistency check"
+    intent: "gnc-autonomy; initial orbit determination from three position vectors via the gibbs-method, rv-to-elements conversion and energy consistency check"
+    expected_skill: "gnc-autonomy/space/orbit-determination"
+  - id: w24r-orbit-determination-2
+    query: "the tracking pass gave three closely spaced position vectors with time tags, decide between the Gibbs and Herrick-Gibbs initial orbit determination methods, compute the middle-vector velocity, and report the orbital elements with the method verdict"
+    intent: "gnc-autonomy; herrick-gibbs vs gibbs method choice for closely spaced three position vectors, velocity at the central observation and elements with verdict"
+    expected_skill: "gnc-autonomy/space/orbit-determination"
+  - id: w24r-point-mass-trajectory-1
+    query: "simulate the point-mass trajectory of my transport climbing out: integrate the vertical-plane speed, flight-path angle and altitude with a fixed time-step integration RK4 scheme from the sea-level takeoff state, with the thrust altitude lapse and parabolic drag polar, and report the speed and altitude history at 300 seconds"
+    intent: "flight-mechanics; vertical-plane point-mass trajectory simulation with fixed time-step RK4 integration, thrust lapse and drag polar, speed and altitude history at 300 s"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/point-mass-trajectory"
+  - id: w24r-point-mass-trajectory-2
+    query: "build a point-mass trajectory simulation for the climb profile of the aircraft from the thrust-to-weight and drag polar inputs, propagate the flight-path angle and rate of climb over time, and compare the late-run flight-path angle with the closed-form steady-climb excess-thrust value"
+    intent: "flight-mechanics; point-mass trajectory climb simulation from thrust-to-weight and drag polar, propagated flight-path angle, steady-climb excess-thrust consistency check"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/point-mass-trajectory"
+  - id: w24r-reaction-wheel-control-1
+    query: "design the reaction wheel control law for the spacecraft pointing mode: command the wheel torque command from the quaternion error feedback and the body rate with PD gains, integrate the wheel momentum with the omega cross h_w transport term, and flag the torque saturation and the wheel momentum saturation during the acquisition"
+    intent: "space-systems; wheel torque command law from quaternion-error feedback with the wheel momentum transport term and saturation verdicts"
+    expected_skill: "space-systems/adcs/reaction-wheel-control"
+  - id: w24r-reaction-wheel-control-2
+    query: "compute the momentum desaturation command for the wheel cluster: given the accumulated wheel momentum excess above the target momentum, the desaturation horizon, and the local magnetic field vector, find the magnetorquer dipole that unloads the wheels over the horizon and warn if the desaturation torque demand lies along the field"
+    intent: "space-systems; wheel momentum desaturation command and dipole from the desaturation horizon and local magnetic field with the alignment warning"
+    expected_skill: "space-systems/adcs/reaction-wheel-control"
+  - id: w24r-rocket-engine-cycle-1
+    query: "compare liquid rocket feed cycles for the 1 MN upper stage engine: assess pressure-fed, gas-generator, staged-combustion and expander cycles at the 10 MPa chamber pressure and compute the pump discharge pressure, pump power, and turbine power balance for the feasible pump-fed options"
+    intent: "propulsion; rocket-engine-cycle feed-cycle comparison across pressure-fed, gas-generator cycle, staged-combustion and expander-cycle with pump-power and turbine-power balance for the feasible pump-fed options"
+    expected_skill: "propulsion/rocket/rocket-engine-cycle"
+  - id: w24r-rocket-engine-cycle-2
+    query: "run the engine cycle analysis for the small pressure-fed storable propulsion system: size the tank pressure from the chamber pressure and losses, compute the tank mass penalty, and give the feasibility verdict against the pump-fed alternative"
+    intent: "propulsion; rocket-engine-cycle pressure-fed storable feed sizing with tank pressure, tank mass penalty and the verdict against the pump-fed alternative"
+    expected_skill: "propulsion/rocket/rocket-engine-cycle"
+  - id: w24r-shock-expansion-airfoil-1
+    query: "compute the lift and wave drag of the 10 degree included angle diamond airfoil at Mach 2 and 3 degrees angle of attack with the shock-expansion method: get the surface pressure on each panel and integrate to the section lift, wave drag, and leading edge moment coefficients"
+    intent: "aerodynamics; shock-expansion surface-pressure integration over a diamond airfoil at a supersonic Mach number"
+    expected_skill: "aerodynamics/high-speed/shock-expansion-airfoil"
+  - id: w24r-shock-expansion-airfoil-2
+    query: "apply shock-expansion theory to the supersonic double-wedge section across the Mach range 1.5 to 3 at fixed angle of attack and report the surface pressure table and the trend of the wave drag coefficient"
+    intent: "aerodynamics; supersonic double-wedge section Mach sweep with surface pressure table and wave drag trend"
+    expected_skill: "aerodynamics/high-speed/shock-expansion-airfoil"
+  - id: w24r-strain-life-fatigue-1
+    query: "run the strain-life fatigue analysis for the notched lug under the fully reversed 0.8 percent strain amplitude: apply the Coffin-Manson curve to find the reversals to failure and classify the point as low-cycle or high-cycle against the transition life"
+    intent: "structures; strain-life coffin-manson reversals-to-failure with regime versus transition life"
+    expected_skill: "structures/fatigue/strain-life-fatigue"
+  - id: w24r-strain-life-fatigue-2
+    query: "convert the nominal 200 MPa elastic stress at the kt 2.5 notch into the Neuber local elastic-plastic strain with the cyclic Ramberg-Osgood curve and compute the Coffin-Manson low-cycle life for the representative aluminum alloy"
+    intent: "structures; neuber local strain with elastic-plastic ramberg-osgood tokens plus low-cycle fatigue life"
+    expected_skill: "structures/fatigue/strain-life-fatigue"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
