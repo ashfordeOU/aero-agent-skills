@@ -379,3 +379,5 @@ Total skills rated: 365
 | 371 | propulsion/gas-turbine-cycle/afterburner-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
 | 372 | gnc-autonomy/navigation/gnss-pseudorange-positioning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 373 | gnc-autonomy/guidance/dubins-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 375 | space-systems/orbit-mechanics/gravity-assist-swingby | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 374 | structures/composites/adhesive-bonded-joints | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
