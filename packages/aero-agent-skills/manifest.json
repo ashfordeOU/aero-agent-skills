@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 341,
+  "leaves": 353,
   "live_packs": 81,
   "families": 12,
-  "corpus_tasks": 696
+  "corpus_tasks": 720
  },
  "skills": [
   {
@@ -722,6 +722,27 @@
    "router_doc": false
   },
   {
+   "path": "avionics/do160/radio-frequency-emissions",
+   "name": "radio-frequency-emissions",
+   "description": "Use when you must plan and check the DO-160 section 21 radio frequency emission test of airborne equipment: convert the measured conducted emission amplitude from volts to dBuV and the radiated emission field to dBuV/m at the antenna, classify the equipment installation category, apply the CE102 conducted emission limit curve and the RE102 radiated emission limit curve for the category, compute the emission margin at each frequency, find the worst case frequency, and judge the equipment pass or fail for the EMC qualification. Produces the emission margin, the worst case frequency, and the pass or fail verdict that gate the DO-160 EMC qualification. Trigger: radio frequency emissions, DO-160 section 21, conducted emissions, radiated emissions, CE102, RE102, emission limit, emission margin, dBuV, dBuV/m, EMC qualification.",
+   "tags": [
+    "radio-frequency-emissions",
+    "do-160-section-21",
+    "conducted-emissions",
+    "radiated-emissions",
+    "ce102",
+    "re102",
+    "emission-limit",
+    "emission-margin",
+    "dbu-v-conversion",
+    "dbu-v-per-m-conversion",
+    "emc-qualification"
+   ],
+   "family": "avionics",
+   "pack": "do160",
+   "router_doc": false
+  },
+  {
    "path": "avionics/do160/radio-frequency-susceptibility",
    "name": "radio-frequency-susceptibility",
    "description": "Use when you must plan and execute a DO-160 section 20 radio frequency susceptibility (RF immunity) test on airborne equipment: compute the radiated field strength from amplifier power, antenna gain, and distance; size the amplifier power budget for a required field level including cable loss and calibration margin; convert between V/m and dBuV/m, A and dBuA, and W and dBm; estimate the AM-modulated peak field and average power; and check conducted immunity margins against CS114 category current limits. Produces the field strength, the amplifier power budget, and the pass-fail margins that gate RF immunity test planning. Trigger: radio frequency susceptibility, RS103, CS114, radiated immunity, conducted immunity, field strength, RF test, amplifier power.",
@@ -970,6 +991,26 @@
     "vertical-profile",
     "track-distance",
     "fms"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/flight-management/lateral-navigation",
+   "name": "lateral-navigation",
+   "description": "Use when you must compute the lateral navigation (LNAV) guidance quantities of a flight management system between and along the flight plan legs: derive the great-circle track angle and distance from the current position to the next waypoint, determine the cross-track error to the active leg with its sign, compute the track angle error and the intercept heading that recaptures the desired track at a fixed intercept angle, size the turn anticipation distance before the fly-by waypoint from the speed and bank angle, and judge the along-track distance remaining on the leg. Produces the leg track and distance, the cross-track error, the intercept heading, and the fly-by versus fly-over transition point that gate FMS lateral guidance. Trigger: lateral navigation, lnav, cross-track error, track angle error, great-circle track, turn anticipation, fly-by waypoint, fly-over waypoint, intercept heading, fms lateral guidance.",
+   "tags": [
+    "lateral-navigation",
+    "lnav",
+    "cross-track",
+    "track-angle-error",
+    "great-circle-track",
+    "turn-anticipation",
+    "fly-by-waypoint",
+    "fly-over-waypoint",
+    "intercept-heading",
+    "fms-lateral-guidance"
    ],
    "family": "avionics",
    "pack": "flight-management",
@@ -1382,6 +1423,27 @@
     "newton-method",
     "line-search",
     "unconstrained-minimum"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/quaternion-algebra",
+   "name": "quaternion-algebra",
+   "description": "Use when you must compute single-step quaternion algebra with the Python standard library: form the Hamilton quaternion product, take the conjugate, norm, and inverse, normalize to a unit quaternion, rotate a 3-vector by a quaternion with the stated conjugate rotation convention, build a quaternion from an axis and angle or from yaw-pitch-roll angles with the ZYX convention, convert between quaternion and direction cosine matrix, and interpolate between two unit quaternions with spherical linear interpolation. Produces the product quaternion, the rotated vector, the converted angles or matrix, and the slerp result at the requested parameter. Trigger: quaternion product, quaternion multiply, rotate vector by quaternion, euler to quaternion, quaternion to euler, direction cosine matrix, slerp, quaternion conjugate, unit quaternion, axis angle to quaternion.",
+   "tags": [
+    "quaternion-algebra",
+    "quaternion-product",
+    "rotate-vector-by-quaternion",
+    "euler-to-quaternion",
+    "quaternion-to-euler",
+    "direction-cosine-matrix",
+    "slerp",
+    "spherical-linear-interpolation",
+    "quaternion-conjugate",
+    "unit-quaternion",
+    "axis-angle-to-quaternion"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -1964,6 +2026,26 @@
     "groundspeed",
     "crab-angle",
     "enroute-time"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/windshear-analysis",
+   "name": "windshear-analysis",
+   "description": "Use when you must assess a low-altitude windshear or microburst encounter on fixed-wing aircraft performance and choose the escape response: compute the windshear F-factor from thrust, drag, weight and the along-track headwind shear rate, or from the headwind gradient and the downdraft; classify the shear severity against the typical escape-guidance thresholds; compute the energy height loss rate and the altitude loss over the encounter; check whether the aircraft can out-climb the downdraft at the current thrust; and find the thrust increment needed for the recovery. Produces the F-factor, the severity class, the energy height loss trend, the out-climb verdict, and the recovery increment that gate the windshear escape decision. Trigger: windshear, microburst, F-factor, downdraft, headwind shear, wind shear hazard, escape guidance, energy height loss, shear encounter.",
+   "tags": [
+    "windshear-analysis",
+    "windshear",
+    "microburst",
+    "f-factor",
+    "downdraft",
+    "headwind-shear",
+    "wind-shear-hazard",
+    "escape-guidance",
+    "shear-encounter",
+    "energy-height-loss"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -2600,6 +2682,24 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/planning/position-error-calibration",
+   "name": "position-error-calibration",
+   "description": "Use when you must plan and reduce the airspeed position error calibration (PEC) flight test for a fixed-wing aircraft: schedule the tower fly-by, trailing cone, and GPS ground speed doublet test points across the speed range, compute the calibrated airspeed from the indicated airspeed and the position error correction, reduce the fly-by height error and the reciprocal-heading ground speeds into the position error at each point, fit the piecewise-linear position error correction curve against the indicated airspeed, and produce the PEC table of indicated versus calibrated airspeed. Produces the position error per point, the fitted PEC curve with the residual RMS quality check, the calibrated airspeed set, and the data quality verdict that gate the flight test data reduction. Trigger: position error calibration, airspeed calibration, PEC, calibrated airspeed, tower fly-by, trailing cone, GPS ground speed doublet, position error correction curve.",
+   "tags": [
+    "position-error-calibration",
+    "airspeed-calibration",
+    "pec-table",
+    "tower-fly-by",
+    "trailing-cone",
+    "gps-ground-speed-doublet",
+    "calibrated-airspeed",
+    "position-error-correction-curve"
+   ],
+   "family": "flight-test-operations",
+   "pack": "planning",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/planning/telemetry-data-acquisition",
    "name": "telemetry-data-acquisition",
    "description": "Design and check the flight test telemetry and data acquisition chain: size the PCM minor frame and bit rate, assign supercommutated and subcommutated channels against the frame rate, encode the time of year in IRIG time format, condition the sensor signal to the ADC span, budget the end-to-end data latency against the requirement, and verify the ground station link margin and telemetry quality against the bit error rate and dropout limits. Produces the frame and bit rate, the channel assignments, the latency and link verdicts, and the quality verdict that gates the recorded data. Use when the task is flight test telemetry and data acquisition planning, PCM frame or IRIG time coding, data latency budgeting, signal conditioning, ground station link checks, or telemetry quality checks. Trigger: pcm telemetry formats, irig time coding, data latency, signal conditioning, ground station link, bit error rate, dropout.",
@@ -2717,6 +2817,28 @@
    "family": "gnc-autonomy",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "gnc-autonomy/control/control-allocation",
+   "name": "control-allocation",
+   "description": "Use when you must allocate a commanded roll, pitch, yaw moment vector across redundant aerodynamic and propulsive effectors: assemble the control effectiveness matrix, solve the pseudoinverse allocation or the weighted least squares problem, enforce the position limits with the redistributed pseudoinverse, distribute the moment between the aerodynamic and thrust vectoring groups with the daisy chain scheme, and report the achieved moment, allocation error and saturated effectors. Produces the effector command vector and the saturation verdict for output distribution. Trigger: control allocation, control effectiveness matrix, pseudoinverse allocation, weighted least squares, daisy chain, redistributed pseudoinverse, actuator limits, saturated effectors, redundant effectors.",
+   "tags": [
+    "control-allocation",
+    "effector-allocation",
+    "control-effectiveness-matrix",
+    "pseudoinverse-allocation",
+    "weighted-least-squares",
+    "daisy-chain",
+    "redistributed-pseudoinverse",
+    "actuator-limits",
+    "saturated-effectors",
+    "moment-command-distribution",
+    "redundant-effectors",
+    "rate-limit-command"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
   },
   {
    "path": "gnc-autonomy/control/frequency-response-design",
@@ -3681,6 +3803,26 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/ndt/computed-tomography",
+   "name": "computed-tomography",
+   "description": "Use when you must plan and interpret a volumetric X-ray computed tomography (CT) inspection of an aerospace part: compute the geometric magnification and the voxel size from the source, object and detector geometry, check the spatial resolution against the smallest flaw to detect, size the cone beam projection count for the scan, estimate the scan time and the required tube energy for the part material and thickness, convert the measured linear attenuation into CT numbers and classify the material, and measure the porosity volume fraction with the equivalent spherical void diameter from a segmented region of interest. Produces the voxel size, resolution verdict, projection count, scan settings and porosity measurement that gate the CT inspection plan for castings, weldments and additive parts. Trigger: computed tomography, CT scan, voxel size, cone beam, CT number, volumetric inspection, porosity volume fraction, magnification, projection count, additive part porosity.",
+   "tags": [
+    "computed-tomography",
+    "ct-scan",
+    "voxel-size",
+    "cone-beam",
+    "ct-number",
+    "porosity-volume-fraction",
+    "magnification-ratio",
+    "projection-count",
+    "additive-part-porosity",
+    "volumetric-inspection"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "ndt",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/ndt/eddy-current-inspection",
    "name": "eddy-current-inspection",
    "description": "Use when you must plan and execute an eddy current inspection (ET) of an aerospace part and turn probe impedance readings into defect findings: compute the standard depth of penetration from test frequency, electrical conductivity, and magnetic permeability; select the frequency that places a surface or subsurface flaw within the usable penetration band; convert percent IACS conductivity to siemens per meter; estimate the eddy current density ratio and the phase lag at the flaw depth; and interpret the impedance plane to separate lift-off, conductivity changes, and crack indications. Produces the depth of penetration, the selected test frequency, and the density and phase values that gate eddy current acceptance dispositions. Trigger: eddy current, eddy-current testing, depth of penetration, impedance plane, subsurface flaw, surface crack, lift-off, IACS conductivity, phase lag.",
@@ -4215,6 +4357,24 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/rocket/hybrid-rocket-motor",
+   "name": "hybrid-rocket-motor",
+   "description": "Use when you must size and analyze a hybrid rocket motor burning a solid fuel grain with a fluid oxidizer: compute the fuel regression rate from the oxidizer mass flux, solve the oxidizer to fuel ratio, find the chamber pressure equilibrium with the choked nozzle discharge, derive the mass flow, thrust and total impulse, and judge the O/F shift as the port opens. Reference-only typical HTPB grain constants cover the nitrous oxide and liquid oxygen oxidizers. Produces the ballistics summary with the O/F ratio, chamber pressure, burn time, thrust, impulse and the O/F shift trend. Trigger: hybrid rocket motor, regression rate, solid fuel grain, oxidizer to fuel ratio, O/F shift, HTPB, hybrid grain.",
+   "tags": [
+    "hybrid-rocket-motor",
+    "regression-rate",
+    "oxidizer-mass-flux",
+    "solid-fuel-grain",
+    "oxidizer-to-fuel-ratio",
+    "of-shift",
+    "port-area",
+    "hybrid-grain"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/nozzle-design",
    "name": "nozzle-design",
    "description": "Use when you must design a rocket engine nozzle from the chamber conditions: compute the exit Mach number for a target area ratio, the choked mass flow through the throat, the exit velocity and the exit static pressure, and the ideal thrust with the pressure term. Produces the nozzle area ratio, exit Mach number, mass flow, exit velocity, and thrust, plus the expansion verdict against the ambient pressure, all in consistent SI units (Pa, K, kg/s, m/s, N). Trigger: nozzle design, area ratio, exit mach, mass flow, ideal thrust, expansion ratio, choked throat.",
@@ -4495,6 +4655,26 @@
     "coarse-attitude",
     "sun-sensor-magnetometer",
     "orthonormal-triad"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/adcs/control-moment-gyro",
+   "name": "control-moment-gyro",
+   "description": "Use when you must size and analyze a control moment gyro (CMG) cluster for agile spacecraft attitude control: compute the torque from the rotor momentum and the gimbal rate with the CMG torque law, derive the gimbal rates for a commanded torque with the pseudoinverse steering law and its null-space term, judge the torque amplification of the gimbal against a wheel actuator at equal momentum, evaluate the singularity measure and verdict of the gimbal state, and size the cluster momentum envelope of the pyramid array for the slew with the gimbal rate saturation flag. Produces the gimbal rates, the achieved torque, the envelope coverage verdict, and the singularity verdict that gate CMG selection. Trigger: control moment gyro, CMG cluster, gimbal rate, gimbal axis, steering law, singularity measure, gimbal lock, momentum envelope, pyramid cluster, torque amplification.",
+   "tags": [
+    "control-moment-gyro",
+    "cmg-cluster",
+    "gimbal-rate",
+    "gimbal-axis",
+    "steering-law",
+    "singularity-measure",
+    "gimbal-lock",
+    "momentum-envelope",
+    "pyramid-cluster",
+    "torque-amplification"
    ],
    "family": "space-systems",
    "pack": "adcs",
@@ -5492,6 +5672,26 @@
    "router_doc": false
   },
   {
+   "path": "structures/materials/creep-rupture",
+   "name": "creep-rupture",
+   "description": "Use when you must assess the elevated-temperature creep and stress rupture behavior of an aerospace metallic part: compute the steady-state creep strain rate with the Norton power law eps_dot = A * sigma^n * exp(-Q/(R*T)) from the stress and the temperature, estimate the rupture life in hours with the Larson-Miller parameter from the stress-LMP master curve, apply the Monkman-Grant relation between the minimum creep rate and the rupture life, accumulate the creep strain over the service time, and check the time to 1 percent creep strain and the rupture life against the required design life with the margin verdict. Produces the creep rate, the rupture life, the accumulated creep strain, and the governing margin for the hot-section component. Trigger: creep-rupture, norton-creep-law, steady-state-creep-rate, larson-miller-parameter, monkman-grant, rupture-life, stress-rupture, accumulated-creep-strain, time-to-one-percent-creep, elevated-temperature.",
+   "tags": [
+    "creep-rupture",
+    "norton-creep-law",
+    "steady-state-creep-rate",
+    "larson-miller-parameter",
+    "monkman-grant",
+    "rupture-life",
+    "stress-rupture",
+    "accumulated-creep-strain",
+    "time-to-one-percent-creep",
+    "elevated-temperature"
+   ],
+   "family": "structures",
+   "pack": "materials",
+   "router_doc": false
+  },
+  {
    "path": "structures/materials/fracture-toughness",
    "name": "fracture-toughness",
    "description": "Use when you must apply the plane-strain fracture toughness K_IC of an aerospace material: compute the applied stress intensity K = Y * sigma * sqrt(pi * a) for a crack of size a under remote stress sigma with geometry factor Y, check the failure criterion K >= K_IC, size the critical crack at which fast fracture starts, and judge whether a test specimen meets the ASTM E399 plane-strain validity requirement that thickness and crack size both exceed 2.5 * (K_IC / sigma_ys)^2. Connects fracture toughness data to damage tolerance analysis and MMPDS material allowables. Trigger: fracture-toughness, kic, stress-intensity-factor, critical-crack-size, plane-strain, fast-fracture, damage-tolerance, mmpds.",
@@ -6437,6 +6637,27 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/ice-protection-sizing",
+   "name": "ice-protection-sizing",
+   "description": "Use when you must size the thermal ice protection system for an aircraft surface in FAR/CS 25 Appendix C continuous maximum icing: choose evaporative anti-icing, running-wet anti-icing or cyclic de-icing, compute the protected area from the icing-critical geometry, estimate the droplet catch efficiency from MVD and airspeed, compute the evaporative heat flux and running-wet surface temperature with the freezing fraction, size the electrothermal power or bleed air mass flow, and return the protect verdict with the protection mode, required power or bleed flow and surface temperature. Trigger: ice protection, anti-ice, de-ice, evaporative anti-icing, running wet, catch efficiency, protected area, heat flux, bleed air mass flow, MVD.",
+   "tags": [
+    "ice-protection-sizing",
+    "thermal-anti-ice-sizing",
+    "evaporative-anti-icing",
+    "running-wet-anti-ice",
+    "cyclic-de-icing",
+    "catch-efficiency",
+    "freezing-fraction",
+    "electrothermal-power",
+    "bleed-air-mass-flow",
+    "protected-area",
+    "mvd-catch-efficiency"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/landing-gear-sizing",
    "name": "landing-gear-sizing",
    "description": "Use when you must size the landing gear for an aircraft at the sizing level: split the maximum landing weight over the struts, compute the nose and main gear loads from the CG position and the wheelbase, size the shock absorber stroke from the sink speed and the landing load factor, and check the tire rating margin. Produces the static loads, the required stroke, and a gear sized or tire overloaded verdict that gate the landing gear configuration. Trigger: landing gear, strut load, wheelbase, nose gear, main gear, shock absorber stroke, sink speed, tire rating, landing load factor.",
@@ -6491,6 +6712,25 @@
     "disk-loading",
     "ground-clearance",
     "advance-ratio"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/spoiler-sizing",
+   "name": "spoiler-sizing",
+   "description": "Use when you must size the flight and ground spoiler panels of a transport aircraft: split roll authority between the primary roll channel and the roll spoilers from the roll rate and damping derivative, size flight spoiler panel area and deflection for the roll assist share, size the ground spoiler lift dumper area from the touchdown lift dump, estimate the speed brake and lift dump drag increments, compute the spoiler hinge moment for the actuator, and check the limits. Produces spoiler areas, deflections, drag increments, hinge moments, and a sized verdict. Trigger: spoiler sizing, flight spoiler, ground spoiler, lift dump, speed brake, roll spoiler, roll assist share, spoiler panel area, lift dumper, spoiler deflection.",
+   "tags": [
+    "spoiler-sizing",
+    "flight-spoiler",
+    "ground-spoiler",
+    "lift-dump",
+    "speed-brake",
+    "roll-spoiler",
+    "roll-assist-share",
+    "spoiler-panel-area",
+    "spoiler-deflection"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

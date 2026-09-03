@@ -66,6 +66,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/estimation-filtering/particle-filter | Particle filter | particle filter, bootstrap filter, sequential Monte Carlo, SIR resampling, non-Gaussian estimation, effective sample size |
 | gnc-autonomy/estimation-filtering/complementary-filter | Complementary filter | complementary filter, Mahony, gyro bias estimation, vector measurement fusion, SO(3) attitude observer |
 | gnc-autonomy/space/orbit-determination | Orbit determination | orbit determination, Gibbs method, Herrick-Gibbs, three position vectors, rv to elements, initial orbit determination |
+| gnc-autonomy/control/control-allocation | Control allocation | control allocation, effector allocation, control effectiveness matrix, pseudoinverse allocation, weighted least squares, daisy chain, redistributed pseudoinverse, actuator limits, saturation, moment command distribution, redundant effectors |
 
 ## Routing guidance
 
@@ -116,6 +117,7 @@ amics sub-skill.
 - Alpha-beta tracking, constant velocity target, smoothing factor, steady state gain, and position and velocity tracking questions route to the estimation-filtering alpha-beta-filter sub-skill.
 - Sigma-point nonlinear state estimation, scaled unscented transform, UKF predict and update, and innovation covariance checks route to the estimation-filtering unscented-kalman-filter sub-skill.
 - Extended Kalman filter design for nonlinear systems with Jacobian linearization, predict and update recursion, innovation covariance, and Kalman gain computation routes to the estimation-filtering extended-kalman-filter sub-skill.
+- Control allocation across redundant effectors, pseudoinverse and weighted least squares, daisy chain, and actuator saturation redistribution questions route to the control control-allocation sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
