@@ -383,3 +383,5 @@ Total skills rated: 365
 | 374 | structures/composites/adhesive-bonded-joints | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
 | 376 | space-systems/orbit-mechanics/conjunction-assessment | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 377 | structures/loads/shock-response-spectrum | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 378 | avionics/flight-management/rnp-anp-containment | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 379 | avionics/flight-management/radio-navigation-aids | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
