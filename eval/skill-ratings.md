@@ -346,3 +346,4 @@ Total skills rated: 330
 | 338 | aerodynamics/high-speed/shock-expansion-airfoil | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 339 | systems-engineering-safety/certification/means-of-compliance | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
 | 340 | structures/fatigue/strain-life-fatigue | PASS | ✓ | far-25, mmpsd | structures | 9.5 | PASS |
+| 341 | aerodynamics/aeroelasticity/aeroelastic-gust-response | PASS | ✓ | far-25, cs-25 | aerodynamics | 9.5 | PASS |
