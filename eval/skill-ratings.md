@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 330
+Total skills rated: 341
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -336,3 +336,14 @@ Total skills rated: 330
 | 328 | manufacturing-quality/as9103/key-characteristic-management | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 329 | cross-cutting/numerics/optimization-algorithms | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 330 | flight-test-operations/performance/level-acceleration-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 331 | gnc-autonomy/estimation-filtering/complementary-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 332 | space-systems/adcs/reaction-wheel-control | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 333 | flight-mechanics/flight-dynamics-sim/point-mass-trajectory | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 334 | propulsion/electric/electrothermal-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 335 | gnc-autonomy/space/orbit-determination | PASS | ✓ | ecss | gnc-autonomy | 9.5 | PASS |
+| 336 | space-systems/orbit-mechanics/clohessy-wiltshire | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 337 | propulsion/rocket/rocket-engine-cycle | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 338 | aerodynamics/high-speed/shock-expansion-airfoil | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 339 | systems-engineering-safety/certification/means-of-compliance | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
+| 340 | structures/fatigue/strain-life-fatigue | PASS | ✓ | far-25, mmpsd | structures | 9.5 | PASS |
+| 341 | aerodynamics/aeroelasticity/aeroelastic-gust-response | PASS | ✓ | far-25, cs-25 | aerodynamics | 9.5 | PASS |

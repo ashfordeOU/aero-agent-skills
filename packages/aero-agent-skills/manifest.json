@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 330,
+  "leaves": 341,
   "live_packs": 81,
   "families": 12,
-  "corpus_tasks": 674
+  "corpus_tasks": 696
  },
  "skills": [
   {
@@ -15,6 +15,25 @@
    "family": "aerodynamics",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "aerodynamics/aeroelasticity/aeroelastic-gust-response",
+   "name": "aeroelastic-gust-response",
+   "description": "Use when you must compute the dynamic aeroelastic response of a flexible two-degree-of-freedom typical wing section to a discrete gust with indicial unsteady aerodynamics: run the Wagner and Kussner lag-state lift model in the time domain, produce the plunge and pitch response histories for a one-minus-cosine gust, and report the dynamic magnification factor of the peak lift over the quasi-steady value plus the peak-load verdict against a limit. Produces response histories, the dynamic magnification factor, and load margin. Trigger: aeroelastic gust response, dynamic gust response, kussner function, wagner function, indicial aerodynamics, dynamic magnification factor, typical section gust, gust response history.",
+   "tags": [
+    "aeroelastic-gust-response",
+    "dynamic-gust-response",
+    "kussner-function",
+    "wagner-function",
+    "indicial-aerodynamics",
+    "dynamic-magnification-factor",
+    "typical-section-gust",
+    "unsteady-aerodynamics",
+    "gust-response-history"
+   ],
+   "family": "aerodynamics",
+   "pack": "aeroelasticity",
+   "router_doc": false
   },
   {
    "path": "aerodynamics/aeroelasticity/divergence-speed",
@@ -400,6 +419,23 @@
     "turning-angle",
     "compressible-flow",
     "isentropic-expansion"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/shock-expansion-airfoil",
+   "name": "shock-expansion-airfoil",
+   "description": "Use when you must compute the supersonic shock-expansion solution for a diamond (double-wedge) airfoil section: patch oblique-shock and Prandtl-Meyer relations over the four planar surfaces at a freestream Mach number and angle of attack, then integrate the panel pressures into the section lift, wave drag, and leading-edge moment coefficients with a surface pressure table. Implements theta-beta-M (weak solution), oblique-shock ratios, and the Prandtl-Meyer function internally for the turn-by-turn surface states. Produces cl, cd_wave, cm_le and per-surface Cp for a given half-angle, angle of attack, and Mach number. Trigger: shock-expansion, supersonic airfoil, diamond airfoil, double-wedge, surface-pressure integration, wave drag coefficient.",
+   "tags": [
+    "shock-expansion-airfoil",
+    "shock-expansion",
+    "supersonic-airfoil",
+    "diamond-airfoil",
+    "double-wedge",
+    "surface-pressure-integration",
+    "wave-drag-coefficient"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -1601,6 +1637,26 @@
    "family": "flight-mechanics",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "flight-mechanics/flight-dynamics-sim/point-mass-trajectory",
+   "name": "point-mass-trajectory",
+   "description": "Use when you must simulate the point-mass trajectory of an aircraft climbing out in the vertical plane: propagate speed, flight-path angle and altitude with the energy-state point-mass equations, integrate the state with a fixed time-step RK4 scheme, apply the thrust altitude lapse and parabolic drag polar, and report the speed-altitude history, load factor and steady-climb consistency versus the closed-form excess-thrust climb angle. Produces the time histories of V, gamma, h and x with per-step lift, drag, thrust and load factor. Trigger: point-mass trajectory, flight-path angle, RK4 integration, time-step integration, vertical-plane profile, speed-altitude history, point-mass equations, fixed-alpha climb.",
+   "tags": [
+    "point-mass-trajectory",
+    "point-mass-equations",
+    "flight-path-angle",
+    "trajectory-simulation",
+    "rk4-integration",
+    "time-step-integration",
+    "vertical-plane-profile",
+    "speed-altitude-history",
+    "fixed-alpha-climb",
+    "thrust-altitude-lapse"
+   ],
+   "family": "flight-mechanics",
+   "pack": "flight-dynamics-sim",
+   "router_doc": false
   },
   {
    "path": "flight-mechanics/flight-dynamics-sim/six-dof-simulation",
@@ -2861,6 +2917,24 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/estimation-filtering/complementary-filter",
+   "name": "complementary-filter",
+   "description": "Use when you must run a Mahony-style explicit complementary filter attitude observer on so3 to fuse a spacecraft or air-vehicle rate gyro with sun sensor and magnetometer vector measurements into a continuous, drift-free attitude quaternion estimate with online gyro bias estimation: form the cross-product innovation from each body measurement against the reference vector rotated by the estimated attitude, drive the proportional and integral correction gains, update the bias estimate, and integrate the quaternion kinematics with RK4 and renormalization. Produces the attitude and bias time histories, the per-step innovation norm, and the steady-state convergence verdict that gate the pointing and navigation assessment. Trigger: complementary-filter, mahony, gyro-bias-estimation, vector-measurement-fusion, so3-attitude-observer, attitude-quaternion, innovation-norm, rate-gyro.",
+   "tags": [
+    "complementary-filter",
+    "mahony-style-filter",
+    "gyro-bias-estimation",
+    "vector-measurement-fusion",
+    "so3-attitude-observer",
+    "attitude-quaternion",
+    "innovation-norm",
+    "rate-gyro-fusion"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "estimation-filtering",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/estimation-filtering/extended-kalman-filter",
    "name": "extended-kalman-filter",
    "description": "Estimate the state of a nonlinear system with an extended Kalman filter: linearize the nonlinear dynamics and measurement model about the current estimate with the state Jacobian F and the measurement Jacobian H, run the predict step x_hat = f(x_hat), P = F P F^T + Q, then the update step with the innovation y = z - h(x_hat), the innovation covariance S = H P H^T + R, the Kalman gain K = P H^T S^-1, and the corrected state and covariance. Produces the predicted and corrected states, the state and innovation covariances, the gain, and the innovation sequence for nonlinear tracking problems. Use when the task is nonlinear state estimation, Jacobian linearization, or extended Kalman filtering for tracking. Trigger: extended kalman filter, jacobian linearization, innovation covariance, kalman gain, nonlinear state estimation, range bearing tracking.",
@@ -3156,6 +3230,24 @@
     "gravity-gradient",
     "momentum-wheel",
     "nutation"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "space",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/space/orbit-determination",
+   "name": "orbit-determination",
+   "description": "Use when you must determine an initial orbit from three inertial position vectors: run the Gibbs method to recover the velocity at the central observation, apply the Herrick-Gibbs finite-difference method when the vectors are closely spaced, and convert the state to classical orbital elements with the vis-viva energy consistency check. Produces the central velocity, the classical elements (a, e, i, RAAN, argp, nu), the chosen method verdict and the orbit-fit verdict. Trigger: orbit-determination, gibbs-method, herrick-gibbs, three position vectors, initial orbit determination, rv-to-elements, orbital elements, angular separation.",
+   "tags": [
+    "orbit-determination",
+    "gibbs-method",
+    "herrick-gibbs",
+    "three-position-vectors",
+    "initial-orbit-determination",
+    "rv-to-elements",
+    "orbital-elements",
+    "vis-viva-consistency"
    ],
    "family": "gnc-autonomy",
    "pack": "space",
@@ -3926,6 +4018,23 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/electric/electrothermal-thruster",
+   "name": "electrothermal-thruster",
+   "description": "Use when you must compute the electrothermal thruster operating point for electric propulsion: useful heating power from input power and heating efficiency, propellant mass flow from chamber temperature rise, ideal vacuum exhaust velocity, thrust, specific impulse, thrust efficiency and thrust-to-power ratio for a resistojet or arcjet family point. Produces a single-point performance summary with the power budget decomposition and a typical-band verdict. Trigger: electrothermal thruster, resistojet, arcjet, heated propellant, power to thrust, ammonia, nitrogen, hydrogen, helium propellant, specific impulse.",
+   "tags": [
+    "electrothermal-thruster",
+    "electric-propulsion",
+    "resistojet",
+    "arcjet",
+    "heated-propellant",
+    "power-to-thrust",
+    "specific-impulse"
+   ],
+   "family": "propulsion",
+   "pack": "electric",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/electric/gridded-ion-thruster",
    "name": "gridded-ion-thruster",
    "description": "Use when you must size or analyze a gridded ion thruster (Kaufman type) for electrostatic propulsion: ion exhaust velocity and specific impulse from the net beam voltage, Child-Langmuir space-charge limit and perveance margin of the accelerator grid, beam current from extraction area and grid transparency, thrust from beam current and from power with total efficiency, and propellant mass for a delta-v mission. Produces the gridded thruster performance summary with thrust, specific impulse, perveance check, power budget and propellant mass, plus the gridded versus hall comparison at equal power. Trigger: gridded ion thruster, Kaufman thruster, electrostatic propulsion, accelerator grid, perveance, beam extraction, net voltage, ion optics, specific impulse.",
@@ -4138,6 +4247,25 @@
     "storable",
     "solid-propellant",
     "storability"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/rocket/rocket-engine-cycle",
+   "name": "rocket-engine-cycle",
+   "description": "Use when you must assess liquid rocket engine feed cycles at a fixed thrust, chamber pressure, and propellant pair: compare pressure-fed against the pump-fed gas-generator, staged-combustion, and expander cycles, compute the pump discharge pressure, the oxidizer and fuel pump powers, the turbine drive power and the cycle power balance, and size the pressure-fed feed-tank mass penalty. Produces the feasible cycle set, pump and turbine power balance, drive mass fraction, tank mass penalty, and a cycle selection verdict. Trigger: rocket-engine-cycle, feed-cycle, gas-generator cycle, staged-combustion, expander-cycle, pressure-fed, pump-fed, pump-power, turbine-power.",
+   "tags": [
+    "rocket-engine-cycle",
+    "feed-cycle",
+    "gas-generator-cycle",
+    "staged-combustion",
+    "expander-cycle",
+    "pressure-fed",
+    "pump-fed",
+    "pump-power",
+    "turbine-power"
    ],
    "family": "propulsion",
    "pack": "rocket",
@@ -4397,6 +4525,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/adcs/reaction-wheel-control",
+   "name": "reaction-wheel-control",
+   "description": "Use when you must design the reaction wheel control law for a spacecraft pointing maneuver: command wheel torques from quaternion error feedback and body rate with PD gains, integrate wheel momentum with the body rate transport term, clip torque commands and flag wheel momentum saturation, and compute the momentum desaturation command with its magnetorquer dipole estimate. Produces the commanded wheel torque vector, the accumulated wheel momentum, the saturation verdict, and the desaturation torque and dipole. Trigger: reaction wheel control, wheel torque command, wheel momentum saturation, momentum desaturation, desaturation horizon, wheel momentum excess, unloads wheel cluster, local magnetic field, magnetorquer dipole, torque demand along the field, warn when the demand lies along the field, find the desaturation dipole for the target momentum, quaternion error feedback, desaturation torque, spacecraft pointing.",
+   "tags": [
+    "reaction-wheel-control",
+    "wheel-torque-command",
+    "wheel-momentum-saturation",
+    "momentum-desaturation",
+    "quaternion-error-feedback",
+    "desaturation-torque",
+    "reaction-wheel-cluster",
+    "spacecraft-pointing"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/adcs/star-tracker",
    "name": "star-tracker",
    "description": "Determine star tracker attitude determination for spacecraft ADCS: identify measured star centroids against an onboard star catalog, compute the angular separation between each measured centroid and its catalog star, and return the best match inside the field of view. Use when the task is star identification, boresight and field of view selection, lost in space versus tracking mode, cross-boresight versus roll pointing accuracy, or star tracker update rate. The logic normalizes unit vectors, finds the nearest catalog star within the field of view radius, returns the matched star id plus boresight error in arcseconds, and selects lost in space or tracking mode from a prior attitude. Trigger: star identification, star catalog, boresight, field of view, lost in space, tracking mode, angular separation, pointing accuracy, attitude determination.",
@@ -4564,6 +4710,24 @@
    ],
    "family": "space-systems",
    "pack": "mission-design",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/orbit-mechanics/clohessy-wiltshire",
+   "name": "clohessy-wiltshire",
+   "description": "Use when you must propagate and analyze the Clohessy-Wiltshire linearized relative motion of a deputy spacecraft about a chief in a circular orbit: compute the chief mean motion, build the 6x6 relative-motion state-transition-matrix, propagate the deputy-chief relative state (x radial, y along-track, z cross-track), check the bounded relative orbit condition y_dot = -2 n x, and size the two-impulse targeting delta-v to a desired final relative state. Produces the propagated relative trajectory, the bounded-orbit verdict, the impulse budget, and a geometry sanity check with singular one-orbit and cross-track-nulling transfer times flagged. Trigger: clohessy-wiltshire, hill equations, relative-motion state-transition-matrix, deputy-chief, two-impulse targeting, along-track drift, cw propagation, relative orbit injection, cross-track offset.",
+   "tags": [
+    "clohessy-wiltshire",
+    "hill-equations",
+    "relative-motion-state-transition-matrix",
+    "deputy-chief",
+    "two-impulse-targeting",
+    "along-track-drift",
+    "relative-orbit-injection",
+    "cross-track-offset"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
    "router_doc": false
   },
   {
@@ -5103,6 +5267,25 @@
     "finite-width-plate",
     "material-constant",
     "elastic-peak-stress"
+   ],
+   "family": "structures",
+   "pack": "fatigue",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fatigue/strain-life-fatigue",
+   "name": "strain-life-fatigue",
+   "description": "Use when you must determine the strain-life (low-cycle fatigue) endurance of an aerospace structure: Coffin-Manson total strain amplitude from reversals to failure, reversals to failure from a fully reversed strain amplitude, the transition life where elastic and plastic amplitudes cross, low-cycle versus high-cycle regime categorization, the Neuber local-strain rule that converts a nominal elastic stress at a notch into local elastic-plastic strain through the cyclic Ramberg-Osgood curve, and the strain-life verdict for a load point. Produces reversals and cycles to failure, local notch strain, and the regime string. Trigger: strain-life-fatigue, coffin-manson, low-cycle-fatigue, reversals-to-failure, transition-life, neuber-local-strain, ramberg-osgood, elastic-plastic-strain, notched-lug.",
+   "tags": [
+    "strain-life-fatigue",
+    "coffin-manson",
+    "low-cycle-fatigue",
+    "reversals-to-failure",
+    "transition-life",
+    "neuber-local-strain",
+    "ramberg-osgood",
+    "elastic-plastic-strain",
+    "notched-lug"
    ],
    "family": "structures",
    "pack": "fatigue",
@@ -5766,6 +5949,27 @@
     "certification-program",
     "means-of-compliance",
     "regulatory-path"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "certification",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/certification/means-of-compliance",
+   "name": "means-of-compliance",
+   "description": "Use when you must select the means of compliance for each certification item in a civil aircraft certification program: assign the acceptable MOC class (moc-1 engineering analysis, moc-2 ground test, moc-3 flight test, moc-4 simulation tool, moc-5 similarity, moc-6 safety assessment) from deterministic suitability rules over item kind, severity class, DAL and a novelty screen, gate top-severity systems items on moc-6, and score the compliance matrix coverage per item kind. Produces the per-item MOC assignment, the coverage score, and a certification plan readiness verdict. Trigger: means of compliance, moc-1, moc-2, moc-3, moc-4, moc-5, moc-6, compliance matrix, certification item, coverage score, certification plan, novelty screening.",
+   "tags": [
+    "means-of-compliance",
+    "moc-1",
+    "moc-2",
+    "moc-3",
+    "moc-4",
+    "moc-5",
+    "moc-6",
+    "compliance-matrix",
+    "certification-item",
+    "coverage-score",
+    "novelty-screening"
    ],
    "family": "systems-engineering-safety",
    "pack": "certification",
