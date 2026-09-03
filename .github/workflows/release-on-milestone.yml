@@ -23,32 +23,36 @@ jobs:
           echo "leaves=$LEAVES"
           # Release convention (founder 2026-09-03): every 100 new skills =
           # one minor version bump. v1.0.0 = 1-100 ... v1.3.0 = 301-400.
+          # FIX 2026-09-03: waves can jump past a boundary in one push (e.g.
+          # 393 -> 404). The old check held for the CURRENT band's end (500)
+          # and silently skipped the crossed v1.3.0 (400) band. Now: find the
+          # LOWEST band tag that is missing but whose boundary the count has
+          # REACHED (leaves >= (minor+1)*100), so skipped bands get released
+          # one at a time instead of never.
+          SHOULD="false"
+          NEXT_TAG=""
           MINOR=$(( (LEAVES - 1) / 100 ))
-          NEXT_TAG="v1.${MINOR}.0"
+          for m in $(seq 0 "$MINOR"); do
+            TAG="v1.${m}.0"
+            BOUNDARY=$(( (m + 1) * 100 ))
+            if ! git rev-parse -q --verify "refs/tags/$TAG" >/dev/null 2>&1 && [ "$LEAVES" -ge "$BOUNDARY" ]; then
+              SHOULD="true"
+              NEXT_TAG="$TAG"
+              break
+            fi
+          done
           echo "band_minor=$MINOR" >> "$GITHUB_OUTPUT"
           echo "next_tag=$NEXT_TAG" >> "$GITHUB_OUTPUT"
-
-          # Latest existing v* tag
           LAST=$(git tag --list 'v*' --sort=-v:refname | head -1 || echo "")
           echo "last_tag=$LAST" >> "$GITHUB_OUTPUT"
           echo "Last release tag: $LAST"
-
-          # If the band tag for this leaf count already exists, no-op.
-          if git rev-parse -q --verify "refs/tags/$NEXT_TAG" >/dev/null 2>&1; then
-            echo "Tag $NEXT_TAG already exists — no new milestone to release."
+          if [ "$SHOULD" = "true" ]; then
+            echo "Milestone $NEXT_TAG due (leaves=$LEAVES crossed boundary)."
+            echo "should_release=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No missing milestone band (all tags through v1.${MINOR}.0 exist or not reached)."
             echo "should_release=false" >> "$GITHUB_OUTPUT"
-            exit 0
           fi
-          # Only release when we are at/near a boundary AND the leaf count has
-          # reached the band (e.g. leaves 400+ => v1.3.0). If leaves are below
-          # 400 but above 300, hold until the boundary.
-          BOUNDARY=$(( (MINOR + 1) * 100 ))
-          if [ "$LEAVES" -lt "$BOUNDARY" ] && [ "$MINOR" -gt 0 ]; then
-            echo "Not at boundary yet (leaves=$LEAVES < $BOUNDARY). Holding for milestone."
-            echo "should_release=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "should_release=true" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
         if: steps.check.outputs.should_release == 'true'
