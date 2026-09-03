@@ -1,0 +1,14 @@
+# Hit@1 wave-26 fragment: leak-testing (manufacturing-quality)
+# Two tasks per new leaf skill. w26-leak-testing-1 routes on pressure decay
+# leak rate computation and disposition against the maximum allowable leak;
+# w26-leak-testing-2 routes on leak test method recommendation from required
+# sensitivity plus the helium mass spectrometer to air conversion.
+tasks:
+  - id: w26-leak-testing-1
+    query: "compute the leak rate of the 50 liter fuel tank from the pressure decay test: 0.02 bar drop in 600 seconds, then disposition the part against the 2 scc per second maximum allowable leak rate"
+    intent: "manufacturing-quality; pressure decay leak rate in scc per second from volume, pressure drop and time, then accept or reject disposition against the maximum allowable leak"
+    expected_skill: "manufacturing-quality/ndt/leak-testing"
+  - id: w26-leak-testing-2
+    query: "recommend the leak test method for the sealed valve that needs 1e-8 scc per second sensitivity and convert the measured helium mass spectrometer reading to the air equivalent leak rate for the acceptance check"
+    intent: "manufacturing-quality; leak test method recommendation from required sensitivity and helium to air conversion of a mass spectrometer reading for the acceptance check"
+    expected_skill: "manufacturing-quality/ndt/leak-testing"

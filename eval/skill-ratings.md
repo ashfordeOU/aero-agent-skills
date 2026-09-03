@@ -368,3 +368,4 @@ Total skills rated: 353
 | 360 | cross-cutting/numerics/probability-distributions | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 361 | flight-test-operations/planning/noise-certification-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 362 | vehicle-design/sizing/battery-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 363 | manufacturing-quality/ndt/leak-testing | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
