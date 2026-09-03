@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 353,
-  "live_packs": 81,
+  "leaves": 365,
+  "live_packs": 83,
   "families": 12,
-  "corpus_tasks": 720
+  "corpus_tasks": 744
  },
  "skills": [
   {
@@ -1300,6 +1300,28 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/hypothesis-testing",
+   "name": "hypothesis-testing",
+   "description": "Use when you must run significance tests on aerospace engineering data: the one-sample and two-sample Student t tests (pooled and Welch), the paired t test, the two-variance F test, the chi-square test of independence, and the one-way ANOVA F test, computing each statistic, its degrees of freedom, and its p-value from the incomplete beta and gamma functions and returning the reject-null or fail-to-reject verdict at a stated significance level. Produces the statistic, df, p-value, and verdict that gate the data-comparison conclusion for test versus baseline, batch versus batch, or configuration A versus B. Trigger: hypothesis testing, student t test, welch test, paired t test, ANOVA, F test for variances, chi-square test of independence, p-value, reject null hypothesis.",
+   "tags": [
+    "hypothesis-testing",
+    "student-t-test",
+    "welch-test",
+    "paired-t-test",
+    "anova",
+    "f-test-for-variances",
+    "chi-square-test-of-independence",
+    "p-value",
+    "significance-level",
+    "reject-null-hypothesis",
+    "drag-counts-comparison",
+    "configuration-difference-significance"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/interpolation",
    "name": "interpolation",
    "description": "Use when you must estimate a value between the tabulated points of an aerospace data table: interpolate linearly between two adjacent data points, perform piecewise linear interpolation over a whole table, build a natural cubic spline through the data points and evaluate it at an intermediate abscissa, extend beyond the table ends with the boundary behavior, and validate that the table is sorted and well formed before the lookup. Produces the interpolated value, the spline coefficients, and the bracketing segment that gate the table lookup step. Trigger: linear interpolation, cubic spline, piecewise linear, table lookup, spline coefficients.",
@@ -1423,6 +1445,27 @@
     "newton-method",
     "line-search",
     "unconstrained-minimum"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/probability-distributions",
+   "name": "probability-distributions",
+   "description": "Use when you must fit and characterize a standard probability distribution for aerospace engineering data analysis: estimate the normal, lognormal, exponential, and Weibull distribution parameters from a univariate sample, evaluate the pdf, cdf, quantile, reliability, and hazard functions, score the fit with the chi-square and Kolmogorov-Smirnov goodness-of-fit statistics, and report percentiles plus reliability at a target time. Produces the fitted parameter dict, the fit-quality verdict, and the quantile and reliability values that gate the statistical characterization of scatter data such as loads, life, failure times, and tolerances. Trigger: probability distribution fitting, weibull fit, lognormal, exponential fit, goodness of fit, kolmogorov smirnov, chi-square fit test, quantile estimation, reliability at time, hazard function, parameter estimation.",
+   "tags": [
+    "probability-distributions",
+    "weibull-fit",
+    "lognormal",
+    "exponential-fit",
+    "goodness-of-fit",
+    "kolmogorov-smirnov",
+    "chi-square-fit-test",
+    "quantile-estimation",
+    "reliability-at-time",
+    "hazard-function",
+    "parameter-estimation"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -2296,6 +2339,26 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/envelope/icing-flight-test",
+   "name": "icing-flight-test",
+   "description": "Use when you must categorize an icing encounter and plan the icing certification flight test campaign for a transport airplane against the FAR/CS 25 Appendix C icing envelopes: judge the continuous maximum and intermittent maximum regime membership from liquid water content, median volumetric diameter and total air temperature, rate the icing encounter severity for the flight test log, screen the natural icing search conditions against the freezing level and the forecast liquid water content, build the artificial ice shape test matrix with glaze, rime, mixed and runback shapes over the critical surfaces, and list the ice protection effectiveness test points to fly. Produces the envelope verdict, severity rating, search go/no-go and shape matrix verdict that gate the program. Trigger: icing flight test, natural icing, artificial ice shapes, appendix C envelope, liquid water content, median volumetric diameter, runback ice, supercooled large droplet, icing encounter severity.",
+   "tags": [
+    "icing-flight-test",
+    "natural-icing",
+    "artificial-ice-shapes",
+    "appendix-c-envelope",
+    "liquid-water-content",
+    "median-volumetric-diameter",
+    "runback-ice",
+    "supercooled-large-droplet",
+    "icing-encounter-severity",
+    "ice-protection-effectiveness-test"
+   ],
+   "family": "flight-test-operations",
+   "pack": "envelope",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/envelope/load-factor-envelope",
    "name": "load-factor-envelope",
    "description": "Use when you must build the flight test load factor envelope (V-n diagram): compute the stall speed boundary from the wing loading and the maximum lift coefficient, derive the corner point speed at the positive limit load factor, compute the discrete gust line increment in the FAR 25.341 form, and judge the envelope against the placard speed and the transport positive and negative limit load factors. Produces the stall speed boundary, the corner point speed, the gust load factor increment, and the envelope verdict that gate the flight test program. Trigger: V-n diagram, load factor envelope, gust line, corner point, placard speed.",
@@ -2676,6 +2739,28 @@
     "safety-pilot-duties",
     "go-no-go-criteria",
     "risk-mitigation"
+   ],
+   "family": "flight-test-operations",
+   "pack": "planning",
+   "router_doc": false
+  },
+  {
+   "path": "flight-test-operations/planning/noise-certification-test",
+   "name": "noise-certification-test",
+   "description": "Use when you must plan and analyze the noise certification flight test for a transport airplane: lay out the flyover, sideline, and approach measurement conditions with the reference geometry (6500 m flyover distance, 450 m sideline offset, 1200 m approach distance at 120 m altitude on a 3 degree glide slope), compute the effective perceived noise level (EPNL) from the measured tone corrected perceived noise level (PNLT) time history with the 10 dB down integration rule and the 10 s normalization, and check each point and the cumulative three point margin against the noise limits. Produces the EPNL per condition, the margin to limit with verdict, and the cumulative margin verdict that gate the certification submission. Trigger: noise certification flight test, EPNL, effective perceived noise level, PNLT, tone corrected, 10 dB down integration, flyover noise, sideline noise, approach noise, cumulative margin, noise limit, FAR 36.",
+   "tags": [
+    "noise-certification-test",
+    "noise-certification",
+    "epnl-computation",
+    "effective-perceived-noise-level",
+    "flyover-noise",
+    "sideline-noise",
+    "approach-noise",
+    "10-db-down-integration",
+    "cumulative-margin",
+    "noise-limit",
+    "far-36",
+    "chapter-4-margin-rule"
    ],
    "family": "flight-test-operations",
    "pack": "planning",
@@ -3847,6 +3932,26 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/ndt/leak-testing",
+   "name": "leak-testing",
+   "description": "Use when you must plan and evaluate a leak test on a fuel tank, accumulator, valve, or sealed enclosure: compute the leak rate in scc per second from pressure decay or vacuum decay measurement, size the test time a gauge resolution needs to catch a target leak, convert a measured helium leak to the air equivalent and back, recommend the leak test method from required sensitivity and access, and disposition the part against the maximum allowable leak rate. Produces the leak rate, the method recommendation, and the accept, reject, or review verdict. Trigger: leak testing, pressure decay, vacuum decay, helium mass spectrometer, sniffer test, bubble test, leak rate, scc per second, helium to air conversion, gauge resolution, maximum allowable leak.",
+   "tags": [
+    "leak-testing",
+    "pressure-decay",
+    "vacuum-decay",
+    "helium-mass-spectrometer",
+    "sniffer-test",
+    "bubble-test",
+    "leak-rate",
+    "helium-to-air-conversion",
+    "gauge-resolution",
+    "maximum-allowable-leak"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "ndt",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/ndt/liquid-penetrant-inspection",
    "name": "liquid-penetrant-inspection",
    "description": "Use when you must plan and execute a liquid penetrant inspection (PT) of an aerospace part and turn penetrant behavior into inspection decisions: compute the capillary pressure and capillary rise that pull the penetrant into a surface-breaking crack, apply the Washburn equation to estimate penetration depth during the dwell time, size the dwell time that fills a crack of a given width and depth, convert crack opening width to effective capillary radius, and relate bleed-out indication width to the actual flaw width for indication sizing. Produces the penetration depth, dwell time, and bleed-out ratio that gate liquid penetrant acceptance dispositions. Trigger: liquid penetrant, penetrant testing, dye penetrant, fluorescent penetrant, dwell time, developer time, capillary action, washburn, bleed out, indication width, surface crack.",
@@ -3945,6 +4050,28 @@
     "weld",
     "casting",
     "radiograph"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "ndt",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/ndt/shearography-inspection",
+   "name": "shearography-inspection",
+   "description": "Use when you must plan and interpret a laser shearography NDT inspection on an aerospace composite or bonded part: compute the phase sensitivity of the shearography setup from the laser wavelength and the shear distance, select the shear distance for the minimum defect size of interest, size the vacuum, thermal, or vibration load step for the part stiffness, build the scan plan covering the part with the required overlap, convert a measured phase anomaly from the fringe map into a strain gradient estimate, and disposition the anomaly against the maximum allowable disbond or delamination size. Produces the setup parameters, the scan plan, the anomaly strain estimate, and the disposition verdict that gate the inspection under an approved NDT procedure. Trigger: laser shearography, shearography inspection, phase map, shear distance, strain gradient, vacuum load step, fringe anomaly, disbond detection, composite panel inspection, minimum detectable strain.",
+   "tags": [
+    "shearography-inspection",
+    "laser-shearography",
+    "shear-distance",
+    "phase-map",
+    "strain-gradient",
+    "vacuum-load-step",
+    "thermal-load-step",
+    "vibration-load-step",
+    "fringe-anomaly",
+    "minimum-detectable-strain",
+    "disbond-detection",
+    "composite-panel-inspection"
    ],
    "family": "manufacturing-quality",
    "pack": "ndt",
@@ -6155,6 +6282,23 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/certification/equivalent-level-of-safety",
+   "name": "equivalent-level-of-safety",
+   "description": "Use when you must develop an Equivalent Level of Safety (ELOS) finding for a civil aircraft or system certification item that cannot show literal compliance with an applicable airworthiness regulation paragraph: state the regulation intent and its safety objective, quantify or qualify the achieved safety level of the design, list the compensating measures that close the gap, compute the safety margin against the numeric probability target (25.1309 catastrophic 1e-9 per flight hour) when the rule is quantitative, and return the finding recommendation (finding recommended, conditional, or not supportable) with the reasons list. Produces the per-item ELOS assessment with margin, compensation coverage and the verdict that gates the certification finding package. Trigger: equivalent level of safety, ELOS finding, deviation finding, regulation intent, compensating measure, non-literal compliance, safety margin, 21.21.",
+   "tags": [
+    "equivalent-level-of-safety",
+    "elos-finding",
+    "deviation-finding",
+    "regulation-intent",
+    "compensating-measures",
+    "non-literal-compliance",
+    "safety-margin"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "certification",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/certification/means-of-compliance",
    "name": "means-of-compliance",
    "description": "Use when you must select the means of compliance for each certification item in a civil aircraft certification program: assign the acceptable MOC class (moc-1 engineering analysis, moc-2 ground test, moc-3 flight test, moc-4 simulation tool, moc-5 similarity, moc-6 safety assessment) from deterministic suitability rules over item kind, severity class, DAL and a novelty screen, gate top-severity systems items on moc-6, and score the compliance matrix coverage per item kind. Produces the per-item MOC assignment, the coverage score, and a certification plan readiness verdict. Trigger: means of compliance, moc-1, moc-2, moc-3, moc-4, moc-5, moc-6, compliance matrix, certification item, coverage score, certification plan, novelty screening.",
@@ -6173,6 +6317,45 @@
    ],
    "family": "systems-engineering-safety",
    "pack": "certification",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/certification/mmel-development",
+   "name": "mmel-development",
+   "description": "Use when you must develop the Master Minimum Equipment List (MMEL) proposal for a transport type design from the safety assessment results: screen each candidate equipment item for dispatch relief with the item inoperative, classify it as MMEL-eligible or forbidden from relief, assign the operator repair interval category (A, B, C, or D), attach the (O) operating procedure and (M) maintenance flags, and check the interaction of multiple inoperative items so no combination removes a safety function. Produces the per-item MMEL proposal rows with interval category, O/M flags, and the relief verdict gating the MMEL submission to the certification authority. Trigger: master minimum equipment list, MMEL proposal, dispatch relief, MEL relief, dispatch with inoperative equipment, interval category, repair interval, inoperative item screening.",
+   "tags": [
+    "mmel-development",
+    "master-minimum-equipment-list",
+    "mmel-proposal",
+    "dispatch-relief",
+    "mel-relief",
+    "dispatch-with-inoperative-equipment",
+    "interval-category",
+    "repair-interval",
+    "inoperative-item-screening"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "certification",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment",
+   "name": "in-service-safety-assessment",
+   "description": "Use when you must assess in-service safety data for a civil aircraft fleet against the type-design safety assessment predictions: collect field events from service difficulty reports and airline reliability reports grouped by failure condition, compute the observed event rate over the fleet exposure, compare it with the predicted rate from the safety objective, apply the single-event rule for hazardous or catastrophic events, and decide whether the experience is safety-significant. Produces the observed rate, the Poisson exceedance statistic, the significance verdict, and the corrective action route (no action, continued monitoring, service bulletin, or airworthiness directive request) with an urgency band. Trigger: in-service safety assessment, continued airworthiness, service difficulty report, field event rate, fleet exposure, observed versus predicted rate, single-event rule, ARP5150, safety significance, airworthiness directive request.",
+   "tags": [
+    "in-service-safety-assessment",
+    "continued-airworthiness",
+    "service-difficulty-report",
+    "field-event-rate",
+    "fleet-exposure",
+    "observed-versus-predicted-rate",
+    "single-event-rule",
+    "safety-significance",
+    "service-bulletin",
+    "airworthiness-directive-request"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "continued-airworthiness",
    "router_doc": false
   },
   {
@@ -6308,6 +6491,26 @@
    ],
    "family": "systems-engineering-safety",
    "pack": "requirements",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/safety-case/goal-structuring-notation",
+   "name": "goal-structuring-notation",
+   "description": "Use when you must build or validate a Goal Structuring Notation (GSN) safety argument for a certification claim: decompose the top goal into sub-goals through a strategy, attach safety assessment evidence as solution nodes, record context, assumptions and justifications, and run the argument validity checks (acyclicity, exactly one top goal, every leaf goal supported by a solution, no dangling references, strategies decomposed, away-goal justification). Produces the validated argument graph with the support coverage score and issue list, and the metrics that gate the safety-case submission. Trigger: goal structuring notation, GSN, safety argument, safety case, claim decomposition, strategy, solution node, away goal, argument validation, support coverage.",
+   "tags": [
+    "goal-structuring-notation",
+    "gsn",
+    "safety-argument",
+    "safety-case",
+    "claim-decomposition",
+    "solution-node",
+    "evidence-node",
+    "away-goal",
+    "argument-validation",
+    "support-coverage"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "safety-case",
    "router_doc": false
   },
   {
@@ -6559,6 +6762,44 @@
    ],
    "family": "vehicle-design",
    "pack": "mdo",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/mdo/surrogate-modeling",
+   "name": "surrogate-modeling",
+   "description": "Use when you must build and validate an approximation model of an expensive aerospace analysis from sampled design data: assemble the full quadratic basis, fit a ridge-regularized quadratic response surface, fit a Gaussian radial basis function interpolant, predict the response at new design points, run a leave-one-out cross validation on both models, and recommend the surrogate with the lower estimated prediction error. Produces the fitted coefficients or weights, the cross-validation and in-sample quality metrics (rmse, max absolute error, r2), and the model recommendation that gates replacing the expensive analysis inside a multidisciplinary optimization loop. Trigger: surrogate model, metamodel, response surface, radial basis function, kriging alternative, leave one out cross validation, approximation model, prediction error.",
+   "tags": [
+    "surrogate-modeling",
+    "response-surface",
+    "radial-basis-function",
+    "leave-one-out-cross-validation",
+    "approximation-model",
+    "metamodel-fitting",
+    "prediction-error-estimation",
+    "kriging-alternative"
+   ],
+   "family": "vehicle-design",
+   "pack": "mdo",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/battery-sizing",
+   "name": "battery-sizing",
+   "description": "Use when you must size the traction battery pack of an electric aircraft or eVTOL from the mission energy and power requirements: convert the mission draw into the required pack energy with the depth of discharge limit and discharge efficiency, add the reserve, lay out the series and parallel cell counts for the target pack voltage, check the discharge C-rate against the cell limit, verify the minimum cell voltage under peak load against the cutoff with the cell internal resistance, and estimate pack mass and volume from typical cell and pack energy densities. Produces series and parallel cell counts, pack energy, the C-rate and voltage drop verdicts, and mass and volume estimates that gate vehicle energy storage sizing. Trigger: battery pack sizing, electric aircraft battery, eVTOL energy storage, traction battery, C-rate check, depth of discharge, series parallel cell count, pack voltage, discharge voltage drop.",
+   "tags": [
+    "battery-sizing",
+    "traction-battery-sizing",
+    "battery-pack-sizing",
+    "electric-aircraft-battery",
+    "evtol-energy-storage",
+    "c-rate-check",
+    "depth-of-discharge",
+    "series-parallel-cell-count",
+    "pack-voltage",
+    "discharge-voltage-drop"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
    "router_doc": false
   },
   {
