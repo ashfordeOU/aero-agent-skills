@@ -81,7 +81,9 @@ EXPORT="$SCRATCH/export"
 mkdir -p "$EXPORT"
 log "exporting the full tree to ${EXPORT}…"
 git archive --format=tar HEAD -- . ':(exclude)ops/automation/test' | tar -x -C "$EXPORT"
-printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\nbash ops/automation/update-about.sh --best-effort\n' > "$EXPORT/.ci-native"
+# NOTE: About is refreshed post-push from the MIRROR (has .git), see step 7 —
+# the export has no .git so update-about.sh cannot resolve slug/token there.
+printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
 
 # --- 2. hygiene: secrets sweep + defense-in-depth name check (fail closed) ---
 # Patterns require a REALISTIC token shape (prefix + a real alnum run),
@@ -213,3 +215,17 @@ if [ "$REMOTE_HEAD" != "$LOCAL_HEAD" ]; then
   exit 1
 fi
 log "PASS: public repo updated and verified at $LOCAL_HEAD (${LEAVES} skills, ${PACKS} packs, ${FAMILIES} families)"
+
+# --- 7. About refresh from the MIRROR (has .git), NOT the export ---
+# The export has no .git, so update-about.sh cannot resolve slug/token
+# there and silently fails under --best-effort — that left the GitHub
+# About sidebar stale (330/674 + bare homepage) after every wave publish
+# (founder 2026-09-03: "about section keeps getting updated to
+# https://ashforde.org instead of .../aeroagentskills/"). Run it from the
+# just-pushed mirror instead: non-fatal (a failed About refresh must not
+# block the content push that already landed).
+log "refreshing GitHub About from the mirror (post-push, non-fatal)…"
+( cd "$MIRROR" && bash ops/automation/update-about.sh ) \
+  > /tmp/publish-public-about.log 2>&1 \
+  && log "About refreshed (see /tmp/publish-public-about.log)" \
+  || log "WARN: About refresh failed (non-fatal — see /tmp/publish-public-about.log)"
