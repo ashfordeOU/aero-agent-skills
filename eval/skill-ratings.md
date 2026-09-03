@@ -382,3 +382,4 @@ Total skills rated: 365
 | 375 | space-systems/orbit-mechanics/gravity-assist-swingby | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 374 | structures/composites/adhesive-bonded-joints | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
 | 376 | space-systems/orbit-mechanics/conjunction-assessment | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 377 | structures/loads/shock-response-spectrum | PASS | ✓ | far-25 | structures | 9.5 | PASS |
