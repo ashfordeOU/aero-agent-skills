@@ -1,0 +1,14 @@
+# Hit@1 wave-28 fragment: brake-energy-sizing (vehicle-design)
+# Two tasks per new leaf skill. w28-brake-energy-sizing-1 routes on the
+# rejected takeoff kinetic energy, per brake energy and carbon heat sink
+# mass tokens; w28-brake-energy-sizing-2 routes on the brake temperature
+# rise check and the braking distance at the design deceleration.
+tasks:
+  - id: w28-brake-energy-sizing-1
+    query: "size the wheel brakes from the rejected takeoff kinetic energy at V1: compute the per brake energy and the carbon heat sink mass for the allowable temperature rise"
+    intent: "vehicle-design; wheel brake sizing from the rejected takeoff kinetic energy at V1 to per brake energy and carbon heat sink mass"
+    expected_skill: "vehicle-design/sizing/brake-energy-sizing"
+  - id: w28-brake-energy-sizing-2
+    query: "check the brake temperature rise for the landing stop and the RTO stop and estimate the braking distance at the design deceleration"
+    intent: "vehicle-design; brake temperature rise check for the landing stop and the RTO stop with the braking distance at the design deceleration"
+    expected_skill: "vehicle-design/sizing/brake-energy-sizing"

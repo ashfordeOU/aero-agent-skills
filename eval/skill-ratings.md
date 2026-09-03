@@ -386,3 +386,6 @@ Total skills rated: 379
 | 378 | avionics/flight-management/rnp-anp-containment | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 379 | avionics/flight-management/radio-navigation-aids | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 380 | aerodynamics/high-speed/hypersonic-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 381 | flight-test-operations/performance/cruise-performance-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 383 | vehicle-design/sizing/brake-energy-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 382 | cross-cutting/numerics/digital-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
