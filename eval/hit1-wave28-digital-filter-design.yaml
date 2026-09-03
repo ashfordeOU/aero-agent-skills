@@ -1,0 +1,16 @@
+# Hit@1 wave-28 fragment: digital-filter-design (cross-cutting)
+# Two tasks per new leaf skill. w28-digital-filter-design-1 routes on
+# Butterworth IIR lowpass design with the bilinear transform, prewarping,
+# filter coefficients, and the 3 dB point check; w28-digital-filter-design-2
+# routes on a second order Butterworth highpass at 2 Hz cutoff on a 50 Hz
+# sampled channel with a magnitude response check near Nyquist. Both must
+# deterministically hit cross-cutting/numerics/digital-filter-design.
+tasks:
+  - id: w28-digital-filter-design-1
+    query: "design a Butterworth IIR lowpass digital filter with the bilinear transform: prewarp the cutoff frequency, compute the filter coefficients, and check the 3 dB point at the cutoff"
+    intent: "numerics; Butterworth IIR lowpass digital filter design via the bilinear transform with prewarping, filter coefficient computation, and 3 dB cutoff verification"
+    expected_skill: "cross-cutting/numerics/digital-filter-design"
+  - id: w28-digital-filter-design-2
+    query: "build a second order Butterworth highpass filter at 2 Hz cutoff on a 50 Hz sampled accelerometer channel and verify the magnitude response near Nyquist"
+    intent: "numerics; second order Butterworth highpass digital filter at 2 Hz cutoff on a 50 Hz channel with magnitude response verification near Nyquist"
+    expected_skill: "cross-cutting/numerics/digital-filter-design"
