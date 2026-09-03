@@ -359,3 +359,4 @@ Total skills rated: 353
 | 350 | gnc-autonomy/control/control-allocation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 352 | space-systems/adcs/control-moment-gyro | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 353 | structures/materials/creep-rupture | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
+| 354 | systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
