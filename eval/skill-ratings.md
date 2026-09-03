@@ -377,3 +377,4 @@ Total skills rated: 365
 | 369 | flight-mechanics/handling-qualities/pitch-bandwidth-criteria | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
 | 370 | propulsion/axial-compressor/turbine-blade-cooling | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
 | 371 | propulsion/gas-turbine-cycle/afterburner-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 372 | gnc-autonomy/navigation/gnss-pseudorange-positioning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
