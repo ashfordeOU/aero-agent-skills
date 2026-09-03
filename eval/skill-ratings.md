@@ -354,3 +354,4 @@ Total skills rated: 341
 | 346 | manufacturing-quality/ndt/computed-tomography | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 348 | flight-test-operations/planning/position-error-calibration | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 347 | avionics/flight-management/lateral-navigation | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 349 | flight-mechanics/performance/windshear-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
