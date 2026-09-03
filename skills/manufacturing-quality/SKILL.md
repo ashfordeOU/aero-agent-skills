@@ -71,6 +71,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/assembly/fastener-installation-quality | Fastener installation quality | fastener installation quality, grip length selection, thread protrusion, clamp load from torque, countersink flushness, collar engagement |
 | manufacturing-quality/as9100/fod-control | FOD control | FOD prevention, foreign object debris, FOD zone classification, tool control count, FOD sweep interval, FOD audit |
 | manufacturing-quality/special-processes/welding-qualification | Welding qualification | weld procedure qualification, WPS PQR heat input, kJ per mm, preheat and interpass verification, weld coupon test matrix |
+| manufacturing-quality/assembly/ewis-installation-quality | EWIS installation quality | EWIS installation, wiring harness, bundle fill ratio, voltage drop check, bend radius check, separation clearance |
 
 ## Routing guidance
 
@@ -126,6 +127,8 @@ ernal provider and supplier questions (classification, controls,
 - Fastener installation quality questions (fastener installation quality, grip length selection, thread protrusion, clamp load from torque, countersink flushness, collar engagement) route to the fastener-installation-quality sub-skill.
 - FOD control questions (fod prevention, foreign object debris, fod zone classification, tool control count, fod sweep interval, fod audit) route to the fod-control sub-skill.
 - Welding qualification questions (weld procedure qualification, wps pqr heat input, kj per mm, preheat and interpass verification, weld coupon test matrix) route to the welding-qualification sub-skill.
+- EWIS wiring installation questions (wiring harness, bundle fill ratio, voltage drop check, bend radius check, separation clearance) route to the assembly ewis-installation-quality sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

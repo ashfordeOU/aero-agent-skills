@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 404
+Total skills rated: 416
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -410,3 +410,15 @@ Total skills rated: 404
 | 402 | avionics/surveillance/tcas-resolution-advisory | PASS | ✓ | rtca-do-185 | avionics | 9.5 | PASS |
 | 403 | space-systems/orbit-mechanics/plane-change-maneuver | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 404 | space-systems/subsystems/spacecraft-battery-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 405 | aerodynamics/high-speed/aerodynamic-heating | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 406 | flight-mechanics/performance/rotorcraft-hover-performance | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 407 | aerodynamics/boundary-layer/boundary-layer-transition | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 408 | flight-mechanics/performance/rotorcraft-forward-flight-performance | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 409 | structures/composites/composite-repair | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 410 | structures/thermal-structures/thermal-buckling | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 411 | avionics/surveillance/ads-b-surveillance | PASS | ✓ | rtca-do-260b | avionics | 9.5 | PASS |
+| 412 | cross-cutting/numerics/descriptive-statistics | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 413 | manufacturing-quality/assembly/ewis-installation-quality | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 414 | structures/loads/landing-ground-loads | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 415 | space-systems/orbit-mechanics/three-body-libration | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 416 | gnc-autonomy/control/adaptive-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |

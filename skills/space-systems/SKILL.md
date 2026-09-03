@@ -71,6 +71,7 @@ selection, and classical orbital element determination.
 | space-systems/subsystems/propellant-tank-sizing | Propellant tank sizing | propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness |
 | space-systems/subsystems/spacecraft-battery-sizing | Spacecraft battery sizing | spacecraft battery sizing, eclipse energy, depth of discharge, orbit battery capacity, series parallel cell layout, bus voltage cell count, LEO power storage |
 | space-systems/orbit-mechanics/plane-change-maneuver | Plane change maneuver | plane change maneuver, inclination change delta-v, combined burn, orbital plane change, 2 v sin half inclination, plane change at apogee |
+| space-systems/orbit-mechanics/three-body-libration | Three body libration | three body libration, CR3BP, libration points, L1 L2 L3 collinear, L4 L5 triangular, Jacobi constant, Earth Moon L1 |
 
 ## Routing guidance
 
@@ -130,6 +131,7 @@ selection, and classical orbital element determination.
 - Propellant tank sizing questions (propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness) route to the propellant-tank-sizing sub-skill.
 - Spacecraft battery eclipse-energy sizing, depth of discharge, and cell layout questions route to the subsystems spacecraft-battery-sizing sub-skill.
 - Orbital plane change and combined-burn delta-v questions route to the orbit-mechanics plane-change-maneuver sub-skill.
+- CR3BP libration questions (three body libration, collinear L1 L2 L3, triangular L4 L5, Jacobi constant, Earth Moon L1 distance) route to the orbit-mechanics three-body-libration sub-skill.
 
 ## Install
 
