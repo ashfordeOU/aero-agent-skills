@@ -1,0 +1,14 @@
+# Hit@1 wave-27 fragment: dubins-path-planning (gnc-autonomy)
+# Two tasks per new leaf skill. Task 1 routes on the shortest dubins
+# path with a minimum turn radius between two same-heading poses;
+# task 2 routes on the CCC path family for poses closer than two
+# minimum turn radii.
+tasks:
+  - id: w27-dubins-path-planning-1
+    query: "plan the shortest dubins path for the fixed wing uas from the runway heading at the origin to the loiter entry pose 100 m ahead with the same heading and a 10 m minimum turn radius"
+    intent: "gnc-autonomy; shortest dubins path between two heading constrained poses with the fixed wing turn radius and path length between poses"
+    expected_skill: "gnc-autonomy/guidance/dubins-path-planning"
+  - id: w27-dubins-path-planning-2
+    query: "compute the dubins path length and the arc and straight segments between the two heading constrained poses that are closer than two minimum turn radii apart, using the CCC path family"
+    intent: "gnc-autonomy; dubins path length with the CSC and CCC path families and the arc tangent path for heading constrained poses closer than two minimum turn radii"
+    expected_skill: "gnc-autonomy/guidance/dubins-path-planning"
