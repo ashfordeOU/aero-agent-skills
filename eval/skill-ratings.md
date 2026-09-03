@@ -392,3 +392,4 @@ Total skills rated: 379
 | 384 | flight-test-operations/envelope/vmc-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 385 | manufacturing-quality/special-processes/welding-qualification | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 386 | flight-test-operations/envelope/buffet-boundary-testing | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 387 | structures/fem/beam-frame-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
