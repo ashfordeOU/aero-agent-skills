@@ -64,6 +64,8 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/nacelle-sizing | Nacelle sizing | nacelle sizing, highlight area, fan mass flow, inlet capture, lip area, nacelle length, wetted area, cowl thickness |
 | vehicle-design/conceptual/sizing-mission-profile | Sizing Mission Profile | mission profile, block fuel, block time, breguet range, breguet endurance, reserve fuel, loiter, hold, fuel fraction, required fuel, climb, cruise, descent, taxi, takeoff, FAR 121, payload range. |
 | vehicle-design/mdo/design-of-experiments | Design of experiments | design of experiments, DOE, factorial design, latin hypercube, central composite, main effects |
+| vehicle-design/sizing/ice-protection-sizing | Ice protection sizing | ice protection, anti-ice, de-ice, evaporative anti-icing, running wet, catch efficiency, protected area, heat flux, bleed air mass flow, electrothermal power, freezing fraction, MVD, liquid water content, Appendix C |
+| vehicle-design/sizing/spoiler-sizing | Spoiler sizing | spoiler sizing, flight spoiler, ground spoiler, lift dump, speed brake, roll spoiler, roll assist share, spoiler panel area, lift dumper, spoiler deflection |
 
 ## Routing guidance
 
@@ -121,6 +123,8 @@ ons route to the weight-estimation
 - Constraint analysis matching chart, thrust to weight ratio, wing loading, stall, climb gradient, and takeoff distance constraint questions route to the conceptual constraint-analysis sub-skill.
 - Parametric aircraft geometry building, mean aerodynamic chord and wetted area computation, and component volume estimation route to the conceptual openvsp-geometry sub-skill.
 - Engine nacelle geometric sizing, highlight area from fan mass flow and Mach, inlet capture and lip areas, nacelle length, wetted area, and cowl thickness questions route to the sizing nacelle-sizing sub-skill.
+- Thermal ice protection sizing, evaporative and running-wet anti-ice heat flux, catch efficiency from MVD and airspeed, protected area power and bleed flow questions route to the sizing ice-protection-sizing sub-skill.
+- Flight and ground spoiler sizing, lift dump, speed brake drag, roll assist share, spoiler panel area and deflection questions route to the sizing spoiler-sizing sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
