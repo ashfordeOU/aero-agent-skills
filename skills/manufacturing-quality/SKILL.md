@@ -65,6 +65,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/acoustic-emission-inspection | Acoustic emission inspection | acoustic emission, AE inspection, source location, Kaiser effect, Felicity ratio, hit, event, sensor |
 | manufacturing-quality/composites/layup-cure | Layup Cure | composite layup, ply book, laminate, symmetric, balanced, cure cycle, autoclave, out-of-autoclave, OOA, degree of cure, epoxy, 350F, glass transition, Tg, C-scan, porosity. |
 | manufacturing-quality/as9103/key-characteristic-management | Key characteristic management | key characteristic, AS9103, variation management, KC identification, Cpk target, revalidation trigger |
+| manufacturing-quality/ndt/computed-tomography | Computed tomography (CT) | computed tomography, CT scan, voxel size, cone beam, CT number, porosity measurement, volumetric inspection, magnification, projection count, additive part porosity |
 
 ## Routing guidance
 
@@ -116,6 +117,7 @@ ernal provider and supplier questions (classification, controls,
 - Additive manufacturing energy density, parameter set, witness coupons, material property verification, and AM first article questions route to the additive additive-manufacturing-qualification sub-skill.
 - Laser powder bed fusion parameter development, volumetric energy density, process window classification, and qualification test matrix planning route to the additive lpbf-parameter-development sub-skill.
 - Acoustic emission NDT, AE sources, sensors and frequency bands, hit and event definitions, Kaiser effect and Felicity ratio, and linear and planar source location questions route to the ndt acoustic-emission-inspection sub-skill.
+- Computed tomography scan planning, voxel size and magnification, projection count, CT number, and volumetric porosity measurement questions route to the ndt computed-tomography sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

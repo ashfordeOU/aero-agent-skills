@@ -73,6 +73,8 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/flight-management/performance-computation | Performance computation | FMS performance, cost index, ECON, cruise Mach, step climb, top of descent, fuel time trade, VNAV |
 | avionics/fsw/cfs-architecture | Cfs Architecture | cFS, core flight software, cFE, OSAL, PSP, software bus, publish subscribe, app skeleton, telemetry pipeline. |
 | avionics/fsw/fprime-component | F Prime component | F Prime, F-prime component framework, topology, rate group, command dispatch, port connection |
+| avionics/do160/radio-frequency-emissions | RF emissions (DO-160 sec 21) | radio frequency emissions, DO-160 section 21, conducted emissions, radiated emissions, CE102, RE102, emission limit, emission margin, dBuV, dBuV/m, EMC qualification |
+| avionics/flight-management/lateral-navigation | Lateral navigation (LNAV) | lateral navigation, LNAV, cross-track error, track angle error, great-circle track, turn anticipation, fly-by waypoint, fly-over waypoint, intercept heading, FMS lateral guidance |
 
 ## Routing guidance
 
@@ -115,6 +117,8 @@ est case count, coverage objectives per
 - ARINC 653 partition scheduling, major frame feasibility, sampling and queuing ports, and IMA health monitoring questions route to the ima ima-partitioning sub-skill.
 - Integrated modular avionics architecture planning, partition allocation with resource budgets, and module acceptance criteria route to the ima do297 sub-skill.
 - FMS performance computation, cost index and ECON cruise speed, fuel-time trade, step-climb logic, and VNAV top-of-descent questions route to the flight-management performance-computation sub-skill.
+- DO-160 section 21 conducted and radiated emission limits, CE102 and RE102 margins, and dBuV emission checks route to the do160 radio-frequency-emissions sub-skill.
+- LNAV lateral guidance, cross-track error, track angle error, great-circle track, turn anticipation, and fly-by and fly-over transition questions route to the flight-management lateral-navigation sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

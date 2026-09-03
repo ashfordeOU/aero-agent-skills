@@ -65,6 +65,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/low-thrust-spiral | Low-thrust spiral transfer | low-thrust transfer, Edelbaum, continuous thrust spiral, inclination change, spiral transfer time |
 | space-systems/adcs/reaction-wheel-control | Reaction wheel control | reaction wheel control, wheel torque command, wheel momentum saturation, momentum desaturation, quaternion error feedback |
 | space-systems/orbit-mechanics/clohessy-wiltshire | Clohessy-Wiltshire | Clohessy-Wiltshire, Hill equations, relative motion state transition matrix, deputy chief, two-impulse targeting, along-track drift |
+| space-systems/adcs/control-moment-gyro | Control moment gyro (CMG) | control moment gyro, CMG, gimbal rate, gimbal axis, torque amplification, steering law, singularity, momentum envelope, pyramid cluster, gimbal lock |
 
 ## Routing guidance
 
@@ -120,6 +121,7 @@ selection, and classical orbital element determination.
 - Mission delta-v budget summation, insertion and transfer contributions, margin allocation, and Tsiolkovsky propellant mass questions route to the mission-design mission-delta-v-budget sub-skill.
 - Space radiation and orbital debris environment assessment, trapped belt dose, single event effects, and collision probability over mission life route to the mission-design radiation-debris sub-skill.
 - Atmospheric entry corridor, ballistic coefficient, deceleration g-loads, Sutton-Graves convective heating, and parachute terminal velocity questions route to the mission-design entry-descent-landing sub-skill.
+- Control moment gyro gimbal rates, steering law, torque amplification, singularity measure, and cluster momentum envelope questions route to the adcs control-moment-gyro sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

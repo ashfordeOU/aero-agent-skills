@@ -66,6 +66,7 @@ compressor stage and operating-map analysis.
 | propulsion/electric/gridded-ion-thruster | Gridded ion thruster | gridded ion thruster, Kaufman thruster, accelerator grid, perveance limit, beam extraction, ion optics |
 | propulsion/electric/electrothermal-thruster | Electrothermal thruster | electrothermal thruster, resistojet, arcjet, heated propellant, power to thrust |
 | propulsion/rocket/rocket-engine-cycle | Rocket engine cycle | rocket engine cycle, feed cycle, gas-generator cycle, staged combustion, expander cycle, pressure-fed, pump-fed, pump power, turbine power |
+| propulsion/rocket/hybrid-rocket-motor | Hybrid rocket motor | hybrid rocket motor, regression rate, oxidizer mass flux, solid fuel grain, oxidizer to fuel ratio, O/F shift, port area, HTPB, hybrid grain |
 
 ## Routing guidance
 
@@ -118,6 +119,7 @@ to turbofan-cycle;
 - Centrifugal compressor impeller tip speed, slip factor, work input, stage pressure ratio, and isentropic efficiency questions route to the turbomachinery centrifugal-compressor sub-skill.
 - Rocket combustion thermochemistry, adiabatic flame temperature, characteristic velocity, and ideal specific impulse from propellant and mixture ratio route to the combustion cea-rocket-combustion sub-skill.
 - Solid rocket motor ballistics, burn-rate law, chamber pressure equilibrium, grain geometry, mass flow, thrust, and total impulse questions route to the rocket solid-rocket-motor sub-skill.
+- Hybrid rocket motor regression rate, oxidizer mass flux, O/F shift, port area, and chamber pressure ballistics questions route to the rocket hybrid-rocket-motor sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
