@@ -185,6 +185,11 @@
 # leaves). Wave-26 new leaves: "vehicle-design/sizing/battery-sizing", "systems-engineering-safety/certification/equivalent-level-of-safety", "systems-engineering-safety/safety-case/goal-structuring-notation", "cross-cutting/numerics/hypothesis-testing", "flight-test-operations/envelope/icing-flight-test", "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment", "manufacturing-quality/ndt/leak-testing", "systems-engineering-safety/certification/mmel-development", "flight-test-operations/planning/noise-certification-test", "cross-cutting/numerics/probability-distributions", "manufacturing-quality/ndt/shearography-inspection", "vehicle-design/mdo/surrogate-modeling".
 # Corpus: 744 tasks (720 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 26 build.
+# P5.2 / Wave 27 (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 379 verified skills (391 SKILL.md under gate 1: 12 routers + 379
+# leaves). Wave-27 new leaves: "structures/composites/adhesive-bonded-joints", "propulsion/gas-turbine-cycle/afterburner-cycle", "space-systems/orbit-mechanics/conjunction-assessment", "flight-mechanics/stability-control/deep-stall-analysis", "gnc-autonomy/guidance/dubins-path-planning", "gnc-autonomy/navigation/gnss-pseudorange-positioning", "space-systems/orbit-mechanics/gravity-assist-swingby", "flight-mechanics/handling-qualities/pitch-bandwidth-criteria", "avionics/flight-management/radio-navigation-aids", "avionics/flight-management/rnp-anp-containment", "structures/loads/shock-response-spectrum", "flight-mechanics/performance/speed-stability", "propulsion/axial-compressor/turbine-blade-cooling", "aerodynamics/wing-design/winglet-design".
+# Corpus: 772 tasks (744 prior plus 28 domain tasks). Owner: Ops
+# Manager, Wave 27 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -3474,6 +3479,118 @@ tasks:
     query: "replace the expensive structural analysis with an RBF metamodel fitted on the latin hypercube samples and report the cross validation prediction error at the new design points"
     intent: "vehicle-design; RBF metamodel surrogate fitted on the samples with the cross validation prediction error reported at the new design points for the expensive analysis replacement"
     expected_skill: "vehicle-design/mdo/surrogate-modeling"
+  - id: w27-adhesive-bonded-joints-1
+    query: "analyze the single lap adhesive bonded joint in the composite structure: 10 kN load over a 25 mm overlap and 25 mm width with the shear lag correction, check the peak adhesive shear stress against the 25 MPa allowable"
+    intent: "structures; single lap adhesive bonded joint bondline analysis with the shear lag correction, peak adhesive shear stress against the adhesive allowable"
+    expected_skill: "structures/composites/adhesive-bonded-joints"
+  - id: w27-adhesive-bonded-joints-2
+    query: "compute the shear lag parameter and the peak to average shear concentration for the bonded lap joint with the aluminum adherends and report the joint margin"
+    intent: "structures; shear lag parameter and peak to average shear concentration for a bonded lap joint with the joint margin verdict"
+    expected_skill: "structures/composites/adhesive-bonded-joints"
+  - id: w27-afterburner-cycle-1
+    query: "compute the afterburner fuel air ratio and fuel flow for the turbofan with turbine exit at 900 K and a 1700 K reheat temperature, then find the thrust augmentation ratio against the dry nozzle"
+    intent: "propulsion; afterburner fuel air ratio and reheat fuel flow at the given reheat temperature with the thrust augmentation ratio against the dry nozzle, routing on afterburner cycle, reheat fuel air ratio and thrust augmentation ratio"
+    expected_skill: "propulsion/gas-turbine-cycle/afterburner-cycle"
+  - id: w27-afterburner-cycle-2
+    query: "compare the dry and reheat specific fuel consumption for the afterburning engine: 100 kg/s core flow at 0.02 core fuel air ratio with the 800 K afterburner temperature rise"
+    intent: "propulsion; dry versus reheat specific fuel consumption comparison for the afterburning engine at the core flow and reheat temperature rise, routing on afterburner cycle and reheat specific fuel consumption"
+    expected_skill: "propulsion/gas-turbine-cycle/afterburner-cycle"
+  - id: w27-conjunction-assessment-1
+    query: "screen the close approach between the two spacecraft: relative position 10 m ahead closing at 1 m/s with 100 m combined sigma, compute the time of closest approach and the probability of collision against the 5 m hard body radius"
+    intent: "space-systems; time of closest approach, miss distance and probability of collision from relative position and velocity with the hard body radius screen"
+    expected_skill: "space-systems/orbit-mechanics/conjunction-assessment"
+  - id: w27-conjunction-assessment-2
+    query: "assess the conjunction risk for the debris encounter with miss distance 50 m and 100 m combined covariance, and give the actionable verdict against the 1e-4 threshold"
+    intent: "space-systems; conjunction risk screen from miss distance and combined covariance with the actionable high or watch verdict against the threshold"
+    expected_skill: "space-systems/orbit-mechanics/conjunction-assessment"
+  - id: w27-deep-stall-analysis-1
+    query: "assess whether the T-tail transport can enter a deep stall: compute the tail blanking factor at high angle of attack and solve for any post-stall trim above the stall angle with the separated flow pitch up"
+    intent: "flight-mechanics; deep stall entry assessment for the T-tail transport with the tail blanking factor and post-stall trim solved above the stall angle including the separated flow pitch up"
+    expected_skill: "flight-mechanics/stability-control/deep-stall-analysis"
+  - id: w27-deep-stall-analysis-2
+    query: "check the deep stall alpha lock hazard for the aft tail airplane: find the post-stall trim angle, the lock depth, and whether the elevator pitch down authority can recover from the deep stall"
+    intent: "flight-mechanics; deep stall alpha lock hazard check with the post-stall trim angle and lock depth against the elevator pitch down recovery authority"
+    expected_skill: "flight-mechanics/stability-control/deep-stall-analysis"
+  - id: w27-dubins-path-planning-1
+    query: "plan the shortest dubins path for the fixed wing uas from the runway heading at the origin to the loiter entry pose 100 m ahead with the same heading and a 10 m minimum turn radius"
+    intent: "gnc-autonomy; shortest dubins path between two heading constrained poses with the fixed wing turn radius and path length between poses"
+    expected_skill: "gnc-autonomy/guidance/dubins-path-planning"
+  - id: w27-dubins-path-planning-2
+    query: "compute the dubins path length and the arc and straight segments between the two heading constrained poses that are closer than two minimum turn radii apart, using the CCC path family"
+    intent: "gnc-autonomy; dubins path length with the CSC and CCC path families and the arc tangent path for heading constrained poses closer than two minimum turn radii"
+    expected_skill: "gnc-autonomy/guidance/dubins-path-planning"
+  - id: w27-gnss-pseudorange-positioning-1
+    query: "compute the GNSS receiver position fix and clock bias from the four satellite pseudoranges with the iterated least squares adjustment in ECEF coordinates"
+    intent: "gnc-autonomy; GNSS position fix and receiver clock bias from satellite pseudoranges via the iterated least squares adjustment in ECEF"
+    expected_skill: "gnc-autonomy/navigation/gnss-pseudorange-positioning"
+  - id: w27-gnss-pseudorange-positioning-2
+    query: "solve the snapshot pseudorange navigation equations for the receiver position and report the post-fit residuals and the residual RMS against the satellite geometry"
+    intent: "gnc-autonomy; snapshot pseudorange navigation solution with post-fit residuals and residual RMS against the satellite geometry"
+    expected_skill: "gnc-autonomy/navigation/gnss-pseudorange-positioning"
+  - id: w27-gravity-assist-swingby-1
+    query: "compute the gravity assist swing-by at earth: 3 km/s hyperbolic excess speed at 7000 km periapsis radius, find the turn angle and the delta-v gain"
+    intent: "space-systems; gravity assist swing-by turn angle and delta-v gain from the hyperbolic excess speed at the periapsis radius"
+    expected_skill: "space-systems/orbit-mechanics/gravity-assist-swingby"
+  - id: w27-gravity-assist-swingby-2
+    query: "check the mars flyby feasibility: excess speed 2.5 km/s at 3800 km periapsis against the 3390 km body radius with the 200 km minimum altitude, and give the outgoing direction for the inside pass"
+    intent: "space-systems; mars flyby close approach feasibility against the body radius with the minimum altitude and the inside pass outgoing direction"
+    expected_skill: "space-systems/orbit-mechanics/gravity-assist-swingby"
+  - id: w27-pitch-bandwidth-criteria-1
+    query: "apply the MIL-STD-1797A pitch bandwidth and phase delay criterion: find the bandwidth frequency from the 45 degree phase margin and the phase delay from the -180 degree frequency of the short period pitch attitude transfer function with actuator lag"
+    intent: "flight mechanics; MIL-STD-1797A pitch bandwidth and phase-delay criterion on the short period pitch attitude transfer function with actuator lag"
+    expected_skill: "flight-mechanics/handling-qualities/pitch-bandwidth-criteria"
+  - id: w27-pitch-bandwidth-criteria-2
+    query: "grade the pitch tracking flying qualities with the bandwidth criterion for the transport: short period 3 rad/s at 0.6 damping with a 0.7 second numerator time constant and 20 rad/s actuator lag, report the level and the limiting criterion"
+    intent: "flight mechanics; flying qualities level verdict from the pitch bandwidth criterion with the limiting criterion reported"
+    expected_skill: "flight-mechanics/handling-qualities/pitch-bandwidth-criteria"
+  - id: w27-radio-navigation-aids-1
+    query: "compute the VOR radial and the DME slant range for the aircraft 10 km east and 17.3 km north of the station at 1000 m altitude"
+    intent: "avionics; VOR radial and DME slant range from the planar station and aircraft coordinates with the aircraft altitude for the navaid geometry check"
+    expected_skill: "avionics/flight-management/radio-navigation-aids"
+  - id: w27-radio-navigation-aids-2
+    query: "find the ILS localizer deviation for the 100 m lateral offset at 5 km to the threshold and the glideslope deviation for the 300 m height at 5724 m against the 3 degree path"
+    intent: "avionics; ILS localizer deviation from the lateral offset and distance to the threshold with the glideslope deviation against the 3 degree nominal path"
+    expected_skill: "avionics/flight-management/radio-navigation-aids"
+  - id: w27-rnp-anp-containment-1
+    query: "check the RNP 0.3 containment for the approach: 120 m 1 sigma lateral position error, compute the ANP at 95 percent and the margin against the required navigation performance"
+    intent: "avionics; RNP containment check from the 1 sigma lateral position error with the 95 percent ANP and the margin against the required navigation performance"
+    expected_skill: "avionics/flight-management/rnp-anp-containment"
+  - id: w27-rnp-anp-containment-2
+    query: "verify the performance based navigation segment: is the 600 m ANP within the 555.6 m RNP with the 5 percent margin, and what is the available margin"
+    intent: "avionics; performance based navigation segment ANP versus RNP verdict with the 5 percent margin and the available margin"
+    expected_skill: "avionics/flight-management/rnp-anp-containment"
+  - id: w27-shock-response-spectrum-1
+    query: "compute the shock response spectrum of the 10 g 10 ms half sine base acceleration pulse at Q 10 and find the frequency of maximum response for the equipment qualification"
+    intent: "structures; shock response spectrum of a half sine base acceleration pulse at Q 10 with the frequency of maximum response for equipment shock qualification"
+    expected_skill: "structures/loads/shock-response-spectrum"
+  - id: w27-shock-response-spectrum-2
+    query: "build the SRS curve for the decaying sine shock transient and report the peak pseudo acceleration in g at the 100 Hz oscillator"
+    intent: "structures; SRS curve of a decaying sine shock transient with the peak pseudo acceleration response of the 100 Hz oscillator in g"
+    expected_skill: "structures/loads/shock-response-spectrum"
+  - id: w27-speed-stability-1
+    query: "classify the level flight trim speeds of the transport for static speed stability: find the minimum drag speed boundary and mark which trim speeds sit on the back side of the thrust required curve with an unstable slope"
+    intent: "flight-mechanics; static speed stability trim speed classification against the minimum drag speed boundary, back side of the thrust required curve slope verdict"
+    expected_skill: "flight-mechanics/performance/speed-stability"
+  - id: w27-speed-stability-2
+    query: "compute the slow flight stability margin for the airplane: check whether the 80 m/s approach trim speed is below the minimum drag speed on the region of reversed command and give the margin"
+    intent: "flight-mechanics; slow flight stability margin check of the approach trim speed below the minimum drag speed on the region of reversed command"
+    expected_skill: "flight-mechanics/performance/speed-stability"
+  - id: w27-turbine-blade-cooling-1
+    query: "estimate the coolant flow fraction needed for the first turbine blade row with 1500 K gas, 1200 K allowable metal, and 800 K coolant, and check it against the bleed limit"
+    intent: "propulsion; cooling effectiveness to coolant flow fraction conversion and bleed limit verdict for a turbine blade row"
+    expected_skill: "propulsion/axial-compressor/turbine-blade-cooling"
+  - id: w27-turbine-blade-cooling-2
+    query: "compute the film cooled metal temperature for the high pressure turbine blade: 1600 K gas, 1250 K allowable, 900 K coolant, and report the margin"
+    intent: "propulsion; film cooling metal temperature and allowable metal temperature margin for hot section cooling"
+    expected_skill: "propulsion/axial-compressor/turbine-blade-cooling"
+  - id: w27-winglet-design-1
+    query: "size a winglet for the transport wing to cut the induced drag by 25 percent: find the winglet height fraction and the effective aspect ratio gain at the 0.5 lift coefficient with the 0.8 base span efficiency"
+    intent: "aerodynamics; winglet design sizing, winglet height fraction and effective aspect ratio gain for a target induced drag reduction"
+    expected_skill: "aerodynamics/wing-design/winglet-design"
+  - id: w27-winglet-design-2
+    query: "compare the wingtip device options: compute the induced drag reduction and the root bending moment penalty for a 0.12 height fraction vertical winglet on the 9 aspect ratio wing"
+    intent: "aerodynamics; wingtip device trade, induced drag reduction and root bending moment penalty from winglet height and cant"
+    expected_skill: "aerodynamics/wing-design/winglet-design"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

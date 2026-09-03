@@ -57,6 +57,7 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/supercritical-airfoil | Supercritical airfoil | aft loading, flat upper surface, wave drag reduction, drag divergence Mach |
 | aerodynamics/high-speed/wave-drag-area-rule | Wave drag and area rule | transonic wave drag, cross-sectional area distribution, Sears-Haack body, area rule |
 | aerodynamics/wing-design/wing-planform-design | Wing planform design | root chord, tip chord, mean aerodynamic chord, taper ratio, spanwise loading, washout |
+| aerodynamics/wing-design/winglet-design | Winglet design | winglet design, wingtip device, induced drag reduction, effective aspect ratio, span efficiency, cant angle, root bending moment penalty, winglet height |
 | aerodynamics/aeroelasticity/divergence-speed | Divergence speed | divergence dynamic pressure, torsional stiffness, shear center offset, aerodynamic center, divergence margin, dive speed |
 | aerodynamics/wind-tunnel/windtunnel-data-reduction | Wind tunnel data reduction | wind tunnel data reduction, tare correction, blockage correction, wall interference, Reynolds correction, aerodynamic coefficients, pressure distribution, balance data, uncertainty estimation, experimental aerodynamics |
 | aerodynamics/aeroelasticity/flutter-speed-prediction | Flutter speed prediction | flutter speed, v-g method, bending torsion, typical section, damping crossing, frequency coalescence, flutter margin, theodorsen |
@@ -110,3 +111,4 @@ your host's skills directory (see README Install for per-host commands).
 - Wind tunnel wall and blockage correction questions route to the wind-tunnel windtunnel-wall-corrections sub-skill.
 - Dynamic indicial gust response and magnification-factor questions route to the aeroelasticity aeroelastic-gust-response sub-skill.
 - Shock-expansion surface-pressure integration and wave-drag questions route to the high-speed shock-expansion-airfoil sub-skill.
+- Winglet sizing, tip-device induced-drag reduction, effective-aspect-ratio gain, and root bending moment penalty questions route to the wing-design winglet-design sub-skill.

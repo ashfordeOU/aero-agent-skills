@@ -52,9 +52,11 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/guidance/proportional-navigation | Proportional navigation | closing velocity, line of sight rate, navigation constant, commanded acceleration |
 | gnc-autonomy/guidance/pursuit-guidance | Pursuit guidance | pure pursuit aim heading, wrapped guidance error, lead pursuit lead angle, capture condition, intercept time |
 | gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
+| gnc-autonomy/navigation/gnss-pseudorange-positioning | GNSS pseudorange positioning | pseudorange positioning, GNSS position fix, receiver clock bias, iterated least squares fix, ECEF position solution, satellite pseudorange residual, snapshot navigation solution |
 | gnc-autonomy/guidance/command-to-line-of-sight | Command to line of sight | CLOS guidance, line of sight angle, steering command, LOS error |
 | gnc-autonomy/guidance/impact-point-prediction | Impact point prediction | ballistic range equation, time of flight, impact coordinates, launch speed and angle sensitivity |
 | gnc-autonomy/guidance/midcourse-guidance | Midcourse guidance | midcourse guidance, waypoint steering, trajectory shaping, velocity to be gained, zero effort miss, handover, turn rate limit |
+| gnc-autonomy/guidance/dubins-path-planning | Dubins path planning | dubins path, minimum turn radius path, shortest path with heading constraints, CSC and CCC path families, arc tangent path, path length between poses |
 | gnc-autonomy/control/lead-lag-compensation | Lead lag compensation | phase lead/lag compensator design, phase margin boost, gain crossover frequency, steady state error constant |
 | gnc-autonomy/control/frequency-response-design | Frequency response design | bode magnitude and phase, gain/phase crossover frequencies, gain margin, phase margin, stability from the margins |
 | gnc-autonomy/control/gain-scheduling | Gain scheduling | gain schedule breakpoints, scheduling variable, dynamic pressure and Mach scheduling, gain interpolation |
@@ -124,4 +126,6 @@ To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Particle filter and non-Gaussian nonlinear estimation questions route to the estimation-filtering particle-filter sub-skill.
 - Mahony complementary-filter attitude estimation and gyro-bias questions route to the estimation-filtering complementary-filter sub-skill.
+- Dubins minimum-turn path generation between heading-constrained poses and CSC/CCC path family questions route to the guidance dubins-path-planning sub-skill.
+- Single-epoch GNSS pseudorange position and clock-bias fixes route to the navigation gnss-pseudorange-positioning sub-skill.
 - Gibbs and Herrick-Gibbs initial orbit determination from three position vectors routes to the space orbit-determination sub-skill.
