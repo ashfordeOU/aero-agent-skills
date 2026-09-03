@@ -1,0 +1,15 @@
+# Hit@1 wave-29 fragment: coverage-path-planning (gnc-autonomy)
+# Two tasks per new leaf skill. w29-coverage-path-planning-1 routes on
+# the coverage path planning, boustrophedon, swath width, side overlap
+# and track spacing tokens; w29-coverage-path-planning-2 routes on the
+# lawnmower search line and aerial survey flight line phrasing for a
+# fixed-wing UAS.
+tasks:
+  - id: w29-coverage-path-planning-1
+    query: "plan a boustrophedon coverage path for a 1200 by 800 m aerial survey at 120 m altitude with 60 degree cross-track FOV and 25 percent side overlap: swath width, track spacing, pass count, total length and survey time"
+    intent: "gnc-autonomy; boustrophedon coverage path planning for an aerial survey strip pattern from swath width, side overlap and track spacing with the pass count, total path length and survey time"
+    expected_skill: "gnc-autonomy/guidance/coverage-path-planning"
+  - id: w29-coverage-path-planning-2
+    query: "lay out lawnmower search lines for a fixed-wing UAS over a rectangular region with 60 m turn radius and compute the aerial survey flight time at 25 m/s"
+    intent: "gnc-autonomy; lawnmower search line area search pattern with half-circle turns and the aerial survey flight time at cruise speed"
+    expected_skill: "gnc-autonomy/guidance/coverage-path-planning"
