@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 393
+Total skills rated: 404
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -399,3 +399,14 @@ Total skills rated: 393
 | 391 | avionics/flight-management/rta-time-control | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 392 | space-systems/subsystems/propellant-tank-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 393 | structures/composites/delamination-growth | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 394 | propulsion/rocket/cold-gas-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 395 | vehicle-design/sizing/canard-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 396 | gnc-autonomy/navigation/gnss-raim-fde | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
+| 397 | gnc-autonomy/estimation-filtering/rts-smoother | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 398 | gnc-autonomy/guidance/coverage-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 399 | systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis | PASS | ✓ | msg-3 | systems-engineering-safety | 9.5 | PASS |
+| 400 | propulsion/turbomachinery/rocket-turbopump | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 401 | cross-cutting/numerics/cross-correlation-analysis | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 402 | avionics/surveillance/tcas-resolution-advisory | PASS | ✓ | rtca-do-185 | avionics | 9.5 | PASS |
+| 403 | space-systems/orbit-mechanics/plane-change-maneuver | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 404 | space-systems/subsystems/spacecraft-battery-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |

@@ -68,6 +68,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/certification/mmel-development | MMEL development | master minimum equipment list, MMEL, dispatch with inoperative equipment, interval category, O procedure, M maintenance flag, relief verdict |
 | systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | In-service safety assessment | in-service safety assessment, service difficulty report, continued airworthiness, field event rate, observed versus predicted rate, single event rule, service bulletin, airworthiness directive request |
 | systems-engineering-safety/safety-case/goal-structuring-notation | Goal structuring notation | goal structuring notation, GSN, safety argument, safety case, claim decomposition, solution node, away goal, argument validation, support coverage |
+| systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis | MSG-3 maintenance analysis | MSG-3, maintenance steering group, scheduled maintenance task selection, hidden failure, evident failure, task category, interval determination, maintenance program development |
 
 ## Routing guidance
 
@@ -123,6 +124,8 @@ ocation coverage, and unallocated
 - Stakeholder needs capture, operational scenarios, elicitation log, and requirement statement quality (atomicity, verifiability, weasel words) questions route to the requirements requirements-elicitation sub-skill.
 - Certification regulation applicability, special condition determination, and TC, STC, and TSO path selection route to the certification certification-basis sub-skill.
 - PSSA derivation of safety requirements from FHA outcomes, FDAL/IDAL allocation, and quantitative safety target allocation across the architecture routes to the arp4761a preliminary-system-safety-assessment sub-skill.
+- MSG-3 scheduled maintenance task selection and hidden-failure exposure questions route to the continued-airworthiness msg3-maintenance-analysis sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

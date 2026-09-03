@@ -69,6 +69,8 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/conjunction-assessment | Conjunction assessment | conjunction assessment, time of closest approach, miss distance, probability of collision, hard body radius, combined covariance, close approach screening, actionable threshold |
 | space-systems/adcs/control-moment-gyro | Control moment gyro (CMG) | control moment gyro, CMG, gimbal rate, gimbal axis, torque amplification, steering law, singularity, momentum envelope, pyramid cluster, gimbal lock |
 | space-systems/subsystems/propellant-tank-sizing | Propellant tank sizing | propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness |
+| space-systems/subsystems/spacecraft-battery-sizing | Spacecraft battery sizing | spacecraft battery sizing, eclipse energy, depth of discharge, orbit battery capacity, series parallel cell layout, bus voltage cell count, LEO power storage |
+| space-systems/orbit-mechanics/plane-change-maneuver | Plane change maneuver | plane change maneuver, inclination change delta-v, combined burn, orbital plane change, 2 v sin half inclination, plane change at apogee |
 
 ## Routing guidance
 
@@ -126,6 +128,9 @@ selection, and classical orbital element determination.
 - Atmospheric entry corridor, ballistic coefficient, deceleration g-loads, Sutton-Graves convective heating, and parachute terminal velocity questions route to the mission-design entry-descent-landing sub-skill.
 - Control moment gyro gimbal rates, steering law, torque amplification, singularity measure, and cluster momentum envelope questions route to the adcs control-moment-gyro sub-skill.
 - Propellant tank sizing questions (propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness) route to the propellant-tank-sizing sub-skill.
+- Spacecraft battery eclipse-energy sizing, depth of discharge, and cell layout questions route to the subsystems spacecraft-battery-sizing sub-skill.
+- Orbital plane change and combined-burn delta-v questions route to the orbit-mechanics plane-change-maneuver sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
