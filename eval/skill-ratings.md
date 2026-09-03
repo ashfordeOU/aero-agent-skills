@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 353
+Total skills rated: 365
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -359,3 +359,15 @@ Total skills rated: 353
 | 350 | gnc-autonomy/control/control-allocation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 352 | space-systems/adcs/control-moment-gyro | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 353 | structures/materials/creep-rupture | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
+| 354 | systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 355 | systems-engineering-safety/certification/mmel-development | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
+| 356 | systems-engineering-safety/certification/equivalent-level-of-safety | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
+| 357 | systems-engineering-safety/safety-case/goal-structuring-notation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
+| 358 | flight-test-operations/envelope/icing-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 359 | cross-cutting/numerics/hypothesis-testing | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 360 | cross-cutting/numerics/probability-distributions | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 361 | flight-test-operations/planning/noise-certification-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 362 | vehicle-design/sizing/battery-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 363 | manufacturing-quality/ndt/leak-testing | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 364 | vehicle-design/mdo/surrogate-modeling | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 365 | manufacturing-quality/ndt/shearography-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |

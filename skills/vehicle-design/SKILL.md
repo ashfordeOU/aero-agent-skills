@@ -66,6 +66,8 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/mdo/design-of-experiments | Design of experiments | design of experiments, DOE, factorial design, latin hypercube, central composite, main effects |
 | vehicle-design/sizing/ice-protection-sizing | Ice protection sizing | ice protection, anti-ice, de-ice, evaporative anti-icing, running wet, catch efficiency, protected area, heat flux, bleed air mass flow, electrothermal power, freezing fraction, MVD, liquid water content, Appendix C |
 | vehicle-design/sizing/spoiler-sizing | Spoiler sizing | spoiler sizing, flight spoiler, ground spoiler, lift dump, speed brake, roll spoiler, roll assist share, spoiler panel area, lift dumper, spoiler deflection |
+| vehicle-design/sizing/battery-sizing | Battery sizing | battery pack sizing, electric aircraft battery, eVTOL energy storage, traction battery, C-rate check, depth of discharge, series parallel cell count, pack voltage, discharge voltage drop |
+| vehicle-design/mdo/surrogate-modeling | Surrogate modeling | surrogate model, metamodel, response surface, radial basis function, leave one out cross validation, approximation model, prediction error, expensive analysis replacement |
 
 ## Routing guidance
 
@@ -130,3 +132,5 @@ ons route to the weight-estimation
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - DOE factorial and latin-hypercube design space screening questions route to the mdo design-of-experiments sub-skill.
+- Battery pack sizing questions (traction battery for electric aircraft and eVTOL, C-rate, depth of discharge, series parallel cell count, voltage drop) route to the sizing battery-sizing sub-skill.
+- Surrogate model questions (response surface and RBF metamodel fit with cross-validation for the MDO loop) route to the mdo surrogate-modeling sub-skill.
