@@ -180,6 +180,11 @@
 # leaves). Wave-25 new leaves: "manufacturing-quality/ndt/computed-tomography", "gnc-autonomy/control/control-allocation", "space-systems/adcs/control-moment-gyro", "structures/materials/creep-rupture", "propulsion/rocket/hybrid-rocket-motor", "vehicle-design/sizing/ice-protection-sizing", "avionics/flight-management/lateral-navigation", "flight-test-operations/planning/position-error-calibration", "cross-cutting/numerics/quaternion-algebra", "avionics/do160/radio-frequency-emissions", "vehicle-design/sizing/spoiler-sizing", "flight-mechanics/performance/windshear-analysis".
 # Corpus: 720 tasks (696 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 25 build.
+# P5.2 / Wave 26 (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 365 verified skills (377 SKILL.md under gate 1: 12 routers + 365
+# leaves). Wave-26 new leaves: "vehicle-design/sizing/battery-sizing", "systems-engineering-safety/certification/equivalent-level-of-safety", "systems-engineering-safety/safety-case/goal-structuring-notation", "cross-cutting/numerics/hypothesis-testing", "flight-test-operations/envelope/icing-flight-test", "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment", "manufacturing-quality/ndt/leak-testing", "systems-engineering-safety/certification/mmel-development", "flight-test-operations/planning/noise-certification-test", "cross-cutting/numerics/probability-distributions", "manufacturing-quality/ndt/shearography-inspection", "vehicle-design/mdo/surrogate-modeling".
+# Corpus: 744 tasks (720 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 26 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -3373,6 +3378,102 @@ tasks:
     query: "check whether the transport can out-climb the microburst downdraft at the current thrust and find the thrust increment needed for the windshear recovery if the headwind shear hazard exceeds the aircraft capability"
     intent: "flight-mechanics; microburst downdraft out-climb check and the windshear recovery thrust increment from the shear hazard and aircraft capability"
     expected_skill: "flight-mechanics/performance/windshear-analysis"
+  - id: w26-battery-sizing-1
+    query: "size the traction battery pack for the eVTOL: 50 kWh mission energy with 20 percent reserve and 400 kW peak power, lay out the series and parallel cells for the 400 volt pack, and check the discharge C-rate against the cell limit"
+    intent: "vehicle-design; traction battery pack sizing for the eVTOL with the required pack energy from the depth of discharge and reserve, series and parallel cell layout for the pack voltage, and the discharge C-rate check"
+    expected_skill: "vehicle-design/sizing/battery-sizing"
+  - id: w26-battery-sizing-2
+    query: "compute the required pack energy for the electric aircraft mission with the depth of discharge and discharge efficiency, then verify the minimum cell voltage under the peak load against the 3.0 volt cutoff and estimate the pack mass"
+    intent: "vehicle-design; electric aircraft battery required pack energy with the depth of discharge and discharge efficiency, minimum cell voltage under the peak load against the cutoff, and pack mass estimation"
+    expected_skill: "vehicle-design/sizing/battery-sizing"
+  - id: w26-equivalent-level-of-safety-1
+    query: "the yaw damper cannot show literal compliance with 25.1309 at the catastrophic failure condition, build the equivalent level of safety finding: state the regulation intent, compute the safety margin against the 1e-9 target with the achieved 2e-10 probability, and list the compensating measures that close the gap"
+    intent: "systems-engineering-safety; ELOS deviation finding for a quantitative 25.1309 item with regulation intent, safety margin against the catastrophic 1e-9 target and compensating measure gaps"
+    expected_skill: "systems-engineering-safety/certification/equivalent-level-of-safety"
+  - id: w26-equivalent-level-of-safety-2
+    query: "run the ELOS deviation analysis for the qualitative 25.671 control system item with redundant actuation and jam detection monitoring: assess the compensation coverage and return the finding recommendation"
+    intent: "systems-engineering-safety; ELOS deviation analysis of a qualitative 25.671 control item with compensation coverage assessment and finding recommendation"
+    expected_skill: "systems-engineering-safety/certification/equivalent-level-of-safety"
+  - id: w26-goal-structuring-notation-1
+    query: "build the goal structuring notation safety argument for the flight control certification claim: decompose the top goal through a strategy into per-severity sub-goals, attach the SSA report and FHA worksheet as solution nodes, and validate that every leaf goal is supported"
+    intent: "systems-engineering-safety; goal structuring notation argument construction with claim decomposition, strategy, and solution node evidence attachment"
+    expected_skill: "systems-engineering-safety/safety-case/goal-structuring-notation"
+  - id: w26-goal-structuring-notation-2
+    query: "validate the GSN argument graph from the safety case submission: check for cycles, unsupported leaf goals, dangling references, and the away goal justification rule, then report the support coverage"
+    intent: "systems-engineering-safety; GSN safety case validation with argument validation, away goal rule and support coverage"
+    expected_skill: "systems-engineering-safety/safety-case/goal-structuring-notation"
+  - id: w26-hypothesis-testing-1
+    query: "compare the measured drag counts of configuration A and B with the two sample t test: report the test statistic, degrees of freedom, p-value, and whether the difference is significant at the 0.05 level"
+    intent: "cross-cutting; two sample t test on the drag counts comparison with the test statistic, degrees of freedom, p-value and the significance verdict at the 0.05 level"
+    expected_skill: "cross-cutting/numerics/hypothesis-testing"
+  - id: w26-hypothesis-testing-2
+    query: "run the one way ANOVA across the three batches of test data and the chi-square test of independence on the defect contingency table, then return the p-values and the reject or fail to reject verdicts"
+    intent: "cross-cutting; one way ANOVA across three batches and chi-square test of independence on the defect contingency table with p-values and reject or fail to reject verdicts"
+    expected_skill: "cross-cutting/numerics/hypothesis-testing"
+  - id: w26-icing-flight-test-1
+    query: "classify the icing encounter at minus 10 C with 0.3 grams per cubic meter liquid water content and 20 micron median volumetric diameter against the appendix C continuous maximum envelope and rate the severity for the icing flight test log"
+    intent: "flight-test-operations; icing encounter rating against the appendix C continuous maximum envelope from liquid water content and median volumetric diameter with the severity step for the icing flight test log"
+    expected_skill: "flight-test-operations/envelope/icing-flight-test"
+  - id: w26-icing-flight-test-2
+    query: "plan the artificial ice shape matrix for the icing certification flight test: check the critical surface coverage for the glaze and runback shapes and list the ice protection effectiveness test points that must be flown"
+    intent: "flight-test-operations; artificial ice shape matrix planning with critical surface coverage checks for the glaze and runback shapes and the ice protection effectiveness test point list"
+    expected_skill: "flight-test-operations/envelope/icing-flight-test"
+  - id: w26-in-service-safety-assessment-1
+    query: "assess the in-service safety data for the fleet after 1 million flight hours: two hazardous events on the flight control condition against the predicted 3e-7 per hour rate, apply the single event rule, and route the corrective action with the urgency band"
+    intent: "systems-engineering-safety; in-service safety assessment, single-event rule, corrective action route and urgency band against the predicted rate"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment"
+  - id: w26-in-service-safety-assessment-2
+    query: "run the ARP5150 style continued airworthiness review of the service difficulty reports: group the field events by failure condition, compare the observed event rate with the SSA prediction, and decide whether a service bulletin or an airworthiness directive request is warranted"
+    intent: "systems-engineering-safety; continued airworthiness review, observed versus predicted event rate, service bulletin or airworthiness directive request decision"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment"
+  - id: w26-leak-testing-1
+    query: "compute the leak rate of the 50 liter fuel tank from the pressure decay test: 0.02 bar drop in 600 seconds, then disposition the part against the 2 scc per second maximum allowable leak rate"
+    intent: "manufacturing-quality; pressure decay leak rate in scc per second from volume, pressure drop and time, then accept or reject disposition against the maximum allowable leak"
+    expected_skill: "manufacturing-quality/ndt/leak-testing"
+  - id: w26-leak-testing-2
+    query: "recommend the leak test method for the sealed valve that needs 1e-8 scc per second sensitivity and convert the measured helium mass spectrometer reading to the air equivalent leak rate for the acceptance check"
+    intent: "manufacturing-quality; leak test method recommendation from required sensitivity and helium to air conversion of a mass spectrometer reading for the acceptance check"
+    expected_skill: "manufacturing-quality/ndt/leak-testing"
+  - id: w26-mmel-development-1
+    query: "screen the yaw damper and the cabin entertainment system for the master minimum equipment list proposal: decide dispatch relief with the item inoperative, assign the interval category, and flag the (O) operating procedure and (M) maintenance requirements"
+    intent: "systems engineering; MMEL proposal screening, dispatch relief verdict, interval category and (O)/(M) flag assignment"
+    expected_skill: "systems-engineering-safety/certification/mmel-development"
+  - id: w26-mmel-development-2
+    query: "check the MMEL relief interaction for two inoperative brake system items that both back a safety function and return the proposal verdict for the certification submission"
+    intent: "systems engineering; MMEL relief interaction check with the double-relief rule and proposal verdict gating the certification submission"
+    expected_skill: "systems-engineering-safety/certification/mmel-development"
+  - id: w26-noise-certification-test-1
+    query: "compute the EPNL from the measured tone corrected PNLT time history of the flyover noise certification run with the 10 dB down integration rule and check the margin against the 95 EPNdB limit"
+    intent: "flight-test-operations; EPNL integration from a tone corrected PNLT series with the 10 dB down rule, effective perceived noise level, and the margin to the noise limit"
+    expected_skill: "flight-test-operations/planning/noise-certification-test"
+  - id: w26-noise-certification-test-2
+    query: "plan the FAR 36 noise certification test matrix for the flyover, sideline, and approach conditions and assess the cumulative margin of the three point set against the chapter 4 style rule"
+    intent: "flight-test-operations; noise certification test matrix for flyover, sideline and approach with the cumulative margin assessment against the chapter 4 rule"
+    expected_skill: "flight-test-operations/planning/noise-certification-test"
+  - id: w26-probability-distributions-1
+    query: "fit a weibull distribution to the 1000 hour fatigue life scatter data, run the kolmogorov smirnov goodness of fit check, and report the reliability at 800 hours with the hazard function"
+    intent: "cross-cutting; weibull parameter estimation with kolmogorov smirnov goodness of fit, reliability at time, and hazard function reporting"
+    expected_skill: "cross-cutting/numerics/probability-distributions"
+  - id: w26-probability-distributions-2
+    query: "characterize the measured tolerance scatter with the normal and lognormal distributions: estimate the parameters, compute the 5 and 95 percent quantiles, and score the chi-square fit test verdict"
+    intent: "cross-cutting; normal and lognormal parameter estimation with quantile estimation and the chi-square fit test verdict"
+    expected_skill: "cross-cutting/numerics/probability-distributions"
+  - id: w26-shearography-inspection-1
+    query: "plan the laser shearography inspection of the composite panel: pick the shear distance for the 10 mm minimum disbond, size the vacuum load step for the 6 mm laminate, and build the scan plan with 20 percent overlap"
+    intent: "manufacturing-quality; laser shearography inspection planning with shear distance selection, vacuum load step sizing and scan plan overlap"
+    expected_skill: "manufacturing-quality/ndt/shearography-inspection"
+  - id: w26-shearography-inspection-2
+    query: "convert the 0.5 radian phase anomaly from the shearography fringe map into a strain gradient estimate and disposition the 12 mm disbond against the 10 mm allowable size"
+    intent: "manufacturing-quality; shearography phase map interpretation, phase to strain gradient conversion and anomaly disposition against the allowable size"
+    expected_skill: "manufacturing-quality/ndt/shearography-inspection"
+  - id: w26-surrogate-modeling-1
+    query: "fit a response surface surrogate to the 25 aerodynamic analysis samples from the DOE: build the quadratic model and the radial basis function model, run the leave one out cross validation, and recommend the better approximation for the MDO loop"
+    intent: "vehicle-design; fit the quadratic response surface and the radial basis function surrogate models from the DOE samples, run the leave one out cross validation on both, and recommend the better approximation model by prediction error"
+    expected_skill: "vehicle-design/mdo/surrogate-modeling"
+  - id: w26-surrogate-modeling-2
+    query: "replace the expensive structural analysis with an RBF metamodel fitted on the latin hypercube samples and report the cross validation prediction error at the new design points"
+    intent: "vehicle-design; RBF metamodel surrogate fitted on the samples with the cross validation prediction error reported at the new design points for the expensive analysis replacement"
+    expected_skill: "vehicle-design/mdo/surrogate-modeling"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

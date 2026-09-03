@@ -66,6 +66,8 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/uas/part107-sora | Part107 Sora | part 107 applicability, part107 sora, sora operational category, ground risk class, air risk class, arc, grc, robustness level, containment, bvlos waiver, drone risk assessment, uas risk, remote pilot certificate, 400 ft agl, visual line of sight. |
 | flight-test-operations/performance/level-acceleration-test | Level acceleration test | level acceleration, accelerated level flight, specific excess power, total energy method, excess thrust |
 | flight-test-operations/planning/position-error-calibration | Position error calibration | position error calibration, PEC, airspeed calibration, calibrated airspeed, tower fly-by, trailing cone, GPS ground speed doublet, position error correction curve |
+| flight-test-operations/envelope/icing-flight-test | Icing flight test | icing flight test, natural icing, artificial ice shape, appendix C envelope, liquid water content, median volumetric diameter, icing encounter severity, ice protection effectiveness test |
+| flight-test-operations/planning/noise-certification-test | Noise certification test | noise certification flight test, EPNL, effective perceived noise level, PNLT, tone corrected, 10 dB down, flyover noise, sideline noise, approach noise, cumulative margin |
 
 ## Routing guidance
 
@@ -119,3 +121,5 @@ actor-envelope.
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Level-acceleration and specific-excess-power flight test questions route to the performance level-acceleration-test sub-skill.
+- Icing certification flight test questions (natural icing encounters, artificial ice shapes, Appendix C envelope classification, ice protection effectiveness test points) route to the envelope icing-flight-test sub-skill.
+- Noise certification questions (EPNL from a PNLT time history, flyover sideline and approach conditions, cumulative margin) route to the planning noise-certification-test sub-skill.

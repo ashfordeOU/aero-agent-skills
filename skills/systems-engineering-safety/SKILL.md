@@ -64,6 +64,10 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4754a/configuration-management | Configuration Management | configuration management, baseline, change control, change request, impact analysis, major change, minor change, safety critical requirement, certification data, interfaces, configuration item, change history, traceability closure. |
 | systems-engineering-safety/arp4761a/reliability-block-diagram | Reliability block diagram | reliability block diagram, RBD, series parallel reliability, k-out-of-n, standby redundancy, MTBF |
 | systems-engineering-safety/certification/means-of-compliance | Means of compliance | means of compliance, MOC-1, MOC-2, MOC-3, MOC-6, compliance matrix, certification item, coverage score |
+| systems-engineering-safety/certification/equivalent-level-of-safety | Equivalent level of safety | ELOS finding, deviation from literal compliance, regulation intent, compensating measure, safety margin, equivalent safety finding |
+| systems-engineering-safety/certification/mmel-development | MMEL development | master minimum equipment list, MMEL, dispatch with inoperative equipment, interval category, O procedure, M maintenance flag, relief verdict |
+| systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | In-service safety assessment | in-service safety assessment, service difficulty report, continued airworthiness, field event rate, observed versus predicted rate, single event rule, service bulletin, airworthiness directive request |
+| systems-engineering-safety/safety-case/goal-structuring-notation | Goal structuring notation | goal structuring notation, GSN, safety argument, safety case, claim decomposition, solution node, away goal, argument validation, support coverage |
 
 ## Routing guidance
 
@@ -125,3 +129,7 @@ To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - RBD series parallel and redundancy reliability questions route to the arp4761a reliability-block-diagram sub-skill.
 - Per-certification-item means-of-compliance assignment and matrix coverage questions route to the certification means-of-compliance sub-skill.
+- Equivalent-level-of-safety questions (deviation from literal compliance with a regulation, compensating measures, safety margin to the rule intent) route to the certification equivalent-level-of-safety sub-skill.
+- MMEL proposal questions (master minimum equipment list, dispatch with an item inoperative, interval category, O and M flags) route to the certification mmel-development sub-skill.
+- In-service and continued-airworthiness questions (service difficulty reports, field event rate versus the SSA prediction, service bulletin or AD request) route to the continued-airworthiness in-service-safety-assessment sub-skill.
+- GSN safety argument questions (claim decomposition, strategy and solution evidence nodes, away-goal justification, support coverage) route to the safety-case goal-structuring-notation sub-skill.
