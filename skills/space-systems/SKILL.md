@@ -63,6 +63,8 @@ selection, and classical orbital element determination.
 | space-systems/mission-design/entry-descent-landing | Entry descent and landing | entry descent landing, entry corridor, ballistic coefficient, entry heating, sutton-graves, deceleration, parachute, terminal velocity |
 | space-systems/mission-design/launch-window-analysis | Launch Window Analysis | launch window, launch azimuth, inclination, sun-synchronous, ltan, raan, plane change, delta-v, orbital plane, direct injection, ksc. |
 | space-systems/orbit-mechanics/low-thrust-spiral | Low-thrust spiral transfer | low-thrust transfer, Edelbaum, continuous thrust spiral, inclination change, spiral transfer time |
+| space-systems/adcs/reaction-wheel-control | Reaction wheel control | reaction wheel control, wheel torque command, wheel momentum saturation, momentum desaturation, quaternion error feedback |
+| space-systems/orbit-mechanics/clohessy-wiltshire | Clohessy-Wiltshire | Clohessy-Wiltshire, Hill equations, relative motion state transition matrix, deputy chief, two-impulse targeting, along-track drift |
 
 ## Routing guidance
 
@@ -123,3 +125,5 @@ selection, and classical orbital element determination.
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Low-thrust spiral and Edelbaum transfer questions route to the orbit-mechanics low-thrust-spiral sub-skill.
+- Reaction-wheel attitude control laws and momentum desaturation questions route to the adcs reaction-wheel-control sub-skill.
+- Clohessy-Wiltshire relative motion and two-impulse targeting questions route to the orbit-mechanics clohessy-wiltshire sub-skill.
