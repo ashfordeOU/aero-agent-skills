@@ -366,3 +366,4 @@ Total skills rated: 353
 | 358 | flight-test-operations/envelope/icing-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 359 | cross-cutting/numerics/hypothesis-testing | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 360 | cross-cutting/numerics/probability-distributions | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 361 | flight-test-operations/planning/noise-certification-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
