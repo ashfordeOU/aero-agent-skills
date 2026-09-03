@@ -343,3 +343,4 @@ Total skills rated: 330
 | 335 | gnc-autonomy/space/orbit-determination | PASS | ✓ | ecss | gnc-autonomy | 9.5 | PASS |
 | 336 | space-systems/orbit-mechanics/clohessy-wiltshire | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 337 | propulsion/rocket/rocket-engine-cycle | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 338 | aerodynamics/high-speed/shock-expansion-airfoil | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
