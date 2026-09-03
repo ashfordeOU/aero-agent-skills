@@ -1,0 +1,14 @@
+# Hit@1 wave-27 fragment: speed-stability (flight-mechanics)
+# Two tasks per new leaf skill. w27-speed-stability-1 routes on static speed
+# stability trim classification, the minimum drag speed boundary and the back
+# side of the thrust required curve; w27-speed-stability-2 routes on the slow
+# flight stability margin and the region of reversed command.
+tasks:
+  - id: w27-speed-stability-1
+    query: "classify the level flight trim speeds of the transport for static speed stability: find the minimum drag speed boundary and mark which trim speeds sit on the back side of the thrust required curve with an unstable slope"
+    intent: "flight-mechanics; static speed stability trim speed classification against the minimum drag speed boundary, back side of the thrust required curve slope verdict"
+    expected_skill: "flight-mechanics/performance/speed-stability"
+  - id: w27-speed-stability-2
+    query: "compute the slow flight stability margin for the airplane: check whether the 80 m/s approach trim speed is below the minimum drag speed on the region of reversed command and give the margin"
+    intent: "flight-mechanics; slow flight stability margin check of the approach trim speed below the minimum drag speed on the region of reversed command"
+    expected_skill: "flight-mechanics/performance/speed-stability"
