@@ -1,0 +1,14 @@
+# Hit@1 wave-29 fragment: rts-smoother (gnc-autonomy)
+# Two tasks per new leaf skill. w29-rts-smoother-1 routes on the
+# Rauch-Tung-Striebel fixed-interval backward-pass tokens;
+# w29-rts-smoother-2 routes on the offline RTS post-processing of a
+# recorded navigation track.
+tasks:
+  - id: w29-rts-smoother-1
+    query: "smooth a stored Kalman filter output with the Rauch-Tung-Striebel fixed-interval recursion: run the backward pass and report the smoothed position and velocity history with the reduced covariance"
+    intent: "gnc-autonomy; fixed-interval RTS smoothing of a stored Kalman filter output with the Rauch-Tung-Striebel backward pass and the smoothed position and velocity history with the reduced covariance"
+    expected_skill: "gnc-autonomy/estimation-filtering/rts-smoother"
+  - id: w29-rts-smoother-2
+    query: "post-process a recorded GNSS/INS track offline with an RTS smoother so the trajectory estimate uses all measurements forward and backward"
+    intent: "gnc-autonomy; offline post-processing of a recorded GNSS/INS track with the RTS smoother fixed-interval recursion so the trajectory estimate uses all measurements forward and backward"
+    expected_skill: "gnc-autonomy/estimation-filtering/rts-smoother"
