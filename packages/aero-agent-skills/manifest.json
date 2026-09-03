@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 393,
-  "live_packs": 84,
+  "leaves": 404,
+  "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 800
+  "corpus_tasks": 822
  },
  "skills": [
   {
@@ -1236,6 +1236,23 @@
    "router_doc": false
   },
   {
+   "path": "avionics/surveillance/tcas-resolution-advisory",
+   "name": "tcas-resolution-advisory",
+   "description": "Use when you must evaluate a TCAS II resolution advisory for an own aircraft against a single intruder from measured range and altitude state: select the sensitivity level from the own altitude band, compute the modified tau closing time with the DMOD term, apply the horizontal threat test and the altitude test against the tau and ALIM thresholds, and choose the climb or descend advisory sense from the intruder position. Produces the sensitivity level, the modified tau, the threat verdict and the resolution advisory sense that gate a TCAS logic assessment. Trigger: TCAS II, traffic alert and collision avoidance, resolution advisory, modified tau, DMOD, sensitivity level, intruder threat logic, climb descend advisory.",
+   "tags": [
+    "tcas-resolution-advisory",
+    "traffic-alert-collision-avoidance",
+    "modified-tau",
+    "sensitivity-level",
+    "intruder-threat-logic",
+    "resolution-advisory-sense",
+    "dmod-cylinder"
+   ],
+   "family": "avionics",
+   "pack": "surveillance",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting",
    "name": "cross-cutting",
    "description": "Use when a task concerns the skill delivery layer, the standard atmosphere, engineering documentation, or numerical analysis: guide the router to the cross-cutting pack. SEP-2640 skill-delivery, skill-evaluation, skill-authoring cover SKILL.md conformance, quality, authoring; isa-atmosphere, unit-conversion, and temperature-conversion cover atmosphere and units; engineering-margins and engineering-report cover margins and reports; tolerance-stackup assembly tolerancing and position-tolerance-calc GD&T position tolerance; convergence-verification Richardson, least-squares-regression OLS, uncertainty-propagation GUM, numerical-integration quadrature, finite-difference-derivatives finite differences, monte-carlo-sampling sampling. Trigger: skill delivery, SEP-2640, skill evaluation, skill authoring, SKILL.md, ISA, unit conversion, temperature conversion, margin of safety, tolerance stack-up, worst case, RSS, GD&T, position tolerance, engineering report, least squares, uncertainty, numerical integration.",
@@ -1346,6 +1363,26 @@
     "richardson",
     "extrapolation",
     "oscillatory"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/cross-correlation-analysis",
+   "name": "cross-correlation-analysis",
+   "description": "Use when you must compute the cross-correlation or autocorrelation of sampled signal sequences to quantify channel similarity and time delay: evaluate the raw cross-correlation over the full lag range with zero padding, normalize it to a correlation coefficient in [-1, 1] from the zero-lag energies, estimate the delay between channels from the peak lag, apply the biased or unbiased convention, and verify the even symmetry of the autocorrelation. Produces the correlation sequence, the peak lag, the normalized coefficient, and the delay in samples that gate time-delay analysis. Trigger: cross-correlation, autocorrelation, time-delay-estimation, lag, normalized-correlation-coefficient, channel-similarity, delay-between-signals.",
+   "tags": [
+    "cross-correlation-analysis",
+    "cross-correlation",
+    "autocorrelation",
+    "time-delay-estimation",
+    "normalized-correlation-coefficient",
+    "channel-similarity",
+    "delay-between-signals",
+    "correlation-sequence",
+    "biased-normalization",
+    "unbiased-normalization"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -3412,6 +3449,24 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/estimation-filtering/rts-smoother",
+   "name": "rts-smoother",
+   "description": "Use when you must run a fixed-interval Rauch-Tung-Striebel (RTS) smoother over a stored forward Kalman-filter output for a discrete constant-velocity model in SI units: propagate the position and velocity state with the constant-velocity transition matrix, run the linear forward pass that stores the predicted and filtered means and covariances at every step, then execute the backward recursion with the smoother gain to combine each filtered estimate with the future measurements. Produces the smoothed state history, the smoother gains, the smoothed covariance history and the covariance reduction verdict that gate offline trajectory reconstruction and post-processing of navigation data. Trigger: rts smoother, rauch-tung-striebel, fixed-interval smoothing, backward pass, smoothed state, offline trajectory reconstruction, post-processing navigation data, constant-velocity model.",
+   "tags": [
+    "rts-smoother",
+    "rauch-tung-striebel",
+    "fixed-interval-smoothing",
+    "backward-pass",
+    "smoothed-state",
+    "offline-trajectory-reconstruction",
+    "post-processing-navigation-data",
+    "constant-velocity-model"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "estimation-filtering",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/estimation-filtering/unscented-kalman-filter",
    "name": "unscented-kalman-filter",
    "description": "Use when you must estimate the state of a nonlinear system with an unscented Kalman filter: generate sigma points from the state mean and covariance with the scaled unscented transform, propagate each point through the nonlinear dynamics, compute the weighted predicted mean and covariance, form the innovation covariance and the cross covariance, calculate the Kalman gain, and correct the state and covariance from a nonlinear measurement. Produces the predicted and corrected states, the state covariance, the innovation covariance, the Kalman gain, and the NEES consistency metric that gate a nonlinear estimation assessment. Trigger: unscented kalman filter, sigma points, scaled unscented transform, innovation covariance, kalman gain, nonlinear state estimation, nees.",
@@ -3443,6 +3498,24 @@
     "steering-command",
     "cross-track-offset",
     "tracker-target-line"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "guidance",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/guidance/coverage-path-planning",
+   "name": "coverage-path-planning",
+   "description": "Use when you must plan a boustrophedon area-coverage search path for a fixed-wing UAS or rotorcraft over a rectangular survey region: compute the ground swath width from the sensor cross-track field of view and altitude, derive the track spacing from the required side overlap, lay out the alternating lawnmower passes, add the 180 degree half-circle turns at the vehicle turn radius, and sum the total path length and survey time at cruise speed. Produces the swath width, track spacing, pass count, pass headings, total path length and survey time that gate an aerial survey or search mission plan. Trigger: coverage path planning, boustrophedon, lawnmower pattern, aerial survey flight lines, swath width, side overlap, track spacing, area search pattern.",
+   "tags": [
+    "coverage-path-planning",
+    "boustrophedon",
+    "lawnmower-pattern",
+    "aerial-survey-flight-lines",
+    "swath-width",
+    "side-overlap",
+    "track-spacing",
+    "area-search-pattern"
    ],
    "family": "gnc-autonomy",
    "pack": "guidance",
@@ -3576,6 +3649,24 @@
     "ecef-position-solution",
     "satellite-pseudorange-residual",
     "snapshot-navigation-solution"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/gnss-raim-fde",
+   "name": "gnss-raim-fde",
+   "description": "Use when you must run receiver autonomous integrity monitoring (RAIM) fault detection and exclusion on an overdetermined GNSS pseudorange measurement set: build the geometry matrix H from satellite line-of-sight unit vectors, solve the overdetermined least-squares navigation solution, form the residual test statistic and compare it against a chi-square threshold at 1e-5 false-alarm probability, compute the horizontal protection level from the worst-case satellite slope, and identify the faulty satellite by the largest normalized residual for exclusion. Produces the detection verdict, the horizontal protection level, and the excluded-satellite recommendation that gate a GNSS integrity and availability assessment. Trigger: RAIM, receiver autonomous integrity monitoring, fault detection and exclusion, horizontal protection level, chi-square threshold, normalized residual, GNSS integrity.",
+   "tags": [
+    "gnss-raim-fde",
+    "raim",
+    "receiver-autonomous-integrity-monitoring",
+    "fault-detection-and-exclusion",
+    "horizontal-protection-level",
+    "chi-square-threshold",
+    "normalized-residual",
+    "gnss-integrity"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -4820,6 +4911,23 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/rocket/cold-gas-thruster",
+   "name": "cold-gas-thruster",
+   "description": "Use when you must size and assess a cold gas thruster for spacecraft reaction control: compute the choked mass flow through the nozzle throat from the plenum pressure and temperature, the thrust from the mass flow and specific impulse, the tank gas mass from the plenum volume and pressure, the isothermal blowdown time constant and pressure history, the operating time to the minimum usable pressure, and the total impulse available over the blowdown. Produces the throat area, mass flow, thrust, tank gas mass, time constant, pressure at a query time, operating time, and total impulse that gate a cold gas RCS sizing. Trigger: cold gas thruster, nitrogen RCS, choked mass flow, plenum blowdown, total impulse, reaction control thruster sizing, isothermal blowdown time constant.",
+   "tags": [
+    "cold-gas-thruster",
+    "nitrogen-rcs",
+    "choked-mass-flow",
+    "plenum-blowdown",
+    "isothermal-blowdown-time-constant",
+    "reaction-control-thruster-sizing",
+    "total-impulse"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/combustion-chamber-design",
    "name": "combustion-chamber-design",
    "description": "Use when you must size and assess the combustion chamber of a rocket engine: compute the characteristic velocity (c-star) from the chamber pressure, the throat area, and the propellant mass flow, estimate the theoretical c-star from the chamber temperature, the molecular weight, and the specific heat ratio, size the throat area from the propellant flow and the chamber pressure, compute the thrust coefficient and the thrust from the chamber pressure and the throat area, and derive the chamber volume from L-star, the contraction ratio from the chamber area and the throat, and the vacuum specific impulse from the thrust and the mass flow. Produces the chamber sizing dict that feeds the nozzle-design and the engine balance. Trigger: rocket combustion chamber, characteristic velocity, c-star, thrust coefficient, contraction ratio, chamber pressure, chamber volume, L-star, throat area.",
@@ -5059,6 +5167,23 @@
     "de-haller-number",
     "tip-speed",
     "velocity-triangle"
+   ],
+   "family": "propulsion",
+   "pack": "turbomachinery",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/turbomachinery/rocket-turbopump",
+   "name": "rocket-turbopump",
+   "description": "Use when you must size the centrifugal pump inside a liquid rocket engine turbopump: convert the discharge pressure rise and propellant flow into the pump head, compute the dimensionless specific speed from the shaft speed, flow, and head, estimate the impeller tip speed and diameter from the design head coefficient, compute the pump power at the pump efficiency, assess the suction performance with the available net positive suction head and the suction specific speed, and judge the cavitation margin against the suction specific speed limit. Produces the head, specific speed, tip speed, impeller diameter, pump power, NPSH, and cavitation verdict that gate the turbopump design review. Trigger: rocket turbopump, pump specific speed, suction specific speed, net positive suction head, impeller tip speed, LOX pump sizing, cavitation margin.",
+   "tags": [
+    "rocket-turbopump",
+    "pump-specific-speed",
+    "suction-specific-speed",
+    "net-positive-suction-head",
+    "impeller-tip-speed",
+    "lox-pump-sizing",
+    "cavitation-margin"
    ],
    "family": "propulsion",
    "pack": "turbomachinery",
@@ -5587,6 +5712,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/orbit-mechanics/plane-change-maneuver",
+   "name": "plane-change-maneuver",
+   "description": "Use when you must compute the delta-v of an orbital plane change maneuver and compare the pure inclination change against the combined burn that merges the plane change with an orbit transfer: evaluate the circular-orbit speed at the maneuver radius with sqrt(mu/r), the pure plane change delta-v 2 v sin(di/2), the speed on the elliptic transfer orbit at the maneuver point with the vis-viva equation, and the combined-burn delta-v from the law of cosines when the plane change rides the circularization burn at apogee. Produces the orbit speeds, the pure and combined delta-v values, and the maneuver-selection verdict that gate the orbit maneuver plan. Trigger: plane-change-maneuver, inclination-change-delta-v, combined-burn, orbital-plane-change, apsidal-plane-change, 2-v-sin-half-inclination, inclination-change, orbital-maneuver-plan.",
+   "tags": [
+    "plane-change-maneuver",
+    "inclination-change-delta-v",
+    "combined-burn",
+    "orbital-plane-change",
+    "apsidal-plane-change",
+    "2-v-sin-half-inclination",
+    "inclination-change",
+    "orbital-maneuver-plan",
+    "circular-orbit-speed",
+    "vis-viva-speed"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/orbit-mechanics/satellite-coverage",
    "name": "satellite-coverage",
    "description": "Use when you must analyze satellite ground coverage and access geometry: compute the instantaneous access circle central angle for a satellite from the orbital altitude and the minimum elevation angle constraint, estimate the swath width and the coverage fraction of a region or the globe, derive the maximum off-nadir angle and the elevation and look-angle geometry at a ground station, and evaluate the access time per pass and the revisit time. Produces the central angle, swath width, off-nadir angle, access time, and coverage fraction that gate ground station visibility and constellation coverage analysis. Trigger: satellite coverage, coverage analysis, access circle, central angle, swath width, off-nadir angle, elevation angle, revisit time, coverage fraction, ground station visibility.",
@@ -5723,6 +5868,26 @@
     "end-of-life",
     "mission-life",
     "photovoltaic-array"
+   ],
+   "family": "space-systems",
+   "pack": "subsystems",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/subsystems/spacecraft-battery-sizing",
+   "name": "spacecraft-battery-sizing",
+   "description": "Use when you must size the spacecraft battery energy storage for an Earth-orbiting power subsystem: compute the eclipse energy from the eclipse load and the eclipse duration, convert it into the required nameplate capacity with the depth of discharge limit and the discharge efficiency, convert to ampere hours at the bus voltage, lay out the series and parallel Li-ion cell counts for the regulated bus, check the discharge C-rate against the cell limit, and estimate the pack mass from the pack specific energy. Produces the eclipse energy, required capacity, cell layout, installed capacity and mass estimate that gate the spacecraft power sizing. Trigger: spacecraft battery sizing, eclipse energy, depth of discharge, orbit battery capacity, series parallel cell layout, bus voltage cell count, LEO power storage.",
+   "tags": [
+    "spacecraft-battery-sizing",
+    "eclipse-energy",
+    "orbit-battery-capacity",
+    "depth-of-discharge",
+    "series-parallel-cell-layout",
+    "bus-voltage-cell-count",
+    "leo-power-storage",
+    "li-ion-cell",
+    "discharge-efficiency",
+    "pack-energy-density"
    ],
    "family": "space-systems",
    "pack": "subsystems",
@@ -6841,6 +7006,27 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis",
+   "name": "msg3-maintenance-analysis",
+   "description": "Use when you must run the MSG-3 maintenance steering group decision logic to develop a scheduled maintenance program for an aircraft system or component: categorize each failure mode by effect visibility (evident to the flight crew or hidden) and consequence (safety-significant or economic-only), select the applicable scheduled maintenance task categories (lubrication, servicing, operational check, visual check, inspection, functional check, restoration, discard), and assign the interval verdict including the hidden failure exposure rule at half the single-failure interval. Produces the failure category, the recommended task set with rationale, and the interval verdict that gate the maintenance program development handoff. Trigger: MSG-3, maintenance steering group, scheduled maintenance, hidden failure, evident failure, task category selection, exposure rule, interval determination, maintenance program development.",
+   "tags": [
+    "msg3-maintenance-analysis",
+    "msg-3",
+    "maintenance-steering-group",
+    "scheduled-maintenance-task-selection",
+    "hidden-failure",
+    "evident-failure",
+    "task-category-selection",
+    "exposure-rule",
+    "interval-determination",
+    "maintenance-program-development",
+    "continued-airworthiness"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "continued-airworthiness",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/mbse/n2-diagram",
    "name": "n2-diagram",
    "description": "Use when you must build or review an N2 interface diagram for an aerospace systems engineering model: derive the NxN interface matrix from the function or component list and the interface pair list, count the interfaces per element from the row and column sums, flag the missing data links against the required interface list, and identify isolated elements with no interfaces. Produces the interface matrix, the per-element interface counts, and the missing link and isolation report that gate the interface requirements review. Trigger: N2 diagram, N2 interface matrix, interface pair, data link, interface count, missing interface.",
@@ -7297,6 +7483,23 @@
     "braking-distance-v1",
     "rto-brake-energy",
     "landing-stop-brake-energy"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/canard-sizing",
+   "name": "canard-sizing",
+   "description": "Use when you must size the canard of a canard-configured aircraft: compute the required canard area for a target canard volume coefficient from the canard arm and the wing reference geometry, derive the trim lift share carried by the forward canard from the longitudinal geometry, resolve the canard and wing lift coefficients at the trim condition, and run the stall precedence check that the canard reaches maximum lift before the wing so the nose drops instead of pitching up. Produces the canard area, trim lift share, trim lift coefficients, and the stall precedence verdict. Trigger: canard sizing, canard volume coefficient, canard area, forward wing, stall precedence, canard configuration, trim lift share.",
+   "tags": [
+    "canard-sizing",
+    "canard-volume-coefficient",
+    "trim-lift-share",
+    "stall-precedence",
+    "canard-configuration",
+    "canard-area",
+    "forward-wing"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
@@ -7813,6 +8016,30 @@
    "status": "public-domain",
    "domain": "export control; defense articles; dual-use items",
    "gated": false
+  },
+  {
+   "id": "rtca-do-229",
+   "name": "DO-229: Minimum Operational Performance Standards for GPS/GNSS Airborne Equipment (MOPS)",
+   "publisher": "RTCA (joint EUROCAE twin ED-259)",
+   "status": "proprietary-sold",
+   "domain": "satellite navigation; GNSS integrity; receiver autonomous integrity monitoring",
+   "gated": true
+  },
+  {
+   "id": "rtca-do-185",
+   "name": "DO-185B: Minimum Operational Performance Standards for Traffic Alert and Collision Avoidance System II (TCAS II) Airborne Equipment",
+   "publisher": "RTCA (joint EUROCAE twin ED-143)",
+   "status": "proprietary-sold",
+   "domain": "airborne surveillance; collision avoidance; TCAS II logic",
+   "gated": true
+  },
+  {
+   "id": "msg-3",
+   "name": "ATA MSG-3: Operator/Manufacturer Scheduled Maintenance Development (Maintenance Steering Group logic)",
+   "publisher": "Air Transport Association (ATA / A4A)",
+   "status": "proprietary-sold",
+   "domain": "scheduled maintenance; maintenance program development; MSG-3 decision logic",
+   "gated": true
   }
  ]
 }
