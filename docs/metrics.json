@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 744,
+  "corpus_tasks": 772,
   "families": 12,
-  "leaves": 365,
+  "leaves": 379,
   "live_packs": 83,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 30,
+      "leaves": 31,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -69,15 +69,16 @@
           "windtunnel-wall-corrections"
         ],
         "wing-design": [
-          "wing-planform-design"
+          "wing-planform-design",
+          "winglet-design"
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 62
+      "tasks": 64
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 30,
+      "leaves": 32,
       "pack_names": [
         "data-bus",
         "do160",
@@ -126,6 +127,8 @@
           "flight-planning",
           "lateral-navigation",
           "performance-computation",
+          "radio-navigation-aids",
+          "rnp-anp-containment",
           "vertical-navigation"
         ],
         "fsw": [
@@ -138,7 +141,7 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 63
+      "tasks": 67
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
@@ -205,7 +208,7 @@
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 29,
+      "leaves": 32,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -221,7 +224,8 @@
         "handling-qualities": [
           "cooper-harper-rating",
           "mil-std-1797a",
-          "pilot-induced-oscillation"
+          "pilot-induced-oscillation",
+          "pitch-bandwidth-criteria"
         ],
         "performance": [
           "breguet-endurance",
@@ -233,6 +237,7 @@
           "landing-performance",
           "oei-climb-gradient",
           "specific-range",
+          "speed-stability",
           "takeoff-performance",
           "thrust-required",
           "turn-performance",
@@ -242,6 +247,7 @@
         "stability-control": [
           "aileron-reversal",
           "control-surface-effectiveness",
+          "deep-stall-analysis",
           "dynamic-stability",
           "lateral-directional-stability",
           "longitudinal-stability",
@@ -253,7 +259,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 58
+      "tasks": 64
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
@@ -317,7 +323,7 @@
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 30,
+      "leaves": 32,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -348,6 +354,7 @@
         ],
         "guidance": [
           "command-to-line-of-sight",
+          "dubins-path-planning",
           "impact-point-prediction",
           "midcourse-guidance",
           "proportional-navigation",
@@ -355,6 +362,7 @@
         ],
         "navigation": [
           "dilution-of-precision",
+          "gnss-pseudorange-positioning",
           "inertial-navigation",
           "kalman-filter-design",
           "navigation-frames"
@@ -372,7 +380,7 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 61
+      "tasks": 65
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
@@ -439,7 +447,7 @@
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 30,
+      "leaves": 32,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -458,6 +466,7 @@
           "axial-compressor-stage",
           "compressor-map",
           "multi-stage-compressor",
+          "turbine-blade-cooling",
           "turbine-stage"
         ],
         "combustion": [
@@ -472,6 +481,7 @@
           "engine-airframe-integration"
         ],
         "gas-turbine-cycle": [
+          "afterburner-cycle",
           "combustor-design",
           "gas-turbine-cycle",
           "real-cycle-effects",
@@ -506,11 +516,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 60
+      "tasks": 64
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 30,
+      "leaves": 32,
       "pack_names": [
         "adcs",
         "ecss",
@@ -542,7 +552,9 @@
         ],
         "orbit-mechanics": [
           "clohessy-wiltshire",
+          "conjunction-assessment",
           "eclipse-time",
+          "gravity-assist-swingby",
           "ground-track-repeat",
           "hohmann-transfer",
           "keplerian-elements",
@@ -562,11 +574,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 63
+      "tasks": 67
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 30,
+      "leaves": 32,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -579,6 +591,7 @@
       "packs": 7,
       "packs_detail": {
         "composites": [
+          "adhesive-bonded-joints",
           "cmh17-allowables",
           "composite-bolted-joints",
           "failure-criteria",
@@ -610,7 +623,8 @@
         ],
         "loads": [
           "gust-maneuver-loads",
-          "random-vibration-analysis"
+          "random-vibration-analysis",
+          "shock-response-spectrum"
         ],
         "materials": [
           "creep-rupture",
@@ -624,7 +638,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 61
+      "tasks": 65
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -751,6 +765,6 @@
       "tasks": 62
     }
   },
-  "skill_files": 377,
+  "skill_files": 391,
   "standards": 25
 }

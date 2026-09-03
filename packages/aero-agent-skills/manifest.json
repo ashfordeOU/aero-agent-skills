@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 365,
+  "leaves": 379,
   "live_packs": 83,
   "families": 12,
-  "corpus_tasks": 744
+  "corpus_tasks": 772
  },
  "skills": [
   {
@@ -569,6 +569,24 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/wing-design/winglet-design",
+   "name": "winglet-design",
+   "description": "Use when you must size a winglet as a wingtip device for induced-drag reduction on a fixed-wing aircraft: compute the effective span extension and the effective aspect ratio from the winglet height fraction and the cant angle, estimate the improved span efficiency, the induced-drag factor and the induced-drag coefficient at a reference lift coefficient, the percent drag reduction, and the root bending moment penalty at the wing root, then size the winglet height by bisection to hit a target drag reduction. Produces the winglet height, the effective aspect ratio, the drag reduction and the bending penalty that gate the wingtip device trade. Trigger: winglet design, wingtip device, induced drag reduction, effective aspect ratio, span efficiency, cant angle, winglet height, root bending moment penalty.",
+   "tags": [
+    "winglet-design",
+    "wingtip-device",
+    "induced-drag-reduction",
+    "effective-aspect-ratio",
+    "span-efficiency",
+    "cant-angle",
+    "winglet-height",
+    "root-bending-moment-penalty"
+   ],
+   "family": "aerodynamics",
+   "pack": "wing-design",
+   "router_doc": false
+  },
+  {
    "path": "avionics",
    "name": "avionics",
    "description": "Use when a task concerns avionics and flight software assurance for civil aircraft: guide the router to the avionics pack, whose DO-178C software lifecycle sub-skills cover planning, development, verification, and configuration management, whose DO-254 sub-skills cover airborne electronic hardware planning and verification, whose DO-330 tool-qualification sub-skill covers software tool credit, whose DO-160 environmental-qualification sub-skill covers equipment test conditions, and whose far-cs25 airworthiness sub-skill covers the transport-category certification basis. This pack is the airborne software and hardware certification spine. Trigger: avionics, airborne software, flight software, DO-178C, DO-254, DO-330, DO-160, airborne electronic hardware, airworthiness certification, software levels, tool qualification, environmental qualification.",
@@ -1030,6 +1048,42 @@
     "vnav",
     "flight-management-system",
     "fms"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/flight-management/radio-navigation-aids",
+   "name": "radio-navigation-aids",
+   "description": "Use when you must compute the radio navigation geometry of conventional navaids for the aircraft navigation solution: derive the VOR radial and the bearing from the aircraft to the station from the planar station and aircraft coordinates, compute the DME slant range from the ground distance and the aircraft altitude, compute the ILS localizer deviation angle from the lateral offset and the distance to the runway threshold, and compute the ILS glideslope deviation from the height above the threshold and the distance to the threshold against the nominal glideslope angle. Produces the VOR bearing and radial, the slant range, and the localizer and glideslope deviation angles that gate radio navigation geometry checks. Trigger: VOR radial, DME slant range, ILS localizer deviation, glideslope deviation, radio navigation geometry, bearing to the navaid station, approach course offset.",
+   "tags": [
+    "radio-navigation-aids",
+    "vor-radial",
+    "dme-slant-range",
+    "ils-localizer-deviation",
+    "glideslope-deviation",
+    "radio-navigation-geometry",
+    "navaid-station-bearing",
+    "approach-course-offset"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/flight-management/rnp-anp-containment",
+   "name": "rnp-anp-containment",
+   "description": "Use when you must assess the RNP containment of a performance based navigation segment: compute the actual navigation performance (ANP) as the 95 percent containment bound from a lateral position error sigma or accept a directly supplied ANP, apply the required navigation performance (RNP) for the segment with an optional margin fraction, and decide whether the ANP stays inside the RNP. Produces the ANP, the containment margin and the pass or fail verdict that gate FMS navigation dispatch. Trigger: required navigation performance, actual navigation performance, RNP containment, ANP comparison, lateral position error sigma, 95 percent containment, performance based navigation.",
+   "tags": [
+    "rnp-anp-containment",
+    "required-navigation-performance",
+    "actual-navigation-performance",
+    "rnp-containment",
+    "anp-comparison",
+    "lateral-position-error",
+    "95-percent-containment",
+    "performance-based-navigation"
    ],
    "family": "avionics",
    "pack": "flight-management",
@@ -1845,6 +1899,24 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/handling-qualities/pitch-bandwidth-criteria",
+   "name": "pitch-bandwidth-criteria",
+   "description": "Use when you must assess the pitch-axis flying qualities of an aircraft with the MIL-STD-1797A bandwidth and phase-delay criterion: model the pitch attitude response as a short period transfer function with a control anticipation numerator time constant and an actuator lag, evaluate the frequency response, find the bandwidth frequency omega_BW as the lower of the 45 degree phase margin frequency and the 6 dB gain margin frequency, read the -180 degree frequency, compute the phase delay tau_p from the phase at twice omega_180, and grade the Category A Level 1, 2 and 3 boundaries. Produces omega_BW, omega_180, tau_p, the flying qualities level and the limiting criterion. Trigger: pitch bandwidth criterion, phase delay tau, bandwidth frequency, phase margin 45 degrees, mil-std-1797a bandwidth, short period transfer function, actuator lag, flying qualities level.",
+   "tags": [
+    "pitch-bandwidth-criteria",
+    "bandwidth-frequency",
+    "phase-delay",
+    "phase-margin",
+    "mil-std-1797a-bandwidth",
+    "short-period-transfer-function",
+    "actuator-lag",
+    "flying-qualities-level"
+   ],
+   "family": "flight-mechanics",
+   "pack": "handling-qualities",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/breguet-endurance",
    "name": "breguet-endurance",
    "description": "Use when you must compute the loiter endurance time of an aircraft with the Breguet endurance equation: combine the specific fuel consumption and the lift to drag ratio with the initial and final weights to produce the holding endurance in seconds, the final weight after an endurance segment, and the fuel burn for the loiter requirement. Produces the endurance time, final weight, and fuel burn that gate the holding performance check. Trigger: loiter endurance, endurance equation, holding time, specific fuel consumption, lift to drag ratio, fuel burn, maximum endurance.",
@@ -2006,6 +2078,24 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/speed-stability",
+   "name": "speed-stability",
+   "description": "Use when you must assess the static speed stability of a fixed-wing transport from its trim drag balance: build the thrust required curve versus true airspeed from the drag polar, its zero lift drag and induced drag factor, derive the curve slope dT/dV, classify each level flight trim speed as speed stable or speed unstable on the back side of the curve, locate the minimum drag speed boundary where the slope crosses zero, and compute the slow flight stability margin between a proposed minimum speed and the unstable region of reversed command. Produces the thrust required curve points, the slope classification table, the minimum drag speed, the stability verdict at every trim speed, and the speed stability margin that gate the minimum speed selection. Trigger: speed stability, back side of curve, region of reversed command, minimum drag speed boundary, trim speed classification, slow flight stability margin, thrust curve slope.",
+   "tags": [
+    "speed-stability",
+    "static-speed-stability",
+    "back-side-of-curve",
+    "region-of-reversed-command",
+    "minimum-drag-speed-boundary",
+    "trim-speed-classification",
+    "slow-flight-stability-margin",
+    "thrust-curve-slope"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/takeoff-performance",
    "name": "takeoff-performance",
    "description": "Use when you must compute takeoff performance from the aircraft weight, wing area, and thrust: determine the stall speed from wing loading and density, apply the liftoff speed factor, and estimate the ground roll distance with rolling friction. Produces the stall speed, the lift off speed, and the ground roll distance that gate the takeoff field-length check. Trigger: takeoff, ground roll, lift off speed, stall speed, wing loading.",
@@ -2126,6 +2216,24 @@
     "elevator-effectiveness",
     "maneuver-load-factor",
     "rotation-authority"
+   ],
+   "family": "flight-mechanics",
+   "pack": "stability-control",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/stability-control/deep-stall-analysis",
+   "name": "deep-stall-analysis",
+   "description": "Use when you must assess whether a T-tail or aft-fuselage-mounted-tail airplane can enter a deep stall, a self-sustaining high-angle-of-attack trim beyond the stall sometimes called alpha lock, and whether the elevator retains pitch-down authority to recover. Compute the viscous stall angle from the wing lift slope, model the loss of horizontal-tail effectiveness in the wing or fuselage wake with a tail blanking factor, add the separated-flow wing-body pitch-up that rises after the stall and fades at very high angle of attack, solve for the post-stall trim angle in the deep-stall band, and compare the elevator pitch-down moment with the pitch-up hump it must overcome. Produces the stall angle, blanking factor at the trim, lock depth, recovery margin, and the deep-stall and alpha-lock verdicts. Trigger: deep stall, T-tail blanking, alpha lock, post-stall trim, tail blanking factor, separated flow pitch-up, pitch-down recovery authority.",
+   "tags": [
+    "deep-stall-analysis",
+    "t-tail-blanking",
+    "alpha-lock",
+    "post-stall-trim",
+    "separated-flow-pitch-up",
+    "tail-blanking-factor",
+    "pitch-down-recovery-authority",
+    "wake-blanked-tail"
    ],
    "family": "flight-mechanics",
    "pack": "stability-control",
@@ -3217,6 +3325,25 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/guidance/dubins-path-planning",
+   "name": "dubins-path-planning",
+   "description": "Use when you must plan the shortest fixed wing path between two heading constrained poses with Dubins curves: compute the left and right arc centers for the minimum turn radius, find the outer or inner tangent points between the turn circles, form the six CSC and CCC path families (RSR, LSL, RSL, LSR, RLR, LRL), and select the minimum length path. Produces the Dubins path type, total length, segment lengths, arc centers, and waypoints that gate UAS path planning and waypoint guidance. Trigger: dubins path planning, minimum turn radius path, shortest path with heading constraints, CSC and CCC path families, arc tangent path, fixed wing turn radius, path length between poses.",
+   "tags": [
+    "dubins-path-planning",
+    "minimum-turn-radius-path",
+    "dubins-curves",
+    "heading-constrained-path",
+    "csc-path-families",
+    "ccc-path-families",
+    "arc-tangent-path",
+    "fixed-wing-turn-radius",
+    "path-length-between-poses"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "guidance",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/guidance/impact-point-prediction",
    "name": "impact-point-prediction",
    "description": "Compute the ballistic impact point prediction for a projectile from launch position, launch speed, and flight path angle: determine the flat earth vacuum range with the range equation, the time of flight, the impact coordinates from the launch point and heading, and the sensitivity of the landing point to initial condition errors. Use when a task asks where a round will land, how long the ballistic flight lasts, or how launch speed and flight path angle errors displace the impact point. Trigger: impact point prediction, ballistic trajectory, range equation, time of flight, flight path angle, launch speed, impact coordinates, flat earth.",
@@ -3307,6 +3434,24 @@
     "uere",
     "gnss",
     "satellite-selection"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/gnss-pseudorange-positioning",
+   "name": "gnss-pseudorange-positioning",
+   "description": "Use when you must compute a GNSS receiver position fix from pseudorange measurements: given satellite positions in ECEF and their pseudoranges (geometric range plus receiver clock bias), solve the four-unknown navigation equations for x, y, z and clock bias with an iterated least-squares adjustment and 4x4 normal equation solves. Produces the converged ECEF position, clock bias, post-fit residuals with RMS, and post-fit position error from the geometry matrix. Requires at least four satellites; treats the Earth as spherical for geodetic conversion only. Trigger: pseudorange positioning, GNSS position fix, receiver clock bias, iterated least squares fix, ECEF position solution, satellite pseudorange residual, snapshot navigation solution.",
+   "tags": [
+    "gnss-pseudorange-positioning",
+    "pseudorange-positioning",
+    "gnss-position-fix",
+    "receiver-clock-bias",
+    "iterated-least-squares-fix",
+    "ecef-position-solution",
+    "satellite-pseudorange-residual",
+    "snapshot-navigation-solution"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -4246,6 +4391,23 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/axial-compressor/turbine-blade-cooling",
+   "name": "turbine-blade-cooling",
+   "description": "Use when you must analyze the cooling flow required to protect a gas turbine blade row: compute the cooling effectiveness from the hot gas total temperature, the allowable blade metal temperature and the coolant supply temperature, convert it into the required coolant-to-gas mass flow fraction with a simplified energy balance, check the fraction against the practical bleed limit, and estimate the achievable metal temperature when film cooling lifts the effectiveness. Produces the effectiveness, coolant fraction, bleed-limit verdict, metal temperature and margin that gate hot section cooling design in the FAR-33 engine context. Trigger: turbine blade cooling, cooling effectiveness, coolant flow fraction, film cooling, allowable metal temperature, coolant supply temperature, bleed limit, hot section cooling.",
+   "tags": [
+    "turbine-blade-cooling",
+    "cooling-effectiveness",
+    "coolant-flow-fraction",
+    "film-cooling",
+    "bleed-limit",
+    "allowable-metal-temperature",
+    "hot-section-cooling"
+   ],
+   "family": "propulsion",
+   "pack": "axial-compressor",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/axial-compressor/turbine-stage",
    "name": "turbine-stage",
    "description": "Use when you must analyze a single axial turbine stage: compute the specific work output, the stage loading, the flow coefficient, the degree of reaction, the total-to-total efficiency, and the blade row losses from the blade speed, the axial velocity, the absolute flow angles, and the relative flow angles. Produces the velocity-triangle performance parameters in SI units that gate the turbine stage design review in the FAR-33 engine context. Trigger: axial turbine stage, stage loading, degree of reaction, flow coefficient, blade row loss, total-to-total efficiency, specific work output, turbine rotor, turbine stator.",
@@ -4353,6 +4515,23 @@
    ],
    "family": "propulsion",
    "pack": "engine-airframe",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/gas-turbine-cycle/afterburner-cycle",
+   "name": "afterburner-cycle",
+   "description": "Use when you must analyze an afterburning gas turbine cycle with reheat: compute the afterburner fuel-air ratio from the duct energy balance across the turbine exit and the afterburner exit total temperatures with a combustion efficiency, the reheat fuel flow for the core mass flow, the dry and reheat nozzle exit velocities from a fully expanded ideal isentropic nozzle, the dry and reheat gross thrust, the thrust augmentation ratio, and the specific fuel consumption with and without reheat. Produces the reheat fuel flow, augmentation ratio, and dry versus reheat SFC values that gate an afterburner cycle assessment in the FAR-33 engine context. Trigger: afterburner cycle, reheat fuel air ratio, thrust augmentation ratio, reheat temperature rise, dry versus reheat thrust, reheat specific fuel consumption, afterburner nozzle exit velocity.",
+   "tags": [
+    "afterburner-cycle",
+    "reheat-fuel-air-ratio",
+    "thrust-augmentation-ratio",
+    "reheat-temperature-rise",
+    "dry-versus-reheat-thrust",
+    "reheat-specific-fuel-consumption",
+    "afterburner-nozzle-exit-velocity"
+   ],
+   "family": "propulsion",
+   "pack": "gas-turbine-cycle",
    "router_doc": false
   },
   {
@@ -5038,6 +5217,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/orbit-mechanics/conjunction-assessment",
+   "name": "conjunction-assessment",
+   "description": "Use when you must screen a close approach between two objects and assess the collision risk: compute the time of closest approach from the relative position and velocity with a linear relative-motion model, the miss distance at TCA, the encounter-plane sigma from the combined 1-sigma position uncertainty, the probability of collision with the small hard-body approximation against the combined object radius, and the screen verdict against an actionable threshold. Produces the TCA, miss distance, probability of collision, and the high, watch or green severity verdict. Trigger: conjunction assessment, time of closest approach, miss distance, probability of collision, hard body radius, combined covariance, close approach screening, actionable threshold.",
+   "tags": [
+    "conjunction-assessment",
+    "time-of-closest-approach",
+    "miss-distance",
+    "probability-of-collision",
+    "hard-body-radius",
+    "combined-covariance",
+    "close-approach-screening",
+    "actionable-threshold"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/orbit-mechanics/eclipse-time",
    "name": "eclipse-time",
    "description": "Use when you must compute the time a spacecraft spends inside the earth shadow during each orbit: derive the beta angle of the orbit plane relative to the sun vector from the inclination, the right ascension of the ascending node, and the sun position, then evaluate the shadow fraction from the beta angle and the orbit radius and multiply by the orbital period to produce the eclipse time and the daylight fraction. Produces the beta angle in degrees, the shadow fraction, and the eclipse time in seconds that gate eclipse duration inputs for spacecraft power and thermal sizing. Trigger: eclipse time, earth shadow, beta angle, shadow fraction, orbit plane, sun vector, eclipse duration.",
@@ -5050,6 +5247,25 @@
     "orbit-plane",
     "sun-vector",
     "orbit-period"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/orbit-mechanics/gravity-assist-swingby",
+   "name": "gravity-assist-swingby",
+   "description": "Use when you must analyze a gravity-assist swing-by maneuver of a spacecraft past a planet or moon: compute the periapsis speed from the hyperbolic excess velocity with the vis-viva energy integral, the flyby turn angle, the delta-v gain for the heliocentric velocity change, and the outgoing direction for outside or inside passes, and check close approach feasibility against the body radius and minimum altitude. Produces the single-flyby summary with periapsis speed, turn angle, delta-v gain and the pass verdict that gates interplanetary trajectory design. Trigger: gravity assist, swing-by, hyperbolic excess velocity, turn angle, periapsis speed, delta-v gain, patched conic flyby, close approach altitude.",
+   "tags": [
+    "gravity-assist-swingby",
+    "gravity-assist",
+    "swing-by",
+    "hyperbolic-excess-velocity",
+    "turn-angle",
+    "periapsis-speed",
+    "delta-v-gain",
+    "close-approach-altitude",
+    "patched-conic-flyby"
    ],
    "family": "space-systems",
    "pack": "orbit-mechanics",
@@ -5339,6 +5555,24 @@
    "family": "structures",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "structures/composites/adhesive-bonded-joints",
+   "name": "adhesive-bonded-joints",
+   "description": "Use when you must analyze a single-lap adhesive bonded joint between two identical adherends: compute the Volkersen shear-lag parameter from the adherend modulus and thickness and the adhesive shear modulus and thickness, the average adhesive shear stress from the load, bond width and overlap length, the peak shear stress at the bondline ends with the shear-lag correction, and the joint margin against the adhesive allowable shear stress. Produces the average and peak stresses, the peak to average concentration, the margin ratio with MS margin, and the pass or fail verdict. Trigger: adhesive bonded joint, single lap joint, shear lag parameter, adhesive shear stress, overlap length, Volkersen shear distribution, bondline peak stress, adhesive allowable.",
+   "tags": [
+    "adhesive-bonded-joints",
+    "single-lap-joint",
+    "shear-lag-parameter",
+    "adhesive-shear-stress",
+    "overlap-length",
+    "volkersen-shear-distribution",
+    "bondline-peak-stress",
+    "adhesive-allowable"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
   },
   {
    "path": "structures/composites/cmh17-allowables",
@@ -5793,6 +6027,24 @@
     "vibration-qualification",
     "random-vibration",
     "equivalent-static-load-factor"
+   ],
+   "family": "structures",
+   "pack": "loads",
+   "router_doc": false
+  },
+  {
+   "path": "structures/loads/shock-response-spectrum",
+   "name": "shock-response-spectrum",
+   "description": "Use when you must compute the shock response spectrum (SRS) of a transient base acceleration pulse for shock qualification of equipment: single-degree-of-freedom oscillator peak response over a frequency grid at fixed damping, RK4 integration of the oscillator equation x_ddot + 2*zeta*wn*x_dot + wn^2*x = -a_base(t), half-sine pulse A*sin(pi*t/T) and decaying-sine pulse A*sin(2*pi*fd*t)*exp(-t/tau) support, peak pseudo acceleration wn^2 times peak relative displacement, the SRS curve as frequency to peak response in m/s2 and in g, and the maximum response with its amplifying frequency. Produces the SRS curve points, the peak response, and the frequency of the maximum that gate shock qualification assessment of equipment. Trigger: shock response spectrum, SRS, transient shock response, half sine pulse, base acceleration, pseudo acceleration, oscillator peak response, shock qualification, amplified frequency.",
+   "tags": [
+    "shock-response-spectrum",
+    "half-sine-pulse",
+    "decaying-sine-transient",
+    "base-acceleration",
+    "pseudo-acceleration",
+    "transient-shock-response",
+    "shock-qualification",
+    "amplified-frequency"
    ],
    "family": "structures",
    "pack": "loads",
