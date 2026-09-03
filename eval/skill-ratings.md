@@ -371,3 +371,4 @@ Total skills rated: 365
 | 363 | manufacturing-quality/ndt/leak-testing | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 364 | vehicle-design/mdo/surrogate-modeling | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 365 | manufacturing-quality/ndt/shearography-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 366 | aerodynamics/wing-design/winglet-design | PASS | ✓ | naca-tr-824, far-25 | aerodynamics | 9.5 | PASS |
