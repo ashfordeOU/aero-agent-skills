@@ -385,3 +385,4 @@ Total skills rated: 379
 | 377 | structures/loads/shock-response-spectrum | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 378 | avionics/flight-management/rnp-anp-containment | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 379 | avionics/flight-management/radio-navigation-aids | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 380 | aerodynamics/high-speed/hypersonic-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
