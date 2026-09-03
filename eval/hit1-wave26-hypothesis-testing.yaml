@@ -1,0 +1,17 @@
+# Hit@1 wave-26 fragment: hypothesis-testing (cross-cutting)
+# Two tasks per new leaf skill. w26-hypothesis-testing-1 routes on the
+# two-sample comparison of measured drag counts with the significance
+# verdict (drag counts comparison, two sample t test, p-value,
+# significance level); w26-hypothesis-testing-2 routes on the batch
+# comparison and counted-data tests (one way ANOVA, chi-square test of
+# independence, defect contingency table, reject or fail to reject
+# verdicts).
+tasks:
+  - id: w26-hypothesis-testing-1
+    query: "compare the measured drag counts of configuration A and B with the two sample t test: report the test statistic, degrees of freedom, p-value, and whether the difference is significant at the 0.05 level"
+    intent: "cross-cutting; two sample t test on the drag counts comparison with the test statistic, degrees of freedom, p-value and the significance verdict at the 0.05 level"
+    expected_skill: "cross-cutting/numerics/hypothesis-testing"
+  - id: w26-hypothesis-testing-2
+    query: "run the one way ANOVA across the three batches of test data and the chi-square test of independence on the defect contingency table, then return the p-values and the reject or fail to reject verdicts"
+    intent: "cross-cutting; one way ANOVA across three batches and chi-square test of independence on the defect contingency table with p-values and reject or fail to reject verdicts"
+    expected_skill: "cross-cutting/numerics/hypothesis-testing"
