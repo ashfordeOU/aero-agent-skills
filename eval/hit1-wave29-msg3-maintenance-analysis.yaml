@@ -1,0 +1,18 @@
+# Hit@1 wave-29 fragment: msg3-maintenance-analysis (systems-engineering-safety)
+# Two tasks per new leaf. w29-msg3-maintenance-analysis-1 routes on the
+# MSG-3 decision logic for a hidden failure: scheduled maintenance task
+# category selection and the exposure rule that sets the detection
+# interval. w29-msg3-maintenance-analysis-2 routes on the MSG-3
+# categorization of an evident safety-significant failure and the
+# preventive task categories for the maintenance program. Both must
+# deterministically hit
+# systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis.
+tasks:
+  - id: w29-msg3-maintenance-analysis-1
+    query: "run the MSG-3 decision logic on a hidden hydraulic failure: pick the scheduled maintenance task categories and apply the exposure rule to set the detection interval"
+    intent: "systems-engineering-safety; MSG-3 maintenance steering group decision logic, hidden failure task category selection and exposure rule interval determination"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis"
+  - id: w29-msg3-maintenance-analysis-2
+    query: "classify an evident safety-significant failure under MSG-3 and select the preventive task categories for the maintenance program"
+    intent: "systems-engineering-safety; MSG-3 evident failure categorization and scheduled maintenance task selection for the maintenance program"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis"

@@ -404,3 +404,4 @@ Total skills rated: 393
 | 396 | gnc-autonomy/navigation/gnss-raim-fde | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
 | 397 | gnc-autonomy/estimation-filtering/rts-smoother | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 398 | gnc-autonomy/guidance/coverage-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 399 | systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis | PASS | ✓ | msg-3 | systems-engineering-safety | 9.5 | PASS |
