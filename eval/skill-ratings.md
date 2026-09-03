@@ -348,3 +348,4 @@ Total skills rated: 341
 | 340 | structures/fatigue/strain-life-fatigue | PASS | ✓ | far-25, mmpsd | structures | 9.5 | PASS |
 | 341 | aerodynamics/aeroelasticity/aeroelastic-gust-response | PASS | ✓ | far-25, cs-25 | aerodynamics | 9.5 | PASS |
 | 342 | avionics/do160/radio-frequency-emissions | PASS | ✓ | do-160 | avionics | 9.5 | PASS |
+| 343 | cross-cutting/numerics/quaternion-algebra | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
