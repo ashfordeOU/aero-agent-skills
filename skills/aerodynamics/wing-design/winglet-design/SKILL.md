@@ -71,7 +71,7 @@ structural FEM pass.
    cant weighting with cant_factor.
 4. Get the effective aspect ratio with ar_eff and the improved span
    efficiency with e_winglet.
-5. Form the induced-drag factors with induced_drag_factor, then the
+5. Get the induced-drag factors with induced_drag_factor, then the
    drag coefficients with cd_i, and the gain with
    drag_reduction_pct.
 6. Check the structural side with root_bending_penalty_pct.
