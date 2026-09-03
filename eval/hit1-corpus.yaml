@@ -190,6 +190,11 @@
 # leaves). Wave-27 new leaves: "structures/composites/adhesive-bonded-joints", "propulsion/gas-turbine-cycle/afterburner-cycle", "space-systems/orbit-mechanics/conjunction-assessment", "flight-mechanics/stability-control/deep-stall-analysis", "gnc-autonomy/guidance/dubins-path-planning", "gnc-autonomy/navigation/gnss-pseudorange-positioning", "space-systems/orbit-mechanics/gravity-assist-swingby", "flight-mechanics/handling-qualities/pitch-bandwidth-criteria", "avionics/flight-management/radio-navigation-aids", "avionics/flight-management/rnp-anp-containment", "structures/loads/shock-response-spectrum", "flight-mechanics/performance/speed-stability", "propulsion/axial-compressor/turbine-blade-cooling", "aerodynamics/wing-design/winglet-design".
 # Corpus: 772 tasks (744 prior plus 28 domain tasks). Owner: Ops
 # Manager, Wave 27 build.
+# P5.2 / Wave 28 (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 393 verified skills (405 SKILL.md under gate 1: 12 routers + 393
+# leaves). Wave-28 new leaves: "structures/fem/beam-frame-analysis", "vehicle-design/sizing/brake-energy-sizing", "flight-test-operations/envelope/buffet-boundary-testing", "flight-test-operations/performance/cruise-performance-flight-test", "structures/composites/delamination-growth", "cross-cutting/numerics/digital-filter-design", "manufacturing-quality/assembly/fastener-installation-quality", "manufacturing-quality/as9100/fod-control", "aerodynamics/high-speed/hypersonic-flow", "space-systems/subsystems/propellant-tank-sizing", "avionics/flight-management/rta-time-control", "flight-test-operations/envelope/vmc-determination", "manufacturing-quality/special-processes/welding-qualification", "aerodynamics/wind-tunnel/wind-tunnel-model-design".
+# Corpus: 800 tasks (772 prior plus 28 domain tasks). Owner: Ops
+# Manager, Wave 28 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -3591,6 +3596,118 @@ tasks:
     query: "compare the wingtip device options: compute the induced drag reduction and the root bending moment penalty for a 0.12 height fraction vertical winglet on the 9 aspect ratio wing"
     intent: "aerodynamics; wingtip device trade, induced drag reduction and root bending moment penalty from winglet height and cant"
     expected_skill: "aerodynamics/wing-design/winglet-design"
+  - id: w28-beam-frame-analysis-1
+    query: "solve the rigid jointed portal frame with beam elements: assemble the bending and axial element stiffness, apply the fixed supports, and recover the nodal rotations and support reactions"
+    intent: "structures; rigid jointed portal frame solved with beam elements covering bending and axial element stiffness assembly, fixed supports, nodal rotations and support reactions"
+    expected_skill: "structures/fem/beam-frame-analysis"
+  - id: w28-beam-frame-analysis-2
+    query: "compute the deflected shape of the cantilever and the simply supported beam with the Euler Bernoulli beam element and recover the member end bending moments"
+    intent: "structures; deflected shape of the cantilever and the simply supported beam with the Euler Bernoulli beam element and member end bending moment recovery"
+    expected_skill: "structures/fem/beam-frame-analysis"
+  - id: w28-brake-energy-sizing-1
+    query: "size the wheel brakes from the rejected takeoff kinetic energy at V1: compute the per brake energy and the carbon heat sink mass for the allowable temperature rise"
+    intent: "vehicle-design; wheel brake sizing from the rejected takeoff kinetic energy at V1 to per brake energy and carbon heat sink mass"
+    expected_skill: "vehicle-design/sizing/brake-energy-sizing"
+  - id: w28-brake-energy-sizing-2
+    query: "check the brake temperature rise for the landing stop and the RTO stop and estimate the braking distance at the design deceleration"
+    intent: "vehicle-design; brake temperature rise check for the landing stop and the RTO stop with the braking distance at the design deceleration"
+    expected_skill: "vehicle-design/sizing/brake-energy-sizing"
+  - id: w28-buffet-boundary-testing-1
+    query: "map the buffet boundary from the flight test pull-up sweeps: detect buffet onset from the accelerometer RMS rise at each Mach and fit the boundary lift coefficient line"
+    intent: "flight test; buffet boundary flight test reduction of pull-up sweeps with buffet onset detection from the accelerometer RMS rise and the boundary lift coefficient line fit"
+    expected_skill: "flight-test-operations/envelope/buffet-boundary-testing"
+  - id: w28-buffet-boundary-testing-2
+    query: "check the high speed buffet margin at the cruise Mach: convert the measured onset load factors to the buffet boundary and score the margin against the maneuver buffet target"
+    intent: "flight test; high speed buffet margin check at the cruise Mach with onset load factors converted to the buffet boundary and scored against the maneuver buffet target"
+    expected_skill: "flight-test-operations/envelope/buffet-boundary-testing"
+  - id: w28-cruise-performance-flight-test-1
+    query: "reduce the cruise performance flight test data from the stabilized fuel flow runs across the Mach sweep, correct each fuel flow to the reference weight, and find the maximum range cruise speed"
+    intent: "flight test; cruise performance flight test reduction of stabilized fuel flow runs across the Mach sweep with weight corrected fuel flow and the maximum range cruise speed"
+    expected_skill: "flight-test-operations/performance/cruise-performance-flight-test"
+  - id: w28-cruise-performance-flight-test-2
+    query: "plan and analyze the level cruise fuel flow test at altitude: build the range performance curve versus Mach and set the long range cruise speed at the 99 percent point"
+    intent: "flight test; level cruise fuel flow test planning at altitude with the range performance curve versus Mach and the long range cruise speed at the 99 percent point"
+    expected_skill: "flight-test-operations/performance/cruise-performance-flight-test"
+  - id: w28-delamination-growth-1
+    query: "assess delamination growth in the composite laminate: compute the mode I strain energy release rate of the DCB specimen and the mode II rate of the ENF specimen at the crack length"
+    intent: "structures; delamination growth fracture assessment with the mode I strain energy release rate of the DCB double cantilever beam specimen and the mode II rate of the ENF end-notched flexure specimen at the crack length"
+    expected_skill: "structures/composites/delamination-growth"
+  - id: w28-delamination-growth-2
+    query: "check mixed mode delamination onset with the Benzeggagh Kenane criterion: compare the total energy release rate against the critical rate and return the growth verdict"
+    intent: "structures; mixed mode fracture onset check with the Benzeggagh Kenane criterion comparing the total energy release rate against the critical rate and returning the mode I mode II delamination growth verdict"
+    expected_skill: "structures/composites/delamination-growth"
+  - id: w28-digital-filter-design-1
+    query: "design a Butterworth IIR lowpass digital filter with the bilinear transform: prewarp the cutoff frequency, compute the filter coefficients, and check the 3 dB point at the cutoff"
+    intent: "numerics; Butterworth IIR lowpass digital filter design via the bilinear transform with prewarping, filter coefficient computation, and 3 dB cutoff verification"
+    expected_skill: "cross-cutting/numerics/digital-filter-design"
+  - id: w28-digital-filter-design-2
+    query: "build a second order Butterworth highpass filter at 2 Hz cutoff on a 50 Hz sampled accelerometer channel and verify the magnitude response near Nyquist"
+    intent: "numerics; second order Butterworth highpass digital filter at 2 Hz cutoff on a 50 Hz channel with magnitude response verification near Nyquist"
+    expected_skill: "cross-cutting/numerics/digital-filter-design"
+  - id: w28-fastener-installation-quality-1
+    query: "verify the structural fastener installation: select the grip for the clamped stack, check the thread protrusion, and confirm the clamp load from the applied torque stays inside the joint limits"
+    intent: "manufacturing-quality; fastener installation quality verification: grip length selection for the clamped stack, thread protrusion check and clamp load from the applied torque against the joint limits"
+    expected_skill: "manufacturing-quality/assembly/fastener-installation-quality"
+  - id: w28-fastener-installation-quality-2
+    query: "inspect the Hi-Lok installation quality: check the collar engagement and the countersink flushness and classify the installation as pass rework or scrap"
+    intent: "manufacturing-quality; Hi-Lok installation quality inspection: collar engagement and countersink flushness checks with the pass, rework or scrap installation classification"
+    expected_skill: "manufacturing-quality/assembly/fastener-installation-quality"
+  - id: w28-fod-control-1
+    query: "audit the FOD prevention program for the engine assembly line: classify the FOD zone from the part criticality and debris exposure, and reconcile the issued tool count"
+    intent: "manufacturing-quality; FOD prevention program audit: FOD zone classification from part criticality and debris exposure with issued tool count reconciliation"
+    expected_skill: "manufacturing-quality/as9100/fod-control"
+  - id: w28-fod-control-2
+    query: "set the foreign object debris controls for the machining area: compute the risk score, pick the FOD sweep interval, and check the required tool control measures"
+    intent: "manufacturing-quality; foreign object debris controls: FOD risk score, FOD sweep interval and required tool control measures for the machining area"
+    expected_skill: "manufacturing-quality/as9100/fod-control"
+  - id: w28-hypersonic-flow-1
+    query: "estimate the drag of the blunt reentry body at hypersonic speed with modified Newtonian theory from the stagnation pressure coefficient behind the normal shock"
+    intent: "aerodynamics; hypersonic blunt body drag from modified Newtonian theory and the stagnation pressure coefficient"
+    expected_skill: "aerodynamics/high-speed/hypersonic-flow"
+  - id: w28-hypersonic-flow-2
+    query: "compute the hypersonic lift and drag of the inclined flat plate and the axial force of the sharp cone with the Newtonian sine squared pressure law"
+    intent: "aerodynamics; hypersonic flat plate lift and drag and cone axial force from the Newtonian sine squared impact pressure law"
+    expected_skill: "aerodynamics/high-speed/hypersonic-flow"
+  - id: w28-propellant-tank-sizing-1
+    query: "size the spacecraft propellant tank for the monopropellant bus: convert the propellant mass to volume, add the ullage fraction, and compute the sphere tank wall thickness and shell mass"
+    intent: "space-systems; propellant tank sizing for the spacecraft propulsion bus: propellant volume from mass, tank ullage fraction, sphere tank wall thickness and shell mass"
+    expected_skill: "space-systems/subsystems/propellant-tank-sizing"
+  - id: w28-propellant-tank-sizing-2
+    query: "check the pressurization for the propellant tank: size the helium pressurant mass and compute the blowdown pressure range for the regulated and blowdown schemes"
+    intent: "space-systems; propellant tank pressurization: helium pressurant mass and blowdown pressure range for the regulated and blowdown schemes"
+    expected_skill: "space-systems/subsystems/propellant-tank-sizing"
+  - id: w28-rta-time-control-1
+    query: "compute the FMS required time of arrival speed adjustment to meet the RTA time constraint at the downstream waypoint and report the time error"
+    intent: "avionics; FMS required time of arrival speed adjustment to meet the RTA time constraint at the downstream waypoint with the reported time error"
+    expected_skill: "avionics/flight-management/rta-time-control"
+  - id: w28-rta-time-control-2
+    query: "check the achievable arrival window for the RTA: evaluate the minimum and maximum cruise speed bounds and output the Mach command and the feasibility verdict"
+    intent: "avionics; achievable arrival window check for the RTA from the minimum and maximum cruise speed bounds with the Mach command and the feasibility verdict"
+    expected_skill: "avionics/flight-management/rta-time-control"
+  - id: w28-vmc-determination-1
+    query: "predict the minimum control speed Vmc for the twin after the critical engine failure: balance the asymmetric yawing moment against the rudder authority and check the pedal force limit"
+    intent: "flight test; minimum control speed Vmc prediction after the critical engine failure with the asymmetric yawing moment balance against rudder authority and the rudder pedal force limit"
+    expected_skill: "flight-test-operations/envelope/vmc-determination"
+  - id: w28-vmc-determination-2
+    query: "determine whether the engine inoperative flight test can clear the Vmc demonstration: compute the authority limited and pedal force limited speeds and the stall speed guard"
+    intent: "flight test; engine inoperative flight test Vmc demonstration clearance with the authority limited and pedal force limited speeds and the stall speed guard"
+    expected_skill: "flight-test-operations/envelope/vmc-determination"
+  - id: w28-welding-qualification-1
+    query: "build the aerospace weld procedure qualification record: compute the heat input in kJ per mm from voltage current and travel speed and verify preheat and interpass against the procedure"
+    intent: "manufacturing-quality; weld procedure qualification record content: heat input in kJ per mm from voltage, current and travel speed with preheat and interpass verification against the qualified procedure"
+    expected_skill: "manufacturing-quality/special-processes/welding-qualification"
+  - id: w28-welding-qualification-2
+    query: "check the weld procedure covers the production joint: confirm the thickness range, the heat input window, and the coupon test matrix for the GTAW butt weld"
+    intent: "manufacturing-quality; production joint coverage by the weld procedure: thickness range, heat input window and coupon test matrix for the GTAW butt weld"
+    expected_skill: "manufacturing-quality/special-processes/welding-qualification"
+  - id: w28-wind-tunnel-model-design-1
+    query: "select the wind tunnel model scale for the transport from the test section blockage limit and check the Reynolds number capability against the full scale flight condition"
+    intent: "aerodynamics; wind tunnel model scale selection from the test section blockage limit with the Reynolds capability check and the reynolds mismatch flag against the full scale flight condition"
+    expected_skill: "aerodynamics/wind-tunnel/wind-tunnel-model-design"
+  - id: w28-wind-tunnel-model-design-2
+    query: "size the wind tunnel test setup: rate the force balance for the model loads at the maximum test speed and size the model support sting"
+    intent: "aerodynamics; wind tunnel test setup sizing with the force balance rating for the model loads at the maximum test speed and the model support sting sizing"
+    expected_skill: "aerodynamics/wind-tunnel/wind-tunnel-model-design"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

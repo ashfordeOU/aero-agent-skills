@@ -68,6 +68,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/gravity-assist-swingby | Gravity assist swing-by | gravity assist, swing-by, hyperbolic excess velocity, turn angle, periapsis speed, delta-v gain, patched conic flyby, close approach altitude |
 | space-systems/orbit-mechanics/conjunction-assessment | Conjunction assessment | conjunction assessment, time of closest approach, miss distance, probability of collision, hard body radius, combined covariance, close approach screening, actionable threshold |
 | space-systems/adcs/control-moment-gyro | Control moment gyro (CMG) | control moment gyro, CMG, gimbal rate, gimbal axis, torque amplification, steering law, singularity, momentum envelope, pyramid cluster, gimbal lock |
+| space-systems/subsystems/propellant-tank-sizing | Propellant tank sizing | propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness |
 
 ## Routing guidance
 
@@ -124,6 +125,7 @@ selection, and classical orbital element determination.
 - Space radiation and orbital debris environment assessment, trapped belt dose, single event effects, and collision probability over mission life route to the mission-design radiation-debris sub-skill.
 - Atmospheric entry corridor, ballistic coefficient, deceleration g-loads, Sutton-Graves convective heating, and parachute terminal velocity questions route to the mission-design entry-descent-landing sub-skill.
 - Control moment gyro gimbal rates, steering law, torque amplification, singularity measure, and cluster momentum envelope questions route to the adcs control-moment-gyro sub-skill.
+- Propellant tank sizing questions (propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness) route to the propellant-tank-sizing sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
