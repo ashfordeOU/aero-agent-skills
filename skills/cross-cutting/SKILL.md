@@ -72,6 +72,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/quaternion-algebra | Quaternion algebra | quaternion product, rotate vector by quaternion, euler to quaternion, quaternion to euler, direction cosine matrix, slerp, quaternion conjugate, unit quaternion, axis angle to quaternion |
 | cross-cutting/numerics/probability-distributions | Probability distributions | probability distribution fitting, weibull fit, lognormal, exponential fit, goodness of fit, kolmogorov smirnov, chi-square fit test, quantile, reliability, hazard function |
 | cross-cutting/numerics/hypothesis-testing | Hypothesis testing | hypothesis testing, student t test, welch test, paired t test, ANOVA, F test for variances, chi-square test of independence, p-value, significance level |
+| cross-cutting/numerics/digital-filter-design | Digital filter design | Butterworth IIR filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response |
 
 ## Routing guidance
 
@@ -134,6 +135,7 @@ integration) for engineering calculations.
 - GD&T datum reference frame establishment, datum precedence, degrees of freedom constraint, and feature control frame construction route to the tolerancing datum-reference-frames sub-skill.
 - Geometric dimensioning and tolerancing fundamentals, feature control frames, datum reference frames, form and orientation tolerances, and MMC/LMC/RFS bonus tolerance questions route to the tolerancing gdandt-basics sub-skill.
 - Quaternion products, vector rotation, euler and direction-cosine conversions, and slerp algebra questions route to the numerics quaternion-algebra sub-skill.
+- Digital filter design questions (butterworth iir filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response) route to the digital-filter-design sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
