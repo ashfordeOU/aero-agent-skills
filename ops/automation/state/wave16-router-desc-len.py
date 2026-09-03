@@ -4,7 +4,7 @@ import pathlib
 import sys
 import yaml
 
-ROOT = pathlib.Path("<AEROSKILLS-ROOT>")
+ROOT = pathlib.Path(__file__).resolve().parents[3]
 SKILLS = ROOT / "skills"
 
 fail = False

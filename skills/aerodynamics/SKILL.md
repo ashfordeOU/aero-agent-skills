@@ -62,6 +62,8 @@ estimation, validated against classic reference data.
 | aerodynamics/aeroelasticity/flutter-speed-prediction | Flutter speed prediction | flutter speed, v-g method, bending torsion, typical section, damping crossing, frequency coalescence, flutter margin, theodorsen |
 | aerodynamics/cfd/cfd-validation | Cfd Validation | cfd validation, validation case selection, richardson extrapolation, grid convergence, naca 0012 drag, onera m6, dlr f6, error metrics, validation uncertainty, validation report. |
 | aerodynamics/wind-tunnel/windtunnel-wall-corrections | Wind tunnel wall corrections | wall corrections, solid blockage, wake blockage, lift interference, test section constraint, corrected drag |
+| aerodynamics/aeroelasticity/aeroelastic-gust-response | Aeroelastic gust response | aeroelastic gust response, dynamic gust response, Kussner function, Wagner function, indicial aerodynamics, dynamic magnification factor |
+| aerodynamics/high-speed/shock-expansion-airfoil | Shock-expansion airfoil | shock expansion, supersonic airfoil, diamond airfoil, double wedge, surface pressure integration, wave drag coefficient |
 
 ## Routing guidance
 
@@ -106,3 +108,5 @@ objective studies route to
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Wind tunnel wall and blockage correction questions route to the wind-tunnel windtunnel-wall-corrections sub-skill.
+- Dynamic indicial gust response and magnification-factor questions route to the aeroelasticity aeroelastic-gust-response sub-skill.
+- Shock-expansion surface-pressure integration and wave-drag questions route to the high-speed shock-expansion-airfoil sub-skill.
