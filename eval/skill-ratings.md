@@ -407,3 +407,4 @@ Total skills rated: 393
 | 399 | systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis | PASS | ✓ | msg-3 | systems-engineering-safety | 9.5 | PASS |
 | 400 | propulsion/turbomachinery/rocket-turbopump | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 401 | cross-cutting/numerics/cross-correlation-analysis | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 402 | avionics/surveillance/tcas-resolution-advisory | PASS | ✓ | rtca-do-185 | avionics | 9.5 | PASS |
