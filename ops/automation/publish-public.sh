@@ -170,11 +170,11 @@ PACKS=$(python3 -c "import json; print(json.load(open('$EXPORT/docs/metrics.json
 FAMILIES=$(python3 -c "import json; print(json.load(open('$EXPORT/docs/metrics.json'))['families'])")
 
 git -C "$MIRROR" add -A
-git -C "$MIRROR" commit --quiet -m "sync: ${LEAVES} skills, ${PACKS} packs, ${FAMILIES} families
-
-Automated sync from the private dev/test tree (ops/automation/publish-public.sh).
-Gates verified inside this exact export before push: make validate 5/5,
-make attest 3/3, make visuals-check, make package-test all green."
+# Descriptive commit message from the actual diff (founder 2026-09-03):
+# name the new leaves + families, not just a generic count.
+_COMMIT_GEN="$(cd "$(dirname "$0")" && pwd)/gen_sync_commit_msg.sh"
+COMMIT_MSG=$(bash "$_COMMIT_GEN" "$MIRROR")
+git -C "$MIRROR" commit --quiet -m "$COMMIT_MSG"
 
 log "pushing (normal fast-forward, no force) to ${PUBLIC_REMOTE}…"
 if ! git -C "$MIRROR" push --quiet origin main 2>/tmp/publish-public-push.log; then
