@@ -1,0 +1,13 @@
+# Hit@1 wave-24R fragment: orbit-determination (gnc-autonomy)
+# Two tasks per new leaf skill. w24r-orbit-determination-1 routes on Gibbs
+# method with three inertial position vectors; w24r-orbit-determination-2
+# routes on the Gibbs vs Herrick-Gibbs method decision.
+tasks:
+  - id: w24r-orbit-determination-1
+    query: "determine the initial orbit of the debris object from three inertial position vectors: run the Gibbs method to recover the velocity at the central observation and convert the state to classical orbital elements with the vis-viva consistency check"
+    intent: "gnc-autonomy; initial orbit determination from three position vectors via the gibbs-method, rv-to-elements conversion and energy consistency check"
+    expected_skill: "gnc-autonomy/space/orbit-determination"
+  - id: w24r-orbit-determination-2
+    query: "the tracking pass gave three closely spaced position vectors with time tags, decide between the Gibbs and Herrick-Gibbs initial orbit determination methods, compute the middle-vector velocity, and report the orbital elements with the method verdict"
+    intent: "gnc-autonomy; herrick-gibbs vs gibbs method choice for closely spaced three position vectors, velocity at the central observation and elements with verdict"
+    expected_skill: "gnc-autonomy/space/orbit-determination"
