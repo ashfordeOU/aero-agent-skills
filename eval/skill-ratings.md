@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 379
+Total skills rated: 393
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -385,3 +385,17 @@ Total skills rated: 379
 | 377 | structures/loads/shock-response-spectrum | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 378 | avionics/flight-management/rnp-anp-containment | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 379 | avionics/flight-management/radio-navigation-aids | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 380 | aerodynamics/high-speed/hypersonic-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 381 | flight-test-operations/performance/cruise-performance-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 383 | vehicle-design/sizing/brake-energy-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 382 | cross-cutting/numerics/digital-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 384 | flight-test-operations/envelope/vmc-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 385 | manufacturing-quality/special-processes/welding-qualification | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 386 | flight-test-operations/envelope/buffet-boundary-testing | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 387 | structures/fem/beam-frame-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 388 | manufacturing-quality/as9100/fod-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 389 | aerodynamics/wind-tunnel/wind-tunnel-model-design | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 390 | manufacturing-quality/assembly/fastener-installation-quality | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 391 | avionics/flight-management/rta-time-control | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 392 | space-systems/subsystems/propellant-tank-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 393 | structures/composites/delamination-growth | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |

@@ -68,6 +68,9 @@ selection and ultrasonic inspection).
 | manufacturing-quality/ndt/computed-tomography | Computed tomography (CT) | computed tomography, CT scan, voxel size, cone beam, CT number, porosity measurement, volumetric inspection, magnification, projection count, additive part porosity |
 | manufacturing-quality/ndt/shearography-inspection | Laser shearography inspection | laser shearography, shearography inspection, phase map, shear distance, strain gradient, vacuum load step, disbond detection, fringe anomaly, minimum detectable strain |
 | manufacturing-quality/ndt/leak-testing | Leak testing | leak testing, pressure decay, vacuum decay, helium mass spectrometer, sniffer test, bubble test, leak rate, helium to air conversion, gauge resolution, maximum allowable leak |
+| manufacturing-quality/assembly/fastener-installation-quality | Fastener installation quality | fastener installation quality, grip length selection, thread protrusion, clamp load from torque, countersink flushness, collar engagement |
+| manufacturing-quality/as9100/fod-control | FOD control | FOD prevention, foreign object debris, FOD zone classification, tool control count, FOD sweep interval, FOD audit |
+| manufacturing-quality/special-processes/welding-qualification | Welding qualification | weld procedure qualification, WPS PQR heat input, kJ per mm, preheat and interpass verification, weld coupon test matrix |
 
 ## Routing guidance
 
@@ -120,6 +123,9 @@ ernal provider and supplier questions (classification, controls,
 - Laser powder bed fusion parameter development, volumetric energy density, process window classification, and qualification test matrix planning route to the additive lpbf-parameter-development sub-skill.
 - Acoustic emission NDT, AE sources, sensors and frequency bands, hit and event definitions, Kaiser effect and Felicity ratio, and linear and planar source location questions route to the ndt acoustic-emission-inspection sub-skill.
 - Computed tomography scan planning, voxel size and magnification, projection count, CT number, and volumetric porosity measurement questions route to the ndt computed-tomography sub-skill.
+- Fastener installation quality questions (fastener installation quality, grip length selection, thread protrusion, clamp load from torque, countersink flushness, collar engagement) route to the fastener-installation-quality sub-skill.
+- FOD control questions (fod prevention, foreign object debris, fod zone classification, tool control count, fod sweep interval, fod audit) route to the fod-control sub-skill.
+- Welding qualification questions (weld procedure qualification, wps pqr heat input, kj per mm, preheat and interpass verification, weld coupon test matrix) route to the welding-qualification sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
