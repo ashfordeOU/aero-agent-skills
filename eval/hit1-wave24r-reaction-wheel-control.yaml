@@ -1,0 +1,18 @@
+# Hit@1 wave-24R fragment: reaction-wheel-control (space-systems)
+# Two tasks per new leaf skill. w24r-reaction-wheel-control-1 routes on
+# the wheel torque command law from quaternion-error feedback with PD
+# gains, the wheel momentum transport term, and the torque and momentum
+# saturation verdicts; w24r-reaction-wheel-control-2 routes on the
+# momentum desaturation command for the wheel cluster from the wheel
+# momentum excess, the desaturation horizon and the local magnetic
+# field. Both must deterministically hit
+# space-systems/adcs/reaction-wheel-control.
+tasks:
+  - id: w24r-reaction-wheel-control-1
+    query: "design the reaction wheel control law for the spacecraft pointing mode: command the wheel torque command from the quaternion error feedback and the body rate with PD gains, integrate the wheel momentum with the omega cross h_w transport term, and flag the torque saturation and the wheel momentum saturation during the acquisition"
+    intent: "space-systems; wheel torque command law from quaternion-error feedback with the wheel momentum transport term and saturation verdicts"
+    expected_skill: "space-systems/adcs/reaction-wheel-control"
+  - id: w24r-reaction-wheel-control-2
+    query: "compute the momentum desaturation command for the wheel cluster: given the accumulated wheel momentum excess above the target momentum, the desaturation horizon, and the local magnetic field vector, find the magnetorquer dipole that unloads the wheels over the horizon and warn if the desaturation torque demand lies along the field"
+    intent: "space-systems; wheel momentum desaturation command and dipole from the desaturation horizon and local magnetic field with the alignment warning"
+    expected_skill: "space-systems/adcs/reaction-wheel-control"
