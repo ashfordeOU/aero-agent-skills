@@ -13,19 +13,19 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="393 verified skills · 84 live packs · 12 families · 25 standards · 800 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="404 verified skills · 85 live packs · 12 families · 28 standards · 822 router tasks · 8/8 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-393-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 393"></a>
-  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-84-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 84"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-404-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 404"></a>
+  <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-85-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 85"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
-  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-25-f97316?style=flat&labelColor=1a1e35" alt="standards 25"></a>
+  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-28-f97316?style=flat&labelColor=1a1e35" alt="standards 28"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5-2ea043?style=flat&labelColor=1a1e35" alt="gates 5%2F5"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=flat&labelColor=1a1e35" alt="attest 3%2F3"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-800-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 800"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-822-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 822"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <p align="center">
@@ -112,7 +112,7 @@ cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 ### The domain map
 
 <!-- gen:overview -->
-**393 verified skills** across **12 families** and **84 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **800-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**404 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **822-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -137,18 +137,18 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | Family | Standard spine | Packs | Skills | Router tasks |
 |---|---|---:|---:|---:|
 | **Aerodynamics** | NACA TR-824 | 10 | 33 | 68 |
-| **Avionics** | DO-178C / DO-254 / DO-160G | 8 | 33 | 69 |
-| **Cross-cutting** | SEP-2640 | 7 | 32 | 64 |
+| **Avionics** | DO-178C / DO-254 / DO-160G | 9 | 34 | 71 |
+| **Cross-cutting** | SEP-2640 | 7 | 33 | 66 |
 | **Flight mechanics** | FAR-25 / CS-25 | 4 | 32 | 64 |
 | **Flight test & operations** | FAR-25 / CS-25 | 6 | 34 | 68 |
-| **GNC & autonomy** | ARP4754A | 6 | 32 | 65 |
+| **GNC & autonomy** | ARP4754A | 6 | 35 | 71 |
 | **Manufacturing quality** | AS9100 / AS9102 | 8 | 34 | 70 |
-| **Propulsion** | FAR-33 | 10 | 32 | 64 |
-| **Space systems** | ECSS | 5 | 33 | 69 |
+| **Propulsion** | FAR-33 | 10 | 34 | 68 |
+| **Space systems** | ECSS | 5 | 35 | 73 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 34 | 69 |
-| **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 32 | 66 |
-| **Vehicle design** | FAR-25 / CS-25 | 6 | 32 | 64 |
-| **Total** | 25 standards mapped | **84** | **393** | **800** |
+| **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 33 | 68 |
+| **Vehicle design** | FAR-25 / CS-25 | 6 | 33 | 66 |
+| **Total** | 28 standards mapped | **85** | **404** | **822** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -289,7 +289,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 393 verified skills in 84 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 800-task corpus) and Claude Code plugin packaging
+- **Shipped:** 404 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 822-task corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->
