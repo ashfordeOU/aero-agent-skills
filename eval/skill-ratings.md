@@ -337,3 +337,4 @@ Total skills rated: 330
 | 329 | cross-cutting/numerics/optimization-algorithms | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 330 | flight-test-operations/performance/level-acceleration-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 331 | gnc-autonomy/estimation-filtering/complementary-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 332 | space-systems/adcs/reaction-wheel-control | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
