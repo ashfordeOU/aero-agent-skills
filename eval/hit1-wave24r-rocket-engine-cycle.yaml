@@ -1,0 +1,16 @@
+# Hit@1 wave-24R fragment: rocket-engine-cycle (propulsion)
+# Two tasks per new leaf skill. w24r-rocket-engine-cycle-1 routes on
+# pump-fed feed-cycle comparison tokens (rocket-engine-cycle, feed-cycle,
+# gas-generator cycle, staged-combustion, expander-cycle, pump-fed,
+# pump-power, turbine-power); w24r-rocket-engine-cycle-2 routes on the
+# pressure-fed storable sizing tokens (rocket-engine-cycle, pressure-fed,
+# tank pressure, tank mass penalty).
+tasks:
+  - id: w24r-rocket-engine-cycle-1
+    query: "compare liquid rocket feed cycles for the 1 MN upper stage engine: assess pressure-fed, gas-generator, staged-combustion and expander cycles at the 10 MPa chamber pressure and compute the pump discharge pressure, pump power, and turbine power balance for the feasible pump-fed options"
+    intent: "propulsion; rocket-engine-cycle feed-cycle comparison across pressure-fed, gas-generator cycle, staged-combustion and expander-cycle with pump-power and turbine-power balance for the feasible pump-fed options"
+    expected_skill: "propulsion/rocket/rocket-engine-cycle"
+  - id: w24r-rocket-engine-cycle-2
+    query: "run the engine cycle analysis for the small pressure-fed storable propulsion system: size the tank pressure from the chamber pressure and losses, compute the tank mass penalty, and give the feasibility verdict against the pump-fed alternative"
+    intent: "propulsion; rocket-engine-cycle pressure-fed storable feed sizing with tank pressure, tank mass penalty and the verdict against the pump-fed alternative"
+    expected_skill: "propulsion/rocket/rocket-engine-cycle"
