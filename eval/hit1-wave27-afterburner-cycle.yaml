@@ -1,0 +1,14 @@
+# Hit@1 wave-27 fragment: afterburner-cycle (propulsion)
+# Two tasks per new leaf skill. Task 1 routes on afterburner cycle,
+# reheat fuel air ratio and thrust augmentation ratio; task 2 routes on
+# dry versus reheat thrust fuel economy with the afterburner temperature
+# rise and reheat specific fuel consumption.
+tasks:
+  - id: w27-afterburner-cycle-1
+    query: "compute the afterburner fuel air ratio and fuel flow for the turbofan with turbine exit at 900 K and a 1700 K reheat temperature, then find the thrust augmentation ratio against the dry nozzle"
+    intent: "propulsion; afterburner fuel air ratio and reheat fuel flow at the given reheat temperature with the thrust augmentation ratio against the dry nozzle, routing on afterburner cycle, reheat fuel air ratio and thrust augmentation ratio"
+    expected_skill: "propulsion/gas-turbine-cycle/afterburner-cycle"
+  - id: w27-afterburner-cycle-2
+    query: "compare the dry and reheat specific fuel consumption for the afterburning engine: 100 kg/s core flow at 0.02 core fuel air ratio with the 800 K afterburner temperature rise"
+    intent: "propulsion; dry versus reheat specific fuel consumption comparison for the afterburning engine at the core flow and reheat temperature rise, routing on afterburner cycle and reheat specific fuel consumption"
+    expected_skill: "propulsion/gas-turbine-cycle/afterburner-cycle"
