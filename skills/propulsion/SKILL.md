@@ -69,6 +69,8 @@ compressor stage and operating-map analysis.
 | propulsion/electric/electrothermal-thruster | Electrothermal thruster | electrothermal thruster, resistojet, arcjet, heated propellant, power to thrust |
 | propulsion/rocket/rocket-engine-cycle | Rocket engine cycle | rocket engine cycle, feed cycle, gas-generator cycle, staged combustion, expander cycle, pressure-fed, pump-fed, pump power, turbine power |
 | propulsion/rocket/hybrid-rocket-motor | Hybrid rocket motor | hybrid rocket motor, regression rate, oxidizer mass flux, solid fuel grain, oxidizer to fuel ratio, O/F shift, port area, HTPB, hybrid grain |
+| propulsion/rocket/cold-gas-thruster | Cold gas thruster | cold gas thruster, nitrogen RCS, choked mass flow, plenum blowdown, total impulse, reaction control thruster sizing, isothermal blowdown time constant |
+| propulsion/turbomachinery/rocket-turbopump | Rocket turbopump | rocket turbopump, pump specific speed, suction specific speed, net positive suction head, impeller tip speed, LOX pump sizing, cavitation margin |
 
 ## Routing guidance
 
@@ -122,6 +124,9 @@ to turbofan-cycle;
 - Rocket combustion thermochemistry, adiabatic flame temperature, characteristic velocity, and ideal specific impulse from propellant and mixture ratio route to the combustion cea-rocket-combustion sub-skill.
 - Solid rocket motor ballistics, burn-rate law, chamber pressure equilibrium, grain geometry, mass flow, thrust, and total impulse questions route to the rocket solid-rocket-motor sub-skill.
 - Hybrid rocket motor regression rate, oxidizer mass flux, O/F shift, port area, and chamber pressure ballistics questions route to the rocket hybrid-rocket-motor sub-skill.
+- Cold gas thruster choked flow, plenum blowdown, and total impulse questions route to the rocket cold-gas-thruster sub-skill.
+- Rocket turbopump specific speed, suction performance, and cavitation questions route to the turbomachinery rocket-turbopump sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

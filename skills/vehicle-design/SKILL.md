@@ -69,6 +69,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/battery-sizing | Battery sizing | battery pack sizing, electric aircraft battery, eVTOL energy storage, traction battery, C-rate check, depth of discharge, series parallel cell count, pack voltage, discharge voltage drop |
 | vehicle-design/mdo/surrogate-modeling | Surrogate modeling | surrogate model, metamodel, response surface, radial basis function, leave one out cross validation, approximation model, prediction error, expensive analysis replacement |
 | vehicle-design/sizing/brake-energy-sizing | Brake energy sizing | brake energy sizing, rejected takeoff energy, wheel brake heat sink, brake temperature rise, carbon brake mass, braking distance at V1 |
+| vehicle-design/sizing/canard-sizing | Canard sizing | canard sizing, canard volume coefficient, canard area, forward wing, stall precedence, canard configuration, trim lift share |
 
 ## Routing guidance
 
@@ -129,6 +130,8 @@ ons route to the weight-estimation
 - Thermal ice protection sizing, evaporative and running-wet anti-ice heat flux, catch efficiency from MVD and airspeed, protected area power and bleed flow questions route to the sizing ice-protection-sizing sub-skill.
 - Flight and ground spoiler sizing, lift dump, speed brake drag, roll assist share, spoiler panel area and deflection questions route to the sizing spoiler-sizing sub-skill.
 - Brake energy sizing questions (brake energy sizing, rejected takeoff energy, wheel brake heat sink, brake temperature rise, carbon brake mass, braking distance at v1) route to the brake-energy-sizing sub-skill.
+- Canard sizing, canard volume coefficient, and stall-precedence questions route to the sizing canard-sizing sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
