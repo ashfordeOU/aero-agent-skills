@@ -65,6 +65,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/envelope/spin-testing | Spin testing | spin testing, spin entry, spin recovery, recovery parachute, spin test point, spin resistance, FAR 25.201 |
 | flight-test-operations/uas/part107-sora | Part107 Sora | part 107 applicability, part107 sora, sora operational category, ground risk class, air risk class, arc, grc, robustness level, containment, bvlos waiver, drone risk assessment, uas risk, remote pilot certificate, 400 ft agl, visual line of sight. |
 | flight-test-operations/performance/level-acceleration-test | Level acceleration test | level acceleration, accelerated level flight, specific excess power, total energy method, excess thrust |
+| flight-test-operations/planning/position-error-calibration | Position error calibration | position error calibration, PEC, airspeed calibration, calibrated airspeed, tower fly-by, trailing cone, GPS ground speed doublet, position error correction curve |
 
 ## Routing guidance
 
@@ -112,6 +113,7 @@ actor-envelope.
 - Trim curve slope, elevator angle versus speed, stick-fixed neutral point, static margin, and elevator angle per g questions route to the stability static-stability-flight-test sub-skill.
 - High angle of attack flight test planning, AoA position error calibration, stall warning margin, and departure resistance assessment route to the envelope high-angle-of-attack-testing sub-skill.
 - Spin flight testing, spin entry and recovery procedure, recovery parachute requirements, spin test point matrix, and spin-resistance criteria route to the envelope spin-testing sub-skill.
+- Airspeed position error calibration, tower fly-by and trailing cone runs, GPS ground speed doublet, PEC curve, and calibrated airspeed questions route to the planning position-error-calibration sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

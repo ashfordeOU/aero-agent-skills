@@ -69,6 +69,7 @@ integration) for engineering calculations.
 | cross-cutting/tolerancing/gdandt-basics | GD&T basics | GD&T, feature control frame, datum reference frame, form tolerance, orientation tolerance, MMC, LMC, RFS, bonus tolerance |
 | cross-cutting/export-control/export-control-awareness | Export Control Awareness | ITAR, EAR, USML, EAR99, 600-series, defense articles, technical data, export control, deemed export, fundamental research, public domain, compliance review, sharing data with foreign collaborators. |
 | cross-cutting/numerics/optimization-algorithms | Optimization algorithms | minimize, golden section search, gradient descent, Nelder-Mead, line search, unconstrained optimum |
+| cross-cutting/numerics/quaternion-algebra | Quaternion algebra | quaternion product, rotate vector by quaternion, euler to quaternion, quaternion to euler, direction cosine matrix, slerp, quaternion conjugate, unit quaternion, axis angle to quaternion |
 
 ## Routing guidance
 
@@ -130,6 +131,7 @@ integration) for engineering calculations.
 - Data source credibility, revision control, and engineering citation questions route to the data-sources aeronautical-data-sources sub-skill.
 - GD&T datum reference frame establishment, datum precedence, degrees of freedom constraint, and feature control frame construction route to the tolerancing datum-reference-frames sub-skill.
 - Geometric dimensioning and tolerancing fundamentals, feature control frames, datum reference frames, form and orientation tolerances, and MMC/LMC/RFS bonus tolerance questions route to the tolerancing gdandt-basics sub-skill.
+- Quaternion products, vector rotation, euler and direction-cosine conversions, and slerp algebra questions route to the numerics quaternion-algebra sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
