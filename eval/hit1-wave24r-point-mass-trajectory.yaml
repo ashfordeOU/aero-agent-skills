@@ -1,0 +1,18 @@
+# Hit@1 wave-24R fragment: point-mass-trajectory (flight-mechanics)
+# Two tasks per new leaf skill. w24r-point-mass-trajectory-1 routes on
+# the vertical-plane point-mass climb-out with fixed time-step RK4
+# integration and the speed-altitude history at 300 s;
+# w24r-point-mass-trajectory-2 routes on building the trajectory
+# simulation from thrust-to-weight and drag polar inputs and comparing
+# the propagated flight-path angle with the closed-form steady-climb
+# excess-thrust value. Both must deterministically hit
+# flight-mechanics/flight-dynamics-sim/point-mass-trajectory.
+tasks:
+  - id: w24r-point-mass-trajectory-1
+    query: "simulate the point-mass trajectory of my transport climbing out: integrate the vertical-plane speed, flight-path angle and altitude with a fixed time-step integration RK4 scheme from the sea-level takeoff state, with the thrust altitude lapse and parabolic drag polar, and report the speed and altitude history at 300 seconds"
+    intent: "flight-mechanics; vertical-plane point-mass trajectory simulation with fixed time-step RK4 integration, thrust lapse and drag polar, speed and altitude history at 300 s"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/point-mass-trajectory"
+  - id: w24r-point-mass-trajectory-2
+    query: "build a point-mass trajectory simulation for the climb profile of the aircraft from the thrust-to-weight and drag polar inputs, propagate the flight-path angle and rate of climb over time, and compare the late-run flight-path angle with the closed-form steady-climb excess-thrust value"
+    intent: "flight-mechanics; point-mass trajectory climb simulation from thrust-to-weight and drag polar, propagated flight-path angle, steady-climb excess-thrust consistency check"
+    expected_skill: "flight-mechanics/flight-dynamics-sim/point-mass-trajectory"
