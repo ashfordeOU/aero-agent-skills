@@ -1,0 +1,18 @@
+# Hit@1 wave-25 fragment: windshear-analysis (flight-mechanics)
+# Two tasks per new leaf skill. w25-windshear-analysis-1 routes on the
+# windshear F-factor with the decreasing headwind shear and the
+# downdraft plus the severity class for the escape decision;
+# w25-windshear-analysis-2 routes on the microburst downdraft
+# out-climb check and the windshear recovery thrust increment. Both
+# must deterministically hit flight-mechanics/performance/
+# windshear-analysis and must not overlap wind-effects (wind triangle,
+# groundspeed, crab angle) or energy-height (energy state, zoom climb).
+tasks:
+  - id: w25-windshear-analysis-1
+    query: "compute the windshear F-factor for my approach encounter with the decreasing headwind shear at 8 knots per second and the 6 m/s downdraft, classify the severity against the escape guidance thresholds, and report the energy height loss rate for the escape decision"
+    intent: "flight-mechanics; windshear F-factor from the decreasing headwind shear and downdraft with the severity class and energy height loss rate for the escape decision"
+    expected_skill: "flight-mechanics/performance/windshear-analysis"
+  - id: w25-windshear-analysis-2
+    query: "check whether the transport can out-climb the microburst downdraft at the current thrust and find the thrust increment needed for the windshear recovery if the headwind shear hazard exceeds the aircraft capability"
+    intent: "flight-mechanics; microburst downdraft out-climb check and the windshear recovery thrust increment from the shear hazard and aircraft capability"
+    expected_skill: "flight-mechanics/performance/windshear-analysis"
