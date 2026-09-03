@@ -65,6 +65,8 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/low-thrust-spiral | Low-thrust spiral transfer | low-thrust transfer, Edelbaum, continuous thrust spiral, inclination change, spiral transfer time |
 | space-systems/adcs/reaction-wheel-control | Reaction wheel control | reaction wheel control, wheel torque command, wheel momentum saturation, momentum desaturation, quaternion error feedback |
 | space-systems/orbit-mechanics/clohessy-wiltshire | Clohessy-Wiltshire | Clohessy-Wiltshire, Hill equations, relative motion state transition matrix, deputy chief, two-impulse targeting, along-track drift |
+| space-systems/orbit-mechanics/gravity-assist-swingby | Gravity assist swing-by | gravity assist, swing-by, hyperbolic excess velocity, turn angle, periapsis speed, delta-v gain, patched conic flyby, close approach altitude |
+| space-systems/orbit-mechanics/conjunction-assessment | Conjunction assessment | conjunction assessment, time of closest approach, miss distance, probability of collision, hard body radius, combined covariance, close approach screening, actionable threshold |
 | space-systems/adcs/control-moment-gyro | Control moment gyro (CMG) | control moment gyro, CMG, gimbal rate, gimbal axis, torque amplification, steering law, singularity, momentum envelope, pyramid cluster, gimbal lock |
 
 ## Routing guidance
@@ -129,3 +131,5 @@ your host's skills directory (see README Install for per-host commands).
 - Low-thrust spiral and Edelbaum transfer questions route to the orbit-mechanics low-thrust-spiral sub-skill.
 - Reaction-wheel attitude control laws and momentum desaturation questions route to the adcs reaction-wheel-control sub-skill.
 - Clohessy-Wiltshire relative motion and two-impulse targeting questions route to the orbit-mechanics clohessy-wiltshire sub-skill.
+- Gravity-assist swing-by, hyperbolic excess velocity turn angle, and flyby delta-v questions route to the orbit-mechanics gravity-assist-swingby sub-skill.
+- Close-approach miss distance, probability of collision, and hard-body-radius screening questions route to the orbit-mechanics conjunction-assessment sub-skill.
