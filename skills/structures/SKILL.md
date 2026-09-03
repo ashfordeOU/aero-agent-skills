@@ -66,6 +66,7 @@ material selection.
 | structures/loads/gust-maneuver-loads | Gust Maneuver Loads | gust loads, maneuver loads, gust load factor, V-n diagram, flight envelope, FAR 25.341, FAR 25.337, discrete gust, 1-cosine gust, gust alleviation factor, mass ratio, load factor, corner point, maneuvering speed, VA VB VC VD, margin check. |
 | structures/loads/random-vibration-analysis | Random vibration analysis | random vibration, PSD response, Miles equation, transmissibility, base excitation, g-rms |
 | structures/fatigue/strain-life-fatigue | Strain-life fatigue | strain life, Coffin-Manson, low-cycle fatigue, reversals to failure, Neuber local strain, transition life |
+| structures/materials/creep-rupture | Creep rupture | creep, creep rate, Norton law, Larson-Miller, rupture life, stress rupture, Monkman-Grant, accumulated creep strain, time to 1 percent creep, elevated temperature |
 
 ## Routing guidance
 
@@ -129,6 +130,7 @@ ance) route
 - Thermal stress, coefficient of thermal expansion, temperature change, bimetallic strip, and constrained member questions route to the thermal-structures thermal-stress-analysis sub-skill.
 - Composite material A-basis and B-basis allowables from coupon data, batch pooling, and laminate knockdown factors route to the composites cmh17-allowables sub-skill.
 - Finite element contact analysis, penalty and Lagrange methods, contact stiffness and penetration, friction and stick-slip, and master-slave formulation questions route to the fem contact-analysis sub-skill.
+- Creep rate, Norton law, Larson-Miller and Monkman-Grant rupture life, and accumulated creep strain questions route to the materials creep-rupture sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

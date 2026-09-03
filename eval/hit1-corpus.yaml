@@ -175,6 +175,11 @@
 # leaves). Wave-24R new leaves: "aerodynamics/aeroelasticity/aeroelastic-gust-response", "space-systems/orbit-mechanics/clohessy-wiltshire", "gnc-autonomy/estimation-filtering/complementary-filter", "propulsion/electric/electrothermal-thruster", "systems-engineering-safety/certification/means-of-compliance", "gnc-autonomy/space/orbit-determination", "flight-mechanics/flight-dynamics-sim/point-mass-trajectory", "space-systems/adcs/reaction-wheel-control", "propulsion/rocket/rocket-engine-cycle", "aerodynamics/high-speed/shock-expansion-airfoil", "structures/fatigue/strain-life-fatigue".
 # Corpus: 696 tasks (674 prior plus 22 domain tasks). Owner: Ops
 # Manager, Wave 24R build.
+# P5.2 / Wave 25 (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 353 verified skills (365 SKILL.md under gate 1: 12 routers + 353
+# leaves). Wave-25 new leaves: "manufacturing-quality/ndt/computed-tomography", "gnc-autonomy/control/control-allocation", "space-systems/adcs/control-moment-gyro", "structures/materials/creep-rupture", "propulsion/rocket/hybrid-rocket-motor", "vehicle-design/sizing/ice-protection-sizing", "avionics/flight-management/lateral-navigation", "flight-test-operations/planning/position-error-calibration", "cross-cutting/numerics/quaternion-algebra", "avionics/do160/radio-frequency-emissions", "vehicle-design/sizing/spoiler-sizing", "flight-mechanics/performance/windshear-analysis".
+# Corpus: 720 tasks (696 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 25 build.
 tasks:
   - id: p1
     query: "determine the software level for a flight control function whose failure is catastrophic"
@@ -3272,6 +3277,102 @@ tasks:
     query: "convert the nominal 200 MPa elastic stress at the kt 2.5 notch into the Neuber local elastic-plastic strain with the cyclic Ramberg-Osgood curve and compute the Coffin-Manson low-cycle life for the representative aluminum alloy"
     intent: "structures; neuber local strain with elastic-plastic ramberg-osgood tokens plus low-cycle fatigue life"
     expected_skill: "structures/fatigue/strain-life-fatigue"
+  - id: w25-computed-tomography-1
+    query: "plan the computed tomography scan of the additive titanium bracket: compute the voxel size from the source and detector geometry and the projection count, then measure the porosity fraction in the build region"
+    intent: "manufacturing-quality; volumetric computed tomography scan planning for an additive part: voxel size from magnification geometry, cone beam projection count and build region porosity volume fraction measurement"
+    expected_skill: "manufacturing-quality/ndt/computed-tomography"
+  - id: w25-computed-tomography-2
+    query: "convert the CT attenuation values to CT numbers and check the voxel resolution against the 0.5 mm flaw requirement for the casting"
+    intent: "manufacturing-quality; CT number conversion from attenuation and voxel resolution verdict against the flaw requirement for the volumetric CT inspection of the casting"
+    expected_skill: "manufacturing-quality/ndt/computed-tomography"
+  - id: w25-control-allocation-1
+    query: "allocate the commanded roll pitch yaw moment across the redundant control surfaces with the redistributed pseudoinverse and report the saturated effectors against their position limits"
+    intent: "gnc-autonomy; control allocation of the roll pitch yaw moment across redundant effectors with the redistributed pseudoinverse and the saturated effector report against the position limits"
+    expected_skill: "gnc-autonomy/control/control-allocation"
+  - id: w25-control-allocation-2
+    query: "distribute the moment command between the aerodynamic surfaces and the thrust vectoring with the daisy chain scheme and check the allocation error"
+    intent: "gnc-autonomy; moment command distribution between aerodynamic surfaces and thrust vectoring with the daisy chain scheme and the allocation error check"
+    expected_skill: "gnc-autonomy/control/control-allocation"
+  - id: w25-control-moment-gyro-1
+    query: "derive the gimbal rates for the four CMG pyramid cluster to produce the commanded roll torque and check the singularity measure of the gimbal state"
+    intent: "space-systems; CMG pyramid cluster steering law gimbal rates from the commanded roll torque with the singularity measure verdict of the gimbal state"
+    expected_skill: "space-systems/adcs/control-moment-gyro"
+  - id: w25-control-moment-gyro-2
+    query: "size the control moment gyro cluster momentum envelope for the agile slew and compute the torque amplification versus the reaction wheel"
+    intent: "space-systems; control moment gyro cluster momentum envelope sizing for the agile slew with the torque amplification against a wheel at equal momentum"
+    expected_skill: "space-systems/adcs/control-moment-gyro"
+  - id: w25-creep-rupture-1
+    query: "estimate the rupture life of the turbine disk material at 650 C and 300 MPa with the Larson-Miller parameter and check the 1000 hour design life margin"
+    intent: "structures; Larson-Miller rupture life at the elevated temperature operating point and the 1000 hour design life margin verdict"
+    expected_skill: "structures/materials/creep-rupture"
+  - id: w25-creep-rupture-2
+    query: "compute the Norton steady state creep rate and the accumulated creep strain over the service time at the elevated temperature operating point"
+    intent: "structures; Norton steady-state creep rate and accumulated creep strain over the service time at the elevated temperature operating point"
+    expected_skill: "structures/materials/creep-rupture"
+  - id: w25-hybrid-rocket-motor-1
+    query: "size the hybrid rocket motor with the HTPB grain and the nitrous oxidizer: compute the regression rate from the oxidizer mass flux, the oxidizer to fuel ratio, and the chamber pressure at the equilibrium burn"
+    intent: "propulsion; hybrid rocket motor sizing on the HTPB solid fuel grain with the nitrous oxidizer, regression rate from the oxidizer mass flux through the port and the oxidizer to fuel ratio at the chamber pressure equilibrium"
+    expected_skill: "propulsion/rocket/hybrid-rocket-motor"
+  - id: w25-hybrid-rocket-motor-2
+    query: "estimate the O/F shift over the hybrid grain burn as the port opens and produce the thrust and total impulse for the motor"
+    intent: "propulsion; hybrid grain O/F shift over the burn as the port opens with the thrust and total impulse for the hybrid motor"
+    expected_skill: "propulsion/rocket/hybrid-rocket-motor"
+  - id: w25-ice-protection-sizing-1
+    query: "size the electrothermal anti-ice system for the wing leading edge protected band in FAR 25 Appendix C continuous icing: compute the droplet catch efficiency from the MVD and airspeed, the evaporative heat flux, and the total electrical power for the protected area"
+    intent: "vehicle-design; electrothermal anti-ice sizing of the wing leading edge protected band in Appendix C continuous icing with droplet catch efficiency from MVD and airspeed, evaporative heat flux and total electrical power over the protected area"
+    expected_skill: "vehicle-design/sizing/ice-protection-sizing"
+  - id: w25-ice-protection-sizing-2
+    query: "compare running wet versus evaporative anti-ice for the nacelle lip at the design icing point: compute the freeze fraction and the bleed air mass flow needed to keep the surface above freezing"
+    intent: "vehicle-design; running wet versus evaporative anti-ice mode trade for the nacelle lip at the design icing point with the freeze fraction check and the bleed air mass flow to hold the surface above freezing"
+    expected_skill: "vehicle-design/sizing/ice-protection-sizing"
+  - id: w25-lateral-navigation-1
+    query: "compute the LNAV cross-track error and track angle error for the active flight plan leg and the intercept heading to recapture the track"
+    intent: "avionics; FMS lateral navigation cross-track error and track angle error against the active leg with the intercept heading capture"
+    expected_skill: "avionics/flight-management/lateral-navigation"
+  - id: w25-lateral-navigation-2
+    query: "find the fly-by turn anticipation distance at the waypoint for the lateral navigation guidance at the given speed and bank angle"
+    intent: "avionics; fly-by turn anticipation distance for the lateral navigation guidance from the speed and bank angle"
+    expected_skill: "avionics/flight-management/lateral-navigation"
+  - id: w25-position-error-calibration-1
+    query: "plan the airspeed position error calibration points and reduce the GPS ground speed doublet runs into the calibrated airspeed and the position error correction curve for the flight test"
+    intent: "flight-test-operations; airspeed position error calibration point planning with the GPS ground speed doublet reduction into calibrated airspeed and the position error correction curve"
+    expected_skill: "flight-test-operations/planning/position-error-calibration"
+  - id: w25-position-error-calibration-2
+    query: "compute the position error from the tower fly-by height comparison and build the PEC table of indicated versus calibrated airspeed"
+    intent: "flight-test-operations; tower fly-by height comparison position error reduction and the PEC table of indicated versus calibrated airspeed"
+    expected_skill: "flight-test-operations/planning/position-error-calibration"
+  - id: w25-quaternion-algebra-1
+    query: "rotate the body frame vector by the unit quaternion and convert the result back through the direction cosine matrix to verify the rotation"
+    intent: "cross-cutting; unit quaternion vector rotation verified through the direction cosine matrix"
+    expected_skill: "cross-cutting/numerics/quaternion-algebra"
+  - id: w25-quaternion-algebra-2
+    query: "convert the yaw pitch roll angles to the quaternion with the ZYX convention and slerp between two attitude quaternions at the midpoint"
+    intent: "cross-cutting; Euler ZYX yaw-pitch-roll to quaternion conversion and slerp midpoint"
+    expected_skill: "cross-cutting/numerics/quaternion-algebra"
+  - id: w25-radio-frequency-emissions-1
+    query: "check the equipment radiated emission against the do-160 RE102 category A limit at 100 MHz and compute the emission margin in dBuV/m for the EMC qualification"
+    intent: "avionics; DO-160 section 21 radiated emissions RE102 category A limit and emission margin in dBuV/m for the EMC qualification"
+    expected_skill: "avionics/do160/radio-frequency-emissions"
+  - id: w25-radio-frequency-emissions-2
+    query: "reduce the conducted emission sweep to the CE102 limit curve and find the worst case frequency and margin across the band"
+    intent: "avionics; DO-160 section 21 conducted emissions CE102 limit curve with the worst case frequency and emission margin across the sweep"
+    expected_skill: "avionics/do160/radio-frequency-emissions"
+  - id: w25-spoiler-sizing-1
+    query: "size the ground spoiler panels to dump 60 percent of the wing lift on touchdown and the flight spoilers for the roll assist share, then estimate the speed brake drag increment at the landing speed"
+    intent: "vehicle-design; ground spoiler lift dump sizing and flight spoiler roll assist share with the speed brake drag increment at the landing speed"
+    expected_skill: "vehicle-design/sizing/spoiler-sizing"
+  - id: w25-spoiler-sizing-2
+    query: "compute the spoiler panel area and deflection that deliver the roll damping assist for the outboard wing and the hinge moment for the actuator at the maneuver dynamic pressure"
+    intent: "vehicle-design; flight spoiler panel area and deflection for the roll damping assist with the actuator hinge moment at the maneuver dynamic pressure"
+    expected_skill: "vehicle-design/sizing/spoiler-sizing"
+  - id: w25-windshear-analysis-1
+    query: "compute the windshear F-factor for my approach encounter with the decreasing headwind shear at 8 knots per second and the 6 m/s downdraft, classify the severity against the escape guidance thresholds, and report the energy height loss rate for the escape decision"
+    intent: "flight-mechanics; windshear F-factor from the decreasing headwind shear and downdraft with the severity class and energy height loss rate for the escape decision"
+    expected_skill: "flight-mechanics/performance/windshear-analysis"
+  - id: w25-windshear-analysis-2
+    query: "check whether the transport can out-climb the microburst downdraft at the current thrust and find the thrust increment needed for the windshear recovery if the headwind shear hazard exceeds the aircraft capability"
+    intent: "flight-mechanics; microburst downdraft out-climb check and the windshear recovery thrust increment from the shear hazard and aircraft capability"
+    expected_skill: "flight-mechanics/performance/windshear-analysis"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

@@ -63,6 +63,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/handling-qualities/mil-std-1797a | Mil Std 1797a | mil-std-1797a, flying qualities, handling qualities levels, short period damping, dutch roll, phugoid, spiral mode, roll mode, roll performance, flight phase category, aircraft class, cooper-harper band. |
 | flight-mechanics/stability-control/phugoid-mode-analysis | Phugoid mode analysis | phugoid period, Lanchester approximation, long-period oscillation, time to half amplitude, airspeed oscillation |
 | flight-mechanics/flight-dynamics-sim/point-mass-trajectory | Point-mass trajectory | point-mass trajectory, flight-path angle, RK4 integration, speed-altitude history, vertical-plane profile, climb path integration |
+| flight-mechanics/performance/windshear-analysis | Windshear analysis | windshear, microburst, F-factor, downdraft, headwind shear, wind shear hazard, escape guidance, energy height loss, shear encounter |
 
 ## Routing guidance
 
@@ -108,6 +109,7 @@ to the
 - Six-degree-of-freedom rigid body simulation, body-axis equations of motion, Euler angle integration, and RK4 propagation questions route to the flight-dynamics-sim six-dof-simulation sub-skill.
 - Stability-derivative estimation from wing and tail geometry, lift curve slope with sweep and Mach corrections, and geometry-to-neutral-point questions route to the stability-control stability-derivatives-avl sub-skill.
 - Short-period natural frequency and damping from stability derivatives, dimensionless derivative conversion, and Level 1 flying qualities checks route to the stability-control short-period-mode-analysis sub-skill.
+- Windshear and microburst F-factor hazard, downdraft out-climb, energy height loss, and recovery thrust questions route to the performance windshear-analysis sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
