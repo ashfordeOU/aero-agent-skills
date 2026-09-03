@@ -1,0 +1,15 @@
+# Hit@1 wave-27 fragment: winglet-design (aerodynamics)
+# Two tasks per new leaf skill. w27-winglet-design-1 routes on winglet
+# design sizing with the effective aspect ratio and span efficiency
+# gain; w27-winglet-design-2 routes on the wingtip device trade with
+# the induced drag reduction and the root bending moment penalty. Both
+# must deterministically hit aerodynamics/wing-design/winglet-design.
+tasks:
+  - id: w27-winglet-design-1
+    query: "size a winglet for the transport wing to cut the induced drag by 25 percent: find the winglet height fraction and the effective aspect ratio gain at the 0.5 lift coefficient with the 0.8 base span efficiency"
+    intent: "aerodynamics; winglet design sizing, winglet height fraction and effective aspect ratio gain for a target induced drag reduction"
+    expected_skill: "aerodynamics/wing-design/winglet-design"
+  - id: w27-winglet-design-2
+    query: "compare the wingtip device options: compute the induced drag reduction and the root bending moment penalty for a 0.12 height fraction vertical winglet on the 9 aspect ratio wing"
+    intent: "aerodynamics; wingtip device trade, induced drag reduction and root bending moment penalty from winglet height and cant"
+    expected_skill: "aerodynamics/wing-design/winglet-design"
