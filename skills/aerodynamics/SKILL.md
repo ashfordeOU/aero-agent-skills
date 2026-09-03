@@ -65,6 +65,8 @@ estimation, validated against classic reference data.
 | aerodynamics/wind-tunnel/windtunnel-wall-corrections | Wind tunnel wall corrections | wall corrections, solid blockage, wake blockage, lift interference, test section constraint, corrected drag |
 | aerodynamics/aeroelasticity/aeroelastic-gust-response | Aeroelastic gust response | aeroelastic gust response, dynamic gust response, Kussner function, Wagner function, indicial aerodynamics, dynamic magnification factor |
 | aerodynamics/high-speed/shock-expansion-airfoil | Shock-expansion airfoil | shock expansion, supersonic airfoil, diamond airfoil, double wedge, surface pressure integration, wave drag coefficient |
+| aerodynamics/high-speed/hypersonic-flow | Hypersonic flow | hypersonic flow, modified Newtonian theory, Newtonian impact pressure, stagnation pressure coefficient, blunt body drag, cone axial force |
+| aerodynamics/wind-tunnel/wind-tunnel-model-design | Wind tunnel model design | wind tunnel model design, model scale selection, blockage ratio, Reynolds mismatch, force balance rating, sting sizing |
 
 ## Routing guidance
 
@@ -104,6 +106,8 @@ objective studies route to
   domain packs (structures, gnc-autonomy, avionics).
 - Wind tunnel test data reduction, tare, blockage, and wall interference corrections, and coefficient uncertainty estimation route to the wind-tunnel windtunnel-data-reduction sub-skill.
 - Classical wing flutter of the two-DOF typical section, the V-g method, structural damping crossing, frequency coalescence, and flutter margin questions route to the aeroelasticity flutter-speed-prediction sub-skill.
+- Hypersonic flow questions (hypersonic flow, modified newtonian theory, newtonian impact pressure, stagnation pressure coefficient, blunt body drag, cone axial force) route to the hypersonic-flow sub-skill.
+- Wind tunnel model design questions (wind tunnel model design, model scale selection, blockage ratio, reynolds mismatch, force balance rating, sting sizing) route to the wind-tunnel-model-design sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

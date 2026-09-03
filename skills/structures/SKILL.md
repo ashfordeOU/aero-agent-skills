@@ -69,6 +69,8 @@ material selection.
 | structures/loads/shock-response-spectrum | Shock response spectrum | shock response spectrum, SRS, transient shock response, half sine pulse, base acceleration, pseudo acceleration, oscillator peak response, shock qualification, amplified frequency |
 | structures/fatigue/strain-life-fatigue | Strain-life fatigue | strain life, Coffin-Manson, low-cycle fatigue, reversals to failure, Neuber local strain, transition life |
 | structures/materials/creep-rupture | Creep rupture | creep, creep rate, Norton law, Larson-Miller, rupture life, stress rupture, Monkman-Grant, accumulated creep strain, time to 1 percent creep, elevated temperature |
+| structures/fem/beam-frame-analysis | Beam frame analysis | beam frame analysis, rigid jointed frame, Euler Bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame |
+| structures/composites/delamination-growth | Delamination growth | delamination growth, strain energy release rate, DCB double cantilever beam, ENF end notched flexure, mixed mode fracture, Benzeggagh Kenane criterion |
 
 ## Routing guidance
 
@@ -133,6 +135,8 @@ ance) route
 - Composite material A-basis and B-basis allowables from coupon data, batch pooling, and laminate knockdown factors route to the composites cmh17-allowables sub-skill.
 - Finite element contact analysis, penalty and Lagrange methods, contact stiffness and penetration, friction and stick-slip, and master-slave formulation questions route to the fem contact-analysis sub-skill.
 - Creep rate, Norton law, Larson-Miller and Monkman-Grant rupture life, and accumulated creep strain questions route to the materials creep-rupture sub-skill.
+- Beam frame analysis questions (beam frame analysis, rigid jointed frame, euler bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame) route to the beam-frame-analysis sub-skill.
+- Delamination growth questions (delamination growth, strain energy release rate, dcb double cantilever beam, enf end notched flexure, mixed mode fracture, benzeggagh kenane criterion) route to the delamination-growth sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
