@@ -39,7 +39,7 @@ intellijPlatform {
     pluginConfiguration {
         id = "com.ashforde.aeroskills"
         name = "Aero Agent Skills"
-        version = "1.0.0"
+        version = project.version.toString()
 
         description = """
             <p><b>Aero Agent Skills</b> — the aerospace knowledge layer for AI agents.</p>
