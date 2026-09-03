@@ -396,3 +396,4 @@ Total skills rated: 379
 | 388 | manufacturing-quality/as9100/fod-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 389 | aerodynamics/wind-tunnel/wind-tunnel-model-design | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 390 | manufacturing-quality/assembly/fastener-installation-quality | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 391 | avionics/flight-management/rta-time-control | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
