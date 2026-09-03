@@ -1,0 +1,15 @@
+# Hit@1 wave-24R fragment: electrothermal-thruster (propulsion)
+# Two tasks per new leaf skill. w24r-electrothermal-thruster-1 routes on
+# resistojet operating point tokens (electrothermal-thruster,
+# heated-propellant, power-to-thrust); w24r-electrothermal-thruster-2
+# routes on family comparison tokens (resistojet, arcjet, operating
+# band, specific impulse).
+tasks:
+  - id: w24r-electrothermal-thruster-1
+    query: "analyze the resistojet operating point for the smallsat: with 1 kW input heating ammonia propellant from 300 K to 1200 K at 85 percent heating efficiency, compute the mass flow, exhaust velocity, thrust, specific impulse, and thrust-to-power ratio"
+    intent: "propulsion; single-point electrothermal-thruster resistojet performance from power, temperatures and heating efficiency"
+    expected_skill: "propulsion/electric/electrothermal-thruster"
+  - id: w24r-electrothermal-thruster-2
+    query: "compare the electrothermal-thruster family options for the station keeping burn: run the resistojet and arcjet performance models on the same 500 W input and report which gives the higher specific impulse and whether each point lies in its typical operating band"
+    intent: "propulsion; electrothermal-thruster resistojet vs arcjet family comparison with heated-propellant models and operating-band verdicts"
+    expected_skill: "propulsion/electric/electrothermal-thruster"

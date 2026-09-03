@@ -339,3 +339,4 @@ Total skills rated: 330
 | 331 | gnc-autonomy/estimation-filtering/complementary-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 332 | space-systems/adcs/reaction-wheel-control | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 333 | flight-mechanics/flight-dynamics-sim/point-mass-trajectory | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 334 | propulsion/electric/electrothermal-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
