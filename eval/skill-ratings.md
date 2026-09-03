@@ -378,3 +378,4 @@ Total skills rated: 365
 | 370 | propulsion/axial-compressor/turbine-blade-cooling | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
 | 371 | propulsion/gas-turbine-cycle/afterburner-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
 | 372 | gnc-autonomy/navigation/gnss-pseudorange-positioning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 373 | gnc-autonomy/guidance/dubins-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
