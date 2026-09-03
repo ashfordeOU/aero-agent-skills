@@ -1,0 +1,17 @@
+# Hit@1 wave-25 fragment: control-moment-gyro (space-systems)
+# Two tasks per new leaf skill. w25-control-moment-gyro-1 routes on the
+# CMG pyramid cluster steering law (gimbal rates for a commanded roll
+# torque) and the singularity measure of the gimbal state;
+# w25-control-moment-gyro-2 routes on the control moment gyro cluster
+# momentum envelope sizing for the agile slew and the torque
+# amplification comparison. Both must deterministically hit
+# space-systems/adcs/control-moment-gyro.
+tasks:
+  - id: w25-control-moment-gyro-1
+    query: "derive the gimbal rates for the four CMG pyramid cluster to produce the commanded roll torque and check the singularity measure of the gimbal state"
+    intent: "space-systems; CMG pyramid cluster steering law gimbal rates from the commanded roll torque with the singularity measure verdict of the gimbal state"
+    expected_skill: "space-systems/adcs/control-moment-gyro"
+  - id: w25-control-moment-gyro-2
+    query: "size the control moment gyro cluster momentum envelope for the agile slew and compute the torque amplification versus the reaction wheel"
+    intent: "space-systems; control moment gyro cluster momentum envelope sizing for the agile slew with the torque amplification against a wheel at equal momentum"
+    expected_skill: "space-systems/adcs/control-moment-gyro"
