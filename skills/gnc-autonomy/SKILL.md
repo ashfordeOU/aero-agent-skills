@@ -72,6 +72,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/navigation/gnss-raim-fde | GNSS RAIM FDE | RAIM, receiver autonomous integrity monitoring, fault detection and exclusion, horizontal protection level, chi-square threshold, normalized residual, GNSS integrity |
 | gnc-autonomy/estimation-filtering/rts-smoother | RTS smoother | RTS smoother, Rauch-Tung-Striebel, fixed-interval smoothing, backward pass, smoothed state, offline trajectory reconstruction |
 | gnc-autonomy/guidance/coverage-path-planning | Coverage path planning | coverage path planning, boustrophedon, lawnmower pattern, aerial survey flight lines, swath width, side overlap, track spacing, area search |
+| gnc-autonomy/control/adaptive-control | Adaptive control | adaptive control, MRAC, model reference adaptive, adaptation law, tracking error, unknown plant, gain adaptation |
 
 ## Routing guidance
 
@@ -126,6 +127,7 @@ amics sub-skill.
 - RAIM integrity questions (fault detection and exclusion, horizontal protection level, chi-square threshold, normalized residual) route to the navigation gnss-raim-fde sub-skill.
 - Rauch-Tung-Striebel fixed-interval smoothing and backward-pass post-processing questions route to the estimation-filtering rts-smoother sub-skill.
 - Coverage path planning, boustrophedon, and lawnmower aerial survey pattern questions route to the guidance coverage-path-planning sub-skill.
+- Model-reference adaptive control questions (MRAC, adaptation law, tracking error convergence, unknown plant coefficient) route to the control adaptive-control sub-skill.
 
 ## Install
 

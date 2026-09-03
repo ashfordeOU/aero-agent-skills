@@ -74,6 +74,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/hypothesis-testing | Hypothesis testing | hypothesis testing, student t test, welch test, paired t test, ANOVA, F test for variances, chi-square test of independence, p-value, significance level |
 | cross-cutting/numerics/digital-filter-design | Digital filter design | Butterworth IIR filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response |
 | cross-cutting/numerics/cross-correlation-analysis | Cross-correlation analysis | cross-correlation, autocorrelation, time delay estimation, lag, normalized correlation coefficient, channel similarity, delay between signals |
+| cross-cutting/numerics/descriptive-statistics | Descriptive statistics | descriptive statistics, summary statistics, five number summary, interquartile range, coefficient of variation, outlier flagging |
 
 ## Routing guidance
 
@@ -138,6 +139,7 @@ integration) for engineering calculations.
 - Quaternion products, vector rotation, euler and direction-cosine conversions, and slerp algebra questions route to the numerics quaternion-algebra sub-skill.
 - Digital filter design questions (butterworth iir filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response) route to the digital-filter-design sub-skill.
 - Cross-correlation, autocorrelation, and time-delay estimation questions route to the numerics cross-correlation-analysis sub-skill.
+- Sample summary and outlier questions (descriptive statistics, five number summary, interquartile range, coefficient of variation, 1.5 IQR outlier rule) route to the numerics descriptive-statistics sub-skill.
 
 ## Install
 

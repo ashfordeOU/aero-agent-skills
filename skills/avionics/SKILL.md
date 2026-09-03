@@ -79,6 +79,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/flight-management/rnp-anp-containment | RNP/ANP containment | required navigation performance, actual navigation performance, RNP containment, ANP comparison, lateral position error sigma, 95 percent containment, performance based navigation |
 | avionics/flight-management/rta-time-control | RTA time control | required time of arrival, RTA time constraint, speed adjustment, arrival window, time error, 4D trajectory, FMS time control |
 | avionics/surveillance/tcas-resolution-advisory | TCAS resolution advisory | TCAS II, traffic alert and collision avoidance, resolution advisory, modified tau, DMOD, sensitivity level, intruder threat logic, climb descend advisory |
+| avionics/surveillance/ads-b-surveillance | ADS-B surveillance | ADS-B, ADS-B Out, ADS-B In, extended squitter, NIC containment radius, NACp accuracy, SIL integrity, ADS-B range |
 
 ## Routing guidance
 
@@ -125,6 +126,7 @@ est case count, coverage objectives per
 - LNAV lateral guidance, cross-track error, track angle error, great-circle track, turn anticipation, and fly-by and fly-over transition questions route to the flight-management lateral-navigation sub-skill.
 - RTA time control questions (required time of arrival, rta time constraint, speed adjustment, arrival window, time error, 4d trajectory, fms time control) route to the rta-time-control sub-skill.
 - TCAS II threat detection, modified tau, DMOD, and resolution advisory sense questions route to the surveillance tcas-resolution-advisory sub-skill.
+- ADS-B equipage and reception questions (ADS-B Out, extended squitter, NIC containment radius, NACp accuracy, SIL integrity, ADS-B range) route to the surveillance ads-b-surveillance sub-skill.
 
 ## Install
 

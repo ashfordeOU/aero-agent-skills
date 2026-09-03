@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 404,
+  "leaves": 416,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 822
+  "corpus_tasks": 846
  },
  "skills": [
   {
@@ -158,6 +158,21 @@
     "momentum-thickness",
     "skin-friction",
     "transition"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/boundary-layer-transition",
+   "name": "boundary-layer-transition",
+   "description": "Use when you must predict the laminar-turbulent transition location on a two-dimensional body from its edge-velocity distribution: grow the laminar boundary layer with the Thwaites integral relation to obtain the boundary-layer momentum deficit at each station, build the local Reynolds numbers from the edge velocity and that deficit, evaluate the Michel transition criterion against them, and interpolate the first station where the criterion is crossed to give the transition location. Produces the Reynolds-number history along the body, the Michel criterion margin at each station, and the transition location that gates a natural-transition estimate for an airfoil or body. Trigger: boundary-layer-transition, transition-location, thwaites-integral, michel-criterion, natural-transition, edge-velocity distribution, laminar-turbulent transition, airfoil transition onset.",
+   "tags": [
+    "boundary-layer-transition",
+    "thwaites-integral",
+    "michel-criterion",
+    "transition-location",
+    "natural-transition"
    ],
    "family": "aerodynamics",
    "pack": "boundary-layer",
@@ -369,6 +384,21 @@
    ],
    "family": "aerodynamics",
    "pack": "high-lift",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/aerodynamic-heating",
+   "name": "aerodynamic-heating",
+   "description": "Use when you must estimate the aerodynamic heating at the stagnation point of a hypersonic body: stagnation-point convective heat flux from the Sutton-Graves correlation using freestream density, flight velocity and nose radius, radiation-equilibrium wall temperature from the Stefan-Boltzmann balance at a chosen surface emissivity, and the nose-radius bluntness trade that scales the flux for blunt versus sharp geometries. Produces the stagnation heat flux, the radiation-equilibrium temperature and the bluntness comparison that gate a thermal protection material choice. Trigger: aerodynamic heating, stagnation-point-heating, sutton-graves, radiation-equilibrium-temperature, nose-radius-bluntness, reentry heating, thermal protection.",
+   "tags": [
+    "aerodynamic-heating",
+    "stagnation-point-heating",
+    "sutton-graves",
+    "radiation-equilibrium-temperature",
+    "nose-radius-bluntness"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
    "router_doc": false
   },
   {
@@ -1236,6 +1266,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/surveillance/ads-b-surveillance",
+   "name": "ads-b-surveillance",
+   "description": "Use when you must assess an ADS-B Out installation and ADS-B In reception geometry against the DO-260B-style performance categories: map the navigation integrity category (NIC) to its containment radius, map the navigation accuracy category for position (NACp) to its 95-percent accuracy bound, map the source integrity level (SIL) to its per-flight-hour probability bound, select the NIC and NACp category whose bound covers a required containment or accuracy value, and compute the 1090 MHz extended squitter radio line-of-sight range between two altitudes. Produces the containment radius, accuracy bound, integrity probability, chosen categories, and coverage range that gate an ADS-B surveillance assessment. Trigger: ads-b-out, ads-b-in, extended-squitter, nic, nacp, sil, containment-radius, ads-b-range.",
+   "tags": [
+    "ads-b-surveillance",
+    "extended-squitter",
+    "containment-radius",
+    "nacp-accuracy",
+    "sil-integrity",
+    "ads-b-range"
+   ],
+   "family": "avionics",
+   "pack": "surveillance",
+   "router_doc": false
+  },
+  {
    "path": "avionics/surveillance/tcas-resolution-advisory",
    "name": "tcas-resolution-advisory",
    "description": "Use when you must evaluate a TCAS II resolution advisory for an own aircraft against a single intruder from measured range and altitude state: select the sensitivity level from the own altitude band, compute the modified tau closing time with the DMOD term, apply the horizontal threat test and the altitude test against the tau and ALIM thresholds, and choose the climb or descend advisory sense from the intruder position. Produces the sensitivity level, the modified tau, the threat verdict and the resolution advisory sense that gate a TCAS logic assessment. Trigger: TCAS II, traffic alert and collision avoidance, resolution advisory, modified tau, DMOD, sensitivity level, intruder threat logic, climb descend advisory.",
@@ -1383,6 +1429,21 @@
     "correlation-sequence",
     "biased-normalization",
     "unbiased-normalization"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/descriptive-statistics",
+   "name": "descriptive-statistics",
+   "description": "Use when you must summarize a sample of engineering measurements with descriptive statistics: compute the arithmetic mean, median, data range, sample and population variance and standard deviation, the quartiles and interquartile range by linear interpolation, the five-number summary, the coefficient of variation, and flag outliers with the 1.5-IQR rule. Produces the location, spread, and outlier report that gates a first look at any measured data set; pure Python stdlib, deterministic, no distribution fitting or hypothesis testing. Trigger: descriptive-statistics, summary-statistics, five-number-summary, interquartile-range, coefficient-of-variation, sample-variance, quartiles, outlier flagging.",
+   "tags": [
+    "descriptive-statistics",
+    "summary-statistics",
+    "five-number-summary",
+    "interquartile-range",
+    "coefficient-of-variation"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -2163,6 +2224,38 @@
     "landing-climb",
     "climb-gradient",
     "takeoff-climb"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-forward-flight-performance",
+   "name": "rotorcraft-forward-flight-performance",
+   "description": "Use when you must compute the forward-flight power required of a rotorcraft rotor with momentum-theory inflow: the Glauert induced velocity at a given flight speed, the induced power, the parasite power from the equivalent flat-plate drag area, the profile power from rotor blade solidity and tip speed, and the total power, then find the best endurance speed (minimum total power) and the best range speed (minimum power per unit speed) over a speed sweep. Produces the forward induced velocity, the three power components, the total power curve, and the two characteristic speeds that gate a rotorcraft cruise performance assessment. Trigger: rotorcraft forward flight, glauert inflow, induced power model, parasite power, equivalent flat plate area, best endurance speed, best range speed, rotor profile drag.",
+   "tags": [
+    "rotorcraft-forward-flight-performance",
+    "glauert-inflow",
+    "parasite-power",
+    "best-endurance-speed",
+    "best-range-speed",
+    "equivalent-flat-plate-area"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-hover-performance",
+   "name": "rotorcraft-hover-performance",
+   "description": "Use when you must compute the hovering performance of a rotorcraft rotor with momentum theory: the ideal induced velocity through the rotor disk, the ideal hover power, the profile power from blade solidity and tip speed, the total hover power through an induced-power factor or through the figure of merit, and the disk loading. Produces the induced velocity, ideal power, profile power, total power, figure of merit, and disk loading that gate a hover performance check at a chosen density altitude. Momentum theory only: uniform inflow, no ground effect. Trigger: rotorcraft hover performance, induced velocity, figure of merit, momentum theory, hover power, disk loading, blade solidity.",
+   "tags": [
+    "rotorcraft-hover-performance",
+    "rotor-induced-velocity",
+    "hover-power",
+    "figure-of-merit",
+    "rotor-disk-loading",
+    "rotor-solidity"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -3171,6 +3264,21 @@
    "family": "gnc-autonomy",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "gnc-autonomy/control/adaptive-control",
+   "name": "adaptive-control",
+   "description": "Use when you must design and simulate a model-reference adaptive controller (MRAC) for a first-order plant with an unknown plant coefficient: run the reference model from the command, form the control as the sum of a state-feedback term and a feedforward term with adaptive gains, update the gains online with the gradient (Lyapunov-motivated) adaptation law scaled by the tracking error, and assess convergence of the tracking error and of the gains toward the ideal-cancellation values. Produces the error history, the gain histories and the convergence verdict that gate an adaptive control assessment. Trigger: adaptive-control, mrac, model-reference-adaptive, adaptation-law, tracking-error, unknown-plant.",
+   "tags": [
+    "adaptive-control",
+    "mrac",
+    "model-reference-adaptive",
+    "adaptation-law",
+    "tracking-error"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
   },
   {
    "path": "gnc-autonomy/control/control-allocation",
@@ -4224,6 +4332,22 @@
    ],
    "family": "manufacturing-quality",
    "pack": "as9103",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/assembly/ewis-installation-quality",
+   "name": "ewis-installation-quality",
+   "description": "Use when you must verify the installation quality of an electrical wiring interconnection system (EWIS) installation during aerospace assembly: compute the conductor bundle fill ratio against the conduit cross-section and check it against the 0.40 fill limit, compute the round-trip voltage drop of the run and its percent of the bus voltage against the 2% drop limit, check the conductor bend radius against the minimum radius factor, and check the separation clearance between the bundle and a nearby fluid line or structure. Produces the fill-ratio, voltage-drop-check, bend-radius-check and separation verdicts that gate an EWIS installation acceptance. Trigger: ewis-installation, wiring-harness, bundle-fill-ratio, voltage-drop-check, bend-radius-check, separation-clearance.",
+   "tags": [
+    "ewis-installation-quality",
+    "wiring-harness",
+    "bundle-fill-ratio",
+    "voltage-drop-check",
+    "bend-radius-check",
+    "separation-clearance"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "assembly",
    "router_doc": false
   },
   {
@@ -5771,6 +5895,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/orbit-mechanics/three-body-libration",
+   "name": "three-body-libration",
+   "description": "Use when you must analyze the circular restricted three-body problem (CR3BP) for a spacecraft near two massive primaries: compute the mass ratio from the primary masses, locate the collinear points L1, L2, L3 by solving the rotating-frame force balance with a bracketed Newton iteration, place the triangular points L4 and L5 from the closed-form equilateral construction, convert dimensionless coordinates into physical distances from each primary, and evaluate the Jacobi constant for a planar state. Produces the five libration point locations, the physical distances, and the Jacobi constant that gate a three-body mission assessment. Trigger: three-body-libration, cr3bp, libration-points, lagrange-points-l1-l2, jacobi-constant, earth-moon-l1.",
+   "tags": [
+    "three-body-libration",
+    "cr3bp",
+    "libration-points",
+    "jacobi-constant",
+    "collinear-points",
+    "earth-moon-l1"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/subsystems/command-data-handling",
    "name": "command-data-handling",
    "description": "Design and check spacecraft command and data handling (C&DH): validate telecommands against opcode, length, and CRC-16 checksum; packetize telemetry into CCSDS-style frames with sequence counts and error detection; size onboard storage from per-orbit data volume; and budget downlink time and rate from stored data volume and link capacity. Use when the task is command validation, telemetry packetization, CCSDS framing, onboard data storage sizing, downlink budgeting, spacecraft data bus selection, or C&DH redundancy. Computes CRC-16 checksums, byte-exact CCSDS packets, storage sizes, and downlink verdicts with deterministic functions. Trigger: command data handling, telemetry, telecommand, CCSDS, packetization, downlink, CRC-16, onboard storage, data bus, SpaceWire, MIL-STD-1553.",
@@ -5969,6 +6109,21 @@
     "shear-out",
     "fastener",
     "joint-margin"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
+   "path": "structures/composites/composite-repair",
+   "name": "composite-repair",
+   "description": "Use when you must size a bonded scarf repair for a damaged composite laminate: compute the scarf length from the parent thickness and the scarf angle, the average adhesive shear stress carried by the scarf joint at the parent laminate stress, the required scarf angle for an adhesive shear allowable, and the external patch thickness that restores the parent stiffness. Produces the scarf length, adhesive shear stress, required scarf angle, and stiffness-matched patch thickness that gate a composite repair design. Trigger: composite-repair, scarf-repair, scarf-length, adhesive-shear-stress, stiffness-matched-patch, scarf angle, adhesive shear allowable, bonded repair, patch thickness.",
+   "tags": [
+    "composite-repair",
+    "scarf-repair",
+    "scarf-length",
+    "adhesive-shear-stress",
+    "stiffness-matched-patch"
    ],
    "family": "structures",
    "pack": "composites",
@@ -6408,6 +6563,22 @@
    "router_doc": false
   },
   {
+   "path": "structures/loads/landing-ground-loads",
+   "name": "landing-ground-loads",
+   "description": "Use when you must compute the ground loads on an aircraft structure for the certification landing and ground-handling conditions: the static nose and main gear reactions from the weight and CG position over the wheelbase, the level-landing reactions at a limit vertical inertia load factor, the braked-roll deceleration and brake force from the main gear friction, the tail-down-condition reaction with the nose gear unloaded, and the one-wheel-load reaction from the lateral CG offset over the track. Produces gear reactions, the braking deceleration and the critical per-station condition that gates a landing loads check. Trigger: landing-ground-loads, ground-reactions, level-landing, tail-down-condition, one-wheel-load, braked-roll.",
+   "tags": [
+    "landing-ground-loads",
+    "ground-reactions",
+    "level-landing",
+    "tail-down-condition",
+    "one-wheel-load",
+    "braked-roll"
+   ],
+   "family": "structures",
+   "pack": "loads",
+   "router_doc": false
+  },
+  {
    "path": "structures/loads/random-vibration-analysis",
    "name": "random-vibration-analysis",
    "description": "Use when you must compute the random vibration response of a structure or equipment item to a base-input acceleration power spectral density: single-degree-of-freedom transmissibility |H(f)|^2 = 1/((1-r^2)^2 + (2*zeta*r)^2), response PSD G_out(f) = |H(f)|^2 * G_in(f), RMS response in g from the Miles equation sigma = sqrt((pi/2)*f_n*Q*G_in(f_n)) with Q = 1/(2*zeta), numerical integration of the response PSD over a supplied spectrum, 3-sigma peak level, and the equivalent static load factor n_eq = 3*sigma for equipment qualification screening. Produces response PSD points, g-rms and 3-sigma response levels, and screening load factors. Trigger: random vibration, PSD response, Miles equation, transmissibility, base excitation, g-rms, power spectral density, vibration qualification.",
@@ -6541,6 +6712,20 @@
    ],
    "family": "structures",
    "pack": "materials",
+   "router_doc": false
+  },
+  {
+   "path": "structures/thermal-structures/thermal-buckling",
+   "name": "thermal-buckling",
+   "description": "Use when you must compute the thermal buckling of restrained aerospace structure from a temperature rise: the elastic buckling stress of a uniformly compressed flat plate, the compressive stress built by a constrained temperature change under uniaxial or biaxial restraint, the critical-temperature-rise that drives a skin panel to its buckling stress, and the critical-temperature-rise of an Euler column between rigid supports. Produces the buckling stress, the compressive stress at a given rise, and the critical temperature rise, plus the thermal-buckling-margin that gates a thermal-stability check. Trigger: thermal-buckling, critical-temperature-rise, restrained-temperature, thermal-buckling-margin, skin panel, hot structure, Euler column.",
+   "tags": [
+    "thermal-buckling",
+    "critical-temperature-rise",
+    "restrained-thermal-expansion",
+    "thermal-buckling-margin"
+   ],
+   "family": "structures",
+   "pack": "thermal-structures",
    "router_doc": false
   },
   {
