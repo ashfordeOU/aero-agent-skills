@@ -1,0 +1,17 @@
+# Hit@1 wave-24R fragment: complementary-filter (gnc-autonomy)
+# Two tasks per new leaf skill. w24r-complementary-filter-1 routes on the
+# Mahony so3 complementary filter with online gyro bias estimation from
+# sun vector and magnetometer fusion; w24r-complementary-filter-2 routes
+# on the explicit complementary filter attitude observer with
+# vector-measurement fusion and drift-free attitude for an air vehicle.
+# Both must deterministically hit
+# gnc-autonomy/estimation-filtering/complementary-filter.
+tasks:
+  - id: w24r-complementary-filter-1
+    query: "fuse the spacecraft rate gyro with the sun vector and magnetometer measurements in a mahony complementary filter on so3 to estimate the attitude quaternion online and the gyro bias with the proportional and integral correction gains and report the innovation norm convergence over the run"
+    intent: "gnc-autonomy; Mahony explicit complementary filter on so3 with gyro-bias-estimation from vector-measurement fusion"
+    expected_skill: "gnc-autonomy/estimation-filtering/complementary-filter"
+  - id: w24r-complementary-filter-2
+    query: "run an explicit complementary filter attitude observer for the air vehicle that combines the high-rate gyro angular rates with the low-rate absolute vector measurements so the gyro bias is estimated and the roll pitch yaw estimate does not drift and verify the steady state innovation"
+    intent: "gnc-autonomy; explicit complementary filter so3 attitude observer with vector-measurement fusion and drift-free attitude"
+    expected_skill: "gnc-autonomy/estimation-filtering/complementary-filter"
