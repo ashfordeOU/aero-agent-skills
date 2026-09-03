@@ -362,3 +362,4 @@ Total skills rated: 353
 | 354 | systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
 | 355 | systems-engineering-safety/certification/mmel-development | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
 | 356 | systems-engineering-safety/certification/equivalent-level-of-safety | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
+| 357 | systems-engineering-safety/safety-case/goal-structuring-notation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
