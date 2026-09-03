@@ -1,0 +1,14 @@
+# Hit@1 wave-27 fragment: gnss-pseudorange-positioning (gnc-autonomy)
+# Two tasks per new leaf skill. w27-gnss-pseudorange-positioning-1 routes on
+# the GNSS position fix with receiver clock bias via the iterated least
+# squares adjustment in ECEF; w27-gnss-pseudorange-positioning-2 routes on the
+# snapshot pseudorange navigation solution with post-fit residuals and RMS.
+tasks:
+  - id: w27-gnss-pseudorange-positioning-1
+    query: "compute the GNSS receiver position fix and clock bias from the four satellite pseudoranges with the iterated least squares adjustment in ECEF coordinates"
+    intent: "gnc-autonomy; GNSS position fix and receiver clock bias from satellite pseudoranges via the iterated least squares adjustment in ECEF"
+    expected_skill: "gnc-autonomy/navigation/gnss-pseudorange-positioning"
+  - id: w27-gnss-pseudorange-positioning-2
+    query: "solve the snapshot pseudorange navigation equations for the receiver position and report the post-fit residuals and the residual RMS against the satellite geometry"
+    intent: "gnc-autonomy; snapshot pseudorange navigation solution with post-fit residuals and residual RMS against the satellite geometry"
+    expected_skill: "gnc-autonomy/navigation/gnss-pseudorange-positioning"
