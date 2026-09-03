@@ -64,6 +64,9 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/stability-control/phugoid-mode-analysis | Phugoid mode analysis | phugoid period, Lanchester approximation, long-period oscillation, time to half amplitude, airspeed oscillation |
 | flight-mechanics/flight-dynamics-sim/point-mass-trajectory | Point-mass trajectory | point-mass trajectory, flight-path angle, RK4 integration, speed-altitude history, vertical-plane profile, climb path integration |
 | flight-mechanics/performance/windshear-analysis | Windshear analysis | windshear, microburst, F-factor, downdraft, headwind shear, wind shear hazard, escape guidance, energy height loss, shear encounter |
+| flight-mechanics/performance/speed-stability | Speed stability | speed stability, back side of the thrust required curve, region of reversed command, minimum drag speed boundary, trim speed classification, slow flight stability margin |
+| flight-mechanics/stability-control/deep-stall-analysis | Deep stall analysis | deep stall, T-tail blanking, alpha lock, post-stall trim, tail blanking factor, separated flow pitch-up, pitch-down recovery authority |
+| flight-mechanics/handling-qualities/pitch-bandwidth-criteria | Pitch bandwidth criteria | pitch bandwidth criterion, phase delay tau, bandwidth frequency, phase margin 45 degrees, MIL-STD-1797A bandwidth, short period transfer function, actuator lag, flying qualities level |
 
 ## Routing guidance
 
@@ -116,3 +119,6 @@ To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Phugoid period, damping, and time to half amplitude questions route to the stability-control phugoid-mode-analysis sub-skill.
 - Point-mass climb trajectory and flight-path-angle history questions route to the flight-dynamics-sim point-mass-trajectory sub-skill.
+- Speed stability, the back side of the thrust-required curve, the region of reversed command, and slow-flight trim stability questions route to the performance speed-stability sub-skill.
+- Deep stall, T-tail blanking, alpha lock, and post-stall trim recovery questions route to the stability-control deep-stall-analysis sub-skill.
+- Pitch bandwidth and phase-delay flying qualities criterion questions route to the handling-qualities pitch-bandwidth-criteria sub-skill.

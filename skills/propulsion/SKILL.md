@@ -41,6 +41,7 @@ compressor stage and operating-map analysis.
 | propulsion/gas-turbine-cycle/regenerative-cycle | Regenerative cycle | regenerator effectiveness, regenerative cycle efficiency, optimum pressure ratio, efficiency gain |
 | propulsion/gas-turbine-cycle/real-cycle-effects | Real cycle effects | component efficiency, isentropic efficiency, pressure loss, actual exit temperatures, real SFC |
 | propulsion/gas-turbine-cycle/combustor-design | Combustor design | stoichiometric fuel-air-ratio, operating fuel-air-ratio, combustion efficiency, heat release, temperature rise, adiabatic flame temperature |
+| propulsion/gas-turbine-cycle/afterburner-cycle | Afterburner cycle | afterburner cycle, reheat fuel air ratio, thrust augmentation ratio, reheat temperature rise, dry versus reheat thrust, reheat specific fuel consumption, afterburner nozzle exit velocity |
 | propulsion/turbofan/turbofan-cycle | Turbofan cycle | bypass ratio, propulsive efficiency, specific thrust, fan/core mass flow |
 | propulsion/turbofan/bypass-ratio-trade | Bypass ratio trade | BPR vs TSFC, thrust split, specific thrust, fan pressure ratio |
 | propulsion/turbofan/turbofan-off-design | Turbofan off-design | corrected mass flow, corrected spool speed, altitude thrust, ram drag, cruise SFC, throttle setting |
@@ -50,6 +51,7 @@ compressor stage and operating-map analysis.
 | propulsion/axial-compressor/compressor-map | Compressor map | surge line and margin, operating line, speed lines, corrected flow and speed, choke |
 | propulsion/axial-compressor/multi-stage-compressor | Multi-stage compressor | overall pressure ratio, stage count, stage matching, reheat factor, annulus area, corrected speed |
 | propulsion/axial-compressor/turbine-stage | Turbine stage | stage loading, flow coefficient, reaction, blade row losses, total-to-total efficiency, velocity triangles |
+| propulsion/axial-compressor/turbine-blade-cooling | Turbine blade cooling | turbine blade cooling, cooling effectiveness, coolant flow fraction, film cooling, allowable metal temperature, coolant supply temperature, bleed limit, hot section cooling |
 | propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
 | propulsion/rocket/rocket-staging | Rocket staging | stage mass ratio allocation, payload fraction, structural index, stage count optimization, per-stage delta-v |
 | propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion |
@@ -127,3 +129,5 @@ your host's skills directory (see README Install for per-host commands).
 - Gridded ion thruster and ion-optics perveance questions route to the electric gridded-ion-thruster sub-skill.
 - Resistojet and arcjet operating-point and power-to-thrust questions route to the electric electrothermal-thruster sub-skill.
 - Liquid engine feed-cycle selection and pump-turbine power balance questions route to the rocket rocket-engine-cycle sub-skill.
+- Afterburner reheat fuel-air ratio, dry versus reheat thrust, and augmentation ratio questions route to the gas-turbine-cycle afterburner-cycle sub-skill.
+- Turbine blade cooling effectiveness, coolant flow fraction, and film-cooling metal temperature questions route to the axial-compressor turbine-blade-cooling sub-skill.
