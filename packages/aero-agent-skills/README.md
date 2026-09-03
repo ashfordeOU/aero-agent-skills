@@ -2,7 +2,7 @@
 
 **The aerospace knowledge layer for AI agents** — standards-mapped `SKILL.md` workflows with verification gates and human sign-off stops, shipped as an npm CLI and an MCP server. Built and maintained by [Ashforde OÜ](https://ashforde.org).
 
-Full library, figures, and provenance: [github.com/ashfordeOU/aero-agent-skills](https://github.com/ashfordeOU/aero-agent-skills) · [ashforde.org/aeroagentskills](https://ashforde.org/aeroagentskills)
+Full library, figures, and provenance: [github.com/ashfordeOU/aero-agent-skills](https://github.com/ashfordeOU/aero-agent-skills) · [ashforde.org/aeroagentskills](https://ashforde.org/aeroagentskills) · **JetBrains IDE plugin**: [Aero Agent Skills on the JetBrains Marketplace](https://plugins.jetbrains.com/plugin/34041-aero-agent-skills)
 
 Every skill follows the open [agentskills.io](https://agentskills.io) format and is gated by a replayable offline battery (spec lint, description lint, behavior contracts, no-verbatim sweep, Hit@1 router corpus). This package bundles the tree at the released commit; live counts come from `aero-skills list`, never from this README.
 
@@ -22,7 +22,7 @@ aero-skills install all --harness cursor
 
 ## MCP server
 
-Works in any Model Context Protocol host: JetBrains AI Assistant and Junie, Claude Desktop, Claude Code, VS Code, Cursor, Windsurf, Gemini CLI.
+Works in any Model Context Protocol host: [JetBrains AI Assistant and Junie](https://plugins.jetbrains.com/plugin/34041-aero-agent-skills) (via the IDE plugin or the MCP config below), Claude Desktop, Claude Code, VS Code, Cursor, Windsurf, Gemini CLI.
 
 ```json
 {
