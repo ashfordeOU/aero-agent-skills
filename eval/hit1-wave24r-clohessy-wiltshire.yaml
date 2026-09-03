@@ -1,0 +1,16 @@
+# Hit@1 wave-24R fragment: clohessy-wiltshire (space-systems)
+# Two tasks per new leaf skill. w24r-clohessy-wiltshire-1 routes on the
+# relative-motion state-transition-matrix propagation tokens
+# (clohessy-wiltshire, hill equations, deputy-chief, bounded relative
+# orbit, along-track drift); w24r-clohessy-wiltshire-2 routes on the
+# two-impulse targeting tokens (two-impulse targeting, delta-v budget,
+# half-orbit transfer, singular one-orbit case).
+tasks:
+  - id: w24r-clohessy-wiltshire-1
+    query: "propagate the deputy relative motion about the chief in its 500 km circular orbit with the Clohessy-Wiltshire state transition matrix: the deputy starts 1 km radial and 500 m cross-track away, check the bounded relative orbit condition, and report the trajectory after one orbit"
+    intent: "space-systems; CW relative-motion propagation with the state transition matrix and the bounded-orbit condition check"
+    expected_skill: "space-systems/orbit-mechanics/clohessy-wiltshire"
+  - id: w24r-clohessy-wiltshire-2
+    query: "size the two-impulse Clohessy-Wiltshire targeting maneuver to bring the deputy to the chief origin at the half-orbit transfer time and compute the total delta-v, flagging the singular one-orbit transfer case"
+    intent: "space-systems; two-impulse CW targeting delta-v budget and the singular one-orbit transfer rejection"
+    expected_skill: "space-systems/orbit-mechanics/clohessy-wiltshire"
