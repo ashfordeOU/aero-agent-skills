@@ -403,3 +403,4 @@ Total skills rated: 393
 | 395 | vehicle-design/sizing/canard-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 396 | gnc-autonomy/navigation/gnss-raim-fde | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
 | 397 | gnc-autonomy/estimation-filtering/rts-smoother | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 398 | gnc-autonomy/guidance/coverage-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
