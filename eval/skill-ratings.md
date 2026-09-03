@@ -390,3 +390,4 @@ Total skills rated: 379
 | 383 | vehicle-design/sizing/brake-energy-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 382 | cross-cutting/numerics/digital-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 384 | flight-test-operations/envelope/vmc-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 385 | manufacturing-quality/special-processes/welding-qualification | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
