@@ -959,6 +959,19 @@ def gen_flow(t):
 
 # --------------------------------------------------------------- README gen
 
+def block_statline(m):
+    """The hero statline image line. Its alt text quotes live numbers so
+    screen readers + the alt-text scanner never see stale counts (founder
+    caught statline alt stuck at 330/674 while badges said 341/696)."""
+    return (
+        '<p align="center">\n'
+        f'  <img src="docs/statline-dark.png" alt="{m["leaves"]} verified skills · '
+        f'{m["live_packs"]} live packs · {m["families"]} families · '
+        f'{m["standards"]} standards · {m["corpus_tasks"]} router tasks · '
+        f'8/8 gates green" width="100%">\n'
+        '</p>'
+    )
+
 def block_badges(m):
     def b(label, msg, color, href, alt=None):
         lab = label.replace("-", "--").replace(" ", "_")
@@ -1034,6 +1047,7 @@ def block_roadmap(m):
 
 
 BLOCKS = {
+    "statline": block_statline,
     "badges": block_badges,
     "overview": block_overview,
     "family-table": block_family_table,
