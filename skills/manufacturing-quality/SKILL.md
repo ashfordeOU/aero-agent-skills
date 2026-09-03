@@ -66,6 +66,8 @@ selection and ultrasonic inspection).
 | manufacturing-quality/composites/layup-cure | Layup Cure | composite layup, ply book, laminate, symmetric, balanced, cure cycle, autoclave, out-of-autoclave, OOA, degree of cure, epoxy, 350F, glass transition, Tg, C-scan, porosity. |
 | manufacturing-quality/as9103/key-characteristic-management | Key characteristic management | key characteristic, AS9103, variation management, KC identification, Cpk target, revalidation trigger |
 | manufacturing-quality/ndt/computed-tomography | Computed tomography (CT) | computed tomography, CT scan, voxel size, cone beam, CT number, porosity measurement, volumetric inspection, magnification, projection count, additive part porosity |
+| manufacturing-quality/ndt/shearography-inspection | Laser shearography inspection | laser shearography, shearography inspection, phase map, shear distance, strain gradient, vacuum load step, disbond detection, fringe anomaly, minimum detectable strain |
+| manufacturing-quality/ndt/leak-testing | Leak testing | leak testing, pressure decay, vacuum decay, helium mass spectrometer, sniffer test, bubble test, leak rate, helium to air conversion, gauge resolution, maximum allowable leak |
 
 ## Routing guidance
 
@@ -123,3 +125,5 @@ ernal provider and supplier questions (classification, controls,
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Key characteristic identification and variation management questions route to the as9103 key-characteristic-management sub-skill.
+- Laser shearography questions (setup sizing, phase to strain conversion, scan plan, disbond disposition) route to the ndt shearography-inspection sub-skill.
+- Leak testing questions (pressure decay, vacuum decay, helium mass spectrometer, bubble test, leak rate acceptance) route to the ndt leak-testing sub-skill.
