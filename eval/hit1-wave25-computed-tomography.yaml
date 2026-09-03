@@ -1,0 +1,17 @@
+# Hit@1 wave-25 fragment: computed-tomography (manufacturing-quality)
+# Two tasks per new leaf skill. w25-computed-tomography-1 routes on the
+# volumetric CT scan planning of an additive titanium bracket: voxel
+# size from the source and detector geometry, cone beam projection
+# count and build region porosity measurement; w25-computed-tomography-2
+# routes on the CT number conversion and the voxel resolution check
+# against the flaw requirement for the casting. Both must
+# deterministically hit manufacturing-quality/ndt/computed-tomography.
+tasks:
+  - id: w25-computed-tomography-1
+    query: "plan the computed tomography scan of the additive titanium bracket: compute the voxel size from the source and detector geometry and the projection count, then measure the porosity fraction in the build region"
+    intent: "manufacturing-quality; volumetric computed tomography scan planning for an additive part: voxel size from magnification geometry, cone beam projection count and build region porosity volume fraction measurement"
+    expected_skill: "manufacturing-quality/ndt/computed-tomography"
+  - id: w25-computed-tomography-2
+    query: "convert the CT attenuation values to CT numbers and check the voxel resolution against the 0.5 mm flaw requirement for the casting"
+    intent: "manufacturing-quality; CT number conversion from attenuation and voxel resolution verdict against the flaw requirement for the volumetric CT inspection of the casting"
+    expected_skill: "manufacturing-quality/ndt/computed-tomography"
