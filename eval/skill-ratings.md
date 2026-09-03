@@ -344,3 +344,4 @@ Total skills rated: 330
 | 336 | space-systems/orbit-mechanics/clohessy-wiltshire | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 337 | propulsion/rocket/rocket-engine-cycle | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 338 | aerodynamics/high-speed/shock-expansion-airfoil | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 339 | systems-engineering-safety/certification/means-of-compliance | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
