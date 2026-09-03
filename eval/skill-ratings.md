@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 365
+Total skills rated: 379
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -371,3 +371,17 @@ Total skills rated: 365
 | 363 | manufacturing-quality/ndt/leak-testing | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 364 | vehicle-design/mdo/surrogate-modeling | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 365 | manufacturing-quality/ndt/shearography-inspection | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 366 | aerodynamics/wing-design/winglet-design | PASS | ✓ | naca-tr-824, far-25 | aerodynamics | 9.5 | PASS |
+| 367 | flight-mechanics/stability-control/deep-stall-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 368 | flight-mechanics/performance/speed-stability | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 369 | flight-mechanics/handling-qualities/pitch-bandwidth-criteria | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
+| 370 | propulsion/axial-compressor/turbine-blade-cooling | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 371 | propulsion/gas-turbine-cycle/afterburner-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 372 | gnc-autonomy/navigation/gnss-pseudorange-positioning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 373 | gnc-autonomy/guidance/dubins-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 375 | space-systems/orbit-mechanics/gravity-assist-swingby | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 374 | structures/composites/adhesive-bonded-joints | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 376 | space-systems/orbit-mechanics/conjunction-assessment | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 377 | structures/loads/shock-response-spectrum | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 378 | avionics/flight-management/rnp-anp-containment | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 379 | avionics/flight-management/radio-navigation-aids | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
