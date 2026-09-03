@@ -58,7 +58,7 @@ desc = ("\U0001F680 The aerospace knowledge layer for AI agents — "
         f"{m['standards']} standards (ECSS · DO-178C · NASA) and "
         f"proven by a {m['corpus_tasks']}-task deterministic gate battery. "
         "AgentSkills.io format · Apache-2.0 · by Ashforde OÜ")
-print(json.dumps({"description": desc, "homepage": "https://ashforde.org"}))
+print(json.dumps({"description": desc, "homepage": "https://ashforde.org/aeroagentskills/"}))
 PY
 )
 
