@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 772,
+  "corpus_tasks": 800,
   "families": 12,
-  "leaves": 379,
-  "live_packs": 83,
+  "leaves": 393,
+  "live_packs": 84,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 31,
+      "leaves": 33,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -55,6 +55,7 @@
           "high-lift-systems"
         ],
         "high-speed": [
+          "hypersonic-flow",
           "normal-shock",
           "oblique-shock",
           "prandtl-meyer",
@@ -65,6 +66,7 @@
           "wave-drag-area-rule"
         ],
         "wind-tunnel": [
+          "wind-tunnel-model-design",
           "windtunnel-data-reduction",
           "windtunnel-wall-corrections"
         ],
@@ -74,11 +76,11 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 64
+      "tasks": 68
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 32,
+      "leaves": 33,
       "pack_names": [
         "data-bus",
         "do160",
@@ -129,6 +131,7 @@
           "performance-computation",
           "radio-navigation-aids",
           "rnp-anp-containment",
+          "rta-time-control",
           "vertical-navigation"
         ],
         "fsw": [
@@ -141,11 +144,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 67
+      "tasks": 69
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 31,
+      "leaves": 32,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -169,6 +172,7 @@
         ],
         "numerics": [
           "convergence-verification",
+          "digital-filter-design",
           "eigenvalue-decomposition",
           "fast-fourier-transform",
           "finite-difference-derivatives",
@@ -204,7 +208,7 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 62
+      "tasks": 64
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
@@ -263,7 +267,7 @@
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 31,
+      "leaves": 34,
       "pack_names": [
         "envelope",
         "flutter",
@@ -275,6 +279,7 @@
       "packs": 6,
       "packs_detail": {
         "envelope": [
+          "buffet-boundary-testing",
           "envelope-expansion",
           "flight-loads-survey",
           "high-angle-of-attack-testing",
@@ -283,7 +288,8 @@
           "spin-testing",
           "stall-characteristics-testing",
           "structural-coupling-test",
-          "v-speeds"
+          "v-speeds",
+          "vmc-determination"
         ],
         "flutter": [
           "flutter-testing",
@@ -293,6 +299,7 @@
         "performance": [
           "accelerate-stop-distance",
           "climb-performance-flight-test",
+          "cruise-performance-flight-test",
           "engine-flight-test",
           "glide-flight-test",
           "landing-distance-determination",
@@ -319,7 +326,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 62
+      "tasks": 68
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
@@ -384,17 +391,18 @@
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 31,
+      "leaves": 34,
       "pack_names": [
         "additive",
         "as9100",
         "as9102",
         "as9103",
+        "assembly",
         "composites",
         "ndt",
         "special-processes"
       ],
-      "packs": 7,
+      "packs": 8,
       "packs_detail": {
         "additive": [
           "additive-manufacturing-qualification",
@@ -405,6 +413,7 @@
           "corrective-action",
           "counterfeit-prevention",
           "document-control",
+          "fod-control",
           "measurement-systems-analysis",
           "nonconformance-control",
           "quality",
@@ -420,6 +429,9 @@
         ],
         "as9103": [
           "key-characteristic-management"
+        ],
+        "assembly": [
+          "fastener-installation-quality"
         ],
         "composites": [
           "layup-cure"
@@ -439,11 +451,12 @@
           "visual-inspection"
         ],
         "special-processes": [
-          "special-process-qualification"
+          "special-process-qualification",
+          "welding-qualification"
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 64
+      "tasks": 70
     },
     "propulsion": {
       "label": "PROPULSION",
@@ -520,7 +533,7 @@
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 32,
+      "leaves": 33,
       "pack_names": [
         "adcs",
         "ecss",
@@ -569,16 +582,17 @@
           "command-data-handling",
           "communication-link-budget",
           "power-thermal-budget",
+          "propellant-tank-sizing",
           "solar-array-sizing",
           "thermal-design"
         ]
       },
       "spine": "ECSS",
-      "tasks": 67
+      "tasks": 69
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 32,
+      "leaves": 34,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -594,6 +608,7 @@
           "adhesive-bonded-joints",
           "cmh17-allowables",
           "composite-bolted-joints",
+          "delamination-growth",
           "failure-criteria",
           "laminate-stiffness",
           "sandwich-panels"
@@ -613,6 +628,7 @@
           "stress-life-curve"
         ],
         "fem": [
+          "beam-frame-analysis",
           "buckling-analysis",
           "calculix-linear",
           "calculix-nonlinear",
@@ -638,7 +654,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 65
+      "tasks": 69
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -706,7 +722,7 @@
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 31,
+      "leaves": 32,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -741,6 +757,7 @@
         ],
         "sizing": [
           "battery-sizing",
+          "brake-energy-sizing",
           "control-surface-sizing",
           "engine-sizing",
           "fuel-tank-sizing",
@@ -762,9 +779,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 62
+      "tasks": 64
     }
   },
-  "skill_files": 391,
+  "skill_files": 405,
   "standards": 25
 }
