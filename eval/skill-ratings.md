@@ -342,3 +342,4 @@ Total skills rated: 330
 | 334 | propulsion/electric/electrothermal-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 335 | gnc-autonomy/space/orbit-determination | PASS | ✓ | ecss | gnc-autonomy | 9.5 | PASS |
 | 336 | space-systems/orbit-mechanics/clohessy-wiltshire | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 337 | propulsion/rocket/rocket-engine-cycle | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
