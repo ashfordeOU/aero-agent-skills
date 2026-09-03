@@ -351,3 +351,4 @@ Total skills rated: 341
 | 343 | cross-cutting/numerics/quaternion-algebra | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 344 | vehicle-design/sizing/ice-protection-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 345 | vehicle-design/sizing/spoiler-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 346 | manufacturing-quality/ndt/computed-tomography | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
