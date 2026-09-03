@@ -355,4 +355,5 @@ Total skills rated: 341
 | 348 | flight-test-operations/planning/position-error-calibration | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 347 | avionics/flight-management/lateral-navigation | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 349 | flight-mechanics/performance/windshear-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 351 | propulsion/rocket/hybrid-rocket-motor | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 350 | gnc-autonomy/control/control-allocation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
