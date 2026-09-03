@@ -395,3 +395,4 @@ Total skills rated: 379
 | 387 | structures/fem/beam-frame-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 388 | manufacturing-quality/as9100/fod-control | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 389 | aerodynamics/wind-tunnel/wind-tunnel-model-design | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 390 | manufacturing-quality/assembly/fastener-installation-quality | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
