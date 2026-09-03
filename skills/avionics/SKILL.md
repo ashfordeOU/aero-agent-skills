@@ -75,6 +75,8 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/fsw/fprime-component | F Prime component | F Prime, F-prime component framework, topology, rate group, command dispatch, port connection |
 | avionics/do160/radio-frequency-emissions | RF emissions (DO-160 sec 21) | radio frequency emissions, DO-160 section 21, conducted emissions, radiated emissions, CE102, RE102, emission limit, emission margin, dBuV, dBuV/m, EMC qualification |
 | avionics/flight-management/lateral-navigation | Lateral navigation (LNAV) | lateral navigation, LNAV, cross-track error, track angle error, great-circle track, turn anticipation, fly-by waypoint, fly-over waypoint, intercept heading, FMS lateral guidance |
+| avionics/flight-management/radio-navigation-aids | Radio navigation aids | VOR radial, DME slant range, ILS localizer deviation, glideslope deviation, radio navigation geometry, bearing to the navaid station, approach course offset |
+| avionics/flight-management/rnp-anp-containment | RNP/ANP containment | required navigation performance, actual navigation performance, RNP containment, ANP comparison, lateral position error sigma, 95 percent containment, performance based navigation |
 
 ## Routing guidance
 
@@ -124,3 +126,5 @@ est case count, coverage objectives per
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - F Prime component and topology questions route to the fsw fprime-component sub-skill.
+- VOR radial, DME slant range, ILS localizer and glideslope deviation geometry questions route to the flight-management radio-navigation-aids sub-skill.
+- RNP/ANP containment, actual navigation performance versus required navigation performance, and 95 percent lateral error checks route to the flight-management rnp-anp-containment sub-skill.
