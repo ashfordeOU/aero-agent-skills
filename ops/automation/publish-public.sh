@@ -169,6 +169,29 @@ LEAVES=$(python3 -c "import json; print(json.load(open('$EXPORT/docs/metrics.jso
 PACKS=$(python3 -c "import json; print(json.load(open('$EXPORT/docs/metrics.json'))['live_packs'])")
 FAMILIES=$(python3 -c "import json; print(json.load(open('$EXPORT/docs/metrics.json'))['families'])")
 
+# --- 5b. LEAF-COUNT REGRESSION GUARD (founder 2026-09-03: "it got pushed
+# back to 330 somehow... make sure these issues dont happen again").
+# A stale export (old dev state, wrong checkout, cached tree) carries FEWER
+# leaves than the live public repo. Publishing it would DELETE skills on the
+# public side — this guard refuses: the export must have >= the public HEAD's
+# leaf count. Leaf count = leaf-level SKILL.md files (not router files).
+pub_leaf_count() {
+  git -C "$MIRROR" ls-tree -r --name-only HEAD -- skills/ 2>/dev/null \
+    | grep -cE 'skills/[^/]+/[^/]+/[^/]+/SKILL\.md$' || true
+}
+CURRENT_PUB_LEAVES=$(pub_leaf_count)
+# The export's fresh working tree is already copied into $MIRROR (step 5);
+# count leaves from the FILESYSTEM (export content), not mirror HEAD (which
+# is still the OLD public commit at this point).
+EXPORT_LEAVES=$(find "$MIRROR/skills" -mindepth 4 -maxdepth 4 -name SKILL.md 2>/dev/null | wc -l | tr -d ' ')
+if [ -n "$CURRENT_PUB_LEAVES" ] && [ "$CURRENT_PUB_LEAVES" -gt 0 ] \
+   && [ "$EXPORT_LEAVES" -lt "$CURRENT_PUB_LEAVES" ]; then
+  log "FAIL: export has FEWER leaves ($EXPORT_LEAVES) than current public HEAD ($CURRENT_PUB_LEAVES)."
+  log "Refusing to publish a stale/regressing export — nothing pushed. Check the dev tree HEAD and 'make visuals' state."
+  exit 1
+fi
+log "leaf-count guard: export $EXPORT_LEAVES >= public $CURRENT_PUB_LEAVES (no regression)."
+
 git -C "$MIRROR" add -A
 # Descriptive commit message from the actual diff (founder 2026-09-03):
 # name the new leaves + families, not just a generic count.
