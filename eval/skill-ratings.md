@@ -352,3 +352,5 @@ Total skills rated: 341
 | 344 | vehicle-design/sizing/ice-protection-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 345 | vehicle-design/sizing/spoiler-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 346 | manufacturing-quality/ndt/computed-tomography | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 348 | flight-test-operations/planning/position-error-calibration | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 347 | avionics/flight-management/lateral-navigation | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
