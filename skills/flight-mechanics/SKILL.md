@@ -67,6 +67,8 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/speed-stability | Speed stability | speed stability, back side of the thrust required curve, region of reversed command, minimum drag speed boundary, trim speed classification, slow flight stability margin |
 | flight-mechanics/stability-control/deep-stall-analysis | Deep stall analysis | deep stall, T-tail blanking, alpha lock, post-stall trim, tail blanking factor, separated flow pitch-up, pitch-down recovery authority |
 | flight-mechanics/handling-qualities/pitch-bandwidth-criteria | Pitch bandwidth criteria | pitch bandwidth criterion, phase delay tau, bandwidth frequency, phase margin 45 degrees, MIL-STD-1797A bandwidth, short period transfer function, actuator lag, flying qualities level |
+| flight-mechanics/performance/rotorcraft-hover-performance | Rotorcraft hover performance | rotorcraft hover, momentum theory, induced velocity, figure of merit, profile power, disk loading, rotor solidity, hover power |
+| flight-mechanics/performance/rotorcraft-forward-flight-performance | Rotorcraft forward flight performance | rotorcraft forward flight, Glauert inflow, induced power, parasite power, equivalent flat plate area, best endurance speed, best range speed |
 
 ## Routing guidance
 
@@ -113,6 +115,9 @@ to the
 - Stability-derivative estimation from wing and tail geometry, lift curve slope with sweep and Mach corrections, and geometry-to-neutral-point questions route to the stability-control stability-derivatives-avl sub-skill.
 - Short-period natural frequency and damping from stability derivatives, dimensionless derivative conversion, and Level 1 flying qualities checks route to the stability-control short-period-mode-analysis sub-skill.
 - Windshear and microburst F-factor hazard, downdraft out-climb, energy height loss, and recovery thrust questions route to the performance windshear-analysis sub-skill.
+- Rotorcraft hover performance questions (rotorcraft hover, momentum theory induced velocity, figure of merit, profile power, disk loading, rotor solidity) route to the performance rotorcraft-hover-performance sub-skill.
+- Rotorcraft forward flight questions (Glauert inflow, induced power, parasite power, equivalent flat plate area, best endurance speed, best range speed) route to the performance rotorcraft-forward-flight-performance sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

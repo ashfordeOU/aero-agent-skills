@@ -200,6 +200,11 @@
 # leaves). Wave-29 new leaves: "vehicle-design/sizing/canard-sizing", "propulsion/rocket/cold-gas-thruster", "gnc-autonomy/guidance/coverage-path-planning", "cross-cutting/numerics/cross-correlation-analysis", "gnc-autonomy/navigation/gnss-raim-fde", "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis", "space-systems/orbit-mechanics/plane-change-maneuver", "propulsion/turbomachinery/rocket-turbopump", "gnc-autonomy/estimation-filtering/rts-smoother", "space-systems/subsystems/spacecraft-battery-sizing", "avionics/surveillance/tcas-resolution-advisory".
 # Corpus: 822 tasks (800 prior plus 22 domain tasks). Owner: Ops
 # Manager, Wave 29 build.
+# P5.2 / Wave 30 (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 416 verified skills (428 SKILL.md under gate 1: 12 routers + 416
+# leaves). Wave-30 new leaves: "gnc-autonomy/control/adaptive-control", "avionics/surveillance/ads-b-surveillance", "aerodynamics/high-speed/aerodynamic-heating", "aerodynamics/boundary-layer/boundary-layer-transition", "structures/composites/composite-repair", "cross-cutting/numerics/descriptive-statistics", "manufacturing-quality/assembly/ewis-installation-quality", "structures/loads/landing-ground-loads", "flight-mechanics/performance/rotorcraft-forward-flight-performance", "flight-mechanics/performance/rotorcraft-hover-performance", "structures/thermal-structures/thermal-buckling", "space-systems/orbit-mechanics/three-body-libration".
+# Corpus: 846 tasks (822 prior plus 24 domain tasks). Owner: Ops
+# Manager, Wave 30 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -3801,6 +3806,102 @@ tasks:
     query: "which TCAS sensitivity level applies at 30000 ft and does a 5 nmi closing intruder trigger a resolution advisory under the DMOD and tau thresholds?"
     intent: "avionics; TCAS sensitivity level selection from the own altitude band and the DMOD and tau threshold threat check for a closing intruder"
     expected_skill: "avionics/surveillance/tcas-resolution-advisory"
+  - id: w30-adaptive-control-1
+    query: "Design a model-reference adaptive-control (mrac) law for a first order plant with unknown coefficient and check the tracking-error convergence"
+    intent: "gnc-autonomy; model-reference adaptive control"
+    expected_skill: "gnc-autonomy/control/adaptive-control"
+  - id: w30-adaptive-control-2
+    query: "Simulate the adaptation-law gain update for an unstable first order plant and report the final adaptive gains"
+    intent: "gnc-autonomy; model-reference adaptive control"
+    expected_skill: "gnc-autonomy/control/adaptive-control"
+  - id: w30-ads-b-surveillance-1
+    query: "Check an ADS-B Out equipage: what containment-radius does NIC 8 give and which NIC covers a 100 m required containment radius"
+    intent: "avionics; ADS-B surveillance category and coverage assessment"
+    expected_skill: "avionics/surveillance/ads-b-surveillance"
+  - id: w30-ads-b-surveillance-2
+    query: "Estimate 1090 extended-squitter ADS-B In range between 10000 ft and 30000 ft and look up NACp accuracy for category 9"
+    intent: "avionics; ADS-B surveillance category and coverage assessment"
+    expected_skill: "avionics/surveillance/ads-b-surveillance"
+  - id: w30-aerodynamic-heating-1
+    query: "Estimate stagnation-point-heating on a reentry body with the sutton-graves correlation at rho 0.001 kg/m3 and 7200 m/s with a 0.5 m nose-radius"
+    intent: "aerodynamics; hypersonic stagnation heating correlation"
+    expected_skill: "aerodynamics/high-speed/aerodynamic-heating"
+  - id: w30-aerodynamic-heating-2
+    query: "Compute the radiation-equilibrium-temperature of a TPS surface for an aerodynamic-heating heat flux of 3 MW/m2 at emissivity 0.85"
+    intent: "aerodynamics; hypersonic stagnation heating correlation"
+    expected_skill: "aerodynamics/high-speed/aerodynamic-heating"
+  - id: w30-boundary-layer-transition-1
+    query: "Predict the boundary-layer-transition location on an airfoil from an edge velocity distribution with the thwaites-integral and the michel-criterion"
+    intent: "aerodynamics; laminar-turbulent transition location by Thwaites plus Michel"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-transition"
+  - id: w30-boundary-layer-transition-2
+    query: "Estimate natural-transition on a flat plate: where does the laminar boundary layer become turbulent at Ue 30 m/s and nu 1.46e-5"
+    intent: "aerodynamics; laminar-turbulent transition location by Thwaites plus Michel"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-transition"
+  - id: w30-composite-repair-1
+    query: "Size a scarf-repair for a 3 mm composite laminate at 300 MPa parent stress: scarf-length at 3 degrees and adhesive-shear stress"
+    intent: "structures; bonded scarf composite repair sizing"
+    expected_skill: "structures/composites/composite-repair"
+  - id: w30-composite-repair-2
+    query: "Select a stiffness-matched-patch thickness for an external bonded composite-repair when the patch modulus is 70 GPa and the parent is 70 GPa"
+    intent: "structures; bonded scarf composite repair sizing"
+    expected_skill: "structures/composites/composite-repair"
+  - id: w30-descriptive-statistics-1
+    query: "Run descriptive-statistics on a set of measured samples: give the five-number-summary, interquartile-range, and sample standard deviation"
+    intent: "cross-cutting; sample summary statistics and outlier flagging"
+    expected_skill: "cross-cutting/numerics/descriptive-statistics"
+  - id: w30-descriptive-statistics-2
+    query: "Flag outliers in a data set with the 1.5 interquartile-range rule and report the coefficient-of-variation"
+    intent: "cross-cutting; sample summary statistics and outlier flagging"
+    expected_skill: "cross-cutting/numerics/descriptive-statistics"
+  - id: w30-ewis-installation-quality-1
+    query: "Verify an ewis-installation wiring-harness: bundle-fill-ratio of 12 x 2 mm conductors in a 12 mm conduit and the bend-radius-check at 8 mm"
+    intent: "manufacturing-quality; EWIS installation acceptance checks"
+    expected_skill: "manufacturing-quality/assembly/ewis-installation-quality"
+  - id: w30-ewis-installation-quality-2
+    query: "Check the voltage-drop-check of a 28 VDC EWIS run at 15 m and the separation-clearance from a hydraulic line"
+    intent: "manufacturing-quality; EWIS installation acceptance checks"
+    expected_skill: "manufacturing-quality/assembly/ewis-installation-quality"
+  - id: w30-landing-ground-loads-1
+    query: "Compute landing-ground-loads gear reactions for a 60000 kg transport: level-landing at limit load factor 2.5 with CG 8 m aft of the nose gear"
+    intent: "structures; landing and ground handling reaction loads"
+    expected_skill: "structures/loads/landing-ground-loads"
+  - id: w30-landing-ground-loads-2
+    query: "Check the tail-down-condition and one-wheel-load reactions and the braked-roll deceleration of the main gear"
+    intent: "structures; landing and ground handling reaction loads"
+    expected_skill: "structures/loads/landing-ground-loads"
+  - id: w30-rotorcraft-forward-flight-performance-1
+    query: "Estimate the power required for helicopter forward flight at 60 m/s with a glauert-inflow induced power model and an equivalent-flat-plate-area parasite drag of 2.2 m2"
+    intent: "flight-mechanics; rotorcraft forward-flight power analysis"
+    expected_skill: "flight-mechanics/performance/rotorcraft-forward-flight-performance"
+  - id: w30-rotorcraft-forward-flight-performance-2
+    query: "Find the best-endurance-speed and best-range-speed for a rotorcraft power sweep with parasite-power and rotor profile drag"
+    intent: "flight-mechanics; rotorcraft forward-flight power analysis"
+    expected_skill: "flight-mechanics/performance/rotorcraft-forward-flight-performance"
+  - id: w30-rotorcraft-hover-performance-1
+    query: "compute the rotorcraft hover performance of a helicopter rotor with momentum theory: the induced velocity through the rotor disk, the ideal hover power and the figure of merit at a density altitude"
+    intent: "flight-mechanics; rotorcraft hover momentum-theory power analysis"
+    expected_skill: "flight-mechanics/performance/rotorcraft-hover-performance"
+  - id: w30-rotorcraft-hover-performance-2
+    query: "estimate the helicopter hover power required at sea level from the rotor solidity: separate the profile power from the induced power and check the disk loading"
+    intent: "flight-mechanics; rotorcraft hover momentum-theory power analysis"
+    expected_skill: "flight-mechanics/performance/rotorcraft-hover-performance"
+  - id: w30-thermal-buckling-1
+    query: "Find the critical-temperature-rise that thermally buckles a restrained 1.6 mm aluminum skin panel 150 mm wide with k 4.0"
+    intent: "structures; buckling from restrained thermal expansion"
+    expected_skill: "structures/thermal-structures/thermal-buckling"
+  - id: w30-thermal-buckling-2
+    query: "Check the thermal-buckling margin of a hot structure panel at a 30 K restrained temperature rise with uniaxial restraint"
+    intent: "structures; buckling from restrained thermal expansion"
+    expected_skill: "structures/thermal-structures/thermal-buckling"
+  - id: w30-three-body-libration-1
+    query: "Locate the libration-points of the earth-moon cr3bp: L1, L2, L3 by force balance and L4, L5 by the equilateral construction"
+    intent: "space-systems; CR3BP libration point and Jacobi analysis"
+    expected_skill: "space-systems/orbit-mechanics/three-body-libration"
+  - id: w30-three-body-libration-2
+    query: "Compute the jacobi-constant for a spacecraft state in the three-body-libration problem and the physical L1 distance from Earth"
+    intent: "space-systems; CR3BP libration point and Jacobi analysis"
+    expected_skill: "space-systems/orbit-mechanics/three-body-libration"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

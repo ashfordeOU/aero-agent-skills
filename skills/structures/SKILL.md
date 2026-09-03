@@ -71,6 +71,9 @@ material selection.
 | structures/materials/creep-rupture | Creep rupture | creep, creep rate, Norton law, Larson-Miller, rupture life, stress rupture, Monkman-Grant, accumulated creep strain, time to 1 percent creep, elevated temperature |
 | structures/fem/beam-frame-analysis | Beam frame analysis | beam frame analysis, rigid jointed frame, Euler Bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame |
 | structures/composites/delamination-growth | Delamination growth | delamination growth, strain energy release rate, DCB double cantilever beam, ENF end notched flexure, mixed mode fracture, Benzeggagh Kenane criterion |
+| structures/composites/composite-repair | Composite repair | composite repair, scarf repair, scarf length, adhesive shear stress, required scarf angle, stiffness matched patch |
+| structures/thermal-structures/thermal-buckling | Thermal buckling | thermal buckling, critical temperature rise, restrained thermal expansion, buckling margin, hot structure panel |
+| structures/loads/landing-ground-loads | Landing ground loads | landing ground loads, ground reactions, level landing, tail down condition, one wheel load, braked roll |
 
 ## Routing guidance
 
@@ -137,6 +140,10 @@ ance) route
 - Creep rate, Norton law, Larson-Miller and Monkman-Grant rupture life, and accumulated creep strain questions route to the materials creep-rupture sub-skill.
 - Beam frame analysis questions (beam frame analysis, rigid jointed frame, euler bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame) route to the beam-frame-analysis sub-skill.
 - Delamination growth questions (delamination growth, strain energy release rate, dcb double cantilever beam, enf end notched flexure, mixed mode fracture, benzeggagh kenane criterion) route to the delamination-growth sub-skill.
+- Bonded scarf composite repair questions (scarf repair, scarf length, adhesive shear stress, required scarf angle, stiffness matched patch) route to the composites composite-repair sub-skill.
+- Thermal buckling questions (critical temperature rise, restrained thermal expansion, hot structure buckling margin) route to the thermal-structures thermal-buckling sub-skill.
+- Landing and ground-handling reaction questions (level landing, tail down condition, one wheel load, braked roll deceleration) route to the loads landing-ground-loads sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

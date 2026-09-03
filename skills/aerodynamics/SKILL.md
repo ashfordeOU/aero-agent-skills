@@ -67,6 +67,8 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/shock-expansion-airfoil | Shock-expansion airfoil | shock expansion, supersonic airfoil, diamond airfoil, double wedge, surface pressure integration, wave drag coefficient |
 | aerodynamics/high-speed/hypersonic-flow | Hypersonic flow | hypersonic flow, modified Newtonian theory, Newtonian impact pressure, stagnation pressure coefficient, blunt body drag, cone axial force |
 | aerodynamics/wind-tunnel/wind-tunnel-model-design | Wind tunnel model design | wind tunnel model design, model scale selection, blockage ratio, Reynolds mismatch, force balance rating, sting sizing |
+| aerodynamics/high-speed/aerodynamic-heating | Aerodynamic heating | aerodynamic heating, stagnation point heating, Sutton-Graves, radiation equilibrium temperature, nose radius, hypersonic heat flux |
+| aerodynamics/boundary-layer/boundary-layer-transition | Boundary layer transition | boundary layer transition, transition location, Thwaites integral, Michel criterion, natural transition, momentum thickness Reynolds number |
 
 ## Routing guidance
 
@@ -108,6 +110,9 @@ objective studies route to
 - Classical wing flutter of the two-DOF typical section, the V-g method, structural damping crossing, frequency coalescence, and flutter margin questions route to the aeroelasticity flutter-speed-prediction sub-skill.
 - Hypersonic flow questions (hypersonic flow, modified newtonian theory, newtonian impact pressure, stagnation pressure coefficient, blunt body drag, cone axial force) route to the hypersonic-flow sub-skill.
 - Wind tunnel model design questions (wind tunnel model design, model scale selection, blockage ratio, reynolds mismatch, force balance rating, sting sizing) route to the wind-tunnel-model-design sub-skill.
+- Hypersonic stagnation heating questions (aerodynamic heating, Sutton-Graves heat flux, radiation equilibrium temperature, nose radius bluntness) route to the high-speed aerodynamic-heating sub-skill.
+- Laminar-turbulent transition location questions (transition location, Thwaites integral, Michel criterion, natural transition) route to the boundary-layer boundary-layer-transition sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
