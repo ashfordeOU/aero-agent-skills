@@ -1,0 +1,16 @@
+# Hit@1 wave-28 fragment: beam-frame-analysis (structures)
+# Two tasks per new leaf skill. w28-beam-frame-analysis-1 routes on the
+# rigid jointed portal frame solved with beam elements: bending and axial
+# element stiffness assembly, fixed supports, nodal rotations and support
+# reactions. w28-beam-frame-analysis-2 routes on the deflected shape of the
+# cantilever and the simply supported beam with the Euler Bernoulli beam
+# element and member end bending moment recovery.
+tasks:
+  - id: w28-beam-frame-analysis-1
+    query: "solve the rigid jointed portal frame with beam elements: assemble the bending and axial element stiffness, apply the fixed supports, and recover the nodal rotations and support reactions"
+    intent: "structures; rigid jointed portal frame solved with beam elements covering bending and axial element stiffness assembly, fixed supports, nodal rotations and support reactions"
+    expected_skill: "structures/fem/beam-frame-analysis"
+  - id: w28-beam-frame-analysis-2
+    query: "compute the deflected shape of the cantilever and the simply supported beam with the Euler Bernoulli beam element and recover the member end bending moments"
+    intent: "structures; deflected shape of the cantilever and the simply supported beam with the Euler Bernoulli beam element and member end bending moment recovery"
+    expected_skill: "structures/fem/beam-frame-analysis"
