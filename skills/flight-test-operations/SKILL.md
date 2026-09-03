@@ -68,6 +68,9 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/planning/position-error-calibration | Position error calibration | position error calibration, PEC, airspeed calibration, calibrated airspeed, tower fly-by, trailing cone, GPS ground speed doublet, position error correction curve |
 | flight-test-operations/envelope/icing-flight-test | Icing flight test | icing flight test, natural icing, artificial ice shape, appendix C envelope, liquid water content, median volumetric diameter, icing encounter severity, ice protection effectiveness test |
 | flight-test-operations/planning/noise-certification-test | Noise certification test | noise certification flight test, EPNL, effective perceived noise level, PNLT, tone corrected, 10 dB down, flyover noise, sideline noise, approach noise, cumulative margin |
+| flight-test-operations/envelope/vmc-determination | Vmc determination | minimum control speed, Vmc, critical engine, asymmetric yawing moment, rudder pedal force, engine inoperative demonstration |
+| flight-test-operations/envelope/buffet-boundary-testing | Buffet boundary testing | buffet boundary, buffet onset, accelerometer RMS rise, high speed buffet, maneuver buffet, buffet margin |
+| flight-test-operations/performance/cruise-performance-flight-test | Cruise performance flight test | cruise performance flight test, fuel flow versus Mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed |
 
 ## Routing guidance
 
@@ -116,6 +119,9 @@ actor-envelope.
 - High angle of attack flight test planning, AoA position error calibration, stall warning margin, and departure resistance assessment route to the envelope high-angle-of-attack-testing sub-skill.
 - Spin flight testing, spin entry and recovery procedure, recovery parachute requirements, spin test point matrix, and spin-resistance criteria route to the envelope spin-testing sub-skill.
 - Airspeed position error calibration, tower fly-by and trailing cone runs, GPS ground speed doublet, PEC curve, and calibrated airspeed questions route to the planning position-error-calibration sub-skill.
+- Vmc determination questions (minimum control speed, vmc, critical engine, asymmetric yawing moment, rudder pedal force, engine inoperative demonstration) route to the vmc-determination sub-skill.
+- Buffet boundary testing questions (buffet boundary, buffet onset, accelerometer rms rise, high speed buffet, maneuver buffet, buffet margin) route to the buffet-boundary-testing sub-skill.
+- Cruise performance flight test questions (cruise performance flight test, fuel flow versus mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed) route to the cruise-performance-flight-test sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

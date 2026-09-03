@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 379,
-  "live_packs": 83,
+  "leaves": 393,
+  "live_packs": 84,
   "families": 12,
-  "corpus_tasks": 772
+  "corpus_tasks": 800
  },
  "skills": [
   {
@@ -372,6 +372,24 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/high-speed/hypersonic-flow",
+   "name": "hypersonic-flow",
+   "description": "Use when you must estimate aerodynamic forces on a body in hypersonic flow with modified Newtonian impact theory: stagnation pressure behind the normal shock (Rayleigh pitot relation), the finite-Mach stagnation pressure coefficient, local pressure by the Newtonian sine-squared law, the hypersonic vacuum limit on shadowed surfaces, and integrals over a sphere, cone and flat plate giving sphere drag, cone axial force, and flat plate lift, drag and lift-to-drag ratio. Produces the stagnation Cp and body force coefficients. Trigger: hypersonic flow, modified Newtonian theory, Newtonian impact pressure, stagnation pressure coefficient, blunt body drag, sphere drag coefficient, cone axial force, hypersonic vacuum limit.",
+   "tags": [
+    "hypersonic-flow",
+    "modified-newtonian-theory",
+    "newtonian-impact-pressure",
+    "stagnation-pressure-coefficient",
+    "blunt-body-drag",
+    "sphere-drag-coefficient",
+    "cone-axial-force",
+    "hypersonic-vacuum-limit"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/high-speed/normal-shock",
    "name": "normal-shock",
    "description": "Use when you must compute normal shock relations for compressible flow: find the downstream Mach number, static pressure, density, and temperature ratios across the shock, and the stagnation pressure loss from the upstream Mach number. Produces the five shock ratios that gate inlet and high-speed aerodynamic analysis of a supersonic flow. Trigger: normal shock, oblique shock, mach number, compressible flow, pressure ratio, stagnation pressure, supersonic inlet, shock relations.",
@@ -501,6 +519,23 @@
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/wind-tunnel/wind-tunnel-model-design",
+   "name": "wind-tunnel-model-design",
+   "description": "Use when you must design the wind tunnel model and the test setup for a wind tunnel campaign on an aircraft configuration: select the model scale as the smaller of the test section blockage limit and the span clearance, compute the model wing area, span and mean aerodynamic chord from the scale, check the model Reynolds number at the maximum tunnel speed against the full scale flight Reynolds number and report the Reynolds mismatch, estimate the maximum dynamic pressure and the model load at the maximum test lift coefficient, rate the force balance capacity against that load, and size the model support sting for the bending moment. Produces the chosen scale, model reference dimensions, blockage ratio, Reynolds ratio, balance verdict and sting diameter that gate the model build. Trigger: wind tunnel model design, model scale selection, blockage ratio, reynolds mismatch, force balance rating, sting sizing, test section.",
+   "tags": [
+    "wind-tunnel-model-design",
+    "model-scale-selection",
+    "blockage-ratio",
+    "reynolds-mismatch",
+    "force-balance-rating",
+    "sting-sizing",
+    "test-section"
+   ],
+   "family": "aerodynamics",
+   "pack": "wind-tunnel",
    "router_doc": false
   },
   {
@@ -1090,6 +1125,24 @@
    "router_doc": false
   },
   {
+   "path": "avionics/flight-management/rta-time-control",
+   "name": "rta-time-control",
+   "description": "Use when you must compute the required time of arrival (RTA) function of a flight management system: estimate the arrival time at a downstream waypoint from the remaining distance and ground speed, derive the speed adjustment needed to satisfy the RTA time constraint, check the constraint against the achievable arrival window set by the minimum and maximum cruise Mach bounds, and return the Mach command, the predicted time error and the feasibility verdict for the FMS time control. Produces the ETA, time error, required ground speed and Mach command, achievable window and remaining time error. Trigger: required time of arrival, RTA time constraint, speed adjustment, arrival window, time error, 4D trajectory, FMS time control, Mach command.",
+   "tags": [
+    "rta-time-control",
+    "required-time-of-arrival",
+    "rta-time-constraint",
+    "speed-adjustment",
+    "arrival-window",
+    "time-error",
+    "4d-trajectory",
+    "fms-time-control"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
    "path": "avionics/flight-management/vertical-navigation",
    "name": "vertical-navigation",
    "description": "Use when you must compute the vertical navigation (VNAV) descent path for a flight management system: determine the top of descent distance from cruise altitude to an arrival constraint, compute the descent gradient and flight path angle, and check the resulting altitude against waypoint altitude constraints. Produces the top of descent distance, the descent gradient in feet per nautical mile, the flight path angle in degrees, and the constraint verdict for the descent path. Trigger: vertical navigation, vnav, top of descent, descent gradient, flight path angle, altitude constraints, fms.",
@@ -1293,6 +1346,23 @@
     "richardson",
     "extrapolation",
     "oscillatory"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/digital-filter-design",
+   "name": "digital-filter-design",
+   "description": "Use when you must compute the coefficients of a digital Butterworth IIR lowpass or highpass frequency-selective filter from a cutoff frequency, sample rate, and order: prewarp the analog cutoff, map the normalized Butterworth poles through the bilinear transform, build the b and a coefficients with unity DC or Nyquist gain, evaluate the magnitude response in dB at any frequency, and apply the filter to a sampled signal with the direct-form difference equation. Produces the coefficient vectors, the 3 dB point check at the cutoff, passband and attenuation band gains, the filtered signal, and a design verdict from the Schur-Jury stability table. Trigger: digital filter design, Butterworth, bilinear transform, IIR lowpass, highpass filter, cutoff frequency, prewarping, filter coefficients, 3 dB point.",
+   "tags": [
+    "digital-filter-design",
+    "butterworth-filter",
+    "bilinear-transform",
+    "iir-lowpass",
+    "highpass-filter",
+    "cutoff-frequency",
+    "filter-coefficients"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -2396,6 +2466,25 @@
    "router_doc": true
   },
   {
+   "path": "flight-test-operations/envelope/buffet-boundary-testing",
+   "name": "buffet-boundary-testing",
+   "description": "Use when you must plan and analyze the buffet boundary flight test for a transport airplane: schedule pull-up and steady-turn test points across a Mach sweep at constant altitude, detect buffet onset from the vertical accelerometer RMS rise above the 0.02 g threshold, convert the onset load factor to the boundary lift coefficient at each Mach, fit the buffet boundary line over the tested Mach band, and compute the buffet margin at the cruise Mach against the maneuver buffet target load factor. Produces the onset load factor and boundary lift coefficient per Mach, the fitted boundary line, the buffet margin, and the pass or fail verdict gating the high speed buffet clearance assessment. Trigger: buffet boundary flight test, buffet onset, high speed buffet, maneuver buffet, accelerometer RMS rise, pull-up sweep, buffet margin, boundary lift coefficient.",
+   "tags": [
+    "buffet-boundary-testing",
+    "buffet-boundary-flight-test",
+    "buffet-onset",
+    "high-speed-buffet",
+    "maneuver-buffet",
+    "accelerometer-rms-rise",
+    "pull-up-sweep",
+    "buffet-margin",
+    "boundary-lift-coefficient"
+   ],
+   "family": "flight-test-operations",
+   "pack": "envelope",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/envelope/envelope-expansion",
    "name": "envelope-expansion",
    "description": "Use when you must plan flight test envelope expansion: compute the corner speed (maneuvering speed VA) from the stall speed and the limit load factor, classify airspeeds into the flight test speed categories, and size the expansion steps against the load factor envelope. Produces the corner speed, the airspeed classification per test point, the per-step speed increment, and the load factor limit verdict that gate the expansion program. Trigger: envelope expansion, corner speed, airspeed classification, load factor, flight test, expansion step, maneuver envelope.",
@@ -2567,6 +2656,24 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/envelope/vmc-determination",
+   "name": "vmc-determination",
+   "description": "Use when you must predict and check the minimum control speed Vmc of a multi-engine airplane for the engine-inoperative flight test: identify the critical engine from the engine-out yawing moment geometry, build the asymmetric yawing moment from the operating-engine thrust at the failed engine lateral arm plus the windmilling drag contribution, solve the rudder authority limited speed, apply the rudder pedal force criterion with the boost factor against the 150 lbf pedal limit, and apply the stall protection guard on the reference stall speed. Produces the predicted Vmc in m/s and knots, the governing limit label, the asymmetric moment model, and the flight test go verdict. Trigger: minimum control speed, Vmc determination, critical engine, rudder pedal force, asymmetric yawing moment, engine inoperative flight test, 150 lbf pedal limit.",
+   "tags": [
+    "vmc-determination",
+    "minimum-control-speed",
+    "critical-engine",
+    "rudder-pedal-force",
+    "asymmetric-yawing-moment",
+    "engine-inoperative-flight-test",
+    "rudder-authority",
+    "windmilling-drag"
+   ],
+   "family": "flight-test-operations",
+   "pack": "envelope",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/flutter/flutter-testing",
    "name": "flutter-testing",
    "description": "Use when you must assess flutter clearance for a flight test: compute the required flutter speed V_F_required as 1.2 times the design dive speed V_D, extrapolate the measured flutter speed from the damping versus test speed trend with a linear least squares fit and its zero crossing, check the frequency separation between structural modes against the 10 percent minimum, and judge the flutter margin ratio and the damping margin at the maximum test speed. Produces the required flutter speed, the extrapolated flutter speed, the frequency separation verdict, and the FAR 25.629 clearance verdict that gate the flutter test assessment. Trigger: flutter margin, damping trend extrapolation, flutter testing, frequency coalescence, frequency separation, design dive speed factor.",
@@ -2664,6 +2771,23 @@
     "time-to-climb",
     "steady-climb",
     "ceiling-determination"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-test-operations/performance/cruise-performance-flight-test",
+   "name": "cruise-performance-flight-test",
+   "description": "Use when you must plan and reduce a cruise performance flight test: schedule level cruise points across a Mach sweep at constant altitude with stabilized fuel flow runs, correct measured fuel flow from the test weight to the reference weight with the square-root weight correction, convert corrected fuel flow and true airspeed into range performance, fit a quadratic range performance curve versus Mach, and read off the maximum range cruise Mach at the vertex and the long range cruise speed at the 99 percent point. Produces the corrected fuel flow table, the fitted curve, the maximum range cruise Mach, the long range cruise Mach, and verdicts gating the cruise fuel economy flight test assessment. Trigger: cruise performance flight test, fuel flow versus Mach, Mach sweep at altitude, maximum range cruise speed, long range cruise speed.",
+   "tags": [
+    "cruise-performance-flight-test",
+    "fuel-flow-versus-mach",
+    "stabilized-fuel-flow-runs",
+    "mach-sweep-at-altitude",
+    "weight-corrected-fuel-flow",
+    "maximum-range-cruise-speed",
+    "long-range-cruise-speed"
    ],
    "family": "flight-test-operations",
    "pack": "performance",
@@ -3790,6 +3914,24 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/as9100/fod-control",
+   "name": "fod-control",
+   "description": "Use when you must audit a foreign object debris (FOD) prevention program for aerospace production: classify the FOD zone from the part criticality and debris exposure, compute the FOD risk score, derive the FOD sweep interval and the tool-control and housekeeping controls for the zone, reconcile the issued tool count against the returned tools, and score the program against the required control set for the audit verdict with findings. Produces the zone class, the risk score, the sweep interval, the tool-count reconciliation result, the control completeness, and the fod-pass or fod-fail verdict that gates the FOD prevention assessment. Trigger: FOD prevention, foreign object debris, FOD zone classification, FOD risk score, FOD sweep interval, tool count reconciliation, FOD audit.",
+   "tags": [
+    "fod-control",
+    "fod-prevention",
+    "foreign-object-debris",
+    "fod-zone-classification",
+    "fod-risk-score",
+    "fod-sweep-interval",
+    "tool-count-reconciliation",
+    "fod-audit"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/as9100/measurement-systems-analysis",
    "name": "measurement-systems-analysis",
    "description": "Use when you must evaluate an aerospace measurement system with a gage repeatability and reproducibility (Gage R and R) study: compute the equipment variation EV from the average range, the appraiser variation AV from the spread of appraiser averages, the combined GRR, the part-to-part variation PV, the total variation TV, the percent GRR against the acceptance criteria (under 10 percent acceptable, 10 to 30 percent conditional, over 30 percent unacceptable), and the number of distinct categories, and judge variable versus attribute gage studies and calibration versus MSA scope. Produces the study summary, the percent GRR verdict, and the distinct categories count that gate measurement system approval. Trigger: measurement systems analysis, gage r and r, repeatability, reproducibility, percent grr, distinct categories, gage study, measurement system.",
@@ -3991,6 +4133,25 @@
    ],
    "family": "manufacturing-quality",
    "pack": "as9103",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/assembly/fastener-installation-quality",
+   "name": "fastener-installation-quality",
+   "description": "Use when you must verify the installation quality of aerospace structural fasteners during assembly: select the grip length for the clamped stack from the available grip increments, check the thread protrusion against the typical protrusion band, compute the clamp load from the applied torque with the torque coefficient, verify the clamp load and the torque scatter band against the joint allowables, check the countersink flushness for flush head fasteners, confirm the swage collar engagement for lock-bolt fasteners, and classify the installation verdict as pass, rework, or scrap with the specific defect. Produces the selected grip, the protrusion check, the clamp-load estimate, the flushness and engagement checks, and the installation verdict that gate the assembly quality assessment. Trigger: fastener installation quality, grip length selection, thread protrusion, clamp load from torque, countersink flushness, collar engagement, Hi-Lok installation check.",
+   "tags": [
+    "fastener-installation-quality",
+    "grip-length-selection",
+    "thread-protrusion",
+    "clamp-load-from-torque",
+    "countersink-flushness",
+    "collar-engagement",
+    "hi-lok-installation-check",
+    "structural-fastener-verification",
+    "swage-collar"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "assembly",
    "router_doc": false
   },
   {
@@ -4318,6 +4479,24 @@
     "finishing",
     "composites",
     "process-control"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "special-processes",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/special-processes/welding-qualification",
+   "name": "welding-qualification",
+   "description": "Use when you must build and check the engineering content of an aerospace weld procedure qualification record (WPS/PQR): compute the weld heat input in kJ per mm from voltage, current, travel speed, and process efficiency; verify heat input, preheat, and interpass temperature against the qualified procedure ranges; confirm the production weld thickness and joint configuration sit inside the qualified coverage; and list the qualification test coupons required for the process and joint type. Produces the heat input, the preheat and interpass margins, the thickness and variable coverage verdicts, and the coupon test matrix that gate the weld procedure qualification. Trigger: weld procedure qualification, WPS PQR, heat input, kJ per mm, preheat, interpass temperature, thickness coverage, coupon test matrix, GTAW, GMAW, qualification test coupons.",
+   "tags": [
+    "welding-qualification",
+    "weld-procedure-qualification",
+    "wps-pqr",
+    "heat-input",
+    "preheat-interpass",
+    "thickness-coverage",
+    "coupon-matrix",
+    "qualification-test-coupons"
    ],
    "family": "manufacturing-quality",
    "pack": "special-processes",
@@ -5513,6 +5692,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/subsystems/propellant-tank-sizing",
+   "name": "propellant-tank-sizing",
+   "description": "Use when you must size a spacecraft propellant tank for the propulsion bus: convert the propellant mass into the liquid volume with the propellant density, add the ullage volume for the required tank ullage fraction, compute the spherical tank volume and radius, size the sphere tank wall thickness from the burst pressure and the material allowable, estimate the tank shell mass, and size the helium pressurant mass for the regulated or blowdown pressurization scheme with the blowdown pressure range. Produces the propellant, ullage and tank volumes, the radius, wall thickness, shell mass, pressurant mass, the tank mass fraction and the pass or fail verdict that gate the spacecraft propulsion bus design. Trigger: propellant tank sizing, propellant volume, tank ullage fraction, pressurant mass, blowdown pressure range, sphere tank wall thickness, spacecraft propulsion bus.",
+   "tags": [
+    "propellant-tank-sizing",
+    "propellant-volume",
+    "tank-ullage-fraction",
+    "pressurant-mass",
+    "blowdown-pressure-range",
+    "sphere-tank-wall-thickness",
+    "spacecraft-propulsion-bus"
+   ],
+   "family": "space-systems",
+   "pack": "subsystems",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/subsystems/solar-array-sizing",
    "name": "solar-array-sizing",
    "description": "Compute spacecraft solar-array sizing: determine the required photovoltaic array area in square meters from the orbit-average power demand, the eclipse fraction, the solar cell efficiency, the packing factor, and the end-of-life degradation over the mission life, then verify the array margin at end of life. Use when sizing a spacecraft EPS solar array or photovoltaic panel: array area, power demand, eclipse fraction, cell efficiency, packing factor, degradation, end of life, solar irradiance. Trigger: solar array sizing, array area, cell efficiency, degradation, power demand, eclipse fraction, photovoltaic.",
@@ -5608,6 +5804,24 @@
     "shear-out",
     "fastener",
     "joint-margin"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
+   "path": "structures/composites/delamination-growth",
+   "name": "delamination-growth",
+   "description": "Use when you must assess delamination growth in a composite laminate by fracture mechanics: compute the mode I strain energy release rate of a DCB double cantilever beam specimen and the mode II rate of an ENF end-notched flexure specimen from load, crack length and coupon geometry, blend mixed-mode rates with the Benzeggagh-Kenane criterion, and compare the total rate against the critical rate for the onset and growth verdict. Produces G_I, G_II, the mixed-mode ratio, critical rate G_c, onset margin and growth verdict gating the delamination tolerance assessment. Trigger: delamination growth, strain energy release rate, double cantilever beam, end notched flexure, mixed mode fracture, benzeggagh kenane criterion, mode I, mode II.",
+   "tags": [
+    "delamination-growth",
+    "strain-energy-release-rate",
+    "double-cantilever-beam",
+    "end-notched-flexure",
+    "mixed-mode-fracture",
+    "benzeggagh-kenane-criterion",
+    "mode-i",
+    "mode-ii"
    ],
    "family": "structures",
    "pack": "composites",
@@ -5845,6 +6059,22 @@
    ],
    "family": "structures",
    "pack": "fatigue",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/beam-frame-analysis",
+   "name": "beam-frame-analysis",
+   "description": "Use when you must solve a two-dimensional rigid-jointed frame with the Euler Bernoulli beam element: build the local beam element stiffness from the axial and bending contributions, rotate it into the global frame with the member orientation, assemble the global stiffness matrix, apply the fixed support conditions, solve for the nodal displacements and rotations with a compact elimination solver, and recover the support reactions and the member end actions. Produces the nodal displacement and rotation vector, the support reactions, the member end bending moments and shears, and equilibrium checks for a hand-calc or stdlib-only frame analysis. Units are SI. Trigger: beam frame analysis, rigid jointed frame, Euler Bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame.",
+   "tags": [
+    "beam-frame-analysis",
+    "rigid-jointed-frame",
+    "euler-bernoulli-beam-element",
+    "rotation-degree-of-freedom",
+    "bending-moment-recovery",
+    "portal-frame"
+   ],
+   "family": "structures",
+   "pack": "fem",
    "router_doc": false
   },
   {
@@ -7049,6 +7279,24 @@
     "series-parallel-cell-count",
     "pack-voltage",
     "discharge-voltage-drop"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/brake-energy-sizing",
+   "name": "brake-energy-sizing",
+   "description": "Use when you must size the aircraft wheel brake system from the kinetic energy it must absorb: compute the rejected-takeoff (RTO) brake energy at the decision speed and the landing-stop brake energy at the touchdown speed, divide the total energy over the braked wheels, estimate the required carbon heat sink mass per brake from the allowable temperature rise and the specific heat, check the temperature rise of the selected heat sink, and estimate the braking distance at the design deceleration. Produces the RTO and landing energies, the per-brake energy, the governing case, the required heat sink mass, the temperature rise and margin, the braking distance, and the pass or fail verdict that gates the wheel brake sizing. Trigger: brake energy sizing, rejected takeoff energy, wheel brake heat sink, carbon brake mass, brake temperature rise, braking distance at V1, rto brake energy, landing stop brake energy.",
+   "tags": [
+    "brake-energy-sizing",
+    "rejected-takeoff-energy",
+    "wheel-brake-heat-sink",
+    "carbon-brake-mass",
+    "brake-temperature-rise",
+    "braking-distance-v1",
+    "rto-brake-energy",
+    "landing-stop-brake-energy"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

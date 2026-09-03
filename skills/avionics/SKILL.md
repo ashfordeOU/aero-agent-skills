@@ -77,6 +77,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/flight-management/lateral-navigation | Lateral navigation (LNAV) | lateral navigation, LNAV, cross-track error, track angle error, great-circle track, turn anticipation, fly-by waypoint, fly-over waypoint, intercept heading, FMS lateral guidance |
 | avionics/flight-management/radio-navigation-aids | Radio navigation aids | VOR radial, DME slant range, ILS localizer deviation, glideslope deviation, radio navigation geometry, bearing to the navaid station, approach course offset |
 | avionics/flight-management/rnp-anp-containment | RNP/ANP containment | required navigation performance, actual navigation performance, RNP containment, ANP comparison, lateral position error sigma, 95 percent containment, performance based navigation |
+| avionics/flight-management/rta-time-control | RTA time control | required time of arrival, RTA time constraint, speed adjustment, arrival window, time error, 4D trajectory, FMS time control |
 
 ## Routing guidance
 
@@ -121,6 +122,7 @@ est case count, coverage objectives per
 - FMS performance computation, cost index and ECON cruise speed, fuel-time trade, step-climb logic, and VNAV top-of-descent questions route to the flight-management performance-computation sub-skill.
 - DO-160 section 21 conducted and radiated emission limits, CE102 and RE102 margins, and dBuV emission checks route to the do160 radio-frequency-emissions sub-skill.
 - LNAV lateral guidance, cross-track error, track angle error, great-circle track, turn anticipation, and fly-by and fly-over transition questions route to the flight-management lateral-navigation sub-skill.
+- RTA time control questions (required time of arrival, rta time constraint, speed adjustment, arrival window, time error, 4d trajectory, fms time control) route to the rta-time-control sub-skill.
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into
