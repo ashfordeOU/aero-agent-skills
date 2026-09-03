@@ -70,6 +70,8 @@ integration) for engineering calculations.
 | cross-cutting/export-control/export-control-awareness | Export Control Awareness | ITAR, EAR, USML, EAR99, 600-series, defense articles, technical data, export control, deemed export, fundamental research, public domain, compliance review, sharing data with foreign collaborators. |
 | cross-cutting/numerics/optimization-algorithms | Optimization algorithms | minimize, golden section search, gradient descent, Nelder-Mead, line search, unconstrained optimum |
 | cross-cutting/numerics/quaternion-algebra | Quaternion algebra | quaternion product, rotate vector by quaternion, euler to quaternion, quaternion to euler, direction cosine matrix, slerp, quaternion conjugate, unit quaternion, axis angle to quaternion |
+| cross-cutting/numerics/probability-distributions | Probability distributions | probability distribution fitting, weibull fit, lognormal, exponential fit, goodness of fit, kolmogorov smirnov, chi-square fit test, quantile, reliability, hazard function |
+| cross-cutting/numerics/hypothesis-testing | Hypothesis testing | hypothesis testing, student t test, welch test, paired t test, ANOVA, F test for variances, chi-square test of independence, p-value, significance level |
 
 ## Routing guidance
 
@@ -137,3 +139,5 @@ integration) for engineering calculations.
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Numerical minimization (golden section, gradient descent, Nelder-Mead) questions route to the numerics optimization-algorithms sub-skill.
+- Distribution fitting questions (weibull, lognormal, exponential and normal fit, goodness of fit, quantile and reliability from the fitted parameters) route to the numerics probability-distributions sub-skill.
+- Significance test questions (t test, Welch, paired t, ANOVA, F variance test, chi-square independence, p-value verdicts) route to the numerics hypothesis-testing sub-skill.
