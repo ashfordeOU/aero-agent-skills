@@ -1,0 +1,16 @@
+# Hit@1 wave-29 fragment: spacecraft-battery-sizing (space-systems)
+# Two tasks per new leaf skill. w29-spacecraft-battery-sizing-1 routes on
+# spacecraft battery sizing for a LEO eclipse: eclipse energy, depth of
+# discharge and discharge efficiency, cell layout for the 28 V bus and
+# pack mass; w29-spacecraft-battery-sizing-2 routes on the series and
+# parallel Li-ion cell count layout and the discharge C-rate check for an
+# orbit battery on the 28 V spacecraft bus.
+tasks:
+  - id: w29-spacecraft-battery-sizing-1
+    query: "size the spacecraft battery for a LEO eclipse: 1200 W for 35 minutes at 40 percent depth of discharge with 95 percent discharge efficiency, cell layout for a 28 V bus and pack mass"
+    intent: "space-systems; spacecraft battery sizing for a LEO eclipse from the eclipse load and duration with the depth of discharge limit and the discharge efficiency, the series parallel cell layout for the 28 V bus and the pack mass"
+    expected_skill: "space-systems/subsystems/spacecraft-battery-sizing"
+  - id: w29-spacecraft-battery-sizing-2
+    query: "lay out the series and parallel Li-ion cell count and check the discharge C-rate for an orbit battery on a 28 V spacecraft bus"
+    intent: "space-systems; series and parallel Li-ion cell count layout and the discharge C-rate check for an orbit battery on the 28 V spacecraft bus"
+    expected_skill: "space-systems/subsystems/spacecraft-battery-sizing"

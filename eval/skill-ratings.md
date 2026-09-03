@@ -409,3 +409,4 @@ Total skills rated: 393
 | 401 | cross-cutting/numerics/cross-correlation-analysis | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 402 | avionics/surveillance/tcas-resolution-advisory | PASS | ✓ | rtca-do-185 | avionics | 9.5 | PASS |
 | 403 | space-systems/orbit-mechanics/plane-change-maneuver | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 404 | space-systems/subsystems/spacecraft-battery-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
