@@ -1,0 +1,17 @@
+# Hit@1 wave-26 fragment: in-service-safety-assessment (systems-engineering-safety)
+# Two tasks per new leaf skill. w26-in-service-safety-assessment-1 routes on
+# the in-service safety data review tokens (service difficulty reports,
+# single event rule, corrective action routing with the urgency band);
+# w26-in-service-safety-assessment-2 routes on the ARP5150 style continued
+# airworthiness review tokens (grouping field events by failure condition,
+# observed event rate versus the safety assessment prediction, service
+# bulletin or airworthiness directive request decision).
+tasks:
+  - id: w26-in-service-safety-assessment-1
+    query: "assess the in-service safety data for the fleet after 1 million flight hours: two hazardous events on the flight control condition against the predicted 3e-7 per hour rate, apply the single event rule, and route the corrective action with the urgency band"
+    intent: "systems-engineering-safety; in-service safety assessment, single-event rule, corrective action route and urgency band against the predicted rate"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment"
+  - id: w26-in-service-safety-assessment-2
+    query: "run the ARP5150 style continued airworthiness review of the service difficulty reports: group the field events by failure condition, compare the observed event rate with the SSA prediction, and decide whether a service bulletin or an airworthiness directive request is warranted"
+    intent: "systems-engineering-safety; continued airworthiness review, observed versus predicted event rate, service bulletin or airworthiness directive request decision"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment"
