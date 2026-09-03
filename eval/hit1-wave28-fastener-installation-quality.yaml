@@ -1,0 +1,18 @@
+# Hit@1 wave-28 fragment: fastener-installation-quality (manufacturing-quality)
+# Two tasks per new leaf skill. w28-fastener-installation-quality-1 routes
+# on fastener installation verification: grip length selection for the
+# clamped stack, thread protrusion check, and clamp load from the applied
+# torque against the joint limits; w28-fastener-installation-quality-2
+# routes on the Hi-Lok installation quality inspection: collar engagement
+# and countersink flushness checks with the pass, rework or scrap
+# installation classification. Both must deterministically hit
+# manufacturing-quality/assembly/fastener-installation-quality.
+tasks:
+  - id: w28-fastener-installation-quality-1
+    query: "verify the structural fastener installation: select the grip for the clamped stack, check the thread protrusion, and confirm the clamp load from the applied torque stays inside the joint limits"
+    intent: "manufacturing-quality; fastener installation quality verification: grip length selection for the clamped stack, thread protrusion check and clamp load from the applied torque against the joint limits"
+    expected_skill: "manufacturing-quality/assembly/fastener-installation-quality"
+  - id: w28-fastener-installation-quality-2
+    query: "inspect the Hi-Lok installation quality: check the collar engagement and the countersink flushness and classify the installation as pass rework or scrap"
+    intent: "manufacturing-quality; Hi-Lok installation quality inspection: collar engagement and countersink flushness checks with the pass, rework or scrap installation classification"
+    expected_skill: "manufacturing-quality/assembly/fastener-installation-quality"
