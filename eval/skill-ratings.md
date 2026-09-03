@@ -358,3 +358,4 @@ Total skills rated: 341
 | 351 | propulsion/rocket/hybrid-rocket-motor | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 350 | gnc-autonomy/control/control-allocation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 352 | space-systems/adcs/control-moment-gyro | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 353 | structures/materials/creep-rupture | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
