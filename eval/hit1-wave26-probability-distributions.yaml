@@ -1,0 +1,16 @@
+# Hit@1 wave-26 fragment: probability-distributions (cross-cutting)
+# Two tasks per new leaf skill. w26-probability-distributions-1 routes on
+# weibull parameter estimation with a kolmogorov smirnov goodness of fit
+# check and reliability at time reporting with the hazard function;
+# w26-probability-distributions-2 routes on normal and lognormal
+# parameter estimation with quantile reporting and the chi-square fit
+# test verdict.
+tasks:
+  - id: w26-probability-distributions-1
+    query: "fit a weibull distribution to the 1000 hour fatigue life scatter data, run the kolmogorov smirnov goodness of fit check, and report the reliability at 800 hours with the hazard function"
+    intent: "cross-cutting; weibull parameter estimation with kolmogorov smirnov goodness of fit, reliability at time, and hazard function reporting"
+    expected_skill: "cross-cutting/numerics/probability-distributions"
+  - id: w26-probability-distributions-2
+    query: "characterize the measured tolerance scatter with the normal and lognormal distributions: estimate the parameters, compute the 5 and 95 percent quantiles, and score the chi-square fit test verdict"
+    intent: "cross-cutting; normal and lognormal parameter estimation with quantile estimation and the chi-square fit test verdict"
+    expected_skill: "cross-cutting/numerics/probability-distributions"
