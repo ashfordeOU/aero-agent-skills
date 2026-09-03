@@ -369,3 +369,4 @@ Total skills rated: 353
 | 361 | flight-test-operations/planning/noise-certification-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 362 | vehicle-design/sizing/battery-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 363 | manufacturing-quality/ndt/leak-testing | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 364 | vehicle-design/mdo/surrogate-modeling | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |

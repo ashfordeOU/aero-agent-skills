@@ -1,0 +1,16 @@
+# Hit@1 wave-26 fragment: surrogate-modeling (vehicle-design)
+# Two tasks per new leaf skill. w26-surrogate-modeling-1 routes on the
+# response surface surrogate fit from DOE samples with the quadratic and
+# radial basis function models, the leave one out cross validation, and
+# the recommendation for the MDO loop; w26-surrogate-modeling-2 routes
+# on the RBF metamodel replacement of the expensive structural analysis
+# with the cross validation prediction error at new design points.
+tasks:
+  - id: w26-surrogate-modeling-1
+    query: "fit a response surface surrogate to the 25 aerodynamic analysis samples from the DOE: build the quadratic model and the radial basis function model, run the leave one out cross validation, and recommend the better approximation for the MDO loop"
+    intent: "vehicle-design; fit the quadratic response surface and the radial basis function surrogate models from the DOE samples, run the leave one out cross validation on both, and recommend the better approximation model by prediction error"
+    expected_skill: "vehicle-design/mdo/surrogate-modeling"
+  - id: w26-surrogate-modeling-2
+    query: "replace the expensive structural analysis with an RBF metamodel fitted on the latin hypercube samples and report the cross validation prediction error at the new design points"
+    intent: "vehicle-design; RBF metamodel surrogate fitted on the samples with the cross validation prediction error reported at the new design points for the expensive analysis replacement"
+    expected_skill: "vehicle-design/mdo/surrogate-modeling"
