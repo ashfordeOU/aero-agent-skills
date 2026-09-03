@@ -406,3 +406,4 @@ Total skills rated: 393
 | 398 | gnc-autonomy/guidance/coverage-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 399 | systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis | PASS | ✓ | msg-3 | systems-engineering-safety | 9.5 | PASS |
 | 400 | propulsion/turbomachinery/rocket-turbopump | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 401 | cross-cutting/numerics/cross-correlation-analysis | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
