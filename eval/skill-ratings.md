@@ -401,3 +401,4 @@ Total skills rated: 393
 | 393 | structures/composites/delamination-growth | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
 | 394 | propulsion/rocket/cold-gas-thruster | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 395 | vehicle-design/sizing/canard-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 396 | gnc-autonomy/navigation/gnss-raim-fde | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
