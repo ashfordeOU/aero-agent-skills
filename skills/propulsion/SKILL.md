@@ -64,6 +64,8 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/solid-rocket-motor | Solid rocket motor | solid rocket motor, burn rate, chamber pressure, grain geometry, mass flow, thrust, total impulse, c star |
 | propulsion/electric/hall-thruster | Hall Thruster | hall thruster, electric propulsion, specific impulse, thrust-to-power, beam current, discharge power, xenon, krypton, propellant mass, delta-v. |
 | propulsion/electric/gridded-ion-thruster | Gridded ion thruster | gridded ion thruster, Kaufman thruster, accelerator grid, perveance limit, beam extraction, ion optics |
+| propulsion/electric/electrothermal-thruster | Electrothermal thruster | electrothermal thruster, resistojet, arcjet, heated propellant, power to thrust |
+| propulsion/rocket/rocket-engine-cycle | Rocket engine cycle | rocket engine cycle, feed cycle, gas-generator cycle, staged combustion, expander cycle, pressure-fed, pump-fed, pump power, turbine power |
 
 ## Routing guidance
 
@@ -121,3 +123,5 @@ to turbofan-cycle;
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Gridded ion thruster and ion-optics perveance questions route to the electric gridded-ion-thruster sub-skill.
+- Resistojet and arcjet operating-point and power-to-thrust questions route to the electric electrothermal-thruster sub-skill.
+- Liquid engine feed-cycle selection and pump-turbine power balance questions route to the rocket rocket-engine-cycle sub-skill.

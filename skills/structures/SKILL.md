@@ -65,6 +65,7 @@ material selection.
 | structures/fem/contact-analysis | Contact analysis | contact analysis, penalty method, Lagrange, contact stiffness, penetration, friction, stick slip, master slave |
 | structures/loads/gust-maneuver-loads | Gust Maneuver Loads | gust loads, maneuver loads, gust load factor, V-n diagram, flight envelope, FAR 25.341, FAR 25.337, discrete gust, 1-cosine gust, gust alleviation factor, mass ratio, load factor, corner point, maneuvering speed, VA VB VC VD, margin check. |
 | structures/loads/random-vibration-analysis | Random vibration analysis | random vibration, PSD response, Miles equation, transmissibility, base excitation, g-rms |
+| structures/fatigue/strain-life-fatigue | Strain-life fatigue | strain life, Coffin-Manson, low-cycle fatigue, reversals to failure, Neuber local strain, transition life |
 
 ## Routing guidance
 
@@ -133,3 +134,4 @@ ance) route
 To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Random vibration PSD and Miles response questions route to the loads random-vibration-analysis sub-skill.
+- Coffin-Manson strain-life and Neuber local-strain questions route to the fatigue strain-life-fatigue sub-skill.
