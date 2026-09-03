@@ -375,3 +375,4 @@ Total skills rated: 365
 | 367 | flight-mechanics/stability-control/deep-stall-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
 | 368 | flight-mechanics/performance/speed-stability | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
 | 369 | flight-mechanics/handling-qualities/pitch-bandwidth-criteria | PASS | ✓ | mil-std-1797a | flight-mechanics | 9.5 | PASS |
+| 370 | propulsion/axial-compressor/turbine-blade-cooling | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
