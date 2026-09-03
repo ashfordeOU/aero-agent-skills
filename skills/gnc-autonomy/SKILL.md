@@ -69,6 +69,9 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/estimation-filtering/complementary-filter | Complementary filter | complementary filter, Mahony, gyro bias estimation, vector measurement fusion, SO(3) attitude observer |
 | gnc-autonomy/space/orbit-determination | Orbit determination | orbit determination, Gibbs method, Herrick-Gibbs, three position vectors, rv to elements, initial orbit determination |
 | gnc-autonomy/control/control-allocation | Control allocation | control allocation, effector allocation, control effectiveness matrix, pseudoinverse allocation, weighted least squares, daisy chain, redistributed pseudoinverse, actuator limits, saturation, moment command distribution, redundant effectors |
+| gnc-autonomy/navigation/gnss-raim-fde | GNSS RAIM FDE | RAIM, receiver autonomous integrity monitoring, fault detection and exclusion, horizontal protection level, chi-square threshold, normalized residual, GNSS integrity |
+| gnc-autonomy/estimation-filtering/rts-smoother | RTS smoother | RTS smoother, Rauch-Tung-Striebel, fixed-interval smoothing, backward pass, smoothed state, offline trajectory reconstruction |
+| gnc-autonomy/guidance/coverage-path-planning | Coverage path planning | coverage path planning, boustrophedon, lawnmower pattern, aerial survey flight lines, swath width, side overlap, track spacing, area search |
 
 ## Routing guidance
 
@@ -120,6 +123,10 @@ amics sub-skill.
 - Sigma-point nonlinear state estimation, scaled unscented transform, UKF predict and update, and innovation covariance checks route to the estimation-filtering unscented-kalman-filter sub-skill.
 - Extended Kalman filter design for nonlinear systems with Jacobian linearization, predict and update recursion, innovation covariance, and Kalman gain computation routes to the estimation-filtering extended-kalman-filter sub-skill.
 - Control allocation across redundant effectors, pseudoinverse and weighted least squares, daisy chain, and actuator saturation redistribution questions route to the control control-allocation sub-skill.
+- RAIM integrity questions (fault detection and exclusion, horizontal protection level, chi-square threshold, normalized residual) route to the navigation gnss-raim-fde sub-skill.
+- Rauch-Tung-Striebel fixed-interval smoothing and backward-pass post-processing questions route to the estimation-filtering rts-smoother sub-skill.
+- Coverage path planning, boustrophedon, and lawnmower aerial survey pattern questions route to the guidance coverage-path-planning sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

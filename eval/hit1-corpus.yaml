@@ -195,6 +195,11 @@
 # leaves). Wave-28 new leaves: "structures/fem/beam-frame-analysis", "vehicle-design/sizing/brake-energy-sizing", "flight-test-operations/envelope/buffet-boundary-testing", "flight-test-operations/performance/cruise-performance-flight-test", "structures/composites/delamination-growth", "cross-cutting/numerics/digital-filter-design", "manufacturing-quality/assembly/fastener-installation-quality", "manufacturing-quality/as9100/fod-control", "aerodynamics/high-speed/hypersonic-flow", "space-systems/subsystems/propellant-tank-sizing", "avionics/flight-management/rta-time-control", "flight-test-operations/envelope/vmc-determination", "manufacturing-quality/special-processes/welding-qualification", "aerodynamics/wind-tunnel/wind-tunnel-model-design".
 # Corpus: 800 tasks (772 prior plus 28 domain tasks). Owner: Ops
 # Manager, Wave 28 build.
+# P5.2 / Wave 29 (2026-09-03): fan-out continues on the public
+# v1.0.0 model to 404 verified skills (416 SKILL.md under gate 1: 12 routers + 404
+# leaves). Wave-29 new leaves: "vehicle-design/sizing/canard-sizing", "propulsion/rocket/cold-gas-thruster", "gnc-autonomy/guidance/coverage-path-planning", "cross-cutting/numerics/cross-correlation-analysis", "gnc-autonomy/navigation/gnss-raim-fde", "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis", "space-systems/orbit-mechanics/plane-change-maneuver", "propulsion/turbomachinery/rocket-turbopump", "gnc-autonomy/estimation-filtering/rts-smoother", "space-systems/subsystems/spacecraft-battery-sizing", "avionics/surveillance/tcas-resolution-advisory".
+# Corpus: 822 tasks (800 prior plus 22 domain tasks). Owner: Ops
+# Manager, Wave 29 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -3708,6 +3713,94 @@ tasks:
     query: "size the wind tunnel test setup: rate the force balance for the model loads at the maximum test speed and size the model support sting"
     intent: "aerodynamics; wind tunnel test setup sizing with the force balance rating for the model loads at the maximum test speed and the model support sting sizing"
     expected_skill: "aerodynamics/wind-tunnel/wind-tunnel-model-design"
+  - id: w29-canard-sizing-1
+    query: "size the canard of a canard-configured aircraft: required area for a 0.45 canard volume coefficient with a 9 m arm on a 30 m2 wing, and the trim lift share at the forward CG"
+    intent: "vehicle-design; canard sizing of a canard-configured aircraft from the canard volume coefficient and arm with the required canard area and the trim lift share at the forward center of gravity"
+    expected_skill: "vehicle-design/sizing/canard-sizing"
+  - id: w29-canard-sizing-2
+    query: "check stall precedence on a canard layout: does the canard reach maximum lift before the wing so the nose drops instead of pitching up?"
+    intent: "vehicle-design; canard stall precedence check on a canard layout comparing the canard and wing lift margins so the nose drops instead of pitching up"
+    expected_skill: "vehicle-design/sizing/canard-sizing"
+  - id: w29-cold-gas-thruster-1
+    query: "size a nitrogen cold gas thruster for spacecraft RCS: choked mass flow through a 0.5 mm throat at 25 MPa plenum, thrust at 65 s Isp, and total impulse over the isothermal blowdown to 2 MPa"
+    intent: "propulsion; cold gas thruster sizing on the choked mass flow through the throat at the plenum pressure, thrust at the specific impulse, and the total impulse over the isothermal blowdown of the plenum"
+    expected_skill: "propulsion/rocket/cold-gas-thruster"
+  - id: w29-cold-gas-thruster-2
+    query: "compute the blowdown pressure history and operating time of a cold gas reaction control system with a 0.03 m3 plenum starting at 25 MPa"
+    intent: "propulsion; cold gas RCS plenum blowdown pressure history and operating time from the plenum volume and initial pressure with the isothermal blowdown time constant"
+    expected_skill: "propulsion/rocket/cold-gas-thruster"
+  - id: w29-coverage-path-planning-1
+    query: "plan a boustrophedon coverage path for a 1200 by 800 m aerial survey at 120 m altitude with 60 degree cross-track FOV and 25 percent side overlap: swath width, track spacing, pass count, total length and survey time"
+    intent: "gnc-autonomy; boustrophedon coverage path planning for an aerial survey strip pattern from swath width, side overlap and track spacing with the pass count, total path length and survey time"
+    expected_skill: "gnc-autonomy/guidance/coverage-path-planning"
+  - id: w29-coverage-path-planning-2
+    query: "lay out lawnmower search lines for a fixed-wing UAS over a rectangular region with 60 m turn radius and compute the aerial survey flight time at 25 m/s"
+    intent: "gnc-autonomy; lawnmower search line area search pattern with half-circle turns and the aerial survey flight time at cruise speed"
+    expected_skill: "gnc-autonomy/guidance/coverage-path-planning"
+  - id: w29-cross-correlation-analysis-1
+    query: "estimate the time delay between two sampled channels with cross-correlation: find the peak lag and the normalized correlation coefficient"
+    intent: "cross-cutting; time-delay estimation between two sampled channels with cross-correlation, the peak lag of the correlation sequence and the normalized correlation coefficient"
+    expected_skill: "cross-cutting/numerics/cross-correlation-analysis"
+  - id: w29-cross-correlation-analysis-2
+    query: "compute the autocorrelation of a vibration record and verify the even symmetry and the zero-lag energy"
+    intent: "cross-cutting; autocorrelation of a vibration record verifying the even symmetry of the autocorrelation and the zero-lag energy of the signal"
+    expected_skill: "cross-cutting/numerics/cross-correlation-analysis"
+  - id: w29-gnss-raim-fde-1
+    query: "run RAIM fault detection and exclusion on a 6 satellite pseudorange set: compute the horizontal protection level and the chi-square test statistic at 1e-5 false alarm, then identify the faulty satellite by normalized residual"
+    intent: "gnc-autonomy; RAIM fault detection and exclusion with horizontal protection level, chi-square threshold and normalized residual"
+    expected_skill: "gnc-autonomy/navigation/gnss-raim-fde"
+  - id: w29-gnss-raim-fde-2
+    query: "check GNSS integrity availability: is the horizontal protection level below the 556 m non-precision approach alert limit when one satellite carries a 200 m bias?"
+    intent: "gnc-autonomy; GNSS integrity availability verdict of horizontal protection level against the alert limit"
+    expected_skill: "gnc-autonomy/navigation/gnss-raim-fde"
+  - id: w29-msg3-maintenance-analysis-1
+    query: "run the MSG-3 decision logic on a hidden hydraulic failure: pick the scheduled maintenance task categories and apply the exposure rule to set the detection interval"
+    intent: "systems-engineering-safety; MSG-3 maintenance steering group decision logic, hidden failure task category selection and exposure rule interval determination"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis"
+  - id: w29-msg3-maintenance-analysis-2
+    query: "classify an evident safety-significant failure under MSG-3 and select the preventive task categories for the maintenance program"
+    intent: "systems-engineering-safety; MSG-3 evident failure categorization and scheduled maintenance task selection for the maintenance program"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis"
+  - id: w29-plane-change-maneuver-1
+    query: "compute the delta-v for a 28.5 degree orbital plane change at 300 km circular altitude and compare it with the combined burn at GTO apogee"
+    intent: "space-systems; orbital-plane-change delta-v from 2 v sin half inclination at the circular speed versus the combined-burn delta-v of the apsidal plane change at GTO apogee, plane-change-maneuver sizing"
+    expected_skill: "space-systems/orbit-mechanics/plane-change-maneuver"
+  - id: w29-plane-change-maneuver-2
+    query: "is it cheaper to do the GEO inclination change together with the circularization burn at apogee, and what does the combined burn delta-v come to?"
+    intent: "space-systems; inclination-change-delta-v verdict for the combined-burn plane change at the GEO circularization apogee against the separate inclination change, plane-change-maneuver trade"
+    expected_skill: "space-systems/orbit-mechanics/plane-change-maneuver"
+  - id: w29-rocket-turbopump-1
+    query: "size the LOX turbopump impeller for a liquid rocket engine: head 893 m at 18000 rpm and 0.04 m3/s, compute specific speed, tip speed, diameter, and pump power at 68 percent efficiency"
+    intent: "propulsion; rocket turbopump pump sizing on the specific speed, impeller tip speed and diameter, and pump power of the LOX turbopump impeller at the shaft speed and flow"
+    expected_skill: "propulsion/turbomachinery/rocket-turbopump"
+  - id: w29-rocket-turbopump-2
+    query: "check the cavitation margin of a rocket turbopump from the available net positive suction head and the suction specific speed limit"
+    intent: "propulsion; rocket turbopump suction performance check on the available net positive suction head and the suction specific speed against the cavitation limit"
+    expected_skill: "propulsion/turbomachinery/rocket-turbopump"
+  - id: w29-rts-smoother-1
+    query: "smooth a stored Kalman filter output with the Rauch-Tung-Striebel fixed-interval recursion: run the backward pass and report the smoothed position and velocity history with the reduced covariance"
+    intent: "gnc-autonomy; fixed-interval RTS smoothing of a stored Kalman filter output with the Rauch-Tung-Striebel backward pass and the smoothed position and velocity history with the reduced covariance"
+    expected_skill: "gnc-autonomy/estimation-filtering/rts-smoother"
+  - id: w29-rts-smoother-2
+    query: "post-process a recorded GNSS/INS track offline with an RTS smoother so the trajectory estimate uses all measurements forward and backward"
+    intent: "gnc-autonomy; offline post-processing of a recorded GNSS/INS track with the RTS smoother fixed-interval recursion so the trajectory estimate uses all measurements forward and backward"
+    expected_skill: "gnc-autonomy/estimation-filtering/rts-smoother"
+  - id: w29-spacecraft-battery-sizing-1
+    query: "size the spacecraft battery for a LEO eclipse: 1200 W for 35 minutes at 40 percent depth of discharge with 95 percent discharge efficiency, cell layout for a 28 V bus and pack mass"
+    intent: "space-systems; spacecraft battery sizing for a LEO eclipse from the eclipse load and duration with the depth of discharge limit and the discharge efficiency, the series parallel cell layout for the 28 V bus and the pack mass"
+    expected_skill: "space-systems/subsystems/spacecraft-battery-sizing"
+  - id: w29-spacecraft-battery-sizing-2
+    query: "lay out the series and parallel Li-ion cell count and check the discharge C-rate for an orbit battery on a 28 V spacecraft bus"
+    intent: "space-systems; series and parallel Li-ion cell count layout and the discharge C-rate check for an orbit battery on the 28 V spacecraft bus"
+    expected_skill: "space-systems/subsystems/spacecraft-battery-sizing"
+  - id: w29-tcas-resolution-advisory-1
+    query: "evaluate a TCAS II resolution advisory at 8000 ft with an intruder at 3 nmi closing at 300 kt and 200 ft above: modified tau, threat verdict, and climb or descend sense"
+    intent: "avionics; TCAS II resolution advisory evaluation with the modified tau closing time, the horizontal threat verdict and the climb or descend advisory sense"
+    expected_skill: "avionics/surveillance/tcas-resolution-advisory"
+  - id: w29-tcas-resolution-advisory-2
+    query: "which TCAS sensitivity level applies at 30000 ft and does a 5 nmi closing intruder trigger a resolution advisory under the DMOD and tau thresholds?"
+    intent: "avionics; TCAS sensitivity level selection from the own altitude band and the DMOD and tau threshold threat check for a closing intruder"
+    expected_skill: "avionics/surveillance/tcas-resolution-advisory"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

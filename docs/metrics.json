@@ -1,8 +1,8 @@
 {
-  "corpus_tasks": 800,
+  "corpus_tasks": 822,
   "families": 12,
-  "leaves": 393,
-  "live_packs": 84,
+  "leaves": 404,
+  "live_packs": 85,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
@@ -80,7 +80,7 @@
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 33,
+      "leaves": 34,
       "pack_names": [
         "data-bus",
         "do160",
@@ -89,9 +89,10 @@
         "far-cs25",
         "flight-management",
         "fsw",
-        "ima"
+        "ima",
+        "surveillance"
       ],
-      "packs": 8,
+      "packs": 9,
       "packs_detail": {
         "data-bus": [
           "arinc429-protocol",
@@ -141,14 +142,17 @@
         "ima": [
           "do297",
           "ima-partitioning"
+        ],
+        "surveillance": [
+          "tcas-resolution-advisory"
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 69
+      "tasks": 71
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 32,
+      "leaves": 33,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -172,6 +176,7 @@
         ],
         "numerics": [
           "convergence-verification",
+          "cross-correlation-analysis",
           "digital-filter-design",
           "eigenvalue-decomposition",
           "fast-fourier-transform",
@@ -208,7 +213,7 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 64
+      "tasks": 66
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
@@ -330,7 +335,7 @@
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 32,
+      "leaves": 35,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -357,10 +362,12 @@
           "complementary-filter",
           "extended-kalman-filter",
           "particle-filter",
+          "rts-smoother",
           "unscented-kalman-filter"
         ],
         "guidance": [
           "command-to-line-of-sight",
+          "coverage-path-planning",
           "dubins-path-planning",
           "impact-point-prediction",
           "midcourse-guidance",
@@ -370,6 +377,7 @@
         "navigation": [
           "dilution-of-precision",
           "gnss-pseudorange-positioning",
+          "gnss-raim-fde",
           "inertial-navigation",
           "kalman-filter-design",
           "navigation-frames"
@@ -387,7 +395,7 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 65
+      "tasks": 71
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
@@ -460,7 +468,7 @@
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 32,
+      "leaves": 34,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -505,6 +513,7 @@
           "ramjet-inlet"
         ],
         "rocket": [
+          "cold-gas-thruster",
           "combustion-chamber-design",
           "hybrid-rocket-motor",
           "nozzle-design",
@@ -521,7 +530,8 @@
           "turbofan-off-design"
         ],
         "turbomachinery": [
-          "centrifugal-compressor"
+          "centrifugal-compressor",
+          "rocket-turbopump"
         ],
         "turboprop": [
           "free-turbine",
@@ -529,11 +539,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 64
+      "tasks": 68
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 33,
+      "leaves": 35,
       "pack_names": [
         "adcs",
         "ecss",
@@ -575,6 +585,7 @@
           "low-thrust-spiral",
           "orbital-decay",
           "orbital-perturbations",
+          "plane-change-maneuver",
           "satellite-coverage",
           "sun-synchronous-inclination"
         ],
@@ -584,11 +595,12 @@
           "power-thermal-budget",
           "propellant-tank-sizing",
           "solar-array-sizing",
+          "spacecraft-battery-sizing",
           "thermal-design"
         ]
       },
       "spine": "ECSS",
-      "tasks": 69
+      "tasks": 73
     },
     "structures": {
       "label": "STRUCTURES",
@@ -658,7 +670,7 @@
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 32,
+      "leaves": 33,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -700,7 +712,8 @@
           "mmel-development"
         ],
         "continued-airworthiness": [
-          "in-service-safety-assessment"
+          "in-service-safety-assessment",
+          "msg3-maintenance-analysis"
         ],
         "mbse": [
           "n2-diagram",
@@ -718,11 +731,11 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 66
+      "tasks": 68
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 32,
+      "leaves": 33,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -758,6 +771,7 @@
         "sizing": [
           "battery-sizing",
           "brake-energy-sizing",
+          "canard-sizing",
           "control-surface-sizing",
           "engine-sizing",
           "fuel-tank-sizing",
@@ -779,9 +793,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 64
+      "tasks": 66
     }
   },
-  "skill_files": 405,
-  "standards": 25
+  "skill_files": 416,
+  "standards": 28
 }
