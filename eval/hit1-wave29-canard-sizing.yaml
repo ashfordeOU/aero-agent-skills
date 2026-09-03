@@ -1,0 +1,14 @@
+# Hit@1 wave-29 fragment: canard-sizing (vehicle-design)
+# Two tasks per new leaf skill. w29-canard-sizing-1 routes on canard
+# sizing with the canard volume coefficient, required canard area and
+# trim lift share; w29-canard-sizing-2 routes on the stall precedence
+# check of a canard layout.
+tasks:
+  - id: w29-canard-sizing-1
+    query: "size the canard of a canard-configured aircraft: required area for a 0.45 canard volume coefficient with a 9 m arm on a 30 m2 wing, and the trim lift share at the forward CG"
+    intent: "vehicle-design; canard sizing of a canard-configured aircraft from the canard volume coefficient and arm with the required canard area and the trim lift share at the forward center of gravity"
+    expected_skill: "vehicle-design/sizing/canard-sizing"
+  - id: w29-canard-sizing-2
+    query: "check stall precedence on a canard layout: does the canard reach maximum lift before the wing so the nose drops instead of pitching up?"
+    intent: "vehicle-design; canard stall precedence check on a canard layout comparing the canard and wing lift margins so the nose drops instead of pitching up"
+    expected_skill: "vehicle-design/sizing/canard-sizing"
