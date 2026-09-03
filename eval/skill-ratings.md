@@ -364,3 +364,5 @@ Total skills rated: 353
 | 356 | systems-engineering-safety/certification/equivalent-level-of-safety | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
 | 357 | systems-engineering-safety/safety-case/goal-structuring-notation | PASS | ✓ | arp4754a | systems-engineering-safety | 9.5 | PASS |
 | 358 | flight-test-operations/envelope/icing-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 359 | cross-cutting/numerics/hypothesis-testing | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 360 | cross-cutting/numerics/probability-distributions | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
