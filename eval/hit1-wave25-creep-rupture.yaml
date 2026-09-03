@@ -1,0 +1,16 @@
+# Hit@1 wave-25 fragment: creep-rupture (structures)
+# Two tasks per new leaf skill. w25-creep-rupture-1 routes on the
+# Larson-Miller rupture life estimate and the design-life margin check
+# at the elevated temperature operating point; w25-creep-rupture-2
+# routes on the Norton steady-state creep rate and the accumulated
+# creep strain over the service time. Both must deterministically hit
+# structures/materials/creep-rupture.
+tasks:
+  - id: w25-creep-rupture-1
+    query: "estimate the rupture life of the turbine disk material at 650 C and 300 MPa with the Larson-Miller parameter and check the 1000 hour design life margin"
+    intent: "structures; Larson-Miller rupture life at the elevated temperature operating point and the 1000 hour design life margin verdict"
+    expected_skill: "structures/materials/creep-rupture"
+  - id: w25-creep-rupture-2
+    query: "compute the Norton steady state creep rate and the accumulated creep strain over the service time at the elevated temperature operating point"
+    intent: "structures; Norton steady-state creep rate and accumulated creep strain over the service time at the elevated temperature operating point"
+    expected_skill: "structures/materials/creep-rupture"
