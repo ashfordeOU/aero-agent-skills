@@ -1,0 +1,79 @@
+name: release-on-milestone
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release-on-milestone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if a 100-skill release milestone was crossed
+        id: check
+        run: |
+          LEAVES=$(python3 -c "import json; print(json.load(open('docs/metrics.json'))['leaves'])")
+          echo "leaves=$LEAVES"
+          # Release convention (founder 2026-09-03): every 100 new skills =
+          # one minor version bump. v1.0.0 = 1-100 ... v1.3.0 = 301-400.
+          MINOR=$(( (LEAVES - 1) / 100 ))
+          NEXT_TAG="v1.${MINOR}.0"
+          echo "band_minor=$MINOR" >> "$GITHUB_OUTPUT"
+          echo "next_tag=$NEXT_TAG" >> "$GITHUB_OUTPUT"
+
+          # Latest existing v* tag
+          LAST=$(git tag --list 'v*' --sort=-v:refname | head -1 || echo "")
+          echo "last_tag=$LAST" >> "$GITHUB_OUTPUT"
+          echo "Last release tag: $LAST"
+
+          # If the band tag for this leaf count already exists, no-op.
+          if git rev-parse -q --verify "refs/tags/$NEXT_TAG" >/dev/null 2>&1; then
+            echo "Tag $NEXT_TAG already exists — no new milestone to release."
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Only release when we are at/near a boundary AND the leaf count has
+          # reached the band (e.g. leaves 400+ => v1.3.0). If leaves are below
+          # 400 but above 300, hold until the boundary.
+          BOUNDARY=$(( (MINOR + 1) * 100 ))
+          if [ "$LEAVES" -lt "$BOUNDARY" ] && [ "$MINOR" -gt 0 ]; then
+            echo "Not at boundary yet (leaves=$LEAVES < $BOUNDARY). Holding for milestone."
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "should_release=true" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        if: steps.check.outputs.should_release == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.check.outputs.next_tag }}
+          LEAVES: ${{ steps.check.outputs.leaves }}
+        run: |
+          BODY=$(cat <<'EOF'
+          ## Aero Agent Skills — {{TAG}}
+
+          {{LEAVES}} verified aerospace engineering skills, standards-mapped (ECSS · DO-178C · NASA · ARP4754A), behavior-tested, router-asserted.
+
+          **Packages in this release:**
+          - npm CLI + MCP server: `aero-agent-skills`
+          - Claude Code plugin + agentskills.io format skills
+          - JetBrains Marketplace plugin (com.ashforde.aeroskills)
+          - GitHub public repo with attest CI (validate 5/5 · attest 3/3)
+
+          Install: `npx skills add ashfordeOU/aero-agent-skills`
+          EOF
+          )
+          BODY=${BODY//"{{TAG}}"/$TAG}
+          BODY=${BODY//"{{LEAVES}}"/$LEAVES}
+          git tag "$TAG"
+          git push origin "$TAG"
+          gh release create "$TAG" --title "Aero Agent Skills $TAG" --notes "$BODY"
+          echo "Released $TAG at $LEAVES leaves"

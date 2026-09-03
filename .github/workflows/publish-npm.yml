@@ -1,0 +1,28 @@
+name: publish-npm
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.0'
+  workflow_dispatch:
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/aero-agent-skills
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+      - name: Install + smoke test
+        run: |
+          npm install --no-audit --no-fund
+          node test/smoke.mjs
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public

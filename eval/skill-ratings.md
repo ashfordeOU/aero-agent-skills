@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 341
+Total skills rated: 353
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -347,3 +347,15 @@ Total skills rated: 341
 | 339 | systems-engineering-safety/certification/means-of-compliance | PASS | ✓ | far-25, cs-25 | systems-engineering-safety | 9.5 | PASS |
 | 340 | structures/fatigue/strain-life-fatigue | PASS | ✓ | far-25, mmpsd | structures | 9.5 | PASS |
 | 341 | aerodynamics/aeroelasticity/aeroelastic-gust-response | PASS | ✓ | far-25, cs-25 | aerodynamics | 9.5 | PASS |
+| 342 | avionics/do160/radio-frequency-emissions | PASS | ✓ | do-160 | avionics | 9.5 | PASS |
+| 343 | cross-cutting/numerics/quaternion-algebra | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 344 | vehicle-design/sizing/ice-protection-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 345 | vehicle-design/sizing/spoiler-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 346 | manufacturing-quality/ndt/computed-tomography | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 348 | flight-test-operations/planning/position-error-calibration | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 347 | avionics/flight-management/lateral-navigation | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 349 | flight-mechanics/performance/windshear-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
+| 351 | propulsion/rocket/hybrid-rocket-motor | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 350 | gnc-autonomy/control/control-allocation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 352 | space-systems/adcs/control-moment-gyro | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 353 | structures/materials/creep-rupture | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
