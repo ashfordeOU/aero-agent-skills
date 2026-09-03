@@ -11,9 +11,11 @@
   Standards-mapped skills that give a coding agent the certification process — not just the acronyms.
 </p>
 
+<!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="330 verified skills · 81 live packs · 12 families · 25 standards · 674 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="341 verified skills · 81 live packs · 12 families · 25 standards · 696 router tasks · 8/8 gates green" width="100%">
 </p>
+<!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
