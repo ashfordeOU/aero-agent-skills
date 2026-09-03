@@ -350,3 +350,4 @@ Total skills rated: 341
 | 342 | avionics/do160/radio-frequency-emissions | PASS | ✓ | do-160 | avionics | 9.5 | PASS |
 | 343 | cross-cutting/numerics/quaternion-algebra | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 344 | vehicle-design/sizing/ice-protection-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 345 | vehicle-design/sizing/spoiler-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
