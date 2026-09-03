@@ -1,0 +1,15 @@
+# Hit@1 wave-25 fragment: quaternion-algebra (cross-cutting)
+# Two tasks per new leaf skill. w25-quaternion-algebra-1 routes on the
+# vector rotation by quaternion with the direction cosine matrix
+# verification; w25-quaternion-algebra-2 routes on the Euler ZYX to
+# quaternion conversion and slerp between two attitude quaternions.
+# Both must deterministically hit cross-cutting/numerics/quaternion-algebra.
+tasks:
+  - id: w25-quaternion-algebra-1
+    query: "rotate the body frame vector by the unit quaternion and convert the result back through the direction cosine matrix to verify the rotation"
+    intent: "cross-cutting; unit quaternion vector rotation verified through the direction cosine matrix"
+    expected_skill: "cross-cutting/numerics/quaternion-algebra"
+  - id: w25-quaternion-algebra-2
+    query: "convert the yaw pitch roll angles to the quaternion with the ZYX convention and slerp between two attitude quaternions at the midpoint"
+    intent: "cross-cutting; Euler ZYX yaw-pitch-roll to quaternion conversion and slerp midpoint"
+    expected_skill: "cross-cutting/numerics/quaternion-algebra"
