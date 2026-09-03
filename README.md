@@ -13,13 +13,13 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="341 verified skills · 81 live packs · 12 families · 25 standards · 696 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="344 verified skills · 81 live packs · 12 families · 25 standards · 696 router tasks · 8/8 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-341-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 341"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-344-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 344"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-81-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 81"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-25-f97316?style=flat&labelColor=1a1e35" alt="standards 25"></a>
@@ -112,7 +112,7 @@ cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 ### The domain map
 
 <!-- gen:overview -->
-**341 verified skills** across **12 families** and **81 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **696-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**344 verified skills** across **12 families** and **81 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **696-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -137,8 +137,8 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | Family | Standard spine | Packs | Skills | Router tasks |
 |---|---|---:|---:|---:|
 | **Aerodynamics** | NACA TR-824 | 10 | 30 | 62 |
-| **Avionics** | DO-178C / DO-254 / DO-160G | 8 | 28 | 59 |
-| **Cross-cutting** | SEP-2640 | 7 | 28 | 56 |
+| **Avionics** | DO-178C / DO-254 / DO-160G | 8 | 29 | 59 |
+| **Cross-cutting** | SEP-2640 | 7 | 29 | 56 |
 | **Flight mechanics** | FAR-25 / CS-25 | 4 | 28 | 56 |
 | **Flight test & operations** | FAR-25 / CS-25 | 6 | 28 | 56 |
 | **GNC & autonomy** | ARP4754A | 6 | 29 | 59 |
@@ -147,8 +147,8 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | **Space systems** | ECSS | 5 | 29 | 61 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 29 | 59 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 5 | 28 | 58 |
-| **Vehicle design** | FAR-25 / CS-25 | 6 | 27 | 54 |
-| **Total** | 25 standards mapped | **81** | **341** | **696** |
+| **Vehicle design** | FAR-25 / CS-25 | 6 | 28 | 54 |
+| **Total** | 25 standards mapped | **81** | **344** | **696** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -289,7 +289,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 341 verified skills in 81 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 696-task corpus) and Claude Code plugin packaging
+- **Shipped:** 344 verified skills in 81 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 696-task corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->
