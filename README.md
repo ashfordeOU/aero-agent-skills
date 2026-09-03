@@ -13,7 +13,7 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="404 verified skills · 85 live packs · 12 families · 28 standards · 822 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="404 verified skills · 85 live packs · 12 families · 30 standards · 822 router tasks · 8/8 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
@@ -22,7 +22,7 @@
   <a href="skills/"><img src="https://img.shields.io/badge/skills-404-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 404"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-85-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 85"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
-  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-28-f97316?style=flat&labelColor=1a1e35" alt="standards 28"></a>
+  <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5-2ea043?style=flat&labelColor=1a1e35" alt="gates 5%2F5"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=flat&labelColor=1a1e35" alt="attest 3%2F3"></a>
   <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-822-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 822"></a>
@@ -148,7 +148,7 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 34 | 69 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 33 | 68 |
 | **Vehicle design** | FAR-25 / CS-25 | 6 | 33 | 66 |
-| **Total** | 28 standards mapped | **85** | **404** | **822** |
+| **Total** | 30 standards mapped | **85** | **404** | **822** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
