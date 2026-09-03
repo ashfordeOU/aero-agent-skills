@@ -1,0 +1,16 @@
+# Hit@1 wave-27 fragment: pitch-bandwidth-criteria (flight-mechanics)
+# Two tasks per new leaf skill. w27-pitch-bandwidth-criteria-1 routes on the
+# MIL-STD-1797A pitch bandwidth and phase-delay criterion applied to the
+# short period pitch attitude transfer function with actuator lag;
+# w27-pitch-bandwidth-criteria-2 routes on grading the pitch tracking flying
+# qualities level and limiting criterion from short period and actuator lag
+# parameters.
+tasks:
+  - id: w27-pitch-bandwidth-criteria-1
+    query: "apply the MIL-STD-1797A pitch bandwidth and phase delay criterion: find the bandwidth frequency from the 45 degree phase margin and the phase delay from the -180 degree frequency of the short period pitch attitude transfer function with actuator lag"
+    intent: "flight mechanics; MIL-STD-1797A pitch bandwidth and phase-delay criterion on the short period pitch attitude transfer function with actuator lag"
+    expected_skill: "flight-mechanics/handling-qualities/pitch-bandwidth-criteria"
+  - id: w27-pitch-bandwidth-criteria-2
+    query: "grade the pitch tracking flying qualities with the bandwidth criterion for the transport: short period 3 rad/s at 0.6 damping with a 0.7 second numerator time constant and 20 rad/s actuator lag, report the level and the limiting criterion"
+    intent: "flight mechanics; flying qualities level verdict from the pitch bandwidth criterion with the limiting criterion reported"
+    expected_skill: "flight-mechanics/handling-qualities/pitch-bandwidth-criteria"
