@@ -113,6 +113,26 @@ and 9 passes, the plan_coverage dict keys, and ValueError rejection of
 non-physical inputs (altitude 0, FOV 180, overlap 1.0, zero spacing,
 zero speed).
 
+## Pitfalls
+
+- Collapsing the track spacing: side overlap must lie in [0, 0.95] and 1.0
+  would zero the spacing (ValueError); 25 percent overlap leaves d =
+  0.75*sw, not sw.
+- Forgetting the ceiling on pass count: n = ceil(width/spacing) means the
+  last pass covers less than a full spacing (800 m at 103.92 m spacing gives
+  8 passes, and at 90.0 m spacing 9 passes); do not round down.
+- Counting turns wrong: a single pass has no 180 degree turns (n - 1 for n
+  >= 2) and each turn is a half circle of length pi*r_turn; total length is
+  n*L + pi*r_turn*max(0, n - 1).
+- Reading pass headings as a constant: headings alternate 90/270 degrees
+  along the region length (the list length equals n_passes); a 9-pass case
+  ends on 90, an 8-pass case on 270.
+- Altitude and FOV bounds: altitude must be positive and the cross-track FOV
+  in (0, 180) degrees; zero cruise speed and zero spacing raise ValueError.
+- The model assumes flat terrain, constant cruise speed, no wind and turns
+  at the given radius - real surveys need the operational rules leaf
+  (part107-sora) for where the mission may fly.
+
 ## Related leaves
 
 - gnc-autonomy/guidance/dubins-path-planning (heading-constrained
@@ -128,7 +148,7 @@ zero speed).
 - avionics/flight-management/lateral-navigation (FMS route legs, the
   boundary this leaf does not cross)
 
-## Contract test
+## Behavior contract (gate 3)
 
 scripts/test_coverage_path_planning.py is a stdlib unittest contract
 test with 35 methods covering swath, spacing, pass count, path length,

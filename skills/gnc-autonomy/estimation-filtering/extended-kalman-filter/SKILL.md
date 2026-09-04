@@ -181,7 +181,7 @@ with P0 = diag(1, 1, 0.5, 0.5), Q = 1e-4 I, R = diag(1e-3, 1e-4):
 the run converges to a final position error of about 0.002 m and the
 covariance trace drops from 3.0 to about 0.0078.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

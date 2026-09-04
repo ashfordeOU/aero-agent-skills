@@ -111,6 +111,27 @@ thrust 1500-2200 N, area 5.0-7.5 m2, radius 1.2-1.6 m, induced velocity
 - Run the contract test offline: python3
   scripts/test_rotorcraft_tail_rotor_sizing.py (47 tests, deterministic).
 
+## Pitfalls
+
+- Feeding a main rotor power computed from weight and geometry: the main
+  rotor power is an input to this leaf and is never derived from the
+  rotorcraft mass; recompute it with the hover or forward-flight sibling for
+  the flight state in question.
+- Reading the disk loading ceiling as achieved: A = T_tr/DL_max sizes the
+  disk at the ceiling, so the achieved DL equals DL_max at margin factor 1.0
+  and stays at or below it when the margin factor is raised.
+- Forgetting the torque identity: anti-torque thrust times the tail arm must
+  equal the main rotor shaft torque at margin factor 1.0
+  (tail_rotor_thrust(Q, arm) * arm == Q); a mismatch flags inconsistent
+  inputs.
+- Changing the yaw margin silently: margin_factor scales the required
+  anti-torque thrust, so the disk area and radius grow with it; the defaults
+  for profile power (solidity 0.10, Cd 0.012, V_tip 200 m/s) and k = 1.15
+  are documented assumptions, not outputs.
+- Non-positive power, torque, arm, disk loading, rho, solidity, drag
+  coefficient, tip speed, area or induced-power factor raise ValueError;
+  runs are deterministic (no RNG).
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-hover-performance: the main rotor
@@ -123,7 +144,7 @@ thrust 1500-2200 N, area 5.0-7.5 m2, radius 1.2-1.6 m, induced velocity
 - flight-mechanics/performance/rotorcraft-hover-ground-effect: ground effect
   on the main rotor power input near the ground.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

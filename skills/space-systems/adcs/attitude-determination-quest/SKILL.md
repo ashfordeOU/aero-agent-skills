@@ -120,6 +120,30 @@ with six reference vectors [(1,0,0),(0,1,0),(0,0,1),(1,1,0),(1,-1,0),
 catches z-vector sign slips, since a flipped sign recovers the inverse
 rotation and fails the 1e-9 consistency check on A(q) r_i = b_i.
 
+
+## Pitfalls
+
+- Feeding unnormalized or mis-sized inputs: attitude_profile raises
+  ValueError for non-unit vectors (norm outside 1 +- 1e-6), fewer than
+  MIN_OBSERVATIONS = 2 observations, count mismatches, weight
+  mismatches, and non-positive weights.
+- Flipping the z-vector sign when assembling K: the sign documented in
+  this leaf is the one verified to recover the generating quaternion
+  under the active rotation convention; a flipped sign recovers the
+  inverse rotation and fails the A(q) r_i = b_i consistency check.
+- Reading the eigenvector in the wrong layout: the optimal quaternion
+  is read SCALAR-LAST from the Jacobi eigen-solution, and q and -q
+  denote the same rotation, so sign-aware comparison (min over q and
+  -q) is required when validating against a known truth.
+- Trusting the optimum without the minimality check: confirm the
+  achieved Wahba cost sits strictly below a perturbed neighbor plus
+  1e-9 before gating the attitude reference.
+- Confusing this leaf with its pair-based sibling: QUEST/Davenport is
+  the N > 2 complement of attitude-determination-triad; a single pair
+  of directions belongs to the triad leaf.
+- Replacing the fixed-sweep Jacobi solver with an RNG-based one: this
+  pipeline is deterministic by contract, and two consecutive runs must
+  return byte-identical floats.
 ## Verification
 
 - Confirm quest_solution recovers both generating quaternions above to
@@ -151,7 +175,7 @@ rotation and fails the 1e-9 consistency check on A(q) r_i = b_i.
 - gnc-autonomy/space/attitude-dynamics: the dynamics context around the
   attitude estimate this leaf produces.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

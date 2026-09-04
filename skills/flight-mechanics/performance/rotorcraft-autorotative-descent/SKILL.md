@@ -136,6 +136,29 @@ OmegaR = 208 m/s. Real module outputs:
   scripts/test_rotorcraft_autorotative_descent.py (34 tests,
   deterministic).
 
+## Pitfalls
+
+- Quoting the energy-balance sink rate as the predicted descent rate:
+  P_min/W overestimates the measured minimum descent rate by design (the
+  paper documents it), so treat energy_method_sink_rate as the conservative
+  upper bound and the Talbot correlation as the estimate.
+- Applying the correlation outside its validity: it is fit to steady
+  minimum-rate autorotative glide of single main-rotor helicopters and is
+  not valid in the vortex-ring vertical-descent regime or for fixed-wing
+  autorotation (spin recovery owns that band).
+- Using the power entry without level flight: the power-based entry relies
+  on T = W in level flight, so P_min must be a level-flight minimum power; a
+  power from another flight state breaks the OmegaR*C_PMIN/C_T = P_min/W
+  identity.
+- Assuming the coefficient entry needs c_t = 1.0 only: the two entries agree
+  to 1e-9 only when cp_min/c_t = P_min/(W*OmegaR); passing an arbitrary
+  cp_min with c_t = 1.0 silently violates the cross-entry identity.
+- Unit slips: all inputs are SI (W in N, P_min in W, OmegaR in m/s) and the
+  ft/min output is m/s * 60 / 0.3048; mixing knots or kg-force shifts the
+  sink rate off the measured 1500-2000 ft/min band.
+- Non-positive weight, power or tip speed (and c_t <= 0, negative cp_min)
+  raise ValueError by contract.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-vertical-climb-performance:
@@ -150,7 +173,7 @@ OmegaR = 208 m/s. Real module outputs:
   flight-test reduction of rotorcraft performance, not to be confused
   with this analytic estimate.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

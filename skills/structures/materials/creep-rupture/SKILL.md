@@ -122,6 +122,35 @@ required life, default alloy constants:
   and the verdict is FAIL, showing why the creep check lives at the
   hot operating point.
 
+
+## Pitfalls
+
+- Forgetting creep is time at temperature: the Norton rate is
+  exponentially sensitive to T (the rupture life collapses from
+  4954 h at 600 C to 258 h at 650 C in the worked example), so a
+  room-temperature check or a small temperature slip misses the
+  whole failure mode.
+- Neglecting the primary-creep assumption: the accumulated strain
+  eps_c = eps_dot * t is steady-state only; primary creep is
+  neglected by design as a conservative assumption, and the margin
+  should be read with that in mind.
+- Checking only one margin: creep_margin returns BOTH the rupture
+  margin (3.954) and the 1-percent-strain margin (1.188) in the
+  worked example, and the LOWER one governs - the time to 1 percent
+  strain can gate before rupture.
+- Trusting one rupture-life route: the LMP and Monkman-Grant
+  estimates should agree within the material scatter band (they
+  match within 0.01 percent in the worked example); a large
+  discrepancy signals a bad input or a material outside the master
+  curve.
+- Mixing units in the input chain: stress enters in Pa (convert MPa
+  by 1e6), temperature in K (Celsius plus 273.15), time in seconds
+  for the margin check while rupture lives come back in hours; a
+  seconds-versus-hours slip misreads the life by 3600x.
+- Treating the module material as an alloy database: the Inconel-718
+  class constants are reference-only typicals and any of A, n, Q and
+  the LMP/MG constants can be overridden with a dict; quoting the
+  defaults for another alloy is a material-data error.
 ## Verification
 
 - Confirm norton_creep_rate(3.0e8, 873.15) returns 1.2698e-9 1/s and
@@ -158,7 +187,7 @@ required life, default alloy constants:
   life-fatigue: cyclic life methods, the non-creep route for the same
   part.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

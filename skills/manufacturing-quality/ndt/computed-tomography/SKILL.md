@@ -154,7 +154,36 @@ interest of 8,000,000 voxels.
   build process context for additive parts whose build region
   porosity this leaf measures volumetrically.
 
-## Contract test
+## Pitfalls
+
+- Trusting a resolution verdict for flaws smaller than the voxel
+  rule: the smallest reliably detected feature spans about 2 to 3
+  voxels (detect_factor = 3 here), so a 0.2 mm flaw under a
+  1.000e-4 m voxel scan FAILS while the same flaw passes at 0.5 mm —
+  features below 3 voxels are not a valid claim.
+- Treating the planning rules as exact standards: the projection count
+  (pi / 2 * N_col) and the tube energy table (aluminum 7, titanium 9,
+  steel 14, nickel 16 kV per mm, steel about 2 times aluminum) are
+  reference-only rules of thumb for moderate density, not a substitute
+  for the scan developer's validated technique.
+- Reading a CT number band as material identification: HU = 1000 *
+  (mu - mu_water) / mu_water classifies a voxel into a band
+  (air-or-gas through high-density-metal) — two materials can share a
+  band, so the class is not a chemical identification.
+- Mixing units: the geometry and exposure inputs are SI (m, s) while
+  thickness enters the tube energy rule in mm and porosity is reported
+  in percent, so a cm source distance or a fraction porosity silently
+  corrupts the plan.
+- Quoting porosity without the segmentation: the fraction is
+  void voxels over the region-of-interest total (0.8 percent from
+  64,000 of 8,000,000 voxels in the worked example), and a void count
+  above the total raises ValueError — the ROI definition is part of
+  the measurement.
+- Reaching for this leaf for 2D setups: it is volumetric CT only;
+  geometric unsharpness, IQI sensitivity, film density and inverse
+  square exposure belong to radiographic-inspection.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

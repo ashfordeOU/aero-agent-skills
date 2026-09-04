@@ -110,6 +110,28 @@ outputs shown:
   within 1e-12.
 - polar((3, 4)) = (5.0, 0.927295218 rad), argument 53.130 degrees.
 
+## Pitfalls
+
+- Dividing by (0, 0): the quotient multiplies by the conjugate over
+  |z2|^2, and an exactly zero denominator raises ValueError.
+- Raising to negative powers or 0^0: complex_pow accepts integer n >= 0
+  only and raises ValueError for negative n and for 0^0; powers must
+  come from De Moivre's formula on non-negative integers.
+- Passing a negative radius to from_polar, or n <= 0 to
+  roots_of_unity: both raise ValueError instead of returning a
+  meaningless value.
+- Relying on exact float equality for transcendental results: only the
+  rational results assert exact equality; the Euler identity, polar
+  round trips, and root checks use math.isclose at 1e-12 (e.g.
+  from_polar(1, pi/2) returns (6.1e-17, 1.0), not exactly (0, 1)).
+- Mixing degrees into the radian functions: arg is computed by atan2 in
+  radians in (-pi, pi], so polar((3, 4)) = (5.0, 0.9273 rad) means
+  53.13 degrees; passing degrees directly corrupts the angle.
+- Treating the rounded roots of unity as approximations: near-zero
+  coordinates are rounded to 0.0 so the 4th roots come out exactly
+  (1,0), (0,1), (-1,0), (0,-1) and the n roots sum to (0, 0) - both
+  identities are deterministic contract checks.
+
 ## Verification
 
 - Rational results assert exact float equality: the (10.0, 5.0)
@@ -139,7 +161,7 @@ outputs shown:
 - cross-cutting/numerics/matrix-operations: dense linear algebra on
   arrays, outside this leaf's scope.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

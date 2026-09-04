@@ -104,6 +104,31 @@ baseline, central_composite(2, center=1) returns 2^2 + 4 + 1 = 9
 runs: the four factorial corners, the axial points at
 +-sqrt(2) = 1.4142 on each axis, and one center run at (0, 0).
 
+
+## Pitfalls
+
+- Reading alias structure off an unverified fraction: the half-
+  fraction is built from one defining relation word (I = ABC...K
+  default), so main effects and interactions alias; verify the
+  principal fraction with check_principal_fraction before
+  interpreting effects (at k = 4, AB aliases CD).
+- Forgetting the run budget on a full factorial: 2^k runs explode
+  past the supported window (k = 7 caps at 128 runs); a tight budget
+  calls for the 2^(k-1) half-fraction, not a truncated full design.
+- Trusting an unreproducible latin hypercube: the samples come from
+  random.Random with a fixed integer seed, so the matrix only
+  reproduces when the seed is fixed; an unseeded or re-seeded run
+  changes the sample plan.
+- Analyzing effects on a non-two-level design: the main and
+  interaction effect contrasts assume coded -1/+1 levels, and the
+  analysis raises ValueError on non-two-level designs.
+- Reading the effect as a coefficient: the main effect is twice the
+  linear regression coefficient (mean high minus mean low), so on
+  y = 2A + 1.5B + AB the A effect is 4.0, not 2.0.
+- Forgetting the center runs in a central composite: the run count is
+  2^k + 2k + center and rotatable alpha = (2^k)^(1/4) is the
+  default; a study planned without the center runs cannot fit
+  curvature.
 ## Verification
 
 - Deterministic: all random draws come from random.Random with a
@@ -133,7 +158,7 @@ runs: the four factorial corners, the axial points at
   uncertainties through the analysis once the influential factors are
   known.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run: python3 skills/vehicle-design/mdo/design-of-experiments/scripts/test_doe_logic.py
 The stdlib unittest contract covers 33 checks: full factorial coding

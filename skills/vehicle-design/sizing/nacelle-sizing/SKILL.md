@@ -137,6 +137,33 @@ density, 0.6 fan face Mach and 288.15 K fan face temperature:
 
 All of these numbers are reproduced exactly by the contract test.
 
+
+## Pitfalls
+
+- Sizing the fan face off the wrong Mach: the fan face area comes
+  from A1 = mdot / (rho * V1) with V1 = M1 * a1, and the design Mach
+  band is 0.5 to 0.65 for a high bypass turbofan - a higher face
+  Mach shrinks the area for the same mass flow and changes the
+  whole nacelle scale.
+- Letting the lip ratio go negative: the highlight area is
+  A1 * (1 + lip_area_ratio) with a typical ratio of 0.10 to 0.20,
+  and a negative ratio is invalid because the highlight cannot be
+  smaller than the fan face.
+- Reading A0/A1 at the wrong flight point: the capture ratio is
+  computed at the cruise Mach and altitude density (2.26 at 0.8
+  Mach cruise in the worked example); a ratio far above the typical
+  band signals an off-design point, not a nacelle problem.
+- Forgetting the area unit scale: the wetted area estimate is
+  pi * D_max * L * k and the drag bookkeeping multiplies q * S_wet
+  by the skin friction coefficient; a m^2 versus mm^2 slip moves
+  the drag by 1e6.
+- Treating the cowl chord as the nacelle length automatically: the
+  cowl thickness uses t/c against the cowl chord, which is close to
+  the nacelle length only for a first-order estimate.
+- Bookkeeping the pylon twice: first-order practice folds the pylon
+  into the interference factor (k_int), while finer bookkeeping adds
+  the pylon wetted area to S_wet - doing both double-counts the
+  pylon drag.
 ## Related leaves
 
 - engine-sizing: turns the nacelle around its thrust, lapse, SFC and
@@ -148,7 +175,7 @@ All of these numbers are reproduced exactly by the contract test.
 - propeller-sizing: the propeller counterpart, where the spinner and
   cowl replace the fan face and inlet highlight sizing.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

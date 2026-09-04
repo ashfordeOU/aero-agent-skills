@@ -112,6 +112,34 @@ velocity [-7.0, 1.0, -0.5] m/s (closing).
   0.15 above the 0.1 limit, so valid_approximation is False while Pc
   still evaluates as a rough screen indicator.
 
+
+## Pitfalls
+
+- Running the screen on a receding pair: a negative TCA means the
+  closest approach already passed the screening epoch; treat it as a
+  stale geometry rather than a live risk before acting on the
+  verdict.
+- Trusting Pc beyond the model's validity: the small hard-body
+  approximation holds only for r_hb / sigma at most about 0.1; above
+  that (a 15 m hard body against 100 m sigma) analyze reports
+  valid_approximation False and the value is only a rough screen
+  indicator.
+- Feeding a zero relative velocity: the linear TCA model divides by
+  dot(v, v), so a zero relative velocity raises ValueError - the
+  closing-rate assumption is part of the model, not a detail.
+- Building the miss with a velocity aligned to the position vector:
+  a closing velocity along the relative position drives the miss to
+  zero at TCA; only a perpendicular component produces the offset
+  miss the Pc formula needs (the worked 50 m case).
+- Mixing the sigma convention: the model uses the combined 1-sigma
+  position uncertainty under the circular covariance approximation;
+  a full 3x3 covariance projection onto the encounter plane is out
+  of scope, so do not feed per-axis sigmas as if the projection were
+  performed.
+- Letting the exponent overflow silently: a distant pass (2780 m
+  miss against 100 m sigma) returns Pc ~ 1.6e-171, so compare
+  verdicts in log or threshold terms, not by the raw float's
+  magnitude.
 ## Verification
 
 - Confirm tca_s([5000, -3000, 2000], [-7.0, 1.0, -0.5]) returns 776.1 s
@@ -142,7 +170,7 @@ velocity [-7.0, 1.0, -0.5] m/s (closing).
   the relative state to the screening epoch when the objects share a
   circular orbit.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

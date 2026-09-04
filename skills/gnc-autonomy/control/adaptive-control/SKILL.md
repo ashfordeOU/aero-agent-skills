@@ -142,6 +142,31 @@ softer bounds below already hold with error 5.1e-5 and gains
 - Run the contract test offline: python3
   scripts/test_adaptive_control.py (33 tests, deterministic).
 
+## Pitfalls
+
+- Running too few steps and reading the verdict: the strict convergence tail
+  clears at about 2070 steps for the worked example (the last-200-step error
+  and gain tolerances); at 2000 steps the softer bounds already hold, so the
+  converged verdict is run-length dependent.
+- Zero adaptation on an unstable plant: with gamma = 0 the open loop grows
+  (|x| = 144.8 at step 500 from x0 = 1.0 on the a_p = 1.0 plant), which is
+  the intended instability guard - do not expect convergence without the
+  adaptation law.
+- Flipping the sign of b_p: the Lyapunov-motivated law assumes the sign of
+  the control effectiveness is known positive; a wrong sign assumption turns
+  the gradient update into a destabilizing one (the leaf records
+  sign-positive as a scope condition).
+- Mixing up the update ordering: each step applies the control from the
+  current gains, advances both states by dt, then samples the error and
+  updates the gains; this documented Euler ordering is what drives the gains
+  to the ideal values.
+- Ideal gains are the target, not an input: ideal_gains(a_p, b_p, a_m, b_m)
+  computes theta_x_star = (a_m - a_p)/b_p and theta_r_star = b_m/b_p for
+  assessment; feeding them back into the controller defeats the adaptive
+  purpose.
+- model_a >= 0, dt <= 0, steps < 2, negative gamma and plant_b == 0 raise
+  ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/control/control-allocation: distributing the scalar
@@ -157,7 +182,7 @@ softer bounds below already hold with error 5.1e-5 and gains
 - gnc-autonomy/control/frequency-response-design: classical
   frequency-domain design for known plants in the same pack.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

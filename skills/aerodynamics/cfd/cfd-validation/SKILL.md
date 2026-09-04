@@ -94,7 +94,34 @@ NACA 0012 at M 0.30, Re 6e6, alpha 0 deg. Reference Cd 0.0081 (NACA TR
   0.0001 combine to U_val = 0.000374, dominated by modeling. The verdict
   band is wider than U_val, so the PASS is robust.
 
-## Verification gate
+## Pitfalls
+
+- Calling a code validated because one case passes: validation never
+  proves a code, it bounds it for a stated application and condition
+  range — the verdict from validation_verdict belongs to the case, the
+  band, and the flow regime that was run, and a clean residual
+  (cfd-convergence) does not make a 23% drag error acceptable.
+- Selecting the reference case by convenience instead of regime: the
+  incompressible NACA 0012, transonic ONERA M6 and DLR-F6 cases each
+  anchor one flow regime and application, so comparing a transonic
+  wing-body run against the NACA 0012 Cd band is meaningless.
+- Choosing the acceptance band after seeing the error: the 5% section /
+  10% wing-body / 0.02 Cp bands are documented typicals that must be
+  stated before the comparison, not tuned to force a PASS.
+- Using the wrong metric for the quantity: relative_error is for
+  integrated quantities (Cd, Cl) while distributed quantities (Cp, Cf,
+  u profiles) need rms_error and max_error — a single-point Cp relative
+  error hides the profile mismatch.
+- Running Richardson extrapolation on a non-monotone mesh sequence:
+  three mesh values with no clear trend or a non-positive apparent
+  order give no sane grid-convergence statement, so the GCI on the
+  finest mesh is not trustworthy.
+- Reporting a verdict whose band is narrower than the uncertainty: when
+  U_val (0.000374 in the worked example) approaches the tolerance band,
+  the PASS is not robust — widen the band or reduce the dominant error
+  source before claiming validation.
+
+## Behavior contract (gate 3)
 
 The behavior contract is scripts/test_cfd_validation.py against
 scripts/cfd_validation_logic.py (stdlib unittest, offline, deterministic).

@@ -105,7 +105,35 @@ point.
 - visual-inspection: baseline surface screening that precedes
   instrumented NDT.
 
-## Contract test
+## Pitfalls
+
+- Reading the Felicity ratio backwards: a ratio at or above 1 means
+  the Kaiser effect holds and damage is stable, while a ratio below 1
+  (0.95 is the common composites threshold) signals the Felicity
+  effect and progressing damage — treating a sub-1 ratio as a pass
+  misses the very damage progression AE is deployed to catch.
+- Counting hits as events: a hit is one sensor channel crossing the
+  amplitude threshold, and hits only become one source event when
+  their arrival times fall inside the HDT window — grouping must run
+  before hit counts are quoted as emissions.
+- Trusting a located source without checking the array geometry:
+  sources far outside the array are unreliable, and the planar solver
+  raises ValueError on impossible arrival times, inconsistent time
+  sets and out-of-array solutions instead of returning a wrong point.
+- Mixing dB scales: amplitudes are reported in dBae against a fixed
+  dB threshold (40 dB is a common start), so thresholds and hit
+  amplitudes from different scales cannot be compared directly.
+- Ignoring the coverage chain: couplant, mounting and sensor spacing
+  set the coverage, and resonant sensors are band-limited (typical
+  100-500 kHz), so a gap in coupling or an out-of-band emission
+  silently produces no hits.
+- Treating AE as a general inspection without the qualification
+  context: personnel certification follows NAS-410 (SNT-TC-1A
+  context) level certification and AS9100 frames NDT as a special
+  process, so an AE verdict outside that qualification frame has no
+  disposition standing.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

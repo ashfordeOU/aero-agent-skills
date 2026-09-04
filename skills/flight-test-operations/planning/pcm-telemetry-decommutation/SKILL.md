@@ -138,6 +138,30 @@ channel A2 recovers 78 values (3020 and 5020 dropped); subframe 0 of
 channel S recovers 9 values (the frame 20 sample, value 2005, is
 dropped).
 
+## Pitfalls
+
+- Demultiplexing without the frame layout: supercommutated channels
+  interleave in frame order then slot order (A2 reads [3000, 5000,
+  3001, 5001, ...] for slots [3, 5]), while subcommutated channels key
+  on the subframe id carried in the sid word.
+- Reading the subframe id with the wrong mask or word index: the ids
+  cycle through 0..3 under sid_mask 0x0003 at sid_word_index 0, and an
+  out-of-range sid_word_index raises ValueError.
+- Ignoring sync corruption in the recovery: a corrupted sync word drops
+  the whole frame from every channel (39 locked with 1 miss), so
+  channel A recovers 39 values and subframe 0 of channel S only 9 -
+  downstream analysis must expect the missing samples.
+- Locking onto an unaligned stream without the scan bound: three junk
+  words prepended shift first_sync_index to 3 with the same recovered
+  frames, and max_scan bounds the sync search.
+- Feeding malformed format or subcommutation dicts: empty frame lists,
+  ragged frame lengths, supercommutated slots outside the frame,
+  subframes below 1, and subcommutated entries missing their
+  word_index or subframes keys all raise ValueError.
+- Recomputing the frame period from the data words alone: the period is
+  data plus idle words (8 + 1 = 10 here), and the layout must match the
+  transmitter-side design owned by telemetry-data-acquisition.
+
 ## Verification
 
 - Confirm frame_period_words(8, 1) = 10, (8, 0) = 9, (0, 0) = 1, and
@@ -176,7 +200,7 @@ dropped).
 - flight-test-operations/planning/flight-test-instrumentation: the
   sensor and recorder chain upstream of the telemetry stream.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

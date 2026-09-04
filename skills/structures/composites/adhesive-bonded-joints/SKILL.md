@@ -99,6 +99,29 @@ Case 2: overlap L = 10 mm, allowable 25 MPa.
 Case 3: allowable 45 MPa, L = 25 mm.
 - margin_ratio = 45/38.47 = 1.170, margin_ms = +0.170: PASS.
 
+
+## Pitfalls
+
+- Reading the peak stress as uniform bondline shear: the average
+  P / (b L) understates the bondline ends by the concentration factor
+  (beta*L/2)/tanh(beta*L/2), which is 2.40 in the worked example; the
+  joint margin must be checked against tau_max, not tau_avg.
+- Believing a longer overlap always fixes the joint: the peak stress
+  only falls toward the average slowly with beta*L, and the shorter
+  10 mm overlap in the worked example raises both the average and
+  the peak; the concentration saturates for long overlaps.
+- Using non-identical adherend data: beta assumes two identical
+  adherends with the 2.0/(E*t) sum form; dissimilar adherend pairs
+  need the general 1/(E1*t1) + 1/(E2*t2) expression.
+- Forgetting the model boundary: this is Volkersen-style bondline
+  shear only; peel and adherend bending are out of scope, and
+  peel-critical designs need a Goland-Reissner or FE analysis.
+- Treating a zero margin as acceptable: margin_ms = margin_ratio - 1,
+  so the joint only passes when tau_max stays below the allowable
+  (25 MPa allowable against 38.47 MPa peak gives -0.350 and FAIL).
+- Feeding non-physical joint inputs: negative load, zero or negative
+  width and overlap, and non-positive moduli, thicknesses, and
+  allowables raise ValueError instead of producing a stress.
 ## Verification
 
 - Confirm shear_lag_beta(70e9, 2e-3, 0.5e9, 0.2e-3) returns 188.98 1/m
@@ -128,7 +151,7 @@ Case 3: allowable 45 MPa, L = 25 mm.
 - structures/composites/sandwich-panels: skin to core bonds where the
   same adhesive allowables apply.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -196,6 +196,31 @@ run ends at step 9 with the estimate 7.604 m against the truth 7.60 m.
 - Run the contract test offline: python3
   scripts/test_particle_filter.py (34 tests, deterministic).
 
+## Pitfalls
+
+- Resampling every step: the SIR loop resamples only when ESS drops below
+  n/2; unconditional resampling adds variance and destroys the diversity the
+  conditional rule preserves.
+- Quoting posterior spread as a single mode: the weighted standard deviation
+  is the honest posterior width and stays wide across a bimodal likelihood
+  (about 3.7 m with the squared-range sensor) instead of collapsing to one
+  mode like an EKF (Jacobian 2x = 0 at x = 0) or a sign-guessing UKF.
+- Under-populating the ensemble: Monte Carlo error falls like 1/sqrt(n) and
+  n must scale with the state dimension - scalar problems need thousands
+  (5000 in the worked example), high-dimensional or rare-event problems
+  1e4-1e5.
+- Expecting identical numbers across seeds: the filter is seeded for exact
+  reproducibility (filter seed 7, measurement noise seed 26 in the worked
+  example); the same seed returns identical trajectories, different seeds do
+  not.
+- Forgetting to normalize before forming the estimate: update_weights
+  returns unnormalized weights; form the mean and standard deviation only
+  after normalize_weights, and weight arrays must match the particle array
+  length.
+- n <= 0, negative prior/process/measurement standard deviations, dt <= 0,
+  empty or mismatched lists, negative weights and a collapsed zero-total
+  posterior raise ValueError.
+
 ## Related leaves
 
 - navigation/kalman-filter-design: the linear Gaussian filter; the
@@ -210,7 +235,7 @@ run ends at step 9 with the estimate 7.604 m against the truth 7.60 m.
   linear constant-velocity problems, the cheapest alternative when no
   full posterior is required.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

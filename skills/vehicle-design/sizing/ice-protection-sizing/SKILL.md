@@ -149,6 +149,36 @@ rho ~ 0.365 kg/m3), LWC = 0.44 g/m3 (0.44e-3 kg/m3), MVD = 20 micron.
 
 All of these numbers are reproduced exactly by the contract test.
 
+
+## Pitfalls
+
+- Choosing evaporative anti-icing for a wing band: full-catch
+  evaporation costs q_evap ~ 1.3 MW per m2 of catch (1.31 MW in the
+  worked example) and is only practical on small, high-flux surfaces
+  like inlet lips; the mode decision must fall back to running wet
+  (4.18 kW) or cyclic de-ice for large bands.
+- Forgetting the kinetic heating credit: the running-wet flux is
+  q_req = h_c * (T_surf - T_inf - T_kin) with the kinetic rise
+  (26.53 K in the worked example) reducing the required heat; an
+  adiabatic-wall calculation without the recovery credit over-sizes
+  the anti-ice demand.
+- Reading the freeze fraction sign: n is min(1, max(0, cp_water *
+  (T_frz - T_surf) / L_f)), so it is 0 at and above 273.15 K and 1
+  only for a very cold surface; a running-wet surface at the limit
+  has zero freeze fraction by construction.
+- Sizing the catch on the wrong chord or span: the catch rate is
+  per unit span (eta * LWC * v * chord) and the protected area is
+  TWO-sided (2 * band_fraction * chord * span); mixing per-meter
+  with total values mis-sizes both the catch and the power.
+- Quoting the electrothermal power for a bleed-air system: the
+  required power converts to bleed mass flow through the bleed
+  supply temperature (0.0179 kg/s at 450 K in the worked example),
+  and a bleed supply at or below the free-stream temperature raises
+  ValueError.
+- Verdict without the power margin: protect_verdict compares the
+  mode's P_req against the AVAILABLE power (the 100 kW budget
+  rejects the 1.31 MW evaporative mode), so the mode and the margin
+  are one decision.
 ## Verification
 
 - Confirm total_temperature(218, 0.78) = 244.53 K and the kinetic rise
@@ -187,7 +217,7 @@ All of these numbers are reproduced exactly by the contract test.
 - vehicle-design/conceptual/constraint-analysis: the power offtake margin
   against which the protect verdict is drawn.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

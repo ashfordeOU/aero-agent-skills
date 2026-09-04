@@ -110,7 +110,33 @@ n = 2.3) fails. At VB the 66 fps gust line (n = 2.42) exceeds the
 maneuver envelope (n = 2.01), so the gust condition is critical near
 the corner and must be carried into the structural sizing.
 
-## Verification gate
+
+## Pitfalls
+
+- Mixing knots and feet per second: the discrete gust factor takes
+  V_e in ft/s in the slug/ft^3 form (with the knots form using the
+  498 denominator); feeding KEAS where EAS is expected shifts the
+  load factor by the 1.688 ratio.
+- Using sea-level density at altitude without equivalent airspeed:
+  rho0 pairs with EAS so the equation holds at any altitude - a
+  true-airspeed input at a flight-altitude density breaks the gust
+  formula unless the inputs are converted consistently.
+- Forgetting the gust alleviation factor: the design gust enters
+  through K_g = 0.88 * mu_g / (5.3 + mu_g), not the raw U_de times
+  V_e term; a light airplane with small mu_g gets a much smaller
+  gust load factor than the unalleviated value.
+- Quoting one maneuver limit for every category: the VA limit is 2.5
+  for normal category and 3.8 for commuter/transport, and the load
+  factor varies linearly from VA to 0 at VD; the corner VA =
+  VS * sqrt(n_VA) changes with the category too.
+- Checking only the maneuver envelope: near the corner the 66 fps
+  gust at VB often sits ABOVE the maneuver envelope (n = 2.42 vs
+  2.01 in the worked example) and is critical for sizing;
+  envelope_margins exists to catch exactly this.
+- Feeding an invalid gust velocity: U_de = 0 or |U_de| above 66 fps
+  raises ValueError, as do unknown categories, broken speed
+  ordering (VB > VC > VD) and missing inputs.
+## Behavior contract (gate 3)
 
 The behavior contract is scripts/test_gust_load.py against
 scripts/gust_load_logic.py (stdlib unittest, offline, deterministic).

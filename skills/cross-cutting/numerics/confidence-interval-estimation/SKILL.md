@@ -106,6 +106,32 @@ sibling's data).
 - Variance interval of a at 95%: variance = 10.7, df = 4, bounds
   [3.8409, 88.3533]; sigma bounds [1.9598, 9.3996].
 
+## Pitfalls
+
+- Treating the 95% level as a probability that this one interval holds
+  the parameter: the level is a property of the procedure - the seeded
+  normal sample interval contains the true mean, larger levels give
+  wider intervals, and larger n at equal variance gives narrower
+  intervals.
+- Quoting the variance interval as the sigma interval (or vice versa):
+  on sample a the variance bounds are [3.8409, 88.3533] while the
+  sigma bounds are [1.9598, 9.3996], the square roots of the variance
+  bounds.
+- Choosing pooled over Welch (or the reverse) without checking the
+  variances: the pooled difference interval uses df 8 and bounds
+  [-13.5753, -4.8247], while the Welch interval uses the
+  Welch-Satterthwaite df 7.7244 and bounds [-13.6027, -4.7973].
+- Reporting the interval and the hypothesis verdict as independent
+  facts: the pooled interval excluding zero and the sibling leaf's
+  reject verdict on the same data are the same statement in two forms
+  (the duality check).
+- Quoting a precise variance from a small sample: with n = 5 and df = 4
+  the variance interval spans [3.8409, 88.3533] around 10.7 - the
+  point estimate alone overstates the knowledge.
+- Passing degenerate inputs: level outside (0, 1), df below 1, chi2
+  probability outside [0, 1], empty or single-observation samples, and
+  reversed interval bounds all raise ValueError.
+
 ## Verification
 
 - Confirm the quantile anchors to 1e-4: t(0.975, 4) = 2.776445,
@@ -145,7 +171,7 @@ sibling's data).
 - cross-cutting/numerics/probability-distributions: distribution
   characterization and fitting context for the underlying model.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

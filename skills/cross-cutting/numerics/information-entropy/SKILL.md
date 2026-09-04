@@ -103,6 +103,30 @@ A telemetry data channel carries four symbol classes with p = [0.5,
 - A skew distribution [0.9, 0.05, 0.03, 0.02] gives 0.6175431233120147
   bits per symbol, well below the 2.0 bit bound for 4 symbols.
 
+## Pitfalls
+
+- Feeding any negative probability or count, or a zero-sum input: the
+  module raises ValueError, as it does for empty input and binary p
+  outside [0, 1].
+- Expecting entropy above log2(N): H always lies between 0 and log2(N),
+  so a uniform 4-symbol source gives exactly 2.0 bits and skew sources
+  sit below (0.6175 for [0.9, 0.05, 0.03, 0.02]) — a result above the
+  bound means invalid input, not a dense source.
+- Misreading binary_entropy at its endpoints: b(0.0) = b(1.0) = 0.0,
+  b(0.5) = 1.0 exactly, and the function is symmetric, b(p) = b(1-p).
+- Treating counts and probabilities as interchangeable without the
+  normalization rule: counts normalize identically to probabilities
+  ([5, 5] and [0.5, 0.5] both give 1.0 bit), but every entry must be
+  non-negative and the sum nonzero.
+- Quoting the entropy as the channel rate: the floor is min_bit_rate =
+  entropy times symbol rate (1750 bps at 1000 symbols/s), and the
+  four-symbol saving over the uniform 8-symbol source (3000 bps) only
+  holds at the same symbol rate.
+- Calling entropy_summary on fewer than 2 symbols or with a negative
+  entropy or symbol rate: it raises ValueError, and redundancy is only
+  meaningful in [0, 1] for a valid distribution (0 uniform, 1
+  deterministic).
+
 ## Verification
 
 - Confirm shannon_entropy([0.5, 0.25, 0.125, 0.125]) returns entropy
@@ -142,7 +166,7 @@ A telemetry data channel carries four symbol classes with p = [0.5,
   the telemetry channel symbol stream whose entropy and minimum bit
   rate this leaf computes.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

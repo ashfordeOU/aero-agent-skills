@@ -132,6 +132,31 @@ base-input PSD of G = 0.01 g^2/Hz over 20-500 Hz.
   14.6 g, which would fail a 10 g equipment screening; the case
   demonstrates how strongly the response level scales with f_n and Q.
 
+
+## Pitfalls
+
+- Using Miles on a non-flat spectrum: the Miles equation assumes a
+  flat band-limited input level at the resonance; for an arbitrary
+  spectrum the response PSD must be integrated numerically, and the
+  module returns None for the Miles value when f_n lies outside the
+  input coverage.
+- Sampling the spectrum coarser than the response peak: the half-
+  power width of the peak is about 2*zeta*f_n (4 Hz at f_n = 40 Hz,
+  zeta = 0.05), so a grid coarser than that underestimates the
+  integrated response.
+- Quoting a 3-sigma level as a hard peak: for a narrowband Gaussian
+  random response the peak reaches about 3*sigma and n_eq = 3*sigma
+  is a screening load factor that assumes the response at resonance
+  dominates and the item is SDOF.
+- Reading the transmissibility at resonance as the amplification:
+  |H(f)|^2 peaks at Q^2 = 1/(2*zeta)^2 (100 at zeta = 0.05) while Q
+  itself is 10; the response PSD scales with the squared factor.
+- Feeding an out-of-range damping: zeta must lie in (0, 1); zeta = 0
+  makes the amplification infinite and zeta >= 1 is not an
+  oscillator, and both raise ValueError.
+- Doing the fatigue damage here: this leaf stops at response levels
+  (sigma, 3-sigma, n_eq); cycle counting and cumulative Miner damage
+  of the vibration response belong to the fatigue pack.
 ## Verification
 
 - miles_sigma(40, 0.05, 0.01) returns 2.5066 g_rms and
@@ -162,7 +187,7 @@ base-input PSD of G = 0.01 g^2/Hz over 20-500 Hz.
 - structures/thermal-structures/thermal-stress-analysis: thermal
   environment loads assessed alongside the vibration qualification.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

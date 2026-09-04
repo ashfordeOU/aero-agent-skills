@@ -143,6 +143,35 @@ C_L_td = 1.0 with k_dump = 1.5 at 60 deg.
   fraction 0.474 within band. The verdict reports the sizing as
   within typical limits.
 
+
+## Pitfalls
+
+- Giving the spoilers the full roll authority: the roll spoilers
+  carry only the share not assigned to the primary channel
+  (f_spoil = 1 - f_ail = 0.35 in the worked example); sizing the
+  flight spoilers for the total C_l_req over-sizes the panels and
+  the actuators.
+- Sizing deflection beyond the linear band: the deflection law is
+  linear up to 45 deg and saturated beyond, and the linear band
+  model is conservative because separated flow at high deflection
+  destroys lift harder than the linear slope - do not extrapolate
+  the area law past the reference deflection.
+- Forgetting the dump belt is a spanwise area: the ground spoiler
+  area A_dump is the effective dump belt (panel run times local
+  chord) that destroys the f_dump share of the touchdown lift;
+  sizing it as a single panel area underestimates the unload.
+- Confusing the flight and ground drag increments: the speed brake
+  increment uses the flight panel planform deployed at the flight
+  deflection while the lift dump increment uses the dump planform at
+  the ground deflection; both share one formula but with different
+  areas and angles.
+- Checking the deflection but not the geometry: the limits include
+  panel aspect ratio in 1.5 to 4 and panel span fraction in 0.2 to
+  0.5 of the semi-span, so a panel that fits the deflection band can
+  still fail the geometry check.
+- Feeding invalid shares or slopes: f_ail outside (0, 1), negative
+  cl_delta_spoil, deflections outside (0, 90], k_dump outside
+  (0, 1.5] and non-positive q, area or speed all raise ValueError.
 ## Verification
 
 - Confirm roll_spoiler_share(0.65) returns 0.35 and the damping
@@ -179,7 +208,7 @@ C_L_td = 1.0 with k_dump = 1.5 at 60 deg.
 - vehicle-design/conceptual/constraint-analysis: field performance
   margins that the lift dump and speed brake support.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

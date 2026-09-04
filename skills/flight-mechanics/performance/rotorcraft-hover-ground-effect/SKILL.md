@@ -154,6 +154,26 @@ hover_ground_effect(2200.0, 5.0, 5.0, available_power = 360000.0):
   scripts/test_rotorcraft_hover_ground_effect.py (32 tests,
   deterministic).
 
+## Pitfalls
+
+- Calling the ground-effect factor below the validity floor: the
+  Cheeseman-style point model diverges for z/R < 0.5 and
+  ground_effect_factor raises ValueError there; z/R = 0.5 is exactly 0.75
+  and z/R = 1 is 0.9375.
+- Reading max_hover_height None as an error: None means the available power
+  covers the OGE total, so the rotorcraft can hover at any height; a
+  ValueError (not None) is raised only when the power is too low even in
+  full ground effect.
+- Applying the factor to profile power: ground effect modifies the induced
+  power only; P_profile is unchanged, and the IGE total is k*P_ideal*factor
+  + P_profile.
+- Treating the IGE ceiling as exact without the root check: the returned
+  height is a bisection root where IGE total power equals the available
+  power to within 1 W; verify that equality before quoting the hover
+  ceiling.
+- Factor outside (0, 1] or non-positive radius, thrust, density, solidity,
+  drag coefficient, tip speed or induced power factor raises ValueError.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-hover-performance: the
@@ -173,7 +193,7 @@ hover_ground_effect(2200.0, 5.0, 5.0, available_power = 360000.0):
   the rotorcraft vertical climb sibling, adjacent to the hover power
   check in a rotorcraft performance pass.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

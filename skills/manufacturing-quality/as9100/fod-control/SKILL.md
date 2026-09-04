@@ -124,7 +124,35 @@ adjacent to the line), open cavity exposure 2 (engine inlet open).
 - manufacturing-quality/as9100/quality: audit scoping across the AS9100
   quality management system, of which the FOD program is one control.
 
-## Contract test
+## Pitfalls
+
+- Treating the zone cuts, sweep cadence and control sets as fixed
+  standard text: they are example program policy values a site defines
+  (score >= 14 zone A, >= 10 zone B, sweeps 8/40/160 h), so an audit
+  against them scores the site's declared policy, not AS9100 itself.
+- Passing a fod-pass on completeness alone: the verdict requires
+  completeness 1.0 AND a reconciled tool count, so a complete control
+  set with one missing tool still returns fod-fail with a
+  missing-tool finding.
+- Reconciling tool counts in aggregate: each issued tool is tracked
+  individually, so a shortfall is reported per tool with its missing
+  quantity — and extra returned tools that were never issued are
+  ignored rather than credited against a different tool's shortfall.
+- Scoring the wrong scale: the FOD risk score (3 * part_criticality +
+  2 * debris_exposure + 2 * open_cavity_exposure) is not the FMEA RPN
+  of the risk-management leaf nor the provenance scoring of
+  counterfeit-prevention; mixing scales corrupts the zone and the
+  verdict.
+- Leaving findings open: the workflow closes the gaps named in the
+  findings (add the missing control, find the missing tool) and
+  re-audits until fod-pass, and the sweep must still be logged at the
+  required cadence.
+- Feeding out-of-band inputs: criticality, debris exposure or open
+  cavity exposure outside 1-3/1-3/0-2, negative tool quantities and
+  unknown control names raise ValueError — a plausible-looking audit
+  dict with a typo'd control name is rejected, not silently scored.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

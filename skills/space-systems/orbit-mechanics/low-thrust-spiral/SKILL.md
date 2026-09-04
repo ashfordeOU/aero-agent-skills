@@ -121,6 +121,33 @@ spiral. Bus mass m0 = 2000 kg, ion thruster T = 0.5 N at I_sp = 3000 s
   The ion option trades that extra delta-v against the much higher
   specific impulse, at the cost of an 8 month transfer.
 
+
+## Pitfalls
+
+- Passing altitude instead of radius: the Edelbaum call takes
+  circular orbit radii (6878e3 m for a 500 km LEO), not altitude, so
+  a surface-radius slip shifts both velocities and the whole budget.
+- Confusing the plane-change and no-plane-change budgets: the
+  28.5 deg LEO-to-GEO spiral costs 5845.58 m/s while the di = 0 case
+  costs 4538.02 m/s; quote the one that matches the mission's
+  inclination requirement.
+- Sizing propellant off the impulsive Hohmann budget: the low-thrust
+  spiral pays 1.53 times the coplanar Hohmann delta-v in the worked
+  example, so the chemical baseline underestimates the ion
+  propellant unless the comparison is labeled as such.
+- Ignoring the burn duration: transfer time is m_prop * c / T and
+  the 0.5 N class thrust yields months of thrusting (245 days in the
+  worked example); a schedule that plans weeks misreads the
+  Edelbaum time.
+- Feeding an inclination outside its domain: the total inclination
+  change must lie in [0, 180] degrees and every radius, thrust,
+  initial mass, and specific impulse must be positive; the functions
+  raise ValueError rather than silently extrapolate.
+- Treating the approximation as an integration: Edelbaum closes the
+  budget analytically under continuously steered thrust, so the
+  result is the steering-optimal budget, not a thrust-profile
+  trajectory; J2 and drag accumulated over months belong to the
+  perturbations leaf.
 ## Verification
 
 - Confirm edelbaum_delta_v(6878e3, 42164e3, 28.5) returns 5845.58
@@ -153,7 +180,7 @@ spiral. Bus mass m0 = 2000 kg, ion thruster T = 0.5 N at I_sp = 3000 s
 - space-systems/orbit-mechanics/satellite-coverage: the target orbit
   geometry that motivates the transfer.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

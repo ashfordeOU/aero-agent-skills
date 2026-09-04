@@ -96,6 +96,32 @@ REQ-101 braking limits.
   verification method, and analysis before approval.
 - Every change has a history record with classification and status.
 
+## Pitfalls
+
+- Placing working notes and minutes under configuration control: only
+  requirements, design data, verification data and analysis are
+  configuration items, and non-CI data is excluded from the baseline
+  snapshot.
+- Freezing a baseline from an unsorted, unversioned item set: the
+  snapshot is sorted and frozen under a baseline id and version, and
+  version \"1.0\" is the start of change control — change activity has
+  no meaning before the baseline exists.
+- Approving an impact analysis that lists only the directly touched
+  item: the impact set is expanded through the trace map, so touching
+  a design element, test, or analysis pulls in its owning requirements
+  before classification.
+- Classifying a safety-relevant change as minor: classification is
+  major when the impact set is safety-relevant or the change flags
+  interfaces_changed or certification_data_changed, so a minor label
+  on REQ-101-class impact is a process failure, not a judgment call.
+- Releasing a new baseline without re-running traceability closure: a
+  change to a derived requirement must update its source, and closure
+  must hold (every requirement mapped to design and verification,
+  every derived requirement sourced) before release.
+- Skipping the history record: every change is appended to the change
+  history log with its classification and status, and a change with no
+  record cannot be audited against the frozen baseline.
+
 ## Behavior contract (gate 3)
 
 The logic is exercised by the contract test

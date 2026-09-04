@@ -88,6 +88,30 @@ distortion 5; pointing requirement 90 arcsec 3-sigma.
   share 625/727 = 0.8597), so the control deadband carries 86.0% of the
   error variance.
 
+
+## Pitfalls
+
+- Mixing 1-sigma and 3-sigma: the contributors are 1-sigma and the
+  requirement is 3-sigma; compare three_sigma_error against the
+  requirement, not the raw RSS.
+- Adding correlated contributors by RSS: the root-sum-square assumes
+  independence; correlated errors sum linearly, so RSS understates the
+  chain when the terms share a common source.
+- Allocating against an already-over budget: allocate_error_budget
+  raises ValueError when the fixed contributors push the radicand
+  negative (fixed RSS above requirement / 3); size the fixed chain
+  first.
+- Trusting a verdict at the exact boundary: a requirement exactly
+  equal to the 3-sigma value returns True with zero margin - treat
+  boundary equality as met but not robust.
+- Ranking by magnitude instead of variance share: the dominant source
+  is the largest share of the variance (the 25 arcsec deadband carries
+  625/727 = 86.0% in the worked example), and an all-zero contributor
+  list raises ValueError.
+- Forgetting that a zero contributor is inert: adding a zero leaves
+  the RSS unchanged and reversing the input order leaves it unchanged,
+  so the input list order must not leak into the reported dominant
+  index.
 ## Verification
 
 - Confirm rss_pointing_error([3, 2, 25, 8, 5]) returns 26.962938 arcsec
@@ -119,7 +143,7 @@ distortion 5; pointing requirement 90 arcsec 3-sigma.
 - space-systems/adcs/gyro-allan-variance: sensor noise metrology that
   characterizes the gyro propagation entry.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

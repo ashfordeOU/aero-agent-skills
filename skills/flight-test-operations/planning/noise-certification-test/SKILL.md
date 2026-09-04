@@ -121,6 +121,29 @@ A transport airplane noise certification data set, 41 PNLT samples at
 - Geometry: geometry("approach") returns distance 1200.0 m,
   altitude 120.0 m, glide 3.0 degrees.
 
+## Pitfalls
+
+- Truncating a run that never drops 10 dB below its peak: the constant
+  90 dB flyover integrates the full 20 s series to EPNL = 93.0103
+  EPNdB with a not-truncated flag and the full-span window.
+- Reading EPNL as the instantaneous peak: the pulse approach at 100 dB
+  from 8 to 12 s gives EPNL = 96.3094 EPNdB because the effective
+  duration sits below the 10 s reference, and the single-peak 92 dB
+  series lands near 89 EPNdB.
+- Forgetting that the 10 dB down window is interpolated: the peaked-run
+  crossings at 7.75 s and 12.25 s bound the truncated integration
+  window and are linearly interpolated, not snapped to sample times.
+- Judging compliance from the individual margin alone: margin_to_limit
+  must pass and the cumulative margins must sum to at least the limit
+  with every individual margin at or above zero - a negative single
+  margin fails the cumulative verdict.
+- Quoting EPNL differences between runs at different levels: adding
+  c dB to every PNLT sample adds c EPNdB (level-shift identity), so
+  comparisons only mean something at the same measurement conditions.
+- Feeding non-physical inputs: an empty or non-finite PNLT series,
+  dt <= 0, an unknown condition, and negative noise limits all raise
+  ValueError.
+
 ## Verification
 
 - Confirm epnl_from_pnlt([90.0] * 41, 0.5) returns 93.0102999566
@@ -150,7 +173,7 @@ A transport airplane noise certification data set, 41 PNLT samples at
 - flight-test-operations/planning/test-point-matrix-design: expands
   the certification conditions into the full flown point matrix.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

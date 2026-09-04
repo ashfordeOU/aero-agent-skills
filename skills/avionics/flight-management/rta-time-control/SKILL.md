@@ -137,7 +137,39 @@ a = 296.53 m/s; the spec display rounds it to 296.51), Mach envelope
 - avionics/flight-management/lateral-navigation: the lateral guidance the
   time-based operation runs alongside.
 
-## Contract test
+## Pitfalls
+
+- Dropping the wind from the Mach conversion: GS = TAS + V_wind with
+  a tailwind positive, so required Mach is (GS_req - V_wind) / a —
+  converting the 236.84 m/s required ground speed directly to Mach
+  without removing the +15 m/s tailwind commands roughly 0.05 Mach
+  high instead of the correct 0.7481.
+- Flipping the time-error sign: e = (t_now + eta) - t_RTA is positive
+  when the aircraft is LATE, so an RTA of 1200 s against an 1800 s
+  ETA means speed up, while -100 s (early) means slow down — swap the
+  sign and every command drives the aircraft the wrong way.
+- Commanding M_req outside the envelope: the command law clamps to
+  the nearer of mach_min and mach_max and reports the unfeasible
+  verdict with the remaining error of the best achievable arrival —
+  an RTA of 1200 s needs Mach 1.214 but the aircraft delivers
+  Mach 0.84 and arrives +503.97 s late, so the report must carry that
+  residual, not a silent clamp.
+- Ignoring the achievable window: arrivals can only fall in
+  [d_rem / GS_max, d_rem / GS_min], so an RTA of 2000 s beyond
+  eta_max_s 1969.33 s is unmeetable at any cruise speed — check the
+  window before computing a required speed, and still report the
+  best-case remaining error of -30.67 s (early).
+- Holding speed outside the tolerance: the hold branch applies only
+  when |e| <= TIME_TOL_S (5 s); outside it the command is M_req
+  inside the envelope, never the current speed, however close the
+  arrival looks.
+- Using the wrong speed of sound or presentation: a is
+  sqrt(GAMMA * R * T) at the cruise altitude (296.53 m/s at
+  10668 m, not the sea-level value), and the command is a Mach
+  number — the calibrated-airspeed presentation of the same command
+  is a display-layer conversion outside this leaf.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

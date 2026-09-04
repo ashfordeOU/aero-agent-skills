@@ -170,7 +170,36 @@ balance capacity 5000 N, sting arm 0.35 m, sting allowable stress
   closed-wall corrections to the measured coefficients, the post-test
   counterpart of the pre-test blockage budget fixed here.
 
-## Contract test
+## Pitfalls
+
+- Taking the blockage limit as the scale without checking the span
+  clearance: choose_scale returns the smaller of lambda_blockage and
+  lambda_span, and in the worked example the span limit would allow
+  0.05741 while blockage binds at 0.04927 — the reverse case binds on
+  span, so report which constraint drove the choice.
+- Treating a reynolds-mismatch flag as a campaign error: a ratio below
+  0.5 (0.03779 in the worked example) is the usual low-speed outcome
+  for a large transport and is reported as a tunnel-capability
+  limitation, not a pass/fail gate on the model.
+- Overriding the documented typical constants without checking the
+  program: BLOCKAGE_MAX, SPAN_CLEARANCE and STING_ALLOWABLE_STRESS_PA
+  are test-specific inputs with defaults; each function and analyze
+  accept explicit overrides, so pass program values rather than
+  assuming the defaults hold.
+- Rating the balance on the cruise load: the load that must be carried
+  is q * S_model * CL_max_test at the maximum test lift coefficient
+  (1633 N in the example), and a 1000 N balance reads balance-overload
+  even though the 5000 N rating passes.
+- Sizing the sting on force alone: the bending moment is the model load
+  times the sting arm (quarter chord to mount), and the diameter comes
+  from that moment at the allowable stress — an arm change alters the
+  diameter even at fixed load.
+- Quoting the rounded scale anchors: the module carries full precision
+  (scale 0.049275 vs the published 0.04927) so the round-trip dimension
+  checks land within tolerance; do not truncate inputs to the published
+  anchors before calling.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

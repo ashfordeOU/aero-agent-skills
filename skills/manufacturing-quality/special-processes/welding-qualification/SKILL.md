@@ -143,7 +143,35 @@ GTAW butt weld, V = 11.5 V, I = 190 A, travel 1.8 mm/s, efficiency 1.0.
   procedure qualification record content; that leaf decides whether a
   change re-triggers control.
 
-## Contract test
+## Pitfalls
+
+- Using the wrong arc efficiency: gtaw defaults to 1.0 while gmaw
+  (0.8) and gma-pulse (0.85) lose part of the electrical power to
+  radiation and spatter — the same electricals give 1.2139 kJ/mm on
+  GTAW and 1.0318 kJ/mm on GMA-pulse, so an efficiency mismatch
+  mis-qualifies the heat input window.
+- Judging preheat and interpass as one rule: preheat needs the
+  measured value at least at the required minimum (margin >= 0), while
+  interpass must stay at or below the qualified maximum — the two
+  bounds fail in opposite directions and both appear in the findings.
+- Releasing a production weld outside the thickness window: coverage
+  is 0.75x to 2.0x of the qualified coupon thickness, so an 8.0 mm
+  weld qualifies off a 6.35 mm coupon but a 4.0 mm weld does not.
+- Reading an unstated range as a failure: a None range means no window
+  was declared and the coverage check passes — only a stated,
+  reversed or exceeded range fails.
+- Treating the coupon matrix as code text: the tensile x2, guided bend
+  x4, radiography and macro etch set is documented typical aerospace
+  practice commonly governed by AWS D17.1 — confirm the matrix against
+  the governing code, and note macro etch only substitutes where
+  radiography is impractical.
+- Confusing this leaf with the requalification decision: it builds and
+  checks the WPS/PQR engineering content; whether a process,
+  equipment or personnel change re-triggers control belongs to
+  special-process-qualification, and welder personnel qualification
+  and weld NDT interpretation are out of scope here.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

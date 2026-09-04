@@ -148,7 +148,37 @@ contract test asserts the 1.67 target lands on the safety-critical bore.
 - cross-cutting/tolerancing/gdandt-basics: GD&T callouts and tolerance
   interpretation feeding the KC record (cross-cutting).
 
-## Contract test
+## Pitfalls
+
+- Ranking a customer-designated KC by its risk score: customer
+  designation gates KC status by rule but carries no weight, so a
+  customer-only KC scores 0/100 — the risk rank is not the importance
+  rank for designation-driven characteristics.
+- Reading KC status from the risk score: any single rule firing (safety
+  flag, customer designation, fit/function with downstream impact, a
+  position or profile feature at or below 0.1 mm, or two or more
+  historical failures) makes the characteristic key, and the reasons
+  list the fired rules in table order.
+- Escalating every tight-tolerance feature: the tight-tolerance rule
+  applies to position or profile features at or below the 0.1 mm
+  threshold, not to every close dimension on the drawing.
+- Applying the control method rules out of order: the table is first
+  match wins, so electrical features get 100 percent inspection,
+  two-or-more historical failures escalate to 100 percent inspection,
+  and an undemonstrated capability gets a gage study before any SPC
+  variable chart is assigned.
+- Computing Cpk here: this leaf assigns the target only (1.67 for
+  safety-critical, 1.33 default); the X-bar/R chart limits and Cpk
+  index math live in the statistical-process-control leaf.
+- Treating supplier and personnel changes as revalidation triggers:
+  tooling, process, and design changes revalidate a KC (delta FAI plus
+  capability re-study), while supplier and personnel changes route to
+  external-provider qualification and training control instead.
+- Passing non-physical batches: negative tolerances, unknown feature
+  types or change types, empty batches, duplicate ids and override
+  weight sets that do not sum to 100 raise ValueError.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

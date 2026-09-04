@@ -107,6 +107,31 @@ Turbofan transport, W0 = 150000 lb, cruise at V = 450 kt, TSFC =
   5 percent of trip fuel 3761.7 lb = 5607.7 lb reserve.
 - Required fuel including reserves: 75233.0 + 5607.7 = 80840.7 lb.
 
+
+## Pitfalls
+
+- Burning every segment from the takeoff weight: each segment burns
+  from the weight remaining after all earlier segments (the weight
+  chains through the mission), so recomputing cruise from W0 after a
+  climb segment overstates the block fuel.
+- Sizing loiter and hold fuel with the cruise equation: the loiter
+  and reserve hold burn by Breguet ENDURANCE (E * TSFC / (L/D)),
+  not by the range equation, and the hold L/D and TSFC are usually
+  worse than cruise values.
+- Forgetting the reserve is more than the hold: hold45_5pct adds the
+  45 minute hold AND 5 percent of the trip fuel; far121 adds the
+  alternate leg plus a 30 minute hold - a reserve that is only the
+  hold under-sizes the required fuel.
+- Mixing the unit convention: weight in lb, range in nm, speed in
+  knots, time in hours and TSFC in lb/lbf/hr; feeding SI or metric
+  values into the Breguet chain breaks the range equation silently.
+- Letting an unknown segment type burn nothing: unknown segment
+  types and missing params must raise ValueError, never silently
+  burn zero fuel.
+- Stopping at block fuel: the sizing loop needs the mission fuel
+  fraction and the required fuel (block plus reserves), and the
+  weight fraction iteration continues until the takeoff weight
+  converges.
 ## Verification checklist
 
 - [ ] Cruise fuel matches the hand Breguet value within 1 percent for
@@ -148,6 +173,16 @@ Turbofan transport, W0 = 150000 lb, cruise at V = 450 kt, TSFC =
   breakdown that supplies operating empty weight to the trade point.
 - skills/vehicle-design/sizing/ws-tw-trade/: the sizing trade that
   consumes the mission fuel fraction.
+
+## Behavior contract (gate 3)
+
+The mission segment fuel models, block fuel and time chaining, reserve
+rules, fuel fraction and payload-range trade point are exercised by the
+gate 3 contract test scripts/test_mission_profile.py against
+scripts/mission_profile_logic.py (stdlib unittest, offline,
+deterministic). Run:
+
+    python3 scripts/test_mission_profile.py
 
 ## Compliance
 

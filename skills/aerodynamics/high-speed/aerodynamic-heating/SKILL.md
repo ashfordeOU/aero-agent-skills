@@ -124,7 +124,31 @@ Heating peak on a reentry body: rho = 0.001 kg/m3, V = 7200 m/s, R_n =
 - structures/thermal-structures/thermal-stress-analysis: the wall
   temperature from this leaf as a load for mechanical thermal stress.
 
-## Contract test
+## Pitfalls
+
+- Searching for peak heating at peak velocity: q grows as V**3 but only
+  as sqrt(rho), so the worst point on a reentry trajectory is where the
+  density-velocity product is largest, not the fastest point.
+- Expecting the wall temperature to fall as fast as the flux: doubling
+  the nose radius divides the flux by sqrt(2), but T_w scales as the
+  fourth root, so the temperature drop is far smaller than the flux
+  drop.
+- Trading nose radius across different flight states: radius_scaling is
+  only valid at fixed rho and V; re-run the full assessment when the
+  flight point changes.
+- Judging thermal protection from flux alone: in the worked example the
+  2821 K radiation-equilibrium temperature, not the 3.05e6 W/m2 flux,
+  is what exceeds metallic limits and forces an ablator or ceramic tile
+  class.
+- Passing emissivity at the boundary: emissivity must lie in (0, 1];
+  zero or negative emissivity raises ValueError, as do non-positive
+  density, velocity, radius and heat flux.
+- Forgetting the correlation's scope: Sutton-Graves is a
+  stagnation-point, blunt-body, thin-shock-layer estimate; it is not a
+  general surface-heating method for sharp or three-dimensional
+  geometries away from the stagnation point.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

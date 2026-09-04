@@ -204,7 +204,7 @@ Multivariate example: minimize f(x, y) = x**2 + 2*y**2 with minimum
 - cross-cutting/numerics/ode-solvers: time-marching the state of a
   dynamic design problem before its scalar cost is minimized.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

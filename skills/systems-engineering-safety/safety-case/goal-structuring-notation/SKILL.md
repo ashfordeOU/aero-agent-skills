@@ -147,7 +147,34 @@ context C1 "certification basis FAR-25" in context of G1.
 - systems-engineering-safety/certification/certification-basis: the
   certification basis stated as context for the top goal.
 
-## Contract test
+## Pitfalls
+
+- Supporting a leaf goal with a strategy: every leaf goal needs an
+  incoming solution edge (or a justified away deferral), and strategy
+  support alone never covers it — a bare skeleton validates invalid
+  with coverage 0.0 until the evidence nodes are attached.
+- Deferring an away goal without justification: with the away-goal
+  rule on, every away goal must carry an incoming edge from a
+  justification node (any edge kind), and an away goal marked without
+  one is an issue even when its support is deferred elsewhere.
+- Leaving a cycle in the supported-by graph: supported-by cycles
+  (self-loops included, as in the G2-S2 case) invalidate the argument,
+  and only supported-by edges count for cycle detection — context and
+  assumption edges never create argument cycles.
+- Submitting with more than one top goal or dangling ids: a valid
+  argument has exactly one goal with no incoming supported-by edge,
+  and references to nodes outside the model must be fixed before
+  validation, not after.
+- Reporting coverage without checking the issues list: coverage 1.0 is
+  necessary but the verdict is {valid, issues, coverage} — undecomposed
+  strategies, away-goal violations and multiple top goals keep valid
+  False even when every leaf is covered.
+- Reproducing GSN figures or standard text: the notation rules here
+  are a reference-level summary of the GSN Community Standard, and
+  ARP4754A frames the evidence only — no figures, tables or standard
+  text are reproduced.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test: test-point-matrix-design.
 
-Exercises scripts/test_point_matrix_design_logic.py (stdlib unittest,
+Exercises scripts/point_matrix_design_logic.py (stdlib unittest,
 offline). Contract: docs/harness-contract.md gate 3 - build_test_matrix
 expands the altitude, speed, weight, and configuration sweeps into the
 full grid in deterministic altitude-major order; add_repeat_points marks
@@ -17,7 +17,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import test_point_matrix_design_logic as tpm  # noqa: E402
+import point_matrix_design_logic as tpm  # noqa: E402
 
 
 class BuildTestMatrixTest(unittest.TestCase):

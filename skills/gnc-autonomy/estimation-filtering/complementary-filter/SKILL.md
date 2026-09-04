@@ -146,6 +146,29 @@ perfect noiseless body measurement at every step.
 - Run the contract test offline: python3
   scripts/test_complementary_filter.py (30 tests, deterministic).
 
+## Pitfalls
+
+- Running the filter with a single reference vector: one reference leaves
+  rotations about that vector unobservable, so the bias estimate cannot
+  fully converge; the fusion loop needs two non-parallel references (the
+  worked example uses sun plus magnetometer-style vectors).
+- Reading the innovation norm as attitude error during no-measurement steps:
+  when no vector measurement is present e = 0 and the filter degrades to
+  gyro-only propagation - the innovation norm says nothing about drift on
+  those steps.
+- Starting off the unit quaternion: q0 is normalized only when within 1e-6
+  of unit norm and an initial quaternion outside that tolerance raises
+  ValueError; renormalize before every step is part of propagate_attitude.
+- Expecting the estimate to lead the truth: the estimate follows the
+  rotating truth within the one-step sampling lag |omega_true|*dt (2.29e-4
+  rad in the worked example) because the measurement at step k reflects the
+  attitude at step k.
+- Gyro-only drift anchors are the failure bound: without measurements the
+  attitude error grows as the integrated bias (0.113 rad at 100 s against
+  |b_true|*100 s = 0.141 rad), which is the drift the bias estimate removes.
+- Non-positive dt, negative gains, non-finite inputs, malformed vectors and
+  zero-norm quaternions raise ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/estimation-filtering/alpha-beta-filter: the discrete
@@ -159,7 +182,7 @@ perfect noiseless body measurement at every step.
   stochastic filtering family this pack offers for noise-covariance
   aware estimation.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

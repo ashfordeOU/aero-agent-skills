@@ -163,6 +163,30 @@ w_d = 6 m/s. Encounter time 20 s.
 - Run the contract test offline: python3
   scripts/test_windshear_analysis.py (deterministic, exit 0).
 
+## Pitfalls
+
+- Getting the wind-acceleration sign backwards: a_wind is positive when the
+  headwind increases (a performance increase that lowers F); the hazard is a
+  decreasing headwind - an 8 kt/s decreasing headwind contributes about
+  +0.42 to F, and an increasing headwind of the same magnitude gives -0.42
+  (severity low).
+- Classifying severity on the total instead of the demand: severity_class
+  applies to the demand component F_demand (F_total - F_available); at the
+  approach condition T = D the two coincide, but with excess thrust
+  available they differ.
+- Treating the severity thresholds as a regulation: 0.05/0.1/0.15 are
+  typical training thresholds, not a regulatory limit, and the escape ladder
+  is deterministic (escape at demand >= 0.15).
+- Quoting altitude loss without the encounter time: the energy height erodes
+  at v*F_total (37.5 m/s in the worked example) and altitude_loss is the
+  rate times the encounter time (749.5 m over 20 s).
+- Concluding 'can recover' from the thrust increment alone: dT = W*(F_demand
+  - F_available) came out at 269.5 kN (thrust-to-weight 0.4997) for the
+  worked approach, above the about 0.3-0.4 a go-around can deliver, so the
+  verdict is escape now.
+- Non-positive weight, mass, speed or thrust, negative drag, and negative
+  encounter time raise ValueError.
+
 ## Related leaves
 
 - flight-mechanics/performance/wind-effects: the steady wind triangle,
@@ -176,7 +200,7 @@ w_d = 6 m/s. Encounter time 20 s.
   flight-mechanics/performance/landing-performance: distance
   performance under steady wind, adjacent to the shear hazard cases.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

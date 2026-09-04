@@ -203,7 +203,7 @@ K = 0.042. Smoothing window 5.
   the airspeed, altitude, and time channels the recorded trace comes
   from.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

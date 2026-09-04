@@ -132,6 +132,29 @@ and noise drawn with random.Random(42) at sigma 6.0 m (draw
 - Run the contract test offline: python3
   scripts/test_gnss_raim_fde.py (34 tests, deterministic).
 
+## Pitfalls
+
+- Running detection without a spare satellite: n >= 5 gives one spare so
+  residuals exist (df = n - 4), and fault exclusion needs n >= 6 so the
+  re-solved n - 1 set still has a spare; fewer satellites raise ValueError.
+- Comparing the test statistic to the wrong threshold: detection compares T
+  = sse/sigma^2 against the chi-square quantile at df = n - 4 and PFA = 1e-5
+  (24.669 for n = 6); the df changes when the set shrinks after exclusion
+  (21.68 at df = 1).
+- Quoting HPL as the actual error: HPL is the worst-case-satellite
+  protection level (44.5 m in the worked example) - the maximum horizontal
+  error the geometry can hide at the fault probability, not the observed
+  error.
+- Excluding on raw residuals instead of normalized ones: exclusion ranks
+  |r_i|/(sigma*sqrt(S[i][i])) and the worked faulty satellite peaks at 22.3
+  against a 19.3 runner-up; raw residual ranking can pick the wrong
+  satellite on uneven geometry.
+- Availability is against the operation's alert limit: available requires
+  HPL <= HAL (556 m non-precision approach per DO-229 summary); the same
+  44.5 m HPL is available at 556 m and unavailable at a 30 m limit.
+- pfa outside (0, 1), df below 1, fewer than 5 satellites, non-unit
+  directions and zero residual sensitivity raise ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/navigation/gnss-pseudorange-positioning: the position
@@ -143,7 +166,7 @@ and noise drawn with random.Random(42) at sigma 6.0 m (draw
 - gnc-autonomy/navigation/navigation-frames: coordinate conventions for
   the ECEF geometry.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

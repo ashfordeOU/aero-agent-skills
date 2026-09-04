@@ -135,6 +135,34 @@ Representative aluminum (default table), fully reversed loading.
   reversals_to_failure(0.01) = 752 reversals, showing the shorter
   ductile transition of the higher strength steel.
 
+
+## Pitfalls
+
+- Reading a high-cycle life off the elastic term alone: the total
+  amplitude is the SUM of the elastic and plastic Coffin-Manson
+  terms, and below the transition the plastic term dominates; a
+  plastic-only or elastic-only estimate misses the life by orders of
+  magnitude.
+- Applying a mean-stress correction that is not modeled: this leaf
+  assumes fully reversed (zero mean) loading; mean-stress effects
+  belong to the goodman-diagram leaf, so a nonzero-mean load point
+  needs that correction before the life here means anything.
+- Treating a local yield as high-cycle automatically: the Neuber
+  point at S = 200 MPa yields at the notch root (plastic flag True)
+  yet lands at 4664 reversals, just above 2N_t, and is categorized
+  high-cycle - the regime string follows the local strain life, not
+  the yield flag.
+- Confusing reversals with cycles: reversals_to_failure returns
+  2N_f, and cycles are 2N_f / 2 (2135 reversals is 1068 cycles);
+  quoting reversals as cycles doubles the reported life.
+- Using k_f below unity or a notch stress beyond the model: k_f < 1
+  raises ValueError, and the Neuber identity sigma_loc * eps_loc =
+  (k_f * S)^2 / E only holds when the Ramberg-Osgood solution is the
+  one used to bridge.
+- Forgetting the material table is representative: the 7075-T6 and
+  4340 constants are typicals from the open literature
+  (reference-only), so an alloy-specific analysis must pass the
+  property dict override rather than quote the defaults.
 ## Verification
 
 - reversals_to_failure(0.01) returns 2135.47 reversals (between 1e3
@@ -167,7 +195,7 @@ Representative aluminum (default table), fully reversed loading.
   structures/fatigue/load-spectrum-counting: damage accumulation over
   the variable amplitude spectrum once each point life is known.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

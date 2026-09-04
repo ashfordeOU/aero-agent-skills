@@ -109,6 +109,31 @@ N m^2 and m = rho b h = 13.9 kg/m. Module outputs:
 - Rayleigh cantilever-parabola estimate: 26.3403 Hz = 1.272x the
   exact 20.7089 Hz, confirming the upper-bound property.
 
+
+## Pitfalls
+
+- Reading the wrong characteristic equation: cantilever roots come
+  from cos x cosh x = -1 while clamped-clamped and free-free share
+  cos x cosh x = 1; swapping them swaps the frequency sets.
+- Counting free-free rigid-body modes as elastic: a free-free beam
+  carries two zero-frequency rigid-body modes, and the module
+  reports elastic modes only - its first elastic root 4.73004074
+  matches clamped-clamped, so expecting a lower first free-free
+  frequency is wrong.
+- Using the Rayleigh estimate as exact: the cantilever-parabola
+  quotient gives 26.3403 Hz against the exact 20.7089 Hz fundamental
+  in the worked example (an upper bound at 1.272x), so it is a
+  screening bound, not the frequency.
+- Forgetting pinned-pinned is closed form: pinned-pinned needs no
+  root search, f_n = n^2 f_1 exactly; forcing it through the
+  transcendental machinery invites rounding where none is needed.
+- Feeding the shape guess into the wrong law: the shared law
+  f = (beta_n L)^2 sqrt(EI / (m L^4)) / 2pi needs the
+  NON-dimensional characteristic root, not a radian frequency or a
+  beta in 1/m.
+- Asking for invalid modes or members: a mode number below 1 (or
+  fractional), non-positive EI, mass per length or length, and
+  unknown boundary-condition names all raise ValueError.
 ## Verification
 
 - Cantilever roots land within 1e-6 of 1.87510407 / 4.69409113 /
@@ -143,7 +168,7 @@ N m^2 and m = rho b h = 13.9 kg/m. Module outputs:
   for discretized models; a continuous beam member instead uses the
   closed-form characteristic roots above.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

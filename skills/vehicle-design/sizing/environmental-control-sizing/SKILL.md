@@ -108,6 +108,31 @@ kW/occupant, solar 15 kW, equipment 12 kW, skin 8 kW, margin 1.1, cp
   cabin_altitude_ft = 8809.9 ft, above the 8000 ft design value in the
   differential-limited regime.
 
+
+## Pitfalls
+
+- Sizing the pack on the fresh-air flow alone: the pack airflow is
+  the governing MAXIMUM of the fresh ventilation flow and the
+  cooling flow (3.1566 kg/s cooling dominates 0.7875 kg/s fresh in
+  the worked example); picking the smaller flow starves the cabin
+  heat load.
+- Forgetting the design margin in the heat rollup: the design heat
+  is margin * total (default 1.1), so an undiscounted total heat
+  under-sizes the pack by the margin ratio.
+- Reading the differential at cruise as the limit: at 39000 ft the
+  8.0619 psi differential holds the 8000 ft cabin below the 8.9 psi
+  clamp; only above the altitude where the clamp binds does the
+  schedule leave the design cabin altitude (8809.9 ft at 50000 ft).
+- Feeding a margin at or below 1: the margin must exceed 1 (the
+  design heat carries reserve); a margin of 1.0 or less raises
+  ValueError.
+- Confusing which flow cools and which ventilates: fresh air
+  (occupants at 0.25 kg/min each) is a ventilation requirement,
+  while the pack cooling flow derives from the heat load and the
+  supply temperature rise; the two answer different questions.
+- Mixing pressure units at the interfaces: pressurization accepts ft
+  and psi with internal conversions (PSI = 6894.757 Pa), so feeding
+  Pa or m into those interfaces silently mis-sizes the schedule.
 ## Verification
 
 - fresh_air_flow(189) returns 47.25 kg/min and 0.7875 kg/s; flow is
@@ -142,7 +167,7 @@ kW/occupant, solar 15 kW, equipment 12 kW, skin 8 kW, margin 1.1, cp
 - cross-cutting/units-atmos/isa-atmosphere: the public atmosphere leaf
   whose two-layer relation this leaf embeds internally.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

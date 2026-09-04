@@ -101,6 +101,34 @@ Real module outputs:
   essential 21.5 kVA, remaining 60.0 kVA, margin 0.641667 PASS, load
   fraction 0.38125, installed 120.0 kVA.
 
+
+## Pitfalls
+
+- Discounting the essential load by duty: essential consumers must
+  stay powered continuously in the failure case, so essential_load
+  books the FULL power of each named consumer (the flight-control
+  12 kVA at duty 0.6 books 12.0, not 7.2); the generator-out margin
+  is meaningless if the essential load is duty-weighted.
+- Checking the normal operating point instead of the failure case:
+  the rating gate is the single-generator-out margin ((n - 1) * S_g
+  against L_e), and a single generator yields remaining 0.0, margin
+  -1.0 and FAIL - there is no redundancy to check.
+- Forgetting the diversity discount goes the other way: the
+  coincident peak is DF * L_c (38.89 kVA in the worked example),
+  below the raw 45.75 kVA rollup; sizing generators on the
+  undiscounted continuous load over-sizes the system.
+- Feeding a duty cycle outside [0, 1] or an unnamed essential
+  consumer: duty 1.2 or -0.1, a power of -5, a diversity of 0 or
+  1.5, and essential names missing from the consumer dict all raise
+  ValueError.
+- Mixing the spacecraft context in: this leaf is the aircraft AC/DC
+  generator and bus load rollup; the spacecraft EPS budget lives at
+  space-systems/subsystems/power-thermal-budget, and the two should
+  not be mixed.
+- Reading the load fraction as the sizing verdict: load_fraction
+  (L_c / installed) reports the normal operating point (38.1% in the
+  worked example) while PASS/FAIL comes from the generator-out
+  margin.
 ## Verification
 
 - continuous_load with one 10 kVA consumer at duty 1.0 returns 10 kVA and
@@ -138,7 +166,7 @@ Real module outputs:
 - space-systems/subsystems/power-thermal-budget: the spacecraft EPS
   counterpart in the foreign family; do not mix the two contexts.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

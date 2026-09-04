@@ -85,6 +85,30 @@ False. With 10 of 10 positive it returns z = 2.8461, p_value =
 0.00443, reject True (the continuity-corrected approximation region
 hand checks to z near 3 and p near 0.003).
 
+## Pitfalls
+
+- Using the rank-sum test on paired measurements: wilcoxon_rank_sum
+  assumes two independent samples; paired designs belong in
+  wilcoxon_signed_rank (magnitudes with signs) or sign_test (signs
+  only), and zero differences are dropped from the paired statistics.
+- Ignoring ties: tied values share average ranks in both the rank-sum
+  and the signed-rank paths, so assigning plain integer ranks perturbs
+  r1/u/w and the resulting p-value.
+- Reading direction from the wrong sample order: swapping the two
+  samples mirrors z (negative to positive) with the same p-value, and
+  sample 1 is the x sample by convention.
+- Picking alpha outside (0, 1) or passing undersized or mismatched
+  inputs: fewer than 2 observations per rank-sum sample, paired length
+  mismatch, fewer than 2 nonzero signed-rank differences, and no
+  nonzero sign-test differences all raise ValueError.
+- Treating the normal-approximation output as exact: z and p come from
+  the normal approximation with the 0.5 continuity correction, so the
+  10-of-10 sign-test case returns z = 2.8461, p = 0.00443 while the
+  region hand-checks to z near 3 and p near 0.003.
+- Using the sign test where magnitudes matter: sign_test counts only
+  the signs of the differences, while the signed-rank test ranks their
+  magnitudes; the two can disagree on the same pair series.
+
 ## Verification
 
 - Confirm wilcoxon_rank_sum(x, y) above returns r1 15.0, u 0.0,
@@ -115,7 +139,7 @@ hand checks to z near 3 and p near 0.003).
 - cross-cutting/numerics/probability-distributions: normal CDF and
   quantile context for the approximation used here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

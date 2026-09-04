@@ -112,7 +112,40 @@ the total becomes 110 CPU against a budget of 100, the contention check
 flags FMS as the over-budget application, and the module must either drop
 the growth or move an application to another module.
 
-## Contract test
+## Pitfalls
+
+- Checking applications against the module budget one at a time: the
+  contention check sums the demand of every hosted application per
+  dimension — FMS at 40 CPU fits alone, but with ADIRU and Display the
+  module total is 90, and FMS growing to 60 pushes the total to 110
+  against the 100 CPU budget, flagging FMS as the over-budget
+  application.
+- Verifying only one resource dimension: the module budget must hold
+  in CPU, memory, and I/O ports at once — an allocation that fits 90
+  of 100 CPU units can still bust the 16-port I/O budget, so every
+  dimension needs its own total-versus-budget check.
+- Double-counting partition demand: the module total is the sum of the
+  partition budgets, and each partition budget is the sum of the
+  applications it hosts — an application grouped into a shared
+  partition must not also be counted at the module level on its own.
+- Confusing integrity with availability: integrity levels A-E come
+  from failure-condition severity (catastrophic to A, hazardous to B,
+  major to C), while availability classes 1-3 say whether loss of
+  function is permitted and whether it warns — a class 1 display is
+  not automatically level A, and a level D function can still demand
+  class 1 availability.
+- Treating module acceptance as a one-time certificate: incremental
+  certification records the accepted module configuration so later
+  applications reuse it with limited re-acceptance — a changed module
+  (an application moving in or a budget growing) changes the accepted
+  configuration and re-opens the acceptance evidence.
+- Routing software-lifecycle questions here: DO-297 is the platform
+  integration and acceptance frame (name and paraphrase only — the
+  text is proprietary RTCA guidance); per-application software
+  assurance belongs to the DO-178C leaves and partition scheduling to
+  avionics/ima/ima-partitioning.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

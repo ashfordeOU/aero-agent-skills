@@ -160,6 +160,28 @@ achieved moment 0.6 and error norm 0.2, the box bound case.
 - Run the contract test offline: python3
   scripts/test_control_allocation.py (35 tests, deterministic).
 
+## Pitfalls
+
+- Reading the weight vector backwards: the module treats the diagonal weight
+  as a cost, so a smaller w_i favors effector i (w = [1, 4] sends command to
+  effector 1: u = [0.64, 0.16]); raising w_i pushes command off that
+  effector.
+- Mixing units across B, m and the limits: keep deflection units (rad or
+  normalized), moment units and the limit bounds in one coherent set or the
+  allocation error norm is meaningless.
+- Expecting exact reproduction after clipping: plain clip_to_limits leaves
+  residual error (the [0.3, 0.6] example clips to [0.3, 0.4] with error
+  0.1); use redistribute_pseudoinverse when you need the residual re-solved
+  on the free effectors.
+- Calling rate_limit without the previous command: u_dot = (u - u_prev)/dt
+  clips to +/-rate_max, so the returned command moves at most rate_max*dt
+  from u_prev; the first call needs a defined u_prev.
+- Daisy chain order matters: the primary group allocates first up to its
+  limits and the residual goes to the secondary group; swapping the groups
+  changes the achieved allocation.
+- Dimension mismatches, non-finite inputs, inverted limits (u_min > u_max),
+  negative rate_max and non-positive dt or weight raise ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/control/pid-control-design: produces the moment command
@@ -169,7 +191,7 @@ achieved moment 0.6 and error norm 0.2, the box bound case.
 - gnc-autonomy/control/python-control-design: control law margin checks
   in the same ARP4754A development context.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -145,6 +145,32 @@ ratio is 50.
   the rates, sets the saturated flag, and the achieved torque drops to
   magnitude 10.8 N m, short of the 20 N m command.
 
+
+## Pitfalls
+
+- Steering into gimbal lock: at the uniform tilt state (all units at
+  delta = +-pi/2) S collapses to zero and steering_law raises
+  ValueError; keep the singularity margin positive and watch the
+  verdict band before commanding a slew.
+- Expecting the null-space term to change the output torque: J
+  annihilates it by construction, so it only adds internal gimbal
+  motion (a zero command still leaves null motion of magnitude 0.0477
+  rad/s in the worked example).
+- Ignoring gimbal rate saturation: clipping the raw rates to
+  +-max_gimbal_rate drops the achieved torque below the command (10.8
+  N m vs 20 N m at a 0.1 rad/s limit); read the saturated flag and the
+  achieved torque of the clipped rates.
+- Treating the grid envelope as exact: the momentum_envelope scan is a
+  lower bound on the true envelope (the fine 2D scan adds the
+  skew-symmetric plane); use it only for feasibility checks with
+  margin below the 200 N m s absolute bound.
+- Confusing the CMG with a wheel: a CMG redirects fixed rotor momentum
+  (torque = h * delta_dot, amplification 50 in the worked example)
+  while a wheel exchanges momentum with the bus - the torque sign
+  follows tau = -delta_dot * (g x h).
+- Passing non-physical cluster inputs: zero momentum, num_units below
+  3, skew outside (0, pi/2), mismatched angle counts, or a gimbal rate
+  over an explicit limit raise ValueError.
 ## Verification
 
 - Confirm cmg_torque with h = 50 N m s at 1 rad/s returns 50 N m and
@@ -182,7 +208,7 @@ ratio is 50.
 - gnc-autonomy/space/attitude-dynamics: the rigid body plant and
   torque environment that this leaf keeps simplified.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

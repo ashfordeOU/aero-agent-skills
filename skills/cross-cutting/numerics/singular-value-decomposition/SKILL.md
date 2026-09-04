@@ -89,6 +89,31 @@ compute.
   0.000000000000] with the nonzero value sqrt(70) exactly, numerical
   rank 1, condition inf, reconstruction residual 0.0.
 
+## Pitfalls
+
+- Reading the singular values of a symmetric matrix as signed
+  eigenvalues: for A1 = [[3, 1], [1, 3]] the singular values are the
+  absolute eigenvalues 4 and 2, so sign information does not survive in
+  s.
+- Treating a near-zero singular value as exactly zero: A3 returns s =
+  [sqrt(70), 0.000000000000] with numerical rank 1, and the condition
+  number is inf — rank and conditioning claims rest on the tolerance,
+  not on the printed zero.
+- Checking only one matrix orientation: the pseudoinverse is verified
+  on the 3x2 case and its 2x3 transpose, and the reconstruction check
+  covers square, tall, and wide matrices; a single orientation misses
+  the transpose behavior.
+- Confusing the condition number with reconstruction accuracy: A2 has
+  condition 2.618 and residual 4.6e-16 — conditioning describes
+  sensitivity, the residual describes factorization error.
+- Feeding empty, ragged, or non-numeric matrices, or empty/negative
+  singular value lists: all raise ValueError instead of returning a
+  degraded factorization.
+- Reaching for the SVD where a square solve belongs: matrix-operations
+  owns the Gaussian solve sibling, and eigenvalue-decomposition owns
+  square symmetric spectra; this leaf owns general rectangular
+  factors.
+
 ## Verification
 
 - Confirm svd_jacobi(A1) reports s [4, 2], condition 2.0 and residual
@@ -115,7 +140,7 @@ compute.
 - gnc-autonomy/control/control-allocation: consumer of a pseudoinverse
   that this leaf computes.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

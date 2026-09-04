@@ -121,6 +121,34 @@ resistance, 3.0 V cutoff, 4 C max.
 - Overall verdict for the 400 kW case: FAIL with the C-rate reason; the
   300 kW case passes all checks.
 
+
+## Pitfalls
+
+- Sizing energy without the reserve and the DOD chain: the required
+  pack energy is E_mission * (1 + reserve) / (DOD_MAX *
+  EFF_DISCHARGE), so a pack sized on raw mission energy alone is
+  roughly a factor DOD * efficiency too small (50 kWh mission needs
+  78.95 kWh in the worked example).
+- Checking only the energy margin: size_battery FAILs when ANY of
+  the three checks fails - the worked 400 kW case has a passing
+  energy margin and voltage drop yet fails on the 5.01 C discharge
+  rate against the 4 C cell limit.
+- Forgetting the count rounding on the energy: n_s rounds while n_p
+  ceils, and the installed pack energy (79.92 kWh) comes from the
+  rounded counts, not from the required value; the usable-versus-
+  required margin is checked against the as-built pack.
+- Ignoring the branch current in the voltage drop: the drop uses the
+  per-string current I_total / n_p times the internal resistance
+  (25.0 A * 0.002 ohm = 0.05 V in the worked example), so a
+  parallel-count slip changes the minimum cell voltage under load.
+- Quoting the density estimates as datasheet values: the mass and
+  volume constants are documented NMC lithium-ion typicals (0.25 and
+  0.18 kg/kWh cell and pack levels) and must be re-run with supplier
+  data for a real cell.
+- Confusing this traction pack with spacecraft storage: this leaf
+  covers aircraft and eVTOL traction batteries; the spacecraft
+  eclipse battery chain belongs to space-systems/subsystems/
+  spacecraft-battery-sizing.
 ## Verification
 
 - Confirm required_pack_energy(50, 0.2) returns 78.947 kWh within 1e-6.
@@ -158,7 +186,7 @@ resistance, 3.0 V cutoff, 4 C max.
   power system side owns eclipse batteries and solar arrays; this leaf
   covers aircraft and eVTOL traction storage only.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

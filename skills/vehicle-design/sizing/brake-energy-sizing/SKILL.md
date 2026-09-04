@@ -109,6 +109,32 @@ reverse-thrust credit 0.
   allowable, verdict brake-energy-fail.
 - Braking distance at V1 = 70^2 / (2 * 0.35 * 9.80665) = 713.8 m.
 
+
+## Pitfalls
+
+- Sizing the heat sink on the wrong stop: the governing case is the
+  stop with the larger per-brake energy (the RTO at V1 for a normal
+  transport - 42.875 MJ per brake against 30.63 MJ landing in the
+  worked example), not whichever stop is easier to check.
+- Forgetting the energy scales with the square of the speed: both
+  stop energies are 0.5 * m * v^2, so a small V1 or touchdown speed
+  error dominates the energy and hence the heat sink mass.
+- Crediting reverse thrust that is not there: the per-brake share
+  applies (1 - r_rev) with a conservative default credit of 0;
+  assuming thrust reversal during sizing without the credit change
+  under-sizes the heat sink.
+- Checking the temperature rise at the required mass instead of the
+  available one: the margin is allowable rise minus the actual rise
+  of the SELECTED heat sink (274.84 K with 130 kg, 357.29 K with
+  100 kg in the worked example), so the verdict flips with the
+  available mass.
+- Mixing up specific heat units: m_hs = E_b / (c_p * delta_t) with
+  carbon c_p near 1200 J/(kg K); using a kJ-based specific heat
+  shifts the required mass by 1000.
+- Sizing from energy while ignoring the distance case: this leaf
+  sizes the brake heat sink from kinetic energy; the rejected
+  takeoff DISTANCE demonstration belongs to the flight-test
+  accelerate-stop-distance leaf.
 ## Verification
 
 - Confirm rto_energy_J(70000, 70) returns 171.5e6 J and
@@ -140,7 +166,7 @@ reverse-thrust credit 0.
 - vehicle-design/sizing/weight-estimation: the MTOW and MLW inputs for
   the stop energies.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

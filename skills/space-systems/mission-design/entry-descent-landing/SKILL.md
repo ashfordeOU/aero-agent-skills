@@ -147,6 +147,34 @@ A Mars mission ballistic entry check, Curiosity-style (approximately
   same canopy at a 2x larger area (220 m^2) cuts the descent speed by
   the square root of 2 to about 37 m/s.
 
+
+## Pitfalls
+
+- Reading corridor angles with the wrong sign sense: corridor angles
+  are negative for descent and a shallower angle is numerically
+  greater (-6 deg) than a steeper one (-11.5 deg); the worked example
+  -12 deg entry sits below the steep limit and is outside the
+  corridor.
+- Using the planet surface density for the parachute terminal
+  velocity: v = sqrt(2 W / (rho Cd S)) must be evaluated at the
+  deployment altitude density (0.02 kg/m^3 on Mars, not 1.225); the
+  touchdown speed check then uses the surface density.
+- Scaling heating linearly with speed: the Sutton-Graves rate is
+  cubic in V (doubling 4800 to 9600 m/s raises q_dot 8x), so an
+  entry-speed change of a few percent is a double-digit percent
+  change in the heat rate.
+- Forgetting the entry speed - g-load square law: peak deceleration
+  scales as V^2 and with sin(|gamma|); a steeper angle at the same
+  speed (the -20 deg case at about 17 g) or a faster entry at the
+  same angle can exceed the payload load limit even when the nominal
+  corridor point is fine.
+- Applying Earth gravity to a Mars descent: the ballistic and
+  terminal-velocity formulas take the local gravity (3.711 m/s^2 on
+  Mars), so pass g explicitly instead of assuming g0.
+- Treating the ballistic formulas as lifting-entry loads: these are
+  the zero-lift baseline, and a lifting entry (Apollo-style L/D)
+  stays below them; sizing the TPS or structure off the ballistic
+  peak for a lifting vehicle over-penalizes the design.
 ## Related leaves
 
 - mission-design/mission-delta-v-budget: sizes the propulsion and the
@@ -156,7 +184,7 @@ A Mars mission ballistic entry check, Curiosity-style (approximately
 - orbit-mechanics/hohmann-transfer: the interplanetary transfer that
   sets the entry speed at the target planet.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

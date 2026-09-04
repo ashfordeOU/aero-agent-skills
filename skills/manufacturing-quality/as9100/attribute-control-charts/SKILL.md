@@ -168,7 +168,33 @@ u fixture: 9 subgroups, counts [2, 5, 3, 4, 1, 6, 2, 3, 9] over areas
   scope judgment that decides between attribute and variable data
   collection before charting.
 
-## Contract test
+## Pitfalls
+
+- Charting the wrong statistic for the chart type: the np-chart flags
+  raw counts x_i while the p-chart flags fractions x_i / n — charting
+  raw counts on the p scale (or vice versa) misplaces subgroups against
+  limits that differ by the sample-size factor n.
+- Using the c-chart where the inspection area varies: the c-chart
+  assumes a constant area per subgroup, and only the u-chart builds the
+  per-subgroup limits ubar +/- 3 * sqrt(ubar / a_i) that a variable-area
+  process needs.
+- Treating the floored LCL as a real lower limit: computed limits below
+  zero (small-pbar and low-defect-count fixtures) are floored to exactly
+  0.0, so a zero LCL carries no information about low-side excursions.
+- Releasing the process while flagged subgroups are unresolved: any
+  subgroup statistic outside its limits returns an out-of-control
+  verdict, and the flagged subgroups are the input to the process review
+  before release.
+- Skipping input validation: empty data, sample_size or area <= 0,
+  negative counts, a count above the sample size, and a u-chart
+  length mismatch all raise ValueError rather than producing a plausible
+  but wrong chart.
+- Reading the normal-approximation limits as exact spec bounds: the
+  3-sigma UCL/LCL come from the binomial or Poisson normal approximation
+  (SIGMA_FACTOR = 3.0), and worked-example values carry explicit
+  tolerances rather than exact agreement with the arithmetic.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

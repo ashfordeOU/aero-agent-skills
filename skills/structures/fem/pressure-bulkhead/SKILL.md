@@ -120,6 +120,35 @@ apex but trades the junction ring for a compressive knuckle band at
 the equator, which is why the margin and the knuckle check, not the
 ring, tend to gate the 2:1 design.
 
+
+## Pitfalls
+
+- Reading the 2:1 equator circumferential stress as tension: the
+  equator hoop of the 2:1 ellipsoid is -p*a/t, compressive (the
+  knuckle compression drives the knuckle check), and it only turns
+  negative for b < a/sqrt(2), so the margin must use the largest
+  ABSOLUTE stress.
+- Assuming every dome needs a ring: the hemisphere (h = R = a)
+  carries zero unbalanced radial line load, ring tension and ring
+  area exactly; only caps that cut the barrel below their equator
+  need the junction ring.
+- Using the apex stress for the whole ellipsoid: the ellipsoid field
+  varies from the apex p*a^2/(2*b*t) to the equator meridional
+  p*a/(2*t) and circumferential (p*a/t)(1 - a^2/(2*b^2)); checking
+  only the apex misses the knuckle.
+- Confusing dome stress with barrel stress: the spherical cap at
+  R = 2*a reproduces the barrel hoop p*a/t (55.742 MPa in the worked
+  example), but the hemisphere runs at p*a/(2*t) = 27.871 MPa;
+  cross-checking the dome against the barrel membrane level is part
+  of the workflow, not a substitute.
+- Sizing a spacecraft tank dome here: standalone tank walls sized
+  from burst pressure belong to the space-systems propellant tank
+  leaf; this leaf closes a pressurized fuselage barrel under cabin
+  differential pressure.
+- Feeding a cap that cannot close the barrel: a barrel radius larger
+  than the sphere radius, non-positive pressure, radius, thickness,
+  ultimate or factor of safety, and unknown dome types all raise
+  ValueError.
 ## Verification
 
 - Confirm the worked magnitudes: barrel hoop and spherical cap
@@ -156,7 +185,7 @@ ring, tend to gate the 2:1 design.
   alternative stability check for the dome knuckle region when it is
   treated as a curved panel.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 
