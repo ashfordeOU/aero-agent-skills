@@ -73,6 +73,14 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/environmental-control-sizing | Environmental control sizing | environmental control sizing, cabin air conditioning, cabin heat load, ventilation flow, pack cooling flow, pressurization schedule, cabin altitude limit |
 | vehicle-design/sizing/hydraulic-system-sizing | Hydraulic system sizing | hydraulic system sizing, hydraulic power, actuator flow demand, pump flow sizing, accumulator sizing, reservoir sizing, system pressure, emergency hydraulic |
 
+| vehicle-design/sizing/landing-gear-retraction-sizing | Landing gear retraction sizing | landing gear retraction, retraction actuator force and stroke, linkage geometry, up-lock down-lock hold load, gear bay stowage fit |
+| vehicle-design/sizing/aircraft-electrical-load-analysis | Aircraft electrical load analysis | aircraft electrical load analysis, electrical load rollup, duty cycle loading, generator rating check, essential load margin |
+| vehicle-design/sizing/fuel-feed-system-sizing | Fuel feed system sizing | fuel feed system sizing, fuel boost pump, feed line pressure loss, engine feed NPSH, fuel pump power |
+| vehicle-design/sizing/avionics-bay-cooling-sizing | Avionics bay cooling sizing | avionics bay cooling, equipment bay cooling airflow, LRU heat dissipation, LRU case temperature |
+| vehicle-design/sizing/aircraft-oxygen-system-sizing | Aircraft oxygen system sizing | aircraft oxygen system sizing, supplemental oxygen, oxygen generator count, gaseous oxygen bottle volume, oxygen demand calculation |
+| vehicle-design/sizing/fire-protection-sizing | Fire protection sizing | fire protection sizing, extinguishing agent mass, total flooding agent, cargo compartment fire, powerplant fire zone |
+| vehicle-design/sizing/fuel-jettison-sizing | Fuel jettison sizing | fuel jettison sizing, fuel dump rate, jettison time to landing weight, fuel jettison mast |
+
 
 ## Routing guidance
 
@@ -138,6 +146,14 @@ ons route to the weight-estimation
 - Aircraft environmental control system sizing questions (cabin ventilation fresh air flow, cabin heat load, pack cooling airflow, pressurization schedule and cabin altitude limit) route to the sizing environmental-control-sizing sub-skill.
 
 - Aircraft hydraulic power system sizing questions (actuator flow demand, pump flow and power, accumulator adiabatic gas volume, reservoir volume) route to the sizing hydraulic-system-sizing sub-skill.
+- Landing gear retraction mechanism questions (retraction actuator force and stroke, linkage geometry, up-lock down-lock hold load, gear bay stowage fit) route to the sizing landing-gear-retraction-sizing sub-skill.
+- Aircraft electrical load analysis questions (load rollup with duty cycles, generator rating check, single-generator-out essential load margin) route to the sizing aircraft-electrical-load-analysis sub-skill.
+- Aircraft fuel feed system questions (boost pump sizing, feed line pressure loss, engine feed NPSH) route to the sizing fuel-feed-system-sizing sub-skill.
+- Avionics and equipment bay cooling questions (bay cooling airflow from LRU heat dissipation, LRU case temperature check) route to the sizing avionics-bay-cooling-sizing sub-skill.
+- Aircraft supplemental oxygen sizing questions (passenger oxygen generator count, crew gaseous oxygen bottle volume) route to the sizing aircraft-oxygen-system-sizing sub-skill.
+- Fire protection and extinguishing agent questions (total flooding agent mass for cargo compartment or powerplant fire zone) route to the sizing fire-protection-sizing sub-skill.
+- Fuel jettison questions (required dump rate to landing weight within 15 minutes, mast flow split) route to the sizing fuel-jettison-sizing sub-skill.
+
 
 ## Install
 

@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 472,
+  "leaves": 485,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 958
+  "corpus_tasks": 984
  },
  "skills": [
   {
@@ -676,6 +676,21 @@
    "family": "avionics",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "avionics/data-bus/arinc429-bus-loading",
+   "name": "arinc429-bus-loading",
+   "description": "Use when you must budget the ARINC 429 bus loading: sum the per-label transmission rates in labels per second into the total word rate, price each transmitted word at 36 bit-times (32 data bits plus the 4-bit gap) for the bus load in bits per second, compute the percent utilization of the 100 kbps or 12.5 kbps link, flag schedules that exceed the word-per-second capacity (about 2778 words per second at 100 kbps), and report the headroom against the common 80 percent design guideline. Produces the total word rate, bus load, percent utilization, capacity verdict, and design headroom that gate the ARINC 429 label rate table. Trigger: arinc 429 bus loading, label rate budget, percent bus utilization, word rate capacity, transmit schedule headroom, 100 kbps link.",
+   "tags": [
+    "arinc429-bus-loading",
+    "label-rate-budget",
+    "bus-utilization-percent",
+    "word-rate-capacity",
+    "transmit-schedule-headroom"
+   ],
+   "family": "avionics",
+   "pack": "data-bus",
+   "router_doc": false
   },
   {
    "path": "avionics/data-bus/arinc429-protocol",
@@ -1688,6 +1703,21 @@
     "reject-null-hypothesis",
     "drag-counts-comparison",
     "configuration-difference-significance"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/information-entropy",
+   "name": "information-entropy",
+   "description": "Use when you must compute the information content of a symbol distribution: the Shannon entropy in bits per symbol of a measured count distribution or probability mass function, the binary entropy function of a two-symbol source, the uniform-distribution entropy bound log2 of the symbol count, and the minimum source-coding bit rate as entropy times symbol rate. Produces the entropy, the uniform bound, the redundancy verdict against it, and the minimum bit rate that gates data-channel and quantization assessments. Pure Python stdlib, deterministic. Trigger: information-entropy, shannon-entropy, binary-entropy-function, source-coding-bound, information-content, telemetry symbol distribution, source coding bit rate, symbol distribution entropy.",
+   "tags": [
+    "information-entropy",
+    "shannon-entropy",
+    "binary-entropy-function",
+    "source-coding-bound",
+    "information-content"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -3560,6 +3590,21 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/planning/pcm-telemetry-decommutation",
+   "name": "pcm-telemetry-decommutation",
+   "description": "Use when you must decommutate a serial PCM telemetry stream: acquire frame sync by locating the sync word in the captured word stream, walk the locked minor frames and count sync misses, and demultiplex the recovered telemetry channels into time series, with fixed channels read from their word slot every frame, supercommutated channels read from their multiple word slots per frame, and subcommutated channels keyed by the subframe id into the per-subframe value lists. Produce the locked frame count, the sync miss report, the subframe id trace, and the recovered per-channel time series that feed data reduction. Trigger: pcm telemetry decommutation, pcm frame sync, supercommutated demux, subcommutated demux, minor frame decode.",
+   "tags": [
+    "pcm-telemetry-decommutation",
+    "pcm-frame-sync",
+    "supercommutated-demux",
+    "subcommutated-demux",
+    "minor-frame-decode"
+   ],
+   "family": "flight-test-operations",
+   "pack": "planning",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/planning/position-error-calibration",
    "name": "position-error-calibration",
    "description": "Use when you must plan and reduce the airspeed position error calibration (PEC) flight test for a fixed-wing aircraft: schedule the tower fly-by, trailing cone, and GPS ground speed doublet test points across the speed range, compute the calibrated airspeed from the indicated airspeed and the position error correction, reduce the fly-by height error and the reciprocal-heading ground speeds into the position error at each point, fit the piecewise-linear position error correction curve against the indicated airspeed, and produce the PEC table of indicated versus calibrated airspeed. Produces the position error per point, the fitted PEC curve with the residual RMS quality check, the calibrated airspeed set, and the data quality verdict that gate the flight test data reduction. Trigger: position error calibration, airspeed calibration, PEC, calibrated airspeed, tower fly-by, trailing cone, GPS ground speed doublet, position error correction curve.",
@@ -4590,6 +4635,39 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/as9100/attribute-agreement-analysis",
+   "name": "attribute-agreement-analysis",
+   "description": "Use when you must analyze inspector agreement on attribute judgments: percent agreement on go/no-go or accept/rework/reject results, the Cohen kappa for two inspectors and the Fleiss kappa for three or more inspectors with the chance-agreement correction, the kappa verdict against the attribute measurement system acceptance bands (0.75 and up good, 0.40 to 0.75 marginal, under 0.40 poor), and the retraining or study rework flag when agreement is poor. Produces observed agreement, chance agreement, kappa, band verdict, and the verdict gating the attribute gage study. Trigger: inspector agreement, cohen kappa, fleiss kappa, inter-rater agreement, chance-corrected agreement, kappa analysis, attribute gage study, attribute judgments.",
+   "tags": [
+    "attribute-agreement-analysis",
+    "cohen-kappa-agreement",
+    "fleiss-kappa-agreement",
+    "inter-rater-agreement",
+    "chance-corrected-agreement",
+    "inspector-agreement"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/as9100/attribute-control-charts",
+   "name": "attribute-control-charts",
+   "description": "Use when you must build attribute control charts for conformance and defect count data: the p-chart for fraction nonconforming of subgroups with constant sample size, the np-chart for count nonconforming, the c-chart for defect counts per constant inspection area, and the u-chart for defect counts per unit with variable inspection area. Computes the grand average, the 3-sigma control limits from the binomial or Poisson normal-approximation standard error, floors the lower limit at zero, flags the subgroups whose statistic falls outside the limits, and returns the in-control or out-of-control stability verdict. Produces the per-chart central line, control limits, flagged subgroup list, and the verdict that gates the attribute process review. Trigger: p-chart, np-chart, c-chart, u-chart, fraction-nonconforming, defects-per-unit, count-data, conformance-data, attribute-chart-limits.",
+   "tags": [
+    "attribute-control-charts",
+    "p-chart",
+    "np-chart",
+    "c-chart",
+    "u-chart",
+    "fraction-nonconforming",
+    "defects-per-unit"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/as9100/calibration-control",
    "name": "calibration-control",
    "description": "Use when you must control calibration of inspection, measuring, and test equipment under an AS9100-style QMS: determine the test accuracy ratio (TAR, 4:1 guidance) between the calibration standard and the unit under test, judge calibration due dates and overdue instruments, check a measured value against nominal and tolerance, and decide recall versus review when a calibrated standard drifts out of tolerance. Covers the calibration system (who calibrates, traceability to national standards), calibration intervals and due dates, out-of-tolerance handling, and calibration records with status labels. Produces the TAR verdict, the due-date verdict, the tolerance verdict, and the out-of-tolerance impact verdict that gate instrument use and product release. Trigger: calibration, TAR, test accuracy ratio, out of tolerance, calibration due, instrument recall, traceability.",
@@ -4690,6 +4768,21 @@
     "fod-sweep-interval",
     "tool-count-reconciliation",
     "fod-audit"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/as9100/individuals-and-moving-range-chart",
+   "name": "individuals-and-moving-range-chart",
+   "description": "Use when you must run an individuals and moving range control chart: compute the moving ranges between successive measurements and the average moving range, build the individuals chart limits from the mean plus and minus E2 times the average moving range (E2 = 2.66), estimate the process standard deviation from the average moving range over the d2 constant (d2 = 1.128), set the moving range chart upper limit at 3.267 times the average moving range, flag the individual values and moving ranges outside their limits, and return the in-control or out-of-control verdict for one-measurement-per-lot processes (destructive testing, single unit per batch, bond or coating lots). Produces the central lines, limits, flagged points, and the stability verdict that gate lot-to-lot process control without subgroups. Trigger: moving range chart, individuals chart, I-MR chart, single measurement per lot, destructive testing, lot monitoring.",
+   "tags": [
+    "individuals-and-moving-range-chart",
+    "moving-range-chart",
+    "individuals-chart",
+    "single-measurement-control",
+    "lot-monitoring-chart"
    ],
    "family": "manufacturing-quality",
    "pack": "as9100",
@@ -8534,6 +8627,51 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/aircraft-electrical-load-analysis",
+   "name": "aircraft-electrical-load-analysis",
+   "description": "Use when you must analyze the aircraft electrical power system load: roll up consumer apparent power (kVA) with each consumer duty cycle into the continuous load, apply the diversity factor for the coincident peak, total the essential load from the named essential consumers at full steady power, check the generator rating against the single-generator-out case where remaining capacity must cover the essential load, and report the load fraction against the installed capacity. Produces the continuous load, the coincident peak, the essential load, the generator-out margin and verdict, and the load fraction that gate the generator sizing. Trigger: aircraft electrical load analysis, electrical load rollup, generator rating check, duty cycle loading, essential load margin, coincident peak load, normal load fraction, single generator out.",
+   "tags": [
+    "aircraft-electrical-load-analysis",
+    "electrical-load-rollup",
+    "generator-rating-check",
+    "duty-cycle-loading",
+    "essential-load-margin"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/aircraft-oxygen-system-sizing",
+   "name": "aircraft-oxygen-system-sizing",
+   "description": "Use when you must size the aircraft supplemental oxygen system: computing passenger continuous-flow chemical generator demand and unit count, crew diluter-demand gaseous oxygen requirement, converting standard-litre demand volumes to oxygen mass at standard conditions, and sizing crew gaseous oxygen bottle volume from the ideal gas law at the service pressure and storage temperature. Produces the passenger and crew oxygen demands, the generator count, the crew bottle volume and the stored oxygen mass that gate the oxygen system architecture. Trigger: supplemental oxygen sizing, oxygen generator count, oxygen demand mass, oxygen bottle volume, breathing oxygen, diluter-demand, chemical generator, gaseous oxygen.",
+   "tags": [
+    "aircraft-oxygen-system-sizing",
+    "supplemental-oxygen-sizing",
+    "oxygen-generator-count",
+    "gaseous-oxygen-bottle-volume",
+    "oxygen-demand-calculation"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/avionics-bay-cooling-sizing",
+   "name": "avionics-bay-cooling-sizing",
+   "description": "Use when you must size the cooling airflow for the avionics and equipment bay: rolling up the bay heat load from the LRU heat dissipations, sizing the bay cooling mass flow from the allowable cooling air temperature rise so the bay exhaust temperature stays at or below the LRU inlet air temperature limit, converting the mass flow to the volumetric flow and to cubic feet per minute, and checking each LRU case temperature against its case limit from the dissipated power and the case to air conductance. Produces the bay heat load, the required cooling mass flow and CFM, the exhaust temperature, the per LRU case temperature verdicts and the bay cooling PASS or FAIL verdict that gate the bay ventilation layout. Trigger: avionics bay cooling sizing, equipment bay cooling airflow, LRU heat dissipation, LRU case temperature check, cooling air temperature rise, case to air conductance.",
+   "tags": [
+    "avionics-bay-cooling-sizing",
+    "equipment-bay-cooling",
+    "lru-heat-dissipation",
+    "cooling-airflow-sizing",
+    "lru-case-temperature"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/battery-sizing",
    "name": "battery-sizing",
    "description": "Use when you must size the traction battery pack of an electric aircraft or eVTOL from the mission energy and power requirements: convert the mission draw into the required pack energy with the depth of discharge limit and discharge efficiency, add the reserve, lay out the series and parallel cell counts for the target pack voltage, check the discharge C-rate against the cell limit, verify the minimum cell voltage under peak load against the cutoff with the cell internal resistance, and estimate pack mass and volume from typical cell and pack energy densities. Produces series and parallel cell counts, pack energy, the C-rate and voltage drop verdicts, and mass and volume estimates that gate vehicle energy storage sizing. Trigger: battery pack sizing, electric aircraft battery, eVTOL energy storage, traction battery, C-rate check, depth of discharge, series parallel cell count, pack voltage, discharge voltage drop.",
@@ -8647,6 +8785,51 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/fire-protection-sizing",
+   "name": "fire-protection-sizing",
+   "description": "Use when you must size the aircraft fire protection extinguishing agent: fix the protected zone (Class C cargo compartment or powerplant fire zone), take zone free volume and agent concentration by volume, compute total-flooding agent mass and closure check from agent vapor specific volume at discharge temperature, roll up installed agent from bottle and shot count, and set discharge nozzle count from zone coverage. Produces the required agent mass per shot, the installed agent mass, the closure fraction, the nozzle count, and a coverage verdict that gate the layout (FAR 25.851, 25.855, 25.1191 context). Trigger: extinguishing agent mass, total flooding agent, class C cargo compartment, powerplant fire zone, agent bottle sizing, discharge nozzle count.",
+   "tags": [
+    "fire-protection-sizing",
+    "extinguishing-agent-mass",
+    "total-flooding-agent",
+    "cargo-compartment-fire",
+    "powerplant-fire-zone",
+    "fire-extinguisher-bottle-sizing"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/fuel-feed-system-sizing",
+   "name": "fuel-feed-system-sizing",
+   "description": "Use when you must size the aircraft fuel feed system between the tank and the engine: the per-engine feed flow from the takeoff fuel flow demand, the feed line velocity and Reynolds number, the line pressure loss from the Darcy friction factor (laminar 64/Re, turbulent Blasius) with the major loss over the line length and the minor losses from the fitting loss coefficient, the static head gain from tank to pump, and the net positive suction head available at the engine-driven pump inlet against the required NPSH with the boost pump pressure rise added at cruise altitude. Produces the feed flow, the line pressure loss, the NPSH available with and without the boost pump, the feed PASS/FAIL verdict, and the boost pump hydraulic power that gate the fuel feed system layout. Trigger: fuel feed system sizing, boost pump sizing, feed line pressure loss, engine feed NPSH, fuel pump power.",
+   "tags": [
+    "fuel-feed-system-sizing",
+    "boost-pump-sizing",
+    "feed-line-pressure-loss",
+    "engine-feed-npsh",
+    "fuel-pump-power"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/fuel-jettison-sizing",
+   "name": "fuel-jettison-sizing",
+   "description": "Use when you must size the fuel jettison system: from the maximum takeoff weight and the maximum landing weight, compute the fuel mass that must be dumpable and the required average jettison rate to reach the landing weight within the 15-minute limit of FAR 25.1001, apply the design margin to the required rate, split the design flow over the dump mast count, and verify the resulting time to landing weight against the 900 s limit. Produces the dumpable fuel mass, the required and design jettison rates, the per-mast flow, and the time-to-landing-weight PASS or FAIL verdict that gate the jettison system sizing. Trigger: fuel jettison sizing, fuel dump rate, jettison time to landing weight, dump mast flow split, FAR 25.1001, 15-minute landing weight rule.",
+   "tags": [
+    "fuel-jettison-sizing",
+    "fuel-dump-rate",
+    "jettison-time-to-landing-weight",
+    "fuel-jettison-mast"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/fuel-tank-sizing",
    "name": "fuel-tank-sizing",
    "description": "Use when you must size the fuel tanks for the aircraft: convert the fuel mass to the fuel volume with the fuel density, add the ullage allowance to get the required tank volume, and check it against the available volume in the wing and fuselage tanks. Produces the usable fuel volume, the required tank volume with ullage, and the fits verdict that gate the fuel system sizing. Trigger: fuel tank sizing, ullage, fuel volume, usable fuel, tank capacity.",
@@ -8715,6 +8898,21 @@
     "bleed-air-mass-flow",
     "protected-area",
     "mvd-catch-efficiency"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/landing-gear-retraction-sizing",
+   "name": "landing-gear-retraction-sizing",
+   "description": "Use when you must size the landing gear retraction mechanism: the gear moment about the retract pivot from gear weight and CG arm, the retraction actuator force from that moment and actuator arm with a design factor, the actuator stroke from the four-bar linkage geometry between down-locked and up-locked positions via the law of cosines, the down-lock and up-lock hold loads at their lock arms, and the gear bay stowage fit of the wheel and folded strut envelope. Produces the retraction moment, required actuator force and stroke, lock hold loads, and a stowage PASS/FAIL verdict that gates the gear kinematic layout. Trigger: retraction actuator sizing, landing gear retraction mechanism, up lock down lock, gear bay stowage, lock hold load, retraction moment, landing gear kinematics, folding geometry.",
+   "tags": [
+    "landing-gear-retraction-sizing",
+    "retraction-actuator-sizing",
+    "landing-gear-kinematics",
+    "up-lock-down-lock",
+    "gear-stowage-check"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
