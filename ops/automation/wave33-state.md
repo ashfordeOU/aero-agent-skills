@@ -1,110 +1,246 @@
 # Wave-33 state notes
 
-- 2026-09-04 WAVE-33 in progress. Baseline (wave-32 close): 442 leaves,
-  85 packs, 12 families, 898 router tasks, 30 standards; HEAD 73cdb0d8
-  (wave-33 brief) == remote main (ls-remote verified at dispatch).
-  Ratings ledger 442 rows. Quiet-hours gate green at dispatch
-  (11:30 UTC, exit 0); API health HTTP 200 (wave17-api-health.py).
+- 2026-09-04 WAVE-33 close: 16/16 planned leaves landed (founder
+  mandate >=10 MET), close-out commits at HEAD 31cab956 on main
+  (private arjun-0077/aero-agent-skills, pushed via the arjun origin
+  token, ls-remote verified remote main == HEAD, fast-forward
+  73cdb0d8..31cab956, pre-push gates green). Full brief:
+  ops/automation/wave33-brief.md (73cdb0d8). Prep commits: 0d54b7f8
+  (builder kit + merge/sim helpers + state skeleton + close runbook),
+  9ddcd96b (specs batch A: 11 leaves FM/STRUCT/AV/CC), 93bab842 (specs
+  batch B: 5 leaves AERO/FTO/MQ/GNC), e620e23a (state note after
+  probes). Close commits: 1b1c808b (corpus merge 930 + 8 routers +
+  ratings header 458 + visuals/manifest refresh), 31cab956 (fragment
+  deletion, 16 files).
 
-## Fresh family receipts (this wave, deterministic greps)
+- LEAVES (442 -> 458, rate-at-creation 9.5 in-turn, rows 443-458
+  appended by each builder at creation, no duplicates, header updated
+  442 -> 458 at close). Commit that first carried each leaf's content
+  on the HEAD chain: rotorcraft-blade-element-hover-performance
+  (e25b1f19), real-time-scheduling (25885d5d), laminate-first-ply-
+  failure (3b0fdbd0), density-altitude (16fccd83), rotorcraft-axial-
+  descent-flow-states (c40a2aac), rotorcraft-lead-lag-dynamics
+  (151f5987), pressure-bulkhead (73d2b6ba), beam-vibration (73d2b6ba
+  - swept in by the shared-index race, all six artifacts verified on
+  the HEAD chain), delta-wing-vortex-lift (ad1afb9c),
+  radius-to-fix-leg (aed3cef4), confidence-interval-estimation
+  (9a405e93), power-spectral-density (080b5a62 + ef130753 remainder),
+  flight-vibration-survey (19699936), order-requirements-review
+  (fb1082ca), bang-bang-control (db9b7d5d), engine-failure-takeoff-
+  flight-test (9b9f61a5). Every leaf shipped the per-skill completeness
+  standard (SKILL.md + stdlib logic + offline unittest + eval fragment
+  + value-delta JSON + ledger row). All 16 contract tests re-run by
+  ops at HEAD: PASS (unittest counts 27-35 per leaf). All 32 new
+  corpus tasks Hit@1 to their own leaf; pre-merge sim 930/930 and
+  final gate 930/930 both zero pre-existing task thefts.
 
-- SES 33 + VD 33 re-probed FRESH this wave (2026-09-04 ~11:35 UTC):
-  git log confirms ZERO commits touching skills/systems-engineering-safety
-  or skills/vehicle-design since the wave-32 same-morning probes
-  (5674a785..HEAD empty for both families); leaf inventory unchanged
-  (33 each; SES packs arp4754a 8, arp4761a 11, certification 4,
-  continued-airworthiness 2, mbse 6, requirements 1, safety-case 1; VD
-  packs conceptual 5, cost-estimation 3, mass-properties 3, mdo 3,
-  sizing 17, structures-integration 2). Ownership greps run this wave on
-  20+ canonical SES topics and 28 VD topics (safety objective, hazard
-  log, risk index, common mode, zonal, FHA/DAL/ELOS, traceability,
-  certification plan, minimum equipment, MMEL, propeller, battery,
-  landing gear, tire, brake, ice protection, fuel tank, wing box,
-  empennage, mass budget, CG, inertia, constraint analysis, payload
-  range, surrogate, DOE, wing planform, fuselage/nacelle/spoiler/canard/
-  engine sizing): every topic resolves to an existing leaf at leaf
-  level. Deep-token re-greps (airworthiness limitation, operational
-  suitability, requirement validation) returned zero leaf-level hits
-  only for non-canonical phrasings: requirements-validation IS owned by
-  the arp4754a/validation leaf ("requirements validation" phrasing),
-  certification-basis/ELOS own the certification-limitation context.
-  Verdict: SES 33 and VD 33 provably still saturated this wave; per the
-  brief those slots are documented here and spent on the next-smallest
-  families. Fresh receipt recorded.
+- SMALLEST-FIRST honored with FRESH receipts. SES 33 and VD 33 were
+  re-probed FIRST this wave with deterministic greps (git log proves
+  zero commits to either family since the wave-32 same-morning probes;
+  leaf inventories unchanged at 33 each; ownership greps on 20+ SES
+  canonical topics and 28 VD canonical topics all resolve to existing
+  leaves at leaf level; deep-token re-greps show the 0-hit phrasings
+  are non-canonical - requirements validation IS the arp4754a/validation
+  leaf). Both provably still saturated; per the brief those slots were
+  documented here and spent on the next-smallest families. PROP 34
+  fresh re-probe: zero commits since wave-32, ramjet family owned by
+  ramjet-cycle + ramjet-inlet, scramjet remains declined (only repo
+  hits are ITAR-list text in export-control-awareness references, not
+  a propulsion model), documented dense (third wave). AERO 35 fresh
+  re-probe: the deterministic 0-owner token list (delta wing, vortex
+  breakdown, LEX, CC, blown flap, VG, ice, WIG) was handed to a
+  dedicated family-probe agent - it resolved 7 of 8 (wing-in-ground
+  owned by ground-effect; the rest fail the deterministic bar) and
+  found ONE genuine gap: delta-wing-vortex-lift (Polhamus suction
+  analogy, NASA TN D-3767 public-domain receipts), which landed.
 
-- PROP 34 FRESH re-probe: git log confirms zero commits to
-  skills/propulsion since wave-32 close; inventory unchanged (10 packs,
-  34 leaves). Ownership greps run this wave confirm wave-31/32 receipts
-  hold: ramjet-cycle + ramjet-inlet own the ramjet family; scramjet
-  remains DECLINED (Rayleigh/thermal-choke receipt wave-31; the only
-  repo hits for "scramjet" are in export-control-awareness reference
-  docs, i.e. ITAR-list text, NOT a propulsion-model leaf - confirmed by
-  grep). Turbo-shaft/gearbox tokens hit existing turboprop/free-turbine
-  leaves. No genuine non-overlapping deterministic gap found in the
-  fresh re-probe; PROP documented dense again (34, third wave).
+- FM rotorcraft probe (the youngest subdomain): three genuine gaps
+  landed. rotorcraft-blade-element-hover-performance owns the
+  pitch-to-coefficients chain (C_T/C_Q/theta0/tip-loss B) that the
+  hover leaf (momentum, thrust-input) never touches; the B=1
+  cross-leaf identity (P == P_ideal + P_profile to 1e-9, FM 0.6501)
+  was verified at prep and asserted in the contract test.
+  rotorcraft-axial-descent-flow-states is the deterministic reopen of
+  the wave-31 momentum-in-descent decline: it classifies the axial
+  flow state (VRS band 0<Vd<2v_h vs windmill brake), computes the
+  windmill-brake induced velocity and SIGNED power/torque in descent,
+  and its torque-reversal condition proves momentum theory cannot
+  close to the autorotative equilibrium when c = P_profile/(kT) < v_h
+  (the worked rotor: c 4.955 < v_h 10.589 -> momentum-unreachable).
+  The physics framing was corrected at prep: the formal zero-power
+  crossing Vd = c + v_h^2/c exists only when c >= v_h and sits at or
+  above 2 v_h; the builder was explicitly told NOT to claim 27.6 m/s
+  lies inside the (0, 2v_h) band. rotorcraft-lead-lag-dynamics is the
+  deterministic precursor to the declined ground-resonance eigenmodel:
+  lag frequency ratio, multiblade fixed-frame modes, coincidence rotor
+  speed and ground-resonance clearance. Ground-resonance eigenmodel
+  and FM-vs-disk-loading re-declined with fresh receipts; fixed-wing
+  FM saturated.
 
-- AERO 35 FRESH re-probe: git log confirms zero commits to
-  skills/aerodynamics since wave-32 close; inventory unchanged (35
-  leaves, 11 packs). Wave-31/32 same-morning receipts hold at HEAD
-  (high-lift/flutter/ground-effect/high-speed/wind-tunnel/aeroelasticity
-  packs saturated; ground-effects owns the wing case). Grep of
-  remaining candidate tokens (delta wing, vortex breakdown, leading
-  edge extension, circulation control, blown flap, vortex generator,
-  ice accretion, wing-in-ground): zero leaf-level owners for several
-  single-token terms, but none passed the genuine-gap test this wave -
-  vortex/flap-adjacent terms fall inside existing leaves' scope claims
-  at pack level (high-lift-systems owns slat/Krueger; swept-wing and
-  transonic leaves own the delta-adjacent high-speed territory) and no
-  candidate had a defensible deterministic stdlib contract test with a
-  sibling-fence receipt at probe time. AERO documented dense (35, third
-  wave). [Note: a dedicated family-probe agent for AERO/FTO/MQ etc runs
-  later in this wave to double-check the 0-owner tokens before close;
-  any genuine gap found will be recorded here or in a follow-up.]
+- STRUCT: three clean deterministic gaps landed. laminate-first-ply-
+  failure (composites) chains A^-1 mid-plane strain recovery ->
+  per-ply Tsai-Wu indices -> FPF load (T300/5208 [0/90/45/-45]s:
+  A11 76368 N/mm, max FI 0.3130 in the 90-deg ply, FPF 319.5 N/mm,
+  verified at prep; laminate-stiffness is ABD-only, failure-criteria
+  is single-lamina). pressure-bulkhead (fem) adds the dome membrane
+  mechanics the vehicle-design barrel leaf never claims (spherical /
+  hemisphere / 2:1 ellipsoid, junction-ring load, ring area;
+  narrowbody worked example verified at prep incl. the -55.7 MPa 2:1
+  knuckle compression and the 581 mm2 ring). beam-vibration (fem)
+  adds the continuous Euler-Bernoulli member frequencies (characteristic
+  roots 1.875104/4.694091/7.854757, cantilever f1 20.709 Hz,
+  Rayleigh bound 1.272x) to the 2-DOF lumped modal-analysis leaf.
+  Fatigue/sandwich/Paris directions confirmed owned by existing
+  leaves.
 
-## Prep artifacts (committed)
+- CC: three gaps landed. power-spectral-density (numerics) adds the
+  Welch-averaged periodogram estimation (Hann, ENBW 6.0 Hz, sine peak
+  = A^2/2ENBW, integrated power = A^2/2) that no leaf estimates (FFT
+  leaf is single-record |X[k]|^2; structures random-vibration CONSUMES
+  a PSD). confidence-interval-estimation (numerics) adds the PPF/
+  interval layer (t/chi2 quantile inversion in-leaf) to the verdict-
+  only hypothesis-testing sibling; the worked drag-count difference CI
+  [-13.5753, -4.8247] excludes 0, consistent with the sibling's
+  p = 0.00127 reject (duality). density-altitude (units-atmos) fills
+  the inverse-density foundation gap that a domain leaf (climb-
+  performance-flight-test) had implemented ad hoc with duplicated ISA
+  helpers; closed-form anchors verified at prep (sea-level +15C ->
+  525.46 m; 10000 ft +10C -> ~11159 ft).
 
-- ops/automation/state/wave33-builder-kit.md (wave-32 kit updated:
-  rows 443+, header 442 -> 442+N at close, wave-33 fragments)
-- ops/automation/state/wave33-merge-corpus.py (BASE_LEAVES 442,
-  BASE_SKILL 454, BASE_TASKS 898)
-- ops/automation/state/wave33-sim-merge.py (pre-merge routing sim)
-- ops/automation/state/wave33-close-runbook.md
-- ops/automation/state/wave33-specs/ (per-leaf engineering specs)
-- Prep commits: 0d54b7f8 (kit/merge/sim/state/runbook),
-  9ddcd96b (specs batch A: 11 leaves FM/STRUCT/AV/CC),
-  93bab842 (specs batch B: 5 leaves AERO/FTO/MQ/GNC).
+- AV: two gaps landed. real-time-scheduling (fsw) owns the
+  Liu-Layland UB + exact RTA + EDF feasibility layer (set A
+  (1,3)(1,4)(2,8): UB inconclusive, RTA [1,2,6] exact-feasible - the
+  demo that RTA beats the UB test); ima-partitioning owns MAF cyclic
+  windows only. radius-to-fix-leg (flight-management) owns the RF-leg
+  path construction (turn center, exit-on-arc validation, sweep, arc
+  length, exit track) with zero family ambiguity - unlike the wave-32
+  holding-pattern decline; verified anchors (case 1: center (0,-15),
+  sweep 90 deg, arc 23.562 NM, exit 180 deg). TCAS RA strength and
+  1090ES power budget declined (RTCA-gated table data).
 
-## Family probes (read-only subagents, wave-33)
+- FTO: two gaps landed. flight-vibration-survey (flutter) is the
+  in-flight mechanical vibration / track-and-balance order reduction
+  (synchronous DFT over integer-rev windows, RSS identity) that
+  nothing in the library owned (buffet/GVT/LCO are adjacent but
+  distinct). engine-failure-takeoff-flight-test (performance) is the
+  balanced-field V1 determination that accelerate-stop-distance
+  explicitly defers ("balanced field length needs a full engine-out
+  model"); verified anchors (V1 71.43 m/s at 1594.3 m). Stall-speed
+  scheduling probed saturated; UAS flight-test methods rejected;
+  control-force-flight-test candidate recorded but not taken.
 
-Round 1 (deleg_49273b2a, 11:36-11:44 UTC): FM rotorcraft (3 taken:
-blade-element hover, axial-descent flow states, lead-lag dynamics;
-ground-resonance eigenmodel re-declined with fresh receipt; FM-vs-DL
-re-declined; fixed-wing saturated), STRUCT (3 taken: laminate-first-ply-
-failure, pressure-bulkhead, beam-vibration; fatigue/sandwich/Paris
-confirmed owned), AV (2 taken: real-time-scheduling, radius-to-fix-leg;
-TCAS RA strength and 1090ES budget declined RTCA-gated), CC (3 taken:
-power-spectral-density, confidence-interval-estimation,
-density-altitude; Gaussian-elim/ANOVA/pressure-altitude/special-fns
-owned).
-Round 2 (deleg_d8263f5c, 11:45-11:54 UTC): AERO (1 taken:
-delta-wing-vortex-lift Polhamus; vortex-breakdown/CC/blown-flap/VG/
-ice declined with receipts; wing-in-ground owned by ground-effect),
-FTO (2 taken: flight-vibration-survey, engine-failure-takeoff-flight-
-test; stall-speed scheduling saturated, UAS rejected, control-force
-candidate recorded but not taken this wave), MQ (1 taken:
-order-requirements-review; POD/acceptance-sampling declined no-map-
-anchor; FAI rollup owned), GNC (1 taken: bang-bang-control; anti-windup
-owned by pid, gravity-turn owned by midcourse, ADCS owned outside
-family, square-root KF declined Joseph-form receipt, LQG and
-information-filter candidates recorded but not taken this wave).
+- MQ: one gap landed. order-requirements-review (as9100) owns the
+  pre-acceptance review of INCOMING purchase orders (8 canonical
+  elements, 8 aerospace special-requirement classes, feasibility
+  gates, verdict) - the 8.2.x order-review clause was absent from the
+  quality leaf's clause map and supplier-control owns flow-down OUT,
+  not review IN. POD statistics and acceptance sampling declined (no
+  standards-map anchor); FAI accounting rollup confirmed owned.
 
-16 planned specs = AERO 1, AV 2, CC 3, FM 3, FTO 2, GNC 1, MQ 1,
-STRUCT 3. Family spread after wave would be: aerodynamics 35->36,
-avionics 37->39, cross-cutting 37->40, flight-mechanics 39->42,
-flight-test-operations 37->39, gnc-autonomy 40->41,
-manufacturing-quality 38->39, structures 39->42; SES 33, VD 33,
-propulsion 34 unchanged.
+- GNC: one gap landed. bang-bang-control (optimal-control) owns the
+  time-optimal double-integrator law (switching curve, T* = 2 sqrt(d/a),
+  verified anchors incl. the slew 12.649111 s and the generic
+  5 + 2 sqrt(62.5) = 20.810 s case); LQR/MPC/dymos own quadratic
+  objectives only. Anti-windup owned by pid-control-design, gravity-
+  turn owned by midcourse, spacecraft pointing owned by space-systems/
+  adcs, square-root KF declined (rts-smoother Joseph-form receipt).
+  LQG and information-filter candidates recorded but not taken.
 
-## Build log
+- FAMILY SPREAD after wave (442 -> 458): aerodynamics 35 -> 36,
+  avionics 37 -> 39, cross-cutting 37 -> 40, flight-mechanics 39 -> 42,
+  flight-test-operations 37 -> 39, gnc-autonomy 40 -> 41,
+  manufacturing-quality 38 -> 39, structures 39 -> 42;
+  systems-engineering-safety 33, vehicle-design 33, propulsion 34
+  unchanged (documented dense/saturated). 85 packs (no new pack).
 
-(to be filled per batch: leaves landed, commits, receipts, deviations)
+- STANDARDS-MAP unchanged (30 ids; every cited id already present:
+  far-29, far-25, cs-25, cmh-17, do-178c, as9100, naca-tr-824, ecss,
+  arp4754a). The delta-wing leaf cites naca-tr-824 in frontmatter and
+  names NASA TN D-3767 (public domain) in the body as methodology
+  source - no map addition needed.
+
+- CORPUS 898 -> 930 tasks (32 new, 16 fragments merged via
+  state/wave33-merge-corpus.py then deleted in a separate
+  explicit-path commit, 0 on disk), grep verified. 8 family routers
+  updated parent-side by a structural inserter (aerodynamics,
+  avionics, cross-cutting, flight-mechanics, flight-test-operations,
+  gnc-autonomy, manufacturing-quality, structures - one table row +
+  one routing-guidance bullet per new leaf, 16 rows + 16 bullets
+  total; blank-line formatting repaired after the first insert pass),
+  router descriptions verified <= 1024 chars via
+  wave16-router-desc-len.py PASS (all 12 families). Ledger header
+  updated 442 -> 458 (rows 443-458 contiguous, no duplicates).
+  Visuals regenerated via make visuals (458 leaves / 85 packs);
+  visuals-check PASS 19 artifacts fresh; manifest-check PASS zero
+  diff; metrics.json verified (458 leaves, 12 families, 85 packs,
+  930 corpus tasks, 30 standards). Router parity: rows == leaves per
+  family (36/36 aero, 39/39 avionics, 40/40 CC, 42/42 FM, 39/39 FTO,
+  41/41 GNC, 39/39 MQ, 34/34 PROP, 40/40 space (untouched this wave),
+  42/42 structures, 33/33 SES, 33/33 VD). Space was not re-probed this
+  wave: the 16-leaf band was filled from smaller families per
+  smallest-first doctrine; SPACE remains 40 and is a wave-34 probe
+  candidate.
+
+- HIT@1 NO-TASK-STEALING: gate 5 re-run after the merge returned
+  930/930 PASS with ZERO pre-existing tasks stolen. The pre-merge
+  routing simulation (state/wave33-sim-merge.py) ran the router on
+  the corpus plus the 16 on-disk fragments BEFORE the real merge
+  (930/930) - the wave-32 lesson applied at prep; zero rewording was
+  needed this wave.
+
+- GATES FRESH at rest HEAD 31cab956: make validate 5/5 (930/930
+  Hit@1 deterministic offline), make attest 3/3, make completeness
+  ALL REQUIRED PASS, make value-delta PASS (10/10 >= 0.2),
+  visuals-check PASS (19 artifacts fresh), manifest-check PASS zero
+  diff, router descs <= 1024, em dashes 0 in skills/, stale-number-
+  guard PASS, tree clean.
+
+- Push PRIVATE via the arjun origin token, fast-forward only
+  (73cdb0d8..31cab956), ls-remote verified remote main == HEAD, no
+  Ashforde token on the private repo, no visibility flip.
+  publish-public.sh sanctioned sync + public HEAD verify (e5d50186,
+  458 skills) + GitHub CI attest SUCCESS and release-on-milestone
+  SUCCESS at close-out time. publish-public.sh fixes from 2da34f0e
+  (leaf-count regression guard: export 458 >= public 442) and
+  eec11e34 (About refresh post-push) kept. GROUP 160 close-out post
+  sent as Ops Manager, SEND_EXIT=0.
+
+- SPEC DEVIATIONS / disclosures:
+  1. Planned 16 leaves (top of the 12-16 band), 16 landed. SES/VD/PROP
+     documented saturated/dense (receipts above) and their slots were
+     spent on the next-smallest families; SPACE 40 was not re-probed
+     (band filled first).
+  2. Spec anchors verified/corrected at prep where needed
+     (verify-before-credit): FM C1 blade-element worked example
+     independently recomputed (theta0 0.13284 rad, C_Q split
+     2.2299e-4 + 1.2e-4, Q 7986 N m, P 351382.8 W, FM 0.6501 all
+     confirmed); FM C2 torque-reversal framing corrected (the
+     "27.6 m/s inside the band" probe phrasing was wrong - the formal
+     crossing requires c >= v_h and lies at/above 2 v_h; written into
+     the spec and the builder was steered to the correct physics);
+     STRUCT FPF full Tsai-Wu loop recomputed (0.3130 / 319.5 N/mm
+     confirmed, my first pass-1 check script had its own bugs and was
+     corrected); pressure-bulkhead ring area 581 mm2 confirmed
+     (469 MPa Ftu, FS 1.5); CC density-altitude exponent confirmed
+     (1/4.25588; my first check used the wrong exponent); AV RF-leg
+     turn-center convention confirmed ((0,-15) for RIGHT off 090);
+     bang-bang generic case confirmed (5 + 2 sqrt(62.5) = 20.810 s -
+     the vehicle first coasts to 62.5 m then returns).
+  3. beam-vibration's commit was swept into the pressure-bulkhead
+     commit by the shared-index race (wave-31/32 class); all six
+     artifacts verified on the HEAD chain, nothing lost, no re-commit
+     needed. power-spectral-density needed a "remainder" commit
+     (ef130753) after the shared ledger/index race - handled per the
+     kit.
+  4. Family probes ran in two rounds of 4 (read-only); zero builder
+     deaths, zero re-dispatches; one builder self-corrected a test
+     failure mid-build (radius-to-fix-leg sign convention, caught by
+     its own unittest, fixed and committed). One physics steer was
+     issued to the axial-descent builder (torque-reversal framing).
+  5. The remote main was 73cdb0d8 at dispatch and stayed there through
+     close; final push was a clean fast-forward, no rebase or force.
+  6. All spec math independently re-verified by ops in /tmp in three
+     passes (pure stdlib) before builders ran; every worked-example
+     magnitude in the specs was confirmed or corrected at prep.
+
+- Next: CEO P5.2 WAVE-33 audit >= 9.5 -> WAVE-34.
