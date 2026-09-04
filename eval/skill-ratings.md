@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 416
+Total skills rated: 427
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -422,3 +422,15 @@ Total skills rated: 416
 | 414 | structures/loads/landing-ground-loads | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 415 | space-systems/orbit-mechanics/three-body-libration | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 416 | gnc-autonomy/control/adaptive-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 417 | space-systems/orbit-mechanics/bi-elliptic-transfer | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 418 | flight-mechanics/performance/rotorcraft-vertical-climb-performance | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 419 | avionics/surveillance/airborne-weather-radar | PASS | ✓ | rtca-do-185 | avionics | 9.5 | PASS |
+| 420 | cross-cutting/numerics/fir-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 421 | flight-mechanics/performance/rotorcraft-hover-ground-effect | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 422 | space-systems/mission-design/c3-departure-energy | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+
+| 423 | flight-test-operations/performance/rotorcraft-performance-flight-test | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
+| 424 | gnc-autonomy/guidance/augmented-proportional-navigation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 425 | flight-mechanics/performance/rotorcraft-tail-rotor-sizing | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 426 | manufacturing-quality/as9100/internal-quality-audit | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 427 | gnc-autonomy/guidance/collision-course-guidance | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |

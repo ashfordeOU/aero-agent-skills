@@ -73,6 +73,8 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/estimation-filtering/rts-smoother | RTS smoother | RTS smoother, Rauch-Tung-Striebel, fixed-interval smoothing, backward pass, smoothed state, offline trajectory reconstruction |
 | gnc-autonomy/guidance/coverage-path-planning | Coverage path planning | coverage path planning, boustrophedon, lawnmower pattern, aerial survey flight lines, swath width, side overlap, track spacing, area search |
 | gnc-autonomy/control/adaptive-control | Adaptive control | adaptive control, MRAC, model reference adaptive, adaptation law, tracking error, unknown plant, gain adaptation |
+| gnc-autonomy/guidance/augmented-proportional-navigation | Augmented proportional navigation | augmented proportional navigation, target lateral acceleration, maneuvering target intercept, APN command |
+| gnc-autonomy/guidance/collision-course-guidance | Collision-course guidance | collision course, lead angle, constant bearing, collision triangle, predicted intercept point |
 
 ## Routing guidance
 
@@ -137,4 +139,6 @@ your host's skills directory (see README Install for per-host commands).
 - Mahony complementary-filter attitude estimation and gyro-bias questions route to the estimation-filtering complementary-filter sub-skill.
 - Dubins minimum-turn path generation between heading-constrained poses and CSC/CCC path family questions route to the guidance dubins-path-planning sub-skill.
 - Single-epoch GNSS pseudorange position and clock-bias fixes route to the navigation gnss-pseudorange-positioning sub-skill.
+- Collision-course intercept questions (lead angle, constant bearing, collision triangle, predicted intercept point) route to the guidance collision-course-guidance sub-skill.
+- Augmented proportional navigation questions (target lateral acceleration term, maneuvering target intercept, APN command) route to the guidance augmented-proportional-navigation sub-skill.
 - Gibbs and Herrick-Gibbs initial orbit determination from three position vectors routes to the space orbit-determination sub-skill.

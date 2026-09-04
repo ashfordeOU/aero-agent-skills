@@ -1,7 +1,7 @@
 {
-  "corpus_tasks": 846,
+  "corpus_tasks": 868,
   "families": 12,
-  "leaves": 416,
+  "leaves": 427,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
@@ -82,7 +82,7 @@
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 35,
+      "leaves": 36,
       "pack_names": [
         "data-bus",
         "do160",
@@ -147,15 +147,16 @@
         ],
         "surveillance": [
           "ads-b-surveillance",
+          "airborne-weather-radar",
           "tcas-resolution-advisory"
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 73
+      "tasks": 75
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 34,
+      "leaves": 35,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -185,6 +186,7 @@
           "eigenvalue-decomposition",
           "fast-fourier-transform",
           "finite-difference-derivatives",
+          "fir-filter-design",
           "hypothesis-testing",
           "interpolation",
           "least-squares-regression",
@@ -217,11 +219,11 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 68
+      "tasks": 70
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 34,
+      "leaves": 37,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -250,7 +252,10 @@
           "landing-performance",
           "oei-climb-gradient",
           "rotorcraft-forward-flight-performance",
+          "rotorcraft-hover-ground-effect",
           "rotorcraft-hover-performance",
+          "rotorcraft-tail-rotor-sizing",
+          "rotorcraft-vertical-climb-performance",
           "specific-range",
           "speed-stability",
           "takeoff-performance",
@@ -274,11 +279,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 68
+      "tasks": 74
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 34,
+      "leaves": 35,
       "pack_names": [
         "envelope",
         "flutter",
@@ -315,6 +320,7 @@
           "glide-flight-test",
           "landing-distance-determination",
           "level-acceleration-test",
+          "rotorcraft-performance-flight-test",
           "stall-speed-determination",
           "takeoff-distance-determination"
         ],
@@ -337,11 +343,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 68
+      "tasks": 70
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 36,
+      "leaves": 38,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -373,6 +379,8 @@
           "unscented-kalman-filter"
         ],
         "guidance": [
+          "augmented-proportional-navigation",
+          "collision-course-guidance",
           "command-to-line-of-sight",
           "coverage-path-planning",
           "dubins-path-planning",
@@ -402,11 +410,11 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 73
+      "tasks": 77
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 35,
+      "leaves": 36,
       "pack_names": [
         "additive",
         "as9100",
@@ -429,6 +437,7 @@
           "counterfeit-prevention",
           "document-control",
           "fod-control",
+          "internal-quality-audit",
           "measurement-systems-analysis",
           "nonconformance-control",
           "quality",
@@ -472,7 +481,7 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 72
+      "tasks": 74
     },
     "propulsion": {
       "label": "PROPULSION",
@@ -551,7 +560,7 @@
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 36,
+      "leaves": 38,
       "pack_names": [
         "adcs",
         "ecss",
@@ -576,12 +585,14 @@
           "systems-engineering"
         ],
         "mission-design": [
+          "c3-departure-energy",
           "entry-descent-landing",
           "launch-window-analysis",
           "mission-delta-v-budget",
           "radiation-debris"
         ],
         "orbit-mechanics": [
+          "bi-elliptic-transfer",
           "clohessy-wiltshire",
           "conjunction-assessment",
           "eclipse-time",
@@ -609,7 +620,7 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 75
+      "tasks": 79
     },
     "structures": {
       "label": "STRUCTURES",
@@ -808,6 +819,6 @@
       "tasks": 66
     }
   },
-  "skill_files": 428,
+  "skill_files": 439,
   "standards": 30
 }

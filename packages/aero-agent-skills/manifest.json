@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 416,
+  "leaves": 427,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 846
+  "corpus_tasks": 868
  },
  "skills": [
   {
@@ -1282,6 +1282,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/surveillance/airborne-weather-radar",
+   "name": "airborne-weather-radar",
+   "description": "Use when you must compute airborne weather radar operating-point quantities for convective weather avoidance: convert radar reflectivity factor Z to rainfall rate and back with the Marshall-Palmer Z-R relation, estimate the antenna elevation tilt that scans a storm cell top from own altitude and slant range, derive the flat-earth ground range to the cell, check a tilt setting against ground clutter return geometry, and rate echo intensity into standard levels from the reflectivity. Produces the rainfall rate, the required tilt angle, the ground range, the clutter check verdict and the echo level that gate weather radar tilt management in the cockpit. Trigger: airborne weather radar, convective weather avoidance, storm cell top, antenna tilt, reflectivity factor, rainfall rate, marshall palmer, echo level, ground clutter.",
+   "tags": [
+    "airborne-weather-radar",
+    "weather-radar-tilt",
+    "reflectivity-rainfall",
+    "marshall-palmer",
+    "echo-level",
+    "ground-clutter-check"
+   ],
+   "family": "avionics",
+   "pack": "surveillance",
+   "router_doc": false
+  },
+  {
    "path": "avionics/surveillance/tcas-resolution-advisory",
    "name": "tcas-resolution-advisory",
    "description": "Use when you must evaluate a TCAS II resolution advisory for an own aircraft against a single intruder from measured range and altitude state: select the sensitivity level from the own altitude band, compute the modified tau closing time with the DMOD term, apply the horizontal threat test and the altitude test against the tau and ALIM thresholds, and choose the climb or descend advisory sense from the intruder position. Produces the sensitivity level, the modified tau, the threat verdict and the resolution advisory sense that gate a TCAS logic assessment. Trigger: TCAS II, traffic alert and collision avoidance, resolution advisory, modified tau, DMOD, sensitivity level, intruder threat logic, climb descend advisory.",
@@ -1516,6 +1532,23 @@
     "step-size",
     "second-derivative",
     "tabulated-data"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/fir-filter-design",
+   "name": "fir-filter-design",
+   "description": "Use when you must design a linear-phase finite-impulse-response lowpass filter with the windowed-sinc method: build the ideal lowpass impulse response from the cutoff frequency and the sample rate, apply a selected window (rectangular, Hann, Hamming, or Blackman), normalize the coefficient vector to unity DC gain, evaluate the magnitude response in dB at any frequency as the real cosine sum of the symmetric tap set, return the group delay of the taps, and filter a sampled signal by direct convolution. Produces the coefficient vector, the magnitude response checks (passband gain, -6 dB point at the cutoff, stopband attenuation), the group delay, and the filtered signal that gate a digital filter design task. Trigger: fir-filter-design, windowed-sinc, fir lowpass, finite impulse response, hamming window, filter taps, cutoff frequency, linear phase, magnitude response dB, group delay.",
+   "tags": [
+    "fir-filter-design",
+    "windowed-sinc",
+    "finite-impulse-response",
+    "linear-phase-filter",
+    "fir-lowpass",
+    "filter-taps",
+    "hamming-window"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -2246,6 +2279,22 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/rotorcraft-hover-ground-effect",
+   "name": "rotorcraft-hover-ground-effect",
+   "description": "Use when you must compute the hover-in-ground-effect performance of a rotorcraft rotor: the Cheeseman-style ground-effect reduction factor for the rotor induced power from the height above the ground and the rotor radius, the in-ground-effect induced power, the in-ground-effect total hover power from the induced-power factor and the unchanged profile power, the power margin against an available power, and the maximum rotor height at which the rotorcraft can still hover with that available power. Produces the ground-effect factor, the IGE induced and total hover power, the IGE power margin and the maximum hover height that gate a rotorcraft hover check in ground effect. Trigger: rotorcraft-hover-ground-effect, hover-in-ground-effect, ige-power-reduction, ground-effect-factor, ige-hover-ceiling, rotor-height-ratio.",
+   "tags": [
+    "rotorcraft-hover-ground-effect",
+    "hover-in-ground-effect",
+    "ige-power-reduction",
+    "ground-effect-factor",
+    "ige-hover-ceiling",
+    "rotor-height-ratio"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/rotorcraft-hover-performance",
    "name": "rotorcraft-hover-performance",
    "description": "Use when you must compute the hovering performance of a rotorcraft rotor with momentum theory: the ideal induced velocity through the rotor disk, the ideal hover power, the profile power from blade solidity and tip speed, the total hover power through an induced-power factor or through the figure of merit, and the disk loading. Produces the induced velocity, ideal power, profile power, total power, figure of merit, and disk loading that gate a hover performance check at a chosen density altitude. Momentum theory only: uniform inflow, no ground effect. Trigger: rotorcraft hover performance, induced velocity, figure of merit, momentum theory, hover power, disk loading, blade solidity.",
@@ -2256,6 +2305,36 @@
     "figure-of-merit",
     "rotor-disk-loading",
     "rotor-solidity"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-tail-rotor-sizing",
+   "name": "rotorcraft-tail-rotor-sizing",
+   "description": "Use when you must size the anti-torque tail rotor of a single-main-rotor rotorcraft from the main rotor torque balance: main rotor shaft torque from the main rotor power input and rotor speed, tail rotor thrust to balance that torque about the tail arm with a yaw margin factor, tail rotor disk area and radius for a chosen maximum disk loading, ideal induced velocity and ideal power from momentum theory, and tail rotor total power from the induced-power factor and a tail-rotor profile power estimate. Produces the main rotor torque, anti-torque thrust, tail rotor radius, disk loading, induced power, profile power and total power that gate an anti-torque sizing check. Trigger: tail-rotor-sizing, anti-torque-rotor, tail-rotor-thrust, main-rotor-torque, tail-rotor-power.",
+   "tags": [
+    "rotorcraft-tail-rotor-sizing",
+    "anti-torque-rotor",
+    "tail-rotor-thrust",
+    "main-rotor-torque",
+    "tail-rotor-power"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-vertical-climb-performance",
+   "name": "rotorcraft-vertical-climb-performance",
+   "description": "Use when you must compute the vertical climb performance of a rotorcraft rotor with axial momentum theory: the climb induced velocity from the hover induced velocity and the climb rate, the induced power through an induced power factor, the total rotor power required in a vertical climb as induced plus profile power, and the maximum vertical rate of climb for an available shaft power. Produces the induced velocity in climb, the climb power required, the climb power margin and the maximum vertical rate of climb that gate a rotorcraft climb check at a chosen density altitude. Momentum theory only: uniform inflow, no ground effect, climb only. Trigger: rotorcraft vertical climb performance, axial momentum theory, climb induced velocity, rotorcraft climb power, vertical rate of climb, available shaft power, climb power margin.",
+   "tags": [
+    "rotorcraft-vertical-climb-performance",
+    "rotorcraft-climb-power",
+    "climb-induced-velocity",
+    "vertical-rate-of-climb",
+    "vertical-climb-momentum-theory"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -2995,6 +3074,22 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/performance/rotorcraft-performance-flight-test",
+   "name": "rotorcraft-performance-flight-test",
+   "description": "Use when you must reduce a rotorcraft performance flight test from measured data: convert measured main rotor torque and rotor speed into shaft power, compute the measured figure of merit from the ideal induced power and the measured power, correct measured hover power to a reference weight and density altitude with the induced and profile fraction split, correct a measured vertical rate of climb for the test weight, reduce hover power-required points measured across density altitudes to a hover ceiling against the available power, and check the test day against the flight manual limits. Produces the measured power, measured figure of merit, corrected power, corrected vertical rate of climb, the OGE and IGE hover ceiling altitudes, and the test verdict that gate the flight test report. Trigger: rotorcraft-performance-flight-test, rotorcraft-hover-flight-test, measured-figure-of-merit, torque-to-power, hover-ceiling-determination, weight-density-correction.",
+   "tags": [
+    "rotorcraft-performance-flight-test",
+    "rotorcraft-hover-flight-test",
+    "measured-figure-of-merit",
+    "torque-to-power",
+    "hover-ceiling-determination",
+    "weight-density-correction"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/performance/stall-speed-determination",
    "name": "stall-speed-determination",
    "description": "Use when you must determine the reference stall speed Vs1g for a flight test: derive it from the wing loading and the maximum lift coefficient, correct it for a weight change, and check the stall margin against the current flight speed. Produces the Vs1g reference stall speed in m/s, the weight-corrected stall speed, and the stall margin verdict that gate the performance assessment. Trigger: Vs1g, stall speed, wing loading, stall margin, flight test, weight correction.",
@@ -3594,6 +3689,36 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/guidance/augmented-proportional-navigation",
+   "name": "augmented-proportional-navigation",
+   "description": "Use when you must compute augmented proportional navigation guidance commands for a planar intercept of a maneuvering target: line of sight rate from the relative position and velocity vectors, closing velocity, the pure proportional navigation command as the baseline, the augmented command that adds the target lateral acceleration perpendicular to the line of sight scaled by half the effective navigation ratio, the time to go estimate, and the commanded lateral acceleration in g. Produces the LOS rate, closing velocity, PN and APN commands, time to go, and the g-load verdict that gate an intercept guidance law assessment against a maneuvering target. Trigger: augmented-proportional-navigation, maneuvering-target-intercept, target-lateral-acceleration, apn-command, guidance-law-augmentation.",
+   "tags": [
+    "augmented-proportional-navigation",
+    "maneuvering-target-intercept",
+    "target-lateral-acceleration",
+    "apn-command",
+    "guidance-law-augmentation"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "guidance",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/guidance/collision-course-guidance",
+   "name": "collision-course-guidance",
+   "description": "Use when you must compute the collision-course intercept geometry for a constant-speed pursuer against a constant-velocity target: the lead angle of the pursuer velocity off the line of sight that closes the collision triangle, the closing speed along the line of sight, the time to go to the predicted intercept point, the intercept point coordinates, and the bearing error check against the current pursuer heading. Produces the lead angle, closing speed, time to go, intercept point, and the heading-error verdict that gate a constant-bearing intercept guidance assessment. Trigger: collision-course-guidance, constant-bearing-intercept, lead-angle, collision-triangle, predicted-intercept-point.",
+   "tags": [
+    "collision-course-guidance",
+    "constant-bearing-intercept",
+    "lead-angle",
+    "collision-triangle",
+    "predicted-intercept-point"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "guidance",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/guidance/command-to-line-of-sight",
    "name": "command-to-line-of-sight",
    "description": "Use when you must compute a command to line of sight guidance command for a missile intercept: derive the tracker to target line of sight angle, the angular deviation of the missile from the tracker target line, the line of sight rotation rate, the steering acceleration proportional to the LOS error and its rate, the signed cross track offset of the missile from the line, and the on line verdict that gate a CLOS guidance assessment. Produces the LOS angle, wrapped LOS error, LOS rate, steering command, cross track offset, and the on line tracking verdict. Trigger: command to line of sight, CLOS, beam riding, LOS error, LOS rate, line of sight rate, steering command, cross track offset, tracker target line, intercept guidance.",
@@ -4125,6 +4250,22 @@
     "fod-sweep-interval",
     "tool-count-reconciliation",
     "fod-audit"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/as9100/internal-quality-audit",
+   "name": "internal-quality-audit",
+   "description": "Use when you must plan and score an internal quality audit program under an AS9100-style quality management system: compute the audit due date from the last audit date, the base interval and the process risk category, check auditor independence and competence for the assigned audit scope, size the record sample from the lot size and confidence level, and categorize an audit finding by impact severity, containment need and systemic spread. Produces the audit schedule, the auditor assignment verdict, the sample size, the finding classification, and the closure verdict that gate an internal audit program. Trigger: internal-quality-audit, audit-schedule, auditor-independence, audit-sample-size, finding-classification, closure-verification.",
+   "tags": [
+    "internal-quality-audit",
+    "audit-schedule",
+    "auditor-independence",
+    "audit-sample-size",
+    "finding-classification",
+    "closure-verification"
    ],
    "family": "manufacturing-quality",
    "pack": "as9100",
@@ -5541,6 +5682,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/mission-design/c3-departure-energy",
+   "name": "c3-departure-energy",
+   "description": "Use when you must compute the departure energy of an interplanetary mission from a circular parking orbit: the C3 characteristic energy from a target hyperbolic excess speed and the excess speed back from C3, the injection speed on the departure hyperbola at the parking orbit radius from the vis-viva integral, the injection delta-v above the circular parking speed, the circular parking speed, the parking orbit period, and the declination of the outgoing asymptote from the excess velocity vector. Produces the C3, excess speed, injection speed, injection delta-v, parking period, and asymptote declination that gate the departure-side launch-energy and injection-burn assessment. Trigger: c3 characteristic energy, hyperbolic excess, excess speed, injection delta-v, injection speed, parking orbit, escape hyperbola, asymptote declination, interplanetary departure.",
+   "tags": [
+    "c3-departure-energy",
+    "characteristic-energy",
+    "hyperbolic-excess",
+    "injection-delta-v",
+    "parking-orbit",
+    "asymptote-declination",
+    "escape-trajectory"
+   ],
+   "family": "space-systems",
+   "pack": "mission-design",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/mission-design/entry-descent-landing",
    "name": "entry-descent-landing",
    "description": "Size the atmospheric entry, descent, and landing phase of a spacecraft mission: check the entry corridor against the flight path angle, compute the ballistic coefficient beta = m / (Cd * A), estimate the peak deceleration g-load of a steep ballistic entry, apply the Sutton-Graves convective heating correlation q_dot = k * sqrt(rho) * V^3 for the stagnation point heat rate and integrate the heat load, and size the parachute descent with the terminal velocity v = sqrt(2 * W / (rho * Cd * S)). Produce the corridor verdict, peak g-load, heat rate and heat load, and terminal velocity for Earth or Mars conditions. Use when the task is entry corridor, ballistic coefficient, deceleration loads, convective heating, or parachute descent sizing for an entry vehicle. Trigger: entry corridor, flight path angle, ballistic coefficient, sutton-graves, convective heating, heat load, deceleration g-load, parachute terminal velocity, mars entry, reentry heating.",
@@ -5624,6 +5782,22 @@
    ],
    "family": "space-systems",
    "pack": "mission-design",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/orbit-mechanics/bi-elliptic-transfer",
+   "name": "bi-elliptic-transfer",
+   "description": "Use when you must analyze the bi-elliptic three-impulse transfer between two coplanar circular orbits and compare it against the Hohmann transfer: compute the three burn delta-v values (the perigee raise to the intermediate apogee radius, the intermediate-apogee burn that raises the perigee to the target radius, and the target circularization), the total bi-elliptic delta-v, the Hohmann delta-v for the same orbit pair as the comparison baseline, the delta-v saving of the cheaper strategy, and the chosen transfer verdict. Produces the three impulse magnitudes, the two transfer totals, the saving, and the strategy verdict that gate an orbit-transfer design choice at large radius ratios. Trigger: bi-elliptic-transfer, three-impulse-transfer, intermediate-apogee, delta-v-saving, orbit-transfer-comparison, bi-elliptic-crossover.",
+   "tags": [
+    "bi-elliptic-transfer",
+    "three-impulse-transfer",
+    "intermediate-apogee",
+    "delta-v-saving",
+    "orbit-transfer-comparison",
+    "bi-elliptic-crossover"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
    "router_doc": false
   },
   {

@@ -71,6 +71,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/envelope/vmc-determination | Vmc determination | minimum control speed, Vmc, critical engine, asymmetric yawing moment, rudder pedal force, engine inoperative demonstration |
 | flight-test-operations/envelope/buffet-boundary-testing | Buffet boundary testing | buffet boundary, buffet onset, accelerometer RMS rise, high speed buffet, maneuver buffet, buffet margin |
 | flight-test-operations/performance/cruise-performance-flight-test | Cruise performance flight test | cruise performance flight test, fuel flow versus Mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed |
+| flight-test-operations/performance/rotorcraft-performance-flight-test | Rotorcraft performance flight test | rotorcraft flight test, measured figure of merit, torque to power, hover ceiling determination, weight density correction |
 
 ## Routing guidance
 
@@ -114,6 +115,7 @@ actor-envelope.
   route to their domain packs (flight-mechanics, structures,
   avionics).
 - Structural coupling gain and phase margins, frequency response excitation sweeps, and flight control coupling questions route to the envelope structural-coupling-test sub-skill.
+- Rotorcraft performance flight test questions (measured figure of merit, torque to power, hover ceiling determination, weight density correction) route to the performance rotorcraft-performance-flight-test sub-skill.
 - Climb performance flight test, measured rate of climb, pressure altitude change, and climb gradient correction questions route to the performance climb-performance-flight-test sub-skill.
 - Trim curve slope, elevator angle versus speed, stick-fixed neutral point, static margin, and elevator angle per g questions route to the stability static-stability-flight-test sub-skill.
 - High angle of attack flight test planning, AoA position error calibration, stall warning margin, and departure resistance assessment route to the envelope high-angle-of-attack-testing sub-skill.

@@ -72,6 +72,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/fod-control | FOD control | FOD prevention, foreign object debris, FOD zone classification, tool control count, FOD sweep interval, FOD audit |
 | manufacturing-quality/special-processes/welding-qualification | Welding qualification | weld procedure qualification, WPS PQR heat input, kJ per mm, preheat and interpass verification, weld coupon test matrix |
 | manufacturing-quality/assembly/ewis-installation-quality | EWIS installation quality | EWIS installation, wiring harness, bundle fill ratio, voltage drop check, bend radius check, separation clearance |
+| manufacturing-quality/as9100/internal-quality-audit | Internal quality audit | internal audit program, audit schedule, auditor independence, audit sample size, finding classification, closure verification |
 
 ## Routing guidance
 
@@ -135,4 +136,5 @@ To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Key characteristic identification and variation management questions route to the as9103 key-characteristic-management sub-skill.
 - Laser shearography questions (setup sizing, phase to strain conversion, scan plan, disbond disposition) route to the ndt shearography-inspection sub-skill.
+- Internal audit program questions (audit schedule, auditor independence, audit sample size, finding classification, closure verification) route to the as9100 internal-quality-audit sub-skill.
 - Leak testing questions (pressure decay, vacuum decay, helium mass spectrometer, bubble test, leak rate acceptance) route to the ndt leak-testing sub-skill.
