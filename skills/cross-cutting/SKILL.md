@@ -87,6 +87,7 @@ integration) for engineering calculations.
 
 | cross-cutting/numerics/information-entropy | Information entropy | Shannon entropy, binary entropy function, information content, source coding bound, bits per symbol |
 | cross-cutting/numerics/runs-test | Runs test | runs test, Wald-Wolfowitz runs, sequence randomness test, runs count, expected runs, z statistic |
+| cross-cutting/numerics/grubbs-outlier-test | Grubbs outlier test | grubbs outlier test, G statistic, single outlier test, grubbs critical value, outlier screening verdict |
 
 
 ## Routing guidance
@@ -176,3 +177,5 @@ your host's skills directory (see README Install for per-host commands).
 - Distribution fitting questions (weibull, lognormal, exponential and normal fit, goodness of fit, quantile and reliability from the fitted parameters) route to the numerics probability-distributions sub-skill.
 - Significance test questions (t test, Welch, paired t, ANOVA, F variance test, chi-square independence, p-value verdicts) route to the numerics hypothesis-testing sub-skill.
 - Wald-Wolfowitz runs test questions (runs count, expected runs under the randomness null, z statistic verdict) route to the numerics runs-test sub-skill.
+
+- Grubbs single-outlier questions (G statistic against the critical value, reject or no-outlier verdict, rejected value screening for a normal sample) route to the numerics grubbs-outlier-test sub-skill.

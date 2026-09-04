@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 496
+Total skills rated: 506
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -503,3 +503,13 @@ Total skills rated: 496
 | 494 | space-systems/orbit-mechanics/walker-delta-constellation | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 495 | cross-cutting/numerics/runs-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 496 | propulsion/gas-turbine-cycle/propelling-nozzle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 497 | space-systems/orbit-mechanics/geostationary-station-keeping | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 498 | propulsion/gas-turbine-cycle/subsonic-inlet-recovery | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 499 | systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance | PASS | ✓ | far-25 | systems-engineering-safety | 9.5 | PASS |
+| 500 | systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet | PASS | ✓ | far-25 | systems-engineering-safety | 9.5 | PASS |
+| 501 | vehicle-design/sizing/electrical-wire-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 502 | vehicle-design/sizing/hydraulic-actuator-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 503 | manufacturing-quality/as9100/gage-rr-anova | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 504 | manufacturing-quality/as9100/acceptance-sampling | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 505 | avionics/flight-management/holding-pattern-entry | PASS | ✓ | far-25 | avionics | 9.5 | PASS |
+| 506 | cross-cutting/numerics/grubbs-outlier-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |

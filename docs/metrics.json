@@ -1,7 +1,7 @@
 {
-  "corpus_tasks": 1008,
+  "corpus_tasks": 1028,
   "families": 12,
-  "leaves": 496,
+  "leaves": 506,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
@@ -83,7 +83,7 @@
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 42,
+      "leaves": 43,
       "pack_names": [
         "data-bus",
         "do160",
@@ -135,6 +135,7 @@
         ],
         "flight-management": [
           "flight-planning",
+          "holding-pattern-entry",
           "lateral-navigation",
           "performance-computation",
           "radio-navigation-aids",
@@ -159,11 +160,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 87
+      "tasks": 89
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 44,
+      "leaves": 45,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -196,6 +197,7 @@
           "fast-fourier-transform",
           "finite-difference-derivatives",
           "fir-filter-design",
+          "grubbs-outlier-test",
           "hypothesis-testing",
           "information-entropy",
           "interpolation",
@@ -235,7 +237,7 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 88
+      "tasks": 90
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
@@ -444,7 +446,7 @@
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 45,
+      "leaves": 47,
       "pack_names": [
         "additive",
         "as9100",
@@ -462,6 +464,7 @@
           "lpbf-parameter-development"
         ],
         "as9100": [
+          "acceptance-sampling",
           "attribute-agreement-analysis",
           "attribute-control-charts",
           "calibration-control",
@@ -471,6 +474,7 @@
           "document-control",
           "fod-control",
           "gage-linearity-bias-study",
+          "gage-rr-anova",
           "individuals-and-moving-range-chart",
           "internal-quality-audit",
           "management-review",
@@ -520,11 +524,11 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 92
+      "tasks": 96
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 37,
+      "leaves": 38,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -563,7 +567,8 @@
           "gas-turbine-cycle",
           "propelling-nozzle",
           "real-cycle-effects",
-          "regenerative-cycle"
+          "regenerative-cycle",
+          "subsonic-inlet-recovery"
         ],
         "ramjet": [
           "ramjet-cycle",
@@ -598,11 +603,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 74
+      "tasks": 76
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 44,
+      "leaves": 45,
       "pack_names": [
         "adcs",
         "ecss",
@@ -641,6 +646,7 @@
           "clohessy-wiltshire",
           "conjunction-assessment",
           "eclipse-time",
+          "geostationary-station-keeping",
           "gravity-assist-swingby",
           "ground-track-repeat",
           "hohmann-transfer",
@@ -668,7 +674,7 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 91
+      "tasks": 93
     },
     "structures": {
       "label": "STRUCTURES",
@@ -747,7 +753,7 @@
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 34,
+      "leaves": 36,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -789,9 +795,11 @@
           "mmel-development"
         ],
         "continued-airworthiness": [
+          "airworthiness-directive-compliance",
           "ica-cmr-ali-classification",
           "in-service-safety-assessment",
-          "msg3-maintenance-analysis"
+          "msg3-maintenance-analysis",
+          "type-certificate-data-sheet"
         ],
         "mbse": [
           "n2-diagram",
@@ -809,11 +817,11 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 70
+      "tasks": 74
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 47,
+      "leaves": 49,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -857,6 +865,7 @@
           "cabin-outflow-valve-sizing",
           "canard-sizing",
           "control-surface-sizing",
+          "electrical-wire-sizing",
           "engine-sizing",
           "environmental-control-sizing",
           "fire-protection-sizing",
@@ -865,6 +874,7 @@
           "fuel-tank-inerting-sizing",
           "fuel-tank-sizing",
           "fuselage-sizing",
+          "hydraulic-actuator-sizing",
           "hydraulic-system-sizing",
           "ice-protection-sizing",
           "landing-gear-retraction-sizing",
@@ -885,9 +895,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 96
+      "tasks": 100
     }
   },
-  "skill_files": 508,
+  "skill_files": 518,
   "standards": 30
 }

@@ -74,6 +74,7 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/thrust-chamber-cooling | Thrust chamber cooling | thrust chamber cooling, regenerative cooling, Bartz heat transfer, throat heat flux, coolant channel sizing, copper wall limit, film cooling rocket |
 | propulsion/rocket/injector-design | Injector design | injector design, unlike doublet, impinging jet atomization, injector pressure drop, momentum flux ratio, orifice flow count |
 | propulsion/gas-turbine-cycle/propelling-nozzle | Propelling nozzle | propelling nozzle, convergent jet nozzle, nozzle throat area, choked nozzle regime, gross thrust pressure term |
+| propulsion/gas-turbine-cycle/subsonic-inlet-recovery | Subsonic inlet recovery | subsonic inlet recovery, ram recovery ratio, engine face total pressure, intake capture area, spillage verdict, duct total pressure efficiency |
 
 
 ## Routing guidance
@@ -145,3 +146,5 @@ your host's skills directory (see README Install for per-host commands).
 - Afterburner reheat fuel-air ratio, dry versus reheat thrust, and augmentation ratio questions route to the gas-turbine-cycle afterburner-cycle sub-skill.
 - Turbine blade cooling effectiveness, coolant flow fraction, and film-cooling metal temperature questions route to the axial-compressor turbine-blade-cooling sub-skill.
 - Air-breathing propelling nozzle questions (choked or unchoked regime, throat area from design mass flow, gross thrust with the pressure term) route to the gas-turbine-cycle propelling-nozzle sub-skill.
+
+- Subsonic turbofan intake questions (ram recovery from flight Mach, engine-face total pressure after duct efficiency, capture-area and spillage verdict against the highlight) route to the gas-turbine-cycle subsonic-inlet-recovery sub-skill.

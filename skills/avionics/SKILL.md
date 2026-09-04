@@ -89,6 +89,7 @@ airworthiness certification (FAR-25/CS-25).
 
 | avionics/data-bus/arinc429-bus-loading | ARINC 429 bus loading | ARINC 429 bus loading, label rate budget, percent utilization, word rate capacity, transmit schedule headroom |
 | avionics/data-bus/mil-std-1553-bus-loading | MIL-STD-1553 bus loading | MIL-STD-1553 bus loading, 1553 minor frame load, wire word time, 1553 bus utilization, bc-rt message overhead, schedule headroom |
+| avionics/flight-management/holding-pattern-entry | Holding pattern entry | holding pattern entry, direct teardrop parallel entry sector, outbound leg timing, holding wind correction, entry lap time |
 
 
 ## Routing guidance
@@ -156,3 +157,5 @@ your host's skills directory (see README Install for per-host commands).
 - VOR radial, DME slant range, ILS localizer and glideslope deviation geometry questions route to the flight-management radio-navigation-aids sub-skill.
 - RNP/ANP containment, actual navigation performance versus required navigation performance, and 95 percent lateral error checks route to the flight-management rnp-anp-containment sub-skill.
 - MIL-STD-1553 bus loading questions (minor frame wire-word time budget, percent utilization, 80 percent loading guideline verdict) route to the data-bus mil-std-1553-bus-loading sub-skill, not to the 1553 protocol leaf.
+
+- Holding pattern questions (direct, teardrop and parallel entry classification from the approach angle, outbound leg timing from altitude, 1-in-60 wind-corrected outbound heading) route to the flight-management holding-pattern-entry sub-skill.
