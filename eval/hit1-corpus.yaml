@@ -220,6 +220,11 @@
 # leaves). Wave-33 new leaves: "gnc-autonomy/optimal-control/bang-bang-control", "structures/fem/beam-vibration", "cross-cutting/numerics/confidence-interval-estimation", "aerodynamics/cfd/delta-wing-vortex-lift", "cross-cutting/units-atmos/density-altitude", "flight-test-operations/performance/engine-failure-takeoff-flight-test", "flight-test-operations/flutter/flight-vibration-survey", "structures/composites/laminate-first-ply-failure", "manufacturing-quality/as9100/order-requirements-review", "cross-cutting/numerics/power-spectral-density", "structures/fem/pressure-bulkhead", "avionics/flight-management/radius-to-fix-leg", "avionics/fsw/real-time-scheduling", "flight-mechanics/performance/rotorcraft-axial-descent-flow-states", "flight-mechanics/performance/rotorcraft-blade-element-hover-performance", "flight-mechanics/performance/rotorcraft-lead-lag-dynamics".
 # Corpus: 930 tasks (898 prior plus 32 domain tasks). Owner: Ops
 # Manager, Wave 33 build.
+# P5.2 / Wave 34 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 472 verified skills (484 SKILL.md under gate 1: 12 routers + 472
+# leaves). Wave-34 new leaves: "flight-test-operations/stability/control-force-flight-test", "manufacturing-quality/as9100/cusum-ewma-monitoring", "vehicle-design/sizing/environmental-control-sizing", "space-systems/adcs/gyro-allan-variance", "vehicle-design/sizing/hydraulic-system-sizing", "propulsion/rocket/injector-design", "space-systems/orbit-mechanics/kepler-orbit-propagation", "structures/fem/lug-joint-analysis", "space-systems/adcs/pointing-error-budget", "avionics/do178c/previously-developed-software", "cross-cutting/numerics/rank-based-hypothesis-testing", "cross-cutting/numerics/singular-value-decomposition", "manufacturing-quality/assembly/solid-rivet-installation-quality", "propulsion/rocket/thrust-chamber-cooling".
+# Corpus: 958 tasks (930 prior plus 28 domain tasks). Owner: Ops
+# Manager, Wave 34 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4252,6 +4257,118 @@ tasks:
     query: "estimate the rotating lead-lag frequency ratio from the lag hinge offset and list the fixed frame collective advancing and regressing lag mode frequencies"
     intent: "flight-mechanics; rotorcraft lag frequency ratio from hinge offset and multiblade fixed-frame modes"
     expected_skill: "flight-mechanics/performance/rotorcraft-lead-lag-dynamics"
+  - id: w34-control-force-flight-test-1
+    query: "reduce the measured control force flight test records to the stick force gradient versus calibrated airspeed and the stick force per g from pull up maneuvers"
+    intent: "flight-test-operations; control force flight test stick force gradient and force per g reduction"
+    expected_skill: "flight-test-operations/stability/control-force-flight-test"
+  - id: w34-control-force-flight-test-2
+    query: "calibrate the force transducer from applied loads and recorded counts and compute the breakout force and centering check of the control force test"
+    intent: "flight-test-operations; force transducer calibration, breakout force and centering"
+    expected_skill: "flight-test-operations/stability/control-force-flight-test"
+  - id: w34-cusum-ewma-monitoring-1
+    query: "run the tabular cusum control chart statistics over a production sequence and report the first signal sample for a small sustained mean shift"
+    intent: "manufacturing-quality; tabular CUSUM path and first signal for small mean shift"
+    expected_skill: "manufacturing-quality/as9100/cusum-ewma-monitoring"
+  - id: w34-cusum-ewma-monitoring-2
+    query: "compute the ewma recursion with time varying control limits and the monitoring verdict for small shift detection in statistical process control"
+    intent: "manufacturing-quality; EWMA recursion, time varying limits and monitoring verdict"
+    expected_skill: "manufacturing-quality/as9100/cusum-ewma-monitoring"
+  - id: w34-environmental-control-sizing-1
+    query: "size the environmental control system cabin ventilation fresh air flow and pack cooling airflow from the occupant count, cabin heat load and supply air temperature rise"
+    intent: "vehicle-design; ECS fresh air and pack cooling airflow sizing from occupants and heat load"
+    expected_skill: "vehicle-design/sizing/environmental-control-sizing"
+  - id: w34-environmental-control-sizing-2
+    query: "compute the cabin pressurization schedule, the cabin pressure altitude at cruise and the differential limit clamp for a transport aircraft"
+    intent: "vehicle-design; cabin pressurization schedule, cabin altitude and differential limit"
+    expected_skill: "vehicle-design/sizing/environmental-control-sizing"
+  - id: w34-gyro-allan-variance-1
+    query: "compute the overlapping Allan deviation of gyroscope rate samples and classify the noise as angle random walk or rate random walk from the log log slope"
+    intent: "space-systems; gyro Allan deviation and noise slope classification"
+    expected_skill: "space-systems/adcs/gyro-allan-variance"
+  - id: w34-gyro-allan-variance-2
+    query: "extract the angle random walk coefficient in degrees per root hour from a gyro rate noise series for ADCS sensor selection"
+    intent: "space-systems; gyro angle random walk coefficient from Allan variance"
+    expected_skill: "space-systems/adcs/gyro-allan-variance"
+  - id: w34-hydraulic-system-sizing-1
+    query: "size the aircraft hydraulic pump flow and power from the simultaneous actuator flow demand, piston area, rod speed and leakage"
+    intent: "vehicle-design; hydraulic pump flow and power from actuation demand and leakage"
+    expected_skill: "vehicle-design/sizing/hydraulic-system-sizing"
+  - id: w34-hydraulic-system-sizing-2
+    query: "compute the emergency accumulator gas volume between charged and depleted pressure and the reservoir volume for an aircraft hydraulic system"
+    intent: "vehicle-design; hydraulic accumulator adiabatic gas volume and reservoir sizing"
+    expected_skill: "vehicle-design/sizing/hydraulic-system-sizing"
+  - id: w34-injector-design-1
+    query: "design the rocket engine injector orifices and compute the injection velocity and per orifice mass flow from the discharge coefficient and pressure drop"
+    intent: "propulsion; rocket injector orifice flow and injection velocity"
+    expected_skill: "propulsion/rocket/injector-design"
+  - id: w34-injector-design-2
+    query: "compute the impinging doublet momentum flux ratio and the fuel and oxidizer orifice counts for a rocket engine injector face at a given mixture ratio"
+    intent: "propulsion; unlike doublet momentum flux ratio and injector orifice count"
+    expected_skill: "propulsion/rocket/injector-design"
+  - id: w34-kepler-orbit-propagation-1
+    query: "propagate a keplerian orbit in time by solving the Kepler equation for the eccentric anomaly from the mean anomaly and return the true anomaly and radius"
+    intent: "space-systems; Kepler equation time propagation, eccentric and mean anomaly, radius"
+    expected_skill: "space-systems/orbit-mechanics/kepler-orbit-propagation"
+  - id: w34-kepler-orbit-propagation-2
+    query: "compute the inertial position and velocity vectors of a spacecraft after an elapsed time from the classical orbital elements and the time since periapsis"
+    intent: "space-systems; inertial r and v from classical elements after elapsed time"
+    expected_skill: "space-systems/orbit-mechanics/kepler-orbit-propagation"
+  - id: w34-lug-joint-analysis-1
+    query: "compute the bearing, net section tension and tearout stresses and margins of a metallic pin loaded lug from the hole diameter, lug width, edge distance and material allowables"
+    intent: "structures; pin loaded lug bearing net tension tearout stresses and margins"
+    expected_skill: "structures/fem/lug-joint-analysis"
+  - id: w34-lug-joint-analysis-2
+    query: "determine the governing failure mode and the limiting lug capacity over the edge distance ratio sweep for a round end lug fitting"
+    intent: "structures; lug governing mode and capacity over edge distance ratio"
+    expected_skill: "structures/fem/lug-joint-analysis"
+  - id: w34-pointing-error-budget-1
+    query: "compute the rss pointing error budget of the attitude control system from the 1 sigma determination, gyro, control deadband, jitter and thermal contributors and check the 3 sigma requirement"
+    intent: "space-systems; ADCS RSS pointing error budget and 3 sigma requirement verdict"
+    expected_skill: "space-systems/adcs/pointing-error-budget"
+  - id: w34-pointing-error-budget-2
+    query: "allocate the remaining pointing error budget to the control deadband contributor and rank the dominant error source by variance share"
+    intent: "space-systems; pointing error budget allocation and dominant source ranking"
+    expected_skill: "space-systems/adcs/pointing-error-budget"
+  - id: w34-previously-developed-software-1
+    query: "classify previously developed software reuse credit in a DO-178C project as unchanged direct credit, modified PDS or level upgrade from the modification and assurance level facts"
+    intent: "avionics; DO-178C previously developed software reuse classification"
+    expected_skill: "avionics/do178c/previously-developed-software"
+  - id: w34-previously-developed-software-2
+    query: "compute the delta objective coverage ratio and the bounded regression scope of a modified reused software item for qualification"
+    intent: "avionics; PDS delta objective coverage and modified software regression scope"
+    expected_skill: "avionics/do178c/previously-developed-software"
+  - id: w34-rank-based-hypothesis-testing-1
+    query: "run the wilcoxon rank sum test between two independent samples and return the U statistic, z score and p value without a normality assumption"
+    intent: "cross-cutting; Wilcoxon rank-sum Mann-Whitney U nonparametric two sample test"
+    expected_skill: "cross-cutting/numerics/rank-based-hypothesis-testing"
+  - id: w34-rank-based-hypothesis-testing-2
+    query: "compute the wilcoxon signed rank test and the sign test on paired measurements with continuity correction and the reject verdict"
+    intent: "cross-cutting; Wilcoxon signed-rank and sign test paired nonparametric tests"
+    expected_skill: "cross-cutting/numerics/rank-based-hypothesis-testing"
+  - id: w34-singular-value-decomposition-1
+    query: "compute the singular value decomposition of a rectangular matrix by one sided Jacobi rotations and return the singular values and condition number"
+    intent: "cross-cutting; SVD by one-sided Jacobi, singular values and condition number"
+    expected_skill: "cross-cutting/numerics/singular-value-decomposition"
+  - id: w34-singular-value-decomposition-2
+    query: "compute the numerical rank and the Moore Penrose pseudoinverse of a matrix from its singular values"
+    intent: "cross-cutting; numerical rank and Moore-Penrose pseudoinverse from SVD"
+    expected_skill: "cross-cutting/numerics/singular-value-decomposition"
+  - id: w34-solid-rivet-installation-quality-1
+    query: "select the solid rivet length from the stack thickness and head style allowance and judge the driven shop head diameter and height against the workmanship bands"
+    intent: "manufacturing-quality; solid rivet length selection and driven shop head geometry verdict"
+    expected_skill: "manufacturing-quality/assembly/solid-rivet-installation-quality"
+  - id: w34-solid-rivet-installation-quality-2
+    query: "compute the squeeze force required to upset a solid rivet and check the hole fill clearance against the installation limit"
+    intent: "manufacturing-quality; rivet squeeze force and hole fill clearance check"
+    expected_skill: "manufacturing-quality/assembly/solid-rivet-installation-quality"
+  - id: w34-thrust-chamber-cooling-1
+    query: "estimate the thrust chamber cooling heat flux and wall temperature of a liquid rocket from the Bartz hot gas coefficient and the coolant side heat transfer"
+    intent: "propulsion; rocket thrust chamber cooling heat flux and wall temperature from Bartz and coolant convection"
+    expected_skill: "propulsion/rocket/thrust-chamber-cooling"
+  - id: w34-thrust-chamber-cooling-2
+    query: "compute the regenerative coolant mass flux required to hold the copper wall temperature limit of a rocket nozzle throat and the film cooling handoff verdict"
+    intent: "propulsion; regenerative coolant mass flux for wall limit and film cooling handoff in a rocket chamber"
+    expected_skill: "propulsion/rocket/thrust-chamber-cooling"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 458,
+  "leaves": 472,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 930
+  "corpus_tasks": 958
  },
  "skills": [
   {
@@ -945,6 +945,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/do178c/previously-developed-software",
+   "name": "previously-developed-software",
+   "description": "Use when you must scope the reuse credit of previously developed software in a DO-178C project: classify a reused item from its origin standard, its modification state and whether its assurance level meets the target level into unchanged direct credit, modified PDS with delta qualification over the changed scope plus affected interfaces, or level upgrade needing additional verification at the higher level, compute the delta objective coverage ratio and verdict against the required objective set, and bound the regression of modified items from the changed code fraction and touched interfaces. Produces the reuse classification, the credit path, the delta objective gap and verdict, and the bounded regression scope that frame the reuse argument. Trigger: previously developed software, PDS reuse, reuse credit, delta objective coverage, modified software scope, regression scope, direct credit, level upgrade.",
+   "tags": [
+    "previously-developed-software",
+    "pds-qualification",
+    "software-reuse-credit",
+    "delta-objective-analysis",
+    "modified-software-scope",
+    "reuse-classification"
+   ],
+   "family": "avionics",
+   "pack": "do178c",
+   "router_doc": false
+  },
+  {
    "path": "avionics/do178c/software-testing",
    "name": "software-testing",
    "description": "Generate requirements-based-testing test cases for DO-178C airborne software and count the test cases each structural-coverage metric demands: statement coverage needs 1 case per statement, decision coverage 2 cases per decision, and mc-dc needs n+1 cases for a compound boolean condition with n independent terms. Use when a task asks how many test cases a boolean condition requires, how to derive tests from high-level and low-level requirements, which coverage objectives apply per software level (level A requires mc-dc, B decision coverage, C statement coverage, D and E none), or how to measure and document structural coverage against the DO-178C Table A-7 objectives. Trigger: requirements-based-testing, mc-dc test-case-count, structural-coverage measurement, coverage-objectives per level, test case generation.",
@@ -1866,6 +1882,23 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/rank-based-hypothesis-testing",
+   "name": "rank-based-hypothesis-testing",
+   "description": "Use when you must compare two samples without relying on the normality assumption: run the Wilcoxon rank-sum test (Mann-Whitney U) on two independent samples, the Wilcoxon signed-rank test and the sign test on paired measurements, using average ranks for ties, exact rank sums, the normal approximation z with the 0.5 continuity correction toward zero, the two-sided p-value from the standard normal CDF, and the reject or accept verdict at a chosen alpha. Produces the test statistic, z, p-value and verdict that remain valid when the normality assumption of the parametric sibling fails. Trigger: wilcoxon rank sum test, mann-whitney u test, wilcoxon signed rank test, sign test, nonparametric paired comparison, two sample rank test, continuity correction, distribution-free location test.",
+   "tags": [
+    "rank-based-hypothesis-testing",
+    "wilcoxon-rank-sum-test",
+    "mann-whitney-u-test",
+    "wilcoxon-signed-rank-test",
+    "sign-test",
+    "normality-free-comparison",
+    "two-sample-rank-test"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/root-finding",
    "name": "root-finding",
    "description": "Determine the root of a nonlinear scalar equation f(x) = 0 numerically with the bisection method, Newton-Raphson, the secant method, or fixed-point iteration: bracket the root or supply an initial guess, apply the iteration, and produce the root to a specified tolerance under function tolerance, step tolerance, and max iteration convergence criteria. Use when a task asks for a root finder, zero finding, nonlinear equation solving, compressible flow Mach number solution, or implicit performance equation inversion in aerospace analysis. Produces the root, the method, and the iteration count. Trigger: root-finding, bisection, newton-raphson, secant-method, fixed-point iteration, mach number root, nonlinear equation, zero finding.",
@@ -1882,6 +1915,21 @@
     "convergence-criteria",
     "initial-guess",
     "bracket"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/singular-value-decomposition",
+   "name": "singular-value-decomposition",
+   "description": "Use when you must compute the singular value decomposition of a general real rectangular matrix into its singular value factors: the economy U diag(s) Vh form with orthonormal factors from deterministic one-sided Jacobi rotations, singular values in descending order, the 2-norm condition number, the numerical rank at a relative tolerance and the Moore-Penrose inverse. Pure Python standard library, offline. Produces the SVD factors, the condition assessment and the pseudoinverse that control-allocation leaves consume. Trigger: singular value decomposition, SVD, one-sided Jacobi, singular values, condition number, numerical rank, Moore-Penrose inverse, matrix factorization, rectangular matrix.",
+   "tags": [
+    "singular-value-decomposition",
+    "one-sided-jacobi-svd",
+    "numerical-rank",
+    "condition-number-estimation",
+    "moore-penrose-inverse"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -3570,6 +3618,23 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/stability/control-force-flight-test",
+   "name": "control-force-flight-test",
+   "description": "Use when you must reduce the measured control force records of a longitudinal flight test: calibrate the force transducer from applied loads and recorded counts with a closed-form least-squares fit, derive the stick force gradient versus calibrated airspeed from a speed sweep with the stable-gradient verdict, compute the stick force per g from pull-up maneuvers, extract the breakout force from the push-pull hysteresis width, and run the control centering check of the residual control position against its limit. Produces the calibrated force conversion, the gradient fit and stability verdict, force per g, breakout force and centering verdict, the measured-force complement to the position-side analysis of the stability pack. Trigger: control force flight test, stick force gradient, force per g, breakout force, control centering check, force transducer calibration, stick force stability, control force records.",
+   "tags": [
+    "control-force-flight-test",
+    "stick-force-gradient",
+    "stick-force-per-g",
+    "breakout-force",
+    "control-centering-check",
+    "force-transducer-calibration",
+    "stick-force-stability"
+   ],
+   "family": "flight-test-operations",
+   "pack": "stability",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/stability/dynamic-stability-flight-test",
    "name": "dynamic-stability-flight-test",
    "description": "Plan and analyze a dynamic stability flight test: select the excitation technique for each mode (elevator doublet for the short period, elevator pulse for the phugoid, rudder pulse for the Dutch roll, aileron step for roll subsidence, rudder step for the spiral), reduce the decaying oscillation records to the log decrement, damping ratio, damped and undamped frequencies, time to half amplitude, and cycles to half amplitude, and return a handling qualities verdict per band. Produces the mode identification summary and the acceptable, marginal, or inadequate verdict that gates the stability demonstration. Use when the task is dynamic stability flight testing, mode damping estimation, log decrement analysis, or handling qualities assessment. Trigger: dynamic stability, short period, phugoid, Dutch roll, log decrement, damping ratio, handling qualities.",
@@ -4579,6 +4644,22 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/as9100/cusum-ewma-monitoring",
+   "name": "cusum-ewma-monitoring",
+   "description": "Use when you must monitor a production process for small sustained mean shifts: compute the tabular CUSUM path (upper S+ and lower S- statistics from standardized deviations with slack k and decision interval h) and the first signal sample, run the EWMA recursion with per-sample time-varying sigma limits (lambda weighting, L-sigma UCL/LCL) and its first signal sample, and combine both charts into one monitoring verdict that catches small shifts a single-point check misses. Produces the CUSUM and EWMA statistics paths, first-signal indices, per-sample EWMA control limits and the combined verdict. Trigger: cusum-ewma-monitoring, cusum-control-chart, ewma-control-chart, cumulative-sum-monitoring, small-shift-detection, sequential-process-monitoring.",
+   "tags": [
+    "cusum-ewma-monitoring",
+    "cusum-control-chart",
+    "ewma-control-chart",
+    "cumulative-sum-monitoring",
+    "small-shift-detection",
+    "sequential-process-monitoring"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/as9100/document-control",
    "name": "document-control",
    "description": "Use when you must control aerospace manufacturing documents: maintain the master list of controlled documents, check that a document is approved before issue, confirm that the shop floor copy is at the current revision, and disposition obsolete revisions by removing them from active use while retaining them in the register as history. Produces the register validity verdict, the use verdict for a copy, and the obsolete disposition that gate document control. Trigger: document control, master list, controlled document, current revision, obsolete revision, revision control, approval before issue, doc number.",
@@ -4898,6 +4979,22 @@
     "hi-lok-installation-check",
     "structural-fastener-verification",
     "swage-collar"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "assembly",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/assembly/solid-rivet-installation-quality",
+   "name": "solid-rivet-installation-quality",
+   "description": "Use when you must verify the installation quality of solid rivets during assembly: select the rivet length from the stack thickness plus a head-style allowance (protruding heads 1.5 diameters, countersunk heads 0.8 diameters), judge the driven shop head geometry against the workmanship bands (driven diameter 1.4 to 1.5 d, driven height 0.4 to 0.5 d), compute the squeeze force needed to upset the rivet against the material flow stress over the shank area, and check the hole fill clearance against the 0.1 mm limit. Produces the selected rivet length, the shop head verdict, the required squeeze force and the hole fill verdict that gate the assembly quality assessment. Trigger: solid rivet length selection, shop head dimensions, driven head formation, rivet squeeze force, hole fill check.",
+   "tags": [
+    "solid-rivet-installation-quality",
+    "solid-rivet-installation",
+    "driven-head-formation",
+    "shop-head-dimension-check",
+    "rivet-squeeze-force",
+    "hole-fill-verification"
    ],
    "family": "manufacturing-quality",
    "pack": "assembly",
@@ -5643,6 +5740,22 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/rocket/injector-design",
+   "name": "injector-design",
+   "description": "Use when you must design the rocket engine injection elements and their atomization basis: orifice discharge flow from discharge coefficient and pressure drop, injection velocity, the momentum flux ratio of impinging unlike-doublet elements, the fuel and oxidizer orifice counts for a chamber mass flow at a given mixture ratio, and the per-element flow balance. Produces per-orifice mass flow, injection velocity, momentum flux ratio, fuel and oxidizer orifice counts, and per-element mass flow for the element layout. Trigger: unlike doublet, impinging jet, atomization, injector pressure drop, momentum flux ratio, orifice count, discharge coefficient, injection velocity, mixture ratio.",
+   "tags": [
+    "injector-design",
+    "unlike-doublet",
+    "impinging-jet-atomization",
+    "injector-pressure-drop",
+    "momentum-flux-ratio",
+    "orifice-flow-count"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/nozzle-design",
    "name": "nozzle-design",
    "description": "Use when you must design a rocket engine nozzle from the chamber conditions: compute the exit Mach number for a target area ratio, the choked mass flow through the throat, the exit velocity and the exit static pressure, and the ideal thrust with the pressure term. Produces the nozzle area ratio, exit Mach number, mass flow, exit velocity, and thrust, plus the expansion verdict against the ambient pressure, all in consistent SI units (Pa, K, kg/s, m/s, N). Trigger: nozzle design, area ratio, exit mach, mass flow, ideal thrust, expansion ratio, choked throat.",
@@ -5747,6 +5860,23 @@
     "characteristic-velocity",
     "web-thickness",
     "burn-progression"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/rocket/thrust-chamber-cooling",
+   "name": "thrust-chamber-cooling",
+   "description": "Use when you must estimate the regenerative cooling of a liquid rocket thrust chamber: the throat area and propellant mass flow anchor of the operating point, the Bartz hot gas convective coefficient at the throat, the coolant side convective coefficient from the channel flow with the Dittus-Boelter correlation, the series wall resistance network giving the heat flux and the hot and cold wall temperatures, the coolant mass flux required to hold a copper wall temperature limit, and the film cooling handoff verdict when plain regenerative flow cannot hold the limit. Produces the heat flux, hot and cold wall temperatures, the plain regenerative shortfall and the required coolant mass flux. Trigger: regenerative cooling, thrust chamber cooling, Bartz heat transfer, throat heat flux, coolant channel sizing, copper wall limit, film cooling, rocket chamber wall, throat wall temperature.",
+   "tags": [
+    "thrust-chamber-cooling",
+    "regenerative-cooling",
+    "bartz-heat-transfer",
+    "throat-heat-flux",
+    "coolant-channel-sizing",
+    "copper-wall-limit",
+    "film-cooling-rocket"
    ],
    "family": "propulsion",
    "pack": "rocket",
@@ -5984,6 +6114,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/adcs/gyro-allan-variance",
+   "name": "gyro-allan-variance",
+   "description": "Use when you must characterize gyroscope noise for ADCS sensor selection: compute the overlapping Allan deviation AD(tau) over a correlation-time grid from a rate sample time series with cumulative sums, fit the log-log noise slope, categorize the noise process from the slope band (white noise or angle random walk at about -1/2, rate random walk at about +1/2, quantization at about -1, bias instability as a flat floor), and extract the angle random walk coefficient in deg/sqrt(h). Produces the Allan deviation curve, the noise classification, the fitted slope and the ARW coefficient that gate gyro selection. Trigger: gyro Allan deviation, allan deviation, angle random walk, rate random walk, bias instability, gyro noise model, noise slope, gyroscope rate noise, ARW coefficient, deg per root hour.",
+   "tags": [
+    "gyro-allan-variance",
+    "allan-deviation",
+    "angle-random-walk",
+    "rate-random-walk",
+    "bias-instability",
+    "gyro-noise-model"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/adcs/magnetorquer-control",
    "name": "magnetorquer-control",
    "description": "Compute the magnetic dipole moment for spacecraft magnetic attitude control with magnetorquers: solve torque = m x B for the required dipole from a torque demand and the local magnetic field vector, apply the B-dot detumbling law to damp body rates, check the achievable torque against the magnetorquer torque authority limit, warn when the torque demand lies along the field, and size the torque rod coils. Use when the task is magnetorquer control, dipole moment calculation, B-dot detumbling, cross-product torque steering, detumbling rate damping, or torque authority limits. Produces the dipole moment vector, the B-dot control dipole, the achievable torque magnitude, the underdetermined-axis warning, the coil sizing, and the orbit-averaged torque authority. Trigger: magnetorquer, dipole moment, B-dot, detumbling, torque authority, cross-product, magnetic field, coil sizing.",
@@ -6002,6 +6148,21 @@
     "field",
     "torque-authority",
     "b-field"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/adcs/pointing-error-budget",
+   "name": "pointing-error-budget",
+   "description": "Use when you must assemble the spacecraft pointing error budget for the attitude determination and control system: combine independent 1-sigma error contributors (determination noise, gyro propagation, control deadband, jitter, thermal distortion) by root-sum-square, convert to 3-sigma, check it against the pointing requirement, allocate the remaining budget to a not-yet-sized contributor, and rank error sources by variance share. Produces the RSS pointing error, the requirement verdict, the allocated contributor budget, and the dominant error source, the assembly layer from sensor metrology to payload pointing. Trigger: rss pointing error, 3 sigma requirement, error budget allocation, control deadband, jitter budget, dominant error source.",
+   "tags": [
+    "pointing-error-budget",
+    "pointing-accuracy",
+    "rss-pointing-error",
+    "jitter-budget",
+    "adcs-error-allocation"
    ],
    "family": "space-systems",
    "pack": "adcs",
@@ -6332,6 +6493,22 @@
     "orbit-lowering",
     "coplanar-transfer",
     "rendezvous-phase-angle"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/orbit-mechanics/kepler-orbit-propagation",
+   "name": "kepler-orbit-propagation",
+   "description": "Use when you must determine the time propagation of a spacecraft orbit from its classical orbital elements: mean motion from the semimajor axis, the Kepler equation M = E - e sin E solved by Newton iteration for the eccentric anomaly, the branch-safe half-angle conversion to true anomaly, the radius at any anomaly, the time since periapsis for a given true anomaly, and the inertial position and velocity vectors after an elapsed time from an element state (a, e, i, RAAN, argp, nu0). Produces the propagated mean, eccentric and true anomalies, radius, r vector, v vector and orbital period for ground-track and event timing. Trigger: keplerian propagation, kepler equation, mean anomaly, eccentric anomaly, time since periapsis, orbit propagation.",
+   "tags": [
+    "kepler-orbit-propagation",
+    "keplerian-propagation",
+    "kepler-equation",
+    "mean-anomaly",
+    "eccentric-anomaly",
+    "time-since-periapsis"
    ],
    "family": "space-systems",
    "pack": "orbit-mechanics",
@@ -7161,6 +7338,23 @@
     "external-shell-bending",
     "cross-section-ovalization",
     "shell-plasticity-correction"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/lug-joint-analysis",
+   "name": "lug-joint-analysis",
+   "description": "Use when you must analyze a metallic pin-loaded lug fitting under an axial load: compute the hole bearing stress, the net section tension stress across the lug width, the tearout shear stress on the two planes from the hole tangent to the round outer contour, the per-mode margins against the material tension, shear and bearing allowables, the governing failure mode and the pass/fail verdict, the limiting allowable capacity, and the governing-mode map over the edge distance ratio for a round-end lug with w = 2e. Produces the applied stresses, per-mode margins, governing mode and margin, pass/fail, capacity, and the short-lug tension, intermediate tearout and long-lug bearing e/D sweep. Trigger: lug joint analysis, pin-loaded lug, lug bearing stress, lug tearout shear, lug net section tension, lug edge distance ratio, round-end lug.",
+   "tags": [
+    "lug-joint-analysis",
+    "pin-loaded-lug",
+    "lug-bearing-stress",
+    "lug-net-section-tension",
+    "lug-tearout-shear",
+    "lug-edge-distance-ratio",
+    "round-end-lug"
    ],
    "family": "structures",
    "pack": "fem",
@@ -8435,6 +8629,24 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/environmental-control-sizing",
+   "name": "environmental-control-sizing",
+   "description": "Use when you must size the environmental control system of a transport aircraft: compute the cabin ventilation fresh air flow from the occupant count and per-occupant rate, roll up the cabin heat load from occupants, solar, equipment and skin with a design margin, derive the pack cooling airflow from the heat load and the supply air temperature rise, take the pack airflow as the governing maximum of fresh and cooling flow, and build the cabin pressurization schedule that holds the design cabin pressure altitude until the design differential pressure binds, then clamps at constant differential as the cabin altitude rises. Produces fresh air flow, cabin heat load, pack airflow, cabin differential at cruise and cabin altitude under both regimes. Trigger: environmental control system sizing, ECS, cabin ventilation, fresh air flow, pack cooling airflow, cabin heat load, pressurization schedule, cabin pressure altitude, differential pressure limit.",
+   "tags": [
+    "environmental-control-sizing",
+    "ecs-sizing",
+    "cabin-air-conditioning",
+    "cabin-heat-load",
+    "ventilation-flow",
+    "pack-cooling-flow",
+    "pressurization-schedule",
+    "cabin-altitude-limit"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/fuel-tank-sizing",
    "name": "fuel-tank-sizing",
    "description": "Use when you must size the fuel tanks for the aircraft: convert the fuel mass to the fuel volume with the fuel density, add the ullage allowance to get the required tank volume, and check it against the available volume in the wing and fuselage tanks. Produces the usable fuel volume, the required tank volume with ullage, and the fits verdict that gate the fuel system sizing. Trigger: fuel tank sizing, ullage, fuel volume, usable fuel, tank capacity.",
@@ -8464,6 +8676,24 @@
     "cabin-width",
     "aisle-width",
     "cargo-volume"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/hydraulic-system-sizing",
+   "name": "hydraulic-system-sizing",
+   "description": "Use when you must size the aircraft hydraulic power system from actuation demand: actuator flow from piston area and rod speed, worst-case simultaneous demand, pump flow and drive power from system pressure, flow and efficiency with leakage make-up, the emergency accumulator gas volume between charged and depleted pressure from the adiabatic gas law given the usable volume, and the reservoir volume from leakage make-up over a hold time with margin. Produces the per-actuator flow, the simultaneous demand group, pump flow and power, the accumulator charged and depleted gas volumes with the p V^n closure check, and the reservoir volume for hydraulic system architecture studies. Trigger: hydraulic pump sizing, actuator flow demand, pump flow and power, accumulator sizing, hydraulic reservoir sizing, system pressure, emergency hydraulic system, hydraulic power sizing.",
+   "tags": [
+    "hydraulic-system-sizing",
+    "hydraulic-power-sizing",
+    "actuator-flow-demand",
+    "pump-flow-sizing",
+    "accumulator-sizing",
+    "reservoir-sizing",
+    "system-pressure",
+    "emergency-hydraulic"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

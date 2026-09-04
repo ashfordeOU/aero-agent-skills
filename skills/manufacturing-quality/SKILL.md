@@ -77,6 +77,9 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/management-review | Management review | management review, top management, review interval, review inputs, action item tracking, review verdict, QMS review |
 | manufacturing-quality/ndt/ndt-personnel-qualification | NDT personnel qualification | NDT personnel qualification, NAS 410, certification currency, recertification due, vision examination, level progression |
 | manufacturing-quality/as9100/order-requirements-review | Order requirements review | purchase order review, special requirement classification, contract review, order acceptance verdict, feasibility gates |
+| manufacturing-quality/as9100/cusum-ewma-monitoring | CUSUM EWMA monitoring | cusum ewma monitoring, cusum control chart, ewma control chart, cumulative sum monitoring, small shift detection, sequential process monitoring |
+| manufacturing-quality/assembly/solid-rivet-installation-quality | Solid rivet installation quality | solid rivet installation quality, solid rivet installation, driven head formation, shop head dimension check, rivet squeeze force, hole fill verification |
+
 
 ## Routing guidance
 
@@ -138,6 +141,10 @@ ernal provider and supplier questions (classification, controls,
 - NDT personnel qualification questions (certification currency, recertification due date, vision examination, level progression, NAS 410) route to the ndt ndt-personnel-qualification sub-skill.
 
 - Incoming purchase-order requirements review questions (special requirement classification, feasibility gates, order acceptance verdict) route to the as9100 order-requirements-review sub-skill.
+
+- Small-shift process monitoring questions (tabular CUSUM statistics and first signal, EWMA recursion with time-varying limits, small shift detection verdict) route to the as9100 cusum-ewma-monitoring sub-skill.
+
+- Solid rivet installation quality questions (rivet length selection, driven shop head geometry bands, squeeze force, hole fill clearance) route to the assembly solid-rivet-installation-quality sub-skill.
 
 ## Install
 
