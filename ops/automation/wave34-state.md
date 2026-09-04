@@ -219,3 +219,17 @@
      stayed 7e8a2f14 until the wave push).
 - Next: CEO P5.2 WAVE-34 audit >= 9.5 -> WAVE-35.
 
+- PUSH + PUBLISH RECEIPTS: private arjun-0077/aero-agent-skills pushed
+  fast-forward 7e8a2f14..961600c8 (24 commits) via the arjun origin
+  token at ~14:17 UTC, pre-push hook ALL GATES GREEN, ls-remote
+  verified remote main == local HEAD 961600c8 (no Ashforde token on the
+  private repo, no visibility flip). publish-public.sh sanctioned sync
+  PASS at f98c69d9 (472 skills, 85 packs, 12 families): export gate
+  battery green inside the archive, secrets + leak sweep clean,
+  public-safety audit clean, leaf-count guard export 472 >= public 458,
+  normal fast-forward, GitHub About refreshed post-push. Public HEAD
+  verified f98c69d9 == expected sync commit. GitHub CI attest SUCCESS
+  and release-on-milestone SUCCESS for f98c69d9 (polled to completion
+  ~14:25 UTC). GROUP 160 close-out post sent as Ops Manager, SEND_EXIT
+  = 0.
+
