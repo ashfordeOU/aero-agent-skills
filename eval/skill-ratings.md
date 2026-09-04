@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 442
+Total skills rated: 458
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -449,3 +449,19 @@ Total skills rated: 442
 | 440 | space-systems/adcs/attitude-determination-quest | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 441 | gnc-autonomy/control/digital-control-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 442 | gnc-autonomy/estimation-filtering/interacting-multiple-model-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 443 | avionics/fsw/real-time-scheduling | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 444 | flight-mechanics/performance/rotorcraft-blade-element-hover-performance | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 445 | structures/composites/laminate-first-ply-failure | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 446 | cross-cutting/units-atmos/density-altitude | PASS | ✓ | ecss | cross-cutting | 9.5 | PASS |
+| 447 | flight-mechanics/performance/rotorcraft-lead-lag-dynamics | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 448 | flight-mechanics/performance/rotorcraft-axial-descent-flow-states | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 449 | structures/fem/pressure-bulkhead | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 450 | structures/fem/beam-vibration | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 451 | aerodynamics/cfd/delta-wing-vortex-lift | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 452 | cross-cutting/numerics/confidence-interval-estimation | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 453 | avionics/flight-management/radius-to-fix-leg | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 454 | cross-cutting/numerics/power-spectral-density | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 455 | manufacturing-quality/as9100/order-requirements-review | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 456 | flight-test-operations/flutter/flight-vibration-survey | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
+| 457 | gnc-autonomy/optimal-control/bang-bang-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 458 | flight-test-operations/performance/engine-failure-takeoff-flight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |

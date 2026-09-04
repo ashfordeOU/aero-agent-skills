@@ -76,6 +76,7 @@ selection and ultrasonic inspection).
 
 | manufacturing-quality/as9100/management-review | Management review | management review, top management, review interval, review inputs, action item tracking, review verdict, QMS review |
 | manufacturing-quality/ndt/ndt-personnel-qualification | NDT personnel qualification | NDT personnel qualification, NAS 410, certification currency, recertification due, vision examination, level progression |
+| manufacturing-quality/as9100/order-requirements-review | Order requirements review | purchase order review, special requirement classification, contract review, order acceptance verdict, feasibility gates |
 
 ## Routing guidance
 
@@ -135,6 +136,8 @@ ernal provider and supplier questions (classification, controls,
 
 - Top management review questions (review interval, review input coverage, action item tracking, review verdict) route to the as9100 management-review sub-skill.
 - NDT personnel qualification questions (certification currency, recertification due date, vision examination, level progression, NAS 410) route to the ndt ndt-personnel-qualification sub-skill.
+
+- Incoming purchase-order requirements review questions (special requirement classification, feasibility gates, order acceptance verdict) route to the as9100 order-requirements-review sub-skill.
 
 ## Install
 

@@ -79,6 +79,9 @@ integration) for engineering calculations.
 
 | cross-cutting/units-atmos/airspeed-conversion | Airspeed conversion | calibrated airspeed, equivalent airspeed, true airspeed, Mach airspeed, impact pressure, airspeed-indicator compressibility correction |
 | cross-cutting/numerics/complex-number-algebra | Complex number algebra | complex arithmetic, polar form, Euler formula, De Moivre, roots of unity, phasor math |
+| cross-cutting/numerics/power-spectral-density | Power spectral density | power spectral density, Welch periodogram, Hann window, spectral density estimation, equivalent noise bandwidth, random vibration survey |
+| cross-cutting/numerics/confidence-interval-estimation | Confidence interval estimation | confidence interval, t interval, chi square variance interval, mean difference interval, quantile inversion, small sample statistics |
+| cross-cutting/units-atmos/density-altitude | Density altitude | density altitude, non standard day, ISA deviation, hot day performance, density ratio, inverse ISA, performance reduction |
 
 ## Routing guidance
 
@@ -148,6 +151,10 @@ integration) for engineering calculations.
 
 - Airspeed conversion questions (calibrated airspeed, equivalent airspeed, true airspeed, Mach airspeed, impact pressure, airspeed-indicator compressibility correction) route to the units-atmos airspeed-conversion sub-skill.
 - Complex number algebra questions (complex arithmetic, polar form, Euler formula, De Moivre powers, roots of unity, phasor math) route to the numerics complex-number-algebra sub-skill.
+
+- Power spectral density estimation questions (Welch averaged periodogram, Hann window, equivalent noise bandwidth, random vibration survey) route to the numerics power-spectral-density sub-skill.
+- Confidence interval estimation questions (t interval for the mean, chi-square variance interval, pooled or Welch difference interval) route to the numerics confidence-interval-estimation sub-skill.
+- Density altitude questions (pressure altitude and OAT to density altitude, non-standard day, ISA deviation) route to the units-atmos density-altitude sub-skill.
 
 ## Install
 

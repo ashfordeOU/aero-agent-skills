@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 442,
+  "leaves": 458,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 898
+  "corpus_tasks": 930
  },
  "skills": [
   {
@@ -249,6 +249,23 @@
     "dlr-f6",
     "validation-uncertainty",
     "boundary-layer"
+   ],
+   "family": "aerodynamics",
+   "pack": "cfd",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/cfd/delta-wing-vortex-lift",
+   "name": "delta-wing-vortex-lift",
+   "description": "Use when you must estimate the vortex lift of a sharp-edged delta wing: apply the Polhamus leading-edge suction analogy to split the total lift into the attached potential term Kp sin(alpha) cos^2(alpha) and the leading-edge-separation vortex term Kv cos(alpha) sin^2(alpha), with the slender-wing potential slope Kp = pi AR / 2 and the vortex factor Kv growing linearly from 3.14 at AR 0 to about 3.45 at AR 4. Produces the total lift coefficient, the potential and vortex lift split, the vortex fraction, the drag due to lift CL tan(alpha), and the angle where vortex lift overtakes potential lift. Valid for sharp leading edges, subsonic flow, aspect ratio about 0.5 to 2.0, alpha up to about 25 degrees. Trigger: Polhamus suction analogy, leading edge suction, vortex lift, slender delta wing, nonlinear lift.",
+   "tags": [
+    "delta-wing-vortex-lift",
+    "polhamus-suction-analogy",
+    "leading-edge-vortex",
+    "slender-delta-wing",
+    "vortex-lift-split",
+    "drag-due-to-lift",
+    "nonlinear-lift"
    ],
    "family": "aerodynamics",
    "pack": "cfd",
@@ -1153,6 +1170,23 @@
    "router_doc": false
   },
   {
+   "path": "avionics/flight-management/radius-to-fix-leg",
+   "name": "radius-to-fix-leg",
+   "description": "Use when you must construct the lateral path of a radius-to-fix leg: compute the turning center of the constant-radius RF leg for an RNP AR procedure from the entry fix, the inbound track, the published radius and the turn direction, validate that the exit fix lies on the radius circle, and derive the swept central angle, the along-arc length, the exit track and the chord. Produces the RF-leg geometry dict that gates a flyable-arc check for procedure design. Trigger: radius to fix, RF leg, turn center, arc length, path terminator, rnp ar procedure, constant radius arc, flyable arc check.",
+   "tags": [
+    "radius-to-fix-leg",
+    "rnp-ar-procedure",
+    "rf-leg-geometry",
+    "turn-center",
+    "arc-length",
+    "path-terminator",
+    "flyable-arc-check"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
    "path": "avionics/flight-management/rnp-anp-containment",
    "name": "rnp-anp-containment",
    "description": "Use when you must assess the RNP containment of a performance based navigation segment: compute the actual navigation performance (ANP) as the 95 percent containment bound from a lateral position error sigma or accept a directly supplied ANP, apply the required navigation performance (RNP) for the segment with an optional margin fraction, and decide whether the ANP stays inside the RNP. Produces the ANP, the containment margin and the pass or fail verdict that gate FMS navigation dispatch. Trigger: required navigation performance, actual navigation performance, RNP containment, ANP comparison, lateral position error sigma, 95 percent containment, performance based navigation.",
@@ -1235,6 +1269,23 @@
     "command-opcode",
     "rate-group",
     "telemetry-channel"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/fsw/real-time-scheduling",
+   "name": "real-time-scheduling",
+   "description": "Use when you must decide the offline schedulability of a periodic hard-real-time task set: compute the processor utilization of (C, T) tasks with implicit deadlines, apply the Liu-Layland utilization bound for rate-monotonic fixed-priority scheduling, run the exact iterative response-time analysis task by task, and test earliest-deadline-first feasibility with the full-utilization condition. Produces the utilization, the RM bound verdict, the exact response times with an RM feasibility verdict, the EDF feasibility verdict, and an overall scheduling verdict for avionics process and partition task sets. Trigger: rate monotonic scheduling, response time analysis, liu layland bound, earliest deadline first, cpu utilization, fixed priority scheduling, schedulability, worst case execution time.",
+   "tags": [
+    "real-time-scheduling",
+    "rate-monotonic-scheduling",
+    "response-time-analysis",
+    "liu-layland-bound",
+    "earliest-deadline-first",
+    "cpu-utilization",
+    "fixed-priority-scheduling"
    ],
    "family": "avionics",
    "pack": "fsw",
@@ -1438,6 +1489,23 @@
     "de-moivre",
     "roots-of-unity",
     "phasor-math"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/confidence-interval-estimation",
+   "name": "confidence-interval-estimation",
+   "description": "Use when you must estimate a confidence interval for a sample statistic: the Student t interval for a sample mean, the pooled or Welch-Satterthwaite interval for a difference of means, and the chi-square interval for the variance and standard deviation of a measured or production batch, each at a stated confidence level. Quantiles come from in-leaf inversion: the two-sided t quantile by bisection on the regularized incomplete beta relation and the chi-square quantile by lower incomplete gamma inversion, pure Python stdlib. Produces interval bounds, standard error, degrees of freedom, and quantiles as keyed dicts for measurement, drag-count, and production statistics. Trigger: t confidence interval, chi square variance interval, mean difference interval, quantile inversion, small sample statistics, interval estimation.",
+   "tags": [
+    "confidence-interval-estimation",
+    "t-confidence-interval",
+    "chi-square-variance-interval",
+    "mean-difference-interval",
+    "quantile-inversion",
+    "small-sample-statistics",
+    "interval-estimation"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -1739,6 +1807,23 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/power-spectral-density",
+   "name": "power-spectral-density",
+   "description": "Use when you must estimate the power spectral density of a stochastic signal: Welch averaged periodogram estimation with a Hann window, overlapping segments (default 50 percent), and one-sided density scaling in units squared per hertz. Produces the PSD array and its frequency axis, the equivalent noise bandwidth, the integrated total power, and a peak summary for random-vibration and noise surveys of measured acceleration or response time histories. Trigger: power spectral density, welch periodogram, hann window, segment averaged, equivalent noise bandwidth, random vibration survey, g squared per hertz, spectral density estimation.",
+   "tags": [
+    "power-spectral-density",
+    "welch-periodogram",
+    "hann-window",
+    "spectral-density-estimation",
+    "equivalent-noise-bandwidth",
+    "random-vibration-survey",
+    "segment-averaging"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/probability-distributions",
    "name": "probability-distributions",
    "description": "Use when you must fit and characterize a standard probability distribution for aerospace engineering data analysis: estimate the normal, lognormal, exponential, and Weibull distribution parameters from a univariate sample, evaluate the pdf, cdf, quantile, reliability, and hazard functions, score the fit with the chi-square and Kolmogorov-Smirnov goodness-of-fit statistics, and report percentiles plus reliability at a target time. Produces the fitted parameter dict, the fit-quality verdict, and the quantile and reliability values that gate the statistical characterization of scatter data such as loads, life, failure times, and tolerances. Trigger: probability distribution fitting, weibull fit, lognormal, exponential fit, goodness of fit, kolmogorov smirnov, chi-square fit test, quantile estimation, reliability at time, hazard function, parameter estimation.",
@@ -1961,6 +2046,23 @@
     "mach-airspeed",
     "impact-pressure",
     "airspeed-indicator"
+   ],
+   "family": "cross-cutting",
+   "pack": "units-atmos",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/units-atmos/density-altitude",
+   "name": "density-altitude",
+   "description": "Use when you must compute the density altitude from the pressure altitude and the outside temperature: the ISA deviation, the density ratio sigma from the ISA pressure ratio and the temperature ratio, and the density altitude via the troposphere closed-form inverse with the stratosphere branch. Produces the density altitude in meters and feet for hot-day and cold-day takeoff and performance checks. Trigger: density altitude, pressure altitude, outside air temperature, non-standard day, ISA deviation, density ratio, hot day, cold day, takeoff performance, performance reduction.",
+   "tags": [
+    "density-altitude",
+    "non-standard-day",
+    "isa-deviation",
+    "hot-day-performance",
+    "density-ratio",
+    "inverse-isa",
+    "performance-reduction"
    ],
    "family": "cross-cutting",
    "pack": "units-atmos",
@@ -2330,6 +2432,40 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/rotorcraft-axial-descent-flow-states",
+   "name": "rotorcraft-axial-descent-flow-states",
+   "description": "Use when you must classify the axial flow state of a rotor in vertical descent: hover at zero rate, the vortex-ring band from zero to twice the hover induced velocity, and the windmill-brake momentum state at and above that boundary. Computes the band limits, the windmill-brake induced velocity from the momentum-theory closed form, the signed rotor power and torque in descent (negative when the rotor absorbs power from the airstream), and the torque-reversal condition c = P_profile over k T versus v_h that decides whether the zero-shaft-power autorotative equilibrium is reachable on the momentum branch. Produces the flow-state verdict, the descent induced velocity, signed power and torque, and the momentum reachability verdict. Trigger: vortex-ring state, windmill-brake state, axial descent, descent induced velocity, torque reversal, rotor descent power.",
+   "tags": [
+    "rotorcraft-axial-descent-flow-states",
+    "axial-descent-flow",
+    "vortex-ring-state",
+    "windmill-brake-state",
+    "descent-induced-velocity",
+    "torque-reversal",
+    "momentum-theory-reachability"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-blade-element-hover-performance",
+   "name": "rotorcraft-blade-element-hover-performance",
+   "description": "Use when you must determine the blade-element hover performance of a helicopter main rotor: the thrust coefficient from the collective pitch schedule, rotor solidity, lift-curve slope and Betz tip loss factor, the inflow ratio from the uniform-inflow hover closure, the collective pitch required to hover at a target thrust coefficient, the torque coefficient with its induced and profile split, and the rotor shaft torque, shaft power and hover figure of merit from the coefficients. Produces a hover blade-element summary and a collective pitch polar across the pitch range of the same rotor. Trigger: blade element theory, thrust coefficient, torque coefficient, collective pitch, tip loss factor, hover figure of merit.",
+   "tags": [
+    "rotorcraft-blade-element-hover-performance",
+    "blade-element-theory",
+    "thrust-coefficient",
+    "torque-coefficient",
+    "collective-pitch",
+    "tip-loss-factor",
+    "hover-figure-of-merit"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/rotorcraft-blade-flapping-dynamics",
    "name": "rotorcraft-blade-flapping-dynamics",
    "description": "Use when you must compute the blade-flapping dynamics of a helicopter main rotor: the blade Lock number from the air density, the section lift-curve slope, the blade chord, the rotor radius and the blade flap moment of inertia, the steady hover coning angle from the Lock number, the collective pitch and the uniform inflow ratio, and the rotating flap natural frequency ratio for a flap hinge offset. Produces the Lock number, the coning angle in radians and degrees and the flap frequency ratio per revolution that gate a rotor-dynamics assessment. Trigger: rotorcraft blade flapping, Lock number, coning angle, flap frequency ratio, rotor dynamics, hinge offset, helicopter main rotor, articulated blade.",
@@ -2389,6 +2525,23 @@
     "figure-of-merit",
     "rotor-disk-loading",
     "rotor-solidity"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-lead-lag-dynamics",
+   "name": "rotorcraft-lead-lag-dynamics",
+   "description": "Use when you must compute the lead-lag dynamics of a helicopter main rotor: the lead-lag frequency ratio from the lag-hinge offset of an idealized uniform blade or as a measured or design input, the fixed-frame lag mode frequencies of a 3+ bladed rotor (collective, regressing, advancing), and the coincidence rotor speed where the regressing lag mode meets the airframe lateral frequency, with a ground-resonance clearance verdict at the operating rotor speed. Produces the lag frequency ratio, mode frequencies, the coincidence rotor speed and a clear or resonance-adjacent verdict. Trigger: rotorcraft lead lag dynamics, lag hinge offset, regressing lag mode, coincidence rotor speed, ground resonance clearance, multiblade modes, articulated rotor.",
+   "tags": [
+    "rotorcraft-lead-lag-dynamics",
+    "lead-lag-frequency",
+    "lag-hinge-offset",
+    "regressing-lag-mode",
+    "ground-resonance-clearance",
+    "coincidence-rotor-speed",
+    "multiblade-modes"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -2967,6 +3120,23 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/flutter/flight-vibration-survey",
+   "name": "flight-vibration-survey",
+   "description": "Use when you must reduce an in-flight vibration survey: extract the per-rev order amplitudes from measured accelerometer time histories with a synchronous DFT over integer-revolution windows, compute the windowed total RMS survey level, combine the order components by root-sum-square, and gate each survey point against the declared vibration limit and the 1P trim limit. Produces the per-order amplitudes, the total level, the RSS check, and the pass or needs-trim verdicts for rotorcraft main-rotor track-and-balance and airframe vibration limits, and for fixed-wing vibration or buzz surveys. Trigger: vibration survey, track and balance, per-rev order, order analysis, synchronous DFT, rotor balance survey, 1P trim.",
+   "tags": [
+    "flight-vibration-survey",
+    "track-and-balance",
+    "order-analysis",
+    "per-rev-amplitude",
+    "synchronous-dft",
+    "vibration-limit",
+    "rotor-balance-survey"
+   ],
+   "family": "flight-test-operations",
+   "pack": "flutter",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/flutter/flutter-testing",
    "name": "flutter-testing",
    "description": "Use when you must assess flutter clearance for a flight test: compute the required flutter speed V_F_required as 1.2 times the design dive speed V_D, extrapolate the measured flutter speed from the damping versus test speed trend with a linear least squares fit and its zero crossing, check the frequency separation between structural modes against the 10 percent minimum, and judge the flutter margin ratio and the damping margin at the maximum test speed. Produces the required flutter speed, the extrapolated flutter speed, the frequency separation verdict, and the FAR 25.629 clearance verdict that gate the flutter test assessment. Trigger: flutter margin, damping trend extrapolation, flutter testing, frequency coalescence, frequency separation, design dive speed factor.",
@@ -3081,6 +3251,23 @@
     "weight-corrected-fuel-flow",
     "maximum-range-cruise-speed",
     "long-range-cruise-speed"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-test-operations/performance/engine-failure-takeoff-flight-test",
+   "name": "engine-failure-takeoff-flight-test",
+   "description": "Use when you must reduce the engine-out takeoff flight test: locate the engine failure point in the measured ground run at the failure speed VEF, add the V1 recognition time segment, integrate the continued takeoff to the 35 ft obstacle at the measured engine out climb rate, and set the decision speed V1 at the balanced field intersection where the stop distance curve equals the continued engine out takeoff distance curve. Produces the engine failure distance, the recognition distance, the continued engine out distance, the balanced field V1 and distance, and the runway fit verdict. Trigger: balanced field, engine out takeoff, decision speed V1, VEF, engine failure flight test, 35 ft obstacle, takeoff field length, field length verdict.",
+   "tags": [
+    "engine-failure-takeoff-flight-test",
+    "balanced-field-v1",
+    "engine-out-takeoff",
+    "vef-recognition",
+    "decision-speed",
+    "continued-takeoff",
+    "field-length-verdict"
    ],
    "family": "flight-test-operations",
    "pack": "performance",
@@ -4119,6 +4306,23 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/optimal-control/bang-bang-control",
+   "name": "bang-bang-control",
+   "description": "Use when you must compute the time-optimal bang-bang control of a double integrator: the switching curve s = x + v|v|/(2a), the bang-bang command u = -a*sign(s) under a hard input limit |u| <= a, the exact rest-to-rest maneuver time T* = 2*sqrt(d/a), the switch point at half distance with velocity -sqrt(a*d), and the general minimum-time trajectory for nonzero initial velocity. Produces the switch point, the command profile and the maneuver time for single-axis attitude slew and translation bang-bang assessments under torque or rate limits. Trigger: bang bang control, time optimal control, switching curve, minimum time maneuver, rest to rest slew, double integrator, bounded input, torque limit, rate limit.",
+   "tags": [
+    "bang-bang-control",
+    "time-optimal-control",
+    "switching-curve",
+    "minimum-time-maneuver",
+    "double-integrator",
+    "rest-to-rest-slew",
+    "bounded-input-control"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "optimal-control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/optimal-control/dymos-trajectory",
    "name": "dymos-trajectory",
    "description": "Use when setting up and assessing pseudospectral trajectory optimization with Dymos: plan optimal-control problems as phases with collocation nodes, check that phase setup includes initial-state and final bounds plus an objective, and verify convergence, state continuity across segments, and total delta-v against expected budgets for ascent or orbit-transfer trajectories. Flags under-resolved phases (fewer than 5 nodes), unconverged runs, and discontinuities at segment boundaries. Trigger: trajectory optimization, optimal control, dymos, pseudospectral, phase, convergence, collocation, launch ascent, bounds.",
@@ -4478,6 +4682,23 @@
     "scrap",
     "use-as-is",
     "segregation"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/as9100/order-requirements-review",
+   "name": "order-requirements-review",
+   "description": "Use when you must review an incoming aerospace purchase order before acceptance: verify all eight canonical order elements are declared (product identification, spec or drawing revision, quantity and schedule, delivery date, acceptance criteria, special requirements, preservation and packaging, records), classify special requirements into recognized aerospace classes (FAI, delta FAI notification, key characteristic control, provenance evidence, special process approval, source verification, certificate of conformance, serialization) or unrecognized clauses, apply the feasibility gates (qualified special process, approved material, NDT capability, delivery within frozen lead time), and return the verdict: reject-review, accept-with-fai-condition, or accept. Produces the completeness check, recognized and unrecognized specials, blockers, and verdict gating acceptance. Trigger: purchase order review, contract review, special requirement classification, requirements completeness.",
+   "tags": [
+    "order-requirements-review",
+    "purchase-order-review",
+    "special-requirement-classification",
+    "contract-review",
+    "order-acceptance-verdict",
+    "feasibility-gates",
+    "requirements-completeness"
    ],
    "family": "manufacturing-quality",
    "pack": "as9100",
@@ -6565,6 +6786,23 @@
    "router_doc": false
   },
   {
+   "path": "structures/composites/laminate-first-ply-failure",
+   "name": "laminate-first-ply-failure",
+   "description": "Use when you must compute the first-ply-failure load of a composite laminate: recover the mid-plane strains of a symmetric balanced laminate from its in-plane compliance under applied load resultants, transform the strains to each ply material axis, compute the per-ply Tsai-Wu failure index, and return the critical ply. Produces the mid-plane strains, the per-ply failure indices, the critical ply, the first-ply-failure load scale factor, the FPF load resultant, and the reserve factor. Trigger: first-ply-failure load, first ply failure, critical ply, tsai-wu failure index, reserve factor, mid-plane strain recovery, in-plane load resultant, symmetric balanced laminate, quasi-isotropic laminate, laminate failure envelope, FPF load, per-ply failure index, composite laminate strength.",
+   "tags": [
+    "laminate-first-ply-failure",
+    "tsai-wu-failure-index",
+    "first-ply-failure-load",
+    "critical-ply",
+    "reserve-factor",
+    "midplane-strain-recovery",
+    "laminate-failure-envelope"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
    "path": "structures/composites/laminate-hygrothermal-response",
    "name": "laminate-hygrothermal-response",
    "description": "Use when you must compute the hygrothermal response of a composite laminate: equilibrium moisture content from relative humidity with a linear isotherm, stiffness-weighted laminate CTE and CME assembled by classical lamination theory from ply-level properties, hygrothermal laminate strain from temperature and moisture changes, and residual strain from the cure-cooldown drop. Produces the moisture content, laminate CTE and CME in raw SI with a parts-per-million helper, and the hygrothermal and cure-cooldown strains that gate a laminate hygrothermal assessment. Trigger: hygrothermal response, laminate cte, laminate cme, moisture swelling, equilibrium moisture content, hygral strain, cure cooldown strain, laminate moisture content.",
@@ -6814,6 +7052,23 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/beam-vibration",
+   "name": "beam-vibration",
+   "description": "Use when you must compute the natural frequencies of a continuous beam member: exact Euler-Bernoulli bending frequencies in hertz for pinned-pinned, cantilever, clamped-clamped and free-free end conditions from the characteristic-equation roots cos x cosh x = -1 and cos x cosh x = 1, the closed-form pinned-pinned law n^2 pi^2 sqrt(EI/(m L^4))/2pi, the shared rule f_n = (beta_n L)^2 sqrt(EI/(m L^4))/2pi, and a Rayleigh-quotient fundamental estimate omega^2 = 20 EI/(m L^4) for non-uniform cantilever shapes. Produces member natural frequencies for vibration clearance and excitation checks; complements the discrete 2-DOF modal-analysis leaf. Trigger: euler bernoulli beam, characteristic equation roots, cantilever beam, pinned-pinned beam, clamped beam frequency, free-free beam, rayleigh quotient, vibration clearance.",
+   "tags": [
+    "beam-vibration",
+    "euler-bernoulli-beam",
+    "characteristic-equation-roots",
+    "cantilever-beam",
+    "pinned-pinned-beam",
+    "clamped-beam-frequency",
+    "rayleigh-quotient"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/buckling-analysis",
    "name": "buckling-analysis",
    "description": "Calculate the Euler critical buckling load of slender compression members: apply Pcr = pi^2*E*I/(K*L)^2 for pinned-pinned, fixed-fixed, fixed-pinned and cantilever end conditions, resolve the effective length factor K from the support type, compute the slenderness ratio from the radius of gyration, and run the buckling stress check against the yield-based transition slenderness. Use when a column, strut, spar cap, landing-gear leg or actuator rod must be sized or margin-checked against elastic instability in a stdlib-only environment without FEA software. Units are SI. Trigger: euler buckling, critical buckling load, slenderness ratio, effective length factor, column buckling, buckling stress, end conditions, radius of gyration, cantilever.",
@@ -6944,6 +7199,23 @@
     "effective-width",
     "critical-buckling-stress",
     "flat-plate"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/pressure-bulkhead",
+   "name": "pressure-bulkhead",
+   "description": "Use when you must size a fuselage pressure-bulkhead dome: compute the membrane stresses of a spherical cap, a hemisphere, or a 2:1 ellipsoid closing a pressurized cylindrical barrel with membrane theory, including the apex and equator meridional and circumferential stresses of an ellipsoidal dome, the dome margin against ultimate strength under the FAR 25.303 1.5 factor of safety, the spherical-cap rise, and the unbalanced meridional-resultant junction ring load at the dome-barrel interface with the ring area required. Produces the dome stresses, the margin, and the junction ring area that gate the bulkhead design. Trigger: pressure bulkhead, ellipsoidal bulkhead, spherical cap dome, dome margin, junction ring, dome to barrel ring, pressurized fuselage dome, 2:1 ellipsoid.",
+   "tags": [
+    "pressure-bulkhead",
+    "membrane-theory-dome",
+    "bulkhead-dome-stress",
+    "ellipsoidal-bulkhead",
+    "junction-ring-load",
+    "dome-margin",
+    "pressure-dome-sizing"
    ],
    "family": "structures",
    "pack": "fem",
