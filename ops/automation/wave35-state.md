@@ -244,19 +244,26 @@ FTO/MQ/CC/AV (second gaps).
 - Next: CEO P5.2 WAVE-35 audit >= 9.5 -> WAVE-36.
 - POST-CLOSE CONCURRENT AUTOMATION (wave-30 class realized): after the
   wave push (b6098361), a leaf-implementability audit process landed
-  five local commits on top (8cef70f2 corpus +2 fuselage-sizing tasks
+  local commits on top (8cef70f2 corpus +2 fuselage-sizing tasks
   984 -> 986; f4b8c770 audit csv + leaf-implementability-audit.py;
   8b87c3ae leaf-audit.py + test-point-matrix naming fixes; 52a692a6
   tree-wide eval/skill-eval records for older leaves + dedup logic-file
-  renames; 2b40a36a audit report docs). Reconciled per wave-30
-  doctrine (fast-forward below/above, no fights): ops regenerated
-  visuals/manifests for the 986-task corpus (metrics/docs/README/
-  manifest updated), fixed one broken ref the audit rename left in
-  skills/avionics/do254/verification/SKILL.md (referenced the old
-  test_verification.py/verification_logic.py names), re-ran all gates
-  FRESH at the new HEAD (validate 5/5 with 986/986 Hit@1, attest 3/3,
-  completeness ALL REQUIRED PASS, value-delta 10/10, visuals-check
-  PASS, descs <= 1024, em dashes 0, stale guard PASS, tree clean),
-  then pushed PRIVATE fast-forward to the reconciled HEAD and re-ran
-  publish-public sync so the public repo carries the same content.
-  Ledger remains 485 rows; leaf count 485; corpus 986.
+  renames; 2b40a36a audit report docs; de93b243 Pitfalls enrichment of
+  192 lean leaves; f410413e + 7f74d751 content-policy fixes in audit
+  docs; b4f4bb33 audit report v2). Reconciled per wave-30 doctrine
+  (fast-forward below/above, no fights): ops regenerated
+  visuals/manifests after the corpus change, fixed one broken ref the
+  audit rename left in skills/avionics/do254/verification/SKILL.md,
+  re-ran ALL gates FRESH at the final reconciled HEAD 7f74d751
+  (validate 5/5 with 986/986 Hit@1, attest 3/3, completeness ALL
+  REQUIRED PASS, value-delta 10/10, visuals-check PASS 485 leaves /
+  85 packs, manifest zero diff, descs <= 1024, em dashes 0 in
+  skills/, stale guard PASS, tree clean), and verified the final
+  push: private arjun-0077 remote main == local HEAD 7f74d751 (the
+  automation itself fast-forwarded the reconciled chain; my own push
+  was a verified no-op "Everything up-to-date"). Public repo sync
+  verified at 803d2c89 (metrics 485 leaves / 986 corpus tasks / 85
+  packs / 12 families); GitHub CI attest SUCCESS and release-on-
+  milestone SUCCESS for 803d2c89. Ledger 485 rows; leaf count 485;
+  corpus 986. GROUP 160 amendment posted with the reconciled final
+  state.
