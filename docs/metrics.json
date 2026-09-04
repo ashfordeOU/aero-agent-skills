@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 898,
+  "corpus_tasks": 930,
   "families": 12,
-  "leaves": 442,
+  "leaves": 458,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 35,
+      "leaves": 36,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -41,6 +41,7 @@
           "cfd-mesh-generation",
           "cfd-turbulence-modeling",
           "cfd-validation",
+          "delta-wing-vortex-lift",
           "panel-method",
           "vortex-lattice-method"
         ],
@@ -78,11 +79,11 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 72
+      "tasks": 74
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 37,
+      "leaves": 39,
       "pack_names": [
         "data-bus",
         "do160",
@@ -134,13 +135,15 @@
           "lateral-navigation",
           "performance-computation",
           "radio-navigation-aids",
+          "radius-to-fix-leg",
           "rnp-anp-containment",
           "rta-time-control",
           "vertical-navigation"
         ],
         "fsw": [
           "cfs-architecture",
-          "fprime-component"
+          "fprime-component",
+          "real-time-scheduling"
         ],
         "ima": [
           "do297",
@@ -153,11 +156,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 77
+      "tasks": 81
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 37,
+      "leaves": 40,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -181,6 +184,7 @@
         ],
         "numerics": [
           "complex-number-algebra",
+          "confidence-interval-estimation",
           "convergence-verification",
           "cross-correlation-analysis",
           "descriptive-statistics",
@@ -197,6 +201,7 @@
           "numerical-integration",
           "ode-solvers",
           "optimization-algorithms",
+          "power-spectral-density",
           "probability-distributions",
           "quaternion-algebra",
           "root-finding",
@@ -215,6 +220,7 @@
         ],
         "units-atmos": [
           "airspeed-conversion",
+          "density-altitude",
           "dimensional-analysis",
           "isa-atmosphere",
           "temperature-conversion",
@@ -222,11 +228,11 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 74
+      "tasks": 80
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 39,
+      "leaves": 42,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -255,10 +261,13 @@
           "landing-performance",
           "oei-climb-gradient",
           "rotorcraft-autorotative-descent",
+          "rotorcraft-axial-descent-flow-states",
+          "rotorcraft-blade-element-hover-performance",
           "rotorcraft-blade-flapping-dynamics",
           "rotorcraft-forward-flight-performance",
           "rotorcraft-hover-ground-effect",
           "rotorcraft-hover-performance",
+          "rotorcraft-lead-lag-dynamics",
           "rotorcraft-tail-rotor-sizing",
           "rotorcraft-vertical-climb-performance",
           "specific-range",
@@ -284,11 +293,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 78
+      "tasks": 84
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 37,
+      "leaves": 39,
       "pack_names": [
         "envelope",
         "flutter",
@@ -313,6 +322,7 @@
           "vmc-determination"
         ],
         "flutter": [
+          "flight-vibration-survey",
           "flutter-testing",
           "ground-vibration-testing",
           "limit-cycle-oscillation"
@@ -321,6 +331,7 @@
           "accelerate-stop-distance",
           "climb-performance-flight-test",
           "cruise-performance-flight-test",
+          "engine-failure-takeoff-flight-test",
           "engine-flight-test",
           "glide-flight-test",
           "landing-distance-determination",
@@ -350,11 +361,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 74
+      "tasks": 78
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 40,
+      "leaves": 41,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -407,6 +418,7 @@
           "navigation-frames"
         ],
         "optimal-control": [
+          "bang-bang-control",
           "dymos-trajectory",
           "lqr-design",
           "model-predictive-control"
@@ -419,11 +431,11 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 81
+      "tasks": 83
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 38,
+      "leaves": 39,
       "pack_names": [
         "additive",
         "as9100",
@@ -450,6 +462,7 @@
           "management-review",
           "measurement-systems-analysis",
           "nonconformance-control",
+          "order-requirements-review",
           "quality",
           "risk-management",
           "statistical-process-control",
@@ -492,7 +505,7 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 78
+      "tasks": 80
     },
     "propulsion": {
       "label": "PROPULSION",
@@ -637,7 +650,7 @@
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 39,
+      "leaves": 42,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -656,6 +669,7 @@
           "composite-repair",
           "delamination-growth",
           "failure-criteria",
+          "laminate-first-ply-failure",
           "laminate-hygrothermal-response",
           "laminate-stiffness",
           "sandwich-panels"
@@ -676,6 +690,7 @@
         ],
         "fem": [
           "beam-frame-analysis",
+          "beam-vibration",
           "buckling-analysis",
           "calculix-linear",
           "calculix-nonlinear",
@@ -683,6 +698,7 @@
           "cylindrical-shell-buckling",
           "modal-analysis",
           "plate-buckling",
+          "pressure-bulkhead",
           "truss-analysis"
         ],
         "loads": [
@@ -704,7 +720,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 79
+      "tasks": 85
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -834,6 +850,6 @@
       "tasks": 66
     }
   },
-  "skill_files": 454,
+  "skill_files": 470,
   "standards": 30
 }

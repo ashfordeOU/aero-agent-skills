@@ -69,6 +69,7 @@ estimation, validated against classic reference data.
 | aerodynamics/wind-tunnel/wind-tunnel-model-design | Wind tunnel model design | wind tunnel model design, model scale selection, blockage ratio, Reynolds mismatch, force balance rating, sting sizing |
 | aerodynamics/high-speed/aerodynamic-heating | Aerodynamic heating | aerodynamic heating, stagnation point heating, Sutton-Graves, radiation equilibrium temperature, nose radius, hypersonic heat flux |
 | aerodynamics/boundary-layer/boundary-layer-transition | Boundary layer transition | boundary layer transition, transition location, Thwaites integral, Michel criterion, natural transition, momentum thickness Reynolds number |
+| aerodynamics/cfd/delta-wing-vortex-lift | Delta-wing vortex lift | delta wing vortex lift, leading edge suction analogy, slender delta wing, Polhamus, vortex lift split, drag due to lift |
 
 ## Routing guidance
 
@@ -112,6 +113,8 @@ objective studies route to
 - Wind tunnel model design questions (wind tunnel model design, model scale selection, blockage ratio, reynolds mismatch, force balance rating, sting sizing) route to the wind-tunnel-model-design sub-skill.
 - Hypersonic stagnation heating questions (aerodynamic heating, Sutton-Graves heat flux, radiation equilibrium temperature, nose radius bluntness) route to the high-speed aerodynamic-heating sub-skill.
 - Laminar-turbulent transition location questions (transition location, Thwaites integral, Michel criterion, natural transition) route to the boundary-layer boundary-layer-transition sub-skill.
+
+- Delta-wing vortex-lift questions (leading edge suction analogy, slender delta wing, Polhamus vortex lift) route to the cfd delta-wing-vortex-lift sub-skill.
 
 ## Install
 

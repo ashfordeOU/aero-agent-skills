@@ -215,6 +215,11 @@
 # leaves). Wave-32 new leaves: "cross-cutting/units-atmos/airspeed-conversion", "space-systems/subsystems/antenna-aperture-sizing", "space-systems/adcs/attitude-determination-quest", "cross-cutting/numerics/complex-number-algebra", "structures/fem/cylindrical-shell-buckling", "avionics/do178c/data-control-coupling-analysis", "gnc-autonomy/control/digital-control-design", "gnc-autonomy/estimation-filtering/interacting-multiple-model-filter", "structures/composites/laminate-hygrothermal-response", "flight-test-operations/stability/lateral-directional-stability-flight-test", "manufacturing-quality/as9100/management-review", "manufacturing-quality/ndt/ndt-personnel-qualification", "flight-mechanics/performance/rotorcraft-autorotative-descent", "flight-mechanics/performance/rotorcraft-blade-flapping-dynamics", "flight-test-operations/performance/rotorcraft-forward-flight-performance-test".
 # Corpus: 898 tasks (868 prior plus 30 domain tasks). Owner: Ops
 # Manager, Wave 32 build.
+# P5.2 / Wave 33 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 458 verified skills (470 SKILL.md under gate 1: 12 routers + 458
+# leaves). Wave-33 new leaves: "gnc-autonomy/optimal-control/bang-bang-control", "structures/fem/beam-vibration", "cross-cutting/numerics/confidence-interval-estimation", "aerodynamics/cfd/delta-wing-vortex-lift", "cross-cutting/units-atmos/density-altitude", "flight-test-operations/performance/engine-failure-takeoff-flight-test", "flight-test-operations/flutter/flight-vibration-survey", "structures/composites/laminate-first-ply-failure", "manufacturing-quality/as9100/order-requirements-review", "cross-cutting/numerics/power-spectral-density", "structures/fem/pressure-bulkhead", "avionics/flight-management/radius-to-fix-leg", "avionics/fsw/real-time-scheduling", "flight-mechanics/performance/rotorcraft-axial-descent-flow-states", "flight-mechanics/performance/rotorcraft-blade-element-hover-performance", "flight-mechanics/performance/rotorcraft-lead-lag-dynamics".
+# Corpus: 930 tasks (898 prior plus 32 domain tasks). Owner: Ops
+# Manager, Wave 33 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4119,6 +4124,134 @@ tasks:
     query: "determine the best-endurance speed best-range speed and maximum level-flight speed vh of a rotorcraft from the corrected measured power-required curve and the maximum continuous power"
     intent: "flight-test-operations; rotorcraft flight test characteristic speeds from the measured polar"
     expected_skill: "flight-test-operations/performance/rotorcraft-forward-flight-performance-test"
+  - id: w33-bang-bang-control-1
+    query: "derive the bang bang switching curve time optimal control for a double integrator slew with the switch point and the minimum time rest to rest duration under a torque limit"
+    intent: "gnc-autonomy; bang-bang time-optimal switching curve and minimum-time rest-to-rest"
+    expected_skill: "gnc-autonomy/optimal-control/bang-bang-control"
+  - id: w33-bang-bang-control-2
+    query: "compute the time optimal bang bang acceleration profile and switching time for a single axis attitude maneuver with bounded rate"
+    intent: "gnc-autonomy; time-optimal bang-bang profile for a bounded single-axis maneuver"
+    expected_skill: "gnc-autonomy/optimal-control/bang-bang-control"
+  - id: w33-beam-vibration-1
+    query: "compute the first three natural frequencies of the euler bernoulli cantilever beam from the characteristic equation roots and the bending stiffness"
+    intent: "structures; continuous Euler-Bernoulli cantilever beam natural frequencies from characteristic roots"
+    expected_skill: "structures/fem/beam-vibration"
+  - id: w33-beam-vibration-2
+    query: "estimate the fundamental frequency of the non uniform cantilever spar with the rayleigh quotient method for a vibration clearance check"
+    intent: "structures; Rayleigh-quotient fundamental frequency of a beam member"
+    expected_skill: "structures/fem/beam-vibration"
+  - id: w33-confidence-interval-estimation-1
+    query: "compute the t distribution confidence interval for the mean of a measured drag count sample at 95 percent confidence"
+    intent: "cross-cutting; t-interval for a sample mean at a confidence level"
+    expected_skill: "cross-cutting/numerics/confidence-interval-estimation"
+  - id: w33-confidence-interval-estimation-2
+    query: "estimate the chi square confidence interval for the variance and standard deviation of a production measurement batch"
+    intent: "cross-cutting; chi-square variance/standard-deviation confidence interval"
+    expected_skill: "cross-cutting/numerics/confidence-interval-estimation"
+  - id: w33-delta-wing-vortex-lift-1
+    query: "estimate the lift of a sharp edged slender delta wing at 20 degrees angle of attack using the leading edge suction analogy and aspect ratio 1"
+    intent: "aerodynamics; Polhamus leading-edge suction analogy delta-wing vortex lift estimate"
+    expected_skill: "aerodynamics/cfd/delta-wing-vortex-lift"
+  - id: w33-delta-wing-vortex-lift-2
+    query: "compute the nonlinear vortex lift increment of the 76 degree swept delta beyond the linear attached flow range of the vortex lattice method"
+    intent: "aerodynamics; delta-wing vortex-lift increment vs VLM attached-flow range"
+    expected_skill: "aerodynamics/cfd/delta-wing-vortex-lift"
+  - id: w33-density-altitude-1
+    query: "compute the density altitude from the pressure altitude and the outside air temperature for a hot day takeoff performance check"
+    intent: "cross-cutting; density altitude from pressure altitude and OAT on a non-standard day"
+    expected_skill: "cross-cutting/units-atmos/density-altitude"
+  - id: w33-density-altitude-2
+    query: "convert pressure altitude and oat to density altitude in feet on a non standard day for performance reduction"
+    intent: "cross-cutting; pressure-altitude and OAT to density-altitude conversion"
+    expected_skill: "cross-cutting/units-atmos/density-altitude"
+  - id: w33-engine-failure-takeoff-flight-test-1
+    query: "determine the balanced field decision speed v1 from the intersection of the accelerate stop curve and the continued engine out takeoff distance curve"
+    intent: "flight-test-operations; balanced-field V1 from ASD and engine-out TOD intersection"
+    expected_skill: "flight-test-operations/performance/engine-failure-takeoff-flight-test"
+  - id: w33-engine-failure-takeoff-flight-test-2
+    query: "reduce the critical engine failure takeoff flight test run from the vef point adding the recognition time segment and the continued climb to the 35 foot obstacle"
+    intent: "flight-test-operations; engine-failure takeoff run reduction VEF recognition and 35-ft closure"
+    expected_skill: "flight-test-operations/performance/engine-failure-takeoff-flight-test"
+  - id: w33-flight-vibration-survey-1
+    query: "rotorcraft track and balance vibration survey order analysis of the main rotor 1 per rev amplitude from measured accelerometer time histories"
+    intent: "flight-test-operations; rotorcraft track-and-balance vibration survey order analysis"
+    expected_skill: "flight-test-operations/flutter/flight-vibration-survey"
+  - id: w33-flight-vibration-survey-2
+    query: "reduce the in flight mechanical vibration survey point to per order amplitudes and total rms and gate it against the declared vibration limit"
+    intent: "flight-test-operations; in-flight vibration survey order-domain reduction and limit gating"
+    expected_skill: "flight-test-operations/flutter/flight-vibration-survey"
+  - id: w33-laminate-first-ply-failure-1
+    query: "compute the first ply failure load and the critical ply of a quasi isotropic composite laminate under in plane load resultants recovered from the mid plane strain"
+    intent: "structures; laminate first-ply-failure FPF load and critical ply from mid-plane strain recovery"
+    expected_skill: "structures/composites/laminate-first-ply-failure"
+  - id: w33-laminate-first-ply-failure-2
+    query: "find the per ply tsai wu failure index and reserve factor of the symmetric balanced laminate under the applied in plane load resultants before first ply failure"
+    intent: "structures; per-ply Tsai-Wu failure index, reserve factor, first-ply-failure of a laminate"
+    expected_skill: "structures/composites/laminate-first-ply-failure"
+  - id: w33-order-requirements-review-1
+    query: "pre acceptance purchase order requirements review and aerospace special requirement classification for an incoming order"
+    intent: "manufacturing-quality; incoming purchase-order requirements review and special-requirement classification"
+    expected_skill: "manufacturing-quality/as9100/order-requirements-review"
+  - id: w33-order-requirements-review-2
+    query: "contract review feasibility gates and order acceptance verdict before supplier flow down and production release"
+    intent: "manufacturing-quality; order-acceptance feasibility gates and verdict"
+    expected_skill: "manufacturing-quality/as9100/order-requirements-review"
+  - id: w33-power-spectral-density-1
+    query: "estimate the power spectral density of a measured acceleration time history with a welch averaged periodogram in g squared per hertz"
+    intent: "cross-cutting; Welch-averaged periodogram PSD estimation of a time history"
+    expected_skill: "cross-cutting/numerics/power-spectral-density"
+  - id: w33-power-spectral-density-2
+    query: "hann window segment averaged psd and equivalent noise bandwidth for a random vibration survey of a sampled signal"
+    intent: "cross-cutting; Hann-window segment-averaged PSD and ENBW for a random vibration survey"
+    expected_skill: "cross-cutting/numerics/power-spectral-density"
+  - id: w33-pressure-bulkhead-1
+    query: "size the ellipsoidal aft pressure bulkhead dome of the pressurized fuselage with membrane theory computing apex and equator meridional and hoop stresses and the junction ring load"
+    intent: "structures; fuselage pressure-bulkhead dome membrane stresses and junction ring load"
+    expected_skill: "structures/fem/pressure-bulkhead"
+  - id: w33-pressure-bulkhead-2
+    query: "check the spherical cap bulkhead dome margin under the cabin differential pressure with the 1.5 factor of safety and size the dome to barrel junction ring area"
+    intent: "structures; spherical-cap bulkhead margin and dome-barrel junction ring sizing"
+    expected_skill: "structures/fem/pressure-bulkhead"
+  - id: w33-radius-to-fix-leg-1
+    query: "radius to fix leg turning center arc length construction for an rnp ar procedure flyable arc check"
+    intent: "avionics; radius-to-fix RF leg turn center and arc-length construction"
+    expected_skill: "avionics/flight-management/radius-to-fix-leg"
+  - id: w33-radius-to-fix-leg-2
+    query: "constant radius path terminator rf leg exit fix validation and exit track derivation from the turn direction geometry"
+    intent: "avionics; RF-leg exit-fix validation and exit track geometry"
+    expected_skill: "avionics/flight-management/radius-to-fix-leg"
+  - id: w33-real-time-scheduling-1
+    query: "rate monotonic scheduling utilization bound feasibility test liu layland for an avionics periodic task set with implicit deadlines"
+    intent: "avionics; RM Liu-Layland utilization bound schedulability of a periodic task set"
+    expected_skill: "avionics/fsw/real-time-scheduling"
+  - id: w33-real-time-scheduling-2
+    query: "earliest deadline first cpu utilization schedulability test and iterative response time analysis for a hard real time process set"
+    intent: "avionics; EDF full-utilization and exact RM response-time-analysis schedulability"
+    expected_skill: "avionics/fsw/real-time-scheduling"
+  - id: w33-rotorcraft-axial-descent-flow-states-1
+    query: "classify the rotor axial descent flow state from the vortex ring band boundary at twice the hover induced velocity and the windmill brake state momentum branch"
+    intent: "flight-mechanics; rotorcraft axial descent flow-state classification vortex-ring band windmill-brake"
+    expected_skill: "flight-mechanics/performance/rotorcraft-axial-descent-flow-states"
+  - id: w33-rotorcraft-axial-descent-flow-states-2
+    query: "compute the windmill brake state descent induced velocity and signed rotor power and the torque reversal condition for the momentum theory autorotative equilibrium"
+    intent: "flight-mechanics; rotorcraft descent induced velocity, signed power, torque-reversal momentum reachability"
+    expected_skill: "flight-mechanics/performance/rotorcraft-axial-descent-flow-states"
+  - id: w33-rotorcraft-blade-element-hover-performance-1
+    query: "estimate the blade-element hover thrust coefficient and the required collective pitch of a hovering rotor from the rotor solidity, the lift curve slope and the tip loss factor"
+    intent: "flight-mechanics; blade-element hover C_T and required collective from solidity, lift slope, tip loss"
+    expected_skill: "flight-mechanics/performance/rotorcraft-blade-element-hover-performance"
+  - id: w33-rotorcraft-blade-element-hover-performance-2
+    query: "compute the torque coefficient induced plus profile split and the rotor shaft torque from the pitch schedule coefficients of a hovering helicopter rotor"
+    intent: "flight-mechanics; hover torque coefficient C_Q induced-profile split and rotor torque from pitch coefficients"
+    expected_skill: "flight-mechanics/performance/rotorcraft-blade-element-hover-performance"
+  - id: w33-rotorcraft-lead-lag-dynamics-1
+    query: "compute the regressing lead-lag mode frequency per revolution and the coincidence rotor speed where it crosses the airframe lateral frequency for ground resonance clearance"
+    intent: "flight-mechanics; rotorcraft regressing lag mode frequency and ground-resonance coincidence rotor speed"
+    expected_skill: "flight-mechanics/performance/rotorcraft-lead-lag-dynamics"
+  - id: w33-rotorcraft-lead-lag-dynamics-2
+    query: "estimate the rotating lead-lag frequency ratio from the lag hinge offset and list the fixed frame collective advancing and regressing lag mode frequencies"
+    intent: "flight-mechanics; rotorcraft lag frequency ratio from hinge offset and multiblade fixed-frame modes"
+    expected_skill: "flight-mechanics/performance/rotorcraft-lead-lag-dynamics"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

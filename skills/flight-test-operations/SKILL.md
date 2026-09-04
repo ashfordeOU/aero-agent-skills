@@ -75,6 +75,8 @@ flight test instrumentation, and campaign planning.
 
 | flight-test-operations/performance/rotorcraft-forward-flight-performance-test | Rotorcraft forward flight performance test | rotorcraft forward flight flight test, level-flight speed sweep, torque to shaft power, power required polar, vh determination, max continuous power |
 | flight-test-operations/stability/lateral-directional-stability-flight-test | Lateral-directional stability flight test | steady heading sideslip sweep, rudder-fixed stability, rudder-free stability, weathercock stability, dihedral effect, pedal force gradient |
+| flight-test-operations/flutter/flight-vibration-survey | Flight vibration survey | track and balance, order analysis, per rev amplitude, synchronous DFT, vibration limit, rotor balance survey |
+| flight-test-operations/performance/engine-failure-takeoff-flight-test | Engine failure takeoff flight test | balanced field V1, engine out takeoff, VEF recognition, decision speed, continued takeoff, field length verdict |
 
 ## Routing guidance
 
@@ -129,6 +131,9 @@ actor-envelope.
 - Cruise performance flight test questions (cruise performance flight test, fuel flow versus mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed) route to the cruise-performance-flight-test sub-skill.
 - Rotorcraft level-flight performance test questions (level-flight speed sweep, torque to shaft power, power-required polar, vh determination) route to the performance rotorcraft-forward-flight-performance-test sub-skill.
 - Static lateral-directional stability flight test questions (steady-heading sideslip sweep, rudder-fixed and rudder-free stability, weathercock and dihedral effect, pedal force gradient) route to the stability lateral-directional-stability-flight-test sub-skill.
+
+- In-flight vibration survey questions (track and balance, per-rev order analysis, vibration limit, rotor balance survey) route to the flutter flight-vibration-survey sub-skill.
+- Engine-out takeoff questions (balanced-field V1, VEF recognition, decision speed, continued takeoff) route to the performance engine-failure-takeoff-flight-test sub-skill.
 
 ## Install
 

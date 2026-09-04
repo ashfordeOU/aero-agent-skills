@@ -74,6 +74,9 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/rotorcraft-tail-rotor-sizing | Rotorcraft tail rotor sizing | tail rotor, anti-torque rotor, main rotor torque, tail rotor thrust, tail rotor power, disk loading |
 | flight-mechanics/performance/rotorcraft-blade-flapping-dynamics | Rotorcraft blade flapping dynamics | blade Lock number, hover coning angle, flap frequency ratio, rotor blade flapping, hinge offset, rotor dynamics |
 | flight-mechanics/performance/rotorcraft-autorotative-descent | Rotorcraft autorotative descent | autorotative descent, power-off descent, minimum descent rate, rotor energy balance, engine failure descent |
+| flight-mechanics/performance/rotorcraft-blade-element-hover-performance | Rotorcraft blade element hover performance | blade element theory, thrust coefficient, torque coefficient, collective pitch, tip loss factor, hover figure of merit |
+| flight-mechanics/performance/rotorcraft-axial-descent-flow-states | Rotorcraft axial descent flow states | axial descent flow, vortex ring state, windmill brake state, descent induced velocity, torque reversal, momentum theory reachability |
+| flight-mechanics/performance/rotorcraft-lead-lag-dynamics | Rotorcraft lead-lag dynamics | lead lag frequency, lag hinge offset, regressing lag mode, ground resonance clearance, coincidence rotor speed, multiblade modes |
 
 ## Routing guidance
 
@@ -127,6 +130,10 @@ to the
 - Rotorcraft forward flight questions (Glauert inflow, induced power, parasite power, equivalent flat plate area, best endurance speed, best range speed) route to the performance rotorcraft-forward-flight-performance sub-skill.
 - Rotorcraft blade dynamics questions (blade Lock number, hover coning angle, flap frequency ratio, blade flapping, rotor dynamics) route to the performance rotorcraft-blade-flapping-dynamics sub-skill.
 - Rotorcraft autorotative descent questions (power-off descent, minimum descent rate, rotor energy balance, engine failure descent) route to the performance rotorcraft-autorotative-descent sub-skill.
+
+- Rotorcraft blade-element hover performance questions (thrust coefficient, torque coefficient, collective pitch, tip loss factor, hover figure of merit) route to the performance rotorcraft-blade-element-hover-performance sub-skill.
+- Rotorcraft axial-descent flow-state questions (vortex-ring band, windmill-brake state, descent induced velocity, torque reversal) route to the performance rotorcraft-axial-descent-flow-states sub-skill.
+- Rotorcraft lead-lag dynamics questions (lag frequency ratio, regressing lag mode, ground-resonance clearance, coincidence rotor speed) route to the performance rotorcraft-lead-lag-dynamics sub-skill.
 
 ## Install
 
