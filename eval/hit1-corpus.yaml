@@ -210,6 +210,11 @@
 # leaves). Wave-31 new leaves: "avionics/surveillance/airborne-weather-radar", "gnc-autonomy/guidance/augmented-proportional-navigation", "space-systems/orbit-mechanics/bi-elliptic-transfer", "space-systems/mission-design/c3-departure-energy", "gnc-autonomy/guidance/collision-course-guidance", "cross-cutting/numerics/fir-filter-design", "manufacturing-quality/as9100/internal-quality-audit", "flight-mechanics/performance/rotorcraft-hover-ground-effect", "flight-test-operations/performance/rotorcraft-performance-flight-test", "flight-mechanics/performance/rotorcraft-tail-rotor-sizing", "flight-mechanics/performance/rotorcraft-vertical-climb-performance".
 # Corpus: 868 tasks (846 prior plus 22 domain tasks). Owner: Ops
 # Manager, Wave 31 build.
+# P5.2 / Wave 32 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 442 verified skills (454 SKILL.md under gate 1: 12 routers + 442
+# leaves). Wave-32 new leaves: "cross-cutting/units-atmos/airspeed-conversion", "space-systems/subsystems/antenna-aperture-sizing", "space-systems/adcs/attitude-determination-quest", "cross-cutting/numerics/complex-number-algebra", "structures/fem/cylindrical-shell-buckling", "avionics/do178c/data-control-coupling-analysis", "gnc-autonomy/control/digital-control-design", "gnc-autonomy/estimation-filtering/interacting-multiple-model-filter", "structures/composites/laminate-hygrothermal-response", "flight-test-operations/stability/lateral-directional-stability-flight-test", "manufacturing-quality/as9100/management-review", "manufacturing-quality/ndt/ndt-personnel-qualification", "flight-mechanics/performance/rotorcraft-autorotative-descent", "flight-mechanics/performance/rotorcraft-blade-flapping-dynamics", "flight-test-operations/performance/rotorcraft-forward-flight-performance-test".
+# Corpus: 898 tasks (868 prior plus 30 domain tasks). Owner: Ops
+# Manager, Wave 32 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -3994,6 +3999,126 @@ tasks:
     query: "determine the maximum vertical rate of climb of a rotorcraft from the available shaft power minus the hover power, using axial momentum theory"
     intent: "flight-mechanics; rotorcraft max vertical rate of climb from excess power"
     expected_skill: "flight-mechanics/performance/rotorcraft-vertical-climb-performance"
+  - id: w32-airspeed-conversion-1
+    query: "convert 250 knots calibrated airspeed to true airspeed and Mach at 30000 feet pressure altitude using the compressible impact-pressure inversion and the ISA speed of sound"
+    intent: "cross-cutting; calibrated to true airspeed conversion at altitude"
+    expected_skill: "cross-cutting/units-atmos/airspeed-conversion"
+  - id: w32-airspeed-conversion-2
+    query: "determine the equivalent airspeed and calibrated airspeed from a true airspeed of 236 meters per second at 11000 meters altitude with the airspeed-indicator compressibility correction"
+    intent: "cross-cutting; true to equivalent and calibrated airspeed chain"
+    expected_skill: "cross-cutting/units-atmos/airspeed-conversion"
+  - id: w32-antenna-aperture-sizing-1
+    query: "size the parabolic reflector antenna diameter of a spacecraft downlink from the required antenna gain and the aperture efficiency at the operating frequency"
+    intent: "space-systems; spacecraft antenna aperture sizing from gain requirement"
+    expected_skill: "space-systems/subsystems/antenna-aperture-sizing"
+  - id: w32-antenna-aperture-sizing-2
+    query: "compute the half power beamwidth the pointing accuracy budget and the gain over temperature figure of merit of a spacecraft parabolic antenna"
+    intent: "space-systems; spacecraft antenna beamwidth pointing and G/T"
+    expected_skill: "space-systems/subsystems/antenna-aperture-sizing"
+  - id: w32-attitude-determination-quest-1
+    query: "determine the optimal spacecraft attitude quaternion from multiple weighted vector observations by minimizing the Wahba cost with the Davenport q method"
+    intent: "space-systems; optimal attitude determination from many observations"
+    expected_skill: "space-systems/adcs/attitude-determination-quest"
+  - id: w32-attitude-determination-quest-2
+    query: "run the quest attitude determination algorithm to compute the attitude matrix and the observation residuals from three reference and body vector pairs"
+    intent: "space-systems; QUEST attitude matrix and residuals"
+    expected_skill: "space-systems/adcs/attitude-determination-quest"
+  - id: w32-complex-number-algebra-1
+    query: "compute the product quotient and polar form of two complex numbers for an AC impedance phasor calculation, and verify z times its conjugate equals the squared modulus"
+    intent: "cross-cutting; complex number arithmetic and polar conversion"
+    expected_skill: "cross-cutting/numerics/complex-number-algebra"
+  - id: w32-complex-number-algebra-2
+    query: "determine the fourth roots of unity and the power of a complex number by De Moivre formula for a frequency-domain rotation check"
+    intent: "cross-cutting; De Moivre powers and roots of unity"
+    expected_skill: "cross-cutting/numerics/complex-number-algebra"
+  - id: w32-cylindrical-shell-buckling-1
+    query: "compute the NASA SP-8007 knockdown factors and axial critical buckling stress of an unstiffened circular cylindrical shell from the radius and thickness"
+    intent: "structures; cylindrical shell axial buckling with SP-8007 knockdown"
+    expected_skill: "structures/fem/cylindrical-shell-buckling"
+  - id: w32-cylindrical-shell-buckling-2
+    query: "determine the bending critical moment and the ovalization collapse moment of a thin-walled cylinder and judge the governing stability mode"
+    intent: "structures; cylindrical shell bending buckling versus ovalization collapse"
+    expected_skill: "structures/fem/cylindrical-shell-buckling"
+  - id: w32-data-control-coupling-analysis-1
+    query: "identify the data coupling and control coupling items between airborne software components from their written and read variable sets and the call graph for the level A coupling objective"
+    intent: "avionics; DO-178C level A data and control coupling item identification"
+    expected_skill: "avionics/do178c/data-control-coupling-analysis"
+  - id: w32-data-control-coupling-analysis-2
+    query: "compute the coupling coverage ratio and evidence verdict for shared-variable and call-edge coupling items of an airborne software architecture"
+    intent: "avionics; inter-component coupling coverage and evidence verdict"
+    expected_skill: "avionics/do178c/data-control-coupling-analysis"
+  - id: w32-digital-control-design-1
+    query: "discretize a continuous plant with a zero order hold and emulate a lead compensator with the Tustin bilinear transform with frequency prewarping for a sampled data control loop"
+    intent: "gnc-autonomy; ZOH plant discretization and Tustin compensator emulation"
+    expected_skill: "gnc-autonomy/control/digital-control-design"
+  - id: w32-digital-control-design-2
+    query: "compute the discrete PID coefficients in the position and velocity forms and check the sampled poles against the unit circle for digital control stability"
+    intent: "gnc-autonomy; discrete PID coefficients and unit circle stability"
+    expected_skill: "gnc-autonomy/control/digital-control-design"
+  - id: w32-interacting-multiple-model-filter-1
+    query: "track a maneuvering target with an interacting multiple model filter bank of constant velocity and constant acceleration Kalman filters and report the mode probabilities"
+    intent: "gnc-autonomy; IMM filter for maneuvering target tracking"
+    expected_skill: "gnc-autonomy/estimation-filtering/interacting-multiple-model-filter"
+  - id: w32-interacting-multiple-model-filter-2
+    query: "combine the mode-conditioned estimates of a Markov mode-switched filter bank with the innovation likelihood mode update for target tracking"
+    intent: "gnc-autonomy; IMM mixing and mode probability update"
+    expected_skill: "gnc-autonomy/estimation-filtering/interacting-multiple-model-filter"
+  - id: w32-laminate-hygrothermal-response-1
+    query: "compute the stiffness-weighted thermal expansion coefficients and moisture swelling coefficients of a symmetric composite laminate by classical lamination theory"
+    intent: "structures; laminate CTE and moisture expansion from CLT"
+    expected_skill: "structures/composites/laminate-hygrothermal-response"
+  - id: w32-laminate-hygrothermal-response-2
+    query: "determine the equilibrium moisture content and the hygrothermal strain of a carbon epoxy laminate from the relative humidity and the cure cooldown temperature drop"
+    intent: "structures; laminate hygrothermal and cure-cooldown strain"
+    expected_skill: "structures/composites/laminate-hygrothermal-response"
+  - id: w32-lateral-directional-stability-flight-test-1
+    query: "reduce steady-heading sideslip flight test data to the measured rudder and aileron gradients and estimate the directional and lateral stability parameters for the stability demonstration"
+    intent: "flight-test-operations; steady-heading sideslip reduction to Cn beta and Cl beta estimates"
+    expected_skill: "flight-test-operations/stability/lateral-directional-stability-flight-test"
+  - id: w32-lateral-directional-stability-flight-test-2
+    query: "plan the rudder-fixed and rudder-free sideslip sweeps of a static lateral-directional stability flight test and judge the weathercock and dihedral stability verdicts from the measured control gradients"
+    intent: "flight-test-operations; lateral-directional static stability flight test matrix and verdicts"
+    expected_skill: "flight-test-operations/stability/lateral-directional-stability-flight-test"
+  - id: w32-management-review-1
+    query: "compute the management review due date and check the input coverage of the top management review against the required input families of the quality management system"
+    intent: "manufacturing-quality; AS9100 top management review scheduling and input coverage"
+    expected_skill: "manufacturing-quality/as9100/management-review"
+  - id: w32-management-review-2
+    query: "track the action items from a management review decision log and issue the review verdict from the input coverage ratio and the overdue action count"
+    intent: "manufacturing-quality; management review action tracking and verdict"
+    expected_skill: "manufacturing-quality/as9100/management-review"
+  - id: w32-ndt-personnel-qualification-1
+    query: "compute the recertification due date and vision examination due date and judge the certification currency of an NDT inspector against the current date"
+    intent: "manufacturing-quality; NDT personnel certification currency and due dates"
+    expected_skill: "manufacturing-quality/ndt/ndt-personnel-qualification"
+  - id: w32-ndt-personnel-qualification-2
+    query: "evaluate the level upgrade eligibility and the supervision rule for an NDT technician from the held training hours experience months and passed examination"
+    intent: "manufacturing-quality; NDT personnel level progression and supervision"
+    expected_skill: "manufacturing-quality/ndt/ndt-personnel-qualification"
+  - id: w32-rotorcraft-autorotative-descent-1
+    query: "estimate the minimum autorotative descent rate of a single-rotor helicopter after engine failure with the empirical Talbot correlation from the minimum level power and the weight"
+    intent: "flight-mechanics; rotorcraft empirical autorotative minimum descent rate"
+    expected_skill: "flight-mechanics/performance/rotorcraft-autorotative-descent"
+  - id: w32-rotorcraft-autorotative-descent-2
+    query: "compute the power-off sink rate of a helicopter in the autorotative glide by the energy balance method and convert the empirical descent rate to feet per minute"
+    intent: "flight-mechanics; rotorcraft autorotative descent energy balance and unit conversion"
+    expected_skill: "flight-mechanics/performance/rotorcraft-autorotative-descent"
+  - id: w32-rotorcraft-blade-flapping-dynamics-1
+    query: "compute the blade Lock number and the steady hover coning angle of a helicopter main rotor from the blade geometry and the uniform inflow ratio"
+    intent: "flight-mechanics; rotorcraft blade Lock number and hover coning angle"
+    expected_skill: "flight-mechanics/performance/rotorcraft-blade-flapping-dynamics"
+  - id: w32-rotorcraft-blade-flapping-dynamics-2
+    query: "determine the rotating flap frequency ratio of an articulated rotor blade for a given flap hinge offset fraction"
+    intent: "flight-mechanics; rotorcraft flap frequency ratio from hinge offset"
+    expected_skill: "flight-mechanics/performance/rotorcraft-blade-flapping-dynamics"
+  - id: w32-rotorcraft-forward-flight-performance-test-1
+    query: "reduce measured rotor torque and rotor speed samples from a helicopter level-flight speed sweep into shaft power and a corrected power-required polar for the flight test report"
+    intent: "flight-test-operations; rotorcraft level-flight measured torque-to-shaft-power reduction"
+    expected_skill: "flight-test-operations/performance/rotorcraft-forward-flight-performance-test"
+  - id: w32-rotorcraft-forward-flight-performance-test-2
+    query: "determine the best-endurance speed best-range speed and maximum level-flight speed vh of a rotorcraft from the corrected measured power-required curve and the maximum continuous power"
+    intent: "flight-test-operations; rotorcraft flight test characteristic speeds from the measured polar"
+    expected_skill: "flight-test-operations/performance/rotorcraft-forward-flight-performance-test"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

@@ -75,6 +75,9 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/bi-elliptic-transfer | Bi-elliptic transfer | bi-elliptic transfer, three impulse, intermediate apogee, delta-v saving, Hohmann comparison |
 | space-systems/mission-design/c3-departure-energy | C3 departure energy | c3 characteristic energy, injection delta-v, hyperbolic excess, asymptote declination, escape trajectory |
 
+| space-systems/subsystems/antenna-aperture-sizing | Antenna aperture sizing | antenna aperture sizing, parabolic reflector gain, aperture efficiency, required antenna gain, half power beamwidth, pointing loss budget, gain over temperature |
+| space-systems/adcs/attitude-determination-quest | Attitude determination QUEST | attitude determination quest, Wahba problem, Davenport q method, optimal attitude quaternion, multi vector observation, observation weighting |
+
 ## Routing guidance
 
 - Space software questions (criticality classification, assurance rigor,
@@ -134,6 +137,9 @@ selection, and classical orbital element determination.
 - Spacecraft battery eclipse-energy sizing, depth of discharge, and cell layout questions route to the subsystems spacecraft-battery-sizing sub-skill.
 - Orbital plane change and combined-burn delta-v questions route to the orbit-mechanics plane-change-maneuver sub-skill.
 - CR3BP libration questions (three body libration, collinear L1 L2 L3, triangular L4 L5, Jacobi constant, Earth Moon L1 distance) route to the orbit-mechanics three-body-libration sub-skill.
+
+- Spacecraft antenna aperture sizing questions (parabolic reflector gain, aperture efficiency, half-power beamwidth, pointing loss, gain over temperature) route to the subsystems antenna-aperture-sizing sub-skill.
+- QUEST attitude determination questions (Wahba problem, Davenport q-method, optimal attitude quaternion, multi-vector observation) route to the adcs attitude-determination-quest sub-skill.
 
 ## Install
 

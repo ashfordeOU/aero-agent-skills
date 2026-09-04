@@ -82,6 +82,8 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/surveillance/ads-b-surveillance | ADS-B surveillance | ADS-B, ADS-B Out, ADS-B In, extended squitter, NIC containment radius, NACp accuracy, SIL integrity, ADS-B range |
 | avionics/surveillance/airborne-weather-radar | Airborne weather radar | weather radar tilt, reflectivity rainfall, Marshall-Palmer, echo level, ground clutter check |
 
+| avionics/do178c/data-control-coupling-analysis | Data and control coupling (DO-178C) | data coupling analysis, control coupling analysis, shared variable pairs, coupling coverage evidence, level A objectives |
+
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
@@ -129,6 +131,8 @@ est case count, coverage objectives per
 - TCAS II threat detection, modified tau, DMOD, and resolution advisory sense questions route to the surveillance tcas-resolution-advisory sub-skill.
 - Weather radar operating questions (antenna tilt to cell top, reflectivity rainfall Z-R, echo level, ground clutter check) route to the surveillance airborne-weather-radar sub-skill.
 - ADS-B equipage and reception questions (ADS-B Out, extended squitter, NIC containment radius, NACp accuracy, SIL integrity, ADS-B range) route to the surveillance ads-b-surveillance sub-skill.
+
+- Data and control coupling analysis questions (inter-component shared variable pairs, call edge coupling, level A coupling coverage evidence) route to the do178c data-control-coupling-analysis sub-skill.
 
 ## Install
 

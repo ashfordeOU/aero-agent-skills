@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 427
+Total skills rated: 442
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -434,3 +434,18 @@ Total skills rated: 427
 | 425 | flight-mechanics/performance/rotorcraft-tail-rotor-sizing | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
 | 426 | manufacturing-quality/as9100/internal-quality-audit | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 427 | gnc-autonomy/guidance/collision-course-guidance | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 428 | flight-test-operations/stability/lateral-directional-stability-flight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
+| 429 | cross-cutting/units-atmos/airspeed-conversion | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 430 | flight-test-operations/performance/rotorcraft-forward-flight-performance-test | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
+| 431 | cross-cutting/numerics/complex-number-algebra | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 432 | manufacturing-quality/ndt/ndt-personnel-qualification | PASS | ✓ | nas-410 | manufacturing-quality | 9.5 | PASS |
+| 433 | manufacturing-quality/as9100/management-review | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 434 | avionics/do178c/data-control-coupling-analysis | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 435 | flight-mechanics/performance/rotorcraft-autorotative-descent | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 436 | structures/fem/cylindrical-shell-buckling | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 437 | flight-mechanics/performance/rotorcraft-blade-flapping-dynamics | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 438 | structures/composites/laminate-hygrothermal-response | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 439 | space-systems/subsystems/antenna-aperture-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 440 | space-systems/adcs/attitude-determination-quest | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 441 | gnc-autonomy/control/digital-control-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 442 | gnc-autonomy/estimation-filtering/interacting-multiple-model-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |

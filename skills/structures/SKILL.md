@@ -75,6 +75,9 @@ material selection.
 | structures/thermal-structures/thermal-buckling | Thermal buckling | thermal buckling, critical temperature rise, restrained thermal expansion, buckling margin, hot structure panel |
 | structures/loads/landing-ground-loads | Landing ground loads | landing ground loads, ground reactions, level landing, tail down condition, one wheel load, braked roll |
 
+| structures/composites/laminate-hygrothermal-response | Laminate hygrothermal response | hygrothermal response, laminate CTE, moisture swell strain, cure cooldown strain, hygral strain, laminate moisture content |
+| structures/fem/cylindrical-shell-buckling | Cylindrical shell buckling | cylindrical shell buckling, SP-8007 knockdown, shell axial compression, external shell bending, cross section ovalization, shell plasticity correction |
+
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
@@ -143,6 +146,9 @@ ance) route
 - Bonded scarf composite repair questions (scarf repair, scarf length, adhesive shear stress, required scarf angle, stiffness matched patch) route to the composites composite-repair sub-skill.
 - Thermal buckling questions (critical temperature rise, restrained thermal expansion, hot structure buckling margin) route to the thermal-structures thermal-buckling sub-skill.
 - Landing and ground-handling reaction questions (level landing, tail down condition, one wheel load, braked roll deceleration) route to the loads landing-ground-loads sub-skill.
+
+- Laminate hygrothermal response questions (laminate CTE, moisture swell strain, cure cooldown strain, hygral strain) route to the composites laminate-hygrothermal-response sub-skill.
+- Curved cylindrical shell buckling questions (SP-8007 knockdown, shell axial compression, shell bending, cross-section ovalization) route to the fem cylindrical-shell-buckling sub-skill.
 
 ## Install
 

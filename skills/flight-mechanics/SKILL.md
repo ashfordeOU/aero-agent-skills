@@ -72,6 +72,8 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/rotorcraft-vertical-climb-performance | Rotorcraft vertical climb performance | rotorcraft vertical climb, climb induced velocity, climb power, maximum vertical rate of climb, axial momentum theory |
 | flight-mechanics/performance/rotorcraft-hover-ground-effect | Rotorcraft hover in ground effect | hover in ground effect, IGE induced power, ground effect factor, rotor height over radius, ige hover ceiling |
 | flight-mechanics/performance/rotorcraft-tail-rotor-sizing | Rotorcraft tail rotor sizing | tail rotor, anti-torque rotor, main rotor torque, tail rotor thrust, tail rotor power, disk loading |
+| flight-mechanics/performance/rotorcraft-blade-flapping-dynamics | Rotorcraft blade flapping dynamics | blade Lock number, hover coning angle, flap frequency ratio, rotor blade flapping, hinge offset, rotor dynamics |
+| flight-mechanics/performance/rotorcraft-autorotative-descent | Rotorcraft autorotative descent | autorotative descent, power-off descent, minimum descent rate, rotor energy balance, engine failure descent |
 
 ## Routing guidance
 
@@ -123,6 +125,8 @@ to the
 - Rotorcraft hover-in-ground-effect questions (ground effect factor, IGE induced power, ige-hover-ceiling, rotor height over radius) route to the performance rotorcraft-hover-ground-effect sub-skill.
 - Rotorcraft vertical climb questions (vertical climb momentum theory, climb induced velocity, climb power required, maximum vertical rate of climb) route to the performance rotorcraft-vertical-climb-performance sub-skill.
 - Rotorcraft forward flight questions (Glauert inflow, induced power, parasite power, equivalent flat plate area, best endurance speed, best range speed) route to the performance rotorcraft-forward-flight-performance sub-skill.
+- Rotorcraft blade dynamics questions (blade Lock number, hover coning angle, flap frequency ratio, blade flapping, rotor dynamics) route to the performance rotorcraft-blade-flapping-dynamics sub-skill.
+- Rotorcraft autorotative descent questions (power-off descent, minimum descent rate, rotor energy balance, engine failure descent) route to the performance rotorcraft-autorotative-descent sub-skill.
 
 ## Install
 
