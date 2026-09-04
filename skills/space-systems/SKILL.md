@@ -81,6 +81,7 @@ selection, and classical orbital element determination.
 | space-systems/adcs/gyro-allan-variance | Gyro Allan variance | gyro Allan variance, Allan deviation, angle random walk, rate random walk, bias instability, gyro noise model |
 | space-systems/adcs/pointing-error-budget | Pointing error budget | pointing error budget, pointing accuracy, rss pointing error, jitter budget, adcs error allocation |
 | space-systems/orbit-mechanics/walker-delta-constellation | Walker-Delta constellation | walker delta constellation, walker delta tpf, constellation plane spacing, inter-plane phasing, constellation slot enumeration |
+| space-systems/orbit-mechanics/geostationary-station-keeping | GEO station keeping | geostationary station keeping, north-south inclination drift control, east-west deadband cycle, longitude acceleration, geo delta-v and propellant budget, uncontrolled drift years |
 
 
 ## Routing guidance
@@ -164,3 +165,5 @@ your host's skills directory (see README Install for per-host commands).
 - Bi-elliptic three-impulse transfer questions (intermediate apogee, delta-v saving, transfer comparison against the Hohmann transfer) route to the orbit-mechanics bi-elliptic-transfer sub-skill.
 - Close-approach miss distance, probability of collision, and hard-body-radius screening questions route to the orbit-mechanics conjunction-assessment sub-skill.
 - Walker-Delta constellation parameterization questions (t/p/f validity, RAAN and mean anomaly spacing, inter-plane phase, slot grid) route to the orbit-mechanics walker-delta-constellation sub-skill.
+
+- Geostationary station-keeping questions (annual north-south delta-v from the inclination drift, per-burn delta-v and propellant, east-west deadband cycle and cadence, uncontrolled drift time to the inclination tolerance) route to the orbit-mechanics geostationary-station-keeping sub-skill.
