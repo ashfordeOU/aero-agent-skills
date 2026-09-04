@@ -78,6 +78,7 @@ and guidance laws (proportional navigation, pursuit).
 
 | gnc-autonomy/estimation-filtering/interacting-multiple-model-filter | Interacting multiple model filter | IMM filter, mode probability, Markov mode switching, maneuvering target tracking, CV CA filter bank, model likelihood update, mixed state estimate |
 | gnc-autonomy/control/digital-control-design | Digital control design | z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, sample rate selection, unit circle stability, sampled data control |
+| gnc-autonomy/optimal-control/bang-bang-control | Bang-bang control | bang bang control, time optimal control, switching curve, minimum time maneuver, double integrator, rest to rest slew |
 
 ## Routing guidance
 
@@ -136,6 +137,8 @@ amics sub-skill.
 
 - Interacting multiple model filter questions (IMM filter bank, mode probability, Markov mode switching, maneuvering target tracking, CV CA modes) route to the estimation-filtering interacting-multiple-model-filter sub-skill.
 - Sampled-data digital control questions (z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, unit circle stability) route to the control digital-control-design sub-skill.
+
+- Time-optimal bang-bang control questions (switching curve, minimum-time rest-to-rest slew, double integrator) route to the optimal-control bang-bang-control sub-skill.
 
 ## Install
 

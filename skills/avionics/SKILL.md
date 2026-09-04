@@ -83,6 +83,8 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/surveillance/airborne-weather-radar | Airborne weather radar | weather radar tilt, reflectivity rainfall, Marshall-Palmer, echo level, ground clutter check |
 
 | avionics/do178c/data-control-coupling-analysis | Data and control coupling (DO-178C) | data coupling analysis, control coupling analysis, shared variable pairs, coupling coverage evidence, level A objectives |
+| avionics/fsw/real-time-scheduling | Real-time scheduling | rate monotonic scheduling, response time analysis, earliest deadline first, Liu Layland bound, CPU utilization, fixed priority schedulability |
+| avionics/flight-management/radius-to-fix-leg | Radius-to-fix leg | radius to fix leg, RF leg, RNP AR procedure, turn center, arc length, path terminator, flyable arc check |
 
 ## Routing guidance
 
@@ -133,6 +135,9 @@ est case count, coverage objectives per
 - ADS-B equipage and reception questions (ADS-B Out, extended squitter, NIC containment radius, NACp accuracy, SIL integrity, ADS-B range) route to the surveillance ads-b-surveillance sub-skill.
 
 - Data and control coupling analysis questions (inter-component shared variable pairs, call edge coupling, level A coupling coverage evidence) route to the do178c data-control-coupling-analysis sub-skill.
+
+- Real-time scheduling feasibility questions (rate monotonic, response time analysis, earliest deadline first, Liu-Layland bound) route to the fsw real-time-scheduling sub-skill.
+- Radius-to-fix (RF) leg construction questions (turn center, arc length, exit track, RNP AR flyable arc) route to the flight-management radius-to-fix-leg sub-skill.
 
 ## Install
 

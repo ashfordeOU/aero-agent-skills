@@ -77,6 +77,9 @@ material selection.
 
 | structures/composites/laminate-hygrothermal-response | Laminate hygrothermal response | hygrothermal response, laminate CTE, moisture swell strain, cure cooldown strain, hygral strain, laminate moisture content |
 | structures/fem/cylindrical-shell-buckling | Cylindrical shell buckling | cylindrical shell buckling, SP-8007 knockdown, shell axial compression, external shell bending, cross section ovalization, shell plasticity correction |
+| structures/composites/laminate-first-ply-failure | Laminate first-ply failure | first ply failure, Tsai-Wu failure index, critical ply, reserve factor, midplane strain recovery, laminate failure envelope |
+| structures/fem/pressure-bulkhead | Pressure bulkhead | pressure bulkhead, membrane theory dome, bulkhead dome stress, ellipsoidal bulkhead, junction ring load, dome margin |
+| structures/fem/beam-vibration | Beam vibration | beam vibration, Euler-Bernoulli beam, characteristic equation roots, cantilever beam, pinned pinned beam, Rayleigh quotient |
 
 ## Routing guidance
 
@@ -149,6 +152,10 @@ ance) route
 
 - Laminate hygrothermal response questions (laminate CTE, moisture swell strain, cure cooldown strain, hygral strain) route to the composites laminate-hygrothermal-response sub-skill.
 - Curved cylindrical shell buckling questions (SP-8007 knockdown, shell axial compression, shell bending, cross-section ovalization) route to the fem cylindrical-shell-buckling sub-skill.
+
+- Laminate first-ply-failure questions (Tsai-Wu per-ply failure index, critical ply, reserve factor, FPF load) route to the composites laminate-first-ply-failure sub-skill.
+- Fuselage pressure-bulkhead questions (dome membrane stresses, junction ring load, dome margin, ellipsoidal bulkhead) route to the fem pressure-bulkhead sub-skill.
+- Continuous-beam vibration questions (Euler-Bernoulli natural frequencies, characteristic equation roots, Rayleigh quotient) route to the fem beam-vibration sub-skill.
 
 ## Install
 
