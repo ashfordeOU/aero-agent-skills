@@ -116,6 +116,32 @@ scheme at the MEOP.
   fraction 0.232 above 0.20, so the verdict flips to
   "tank-sizing-fail".
 
+
+## Pitfalls
+
+- Taking the typical values as the design: the ullage fraction,
+  burst factor, and boss factor are documented typicals (0.06, 2.0,
+  1.10) that must come from the actual tank specification; the leaf
+  itself says they are program inputs.
+- Adding ullage the wrong way: the ullage fraction is a fraction of
+  the TOTAL tank volume, so V_ullage = V_p * u / (1 - u), not u
+  times the propellant volume.
+- Sizing the wall from MEOP instead of burst pressure: the membrane
+  thickness uses p_burst = burst_factor * MEOP; a burst-factor slip
+  of 1.0 (rejected by validation) halves the wall and the shell
+  mass.
+- Confusing the pressurization schemes: a regulated system holds
+  MEOP while a blowdown system starts at MEOP and falls to
+  MEOP / ratio, with the pressurant sized at the initial pressure;
+  picking the wrong scheme changes the gas mass and the pressure
+  case.
+- Judging the bus on the raw shell alone: the gate is the tank mass
+  fraction m_shell / m_propellant against the 0.20 budget (0.0343 in
+  the worked example), so a heavy propellant load can mask an
+  overbuilt tank and vice versa.
+- Sizing pressurant with the wrong gas constant: helium is
+  2077.0 J/(kg K); a nitrogen or other-gas constant silently
+  rescales the pressurant mass.
 ## Verification
 
 - Confirm propellant_volume_m3(100, 1008) returns 0.099206 m3.
@@ -145,7 +171,7 @@ scheme at the MEOP.
 - space-systems/subsystems/solar-array-sizing: the power side of the
   bus mass and volume trade around the tank.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

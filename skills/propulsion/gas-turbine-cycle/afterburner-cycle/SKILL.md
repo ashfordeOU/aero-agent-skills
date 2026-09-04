@@ -145,7 +145,34 @@ temperature rise), p04 3.0e5 Pa, ambient 1.01325e5 Pa.
 - propulsion/turbofan/turbofan-cycle: the turbofan core context of the
   augmented military engine.
 
-## Contract test
+## Pitfalls
+
+- Feeding an afterburner exit temperature at or below the turbine exit:
+  t05 must exceed t04 or the duct energy balance is unphysical — the
+  function rejects t05 <= t04 with ValueError, so the 800 K reheat rise
+  in the worked example is the intended input shape.
+- Ignoring the core fuel in the duct mass balance: the energy balance
+  heats (1 + f_core) kg of gas per kg of air, and the reheat thrust
+  carries (1 + f_core + f_ab) mdot_core, so dropping f_core (0.02 in
+  the example) shifts both the fuel-air ratio and the thrust.
+- Using the ideal-nozzle velocity for a real nozzle: the fully expanded
+  ideal isentropic nozzle is a documented simplification with no
+  pressure thrust term; real nozzles add a thrust coefficient below
+  one, so the model overstates v and F.
+- Evaluating the nozzle below the choked condition: nozzle_exit_velocity
+  requires p_total > p_amb for the fully expanded model; feeding an
+  unchoked or inverted pressure ratio raises ValueError rather than
+  returning a partial-expansion velocity.
+- Selling reheat as an efficiency measure: the worked example adds about
+  40% thrust (augmentation 1.405) but roughly doubles the specific fuel
+  consumption (28.05 to 42.43 mg/(N s)) — the augmentation ratio alone
+  hides the SFC cost.
+- Reading the wrong SFC mode: sfc_dry divides only the core fuel flow
+  f_core * mdot_core by the dry thrust while sfc_reheat divides the
+  total fuel flow (f_core + f_ab) * mdot_core by the reheat thrust;
+  swapping the denominators inverts the comparison.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

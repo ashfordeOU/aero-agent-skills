@@ -142,7 +142,7 @@ at alpha_u = 4 deg, span 0.9 m, in a closed test section 1.4 m by 1.0 m
   this correction chain and its constants belong in the validation
   report next to the error metrics.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

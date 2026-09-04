@@ -13,7 +13,7 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="485 verified skills · 85 live packs · 12 families · 30 standards · 984 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="485 verified skills · 85 live packs · 12 families · 30 standards · 986 router tasks · 8/8 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
@@ -25,7 +25,7 @@
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5-2ea043?style=flat&labelColor=1a1e35" alt="gates 5%2F5"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=flat&labelColor=1a1e35" alt="attest 3%2F3"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-984-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 984"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-986-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 986"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <p align="center">
@@ -120,7 +120,7 @@ cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 ### The domain map
 
 <!-- gen:overview -->
-**485 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **984-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**485 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **986-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -155,8 +155,8 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | **Space systems** | ECSS | 5 | 43 | 89 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 43 | 87 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 33 | 68 |
-| **Vehicle design** | FAR-25 / CS-25 | 6 | 42 | 84 |
-| **Total** | 30 standards mapped | **85** | **485** | **984** |
+| **Vehicle design** | FAR-25 / CS-25 | 6 | 42 | 86 |
+| **Total** | 30 standards mapped | **85** | **485** | **986** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -297,7 +297,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 485 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 984-task corpus) and Claude Code plugin packaging
+- **Shipped:** 485 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 986-task corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->

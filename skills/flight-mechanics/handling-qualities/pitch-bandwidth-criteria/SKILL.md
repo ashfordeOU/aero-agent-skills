@@ -125,6 +125,28 @@ Case B: wn = 3.0 rad/s, zeta = 0.6, T_th2 = 0.7 s, w_act = 20 rad/s.
   scripts/test_pitch_bandwidth_criteria.py (35 tests, deterministic,
   passes in under a second).
 
+## Pitfalls
+
+- Treating the level boundaries as universal: the 3.5/2.5 rad/s bandwidth
+  floors and 0.2 s phase-delay limit are representative Category A values
+  and are class dependent in MIL-STD-1797A; recheck class and category
+  against the current revision before a certification-grade verdict,
+  especially when the computed metrics sit near a boundary.
+- Reading omega_GM6 = None as zero: the -6 dB gain crossing counts only when
+  it sits at or beyond the -180 degree crossing; the low-frequency crossing
+  of the normalized response never limits bandwidth and is reported None, so
+  None means 'not bandwidth limiting', not a 0 rad/s limit.
+- Computing tau_p without omega_180: the phase delay is read from the
+  unwrapped phase at twice the -180 degree frequency and is None when
+  omega_180 does not exist; evaluating the formula at an arbitrary frequency
+  gives a meaningless number.
+- Ignoring the w_act > wn constraint: an actuator lag at or below the short
+  period frequency is rejected (ValueError), and a marginally separated
+  w_act distorts the high-frequency phase that sets omega_180 and tau_p.
+- Trusting principal phase without unwrapping: crossings are located on the
+  numerically unwrapped phase table with bisection refinement; wrapping
+  artifacts around -180 degrees would shift omega_180 and the phase delay.
+
 ## Related leaves
 
 - flight-mechanics/handling-qualities/mil-std-1797a: the modal level
@@ -138,7 +160,7 @@ Case B: wn = 3.0 rad/s, zeta = 0.6, T_th2 = 0.7 s, w_act = 20 rad/s.
 - flight-mechanics/stability-control/short-period-mode-analysis: source
   of the short period wn and zeta inputs to the model.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

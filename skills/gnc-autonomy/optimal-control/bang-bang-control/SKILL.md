@@ -129,6 +129,30 @@ Generic start, x0 = 50 m, v0 = +5 m/s, a = 1 m/s^2:
 - Run the contract test offline: python3
   scripts/test_bang_bang_control.py (27 tests, deterministic).
 
+## Pitfalls
+
+- Reading the sign of the law backwards: s(x, v) = x + v*|v|/(2a) with s > 0
+  commands -a and s < 0 commands +a; the convention sign(0) = 0 returns 0.0
+  exactly on the curve (a single instant that does not change maneuver
+  time).
+- Quoting the rest-to-rest time with the wrong limit: T* = 2*sqrt(d/a) with
+  the switch at exactly d/2 and v_s = -sqrt(a*d) (20 s, 10 s switch, -10 m/s
+  at d = 100, a = 1); the acceleration limit a is the hard input bound, not
+  a tuned gain.
+- Expecting one leg from every start: a generic state above the curve needs
+  a first leg that can pass through rest (brake to rest at the waypoint,
+  then return) before the second leg rides the curve; at most one switch
+  total.
+- Using the slew frame numbers in the translational frame: the same law
+  sizes angular slews with theta0 and alpha (2*sqrt(2/0.05) = 12.649 s for
+  theta0 = 2 rad, alpha = 0.05 rad/s2) - keep rad and rad/s2 straight.
+- The stepping simulation is the check: bang_bang_command sampled at 1e-4 s
+  lands within 1e-2 s of the analytic total time (1e-3 when started from the
+  switch point); min_time_state(d, 0, a) must reproduce
+  min_time_rest_to_rest.
+- Negative d and non-positive a raise ValueError; the convenience dicts
+  expose exactly their documented keys deterministically.
+
 ## Related leaves
 
 - gnc-autonomy/optimal-control/lqr-design: quadratic full-state
@@ -138,7 +162,7 @@ Generic start, x0 = 50 m, v0 = +5 m/s, a = 1 m/s^2:
 - gnc-autonomy/control/pid-control-design: feedback loops with
   integrator anti-windup, the non-optimal alternative.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

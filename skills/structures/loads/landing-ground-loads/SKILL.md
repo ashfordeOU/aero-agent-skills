@@ -107,6 +107,31 @@ lateral offset 0.1 m, track 5.0 m.
   tail-down value 1 470 997.5 N and critical nose the level nose value
   294 199.5 N.
 
+
+## Pitfalls
+
+- Feeding mass where weight is expected: every function past
+  weight_force takes the weight W in N (m * g0); passing kilograms
+  divides every reaction by gravity.
+- Swapping the CG arms: a is nose-gear-to-CG and b is CG-to-main-
+  gear, so the nose reaction W * b / (a + b) uses the FAR arm and
+  the main reaction W * a / (a + b) the near arm; swapping them
+  puts the parked load on the wrong gear.
+- Using the static reaction for a dynamic condition: the level
+  landing, tail-down and one-wheel cases scale by the limit vertical
+  inertia load factor, and the certification value is a caller
+  choice (2.5 typical), not a module constant.
+- Forgetting the braked-roll identity: with all brakes on the main
+  gear the deceleration is friction * a / (a + b) (0.64 g in the
+  worked example), so a friction value near 1 does not mean a 1 g
+  stop.
+- Placing the CG outside the track half width: the one-wheel
+  condition is only valid for a lateral offset y in [0, t/2]; a CG
+  beyond that is non-physical and raises ValueError.
+- Sizing one station only: the critical main reaction is the maximum
+  over level landing, braked roll, tail down and one wheel (the
+  tail-down 1 470 997.5 N in the worked example), so the summary's
+  per-station max, not any single condition, gates the gear check.
 ## Verification
 
 - Confirm static_reactions(588399.0, 8, 2) returns nose 117 679.8 N
@@ -141,7 +166,7 @@ lateral offset 0.1 m, track 5.0 m.
 - vehicle-design/sizing/brake-energy-sizing: braking energy sizing for
   the rejected takeoff case that pairs with the braked-roll check.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

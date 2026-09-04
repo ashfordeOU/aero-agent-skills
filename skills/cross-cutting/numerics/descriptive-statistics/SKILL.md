@@ -114,6 +114,28 @@ Real module outputs:
   coefficient_of_variation 0.4276179871, outlier_indices [7],
   outlier_values [9].
 
+## Pitfalls
+
+- Mixing the ddof conventions: the sample variance uses ddof 1 (32/7 =
+  4.5714) and the population variance ddof 0 (32/8 = 4.0); quoting one
+  as the other shifts the standard deviation by sqrt(8/7).
+- Reading quartiles as values that must appear in the sample: the
+  quartiles use linear interpolation over ranks (q1 = 4.0 blends rank
+  1.75 across the two 4s, q3 = 5.5 blends 5 and 7), which is why the
+  five-number summary reads {2, 4, 4.5, 5.5, 9}.
+- Forgetting the fence rule is strict: a value exactly at the upper
+  fence (7.75 in a crafted sample) is NOT flagged as an outlier, while
+  a value just past it (7.76) is.
+- Computing the coefficient of variation on a zero mean: it raises
+  ValueError, as do empty samples for every measure, variance and std
+  at n = 1 with ddof = 1 (n - ddof <= 0), and percentile p outside
+  [0, 1].
+- Calling percentile with p outside [0, 1]: it raises ValueError, and
+  the p = 0 and p = 1 endpoints return min and max by design.
+- Trusting the mean alone on skewed data: the median (4.5) and the
+  outlier flags (only the 9, above the 7.75 fence) carry the shape
+  information that the mean of 5.0 hides.
+
 ## Verification
 
 - Confirm mean, median and data_range of [2, 4, 4, 4, 5, 5, 7, 9]
@@ -152,7 +174,7 @@ Real module outputs:
   and capability-index methods for production process monitoring, not
   one-off sample summaries.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

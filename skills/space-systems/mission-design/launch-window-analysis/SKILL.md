@@ -130,6 +130,31 @@ Sun-synchronous variant: LTAN 10:30 gives raan 337.5 (sun_ra 0); with
 gmst 45 the window center is 2088 s after the reference epoch with a
 half-width of 1384 s (about 46 min total).
 
+
+## Pitfalls
+
+- Asking for an unreachable inclination: direct injection requires
+  |lat| <= inc <= 180 - |lat|; below the site latitude the azimuth
+  function (and the window function, whose plane never crosses the
+  site) raises ValueError instead of returning a number.
+- Forgetting the retrograde branch: targets above 90 deg launch
+  westward with az = 180 - asin(cos(inc)/cos(lat)) (the 98 deg KSC
+  case gives 189.11 deg), not with the eastward formula.
+- Mixing GMST and the site longitude sign: the crossing instant uses
+  LST = GMST + site_lon, so a West-negative longitude convention must
+  be applied consistently (KSC at -80.6 in the worked example).
+- Dropping the node regression when predicting window repeats: the
+  repeat period is 360 / (earth_rate - node_regression); a
+  sun-synchronous plane needs 0.9856 deg/day to give the exact 1.0
+  day solar repeat, while no regression gives the 0.99727 day
+  sidereal period.
+- Using the sun right ascension sloppily: sun_sync_ltan_to_raan
+  assumes sun_ra 0 at the vernal equinox; outside equinox the actual
+  sun RA must be supplied or the RAAN and the whole window shift.
+- Quoting the plane change penalty with the doubled half-angle: the
+  formula dv = 2 v sin(di/2) already contains the factor of two, so a
+  20 deg change is 2.709 km/s, not the 2.72 km/s figure that comes
+  from misapplying 2 v sin(10 deg) to a 20 deg change.
 ## Verification checklist
 
 - Azimuth for inc equal to the site latitude is exactly 90 deg (due
@@ -171,6 +196,16 @@ half-width of 1384 s (about 46 min total).
   the orbit the launch window targets.
 - entry-descent-landing (../entry-descent-landing): the other end of
   the mission, descent and landing of the spacecraft.
+
+## Behavior contract (gate 3)
+
+The launch geometry logic (azimuth, window crossing, LTAN to RAAN,
+plane change penalty, elevation and beta angle) is exercised by the
+gate 3 contract test scripts/test_launch_window.py against
+scripts/launch_window_logic.py (stdlib unittest, offline,
+deterministic, 22 tests). Run:
+
+    python3 scripts/test_launch_window.py
 
 ## Compliance
 

@@ -116,7 +116,35 @@ neutral.
 - propulsion/rocket/rocket-sizing: motor selection and sizing inside
   the full launch vehicle mass and performance loop.
 
-## Contract test
+## Pitfalls
+
+- Assuming a neutral grain stays neutral as the web burns: the burn
+  area verdict must be re-checked for the geometry — a tubular bore
+  that grows with web is progressive, a sliver or rod that loses
+  surface is regressive, and only a star or wagon-wheel cut for
+  constant surface is neutral.
+- Setting the pressure exponent near unity: the equilibrium solution
+  p_c = (rho_p * a * A_b * c* / A_t)^(1/(1-n)) is singular at n = 1 —
+  no finite chamber pressure exists in that limiting case, and the
+  module rejects it rather than returning a huge pressure.
+- Balancing the chamber on the throat side alone: equilibrium requires
+  the burn-side mass flow rho_p * A_b * r to equal the choked throat
+  flow p_c * A_t / c*; the worked example cross-checks both sides
+  (about 0.64 kg/s each), so a mismatch between them means an input
+  error, not a motor quirk.
+- Mixing burn-rate coefficient units: with r = a * p^n the coefficient
+  a is expressed per Pa^n (2.0e-5 m/s per Pa^n in the example) — a
+  coefficient tabulated in other pressure units shifts the whole
+  pressure equilibrium.
+- Feeding zero burn area or zero throat area: both raise rejection
+  because the equilibrium has no physical content — a zero throat with
+  a burning grain would pressurize without bound.
+- Reporting thrust without the impulse check: total_impulse from F * t_b
+  must match Isp * g0 * m_prop (about 12.4 kN*s both ways in the
+  example); the propellant-mass route catches thrust or burn-time
+  slips.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

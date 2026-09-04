@@ -172,7 +172,7 @@ significant.
   separation and installation-level independence that the RBD
   reliability numbers assume.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

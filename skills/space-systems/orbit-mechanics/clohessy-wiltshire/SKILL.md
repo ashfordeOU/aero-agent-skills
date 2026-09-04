@@ -123,6 +123,33 @@ z'0 = 0.
   cross-track offset at exactly T/2 also raises ValueError because
   sin(n*T/2) = 0 leaves no cross-track authority at the endpoint.
 
+
+## Pitfalls
+
+- Using the model outside its assumptions: CW is linearized about a
+  circular chief with no perturbations and needs deputy-chief
+  separation small compared with the orbit radius; the 1% return
+  tolerances only hold inside that envelope.
+- Mis-stating the bounded-orbit condition: y'0 must equal -2 n x0
+  exactly; with y'0 = 0 the deputy drifts linearly (y(T) = -37699.1 m
+  in the worked example), so "no drift" must be verified, not
+  assumed, before a formation or stationkeeping design.
+- Targeting at a singular transfer time: tau_f at one full orbit (or
+  any integer half orbit when cross-track nulling is demanded) makes
+  phi_rv singular and raises ValueError; choose the transfer time
+  away from the singularity and treat the error as a design signal,
+  not a numeric accident.
+- Forgetting the frame: x is radial outward, y along-track, z
+  cross-track (right-handed about the orbit normal); swapping the
+  radial and along-track channels turns a bounded orbit into a
+  drifting one.
+- Checking geometry on the raw state: run
+  relative_orbit_geometry_check on the propagated position, not the
+  velocity or the initial offset, or a close approach below the
+  standoff radius goes unnoticed.
+- Confusing relative with absolute transfers: this leaf sizes
+  deputy-chief maneuvers in the LVLH frame; orbit-raising and
+  interplanetary legs belong to hohmann-transfer and lambert-transfer.
 ## Verification
 
 - cw_stm(n, 0) is the identity within 1e-12.
@@ -153,7 +180,7 @@ z'0 = 0.
 - gnc-autonomy/space/rendezvous-phasing: the far-field along-track
   offset setup that precedes the linearized CW approach modeled here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

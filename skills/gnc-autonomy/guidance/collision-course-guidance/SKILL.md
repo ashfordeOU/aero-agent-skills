@@ -139,6 +139,26 @@ target_heading_angle_deg = 60. Real module outputs:
 - Run the contract test offline: python3
   scripts/test_collision_course_guidance.py (35 tests, deterministic).
 
+## Pitfalls
+
+- Target faster than the pursuer: the lead angle asin(Vt/Vp*sin(beta)) has
+  no real solution when the argument exceeds 1 in magnitude - a target too
+  fast for a collision course raises ValueError rather than returning an
+  angle.
+- Quoting time to go on a non-closing geometry: Vc must be positive
+  (collision_closing_speed raises ValueError otherwise) and time_to_go
+  rejects closing speed <= 0 or negative range.
+- Reading the lead angle without the wrap: beta is wrapped into [-180, 180]
+  and the required heading is los + LA; heading error is also wrapped, so an
+  11.15 deg error is a turn toward the lead heading, not a 348.8 deg turn.
+- Degrees throughout: LOS angle, target heading, lead angle and heading
+  error are all in degrees in the same frame; mixing radians silently shifts
+  every triangle output.
+- Applying the triangle to accelerating vehicles: the model assumes constant
+  pursuer speed and a constant-velocity target with no turning dynamics -
+  the meeting point identity (both vehicles arrive at intercept at t_go
+  within 1% of range) only holds under those assumptions.
+
 ## Related leaves
 
 - gnc-autonomy/guidance/pursuit-guidance: the sibling leaf that steers the
@@ -154,7 +174,7 @@ target_heading_angle_deg = 60. Real module outputs:
 - gnc-autonomy/guidance/midcourse-guidance: steering between intermediate
   points before the terminal homing phase this leaf supports.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -168,6 +168,28 @@ Vtip = 220 m/s, a = 5.73 1/rad. Real module outputs:
   scripts/test_rotorcraft_blade_element_hover_performance.py (34
   tests, deterministic).
 
+## Pitfalls
+
+- Letting the Betz factor out of (0, 1]: B = 1 is the no-tip-loss limit
+  where the blade-element power equals the momentum P_ideal + P_profile, and
+  B = 0.97 already raises the required collective about 6%; B outside (0, 1]
+  raises ValueError.
+- Mixing radians and degrees for collective: the module works in radians
+  (theta0 = 0.132839 rad = 7.61 deg on the reference rotor) and the
+  published 5-10 deg band is in degrees; compare after conversion, not on
+  the raw number.
+- Calling the summary with a collective that does not reproduce the thrust:
+  hover_blade_element_summary verifies the supplied collective reproduces
+  the thrust-derived C_T and raises ValueError on a mismatch, so pass one
+  consistent hover state rather than a sweep point.
+- Splitting the torque coefficient incorrectly: the induced term is
+  lambda*C_T and the profile term sigma*Cd0/8; they must sum to the total to
+  1e-12, so do not double count profile drag when you already have a total
+  C_Q.
+- Reading the figure of merit above 1: FM = C_T^1.5/(sqrt(2)*C_Q) sits in
+  (0, 1) for a real rotor and equals exactly 1 only at the ideal C_Q; an FM
+  at or above 1 flags a coefficient inconsistency.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-hover-performance: the
@@ -177,7 +199,7 @@ Vtip = 220 m/s, a = 5.73 1/rad. Real module outputs:
   blade dynamics sibling that also consumes theta0.
 - flight-mechanics/performance/rotorcraft-tail-rotor-sizing.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -156,7 +156,31 @@ level 3 and the overall level to 3.
 - [ ] Contract test passes: python3 scripts/test_flying_qualities.py
       (offline, deterministic, all known-good values asserted).
 
-## Behavior contract
+## Pitfalls
+
+- Misclassifying category or class: the short-period frequency floor and the
+  dutch roll tables are category- and class-dependent (category A class IV
+  starts at 2.5 rad/s, category B at 1.0), so a Level 1 verdict computed for
+  A/IV is not transferable to another category/class.
+- Checking dutch roll on damping alone: the product criterion (damping times
+  frequency) is enforced, so a high frequency does not pass a low damping
+  product; report the limiting of damping, frequency and product.
+- Applying roll performance outside category A: the time-to-60-deg criterion
+  applies to category A only; assess_roll_performance reports level None for
+  B and C and combine_levels skips it, so do not force a category-A roll
+  rate check in cruise.
+- Comparing spiral and roll mode in the wrong units: spiral is a minimum
+  time to double (s) and roll mode a maximum time constant (s); they grade
+  on separate tables and are not interchangeable thresholds.
+- Reading the overall level from one mode: the overall level is the worst
+  (limiting) level across all six modes, so a single Level 3 mode (for
+  example divergent spiral time to double below 4 s) drops the whole
+  assessment even when every other mode is Level 1.
+- Passing invalid category, class or non-physical metrics: every assess
+  function validates and raises ValueError on invalid category/class strings
+  and non-physical values such as negative damping.
+
+## Behavior contract (gate 3)
 
 scripts/test_flying_qualities.py (stdlib unittest, offline) is the
 correct-answer oracle: it asserts the known-good Level 1 case

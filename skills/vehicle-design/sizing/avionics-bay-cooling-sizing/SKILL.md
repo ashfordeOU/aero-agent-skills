@@ -102,6 +102,32 @@ and case limits [60, 60, 60, 65, 60, 60] C.
   release. Re-running the summary with the 550 W LRU reduced to 350 W
   gives an all-PASS set and a bay verdict PASS.
 
+
+## Pitfalls
+
+- Checking the airflow but not the individual LRU cases: the bay
+  verdict FAILs when any LRU case exceeds its limit even if the mass
+  flow is adequate - in the worked bay three LRUs fail their case
+  limits (550 W gives 70.83 C against 65 C) while the flow itself
+  closes the 30 K rise.
+- Sizing the flow on a temperature difference that is not positive:
+  cooling_mass_flow requires the LRU inlet-air limit above the
+  supply temperature; a limit at or below supply raises ValueError
+  because there is no cooling potential.
+- Reading the exhaust temperature as a margin: the sized exhaust
+  EQUALS the LRU inlet limit by construction (55.0 C in the worked
+  example); it is the per-LRU case temperatures that carry margin.
+- Sharing one conductance blindly: the case temperature uses the
+  case-to-air conductance h A (12 W/K default) per LRU, and
+  doubling the conductance halves the case rise; a high-dissipation
+  LRU with poor local heat path fails while the average looks fine.
+- Treating this leaf as the cabin conditioning pack: the bay airflow
+  and LRU case checks are this leaf's claim; environmental-control-
+  sizing stops at the conditioning pack flow, and DO-160
+  environmental-qualification covers the LRU test side.
+- Feeding non-physical bay inputs: an empty LRU list, negative
+  power, density or conductance at or below zero, and a case limit
+  below absolute zero all raise ValueError.
 ## Verification
 
 - Confirm bay_heat_load([400, 350, 300, 550, 450, 450]) returns total
@@ -140,7 +166,7 @@ and case limits [60, 60, 60, 65, 60, 60] C.
 - avionics/do160/environmental-qualification: the test specification
   side of LRU temperature qualification, not airflow sizing.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -112,6 +112,31 @@ b = [273, 271, 268, 275, 270], classic small samples.
 - Cross-checks: t_cdf(0, 10) = 1.0, t_cdf(1e6, 10) ~ 0, and
   chi2_cdf(0, 5) = 0.0.
 
+## Pitfalls
+
+- Using the pooled t test where the variances differ: pooled assumes
+  equal variances, and the Welch result (df 7.724, p 0.00141) is the
+  unequal-variance path; f_test_variances checks the assumption
+  directly.
+- Ignoring the experimental design: constant +0.1 paired differences
+  need the paired test (stat -6.0, p 0.00388), and running a
+  two-sample test on paired data discards the pairing.
+- Reading fail-to-reject as proof of the null: identical data give
+  stat 1.0, p 1.0 (F test) and one-sample t against the true mean
+  gives p 1.0 — those results mean no evidence against, not that the
+  null is true.
+- Feeding undersized or malformed inputs: fewer than 2 points (3 for
+  variance tests and ANOVA), length-mismatched paired inputs,
+  non-finite values, zero variance in a one-sample test, zero row or
+  column totals, expected counts below 1, non-rectangular tables, and
+  alpha outside (0, 1) all raise ValueError.
+- Carrying the t-F identity across test families: pooled t stat
+  squared (-4.849^2 = 23.511) equals the one-way ANOVA F only for the
+  same two groups under the pooled-variance assumption.
+- Skipping the normality and scale context: this parametric family is
+  the sibling of the rank-based leaf, which stays valid when the
+  normality assumption fails.
+
 ## Verification
 
 - Confirm t_test_2samp on the drag counts returns df 8, p < 0.01 and
@@ -138,7 +163,7 @@ b = [273, 271, 268, 275, 270], classic small samples.
 - cross-cutting/numerics/monte-carlo-sampling: distribution of test
   statistics under simulated scatter, the sampling layer above this one.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -184,7 +184,7 @@ q1 = 90 deg about z: axis_angle_to_quaternion((0, 0, 1), pi/2) =
   vector measurements, which consumes the quaternion of this leaf as
   its output representation.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

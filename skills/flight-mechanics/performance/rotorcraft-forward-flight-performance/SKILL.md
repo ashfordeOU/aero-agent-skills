@@ -144,6 +144,25 @@ authoritative output of the spec model.
   scripts/test_rotorcraft_forward_flight_performance.py (34 tests,
   deterministic, no RNG).
 
+## Pitfalls
+
+- Treating the draft spec window as the model answer: the best range speed
+  of this model at f = 2.2 m2 lands near 45 m/s (the draft 50-90 m/s window
+  is not reachable); the module value is authoritative for the spec model.
+- Starving the Glauert iteration: the inflow fixed point is found by
+  substitution with a 60-iteration cap (RuntimeError when exhausted); the
+  default 5-100 m/s sweep converges, but forcing max_iter = 2 raises
+  RuntimeError by contract.
+- Expecting induced power to rise with speed: induced velocity falls with
+  flight speed (v ~ T/(2 rho A sqrt(V^2+v^2))) while parasite power rises as
+  V^3, so best range speed always sits above best endurance speed; a lower
+  range speed signals a sweep or formula error.
+- Calling at V = 0 for the inflow: speed 0 returns the hover value v_h
+  directly; negative speed raises ValueError.
+- Using the hover power terms without the induced power factor: total power
+  is k*T*v + P_profile + P_par with k = 1.15 default, matching the hover
+  leaf convention.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-hover-performance: the
@@ -154,7 +173,7 @@ authoritative output of the spec model.
 - flight-mechanics/performance/thrust-required: fixed-wing drag and
   thrust terms against which rotorcraft power is often compared.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

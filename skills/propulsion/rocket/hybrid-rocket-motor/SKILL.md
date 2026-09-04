@@ -152,7 +152,37 @@ ignition, A_t = 2.346e-4 m2 (about 17.3 mm throat diameter):
 - propulsion/rocket/propellant-selection: oxidizer and fuel families
   for the hybrid pair.
 
-## Contract test
+## Pitfalls
+
+- Treating the hybrid chamber pressure like an all-solid equilibrium:
+  the burn rate is flux-driven (r_dot = a * G_o^n), not
+  pressure-driven, so p_c = m_dot * c* / A_t follows the feed-limited
+  oxidizer flow directly — the pressure-driven grain ballistics of
+  solid-rocket-motor do not apply.
+- Ignoring the O/F shift over the burn: the port grows, G_o decays and
+  the mixture drifts oxidizer-rich (+0.073 in the worked example,
+  1.774 to 1.847); reporting the ignition O/F as the motor O/F misses
+  the classic hybrid drift.
+- Expecting the fuel flow to stay flat for every pair: the fuel flow
+  scales as r^(1 - 2n), so only a 0.5 flux exponent (HTPB/LOX n =
+  0.50) holds the flow flat as the port opens; the HTPB/N2O n = 0.55
+  case shifts a few percent over the web.
+- Feeding a fuel outside the reference table: regression_rate raises
+  ValueError on unknown fuels, and the a, n, m constants and L_ref =
+  0.6 m are reference-only typicals — a real grain needs its own
+  correlation, not the table defaults.
+- Reading the mass balance without the fuel-consumed cross-check: the
+  summary reports mass_balance_error 0.0 only when the mid-burn fuel
+  flow over the burn time (0.1654 * 5.24 = 0.867 kg) equals the fuel
+  consumed from the port growth rho_f * pi * (0.03^2 - 0.02^2) * 0.6 —
+  a non-zero error means an input inconsistency.
+- Oversizing the throat at the initial station: the throat is sized so
+  the initial chamber pressure sits at the target (3.0 MPa with A_t =
+  2.346e-4 m2); the end-of-burn pressure settles lower (2.96 MPa) as
+  the port opens, so the sized condition is ignition, not the average
+  burn.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

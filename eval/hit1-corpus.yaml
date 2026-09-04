@@ -4478,6 +4478,14 @@ tasks:
     query: "demultiplex a PCM minor frame stream by the subframe id into the recovered telemetry channel samples"
     intent: "flight-test-operations; subframe id demultiplexing of PCM telemetry channels"
     expected_skill: "flight-test-operations/planning/pcm-telemetry-decommutation"
+  - id: fuselage-sizing-1
+    query: "size the fuselage diameter and cabin length for a 150-passenger single-aisle airliner at the conceptual level, checking the cargo volume and seat count constraints"
+    intent: "vehicle-design; fuselage cross-section and cabin length sizing with cargo volume check"
+    expected_skill: "vehicle-design/sizing/fuselage-sizing"
+  - id: fuselage-sizing-2
+    query: "estimate the fuselage fineness ratio and cabin wetted area for a regional jet given passenger count and seat pitch, and check the aft-body upsweep angle for the cargo door"
+    intent: "vehicle-design; fuselage fineness ratio, wetted area, aft-body upsweep"
+    expected_skill: "vehicle-design/sizing/fuselage-sizing"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

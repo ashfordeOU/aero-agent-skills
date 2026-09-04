@@ -160,7 +160,44 @@ nmi/s).
 - avionics/data-bus/arinc429-protocol: the data bus transport that can
   carry the measured state, distinct from the threat logic itself.
 
-## Contract test
+## Pitfalls
+
+- Flipping the range-rate sign: range rate is negative for a closing
+  encounter and tau_mod = -(range^2 - DMOD^2) / (range * range_rate)
+  needs that closing sign — a closing speed in knots must be divided
+  by 3600 before calling, and a non-negative (opening) rate is the
+  "not-closing" gate, which never reaches the modified tau function
+  and raises ValueError if passed to it directly.
+- Assigning the sensitivity band edges to the wrong side: each own
+  altitude band is lower-inclusive and upper-exclusive (boundaries at
+  1000, 2350, 5000, 10000 and 20000 ft), so 8000 ft selects level 5
+  and 500 ft selects level 2 while the low-altitude level 1 is an
+  inhibited state outside the model — a 1000 ft aircraft belongs to
+  the level 3 band, not level 2.
+- Dividing by range rate inside the DMOD cylinder: once the range sits
+  at or inside DMOD the modified tau collapses to 0.0 and the
+  encounter is an immediate horizontal threat — the DMOD term exists
+  to remove the small-range singularity, so never evaluate the raw
+  quotient inside the cylinder.
+- Reading a False threat as a clean bill: the verdict always carries
+  the failing gate, "tau-exceeded" or "altitude-exceeded", and a
+  closing encounter that fails the tau test can still sit inside
+  ALIM — case 4's 95.16 s against the 48 s tau at level 7 fails even
+  with 500 ft of vertical separation inside the 600 ft ALIM, and
+  long, slow encounters are exactly what the tau gate is for.
+- Reversing the advisory sense: the own aircraft descends when the
+  intruder sits above it and climbs when the intruder is at or below
+  it (equal altitude resolves to climb) — the sense always moves the
+  own aircraft away from the intruder, so swapping the comparison
+  commands a climb into a higher intruder.
+- Using one threshold set for every altitude: tau (20 to 48 s), DMOD
+  (0.30 to 1.10 nmi) and ALIM (300 to 600 ft) grow with the
+  sensitivity level selected from own altitude — level 5 at 8000 ft
+  runs tau 40 s, DMOD 0.75 nmi, ALIM 350 ft, and the values in
+  SENSITIVITY_TABLE are paraphrased teaching values, never the MOPS
+  tables of rtca-do-185b.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

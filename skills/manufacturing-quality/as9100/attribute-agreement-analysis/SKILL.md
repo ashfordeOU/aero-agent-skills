@@ -134,7 +134,31 @@ accept/rework/reject with per-part category counts (each row sums to
   calibration state and traceability, the precondition that the
   attribute judgments are made on a controlled basis.
 
-## Contract test
+## Pitfalls
+
+- Reporting the raw percent agreement as the study result: the Cohen
+  worked example reads 80% observed agreement while the kappa is only
+  0.5252 (marginal) because the chance agreement 0.57875 is high — gate
+  the study on kappa, not on the pass rate.
+- Running the wrong statistic for the data shape: Cohen on
+  three-or-more-inspector data or Fleiss on a two-inspector table; the
+  module enforces its input shapes with ValueError, but the analysis
+  intent must pick the right form before calling.
+- Feeding non-physical tables: empty, non-square, negative counts, or
+  zero-total rows/columns silently corrupt po and pe; validate before
+  calling, since the module rejects these inputs by raising.
+- Misreading the verdict bands: below 0.40 is poor (retraining or
+  attribute gage study rework), 0.40 to 0.75 is marginal and needs
+  judgment before acceptance — only 0.75 and up passes outright.
+- Treating kappa 0.0 as a failure of computation: it is the
+  independence result (agreement exactly at the chance level, as in the
+  [[5, 5], [5, 5]] identity) and a kappa outside [-1, 1] is a data
+  error, not a scoring result.
+- Dropping the observed-versus-chance comparison: a low kappa with high
+  observed agreement is explained by a shared category tendency, and the
+  retraining or rework decision needs that gap, not the kappa alone.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

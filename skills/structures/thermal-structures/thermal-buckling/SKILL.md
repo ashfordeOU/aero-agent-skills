@@ -122,6 +122,34 @@ t = 1.6 mm, b = 150 mm, k = 4.0, uniaxial restraint.
   dT_cr = pi**2 * 0.025**2 / (12e-6 * 2.0**2) = 128.5 K (110 to 150 K
   band).
 
+
+## Pitfalls
+
+- Forgetting the restraint: thermal strain only becomes stress when
+  the free expansion is blocked; an unrestrained panel heats without
+  building load, so the uniaxial versus biaxial restraint choice is
+  the physics, not a detail.
+- Confusing the biaxial factor: biaxial restraint raises the stress
+  by 1/(1 - nu) over the uniaxial case, so the biaxial critical rise
+  is LOWER (12.24 K vs 18.26 K, ratio 0.67 exactly in the worked
+  example) - blocking both directions makes the panel buckle sooner.
+- Applying the k = 4.0 plate factor to other edge conditions: the
+  buckling stress uses k = 4.0 for a long plate simply supported on
+  all edges; other edge conditions carry other k coefficients and
+  belong with the mechanical plate-buckling leaf.
+- Checking the stress but not the margin sign: the thermal margin is
+  sigma_cr / sigma_thermal - 1, positive below the critical rise and
+  negative above (dT = 10 K gives +0.83, dT = 30 K gives -0.39 in
+  the worked example); a positive stress is not the same as a safe
+  panel.
+- Reading the Euler column as plate-dependent: the column critical
+  rise dT_cr = pi^2 r^2 / (alpha L_eff^2) is independent of the
+  modulus because the area cancels - passing a stiffer material does
+  not raise the column's critical temperature.
+- Feeding non-physical inputs: non-positive modulus, thickness,
+  width, length or k, poisson outside (-1, 0.5), alpha of zero in
+  the critical-rise functions, a negative rise and invalid restraint
+  strings all raise ValueError.
 ## Verification
 
 - Confirm plate_buckling_stress(72e9, 0.33, 1.6e-3, 0.150) returns
@@ -152,7 +180,7 @@ t = 1.6 mm, b = 150 mm, k = 4.0, uniaxial restraint.
 - structures/materials/creep-rupture: material response limits for hot
   structure beyond elastic behavior.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

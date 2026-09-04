@@ -158,7 +158,36 @@ omega_theta = 50 rad/s, sea level air (rho = 1.225 kg/m^3).
   that feed multi-mode flutter analyses beyond the two-DOF typical
   section.
 
-## Contract test
+## Pitfalls
+
+- Using quasi-steady aerodynamics (C = 1) for the damping search: it is
+  documented to give erroneous pitch damping, so the flutter crossing is
+  computed with the full Theodorsen C(k) — do not shortcut the
+  deficiency function.
+- Reading a mode as stable because g is negative at one speed: the V-g
+  sweep must show both modes damped at the low-speed end and the
+  torsion branch rising through g = 0 as airspeed grows; a single point
+  is not a stability verdict.
+- Treating a None flutter speed as "no flutter": flutter_speed_binary
+  returns None when no g = 0 crossing exists inside the scanned reduced
+  frequency range — widen the k sweep before concluding the section is
+  flutter-free.
+- Neglecting the static-unbalance requirement: with x_theta = 0 there is
+  no inertia coupling and no classical flutter mechanism, so a
+  zero-unbalance section must not be pushed through the binary search
+  as if it could flutter; a negative x_theta (elastic axis aft of the
+  center of gravity) is rejected because the mechanism assumption
+  breaks.
+- Clearing against the margin without checking the mechanism: the
+  frequency_coalescence_check verdict (gap shrinking from 27.7 to 8.0
+  rad/s in the benchmark) confirms the coalescence mechanism — a
+  clearance margin alone does not prove the flutter boundary was found.
+- Forgetting that flutter and divergence are different instabilities:
+  the torsion frequency collapsing to zero at about 141 m/s is static
+  divergence (divergence-speed leaf), not the 88.85 m/s flutter
+  crossing this leaf locates.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

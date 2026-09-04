@@ -151,6 +151,32 @@ fraction 0.6. Running the reduction chain on the measured point:
 - Torque check against 450,000 W rated with 5% tolerance:
   400,005 W <= 472,500 W, within_rated True.
 
+## Pitfalls
+
+- Mixing the FM evaluation basis: measured figure of merit divides the
+  ideal power at the reference condition by the measured power
+  (228,448 / 400,005 = 0.5711); evaluating the same measured power
+  against the test-day ideal (256,754 W) gives 0.642, outside the
+  physical hover band, which is why the reference condition is the
+  reporting basis.
+- Comparing test-day powers without the weight and density reduction:
+  the measured 400,005 W corrects to 391,727 W at the reference (22,500
+  N at rho 1.10 reduced to 21,574.63 N at 1.225), and the corrected
+  climb rate scales linearly with the weight ratio (8.0 -> 8.34 m/s).
+- Interpolating the hover ceiling outside the tested band: an available
+  power below the lowest required point (395,000 W) or above the
+  highest (419,000 W) returns None - the ceiling is only reported
+  inside the measured band (1250 m here).
+- Passing an ideal power above the measured power: that is FM > 1 and
+  raises ValueError, as do torque < 0, omega <= 0, thrust <= 0,
+  rho <= 0, area <= 0, and induced fraction outside [0, 1].
+- Feeding mismatched or undersized ceiling data: mismatched ceiling
+  lists, fewer than 2 ceiling points, and negative ceiling inputs all
+  raise ValueError.
+- Reading the torque check without its tolerance: the shaft power is
+  within_rated only up to 472,500 W (450,000 W rated at 5%), so a
+  torque past that bound reports False.
+
 ## Verification
 
 - Confirm shaft_power_from_torque(14815, 27) returns 400,005 W.
@@ -195,7 +221,7 @@ fraction 0.6. Running the reduction chain on the measured point:
   analytic IGE power model behind the IGE ceiling available-power
   increment.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

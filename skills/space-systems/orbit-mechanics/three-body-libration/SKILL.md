@@ -123,6 +123,33 @@ module outputs:
   returns mu 0.0121545, all five points, L1 distance 326375 km from
   Earth, L2 distance 64522 km from the Moon, and C = 2.987993.
 
+
+## Pitfalls
+
+- Reversing the primary roles: the heavier body is primary 1 (mu
+  comes from m2 / (m1 + m2) and the code rejects a secondary that is
+  not lighter), so swapping the masses changes mu, every point
+  location, and the physical distance mapping.
+- Confusing the physical-distance anchor: L1 is quoted from the
+  heavier primary while the assessment's L2 key is the distance from
+  the LIGHTER primary (64522 km beyond the Moon), not from Earth;
+  the same point is 448922 km from Earth center.
+- Forgetting the frame is dimensionless: distances come back
+  normalized by the separation a, and only the conversion call
+  multiplies by the physical separation; a dimensionless x read as
+  kilometers is off by orders of magnitude.
+- Trusting Newton without the residual gate: each collinear root
+  must satisfy |f(x)| < 1e-10 and the iteration falls back to
+  bisection when Newton leaves the branch bracket, so check the
+  force-balance residual rather than accepting the raw iterate.
+- Assigning the wrong branch to the wrong point: L1 sits between the
+  primaries, L2 beyond the lighter one, and L3 beyond the heavier;
+  using the 1.2 default guess on the wrong branch returns the wrong
+  equilibrium.
+- Treating the points as motion endpoints: this leaf locates and
+  gates the five equilibrium sites but does not propagate or
+  stabilize motion about them, so station-keeping analysis must come
+  from elsewhere.
 ## Verification
 
 - Confirm every collinear root satisfies |f(x)| < 1e-10: at mu =
@@ -153,7 +180,7 @@ module outputs:
 - space-systems/orbit-mechanics/orbital-perturbations: perturbing
   accelerations that matter once a point is occupied.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

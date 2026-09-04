@@ -146,7 +146,37 @@ Leg from A (50N, 0E) to B (50N, 10E), aircraft at P (51N, 5E) tracking
 - avionics/flight-management/performance-computation: ECON speed and
   cost policy that set the speed input for the turn anticipation.
 
-## Contract test
+## Pitfalls
+
+- Taking the rhumb-line shortcut: a leg along a parallel is not flown
+  along the parallel — (50N, 0E) to (50N, 10E) opens at 86.17 deg
+  because the great circle bulges toward the pole, and the parallel
+  distance 10 deg * cos(50) * R = 714.7 km is not the 714,214 m
+  great-circle distance.
+- Misreading the cross-track sign: the specified equation is positive
+  when the position bears LEFT of the outbound leg, so a display that
+  defines positive as right of track must negate the value; magnitudes
+  are also asymmetric on mirror points (99,239 m left at 51N versus
+  123,151 m right at 49N) because the arc runs closer to 51N.
+- Mixing units: distances are meters, angles radians, speed m/s, and
+  only the bank angle is degrees — a bank in radians or a latitude in
+  degrees silently corrupts the turn radius and track formulas.
+- Holding the desired track outside the intercept limit: with the track
+  angle error beyond the fixed 30 deg intercept angle the guidance
+  captures at track_desired - sign(tke) * 30 deg, not at the desired
+  track itself, and tke must be wrapped to [-pi, pi) first.
+- Assuming every waypoint is a fly-by: a zero track change is flown
+  fly-over with d_ant = 0 and the turn at the waypoint; anticipation
+  only applies when the track actually changes, with
+  d_ant = R_turn * tan(|delta_track| / 2) growing with the square of
+  speed.
+- Forgetting the identical-point rule: great_circle_distance returns
+  0 m for identical endpoints but the direction functions raise
+  ValueError there, and out-of-range latitudes, non-positive speed,
+  bank outside (0, 90) deg, or |delta_track| at or beyond pi also
+  raise — check leg validity before guiding on it.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

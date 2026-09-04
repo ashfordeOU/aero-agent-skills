@@ -129,6 +129,25 @@ ratio lambda = 0.050, hinge offset e = 0.05. Real module outputs:
   scripts/test_rotorcraft_blade_flapping_dynamics.py (34 tests,
   deterministic, no network).
 
+## Pitfalls
+
+- Using a non-uniform flap inertia without saying so:
+  blade_flap_inertia_uniform assumes I_beta = m_b*R^2/3 about the rotation
+  axis; the Lock number (and coning) is only as good as the inertia input.
+- Sanity-checking the Lock number against the wrong band: published rotor
+  values run 5-12 (the worked example lands at 7.58); treat the band as a
+  plausibility check, not a pass/fail gate.
+- Expecting coning sign intuition to hold: a0 = 0.5*gamma*(theta0/4 -
+  lambda/3), so higher inflow lowers coning and theta0/4 = lambda/3 gives
+  exactly zero; a 'negative coning' reading means collective and inflow are
+  out of balance, not a sign error in the formula.
+- Passing hinge offset e at or above 1 (or negative): flap_frequency_ratio
+  raises ValueError there; e = 0 is the exact central-hinge 1/rev limit and
+  larger offsets stiffen the blade.
+- Forgetting the units convention: SI throughout (kg, m, rad) with gamma
+  dimensionless; a negative collective or inflow ratio raises ValueError,
+  and coning_angle_deg is the only degree output.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-hover-performance: the
@@ -141,7 +160,7 @@ ratio lambda = 0.050, hinge offset e = 0.05. Real module outputs:
   autorotation of a stalled wing is a different topic from rotor blade
   flapping and lives in the fixed-wing stability leaves.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

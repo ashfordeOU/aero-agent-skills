@@ -111,6 +111,32 @@ Real module outputs:
   engine_failure_distance to 25 m/s returns 156.25 m, matching
   v_ef^2 / (2 a) = 625 / 4.
 
+## Pitfalls
+
+- Expecting a balanced V1 when the curves never cross: a TOD curve
+  everywhere above the ASD returns (None, 'asd-limited') and the
+  reverse returns (None, 'tod-limited'), so the balanced-field
+  distance only exists at the crossing (71.43 m/s at 1594.29 m here).
+- Quoting V1 without the ordering checks: v1_min = VEF + a_cont *
+  t_rec = 59.8 m/s must sit at or below V1 (margin 11.63 m/s) and V1
+  at or below V_R (margin 8.57 m/s); a longer recognition time raises
+  v1_min and tightens the ordering.
+- Reading the field verdict without the runway: the margin is the
+  runway minus the balanced distance (1700 - 1594.29 = +105.71 m
+  fits), so a longer runway raises the field margin.
+- Hand-computing the engine-failure distance instead of the ramp rule:
+  on a linear ramp the distance equals v_ef^2 / (2 a) (156.25 m for
+  25 m/s at 2 m/s^2), the constant-acceleration identity the contract
+  asserts.
+- Feeding non-physical or out-of-order arrays: empty samples,
+  non-positive v_ef, recognition time, rate of climb, obstacle height,
+  or runway length, and descending or non-monotone ASD/TOD arrays all
+  raise ValueError.
+- Confusing this leaf with its siblings: accelerate-stop-distance owns
+  the all-engine rejected takeoff without the engine-out asymmetry,
+  and takeoff-distance-determination owns the all-engine distance runs
+  with no VEF token.
+
 ## Verification
 
 - Confirm balanced_field_v1(SPEEDS, ASD, SPEEDS, TOD) returns about
@@ -141,7 +167,7 @@ Real module outputs:
   control boundary (Vmc, critical-engine yaw), not the takeoff
   distance or V1.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

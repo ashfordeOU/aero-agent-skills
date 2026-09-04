@@ -105,6 +105,31 @@ at 5% concentration, and an engine nacelle core fire zone of 1.8 m3 at
   closure_fraction = 0.06000, installed_kg = 2.90870 kg, nozzle_count =
   2, coverage_verdict = PASS.
 
+
+## Pitfalls
+
+- Using the wrong concentration for the zone: a Class C cargo
+  compartment defaults to 5.0% and a powerplant fire zone to 6.0%
+  by volume; the required agent mass W = (V/S) * C/(100 - C) is
+  nonlinear in C, so the zone type must match the concentration.
+- Skipping the closure check: the computed mass must satisfy
+  W * S / (V + W * S) = C / 100 to 1e-4 (13.32445 kg in 40 m3 at 5%
+  closes to 0.05000); a mass that does not close the identity does
+  not meet the concentration.
+- Rolling up installed agent below the requirement: the coverage
+  verdict FAILs when the installed mass (bottles * shots * per-shot
+  mass) is less than the required mass per shot - an installation
+  that looks plumbed but under-carries fails the gate.
+- Forgetting the nozzle floor on a small powerplant zone: an engine/
+  APU fire zone takes at least 2 nozzles even when the volume
+  suggests one (1.8 m3 gives a ceiling of 0.45 raised to 2), while a
+  1 m3 cargo compartment legitimately takes 1.
+- Sizing agent for a zone that was never identified: the protected
+  zone and its class come from the zonal hazard analysis leaf; this
+  leaf sizes the agent, it does not identify the zones.
+- Feeding non-physical inputs: a non-positive free volume,
+  out-of-range concentration, non-positive specific volume, negative
+  mass, or bottle and shot counts below one all raise ValueError.
 ## Verification
 
 - Confirm agent_mass(40, 5.0) returns 13.32445 kg with closure 0.05000
@@ -137,7 +162,7 @@ at 5% concentration, and an engine nacelle core fire zone of 1.8 m3 at
   protection on the avionics side, unrelated to extinguishing agent
   sizing.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -67,9 +67,9 @@ for the hardware item.
 
 The method-selection, independence, coverage, and completeness logic
 is exercised by the gate 3 contract test:
-scripts/test_verification.py against scripts/verification_logic.py
+scripts/test_do254_verification.py against scripts/do254_verification_logic.py
 (stdlib unittest, offline). Run:
-python3 scripts/test_verification.py
+python3 scripts/test_do254_verification.py
 
 ## Compliance
 

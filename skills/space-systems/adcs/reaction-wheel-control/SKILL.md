@@ -132,6 +132,30 @@ rotates the spacecraft 10 deg about the body z axis. Gains kp = 0.05
   (B x tau_desat) / |B|^2 = [0, 100, 0] A m^2; m_desat x B reproduces
   tau_desat exactly (perpendicular geometry) with no alignment warning.
 
+
+## Pitfalls
+
+- Getting the error quaternion convention backwards: q_err =
+  q_current (x) q_ref^-1 under the scalar-first Hamilton product; the
+  sign of the first torque command must drive the bus toward the
+  target (the worked example commands +z toward a +z rotation).
+- Picking gains without the bus inertia: kp and kd map to omega_n and
+  zeta through I (omega_n = sqrt(kp / I)); gains tuned on the wrong
+  inertia oscillate or stall the acquisition.
+- Dropping the transport term: wheel momentum integrates
+  h_w_dot = tau_cmd - omega_body x h_w; the cross term only vanishes
+  for geometry parallel to the rotation axis, so it must stay in the
+  propagation for general slews.
+- Ignoring the saturation flags: a clipped torque command or a wheel
+  past h_max silently degrades pointing (the 1e-4 N m tau_max rerun
+  ends at 7.7 deg instead of 0.11 deg) - honor both flags before
+  declaring acquisition.
+- Commanding desaturation along the field: when tau_desat lies nearly
+  along B the m x B torque is small; heed the alignment warning before
+  passing the dipole to the magnetorquer leaf.
+- Feeding non-physical inputs: non-positive gains, j_w <= 0, dt <= 0,
+  tau_max <= 0, h_max <= 0, t_desat <= 0, or a field at or below
+  1e-12 T raise ValueError.
 ## Verification
 
 - Confirm quaternion_error returns identity when q_current = q_ref and
@@ -170,7 +194,7 @@ rotates the spacecraft 10 deg about the body z axis. Gains kp = 0.05
 - gnc-autonomy/space/attitude-dynamics: the rigid body plant and
   propagation that this leaf keeps simplified.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

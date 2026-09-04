@@ -114,7 +114,34 @@ delta (about 82.9 deg sweep).
 - aerodynamics/high-speed/swept-wing-aerodynamics: simple-sweep cosine
   corrections for attached subsonic swept wings.
 
-## Contract test
+## Pitfalls
+
+- Applying the suction analogy to a rounded or blunt leading edge: the
+  model is valid for sharp leading edges only, where the flow separates
+  at the edge and forms the leading-edge vortex; a rounded-edge wing
+  stays in the attached-flow regime owned by vortex-lattice-method.
+- Reading the model beyond its documented range: valid for subsonic
+  flow, aspect ratio about 0.5 to 2.0 and alpha up to about 25 degrees;
+  outside that range the Kv linear interpolation is clamped and the
+  polynomial lift split loses its physical basis.
+- Interpreting the potential term as the whole lift: at AR 1.0 and
+  alpha 15 deg the vortex term is 35.4% of the total, and at AR 0.5
+  alpha 20 deg it reaches about 60% — the vortex contribution grows as
+  the wing slims, so the attached-flow-only estimate is not a
+  conservative low answer, it is wrong.
+- Expecting the crossing angle to be constant across AR: it shrinks
+  with aspect ratio (26.0 deg at AR 1.0 against 13.9 deg at AR 0.5),
+  so a slender wing is vortex dominated much earlier than a moderate
+  delta.
+- Treating drag due to lift as the total drag: cd_due_to_lift = CL *
+  tan(alpha) is the vortex-lift drag term only; parasite and wave drag
+  come from the drag-polar leaves.
+- Asking the model for vortex breakdown: breakdown onset is documented
+  as not modeled (empirical charts only), so the CL growth beyond the
+  valid alpha range is not a breakdown prediction — use the charts or a
+  higher-fidelity method instead.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

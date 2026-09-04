@@ -102,6 +102,33 @@ scarf angle 3 degrees, adhesive shear allowable 12 MPa.
   = 11.51 MPa, margin = 12 / 11.51 - 1 = +0.043, so a 2.2 deg scarf
   clears the allowable.
 
+
+## Pitfalls
+
+- Sizing the scarf at a steep angle out of habit: a shallower angle
+  gives a longer scarf and a lower adhesive shear; the 3 deg scarf in
+  the worked example fails the 12 MPa allowable (margin -0.235) and
+  the repair must be re-scarfed to about 2.29 deg.
+- Demanding a scarf when no scarf can work: when 2 * tau_a / sigma
+  exceeds 1.0 no real scarf angle carries the load and the functions
+  raise ValueError - the repair cannot be made in scarf at that
+  stress.
+- Checking the margin against the chosen angle only: the margin is
+  tau_a / tau - 1 at the CHOSEN angle; a negative margin means
+  re-scarf shallower, and the required-angle round trip (scarfing at
+  the required angle reproduces the allowable) is the design check.
+- Forgetting the modulus match on the patch: the external patch is
+  sized for stiffness t_patch = t_parent * E_parent / E_patch, so a
+  stiffer patch is thinner and a softer patch is thicker; the
+  same-material identity t_patch = t holds exactly.
+- Using degrees where the model wants radians: the public angle
+  helpers take degrees while repair_sizing takes SI inputs and
+  returns SI outputs - mixing the two conventions silently skews the
+  scarf length and shear.
+- Confusing the repair model with a lap joint: this leaf is the
+  uniform-stress scarf model; lap joint analysis belongs to
+  adhesive-bonded-joints, and mechanically fastened repairs to
+  composite-bolted-joints.
 ## Verification
 
 - Confirm scarf_length(3.0, 3.0) returns 57.24 mm and sits in 50-65 mm.
@@ -135,7 +162,7 @@ scarf angle 3 degrees, adhesive shear allowable 12 MPa.
 - structures/composites/delamination-growth: fracture assessment of
   interlaminar damage growth in the parent around the repair location.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

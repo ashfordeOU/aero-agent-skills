@@ -93,6 +93,30 @@ percent design margin (default 1.1).
   PASS.
 - Identity: 818.18 s equals 12500 / 15.2778 and equals 900 / 1.1.
 
+
+## Pitfalls
+
+- Sizing to MLW on the takeoff fuel instead of the excess: the
+  dumpable mass is MTOW - MLW (12,500 kg in the worked example),
+  not the total fuel on board; only the excess above the landing
+  limit must be jettisonable.
+- Letting the margin slip below 1: the design rate is the required
+  rate times a margin that must be >= 1 (default 1.1); a margin
+  below 1 is undersized and rejected with ValueError.
+- Reading the verdict at the boundary backwards: PASS requires the
+  design time within the 900 s limit, and a margin of exactly 1.0
+  gives exactly 900 s - PASS at the boundary, FAIL only above it.
+- Forgetting the masts split the design flow: the per-mast flow is
+  q_design / n_masts (7.6389 kg/s over two masts in the worked
+  example), so a two-mast system's mast sizing is half the design
+  rate.
+- Using the required rate as the installed capability: the system
+  must install the DESIGN rate with margin, and the identity
+  t_dump = 900 / margin is the quick re-check that the installed
+  system clears the limit.
+- Feeding inconsistent weights: mlw above mtow, non-positive masses,
+  a non-positive limit, or a negative dumpable mass all raise
+  ValueError.
 ## Verification
 
 - Confirm dumpable_fuel_mass(79000, 66500) returns 12500.0 kg.
@@ -122,7 +146,7 @@ percent design margin (default 1.1).
 - vehicle-design/sizing/engine-sizing: the fuel flow demand side that
   sets the overall system flow scale.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -108,6 +108,32 @@ G_IIc = 800 J/m2, eta = 1.5.
   r = 0.94841, G_c = 250 + 550 * 0.92361 = 757.98 J/m2, margin = +399.18,
   so no delamination growth is predicted.
 
+
+## Pitfalls
+
+- Comparing ply-level stress indices to a fracture criterion: this
+  leaf assesses delamination onset by energy release rate at the
+  laminate level; stress-based ply failure (Tsai-Wu, max stress)
+  belongs to failure-criteria, and metallic Paris-law growth to
+  damage-tolerance/crack-growth.
+- Mixing the coupon half-thicknesses: h is the half-thickness of one
+  DCB arm or ENF half-beam (total specimen 2h); the worked example
+  uses h = 0.0015 m for a 3 mm coupon and h = 0.003 m in the
+  compliance cross-check, and the rate scales as h^-3, so an
+  off-by-two in h shifts G by 8x.
+- Treating the two coupons as one specimen: the DCB and ENF crack
+  lengths and half-thicknesses are independent inputs; reusing one
+  coupon's geometry for both silently mis-blends the mode ratio.
+- Trusting one form without the cross-check: the load-squared form
+  and the compliance form agree to 1e-6 only when delta = 2 * w with
+  w = P a^3 / (3 E I) and I = b h^3 / 12, so a measured opening that
+  does not follow the beam model breaks the identity.
+- Reading the verdict at the boundary: growth is predicted when
+  G_T >= G_c, so a zero or slightly negative margin is a predicted
+  onset; the onset margin is G_c - G_T, not a ratio.
+- Feeding non-physical coupons: negative loads, zero or negative
+  geometry or modulus, zero or negative critical rates, and a
+  non-positive B-K exponent all raise ValueError.
 ## Verification
 
 - Confirm dcb_g1(50.0, 0.05, 0.02, 0.0015, 135e9) returns 411.52 J/m2
@@ -137,7 +163,7 @@ G_IIc = 800 J/m2, eta = 1.5.
 - structures/damage-tolerance/residual-strength: remaining strength of
   a cracked panel once growth tolerance is lost.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -163,7 +163,36 @@ D = 0.00635 m, torque 24 N m, k = 0.2, min clamp 12000 N, max clamp
 - manufacturing-quality/as9100/nonconformance-control: disposition of
   the rework and scrap installations this leaf classifies.
 
-## Contract test
+## Pitfalls
+
+- Releasing a joint whose grip selection found no fit: when no
+  available grip increment reaches the stack total the verdict is
+  rework with defect no-grip-fits — and a grip shorter than the stack
+  produces negative protrusion, which is always out of band, never a
+  pass.
+- Confusing clamp verdict direction: below the joint minimum clamp is
+  under-clamp (rework) while above the joint allowable is over-clamp
+  (scrap) — the two failure modes have different dispositions and must
+  not be merged into one defect.
+- Checking the protrusion band without the fastener data: the 0.5 to
+  3.0 mm band is a documented typical value that must be confirmed
+  against the fastener manufacturer data and the governing code for
+  the program, and the 0.13 mm flushness tolerance and 15 percent
+  scatter band carry the same confirm-first status.
+- Reading torque scatter as a verdict input: the scatter note is
+  informational only (scatter_ok False never changes pass, rework or
+  scrap), so a 25 percent scatter flags a process-control problem
+  without silently failing an otherwise sound installation.
+- Forgetting the head and fastener type gates: a flush head without a
+  measured flushness, a lock-bolt checked without engaged threads, a
+  fastener_type of "screw", and an unknown head_style all raise
+  ValueError — the check set must match the fastener being verified.
+- Assuming this leaf verifies joint strength: it checks the physical
+  installation (grip, protrusion, clamp load, flushness, engagement);
+  bearing and bypass stress allowables of the same bolted joint belong
+  to structures/composites/composite-bolted-joints.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

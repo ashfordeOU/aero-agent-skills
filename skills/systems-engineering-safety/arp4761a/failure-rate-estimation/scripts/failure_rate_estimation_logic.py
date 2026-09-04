@@ -164,7 +164,7 @@ def zero_failure_demonstrated_rate(test_hours, confidence):
     return -math.log(1.0 - confidence) / test_hours
 
 
-def test_time_to_demonstrate(target_rate, confidence, allowed_failures=0):
+def time_to_demonstrate(target_rate, confidence, allowed_failures=0):
     """Test hours required to demonstrate a target rate at a confidence.
 
     T = chi2(confidence, 2n + 2) / (2 * target_rate), with n the allowed

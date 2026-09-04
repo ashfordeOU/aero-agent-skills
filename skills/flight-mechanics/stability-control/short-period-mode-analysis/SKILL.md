@@ -138,6 +138,28 @@ C_m_alphadot = -3.0.
 - Z_q negligibility: |Z_q| / V = 0.875 / 150 = 0.0058, below 0.05,
   so neglecting Z_q in the state matrix is justified.
 
+## Pitfalls
+
+- Taking the square root of a non-positive radicand: omega_nsp =
+  sqrt(M_q*Z_alpha/V - M_alpha) is real only for a pitch-stable damped
+  configuration; a non-positive radicand means a non-oscillatory or
+  divergent mode and short_period_analysis reports level 3, so do not force
+  a frequency from it.
+- Neglecting Z_q without the check: the state matrix keeps the 1 + Z_q/V
+  term only when |Z_q|/V is not negligible (0.05 rule); z_q_negligible flags
+  the case before you drop the term.
+- Reading the Level 1 band as open: the boundaries are inclusive (0.35-1.30
+  category A damping, 0.28 rad/s minimum frequency) and Level 1 requires
+  both damping and frequency; zero total damping (zeta = 0) and negative
+  damping are Level 3, not Level 2.
+- Checking the wrong category band: the damping bands differ by flight phase
+  category (A 0.35-1.30, B 0.30-2.00, C 0.25-2.00) with frequency floors
+  0.28 (A, C) and 0.10 (B) rad/s.
+- Forgetting phugoid separation: the approximation assumes
+  omega_nsp/omega_np >= 5 against the Lanchester frequency sqrt(2)*g/V;
+  phugoid_separation flags when the mode separation assumption does not
+  hold.
+
 ## Related leaves
 
 - flight-mechanics/stability-control/longitudinal-stability: static
@@ -152,7 +174,7 @@ C_m_alphadot = -3.0.
 - flight-mechanics/stability-control/stability-derivatives-avl:
   estimating the dimensionless coefficient slopes this leaf consumes.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -162,7 +162,36 @@ inputs that raise ValueError: severity very-bad, and achieved probability
 - systems-engineering-safety/arp4761a/functional-hazard-assessment: the
   severity rating and probability target inputs for the item.
 
-## Contract test
+## Pitfalls
+
+- Reading the verdict from coverage alone: a quantitative item with
+  margin below 1.0 (the 3e-9 achieved case, margin 0.333) FAILs
+  regardless of how many compensating measures are listed — the
+  probability gap cannot be bought back by coverage.
+- Accepting measures that the rules reject: monitoring without
+  redundancy or an operating limitation, an operating limitation
+  without a flight crew procedure, a maintenance action without a
+  restore-before-next-flight qualifier, and an inspection interval off
+  fatigue and aging items (25.571, 25.573, 23.571) all fail
+  acceptance and reopen the coverage gap.
+- Passing a qualitative item with a primary safety function gap: a
+  missing redundancy or monitoring element blocks the recommendation
+  even when coverage otherwise reaches 1.0.
+- Forgetting the severity-keyed targets: the 25.1309 quantitative
+  intent keys 1e-9 catastrophic, 1e-7 hazardous and 1e-5 major to the
+  failure condition severity, so scoring a hazardous condition against
+  the catastrophic target misstates the margin by two orders of
+  magnitude.
+- Treating a finding as self-approving: margin 1.0 is the typical
+  ELOS acceptance line, but the finding is authority-approved in
+  practice — this analysis recommends; it does not issue the finding.
+- Calling this leaf for the novel-feature route or without inputs:
+  ELOS is distinct from the FAR 25.17 / CS 25.17 special conditions
+  path, takes the regulation item, severity and achieved safety level
+  as given (it does not re-derive the FHA), and an unknown paragraph
+  with no intent overrides raises ValueError.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

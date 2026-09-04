@@ -163,6 +163,28 @@ module outputs:
 - All functions deterministic (no RNG, identical floats run to run);
   the contract test re-runs every function and compares exact results.
 
+## Pitfalls
+
+- Prewarping without the folding constraint: prewarping requires wc*T < pi
+  (wc below the folding frequency); wc*T >= pi (and wc <= 0 or T <= 0)
+  raises ValueError, and plain Tustin at a fast pole can collapse the
+  denominator (the -200 rad/s pole maps to z = 0 without prewarp).
+- Skipping the phase check: tustin_frequency_check reports the phase error
+  at wc and the spec bound is under 1 deg for a prewarped emulation; verify
+  it before trusting the emulated phase at crossover.
+- Calling a unit-circle pole stable: a sampled pole is stable only strictly
+  inside the unit circle - a pole exactly on it (z = exp(j*0.3), or unit
+  modulus within the 1e-12 epsilon) is labeled unstable by the strict rule.
+- Velocity-form PID arithmetic: the delta coefficients obey b0 + b1 + b2 =
+  Ki*T with a1 = -1 on u(k-1); use the velocity form for incremental
+  actuators and the position form (ki = Ki*T, kd = Kd/T) otherwise.
+- Sampling slower than the rule: sample 10-20 times per closed-loop cycle
+  (w_s_min = 10*wb, T_max = 2*pi/w_s_min); the verdict is too-slow when T >
+  T_max.
+- The signature is sample_rate_rule(wb, T) (the candidate sample period is
+  required for the verdict), and unit_circle_poles handles degree 1-2
+  denominators exactly while higher degrees raise ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/control/pid-control-design: continuous PID tuning
@@ -175,7 +197,7 @@ module outputs:
 - gnc-autonomy/control/state-space-analysis: continuous state-space
   context for the plants discretized by the zero-order hold.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

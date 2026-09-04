@@ -122,7 +122,34 @@ module outputs:
   airframe coupling domain of the flight control system with the
   airframe, not software inter-component coupling.
 
-## Contract test
+## Pitfalls
+
+- Treating control coupling as a subset of data coupling: data coupling
+  is pairwise over all components (the (D, C, Y) item exists even though
+  D has no call edge to C), while control coupling exists only on
+  declared call edges — run both item builders and grade the combined
+  list.
+- Reversing item direction: items are ordered pairs with the shared var
+  in writes(A) intersect reads(B), so (A, B, X) exists and (B, A, X)
+  does not; swapping components fabricates an item the evidence
+  campaign never needs.
+- Expecting a declared synchronization to clear more than one item:
+  declaring (A, C, X) suppresses exactly that data item and nothing
+  else, and sync declarations do not touch control-coupling items at
+  all.
+- Failing an empty identification: an empty combined item list with no
+  evidence returns ratio 0.0 and verdict PASS because nothing is
+  uncovered — do not report a PASS-at-0.0 as a coverage failure.
+- Accepting evidence for items never identified: evidence keys must
+  match identified (A, B, var) items, and sync declarations or call
+  edges naming an unknown component raise ValueError — validate the
+  model before collecting evidence.
+- Grading only the ratio: the verdict dict names the sorted
+  uncovered_items list on FAIL, which is the actionable output for the
+  level A evidence campaign; a bare 0.833 ratio without the uncovered
+  list hides which item is missing.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

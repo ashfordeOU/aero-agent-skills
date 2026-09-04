@@ -128,6 +128,27 @@ a single measurement error into observable post-fit residuals.
   scripts/test_gnss_pseudorange_positioning.py (41 tests,
   deterministic).
 
+## Pitfalls
+
+- Solving with fewer than four satellites: four unknowns (x, y, z, clock
+  bias) need at least four measurements and fewer raise ValueError; a
+  4-satellite exact set solves with zero residual RMS while redundancy is
+  what exposes measurement errors as post-fit residuals.
+- Reading residual RMS as position error on a minimal set: with exactly four
+  satellites the residual RMS is 0.0 even with a common bias (the worked
+  +100 m bias solves exactly); position error needs the redundant
+  constellation or the position_error_estimate read.
+- Ignoring the converged flag and iteration count: solve_iterated stops when
+  the correction norm falls below tol and reports converged and iterations;
+  gate navigation processing on those flags before quoting the fix.
+- Forgetting the spherical approximation: to_geodetic_approx uses a
+  spherical Earth (R_EARTH = 6378137.0 m) with WGS-84 out of scope, so
+  geodetic outputs carry that approximation.
+- A satellite coincident with the receiver (zero range), singular normal
+  matrix, missing keys, non-finite pseudoranges and iters below 1 raise
+  ValueError; pos_1sigma = uere_equiv*pdop ties into the
+  dilution-of-precision leaf.
+
 ## Related leaves
 
 - gnc-autonomy/navigation/dilution-of-precision: the geometry quality
@@ -140,7 +161,7 @@ a single measurement error into observable post-fit residuals.
 - gnc-autonomy/space/orbit-determination: satellite orbit state used
   to form the satellite positions in ECEF.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

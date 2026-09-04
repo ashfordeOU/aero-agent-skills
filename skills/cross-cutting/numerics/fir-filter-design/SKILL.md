@@ -131,6 +131,30 @@ every window; design_check probes the stopband at 2*fc, which is only
 physical while 2*fc stays at or below the Nyquist frequency, so
 design_check requires fc <= fs/4 and raises ValueError otherwise.
 
+## Pitfalls
+
+- Asking for an even number of taps: even N is rejected because the
+  center tap index (N-1)/2 must stay integer for the windowed taps to
+  remain symmetric (linear phase).
+- Running design_check with the cutoff above fs/4: the stopband probe
+  sits at 2*fc and is only physical while 2*fc stays at or below the
+  Nyquist frequency, so design_check requires fc <= fs/4 and raises
+  ValueError otherwise.
+- Expecting a brick-wall response at the cutoff: the windowed-sinc
+  design places the -6 dB point at fc with a transition band whose
+  width follows the window, and the stopband floor follows the window
+  sidelobe level (about -53 dB for Hamming at N = 51).
+- Forgetting the group delay when comparing input and output: the
+  symmetric tap set delays by (N-1)/2 = 50 samples at N = 101, so the
+  steady-state amplitude checks apply only after the delay.
+- Passing non-physical design inputs: even num_taps, num_taps < 1,
+  fc <= 0, fs <= 0, fc >= fs/2, unknown window names, negative or
+  above-Nyquist probe frequencies, and empty coefficient or signal
+  lists all raise ValueError.
+- Choosing a window without the sidelobe trade: at N = 51, fc = 100 Hz
+  the stopband gain at 200 Hz runs from -36.9 dB (rectangular) to
+  -79.5 dB (Blackman) at the price of a wider main lobe.
+
 ## Verification
 
 - Confirm design_lowpass(100, 1000, 101, "hamming") returns a dict
@@ -165,7 +189,7 @@ design_check requires fc <= fs/4 and raises ValueError otherwise.
 - cross-cutting/numerics/finite-difference-derivatives: differentiating
   the filtered (denoised) signal with controlled step-size error.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

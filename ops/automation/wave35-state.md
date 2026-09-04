@@ -227,3 +227,36 @@ FTO/MQ/CC/AV (second gaps).
      revert); release/docs automation may land local-only commits
      mid-wave per the wave-30 class - none did this wave (remote
      stayed 592777bc until the wave push).
+- PUSH + PUBLISH RECEIPTS: private arjun-0077/aero-agent-skills pushed
+  fast-forward 592777bc..b6098361 (23 commits) via the arjun origin
+  token at ~15:33 UTC, pre-push hook ALL GATES GREEN (incl. package
+  smoke: manifest + router parity 984 + installer + MCP + CLI),
+  ls-remote verified remote main == local HEAD b6098361 (no Ashforde
+  token on the private repo, no visibility flip). publish-public.sh
+  sanctioned sync PASS at aa4ca813 (485 skills, 85 packs, 12
+  families): export gate battery green inside the archive, secrets +
+  leak sweep clean, public-safety audit clean, leaf-count guard
+  export 485 >= public 472, normal fast-forward, GitHub About
+  refreshed post-push. Public HEAD verified aa4ca813 == expected sync
+  commit. GitHub CI attest SUCCESS and release-on-milestone SUCCESS
+  for aa4ca813 (polled to completion ~15:44 UTC). GROUP 160 close-out
+  post sent as Ops Manager, SEND_EXIT = 0.
+- Next: CEO P5.2 WAVE-35 audit >= 9.5 -> WAVE-36.
+- POST-CLOSE CONCURRENT AUTOMATION (wave-30 class realized): after the
+  wave push (b6098361), a leaf-implementability audit process landed
+  five local commits on top (8cef70f2 corpus +2 fuselage-sizing tasks
+  984 -> 986; f4b8c770 audit csv + leaf-implementability-audit.py;
+  8b87c3ae leaf-audit.py + test-point-matrix naming fixes; 52a692a6
+  tree-wide eval/skill-eval records for older leaves + dedup logic-file
+  renames; 2b40a36a audit report docs). Reconciled per wave-30
+  doctrine (fast-forward below/above, no fights): ops regenerated
+  visuals/manifests for the 986-task corpus (metrics/docs/README/
+  manifest updated), fixed one broken ref the audit rename left in
+  skills/avionics/do254/verification/SKILL.md (referenced the old
+  test_verification.py/verification_logic.py names), re-ran all gates
+  FRESH at the new HEAD (validate 5/5 with 986/986 Hit@1, attest 3/3,
+  completeness ALL REQUIRED PASS, value-delta 10/10, visuals-check
+  PASS, descs <= 1024, em dashes 0, stale guard PASS, tree clean),
+  then pushed PRIVATE fast-forward to the reconciled HEAD and re-ran
+  publish-public sync so the public repo carries the same content.
+  Ledger remains 485 rows; leaf count 485; corpus 986.

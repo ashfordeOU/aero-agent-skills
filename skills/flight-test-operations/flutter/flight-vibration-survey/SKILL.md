@@ -101,6 +101,31 @@ outputs:
   order_amplitudes_g, total_rms_g, rss_of_orders_g, vibration_verdict
   and trim_verdict.
 
+## Pitfalls
+
+- Choosing a window that is not an integer number of rotor revolutions:
+  the 12-rev window (N = 2400 at 1000 Hz) centers the order bins, and a
+  non-bin-centered tone (2.3P) leaks up to the 0.05 g sidelobe envelope
+  while a bin-centered off-order tone (2.5P) stays below 1e-6 g.
+- Judging the survey by total RMS alone: total_rms equals the RSS of
+  the orders (0.127475 g), but the 1P trim check runs against its own
+  0.10 g limit - 0.150000 g at 1P is needs_trim even though the total
+  passes the 0.15 g vibration limit.
+- Misreading the margin signs: +0.150 against the 0.15 g limit is a
+  pass with 15 percent clearance, -0.500 against the 0.10 g trim limit
+  means the 1P component sits 50 percent above, and zero margin at the
+  boundary counts as pass or no-trim.
+- Reading order amplitudes off the phase of the signal: the recovery
+  is phase invariant (the fixture carries a phase offset per order),
+  so amplitude estimates do not depend on when the window starts.
+- Feeding non-physical inputs: empty samples, non-positive sample
+  rate, rotor frequency, or window length, order below 1, m_revs
+  below 1, non-positive vibration or trim limits, negative levels,
+  and a record shorter than one full window all raise ValueError.
+- Underestimating the record length needed: the reduction needs at
+  least one full window of samples, so a survey point recorded shorter
+  than the window is rejected rather than partially analyzed.
+
 ## Verification
 
 - Confirm order_amplitude recovers 0.150000 / 0.060000 / 0.080000 g to
@@ -133,7 +158,7 @@ outputs:
   high-Mach envelope sibling; this leaf reduces the steady in-flight
   survey points.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

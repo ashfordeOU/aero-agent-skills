@@ -126,6 +126,29 @@ A second example: a lift coefficient formula from a published textbook
 classifies as `public-domain` (`is_public_domain(source="textbook")`
 returns True), because published textbooks are public domain information.
 
+## Pitfalls
+
+- Treating a red-flag topic hit as a verdict: flag_restricted_topic is
+  a stop-and-verify signal, not an automatic denial, and a clean topic
+  screen does not by itself clear a release.
+- Marking anything as compliant on your own authority: the tree returns
+  jurisdiction, risk, and actions, but releasing controlled data still
+  requires authorization, and only the compliance office can certify
+  anything.
+- Forgetting the deemed export rule: sharing technical data with a
+  foreign person inside the US is a release to their country of
+  nationality and needs the same authorization as an export.
+- Assuming "published" implies public domain: only the listed sources
+  (published, textbook, patent, conference, fundamental-research)
+  classify as public domain, and unpublished results under a restricted
+  research agreement do not.
+- Passing unknown audience, purpose, source, or USML category values:
+  the functions raise ValueError, so mis-typed inputs fail loudly
+  instead of defaulting to a permissive verdict.
+- Skipping the handling checklist before a release: the checklist in
+  assets/export-handling-checklist.md must be worked through and the
+  verdict confirmed by the trade compliance office first.
+
 ## Verification checklist
 
 Use the handling checklist in assets/export-handling-checklist.md and
@@ -166,3 +189,12 @@ verify before committing any release:
   analyses whose results may be technical data.
 - cross-cutting/data-sources/aeronautical-data-sources - sourcing
   aeronautical data, some of which is restricted.
+
+## Behavior contract (gate 3)
+
+The export-classification logic (topic red flags, public-domain basis,
+and the export decision tree) is exercised by the gate 3 contract test:
+scripts/test_export_control.py against scripts/export_control_logic.py
+(stdlib unittest, offline). Run:
+
+python3 scripts/test_export_control.py

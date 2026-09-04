@@ -126,6 +126,22 @@ must be re-run at the chosen density.
   scripts/test_rotorcraft_hover_performance.py (33 tests,
   deterministic).
 
+## Pitfalls
+
+- Forgetting to re-run at the density altitude: the defaults are sea level
+  (rho = 1.225 kg/m3); at a lower density the induced velocity rises (about
+  11.4 m/s at rho = 1.06) and the hover check must be re-evaluated there.
+- Using the figure-of-merit and the k-factor paths together: total power is
+  k*T*v_i + P_profile with k = 1.15 default, or P_ideal/FM; mixing both
+  conventions double counts the induced losses.
+- Reading the ideal power as the total: P_ideal = T*v_i excludes profile
+  power and wake/tip losses, so it is always below the real hover power; the
+  total sits near 385.7 kW on the worked rotor.
+- Passing an FM outside (0, 1] or ideal power above total: figure_of_merit
+  rejects ideal_power > total_power and FM outside (0, 1] raises ValueError.
+- Disk loading units: DL = T/A comes out in Pa (about 274.7 Pa on the worked
+  rotor), not kgf/m2.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-forward-flight-performance:
@@ -140,7 +156,7 @@ must be re-run at the chosen density.
   flight-mechanics/performance/glide-performance: fixed-wing vertical
   performance leaves; this leaf owns the rotorcraft hover case only.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

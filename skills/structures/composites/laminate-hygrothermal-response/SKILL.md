@@ -121,6 +121,33 @@ beta_2 = 0.6 per unit moisture fraction. Ambient rh = 0.6, m_sat =
   returns alpha_x = alpha_1 = -0.3e-6/K exactly (float-precision
   difference 0.0), which only the full 2x2 inversion achieves.
 
+
+## Pitfalls
+
+- Using the simplified scalar ratio instead of the exact inversion:
+  the q11-only stiffness-weighted average returns 1.65 ppm for the
+  worked [0/90]s where the exact 2x2 CLT inversion gives 1.60 ppm,
+  and only the full inversion returns alpha_1 exactly for a 0-deg
+  unidirectional laminate.
+- Confusing the moisture and thermal branches: the hygrothermal
+  strain is alpha * delta_t + beta * delta_m per axis, and in the
+  worked laminate the moisture swelling (+3.6e-4) dominates the cure
+  cooldown contraction (-2.5e-4); summing them with the wrong sign
+  misses the net +1.12e-4.
+- Assuming every laminate is 0-deg: the ply angles enter through the
+  Qbar rotation, so a 45-deg unidirectional ply must return the
+  rotated material coefficient; an angle outside [-90, 90] raises
+  ValueError.
+- Quoting raw SI where ppm reads better: cte_ppm(alpha) = alpha *
+  1e6 is the reporting helper, and mixing 1/K values with ppm values
+  in one comparison misreads the coefficient by 1e6.
+- Forgetting the moisture content endpoint domain: the isotherm is
+  M = m_sat * rh with rh in [0, 1] and m_sat > 0; rh outside the
+  unit interval or a non-positive saturation raises ValueError.
+- Feeding non-physical ply properties: non-positive moduli,
+  nu12*nu21 >= 1, empty ply lists, and non-positive thickness all
+  raise ValueError; the code path is exact CLT arithmetic, so the
+  material inputs carry the physics.
 ## Verification
 
 - Confirm laminate_cte_cme on the worked [0/90]s returns alpha_x
@@ -159,7 +186,7 @@ beta_2 = 0.6 per unit moisture fraction. Ambient rh = 0.6, m_sat =
   context where core moisture is a caveat, separate from laminate
   hygrothermal strain.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

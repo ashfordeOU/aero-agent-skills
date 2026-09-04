@@ -118,7 +118,29 @@ lot: values [42.1, 41.6, 43.0, 42.4, 41.2, 44.1, 43.5, 42.8, 41.9, 43.2,
   charts for defect and nonconformity rates when the response is counted,
   not measured.
 
-## Contract test
+## Pitfalls
+
+- Feeding values out of production order: moving ranges pair successive
+  measurements, so the limits, flags and verdict all assume
+  time-ordered one-per-lot sequence — a reordered series produces a
+  different chart.
+- Using the I-MR chart where subgroup data exist: X-bar and R with the
+  A2/D3/D4 constants belong to the statistical-process-control sibling;
+  I-MR is the n = 1 fallback (destructive testing, single unit per
+  batch), not a replacement for subgroup charting.
+- Treating a moving-range flag as an individual flag: MR index i spans
+  original measurements i and i + 1, so flagging must be read against
+  the MR list, not the individuals list.
+- Ignoring the outlier-limits interaction: injecting a 50.0 coupon both
+  flags the point and inflates mr_bar, widening the X limits — an early
+  extreme value can mask a later excursion of the same size.
+- Misreading a point exactly on a limit: limits are inclusive, so a
+  value equal to UCL or LCL is inside the chart, not a flag.
+- Charting with fewer than two measurements: a single lot yields no
+  moving range, and fewer than 2 values (or an empty flag list) raises
+  ValueError rather than producing a chart.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

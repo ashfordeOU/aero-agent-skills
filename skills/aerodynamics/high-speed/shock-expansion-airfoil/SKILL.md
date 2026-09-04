@@ -160,7 +160,36 @@ alpha = 3 deg, gamma = 1.4:
 - aerodynamics/high-speed/swept-wing-aerodynamics: three-dimensional
   sweep effects on the same section aerodynamics.
 
-## Contract test
+## Pitfalls
+
+- Demanding a result for a detached shock: when a compression turn
+  exceeds the maximum deflection (22.97 deg at M1 = 2), the weak
+  solution does not exist and the module raises ValueError — the
+  worked-example alpha = 18 deg case at eps = 5 deg is exactly this
+  boundary and must be caught, not approximated.
+- Confusing the compression and expansion sides of the section: with
+  alpha above eps the upper front turns into a Prandtl-Meyer expansion
+  (p_uf/p_inf = 0.842 < 1) while below eps it is the weaker of the two
+  front shocks; the deflection sign convention drives the whole surface
+  march.
+- Comparing against linear supersonic theory too tightly: at M = 2, eps
+  = 5 deg, alpha = 3 deg the shock-expansion cl sits about 1.5% above
+  4*alpha/sqrt(M^2 - 1), so use the linear value as a 10% cross-check,
+  not as the exact answer.
+- Expecting zero drag at zero lift: the symmetric diamond at alpha = 0
+  still produces cd_wave = 0.0177 (the zero-thickness identity holds
+  only for lift); wave drag comes from the volume and the shocks, so a
+  non-zero cd_wave at cl ~ 0 is correct.
+- Using the section result outside its validity: eps must stay in [0,
+  45) and |alpha| below 90 deg, and every non-finite argument raises
+  ValueError — the panel march is only defined for the diamond
+  geometry, not for cambered or rounded sections.
+- Reading a single Mach point as the trend: cd_wave falls monotonically
+  from 0.0386 at M1 = 1.5 to 0.0150 at M1 = 3.0 at fixed eps and
+  alpha, so an off-trend value means an input error, not a physical
+  anomaly.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

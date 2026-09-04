@@ -132,6 +132,29 @@ c_r 1.3 m, C_h_delta_r -0.045, pedal arm 0.35 m, boost factor 0.15
   V_auth rises to 73.87 m/s; the pedal-force limit still binds at
   98.79 m/s.
 
+## Pitfalls
+
+- Reading the governed limit off the wrong constraint: Vmc is the max
+  of the authority and force limits (max(71.18, 98.79) = 98.79 m/s
+  governed by "pedal-force"), and with manual rudder the force limit
+  drops to 38.26 m/s so the authority limit governs at 71.18 m/s.
+- Quoting the pedal force without the limit: the force at Vmc is 346.2
+  N against the 667 N limit (force_ok True), while the manual-rudder
+  case reaches 2308.6 N with force_ok False and flight_test_go False.
+- Neglecting windmilling drag: with S_f * Cd = 1.5 m2 the denominator
+  shrinks and V_auth rises from 71.18 to 73.87 m/s, so the
+  no-windmilling assumption understates the critical speed.
+- Forgetting the stall guard: Vmc must stay above 1.05 * v_s1g (69.3
+  m/s here); if the stall guard exceeded Vmc the guard verdict would
+  not be "stall-guard-ok" and the flight test would not go.
+- Assuming a symmetric critical engine: with two engines at y = +-8.0 m
+  the critical engine is index 0 by the tie rule (lower index), and an
+  out-of-range failed index raises ValueError.
+- Feeding non-physical inputs: empty engine lists, thrust_N <= 0,
+  negative windmilling area, delta_r_max outside (0, 60] deg, boost
+  factor outside (0, 1], zero hinge moment coefficient, and v_s1g <= 0
+  all raise ValueError.
+
 ## Verification
 
 - Confirm vmc_predict on the worked twin returns vmc 98.79 m/s within
@@ -165,7 +188,7 @@ c_r 1.3 m, C_h_delta_r -0.045, pedal arm 0.35 m, boost factor 0.15
 - flight-test-operations/envelope/stall-characteristics-testing:
   stall demonstration testing behind the stall-protection guard.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

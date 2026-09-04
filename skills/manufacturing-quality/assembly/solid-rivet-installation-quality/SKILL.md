@@ -131,7 +131,33 @@ diameter by 1.8 mm height, flow stress 275 MPa, hole 4.08 mm.
 - manufacturing-quality/assembly/ewis-installation-quality: the wiring
   installation sibling in the same assembly pack.
 
-## Contract test
+## Pitfalls
+
+- Sizing with the wrong head-style allowance: protruding heads take
+  1.5 d and countersunk heads 0.8 d, so a countersunk rivet sized at
+  1.5 d is 0.7 d too long and its shop head will not form to band.
+- Judging a driven head on diameter alone: the shop head verdict needs
+  both the diameter (1.4 to 1.5 d) and the height (0.4 to 0.5 d) in
+  band — an over-formed diameter with an under-driven height is still
+  a fail, and a head below either low edge is under-driven rather than
+  acceptable.
+- Treating the workmanship values as standard data: the 1.5 d / 0.8 d
+  allowances, 1.4-1.5 d and 0.4-0.5 d bands, 1.5 flow-stress factor
+  and 0.1 mm hole fill limit are documented typical practice in the
+  same epistemic class as the threaded sibling's torque coefficient —
+  confirm them against the governing process specification.
+- Feeding an interference fit: a hole at or below the rivet diameter
+  raises ValueError — interference fits are out of scope for this
+  check, not something to score with a negative clearance.
+- Applying torque-tension mechanics here: this leaf is the deformation
+  fastener complement of fastener-installation-quality and never
+  applies the F = T / (k * D) relation used for threaded and lock-bolt
+  fasteners.
+- Passing on one sub-check: the combined installation verdict requires
+  the shop head and the hole fill to pass together, so a mid-band head
+  with a 0.15 mm hole clearance is still an overall fail.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

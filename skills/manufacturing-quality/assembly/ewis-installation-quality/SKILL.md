@@ -154,7 +154,33 @@ separation checks fail and the fill check passes.
   the EWIS physical layer carries; protocol design is out of scope for
   this leaf.
 
-## Contract test
+## Pitfalls
+
+- Computing the voltage drop one-way: the run's resistance is
+  round-trip (R_rt = 2 * R_per_m * L), so forgetting the return path
+  halves the drop — the worked example drops 1.2 V / 4.2857% only
+  because the 0.24 ohm round-trip value is used.
+- Sizing the bend check against the average conductor: the largest
+  single conductor in the bundle drives the required radius (worst
+  case), so a bundle whose mean diameter passes can still fail on its
+  biggest wire.
+- Flagging a fill ratio exactly at the limit: all four checks pass on
+  margin >= 0, so fill 0.40 against the 0.40 limit passes — only a
+  fill above the limit fails.
+- Mixing units across the inputs: the relations assume mm for
+  diameters, radii and distances, m for run length, ohm/m for
+  resistance, and V/A for the electrical inputs, so a cm conduit
+  diameter silently corrupts the fill verdict.
+- Reading overall_pass without the failing check list: the verdict
+  aggregates four independent checks and names the failures
+  (voltage_drop, bend_radius, separation in the worked example), so a
+  bare pass/fail without the list hides which check needs rework.
+- Treating this leaf as an EWIS design tool: it verifies the physical
+  installation of a run under a qualified wiring process; routing and
+  splice-layout design are out of scope, and a changed process itself
+  routes to special-process-qualification.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

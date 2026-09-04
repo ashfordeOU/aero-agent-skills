@@ -124,7 +124,33 @@ mu0 = 10, sigma = 1, xs = [10.2, 10.5, 11.0, 10.8, 11.5, 11.9, 12.2,
 - manufacturing-quality/as9100/corrective-action: downstream response
   planning once a monitoring signal fires.
 
-## Contract test
+## Pitfalls
+
+- Running the charts without a validated in-control reference: the
+  statistics assume independent, normal observations around mu0 with
+  known sigma, so a mu0 or sigma pulled from a drifting process fires
+  signals that are artefacts of the reference, not of the shift.
+- Declaring the process fine from a single-point check: every raw value
+  in the worked sequence sits within mu0 +- 3 sigma, yet EWMA signals at
+  sample 7 and CUSUM at sample 8 — the accumulation statistics exist
+  precisely because the point check misses small sustained shifts.
+- Reading only the S+ side: a sustained negative shift accumulates on
+  S- (which stays at 0 for the worked example) and fires only there;
+  both sides must be read before declaring in control.
+- Judging charts by which fires first: EWMA with lam 0.2 usually leads
+  on gentle drifts and CUSUM on slightly stronger sustained steps (7 vs
+  8 in the worked example), so an earlier first signal is a behaviour of
+  the statistic, not proof of a larger shift.
+- Comparing EWMA values against steady-state limits: the per-sample
+  sigma_e widens from the first sample toward sigma * sqrt(lam /
+  (2 - lam)), so early samples face narrower limits and late-sample
+  comparisons against the steady state misplace the signal.
+- Passing non-physical parameters: empty xs, sigma <= 0, k <= 0, h <= 0,
+  lam outside (0, 1], L <= 0 and n < 0 raise ValueError, and silent
+  defaults (k 0.5, h 5.0, lam 0.2, L 3.0) only suit the 1-sigma-shift
+  detection context they were designed for.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 
