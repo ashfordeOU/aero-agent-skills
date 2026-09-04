@@ -165,17 +165,17 @@ severity major (expected events 2.0). Field events: 2 hazardous
 ## Pitfalls
 
 - Waiting for the rate to prove a single severe event: one hazardous
-  or catastrophic event is significant regardless of the rate — the
+  or catastrophic event is significant regardless of the rate - the
   single-event rule fires even against a 1e-8 predicted rate and
   routes an airworthiness-directive-request with immediate urgency.
 - Closing a condition out on a not-significant verdict alone: with
   inadequate exposure (expected events below the 5.0 threshold, as in
   both worked conditions) the route is continued-monitoring, not
-  no-action — the verdict and the adequacy screen must be read
+  no-action - the verdict and the adequacy screen must be read
   together.
 - Judging significance on one path only: significance fires on the
   Poisson exceedance tail at or below alpha 0.05, OR the observed rate
-  at least 2.0x the predicted rate, OR the single-event rule — any one
+  at least 2.0x the predicted rate, OR the single-event rule - any one
   path makes the condition significant.
 - Reviewing events against an unknown condition: every event
   condition must appear in the SSA predictions, and an event mapped

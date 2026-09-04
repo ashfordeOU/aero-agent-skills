@@ -149,7 +149,7 @@ fai_pending, verdict}.
   and must not fire.
 - Letting FAI pending rescue a defective order: the verdict precedence
   puts reject-review first, so any missing element, unrecognized
-  special, or blocker rejects for review — accept-with-fai-condition
+  special, or blocker rejects for review - accept-with-fai-condition
   applies only to an otherwise clean order.
 - Silently dropping unrecognized specials: a declared token that
   matches no aerospace class is flagged unrecognized and sent back to
@@ -161,7 +161,7 @@ fai_pending, verdict}.
   inspection leaf and gates production release after acceptance.
 - Scoring completeness from a partial declaration: every canonical
   element must be declared, and an empty declaration reports all eight
-  missing — a claim of "complete" requires the full eight-element set,
+  missing - a claim of "complete" requires the full eight-element set,
   not the elements the supplier happened to state.
 - Feeding non-physical orders: non-string, empty, or negative-day
   inputs raise ValueError, so a malformed order dict is rejected

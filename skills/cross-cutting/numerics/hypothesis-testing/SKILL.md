@@ -123,7 +123,7 @@ b = [273, 271, 268, 275, 270], classic small samples.
   two-sample test on paired data discards the pairing.
 - Reading fail-to-reject as proof of the null: identical data give
   stat 1.0, p 1.0 (F test) and one-sample t against the true mean
-  gives p 1.0 — those results mean no evidence against, not that the
+  gives p 1.0 - those results mean no evidence against, not that the
   null is true.
 - Feeding undersized or malformed inputs: fewer than 2 points (3 for
   variance tests and ANOVA), length-mismatched paired inputs,

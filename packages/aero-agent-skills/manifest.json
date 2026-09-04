@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 485,
+  "leaves": 496,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 986
+  "corpus_tasks": 1008
  },
  "skills": [
   {
@@ -759,6 +759,22 @@
     "bc-to-rt",
     "bus-monitor",
     "1-mbps"
+   ],
+   "family": "avionics",
+   "pack": "data-bus",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/data-bus/mil-std-1553-bus-loading",
+   "name": "mil-std-1553-bus-loading",
+   "description": "Use when you must compute the MIL-STD-1553 bus loading: convert a minor-frame message schedule into wire-word counts per message type (command and status overhead plus data words), apply the fixed 24 microsecond word slot at the 1 Mbps data rate, sum the schedule time, and return the bus utilization against the minor-frame length with an 80 percent loading guideline verdict. Produces per-message wire words and time, the schedule total, the percent utilization, the headroom to the 80 percent budget, and a FITS or OVER verdict. Trigger: mil std 1553 bus loading, minor frame schedule, wire word count, bus utilization, data bus load, bc to rt, rt to bc, rt to rt, message overhead, loading headroom.",
+   "tags": [
+    "mil-std-1553-bus-loading",
+    "1553-minor-frame-load",
+    "1553-wire-word-time",
+    "1553-bus-utilization",
+    "bc-rt-message-overhead",
+    "1553-schedule-budget"
    ],
    "family": "avionics",
    "pack": "data-bus",
@@ -1945,6 +1961,22 @@
     "convergence-criteria",
     "initial-guess",
     "bracket"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/runs-test",
+   "name": "runs-test",
+   "description": "Use when you must run the Wald-Wolfowitz runs test: determining whether the ordering of a two-sign sequence (plus and minus signs, or 1/0 flags recoded as plus and minus) is random by counting the runs of identical signs, computing the expected number of runs and its variance under the randomness null from the two sign counts, forming the standard normal z statistic, and returning the randomness verdict against the two-sided 95 percent normal critical value. Produces the run count, expected runs, variance, standard deviation, z statistic, and the REJECT or FAIL_TO_REJECT randomness verdict. Trigger: runs-test, wald-wolfowitz runs, sequence randomness test, runs count statistic, run length pattern, nonparametric randomness, two sign sequence.",
+   "tags": [
+    "runs-test",
+    "wald-wolfowitz-runs",
+    "sequence-randomness-test",
+    "runs-count-statistic",
+    "nonparametric-randomness",
+    "run-length-pattern"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -4774,6 +4806,22 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/as9100/gage-linearity-bias-study",
+   "name": "gage-linearity-bias-study",
+   "description": "Use when you must run the gage bias and linearity study: compute the per-level bias and the overall mean bias from reference masters and measured biases, fit the least-squares regression of bias on the reference value returning the slope, intercept, residual sum of squares and R-squared as the linearity evidence, test the mean bias for significance against the two-sided 95 percent t critical at the study degrees of freedom, and apply the percent-of-reference acceptability band per level. Produces per-level bias, mean bias, the regression linearity statistics, the bias significance verdict, the worst percent bias and an overall study verdict. Trigger: gage linearity and bias, measurement bias study, bias significance test, gage linearity regression, percent of reference band, linearity percent band, msa bias analysis.",
+   "tags": [
+    "gage-linearity-bias-study",
+    "measurement-bias-study",
+    "gage-linearity-regression",
+    "bias-significance-test",
+    "linearity-percent-band",
+    "msa-bias-analysis"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/as9100/individuals-and-moving-range-chart",
    "name": "individuals-and-moving-range-chart",
    "description": "Use when you must run an individuals and moving range control chart: compute the moving ranges between successive measurements and the average moving range, build the individuals chart limits from the mean plus and minus E2 times the average moving range (E2 = 2.66), estimate the process standard deviation from the average moving range over the d2 constant (d2 = 1.128), set the moving range chart upper limit at 3.267 times the average moving range, flag the individual values and moving ranges outside their limits, and return the in-control or out-of-control verdict for one-measurement-per-lot processes (destructive testing, single unit per batch, bond or coating lots). Produces the central lines, limits, flagged points, and the stability verdict that gate lot-to-lot process control without subgroups. Trigger: moving range chart, individuals chart, I-MR chart, single measurement per lot, destructive testing, lot monitoring.",
@@ -5697,6 +5745,22 @@
     "turbine",
     "pressure-ratio",
     "engine-cycle"
+   ],
+   "family": "propulsion",
+   "pack": "gas-turbine-cycle",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/gas-turbine-cycle/propelling-nozzle",
+   "name": "propelling-nozzle",
+   "description": "Use when you must size the gas turbine propelling nozzle: decide the choked or unchoked regime from the nozzle pressure ratio against the critical ratio 1.851, size the throat area from the design mass flow and total conditions under the choked flow relation, and return the choked exit temperature, velocity and static pressure plus the gross thrust with the pressure term, or for an unchoked off-design point the exit Mach number and the actual mass flow the throat passes. Produces the regime flag, throat area, exit velocity, exit static pressure, gross thrust and expansion verdict. Trigger: propelling nozzle, convergent jet nozzle, nozzle throat area, choked nozzle regime, gross thrust pressure term, air breathing nozzle.",
+   "tags": [
+    "propelling-nozzle",
+    "convergent-jet-nozzle",
+    "nozzle-throat-area",
+    "choked-nozzle-regime",
+    "gross-thrust-pressure-term",
+    "air-breathing-nozzle"
    ],
    "family": "propulsion",
    "pack": "gas-turbine-cycle",
@@ -6777,6 +6841,22 @@
     "jacobi-constant",
     "collinear-points",
     "earth-moon-l1"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/orbit-mechanics/walker-delta-constellation",
+   "name": "walker-delta-constellation",
+   "description": "Use when you must parameterize a Walker-Delta constellation: validate the t/p/f triple (total satellites divisible by the plane count, phasing parameter within range), enumerate the planes and the slots per plane, compute the right ascension of ascending node spacing 360/p, the in-plane mean anomaly spacing 360/s with s = t/p satellites per plane, and the inter-plane phasing offset f*360/t, and produce the unique (RAAN, mean anomaly) slot list. Produces the satellites per plane, the RAAN spacing, the mean anomaly spacing, the inter-plane phase, and the enumerated slot grid. Trigger: walker delta constellation, t/p/f phasing, constellation plane spacing, inter-plane phasing, constellation slot enumeration, raan mean anomaly grid.",
+   "tags": [
+    "walker-delta-constellation",
+    "walker-delta-tpf",
+    "constellation-plane-spacing",
+    "inter-plane-phasing",
+    "constellation-slot-enumeration",
+    "raan-mean-anomaly-grid"
    ],
    "family": "space-systems",
    "pack": "orbit-mechanics",
@@ -8162,6 +8242,22 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification",
+   "name": "ica-cmr-ali-classification",
+   "description": "Use when you must classify certification maintenance items: sort each candidate from certification into airworthiness limitation items (life-limited parts, damage-tolerance inspections, fuel-tank flammability checks), certification maintenance requirements, or routine scheduled maintenance using a fixed certification-driver rule table, then compute the ALS coverage of a maintenance program as matched required items over the total required and check per-item interval compliance against the type-certificate ALS maximum intervals. Produces a per-item verdict with rationale, class counts, the ALS coverage fraction, and the non-compliant and missing ALS item lists. Trigger: airworthiness limitations section, ALS coverage, certification maintenance requirement, life-limited part, damage-tolerance inspection, fuel-tank flammability, instructions for continued airworthiness.",
+   "tags": [
+    "ica-cmr-ali-classification",
+    "airworthiness-limitation-items",
+    "certification-maintenance-requirements",
+    "als-coverage",
+    "life-limited-part-review",
+    "instructions-for-continued-airworthiness"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "continued-airworthiness",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/continued-airworthiness/in-service-safety-assessment",
    "name": "in-service-safety-assessment",
    "description": "Use when you must assess in-service safety data for a civil aircraft fleet against the type-design safety assessment predictions: collect field events from service difficulty reports and airline reliability reports grouped by failure condition, compute the observed event rate over the fleet exposure, compare it with the predicted rate from the safety objective, apply the single-event rule for hazardous or catastrophic events, and decide whether the experience is safety-significant. Produces the observed rate, the Poisson exceedance statistic, the significance verdict, and the corrective action route (no action, continued monitoring, service bulletin, or airworthiness directive request) with an urgency band. Trigger: in-service safety assessment, continued airworthiness, service difficulty report, field event rate, fleet exposure, observed versus predicted rate, single-event rule, ARP5150, safety significance, airworthiness directive request.",
@@ -8657,6 +8753,22 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/apu-fuel-burn-sizing",
+   "name": "apu-fuel-burn-sizing",
+   "description": "Use when you must compute the APU fuel burn: take the generator electrical output and the bleed mass flow at a fixed load point for a conceptual aircraft or rotorcraft auxiliary power unit, convert the electrical output into generator shaft power through the generator efficiency, convert the bleed mass flow into its load-compressor pumping-power equivalent with the adiabatic compressor work relation at the stated pressure ratio, sum both into the total equivalent shaft load, and convert that load into fuel flow through the APU thermal efficiency and the fuel lower heating value. Produces the generator shaft power, the bleed pumping-power equivalent, the total equivalent shaft load, and the fuel flow in kg/s and kg/h. Trigger: apu fuel burn, auxiliary power unit fuel flow, apu load compressor, bleed pumping power, apu generator shaft power, apu fuel flow rate.",
+   "tags": [
+    "apu-fuel-burn-sizing",
+    "apu-load-compressor",
+    "auxiliary-power-unit-fuel",
+    "apu-generator-shaft-power",
+    "bleed-pumping-power",
+    "apu-fuel-flow-rate"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/avionics-bay-cooling-sizing",
    "name": "avionics-bay-cooling-sizing",
    "description": "Use when you must size the cooling airflow for the avionics and equipment bay: rolling up the bay heat load from the LRU heat dissipations, sizing the bay cooling mass flow from the allowable cooling air temperature rise so the bay exhaust temperature stays at or below the LRU inlet air temperature limit, converting the mass flow to the volumetric flow and to cubic feet per minute, and checking each LRU case temperature against its case limit from the dissipated power and the case to air conductance. Produces the bay heat load, the required cooling mass flow and CFM, the exhaust temperature, the per LRU case temperature verdicts and the bay cooling PASS or FAIL verdict that gate the bay ventilation layout. Trigger: avionics bay cooling sizing, equipment bay cooling airflow, LRU heat dissipation, LRU case temperature check, cooling air temperature rise, case to air conductance.",
@@ -8692,6 +8804,22 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/bleed-air-system-sizing",
+   "name": "bleed-air-system-sizing",
+   "description": "Use when you must size the aircraft bleed air system: roll up the total bleed offtake mass flow from the fixed consumer demands (ECS pack flows, wing anti-ice flow, pressurization trim flow), split the offtake per engine, compute the bleed thermal budget the precooler must reject between the bleed supply temperature and the consumer supply temperature, and size each engine bleed duct diameter from compressible pipe flow at a fixed design Mach number. Produces the total and per-engine offtake mass flow, the per-engine and total thermal budget, the duct flow area and diameter, and a fit verdict against the nominal duct diameter limit. Trigger: bleed air sizing, bleed offtake mass flow, per engine offtake, bleed duct diameter, duct Mach sizing, precooler heat load, bleed thermal budget, pneumatic bleed manifold, bleed supply temperature.",
+   "tags": [
+    "bleed-air-system-sizing",
+    "bleed-offtake-mass-flow",
+    "bleed-duct-diameter",
+    "bleed-thermal-budget",
+    "pneumatic-bleed-manifold",
+    "precooler-heat-load"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/brake-energy-sizing",
    "name": "brake-energy-sizing",
    "description": "Use when you must size the aircraft wheel brake system from the kinetic energy it must absorb: compute the rejected-takeoff (RTO) brake energy at the decision speed and the landing-stop brake energy at the touchdown speed, divide the total energy over the braked wheels, estimate the required carbon heat sink mass per brake from the allowable temperature rise and the specific heat, check the temperature rise of the selected heat sink, and estimate the braking distance at the design deceleration. Produces the RTO and landing energies, the per-brake energy, the governing case, the required heat sink mass, the temperature rise and margin, the braking distance, and the pass or fail verdict that gates the wheel brake sizing. Trigger: brake energy sizing, rejected takeoff energy, wheel brake heat sink, carbon brake mass, brake temperature rise, braking distance at V1, rto brake energy, landing stop brake energy.",
@@ -8704,6 +8832,22 @@
     "braking-distance-v1",
     "rto-brake-energy",
     "landing-stop-brake-energy"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/cabin-outflow-valve-sizing",
+   "name": "cabin-outflow-valve-sizing",
+   "description": "Use when you must size the cabin outflow valve: compute the choked-flow mass flux G = p sqrt(gamma/(R T)) (2/(gamma+1))^((gamma+1)/(2(gamma-1))) at the cruise cabin condition, divide the governing pack inflow by that flux for the outflow valve effective area, and size the pressure-relief valve effective area to dump the same pack flow at the 8.9 psi differential pressure clamp ceiling. Produces the choked-flow mass flux, the effective area and equivalent diameter for the outflow and relief cases, and a fit verdict against the nominal valve diameter limit. Trigger: cabin outflow valve sizing, outflow valve area, pressure relief valve sizing, cabin choked flow, pressurization valve, differential pressure clamp.",
+   "tags": [
+    "cabin-outflow-valve-sizing",
+    "outflow-valve-area",
+    "pressure-relief-valve-sizing",
+    "cabin-choked-flow",
+    "pressurization-valve",
+    "differential-pressure-clamp"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
@@ -8824,6 +8968,22 @@
     "fuel-dump-rate",
     "jettison-time-to-landing-weight",
     "fuel-jettison-mast"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/fuel-tank-inerting-sizing",
+   "name": "fuel-tank-inerting-sizing",
+   "description": "Use when you must size the fuel tank inerting system at the conceptual level: model the ullage as a well-mixed volume washed by nitrogen-enriched air (NEA), compute the required NEA flow from the exponential oxygen decay C(t) = C_NEA + (C0 - C_NEA) exp(-Q t / V), and solve the flow that reaches a target oxygen fraction within a required time Q = (V/t) ln((C0 - C_NEA)/(C_tgt - C_NEA)). Produces the required NEA flow in m3/s and in SCFM, the ullage oxygen fraction at the required time, the washout time at a given flow, and a PASS or FAIL verdict against the NEA generator capacity limit (FAR 25.981 fuel tank flammability reduction context). Trigger: obiggs flow sizing, ullage oxygen washout, nitrogen enriched air, fuel ullage inerting, nea generator capacity.",
+   "tags": [
+    "fuel-tank-inerting-sizing",
+    "obiggs-flow-sizing",
+    "ullage-oxygen-washout",
+    "nitrogen-enriched-air",
+    "fuel-ullage-inerting",
+    "nea-generator-capacity"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
@@ -8973,6 +9133,22 @@
     "disk-loading",
     "ground-clearance",
     "advance-ratio"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/ram-air-turbine-sizing",
+   "name": "ram-air-turbine-sizing",
+   "description": "Use when you must size the ram air turbine: computing the RAT rotor swept area from the required emergency power at a fixed emergency airspeed with the wind-power relation P = 0.5 rho V^3 A Cp at a fixed design power coefficient, deriving the rotor disk diameter and checking the round-trip available power at that condition. Produces the required swept area, the disk diameter, the available power and margin at that condition, and a fit verdict against the stowage diameter limit for the emergency power extraction installation. Trigger: ram air turbine sizing, rat disk diameter, ram air turbine rotor, rat swept area, emergency power extraction, wind power rotor sizing, emergency descent airspeed, required emergency power.",
+   "tags": [
+    "ram-air-turbine-sizing",
+    "ram-air-turbine-rotor",
+    "rat-disk-diameter",
+    "emergency-power-extraction",
+    "rat-swept-area",
+    "wind-power-rotor-sizing"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

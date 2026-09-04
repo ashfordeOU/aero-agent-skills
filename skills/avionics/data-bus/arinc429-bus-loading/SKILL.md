@@ -150,21 +150,21 @@ at 20 Hz, 2 labels at 10 Hz.
 - Treating the 80 percent guideline as the verdict threshold: the
   verdict flips to OVER only when utilization exceeds 100 percent, so a
   schedule at 86.4 percent on the 12.5 kbps link is FITS with headroom
-  0.0 — zero headroom is not the same as OVER.
+  0.0 - zero headroom is not the same as OVER.
 - Forgetting the low-speed link: at RATE_12_5_KBPS the capacity is
   12500.0 / 36.0 = 347.2 words/s, so a 350 words/s schedule is already
-  100.8 percent and OVER even though it fits the 100 kbps link — carry
+  100.8 percent and OVER even though it fits the 100 kbps link - carry
   the link rate into the capacity check.
 - Summing bit rates instead of word rates: total_word_rate adds the
   per-label rates in words per second and only bus_load_bps prices them
   at 36 bits each, so never multiply the label rates by 36 twice.
 - Routing word-format questions here: this leaf never builds or
-  interprets a 32-bit word — the label/word layout and parameter coding
+  interprets a 32-bit word - the label/word layout and parameter coding
   live in avionics/data-bus/arinc429-protocol; feed this leaf the label
   rate schedule only.
 - Feeding an empty schedule or a negative rate: the summary and
   capacity functions raise ValueError on an empty schedule, negative
-  rates, non-positive link rates, and non-positive bits per word —
+  rates, non-positive link rates, and non-positive bits per word -
   validate the schedule before calling.
 
 ## Behavior contract (gate 3)

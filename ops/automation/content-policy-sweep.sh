@@ -36,6 +36,7 @@ repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
 # Keep this list minimal and auditable: every entry states WHY in a comment.
 meta_doc_exempt=(
   "docs/superpowers/specs/2026-08-31-attestation-gates-design.md" # defines the sweep pattern list itself
+  "docs/MAINTENANCE_AND_HANDOVER.md" # internal handover doc; quotes the red-flag terms to WARN builders against them (founder mandate 2026-09-04) — never shipped to buyers
 )
 
 if [ "$#" -gt 0 ]; then

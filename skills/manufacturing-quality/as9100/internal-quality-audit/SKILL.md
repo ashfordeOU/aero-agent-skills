@@ -136,7 +136,7 @@ containment required and no systemic spread. Running the module prints:
   conflict is declared, whatever the competence record says.
 - Scheduling from the base interval alone: the risk multiplier shortens
   the interval (high risk 0.5, medium 1.0, low 1.5), and the due date
-  clamps to the target month end — 2026-01-31 plus 1 month is
+  clamps to the target month end - 2026-01-31 plus 1 month is
   2026-02-28 (2024-02-29 in the leap year), not March.
 - Sizing the sample with sqrt(lot) at every confidence level: the
   factor is interpolated between the anchors (0.8 at 0.90, 1.0 at
@@ -144,7 +144,7 @@ containment required and no systemic spread. Running the module prints:
   depending on the confidence stated.
 - Scoring severity without the escalators: containment required makes
   any finding major, systemic spread escalates a minor (severity 2-3)
-  to major, and severity 1 is an opportunity for improvement — not a
+  to major, and severity 1 is an opportunity for improvement - not a
   minor finding.
 - Closing a finding on the response's existence alone: closure requires
   the corrective action taken, the root cause statement and the
@@ -152,7 +152,7 @@ containment required and no systemic spread. Running the module prints:
   finding open.
 - Ignoring the audit program's determinism: this leaf uses no
   randomness anywhere, so any run-to-run variation in schedule, sample
-  size or verdict is a caller bug, not audit sampling noise — and
+  size or verdict is a caller bug, not audit sampling noise - and
   malformed dates, unknown risk categories, lot sizes below 1,
   confidence outside [0.5, 0.999] and severity outside 1-5 are all
   rejected with ValueError.

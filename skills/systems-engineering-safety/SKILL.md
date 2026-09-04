@@ -69,6 +69,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | In-service safety assessment | in-service safety assessment, service difficulty report, continued airworthiness, field event rate, observed versus predicted rate, single event rule, service bulletin, airworthiness directive request |
 | systems-engineering-safety/safety-case/goal-structuring-notation | Goal structuring notation | goal structuring notation, GSN, safety argument, safety case, claim decomposition, solution node, away goal, argument validation, support coverage |
 | systems-engineering-safety/continued-airworthiness/msg3-maintenance-analysis | MSG-3 maintenance analysis | MSG-3, maintenance steering group, scheduled maintenance task selection, hidden failure, evident failure, task category, interval determination, maintenance program development |
+| systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification | ICA/CMR/ALI classification | airworthiness limitation items, ALI, certification maintenance requirements, CMR, airworthiness limitations section, ALS coverage, life-limited part, instructions for continued airworthiness |
 
 ## Routing guidance
 
@@ -136,3 +137,4 @@ your host's skills directory (see README Install for per-host commands).
 - MMEL proposal questions (master minimum equipment list, dispatch with an item inoperative, interval category, O and M flags) route to the certification mmel-development sub-skill.
 - In-service and continued-airworthiness questions (service difficulty reports, field event rate versus the SSA prediction, service bulletin or AD request) route to the continued-airworthiness in-service-safety-assessment sub-skill.
 - GSN safety argument questions (claim decomposition, strategy and solution evidence nodes, away-goal justification, support coverage) route to the safety-case goal-structuring-notation sub-skill.
+- Airworthiness-limitation and certification-maintenance-requirement questions (ALI/CMR classification, ALS coverage, life-limited part interval compliance) route to the continued-airworthiness ica-cmr-ali-classification sub-skill.

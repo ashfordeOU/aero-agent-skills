@@ -158,14 +158,14 @@ separation checks fail and the fill check passes.
 
 - Computing the voltage drop one-way: the run's resistance is
   round-trip (R_rt = 2 * R_per_m * L), so forgetting the return path
-  halves the drop — the worked example drops 1.2 V / 4.2857% only
+  halves the drop - the worked example drops 1.2 V / 4.2857% only
   because the 0.24 ohm round-trip value is used.
 - Sizing the bend check against the average conductor: the largest
   single conductor in the bundle drives the required radius (worst
   case), so a bundle whose mean diameter passes can still fail on its
   biggest wire.
 - Flagging a fill ratio exactly at the limit: all four checks pass on
-  margin >= 0, so fill 0.40 against the 0.40 limit passes — only a
+  margin >= 0, so fill 0.40 against the 0.40 limit passes - only a
   fill above the limit fails.
 - Mixing units across the inputs: the relations assume mm for
   diameters, radii and distances, m for run length, ohm/m for

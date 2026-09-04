@@ -137,7 +137,7 @@ case height_frac 0.12, cant 0 deg, taper 0.35.
 
 - Sizing the winglet against the cruise drag polar without a reference
   lift coefficient: cd_i scales as cl^2, so the 34.47 pct reduction in
-  the worked example is only valid at cl_ref = 0.5 — report the
+  the worked example is only valid at cl_ref = 0.5 - report the
   reduction with the lift coefficient it was computed at.
 - Counting the full winglet height as span: only K_HEIGHT = 0.8 of the
   height acts as span extension, and only the cant-weighted part
@@ -145,7 +145,7 @@ case height_frac 0.12, cant 0 deg, taper 0.35.
   gains less effective span than its physical height suggests.
 - Trading drag reduction without the bending check: the winglet that
   cuts induced drag 34.47 pct also adds 10.18 pct root bending moment
-  in the worked example — the tip-device trade must weigh
+  in the worked example - the tip-device trade must weigh
   root_bending_penalty_pct against the drag gain.
 - Treating the approximate models as a final design: the e_eff
   improvement and bending-penalty relations are documented conceptual
@@ -154,7 +154,7 @@ case height_frac 0.12, cant 0 deg, taper 0.35.
 - Feeding non-physical geometry: span, area and lift coefficient must be
   positive, span efficiency in (0, 1], height fraction in [0, 0.6],
   cant in [-90, 90] deg, taper in (0, 1] and target reduction in
-  (0, 100) — everything else raises ValueError.
+  (0, 100) - everything else raises ValueError.
 - Confusing the sizing reference: size_winglet bisects the height
   fraction on the local semi-span reference and returns the physical
   height as height_frac * span / 2, so the returned height_m belongs to

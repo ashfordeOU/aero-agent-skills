@@ -155,26 +155,26 @@ D_h = 2 mm with G_c = 12000 kg/m2 s, mu_c = 0.0022 Pa s, cp_c =
 - Reporting the hot wall temperature without the handoff verdict: the
   plain-regenerative hot wall runs at 1936 K in the worked example,
   far past the 800 K copper limit, so film_cooling_handoff must gate
-  the design — a flux number alone hides that regenerative flow cannot
+  the design - a flux number alone hides that regenerative flow cannot
   hold the wall.
 - Sizing the coolant flow from the reference flux: the flux needed to
   hold the 800 K limit is 137168 kg/m2 s, roughly 11 times the 12000
-  kg/m2 s reference flow — the required-flux round trip is the design
+  kg/m2 s reference flow - the required-flux round trip is the design
   answer, not the channel flow you started with.
 - Confusing the recovery temperature with the chamber total
   temperature: the hot side balances against T_aw (3467 K in the
   example), which sits between the throat static 3181.82 K and the
-  chamber total 3500 K — using T_c instead of T_aw overdrives the
+  chamber total 3500 K - using T_c instead of T_aw overdrives the
   flux.
 - Applying the wall-limit sizing with the limit at or above the
   recovery temperature: a wall limit at or above T_aw raises
   ValueError, as does a limit below what infinite coolant convection
-  could hold — the limit must lie inside the physically reachable
+  could hold - the limit must lie inside the physically reachable
   band.
 - Reading the wall drop as the dominant resistance: the copper wall
   drop is 62.89 K of a 1936 K wall temperature, small against the
   convective drops, so the series network is dominated by 1/h_g and
-  1/h_c — strengthening the wrong term does not cool the wall.
+  1/h_c - strengthening the wrong term does not cool the wall.
 - Feeding a non-physical operating point: any non-positive pressure,
   c-star, diameter, viscosity, specific heat, conductivity, thickness,
   mass flux or coolant temperature, gamma <= 1 and sigma <= 0 all raise

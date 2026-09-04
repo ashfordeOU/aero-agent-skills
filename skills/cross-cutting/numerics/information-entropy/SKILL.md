@@ -110,7 +110,7 @@ A telemetry data channel carries four symbol classes with p = [0.5,
   outside [0, 1].
 - Expecting entropy above log2(N): H always lies between 0 and log2(N),
   so a uniform 4-symbol source gives exactly 2.0 bits and skew sources
-  sit below (0.6175 for [0.9, 0.05, 0.03, 0.02]) — a result above the
+  sit below (0.6175 for [0.9, 0.05, 0.03, 0.02]) - a result above the
   bound means invalid input, not a dense source.
 - Misreading binary_entropy at its endpoints: b(0.0) = b(1.0) = 0.0,
   b(0.5) = 1.0 exactly, and the function is symmetric, b(p) = b(1-p).

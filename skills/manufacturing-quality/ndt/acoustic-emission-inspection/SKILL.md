@@ -110,11 +110,11 @@ point.
 - Reading the Felicity ratio backwards: a ratio at or above 1 means
   the Kaiser effect holds and damage is stable, while a ratio below 1
   (0.95 is the common composites threshold) signals the Felicity
-  effect and progressing damage — treating a sub-1 ratio as a pass
+  effect and progressing damage - treating a sub-1 ratio as a pass
   misses the very damage progression AE is deployed to catch.
 - Counting hits as events: a hit is one sensor channel crossing the
   amplitude threshold, and hits only become one source event when
-  their arrival times fall inside the HDT window — grouping must run
+  their arrival times fall inside the HDT window - grouping must run
   before hit counts are quoted as emissions.
 - Trusting a located source without checking the array geometry:
   sources far outside the array are unreliable, and the planar solver

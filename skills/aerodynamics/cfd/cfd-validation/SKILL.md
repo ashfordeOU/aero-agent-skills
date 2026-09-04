@@ -98,7 +98,7 @@ NACA 0012 at M 0.30, Re 6e6, alpha 0 deg. Reference Cd 0.0081 (NACA TR
 
 - Calling a code validated because one case passes: validation never
   proves a code, it bounds it for a stated application and condition
-  range — the verdict from validation_verdict belongs to the case, the
+  range - the verdict from validation_verdict belongs to the case, the
   band, and the flow regime that was run, and a clean residual
   (cfd-convergence) does not make a 23% drag error acceptable.
 - Selecting the reference case by convenience instead of regime: the
@@ -110,7 +110,7 @@ NACA 0012 at M 0.30, Re 6e6, alpha 0 deg. Reference Cd 0.0081 (NACA TR
   stated before the comparison, not tuned to force a PASS.
 - Using the wrong metric for the quantity: relative_error is for
   integrated quantities (Cd, Cl) while distributed quantities (Cp, Cf,
-  u profiles) need rms_error and max_error — a single-point Cp relative
+  u profiles) need rms_error and max_error - a single-point Cp relative
   error hides the profile mismatch.
 - Running Richardson extrapolation on a non-monotone mesh sequence:
   three mesh values with no clear trend or a non-positive apparent
@@ -118,7 +118,7 @@ NACA 0012 at M 0.30, Re 6e6, alpha 0 deg. Reference Cd 0.0081 (NACA TR
   finest mesh is not trustworthy.
 - Reporting a verdict whose band is narrower than the uncertainty: when
   U_val (0.000374 in the worked example) approaches the tolerance band,
-  the PASS is not robust — widen the band or reduce the dominant error
+  the PASS is not robust - widen the band or reduce the dominant error
   source before claiming validation.
 
 ## Behavior contract (gate 3)

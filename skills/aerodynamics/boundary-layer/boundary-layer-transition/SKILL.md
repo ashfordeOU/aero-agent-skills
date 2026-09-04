@@ -160,7 +160,7 @@ m/s.
   suction input.
 - Treating a never-crossed margin as a zero-length run: when the
   criterion is never met, x_transition is None and the body stays
-  laminar over the supplied stations — report that outcome rather than
+  laminar over the supplied stations - report that outcome rather than
   forcing a crossing.
 - Ignoring the margin sign convention at the first station: the sweep
   returns the first station with non-negative margin, so the bracketing

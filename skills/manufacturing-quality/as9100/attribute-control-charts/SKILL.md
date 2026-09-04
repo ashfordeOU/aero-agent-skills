@@ -171,7 +171,7 @@ u fixture: 9 subgroups, counts [2, 5, 3, 4, 1, 6, 2, 3, 9] over areas
 ## Pitfalls
 
 - Charting the wrong statistic for the chart type: the np-chart flags
-  raw counts x_i while the p-chart flags fractions x_i / n — charting
+  raw counts x_i while the p-chart flags fractions x_i / n - charting
   raw counts on the p scale (or vice versa) misplaces subgroups against
   limits that differ by the sample-size factor n.
 - Using the c-chart where the inspection area varies: the c-chart

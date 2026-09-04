@@ -152,7 +152,7 @@ contract test asserts the 1.67 target lands on the safety-critical bore.
 
 - Ranking a customer-designated KC by its risk score: customer
   designation gates KC status by rule but carries no weight, so a
-  customer-only KC scores 0/100 — the risk rank is not the importance
+  customer-only KC scores 0/100 - the risk rank is not the importance
   rank for designation-driven characteristics.
 - Reading KC status from the risk score: any single rule firing (safety
   flag, customer designation, fit/function with downstream impact, a

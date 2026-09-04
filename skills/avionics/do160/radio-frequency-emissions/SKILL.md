@@ -151,7 +151,7 @@ Category A equipment, representative measurements.
   dbu_v_per_m_from_v_per_m for radiated); feeding volts straight into a
   dBuV limit comparison misplaces the anchor by 120 dB at 1 V.
 - Flipping the margin sign: margin is limit minus measured, so a
-  negative margin is a fail — computing measured minus limit inverts
+  negative margin is a fail - computing measured minus limit inverts
   the pass/fail verdict for every sweep point.
 - Applying the wrong curve side: CE102 conducted limits and RE102
   radiated category floors are different functions of frequency, and
@@ -160,12 +160,12 @@ Category A equipment, representative measurements.
   curve is meaningless.
 - Quoting the simplified curves as normative limits: the CE102 band
   curve and the RE102 category A/B/C floors here are reference-only
-  typical values, not the current RTCA/DO-160 section 21 table — the
+  typical values, not the current RTCA/DO-160 section 21 table - the
   real curve varies within the band and must be read from the current
   revision before any qualification call.
 - Misapplying the ERP sanity check: field_strength_from_erp checks the
   radiating source with the inverse-square far-field relation (100 W ERP
-  at 10 m is 134.77 dBuV/m) — it does not size an immunity amplifier;
+  at 10 m is 134.77 dBuV/m) - it does not size an immunity amplifier;
   amplifier sizing belongs to the radio-frequency-susceptibility leaf.
 - Demanding a hard 6 dB band: the >= 6 dB margin band is a typical
   engineering recommendation, not an RTCA requirement; the verdict in

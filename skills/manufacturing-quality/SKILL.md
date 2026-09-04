@@ -83,6 +83,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/attribute-control-charts | Attribute control charts | attribute control charts, p-chart, np-chart, c-chart, u-chart, fraction nonconforming, defects per unit |
 | manufacturing-quality/as9100/attribute-agreement-analysis | Attribute agreement analysis | attribute agreement analysis, Cohen kappa, Fleiss kappa, inspector agreement, chance-corrected agreement |
 | manufacturing-quality/as9100/individuals-and-moving-range-chart | Individuals and moving range chart | individuals and moving range chart, I-MR chart, single measurement per lot, moving range limits |
+| manufacturing-quality/as9100/gage-linearity-bias-study | Gage linearity and bias study | gage linearity and bias study, measurement bias, gage linearity regression, bias significance, linearity percent band |
 
 
 ## Routing guidance
@@ -162,3 +163,4 @@ your host's skills directory (see README Install for per-host commands).
 - Laser shearography questions (setup sizing, phase to strain conversion, scan plan, disbond disposition) route to the ndt shearography-inspection sub-skill.
 - Internal audit program questions (audit schedule, auditor independence, audit sample size, finding classification, closure verification) route to the as9100 internal-quality-audit sub-skill.
 - Leak testing questions (pressure decay, vacuum decay, helium mass spectrometer, bubble test, leak rate acceptance) route to the ndt leak-testing sub-skill.
+- Gage bias and linearity study questions (per-level bias, linearity regression, bias significance t test, percent of reference band) route to the as9100 gage-linearity-bias-study sub-skill.

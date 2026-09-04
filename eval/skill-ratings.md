@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 485
+Total skills rated: 496
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -492,3 +492,14 @@ Total skills rated: 485
 | 483 | cross-cutting/numerics/information-entropy | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 484 | manufacturing-quality/as9100/attribute-control-charts | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 485 | avionics/data-bus/arinc429-bus-loading | PASS | ✓ | arinc-429 | avionics | 9.5 | PASS |
+| 489 | vehicle-design/sizing/apu-fuel-burn-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 486 | vehicle-design/sizing/fuel-tank-inerting-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 487 | vehicle-design/sizing/ram-air-turbine-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 488 | vehicle-design/sizing/bleed-air-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 490 | avionics/data-bus/mil-std-1553-bus-loading | PASS | ✓ | mil-std-1553 | avionics | 9.5 | PASS |
+| 491 | manufacturing-quality/as9100/gage-linearity-bias-study | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 493 | vehicle-design/sizing/cabin-outflow-valve-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 492 | systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification | PASS | ✓ | far-25 | systems-engineering-safety | 9.5 | PASS |
+| 494 | space-systems/orbit-mechanics/walker-delta-constellation | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 495 | cross-cutting/numerics/runs-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 496 | propulsion/gas-turbine-cycle/propelling-nozzle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |

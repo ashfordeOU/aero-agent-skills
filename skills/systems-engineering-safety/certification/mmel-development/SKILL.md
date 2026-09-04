@@ -163,14 +163,14 @@ Items from the type safety assessment:
 
 - Granting relief to a hazardous or catastrophic single-string item:
   FCS-1 (catastrophic, single-string) goes to the forbidden list and
-  never appears in the rows — and an item that is itself the
+  never appears in the rows - and an item that is itself the
   mitigation is forbidden even when redundant, because dispatching it
   inoperative removes the very protection the safety objective
   depends on.
 - Reading redundancy alone as eligibility: a hazardous or
   catastrophic item is eligible only with dual or multi redundancy
   AND safety_function False, so the remaining channels alone must
-  meet the safety objective — an item that backs a safety function
+  meet the safety objective - an item that backs a safety function
   is not relieved by the presence of a twin.
 - Dispatching two inoperative items that share a function group: the
   double-relief rule fires when both back a safety function (the
@@ -186,7 +186,7 @@ Items from the type safety assessment:
   flight function groups carries D with no scheduled repair interval.
 - Treating the interval days as approval: A = 3, B = 10, C = 120 and
   D = no scheduled interval are paraphrased from public FAA MMEL
-  guidance, and actual interval approval is authority-specific — the
+  guidance, and actual interval approval is authority-specific - the
   operator MEL derived from the type-level MMEL is out of scope here.
 
 ## Behavior contract (gate 3)

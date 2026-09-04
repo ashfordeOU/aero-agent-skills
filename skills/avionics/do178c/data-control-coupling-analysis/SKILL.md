@@ -127,7 +127,7 @@ module outputs:
 - Treating control coupling as a subset of data coupling: data coupling
   is pairwise over all components (the (D, C, Y) item exists even though
   D has no call edge to C), while control coupling exists only on
-  declared call edges — run both item builders and grade the combined
+  declared call edges - run both item builders and grade the combined
   list.
 - Reversing item direction: items are ordered pairs with the shared var
   in writes(A) intersect reads(B), so (A, B, X) exists and (B, A, X)
@@ -139,10 +139,10 @@ module outputs:
   all.
 - Failing an empty identification: an empty combined item list with no
   evidence returns ratio 0.0 and verdict PASS because nothing is
-  uncovered — do not report a PASS-at-0.0 as a coverage failure.
+  uncovered - do not report a PASS-at-0.0 as a coverage failure.
 - Accepting evidence for items never identified: evidence keys must
   match identified (A, B, var) items, and sync declarations or call
-  edges naming an unknown component raise ValueError — validate the
+  edges naming an unknown component raise ValueError - validate the
   model before collecting evidence.
 - Grading only the ratio: the verdict dict names the sorted
   uncovered_items list on FAIL, which is the actionable output for the

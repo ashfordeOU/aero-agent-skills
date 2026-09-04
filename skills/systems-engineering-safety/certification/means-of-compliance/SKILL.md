@@ -164,15 +164,15 @@ Three certification items from a transport category program:
   MOC 6 reason and the compliance verdict FAILs even if other items
   pass.
 - Accepting similarity for a novel item: MOC 5 is rejected for any
-  novel item — similarity is reserved for minor changes and is never
-  auto-recommended — and a novel structure or systems item needs a
+  novel item - similarity is reserved for minor changes and is never
+  auto-recommended - and a novel structure or systems item needs a
   test MOC (2 or 3) in addition to analysis.
 - Using simulation where it is not allowed: MOC 4 simulation is
   acceptable for systems items at DAL C-E, so it neither substitutes
   for the test MOC of a novel item nor for the MOC 6 of a
   catastrophic one.
 - Reading the overall score without the verdict gates: coverage 1.0
-  alone is not readiness — PASS requires coverage 1.0 AND every
+  alone is not readiness - PASS requires coverage 1.0 AND every
   catastrophic systems item carrying MOC 6, with the reasons list
   naming each rejected item.
 - Recommending a MOC set out of the suitability order: the function
