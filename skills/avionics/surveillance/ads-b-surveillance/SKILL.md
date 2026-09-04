@@ -143,12 +143,12 @@ the source reporting NIC 8, NACp 9, SIL 2.
 
 - Treating NIC, NACp, and SIL as one quality number: NIC bounds
   containment radius, NACp bounds the 95-percent horizontal position
-  error, and SIL is an integrity probability per flight hour — NIC 8
+  error, and SIL is an integrity probability per flight hour - NIC 8
   at 185.2 m and NACp 9 at 30.0 m describe different guarantees, and
   neither is comparable with a SIL 2 probability of 1e-5.
 - Choosing a category that does not cover the requirement: the
   selection walks from the tightest bound down and returns the first
-  category whose bound is >= the required value — for a 100 m
+  category whose bound is >= the required value - for a 100 m
   containment radius NIC 9 (75 m) is too small and NIC 8 (185.2 m)
   is chosen, so never pick the category whose bound merely comes
   closest from below.
@@ -156,20 +156,20 @@ the source reporting NIC 8, NACp 9, SIL 2.
   from nic_for_radius or nacp_for_accuracy means no category bound
   covers the requirement at all (not even category 1's 37040 m or
   18520 m), while an input category of 0 maps to None for an unknown
-  value — the two zeros are different verdicts.
+  value - the two zeros are different verdicts.
 - Forgetting the feet-to-metres conversion in the range law: the radio
   horizon uses sqrt(h_ft * FT_TO_M), so 10 000 ft enters as
-  sqrt(3048) = 55.21 and the 10 000/30 000 ft pair reaches 621.4 km —
+  sqrt(3048) = 55.21 and the 10 000/30 000 ft pair reaches 621.4 km -
   feeding feet straight into the square root without the 0.3048
   factor inflates the coverage estimate.
 - Assigning coverage without altitudes: a zero altitude (a ground
   ADS-B receiver at 0 ft) contributes zero horizon and the pair range
-  is 0.0 km — the own/other altitude pair is part of the input, and
+  is 0.0 km - the own/other altitude pair is part of the input, and
   negative altitudes raise ValueError.
 - Quoting the category bounds as MOPS tables: the NIC/NACp/SIL values
   are paraphrased summary data in the module constants used for
   equipage assessment, stated as module data and never as reproduced
-  rtca-do-260b tables — confirm against the current MOPS before a
+  rtca-do-260b tables - confirm against the current MOPS before a
   formal claim.
 
 ## Behavior contract (gate 3)

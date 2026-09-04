@@ -138,33 +138,33 @@ Rainfall 20 mm/h, own altitude 3048 m (10 000 ft), cell top 12 192 m
 ## Pitfalls
 
 - Replacing the module's Z-R constants: the reflectivity conversion
-  uses Z = 200.0 * R^1.6 (A_DEFAULT, B_DEFAULT) — swapping in another
+  uses Z = 200.0 * R^1.6 (A_DEFAULT, B_DEFAULT) - swapping in another
   Marshall-Palmer pair (say 300/1.4 for convective rain) without
   touching the module constants changes every reflectivity, echo
   level, and round trip this leaf reports.
 - Comparing across the dBZ and linear scales: the echo bands are
   30 / 40 / 50 dBZ, which log-monotonically match the linear Z
-  thresholds 1000 / 10000 / 100000 mm6/m3 — a rate compared as linear
+  thresholds 1000 / 10000 / 100000 mm6/m3 - a rate compared as linear
   Z against a dBZ band edge mis-ranks the echo level.
 - Forgetting the tilt can go negative: tilt is atan((cell_top - own) /
   slant_range), so a cell top below the aircraft gives a downward
-  pointing beam — the altitude difference is signed and a negative
+  pointing beam - the altitude difference is signed and a negative
   tilt is a valid operating point, not an input error.
 - Applying earth curvature to the displayed range: the model is
   flat-earth, ground = sqrt(slant^2 - (own - target)^2), and
-  RE_ARTH = 6371000.0 m is informational only — at high altitude the
+  RE_ARTH = 6371000.0 m is informational only - at high altitude the
   displayed range is nearly the slant range (111 078.19 m from a
   111 120 m slant), and a slant range shorter than the altitude
   difference raises ValueError instead of returning an imaginary
   square root.
 - Reversing the clutter comparison: clutter exists when the beam's
   lowest edge (tilt - beam_width / 2) lies below the terrain angle,
-  because the beam still illuminates the ground — the worked example
+  because the beam still illuminates the ground - the worked example
   is clear (3.204 deg edge above a -1.57 deg terrain angle), and the
   verdict flips True only when the terrain angle rises above the
   edge, as in the 1000 m terrain case at 5000 m.
 - Slipping the echo band edges: level 2 spans 30 to 40 dBZ, level 3
-  spans 40 to 50 dBZ, and level 4 starts at 50 dBZ — the 24 136.71
+  spans 40 to 50 dBZ, and level 4 starts at 50 dBZ - the 24 136.71
   mm6/m3 worked echo (43.83 dBZ) is level 3, and boundary reflectivity
   must be graded on the linear threshold 1000 / 10000 / 100000, not a
   rounded dBZ guess.

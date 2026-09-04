@@ -110,11 +110,57 @@ ashforde.org/aeroagentskills (landing page)
   ops/automation/state/wave<N>-specs/; state files wave<N>-state.md.
 - Wave gates: make validate 5/5 · make attest 3/3 · make completeness ·
   make value-delta · make visuals + visuals-check · public-safety audit.
+- **PER-LEAF CREATION GATE (founder mandate 2026-09-04, NON-NEGOTIABLE):**
+  before ANY leaf commit, the builder MUST run
+  `bash scripts/leaf-create-gate.sh <leaf-path>` and get exit 0. It checks:
+  house structure (Pitfalls + Behavior contract gate 3), logic/test
+  pairing + naming, contract test runs, no tracked pycache, no
+  content-policy red-flag words ("classified" etc.), description
+  when/trigger clause, corpus coverage, eval record. A leaf that fails
+  the gate is NOT committed — fix in the same turn, then re-run.
+  Tree-wide regression sweep (any time): the same gate over every leaf
+  (see `scripts/leaf-audit.py --summary`, exit 0 = 485/485 clean).
 - Leaf families: 12 (aerodynamics, avionics, cross-cutting, flight-
   mechanics, flight-test-ops, gnc-autonomy, manufacturing-quality,
   propulsion, space-systems, structures, systems-eng-safety, vehicle-design).
 - Counts: metrics.json `leaves` = leaf SKILL.md count; `live_packs` =
   packs with ≥1 verified leaf; `corpus_tasks` = router Hit@1 tasks.
+
+### 5a. Leaf creation checklist (every builder, every leaf — copy this flow)
+
+A leaf is COMPLETE and commit-ready ONLY when ALL of these hold. The
+creation gate automates the checks; the order is the workflow:
+
+1. **SKILL.md** — agentskills.io frontmatter (name == dir, description with
+   action + "Use when" + trigger clause, 50-150 words) + full house body:
+   Workflow → Worked example → **Pitfalls** (3-6 leaf-specific bullets,
+   derived from the leaf's own content/tests — NEVER invent claims) →
+   **Behavior contract (gate 3)** (names test + logic script, stdlib
+   offline, run command) → Compliance. No content-policy red-flag words
+   in prose ("classified" as a verb trips the CLASSIFIED sweep — use
+   "categorized"; "CUI", "NOFORN", part-number patterns, F-35/JSF etc.).
+2. **scripts/<leaf>_logic.py** — pure stdlib only; portable import
+   pattern `os.path.dirname(os.path.abspath(__file__))`; NO machine-local
+   absolute paths (publish leak sweep aborts). Logic files NEVER start
+   with `test_` (misname defect 2026-09-04: test-point-matrix-design).
+3. **scripts/test_<leaf>.py** — offline unittest, asserts REAL module
+   outputs, deterministic. test_<x>_logic.py is fine ONLY when a plain
+   <x>_logic.py sibling exists as the logic module.
+4. **Corpus** — 2 Hit@1 tasks (eval/hit1-wave<N>-<leaf>.yaml fragment
+   with distinctive hyphenated tokens, deleted after merge into
+   hit1-corpus.yaml) OR consolidated corpus reference.
+5. **eval/skill-eval/<leaf>.json** — value-delta record (delta ≥0.2).
+6. **Ratings ledger row** — appended IN-TURN at creation ≥9.5, never
+   backfilled.
+7. **Run the gate:** `bash scripts/leaf-create-gate.sh <leaf>` → exit 0.
+8. **Commit** — explicit paths ONLY, ashfordeOU identity, subject ≤50
+   chars, WHAT + WHY in body.
+
+Defect classes that have happened (2026-09-04 audit) and are now gated:
+missing Pitfalls/BC sections (192 leaves), logic file misnamed test_
+(test-point-matrix-design), "classified" content-policy false positive
+(strain-life-fatigue), missing corpus task (fuselage-sizing), pycache
+tracked in git.
 
 ## 6. Numbers / visuals / About maintenance (the failure history)
 
@@ -178,7 +224,19 @@ To take over this project from scratch:
    which rsvg-convert && make validate 2>&1 | tail -1
    python3 scripts/public-safety-audit.py --repo . 2>&1 | tail -1
    bash ops/automation/hourly-publish.sh  # both steps should PASS
+   # NEW (2026-09-04): leaf creation gate over every leaf — expect 0 failures
+   for leaf in $(find skills -name "SKILL.md" | sed 's|/SKILL.md||' \
+     | grep -E "^skills/[^/]+/[^/]+/[^/]+$"); do
+     bash scripts/leaf-create-gate.sh "$leaf" >/dev/null 2>&1 || echo "GATE FAIL: $leaf"
+   done
    ```
+4a. IF YOU ARE BUILDING LEAVES (wave builder/operator): read section 5a
+   (leaf creation checklist) and run `bash scripts/leaf-create-gate.sh
+   <leaf>` before EVERY leaf commit — it is non-negotiable (founder
+   mandate 2026-09-04). Never commit a leaf that fails the gate; fix in
+   the same turn and re-run. Never skip the Pitfalls / Behavior
+   contract (gate 3) sections; never name a logic file with a test_
+   prefix; never use "classified" as a verb in prose.
 5. Check portfolio + project state:
    ```bash
    cd ~/company-ops/veda && python3 scripts/project_onboard.py --list

@@ -149,28 +149,28 @@ about that center with exit track 0.0 deg.
 - Flipping the center side: RIGHT offsets the center by R on
   n_right = (cos t, -sin t) and LEFT on n_left = (-cos t, sin t), so
   an eastbound RIGHT arc centers at (0, -15) and the LEFT mirror at
-  (0, +15) — a swapped direction puts the center on the wrong side
+  (0, +15) - a swapped direction puts the center on the wrong side
   and every downstream quantity is wrong by twice the radius.
 - Mixing degrees into the arc length: s = R * radians(sweep), so the
-  case-1 quarter circle is 15 * pi / 2 = 23.562 NM, not 15 * 90 —
+  case-1 quarter circle is 15 * pi / 2 = 23.562 NM, not 15 * 90 -
   compute the central angle in degrees but convert to radians before
   multiplying.
 - Trusting an exit fix without the on-arc check: the published XF must
   satisfy |XF - C| == R within tol_nm (default 1e-6 NM); an XF
   33.541 NM from the case-1 center fails rf_exit_on_arc and the
-  rf_leg_construct dict carries valid False — valid = exit_on_arc and
+  rf_leg_construct dict carries valid False - valid = exit_on_arc and
   sweep_deg > 0.
 - Reading a zero sweep as a wrap: EF == XF is the degenerate 0 deg
   zero-length arc, while distinct points always sweep strictly inside
-  (0, 360) — a near-full-circle arc never wraps to 0, so do not treat
+  (0, 360) - a near-full-circle arc never wraps to 0, so do not treat
   a 359 deg arc as a 1 deg arc in the other direction.
 - Adding instead of subtracting the exit tangent: the exit track is
   the radial bearing plus 90 deg for RIGHT and minus 90 deg for LEFT,
-  normalized to 0..360 — the case-1 east radius tangent points south
+  normalized to 0..360 - the case-1 east radius tangent points south
   (180.0 deg), and normalization matters across the north wrap.
 - Flying the chord instead of the arc: the aircraft follows the
   constant-radius arc (23.562 NM in case 1), not the straight
-  |XF - EF| chord of 21.213 NM — the downstream flyable-arc and
+  |XF - EF| chord of 21.213 NM - the downstream flyable-arc and
   containment checks consume the swept geometry, not the chord.
 
 ## Behavior contract (gate 3)

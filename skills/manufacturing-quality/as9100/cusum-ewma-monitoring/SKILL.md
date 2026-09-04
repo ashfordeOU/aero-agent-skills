@@ -132,7 +132,7 @@ mu0 = 10, sigma = 1, xs = [10.2, 10.5, 11.0, 10.8, 11.5, 11.9, 12.2,
   signals that are artefacts of the reference, not of the shift.
 - Declaring the process fine from a single-point check: every raw value
   in the worked sequence sits within mu0 +- 3 sigma, yet EWMA signals at
-  sample 7 and CUSUM at sample 8 — the accumulation statistics exist
+  sample 7 and CUSUM at sample 8 - the accumulation statistics exist
   precisely because the point check misses small sustained shifts.
 - Reading only the S+ side: a sustained negative shift accumulates on
   S- (which stays at 0 for the worked example) and fires only there;

@@ -169,7 +169,7 @@ Freestream Mach 8, gamma 1.4, the classic modified Newtonian anchors:
   stronger shock.
 - Dividing by zero at zero incidence: the flat-plate lift-to-drag ratio
   is undefined at alpha = 0 and is returned as None with all-zero
-  forces — handle the None rather than forcing a ratio.
+  forces - handle the None rather than forcing a ratio.
 - Mixing the shadow conventions: the flat plate uses the Newtonian
   shadow Cp = 0 on the leeward side while cp_vacuum gives the most
   negative bound a shadowed surface can carry; pick one convention for

@@ -173,7 +173,7 @@ V_d = 300 V.
   high thrust-to-power.
 - Mixing beam voltage and discharge voltage: the beam voltage is
   eta_v * V_d (270 V against the 300 V discharge in the example), and
-  the ideal-velocity and beam-current relations all use V_b — feeding
+  the ideal-velocity and beam-current relations all use V_b - feeding
   V_d in their place inflates the exhaust velocity.
 - Reading a single efficiency factor as the total: eta_T is the product
   eta_m * eta_v * eta_c * eta_d (0.85 * 0.90 * 0.78 * 0.84 = 0.501),

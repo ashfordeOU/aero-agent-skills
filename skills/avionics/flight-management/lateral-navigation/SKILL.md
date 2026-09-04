@@ -149,7 +149,7 @@ Leg from A (50N, 0E) to B (50N, 10E), aircraft at P (51N, 5E) tracking
 ## Pitfalls
 
 - Taking the rhumb-line shortcut: a leg along a parallel is not flown
-  along the parallel — (50N, 0E) to (50N, 10E) opens at 86.17 deg
+  along the parallel - (50N, 0E) to (50N, 10E) opens at 86.17 deg
   because the great circle bulges toward the pole, and the parallel
   distance 10 deg * cos(50) * R = 714.7 km is not the 714,214 m
   great-circle distance.
@@ -159,7 +159,7 @@ Leg from A (50N, 0E) to B (50N, 10E), aircraft at P (51N, 5E) tracking
   are also asymmetric on mirror points (99,239 m left at 51N versus
   123,151 m right at 49N) because the arc runs closer to 51N.
 - Mixing units: distances are meters, angles radians, speed m/s, and
-  only the bank angle is degrees — a bank in radians or a latitude in
+  only the bank angle is degrees - a bank in radians or a latitude in
   degrees silently corrupts the turn radius and track formulas.
 - Holding the desired track outside the intercept limit: with the track
   angle error beyond the fixed 30 deg intercept angle the guidance
@@ -174,7 +174,7 @@ Leg from A (50N, 0E) to B (50N, 10E), aircraft at P (51N, 5E) tracking
   0 m for identical endpoints but the direction functions raise
   ValueError there, and out-of-range latitudes, non-positive speed,
   bank outside (0, 90) deg, or |delta_track| at or beyond pi also
-  raise — check leg validity before guiding on it.
+  raise - check leg validity before guiding on it.
 
 ## Behavior contract (gate 3)
 

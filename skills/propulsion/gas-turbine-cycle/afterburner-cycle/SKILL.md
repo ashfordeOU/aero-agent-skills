@@ -148,7 +148,7 @@ temperature rise), p04 3.0e5 Pa, ambient 1.01325e5 Pa.
 ## Pitfalls
 
 - Feeding an afterburner exit temperature at or below the turbine exit:
-  t05 must exceed t04 or the duct energy balance is unphysical — the
+  t05 must exceed t04 or the duct energy balance is unphysical - the
   function rejects t05 <= t04 with ValueError, so the 800 K reheat rise
   in the worked example is the intended input shape.
 - Ignoring the core fuel in the duct mass balance: the energy balance
@@ -165,7 +165,7 @@ temperature rise), p04 3.0e5 Pa, ambient 1.01325e5 Pa.
   returning a partial-expansion velocity.
 - Selling reheat as an efficiency measure: the worked example adds about
   40% thrust (augmentation 1.405) but roughly doubles the specific fuel
-  consumption (28.05 to 42.43 mg/(N s)) — the augmentation ratio alone
+  consumption (28.05 to 42.43 mg/(N s)) - the augmentation ratio alone
   hides the SFC cost.
 - Reading the wrong SFC mode: sfc_dry divides only the core fuel flow
   f_core * mdot_core by the dry thrust while sfc_reheat divides the

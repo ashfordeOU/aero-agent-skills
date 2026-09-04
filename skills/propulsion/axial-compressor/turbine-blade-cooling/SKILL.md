@@ -131,7 +131,7 @@ falls below 0.20 only when the allowable metal temperature exceeds
 - Accepting a coolant fraction above the bleed limit as a closed
   design: in all three worked-example cases the required fraction (0.75,
   1.0, 0.5556) far exceeds the 0.20 practical bleed limit, and only the
-  film-cooling effectiveness gain brings the metal temperature inside —
+  film-cooling effectiveness gain brings the metal temperature inside -
   the bleed_verdict flags the trade, it does not validate it.
 - Neglecting film cooling when the internal-convection fraction is
   prohibitive: adding FILM_IMPROVEMENT = 0.15 at the leading edge lifts
@@ -151,7 +151,7 @@ falls below 0.20 only when the allowable metal temperature exceeds
 - Reading the coolant fraction without the cycle and model context: the
   0.20 bleed limit exists because the cooling-air penalty becomes
   prohibitive above it (pair with the gas-turbine-cycle leaves), and
-  CP_RATIO = 1.0 is a documented conceptual simplification — real
+  CP_RATIO = 1.0 is a documented conceptual simplification - real
   cooling design needs 3D conjugate heat transfer analysis beyond this
   model.
 

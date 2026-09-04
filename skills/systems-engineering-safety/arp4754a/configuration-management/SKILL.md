@@ -104,7 +104,7 @@ REQ-101 braking limits.
   snapshot.
 - Freezing a baseline from an unsorted, unversioned item set: the
   snapshot is sorted and frozen under a baseline id and version, and
-  version \"1.0\" is the start of change control — change activity has
+  version \"1.0\" is the start of change control - change activity has
   no meaning before the baseline exists.
 - Approving an impact analysis that lists only the directly touched
   item: the impact set is expanded through the trace map, so touching

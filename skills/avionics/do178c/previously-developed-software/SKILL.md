@@ -143,15 +143,15 @@ cases:
 
 - Confusing level-upgrade with modified-pds: a level gap on an
   unmodified item (classify_pds('do-178c', False, False)) is
-  level-upgrade — additional verification at the higher assurance
-  level with the gap as the delta scope — not modified-pds, which
+  level-upgrade - additional verification at the higher assurance
+  level with the gap as the delta scope - not modified-pds, which
   applies only when the level is met and the item is modified.
 - Missing the verdict flip at equality: coverage flips to
   full-coverage only when covered equals required; any covered below
   required, however close (19 of 24 is 0.7917), is
   delta-qualification-required with delta_objectives 5.
 - Inventing the objective counts: no objective count table is
-  reproduced in this leaf — required and covered are caller inputs
+  reproduced in this leaf - required and covered are caller inputs
   from the project planning data, so pull them from the plan, never
   from a guess at the DO-178C tables.
 - Reading bounded-regression from one threshold alone: the scope is
@@ -165,7 +165,7 @@ cases:
 - Scoping the delta to changed lines only: the modified case rates the
   changed LOC fraction and the touched interface fraction together,
   and pds_report merges classification, coverage, and scope into one
-  record for the verification effort — hand over the report, not just
+  record for the verification effort - hand over the report, not just
   the changed-lines count.
 
 ## Behavior contract (gate 3)

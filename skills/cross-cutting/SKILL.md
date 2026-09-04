@@ -86,6 +86,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/rank-based-hypothesis-testing | Rank based hypothesis testing | rank based hypothesis testing, Wilcoxon rank sum test, Mann Whitney U test, Wilcoxon signed rank test, sign test, normality free comparison, two sample rank test |
 
 | cross-cutting/numerics/information-entropy | Information entropy | Shannon entropy, binary entropy function, information content, source coding bound, bits per symbol |
+| cross-cutting/numerics/runs-test | Runs test | runs test, Wald-Wolfowitz runs, sequence randomness test, runs count, expected runs, z statistic |
 
 
 ## Routing guidance
@@ -174,3 +175,4 @@ your host's skills directory (see README Install for per-host commands).
 - Numerical minimization (golden section, gradient descent, Nelder-Mead) questions route to the numerics optimization-algorithms sub-skill.
 - Distribution fitting questions (weibull, lognormal, exponential and normal fit, goodness of fit, quantile and reliability from the fitted parameters) route to the numerics probability-distributions sub-skill.
 - Significance test questions (t test, Welch, paired t, ANOVA, F variance test, chi-square independence, p-value verdicts) route to the numerics hypothesis-testing sub-skill.
+- Wald-Wolfowitz runs test questions (runs count, expected runs under the randomness null, z statistic verdict) route to the numerics runs-test sub-skill.

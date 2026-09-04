@@ -134,7 +134,7 @@ orifices. Real module outputs:
 ## Pitfalls
 
 - Truncating the orifice count: orifice_count rounds up with ceil, so
-  88.28 becomes 89 fuel orifices and 191.68 becomes 192 LOX orifices —
+  88.28 becomes 89 fuel orifices and 191.68 becomes 192 LOX orifices -
   rounding down under-feeds the chamber, and the element count must
   cover the chamber flow on the binding side (96 elements x 0.75527
   kg/s covers the 70.686 kg/s chamber flow).
@@ -146,14 +146,14 @@ orifices. Real module outputs:
 - Reading an element balance that does not cover the chamber flow: the
   per-element flow times the element count must exceed the chamber
   mass flow; the worked example's 96-element layout covers 72.51 kg/s
-  against 70.686 kg/s — a layout below that under-injects.
+  against 70.686 kg/s - a layout below that under-injects.
 - Mixing propellant densities in the mass split: the split at O/F 2.56
   gives fuel 19.856 kg/s and LOX 50.830 kg/s from the mass ratio alone;
   density enters only the orifice sizing and momentum ratio, not the
   split.
 - Feeding non-physical hydraulics: any non-positive Cd, pressure drop,
   density, diameter, orifice count, chamber flow or mixture ratio
-  raises ValueError — and the 0.6-0.9 Cd and 1-3 MPa dP ranges are
+  raises ValueError - and the 0.6-0.9 Cd and 1-3 MPa dP ranges are
   typical liquid-engine values to sanity-check the inputs against.
 
 ## Behavior contract (gate 3)

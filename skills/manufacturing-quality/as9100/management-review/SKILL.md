@@ -154,7 +154,7 @@ overdue (a3, due 2026-08-15). Running the module prints:
 ## Pitfalls
 
 - Reading the interval flag as a verdict input: interval_compliant is
-  informational only, so (False, 0.9, 0) still returns "compliant" —
+  informational only, so (False, 0.9, 0) still returns "compliant" -
   a review planned late but with full inputs and no overdue actions is
   not failed on schedule alone.
 - Reporting the coverage ratio against everything presented: only the
@@ -164,14 +164,14 @@ overdue (a3, due 2026-08-15). Running the module prints:
 - Applying the verdict ladder out of order: coverage below 0.85 with
   overdue actions returns "incomplete-inputs-and-overdue-actions"
   (not just "incomplete-inputs"), while overdue actions alone drive
-  "overdue-actions" even when coverage passes — as in the worked
+  "overdue-actions" even when coverage passes - as in the worked
   example at 8/9 with one overdue action.
 - Judging overdue against the wrong reference date: overdue is
   relative to the passed today, an open action due on or after today
   is not overdue, and a closed action is never overdue.
 - Computing due dates without the month-end clamp: 2026-01-31 plus 1
   month is 2026-02-28 (2024-02-29 in the leap year) and 2026-08-31
-  plus 1 month is 2026-09-30 — naive month arithmetic lands in the
+  plus 1 month is 2026-09-30 - naive month arithmetic lands in the
   wrong month.
 - Treating the nine input families as reproduced standard text: they
   are paraphrased leaf-owned constants per the organization's QMS

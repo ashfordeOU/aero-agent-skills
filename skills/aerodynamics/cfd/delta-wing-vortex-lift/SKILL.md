@@ -126,7 +126,7 @@ delta (about 82.9 deg sweep).
   polynomial lift split loses its physical basis.
 - Interpreting the potential term as the whole lift: at AR 1.0 and
   alpha 15 deg the vortex term is 35.4% of the total, and at AR 0.5
-  alpha 20 deg it reaches about 60% — the vortex contribution grows as
+  alpha 20 deg it reaches about 60% - the vortex contribution grows as
   the wing slims, so the attached-flow-only estimate is not a
   conservative low answer, it is wrong.
 - Expecting the crossing angle to be constant across AR: it shrinks
@@ -138,7 +138,7 @@ delta (about 82.9 deg sweep).
   come from the drag-polar leaves.
 - Asking the model for vortex breakdown: breakdown onset is documented
   as not modeled (empirical charts only), so the CL growth beyond the
-  valid alpha range is not a breakdown prediction — use the charts or a
+  valid alpha range is not a breakdown prediction - use the charts or a
   higher-fidelity method instead.
 
 ## Behavior contract (gate 3)

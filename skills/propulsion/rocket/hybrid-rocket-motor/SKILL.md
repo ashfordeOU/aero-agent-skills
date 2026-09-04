@@ -157,7 +157,7 @@ ignition, A_t = 2.346e-4 m2 (about 17.3 mm throat diameter):
 - Treating the hybrid chamber pressure like an all-solid equilibrium:
   the burn rate is flux-driven (r_dot = a * G_o^n), not
   pressure-driven, so p_c = m_dot * c* / A_t follows the feed-limited
-  oxidizer flow directly — the pressure-driven grain ballistics of
+  oxidizer flow directly - the pressure-driven grain ballistics of
   solid-rocket-motor do not apply.
 - Ignoring the O/F shift over the burn: the port grows, G_o decays and
   the mixture drifts oxidizer-rich (+0.073 in the worked example,
@@ -169,12 +169,12 @@ ignition, A_t = 2.346e-4 m2 (about 17.3 mm throat diameter):
   case shifts a few percent over the web.
 - Feeding a fuel outside the reference table: regression_rate raises
   ValueError on unknown fuels, and the a, n, m constants and L_ref =
-  0.6 m are reference-only typicals — a real grain needs its own
+  0.6 m are reference-only typicals - a real grain needs its own
   correlation, not the table defaults.
 - Reading the mass balance without the fuel-consumed cross-check: the
   summary reports mass_balance_error 0.0 only when the mid-burn fuel
   flow over the burn time (0.1654 * 5.24 = 0.867 kg) equals the fuel
-  consumed from the port growth rho_f * pi * (0.03^2 - 0.02^2) * 0.6 —
+  consumed from the port growth rho_f * pi * (0.03^2 - 0.02^2) * 0.6 -
   a non-zero error means an input inconsistency.
 - Oversizing the throat at the initial station: the throat is sized so
   the initial chamber pressure sits at the target (3.0 MPa with A_t =

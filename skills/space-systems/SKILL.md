@@ -80,6 +80,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/kepler-orbit-propagation | Kepler orbit propagation | kepler orbit propagation, keplerian propagation, kepler equation, mean anomaly, eccentric anomaly, time since periapsis |
 | space-systems/adcs/gyro-allan-variance | Gyro Allan variance | gyro Allan variance, Allan deviation, angle random walk, rate random walk, bias instability, gyro noise model |
 | space-systems/adcs/pointing-error-budget | Pointing error budget | pointing error budget, pointing accuracy, rss pointing error, jitter budget, adcs error allocation |
+| space-systems/orbit-mechanics/walker-delta-constellation | Walker-Delta constellation | walker delta constellation, walker delta tpf, constellation plane spacing, inter-plane phasing, constellation slot enumeration |
 
 
 ## Routing guidance
@@ -162,3 +163,4 @@ your host's skills directory (see README Install for per-host commands).
 - Interplanetary departure energy questions (c3 characteristic energy, injection delta-v, hyperbolic excess, asymptote declination) route to the mission-design c3-departure-energy sub-skill.
 - Bi-elliptic three-impulse transfer questions (intermediate apogee, delta-v saving, transfer comparison against the Hohmann transfer) route to the orbit-mechanics bi-elliptic-transfer sub-skill.
 - Close-approach miss distance, probability of collision, and hard-body-radius screening questions route to the orbit-mechanics conjunction-assessment sub-skill.
+- Walker-Delta constellation parameterization questions (t/p/f validity, RAAN and mean anomaly spacing, inter-plane phase, slot grid) route to the orbit-mechanics walker-delta-constellation sub-skill.
