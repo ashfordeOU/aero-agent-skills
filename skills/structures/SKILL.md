@@ -80,6 +80,8 @@ material selection.
 | structures/composites/laminate-first-ply-failure | Laminate first-ply failure | first ply failure, Tsai-Wu failure index, critical ply, reserve factor, midplane strain recovery, laminate failure envelope |
 | structures/fem/pressure-bulkhead | Pressure bulkhead | pressure bulkhead, membrane theory dome, bulkhead dome stress, ellipsoidal bulkhead, junction ring load, dome margin |
 | structures/fem/beam-vibration | Beam vibration | beam vibration, Euler-Bernoulli beam, characteristic equation roots, cantilever beam, pinned pinned beam, Rayleigh quotient |
+| structures/fem/lug-joint-analysis | Lug joint analysis | lug joint analysis, pin loaded lug, lug bearing stress, lug net section tension, lug tearout shear, lug edge distance ratio, round end lug |
+
 
 ## Routing guidance
 
@@ -156,6 +158,8 @@ ance) route
 - Laminate first-ply-failure questions (Tsai-Wu per-ply failure index, critical ply, reserve factor, FPF load) route to the composites laminate-first-ply-failure sub-skill.
 - Fuselage pressure-bulkhead questions (dome membrane stresses, junction ring load, dome margin, ellipsoidal bulkhead) route to the fem pressure-bulkhead sub-skill.
 - Continuous-beam vibration questions (Euler-Bernoulli natural frequencies, characteristic equation roots, Rayleigh quotient) route to the fem beam-vibration sub-skill.
+
+- Metallic pin-loaded lug analysis questions (bearing, net-section tension and tearout stresses and margins, governing mode, capacity over the edge-distance ratio) route to the fem lug-joint-analysis sub-skill.
 
 ## Install
 

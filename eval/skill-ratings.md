@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 458
+Total skills rated: 472
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -465,3 +465,17 @@ Total skills rated: 458
 | 456 | flight-test-operations/flutter/flight-vibration-survey | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
 | 457 | gnc-autonomy/optimal-control/bang-bang-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 458 | flight-test-operations/performance/engine-failure-takeoff-flight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
+| 459 | vehicle-design/sizing/environmental-control-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 460 | propulsion/rocket/thrust-chamber-cooling | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 461 | vehicle-design/sizing/hydraulic-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 462 | propulsion/rocket/injector-design | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 463 | space-systems/adcs/pointing-error-budget | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 464 | structures/fem/lug-joint-analysis | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
+| 465 | space-systems/orbit-mechanics/kepler-orbit-propagation | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 466 | space-systems/adcs/gyro-allan-variance | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 467 | avionics/do178c/previously-developed-software | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 468 | manufacturing-quality/assembly/solid-rivet-installation-quality | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 469 | manufacturing-quality/as9100/cusum-ewma-monitoring | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 470 | flight-test-operations/stability/control-force-flight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
+| 471 | cross-cutting/numerics/rank-based-hypothesis-testing | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 472 | cross-cutting/numerics/singular-value-decomposition | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |

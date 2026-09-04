@@ -70,6 +70,9 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/mdo/surrogate-modeling | Surrogate modeling | surrogate model, metamodel, response surface, radial basis function, leave one out cross validation, approximation model, prediction error, expensive analysis replacement |
 | vehicle-design/sizing/brake-energy-sizing | Brake energy sizing | brake energy sizing, rejected takeoff energy, wheel brake heat sink, brake temperature rise, carbon brake mass, braking distance at V1 |
 | vehicle-design/sizing/canard-sizing | Canard sizing | canard sizing, canard volume coefficient, canard area, forward wing, stall precedence, canard configuration, trim lift share |
+| vehicle-design/sizing/environmental-control-sizing | Environmental control sizing | environmental control sizing, cabin air conditioning, cabin heat load, ventilation flow, pack cooling flow, pressurization schedule, cabin altitude limit |
+| vehicle-design/sizing/hydraulic-system-sizing | Hydraulic system sizing | hydraulic system sizing, hydraulic power, actuator flow demand, pump flow sizing, accumulator sizing, reservoir sizing, system pressure, emergency hydraulic |
+
 
 ## Routing guidance
 
@@ -131,6 +134,10 @@ ons route to the weight-estimation
 - Flight and ground spoiler sizing, lift dump, speed brake drag, roll assist share, spoiler panel area and deflection questions route to the sizing spoiler-sizing sub-skill.
 - Brake energy sizing questions (brake energy sizing, rejected takeoff energy, wheel brake heat sink, brake temperature rise, carbon brake mass, braking distance at v1) route to the brake-energy-sizing sub-skill.
 - Canard sizing, canard volume coefficient, and stall-precedence questions route to the sizing canard-sizing sub-skill.
+
+- Aircraft environmental control system sizing questions (cabin ventilation fresh air flow, cabin heat load, pack cooling airflow, pressurization schedule and cabin altitude limit) route to the sizing environmental-control-sizing sub-skill.
+
+- Aircraft hydraulic power system sizing questions (actuator flow demand, pump flow and power, accumulator adiabatic gas volume, reservoir volume) route to the sizing hydraulic-system-sizing sub-skill.
 
 ## Install
 

@@ -77,6 +77,10 @@ selection, and classical orbital element determination.
 
 | space-systems/subsystems/antenna-aperture-sizing | Antenna aperture sizing | antenna aperture sizing, parabolic reflector gain, aperture efficiency, required antenna gain, half power beamwidth, pointing loss budget, gain over temperature |
 | space-systems/adcs/attitude-determination-quest | Attitude determination QUEST | attitude determination quest, Wahba problem, Davenport q method, optimal attitude quaternion, multi vector observation, observation weighting |
+| space-systems/orbit-mechanics/kepler-orbit-propagation | Kepler orbit propagation | kepler orbit propagation, keplerian propagation, kepler equation, mean anomaly, eccentric anomaly, time since periapsis |
+| space-systems/adcs/gyro-allan-variance | Gyro Allan variance | gyro Allan variance, Allan deviation, angle random walk, rate random walk, bias instability, gyro noise model |
+| space-systems/adcs/pointing-error-budget | Pointing error budget | pointing error budget, pointing accuracy, rss pointing error, jitter budget, adcs error allocation |
+
 
 ## Routing guidance
 
@@ -140,6 +144,12 @@ selection, and classical orbital element determination.
 
 - Spacecraft antenna aperture sizing questions (parabolic reflector gain, aperture efficiency, half-power beamwidth, pointing loss, gain over temperature) route to the subsystems antenna-aperture-sizing sub-skill.
 - QUEST attitude determination questions (Wahba problem, Davenport q-method, optimal attitude quaternion, multi-vector observation) route to the adcs attitude-determination-quest sub-skill.
+
+- Keplerian orbit time-propagation questions (Kepler equation solve, mean and eccentric anomaly, true anomaly, radius, inertial r and v after elapsed time, time since periapsis) route to the orbit-mechanics kepler-orbit-propagation sub-skill.
+
+- Gyroscope noise characterization questions (overlapping Allan deviation, log-log noise slope classification, angle random walk coefficient) route to the adcs gyro-allan-variance sub-skill.
+
+- ADCS pointing error budget questions (RSS of 1-sigma contributors, 3-sigma requirement verdict, allocation to the remaining contributor, dominant error source) route to the adcs pointing-error-budget sub-skill.
 
 ## Install
 
