@@ -205,6 +205,11 @@
 # leaves). Wave-30 new leaves: "gnc-autonomy/control/adaptive-control", "avionics/surveillance/ads-b-surveillance", "aerodynamics/high-speed/aerodynamic-heating", "aerodynamics/boundary-layer/boundary-layer-transition", "structures/composites/composite-repair", "cross-cutting/numerics/descriptive-statistics", "manufacturing-quality/assembly/ewis-installation-quality", "structures/loads/landing-ground-loads", "flight-mechanics/performance/rotorcraft-forward-flight-performance", "flight-mechanics/performance/rotorcraft-hover-performance", "structures/thermal-structures/thermal-buckling", "space-systems/orbit-mechanics/three-body-libration".
 # Corpus: 846 tasks (822 prior plus 24 domain tasks). Owner: Ops
 # Manager, Wave 30 build.
+# P5.2 / Wave 31 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 427 verified skills (439 SKILL.md under gate 1: 12 routers + 427
+# leaves). Wave-31 new leaves: "avionics/surveillance/airborne-weather-radar", "gnc-autonomy/guidance/augmented-proportional-navigation", "space-systems/orbit-mechanics/bi-elliptic-transfer", "space-systems/mission-design/c3-departure-energy", "gnc-autonomy/guidance/collision-course-guidance", "cross-cutting/numerics/fir-filter-design", "manufacturing-quality/as9100/internal-quality-audit", "flight-mechanics/performance/rotorcraft-hover-ground-effect", "flight-test-operations/performance/rotorcraft-performance-flight-test", "flight-mechanics/performance/rotorcraft-tail-rotor-sizing", "flight-mechanics/performance/rotorcraft-vertical-climb-performance".
+# Corpus: 868 tasks (846 prior plus 22 domain tasks). Owner: Ops
+# Manager, Wave 31 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -974,8 +979,7 @@ tasks:
     intent: "vehicle design; weight-based development cost CER and total program cost rollup"
     expected_skill: "vehicle-design/cost-estimation/parametric-cost"
   - id: pn1
-    query: "compute the proportional navigation guidance command from the closing velocity and\
-  \ the line of sight rate for the planar intercept"
+    query: "compute the proportional-navigation guidance command from the closing-velocity and the line-of-sight-rate for the planar-intercept engagement"
     intent: "GNC; proportional navigation guidance command from closing velocity and LOS rate"
     expected_skill: "gnc-autonomy/guidance/proportional-navigation"
   - id: pn2
@@ -3902,6 +3906,94 @@ tasks:
     query: "Compute the jacobi-constant for a spacecraft state in the three-body-libration problem and the physical L1 distance from Earth"
     intent: "space-systems; CR3BP libration point and Jacobi analysis"
     expected_skill: "space-systems/orbit-mechanics/three-body-libration"
+  - id: w31-airborne-weather-radar-1
+    query: "compute the antenna tilt angle to scan a convective storm cell top with an airborne weather radar from own altitude and slant range to the cell"
+    intent: "avionics; airborne weather radar tilt management for cell top scan"
+    expected_skill: "avionics/surveillance/airborne-weather-radar"
+  - id: w31-airborne-weather-radar-2
+    query: "convert radar reflectivity factor to rainfall rate with the marshall palmer z-r relation and rate the echo level for a cockpit weather display"
+    intent: "avionics; weather radar reflectivity rainfall mapping and echo level"
+    expected_skill: "avionics/surveillance/airborne-weather-radar"
+  - id: w31-augmented-proportional-navigation-1
+    query: "compute the augmented-proportional-navigation command for a maneuvering-target-intercept: add the target-lateral-acceleration term to the proportional navigation law"
+    intent: "gnc-autonomy; augmented proportional navigation command with target acceleration"
+    expected_skill: "gnc-autonomy/guidance/augmented-proportional-navigation"
+  - id: w31-augmented-proportional-navigation-2
+    query: "determine the line-of-sight rate and the commanded lateral acceleration in g for an augmented-proportional-navigation guidance law against an accelerating target"
+    intent: "gnc-autonomy; APN guidance law geometry and g-load command"
+    expected_skill: "gnc-autonomy/guidance/augmented-proportional-navigation"
+  - id: w31-bi-elliptic-transfer-1
+    query: "compute the bi-elliptic three impulse transfer delta-v between two coplanar circular orbits with an intermediate apogee radius and compare it with the hohmann transfer total"
+    intent: "space-systems; bi-elliptic three-burn orbit transfer delta-v"
+    expected_skill: "space-systems/orbit-mechanics/bi-elliptic-transfer"
+  - id: w31-bi-elliptic-transfer-2
+    query: "determine whether a bi-elliptic transfer saves delta-v over the hohmann transfer for a large radius ratio orbit raise and return the strategy verdict"
+    intent: "space-systems; bi-elliptic versus hohmann crossover verdict"
+    expected_skill: "space-systems/orbit-mechanics/bi-elliptic-transfer"
+  - id: w31-c3-departure-energy-1
+    query: "compute the characteristic-energy c3 and the injection-delta-v to depart a circular parking-orbit onto an escape hyperbola for an interplanetary mission"
+    intent: "space-systems; interplanetary departure c3 and injection burn"
+    expected_skill: "space-systems/mission-design/c3-departure-energy"
+  - id: w31-c3-departure-energy-2
+    query: "determine the departure hyperbolic-excess speed and the asymptote-declination for a deep space escape-trajectory from a parking orbit"
+    intent: "space-systems; departure hyperbolic excess and asymptote declination"
+    expected_skill: "space-systems/mission-design/c3-departure-energy"
+  - id: w31-collision-course-guidance-1
+    query: "compute the lead angle and time-to-go for a constant-bearing-intercept collision course of a constant-velocity target by a constant-speed pursuer"
+    intent: "gnc-autonomy; collision-course lead angle intercept geometry"
+    expected_skill: "gnc-autonomy/guidance/collision-course-guidance"
+  - id: w31-collision-course-guidance-2
+    query: "determine the predicted-intercept-point and the closing speed along the line of sight for a collision-triangle guidance solution"
+    intent: "gnc-autonomy; collision triangle intercept point and closing speed"
+    expected_skill: "gnc-autonomy/guidance/collision-course-guidance"
+  - id: w31-fir-filter-design-1
+    query: "design a linear phase finite impulse response lowpass filter with the windowed sinc method: hamming window coefficients for a 100 hertz cutoff at 1000 hertz sample rate"
+    intent: "cross-cutting; FIR windowed-sinc lowpass coefficient design"
+    expected_skill: "cross-cutting/numerics/fir-filter-design"
+  - id: w31-fir-filter-design-2
+    query: "compute the magnitude response in dB and the group delay of a symmetric finite impulse response filter tap set for a sampled signal"
+    intent: "cross-cutting; FIR linear-phase magnitude response and group delay"
+    expected_skill: "cross-cutting/numerics/fir-filter-design"
+  - id: w31-internal-quality-audit-1
+    query: "schedule an internal-quality-audit under as9100: compute the audit-schedule due date from the risk category and check auditor-independence for the assigned scope"
+    intent: "manufacturing-quality; as9100 internal audit scheduling and independence"
+    expected_skill: "manufacturing-quality/as9100/internal-quality-audit"
+  - id: w31-internal-quality-audit-2
+    query: "classify an internal-quality-audit finding with the finding-classification rules and verify the closure-verification of the corrective action for an aerospace quality management system"
+    intent: "manufacturing-quality; as9100 audit finding classification and closure"
+    expected_skill: "manufacturing-quality/as9100/internal-quality-audit"
+  - id: w31-rotorcraft-hover-ground-effect-1
+    query: "compute the hover-in-ground-effect power of a helicopter rotor at a height of one rotor radius, using the Cheeseman ground-effect reduction factor on the induced power"
+    intent: "flight-mechanics; rotorcraft hover-in-ground-effect power reduction"
+    expected_skill: "flight-mechanics/performance/rotorcraft-hover-ground-effect"
+  - id: w31-rotorcraft-hover-ground-effect-2
+    query: "determine the ige-hover-ceiling height above the ground at which a rotorcraft can hover with a given available power when out-of-ground-effect hover is not possible"
+    intent: "flight-mechanics; rotorcraft IGE hover ceiling height from power margin"
+    expected_skill: "flight-mechanics/performance/rotorcraft-hover-ground-effect"
+  - id: w31-rotorcraft-performance-flight-test-1
+    query: "reduce a rotorcraft-hover-flight-test: measured figure of merit from torque and rotor speed, corrected to reference weight and density altitude"
+    intent: "flight-test-operations; rotorcraft hover performance flight test reduction"
+    expected_skill: "flight-test-operations/performance/rotorcraft-performance-flight-test"
+  - id: w31-rotorcraft-performance-flight-test-2
+    query: "determine the hover ceiling from measured rotorcraft power required points across density altitudes against the available power in a rotorcraft-performance-flight-test report"
+    intent: "flight-test-operations; rotorcraft hover ceiling from flight test power data"
+    expected_skill: "flight-test-operations/performance/rotorcraft-performance-flight-test"
+  - id: w31-rotorcraft-tail-rotor-sizing-1
+    query: "size the anti-torque-rotor of a single-main-rotor helicopter: tail-rotor-thrust from the main-rotor-torque divided by the tail arm and tail rotor radius from a maximum disk loading"
+    intent: "flight-mechanics; rotorcraft tail-rotor anti-torque sizing"
+    expected_skill: "flight-mechanics/performance/rotorcraft-tail-rotor-sizing"
+  - id: w31-rotorcraft-tail-rotor-sizing-2
+    query: "compute the tail-rotor-power of a rotorcraft from the main-rotor-torque balance, induced power factor and tail rotor profile power"
+    intent: "flight-mechanics; rotorcraft anti-torque tail rotor power estimate"
+    expected_skill: "flight-mechanics/performance/rotorcraft-tail-rotor-sizing"
+  - id: w31-rotorcraft-vertical-climb-performance-1
+    query: "compute the vertical climb performance of a helicopter with momentum theory: climb induced velocity and climb power required for a 5 m/s vertical climb at sea level"
+    intent: "flight-mechanics; rotorcraft vertical-climb momentum-theory power analysis"
+    expected_skill: "flight-mechanics/performance/rotorcraft-vertical-climb-performance"
+  - id: w31-rotorcraft-vertical-climb-performance-2
+    query: "determine the maximum vertical rate of climb of a rotorcraft from the available shaft power minus the hover power, using axial momentum theory"
+    intent: "flight-mechanics; rotorcraft max vertical rate of climb from excess power"
+    expected_skill: "flight-mechanics/performance/rotorcraft-vertical-climb-performance"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

@@ -72,6 +72,8 @@ selection, and classical orbital element determination.
 | space-systems/subsystems/spacecraft-battery-sizing | Spacecraft battery sizing | spacecraft battery sizing, eclipse energy, depth of discharge, orbit battery capacity, series parallel cell layout, bus voltage cell count, LEO power storage |
 | space-systems/orbit-mechanics/plane-change-maneuver | Plane change maneuver | plane change maneuver, inclination change delta-v, combined burn, orbital plane change, 2 v sin half inclination, plane change at apogee |
 | space-systems/orbit-mechanics/three-body-libration | Three body libration | three body libration, CR3BP, libration points, L1 L2 L3 collinear, L4 L5 triangular, Jacobi constant, Earth Moon L1 |
+| space-systems/orbit-mechanics/bi-elliptic-transfer | Bi-elliptic transfer | bi-elliptic transfer, three impulse, intermediate apogee, delta-v saving, Hohmann comparison |
+| space-systems/mission-design/c3-departure-energy | C3 departure energy | c3 characteristic energy, injection delta-v, hyperbolic excess, asymptote declination, escape trajectory |
 
 ## Routing guidance
 
@@ -141,4 +143,6 @@ your host's skills directory (see README Install for per-host commands).
 - Reaction-wheel attitude control laws and momentum desaturation questions route to the adcs reaction-wheel-control sub-skill.
 - Clohessy-Wiltshire relative motion and two-impulse targeting questions route to the orbit-mechanics clohessy-wiltshire sub-skill.
 - Gravity-assist swing-by, hyperbolic excess velocity turn angle, and flyby delta-v questions route to the orbit-mechanics gravity-assist-swingby sub-skill.
+- Interplanetary departure energy questions (c3 characteristic energy, injection delta-v, hyperbolic excess, asymptote declination) route to the mission-design c3-departure-energy sub-skill.
+- Bi-elliptic three-impulse transfer questions (intermediate apogee, delta-v saving, transfer comparison against the Hohmann transfer) route to the orbit-mechanics bi-elliptic-transfer sub-skill.
 - Close-approach miss distance, probability of collision, and hard-body-radius screening questions route to the orbit-mechanics conjunction-assessment sub-skill.

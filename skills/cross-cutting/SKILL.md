@@ -75,6 +75,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/digital-filter-design | Digital filter design | Butterworth IIR filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response |
 | cross-cutting/numerics/cross-correlation-analysis | Cross-correlation analysis | cross-correlation, autocorrelation, time delay estimation, lag, normalized correlation coefficient, channel similarity, delay between signals |
 | cross-cutting/numerics/descriptive-statistics | Descriptive statistics | descriptive statistics, summary statistics, five number summary, interquartile range, coefficient of variation, outlier flagging |
+| cross-cutting/numerics/fir-filter-design | FIR lowpass filter design | FIR filter, windowed-sinc, finite impulse response, linear phase, filter taps, group delay, Hamming window |
 
 ## Routing guidance
 
@@ -137,6 +138,7 @@ integration) for engineering calculations.
 - GD&T datum reference frame establishment, datum precedence, degrees of freedom constraint, and feature control frame construction route to the tolerancing datum-reference-frames sub-skill.
 - Geometric dimensioning and tolerancing fundamentals, feature control frames, datum reference frames, form and orientation tolerances, and MMC/LMC/RFS bonus tolerance questions route to the tolerancing gdandt-basics sub-skill.
 - Quaternion products, vector rotation, euler and direction-cosine conversions, and slerp algebra questions route to the numerics quaternion-algebra sub-skill.
+- FIR lowpass filter questions (windowed-sinc, finite impulse response taps, linear phase, group delay, Hamming window) route to the numerics fir-filter-design sub-skill.
 - Digital filter design questions (butterworth iir filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response) route to the digital-filter-design sub-skill.
 - Cross-correlation, autocorrelation, and time-delay estimation questions route to the numerics cross-correlation-analysis sub-skill.
 - Sample summary and outlier questions (descriptive statistics, five number summary, interquartile range, coefficient of variation, 1.5 IQR outlier rule) route to the numerics descriptive-statistics sub-skill.
