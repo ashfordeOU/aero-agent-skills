@@ -74,6 +74,9 @@ selection and ultrasonic inspection).
 | manufacturing-quality/assembly/ewis-installation-quality | EWIS installation quality | EWIS installation, wiring harness, bundle fill ratio, voltage drop check, bend radius check, separation clearance |
 | manufacturing-quality/as9100/internal-quality-audit | Internal quality audit | internal audit program, audit schedule, auditor independence, audit sample size, finding classification, closure verification |
 
+| manufacturing-quality/as9100/management-review | Management review | management review, top management, review interval, review inputs, action item tracking, review verdict, QMS review |
+| manufacturing-quality/ndt/ndt-personnel-qualification | NDT personnel qualification | NDT personnel qualification, NAS 410, certification currency, recertification due, vision examination, level progression |
+
 ## Routing guidance
 
 - Quality management questions (audits, clause scope, evidence,
@@ -129,6 +132,9 @@ ernal provider and supplier questions (classification, controls,
 - FOD control questions (fod prevention, foreign object debris, fod zone classification, tool control count, fod sweep interval, fod audit) route to the fod-control sub-skill.
 - Welding qualification questions (weld procedure qualification, wps pqr heat input, kj per mm, preheat and interpass verification, weld coupon test matrix) route to the welding-qualification sub-skill.
 - EWIS wiring installation questions (wiring harness, bundle fill ratio, voltage drop check, bend radius check, separation clearance) route to the assembly ewis-installation-quality sub-skill.
+
+- Top management review questions (review interval, review input coverage, action item tracking, review verdict) route to the as9100 management-review sub-skill.
+- NDT personnel qualification questions (certification currency, recertification due date, vision examination, level progression, NAS 410) route to the ndt ndt-personnel-qualification sub-skill.
 
 ## Install
 
