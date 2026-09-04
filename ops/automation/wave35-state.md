@@ -116,15 +116,114 @@ FTO/MQ/CC/AV (second gaps).
   10.0 not 11.0 -> re-fixtured to 9 subgroups with one flagged).
 - Baseline gates re-run at rest on the brief commit BEFORE fan-out:
   make validate PASS 5/5 (958/958 Hit@1 deterministic offline).
-- Batch 1 in flight (4/4): landing-gear-retraction-sizing,
-  aircraft-electrical-load-analysis, fuel-feed-system-sizing,
-  avionics-bay-cooling-sizing (all vehicle-design).
-- Batch 2 planned (4/4): aircraft-oxygen-system-sizing,
-  fuel-jettison-sizing, fire-protection-sizing (VD),
-  pcm-telemetry-decommutation (FTO).
-- Batch 3 planned (4/4): attribute-control-charts (MQ),
-  attribute-agreement-analysis (MQ), individuals-and-moving-range-
-  chart (MQ), information-entropy (CC).
-- Batch 4 planned (1/1): arinc429-bus-loading (AV). Total 13.
+- Batch 1 landed (4/4): landing-gear-retraction-sizing (25000e57),
+  aircraft-electrical-load-analysis (ac690e85), fuel-feed-system-sizing
+  (311c06fa), avionics-bay-cooling-sizing (52915ccc). Six artifacts each
+  verified on HEAD chain; ledger rows 473-476 renumbered contiguous by
+  ops at 1bcd998f after the known concurrent-builder numbering race
+  (rows landed 476/478/479/480 with gaps; fixed in commit order);
+  contract tests re-run by ops: PASS (35/35/35/32 tests, delta 0.5
+  each). Family count: vehicle-design 35 -> 39.
+- Batch 2 landed (4/4): aircraft-oxygen-system-sizing (1772e11f),
+  fuel-jettison-sizing (44beb587), fire-protection-sizing (66fce0a7),
+  pcm-telemetry-decommutation (938da51f, FTO). Six artifacts each
+  verified on HEAD chain; ledger rows 477-480 appended (473-480 all
+  present, no duplicates); contract tests re-run by ops: PASS (34/35/
+  35/27 tests). Family counts: vehicle-design 39 -> 42,
+  flight-test-operations 40 -> 41. 8 landed so far.
+- Batch 3 landed (4/4): attribute-control-charts (83985ce9),
+  attribute-agreement-analysis (7104927c), individuals-and-moving-
+  range-chart (8d58635d), information-entropy (e2344f6c). Six
+  artifacts each verified on HEAD chain; ledger rows 481-484 appended
+  (473-484 contiguous, no duplicates); contract tests re-run by ops:
+  PASS (31/34/35/32 tests). Family counts: manufacturing-quality 41 ->
+  44, cross-cutting 42 -> 43. 12 landed so far.
+- Batch 4 landed (1/1): arinc429-bus-loading (62baf437, AV). Six
+  artifacts verified; contract test re-run by ops: PASS (34 tests).
+  13/13 landed, ledger rows 473-485 contiguous, header 472 -> 485.
+  Family counts: avionics 40 -> 41. Total 13 leaves (12-16 band),
+  founder mandate >=10 MET.
 
-- WAVE-35 CLOSE (to be filled)
+- WAVE-35 CLOSE (13 leaves): all 13/13 planned leaves landed. Final
+  HEAD 41f01e28 (close commit) on main. Batches: 4 + 4 + 4 + 1, one
+  leaf per agent, zero builder deaths, zero re-dispatches; one ops
+  intervention: the batch-1 ledger renumber 1bcd998f after the known
+  concurrent-append race (rows landed 476/478/479/480 with gaps;
+  renumbered to contiguous 473-476 in commit order; batches 2-4
+  appended cleanly on top, final 473-485 contiguous, no duplicates).
+  Full leaf-commit map: VD
+  landing-gear-retraction-sizing (25000e57), VD
+  aircraft-electrical-load-analysis (ac690e85), VD
+  fuel-feed-system-sizing (311c06fa), VD avionics-bay-cooling-sizing
+  (52915ccc), VD aircraft-oxygen-system-sizing (1772e11f), VD
+  fuel-jettison-sizing (44beb587), VD fire-protection-sizing
+  (66fce0a7), FTO pcm-telemetry-decommutation (938da51f), MQ
+  attribute-control-charts (83985ce9), MQ attribute-agreement-analysis
+  (7104927c), MQ individuals-and-moving-range-chart (8d58635d), CC
+  information-entropy (e2344f6c), AV arinc429-bus-loading (62baf437).
+  Close commit 41f01e28 (corpus merge 958 -> 984 + 5 family routers
+  updated + ratings header 472 -> 485 + visuals/manifest 497 SKILL.md
+  = 12 routers + 485 leaves; 26 new corpus tasks, 13 fragment files
+  deleted, 0 on disk). Router parity rows == leaves all 12 families;
+  router descs <= 1024 (all 12); corpus sim PASS before merge:
+  984/984 Hit@1, zero pre-existing task thefts, zero rewording
+  needed.
+- FAMILY SPREAD after wave (472 -> 485): aerodynamics 36, avionics
+  40 -> 41, cross-cutting 42 -> 43, flight-mechanics 42,
+  flight-test-operations 40 -> 41, gnc-autonomy 41,
+  manufacturing-quality 41 -> 44, propulsion 36, space-systems 43,
+  structures 43, systems-engineering-safety 33, vehicle-design
+  35 -> 42. 85 packs (no new pack).
+- GATES FRESH at rest HEAD 41f01e28: attest 3/3 PASS, completeness
+  ALL REQUIRED PASS, value-delta PASS (10/10 >= 0.2), visuals-check
+  PASS (19 artifacts fresh, 485 leaves / 85 packs / 12 families),
+  manifest-check PASS zero diff, router descs <= 1024 (all 12),
+  em dashes 0 in skills/, stale-number-guard PASS, tree clean,
+  make validate PASS 5/5 (984/984 Hit@1 deterministic offline).
+- HIT@1 NO-TASK-STEALING: pre-merge routing simulation
+  (state/wave35-sim-merge.py) ran the router on the corpus plus the
+  13 on-disk fragments BEFORE the real merge: 984/984 PASS, ZERO
+  pre-existing task thefts, zero rewording needed. Post-merge gate 5
+  re-run at rest (see validate result).
+- SPEC DEVIATIONS / disclosures:
+  1. SES 33, FM 42, GNC 41, AERO 36, STRUCT 43, PROP 36, SPACE 43
+     probed FRESH this wave with receipts (see family receipts
+     section). SES/FM/STRUCT/PROP SATURATED, GNC/AERO DENSE, SPACE no
+     genuine gap; their slots were spent on the next-smallest
+     families per the brief. SES documented dense/saturated waves
+     30-34 and again this wave (sixth consecutive receipt) - the
+     family is provably at capacity under the deterministic bar.
+  2. VD was the wave-35 probe candidate and the aircraft-subsystem
+     sizing class proved NOT saturated: 7 genuine gaps landed
+     (retraction, electrical load, fuel feed, avionics-bay cooling,
+     oxygen, fire protection, fuel jettison). This extends the
+     wave-34 finding (ECS + hydraulic) - the class was a real
+     zero-owner gap and remains the richest remaining vein in the
+     library; wave-36 should re-probe for bleed/APU-adjacent and
+     RAT/inerting candidates that were examined and parked this wave.
+  3. Spec math independently verified by ops in /tmp before builders
+     ran; three probe anchors corrected at prep:
+     (a) avionics-bay-cooling volumetric flow standardized on rho =
+     1.2 kg/m3 (146.4 CFM, probe 146); (b) ELA essential load
+     redefined at FULL power of the named essential set (21.5 kVA,
+     margin 64.2%) because the probe's 26.0 kVA mixed full/duty
+     conventions; (c) the attribute-control-charts u-chart worked
+     fixture had a total-area arithmetic slip (10.0, not 11.0) and
+     was re-fixtured to 9 subgroups with one flagged point
+     (verified 3.1818 ubar, UCL_8 8.5331).
+  4. PCM decomm fixture defined clean at prep (40-frame deterministic
+     ramp, sync 0xEB90, 8 data words + 1 idle) because the probe's
+     fixture mixed supercommutation terminology; builder implemented
+     the spec fixture, contract test passes 27 methods.
+  5. Round-2 declines with receipts recorded: thrust reverser/
+     engine-start (empirics + fragmentation), LG steering/shimmy
+     (dynamics), APU sizing (duplicates ELA load rollup + bleed
+     fragmentation), fuel-tank inerting/RAT (thin/empirics), GUM
+     measurement-uncertainty-budget (fuzzy boundary vs
+     uncertainty-propagation), CC combinatorics (generic-math
+     padding risk), FTO frequency-response data reduction (owned by
+     SCT/GVT/dynamic-stability leaves).
+  6. publish-public.sh fixes from 2da34f0e and eec11e34 kept (no
+     revert); release/docs automation may land local-only commits
+     mid-wave per the wave-30 class - none did this wave (remote
+     stayed 592777bc until the wave push).

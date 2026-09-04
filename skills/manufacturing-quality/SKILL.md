@@ -80,6 +80,10 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/cusum-ewma-monitoring | CUSUM EWMA monitoring | cusum ewma monitoring, cusum control chart, ewma control chart, cumulative sum monitoring, small shift detection, sequential process monitoring |
 | manufacturing-quality/assembly/solid-rivet-installation-quality | Solid rivet installation quality | solid rivet installation quality, solid rivet installation, driven head formation, shop head dimension check, rivet squeeze force, hole fill verification |
 
+| manufacturing-quality/as9100/attribute-control-charts | Attribute control charts | attribute control charts, p-chart, np-chart, c-chart, u-chart, fraction nonconforming, defects per unit |
+| manufacturing-quality/as9100/attribute-agreement-analysis | Attribute agreement analysis | attribute agreement analysis, Cohen kappa, Fleiss kappa, inspector agreement, chance-corrected agreement |
+| manufacturing-quality/as9100/individuals-and-moving-range-chart | Individuals and moving range chart | individuals and moving range chart, I-MR chart, single measurement per lot, moving range limits |
+
 
 ## Routing guidance
 
@@ -145,6 +149,10 @@ ernal provider and supplier questions (classification, controls,
 - Small-shift process monitoring questions (tabular CUSUM statistics and first signal, EWMA recursion with time-varying limits, small shift detection verdict) route to the as9100 cusum-ewma-monitoring sub-skill.
 
 - Solid rivet installation quality questions (rivet length selection, driven shop head geometry bands, squeeze force, hole fill clearance) route to the assembly solid-rivet-installation-quality sub-skill.
+- Attribute control chart questions (p-chart, np-chart, c-chart, u-chart, fraction nonconforming, defects per unit, binomial and Poisson limits) route to the as9100 attribute-control-charts sub-skill.
+- Attribute gage agreement questions (Cohen kappa, Fleiss kappa, inspector agreement on go no-go judgments) route to the as9100 attribute-agreement-analysis sub-skill.
+- Individuals chart questions (one measurement per lot, moving range, destructive test monitoring, no subgroups) route to the as9100 individuals-and-moving-range-chart sub-skill.
+
 
 ## Install
 

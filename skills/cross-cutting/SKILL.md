@@ -85,6 +85,8 @@ integration) for engineering calculations.
 | cross-cutting/numerics/singular-value-decomposition | Singular value decomposition | singular value decomposition, one sided Jacobi SVD, numerical rank, condition number estimation, Moore Penrose inverse |
 | cross-cutting/numerics/rank-based-hypothesis-testing | Rank based hypothesis testing | rank based hypothesis testing, Wilcoxon rank sum test, Mann Whitney U test, Wilcoxon signed rank test, sign test, normality free comparison, two sample rank test |
 
+| cross-cutting/numerics/information-entropy | Information entropy | Shannon entropy, binary entropy function, information content, source coding bound, bits per symbol |
+
 
 ## Routing guidance
 
@@ -162,6 +164,8 @@ integration) for engineering calculations.
 - Singular value decomposition questions (one-sided Jacobi SVD factors, singular values, condition number, numerical rank, Moore-Penrose pseudoinverse) route to the numerics singular-value-decomposition sub-skill.
 
 - Nonparametric hypothesis testing questions (Wilcoxon rank-sum and Mann-Whitney U, Wilcoxon signed-rank, sign test with continuity correction) route to the numerics rank-based-hypothesis-testing sub-skill.
+- Information content questions (Shannon entropy bits per symbol, binary entropy function, uniform entropy bound, minimum source coding bit rate) route to the numerics information-entropy sub-skill.
+
 
 ## Install
 

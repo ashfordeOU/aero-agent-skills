@@ -225,6 +225,11 @@
 # leaves). Wave-34 new leaves: "flight-test-operations/stability/control-force-flight-test", "manufacturing-quality/as9100/cusum-ewma-monitoring", "vehicle-design/sizing/environmental-control-sizing", "space-systems/adcs/gyro-allan-variance", "vehicle-design/sizing/hydraulic-system-sizing", "propulsion/rocket/injector-design", "space-systems/orbit-mechanics/kepler-orbit-propagation", "structures/fem/lug-joint-analysis", "space-systems/adcs/pointing-error-budget", "avionics/do178c/previously-developed-software", "cross-cutting/numerics/rank-based-hypothesis-testing", "cross-cutting/numerics/singular-value-decomposition", "manufacturing-quality/assembly/solid-rivet-installation-quality", "propulsion/rocket/thrust-chamber-cooling".
 # Corpus: 958 tasks (930 prior plus 28 domain tasks). Owner: Ops
 # Manager, Wave 34 build.
+# P5.2 / Wave 35 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 485 verified skills (497 SKILL.md under gate 1: 12 routers + 485
+# leaves). Wave-35 new leaves: "vehicle-design/sizing/aircraft-electrical-load-analysis", "vehicle-design/sizing/aircraft-oxygen-system-sizing", "avionics/data-bus/arinc429-bus-loading", "manufacturing-quality/as9100/attribute-agreement-analysis", "manufacturing-quality/as9100/attribute-control-charts", "vehicle-design/sizing/avionics-bay-cooling-sizing", "vehicle-design/sizing/fire-protection-sizing", "vehicle-design/sizing/fuel-feed-system-sizing", "vehicle-design/sizing/fuel-jettison-sizing", "manufacturing-quality/as9100/individuals-and-moving-range-chart", "cross-cutting/numerics/information-entropy", "vehicle-design/sizing/landing-gear-retraction-sizing", "flight-test-operations/planning/pcm-telemetry-decommutation".
+# Corpus: 984 tasks (958 prior plus 26 domain tasks). Owner: Ops
+# Manager, Wave 35 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4369,6 +4374,110 @@ tasks:
     query: "compute the regenerative coolant mass flux required to hold the copper wall temperature limit of a rocket nozzle throat and the film cooling handoff verdict"
     intent: "propulsion; regenerative coolant mass flux for wall limit and film cooling handoff in a rocket chamber"
     expected_skill: "propulsion/rocket/thrust-chamber-cooling"
+  - id: w35-aircraft-electrical-load-analysis-1
+    query: "roll up the aircraft electrical load with duty cycles and check the generator rating for the continuous and coincident peak load"
+    intent: "vehicle-design; electrical load rollup with duty cycle and generator rating check"
+    expected_skill: "vehicle-design/sizing/aircraft-electrical-load-analysis"
+  - id: w35-aircraft-electrical-load-analysis-2
+    query: "compute the single generator out margin that the remaining generator capacity covers the essential electrical load"
+    intent: "vehicle-design; essential load margin with one generator failed"
+    expected_skill: "vehicle-design/sizing/aircraft-electrical-load-analysis"
+  - id: w35-aircraft-oxygen-system-sizing-1
+    query: "size the passenger oxygen chemical generator count and the crew oxygen bottle volume for a transport aircraft"
+    intent: "vehicle-design; passenger oxygen generators and crew oxygen bottle sizing"
+    expected_skill: "vehicle-design/sizing/aircraft-oxygen-system-sizing"
+  - id: w35-aircraft-oxygen-system-sizing-2
+    query: "compute the supplemental oxygen demand mass and gaseous oxygen bottle volume from the occupant flow rate and protection duration"
+    intent: "vehicle-design; supplemental oxygen demand and bottle volume"
+    expected_skill: "vehicle-design/sizing/aircraft-oxygen-system-sizing"
+  - id: w35-arinc429-bus-loading-1
+    query: "compute the ARINC 429 bus loading from the per label transmission rates and the percent utilization of the 100 kbps link"
+    intent: "avionics; ARINC 429 bus load and percent utilization from label rates"
+    expected_skill: "avionics/data-bus/arinc429-bus-loading"
+  - id: w35-arinc429-bus-loading-2
+    query: "check the ARINC 429 transmit schedule word rate against the capacity and the design headroom guideline"
+    intent: "avionics; ARINC 429 transmit schedule capacity and headroom check"
+    expected_skill: "avionics/data-bus/arinc429-bus-loading"
+  - id: w35-attribute-agreement-analysis-1
+    query: "analyze inspector agreement for an attribute gage study with the Cohen kappa chance corrected agreement"
+    intent: "manufacturing-quality; attribute gage study inspector agreement with Cohen kappa"
+    expected_skill: "manufacturing-quality/as9100/attribute-agreement-analysis"
+  - id: w35-attribute-agreement-analysis-2
+    query: "compute the Fleiss kappa for multiple inspectors classifying parts as accept rework or reject"
+    intent: "manufacturing-quality; Fleiss kappa for multiple inspectors on attribute judgments"
+    expected_skill: "manufacturing-quality/as9100/attribute-agreement-analysis"
+  - id: w35-attribute-control-charts-1
+    query: "build the attribute control charts p chart np chart c chart and u chart for fraction nonconforming and defects per unit"
+    intent: "manufacturing-quality; attribute p np c u control charts for conformance data"
+    expected_skill: "manufacturing-quality/as9100/attribute-control-charts"
+  - id: w35-attribute-control-charts-2
+    query: "compute the 3 sigma control limits for count data with the binomial and Poisson normal approximation in aerospace production"
+    intent: "manufacturing-quality; binomial and Poisson 3-sigma limits for attribute charts"
+    expected_skill: "manufacturing-quality/as9100/attribute-control-charts"
+  - id: w35-avionics-bay-cooling-sizing-1
+    query: "size the avionics bay cooling airflow from the LRU heat dissipation and the allowable cooling air temperature rise"
+    intent: "vehicle-design; avionics bay cooling airflow from LRU heat load"
+    expected_skill: "vehicle-design/sizing/avionics-bay-cooling-sizing"
+  - id: w35-avionics-bay-cooling-sizing-2
+    query: "check the avionics LRU case temperature against its limit from the dissipated power and the case to air conductance"
+    intent: "vehicle-design; LRU case temperature check in the equipment bay"
+    expected_skill: "vehicle-design/sizing/avionics-bay-cooling-sizing"
+  - id: w35-fire-protection-sizing-1
+    query: "size the extinguishing agent mass for a class C cargo compartment at the design concentration by volume"
+    intent: "vehicle-design; cargo compartment extinguishing agent total flooding mass"
+    expected_skill: "vehicle-design/sizing/fire-protection-sizing"
+  - id: w35-fire-protection-sizing-2
+    query: "compute the powerplant fire zone extinguishing agent per shot and the installed bottle mass for the nacelle"
+    intent: "vehicle-design; powerplant fire zone agent per shot and bottle count"
+    expected_skill: "vehicle-design/sizing/fire-protection-sizing"
+  - id: w35-fuel-feed-system-sizing-1
+    query: "size the aircraft fuel boost pump and the feed line pressure loss for the engine feed flow at cruise altitude"
+    intent: "vehicle-design; fuel boost pump and feed line pressure loss sizing"
+    expected_skill: "vehicle-design/sizing/fuel-feed-system-sizing"
+  - id: w35-fuel-feed-system-sizing-2
+    query: "compute the net positive suction head available at the engine driven fuel pump inlet with the tank vent pressure and static head"
+    intent: "vehicle-design; engine fuel pump inlet NPSH check"
+    expected_skill: "vehicle-design/sizing/fuel-feed-system-sizing"
+  - id: w35-fuel-jettison-sizing-1
+    query: "compute the required fuel jettison rate to reach the maximum landing weight within 15 minutes per FAR 25.1001"
+    intent: "vehicle-design; fuel jettison rate to landing weight within 15 minutes"
+    expected_skill: "vehicle-design/sizing/fuel-jettison-sizing"
+  - id: w35-fuel-jettison-sizing-2
+    query: "size the fuel dump mast flow split and verify the time to landing weight for the aircraft jettison system"
+    intent: "vehicle-design; fuel dump mast flow and jettison time check"
+    expected_skill: "vehicle-design/sizing/fuel-jettison-sizing"
+  - id: w35-individuals-and-moving-range-chart-1
+    query: "run an individuals and moving range control chart for one measurement per lot with destructive testing"
+    intent: "manufacturing-quality; I-MR chart for single measurements per lot"
+    expected_skill: "manufacturing-quality/as9100/individuals-and-moving-range-chart"
+  - id: w35-individuals-and-moving-range-chart-2
+    query: "compute the moving range control limits and the process sigma estimate for a variable process without subgroups"
+    intent: "manufacturing-quality; moving range limits and sigma estimate for individuals data"
+    expected_skill: "manufacturing-quality/as9100/individuals-and-moving-range-chart"
+  - id: w35-information-entropy-1
+    query: "compute the Shannon entropy in bits per symbol of a telemetry symbol distribution and the minimum source coding bit rate"
+    intent: "cross-cutting; Shannon entropy and minimum source coding bit rate"
+    expected_skill: "cross-cutting/numerics/information-entropy"
+  - id: w35-information-entropy-2
+    query: "compute the binary entropy function and the uniform distribution entropy bound for an aerospace data channel assessment"
+    intent: "cross-cutting; binary entropy function and uniform entropy bound"
+    expected_skill: "cross-cutting/numerics/information-entropy"
+  - id: w35-landing-gear-retraction-sizing-1
+    query: "size the main landing gear retraction actuator force and stroke from the linkage geometry between the down and up locked positions"
+    intent: "vehicle-design; retraction actuator force and stroke from linkage geometry"
+    expected_skill: "vehicle-design/sizing/landing-gear-retraction-sizing"
+  - id: w35-landing-gear-retraction-sizing-2
+    query: "check the landing gear up lock and down lock hold load and the gear bay stowage fit at the conceptual design level"
+    intent: "vehicle-design; landing gear lock hold loads and gear bay stowage fit"
+    expected_skill: "vehicle-design/sizing/landing-gear-retraction-sizing"
+  - id: w35-pcm-telemetry-decommutation-1
+    query: "acquire PCM telemetry frame sync lock and decommutate the supercommutated and subcommutated channels into time series"
+    intent: "flight-test-operations; PCM frame sync and channel decommutation"
+    expected_skill: "flight-test-operations/planning/pcm-telemetry-decommutation"
+  - id: w35-pcm-telemetry-decommutation-2
+    query: "demultiplex a PCM minor frame stream by the subframe id into the recovered telemetry channel samples"
+    intent: "flight-test-operations; subframe id demultiplexing of PCM telemetry channels"
+    expected_skill: "flight-test-operations/planning/pcm-telemetry-decommutation"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

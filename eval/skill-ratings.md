@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 472
+Total skills rated: 485
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -479,3 +479,16 @@ Total skills rated: 472
 | 470 | flight-test-operations/stability/control-force-flight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
 | 471 | cross-cutting/numerics/rank-based-hypothesis-testing | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 472 | cross-cutting/numerics/singular-value-decomposition | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 473 | vehicle-design/sizing/avionics-bay-cooling-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 475 | vehicle-design/sizing/landing-gear-retraction-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 474 | vehicle-design/sizing/aircraft-electrical-load-analysis | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 476 | vehicle-design/sizing/fuel-feed-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 477 | vehicle-design/sizing/fuel-jettison-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 478 | vehicle-design/sizing/aircraft-oxygen-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 479 | vehicle-design/sizing/fire-protection-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 480 | flight-test-operations/planning/pcm-telemetry-decommutation | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
+| 481 | manufacturing-quality/as9100/individuals-and-moving-range-chart | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 482 | manufacturing-quality/as9100/attribute-agreement-analysis | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 483 | cross-cutting/numerics/information-entropy | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 484 | manufacturing-quality/as9100/attribute-control-charts | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 485 | avionics/data-bus/arinc429-bus-loading | PASS | ✓ | arinc-429 | avionics | 9.5 | PASS |

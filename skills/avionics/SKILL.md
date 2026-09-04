@@ -87,6 +87,8 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/flight-management/radius-to-fix-leg | Radius-to-fix leg | radius to fix leg, RF leg, RNP AR procedure, turn center, arc length, path terminator, flyable arc check |
 | avionics/do178c/previously-developed-software | Previously developed software | previously developed software, PDS qualification, software reuse credit, delta objective analysis, modified software scope, reuse classification |
 
+| avionics/data-bus/arinc429-bus-loading | ARINC 429 bus loading | ARINC 429 bus loading, label rate budget, percent utilization, word rate capacity, transmit schedule headroom |
+
 
 ## Routing guidance
 
@@ -142,6 +144,8 @@ est case count, coverage objectives per
 - Radius-to-fix (RF) leg construction questions (turn center, arc length, exit track, RNP AR flyable arc) route to the flight-management radius-to-fix-leg sub-skill.
 
 - DO-178C previously developed software reuse questions (reuse classification, delta objective coverage, modified software regression scope) route to the do178c previously-developed-software sub-skill.
+- ARINC 429 bus loading questions (per-label rate schedule, percent utilization of the 100 kbps link, capacity and headroom) route to the data-bus arinc429-bus-loading sub-skill.
+
 
 ## Install
 

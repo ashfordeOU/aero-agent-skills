@@ -79,6 +79,8 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/performance/engine-failure-takeoff-flight-test | Engine failure takeoff flight test | balanced field V1, engine out takeoff, VEF recognition, decision speed, continued takeoff, field length verdict |
 | flight-test-operations/stability/control-force-flight-test | Control force flight test | control force flight test, stick force gradient, stick force per g, breakout force, control centering check, force transducer calibration, stick force stability |
 
+| flight-test-operations/planning/pcm-telemetry-decommutation | PCM telemetry decommutation | PCM frame sync lock, decommutation, supercommutated channel, subcommutated channel, subframe ID demultiplexing, telemetry time series recovery |
+
 
 ## Routing guidance
 
@@ -138,6 +140,8 @@ actor-envelope.
 - Engine-out takeoff questions (balanced-field V1, VEF recognition, decision speed, continued takeoff) route to the performance engine-failure-takeoff-flight-test sub-skill.
 
 - Longitudinal control-force flight test reduction questions (force transducer calibration, stick force gradient, stick force per g, breakout force, centering check) route to the stability control-force-flight-test sub-skill.
+- PCM telemetry decode questions (frame sync lock, decommutation of supercommutated and subcommutated channels, subframe ID demultiplexing) route to the planning pcm-telemetry-decommutation sub-skill.
+
 
 ## Install
 
