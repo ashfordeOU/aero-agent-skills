@@ -13,19 +13,19 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="496 verified skills · 85 live packs · 12 families · 30 standards · 1008 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="506 verified skills · 85 live packs · 12 families · 30 standards · 1028 router tasks · 8/8 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-496-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 496"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-506-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 506"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-85-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 85"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5-2ea043?style=flat&labelColor=1a1e35" alt="gates 5%2F5"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=flat&labelColor=1a1e35" alt="attest 3%2F3"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-1008-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 1008"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-1028-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 1028"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <p align="center">
@@ -120,7 +120,7 @@ cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 ### The domain map
 
 <!-- gen:overview -->
-**496 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **1008-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**506 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **1028-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -145,18 +145,18 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | Family | Standard spine | Packs | Skills | Router tasks |
 |---|---|---:|---:|---:|
 | **Aerodynamics** | NACA TR-824 | 10 | 36 | 74 |
-| **Avionics** | DO-178C / DO-254 / DO-160G | 9 | 42 | 87 |
-| **Cross-cutting** | SEP-2640 | 7 | 44 | 88 |
+| **Avionics** | DO-178C / DO-254 / DO-160G | 9 | 43 | 89 |
+| **Cross-cutting** | SEP-2640 | 7 | 45 | 90 |
 | **Flight mechanics** | FAR-25 / CS-25 | 4 | 42 | 84 |
 | **Flight test & operations** | FAR-25 / CS-25 | 6 | 41 | 82 |
 | **GNC & autonomy** | ARP4754A | 6 | 41 | 83 |
-| **Manufacturing quality** | AS9100 / AS9102 | 8 | 45 | 92 |
-| **Propulsion** | FAR-33 | 10 | 37 | 74 |
-| **Space systems** | ECSS | 5 | 44 | 91 |
+| **Manufacturing quality** | AS9100 / AS9102 | 8 | 47 | 96 |
+| **Propulsion** | FAR-33 | 10 | 38 | 76 |
+| **Space systems** | ECSS | 5 | 45 | 93 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 43 | 87 |
-| **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 34 | 70 |
-| **Vehicle design** | FAR-25 / CS-25 | 6 | 47 | 96 |
-| **Total** | 30 standards mapped | **85** | **496** | **1008** |
+| **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 36 | 74 |
+| **Vehicle design** | FAR-25 / CS-25 | 6 | 49 | 100 |
+| **Total** | 30 standards mapped | **85** | **506** | **1028** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -297,7 +297,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 496 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 1008-task corpus) and Claude Code plugin packaging
+- **Shipped:** 506 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 1028-task corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->

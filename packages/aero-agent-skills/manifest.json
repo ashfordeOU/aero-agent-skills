@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 496,
+  "leaves": 506,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1008
+  "corpus_tasks": 1028
  },
  "skills": [
   {
@@ -1160,6 +1160,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/flight-management/holding-pattern-entry",
+   "name": "holding-pattern-entry",
+   "description": "Use when you must determine a holding pattern entry: classify the maneuver for joining a holding fix as direct, teardrop, or parallel from the angle between the inbound track and the holding side using the standard 70/110 degree sector rule, compute the outbound leg timing from the holding altitude (1 minute at or below 14000 ft, 1.5 minutes above), correct the outbound heading for crosswind with the 1-in-60 rule, and estimate the first entry lap time. Produces the entry type, outbound leg seconds, wind-corrected outbound heading, and entry-lap time estimate for FMS or manual hold joining. Trigger: holding-pattern-entry, direct-entry-sector, teardrop-entry-sector, parallel-entry-sector, outbound-leg-timing, holding-wind-correction.",
+   "tags": [
+    "holding-pattern-entry",
+    "direct-entry-sector",
+    "teardrop-entry-sector",
+    "parallel-entry-sector",
+    "outbound-leg-timing",
+    "holding-wind-correction"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
    "path": "avionics/flight-management/lateral-navigation",
    "name": "lateral-navigation",
    "description": "Use when you must compute the lateral navigation (LNAV) guidance quantities of a flight management system between and along the flight plan legs: derive the great-circle track angle and distance from the current position to the next waypoint, determine the cross-track error to the active leg with its sign, compute the track angle error and the intercept heading that recaptures the desired track at a fixed intercept angle, size the turn anticipation distance before the fly-by waypoint from the speed and bank angle, and judge the along-track distance remaining on the leg. Produces the leg track and distance, the cross-track error, the intercept heading, and the fly-by versus fly-over transition point that gate FMS lateral guidance. Trigger: lateral navigation, lnav, cross-track error, track angle error, great-circle track, turn anticipation, fly-by waypoint, fly-over waypoint, intercept heading, fms lateral guidance.",
@@ -1697,6 +1713,21 @@
     "fir-lowpass",
     "filter-taps",
     "hamming-window"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/grubbs-outlier-test",
+   "name": "grubbs-outlier-test",
+   "description": "Use when you must test a normal sample for a single outlier: compute the sample mean and standard deviation, form the Grubbs G statistic as the largest absolute deviation from the mean divided by the sample standard deviation, compare it against the two-sided 0.05 critical value for the sample size from an embedded reference table with linear interpolation between listed sizes, and report the outlier verdict with the flagged value. Produces the G statistic, the critical value, the reject or no-outlier verdict, the rejected value and index, and the mean and standard deviation, screening a measured data set for one spurious reading before further statistical work. Sibling leaves cover screening without a probability model, parametric significance tests, rank-based procedures, and ordering-randomness tests. Trigger: grubbs-outlier-test, grubbs g statistic, single-outlier-test, grubbs critical value, outlier screening of measured data, normal sample spurious reading check.",
+   "tags": [
+    "grubbs-outlier-test",
+    "grubbs-g-statistic",
+    "single-outlier-test",
+    "grubbs-critical-value",
+    "outlier-screening-test"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -4667,6 +4698,22 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/as9100/acceptance-sampling",
+   "name": "acceptance-sampling",
+   "description": "Use when you must design an attribute acceptance sampling plan: choose the sample size code letter from the lot size and the inspection level, look up the single-sampling plan (sample size n, accept number Ac, reject number Re) for the required AQL from a small embedded reference table, decide accept or reject from the number of nonconforming units found in the sample, and compute the operating-characteristic probability of acceptance across incoming fraction nonconforming with the binomial model. Produces the code letter, the sample size, the accept and reject numbers, the lot verdict, and the OC curve points that quantify the plan discrimination. Trigger: acceptance sampling, attribute sampling plan, aql, lot size code letter, sample size, accept number, reject number, operating characteristic curve, probability of acceptance, lot acceptance.",
+   "tags": [
+    "acceptance-sampling",
+    "attribute-sampling-plan",
+    "aql-acceptance-quality-limit",
+    "lot-size-code-letter",
+    "operating-characteristic-curve",
+    "accept-reject-numbers"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/as9100/attribute-agreement-analysis",
    "name": "attribute-agreement-analysis",
    "description": "Use when you must analyze inspector agreement on attribute judgments: percent agreement on go/no-go or accept/rework/reject results, the Cohen kappa for two inspectors and the Fleiss kappa for three or more inspectors with the chance-agreement correction, the kappa verdict against the attribute measurement system acceptance bands (0.75 and up good, 0.40 to 0.75 marginal, under 0.40 poor), and the retraining or study rework flag when agreement is poor. Produces observed agreement, chance agreement, kappa, band verdict, and the verdict gating the attribute gage study. Trigger: inspector agreement, cohen kappa, fleiss kappa, inter-rater agreement, chance-corrected agreement, kappa analysis, attribute gage study, attribute judgments.",
@@ -4816,6 +4863,22 @@
     "bias-significance-test",
     "linearity-percent-band",
     "msa-bias-analysis"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/as9100/gage-rr-anova",
+   "name": "gage-rr-anova",
+   "description": "Use when you must run the ANOVA estimator for a gage repeatability and reproducibility study: decompose total variation of replicated balanced readings into part, operator, part-by-operator interaction and equipment sums of squares, estimate variance components with the non-negative interaction floor, compute equipment, appraiser, interaction, combined GRR, part and total variation, the percent GRR verdict on the 10/30 acceptance bands, part and interaction F statistics, and the number of distinct categories. Produces the ANOVA table, variance components, verdict and ndc that gate measurement system approval. Trigger: gage rr anova, variance component decomposition, operator part interaction F test, distinct categories count.",
+   "tags": [
+    "gage-rr-anova",
+    "two-way-anova-grr",
+    "variance-component-decomposition",
+    "operator-part-interaction",
+    "anova-grr-acceptance",
+    "distinct-categories-count"
    ],
    "family": "manufacturing-quality",
    "pack": "as9100",
@@ -5805,6 +5868,22 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/gas-turbine-cycle/subsonic-inlet-recovery",
+   "name": "subsonic-inlet-recovery",
+   "description": "Use when you must compute subsonic inlet total pressure recovery at a flight condition: the ram recovery ratio from free-stream Mach (unity below Mach 1, MIL-E-5008B style roll-off above), the isentropic stagnation pressure ratio, the engine face total pressure after the duct total-pressure efficiency, the capture area for the engine mass flow at flight speed and density, and the capture verdict against the intake highlight, spillage when the required capture exceeds the highlight. Produces ram recovery, face total pressure, capture area and the full-capture or spillage verdict for the cycle deck inlet. Trigger: subsonic intake recovery, ram recovery ratio, engine face total pressure, intake capture area, duct total pressure efficiency.",
+   "tags": [
+    "subsonic-inlet-recovery",
+    "ram-recovery-ratio",
+    "engine-face-total-pressure",
+    "intake-capture-area",
+    "spillage-verdict",
+    "duct-total-pressure-efficiency"
+   ],
+   "family": "propulsion",
+   "pack": "gas-turbine-cycle",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/ramjet/ramjet-cycle",
    "name": "ramjet-cycle",
    "description": "Use when you must analyze the ideal ramjet cycle: compute the flight stagnation temperature from the speed of sound and Mach number, the total temperature ratio across the combustor from the fuel air ratio and lower heating value, the specific thrust from the Mach number and total temperature ratio, the total thrust from the captured mass flow, and the specific impulse and thermal efficiency from the fuel flow. Produces the specific thrust, thrust, specific impulse, and thermal efficiency that gate the airbreathing hypersonic engine assessment. Trigger: ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse.",
@@ -6595,6 +6674,22 @@
     "orbit-plane",
     "sun-vector",
     "orbit-period"
+   ],
+   "family": "space-systems",
+   "pack": "orbit-mechanics",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/orbit-mechanics/geostationary-station-keeping",
+   "name": "geostationary-station-keeping",
+   "description": "Use when you must compute geostationary station keeping quantities for a GEO satellite: the geosynchronous radius and orbital speed from the sidereal day, the annual north-south delta-v from the inclination drift with the two-burn-per-year model, the per-burn delta-v, the burn time from thrust and spacecraft mass, the annual propellant from the specific impulse, the east-west deadband drift-cycle period and maneuver cadence from the longitude acceleration and box half-width, and the uncontrolled drift time to the inclination tolerance. Produces the radius, speed, annual and per-burn delta-v, burn time, annual propellant, east-west cycle period and cadence, and the uncontrolled-drift verdict that gate a GEO propulsion budget. Trigger: geostationary station keeping, geosynchronous orbit radius, north-south station keeping, inclination drift control, east-west deadband cycle, longitude acceleration, station keeping delta-v, geo propellant budget, uncontrolled drift time.",
+   "tags": [
+    "geostationary-station-keeping",
+    "north-south-station-keeping",
+    "inclination-drift-control",
+    "east-west-deadband-cycle",
+    "geo-propellant-budget",
+    "longitude-acceleration"
    ],
    "family": "space-systems",
    "pack": "orbit-mechanics",
@@ -8242,6 +8337,22 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance",
+   "name": "airworthiness-directive-compliance",
+   "description": "Use when you must evaluate airworthiness directive compliance: test each aircraft in an operator fleet against the directive effectivity by affected model and serial range, compute the remaining compliance margin in the directive's own basis (flight cycles, flight hours, or calendar months from the effective date), classify each aircraft as open, due, or overdue against the directive grace band, and roll up the per-directive fleet compliance report with applicable, open, due and overdue counts and the strict compliance rate. Produces per-aircraft statuses and the fleet report. Trigger: airworthiness directive, AD applicability, directive effectivity, compliance margin, compliance time remaining, grace band, due aircraft, overdue aircraft, fleet compliance report, mandatory airworthiness action.",
+   "tags": [
+    "airworthiness-directive-compliance",
+    "ad-applicability",
+    "compliance-time",
+    "compliance-grace-band",
+    "fleet-compliance-report",
+    "directive-effectivity"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "continued-airworthiness",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification",
    "name": "ica-cmr-ali-classification",
    "description": "Use when you must classify certification maintenance items: sort each candidate from certification into airworthiness limitation items (life-limited parts, damage-tolerance inspections, fuel-tank flammability checks), certification maintenance requirements, or routine scheduled maintenance using a fixed certification-driver rule table, then compute the ALS coverage of a maintenance program as matched required items over the total required and check per-item interval compliance against the type-certificate ALS maximum intervals. Produces a per-item verdict with rationale, class counts, the ALS coverage fraction, and the non-compliant and missing ALS item lists. Trigger: airworthiness limitations section, ALS coverage, certification maintenance requirement, life-limited part, damage-tolerance inspection, fuel-tank flammability, instructions for continued airworthiness.",
@@ -8293,6 +8404,22 @@
     "interval-determination",
     "maintenance-program-development",
     "continued-airworthiness"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "continued-airworthiness",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet",
+   "name": "type-certificate-data-sheet",
+   "description": "Use when you must compile and validate a type certificate data sheet: check that every required section is present (models, type design, approved engines and propellers, weights, certification basis, operating limitations, noise standards), validate the weight block consistency (max ramp at or above max takeoff, max landing at or below max takeoff, all positive), validate the category airspeed limitations (transport requires VMO or MMO; normal, utility and acrobatic categories require VNE), check the approved configuration consistency, and diff two revisions of the record into a per-section change summary for type certificate amendment or STC integration review. Produces the missing-section list, the validation error list, the summary counts, and the revision change report. Trigger: type certificate data sheet, TCDS record, type design record, approved engine models, weight block, category airspeed limits, VMO, MMO, VNE, TCDS revision diff.",
+   "tags": [
+    "type-certificate-data-sheet",
+    "tcds-validation",
+    "type-design-record",
+    "approved-model-list",
+    "category-airspeed-limits",
+    "tcds-revision-diff"
    ],
    "family": "systems-engineering-safety",
    "pack": "continued-airworthiness",
@@ -8889,6 +9016,22 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/electrical-wire-sizing",
+   "name": "electrical-wire-sizing",
+   "description": "Use when you must size an aircraft electrical wire run: select the smallest conductor gauge whose bundled ampacity at the ambient temperature meets the continuous load with the bundle and temperature derating applied, check the round-trip voltage drop over the run length at the load current against the bus tolerance, compute the percentage drop, and report the selected gauge, its ampacity margin, the voltage drop and the percent-drop verdict. Produces the conductor gauge selection and the drop verdict that close the load-to-distribution chain. Trigger: power feeder gauge selection, conductor ampacity, ampacity derating, wire voltage drop, percent drop, bus tolerance.",
+   "tags": [
+    "electrical-wire-sizing",
+    "conductor-ampacity",
+    "wire-voltage-drop",
+    "bus-tolerance-verdict",
+    "ewis-conductor-selection",
+    "ampacity-derating"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/engine-sizing",
    "name": "engine-sizing",
    "description": "Use when you must size the propulsion system for the transport aircraft: compute the sea level static thrust from the design thrust to weight ratio and the takeoff gross weight, lapse the thrust to the cruise and top of climb altitude through the ISA density ratio, apply the installed thrust loss for the takeoff thrust, check the thrust margin against the cruise drag, estimate the engine weight from the engine thrust to weight ratio, and split the total thrust across the number of engines. Produces the sea level static thrust, the altitude thrust, the takeoff thrust, the top of climb margin, the fuel flow from the specific fuel consumption, and the thrust per engine that gate the engine selection in the conceptual sizing loop. Trigger: engine sizing, thrust lapse, sea level static thrust, takeoff thrust, top of climb, engine weight, specific fuel consumption.",
@@ -9019,6 +9162,22 @@
     "cabin-width",
     "aisle-width",
     "cargo-volume"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/hydraulic-actuator-sizing",
+   "name": "hydraulic-actuator-sizing",
+   "description": "Use when you must size a hydraulic actuator: the piston area and bore diameter from the actuator load and system pressure with the pressure-margin factor and mechanical efficiency, the rod-side annulus area and retract capability, the rod diameter from Euler column buckling over the extended rod length with the design factor, the nearest preferred bore and rod diameters at or above the requirements, and the actuator mass estimate. Produces the bore and rod diameters, the annulus area, the buckling margin, the preferred-size selection and the mass estimate that close the load-to-actuator chain. Trigger: hydraulic actuator sizing, actuator bore diameter, actuator rod buckling, annulus retract check, preferred actuator sizes, actuator mass estimate.",
+   "tags": [
+    "hydraulic-actuator-sizing",
+    "actuator-bore-diameter",
+    "actuator-rod-buckling",
+    "annulus-retract-check",
+    "preferred-actuator-sizes",
+    "actuator-mass-estimate"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

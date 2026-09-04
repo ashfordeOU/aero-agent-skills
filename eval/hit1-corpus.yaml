@@ -235,6 +235,11 @@
 # leaves). Wave-36 new leaves: "vehicle-design/sizing/apu-fuel-burn-sizing", "vehicle-design/sizing/bleed-air-system-sizing", "vehicle-design/sizing/cabin-outflow-valve-sizing", "vehicle-design/sizing/fuel-tank-inerting-sizing", "manufacturing-quality/as9100/gage-linearity-bias-study", "systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification", "avionics/data-bus/mil-std-1553-bus-loading", "propulsion/gas-turbine-cycle/propelling-nozzle", "vehicle-design/sizing/ram-air-turbine-sizing", "cross-cutting/numerics/runs-test", "space-systems/orbit-mechanics/walker-delta-constellation".
 # Corpus: 1008 tasks (986 prior plus 22 domain tasks). Owner: Ops
 # Manager, Wave 36 build.
+# P5.2 / Wave 37 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 506 verified skills (518 SKILL.md under gate 1: 12 routers + 506
+# leaves). Wave-37 new leaves: "manufacturing-quality/as9100/acceptance-sampling", "systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance", "vehicle-design/sizing/electrical-wire-sizing", "manufacturing-quality/as9100/gage-rr-anova", "space-systems/orbit-mechanics/geostationary-station-keeping", "cross-cutting/numerics/grubbs-outlier-test", "avionics/flight-management/holding-pattern-entry", "vehicle-design/sizing/hydraulic-actuator-sizing", "propulsion/gas-turbine-cycle/subsonic-inlet-recovery", "systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet".
+# Corpus: 1028 tasks (1008 prior plus 20 domain tasks). Owner: Ops
+# Manager, Wave 37 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4579,6 +4584,86 @@ tasks:
     query: "enumerate the unique raan and mean anomaly slots for a walker delta constellation with 8 satellites per plane"
     intent: "space-systems; Walker-Delta constellation slot enumeration"
     expected_skill: "space-systems/orbit-mechanics/walker-delta-constellation"
+  - id: w37-acceptance-sampling-1
+    query: "select an attribute acceptance-sampling plan with the lot size code letter and aql accept and reject numbers"
+    intent: "manufacturing-quality; attribute acceptance sampling plan selection"
+    expected_skill: "manufacturing-quality/as9100/acceptance-sampling"
+  - id: w37-acceptance-sampling-2
+    query: "evaluate the acceptance-sampling operating characteristic curve probability of acceptance for the sampling plan"
+    intent: "manufacturing-quality; acceptance sampling OC curve"
+    expected_skill: "manufacturing-quality/as9100/acceptance-sampling"
+  - id: w37-airworthiness-directive-compliance-1
+    query: "check airworthiness-directive-compliance for the fleet by applicability and compliance-time remaining in cycles or calendar months"
+    intent: "systems-engineering-safety; AD applicability and compliance margin evaluation"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance"
+  - id: w37-airworthiness-directive-compliance-2
+    query: "roll up the airworthiness-directive fleet report with open due and overdue aircraft against the directive grace band"
+    intent: "systems-engineering-safety; per-directive fleet compliance report"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance"
+  - id: w37-electrical-wire-sizing-1
+    query: "select the electrical-wire-sizing gauge from ampacity derating for an aircraft power feeder at the load current"
+    intent: "vehicle-design; wire gauge selection by derated ampacity"
+    expected_skill: "vehicle-design/sizing/electrical-wire-sizing"
+  - id: w37-electrical-wire-sizing-2
+    query: "check the electrical-wire-sizing voltage drop and percent drop over the run length against the bus tolerance"
+    intent: "vehicle-design; wire run voltage drop verdict"
+    expected_skill: "vehicle-design/sizing/electrical-wire-sizing"
+  - id: w37-gage-rr-anova-1
+    query: "run the gage-rr-anova two way variance component decomposition for a replicated gage repeatability and reproducibility study"
+    intent: "manufacturing-quality; ANOVA gage R and R variance components"
+    expected_skill: "manufacturing-quality/as9100/gage-rr-anova"
+  - id: w37-gage-rr-anova-2
+    query: "check the gage-rr-anova operator part interaction F test and percent grr verdict against the acceptance bands"
+    intent: "manufacturing-quality; ANOVA GRR interaction test and verdict"
+    expected_skill: "manufacturing-quality/as9100/gage-rr-anova"
+  - id: w37-geostationary-station-keeping-1
+    query: "size the geostationary-station-keeping north south delta-v and propellant from the inclination drift for a geo satellite"
+    intent: "space-systems; GEO north-south station keeping delta-v and propellant"
+    expected_skill: "space-systems/orbit-mechanics/geostationary-station-keeping"
+  - id: w37-geostationary-station-keeping-2
+    query: "compute the east-west deadband drift cycle and maneuver cadence for geostationary station keeping in the longitude box"
+    intent: "space-systems; GEO east-west deadband cycle and cadence"
+    expected_skill: "space-systems/orbit-mechanics/geostationary-station-keeping"
+  - id: w37-grubbs-outlier-test-1
+    query: "run the grubbs-outlier-test g statistic against the critical value for a single outlier in a normal sample"
+    intent: "cross-cutting; Grubbs single-outlier hypothesis test"
+    expected_skill: "cross-cutting/numerics/grubbs-outlier-test"
+  - id: w37-grubbs-outlier-test-2
+    query: "check the grubbs-outlier-test verdict and rejected value when screening measured data for one spurious reading"
+    intent: "cross-cutting; Grubbs outlier screening verdict"
+    expected_skill: "cross-cutting/numerics/grubbs-outlier-test"
+  - id: w37-holding-pattern-entry-1
+    query: "determine the holding-pattern-entry type direct teardrop or parallel from the approach angle to the holding side"
+    intent: "avionics; holding pattern entry classification"
+    expected_skill: "avionics/flight-management/holding-pattern-entry"
+  - id: w37-holding-pattern-entry-2
+    query: "compute the holding-pattern-entry outbound leg timing and wind-corrected outbound heading for the hold"
+    intent: "avionics; holding pattern timing and wind correction"
+    expected_skill: "avionics/flight-management/holding-pattern-entry"
+  - id: w37-hydraulic-actuator-sizing-1
+    query: "size the hydraulic-actuator-sizing bore and piston area from the actuator load and system pressure with the margin"
+    intent: "vehicle-design; hydraulic actuator bore sizing"
+    expected_skill: "vehicle-design/sizing/hydraulic-actuator-sizing"
+  - id: w37-hydraulic-actuator-sizing-2
+    query: "check the hydraulic-actuator-sizing rod buckling diameter and retract capability for the extended actuator"
+    intent: "vehicle-design; actuator rod buckling and retract check"
+    expected_skill: "vehicle-design/sizing/hydraulic-actuator-sizing"
+  - id: w37-subsonic-inlet-recovery-1
+    query: "compute the subsonic-inlet-recovery ram recovery and engine face total pressure for a turbofan intake at flight mach"
+    intent: "propulsion; subsonic intake ram recovery and face total pressure"
+    expected_skill: "propulsion/gas-turbine-cycle/subsonic-inlet-recovery"
+  - id: w37-subsonic-inlet-recovery-2
+    query: "check the intake capture-area verdict and spillage against the highlight area for the engine mass flow"
+    intent: "propulsion; intake capture area and spillage verdict"
+    expected_skill: "propulsion/gas-turbine-cycle/subsonic-inlet-recovery"
+  - id: w37-type-certificate-data-sheet-1
+    query: "compile a type-certificate-data-sheet record with the models weights certification basis and operating limitations sections"
+    intent: "systems-engineering-safety; TCDS record compilation and required sections"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet"
+  - id: w37-type-certificate-data-sheet-2
+    query: "validate the type-certificate-data-sheet weight block and category airspeed limits for the approved type design"
+    intent: "systems-engineering-safety; TCDS validation checks and revision diff"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

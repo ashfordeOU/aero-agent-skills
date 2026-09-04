@@ -85,6 +85,8 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/ram-air-turbine-sizing | Ram air turbine sizing | ram air turbine sizing, ram air turbine rotor, RAT disk diameter, emergency power extraction, rat swept area |
 | vehicle-design/sizing/fuel-tank-inerting-sizing | Fuel tank inerting sizing | fuel tank inerting sizing, OBIGGS flow, ullage oxygen washout, nitrogen enriched air, ullage inerting |
 | vehicle-design/sizing/cabin-outflow-valve-sizing | Cabin outflow valve sizing | cabin outflow valve sizing, outflow valve area, pressure relief valve, choked cabin flow, differential pressure clamp |
+| vehicle-design/sizing/electrical-wire-sizing | Electrical wire sizing | electrical wire sizing, conductor ampacity, ampacity derating, wire voltage drop, percent drop bus tolerance, EWIS conductor selection |
+| vehicle-design/sizing/hydraulic-actuator-sizing | Hydraulic actuator sizing | hydraulic actuator sizing, actuator bore diameter, piston area, rod buckling, annulus retract check, preferred actuator sizes, actuator mass |
 
 
 ## Routing guidance
@@ -172,3 +174,6 @@ your host's skills directory (see README Install for per-host commands).
 - Ram air turbine questions (emergency RAT swept area and disk diameter from required power at a fixed airspeed) route to the sizing ram-air-turbine-sizing sub-skill.
 - Fuel tank inerting questions (OBIGGS NEA flow, ullage oxygen washout time, SCFM flow for a target oxygen fraction) route to the sizing fuel-tank-inerting-sizing sub-skill.
 - Cabin outflow and pressure relief valve questions (choked effective area at the cruise differential and the pressure clamp) route to the sizing cabin-outflow-valve-sizing sub-skill.
+
+- Electrical wire run questions (conductor gauge selection from derated ampacity, round-trip voltage drop and percent-drop verdict against the bus tolerance) route to the sizing electrical-wire-sizing sub-skill.
+- Hydraulic actuator questions (bore and piston area from load and system pressure, rod buckling diameter, annulus retract capability, preferred size selection and mass estimate) route to the sizing hydraulic-actuator-sizing sub-skill.
