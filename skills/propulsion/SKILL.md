@@ -73,6 +73,7 @@ compressor stage and operating-map analysis.
 | propulsion/turbomachinery/rocket-turbopump | Rocket turbopump | rocket turbopump, pump specific speed, suction specific speed, net positive suction head, impeller tip speed, LOX pump sizing, cavitation margin |
 | propulsion/rocket/thrust-chamber-cooling | Thrust chamber cooling | thrust chamber cooling, regenerative cooling, Bartz heat transfer, throat heat flux, coolant channel sizing, copper wall limit, film cooling rocket |
 | propulsion/rocket/injector-design | Injector design | injector design, unlike doublet, impinging jet atomization, injector pressure drop, momentum flux ratio, orifice flow count |
+| propulsion/gas-turbine-cycle/propelling-nozzle | Propelling nozzle | propelling nozzle, convergent jet nozzle, nozzle throat area, choked nozzle regime, gross thrust pressure term |
 
 
 ## Routing guidance
@@ -143,3 +144,4 @@ your host's skills directory (see README Install for per-host commands).
 - Liquid engine feed-cycle selection and pump-turbine power balance questions route to the rocket rocket-engine-cycle sub-skill.
 - Afterburner reheat fuel-air ratio, dry versus reheat thrust, and augmentation ratio questions route to the gas-turbine-cycle afterburner-cycle sub-skill.
 - Turbine blade cooling effectiveness, coolant flow fraction, and film-cooling metal temperature questions route to the axial-compressor turbine-blade-cooling sub-skill.
+- Air-breathing propelling nozzle questions (choked or unchoked regime, throat area from design mass flow, gross thrust with the pressure term) route to the gas-turbine-cycle propelling-nozzle sub-skill.

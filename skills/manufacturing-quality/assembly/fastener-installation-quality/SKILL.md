@@ -167,12 +167,12 @@ D = 0.00635 m, torque 24 N m, k = 0.2, min clamp 12000 N, max clamp
 
 - Releasing a joint whose grip selection found no fit: when no
   available grip increment reaches the stack total the verdict is
-  rework with defect no-grip-fits — and a grip shorter than the stack
+  rework with defect no-grip-fits - and a grip shorter than the stack
   produces negative protrusion, which is always out of band, never a
   pass.
 - Confusing clamp verdict direction: below the joint minimum clamp is
   under-clamp (rework) while above the joint allowable is over-clamp
-  (scrap) — the two failure modes have different dispositions and must
+  (scrap) - the two failure modes have different dispositions and must
   not be merged into one defect.
 - Checking the protrusion band without the fastener data: the 0.5 to
   3.0 mm band is a documented typical value that must be confirmed
@@ -186,7 +186,7 @@ D = 0.00635 m, torque 24 N m, k = 0.2, min clamp 12000 N, max clamp
 - Forgetting the head and fastener type gates: a flush head without a
   measured flushness, a lock-bolt checked without engaged threads, a
   fastener_type of "screw", and an unknown head_style all raise
-  ValueError — the check set must match the fastener being verified.
+  ValueError - the check set must match the fastener being verified.
 - Assuming this leaf verifies joint strength: it checks the physical
   installation (grip, protrusion, clamp load, flushness, engagement);
   bearing and bypass stress allowables of the same bolted joint belong

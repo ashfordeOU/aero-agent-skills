@@ -162,12 +162,12 @@ an upgrade toward Level III under evaluation. Real module outputs:
   ValueError rather than scoring.
 - Passing an upgrade on partial evidence: eligibility requires the
   held training hours, the held experience months and the passed
-  examination together — the worked example fails on hours, months
+  examination together - the worked example fails on hours, months
   and exam all short at once.
 - Certifying a Level I to work alone or under another Level I: a
   Level I operator must work under a Level II or III supervisor,
   while Level II and III operators are valid with any supervisor
-  level — supervision_valid(\"i\", \"i\") is False.
+  level - supervision_valid(\"i\", \"i\") is False.
 
 ## Behavior contract (gate 3)
 

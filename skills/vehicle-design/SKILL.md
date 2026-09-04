@@ -80,6 +80,11 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/aircraft-oxygen-system-sizing | Aircraft oxygen system sizing | aircraft oxygen system sizing, supplemental oxygen, oxygen generator count, gaseous oxygen bottle volume, oxygen demand calculation |
 | vehicle-design/sizing/fire-protection-sizing | Fire protection sizing | fire protection sizing, extinguishing agent mass, total flooding agent, cargo compartment fire, powerplant fire zone |
 | vehicle-design/sizing/fuel-jettison-sizing | Fuel jettison sizing | fuel jettison sizing, fuel dump rate, jettison time to landing weight, fuel jettison mast |
+| vehicle-design/sizing/bleed-air-system-sizing | Bleed air system sizing | bleed air system sizing, bleed offtake mass flow, bleed duct diameter, bleed thermal budget, pneumatic bleed manifold |
+| vehicle-design/sizing/apu-fuel-burn-sizing | APU fuel burn sizing | APU fuel burn sizing, auxiliary power unit fuel burn, generator shaft power, bleed pumping power, apu fuel flow rate |
+| vehicle-design/sizing/ram-air-turbine-sizing | Ram air turbine sizing | ram air turbine sizing, ram air turbine rotor, RAT disk diameter, emergency power extraction, rat swept area |
+| vehicle-design/sizing/fuel-tank-inerting-sizing | Fuel tank inerting sizing | fuel tank inerting sizing, OBIGGS flow, ullage oxygen washout, nitrogen enriched air, ullage inerting |
+| vehicle-design/sizing/cabin-outflow-valve-sizing | Cabin outflow valve sizing | cabin outflow valve sizing, outflow valve area, pressure relief valve, choked cabin flow, differential pressure clamp |
 
 
 ## Routing guidance
@@ -162,3 +167,8 @@ your host's skills directory (see README Install for per-host commands).
 - DOE factorial and latin-hypercube design space screening questions route to the mdo design-of-experiments sub-skill.
 - Battery pack sizing questions (traction battery for electric aircraft and eVTOL, C-rate, depth of discharge, series parallel cell count, voltage drop) route to the sizing battery-sizing sub-skill.
 - Surrogate model questions (response surface and RBF metamodel fit with cross-validation for the MDO loop) route to the mdo surrogate-modeling sub-skill.
+- Bleed air system questions (bleed offtake rollup, per-engine offtake, bleed duct diameter, precooler thermal budget) route to the sizing bleed-air-system-sizing sub-skill.
+- APU fuel burn questions (generator shaft load, bleed pumping power, kg/h fuel flow at a fixed APU load point) route to the sizing apu-fuel-burn-sizing sub-skill.
+- Ram air turbine questions (emergency RAT swept area and disk diameter from required power at a fixed airspeed) route to the sizing ram-air-turbine-sizing sub-skill.
+- Fuel tank inerting questions (OBIGGS NEA flow, ullage oxygen washout time, SCFM flow for a target oxygen fraction) route to the sizing fuel-tank-inerting-sizing sub-skill.
+- Cabin outflow and pressure relief valve questions (choked effective area at the cruise differential and the pressure clamp) route to the sizing cabin-outflow-valve-sizing sub-skill.

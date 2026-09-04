@@ -154,35 +154,35 @@ bus.route_messages()  # TEL receives seq 0,1,2 at cycles 0,2,4
 - Confusing the cFS layers: PSP is the only board-specific layer
   (CPU reset, clock, memory, console), OSAL wraps the RTOS behind one
   API so apps never call it directly, and cFE provides the reusable
-  services — board bring-up belongs to PSP, RTOS portability to OSAL,
+  services - board bring-up belongs to PSP, RTOS portability to OSAL,
   and app design to the cFE service layer, so routing an OSAL tasking
   question to the PSP leaf-side model misses the layer.
 - Allocating message IDs against the ranges: commands occupy
   0x0000-0x0FFF and telemetry 0x1000-0xFFFF by convention, with the
   app tag in the upper bits and the message number below (0x1900 is
-  app 0x19, message 0x00) — and the bus validates IDs as 16-bit, so
+  app 0x19, message 0x00) - and the bus validates IDs as 16-bit, so
   out-of-range or non-integer IDs raise ValueError; note modern cFE
   6.7+ widened message IDs to 32 bits.
 - Publishing before the consumer subscribes: every consumer must
   subscribe to its message ID before any publish to that ID, and
-  publishing to an unknown message ID raises ValueError — a publisher
+  publishing to an unknown message ID raises ValueError - a publisher
   that sends before subscription silently loses the first messages
   for that app.
 - Misusing the app lifecycle: APP_Init runs once and does the
   registration and subscription, APP_Execute is the per-cycle body
-  that routes pending messages, and every app registers exactly once —
+  that routes pending messages, and every app registers exactly once -
   duplicate registration raises ValueError, and registering or
   subscribing inside the execute loop re-runs one-time work every
   cycle.
 - Trusting delivery order or counters without the route: after
   route_messages() each app's delivery list holds only its subscribed
   message IDs in publish order, and telemetry sequence counters are
-  monotonic per message ID via telemetry_pipeline() — the ground
+  monotonic per message ID via telemetry_pipeline() - the ground
   station detects drops from counter gaps, so a stamped pipeline is
   part of the design, not an afterthought.
 - Treating the software bus as a network bus: SB routing is in-process
   publish/subscribe by message ID with copies to every subscriber's
-  pipe — cross-box cFS traffic rides ARINC 664 / MIL-STD-1553 links
+  pipe - cross-box cFS traffic rides ARINC 664 / MIL-STD-1553 links
   (the data-bus leaves), and ARINC 653 partitioning is the
   hardware-level isolation sibling, not a message-routing service.
 

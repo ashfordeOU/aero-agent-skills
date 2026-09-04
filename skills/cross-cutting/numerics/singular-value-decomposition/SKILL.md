@@ -97,14 +97,14 @@ compute.
   s.
 - Treating a near-zero singular value as exactly zero: A3 returns s =
   [sqrt(70), 0.000000000000] with numerical rank 1, and the condition
-  number is inf — rank and conditioning claims rest on the tolerance,
+  number is inf - rank and conditioning claims rest on the tolerance,
   not on the printed zero.
 - Checking only one matrix orientation: the pseudoinverse is verified
   on the 3x2 case and its 2x3 transpose, and the reconstruction check
   covers square, tall, and wide matrices; a single orientation misses
   the transpose behavior.
 - Confusing the condition number with reconstruction accuracy: A2 has
-  condition 2.618 and residual 4.6e-16 — conditioning describes
+  condition 2.618 and residual 4.6e-16 - conditioning describes
   sensitivity, the residual describes factorization error.
 - Feeding empty, ragged, or non-numeric matrices, or empty/negative
   singular value lists: all raise ValueError instead of returning a

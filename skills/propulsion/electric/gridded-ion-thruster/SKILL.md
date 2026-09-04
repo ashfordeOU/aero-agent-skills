@@ -183,7 +183,7 @@ eta_T = 0.65.
 - Sizing the optics at the space-charge limit: the grids cannot pass
   more than the Child-Langmuir density at a given voltage and gap, and
   real optics run at a perveance margin below one (0.6 in the worked
-  example, delivering 3.107 A against the 7.62 A un-margined pass) —
+  example, delivering 3.107 A against the 7.62 A un-margined pass) -
   quoting the limit current as the beam current overstates the
   thruster.
 - Forgetting the grid transparency: only the fraction of the extraction
@@ -192,12 +192,12 @@ eta_T = 0.65.
   shadowing.
 - Mixing the two thrust routes: thrust_from_beam_current needs the
   divergence efficiency and the beam-side numbers, while
-  thrust_from_power needs the total efficiency over the input power —
+  thrust_from_power needs the total efficiency over the input power -
   the worked example checks them to within 1%, so a larger gap means an
   input inconsistency, not a physical effect.
 - Comparing to a hall thruster on thrust alone: at 5000 W the gridded
   thruster gives 0.1617 N against 0.3187 N hall, but its I_sp is 2.56
-  times higher and its propellant flow about a fifth — the technology
+  times higher and its propellant flow about a fifth - the technology
   trade must weigh impulse and propellant against thrust-to-power.
 - Using the wrong propellant mass: the model is calibrated on xenon
   (m_i = 2.180e-25 kg); exhaust velocity, perveance and the mission
@@ -205,7 +205,7 @@ eta_T = 0.65.
   mass constant.
 - Reading I_sp off the beam voltage without the space-charge caveat:
   the 4100 s at 1100 V is only reachable while the optics stay under
-  the perveance limit — raising V_net raises the extractable density
+  the perveance limit - raising V_net raises the extractable density
   but also the voltage standoff demand on the grid design.
 
 ## Behavior contract (gate 3)

@@ -164,7 +164,7 @@ alpha = 3 deg, gamma = 1.4:
 
 - Demanding a result for a detached shock: when a compression turn
   exceeds the maximum deflection (22.97 deg at M1 = 2), the weak
-  solution does not exist and the module raises ValueError — the
+  solution does not exist and the module raises ValueError - the
   worked-example alpha = 18 deg case at eps = 5 deg is exactly this
   boundary and must be caught, not approximated.
 - Confusing the compression and expansion sides of the section: with
@@ -182,7 +182,7 @@ alpha = 3 deg, gamma = 1.4:
   non-zero cd_wave at cl ~ 0 is correct.
 - Using the section result outside its validity: eps must stay in [0,
   45) and |alpha| below 90 deg, and every non-finite argument raises
-  ValueError — the panel march is only defined for the diamond
+  ValueError - the panel march is only defined for the diamond
   geometry, not for cambered or rounded sections.
 - Reading a single Mach point as the trend: cd_wave falls monotonically
   from 0.0386 at M1 = 1.5 to 0.0150 at M1 = 3.0 at fixed eps and

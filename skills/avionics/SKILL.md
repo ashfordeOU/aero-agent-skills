@@ -88,6 +88,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do178c/previously-developed-software | Previously developed software | previously developed software, PDS qualification, software reuse credit, delta objective analysis, modified software scope, reuse classification |
 
 | avionics/data-bus/arinc429-bus-loading | ARINC 429 bus loading | ARINC 429 bus loading, label rate budget, percent utilization, word rate capacity, transmit schedule headroom |
+| avionics/data-bus/mil-std-1553-bus-loading | MIL-STD-1553 bus loading | MIL-STD-1553 bus loading, 1553 minor frame load, wire word time, 1553 bus utilization, bc-rt message overhead, schedule headroom |
 
 
 ## Routing guidance
@@ -154,3 +155,4 @@ your host's skills directory (see README Install for per-host commands).
 - F Prime component and topology questions route to the fsw fprime-component sub-skill.
 - VOR radial, DME slant range, ILS localizer and glideslope deviation geometry questions route to the flight-management radio-navigation-aids sub-skill.
 - RNP/ANP containment, actual navigation performance versus required navigation performance, and 95 percent lateral error checks route to the flight-management rnp-anp-containment sub-skill.
+- MIL-STD-1553 bus loading questions (minor frame wire-word time budget, percent utilization, 80 percent loading guideline verdict) route to the data-bus mil-std-1553-bus-loading sub-skill, not to the 1553 protocol leaf.

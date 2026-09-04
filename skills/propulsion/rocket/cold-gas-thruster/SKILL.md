@@ -142,7 +142,7 @@ throat diameter 0.5 mm, Isp = 65 s, p_min = 2 MPa.
 
 - Using a high Isp for the cold gas budget: the specific impulse of a
   cold gas thruster is low, typically 40 to 75 s for nitrogen because
-  the stored gas is never heated — quoting a chemical-thruster Isp
+  the stored gas is never heated - quoting a chemical-thruster Isp
   inflates the total impulse and undersizes the plenum.
 - Treating the blowdown as adiabatic: the model assumes isothermal
   blowdown (thin-walled tank, slow discharge, gas near the wall
@@ -150,7 +150,7 @@ throat diameter 0.5 mm, Isp = 65 s, p_min = 2 MPa.
   a fast, adiabatic discharge follows a different pressure history.
 - Reporting the initial thrust as the available thrust: at the minimum
   usable pressure the flow and thrust scale with pressure, so F_min =
-  0.581 N is about 8% of the 7.265 N initial value — the RCS sizing
+  0.581 N is about 8% of the 7.265 N initial value - the RCS sizing
   must hold across the blowdown, not at p0.
 - Setting p_min at or above the plenum pressure: operating_time needs
   p_min below p0 for the logarithm to exist; p_min at or above p0
@@ -161,7 +161,7 @@ throat diameter 0.5 mm, Isp = 65 s, p_min = 2 MPa.
   subtracted, not included.
 - Using the model beyond its boundary: this leaf is the gas thruster
   flow and blowdown model, not a tank structural sizer and not an
-  attitude control law — the plenum tank belongs to
+  attitude control law - the plenum tank belongs to
   space-systems/subsystems/propellant-tank-sizing.
 
 ## Behavior contract (gate 3)

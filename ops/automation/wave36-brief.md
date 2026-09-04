@@ -76,14 +76,24 @@ individuals-and-moving-range-chart); assess density)**.
 
 ## Per-leaf completeness standard (mandatory, from builder kit)
 SKILL.md (agentskills.io frontmatter, "Use when you must …" gate-2 clause style) +
+**FULL HOUSE BODY: Workflow → Worked example → Pitfalls (3-6 leaf-specific
+bullets derived from the leaf's own content/tests — NEVER invent; founder audit
+2026-09-04) → Behavior contract (gate 3) → Compliance.** Never use "classified"
+as a verb in prose (content-policy sweep trips CLASSIFIED; use "categorized"). +
 scripts/<leaf>_logic.py (stdlib only, portable imports — sibling
 os.path.dirname(os.path.abspath(__file__)) pattern, NO machine-local absolute
-paths; wave-27 lesson a440e453, publish leak sweep aborts on it) + scripts/test_<leaf>.py
+paths; wave-27 lesson a440e453, publish leak sweep aborts on it; logic files
+NEVER start with test_ — misname defect 2026-09-04) + scripts/test_<leaf>.py
 (offline unittest, asserts REAL module outputs) + eval fragment eval/hit1-wave36-<leaf>.yaml
 (2 corpus tasks with distinctive hyphenated tokens) + eval/skill-eval/<leaf>.json
 value-delta record + ratings ledger row appended IN-TURN at ≥9.5 (rows 486+,
 header 485→485+N at close). references/ + assets/ only when the body inlines long
 external content.
+
+**CREATION GATE (run BEFORE every leaf commit, exit 0 required):**
+`bash scripts/leaf-create-gate.sh <leaf-path>` — checks structure, naming,
+test pass, pycache, content policy, corpus, eval. FAIL → fix in-turn, re-run,
+then commit. Full builder checklist: MAINTENANCE_AND_HANDOVER.md section 5a.
 
 ## Operational rules (ALL prior-wave lessons — non-negotiable)
 1. **TURN-ALIVE (wave-24R rule, operational):** NEVER emit a text-only response

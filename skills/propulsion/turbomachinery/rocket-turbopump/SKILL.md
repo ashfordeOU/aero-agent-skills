@@ -158,7 +158,7 @@ eta = 0.68, p_inlet = 0.5 MPa, p_vapor = 0.03 MPa.
 
 - Misreading the suction specific speed direction: in this sizing model
   S is computed from the AVAILABLE NPSH, so S falls as the available
-  suction head grows — the flip case raises the inlet pressure to 1.0
+  suction head grows - the flip case raises the inlet pressure to 1.0
   MPa, NPSH grows to 86.69 m and the verdict flips to cavitation-risk,
   the opposite of the intuition that more inlet head always helps.
 - Reading the verdict boundary as a soft margin: cavitation_verdict is
@@ -170,7 +170,7 @@ eta = 0.68, p_inlet = 0.5 MPa, p_vapor = 0.03 MPa.
   pressure; an inlet at or below the vapor pressure raises ValueError
   because the suction head is unphysical.
 - Applying the cavitation judgment to the drive turbine or the air
-  side: this leaf owns pump geometry, efficiency and cavitation only —
+  side: this leaf owns pump geometry, efficiency and cavitation only -
   the cycle power balance belongs to rocket-engine-cycle and air
   compressor stages to centrifugal-compressor.
 - Quoting the specific speed without the pump type context: N_s =
@@ -179,7 +179,7 @@ eta = 0.68, p_inlet = 0.5 MPa, p_vapor = 0.03 MPa.
   mixed-flow or axial pump selection it implies.
 - Trusting the 0.55 head coefficient blindly: impeller_tip_speed runs
   at the design head coefficient psi = 0.55, a conventional centrifugal
-  value — a different impeller design needs its own psi before the tip
+  value - a different impeller design needs its own psi before the tip
   speed and diameter are quoted.
 
 ## Behavior contract (gate 3)

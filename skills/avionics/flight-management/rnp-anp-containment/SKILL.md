@@ -123,22 +123,22 @@ error of 120 m.
 
 - Feeding the 1-sigma error as the ANP: the ANP is the 95th
   percentile bound anp = 2 * sigma_lateral_m, so a 120 m sigma is an
-  ANP of 240 m — comparing the raw sigma against the RNP halves the
+  ANP of 240 m - comparing the raw sigma against the RNP halves the
   effective containment and can pass a degraded navigation system.
 - Mixing nautical miles into a meters check: RNP values arrive in NM
-  (RNP 0.3 NM = 555.6 m) and every comparison runs in meters — an
+  (RNP 0.3 NM = 555.6 m) and every comparison runs in meters - an
   unconverted 0.3 against a 240 m ANP passes any degraded case.
 - Comparing ANP against RNP without the required margin: the rule is
   anp + margin <= rnp, so at RNP 555.6 m with a 5 percent margin
   (27.78 m) an ANP of 500 m passes only because 527.78 <= 555.6, and
   margin_available_m reports the reserve after the margin is reserved,
   not the raw rnp - anp.
-- Treating the boundary as exclusive: containment is inclusive — anp +
+- Treating the boundary as exclusive: containment is inclusive - anp +
   margin equal to rnp passes (containment_pass(240, 240) is True), so
   an equality case must not be flagged as a violation.
 - Reading RNP as an absolute limit: RNP is the 95 percent containment
   bound that the position must satisfy for at least 95 percent of
-  flight time, and the ANP is the 95th percentile error — momentary
+  flight time, and the ANP is the 95th percentile error - momentary
   excursions beyond the bound are not automatically a containment
   failure, and neither is the mean error the quantity to compare.
 - Deriving the sigma inside this leaf: the 1-sigma lateral position

@@ -175,7 +175,7 @@ balance capacity 5000 N, sting arm 0.35 m, sting allowable stress
 - Taking the blockage limit as the scale without checking the span
   clearance: choose_scale returns the smaller of lambda_blockage and
   lambda_span, and in the worked example the span limit would allow
-  0.05741 while blockage binds at 0.04927 — the reverse case binds on
+  0.05741 while blockage binds at 0.04927 - the reverse case binds on
   span, so report which constraint drove the choice.
 - Treating a reynolds-mismatch flag as a campaign error: a ratio below
   0.5 (0.03779 in the worked example) is the usual low-speed outcome
@@ -192,7 +192,7 @@ balance capacity 5000 N, sting arm 0.35 m, sting allowable stress
   even though the 5000 N rating passes.
 - Sizing the sting on force alone: the bending moment is the model load
   times the sting arm (quarter chord to mount), and the diameter comes
-  from that moment at the allowable stress — an arm change alters the
+  from that moment at the allowable stress - an arm change alters the
   diameter even at fixed load.
 - Quoting the rounded scale anchors: the module carries full precision
   (scale 0.049275 vs the published 0.04927) so the round-trip dimension

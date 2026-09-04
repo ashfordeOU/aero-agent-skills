@@ -132,7 +132,7 @@ Sample S = [100, 200, 300, 400, 500] hours, time to event scatter.
 - Treating a fitted exponential as capturing the trend: its hazard is
   constant (0.0033333), while a Weibull fit with k = 2.294 > 1 shows
   wear-out with the hazard rising from 0.00139 to 0.01115 over the
-  sample — the exponential hides the shape.
+  sample - the exponential hides the shape.
 - Mixing ddof conventions in the normal fit: sigma = 158.1139 is the
   sample standard deviation with ddof 1, so population-scale (ddof 0)
   expectations misread every quantile.

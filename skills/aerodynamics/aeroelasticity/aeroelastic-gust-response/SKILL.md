@@ -186,7 +186,7 @@ Hz), V = 100 m/s, rho = 1.225 kg/m^3, gust w_g = 15 m/s, H = 25 m
 - Confusing the DMF trend with the rigid discrete-gust method: on this
   flexible section the DMF rises monotonically with gradient length
   (0.320 at H = 2 m, 0.598 at H = 25 m, 0.830 at H = 200 m) toward the
-  quasi-static flexible ratio — the opposite of the rigid-gust
+  quasi-static flexible ratio - the opposite of the rigid-gust
   load-factor alleviation trend owned by the structures loads family.
 - Reporting the rigid quasi-steady lift as the load: the flexible peak
   |L| = 6901 N/m in the worked example is only 0.598 of L_qs = 11545
@@ -194,7 +194,7 @@ Hz), V = 100 m/s, rho = 1.225 kg/m^3, gust w_g = 15 m/s, H = 25 m
   history, do not substitute the quasi-steady anchor.
 - Misreading the plunge sign: h is positive DOWN and the plunge equation
   is m_s*h_ddot + k_h*h = -L, so an upward gust drives the section
-  upward and a downward-moving section adds +h_dot/V upwash incidence —
+  upward and a downward-moving section adds +h_dot/V upwash incidence -
   flipping these signs removes the plunge damping.
 - Integrating too coarsely for the pitch mode: the worked example needs
   dt near 5e-4 s to resolve the 5 Hz pitch mode, and t_max long enough
@@ -206,7 +206,7 @@ Hz), V = 100 m/s, rho = 1.225 kg/m^3, gust w_g = 15 m/s, H = 25 m
   0.837; e aft of 0.25 is the divergence regime owned by divergence-speed.
 - Expecting the verdict margin sign convention to be positive on pass:
   peak_load_verdict returns margin = limit/peak - 1, so a negative
-  margin means FAIL and a positive margin means PASS — do not flip the
+  margin means FAIL and a positive margin means PASS - do not flip the
   comparison when reading the verdict.
 
 ## Behavior contract (gate 3)

@@ -134,29 +134,29 @@ currency units per hour, fuel cost 3 currency units per kg:
 ## Pitfalls
 
 - Inverting the cost index: CI is time cost per hour divided by fuel
-  cost per kg (150 / 3 = 50 kg/h) — a high CI means time is expensive
+  cost per kg (150 / 3 = 50 kg/h) - a high CI means time is expensive
   and the FMS flies faster, a low CI flies slower, and CI = 0 selects
   the pure fuel-optimal max range speed; swap the ratio and every
   ECON selection points the wrong way.
 - Trusting the raw optimum outside the Mach envelope: the ECON speed
   is clamped into [M_MIN, M_MMO], so a very high CI (999) resolves to
   the envelope limit Mach 0.82, not to the unconstrained Newton
-  optimum — report the clamped Mach for guidance.
+  optimum - report the clamped Mach for guidance.
 - Judging a speed change on time saved alone: the trade is extra fuel
   minus CI times time saved (Mach 0.82 over 0.80 burns 9.3 kg extra
   for 0.053 h, a net +6.6 kg cost at CI 50), so "faster saves time"
   is not "faster is economic" above the max range speed.
 - Advising a step climb without the leg length: step_climb_benefit
   trades the climb penalty against cruise savings over the leg, so
-  the step is advised at 2000 nm (+114 kg) but not at 800 nm — a
+  the step is advised at 2000 nm (+114 kg) but not at 800 nm - a
   step that pays over a long leg can lose money on a short one.
 - Dropping the wind correction at TOD: the descent distance scales by
   TAS over groundspeed, so a 60 kt headwind stretches the 78.5 nm air
-  distance to a 90.6 nm ground distance — an uncorrected TOD puts the
+  distance to a 90.6 nm ground distance - an uncorrected TOD puts the
   aircraft high at the constraint.
 - Treating the drag model coefficients as aircraft data: the c1/c2/c3
   terms are order-of-magnitude for a mid-size transport and must be
-  calibrated per aircraft against the FMS performance manual — no
+  calibrated per aircraft against the FMS performance manual - no
   proprietary performance table is reproduced in this leaf.
 
 ## Behavior contract (gate 3)

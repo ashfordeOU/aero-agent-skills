@@ -200,37 +200,37 @@ m["header_guard"]     # 'SIGNALGEN_COMPONENT_HPP'
 - Mixing up the component kinds: an active component owns a thread
   and message queue, a queued component owns a queue without a
   thread, and a passive component runs its handlers inline in the
-  caller context — the framework requires every active component to
+  caller context - the framework requires every active component to
   declare at least one input port (it can only be dispatched through
   an input) and forbids commands on passive components, whose
   handlers have no queue to receive them.
 - Breaking command uniqueness: opcodes must be unique per component
-  in 0x0000..0xFFFF and names unique too — registering a second
+  in 0x0000..0xFFFF and names unique too - registering a second
   command at opcode 0x01 raises the "duplicate command opcode
   0x0001" issue naming both commands, and components receive commands
   by name or opcode, so a collision silently routes to the wrong
   handler.
 - Connecting ports carelessly: connections run output to input only,
-  both ends must exist, and the payload types must match — retyping
+  both ends must exist, and the payload types must match - retyping
   DataLogger.logIn as F32 raises the connection type mismatch issue
   against SignalGen.tlmOut (U32), while a "serial" data_type matches
   any partner; self-loops are rejected outright.
 - Leaving dispatch drivers ambiguous: every active or queued input
   port needs exactly one dispatch driver, one incoming connection or
-  one rate group — zero drivers orphan the port and more than one
+  one rate group - zero drivers orphan the port and more than one
   double-dispatches it (both are issues), while a passive port in two
   rate groups or in none only warns, because passive handlers run
   inline.
 - Driving the simulation blindly: Simulation construction raises
   ValueError listing every topology issue, send_command rejects
   unknown components, commands, opcodes, and passive components, and
-  raise_event or record_telemetry on undeclared targets — or a value
-  that does not fit the declared channel type — fails, so the clocked
+  raise_event or record_telemetry on undeclared targets - or a value
+  that does not fit the declared channel type - fails, so the clocked
   loop only ever runs over a clean model.
 - Treating the manifest as full code generation: generate_manifest
   expands a clean definition into the scaffold (class name, header
   guard, stubs, dispatch entries, channel list) that proves the
-  model — it is not the F´ codegen pipeline, and it refuses unclean
+  model - it is not the F´ codegen pipeline, and it refuses unclean
   definitions.
 
 ## Behavior contract (gate 3)

@@ -155,7 +155,7 @@ A 50 L fuel tank is pressure decay tested: 0.02 bar drop in 600 s.
 
 - Running a test shorter than the gauge resolution time: the 600 s
   test in the worked example cannot catch a 0.05 scc/s leak because
-  gauge_resolution_time is 986.9 s — a short test that shows no drop
+  gauge_resolution_time is 986.9 s - a short test that shows no drop
   is a false pass, not a clean part.
 - Converting helium to air with the molecular factor unconditionally:
   q_air = q_he * sqrt(M_HE / M_AIR) = 0.3717 applies to molecular
@@ -164,11 +164,11 @@ A 50 L fuel tank is pressure decay tested: 0.02 bar drop in 600 s.
 - Dispositioning straight accept/reject without the review band:
   measured values between the maximum allowable and 1.25 times it
   (ratio in band, e.g. 2.4 vs 2.0) return review, not accept or
-  reject — only a ratio above 1.25 rejects.
+  reject - only a ratio above 1.25 rejects.
 - Picking the method on sensitivity alone: the threshold chain
   (helium MS hood at or below 1e-6 scc/s, sniffer at or below 1e-5
   when localization is needed, bubble at or below 1e-2 with
-  localization) also weighs access — a one-sided, pressure-capable
+  localization) also weighs access - a one-sided, pressure-capable
   part routes to pressure or vacuum decay even at low sensitivity.
 - Forgetting the standard-temperature basis: leak rates are scc/s at
   293.15 K and the decay equation temperature-corrects the measured

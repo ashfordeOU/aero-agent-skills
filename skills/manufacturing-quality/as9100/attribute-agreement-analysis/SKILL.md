@@ -138,7 +138,7 @@ accept/rework/reject with per-part category counts (each row sums to
 
 - Reporting the raw percent agreement as the study result: the Cohen
   worked example reads 80% observed agreement while the kappa is only
-  0.5252 (marginal) because the chance agreement 0.57875 is high — gate
+  0.5252 (marginal) because the chance agreement 0.57875 is high - gate
   the study on kappa, not on the pass rate.
 - Running the wrong statistic for the data shape: Cohen on
   three-or-more-inspector data or Fleiss on a two-inspector table; the
@@ -149,7 +149,7 @@ accept/rework/reject with per-part category counts (each row sums to
   calling, since the module rejects these inputs by raising.
 - Misreading the verdict bands: below 0.40 is poor (retraining or
   attribute gage study rework), 0.40 to 0.75 is marginal and needs
-  judgment before acceptance — only 0.75 and up passes outright.
+  judgment before acceptance - only 0.75 and up passes outright.
 - Treating kappa 0.0 as a failure of computation: it is the
   independence result (agreement exactly at the chance level, as in the
   [[5, 5], [5, 5]] identity) and a kappa outside [-1, 1] is a data

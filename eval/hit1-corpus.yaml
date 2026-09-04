@@ -230,6 +230,11 @@
 # leaves). Wave-35 new leaves: "vehicle-design/sizing/aircraft-electrical-load-analysis", "vehicle-design/sizing/aircraft-oxygen-system-sizing", "avionics/data-bus/arinc429-bus-loading", "manufacturing-quality/as9100/attribute-agreement-analysis", "manufacturing-quality/as9100/attribute-control-charts", "vehicle-design/sizing/avionics-bay-cooling-sizing", "vehicle-design/sizing/fire-protection-sizing", "vehicle-design/sizing/fuel-feed-system-sizing", "vehicle-design/sizing/fuel-jettison-sizing", "manufacturing-quality/as9100/individuals-and-moving-range-chart", "cross-cutting/numerics/information-entropy", "vehicle-design/sizing/landing-gear-retraction-sizing", "flight-test-operations/planning/pcm-telemetry-decommutation".
 # Corpus: 984 tasks (958 prior plus 26 domain tasks). Owner: Ops
 # Manager, Wave 35 build.
+# P5.2 / Wave 36 (2026-09-04): fan-out continues on the public
+# v1.0.0 model to 496 verified skills (508 SKILL.md under gate 1: 12 routers + 496
+# leaves). Wave-36 new leaves: "vehicle-design/sizing/apu-fuel-burn-sizing", "vehicle-design/sizing/bleed-air-system-sizing", "vehicle-design/sizing/cabin-outflow-valve-sizing", "vehicle-design/sizing/fuel-tank-inerting-sizing", "manufacturing-quality/as9100/gage-linearity-bias-study", "systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification", "avionics/data-bus/mil-std-1553-bus-loading", "propulsion/gas-turbine-cycle/propelling-nozzle", "vehicle-design/sizing/ram-air-turbine-sizing", "cross-cutting/numerics/runs-test", "space-systems/orbit-mechanics/walker-delta-constellation".
+# Corpus: 1008 tasks (986 prior plus 22 domain tasks). Owner: Ops
+# Manager, Wave 36 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4486,6 +4491,94 @@ tasks:
     query: "estimate the fuselage fineness ratio and cabin wetted area for a regional jet given passenger count and seat pitch, and check the aft-body upsweep angle for the cargo door"
     intent: "vehicle-design; fuselage fineness ratio, wetted area, aft-body upsweep"
     expected_skill: "vehicle-design/sizing/fuselage-sizing"
+  - id: w36-apu-fuel-burn-sizing-1
+    query: "compute the apu fuel burn for a generator electrical load of 30 kw with a 0.4 kg per second bleed load at pressure ratio 3.5"
+    intent: "vehicle-design; APU fuel burn from shaft and bleed load"
+    expected_skill: "vehicle-design/sizing/apu-fuel-burn-sizing"
+  - id: w36-apu-fuel-burn-sizing-2
+    query: "estimate the auxiliary power unit fuel flow in kg per hour at a fixed electrical and bleed load point"
+    intent: "vehicle-design; APU load compressor pumping power and fuel flow"
+    expected_skill: "vehicle-design/sizing/apu-fuel-burn-sizing"
+  - id: w36-bleed-air-system-sizing-1
+    query: "size the bleed air offtake mass flow per engine from the ecs pack flows and anti-ice demand and compute the bleed duct diameter"
+    intent: "vehicle-design; bleed offtake rollup and bleed duct sizing"
+    expected_skill: "vehicle-design/sizing/bleed-air-system-sizing"
+  - id: w36-bleed-air-system-sizing-2
+    query: "compute the pneumatic bleed thermal budget the precooler must reject at the bleed supply temperature"
+    intent: "vehicle-design; bleed thermal budget to consumer supply temperature"
+    expected_skill: "vehicle-design/sizing/bleed-air-system-sizing"
+  - id: w36-cabin-outflow-valve-sizing-1
+    query: "size the cabin outflow valve effective area to pass the pack inflow at the cruise cabin pressure"
+    intent: "vehicle-design; outflow valve choked flow area at cruise differential"
+    expected_skill: "vehicle-design/sizing/cabin-outflow-valve-sizing"
+  - id: w36-cabin-outflow-valve-sizing-2
+    query: "compute the pressure relief valve area that dumps pack flow at the 8.9 psi cabin differential pressure clamp"
+    intent: "vehicle-design; pressure relief valve choked area at the differential clamp"
+    expected_skill: "vehicle-design/sizing/cabin-outflow-valve-sizing"
+  - id: w36-fuel-tank-inerting-sizing-1
+    query: "size the nitrogen enriched air flow to inert a 3.2 cubic meter fuel tank ullage to 9 percent oxygen in 300 seconds"
+    intent: "vehicle-design; OBIGGS NEA flow for ullage oxygen washout"
+    expected_skill: "vehicle-design/sizing/fuel-tank-inerting-sizing"
+  - id: w36-fuel-tank-inerting-sizing-2
+    query: "compute the fuel tank ullage oxygen fraction decay during nitrogen inerting at a fixed nea flow"
+    intent: "vehicle-design; ullage oxygen washout exponential decay"
+    expected_skill: "vehicle-design/sizing/fuel-tank-inerting-sizing"
+  - id: w36-gage-linearity-bias-study-1
+    query: "run the gage linearity and bias study from reference masters and measured biases across five levels"
+    intent: "manufacturing-quality; gage bias linearity regression and significance"
+    expected_skill: "manufacturing-quality/as9100/gage-linearity-bias-study"
+  - id: w36-gage-linearity-bias-study-2
+    query: "assess measurement bias significance against the t critical and the percent of reference band for a gage study"
+    intent: "manufacturing-quality; bias significance t test and acceptability band"
+    expected_skill: "manufacturing-quality/as9100/gage-linearity-bias-study"
+  - id: w36-ica-cmr-ali-classification-1
+    query: "classify certification maintenance items into airworthiness limitation items and cmr items for the airworthiness limitations section"
+    intent: "systems-engineering-safety; ALI/CMR/routine classification by certification driver"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification"
+  - id: w36-ica-cmr-ali-classification-2
+    query: "check the maintenance program als coverage and interval compliance against the type certificate airworthiness limitations"
+    intent: "systems-engineering-safety; ALS coverage and interval compliance review"
+    expected_skill: "systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification"
+  - id: w36-mil-std-1553-bus-loading-1
+    query: "compute the mil std 1553 bus utilization of a 5 millisecond minor frame schedule with bc to rt and rt to bc messages"
+    intent: "avionics; MIL-STD-1553 minor frame bus loading and utilization"
+    expected_skill: "avionics/data-bus/mil-std-1553-bus-loading"
+  - id: w36-mil-std-1553-bus-loading-2
+    query: "estimate the 1553 data bus loading headroom against the 80 percent guideline for an rt to rt message schedule"
+    intent: "avionics; 1553 wire word time budget and loading headroom"
+    expected_skill: "avionics/data-bus/mil-std-1553-bus-loading"
+  - id: w36-propelling-nozzle-1
+    query: "size the convergent propelling nozzle throat area for an air breathing gas turbine at 70 kg per second and 900 kelvin total temperature"
+    intent: "propulsion; air-breathing jet nozzle throat area and choked regime"
+    expected_skill: "propulsion/gas-turbine-cycle/propelling-nozzle"
+  - id: w36-propelling-nozzle-2
+    query: "compute the propelling-nozzle gross-thrust-pressure-term for the choked convergent-jet-nozzle of an air-breathing gas turbine"
+    intent: "propulsion; convergent nozzle exit velocity and gross thrust"
+    expected_skill: "propulsion/gas-turbine-cycle/propelling-nozzle"
+  - id: w36-ram-air-turbine-sizing-1
+    query: "size the ram air turbine rotor disk diameter for 5 kw of emergency power at 100 meters per second"
+    intent: "vehicle-design; RAT swept area and disk diameter from emergency power"
+    expected_skill: "vehicle-design/sizing/ram-air-turbine-sizing"
+  - id: w36-ram-air-turbine-sizing-2
+    query: "determine the ram air turbine swept area required for the essential load at the emergency descent airspeed"
+    intent: "vehicle-design; RAT wind-power swept area sizing at fixed airspeed"
+    expected_skill: "vehicle-design/sizing/ram-air-turbine-sizing"
+  - id: w36-runs-test-1
+    query: "apply the runs test to a plus minus sequence to test whether the ordering is random"
+    intent: "cross-cutting; Wald-Wolfowitz runs test for sequence randomness"
+    expected_skill: "cross-cutting/numerics/runs-test"
+  - id: w36-runs-test-2
+    query: "compute the expected number of runs and the z statistic for a two sign sequence under the randomness null"
+    intent: "cross-cutting; runs expectation variance and z statistic"
+    expected_skill: "cross-cutting/numerics/runs-test"
+  - id: w36-walker-delta-constellation-1
+    query: "compute the raan spacing and in plane phasing of a walker delta 24 by 3 by 1 constellation"
+    intent: "space-systems; Walker-Delta t/p/f plane and slot parameterization"
+    expected_skill: "space-systems/orbit-mechanics/walker-delta-constellation"
+  - id: w36-walker-delta-constellation-2
+    query: "enumerate the unique raan and mean anomaly slots for a walker delta constellation with 8 satellites per plane"
+    intent: "space-systems; Walker-Delta constellation slot enumeration"
+    expected_skill: "space-systems/orbit-mechanics/walker-delta-constellation"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
