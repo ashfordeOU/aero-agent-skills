@@ -76,6 +76,9 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/guidance/augmented-proportional-navigation | Augmented proportional navigation | augmented proportional navigation, target lateral acceleration, maneuvering target intercept, APN command |
 | gnc-autonomy/guidance/collision-course-guidance | Collision-course guidance | collision course, lead angle, constant bearing, collision triangle, predicted intercept point |
 
+| gnc-autonomy/estimation-filtering/interacting-multiple-model-filter | Interacting multiple model filter | IMM filter, mode probability, Markov mode switching, maneuvering target tracking, CV CA filter bank, model likelihood update, mixed state estimate |
+| gnc-autonomy/control/digital-control-design | Digital control design | z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, sample rate selection, unit circle stability, sampled data control |
+
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -130,6 +133,9 @@ amics sub-skill.
 - Rauch-Tung-Striebel fixed-interval smoothing and backward-pass post-processing questions route to the estimation-filtering rts-smoother sub-skill.
 - Coverage path planning, boustrophedon, and lawnmower aerial survey pattern questions route to the guidance coverage-path-planning sub-skill.
 - Model-reference adaptive control questions (MRAC, adaptation law, tracking error convergence, unknown plant coefficient) route to the control adaptive-control sub-skill.
+
+- Interacting multiple model filter questions (IMM filter bank, mode probability, Markov mode switching, maneuvering target tracking, CV CA modes) route to the estimation-filtering interacting-multiple-model-filter sub-skill.
+- Sampled-data digital control questions (z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, unit circle stability) route to the control digital-control-design sub-skill.
 
 ## Install
 

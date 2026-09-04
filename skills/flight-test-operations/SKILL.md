@@ -73,6 +73,9 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/performance/cruise-performance-flight-test | Cruise performance flight test | cruise performance flight test, fuel flow versus Mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed |
 | flight-test-operations/performance/rotorcraft-performance-flight-test | Rotorcraft performance flight test | rotorcraft flight test, measured figure of merit, torque to power, hover ceiling determination, weight density correction |
 
+| flight-test-operations/performance/rotorcraft-forward-flight-performance-test | Rotorcraft forward flight performance test | rotorcraft forward flight flight test, level-flight speed sweep, torque to shaft power, power required polar, vh determination, max continuous power |
+| flight-test-operations/stability/lateral-directional-stability-flight-test | Lateral-directional stability flight test | steady heading sideslip sweep, rudder-fixed stability, rudder-free stability, weathercock stability, dihedral effect, pedal force gradient |
+
 ## Routing guidance
 
 - Envelope expansion and corner speed questions route to the
@@ -124,6 +127,9 @@ actor-envelope.
 - Vmc determination questions (minimum control speed, vmc, critical engine, asymmetric yawing moment, rudder pedal force, engine inoperative demonstration) route to the vmc-determination sub-skill.
 - Buffet boundary testing questions (buffet boundary, buffet onset, accelerometer rms rise, high speed buffet, maneuver buffet, buffet margin) route to the buffet-boundary-testing sub-skill.
 - Cruise performance flight test questions (cruise performance flight test, fuel flow versus mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed) route to the cruise-performance-flight-test sub-skill.
+- Rotorcraft level-flight performance test questions (level-flight speed sweep, torque to shaft power, power-required polar, vh determination) route to the performance rotorcraft-forward-flight-performance-test sub-skill.
+- Static lateral-directional stability flight test questions (steady-heading sideslip sweep, rudder-fixed and rudder-free stability, weathercock and dihedral effect, pedal force gradient) route to the stability lateral-directional-stability-flight-test sub-skill.
+
 ## Install
 
 To install only this pack, copy or symlink each leaf folder above into

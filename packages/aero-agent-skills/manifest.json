@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 427,
+  "leaves": 442,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 868
+  "corpus_tasks": 898
  },
  "skills": [
   {
@@ -879,6 +879,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/do178c/data-control-coupling-analysis",
+   "name": "data-control-coupling-analysis",
+   "description": "Use when you must analyze data coupling and control coupling between airborne software components: identify the data-coupling items between component pairs from their written and read variable sets with declared synchronization suppression, identify the control-coupling items across call edges where a caller-written variable is read by the callee, compute the coupling coverage ratio against declared evidence, and return the PASS or FAIL verdict with the uncovered item list. Produces the data-coupling item list, the control-coupling item list, the coupling coverage ratio and the evidence verdict that gate the level A inter-component coupling objective. Trigger: data coupling analysis, control coupling analysis, shared-variable pairs, call-edge coupling items, coupling coverage evidence, level-a coupling objectives, inter-component coupling.",
+   "tags": [
+    "data-control-coupling-analysis",
+    "data-coupling-analysis",
+    "control-coupling-analysis",
+    "shared-variable-pairs",
+    "coupling-coverage-evidence",
+    "level-a-objectives"
+   ],
+   "family": "avionics",
+   "pack": "do178c",
+   "router_doc": false
+  },
+  {
    "path": "avionics/do178c/development",
    "name": "development",
    "description": "Use when you must develop DO-178C airborne software lifecycle data for avionics items: capture high-level and low-level requirements, maintain bidirectional requirement-to-code trace links, identify derived requirements, and apply design/coding standards scaled to software level. Produce development-phase artifacts (requirements, design, code, trace matrix) for verification, with traceability closure and independent review at levels A and B. Ensure protection and safety assurance trace from top-level system protection needs down to low-level implementation and code, and maintain full coverage of verification results against each requirement and design element. Track verification coverage depth linking each test, analysis, or review outcome to originating requirements. Trigger: DO-178C development, requirements traceability, protection trace, protection assurance, safety assurance trace, verification coverage, derived requirements, low-level requirements, coding standards, software design, lifecycle data.",
@@ -1411,6 +1427,23 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/complex-number-algebra",
+   "name": "complex-number-algebra",
+   "description": "Use when you must compute complex-number algebra with the Python standard library: form a complex value from rectangular or polar coordinates, add, subtract, multiply and divide complex values, take the conjugate, modulus and argument, raise a complex value to an integer power by De Moivre's formula, generate the n-th roots of unity, and convert between rectangular, polar and Euler exponential forms, verifying identities such as z times its conjugate equals the squared modulus and e to the i pi plus 1 equals 0. Produces the algebra result set that gates phasor, impedance, frequency-response and AC circuit work that needs an explicit complex toolkit. Trigger: complex-number-algebra, complex-arithmetic, polar-form, euler-formula, de-moivre, roots-of-unity, phasor-math, rectangular-form, complex-conjugate.",
+   "tags": [
+    "complex-number-algebra",
+    "complex-arithmetic",
+    "polar-form",
+    "euler-formula",
+    "de-moivre",
+    "roots-of-unity",
+    "phasor-math"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/convergence-verification",
    "name": "convergence-verification",
    "description": "Use when you must verify that a CFD or structural mesh sequence has converged: compute the observed order of accuracy from the finest, medium, and coarse solutions, apply Richardson extrapolation to estimate the exact solution, and report the grid convergence index (GCI) with the 1.25 safety factor. Produces the observed order, the extrapolated value, the GCI, and a monotone converged, oscillatory, or diverging verdict that gate whether the discretization error is acceptable for the assessment. Trigger: richardson extrapolation, grid convergence index, gci, observed order, refinement ratio, discretization error, mesh refinement study.",
@@ -1917,6 +1950,23 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/units-atmos/airspeed-conversion",
+   "name": "airspeed-conversion",
+   "description": "Use when you must convert airspeeds through the compressibility-corrected air-data chain: calibrated airspeed from impact pressure, calibrated airspeed from true airspeed at altitude, true airspeed from calibrated airspeed at altitude through the compressible inversion on the local static pressure, equivalent airspeed from true airspeed and the density ratio, Mach number from calibrated or true airspeed, and impact pressure from Mach number or calibrated airspeed. Produces the full calibrated, equivalent, true and Mach set plus the impact pressure that gates air-data reduction and performance work. Trigger: calibrated airspeed, equivalent airspeed, true airspeed, mach-airspeed, impact pressure, airspeed-indicator compressibility correction, air-data chain, knots calibrated.",
+   "tags": [
+    "airspeed-conversion",
+    "calibrated-airspeed",
+    "equivalent-airspeed",
+    "true-airspeed",
+    "mach-airspeed",
+    "impact-pressure",
+    "airspeed-indicator"
+   ],
+   "family": "cross-cutting",
+   "pack": "units-atmos",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/units-atmos/dimensional-analysis",
    "name": "dimensional-analysis",
    "description": "Use when you must run dimensional analysis on an engineering relation: check whether equation terms are dimensionally homogeneous, apply the Buckingham Pi theorem to form the dimensionless Pi groups, compute the Reynolds number and Mach number for a wind tunnel model, the required model speed to match full-scale Reynolds number under dynamic similarity, the Froude number, and the full-scale force from a model measurement. Produces the homogeneity verdict, the Pi group set, and the scaled test conditions. Trigger: dimensional analysis, buckingham pi, pi groups, dimensionless, reynolds number, mach number, froude number, dynamic similarity, wind tunnel model, model scale, similarity.",
@@ -2257,6 +2307,40 @@
     "landing-climb",
     "climb-gradient",
     "takeoff-climb"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-autorotative-descent",
+   "name": "rotorcraft-autorotative-descent",
+   "description": "Use when you must estimate the power-off autorotative descent performance of a single-rotor helicopter: the energy-method sink rate from the minimum level-flight power and the weight, the empirical minimum descent rate from the Talbot-Schoers correlation of NASA TM 78452 (public domain), its equivalent power-based entry, and the feet-per-minute conversion. Produces the energy-method sink rate, the empirical minimum descent rate and the power-to-weight ratio entry that gate an autorotative descent assessment after engine failure. Trigger: rotorcraft autorotative descent, autorotative descent rate, power-off descent, minimum descent rate, rotor energy balance, engine failure descent, descent rate estimate.",
+   "tags": [
+    "rotorcraft-autorotative-descent",
+    "autorotative-descent",
+    "power-off-descent",
+    "minimum-descent-rate",
+    "rotor-energy-balance",
+    "engine-failure-descent",
+    "descent-rate-estimate"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-blade-flapping-dynamics",
+   "name": "rotorcraft-blade-flapping-dynamics",
+   "description": "Use when you must compute the blade-flapping dynamics of a helicopter main rotor: the blade Lock number from the air density, the section lift-curve slope, the blade chord, the rotor radius and the blade flap moment of inertia, the steady hover coning angle from the Lock number, the collective pitch and the uniform inflow ratio, and the rotating flap natural frequency ratio for a flap hinge offset. Produces the Lock number, the coning angle in radians and degrees and the flap frequency ratio per revolution that gate a rotor-dynamics assessment. Trigger: rotorcraft blade flapping, Lock number, coning angle, flap frequency ratio, rotor dynamics, hinge offset, helicopter main rotor, articulated blade.",
+   "tags": [
+    "rotorcraft-blade-flapping-dynamics",
+    "rotor-blade-flapping",
+    "coning-angle",
+    "lock-number",
+    "flap-frequency-ratio",
+    "rotor-dynamics",
+    "hinge-offset"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -3074,6 +3158,23 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/performance/rotorcraft-forward-flight-performance-test",
+   "name": "rotorcraft-forward-flight-performance-test",
+   "description": "Use when you must reduce a rotorcraft level-flight performance flight test from measured data: convert measured main rotor torque and rotor speed samples into shaft power across a forward-flight speed sweep, correct the measured power-required polar to a reference weight and standard day with the induced and profile power split, fit the corrected polar, and read off the best-endurance speed at the minimum-power point, the best-range speed at the tangent from the origin, and the maximum level-flight speed Vh against the maximum continuous available power. Produces the measured torque-to-shaft-power values, the corrected polar, the fitted curve coefficients, the best-endurance speed, the best-range speed and the Vh verdict that gate a rotorcraft level-flight performance assessment. Trigger: rotorcraft-forward-flight-performance-test, rotorcraft-forward-flight, level-flight-speed-sweep, torque-to-shaft-power, power-required-polar, vh-determination, max-continuous-power.",
+   "tags": [
+    "rotorcraft-forward-flight-performance-test",
+    "rotorcraft-forward-flight",
+    "level-flight-speed-sweep",
+    "torque-to-shaft-power",
+    "power-required-polar",
+    "vh-determination",
+    "max-continuous-power"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/performance/rotorcraft-performance-flight-test",
    "name": "rotorcraft-performance-flight-test",
    "description": "Use when you must reduce a rotorcraft performance flight test from measured data: convert measured main rotor torque and rotor speed into shaft power, compute the measured figure of merit from the ideal induced power and the measured power, correct measured hover power to a reference weight and density altitude with the induced and profile fraction split, correct a measured vertical rate of climb for the test weight, reduce hover power-required points measured across density altitudes to a hover ceiling against the available power, and check the test day against the flight manual limits. Produces the measured power, measured figure of merit, corrected power, corrected vertical rate of climb, the OGE and IGE hover ceiling altitudes, and the test verdict that gate the flight test report. Trigger: rotorcraft-performance-flight-test, rotorcraft-hover-flight-test, measured-figure-of-merit, torque-to-power, hover-ceiling-determination, weight-density-correction.",
@@ -3298,6 +3399,23 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/stability/lateral-directional-stability-flight-test",
+   "name": "lateral-directional-stability-flight-test",
+   "description": "Use when you must plan and reduce the static lateral-directional stability flight test from steady-heading sideslip data: build the rudder-fixed and rudder-free sideslip sweep matrix at constant airspeed, fit the rudder and aileron deflection gradients versus sideslip angle, estimate the directional stability from the fitted rudder gradient with a declared rudder control power and the lateral dihedral stability from the fitted aileron gradient with a declared aileron control power, record the pedal-force gradient, and issue the weathercock and dihedral stability verdicts for the stability demonstration. Produces the sweep matrix, the fitted gradients, the signed directional and lateral stability estimates, the pedal-force gradient and the verdicts that gate the demonstration. Trigger: steady-heading sideslip, sideslip sweep, rudder gradient, aileron gradient, rudder-fixed stability, rudder-free stability, weathercock stability, dihedral effect, pedal-force gradient.",
+   "tags": [
+    "lateral-directional-stability-flight-test",
+    "steady-sideslip-sweep",
+    "rudder-fixed-stability",
+    "rudder-free-stability",
+    "weathercock-stability",
+    "dihedral-effect",
+    "pedal-force-gradient"
+   ],
+   "family": "flight-test-operations",
+   "pack": "stability",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/stability/static-stability-flight-test",
    "name": "static-stability-flight-test",
    "description": "Evaluate the static stability flight test results: fit the trim curve to the elevator angle versus speed points, derive the trim curve slope, locate the stick fixed neutral point from the slope, estimate the static margin, and assess the elevator angle per g from the incremental elevator angle per load factor step. Produces the trim curve fit, the slope, the stick fixed neutral point, the static margin, and the stability verdict that gate the static stability demonstration. Use when the task is static stability flight testing, trim curve reduction, neutral point location, or static margin estimation. Trigger: static stability, trim curve, elevator angle, stick fixed, neutral point, static margin, elevator angle per g.",
@@ -3392,6 +3510,25 @@
     "moment-command-distribution",
     "redundant-effectors",
     "rate-limit-command"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/control/digital-control-design",
+   "name": "digital-control-design",
+   "description": "Use when you must design a sampled-data digital control loop in the z-domain: discretize a continuous plant with a zero-order hold, emulate a continuous compensator with the Tustin bilinear transform with frequency prewarping, compute discrete PID coefficients in the position and velocity forms, check the sampled poles against the unit circle for stability, and select the sample rate from the closed-loop bandwidth. Produces the discretized plant coefficients, the emulated compensator, the discrete PID gains, the stability verdict and the sample-rate verdict that gate a digital control design. Trigger: z transform, zero order hold, zoh, tustin bilinear emulation, frequency prewarping, discrete pid, unit circle stability, sample rate selection.",
+   "tags": [
+    "digital-control-design",
+    "z-transform",
+    "tustin-bilinear-emulation",
+    "frequency-prewarping",
+    "zero-order-hold",
+    "discrete-pid",
+    "sample-rate-selection",
+    "unit-circle-stability",
+    "sampled-data-control"
    ],
    "family": "gnc-autonomy",
    "pack": "control",
@@ -3626,6 +3763,24 @@
     "predict-update-recursion",
     "range-bearing-tracking",
     "state-covariance"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "estimation-filtering",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/estimation-filtering/interacting-multiple-model-filter",
+   "name": "interacting-multiple-model-filter",
+   "description": "Use when you must track a maneuvering target with an interacting multiple model filter: run a two-mode IMM bank of constant velocity (CV) and constant acceleration (CA) Kalman filters per planar axis, mix the mode-conditioned estimates through the Markov mode-transition probabilities, refresh mode probabilities from innovation likelihoods, and combine the per-mode estimates into the mixed state estimate. Produces mode probabilities that gate maneuver detection, per-mode estimates, the combined estimate and position error history on a scripted maneuvering track. Hand-coded stdlib matrices, deterministic, offline. Trigger: interacting multiple model filter, imm filter, mode probability, Markov mode switching, maneuvering target tracking.",
+   "tags": [
+    "interacting-multiple-model-filter",
+    "imm-filter",
+    "mode-probability",
+    "markov-mode-switching",
+    "maneuvering-target-tracking",
+    "cv-ca-filter-bank",
+    "model-likelihood-update",
+    "mixed-state-estimate"
    ],
    "family": "gnc-autonomy",
    "pack": "estimation-filtering",
@@ -4272,6 +4427,23 @@
    "router_doc": false
   },
   {
+   "path": "manufacturing-quality/as9100/management-review",
+   "name": "management-review",
+   "description": "Use when you must plan and score the periodic top-management review process under an AS9100-style quality management system: compute the management review due date from the last review date and the base interval, check the mandatory review input coverage against the presented input set, track the action items from the review decisions, and issue the review verdict from the interval compliance, the input coverage ratio and the overdue action count. Produces the due date, the input coverage ratio with the missing input list, the action tracking summary and the review verdict that gate the top-management review record. Trigger: management-review, top-management, review-interval, review-inputs, action-item-tracking, review-verdict, qms-review.",
+   "tags": [
+    "management-review",
+    "top-management",
+    "review-interval",
+    "review-inputs",
+    "action-item-tracking",
+    "review-verdict",
+    "qms-review"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
    "path": "manufacturing-quality/as9100/measurement-systems-analysis",
    "name": "measurement-systems-analysis",
    "description": "Use when you must evaluate an aerospace measurement system with a gage repeatability and reproducibility (Gage R and R) study: compute the equipment variation EV from the average range, the appraiser variation AV from the spread of appraiser averages, the combined GRR, the part-to-part variation PV, the total variation TV, the percent GRR against the acceptance criteria (under 10 percent acceptable, 10 to 30 percent conditional, over 30 percent unacceptable), and the number of distinct categories, and judge variable versus attribute gage studies and calibration versus MSA scope. Produces the study summary, the percent GRR verdict, and the distinct categories count that gate measurement system approval. Trigger: measurement systems analysis, gage r and r, repeatability, reproducibility, percent grr, distinct categories, gage study, measurement system.",
@@ -4682,6 +4854,23 @@
     "particle",
     "ferromagnetic",
     "conductive"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "ndt",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/ndt/ndt-personnel-qualification",
+   "name": "ndt-personnel-qualification",
+   "description": "Use when you must track the qualification and certification status of nondestructive testing personnel: compute recertification due date from certification date and interval, compute the near-vision examination due date from the last vision exam, judge certification currency versus the current date, evaluate upgrade eligibility from held training hours, experience months and passed examination versus required thresholds, and validate that a Level I operator works under a Level II or III supervisor. Produces recertification due date, vision due date, currency, upgrade and supervision verdicts. Trigger: ndt personnel qualification, NAS 410, certification currency, recertification due date, vision examination, upgrade eligibility.",
+   "tags": [
+    "ndt-personnel-qualification",
+    "nas-410",
+    "certification-currency",
+    "recertification-due",
+    "vision-examination",
+    "level-progression",
+    "ndt-certification"
    ],
    "family": "manufacturing-quality",
    "pack": "ndt",
@@ -5518,6 +5707,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/adcs/attitude-determination-quest",
+   "name": "attitude-determination-quest",
+   "description": "Use when you must determine the optimal attitude of a spacecraft from multiple vector observations by the Davenport q-method: minimize the Wahba cost over N >= 2 weighted body and reference direction pairs, form the attitude profile matrix B, assemble the symmetric 4x4 Davenport K matrix, and extract the largest eigenvalue eigenvector with a deterministic fixed-sweep Jacobi iteration. Produces the optimal attitude quaternion, the 3x3 attitude matrix, the per-observation residuals, the achieved Wahba cost and the consistency verdict that gate a multi-vector attitude determination. Trigger: wahba problem, davenport q method, quest, optimal attitude quaternion, attitude matrix, observation residuals, body vector, reference vector, multi-vector attitude determination.",
+   "tags": [
+    "attitude-determination-quest",
+    "wahba-problem",
+    "davenport-q-method",
+    "optimal-attitude-quaternion",
+    "multi-vector-observation",
+    "observation-weighting",
+    "attitude-determination-consistency",
+    "quaternion-cost-minimization"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/adcs/attitude-determination-triad",
    "name": "attitude-determination-triad",
    "description": "Determine the spacecraft attitude matrix from a pair of non-parallel vector observations with the TRIAD algorithm: normalize the measured body frame directions and the matching reference frame directions, build the orthonormal triads from the cross products, assemble the 3 by 3 attitude matrix from the triad outer products, and validate the estimate with the rotation angle, the orthogonality error, and the inter observation angle consistency. Use when the task is attitude determination from two vector measurements such as a sun sensor and magnetometer pair, coarse attitude estimation for initial acquisition, or computing the attitude quaternion and rotation angle that gate the ADCS attitude reference before fine pointing. Trigger: triad algorithm, attitude determination, vector observation, reference vector, body frame, attitude matrix, coarse attitude, sun sensor, magnetometer.",
@@ -6085,6 +6292,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/subsystems/antenna-aperture-sizing",
+   "name": "antenna-aperture-sizing",
+   "description": "Use when you must size the parabolic antenna aperture of a spacecraft communications link: convert a required antenna gain into the reflector diameter through the aperture efficiency, compute the achieved gain of the sized aperture, the half-power beamwidth, the pointing budget with pointing loss, and the receive gain-over-temperature G/T figure of merit. Produces the required gain, the reflector diameter, the achieved gain, the beamwidth, the pointing budget and the G/T that gate an antenna aperture sizing. Trigger: antenna aperture sizing, parabolic reflector gain, aperture efficiency, required antenna gain, half-power beamwidth, pointing loss budget, gain over temperature, spacecraft antenna sizing.",
+   "tags": [
+    "antenna-aperture-sizing",
+    "parabolic-reflector-gain",
+    "aperture-efficiency",
+    "required-antenna-gain",
+    "half-power-beamwidth",
+    "pointing-loss-budget",
+    "gain-over-temperature",
+    "spacecraft-antenna-sizing"
+   ],
+   "family": "space-systems",
+   "pack": "subsystems",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/subsystems/command-data-handling",
    "name": "command-data-handling",
    "description": "Design and check spacecraft command and data handling (C&DH): validate telecommands against opcode, length, and CRC-16 checksum; packetize telemetry into CCSDS-style frames with sequence counts and error detection; size onboard storage from per-orbit data volume; and budget downlink time and rate from stored data volume and link capacity. Use when the task is command validation, telemetry packetization, CCSDS framing, onboard data storage sizing, downlink budgeting, spacecraft data bus selection, or C&DH redundancy. Computes CRC-16 checksums, byte-exact CCSDS packets, storage sizes, and downlink verdicts with deterministic functions. Trigger: command data handling, telemetry, telecommand, CCSDS, packetization, downlink, CRC-16, onboard storage, data bus, SpaceWire, MIL-STD-1553.",
@@ -6334,6 +6559,23 @@
     "lamina",
     "ply-allowables",
     "composite-lamina"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
+   "path": "structures/composites/laminate-hygrothermal-response",
+   "name": "laminate-hygrothermal-response",
+   "description": "Use when you must compute the hygrothermal response of a composite laminate: equilibrium moisture content from relative humidity with a linear isotherm, stiffness-weighted laminate CTE and CME assembled by classical lamination theory from ply-level properties, hygrothermal laminate strain from temperature and moisture changes, and residual strain from the cure-cooldown drop. Produces the moisture content, laminate CTE and CME in raw SI with a parts-per-million helper, and the hygrothermal and cure-cooldown strains that gate a laminate hygrothermal assessment. Trigger: hygrothermal response, laminate cte, laminate cme, moisture swelling, equilibrium moisture content, hygral strain, cure cooldown strain, laminate moisture content.",
+   "tags": [
+    "laminate-hygrothermal-response",
+    "hygrothermal-response",
+    "laminate-cte",
+    "moisture-swell-strain",
+    "cure-cooldown-strain",
+    "hygral-strain",
+    "laminate-moisture-content"
    ],
    "family": "structures",
    "pack": "composites",
@@ -6648,6 +6890,22 @@
     "tie-constraint",
     "bolted-joint",
     "bearing-contact"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/cylindrical-shell-buckling",
+   "name": "cylindrical-shell-buckling",
+   "description": "Use when you must compute the buckling of a curved unstiffened circular cylindrical shell with the NASA SP-8007 knockdown method: the axial-compression knockdown factor from the shell radius and thickness, the axial critical buckling stress 0.605*gamma*E*t/r, the bending knockdown factor, the bending critical moment, the cross-section ovalization collapse moment, and the plasticity correction factor. Produces the knockdown factors, the critical stress and moments, and the governing verdict between bifurcation and ovalization collapse for a curved-shell stability check. Trigger: cylindrical shell buckling, SP-8007 knockdown, shell axial compression, cylinder bending, ovalization collapse, curved panel stability, fuselage barrel buckling.",
+   "tags": [
+    "cylindrical-shell-buckling",
+    "sp-8007-knockdown",
+    "shell-axial-compression",
+    "external-shell-bending",
+    "cross-section-ovalization",
+    "shell-plasticity-correction"
    ],
    "family": "structures",
    "pack": "fem",

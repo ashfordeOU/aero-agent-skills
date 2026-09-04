@@ -77,6 +77,9 @@ integration) for engineering calculations.
 | cross-cutting/numerics/descriptive-statistics | Descriptive statistics | descriptive statistics, summary statistics, five number summary, interquartile range, coefficient of variation, outlier flagging |
 | cross-cutting/numerics/fir-filter-design | FIR lowpass filter design | FIR filter, windowed-sinc, finite impulse response, linear phase, filter taps, group delay, Hamming window |
 
+| cross-cutting/units-atmos/airspeed-conversion | Airspeed conversion | calibrated airspeed, equivalent airspeed, true airspeed, Mach airspeed, impact pressure, airspeed-indicator compressibility correction |
+| cross-cutting/numerics/complex-number-algebra | Complex number algebra | complex arithmetic, polar form, Euler formula, De Moivre, roots of unity, phasor math |
+
 ## Routing guidance
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
@@ -142,6 +145,9 @@ integration) for engineering calculations.
 - Digital filter design questions (butterworth iir filter design, bilinear transform, prewarping, lowpass and highpass coefficients, filter magnitude response) route to the digital-filter-design sub-skill.
 - Cross-correlation, autocorrelation, and time-delay estimation questions route to the numerics cross-correlation-analysis sub-skill.
 - Sample summary and outlier questions (descriptive statistics, five number summary, interquartile range, coefficient of variation, 1.5 IQR outlier rule) route to the numerics descriptive-statistics sub-skill.
+
+- Airspeed conversion questions (calibrated airspeed, equivalent airspeed, true airspeed, Mach airspeed, impact pressure, airspeed-indicator compressibility correction) route to the units-atmos airspeed-conversion sub-skill.
+- Complex number algebra questions (complex arithmetic, polar form, Euler formula, De Moivre powers, roots of unity, phasor math) route to the numerics complex-number-algebra sub-skill.
 
 ## Install
 

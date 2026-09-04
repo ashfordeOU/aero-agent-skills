@@ -1,7 +1,7 @@
 {
-  "corpus_tasks": 868,
+  "corpus_tasks": 898,
   "families": 12,
-  "leaves": 427,
+  "leaves": 442,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
@@ -82,7 +82,7 @@
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 36,
+      "leaves": 37,
       "pack_names": [
         "data-bus",
         "do160",
@@ -112,6 +112,7 @@
         "do178c": [
           "airworthiness-liaison",
           "configuration-management",
+          "data-control-coupling-analysis",
           "development",
           "planning",
           "software-testing",
@@ -152,11 +153,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 75
+      "tasks": 77
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 35,
+      "leaves": 37,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -179,6 +180,7 @@
           "export-control-awareness"
         ],
         "numerics": [
+          "complex-number-algebra",
           "convergence-verification",
           "cross-correlation-analysis",
           "descriptive-statistics",
@@ -212,6 +214,7 @@
           "tolerance-stackup"
         ],
         "units-atmos": [
+          "airspeed-conversion",
           "dimensional-analysis",
           "isa-atmosphere",
           "temperature-conversion",
@@ -219,11 +222,11 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 70
+      "tasks": 74
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 37,
+      "leaves": 39,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -251,6 +254,8 @@
           "glide-performance",
           "landing-performance",
           "oei-climb-gradient",
+          "rotorcraft-autorotative-descent",
+          "rotorcraft-blade-flapping-dynamics",
           "rotorcraft-forward-flight-performance",
           "rotorcraft-hover-ground-effect",
           "rotorcraft-hover-performance",
@@ -279,11 +284,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 74
+      "tasks": 78
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 35,
+      "leaves": 37,
       "pack_names": [
         "envelope",
         "flutter",
@@ -320,6 +325,7 @@
           "glide-flight-test",
           "landing-distance-determination",
           "level-acceleration-test",
+          "rotorcraft-forward-flight-performance-test",
           "rotorcraft-performance-flight-test",
           "stall-speed-determination",
           "takeoff-distance-determination"
@@ -336,6 +342,7 @@
         ],
         "stability": [
           "dynamic-stability-flight-test",
+          "lateral-directional-stability-flight-test",
           "static-stability-flight-test"
         ],
         "uas": [
@@ -343,11 +350,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 70
+      "tasks": 74
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 38,
+      "leaves": 40,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -361,6 +368,7 @@
         "control": [
           "adaptive-control",
           "control-allocation",
+          "digital-control-design",
           "frequency-response-design",
           "gain-scheduling",
           "lead-lag-compensation",
@@ -374,6 +382,7 @@
           "alpha-beta-filter",
           "complementary-filter",
           "extended-kalman-filter",
+          "interacting-multiple-model-filter",
           "particle-filter",
           "rts-smoother",
           "unscented-kalman-filter"
@@ -410,11 +419,11 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 77
+      "tasks": 81
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 36,
+      "leaves": 38,
       "pack_names": [
         "additive",
         "as9100",
@@ -438,6 +447,7 @@
           "document-control",
           "fod-control",
           "internal-quality-audit",
+          "management-review",
           "measurement-systems-analysis",
           "nonconformance-control",
           "quality",
@@ -469,6 +479,7 @@
           "liquid-penetrant-inspection",
           "magnetic-particle-inspection",
           "ndt-method-selection",
+          "ndt-personnel-qualification",
           "radiographic-inspection",
           "shearography-inspection",
           "thermography",
@@ -481,7 +492,7 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 74
+      "tasks": 78
     },
     "propulsion": {
       "label": "PROPULSION",
@@ -560,7 +571,7 @@
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 38,
+      "leaves": 40,
       "pack_names": [
         "adcs",
         "ecss",
@@ -572,6 +583,7 @@
       "packs_detail": {
         "adcs": [
           "attitude-control-sizing",
+          "attitude-determination-quest",
           "attitude-determination-triad",
           "control-moment-gyro",
           "magnetorquer-control",
@@ -610,6 +622,7 @@
           "three-body-libration"
         ],
         "subsystems": [
+          "antenna-aperture-sizing",
           "command-data-handling",
           "communication-link-budget",
           "power-thermal-budget",
@@ -620,11 +633,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 79
+      "tasks": 83
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 37,
+      "leaves": 39,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -643,6 +656,7 @@
           "composite-repair",
           "delamination-growth",
           "failure-criteria",
+          "laminate-hygrothermal-response",
           "laminate-stiffness",
           "sandwich-panels"
         ],
@@ -666,6 +680,7 @@
           "calculix-linear",
           "calculix-nonlinear",
           "contact-analysis",
+          "cylindrical-shell-buckling",
           "modal-analysis",
           "plate-buckling",
           "truss-analysis"
@@ -689,7 +704,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 75
+      "tasks": 79
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -819,6 +834,6 @@
       "tasks": 66
     }
   },
-  "skill_files": 439,
+  "skill_files": 454,
   "standards": 30
 }
