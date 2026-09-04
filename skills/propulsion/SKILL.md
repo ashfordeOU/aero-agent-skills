@@ -71,6 +71,9 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/hybrid-rocket-motor | Hybrid rocket motor | hybrid rocket motor, regression rate, oxidizer mass flux, solid fuel grain, oxidizer to fuel ratio, O/F shift, port area, HTPB, hybrid grain |
 | propulsion/rocket/cold-gas-thruster | Cold gas thruster | cold gas thruster, nitrogen RCS, choked mass flow, plenum blowdown, total impulse, reaction control thruster sizing, isothermal blowdown time constant |
 | propulsion/turbomachinery/rocket-turbopump | Rocket turbopump | rocket turbopump, pump specific speed, suction specific speed, net positive suction head, impeller tip speed, LOX pump sizing, cavitation margin |
+| propulsion/rocket/thrust-chamber-cooling | Thrust chamber cooling | thrust chamber cooling, regenerative cooling, Bartz heat transfer, throat heat flux, coolant channel sizing, copper wall limit, film cooling rocket |
+| propulsion/rocket/injector-design | Injector design | injector design, unlike doublet, impinging jet atomization, injector pressure drop, momentum flux ratio, orifice flow count |
+
 
 ## Routing guidance
 
@@ -126,6 +129,10 @@ to turbofan-cycle;
 - Hybrid rocket motor regression rate, oxidizer mass flux, O/F shift, port area, and chamber pressure ballistics questions route to the rocket hybrid-rocket-motor sub-skill.
 - Cold gas thruster choked flow, plenum blowdown, and total impulse questions route to the rocket cold-gas-thruster sub-skill.
 - Rocket turbopump specific speed, suction performance, and cavitation questions route to the turbomachinery rocket-turbopump sub-skill.
+
+- Rocket thrust chamber regenerative cooling questions (Bartz hot gas coefficient, coolant side convection, wall heat flux and temperature, coolant mass flux for the wall limit, film cooling handoff) route to the rocket thrust-chamber-cooling sub-skill.
+
+- Rocket engine injector element design questions (orifice discharge flow, injection velocity, unlike-doublet momentum flux ratio, fuel and oxidizer orifice counts, per-element flow balance) route to the rocket injector-design sub-skill.
 
 ## Install
 

@@ -77,6 +77,8 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/stability/lateral-directional-stability-flight-test | Lateral-directional stability flight test | steady heading sideslip sweep, rudder-fixed stability, rudder-free stability, weathercock stability, dihedral effect, pedal force gradient |
 | flight-test-operations/flutter/flight-vibration-survey | Flight vibration survey | track and balance, order analysis, per rev amplitude, synchronous DFT, vibration limit, rotor balance survey |
 | flight-test-operations/performance/engine-failure-takeoff-flight-test | Engine failure takeoff flight test | balanced field V1, engine out takeoff, VEF recognition, decision speed, continued takeoff, field length verdict |
+| flight-test-operations/stability/control-force-flight-test | Control force flight test | control force flight test, stick force gradient, stick force per g, breakout force, control centering check, force transducer calibration, stick force stability |
+
 
 ## Routing guidance
 
@@ -134,6 +136,8 @@ actor-envelope.
 
 - In-flight vibration survey questions (track and balance, per-rev order analysis, vibration limit, rotor balance survey) route to the flutter flight-vibration-survey sub-skill.
 - Engine-out takeoff questions (balanced-field V1, VEF recognition, decision speed, continued takeoff) route to the performance engine-failure-takeoff-flight-test sub-skill.
+
+- Longitudinal control-force flight test reduction questions (force transducer calibration, stick force gradient, stick force per g, breakout force, centering check) route to the stability control-force-flight-test sub-skill.
 
 ## Install
 

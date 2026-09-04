@@ -1,7 +1,7 @@
 {
-  "corpus_tasks": 930,
+  "corpus_tasks": 958,
   "families": 12,
-  "leaves": 458,
+  "leaves": 472,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
@@ -83,7 +83,7 @@
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 39,
+      "leaves": 40,
       "pack_names": [
         "data-bus",
         "do160",
@@ -116,6 +116,7 @@
           "data-control-coupling-analysis",
           "development",
           "planning",
+          "previously-developed-software",
           "software-testing",
           "tool-qualification",
           "verification"
@@ -156,11 +157,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 81
+      "tasks": 83
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 40,
+      "leaves": 42,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -204,7 +205,9 @@
           "power-spectral-density",
           "probability-distributions",
           "quaternion-algebra",
+          "rank-based-hypothesis-testing",
           "root-finding",
+          "singular-value-decomposition",
           "uncertainty-propagation"
         ],
         "sep2640": [
@@ -228,7 +231,7 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 80
+      "tasks": 84
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
@@ -297,7 +300,7 @@
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 39,
+      "leaves": 40,
       "pack_names": [
         "envelope",
         "flutter",
@@ -352,6 +355,7 @@
           "test-point-matrix-design"
         ],
         "stability": [
+          "control-force-flight-test",
           "dynamic-stability-flight-test",
           "lateral-directional-stability-flight-test",
           "static-stability-flight-test"
@@ -361,7 +365,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 78
+      "tasks": 80
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
@@ -435,7 +439,7 @@
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 39,
+      "leaves": 41,
       "pack_names": [
         "additive",
         "as9100",
@@ -456,6 +460,7 @@
           "calibration-control",
           "corrective-action",
           "counterfeit-prevention",
+          "cusum-ewma-monitoring",
           "document-control",
           "fod-control",
           "internal-quality-audit",
@@ -479,7 +484,8 @@
         ],
         "assembly": [
           "ewis-installation-quality",
-          "fastener-installation-quality"
+          "fastener-installation-quality",
+          "solid-rivet-installation-quality"
         ],
         "composites": [
           "layup-cure"
@@ -505,11 +511,11 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 80
+      "tasks": 84
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 34,
+      "leaves": 36,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -557,12 +563,14 @@
           "cold-gas-thruster",
           "combustion-chamber-design",
           "hybrid-rocket-motor",
+          "injector-design",
           "nozzle-design",
           "propellant-selection",
           "rocket-engine-cycle",
           "rocket-sizing",
           "rocket-staging",
           "solid-rocket-motor",
+          "thrust-chamber-cooling",
           "thrust-vector-control"
         ],
         "turbofan": [
@@ -580,11 +588,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 68
+      "tasks": 72
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 40,
+      "leaves": 43,
       "pack_names": [
         "adcs",
         "ecss",
@@ -599,7 +607,9 @@
           "attitude-determination-quest",
           "attitude-determination-triad",
           "control-moment-gyro",
+          "gyro-allan-variance",
           "magnetorquer-control",
+          "pointing-error-budget",
           "reaction-wheel-control",
           "star-tracker",
           "sun-pointing"
@@ -624,6 +634,7 @@
           "gravity-assist-swingby",
           "ground-track-repeat",
           "hohmann-transfer",
+          "kepler-orbit-propagation",
           "keplerian-elements",
           "lambert-transfer",
           "low-thrust-spiral",
@@ -646,11 +657,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 83
+      "tasks": 89
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 42,
+      "leaves": 43,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -696,6 +707,7 @@
           "calculix-nonlinear",
           "contact-analysis",
           "cylindrical-shell-buckling",
+          "lug-joint-analysis",
           "modal-analysis",
           "plate-buckling",
           "pressure-bulkhead",
@@ -720,7 +732,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 85
+      "tasks": 87
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -789,7 +801,7 @@
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 33,
+      "leaves": 35,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -828,8 +840,10 @@
           "canard-sizing",
           "control-surface-sizing",
           "engine-sizing",
+          "environmental-control-sizing",
           "fuel-tank-sizing",
           "fuselage-sizing",
+          "hydraulic-system-sizing",
           "ice-protection-sizing",
           "landing-gear-sizing",
           "nacelle-sizing",
@@ -847,9 +861,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 66
+      "tasks": 70
     }
   },
-  "skill_files": 470,
+  "skill_files": 484,
   "standards": 30
 }
