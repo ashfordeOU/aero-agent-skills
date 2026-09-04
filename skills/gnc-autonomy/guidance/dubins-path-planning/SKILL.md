@@ -121,6 +121,28 @@ below 2*rho = 20 m).
 - Run the contract test offline: python3
   scripts/test_dubins_path_planning.py (32 tests, deterministic).
 
+## Pitfalls
+
+- Expecting an inner tangent on close poses: the internal tangent exists
+  only when the opposite-sign turn centers are at least 2*rho apart and
+  tangent_points raises ValueError below that; the CCC families (RLR, LRL)
+  carry those close-pose cases, and dubins_path still returns the global
+  minimum over all six families.
+- Handedness on the centers: a left turn center is (x - rho*sin(h), y +
+  rho*cos(h)) and right is the mirror; swapping the signs flips every arc
+  direction and the returned path type.
+- Heading convention: heading is in radians from the +x axis,
+  counterclockwise positive; a goal heading in degrees or clockwise from
+  north produces a wrong-length path.
+- Reversing the route should not change the length: the path length is
+  invariant under reversing both poses with headings shifted by pi (within
+  1e-9) - a large delta on that check signals a geometry bug.
+- rho <= 0, missing pose keys and non-finite x, y, heading or rho raise
+  ValueError; arc length is rho*|heading change| with the change in [0,
+  2*pi).
+- The model assumes constant speed and no wind; clothoid and Reeds-Shepp
+  (reversing) paths are out of scope.
+
 ## Related leaves
 
 - gnc-autonomy/guidance/pursuit-guidance: pure and lead pursuit
@@ -134,7 +156,7 @@ below 2*rho = 20 m).
 - flight-test-operations/uas/part107-sora: operational context for the
   UAS that flies the planned path.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

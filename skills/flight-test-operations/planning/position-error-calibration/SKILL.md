@@ -153,6 +153,30 @@ against its own tower fly-by reference.
   the 0.95 threshold, so the verdict is review until the span covers
   the planned points.
 
+## Pitfalls
+
+- Confusing the sign of the tower fly-by correction: with the altimeter
+  10 m low the indicator reads low and dVp = +0.88 m/s (correction
+  added); a 10 m high altimeter returns dVp = -0.89 m/s.
+- Applying the fly-by correction at the wrong pass speed: the scale
+  depends on the reference pass speed (0.99 m/s at 90 m/s, 0.72 m/s at
+  120 m/s), so the pass speed must match the reduction point.
+- Forgetting the density ratio in the GPS doublet leg: at rho/rho0 =
+  0.9, tas_to_cas(100.0, 0.9) = 94.87 m/s, so a point held at
+  V_ias = 100 m/s carries dVp = -5.13 m/s, not zero.
+- Claiming coverage without the span rule: five calibrated points
+  covering seven planned points (0.714) is below the 0.95 threshold,
+  and the verdict stays review until the calibrated span covers the
+  planned points.
+- Feeding non-physical inputs: negative speeds, empty lists, a density
+  ratio of zero or less, non-monotonic table speeds, negative
+  geometric height, and a non-positive temperature all raise
+  ValueError.
+- Reading the PEC curve as the table: the curve knots reproduce every
+  calibration point (residual RMS 2.5e-17), while the table
+  interpolates rows only for strictly increasing speeds (70 m/s gives
+  dVp = 1.05 m/s and V_cas = 71.05 m/s).
+
 ## Verification
 
 - Confirm calibrated_airspeed(impact_pressure_from_cas(100.0)) returns
@@ -188,7 +212,7 @@ against its own tower fly-by reference.
   the condition sweeps that schedule the PEC points across the speed
   range.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

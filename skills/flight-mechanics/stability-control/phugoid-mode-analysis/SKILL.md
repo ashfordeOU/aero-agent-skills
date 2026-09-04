@@ -133,6 +133,25 @@ means drag does little work per cycle.
 - Run the contract test offline: python3
   scripts/test_phugoid_mode_analysis.py (34 tests, deterministic).
 
+## Pitfalls
+
+- Applying the model below L/D 8: the drag-damping approximation assumes
+  small zeta, and ld_valid_for_small_damping returns False below L/D 8; the
+  numbers are not credible there (L/D below 1 raises ValueError outright).
+- Quoting t_half without the closed form check: time to half amplitude must
+  satisfy ln(2)/(zeta*omega) = ln(2)*V*(L/D)/g0; the decay-rate identity
+  zeta_p*omega_p = g0/(V*(L/D)) is the cross-check.
+- Reading cycles to half amplitude as speed dependent: N_half = t_half/T_p
+  depends only on L/D (about 0.156*(L/D)), so it is constant across cruise
+  speeds for a given configuration.
+- Forgetting the two-timescale assumption: the leaf assumes omega_p sits
+  well below the short period frequency and records it as the
+  separation_assumption string, but does not compute the short period mode
+  itself.
+- Non-positive V, L/D below 1, non-numeric inputs and non-positive gravity
+  raise ValueError across the frequency, damping, time and summary
+  functions.
+
 ## Related leaves
 
 - flight-mechanics/stability-control/longitudinal-stability: the
@@ -148,7 +167,7 @@ means drag does little work per cycle.
 - flight-mechanics/stability-control/trim-analysis: the trimmed
   cruise condition that fixes the speed and lift-to-drag inputs.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

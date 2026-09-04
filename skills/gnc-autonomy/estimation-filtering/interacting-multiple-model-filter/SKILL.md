@@ -110,6 +110,26 @@ Module outputs (real, deterministic):
   scripts/test_interacting_multiple_model_filter.py (35 tests,
   deterministic, exit 0).
 
+## Pitfalls
+
+- Gating maneuver detection on the wrong window: mode_probability_ca rises
+  above 0.8 within about 3 s of maneuver onset (0.972 at t = 52 for the
+  worked example) and relaxes back after the coast starts; sample mu_hist
+  around the onset, not at the end of the track.
+- Comparing a single-mode CV filter against the IMM without the same track:
+  the CV-only filter peaks at 76.04 m error on the maneuvering track while
+  the IMM combined RMS stays below 15 m in the window - the accel model is
+  what the IMM adds.
+- Forgetting the mode probability normalization: mode probabilities must sum
+  to 1.0 at every step (max deviation 2e-16 in the test) and a
+  mode-probability vector that does not sum to 1 raises ValueError.
+- Reading the combined estimate without the per-mode split: the combined
+  estimate equals the mu-weighted sum of the per-mode estimates (CV padded
+  with zero acceleration), verified to 1e-12 at the final step.
+- Per-axis filters share one mode-probability vector per cycle, and both
+  planar axes multiply their per-mode likelihoods into one joint likelihood;
+  do not refresh the probabilities per axis independently.
+
 ## Related leaves
 
 - gnc-autonomy/navigation/kalman-filter-design: the single-model Kalman
@@ -122,7 +142,7 @@ Module outputs (real, deterministic):
 - gnc-autonomy/navigation/inertial-navigation: the propagation context
   (state transition and process noise) the bank filters assume.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

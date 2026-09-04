@@ -104,6 +104,31 @@ Earth swing-by with v_inf = 3000 m/s at rp = 7000 km, body radius
   m/s, delta = 88.04 deg, dv = 6949 m/s; the faster flyby turns less
   and gains more heliocentric speed.
 
+
+## Pitfalls
+
+- Confusing periapsis speed with the excess speed: vp =
+  sqrt(v_inf^2 + 2*mu/rp) is the peak speed at closest approach
+  (11085.4 m/s in the worked example), far above the 3000 m/s
+  excess; the excess speed magnitude is unchanged across the flyby,
+  only its direction rotates.
+- Forgetting the turn_sign geometry: an outside pass uses +1 and an
+  inside pass -1 relative to the central body; swapping the sign
+  sends the outgoing direction the wrong way around the planet.
+- Planning a flyby that grazes the planet: feasibility checks
+  altitude = rp - body_radius against min_alt and rejects periapsis
+  inside the body radius when supplied; a 629 km pass clears a
+  200 km minimum, an embedded one does not.
+- Ignoring the speed-trade of the flyby: a faster excess turns less
+  and gains more heliocentric speed (5000 m/s gives delta 88.04 deg
+  and dv 6949 m/s versus 119.43 deg and 5181.1 m/s at 3000 m/s), so
+  the turn angle and the delta-v gain trade against each other.
+- Using the wrong body mu: the functions take mu_body explicitly and
+  default to Earth (MU_EARTH); a Mars or lunar swing-by with the
+  Earth default silently changes vp, e, and the turn angle.
+- Treating a single patched-conic flyby as a trajectory: this leaf
+  sizes one unpowered pass; the legs before and after belong to the
+  lambert-transfer and hohmann-transfer leaves.
 ## Verification
 
 - Confirm periapsis_speed(3000.0, 7000e3, MU_EARTH) returns 11085.4
@@ -130,7 +155,7 @@ Earth swing-by with v_inf = 3000 m/s at rp = 7000 km, body radius
 - space-systems/mission-design/launch-window-analysis: the
   interplanetary geometry that sets the incoming excess speed.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -111,6 +111,32 @@ Sample S = [100, 200, 300, 400, 500] hours, time to event scatter.
   probability-grid sample where it returns stat = 0.90566, df = 6,
   verdict PASS against the 12.59 critical value.
 
+## Pitfalls
+
+- Fitting lifetime distributions to non-positive data: the
+  exponential, Weibull, and lognormal fits require positive samples,
+  and fewer than 3 points, non-finite entries, a zero sample standard
+  deviation, p outside [0, 1], and t or x outside the positive domain
+  all raise ValueError.
+- Running chi2_gof on too few points: the post-merge degrees of freedom
+  can fall outside the critical table, as it does for the 5 point
+  sample (ValueError); the 60 point probability-grid sample is the one
+  with enough cells (stat = 0.90566, df = 6 against 12.59).
+- Trusting a ks_gof PASS without fitting the model first: the verdict
+  is computed against the leaf's fitted parameters, and a clearly wrong
+  model (an arithmetic sequence against an exponential fit) returns
+  FAIL.
+- Reading the lognormal median from mu_ln alone: on exp([0, 0.5, 1,
+  1.5, 2]) the fit returns mu_ln = 1.0, sigma_ln = 0.790569, and the
+  median is quantile(0.5) = e = 2.71828, not mu_ln itself.
+- Treating a fitted exponential as capturing the trend: its hazard is
+  constant (0.0033333), while a Weibull fit with k = 2.294 > 1 shows
+  wear-out with the hazard rising from 0.00139 to 0.01115 over the
+  sample — the exponential hides the shape.
+- Mixing ddof conventions in the normal fit: sigma = 158.1139 is the
+  sample standard deviation with ddof 1, so population-scale (ddof 0)
+  expectations misread every quantile.
+
 ## Verification
 
 - Confirm the exponential anchors on S: quantile(0.5) equals
@@ -144,7 +170,7 @@ Sample S = [100, 200, 300, 400, 500] hours, time to event scatter.
 - manufacturing-quality/as9100/statistical-process-control: the process
   side, control charts over time, after the distribution layer.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

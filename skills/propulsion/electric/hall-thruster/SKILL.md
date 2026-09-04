@@ -151,7 +151,35 @@ V_d = 300 V.
 - propulsion/rocket/nozzle-design: exit flow and thrust terms for
   chemical thrusters, the alternative to electric propulsion.
 
-## Contract test
+## Pitfalls
+
+- Sizing on the ideal exhaust velocity: the real v_e is the ideal
+  sqrt(2*e*V_b/m_i) multiplied down by the mass and divergence
+  utilization (19921 m/s ideal against 14223 m/s effective in the
+  worked example), so thrust sized on the ideal value overstates the
+  thruster.
+- Treating the discharge current as all beam: the discharge current is
+  the beam current plus the electron backflow, I_d = I_b + I_e, so the
+  current utilization eta_c = I_b/I_d is always below one and the
+  beam-side cross-checks must use I_b = eta_c * I_d.
+- Reporting the anode efficiency as the thruster efficiency: eta_anode
+  (0.500 in the example) ignores the magnet, cathode keeper and heater
+  power; eta_total falls to 0.472 once the 300 W auxiliary load is
+  included in P_total.
+- Trading krypton for xenon on exhaust velocity alone: krypton's ideal
+  velocity is 1.252 times xenon's at 270 V, but it costs more
+  ionization energy per ion (14.00 eV against 12.13 eV) and reaches
+  lower mass utilization in practice, so xenon stays the default for
+  high thrust-to-power.
+- Mixing beam voltage and discharge voltage: the beam voltage is
+  eta_v * V_d (270 V against the 300 V discharge in the example), and
+  the ideal-velocity and beam-current relations all use V_b — feeding
+  V_d in their place inflates the exhaust velocity.
+- Reading a single efficiency factor as the total: eta_T is the product
+  eta_m * eta_v * eta_c * eta_d (0.85 * 0.90 * 0.78 * 0.84 = 0.501),
+  so quoting the mass utilization alone hides the other three losses.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

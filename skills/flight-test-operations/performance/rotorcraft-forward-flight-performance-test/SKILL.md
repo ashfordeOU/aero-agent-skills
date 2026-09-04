@@ -137,6 +137,32 @@ across V = [0, 12, 24, 36, 48, 60, 72] m/s at omega 27.0 rad/s
   78.6 m/s, past the 72 m/s top of the band, and the flag
   vh_beyond_measured turns True.
 
+## Pitfalls
+
+- Extrapolating Vh beyond the measured band: at 560 kW available the
+  computed Vh reaches 78.6 m/s past the 72 m/s top of the band and the
+  flag vh_beyond_measured turns True - the result is flagged, not
+  silently quoted as a measured speed.
+- Comparing corrected and raw powers across conditions: the corrections
+  are identity only at the standard day and reference weight, so
+  density_correct_power(330000, 1.10) gives about 367,500 W and every
+  point must be reduced to the reference basis before fitting.
+- Reading scaled coefficients as physical: multiplying every measured
+  power by a constant scales the coefficients but leaves the
+  best-endurance and best-range speeds unchanged to 1e-9, so the
+  speeds, not the raw coefficients, carry the physical result.
+- Fitting the polar from too few or too many points: fewer than 4 or
+  more than 40 sweep points raise ValueError, as do torque < 0,
+  omega <= 0, rho_test <= 0, power < 0, weight <= 0, induced fraction
+  outside [0, 1], and negative airspeeds.
+- Trusting a degenerate fit: a downward-curved polar (a <= 0 on
+  non-constant powers) raises ValueError instead of reporting a
+  minimum that does not exist.
+- Mixing up the characteristic speeds: best-endurance speed is the
+  polar vertex -b/(2a) (26.44 m/s), best-range speed satisfies the
+  tangent condition a*V^2 = c (53.74 m/s), and Vh sits above both at
+  the available-power root (70.40 m/s at 470 kW).
+
 ## Verification
 
 - Confirm shaft_power(12222, 27) returns about 330,000 W and that the
@@ -179,7 +205,7 @@ across V = [0, 12, 24, 36, 48, 60, 72] m/s at omega 27.0 rad/s
   the fixed-wing climb reduction sibling, sharing the weight and
   density correction conventions used here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

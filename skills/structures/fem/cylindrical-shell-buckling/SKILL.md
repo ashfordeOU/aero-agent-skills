@@ -104,6 +104,34 @@ the bending critical moment sits above the axial stress level scaled
 by the full section; the ovalization collapse is the cross-section
 limit that bifurcation must beat to be governing.
 
+
+## Pitfalls
+
+- Using the knockdowns outside the validity band: the SP-8007
+  empirical fits hold for r/t below about 1500, and every
+  geometry-dependent function raises ValueError at r/t >= 1500 -
+  including the exact boundary.
+- Reading the bending moment as a stress: M_cr scales as
+  gamma_bending * E * t^2 * r over the full wall section while the
+  axial case is a stress 0.605 * gamma * E * t / r; comparing the two
+  critical quantities across units invites a wrong governing
+  verdict.
+- Assuming bifurcation always governs: the verdict is
+  "ovalization" when the Brazier collapse moment M_ov falls below
+  the bending bifurcation moment; the worked barrel is
+  "bifurcation", but thicker or softer shells can flip it.
+- Applying the plasticity correction twice: the classical stress
+  terms are elastic and eta (sqrt(E_sec E_tan)/E, unity at
+  E_sec = E_tan = E) is reported for the user to apply; scaling the
+  elastic margin by eta once is the intended use.
+- Confusing this geometric knockdown with material knockdowns:
+  gamma_axial and gamma_bending come from r/t geometry; the strength
+  reduction factors of composites/cmh17-allowables are material
+  factors for fiber-reinforced laminates.
+- Treating the unstiffened barrel as a stiffened fuselage: this leaf
+  covers the curved UNSTIFFENED shell; stiffened pressurized
+  fuselage modeling belongs to
+  vehicle-design/structures-integration/fuselage-skin-stringer.
 ## Verification
 
 - Confirm curvature_parameter(1.5, 0.005) = 1.0825 and gamma_axial in
@@ -139,7 +167,7 @@ limit that bifurcation must beat to be governing.
   factors for fiber-reinforced laminates; the knockdown here is
   geometric, that leaf's is material.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

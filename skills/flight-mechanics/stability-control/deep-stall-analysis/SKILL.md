@@ -158,6 +158,28 @@ cm_delta -1.1, delta_e_max_deg -25.0.
 - Run the contract test offline: python3
   scripts/test_deep_stall_analysis.py (35 tests, deterministic).
 
+## Pitfalls
+
+- Setting eta_blank above eta_t0: the blanking factor is eta_blank/eta_t0
+  and eta_blank is validated in [0, eta_t0]; setting eta_blank equal to
+  eta_t0 models a tail that is never blanked (factor 1.0), not 'more
+  blanking'.
+- Expecting a deep-stall trim from every T-tail: find_deep_stall_trim
+  returns None when Cm never crosses zero in the post-stall band (tail keeps
+  authority), and recovery_margin is infinite then - None is the 'no alpha
+  lock' answer, not a failure.
+- Reading a positive Cm in the deep-stall band as recovery: positive Cm at
+  high alpha means the airplane pitches up into the post-stall region; the
+  downward crossing through zero is the stable lock point, and alpha_lock
+  True means the elevator cannot overcome the hump.
+- Sign conventions on the elevator: cm_delta must be negative and
+  delta_e_max_deg negative (down elevator); cm_alpha_wb must be negative;
+  violations raise ValueError and a positive cm_delta would report recovery
+  authority with the wrong sign.
+- Quoting the wake and separation coefficients as standard values: the
+  blanking ramp, separation rise (0.6 rad) and fade (0.4 rad) and slopes are
+  documented typical engineering-model constants, not standard values.
+
 ## Related leaves
 
 - flight-mechanics/stability-control/spin-recovery: the departure and
@@ -176,7 +198,7 @@ cm_delta -1.1, delta_e_max_deg -25.0.
 - vehicle-design/sizing/tail-sizing: sizing the horizontal tail that
   sets v_h and the tail authority used here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

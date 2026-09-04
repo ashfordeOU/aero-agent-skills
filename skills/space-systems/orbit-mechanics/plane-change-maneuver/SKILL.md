@@ -113,6 +113,30 @@ burn. Transfer semimajor axis a = (6678 + 42164) / 2 = 24421 km.
 - maneuver_verdict(2.981, 1.8302) = 'combined-cheaper': the combined
   burn saves about 1.15 km/s.
 
+
+## Pitfalls
+
+- Doing the plane change in LEO out of habit: a 28.5 deg change at
+  300 km circular costs 3.803 km/s versus 1.514 km/s at GEO, so the
+  maneuver radius dominates the cost and the burn belongs at the
+  slow apoapsis end of the transfer.
+- Quoting the separate burns when one burn can do both: the combined
+  apogee burn is 1.8302 km/s against a 2.981 km/s separate total in
+  the worked example; the verdict function exists precisely to catch
+  a plan that pays the inclination change twice.
+- Mixing the transfer ellipse with the target orbit: the apogee
+  speed on the GTO ellipse (1.6078 km/s at 42164 km) is not the GEO
+  circular speed (3.0747 km/s); the combined burn is the law-of-
+  cosines gap between them.
+- Forgetting every point of an ellipse satisfies r < 2a: a maneuver
+  radius with 2 a <= r is off the ellipse and raises ValueError.
+- Feeding an inclination change outside (-180, 180] or a negative
+  speed: the law-of-cosines geometry and the pure-change formula
+  both reject non-physical inputs instead of returning a number.
+- Expecting the model to pick the plane: this leaf sizes a specified
+  di; choosing the target inclination (sun-synchronous geometry,
+  launch-site constraints) belongs to the sun-synchronous-inclination
+  and launch-window-analysis leaves.
 ## Verification
 
 - Confirm circular_orbit_speed(MU_EARTH, 6678) returns 7.7258 km/s and
@@ -151,7 +175,7 @@ burn. Transfer semimajor axis a = (6678 + 42164) / 2 = 24421 km.
 - space-systems/orbit-mechanics/sun-synchronous-inclination: the
   inclination target set by sun-synchronous geometry.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

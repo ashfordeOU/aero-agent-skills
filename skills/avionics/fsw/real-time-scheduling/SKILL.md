@@ -160,7 +160,39 @@ exact analysis confirms with response times [1.0, 2.0, 4.0].
   timing; its response-window concept is a bus term, not a task
   response time.
 
-## Contract test
+## Pitfalls
+
+- Reading a failed utilization bound as infeasibility: the Liu-Layland
+  bound is sufficient, not necessary — worked set A fails the bound
+  (U 0.8333 above U_rm(3) 0.7798) yet is exactly RM-feasible with
+  response times [1.0, 2.0, 6.0], so a False rm_ub_feasible verdict
+  means run the exact analysis, not declare the set unschedulable.
+- Treating divergence as a numeric hiccup: the response-time sequence
+  is monotone non-decreasing, so an iterate that crosses its period
+  or the 1000 * max(T) cap can never converge — rm_response_times
+  returns None and the whole set is RM-infeasible (set B), which is a
+  verdict, not an error to paper over.
+- Mixing time units in one task set: every C_i and T_i must share one
+  time unit and the implicit deadline is D_i = T_i — a task listed in
+  seconds against milliseconds, or with an explicit different
+  deadline, is outside this leaf's model and corrupts U and the
+  response-time iteration.
+- Ignoring the priority order: RM assigns priority by shorter period,
+  with equal periods broken by list index, and the exact analysis
+  sums only over higher-priority tasks hp(i) — the response-time
+  result is only valid for the task list in RM priority order.
+- Assuming EDF always saves the set: EDF is complete only for U <= 1,
+  so an over-subscribed set (U 1.3524, set B) is infeasible under any
+  single-processor algorithm, and the "EDF-feasible-only" verdict
+  means the exact RM analysis failed — the schedule then needs an EDF
+  runtime, not rate-monotonic priorities.
+- Routing adjacent timing domains here: WCET estimation, jitter and
+  blocking analysis, arbitrary-deadline extensions, ARINC 653
+  partition schedule windows (ima/ima-partitioning), and bus response
+  windows (data-bus/mil-std-1553) are not this leaf's classic
+  implicit-deadline periodic model.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline, no
 network, exits 0):

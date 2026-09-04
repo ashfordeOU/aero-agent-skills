@@ -110,6 +110,35 @@ DOD limit 0.40, 95 percent discharge efficiency, 28 V bus and 3.7 V /
 - Second case, a 90 min LEO with a 35 min eclipse at 800 W: eclipse energy
   466.7 Wh and required capacity 1228.1 Wh.
 
+
+## Pitfalls
+
+- Sizing against the raw eclipse energy: the nameplate capacity
+  must divide by both the DOD limit and the discharge efficiency
+  (700 Wh of eclipse energy needs 1842.1 Wh of nameplate at 40% DOD
+  and 95% efficiency), so quoting E / DOD alone under-sizes the
+  battery.
+- Forgetting the hour conversion: the eclipse energy formula divides
+  W * s by 3600, and the 35 min eclipse enters as 2100 s, not 35;
+  a minutes-as-hours slip changes the capacity by 60x.
+- Taking the round-up for granted in both axes: n_series = ceil(V /
+  V_cell) and n_parallel = ceil(Ah / Ah_cell) round up independently,
+  so an exact multiple must NOT round up (the contract test pins the
+  exact-multiple behavior) and the installed 100 Ah always over-shoots
+  the required 65.8 Ah.
+- Checking the C-rate against the wrong current: the discharge check
+  uses the ORBIT load (1200 W), not the eclipse load, divided by the
+  bus voltage and the INSTALLED capacity; a bank that fits the
+  eclipse energy can still exceed the cell C-rate limit under a high
+  draw (2000 W on 50 Ah gives 1.43 C).
+- Confusing this leaf with the electric aircraft battery: the
+  spacecraft bus battery is the eclipse-storage chain above; the
+  traction pack sizing for aircraft and eVTOL lives in
+  vehicle-design/sizing/battery-sizing.
+- Using a pack specific energy outside the module model: the mass
+  estimate divides the required capacity by the pack specific energy
+  (150 Wh/kg default); a zero or negative specific energy raises
+  ValueError and a datasheet value must be passed explicitly.
 ## Verification
 
 - Confirm eclipse_energy_wh(1200, 2100) returns 700.0 Wh and
@@ -151,7 +180,7 @@ DOD limit 0.40, 95 percent discharge efficiency, 28 V bus and 3.7 V /
 - vehicle-design/sizing/battery-sizing: the electric aircraft and eVTOL
   traction pack counterpart, not a spacecraft bus battery.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -151,7 +151,32 @@ pilot certificate held.
 - The operation needs Part 107.41 authorization (LAANC or waiver) and,
   realistically, a certified aircraft path.
 
-## Verification gate
+## Pitfalls
+
+- Screening an over-55-lb aircraft with the Part 107 applicability
+  check: those operations are outside Part 107 entirely and take a
+  different certification path; within the rule, any failed check lists
+  the waiver or approval needed in waivers_required.
+- Computing kinetic energy on the wrong basis: KE = 0.5 * mass_kg *
+  speed_mps^2 uses the characteristic cruise speed (default 20 m/s),
+  and the 25 kg ceiling equals 55 lb.
+- Reading the GRC from the kinetic energy alone: the intrinsic GRC
+  table is kinetic energy by population density, so 5000 J over a
+  dense city reads GRC 9 while the same energy over < 1 person/km2
+  reads GRC 5.
+- Assuming mitigation credit is free: robustness credit (0/1/2/3 for
+  none/low/medium/high) requires operational containment (geofencing
+  plus contingency procedures), high robustness means automatic
+  activation with fail-safe behavior, and the final GRC floors at 1.
+- Flying BVLOS under vanilla Part 107: it is not permitted; BVLOS needs
+  a 14 CFR 107.31 waiver or FAA BVLOS rule approval plus the
+  observer/DAA, remote ID, airspace authorization, lost-link, and
+  crew-training considerations.
+- Treating 25 kg as safely inside the open category: the mass sits
+  exactly on the open ceiling, so the GRC decides - 5000 J over a city
+  lands certified with GRC 9, not open.
+
+## Behavior contract (gate 3)
 
 The behavior contract is scripts/test_part107_sora.py against
 scripts/part107_sora_logic.py (stdlib unittest, offline, deterministic).

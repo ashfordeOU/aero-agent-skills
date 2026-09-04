@@ -44,7 +44,7 @@ from wind_tunnel_model_design_logic import (  # noqa: E402
     scale_from_blockage,
     scale_from_span,
     sting_diameter_m,
-    test_section_area,
+    section_area,
 )
 
 # Worked example inputs from the spec.
@@ -67,18 +67,18 @@ EXAMPLE = {
 class TestSectionAreaTests(unittest.TestCase):
     def test_test_section_area_square(self):
         # 2.44 m square section.
-        self.assertAlmostEqual(test_section_area(2.44, 2.44), 5.9536, places=4)
+        self.assertAlmostEqual(section_area(2.44, 2.44), 5.9536, places=4)
 
     def test_test_section_area_rectangular(self):
-        self.assertAlmostEqual(test_section_area(3.0, 2.0), 6.0, places=9)
+        self.assertAlmostEqual(section_area(3.0, 2.0), 6.0, places=9)
 
     def test_test_section_area_zero_width_raises(self):
         with self.assertRaises(ValueError):
-            test_section_area(0.0, 2.44)
+            section_area(0.0, 2.44)
 
     def test_test_section_area_negative_height_raises(self):
         with self.assertRaises(ValueError):
-            test_section_area(2.44, -1.0)
+            section_area(2.44, -1.0)
 
 
 class ScaleSelectionTests(unittest.TestCase):

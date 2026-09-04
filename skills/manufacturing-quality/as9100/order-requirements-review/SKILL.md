@@ -141,7 +141,33 @@ fai_pending, verdict}.
   first article process; this leaf only recognizes FAI as an order
   condition.
 
-## Contract test
+## Pitfalls
+
+- Failing an order whose quoted delivery equals the frozen lead time:
+  delivery is a blocker only when quoted_delivery_days >
+  frozen_lead_time_days, so 25 versus 25 meets the frozen lead time
+  and must not fire.
+- Letting FAI pending rescue a defective order: the verdict precedence
+  puts reject-review first, so any missing element, unrecognized
+  special, or blocker rejects for review — accept-with-fai-condition
+  applies only to an otherwise clean order.
+- Silently dropping unrecognized specials: a declared token that
+  matches no aerospace class is flagged unrecognized and sent back to
+  the customer for clarification, not folded into the recognized set
+  or ignored.
+- Treating a recognized FAI special as FAI execution: this leaf only
+  recognizes FAI as an order condition (accept-with-fai-condition);
+  running the first article belongs to the as9102/first-article-
+  inspection leaf and gates production release after acceptance.
+- Scoring completeness from a partial declaration: every canonical
+  element must be declared, and an empty declaration reports all eight
+  missing — a claim of "complete" requires the full eight-element set,
+  not the elements the supplier happened to state.
+- Feeding non-physical orders: non-string, empty, or negative-day
+  inputs raise ValueError, so a malformed order dict is rejected
+  rather than scored into a plausible verdict.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -93,6 +93,26 @@ Module outputs on the spec anchors (real values, R = 287.0):
   reproducing the climb-performance-flight-test bisection result of
   12248.13 ft at OAT 15 C absolute on a 10000 ft pressure altitude.
 
+## Pitfalls
+
+- Feeding OAT in degrees C to the meter form (or kelvin to the ft
+  wrapper): density_altitude_m takes kelvin and density_altitude_ft
+  takes degrees C; mixing the scales shifts the result by 273.15 K.
+- Confusing density altitude with pressure altitude: the two are equal
+  only on the standard day; an OAT deviation moves them apart (ISA +10 K
+  at 10000 ft reads about 11159 ft, ISA -10 K about 8786 ft).
+- Using the ISA temperature instead of the day's measured OAT at the
+  test point: the whole quantity exists to capture the non-standard
+  deviation, so the standard-day temperature gives back the pressure
+  altitude by construction.
+- Passing OAT at or below 0 K or a pressure altitude below -1000 m: the
+  module raises ValueError rather than extrapolating, though small
+  negative geopotential altitudes are allowed down to -1000 m.
+- Expecting one lapse behavior across the whole atmosphere: the ISA
+  temperature and pressure ratio branches switch at the tropopause, and
+  the closed-form inversion matches the bisection only within the
+  correct branch.
+
 ## Verification
 
 - ISA identity: density altitude equals pressure altitude at 0 m,
@@ -121,7 +141,7 @@ Module outputs on the spec anchors (real values, R = 287.0):
 - flight-test-operations/performance/climb-performance-flight-test:
   the domain consumer that previously duplicated this function.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

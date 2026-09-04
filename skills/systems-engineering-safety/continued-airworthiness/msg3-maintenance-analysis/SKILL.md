@@ -164,7 +164,36 @@ Results:
   maintenance program supports continued airworthiness of the certified
   type design.
 
-## Contract test
+## Pitfalls
+
+- Scheduling lubrication or servicing on a hidden safety failure: a
+  5-hidden-safety item needs detection tasks (FC, IN, VC) that reveal
+  the hidden failure, and lubrication or servicing alone is never
+  sufficient.
+- Judging a hidden item by its own safety significance: a hidden
+  failure carrying any safety concern — combination with a second
+  failure or direct — categorizes as 5-hidden-safety, while evident
+  failures are judged on their own safety significance; the two
+  visibility classes resolve differently.
+- Forgetting the half-interval exposure rule: a hidden failure must be
+  detected within 0.5 x the single-failure interval (2000.0 FH on the
+  4000.0 FH worked record), so an opportunity of 3000.0 FH is
+  interval-too-long with the recommended interval set to the exposure
+  limit — and an opportunity exactly at the limit is interval-ok, the
+  rule trips only when it exceeds.
+- Assuming a check exists for every hidden function: a 6-hidden-economic
+  item whose hidden function no functional check can reveal falls back
+  to a visual check via applicable_hidden=False instead of claiming an
+  FC task that cannot work.
+- Reading a missing interval as a pass: an evident item without a
+  task_interval, and a hidden item whose selected task set contains no
+  detection task, both return interval-not-scoped — not interval-ok.
+- Copying MSG-3 text or worksheets: this leaf is a paraphrased
+  deterministic rule table (categories and task codes only), and
+  MSG-3 decision-logic text, tables and worksheets are never
+  reproduced (standards-map gated: true).
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

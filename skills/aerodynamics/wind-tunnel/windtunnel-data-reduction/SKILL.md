@@ -169,7 +169,7 @@ Repeated runs of the same condition gave drag coefficient values
 0.000259, standard error 0.000116, expanded uncertainty at coverage 2
 U = 0.000232, so the reported CD is 0.03012 +/- 0.00023.
 
-## Contract test
+## Behavior contract (gate 3)
 
     python3 skills/aerodynamics/wind-tunnel/windtunnel-data-reduction/scripts/test_windtunnel_data_reduction.py
 

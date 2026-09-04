@@ -140,7 +140,34 @@ m/s.
 - aerodynamics/drag-polars/parasite-drag: uses the laminar versus
   turbulent split downstream of transition for wetted-area drag.
 
-## Contract test
+## Pitfalls
+
+- Feeding a grid that is not strictly increasing, starts below zero, or
+  pairs xs and ues of unequal length: the Thwaites integral is only
+  exact for the constant-velocity plate; the module rejects such grids
+  with ValueError, so validate the station list before calling.
+- Quoting the station value as the transition location: on the coarse
+  grid transition_location reports x_transition = 1.0 m while the
+  linear interpolation of the margin places the crossing at 0.8389 m;
+  use interp_x_transition for the location estimate.
+- Confusing the Michel natural-transition distance with the 5e5
+  instability-onset landmark: on a smooth flat plate the criterion
+  crosses near Re_x ~ 1.7e6, an order of magnitude beyond the
+  boundary-layer-theory textbook value for the onset of instability.
+- Applying the model to forced or roughness-triggered transition: this
+  leaf covers clean two-dimensional natural transition only; the Michel
+  criterion replaces an eN envelope and takes no roughness, sweep or
+  suction input.
+- Treating a never-crossed margin as a zero-length run: when the
+  criterion is never met, x_transition is None and the body stays
+  laminar over the supplied stations — report that outcome rather than
+  forcing a crossing.
+- Ignoring the margin sign convention at the first station: the sweep
+  returns the first station with non-negative margin, so the bracketing
+  stations and the sign flip define the crossing, not the station where
+  the margin is largest.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

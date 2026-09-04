@@ -134,6 +134,31 @@ in {-1, 0, 1}.
   generalizes better than the quadratic to untried points when the
   underlying response is non-quadratic.
 
+
+## Pitfalls
+
+- Fitting with fewer samples than basis terms: the quadratic basis
+  has m = (d + 1)(d + 2) / 2 terms and fit_quadratic raises
+  ValueError (with the count) when n < m; the DOE must supply more
+  samples than terms.
+- Trusting in-sample error as prediction error: RMSE on the training
+  data measures fit, not generalization - the model choice must use
+  the leave-one-out RMSE, which is why recommend_model compares the
+  LOO values and the quadratic wins on pure-quadratic data while
+  RBF wins on the nonlinear 27-run set.
+- Assuming the RBF is better because it interpolates: exact
+  interpolation at the samples (4e-15 in the worked example) is not
+  accuracy at untried points; the LOO comparison decides.
+- Misreading the coefficient order: the basis is ordered linear
+  terms, then squares, then cross terms, so for d = 2 the intercept
+  is c[0], the linear terms c[1] and c[2], the squares c[3] and
+  c[4], and the cross term c[5].
+- Forgetting the ridge term and its limits: the quadratic fit uses
+  ridge = 1e-10 by default on the normal equations; a singular
+  matrix raises ValueError rather than returning a degenerate fit.
+- Using the surrogate outside its training region: the models
+  predict at new design points but carry no extrapolation guarantee,
+  and duplicate or ragged sample rows break the RBF kernel solve.
 ## Verification
 
 - Deterministic: the module uses only float arithmetic with no random
@@ -170,7 +195,7 @@ in {-1, 0, 1}.
   between tabulated points, distinct from multidimensional surrogate
   prediction.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

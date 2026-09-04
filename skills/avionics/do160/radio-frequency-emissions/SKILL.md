@@ -144,7 +144,35 @@ Category A equipment, representative measurements.
 - avionics/do160/lightning-protection: DO-160 sections 22 and 23
   lightning induced transient and direct effects environments.
 
-## Contract test
+## Pitfalls
+
+- Mixing linear and dB scales: every measurement must be converted to
+  its dB domain first (dbu_v_from_volts with volts * 1e6 for conducted,
+  dbu_v_per_m_from_v_per_m for radiated); feeding volts straight into a
+  dBuV limit comparison misplaces the anchor by 120 dB at 1 V.
+- Flipping the margin sign: margin is limit minus measured, so a
+  negative margin is a fail — computing measured minus limit inverts
+  the pass/fail verdict for every sweep point.
+- Applying the wrong curve side: CE102 conducted limits and RE102
+  radiated category floors are different functions of frequency, and
+  emission_verdict needs the matching kind (conducted/CE102 or
+  radiated/RE102); a radiated measurement checked against the CE102
+  curve is meaningless.
+- Quoting the simplified curves as normative limits: the CE102 band
+  curve and the RE102 category A/B/C floors here are reference-only
+  typical values, not the current RTCA/DO-160 section 21 table — the
+  real curve varies within the band and must be read from the current
+  revision before any qualification call.
+- Misapplying the ERP sanity check: field_strength_from_erp checks the
+  radiating source with the inverse-square far-field relation (100 W ERP
+  at 10 m is 134.77 dBuV/m) — it does not size an immunity amplifier;
+  amplifier sizing belongs to the radio-frequency-susceptibility leaf.
+- Demanding a hard 6 dB band: the >= 6 dB margin band is a typical
+  engineering recommendation, not an RTCA requirement; the verdict in
+  this leaf passes at a minimum margin of >= 0 dB, so treat 6 dB as
+  design guidance, not a failure criterion.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

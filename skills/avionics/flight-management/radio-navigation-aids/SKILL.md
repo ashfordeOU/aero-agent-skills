@@ -128,7 +128,37 @@ Aircraft 10 km east and 17.32 km north of the VOR/DME at 1000 m.
 - gnc-autonomy/navigation/gnss-pseudorange-positioning: the position
   fix boundary feeding the aircraft coordinates.
 
-## Contract test
+## Pitfalls
+
+- Confusing the bearing with the radial: bearing_deg is the direction
+  FROM the station to the aircraft, while the VOR radial is the
+  reciprocal (bearing + 180) mod 360 — a 030 bearing from the station
+  puts the aircraft on the 210 radial, and applying radial_deg twice
+  returns the original bearing.
+- Using ground distance for the DME readout: the DME measures the
+  slant range sqrt(x^2 + y^2 + altitude^2), which always exceeds the
+  ground distance once the altitude is above zero (20024.5 m versus
+  20000.0 m at 1000 m over the worked example) — altitude is not a
+  second-order term in the DME answer.
+- Reversing the deviation signs: localizer deviation is positive when
+  the aircraft is RIGHT of the centerline and glideslope deviation is
+  positive ABOVE the path — an aircraft below the glidepath carries a
+  negative deviation and must correct up, not down.
+- Comparing height to the path instead of angle: gs_deviation_deg
+  computes the actual angle atan(height / distance) and subtracts the
+  nominal 3.0 deg path, so 300 m at 5724 m is on-path (0.0002 deg)
+  while 400 m is about 1 deg high — a fixed height error shrinks as
+  the aircraft nears the threshold.
+- Applying the planar model at long range: the local tangent plane
+  with x east / y north is a documented simplification for short
+  ranges and great-circle corrections are out of scope — do not
+  stretch these station-local formulas across oceanic distances.
+- Feeding non-physical geometry: negative altitude, non-positive
+  distance to the threshold, glideslope angle outside (0, 90) deg,
+  negative height above ground, and non-finite inputs raise ValueError
+  in every entry point.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

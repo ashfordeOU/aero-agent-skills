@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test: DO-254 verification.
 
-Exercises scripts/verification_logic.py (stdlib unittest, offline).
+Exercises scripts/do254_verification_logic.py (stdlib unittest, offline).
 Contract: docs/harness-contract.md gate 3 - complex AEH is verified
 by test/analysis/review and simple AEH by reduced verification
 (review); independent verification is expected at levels A/B;
@@ -17,7 +17,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import verification_logic as vl  # noqa: E402
+import do254_verification_logic as vl  # noqa: E402
 
 
 class MethodSetTest(unittest.TestCase):

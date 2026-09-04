@@ -129,6 +129,32 @@ outputs:
 - feed_system_summary(...) returns all 15 keys in one dict with
   verdict PASS.
 
+
+## Pitfalls
+
+- Confusing the friction branches: Re below 2300 is laminar
+  (f = 64/Re exactly) while turbulent flow uses the Blasius
+  correlation f = 0.3164 Re^-0.25, with the Blasius branch applying
+  at Re = 2300 exactly; the wrong branch changes the loss by
+  several times.
+- Signing the static head backwards: dP_static = rho g h uses the
+  tank height ABOVE the pump inlet, so a pump above the tank makes h
+  negative and REDUCES the available head (a pump 1.0 m above the
+  tank costs 2.5 m of NPSH against the 1.5 m tank case).
+- Quoting NPSH without the boost pump context: the boost pump rise
+  adds to the source pressure at cruise altitude (4.42 m plain
+  versus 17.60 m with the 15 psi rise in the worked example); the
+  verdict must name which configuration it applies to.
+- Treating a negative NPSH available as a rounding artifact: the
+  signed value is returned on purpose - negative NPSHa means the
+  pump inlet cannot be fed at all.
+- Ignoring the velocity-squared losses: both major and minor losses
+  scale with V^2 (doubling the velocity quadruples them), so a feed
+  line sized at cruise flow can starve the pump at the takeoff flow.
+- Forgetting the losses live between the tank and the pump: the NPSH
+  check subtracts the line losses from the source pressure at the
+  engine-driven pump inlet; feed system losses downstream of the
+  pump do not belong in NPSHa.
 ## Verification
 
 - Confirm line_velocity(0.45, 800.0, 0.05) returns velocity 0.28648
@@ -173,7 +199,7 @@ outputs:
 - propulsion/turbomachinery/rocket-turbopump: rocket LOX and kerosene
   turbopump design, not aircraft feed pumps.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

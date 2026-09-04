@@ -156,7 +156,34 @@ Freestream Mach 8, gamma 1.4, the classic modified Newtonian anchors:
 - aerodynamics/high-speed/wave-drag-area-rule: slender-body wave drag,
   the low-Mach complement to the blunt-body estimate here.
 
-## Contract test
+## Pitfalls
+
+- Applying modified Newtonian theory below the hypersonic regime: the
+  sine-squared impact law is a continuum hypersonic estimate (Mach well
+  above 5); the module rejects M at or below 1 with ValueError, and for
+  M below ~5 the supersonic shock-expansion and oblique-shock leaves
+  own the estimate.
+- Reading the stagnation coefficient above 1.839: cp_stagnation
+  approaches the gamma-1.4 limit 1.839 monotonically from below at
+  finite Mach, so a value above the limit signals an input error, not a
+  stronger shock.
+- Dividing by zero at zero incidence: the flat-plate lift-to-drag ratio
+  is undefined at alpha = 0 and is returned as None with all-zero
+  forces — handle the None rather than forcing a ratio.
+- Mixing the shadow conventions: the flat plate uses the Newtonian
+  shadow Cp = 0 on the leeward side while cp_vacuum gives the most
+  negative bound a shadowed surface can carry; pick one convention for
+  the analysis and do not subtract the vacuum value from a
+  Newtonian-shadow plate.
+- Trusting impact theory where the flow is rarefied or detached far from
+  the body: Newtonian pressure integrals assume the shock hugs the
+  surface, so they are an engineering estimate for blunt hypersonic
+  bodies, not a CFD replacement and not valid at low density.
+- Forgetting the angle bounds: theta must lie in [0, 90], alpha in [0,
+  45] and cone half-angles in (0, 90); every out-of-range angle raises
+  ValueError, including through analyze_body dispatch.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

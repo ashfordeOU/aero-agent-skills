@@ -109,6 +109,34 @@ x 0.30 m x 3.00 m. Module outputs:
 - Stowage: 0.66 <= 0.70, 0.22 <= 0.30 and 2.80 <= 3.00, verdict PASS
   with an empty reason list.
 
+
+## Pitfalls
+
+- Ignoring the stroke sign: the actuator stroke is L(down) - L(up),
+  and a down angle below the up angle (or equal geometry at both
+  positions) raises ValueError because the actuator cannot retract
+  the gear - a non-positive stroke is a kinematic failure, not a
+  sizing nuance.
+- Skipping the design factor on the actuator: the force is K * M /
+  r_act with K = 1.5 default and never below 1, covering joint
+  friction and mechanism inefficiency; an undiscounted actuator
+  force under-sizes the actuator and the hydraulic demand.
+- Reading the lock loads off the actuator force: once locked, the
+  over-center lock reacts the gear moment (R = factor * M / r_lock),
+  not the actuator; the down-lock and up-lock hold loads use their
+  own lock arms (19250 and 25666.7 N in the worked example).
+- Sizing the mechanism without the stowage check: the wheel and
+  folded strut envelope must fit the bay in every dimension, and the
+  check reports a reason per failing dimension - a mechanism that
+  retracts into a bay that cannot hold the gear is not sized.
+- Misreading the linkage triangle: the effective length L =
+  sqrt(a^2 + b^2 - 2 a b cos(theta)) always lies between |a - b|
+  and a + b, and the angle must sit inside (0, 180) degrees; a link
+  pair outside that geometry raises ValueError.
+- Doing the static gear sizing here: the touchdown strut demand,
+  nose and main CG split and shock absorber stroke belong to
+  landing-gear-sizing; this leaf sizes the retraction mechanism for
+  a gear that leaf already sized.
 ## Verification
 
 - Confirm retraction_moment(14000, 1.10) returns 15400.0 N m and that
@@ -149,7 +177,7 @@ x 0.30 m x 3.00 m. Module outputs:
 - structures/loads/landing-ground-loads: the ground load cases that
   bound the gear structure the retraction mechanism carries.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

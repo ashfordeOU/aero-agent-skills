@@ -103,6 +103,31 @@ reservoir hold 2 minutes at 1.2 margin. Real module outputs:
 - hydraulic_system_summary(0.0025, 0.30, 6, 4, 3000.0, 0.85, 3000.0,
   1500.0, 1.0): all 13 keys above in one dict.
 
+
+## Pitfalls
+
+- Aggregating more actuators than exist: the worst-case simultaneous
+  demand is n_sim * Q_a with n_sim capped by the actuator count
+  (4 of 6 in the worked example); n_simultaneous above n_actuators
+  raises ValueError.
+- Sizing the pump without the leakage make-up: pump flow is the
+  simultaneous demand plus the system leakage (195.0 vs 180.0 L/min
+  in the worked example), so a zero-leakage assumption under-sizes
+  the pump unless the system really has no leakage.
+- Reading the accumulator at the wrong pressure pair: the gas
+  volumes come from p1 * V1^n = p2 * V2^n between the CHARGED and
+  DEPLETED pressures with V2 - V1 = V_usable (1.5609 and 2.5609 L in
+  the worked example); the closure check must match zero or the
+  pressure pair is inconsistent.
+- Forgetting the depleted pressure must stay below the charged: a
+  depleted pressure at or above the charged pressure is rejected -
+  there is no expansion left to drive the fluid.
+- Mixing psi and Pa at the power step: pump_power converts the psi
+  input internally (3000 psi = 20.68 MPa); the p * Q / eta product
+  only holds in consistent SI.
+- Dropping the simultaneity concept for a single average: the pump
+  must cover the worst simultaneous group, not the average actuator
+  demand, or the control surfaces starve in the worst case.
 ## Verification
 
 - Confirm actuator_flow(0.0025, 0.30) returns flow_lpm 45.0 and that
@@ -134,7 +159,7 @@ reservoir hold 2 minutes at 1.2 margin. Real module outputs:
 - propulsion/turbomachinery/rocket-turbopump: the rocket pump
   boundary, out of scope for aircraft hydraulic pumps.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

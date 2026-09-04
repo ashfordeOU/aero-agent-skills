@@ -105,6 +105,32 @@ module outputs:
 - FPF summary: max_fi = 0.313007, critical_ply_index = 1 (90 degrees),
   fpf_scale_k = 3.1948, FPF load Nx = 319.5 N/mm, reserve factor 3.195.
 
+
+## Pitfalls
+
+- Forgetting the failure index is quadratic: FI is a sum of linear
+  and quadratic stress terms, so the scale factor k* = 1 / max(FI) is
+  a linearized reserve factor - exact at the failure boundary, and an
+  approximation away from it.
+- Reading the critical ply off the wrong stress: in the worked
+  [0/90/45/-45]s case the 90-degree ply is critical through its
+  transverse stress s2 (13.62 MPa against Yt = 40 MPa), not the
+  0-degree fiber stress (259.7 MPa against 1500 MPa); the largest
+  stress is not the failing one.
+- Feeding unbalanced or unsymmetric resultants: the strain recovery
+  ex = a11 Nx + a12 Ny, ey = a12 Nx + a22 Ny, gxy = a66 Nxy assumes a
+  balanced symmetric laminate; coupling terms outside that model
+  need the full laminate-stiffness ABD treatment.
+- Swapping units between resultants and stiffness: loads are in
+  N/mm and moduli in MPa, with ply thickness in mm; the A-matrix
+  entries come out in N/mm and the compliance in mm/N, so mixing SI
+  meters into the stack breaks the strain scale.
+- Using a singular Poisson product: nu12 * nu21 >= 1 makes the
+  plane-stress denominator invalid and raises ValueError; the nu21 =
+  nu12 E2/E1 consistency must hold for the material input.
+- Treating FPF as ultimate laminate failure: first-ply failure is
+  the first ply event under the Tsai-Wu convention; post-FPF load
+  redistribution and delamination growth are different leaves.
 ## Verification
 
 - Confirm first_ply_failure on the worked laminate returns max_fi about
@@ -134,7 +160,7 @@ module outputs:
 - structures/composites/delamination-growth: energy-based growth, not
   stress-based ply failure.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

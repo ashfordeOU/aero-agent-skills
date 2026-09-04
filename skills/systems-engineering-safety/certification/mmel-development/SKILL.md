@@ -159,7 +159,37 @@ Items from the type safety assessment:
 - systems-engineering-safety/arp4754a/configuration-management:
   post-certification change control, out of scope here.
 
-## Contract test
+## Pitfalls
+
+- Granting relief to a hazardous or catastrophic single-string item:
+  FCS-1 (catastrophic, single-string) goes to the forbidden list and
+  never appears in the rows — and an item that is itself the
+  mitigation is forbidden even when redundant, because dispatching it
+  inoperative removes the very protection the safety objective
+  depends on.
+- Reading redundancy alone as eligibility: a hazardous or
+  catastrophic item is eligible only with dual or multi redundancy
+  AND safety_function False, so the remaining channels alone must
+  meet the safety objective — an item that backs a safety function
+  is not relieved by the presence of a twin.
+- Dispatching two inoperative items that share a function group: the
+  double-relief rule fires when both back a safety function (the
+  BRK-1 / BRK-2 brake case), and the proposal verdict FAILs until the
+  combination is split or refused.
+- Submitting rows without their (O) flags: every category A or B row
+  must carry its operating procedure flag, and the verdict checks it
+  alongside the interaction issues and the forbidden-item screen.
+- Applying one interval to all severities: the category tightens as
+  severity rises (catastrophic with redundancy to A, hazardous with
+  redundancy to B, major single-string without crew action to A),
+  while a minor single-string passenger-convenience item outside the
+  flight function groups carries D with no scheduled repair interval.
+- Treating the interval days as approval: A = 3, B = 10, C = 120 and
+  D = no scheduled interval are paraphrased from public FAA MMEL
+  guidance, and actual interval approval is authority-specific — the
+  operator MEL derived from the type-level MMEL is out of scope here.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

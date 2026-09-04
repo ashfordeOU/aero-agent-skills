@@ -158,7 +158,37 @@ eta_heat = 0.85, eta_nozzle = 0.9, family resistojet.
 - propulsion/rocket/propellant-selection: propellant families and
   impulse properties for the broader trade.
 
-## Contract test
+## Pitfalls
+
+- Reading the > 1 thrust efficiency as free energy: eta_t = 1.020 in
+  the worked example is the ideal-model identity
+  eta_heat * eta_nozzle * T_0 / (T_0 - T_in), which exceeds the simple
+  product whenever the plenum temperature T_in > 0 because the vacuum
+  exhaust velocity credits the full chamber enthalpy including the
+  carried-in inlet enthalpy — a recorded assumption of the ideal
+  model, not a conservation violation.
+- Using the simplified efficiency as the exact relation: eta_t =
+  eta_heat * eta_nozzle is only the T_in -> 0 limit; with a 300 K
+  plenum the exact identity must be used, and the two disagree by the
+  T_0 / (T_0 - T_in) factor.
+- Feeding a chamber temperature at or below the plenum: the mass flow
+  is sized on the rise (T_0 - T_in), so T_0 <= T_in raises ValueError —
+  the thruster must heat the propellant above its inlet state.
+- Reporting the operating band as a pass or fail: the 200-350 s
+  resistojet and 400-700 s arcjet bands are published ranges that
+  operating_band_verdict reports but never enforces; a point outside
+  the band is not an error.
+- Confusing the electrostatic siblings with this leaf: hall and gridded
+  thrusters accelerate charged beams through crossed fields or grids,
+  while this leaf only heats propellant and uses no extraction
+  electrodes — do not apply the perveance or beam-current machinery
+  here.
+- Forgetting the vacuum-nozzle assumption: v_e uses the vacuum form
+  where the pressure-ratio term collapses and gamma drops out, and the
+  thrust has no (p_e - p_a) * A_e term — the model is not a
+  finite-back-pressure nozzle analysis.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

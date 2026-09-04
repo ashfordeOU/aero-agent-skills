@@ -100,6 +100,30 @@ Real module outputs on that fixture:
   "angle-random-walk", fitted_slope -0.4977, ad_at_1s 2.0009e-5 and
   arw_deg_per_sqrt_h 0.0688.
 
+
+## Pitfalls
+
+- Asking for an invalid cluster time: a tau below tau0, a tau that is
+  not a whole multiple of tau0, or a cluster longer than (N - 1) / 2
+  samples raises ValueError - the Allan deviation is only defined on
+  the grid of integer multiples up to half the series.
+- Running on too few samples: allan_deviation needs at least 3 rate
+  samples, and short series give noisy high-tau points that drag the
+  fitted slope off its theory value.
+- Reading the noise class off too short a tau range: the -0.5 slope of
+  angle random walk only shows over a wide dyadic grid (the worked
+  example fits tau = 2..256 s); a few points near tau0 classify
+  wrongly.
+- Confusing the process signatures: white rate noise slopes -1/2
+  (angle random walk), its integral slopes +1/2 (rate random walk),
+  quantization slopes -1, and bias instability is the flat floor -
+  classify against the documented bands, not by eye.
+- Scaling ARW with the wrong tau0: angle_random_walk converts the
+  AD at tau = 1 s using tau0_s; a mismatched sample period corrupts
+  the deg/sqrt(h) coefficient a datasheet would quote.
+- Injecting randomness into the module: the logic draws no RNG (the
+  worked example seeds its fixture outside the module), so identical
+  inputs must give byte-identical outputs run to run.
 ## Verification
 
 - allan_deviation raises ValueError for fewer than 3 samples, tau0 <= 0,
@@ -130,7 +154,7 @@ Real module outputs on that fixture:
   boundary; PSD estimation with the Welch periodogram, not the
   time-domain Allan method.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

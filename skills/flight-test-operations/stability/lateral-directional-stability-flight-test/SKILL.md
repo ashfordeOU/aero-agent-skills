@@ -112,6 +112,33 @@ and cl_da = -0.35 /rad. Real module outputs:
   beta_target_deg [0, 5, 10] and cas_ms 80; a beta target of 20 deg
   raises ValueError (outside the declared +-15 deg limit).
 
+## Pitfalls
+
+- Misreading the gradient sign conventions: a positive rudder slope
+  (+0.1227 deg/deg, the pilot pushing the right pedal into the left
+  slip) is stable weathercocking, and the negative aileron slope
+  (-0.1633 deg/deg) is stable dihedral; a negative rudder slope or a
+  positive aileron slope returns "unstable", and an estimate of
+  exactly 0.0 is "unstable" at the threshold edge.
+- Building sideslip points beyond the declared limit: beta targets
+  past +-15 deg raise ValueError, so the sweep matrix must stay inside
+  the declared envelope.
+- Flipping the control-power sign in the estimate: Cn_beta_est =
+  -cn_dr * s_r = -(-0.90) * (+0.1227) = +0.110 /rad, so using the
+  wrong declared cn_dr or cl_da sign turns a stable verdict into an
+  unstable one; cn_dr = 0 or cl_da = 0 raises ValueError.
+- Feeding mismatched or too-short series: the gradients are least
+  squares over the swept points, and mismatched lengths, too-short
+  series, or zero x variance all raise ValueError.
+- Hand-picking two sweep points instead of the full series: the
+  reported gradients come from the exact least-squares fit through all
+  five measured points, and the spec magnitudes (0.10-0.15 rudder,
+  -0.20 to -0.12 aileron, -40 to -20 N/deg pedal) are checked against
+  that fit.
+- Comparing runs at different conditions: the sweep must be at
+  constant CAS (80 m/s) and altitude (3000 m), so points from other
+  conditions need their own reduction.
+
 ## Verification
 
 - Confirm the worked sweep gradients: rudder +0.1227 (positive), aileron
@@ -142,7 +169,7 @@ and cl_da = -0.35 /rad. Real module outputs:
 - flight-test-operations/planning/test-point-matrix-design: sweep matrix
   planning for the test campaign.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

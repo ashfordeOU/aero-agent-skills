@@ -124,6 +124,26 @@ tolerance_category returns "form", the zone is two parallel planes
 0.2 apart, and parse_feature_control_frame raises if a datum is added,
 because form tolerances reference no datum.
 
+## Pitfalls
+
+- Adding a datum to a form tolerance callout: parse_feature_control_frame
+  raises, because form tolerances reference no datum.
+- Reading the zone as a cylinder for every symbol: only location
+  tolerances such as position with the diameter flag get a cylindrical
+  zone; "flatness | 0.2" is two parallel planes 0.2 apart.
+- Forgetting that MMC bonus grows with departure from MMC: the bonus is
+  zero at the MMC size (10.0 for a hole with limits 10.0-10.3) and grows
+  as the feature departs toward LMC.
+- Passing a size outside the size limits: a hole at 9.9 is below MMC and
+  violates the limits, so the logic raises ValueError instead of
+  returning a negative bonus.
+- Applying the MMC bonus machinery to an LMC callout (or assuming a
+  bonus under RFS): LMC callouts use bonus_tolerance_at_lmc, and the
+  RFS default grants no bonus at all.
+- Treating the stated tolerance as the zone at every size: with the M
+  modifier the acceptance zone is stated tolerance plus bonus (0.5 + 0.3
+  = 0.8 for a 10.3 hole), so the zone grows with the feature.
+
 ## Related leaves
 
 - cross-cutting/tolerancing/position-tolerance-calc: full position
@@ -134,7 +154,7 @@ because form tolerances reference no datum.
 - cross-cutting/tolerancing/datum-reference-frames: datum reference
   frame construction and evaluation in detail.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

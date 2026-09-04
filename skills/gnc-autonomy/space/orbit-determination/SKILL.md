@@ -141,6 +141,30 @@ central observation at mean anomaly 10 deg; the central radius is
   scripts/test_orbit_determination.py (29 tests, deterministic,
   under 1 s).
 
+## Pitfalls
+
+- Feeding near-collinear vectors: Gibbs needs the triangle spanned by the
+  three radii - if N or D vanishes the vectors are collinear and
+  gibbs_velocity raises ValueError('near-collinear observation geometry').
+- Trusting Gibbs on closely spaced vectors: choose_method selects
+  herrick-gibbs below the triangle-area threshold (1.0e12 m2; the 60
+  s-spaced LEO example spans 6.82e9 m2) because the classical Gibbs form
+  degrades as the arc shrinks.
+- Time tags must be strictly increasing: repeated or decreasing tags raise
+  ValueError, and the Herrick-Gibbs middle coefficient (dt23 - dt12) is the
+  standard Vallado/Curtis form that vanishes for equally spaced tags.
+- Quoting elements without the vis-viva check: the summary rates the fit
+  'consistent' only when 0.5*|v2|^2 - mu/|r2| equals -mu/(2a) to within 1e-6
+  relative; an inconsistent verdict means the recovered state does not close
+  an orbit.
+- Reading the equatorial/circular conventions as geometry: equatorial orbits
+  take RAAN = 0 by convention and circular orbits take argp = 0 with nu
+  measured from the node (i = 0, RAAN = 0, e = 0, a = 7000 km in the worked
+  special case).
+- Scope guard: this leaf does not propagate (orbit-dynamics), refine with
+  estimators (estimation-filtering) or solve Lambert targeting; zero radius,
+  non-finite components and degenerate radial states raise ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/space/orbit-dynamics: two-body and J2 motion,
@@ -154,7 +178,7 @@ central observation at mean anomaly 10 deg; the central radius is
 - gnc-autonomy/space/attitude-dynamics: the attitude side of the same
   spacecraft, distinct from the translational orbit work here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -127,6 +127,31 @@ approved CG envelope of 15 to 35 percent MAC:
   limits returns resistant; spin_resistance_check(2.1, 800.0)
   returns not-resistant.
 
+## Pitfalls
+
+- Flying CG points outside the approved envelope without approval: the
+  8 points at 36.0 percent MAC against a 15-35 percent approved
+  envelope carry cg_envelope_ok False and need envelope approval or
+  parachute coverage before they fly.
+- Classifying the phase from the turn count alone: the phase label
+  uses the turn count with the sustained yaw rate - (0.5, 25.0) is
+  entry, (1.5, 30.0) incipient, and (2.5, 40.0) developed.
+- Judging recoverability against the wrong criteria: the recovery
+  check compares turns and altitude loss against the program limits
+  (2 turns, 3000 m here), so (1.5, 1800.0) recovers while (3.5,
+  1500.0) exceeds the turn limit and is unrecoverable.
+- Flying developed spin points before the parachute decision: with no
+  prior recovery demonstration and developed spins planned,
+  recovery_parachute_requirement returns required with two reasons and
+  the spin chute is fitted first.
+- Confusing spin resistance with spin recovery: resistance is judged
+  against its own limits (1 turn, 1500 m), so (0.8, 900.0) is
+  resistant while (2.1, 800.0), past the turn limit, is not.
+- Treating the parachute as optional whenever recovery is predicted:
+  the chute is also required on the first flight of a new configuration
+  and when an unrecoverable spin is predicted, per the requirement
+  logic.
+
 ## Related leaves
 
 This leaf sits in the envelope pack beside

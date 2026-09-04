@@ -142,7 +142,34 @@ an upgrade toward Level III under evaluation. Real module outputs:
 - manufacturing-quality/as9100/document-control: houses the
   certification records this leaf's verdicts update.
 
-## Contract test
+## Pitfalls
+
+- Flagging an operator on the due date itself: currency is judged
+  strictly after the due date (due on the date is still current), so
+  a recertification dated today does not make the record
+  recert-due.
+- Reporting a single overdue reason without checking both clocks:
+  expiry of the recertification is checked before vision expiry, and
+  an operator past both due dates is recert-and-vision-due, not
+  recert-due.
+- Reconstructing NAS-410 thresholds from memory: the standard's
+  training-hour and experience tables are gated and never embedded,
+  so hours/months requirements must come from the calling procedure's
+  arguments (backed by the paraphrase-safe documented defaults), never
+  from a remembered table.
+- Evaluating a skipped-level upgrade: eligibility runs only to the
+  level immediately above the current one, so i to iii raises
+  ValueError rather than scoring.
+- Passing an upgrade on partial evidence: eligibility requires the
+  held training hours, the held experience months and the passed
+  examination together — the worked example fails on hours, months
+  and exam all short at once.
+- Certifying a Level I to work alone or under another Level I: a
+  Level I operator must work under a Level II or III supervisor,
+  while Level II and III operators are valid with any supervisor
+  level — supervision_valid(\"i\", \"i\") is False.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

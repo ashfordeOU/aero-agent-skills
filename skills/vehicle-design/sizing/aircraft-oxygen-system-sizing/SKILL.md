@@ -102,6 +102,32 @@ pressure 1800 psi. Real module outputs:
 - oxygen_summary(150, 6, 1800): total_mass_kg = 26.1507 kg (23.5785
   passenger + 2.5722 crew), bottle_volume_l = 15.516 L.
 
+
+## Pitfalls
+
+- Using one architecture for both cabins: passengers get
+  continuous-flow chemical generators (one unit per passenger,
+  5.0 SLPM over 22 min) while the crew runs on diluter-demand
+  gaseous oxygen (2.5 SLPM over 120 min); swapping the flow rates or
+  durations mis-sizes both.
+- Forgetting the unit conversion in the demand mass: m_kg =
+  V_SL * 1.429e-3 exactly (one standard litre of oxygen masses
+  1.429 g at 0 C and 101.325 kPa), so a standard-litre volume quoted
+  directly as grams is off by 1000.
+- Sizing the bottle at the wrong pressure convention: pressures
+  enter in psi and are converted internally (1800 psi in the worked
+  example); the ideal-gas volume is inversely proportional to the
+  service pressure, so a psi-versus-Pa slip mis-sizes the bottle.
+- Confusing standard litres with ambient litres: all demand volumes
+  are at standard conditions (0 C, 101.325 kPa); an ambient-volume
+  demand does not convert through the same density.
+- Neglecting the cabin altitude driver: the design cabin pressure
+  altitude sets the demand context and comes from
+  environmental-control-sizing; this leaf consumes that altitude
+  result as an input rather than re-deriving the schedule.
+- Feeding non-positive occupants, flows, durations, mass, pressure
+  or temperature: every one of these raises ValueError, including
+  through the oxygen_summary convenience call.
 ## Verification
 
 - Confirm passenger_demand(150) returns 16500.0 SL and 23.5785 kg,
@@ -137,7 +163,7 @@ pressure 1800 psi. Real module outputs:
 - vehicle-design/sizing/ice-protection-sizing: surface thermal
   protection, distinct from the breathing oxygen demand sized here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -100,6 +100,31 @@ module outputs (deterministic, printed by the module):
   (spec bound 16-20); the vector magnitude is exactly 3000 m/s, so it
   matches C3 = 9 km2/s2.
 
+
+## Pitfalls
+
+- Mixing parking orbit radius with planet radius: every speed and
+  period here is evaluated at the parking radius r you pass in, so
+  injecting at the wrong altitude (or using the surface radius)
+  shifts C3, v_p, dv and T together.
+- Confusing C3 with injection speed: C3 = v_inf^2 is the energy at
+  infinity; the injection speed at the parking radius is the larger
+  vis-viva value v_p = sqrt(v_inf^2 + 2*mu/r), and the burn is the
+  difference v_p - v_c, not v_inf.
+- Quoting dv as the excess speed: injection delta-v always exceeds
+  the hyperbolic excess (3625.8 m/s dv for a 3000 m/s excess in the
+  worked example); the escape-speed floor appears only when v_inf = 0.
+- Treating the asymptote declination as optional input-agnostic:
+  asymptote_declination needs the actual excess velocity components
+  and returns None when none are given; the zero vector raises
+  ValueError, and a vector whose magnitude does not match sqrt(C3)
+  points at an inconsistent energy state.
+- Skipping the round-trip check: excess_speed_from_c3(c3_from_
+  excess_speed(v)) must return v within 1e-6; a mismatch means a unit
+  or conversion slip in the calling code.
+- Forgetting the far-radius behavior: v_p approaches v_inf only as
+  r grows (residual 130 m/s even at 1e9 m for a 3000 m/s excess), so
+  low parking orbits never see the excess speed at injection.
 ## Verification
 
 - Deterministic: no RNG anywhere; repeated runs return bit-identical
@@ -135,7 +160,7 @@ module outputs (deterministic, printed by the module):
 - space-systems/mission-design/entry-descent-landing: the arrival end
   of the mission.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

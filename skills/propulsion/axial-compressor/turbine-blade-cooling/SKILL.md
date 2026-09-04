@@ -126,7 +126,36 @@ falls below 0.20 only when the allowable metal temperature exceeds
 - propulsion/gas-turbine-cycle leaves: the thermodynamic cycle cost of
   the cooling-air bleed.
 
-## Contract test
+## Pitfalls
+
+- Accepting a coolant fraction above the bleed limit as a closed
+  design: in all three worked-example cases the required fraction (0.75,
+  1.0, 0.5556) far exceeds the 0.20 practical bleed limit, and only the
+  film-cooling effectiveness gain brings the metal temperature inside —
+  the bleed_verdict flags the trade, it does not validate it.
+- Neglecting film cooling when the internal-convection fraction is
+  prohibitive: adding FILM_IMPROVEMENT = 0.15 at the leading edge lifts
+  the effectiveness (0.4286 to 0.5786 in case 1) and turns a 300 K
+  over-temperature into a +105 K margin; reporting the baseline-only
+  number understates what the row can achieve.
+- Setting the allowable metal at or above the gas temperature: the
+  effectiveness definition requires t_metal_allow < t_gas and above
+  t_coolant; t_metal_allow >= t_gas or t_metal_allow <= t_coolant
+  raises ValueError because the metal could not be held.
+- Forgetting the film cap: film effectiveness is capped at PHI_CAP =
+  0.95, so stacking film on top of an already high effectiveness does
+  not keep improving the metal temperature without bound.
+- Confusing the margin direction: margin_k = t_metal_allow - T_m is
+  positive when the scheme holds the metal below the allowable; a
+  negative margin means the metal is too hot, not a safety surplus.
+- Reading the coolant fraction without the cycle and model context: the
+  0.20 bleed limit exists because the cooling-air penalty becomes
+  prohibitive above it (pair with the gas-turbine-cycle leaves), and
+  CP_RATIO = 1.0 is a documented conceptual simplification — real
+  cooling design needs 3D conjugate heat transfer analysis beyond this
+  model.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -98,6 +98,29 @@ ISA state leaf.
 - Round trips: CAS -> TAS -> CAS and TAS -> CAS -> TAS at 0, 3048 and
   9144 m recover the input to below 2e-13 m/s (spec: < 1e-9).
 
+## Pitfalls
+
+- Treating a CAS <-> TAS conversion as a plain unit factor: at altitude
+  the leg is a two-step chain through the local static pressure and
+  speed of sound, so no fixed factor exists and TAS at a fixed CAS grows
+  with altitude.
+- Feeding zero or multiple speed inputs to airspeed_chain: the
+  exactly-one-input rule raises ValueError instead of picking a leg for
+  you.
+- Converting EAS with a sea-level density ratio: the EAS legs carry
+  sqrt(rho/rho0) at the flight condition, and EAS equals CAS and TAS
+  only at sea level where sigma is 1.
+- Passing non-physical states to a leg: altitude < 0, M < 0 or M >= 1,
+  qc < 0, p <= 0, rho <= 0, or a subsonic qc inversion with qc/p >=
+  0.8929 raises ValueError rather than returning an extrapolated number.
+- Reaching for the transonic-similarity coefficient: the Prandtl-Glauert
+  correction belongs to the aerodynamics sibling leaf, and the
+  airspeed-indicator compressibility correction owned here is not the
+  same quantity.
+- Round-tripping across static conditions: CAS -> TAS -> CAS and TAS ->
+  CAS -> TAS recover the input below 1e-9 m/s only when both directions
+  run at the same altitude and static state.
+
 ## Verification
 
 - Worked-example outputs sit inside the spec magnitude bounds above;
@@ -132,7 +155,7 @@ ISA state leaf.
   correction sibling (Prandtl-Glauert family); do not confuse it with the
   airspeed-indicator compressibility correction owned here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

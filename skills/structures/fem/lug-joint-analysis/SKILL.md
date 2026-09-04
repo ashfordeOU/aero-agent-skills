@@ -107,6 +107,32 @@ module outputs:
   e/D about 1.74 at the constant 252000 N. All three modes govern
   across the sweep.
 
+
+## Pitfalls
+
+- Analyzing a non-round-end lug with the round-end convention: the
+  governing map and lug_allowable_capacity assume w = 2e; a lug with
+  width other than twice the edge distance needs the explicit
+  geometry inputs, not the round-end shortcuts.
+- Missing a degenerate edge relation: the hole edge distance must
+  exceed D/2 and the width must exceed D (tearout planes need room
+  to run); degenerate e/D or w/D relations raise ValueError.
+- Reading the margin of the wrong mode: the governing mode is the
+  LOWEST margin, not the largest stress - in the worked 90 kN case
+  tearout governs (+0.926) even though bearing stress (375 MPa)
+  exceeds tearout stress (171.9 MPa), because each margin uses its
+  own allowable.
+- Quoting capacity from a single mode: the lug's limiting capacity
+  is the smallest per-mode allowable load (tearout 173318 N in the
+  worked example); the governing mode changes with e/D, so a
+  fixed-mode capacity statement only holds at one geometry.
+- Sizing lug fittings with a frame solver: pin-loaded lug
+  proportioning with bearing, net tension and tearout is this leaf;
+  beam-frame-analysis and truss-analysis size pin-jointed frames and
+  do not cover lug fittings.
+- Forgetting the applied-load direction: the stresses and margins
+  here assume an AXIAL pin load on the lug; oblique pin loading
+  changes the net-section and tearout paths.
 ## Verification
 
 - Confirm lug_analysis(90000, 0.020, 0.012, 0.048, 0.024, 572e6,
@@ -141,7 +167,7 @@ module outputs:
 - structures/fem/beam-frame-analysis and structures/fem/truss-analysis:
   pin-jointed frame analysis siblings; they do not size lug fittings.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

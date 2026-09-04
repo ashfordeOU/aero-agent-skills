@@ -122,6 +122,33 @@ then rises 0.4 g per g above it.
   +0.55, verdict "buffet-margin-pass". Same data against target 2.0:
   margin -0.15, verdict "buffet-margin-fail".
 
+## Pitfalls
+
+- Setting the RMS onset threshold too high: the detector crosses at the
+  model onset plus (0.02 - 0.004) / 0.4 = 0.04 g with the 0.02 g
+  threshold, so a larger threshold delays the reported buffet onset
+  load factor.
+- Extrapolating cl_buf outside the fitted band: the least-squares line
+  (slope -3.337 per Mach, intercept 3.590) is only fitted over the
+  swept band, and a cruise Mach outside that band raises ValueError
+  instead of extrapolating.
+- Mixing the unit systems in the cruise reduction: n_buf_cruise =
+  cl_buf * q * S / W needs weight in N (1912297 N from 195000 kg), q
+  in Pa, and S in m2; non-positive weight, area, target, or onset
+  threshold raise ValueError.
+- Reading the verdict without the target: the same cruise point passes
+  against a 1.3 target (margin +0.55) and fails against 2.0 (margin
+  -0.15), so the margin and verdict mean nothing without the stated
+  target.
+- Sampling the onset sweep too coarsely: on the 0.1 g grid the crossing
+  is exact only where a sample sits at the model onset, and elsewhere
+  it is interpolated up to one sample step away from the idealized
+  crossing.
+- Feeding non-physical tables: negative altitude, Mach outside (0.1,
+  2.0), empty or 1-sample RMS rows, non-monotonic RMS, no onset
+  crossing, fewer than two fit points, and mismatched table lengths
+  all raise ValueError.
+
 ## Verification
 
 - Confirm isa_state returns 288.15 K / 101325 Pa / 1.225 kg/m3 at sea
@@ -158,7 +185,7 @@ then rises 0.4 g per g above it.
   clearance boundary, the other high speed limit checked alongside the
   buffet boundary.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

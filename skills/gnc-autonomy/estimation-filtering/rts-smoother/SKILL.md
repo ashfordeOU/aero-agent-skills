@@ -131,6 +131,27 @@ diag(100, 10), with the 10 position samples [2.1, 6.8, 11.9, 16.4,
 - Run the contract test offline: python3
   scripts/test_rts_smoother.py (34 tests, deterministic).
 
+## Pitfalls
+
+- Running the smoother online: RTS is a fixed-interval offline batch
+  post-processor over a stored forward Kalman history (smoothed state at the
+  final step equals the filtered state); it never touches the live
+  navigation state.
+- Smoothing with fewer than two measurements: the backward recursion needs
+  at least two epochs and fewer raise ValueError; the smoother gain at the
+  final step is a zero placeholder, not a real gain.
+- Quoting the smoothing benefit from a single step: every smoothed position
+  variance sits at or below the filtered one and smoother_reduction reports
+  all_reduced, boundary_matches and max_reduction (about 0.78 on the worked
+  example); the boundary identity at the last step is the structural check.
+- Expecting the exact-model identity with process noise: the noiseless
+  constant-velocity ramp (q = 0, initial state on the ramp) returns
+  velocities within 1e-9 of 5.0 m/s; with q = 0.1 an off-ramp initial state
+  is a legitimate prior inconsistency, not a bug.
+- Model parameters are validated: dt must be positive, q non-negative, r
+  positive, x0 length 2, P0 2x2, and a singular 2x2 inversion raises
+  ValueError.
+
 ## Related leaves
 
 - gnc-autonomy/navigation/kalman-filter-design: the forward discrete
@@ -147,7 +168,7 @@ diag(100, 10), with the 10 position samples [2.1, 6.8, 11.9, 16.4,
   moving-average smoothing of raw flight-test traces, a different
   smoothing task with no state model.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

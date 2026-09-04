@@ -103,6 +103,31 @@ samples, Nx = 5, Ny = 7).
   3/3).
 - zero_lag_coefficient([1, 2, 3], [3, 2, 1]) = 10/14 = 0.7143.
 
+## Pitfalls
+
+- Misreading the delay sign: a peak at lag -2 means x leads y and
+  delay_estimate returns delay_samples +2 (y is delayed by 2 relative
+  to x); swapping the inputs flips the peak lag sign.
+- Comparing raw values across different lags or lengths: raw mode is
+  the plain sum over the overlap, so its magnitude grows with the
+  overlap count; use the normalized coefficients (in [-1, 1]) when the
+  scale matters.
+- Forgetting what unbiased normalization does at the ragged lags:
+  unbiased divides by the number of overlapping samples at each lag
+  (3 overlapping samples give 3/3 = 1.0 for [1,1,1,1]), while biased
+  divides every value by Nx (0.75 at lag +1 for the same signal).
+- Passing empty, non-numeric, non-finite, or zero-energy inputs: empty
+  sequences, non-numeric or non-finite entries, unknown modes, and
+  zero-energy normalization all raise ValueError.
+- Treating autocorrelation as a delay finder on the wrong signal:
+  the autocorrelation is even with rxx[0] the energy, and an
+  identical-signal cross-correlation peaks at lag 0; a peak elsewhere
+  is the delay of the copy.
+- Calling this leaf for what siblings own: flight-test-data-reduction
+  owns smoothing and time alignment of raw flight-test traces, and
+  ground-vibration-testing owns MAC-based modal correlation; this leaf
+  is the generic discrete time-delay utility.
+
 ## Verification
 
 - Confirm cross_correlation(x, y) on the worked example returns the raw
@@ -137,7 +162,7 @@ samples, Nx = 5, Ny = 7).
   modal correlation of test and analysis mode shapes, which is
   mode-shape matching, not time-series delay estimation.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

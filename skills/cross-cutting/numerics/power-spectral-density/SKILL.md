@@ -111,6 +111,30 @@ outputs of this module:
   bins of the peak), signal-to-noise ratio about 149, and the run is
   bit-identical on repetition.
 
+## Pitfalls
+
+- Doubling the DC or Nyquist bins: P[0] and P[M/2] are NOT doubled, so
+  a constant record of 1.0 integrates to 1.0 with P[0] = 0.166666667,
+  not the doubled 0.333333333.
+- Using a non-power-of-two segment length or other non-physical inputs:
+  seg_len not a power of two, fs <= 0, overlap outside [0, 1), x
+  shorter than seg_len, empty or zero-sum windows, and df <= 0 all
+  raise ValueError.
+- Comparing peak densities across different windows: the peak of a pure
+  sine sits at A^2 / (2 * ENBW), so the density depends on the window's
+  noise bandwidth, while the integrated one-sided power A^2 / 2 does
+  not.
+- Reading the peak as the total power: the energy-conservation check
+  integrates sum_k P[k] * df to the variance (or mean square); the peak
+  height alone undercounts broadband content.
+- Confusing this Welch density with the single-record spectrum: the
+  Hann windowing, 50%-overlap segment averaging, and Hz density scaling
+  are what define this estimate; the FFT sibling transforms one record
+  without them.
+- Expecting the noisy PSD to repeat without its seed: the tone-plus-
+  noise worked case is deterministic only with the fixed seed, and the
+  noiseless anchors are the repeatable checks.
+
 ## Verification
 
 - Confirm the window identities: sum(w) = 128.0 and sum(w^2) = 96.0
@@ -142,7 +166,7 @@ outputs of this module:
   turns an input density spectrum into a response; this leaf estimates
   the input PSD from a measured time history.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

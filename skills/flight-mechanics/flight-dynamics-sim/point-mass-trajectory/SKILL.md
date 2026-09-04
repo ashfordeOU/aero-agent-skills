@@ -128,6 +128,30 @@ gamma0 = 0, with dt = 0.5 s over n_steps = 600 (t = 300 s).
 - Run the contract test offline: python3
   scripts/test_point_mass_trajectory.py (34 tests, deterministic).
 
+## Pitfalls
+
+- Keeping gamma in degrees: the state vector stores the flight-path angle in
+  radians and the steady-climb consistency check compares sin(gamma) values,
+  so a degree-valued gamma silently corrupts the sin(gamma) mean versus the
+  closed-form ratio.
+- Reusing sea-level thrust at altitude: thrust must be re-evaluated with
+  thrust_at_altitude against the current density (T =
+  T_sl*(rho/rho_sl)^0.7); a constant T_sl overstates the climb and pushes
+  the closed-form angle high.
+- Forgetting the fixed-alpha assumption: CL is held constant, so the load
+  factor grows with speed and stall/limit events flag where level-flight
+  trim CL would exceed CL_max; do not read the load-factor peaks as a
+  maneuvering-capability result.
+- Editing the induced drag factor by hand: K must equal 1/(pi*e*AR); the
+  module rejects a k inconsistent with the given e and AR, so pass the
+  geometry and let K follow.
+- Comparing on a short tail: the consistency band compares the mean
+  sin(gamma) over the last 50 s with the closed-form excess-thrust angle;
+  runs shorter than that window have no meaningful steady-climb ratio.
+- Feeding non-physical inputs and reading the error: negative mass, area,
+  thrust, dt, n_steps, V0 <= 0, negative altitude, CD0 < 0, e outside (0, 1]
+  and AR <= 0 all raise ValueError by contract.
+
 ## Related leaves
 
 - flight-mechanics/flight-dynamics-sim/six-dof-simulation: full
@@ -140,7 +164,7 @@ gamma0 = 0, with dt = 0.5 s over n_steps = 600 (t = 300 s).
 - flight-mechanics/performance/descent-performance: the descent
   counterpart of the analytic climb legs.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

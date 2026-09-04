@@ -143,7 +143,34 @@ generator.
 - propulsion/rocket/rocket-staging: the stage architecture the engine
   cycle serves.
 
-## Contract test
+## Pitfalls
+
+- Selecting a cycle outside its feasibility bounds: pressure-fed is only
+  for storable-class systems up to about p_c = 3 MPa and the expander
+  only for the LH2 fuel below p_c = 10 MPa — the worked example's
+  LOX/RP-1 expander at 10 MPa is rejected by cycle_feasibility, not
+  rescued by a bigger turbine.
+- Reading the power balance as the whole story: the +1.214 MW surplus
+  closes the gas-generator cycle, but the pump-fed tank penalty (15.0
+  kg) versus the pressure-fed tank (599.6 kg at 12 MPa) is what decides
+  between feed architectures at this chamber pressure.
+- Forgetting that the fuel leg often drives the pumps: LH2 pumps
+  dominate because of the low density, and in the worked example the
+  RP-1 fuel leg still consumes 1.946 MW of the 5.530 MW total — sizing
+  pumps from the oxidizer leg alone understates the balance.
+- Feeding an efficiency outside (0, 1]: eta_pump and eta_turb outside
+  the open interval raise ValueError, as do non-positive thrust,
+  pressure or mass flow, unknown propellants or cycles and non-finite
+  inputs.
+- Trusting the reference defaults as flight values: the table Isp, the
+  2.0 MPa default injector-plus-line loss and the 3% gas-generator
+  drive are reference-only defaults — the Isp is overridable and the
+  loss and bleed must be set from the actual engine design.
+- Treating the cycle analysis as a chamber or nozzle design: this leaf
+  covers the feed system only; pair it with combustion-chamber-design
+  and nozzle-design before judging the engine.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

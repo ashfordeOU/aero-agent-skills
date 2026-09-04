@@ -106,6 +106,31 @@ the reduction recovers it exactly.
 - Sanity case: range performance linear in Mach gives c2 near zero and
   a "no-maximum" verdict with no reported vertex or LRC Mach.
 
+## Pitfalls
+
+- Comparing raw fuel flows across runs at different test weights: the
+  reduction works on flows corrected to W_ref with the sqrt(W_test /
+  W_ref) factor (2.6423 kg/s at 201000 kg reduces to 2.6357 kg/s at
+  200000 kg), so un-corrected values mask the Mach trend.
+- Reading the LRC Mach as the smaller parabola root: solving the 0.99 *
+  max equation gives roots 0.78775 and 0.81225, and lrc_mach is the
+  larger root 0.81225, the faster cruise point.
+- Reporting a maximum where none exists: when range performance is
+  linear in Mach the quadratic coefficient goes to zero and the verdict
+  is "no-maximum" with no vertex or LRC Mach reported, not a fitted
+  corner.
+- Fitting on too few or duplicate points: fewer than 3 points and
+  duplicate Mach values raise ValueError, as do negative altitude or
+  Mach, non-positive weights, non-positive fuel flow, and Mach outside
+  (0.3, 1.0).
+- Forgetting the speed-of-sound basis of the reduction: V = M * a uses
+  the local speed of sound (296.51 m/s at 10668 m, 340.29 m/s at sea
+  level), so a wrong a shifts every specific-range point.
+- Trusting the vertex without the residual check: on the noise-free
+  fixture the fit recovers the exact model (residuals below 1e-9) and
+  the verdict is "maximum-found"; real data needs the same verdict
+  logic rather than an eyeballed peak.
+
 ## Verification
 
 - Confirm isa_speed_of_sound returns 340.29 m/s at sea level and
@@ -139,7 +164,7 @@ the reduction recovers it exactly.
 - flight-test-operations/performance/climb-performance-flight-test:
   the climb side of the performance flight test campaign.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

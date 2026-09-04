@@ -96,6 +96,34 @@ Module outputs:
   (energy and angular momentum identities) gives a to 3.0e-16
   relative and e to 1.1e-16 absolute.
 
+
+## Pitfalls
+
+- Starting the Newton solve at the wrong guess: the iteration
+  launches from E = M + e sin M and caps at 100 iterations; feeding
+  an initial anomaly far from the true branch still converges, but
+  the high-eccentricity cases (e = 0.99 in the contract test) are
+  where a poor guess costs sweep count and accuracy.
+- Confusing mean and eccentric anomaly: M is the time-linear
+  quantity (M = M0 + n dt) and E is the transcendental one solved
+  from the Kepler equation; mixing them in the radius formula
+  r = a (1 - e cos E) corrupts the state.
+- Using the atan form of the anomaly map: the leaf converts with the
+  branch-safe nu = 2 atan2(sqrt(1+e) sin(E/2), sqrt(1-e) cos(E/2))
+  folded to (-pi, pi]; the naive arctan of the tangent loses the
+  quadrant and the round trip breaks.
+- Treating dt as elapsed from nu0 without the mean-anomaly wrap:
+  propagation adds n dt to M0, so a dt of many periods folds
+  correctly only because M stays the running quantity; the final
+  anomaly is then folded, not the time.
+- Forgetting that a = 12000 km is a radius, not an altitude: every
+  element and output uses the orbital radius scale (the worked
+  example returns r = 13902.997 km), so altitude inputs must be
+  converted before the call.
+- Assuming extraction works here too: this leaf is the forward map,
+  elements to state in time; recovering elements from a state vector
+  belongs to keplerian-elements, so do not look for an inverse
+  element solver in this module.
 ## Verification
 
 - Confirm kepler_solve(1.729018..., 0.35) returns E = 2.041030 rad
@@ -124,7 +152,7 @@ Module outputs:
 - space-systems/orbit-mechanics/lambert-transfer: two-position
   targeting, the boundary case this leaf does not cover.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

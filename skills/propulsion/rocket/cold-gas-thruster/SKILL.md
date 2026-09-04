@@ -138,7 +138,33 @@ throat diameter 0.5 mm, Isp = 65 s, p_min = 2 MPa.
 - propulsion/electric/hall-thruster and the electric pack: the high
   impulse electric alternative for long life station keeping.
 
-## Contract test
+## Pitfalls
+
+- Using a high Isp for the cold gas budget: the specific impulse of a
+  cold gas thruster is low, typically 40 to 75 s for nitrogen because
+  the stored gas is never heated — quoting a chemical-thruster Isp
+  inflates the total impulse and undersizes the plenum.
+- Treating the blowdown as adiabatic: the model assumes isothermal
+  blowdown (thin-walled tank, slow discharge, gas near the wall
+  temperature), which gives the exponential p(t) = p0 * exp(-t / tau);
+  a fast, adiabatic discharge follows a different pressure history.
+- Reporting the initial thrust as the available thrust: at the minimum
+  usable pressure the flow and thrust scale with pressure, so F_min =
+  0.581 N is about 8% of the 7.265 N initial value — the RCS sizing
+  must hold across the blowdown, not at p0.
+- Setting p_min at or above the plenum pressure: operating_time needs
+  p_min below p0 for the logarithm to exist; p_min at or above p0
+  raises ValueError, as do negative query times.
+- Computing the total impulse from the initial mass alone: the impulse
+  is Isp * g0 * (m0 - m_final) over the expelled gas, so the gas left
+  in the tank at p_min (0.690 kg of 8.624 kg in the example) must be
+  subtracted, not included.
+- Using the model beyond its boundary: this leaf is the gas thruster
+  flow and blowdown model, not a tank structural sizer and not an
+  attitude control law — the plenum tank belongs to
+  space-systems/subsystems/propellant-tank-sizing.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

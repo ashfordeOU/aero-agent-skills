@@ -125,6 +125,34 @@ A = 100 mm^2, characteristic length L = 10 mm, alpha = 100:
 - Lagrange on the same pair: penetration enforced to zero; the gap
   check reports enforced when the penetration is within 1e-9.
 
+
+## Pitfalls
+
+- Tuning only the penetration and ignoring conditioning: the penalty
+  force F_n = k_pen * p depends on the user-chosen stiffness, and a
+  stiffness raised far above the element scale (alpha of 10-1000)
+  drives penetration down at the cost of ill-conditioning - the
+  penalty method never gives exact zero penetration.
+- Expecting zero penetration from the penalty method: penetration is
+  always present and only Lagrange (or augmented Lagrange) enforces
+  the constraint exactly; the worked 5.0e-4 mm penetration is under
+  tolerance, not zero.
+- Reading the gap sign backwards: node-to-surface gaps are signed
+  along the master normal - negative is penetration, positive is
+  separation - so a flipped sign turns a penetrating node into an
+  open contact.
+- Using the wrong friction branch: the interface sticks when the
+  trial shear is below mu * |F_n| and slips when it reaches the cap;
+  a high clamping load resists far more shear than the same joint
+  unloaded in the normal direction, and the cap uses the absolute
+  normal force.
+- Mixing units at the interface: the module assumes N/mm (the worked
+  bolt case uses E in N/mm^2 and A in mm^2); feeding SI Pa and m
+  shifts the stiffness estimate by the unit ratio.
+- Confusing contact with the global solve: this leaf computes
+  contact quantities (forces, gaps, friction, tie checks); the
+  nonlinear solver workflow that carries a contact run belongs to
+  calculix-nonlinear.
 ## Related leaves
 
 - structures/fem/calculix-linear: linear static stress and margin of
@@ -136,7 +164,7 @@ A = 100 mm^2, characteristic length L = 10 mm, alpha = 100:
 - structures/composites/composite-bolted-joints: bolted joint strength
   evaluation that consumes bearing contact forces.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -148,6 +148,25 @@ density.
   scripts/test_rotorcraft_vertical_climb_performance.py (35 tests,
   deterministic).
 
+## Pitfalls
+
+- Calling with a negative climb rate: axial momentum theory applies to climb
+  only in this leaf and negative Vc raises ValueError - descending flight
+  (wake distortion, vortex ring) is out of scope.
+- Expecting the climb induced velocity above the hover value: v_i = -Vc/2 +
+  sqrt((Vc/2)^2 + v_h^2) always sits below v_h for positive climb rate and
+  decreases as Vc grows.
+- Reading max_vertical_climb_rate = 200.0 as the exact limit: when the
+  available power exceeds the power required at the 200 m/s upper bracket
+  the bracket value is returned as an excess-power case, not a converged
+  root.
+- Available power below the hover total: a vertical climb is impossible (the
+  power balance has no root) and max_vertical_climb_rate raises ValueError
+  at 300 kW for the worked rotor, which needs about 385.7 kW to hover.
+- Reusing sea-level numbers at altitude: re-run the climb check at the
+  density altitude - induced velocities rise as density drops (rho = 1.06
+  example), changing v_i and the climb power.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-hover-performance: the hover
@@ -163,7 +182,7 @@ density.
   excess-thrust climb case; this leaf owns the rotorcraft vertical
   momentum-theory climb only.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

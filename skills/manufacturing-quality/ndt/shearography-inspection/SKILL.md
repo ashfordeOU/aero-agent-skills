@@ -181,7 +181,35 @@ floor.
   system, test accuracy ratio, and due date controls that cover the
   shearography instrument under the AS9100 process.
 
-## Contract test
+## Pitfalls
+
+- Mixing wavelength and shear units: the phase and strain relations
+  require all lengths in one unit, and the module converts nm and mm
+  inputs to meters consistently — a 532 nm wavelength fed against mm
+  shear without conversion corrupts the strain estimate by orders of
+  magnitude.
+- Selecting shear larger than the defect: the rule sizes shear at
+  about half the minimum defect (10 mm defect to 5 mm shear), so a
+  shear distance near or above the defect size under-strains the
+  anomaly and drops the signal toward the noise floor.
+- Reading an anomaly without the SNR gate: an accept requires the
+  anomaly within the allowable AND the signal to noise at MIN_SNR
+  (3.0) — (8.0, 10.0, 2.0) reviews on low SNR even though the size is
+  inside the allowable.
+- Treating the module load values as release authority: the vacuum
+  breakpoints (20/40/60 mbar), 5 deg C thermal rise and vibration
+  sweep band are documented typical values for aerospace laminates —
+  the approved procedure governs the real load.
+- Dispositioning without the review band: an anomaly between the
+  allowable and the allowable plus the 0.2 band (11 mm over a 10 mm
+  allowable) reviews, and only an anomaly at or beyond the band edge
+  rejects.
+- Letting overlap blow up the scan: coverage needs at least 0.85 of
+  the part with valid phase data, but overlap is capped at 0.95 — the
+  same 1.0 m2 part needs 5 passes at 20 percent overlap and 80 passes
+  at 95 percent, so an unnecessary overlap costs real scan time.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

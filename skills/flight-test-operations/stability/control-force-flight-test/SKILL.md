@@ -98,6 +98,30 @@ Reference transport pitch-force flight test, pull positive:
 - Centering: residual 0.42 deg against a 0.50 deg limit gives margin
   0.08 deg, verdict centered.
 
+## Pitfalls
+
+- Extrapolating the force calibration beyond its two points: the
+  transducer is calibrated at 20 and 60 lbf (slope 0.019802 lbf/count,
+  intercept -4.35644 lbf), and fewer than 2 calibration points or
+  negative counts raise ValueError.
+- Interpreting the gradient sign without the maneuver: the speed sweep
+  gives slope 0.222 lbf/kt with verdict stable-gradient, and a
+  reversed sweep returns unstable-gradient - the sign of the gradient
+  carries the stability claim.
+- Reading the pull-up fit as a speed effect: force_per_g fits the load
+  factor pull-ups (slope 13.14 lbf/g), a different quantity from the
+  speed gradient, so lbf/g and lbf/kt values are not comparable.
+- Passing a push that is not more negative than the pull: the breakout
+  comes from the push -4.2 lbf and pull 6.4 lbf pair (hysteresis width
+  10.6 lbf, breakout 5.3 lbf), and pull not greater than push raises
+  ValueError.
+- Judging centering without the residual margin: a 0.42 deg residual
+  against the 0.50 deg limit gives margin 0.08 deg and verdict
+  centered, so the margin, not the raw residual, is the pass criterion;
+  negative residuals and non-positive limits raise ValueError.
+- Fitting gradients on too few points: fewer than 3 points for the
+  gradient and per-g fits, and length mismatches, raise ValueError.
+
 ## Verification
 
 - Confirm calibrate_force_transducer([20, 60], [1230, 3250]) returns
@@ -126,7 +150,7 @@ Reference transport pitch-force flight test, pull positive:
 - flight-mechanics/stability-control/control-surface-effectiveness:
   the analytic design prediction boundary.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

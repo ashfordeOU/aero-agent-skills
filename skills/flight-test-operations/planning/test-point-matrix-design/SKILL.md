@@ -83,7 +83,7 @@ steady state data quality at each point.
 The grid expansion, repeat marking, efficiency sequencing, and steady
 state check logic is exercised by the gate 3 contract test:
 scripts/test_test_point_matrix_design.py against
-scripts/test_point_matrix_design_logic.py (stdlib unittest, offline).
+scripts/point_matrix_design_logic.py (stdlib unittest, offline).
 Run: python3 scripts/test_test_point_matrix_design.py
 
 ## Compliance

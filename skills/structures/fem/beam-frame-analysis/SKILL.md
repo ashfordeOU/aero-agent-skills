@@ -123,6 +123,33 @@ adds bending and rotation degrees of freedom for rigid frames.
    equilibrium_ok True. Raising the beam second moment of area tenfold
    reduces the top displacement to 3.7675e-4 m.
 
+
+## Pitfalls
+
+- Confusing this solver with the truss sibling: this leaf keeps the
+  rotation degree of freedom at every rigid joint (u, v, theta per
+  node); pin-jointed bar models with two dofs per node belong to
+  truss-analysis.
+- Mis-specifying the support conditions: a fixed foot fixes
+  ("u", "v", "theta"), a pin fixes ("u", "v") and a roller fixes
+  only ("v",); leaving a rotation free that the structure needs
+  constrained, or over-constraining a roller, changes the reaction
+  path and the deflection.
+- Forgetting the sign convention: end actions follow the textbook
+  fixed-end convention (a downward tip load gives V1 = +P and
+  M1 = -P L at the fixed end), so reading member actions against the
+  load direction flips the bending moment sign.
+- Building an unstable model silently: an unconstrained or
+  mechanism structure makes the reduced system singular and the
+  solver raises ValueError with "singular structure"; the model
+  must be stable before displacements mean anything.
+- Checking only displacements, not equilibrium: equilibrium_ok must
+  be True (reactions balance the applied load resultant within
+  1e-6 N) and member end actions must sum with any joint load to
+  zero, or the assembly has an error.
+- Using non-SI or inconsistent member data: E in Pa, A in m^2, I in
+  m^4 and loads in N / N m; mixing mm or kN into the input stack
+  shifts every displacement by the unit ratio.
 ## Verification
 
 - Confirm the cantilever tip values match P L^3/(3 E I) and
@@ -156,7 +183,7 @@ adds bending and rotation degrees of freedom for rigid frames.
 - skills/structures/fem/contact-analysis: contact problems, outside
   this leaf.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

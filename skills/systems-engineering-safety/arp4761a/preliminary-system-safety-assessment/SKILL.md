@@ -161,7 +161,37 @@ two rates.
 - fta-fmea: builds the fault tree and failure mode analyses that
   justify the gate structure of each allocation.
 
-## Contract test
+## Pitfalls
+
+- Allocating with the wrong gate structure: independent contributors
+  that combine by OR share the target by sum (5e-10 per channel for
+  two channels on a 1e-9 target), while redundant channels that must
+  all fail combine by AND and share by product (about 3.16e-5 per
+  channel) — swapping the gates misallocates budgets by orders of
+  magnitude.
+- Reducing the IDAL without justification: the item level is
+  generally equal to the FDAL of the function it implements and may
+  sit one level lower only when the item failure cannot by itself
+  cause the failure condition (architecture redundancy or detection),
+  so the reduction is never automatic.
+- Treating a margin at or below 1.0 as a pass: the realized check
+  reports margin = target / total, and only a margin above 1.0 means
+  the architecture has slack — at or below 1.0 the allocation is not
+  met and the architecture or requirement must be revisited.
+- Feeding an AND gate a non-probability target: the target must be a
+  probability below 1.0, and a value at or above 1.0 is rejected as
+  unallocatable rather than silently apportioned.
+- Claiming PSSA credit on the implemented system: the PSSA is an
+  analytical argument at the proposed-architecture stage, and the SSA
+  later confirms the implemented system meets the allocated
+  requirements — the two steps are not interchangeable.
+- Resting an allocation on equal shares when rates are known: equal
+  allocation (target / n or target ** (1 / n)) is the simplest scheme,
+  and where measured channel rates differ the realized check must
+  replace the budgets with the actual rates before the meets flag is
+  read.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

@@ -63,7 +63,7 @@ def _require_fraction(name, value):
     return value
 
 
-def test_section_area(width, height):
+def section_area(width, height):
     """Cross-sectional area of the test section, width * height."""
     w = _require_positive("width", width)
     h = _require_positive("height", height)
@@ -220,7 +220,7 @@ def analyze(inputs):
             raise ValueError(
                 "test_section_area_m2 or test_section_height_m required"
             )
-        area = test_section_area(width, height)
+        area = section_area(width, height)
     area = _require_positive("test_section_area_m2", area)
     full_span = _require_positive("full_span_m", inputs["full_span_m"])
     full_wing_area = _require_positive(

@@ -129,6 +129,28 @@ cd0 = 0.02, e = 0.8, AR = 9.
 - Run the contract test offline: python3
   scripts/test_speed_stability.py (38 tests, deterministic).
 
+## Pitfalls
+
+- Judging stability from the thrust curve shape instead of the slope: the
+  verdict is dT/dv at the trim speed (positive = stable front side, negative
+  = back side, |dT/dv| < 1e-9 = neutral), and the analytic derivative
+  carries coefficient 4 on the induced term so that its zero lands exactly
+  on v_md.
+- Calling the minimum-drag speed 'neutral' in the wrong sense: at v_md the
+  slope is zero to machine precision and the verdict is neutral; below v_md
+  the trim is speed unstable (region of reversed command), not merely 'low
+  performance'.
+- Quoting a slow-flight margin without its sign: margin_ms = v - v_md is
+  negative below the boundary with unstable_below True (about -30.2 m/s at
+  80 m/s for the worked transport); a negative margin on the back side is
+  the warning, not a number to minimize.
+- Evaluating far outside the swept band: the curve is swept over 0.5*v_md to
+  1.5*v_md (25 points) and the drag polar is parabolic about that trim
+  family.
+- Non-positive weight, wing area, density, cd0, induced factor or trim
+  speed, Oswald efficiency outside (0, 1], and an empty trim list raise
+  ValueError.
+
 ## Related leaves
 
 - flight-mechanics/performance/thrust-required: the same drag polar
@@ -144,7 +166,7 @@ cd0 = 0.02, e = 0.8, AR = 9.
   distinct pitch stability concept about the aerodynamic center, not
   the performance speed stability treated here.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

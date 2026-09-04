@@ -162,6 +162,30 @@ outputs:
   scripts/test_rotorcraft_axial_descent_flow_states.py (34 tests,
   deterministic).
 
+## Pitfalls
+
+- Evaluating momentum theory inside the vortex-ring band:
+  windmill_brake_induced_velocity refuses Vd below 2*v_h with ValueError
+  because momentum theory is invalid there, and the band induced velocity is
+  None; do not fill the band with the closed form.
+- Signing Vd wrong: descent rate is positive downward in this leaf and a
+  negative Vd (climb) raises ValueError - vertical climb is owned by the
+  sibling climb leaf.
+- Reading the signed power without its sign: negative P means the rotor
+  absorbs power from the airstream (windmill-brake working state) and the
+  torque opposes the engine drive; flipping the sign for a 'magnitude'
+  erases the physical verdict.
+- Reporting the formal torque-reversal root as reachable: when c < v_h the
+  momentum root Vd = c + v_h^2/c would demand v_i = v_h^2/c above v_h and is
+  non-physical; the function returns momentum_root_Vd None with the
+  momentum-unreachable verdict, as in the worked rotor (c = 4.955 < v_h =
+  10.589).
+- Reading descent_summary momentum fields at hover or in the band: the
+  induced velocity, power and torque momentum fields are None outside the
+  windmill-brake state by contract.
+- Non-positive thrust, k, or rotor speed and negative profile power raise
+  ValueError; determinism is pinned (no RNG).
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-autorotative-descent: the
@@ -176,7 +200,7 @@ outputs:
   the coefficient-polar blade-element model sharing the reference
   rotor.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

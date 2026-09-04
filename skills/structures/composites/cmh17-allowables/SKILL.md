@@ -145,7 +145,31 @@ the pooled standard deviation stays within the batch spreads, the
 k-factor is driven by the total n, and the pooled allowable is
 computed from the overall mean.
 
-## Contract test
+
+## Pitfalls
+
+- Using the allowable below the minimum sample count: A-basis needs
+  about 10 coupons and B-basis about 6 (verify against the current
+  CMH-17 edition); smaller samples grow the k-factor and the value
+  loses its statistical meaning.
+- Pooling when batches disagree: the pooled standard deviation is the
+  within-batch value sum((n_i - 1) s_i^2) / sum(n_i - 1), so it
+  retains batch scatter only if the batches are genuinely combinable;
+  pooling between-batch spread inflates the estimate.
+- Applying the normal tolerance method to Weibull strength data: for
+  Weibull-distributed properties use the two-parameter MLE content
+  quantile eta * (-ln(p))^(1/beta), not the normal k-factor.
+- Multiplying knockdown factors outside (0, 1]: each factor must be
+  strictly between 0 and 1; a factor at or above 1 (or at or below 0)
+  breaks the combined knockdown 0.9 * 0.85 * 0.95 = 0.72675 chain.
+- Confusing the basis statements: A-basis is 95% confidence / 99%
+  content and B-basis is 95% confidence / 90% content; the table row
+  statement must match the requested basis.
+- Forgetting this is lamina-to-laminate: the knockdown path derives
+  laminate allowables from lamina allowables; the elastic stiffness
+  side (not strength design values) belongs to laminate-stiffness,
+  and the metal counterpart is materials/mmpsd-allowables.
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

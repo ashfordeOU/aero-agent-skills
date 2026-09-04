@@ -113,6 +113,33 @@ with g0 = 9.80665 m/s2; dynamic pressure q = 0.5 * 1.225 * 45^2 =
   wing-stalls-first, which demonstrates the pitch-up risk when the
   CG moves aft.
 
+
+## Pitfalls
+
+- Declaring pitch safety without the stall precedence check: a
+  canard layout is only pitch-safe when the canard stalls first
+  (margin_c < margin_w); in the worked example the aft CG case flips
+  to wing-stalls-first, so a fixed canard area is not safe across
+  the whole CG envelope.
+- Sizing the area and skipping the CG sweep: the trim share f_c =
+  (x_w - x_cg) / (x_w - x_c) falls as the CG moves aft (0.3333 to
+  0.1111 in the worked example), so the surface must be checked at
+  the aft CG where the pitch-up risk lives.
+- Violating the geometry convention: the layout must satisfy
+  x_c < x_cg < x_w with x positive aft; a CG station outside that
+  ordering is rejected and the share formula loses meaning.
+- Comparing margins across the wrong surface: the surface with the
+  SMALLER margin (Cl_max / Cl) reaches its maximum lift first, so
+  canard-stalls-first needs margin_c < margin_w, not the larger
+  coefficient.
+- Forgetting the coefficient depends on dynamic pressure: Cl_c =
+  L_c / (q * S_c) and Cl_w = L_w / (q * S_w) use the trim q; the
+  stall precedence verdict changes if q changes, so the check
+  belongs at the actual trim condition.
+- Treating the canard like a tail: the volume coefficient mirrors
+  V_h but the surface lies FORWARD of the wing and carries upload
+  (positive trim lift), which is the opposite of the download a
+  conventional tail usually carries.
 ## Verification
 
 - Confirm required_canard_area(0.45, 9, 30, 2.8) returns 4.2 m2 and
@@ -146,7 +173,7 @@ with g0 = 9.80665 m/s2; dynamic pressure q = 0.5 * 1.225 * 45^2 =
 - vehicle-design/sizing/wing-planform-sizing: wing reference area
   and chord inputs for the canard volume coefficient.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

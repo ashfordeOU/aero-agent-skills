@@ -18,7 +18,7 @@ from failure_rate_estimation_logic import (
     point_estimate_failure_rate,
     poisson_cdf,
     poisson_rate_upper_bound,
-    test_time_to_demonstrate,
+    time_to_demonstrate,
     zero_failure_demonstrated_rate,
 )
 
@@ -179,41 +179,41 @@ class TestTestTimePlanning(unittest.TestCase):
     def test_classic_1_609_million_hours(self):
         # A 1e-6 per hour rate at 80 percent confidence with zero allowed
         # failures needs chi2(0.80, 2) / 2e-6 = 1.60944e6 test hours.
-        got = test_time_to_demonstrate(1e-6, 0.80, 0)
+        got = time_to_demonstrate(1e-6, 0.80, 0)
         self.assertAlmostEqual(got, 1.60944e6, delta=200.0)
 
     def test_two_allowed_failures(self):
         # chi2(0.95, 6) / 2e-6 = 6.29579e6 test hours.
-        got = test_time_to_demonstrate(1e-6, 0.95, 2)
+        got = time_to_demonstrate(1e-6, 0.95, 2)
         self.assertAlmostEqual(got, 6.29579e6, delta=1000.0)
 
     def test_time_grows_with_confidence(self):
         self.assertGreater(
-            test_time_to_demonstrate(1e-6, 0.95, 0),
-            test_time_to_demonstrate(1e-6, 0.80, 0),
+            time_to_demonstrate(1e-6, 0.95, 0),
+            time_to_demonstrate(1e-6, 0.80, 0),
         )
 
     def test_time_scales_with_target_rate(self):
         # Half the rate target needs twice the test time (same chi-square).
-        t80 = test_time_to_demonstrate(1e-6, 0.80, 0)
-        t40 = test_time_to_demonstrate(2e-6, 0.80, 0)
+        t80 = time_to_demonstrate(1e-6, 0.80, 0)
+        t40 = time_to_demonstrate(2e-6, 0.80, 0)
         self.assertAlmostEqual(t80, 2.0 * t40, delta=1.0)
 
     def test_round_trip(self):
         # Demonstrating a rate at a confidence and reading the bound back
         # recovers the target rate from the zero-failure rule.
-        t = test_time_to_demonstrate(1e-6, 0.80, 0)
+        t = time_to_demonstrate(1e-6, 0.80, 0)
         self.assertAlmostEqual(
             zero_failure_demonstrated_rate(t, 0.80), 1e-6, delta=1e-15
         )
 
     def test_invalid(self):
         with self.assertRaises(ValueError):
-            test_time_to_demonstrate(0.0, 0.8, 0)
+            time_to_demonstrate(0.0, 0.8, 0)
         with self.assertRaises(ValueError):
-            test_time_to_demonstrate(-1e-6, 0.8, 0)
+            time_to_demonstrate(-1e-6, 0.8, 0)
         with self.assertRaises(ValueError):
-            test_time_to_demonstrate(1e-6, 0.8, -1)
+            time_to_demonstrate(1e-6, 0.8, -1)
 
 
 class TestPoissonAcceptance(unittest.TestCase):
@@ -267,7 +267,7 @@ class TestDemonstratedConfidence(unittest.TestCase):
     def test_zero_failure_consistency(self):
         # The demonstrated confidence inverts the zero-failure rule.
         conf = 0.85
-        t = test_time_to_demonstrate(2e-6, conf, 0)
+        t = time_to_demonstrate(2e-6, conf, 0)
         self.assertAlmostEqual(
             confidence_from_zero_failure_test(t, 2e-6), conf, places=6
         )

@@ -162,7 +162,35 @@ severity major (expected events 2.0). Field events: 2 hazardous
 - systems-engineering-safety/certification/mmel-development: dispatch
   relief planning uses the same failure-condition severity inputs.
 
-## Contract test
+## Pitfalls
+
+- Waiting for the rate to prove a single severe event: one hazardous
+  or catastrophic event is significant regardless of the rate — the
+  single-event rule fires even against a 1e-8 predicted rate and
+  routes an airworthiness-directive-request with immediate urgency.
+- Closing a condition out on a not-significant verdict alone: with
+  inadequate exposure (expected events below the 5.0 threshold, as in
+  both worked conditions) the route is continued-monitoring, not
+  no-action — the verdict and the adequacy screen must be read
+  together.
+- Judging significance on one path only: significance fires on the
+  Poisson exceedance tail at or below alpha 0.05, OR the observed rate
+  at least 2.0x the predicted rate, OR the single-event rule — any one
+  path makes the condition significant.
+- Reviewing events against an unknown condition: every event
+  condition must appear in the SSA predictions, and an event mapped
+  to a condition missing from predictions raises ValueError rather
+  than silently scoring against nothing.
+- Confusing this leaf with the statistics sibling: the Poisson tail is
+  implemented here, but chi-square confidence bounds, test-hours
+  sizing and zero-failure demonstrations belong to
+  failure-rate-estimation and are not re-derived in this review.
+- Routing without the trend input: corrective_route takes
+  trend_direction (-1, 0, 1), so a major significant condition with an
+  increasing trend routes service-bulletin while the same verdict
+  without the trend signal does not.
+
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

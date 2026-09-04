@@ -122,6 +122,32 @@ Highpass order 2 at fc = 100 Hz on the same channel:
   12.72 dB at fc/2 = 50 Hz and reaches below -15 dB by fc/4 = 25 Hz
   (-24.65 dB); the -15 dB contract bound is asserted at 25 Hz.
 
+## Pitfalls
+
+- Skipping the frequency prewarp: the design maps the analog prototype
+  through the bilinear transform at prewarp(100, 1000) = 649.8393, and
+  the cutoff gain of -3.0103 dB only holds when fc is prewarped before
+  the mapping.
+- Asserting spec bounds the standard method cannot meet: an order-2
+  Butterworth highpass attenuates only 12.72 dB at fc/2 (a 12 dB per
+  octave rolloff from the -3.01 dB point), so the -15 dB contract bound
+  is asserted at 25 Hz where it genuinely holds, not at 50 Hz.
+- Designing outside the supported orders: the design functions accept
+  order 1..8 (butterworth_poles 1..10), probe frequencies must lie in
+  (0, fs/2), and fs <= 0, cutoff <= 0, cutoff >= fs/2, empty or
+  non-finite samples, and unknown ftype all raise ValueError.
+- Reading the stability verdict above order 4 as a guarantee: stability
+  is verified as stable True only for orders 1..4 and returns None above
+  order 4, while a fabricated denominator with a root at z = 1.1
+  reports stable False with a FAIL verdict.
+- Reading the DC response from the transient: a constant input of 5.0
+  settles to 5.0 within 0.001 only after the transient decays (the last
+  50 samples of the worked record), not from the leading samples.
+- Expecting highpass coefficients to look like lowpass ones: the
+  even-order highpass shares the lowpass denominator (a = [1.0,
+  -1.14298, 0.41280]) while the numerator signs alternate (b =
+  [0.638946, -1.277891, 0.638946]).
+
 ## Verification
 
 - Confirm prewarp(100, 1000) returns 649.8393925 (spec anchor 649.8393
@@ -162,7 +188,7 @@ Highpass order 2 at fc = 100 Hz on the same channel:
   signals, complementary to filtering when the goal is an integral
   rather than a cleaned time series.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

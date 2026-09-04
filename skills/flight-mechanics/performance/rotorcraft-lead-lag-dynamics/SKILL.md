@@ -136,6 +136,27 @@ module outputs:
   scripts/test_rotorcraft_lead_lag_dynamics.py (30 tests, deterministic,
   no network).
 
+## Pitfalls
+
+- Reusing the flap formula for lag: at e = 0 the lag frequency is exactly
+  zero (no 1/rev term), unlike flap where nu = 1; the lag ratio is
+  sqrt(1.5*e/(1 - e)).
+- Passing a measured articulated nu as the first summary argument:
+  lead_lag_summary treats any first argument below 1 as the hinge offset e
+  and converts it, so a direct nu of 0.28 (articulated band) would be
+  misread as e = 0.28; pass values >= 1 only when they are true nu values
+  (stiff-inplane practice).
+- Forgetting the |1 - nu| = 0 guard: a lag ratio of exactly 1/rev puts the
+  regressing mode at zero frequency and coincidence_rotor_speed raises
+  ValueError on the division.
+- Reading resonance-adjacent without the margin: the verdict uses a default
+  margin of 0.20 on the clearance fraction; the worked articulated rotor at
+  44 rad/s with a 5.0 Hz airframe sits about 0.7% from coincidence and is
+  correctly resonance-adjacent, while the 3.5 Hz case (about 30% away) is
+  clear.
+- Negative margin, hinge offset outside [0, 1), rotor speed or airframe
+  frequency at or below 0 raise ValueError.
+
 ## Related leaves
 
 - flight-mechanics/performance/rotorcraft-blade-flapping-dynamics: the
@@ -149,7 +170,7 @@ module outputs:
   autorotation of a stalled wing is a different topic and lives in the
   fixed-wing stability leaves.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

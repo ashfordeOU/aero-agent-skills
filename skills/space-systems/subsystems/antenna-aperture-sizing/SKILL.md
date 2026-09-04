@@ -101,6 +101,32 @@ noise temperature 150 K. Real module outputs:
 - Gain over temperature: G/T = 33.5 - 10 * log10(150) = 11.7391 dB/K,
   inside the 11-13 dB/K bound (about 11.74 dB/K).
 
+
+## Pitfalls
+
+- Sizing from the wrong gain sense: the required gain is an INPUT
+  handed over from the forward link budget, and this leaf works the
+  reverse direction (gain to diameter); feeding a received-power or
+  EIRP figure instead of the antenna gain sizes the wrong dish.
+- Forgetting the wavelength changes the diameter: aperture scales as
+  lambda / pi * sqrt(G/eta), so a frequency slip (S-band 2.2 GHz is
+  lambda = 0.136269 m) directly rescales the reflector at fixed gain.
+- Dropping the aperture efficiency: eta defaults to 0.6 and must lie
+  in (0, 1]; an ideal eta = 1 sizing undersizes the real reflector,
+  and the achieved gain must be checked with the round trip
+  (gain error below 1e-6 dB in the worked example).
+- Treating the pointing loss as negligible: the budget is
+  12 * (pointing_fraction)^2 dB against an allowed error of
+  pointing_fraction * theta_3dB, so a sloppy pointing requirement
+  eats the link margin the antenna was sized to close.
+- Confusing gain and G/T: G/T = receive_gain_db - 10 log10(T) needs
+  the receive noise temperature and comes back in dB/K; omitting the
+  temperature returns None from the sizing dict rather than a
+  number.
+- Ignoring the beam narrowness of a big dish: beamwidth is
+  70 * lambda / D, so a large aperture needs a proportionally
+  tighter pointing budget and a better star tracker or RF sensing
+  than the 0.360 deg default allowance.
 ## Verification
 
 - Confirm antenna_sizing(33.5, 2.2e9, 0.6, 150.0) returns a diameter in
@@ -128,7 +154,7 @@ noise temperature 150 K. Real module outputs:
 - space-systems/subsystems/spacecraft-battery-sizing: the companion power
   subsystem sizing leaf.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

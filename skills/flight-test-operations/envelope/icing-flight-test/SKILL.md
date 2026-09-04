@@ -144,6 +144,31 @@ Certification campaign planning for the reference encounter at TAT
 - summarize(0.30, 20, -10, 45) folds the verdict and the severity into
   one report dict for the log.
 
+## Pitfalls
+
+- Checking LWC against the continuous limit alone: a point above the
+  continuous envelope still has the intermittent-max envelope to check
+  (im_lwc_limit(-10) = 1.4 g/m3), so LWC 1.0 at MVD 25 is
+  intermittent-max, not outside.
+- Ignoring the droplet-size band: MVD 40 stays continuous-max, MVD 41
+  and 50 fall under intermittent-max, and anything above 50 micron is
+  the supercooled large droplet exclusion - LWC 0.3 at MVD 60 is
+  outside even though its LWC alone fits.
+- Rating severity from the LWC ratio alone: ratio 0.5 rates light at
+  the start, but the same exposure steps to moderate past 30 minutes
+  and caps at severe, so exposure time is part of the rating.
+- Trimming the artificial shape matrix to the lifting surfaces: a
+  wing-and-horizontal-tail-only matrix fails the check with a missing
+  vertical-tail issue (plus windshield and probe); the full
+  five-surface matrix is required.
+- Planning the natural icing search without checking the freezing
+  level: with the freezing level at 2000 ft below the 3000 ft cloud
+  base the search returns ok False; raising the freezing level to
+  4000 ft returns ok True.
+- Feeding non-physical inputs: negative lwc or mvd, non-finite values,
+  coverage_frac outside [0, 1], and unknown surfaces or shape types
+  all raise ValueError.
+
 ## Verification
 
 - Confirm cm_lwc_limit(-10) returns exactly 0.44 and im_lwc_limit(-10)
@@ -176,7 +201,7 @@ Certification campaign planning for the reference encounter at TAT
   the ice detection and probe equipment, distinct from this flight
   level campaign.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

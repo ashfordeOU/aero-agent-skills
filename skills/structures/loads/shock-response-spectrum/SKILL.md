@@ -110,6 +110,33 @@ Decaying-sine case, amplitude 10 g, T 10 ms, tau 30 ms, Q 10: the
 pulse content sits at fd = 1/T = 100 Hz and the curve maximum is
 35.780 g at exactly 100 Hz, the resonance of the decaying transient.
 
+
+## Pitfalls
+
+- Reading the low-frequency branch as zero response: oscillators
+  slow relative to the pulse still respond (0.309 g at 5 Hz for the
+  worked 10 g pulse); the SRS rises from near zero only at very low
+  frequency.
+- Expecting the maximum at the pulse's own frequency: for the
+  half-sine the amplification peak sits where the pulse spectrum
+  meets the resonance (80 Hz for a 10 ms pulse, not 1/T = 100 Hz);
+  the decaying-sine maximum, in contrast, sits at 1/T exactly.
+- Trusting the free ring after a half-sine: the ideal pulse leaves a
+  residual base velocity whose low-frequency ring is an artifact of
+  the idealization and is excluded from the support, keeping the
+  classical SRS shape.
+- Choosing a grid that skips the peak: the maximum and its
+  amplifying frequency only appear if a grid point lands in the
+  amplification band, so the grid must cover the equipment modes and
+  the pulse content.
+- Confusing pseudo acceleration with peak absolute acceleration:
+  the SRS ordinate is wn^2 * max|x(t)|, which equals the peak
+  absolute acceleration only within the Q-squared correction for
+  light damping.
+- Feeding non-physical pulse inputs: amplitude or duration at or
+  below zero, q <= 0.5, empty grids, frequencies at or below zero,
+  unknown pulse types and non-positive decay tau all raise
+  ValueError.
 ## Verification
 
 - Confirm the half-sine worked example values above: 0.309 g at 5 Hz
@@ -142,7 +169,7 @@ pulse content sits at fd = 1/T = 100 Hz and the curve maximum is
   for equipment environmental qualification, the consumer of these
   response levels.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

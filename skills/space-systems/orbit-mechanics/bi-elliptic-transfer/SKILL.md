@@ -104,6 +104,28 @@ apogee r_b = 2 * r2 = 394680 km. Module outputs (deterministic):
 - Transfer time: 1248552.7 s, about 14.45 days, versus the roughly
   5.3-hour Hohmann coast for the same orbit pair.
 
+
+## Pitfalls
+
+- Passing altitude instead of radius: all inputs are circular orbit
+  radii in meters (r1, r2, r_b), so a 300 km orbit enters as
+  6578000 m, not 300000.
+- Choosing r_b at or below the target: the intermediate apogee must
+  sit above r2 (r_b <= r2 raises ValueError); r_b close to r2 just
+  degenerates into the Hohmann budget and buys nothing.
+- Reversing the transfer direction: an inward transfer (r2 <= r1) is
+  rejected with ValueError - this leaf models outward raises only.
+- Expecting the extra burn to always pay: the bi-elliptic total only
+  beats Hohmann at large radius ratios (the worked example saves
+  113.4 m/s at r2 = 30 r1); at small ratios like r2 = 2 r1 the
+  verdict is "hohmann" and ties go to the simpler two-burn strategy.
+- Comparing strategies on delta-v alone: the bi-elliptic coast runs
+  14.45 days versus a 5.3-hour Hohmann coast in the worked example,
+  so a delta-v saving can be a mission-time loss.
+- Forgetting the burn directions: dv1 and dv2 are prograde raises,
+  but dv3 is the retrograde circularization at the target perigee;
+  the three values are magnitudes, and only their sum forms the
+  total.
 ## Verification
 
 - Worked-example bounds (contract anchors): Hohmann total in
@@ -136,7 +158,7 @@ apogee r_b = 2 * r2 = 394680 km. Module outputs (deterministic):
 - space-systems/orbit-mechanics/orbital-perturbations: J2 and drag
   effects that a many-day transfer arc accumulates.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 

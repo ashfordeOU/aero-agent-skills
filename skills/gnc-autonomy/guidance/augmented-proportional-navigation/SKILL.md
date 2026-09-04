@@ -122,6 +122,24 @@ Geometry check with rel_pos = (8000, 6000) m and rel_vel = (-600, -300) m/s:
   scripts/test_augmented_proportional_navigation.py (33 tests,
   deterministic).
 
+## Pitfalls
+
+- Running the augmented law without the target acceleration estimate:
+  a_T_perp is a required input from the tracking filter or target state
+  estimate (any sign); with it zeroed the augmented command degenerates to
+  the pure PN command and the leaf adds nothing.
+- Time-to-go on opening geometry: Vc is negative when the target recedes and
+  time_to_go raises ValueError for closing velocity <= 0 or negative range;
+  confirm Vc > 0 first.
+- Reading the command in the wrong units: the commands come out in m/s2 (pn
+  18.0, apn 38.0 on the worked example) and commanded_accel_g divides by
+  9.80665; g loads are the pilot/airframe-relevant read.
+- Expecting a linear scaling in N': the augmentation adds exactly
+  N'/2*a_T_perp (N' = 4 with a 10 m/s2 target adds 20 m/s2), so raising the
+  navigation ratio raises both the PN term and the augmentation term.
+- Zero relative position (range 0) and navigation_ratio <= 0 raise
+  ValueError; the module is deterministic with no stochastic draws.
+
 ## Related leaves
 
 - gnc-autonomy/guidance/proportional-navigation: the unaugmented
@@ -134,7 +152,7 @@ Geometry check with rel_pos = (8000, 6000) m and rel_vel = (-600, -300) m/s:
 - gnc-autonomy/guidance/midcourse-guidance: waypoint steering before the
   terminal homing phase that APN commands.
 
-## Contract test
+## Behavior contract (gate 3)
 
 Run the deterministic contract test (stdlib unittest, offline):
 
