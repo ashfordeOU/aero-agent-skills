@@ -69,6 +69,9 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/handling-qualities/pitch-bandwidth-criteria | Pitch bandwidth criteria | pitch bandwidth criterion, phase delay tau, bandwidth frequency, phase margin 45 degrees, MIL-STD-1797A bandwidth, short period transfer function, actuator lag, flying qualities level |
 | flight-mechanics/performance/rotorcraft-hover-performance | Rotorcraft hover performance | rotorcraft hover, momentum theory, induced velocity, figure of merit, profile power, disk loading, rotor solidity, hover power |
 | flight-mechanics/performance/rotorcraft-forward-flight-performance | Rotorcraft forward flight performance | rotorcraft forward flight, Glauert inflow, induced power, parasite power, equivalent flat plate area, best endurance speed, best range speed |
+| flight-mechanics/performance/rotorcraft-vertical-climb-performance | Rotorcraft vertical climb performance | rotorcraft vertical climb, climb induced velocity, climb power, maximum vertical rate of climb, axial momentum theory |
+| flight-mechanics/performance/rotorcraft-hover-ground-effect | Rotorcraft hover in ground effect | hover in ground effect, IGE induced power, ground effect factor, rotor height over radius, ige hover ceiling |
+| flight-mechanics/performance/rotorcraft-tail-rotor-sizing | Rotorcraft tail rotor sizing | tail rotor, anti-torque rotor, main rotor torque, tail rotor thrust, tail rotor power, disk loading |
 
 ## Routing guidance
 
@@ -116,6 +119,9 @@ to the
 - Short-period natural frequency and damping from stability derivatives, dimensionless derivative conversion, and Level 1 flying qualities checks route to the stability-control short-period-mode-analysis sub-skill.
 - Windshear and microburst F-factor hazard, downdraft out-climb, energy height loss, and recovery thrust questions route to the performance windshear-analysis sub-skill.
 - Rotorcraft hover performance questions (rotorcraft hover, momentum theory induced velocity, figure of merit, profile power, disk loading, rotor solidity) route to the performance rotorcraft-hover-performance sub-skill.
+- Rotorcraft tail rotor and anti-torque questions (main rotor torque, tail rotor thrust, tail rotor radius, tail rotor power) route to the performance rotorcraft-tail-rotor-sizing sub-skill.
+- Rotorcraft hover-in-ground-effect questions (ground effect factor, IGE induced power, ige-hover-ceiling, rotor height over radius) route to the performance rotorcraft-hover-ground-effect sub-skill.
+- Rotorcraft vertical climb questions (vertical climb momentum theory, climb induced velocity, climb power required, maximum vertical rate of climb) route to the performance rotorcraft-vertical-climb-performance sub-skill.
 - Rotorcraft forward flight questions (Glauert inflow, induced power, parasite power, equivalent flat plate area, best endurance speed, best range speed) route to the performance rotorcraft-forward-flight-performance sub-skill.
 
 ## Install
