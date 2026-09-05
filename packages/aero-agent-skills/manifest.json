@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 521,
+  "leaves": 536,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1058
+  "corpus_tasks": 1088
  },
  "skills": [
   {
@@ -430,6 +430,21 @@
     "sutton-graves",
     "radiation-equilibrium-temperature",
     "nose-radius-bluntness"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/bow-shock-standoff",
+   "name": "bow-shock-standoff",
+   "description": "Use when you must estimate the detached bow-shock standoff distance ahead of a blunt nose: compute the standoff ratio Delta over R with the classical Billig-form correlations for a sphere nose and a circular cylinder leading edge at gamma 1.4, convert the ratio to a physical standoff distance for a given nose radius, and report the trend checks that the standoff decreases with Mach and that the cylinder standoff exceeds the sphere standoff at the same Mach. Produces the standoff ratio, the standoff distance and the sanity flags that gate blunt-body nose-radius trades and shock-layer thickness estimates. Trigger: bow shock standoff, billig correlation, stagnation streamline, shock layer thickness, detached shock distance, blunt body nose radius.",
+   "tags": [
+    "bow-shock-standoff",
+    "billig-correlation",
+    "blunt-body-shock-distance",
+    "shock-layer-thickness",
+    "stagnation-streamline"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -1626,6 +1641,21 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/chi-square-goodness-of-fit",
+   "name": "chi-square-goodness-of-fit",
+   "description": "Use when you must test whether observed counts fit a stated categorical model: the chi-square goodness-of-fit statistic as the sum of the squared observed-minus-expected gaps over expected counts, the degrees of freedom k minus 1 minus estimated parameters, and the one-tailed p-value from the chi-square survival function via its own regularized lower incomplete gamma, returning the reject or fail-to-reject verdict at a stated significance level. Produces the statistic, degrees of freedom, p-value and verdict that gate model checks such as uniform defect counts per day or Poisson counts per inspection unit. Trigger: chi-square goodness of fit, observed versus expected counts, categorical model fit, count data fit, goodness-of-fit p-value.",
+   "tags": [
+    "chi-square-goodness-of-fit",
+    "categorical-model-test",
+    "observed-versus-expected",
+    "count-data-model-fit",
+    "goodness-of-fit-p-value"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/complex-number-algebra",
    "name": "complex-number-algebra",
    "description": "Use when you must compute complex-number algebra with the Python standard library: form a complex value from rectangular or polar coordinates, add, subtract, multiply and divide complex values, take the conjugate, modulus and argument, raise a complex value to an integer power by De Moivre's formula, generate the n-th roots of unity, and convert between rectangular, polar and Euler exponential forms, verifying identities such as z times its conjugate equals the squared modulus and e to the i pi plus 1 equals 0. Produces the algebra result set that gates phasor, impedance, frequency-response and AC circuit work that needs an explicit complex toolkit. Trigger: complex-number-algebra, complex-arithmetic, polar-form, euler-formula, de-moivre, roots-of-unity, phasor-math, rectangular-form, complex-conjugate.",
@@ -1745,6 +1775,21 @@
     "rayleigh-quotient",
     "symmetric-matrix",
     "spectral-decomposition"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/exact-binomial-test",
+   "name": "exact-binomial-test",
+   "description": "Use when you must test an observed count against a hypothesized proportion: compute the exact binomial tail probability of k or fewer successes in n trials under a null proportion p zero, form the two-sided p-value by doubling the one-sided tail mass capped at one with an optional mid-p variant and a continuity-corrected normal cross-check, and decide the verdict against a significance level. Produces the exact p-value, the lower and upper tail masses, the observed direction, and the small-count recommendation that gate attribute-data significance claims. Trigger: exact binomial test, binomial tail probability, k of n successes, single proportion significance, mid p correction, attribute data significance.",
+   "tags": [
+    "exact-binomial-test",
+    "single-proportion-test",
+    "binomial-tail-p-value",
+    "k-of-n-significance",
+    "mid-p-binomial"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -1893,6 +1938,21 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/kruskal-wallis-test",
+   "name": "kruskal-wallis-test",
+   "description": "Use when you must compare three or more independent groups without the normality assumption: run the Kruskal-Wallis test by merging all observations, assigning average ranks for ties, computing the H statistic, applying the ties correction denominator, evaluating the p-value from the chi-square survival function with k minus 1 degrees of freedom, and returning the verdict at the chosen significance level. Produces H, the ties-corrected H, degrees of freedom, p-value, per-group rank sums and the gate verdict for non-normal group data. Trigger: kruskal wallis test, h-statistic, distribution-free k sample significance, rank-based multi-group comparison, chi-square survival p-value, coating batch roughness, process temperature settings.",
+   "tags": [
+    "kruskal-wallis-test",
+    "h-statistic",
+    "nonparametric-anova",
+    "rank-based-multi-group",
+    "distribution-free-k-sample"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/least-squares-regression",
    "name": "least-squares-regression",
    "description": "Use when you must fit a straight line to paired measurements by ordinary least squares: compute the slope and intercept of the best fit, the residual standard deviation, and the coefficient of determination, and predict the response at a new input. Produces the fit coefficients, the goodness of fit, and the residual scatter that gate whether the linear model is adequate for the analysis. Trigger: least squares, linear regression, best fit line, slope, intercept, residual standard deviation, coefficient of determination, r squared, prediction.",
@@ -2012,6 +2072,37 @@
     "newton-method",
     "line-search",
     "unconstrained-minimum"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/poisson-confidence-interval",
+   "name": "poisson-confidence-interval",
+   "description": "Use when you must compute a confidence interval for a Poisson rate from a count over an exposure: estimate the rate lambda_hat = k / T, form the exact Garwood interval from in-leaf chi-square quantiles with lower bound chi2(2k, alpha/2)/(2T) and upper bound chi2(2k+2, 1-alpha/2)/(2T), and report the normal approximation as the large-count cross-check. Produces the rate estimate, the exact lower and upper bounds per exposure unit, the approximation bounds, and the containment verdict that gates defect-rate and rare-event claims. Trigger: poisson rate confidence interval, defect count per flight cycle, garwood exact bound, count rate interval, rare event rate claim.",
+   "tags": [
+    "poisson-confidence-interval",
+    "count-rate-interval",
+    "defect-rate-estimation",
+    "garwood-exact-interval",
+    "poisson-rate-ci"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/power-analysis",
+   "name": "power-analysis",
+   "description": "Use when you must determine the sample size or the statistical power of a planned comparison: compute the minimum sample size per group for a two-sample pooled z-based comparison at a significance level, target power and effect size, with the one-sample and one-sample-proportion variants, round up to whole groups, and evaluate the achieved power at the rounded sample size. Produces the per-group sample size, the total sample size and the achieved power that gate qualification-test planning and experiment sizing. Trigger: power analysis, minimum sample size, sample size per group, statistical power, achieved power, type II error, effect size, half sigma shift, eighty percent power, two-sample comparison, qualification-test planning.",
+   "tags": [
+    "power-analysis",
+    "sample-size-determination",
+    "type-ii-error",
+    "effect-size",
+    "minimum-sample-size",
+    "achieved-power"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -2246,6 +2337,21 @@
     "degrees-of-freedom",
     "datum-simulators",
     "asme-y14-5"
+   ],
+   "family": "cross-cutting",
+   "pack": "tolerancing",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/tolerancing/fastener-position-tolerance-calc",
+   "name": "fastener-position-tolerance-calc",
+   "description": "Use when you must size positional tolerances or clearance holes for mating fastener patterns: compute the total positional tolerance budget as the clearance hole MMC diameter minus the fastener maximum diameter, split the budget between the two mating members with the floating fastener formula, apply the fixed fastener formula when the threaded member share acts through a projected tolerance zone, and invert the formula to find the minimum clearance hole MMC diameter for a given fastener and tolerance split. Produces the tolerance split, the minimum hole diameter and the projected zone height that gate the hole pattern callout. Trigger: fastener position tolerance, fixed fastener, floating fastener, clearance hole MMC, projected tolerance zone, mating hole pattern, hole pattern callout, maximum material condition.",
+   "tags": [
+    "fastener-position-tolerance-calc",
+    "fixed-fastener-formula",
+    "floating-fastener-formula",
+    "projected-tolerance-zone",
+    "mating-hole-clearance"
    ],
    "family": "cross-cutting",
    "pack": "tolerancing",
@@ -2684,6 +2790,22 @@
     "landing-climb",
     "climb-gradient",
     "takeoff-climb"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/propeller-range",
+   "name": "propeller-range",
+   "description": "Use when you must compute the cruise range of a propeller or turboprop aircraft: form the range with the propeller Breguet equation from power specific fuel consumption and propeller efficiency at a given lift to drag ratio, convert a pounds per horsepower hour PSFC into SI kilograms per watt second when needed, and derive the final mass from the fuel fraction. Produces the cruise range in meters and kilometers for fuel planning between the initial and final mass. Covers the propeller branch of the Breguet range family that the jet-only range relation leaves open. Trigger: propeller range, turboprop cruise range, PSFC, power specific fuel consumption, propeller efficiency, fuel fraction, lift to drag ratio, mass ratio.",
+   "tags": [
+    "propeller-range",
+    "psfc",
+    "power-specific-fuel-consumption",
+    "propeller-efficiency",
+    "turboprop-range",
+    "fuel-fraction"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -6051,6 +6173,23 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/gas-turbine-cycle/turbojet-cycle",
+   "name": "turbojet-cycle",
+   "description": "Use when you must analyze an ideal single-stream turbojet core cycle at flight conditions: compute the freestream stagnation temperature from the flight Mach number, the compressor exit temperature from the pressure ratio, the fuel-to-air ratio from the turbine inlet temperature and the combustor efficiency, the turbine exit temperature from the compressor-turbine work balance, the nozzle exit temperature and exit velocity, the net specific thrust as the exit velocity minus the flight velocity, the turbojet TSFC and the propulsive efficiency. Produces the station temperatures, the specific thrust and the TSFC that gate core-engine matching and cycle-trade studies. Trigger: turbojet core cycle, ideal turbojet, compressor-turbine matching, turbine inlet temperature, net specific thrust, turbojet TSFC, core-engine matching, cycle trade study.",
+   "tags": [
+    "turbojet-cycle",
+    "ideal-turbojet",
+    "compressor-turbine-matching",
+    "turbine-inlet-temperature",
+    "net-specific-thrust",
+    "turbojet-tsfc",
+    "core-engine-matching"
+   ],
+   "family": "propulsion",
+   "pack": "gas-turbine-cycle",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/ramjet/ramjet-cycle",
    "name": "ramjet-cycle",
    "description": "Use when you must analyze the ideal ramjet cycle: compute the flight stagnation temperature from the speed of sound and Mach number, the total temperature ratio across the combustor from the fuel air ratio and lower heating value, the specific thrust from the Mach number and total temperature ratio, the total thrust from the captured mass flow, and the specific impulse and thermal efficiency from the fuel flow. Produces the specific thrust, thrust, specific impulse, and thermal efficiency that gate the airbreathing hypersonic engine assessment. Trigger: ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse.",
@@ -6210,6 +6349,23 @@
     "pump-fed",
     "pump-power",
     "turbine-power"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/rocket/rocket-gravity-loss",
+   "name": "rocket-gravity-loss",
+   "description": "Use when you must account for gravity loss in a launch-vehicle powered ascent: compute the burn time from the propellant load and its flow rate, the launch thrust-to-weight ratio from the sea-level thrust and the initial mass, the gravity loss as g0 times the burn time for a vertical ascent or as g0 times the burn time times the sine of a constant mean flight-path angle for a pitched ascent, and the effective ascent delta-v as the ideal delta-v minus the gravity and drag losses. Produces the burn time, launch thrust-to-weight ratio, gravity loss and effective ascent delta-v that turn an ideal delta-v budget into an ascent-feasible requirement. Trigger: gravity loss, powered ascent, launch vehicle ascent, burn time, thrust-to-weight ratio, vertical ascent, pitched ascent, effective delta-v.",
+   "tags": [
+    "rocket-gravity-loss",
+    "gravity-loss",
+    "launch-vehicle-ascent",
+    "ascent-delta-v",
+    "powered-ascent",
+    "burn-time-estimate",
+    "launch-thrust-to-weight"
    ],
    "family": "propulsion",
    "pack": "rocket",
@@ -6534,6 +6690,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/adcs/gravity-gradient-stabilization",
+   "name": "gravity-gradient-stabilization",
+   "description": "Use when you must design or analyze passive gravity-gradient stabilization: check the inertia-ratio stability criterion I_y > I_x > I_z with y along the orbit normal for a nadir-pointing spacecraft, compute the pitch libration frequency and period from the mean motion and the inertia spread, estimate the gravity-gradient restoring torque at a pitch offset, and size a gravity boom tip mass for a target libration stiffness. Produces the stability verdict, the libration period, the restoring torque and the boom sizing that gate the passive attitude design of a nadir-pointing spacecraft. Trigger: gravity-gradient stabilization, inertia-ratio criterion, pitch libration frequency and period, gravity boom sizing, nadir-pointing spacecraft, passive attitude stabilization.",
+   "tags": [
+    "gravity-gradient-stabilization",
+    "gravity-boom",
+    "libration-frequency",
+    "inertia-ratio-criterion",
+    "passive-attitude-stabilization",
+    "nadir-pointing"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/adcs/gyro-allan-variance",
    "name": "gyro-allan-variance",
    "description": "Use when you must characterize gyroscope noise for ADCS sensor selection: compute the overlapping Allan deviation AD(tau) over a correlation-time grid from a rate sample time series with cumulative sums, fit the log-log noise slope, categorize the noise process from the slope band (white noise or angle random walk at about -1/2, rate random walk at about +1/2, quantization at about -1, bias instability as a flat floor), and extract the angle random walk coefficient in deg/sqrt(h). Produces the Allan deviation curve, the noise classification, the fitted slope and the ARW coefficient that gate gyro selection. Trigger: gyro Allan deviation, allan deviation, angle random walk, rate random walk, bias instability, gyro noise model, noise slope, gyroscope rate noise, ARW coefficient, deg per root hour.",
@@ -6788,6 +6960,23 @@
     "shielding-attenuation",
     "collision-probability",
     "mission-design"
+   ],
+   "family": "space-systems",
+   "pack": "mission-design",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/mission-design/synodic-launch-window",
+   "name": "synodic-launch-window",
+   "description": "Use when you must determine the interplanetary launch-window timing between two planets: compute the synodic period of the launch opportunity recurrence for near-circular coplanar orbits, the heliocentric departure phase angle required for a Hohmann window, the recurrence epochs, and the phase progression between windows. Produces the synodic period, the departure phase angle, the window epochs, and the phase check that gate interplanetary mission window planning. Trigger: synodic period, launch window recurrence, departure phase angle, hohmann window, heliocentric transfer, interplanetary window, opportunity recurrence, synodic-launch-window, earth to mars.",
+   "tags": [
+    "synodic-launch-window",
+    "synodic-period",
+    "launch-window-recurrence",
+    "departure-phase-angle",
+    "heliocentric-transfer",
+    "interplanetary-window",
+    "hohmann-window"
    ],
    "family": "space-systems",
    "pack": "mission-design",
@@ -7459,6 +7648,23 @@
     "cure-cooldown-strain",
     "hygral-strain",
     "laminate-moisture-content"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
+   "path": "structures/composites/laminate-plate-buckling",
+   "name": "laminate-plate-buckling",
+   "description": "Use when you must compute the elastic buckling load of an orthotropic or laminated flat plate: evaluate the energy-method critical load N_x_cr(m, n) per unit width for integer half-wave counts m and n from the classical lamination theory bending stiffnesses D11, D22, D12 and D66, minimize over the mode counts, and return the critical load, the governing buckling mode and the stability margin against the applied in-plane compression load. Produces the critical load, the buckling mode and the margin that gate composite panel stability checks. Trigger: laminate-plate-buckling, laminate-buckling, orthotropic-plate-buckling, d-matrix, buckling-mode-minimization, composite-panel-stability, compression-buckling.",
+   "tags": [
+    "laminate-plate-buckling",
+    "laminate-buckling",
+    "orthotropic-plate-buckling",
+    "d-matrix",
+    "buckling-mode-minimization",
+    "composite-panel-stability",
+    "compression-buckling"
    ],
    "family": "structures",
    "pack": "composites",
@@ -8293,6 +8499,21 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/arp4761a/beta-factor-analysis",
+   "name": "beta-factor-analysis",
+   "description": "Use when you must quantify the common-cause contribution to redundant-channel failure: split a component failure rate into the independent rate (1 - beta) * lambda and the shared common-cause rate beta * lambda, compute the common-cause shock probability Q_cc = 1 - exp(-beta * lambda * t), compute the dual-channel failure probability that combines the independent double failure with the common-cause shock by inclusion-exclusion, and compute the CCF enhancement ratio over the independence-only assumption. Produces the rate split, Q_cc, the dual-channel CCF-inclusive probability and the enhancement ratio that gate redundancy credit decisions. Trigger: beta-factor-analysis, beta-factor, common-cause-fraction, ccf-probability, common-cause-model, redundant-channel failure, common-cause shock.",
+   "tags": [
+    "beta-factor-analysis",
+    "beta-factor",
+    "common-cause-fraction",
+    "ccf-probability",
+    "common-cause-model"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/arp4761a/common-cause-analysis",
    "name": "common-cause-analysis",
    "description": "Use when you must plan or review common cause analysis for a safety assessment per ARP4761A: score the zonal safety analysis items in a zone, check that the analysis set covers zonal, particular risk, and common mode analysis, and flag zones that need action. Produces the zone score and verdict, and the common cause analysis set completeness check. Trigger: common cause analysis, zonal safety analysis, particular risk analysis, common mode analysis, arp4761a, zsa.",
@@ -8302,6 +8523,22 @@
     "particular-risk-analysis",
     "common-mode-analysis",
     "zsa"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/arp4761a/failure-mode-criticality",
+   "name": "failure-mode-criticality",
+   "description": "Use when you must quantify and rank the failure modes of an item by their rate-based criticality: split the item failure rate into per-mode rates with the mode ratios, compute the MIL-STD-1629A style criticality number C_m = beta * alpha * lambda_p * t for every mode with its failure-effect probability, sum the per-mode criticalities into the item criticality C_r, and rank the modes by C_m with each mode's share of item criticality and a dominant-mode flag. Produces the per-mode rate split, the C_m values, C_r and the sorted rank list that gates maintenance and redesign prioritization. Trigger: failure-mode criticality, fmeca criticality number, mode ratio, failure-effect probability, item criticality.",
+   "tags": [
+    "failure-mode-criticality",
+    "fmeca-criticality",
+    "criticality-number",
+    "mode-ratio",
+    "failure-effect-probability",
+    "item-criticality"
    ],
    "family": "systems-engineering-safety",
    "pack": "arp4761a",
