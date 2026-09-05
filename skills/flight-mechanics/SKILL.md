@@ -36,6 +36,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | Path | Skill | When to route to it |
 |---|---|---|
 | flight-mechanics/performance/breguet-range | Breguet range | cruise range, TSFC, lift-to-drag, fuel fraction, cruise time |
+| flight-mechanics/performance/propeller-range | Propeller range | propeller range, PSFC, power specific fuel consumption, propeller efficiency, turboprop range, fuel fraction |
 | flight-mechanics/performance/breguet-endurance | Breguet endurance | loiter endurance, holding time, SFC, fuel burn, final weight |
 | flight-mechanics/performance/specific-range | Specific air range | specific air range, fuel flow, instantaneous range, fuel burn per sector |
 | flight-mechanics/performance/takeoff-performance | Takeoff performance | ground roll distance, lift-off speed, stall speed from wing loading |
@@ -86,6 +87,9 @@ lateral-directional stability, and dynamic stability modes analysis.
   fuel flow, and sector fuel burn questions route - Mil-std-1797a questions route to the handling-qualities mil-std-1797a sub-skill.
 to the
   specific-range sub-skill.
+- Propeller and turboprop cruise range questions (power-specific fuel
+  consumption and propeller efficiency with the propeller Breguet
+  range equation) route to the performance propeller-range sub-skill.
 - Takeoff and ground-roll questions route to takeoff-performance.
 - Landing distance, approach speed, flare, ground roll, and stopping
   distance questions route to the landing-performance sub-skill.

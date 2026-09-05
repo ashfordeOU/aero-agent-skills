@@ -62,6 +62,7 @@ selection, and classical orbital element determination.
 | space-systems/mission-design/radiation-debris | Radiation and debris environment | radiation environment, trapped belts, total ionizing dose, single event effects, SEU rate, solar particle events, orbital debris, shielding attenuation, collision probability, mission design |
 | space-systems/mission-design/entry-descent-landing | Entry descent and landing | entry descent landing, entry corridor, ballistic coefficient, entry heating, sutton-graves, deceleration, parachute, terminal velocity |
 | space-systems/mission-design/launch-window-analysis | Launch Window Analysis | launch window, launch azimuth, inclination, sun-synchronous, ltan, raan, plane change, delta-v, orbital plane, direct injection, ksc. |
+| space-systems/mission-design/synodic-launch-window | Synodic launch window | synodic period, launch window recurrence, departure phase angle, heliocentric transfer, interplanetary window, Hohmann window |
 | space-systems/orbit-mechanics/low-thrust-spiral | Low-thrust spiral transfer | low-thrust transfer, Edelbaum, continuous thrust spiral, inclination change, spiral transfer time |
 | space-systems/adcs/reaction-wheel-control | Reaction wheel control | reaction wheel control, wheel torque command, wheel momentum saturation, momentum desaturation, quaternion error feedback |
 | space-systems/orbit-mechanics/clohessy-wiltshire | Clohessy-Wiltshire | Clohessy-Wiltshire, Hill equations, relative motion state transition matrix, deputy chief, two-impulse targeting, along-track drift |
@@ -77,6 +78,7 @@ selection, and classical orbital element determination.
 
 | space-systems/subsystems/antenna-aperture-sizing | Antenna aperture sizing | antenna aperture sizing, parabolic reflector gain, aperture efficiency, required antenna gain, half power beamwidth, pointing loss budget, gain over temperature |
 | space-systems/adcs/attitude-determination-quest | Attitude determination QUEST | attitude determination quest, Wahba problem, Davenport q method, optimal attitude quaternion, multi vector observation, observation weighting |
+| space-systems/adcs/gravity-gradient-stabilization | Gravity gradient stabilization | gravity gradient stabilization, gravity boom, libration frequency, inertia ratio criterion, passive attitude stabilization, nadir pointing |
 | space-systems/orbit-mechanics/kepler-orbit-propagation | Kepler orbit propagation | kepler orbit propagation, keplerian propagation, kepler equation, mean anomaly, eccentric anomaly, time since periapsis |
 | space-systems/adcs/gyro-allan-variance | Gyro Allan variance | gyro Allan variance, Allan deviation, angle random walk, rate random walk, bias instability, gyro noise model |
 | space-systems/adcs/pointing-error-budget | Pointing error budget | pointing error budget, pointing accuracy, rss pointing error, jitter budget, adcs error allocation |
@@ -169,3 +171,5 @@ your host's skills directory (see README Install for per-host commands).
 
 - Geostationary station-keeping questions (annual north-south delta-v from the inclination drift, per-burn delta-v and propellant, east-west deadband cycle and cadence, uncontrolled drift time to the inclination tolerance) route to the orbit-mechanics geostationary-station-keeping sub-skill.
 - Doppler frequency questions (range rate from the pass geometry, received frequency offset, worst-case Doppler at the horizon, Doppler rate at acquisition for receiver design) route to the subsystems doppler-shift sub-skill.
+- Interplanetary window timing questions (synodic recurrence of launch opportunities, heliocentric departure phase angle for the Hohmann window, window epochs between two planets) route to the mission-design synodic-launch-window sub-skill.
+- Passive gravity-gradient stabilization questions (inertia-ratio stability criterion, pitch libration frequency and period, restoring torque at an offset, gravity-boom tip mass sizing for the target stiffness) route to the adcs gravity-gradient-stabilization sub-skill.

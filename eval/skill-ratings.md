@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 521
+Total skills rated: 536
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -528,3 +528,18 @@ Total skills rated: 521
 | 519 | space-systems/subsystems/doppler-shift | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 520 | cross-cutting/numerics/fisher-exact-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 521 | manufacturing-quality/as9100/variables-acceptance-sampling | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
+| 522 | systems-engineering-safety/arp4761a/beta-factor-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 523 | systems-engineering-safety/arp4761a/failure-mode-criticality | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 524 | aerodynamics/high-speed/bow-shock-standoff | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 525 | propulsion/gas-turbine-cycle/turbojet-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 526 | flight-mechanics/performance/propeller-range | PASS | ✓ | far-25 | flight-mechanics | 9.5 | PASS |
+| 527 | structures/composites/laminate-plate-buckling | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 528 | space-systems/adcs/gravity-gradient-stabilization | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 529 | propulsion/rocket/rocket-gravity-loss | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 530 | cross-cutting/numerics/kruskal-wallis-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 531 | cross-cutting/numerics/poisson-confidence-interval | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 532 | cross-cutting/numerics/chi-square-goodness-of-fit | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 533 | cross-cutting/numerics/power-analysis | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 534 | space-systems/mission-design/synodic-launch-window | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 535 | cross-cutting/tolerancing/fastener-position-tolerance-calc | PASS | ✓ | asme-y14-5 | cross-cutting | 9.5 | PASS |
+| 536 | cross-cutting/numerics/exact-binomial-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |

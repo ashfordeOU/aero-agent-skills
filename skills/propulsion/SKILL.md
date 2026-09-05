@@ -54,6 +54,7 @@ compressor stage and operating-map analysis.
 | propulsion/axial-compressor/turbine-blade-cooling | Turbine blade cooling | turbine blade cooling, cooling effectiveness, coolant flow fraction, film cooling, allowable metal temperature, coolant supply temperature, bleed limit, hot section cooling |
 | propulsion/rocket/rocket-sizing | Rocket sizing | rocket equation delta-v, mass ratio, propellant mass, staging |
 | propulsion/rocket/rocket-staging | Rocket staging | stage mass ratio allocation, payload fraction, structural index, stage count optimization, per-stage delta-v |
+| propulsion/rocket/rocket-gravity-loss | Rocket gravity loss | rocket gravity loss, launch vehicle ascent, ascent delta v, powered ascent, burn time estimate, launch thrust to weight |
 | propulsion/rocket/nozzle-design | Rocket nozzle design | area ratio, exit Mach, mass flow, ideal thrust, expansion |
 | propulsion/rocket/propellant-selection | Propellant selection | propellant families, density impulse, mixture ratio, storability, mass fraction |
 | propulsion/ramjet/ramjet-cycle | Ramjet cycle | ideal ramjet, fuel air ratio, total temperature ratio, specific thrust, specific impulse |
@@ -76,6 +77,7 @@ compressor stage and operating-map analysis.
 | propulsion/gas-turbine-cycle/propelling-nozzle | Propelling nozzle | propelling nozzle, convergent jet nozzle, nozzle throat area, choked nozzle regime, gross thrust pressure term |
 | propulsion/gas-turbine-cycle/subsonic-inlet-recovery | Subsonic inlet recovery | subsonic inlet recovery, ram recovery ratio, engine face total pressure, intake capture area, spillage verdict, duct total pressure efficiency |
 | propulsion/gas-turbine-cycle/intercooled-cycle | Intercooled cycle | intercooled cycle, intercooler effectiveness, intercooler pressure ratio, two stage compression, compression work split, cycle work gain |
+| propulsion/gas-turbine-cycle/turbojet-cycle | Turbojet cycle | turbojet cycle, ideal turbojet, compressor turbine matching, turbine inlet temperature, net specific thrust, turbojet TSFC, core engine matching |
 | propulsion/rocket/rocket-nozzle-flow-separation | Rocket nozzle flow separation | rocket nozzle flow separation, separation pressure ratio, Summerfield criterion, overexpanded nozzle, separation altitude, separated thrust loss, side load regime |
 
 
@@ -152,3 +154,5 @@ your host's skills directory (see README Install for per-host commands).
 - Subsonic turbofan intake questions (ram recovery from flight Mach, engine-face total pressure after duct efficiency, capture-area and spillage verdict against the highlight) route to the gas-turbine-cycle subsonic-inlet-recovery sub-skill.
 - Intercooled Brayton questions (intercooler effectiveness, two-stage compression split, optimum intercooler pressure ratio, specific-work gain over the simple cycle) route to the gas-turbine-cycle intercooled-cycle sub-skill.
 - Overexpanded rocket nozzle flow-separation questions (separation pressure ratio, Summerfield criterion, separation-station area ratio, separation altitude, separated thrust loss, side-load regime) route to the rocket rocket-nozzle-flow-separation sub-skill.
+- Powered-ascent gravity-loss questions (burn time from propellant and mass flow, launch thrust-to-weight, gravity loss over the mean flight-path angle, effective ascent delta-v after the losses) route to the rocket rocket-gravity-loss sub-skill.
+- Ideal single-stream turbojet core questions (compressor-turbine work-balance matching, turbine-inlet-temperature-driven specific thrust, turbojet TSFC and propulsive efficiency at flight Mach) route to the gas-turbine-cycle turbojet-cycle sub-skill.

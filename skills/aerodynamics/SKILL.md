@@ -72,6 +72,7 @@ estimation, validated against classic reference data.
 | aerodynamics/cfd/delta-wing-vortex-lift | Delta-wing vortex lift | delta wing vortex lift, leading edge suction analogy, slender delta wing, Polhamus, vortex lift split, drag due to lift |
 | aerodynamics/boundary-layer/boundary-layer-separation | Boundary layer separation | boundary layer separation, Thwaites lambda criterion, Stratford separation criterion, laminar separation point, turbulent separation station, separation margin, adverse pressure gradient |
 | aerodynamics/high-speed/flat-plate-skin-friction-heating | Flat plate skin friction heating | flat plate skin friction heating, recovery factor, adiabatic wall temperature, cold wall heat flux, reference temperature method, Reynolds analogy factor, non-stagnation heating |
+| aerodynamics/high-speed/bow-shock-standoff | Bow shock standoff | bow shock standoff, Billig correlation, blunt body shock distance, shock layer thickness, stagnation streamline standoff |
 
 ## Routing guidance
 
@@ -128,3 +129,4 @@ your host's skills directory (see README Install for per-host commands).
 - Dynamic indicial gust response and magnification-factor questions route to the aeroelasticity aeroelastic-gust-response sub-skill.
 - Shock-expansion surface-pressure integration and wave-drag questions route to the high-speed shock-expansion-airfoil sub-skill.
 - Winglet sizing, tip-device induced-drag reduction, effective-aspect-ratio gain, and root bending moment penalty questions route to the wing-design winglet-design sub-skill.
+- Blunt-nose detached bow-shock standoff questions (standoff ratio and shock-layer thickness on the stagnation streamline for sphere and cylinder noses from the Billig-form correlations) route to the high-speed bow-shock-standoff sub-skill.
