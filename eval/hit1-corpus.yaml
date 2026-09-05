@@ -245,6 +245,11 @@
 # leaves). Wave-38 new leaves: "aerodynamics/boundary-layer/boundary-layer-separation", "avionics/flight-management/dme-arc-leg", "space-systems/subsystems/doppler-shift", "systems-engineering-safety/arp4761a/fault-tree-importance-measures", "cross-cutting/numerics/fisher-exact-test", "aerodynamics/high-speed/flat-plate-skin-friction-heating", "propulsion/gas-turbine-cycle/intercooled-cycle", "cross-cutting/numerics/multiple-linear-regression", "cross-cutting/numerics/proportion-confidence-interval", "structures/fatigue/random-vibration-fatigue", "avionics/flight-management/rhumb-line-leg", "propulsion/rocket/rocket-nozzle-flow-separation", "avionics/fsw/shared-resource-access-control", "structures/fem/torsion-shear-flow", "manufacturing-quality/as9100/variables-acceptance-sampling".
 # Corpus: 1058 tasks (1028 prior plus 30 domain tasks). Owner: Ops
 # Manager, Wave 38 build.
+# P5.2 / Wave 39 (2026-09-05): fan-out continues on the public
+# v1.0.0 model to 536 verified skills (548 SKILL.md under gate 1: 12 routers + 536
+# leaves). Wave-39 new leaves: "systems-engineering-safety/arp4761a/beta-factor-analysis", "aerodynamics/high-speed/bow-shock-standoff", "cross-cutting/numerics/chi-square-goodness-of-fit", "cross-cutting/numerics/exact-binomial-test", "systems-engineering-safety/arp4761a/failure-mode-criticality", "cross-cutting/tolerancing/fastener-position-tolerance-calc", "space-systems/adcs/gravity-gradient-stabilization", "cross-cutting/numerics/kruskal-wallis-test", "structures/composites/laminate-plate-buckling", "cross-cutting/numerics/poisson-confidence-interval", "cross-cutting/numerics/power-analysis", "flight-mechanics/performance/propeller-range", "propulsion/rocket/rocket-gravity-loss", "space-systems/mission-design/synodic-launch-window", "propulsion/gas-turbine-cycle/turbojet-cycle".
+# Corpus: 1088 tasks (1058 prior plus 30 domain tasks). Owner: Ops
+# Manager, Wave 39 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4789,6 +4794,126 @@ tasks:
     query: "form the Q statistic from the upper specification limit and the sample standard deviation and run the mil-std-414 k-method accept verdict"
     intent: "manufacturing-quality; form-Q variables acceptance decision"
     expected_skill: "manufacturing-quality/as9100/variables-acceptance-sampling"
+  - id: w39-beta-factor-analysis-1
+    query: "apply the beta-factor-analysis to split the redundant-channel failure rate into the independent and the common-cause-fraction and compute the dual-channel ccf-probability"
+    intent: "systems-engineering-safety; beta-factor rate split and CCF dual-channel probability"
+    expected_skill: "systems-engineering-safety/arp4761a/beta-factor-analysis"
+  - id: w39-beta-factor-analysis-2
+    query: "compute the common-cause-probability of the beta-factor common-cause model and the CCF enhancement over the independence-only assumption for the redundant channels"
+    intent: "systems-engineering-safety; common-cause shock probability and enhancement ratio"
+    expected_skill: "systems-engineering-safety/arp4761a/beta-factor-analysis"
+  - id: w39-bow-shock-standoff-1
+    query: "estimate the bow-shock-standoff ratio on the stagnation streamline for the sphere nose at mach 8 with the billig-correlation"
+    intent: "aerodynamics; sphere detached bow-shock standoff distance ratio"
+    expected_skill: "aerodynamics/high-speed/bow-shock-standoff"
+  - id: w39-bow-shock-standoff-2
+    query: "compute the blunt-body shock-layer-thickness standoff distance for the cylinder leading edge at mach 4"
+    intent: "aerodynamics; cylinder bow-shock standoff distance"
+    expected_skill: "aerodynamics/high-speed/bow-shock-standoff"
+  - id: w39-chi-square-goodness-of-fit-1
+    query: "run a chi-square-goodness-of-fit test on the observed defect counts over seven days against the uniform expected count per day"
+    intent: "cross-cutting; categorical goodness of fit with exact p-value"
+    expected_skill: "cross-cutting/numerics/chi-square-goodness-of-fit"
+  - id: w39-chi-square-goodness-of-fit-2
+    query: "chi-square goodness of fit statistic for the observed versus the expected poisson counts per inspection unit"
+    intent: "cross-cutting; count-data model fit test"
+    expected_skill: "cross-cutting/numerics/chi-square-goodness-of-fit"
+  - id: w39-exact-binomial-test-1
+    query: "run the exact binomial test whether the eight successes in forty trials support the pass rate of zero point three"
+    intent: "cross-cutting; exact binomial significance of k of n against p zero"
+    expected_skill: "cross-cutting/numerics/exact-binomial-test"
+  - id: w39-exact-binomial-test-2
+    query: "binomial significance test of the observed defect fraction against the hypothesized p zero with the exact tail probability"
+    intent: "cross-cutting; binomial tail p-value for a single proportion"
+    expected_skill: "cross-cutting/numerics/exact-binomial-test"
+  - id: w39-failure-mode-criticality-1
+    query: "compute the failure-mode-criticality number of each pump failure mode from the mode-ratio and the item failure rate over the 5000 hour operating time"
+    intent: "systems-engineering-safety; rate-based FMECA criticality number C_m"
+    expected_skill: "systems-engineering-safety/arp4761a/failure-mode-criticality"
+  - id: w39-failure-mode-criticality-2
+    query: "rank the failure modes by the fmeca-criticality item-criticality value using the failure-effect-probability to prioritize the reliability actions"
+    intent: "systems-engineering-safety; item criticality ranking with failure-effect probability"
+    expected_skill: "systems-engineering-safety/arp4761a/failure-mode-criticality"
+  - id: w39-fastener-position-tolerance-calc-1
+    query: "apply the fixed fastener formula to assign the positional tolerance between the two mating hole patterns at maximum material condition"
+    intent: "cross-cutting; Y14.5 fixed fastener positional tolerance budget"
+    expected_skill: "cross-cutting/tolerancing/fastener-position-tolerance-calc"
+  - id: w39-fastener-position-tolerance-calc-2
+    query: "floating fastener minimum clearance hole diameter for the given fastener size and the positional tolerance split"
+    intent: "cross-cutting; floating fastener clearance hole sizing"
+    expected_skill: "cross-cutting/tolerancing/fastener-position-tolerance-calc"
+  - id: w39-gravity-gradient-stabilization-1
+    query: "check the gravity-gradient-stabilization inertia-ratio criterion and the pitch libration period for the nadir-pointing spacecraft at 500 km"
+    intent: "space-systems; passive gravity-gradient stability and libration period"
+    expected_skill: "space-systems/adcs/gravity-gradient-stabilization"
+  - id: w39-gravity-gradient-stabilization-2
+    query: "size the gravity-boom tip mass for the required gravity-gradient restoring stiffness of the passive attitude spacecraft"
+    intent: "space-systems; gravity boom sizing for stabilization"
+    expected_skill: "space-systems/adcs/gravity-gradient-stabilization"
+  - id: w39-kruskal-wallis-test-1
+    query: "run a kruskal-wallis-test comparing the surface roughness of the four coating batches without the normality assumption"
+    intent: "cross-cutting; rank-based k-sample significance test"
+    expected_skill: "cross-cutting/numerics/kruskal-wallis-test"
+  - id: w39-kruskal-wallis-test-2
+    query: "compute the kruskal wallis h-statistic and its significance for the three process temperature settings"
+    intent: "cross-cutting; H statistic with ties correction"
+    expected_skill: "cross-cutting/numerics/kruskal-wallis-test"
+  - id: w39-laminate-plate-buckling-1
+    query: "compute the laminate-plate-buckling critical compression load of the composite skin panel from the clt d-matrix with half-wave mode minimization"
+    intent: "structures; orthotropic laminate plate buckling from the D-matrix"
+    expected_skill: "structures/composites/laminate-plate-buckling"
+  - id: w39-laminate-plate-buckling-2
+    query: "orthotropic-plate-buckling margin check for the composite fuselage panel under the in-plane compression load"
+    intent: "structures; composite panel buckling margin"
+    expected_skill: "structures/composites/laminate-plate-buckling"
+  - id: w39-poisson-confidence-interval-1
+    query: "compute the poisson-confidence-interval for the twelve defects observed over the two hundred forty flight cycles"
+    intent: "cross-cutting; exact Poisson rate confidence interval from a defect count over an exposure"
+    expected_skill: "cross-cutting/numerics/poisson-confidence-interval"
+  - id: w39-poisson-confidence-interval-2
+    query: "compute the garwood-exact-interval poisson-rate-ci bounds for the defect-rate-estimation from the count data per inspection unit"
+    intent: "cross-cutting; count-rate interval estimation"
+    expected_skill: "cross-cutting/numerics/poisson-confidence-interval"
+  - id: w39-power-analysis-1
+    query: "power analysis minimum sample size per group to detect a half sigma shift at eighty percent power and alpha zero point zero five"
+    intent: "cross-cutting; statistical power and sample size determination"
+    expected_skill: "cross-cutting/numerics/power-analysis"
+  - id: w39-power-analysis-2
+    query: "sample size determination with the type-two-error point two and the effect size for the two-sample comparison"
+    intent: "cross-cutting; required sample size from alpha, power and effect size"
+    expected_skill: "cross-cutting/numerics/power-analysis"
+  - id: w39-propeller-range-1
+    query: "compute the propeller-range of the turboprop transport from the power specific fuel consumption and the propeller efficiency at a lift to drag ratio of twelve"
+    intent: "flight-mechanics; propeller aircraft cruise range from PSFC"
+    expected_skill: "flight-mechanics/performance/propeller-range"
+  - id: w39-propeller-range-2
+    query: "estimate the cruise range with psfc and prop efficiency for the propeller aircraft fuel planning between the initial and the final mass"
+    intent: "flight-mechanics; Breguet range with power-specific fuel consumption"
+    expected_skill: "flight-mechanics/performance/propeller-range"
+  - id: w39-rocket-gravity-loss-1
+    query: "estimate the gravity-loss delta-v and the launch-vehicle-ascent burn time for a 400 tonne stage at launch-thrust-to-weight 1.07"
+    intent: "propulsion; powered-ascent gravity loss and burn time"
+    expected_skill: "propulsion/rocket/rocket-gravity-loss"
+  - id: w39-rocket-gravity-loss-2
+    query: "compute the effective ascent-delta-v after gravity loss for a vertical launch with a 160 second burn"
+    intent: "propulsion; effective delta-v after gravity loss"
+    expected_skill: "propulsion/rocket/rocket-gravity-loss"
+  - id: w39-synodic-launch-window-1
+    query: "compute the synodic-launch-window recurrence and the required departure phase angle for the earth to mars transfer"
+    intent: "space-systems; interplanetary launch window synodic period"
+    expected_skill: "space-systems/mission-design/synodic-launch-window"
+  - id: w39-synodic-launch-window-2
+    query: "determine the heliocentric departure phase angle for the hohmann window to mars from the synodic period"
+    intent: "space-systems; departure phase angle for the planetary window"
+    expected_skill: "space-systems/mission-design/synodic-launch-window"
+  - id: w39-turbojet-cycle-1
+    query: "compute the turbojet-cycle net specific thrust and the turbojet-tsfc at mach 0.9 with pressure ratio 18 and a 1600 kelvin turbine-inlet-temperature"
+    intent: "propulsion; ideal turbojet core cycle specific thrust and TSFC"
+    expected_skill: "propulsion/gas-turbine-cycle/turbojet-cycle"
+  - id: w39-turbojet-cycle-2
+    query: "use the compressor-turbine-matching work balance to size the turbine exit temperature of the turbojet-cycle core engine"
+    intent: "propulsion; compressor-turbine work balance matching"
+    expected_skill: "propulsion/gas-turbine-cycle/turbojet-cycle"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

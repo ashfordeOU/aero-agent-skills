@@ -61,6 +61,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/fast-fourier-transform | Fast Fourier transform | DFT definition, radix-2 Cooley-Tukey FFT, magnitude and phase spectrum, inverse FFT, Parseval energy check |
 | cross-cutting/tolerancing/tolerance-stackup | Tolerance stackup | worst case, root sum square, assembly limits, nominal dimension, dominant contributor |
 | cross-cutting/tolerancing/position-tolerance-calc | GD&T position tolerance | true position, tolerance zone diameter, MMC bonus tolerance, virtual condition, hole and pin |
+| cross-cutting/tolerancing/fastener-position-tolerance-calc | Fastener position tolerance | fixed fastener formula, floating fastener formula, projected tolerance zone, mating hole clearance, positional tolerance budget |
 | cross-cutting/numerics/eigenvalue-decomposition | Eigenvalue decomposition | eigenvalue, eigenvector, Jacobi algorithm, power iteration, deflation, Rayleigh quotient, symmetric matrix |
 | cross-cutting/numerics/root-finding | Root finding | bisection, Newton-Raphson, secant method, convergence tolerance, bracketing |
 | cross-cutting/units-atmos/dimensional-analysis | Dimensional analysis | Buckingham Pi theorem, dimensional homogeneity, Pi groups, Reynolds number, unit consistency |
@@ -91,6 +92,11 @@ integration) for engineering calculations.
 | cross-cutting/numerics/multiple-linear-regression | Multiple linear regression | multiple linear regression, variance inflation factor, adjusted R squared, partial regression coefficient, regression F test, coefficient standard error, multicollinearity check |
 | cross-cutting/numerics/proportion-confidence-interval | Proportion confidence interval | proportion confidence interval, Wilson score interval, Clopper Pearson interval, binomial proportion, exact confidence bound, two proportion difference |
 | cross-cutting/numerics/fisher-exact-test | Fisher exact test | fisher exact test, two by two contingency, hypergeometric exact p, small expected count, exact independence test, odds ratio |
+| cross-cutting/numerics/chi-square-goodness-of-fit | Chi square goodness of fit | chi square goodness of fit, categorical model test, observed versus expected, count data model fit, goodness of fit p value |
+| cross-cutting/numerics/kruskal-wallis-test | Kruskal Wallis test | kruskal wallis test, H statistic, nonparametric ANOVA, rank based multi group, distribution free k sample |
+| cross-cutting/numerics/exact-binomial-test | Exact binomial test | exact binomial test, single proportion test, binomial tail p value, k of n significance, mid p binomial |
+| cross-cutting/numerics/poisson-confidence-interval | Poisson confidence interval | poisson confidence interval, count rate interval, defect rate estimation, Garwood exact interval, poisson rate CI |
+| cross-cutting/numerics/power-analysis | Power analysis | power analysis, sample size determination, type II error, effect size, minimum sample size, achieved power |
 
 
 ## Routing guidance
@@ -185,3 +191,9 @@ your host's skills directory (see README Install for per-host commands).
 - Multi-predictor linear regression questions (normal-equation OLS with two or more predictors, variance inflation factor, adjusted R-squared, partial-regression t-test, overall F test) route to the numerics multiple-linear-regression sub-skill.
 - Binomial proportion interval questions (Wilson score interval, continuity-corrected Wilson, exact Clopper-Pearson bound, two-proportion difference interval) route to the numerics proportion-confidence-interval sub-skill.
 - Small-sample 2x2 contingency questions (Fisher exact test, hypergeometric tail probability, odds ratio, exact p-value when the expected count is below 5) route to the numerics fisher-exact-test sub-skill.
+- Categorical model-fit questions (chi-square goodness-of-fit statistic for observed versus expected counts in k categories, exact p-value from the survival function, uniform or Poisson count model checks) route to the numerics chi-square-goodness-of-fit sub-skill.
+- Multi-group rank comparison questions (Kruskal-Wallis H statistic with the ties correction, nonparametric k-sample significance without normality) route to the numerics kruskal-wallis-test sub-skill.
+- Single-proportion significance questions (exact binomial tail test of an observed k-of-n count against a hypothesized p0, mid-p variant, small-count recommendation) route to the numerics exact-binomial-test sub-skill.
+- Poisson rate interval questions (exact Garwood chi-square bounds for a count over an exposure, defect rate per unit, normal-approximation cross-check) route to the numerics poisson-confidence-interval sub-skill.
+- Test-sizing questions (minimum sample size per group from alpha, power and effect size for two-sample, one-sample and proportion comparisons, achieved power at the rounded sample size, type-II error) route to the numerics power-analysis sub-skill.
+- Mating fastener pattern questions (ASME Y14.5 fixed and floating fastener positional tolerance budgets, projected tolerance zone, minimum clearance hole at MMC) route to the tolerancing fastener-position-tolerance-calc sub-skill.

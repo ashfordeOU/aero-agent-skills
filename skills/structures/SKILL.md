@@ -52,6 +52,7 @@ material selection.
 | structures/fatigue/load-spectrum-counting | Load spectrum counting | rainflow counting, level crossing, exceedance spectra, mission load spectra, spectrum truncation |
 | structures/fatigue/notch-sensitivity | Notch sensitivity | stress concentration factor Kt, fatigue notch factor Kf, Neuber, Peterson, notch root radius, effective stress amplitude, notched fatigue assessment |
 | structures/composites/laminate-stiffness | Laminate stiffness | CLT, lamina stiffness, laminate ABD matrix, ply layup |
+| structures/composites/laminate-plate-buckling | Laminate plate buckling | laminate plate buckling, orthotropic plate buckling, CLT D matrix, buckling mode minimization, composite panel stability, compression buckling |
 | structures/composites/composite-bolted-joints | Composite bolted joints | bearing stress, bypass load, net tension, shear-out, edge distance |
 | structures/composites/adhesive-bonded-joints | Adhesive bonded joints | adhesive bonded joint, single lap joint, shear lag parameter, adhesive shear stress, overlap length, Volkersen shear distribution, bondline peak stress, adhesive allowable |
 | structures/composites/sandwich-panels | Sandwich panels | face stress, core shear, wrinkling, bending stiffness, core selection |
@@ -173,3 +174,4 @@ your host's skills directory (see README Install for per-host commands).
 - Single-lap adhesive bondline shear stress, shear-lag peak stress, and joint margin questions route to the composites adhesive-bonded-joints sub-skill.
 - Closed and open section torsion questions (Bredt-Batho shear flow q = T over 2A, Saint-Venant J, angle of twist, multi-cell shear-flow distribution, torsional margin) route to the fem torsion-shear-flow sub-skill.
 - Fatigue damage from a response PSD questions (spectral moments, Dirlik and narrow-band damage rate, Basquin gamma life, expected peak rate) route to the fatigue random-vibration-fatigue sub-skill.
+- Orthotropic and laminated panel stability questions (critical in-plane compression load from the CLT D matrix with half-wave mode minimization, composite panel buckling margin) route to the composites laminate-plate-buckling sub-skill.
