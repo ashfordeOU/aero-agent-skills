@@ -1,0 +1,178 @@
+# WAVE-39 BRIEF — Aero Agent Skills P5.2 (CEO dispatch 2026-09-05 ~10:20 UTC)
+
+Goal: land **+10-16 verified leaves, MUST land ≥10**, on the wave-38 close
+baseline.
+Baseline (wave-38 close, CEO gate PASSED 9.68/10 2026-09-05 ~10:15 UTC — fresh
+CEO replay at d7528424: make validate 5/5 1058/1058 + make attest 3/3 + make
+completeness ALL REQUIRED PASS, 0 tracked findings; private remote == d7528424
+== HEAD; public ashfordeOU main == d51f660 sync verified with CI attest +
+release-on-milestone SUCCESS):
+**521 leaves · 85 packs · 12 families · 1058 router tasks · 30 standards**
+(533 SKILL.md tracked = 521 leaves + 12 routers). Ratings ledger 521 rows.
+Corpus eval/hit1-corpus.yaml = 1058.
+Per-family leaf counts (wave-38 close, docs/metrics.json verified 2026-09-05):
+**systems-engineering-safety 37 (smallest — wave-38 landed
+fault-tree-importance-measures in SES/arp4761a; the airworthiness-management
+seam is now PROVABLY fenced — MRB/CMR/ALS/TC-upkeep/RCM all resolve to
+existing leaves with quoted claims (wave-38 state note) — do NOT re-probe the
+seam; wave-38 lesson #1: probe the WHOLE family, not only the named vein —
+assess remaining arp4761a / safety-assessment functions: FTA importance was
+the gap, what about zonal/FMECA/common-cause/particular-risk functions)** ·
+**aerodynamics 38 (wave-38 BROKE the dense receipt — two genuine gaps landed:
+boundary-layer-separation + flat-plate-skin-friction-heating; the wave-37
+dense receipt is partially overturned — assess remaining clean gaps in
+boundary-layer/high-speed/aerodynamic-heating siblings; do NOT re-litigate
+whirl-flutter / LFC / NLF declines)** · **propulsion 40 (wave-38 +2:
+intercooled-cycle, rocket-nozzle-flow-separation; assess remaining
+rocket/gas-turbine deterministic sizing)** · **flight-test-operations 41 ·
+gnc-autonomy 41 (41-count — saturated receipts reaffirmed wave-38; re-probe
+only genuine gaps)** · **flight-mechanics 42 (saturated receipt wave-38;
+FRESH re-probe)** · **structures 45 (wave-38 +2: torsion-shear-flow,
+random-vibration-fatigue; stringer-crippling DECLINED wave-38 on
+model-fidelity — do not re-open without a clean closed form)** · **avionics
+46 (wave-38 +3: shared-resource-access-control, dme-arc-leg, rhumb-line-leg;
+assess)** · **space-systems 46 (wave-38 +1: doppler-shift; assess)** ·
+**cross-cutting 48 · manufacturing-quality 48 (wave-38 +3 CC / +1 MQ; assess
+remaining determinism)** · **vehicle-design 49 largest last (VD untouched
+waves 37-38 by smallest-first; probe ONLY if smaller families provably
+exhausted)**.
+
+## Mandate and sequencing
+- Land ≥10 leaves this wave (12-16 planned). Smallest-first family priority
+  per doctrine: **SES 37 + AERO 38 first** (SES: whole-family probe per
+  wave-38 lesson #1 — the arp4761a seam that yielded
+  fault-tree-importance-measures is the proven vein; candidates to assess:
+  zonal safety analysis / FMECA extension / common-cause analysis /
+  particular-risk analysis — ONLY clean non-overlapping deterministic gaps;
+  read the sibling fence tables first. AERO: boundary-layer/high-speed/
+  aerodynamic-heating veins — ONLY clean genuine gaps). **Then propulsion 40**
+  (assess remaining rocket/gas-turbine deterministic sizing). **Then the
+  41-count — flight-test-operations 41 + gnc-autonomy 41** (re-probe only
+  genuine gaps). **Then flight-mechanics 42.** **Then structures 45 +
+  avionics 46 + space-systems 46.** **Then cross-cutting 48 +
+  manufacturing-quality 48.** **Then vehicle-design 49 largest last** (only if
+  smaller families provably exhausted). Probe only genuine non-overlapping
+  gaps; never open a duplicate.
+- **PROBE RULE (standing, wave-37 lesson #2):** "0 owners" is necessary but
+  not sufficient — a zero-owner grep can still collide with a sibling that
+  CLAIMS the function. Read the sibling fence/claim table before accepting any
+  zero-owner grep as a genuine gap.
+- **SES SEAM RULE (wave-38 lesson #1):** probe the WHOLE family, not only the
+  named vein — wave-38's genuine SES gap lived in arp4761a, NOT in the
+  airworthiness seam the brief named. Spread probes across the family.
+- **EM-DASH HYGIENE (standing):** em dashes in skills/ = 0 at wave-38 close
+  (REAL count). THIS WAVE: write ALL new leaves em-dash-free (hyphens /
+  restructured prose). At prep and at close run `git grep -l "—" -- 'skills/'`;
+  if nonzero, add ONE mechanical cleanup commit; ALWAYS report the REAL em-dash
+  count in wave39-state.md — never copy a receipt that is not true at the HEAD
+  you are on.
+- Never duplicate an existing leaf. Distinct trigger + description + purpose
+  per leaf (audit-team standard). Read the sibling fence tables before
+  writing any spec. If a candidate family is provably saturated, say so in
+  wave39-state.md and spend the slot on the next family.
+- Baseline counts referenced above must stay truthful at every commit.
+
+## Per-leaf completeness standard (mandatory, from builder kit)
+SKILL.md (agentskills.io frontmatter, "Use when you must …" gate-2 clause
+style) + **FULL HOUSE BODY: Workflow → Worked example → Pitfalls (3-6
+leaf-specific bullets derived from the leaf's own content/tests — NEVER
+invent) → Behavior contract (gate 3) → Compliance.** Never use "classified"
+as a verb in prose (content-policy sweep trips CLASSIFIED; use "categorized").
++ scripts/<leaf>_logic.py (stdlib only, portable imports — sibling
+os.path.dirname(os.path.abspath(__file__)) pattern, NO machine-local absolute
+paths; logic files NEVER start with test_; **UNDERSCORE script filenames —
+standing kit lesson: wave-37 saw 3 of 10 builders default to hyphenated logic
+filenames — use underscores**) + scripts/test_<leaf>.py (offline unittest,
+asserts REAL module outputs) + eval fragment eval/hit1-wave39-<leaf>.yaml
+(2 corpus tasks with distinctive hyphenated tokens) + eval/skill-eval/<leaf>.json
+value-delta record + ratings ledger row appended IN-TURN at ≥9.5 (rows 522+,
+header 521→521+N at close). references/ + assets/ only when the body inlines
+long external content.
+
+**VALUE-DELTA SAMPLER RULE (wave-38 lesson #3):** the value-delta sampler
+recomputes eval records from TEST FILE term presence, NOT the committed JSON.
+Pure-math contract tests that do not reference the SKILL.md workflow can
+compute delta 0.0 and FAIL the gate even when the committed record says 0.5.
+Reference the SKILL.md workflow steps NATURALLY in the test docstring (name
+the workflow steps the test exercises) so the sampler sees the terms.
+
+**CREATION GATE (run BEFORE every leaf commit, exit 0 required — founder
+2026-09-04):** `bash scripts/leaf-create-gate.sh <leaf-path>` — checks
+structure, naming, test pass, pycache, content policy, corpus, eval. FAIL →
+fix in-turn, re-run, then commit. Full builder checklist:
+MAINTENANCE_AND_HANDOVER.md section 5a.
+
+## Operational rules (ALL prior-wave lessons — non-negotiable)
+1. **TURN-ALIVE (wave-24R rule, operational):** NEVER emit a text-only response
+   while delegations are live or work remains. Every turn continues with real
+   tool calls (poll transcripts/state/prep/gates) until close-out. The ONLY
+   permitted text-only response is the final close-out report.
+2. **API health first:** check DeepSeek API before fan-out; CAP 3-4 concurrent
+   builders per batch (one agent per leaf — PARALLEL-AGENT doctrine).
+3. **Quiet-hours gate-check before EACH batch:**
+   `python3 ~/.hermes/scripts/quiet-hours-gate.py --check` (exit 0 = go; exit 2/3
+   = stop/queue). Window 20:00-08:00 UTC — no work in the window. Dispatch is
+   ~10:20 UTC — you have ~9.5h of build daylight to 20:00 UTC. Target: core
+   close-out well before 20:00 UTC (prior waves' full cycle ~1-2h). **If
+   close-out is not reached by ~19:30 UTC: STOP CLEANLY — commit what landed
+   (≥10 landed = PASS), push PRIVATE + sync if a full close chain exists, queue
+   the remainder for 08:00 UTC 2026-09-06.** Pre-quiet guard: no new subagents
+   after ~19:30 UTC.
+4. **Anti-hang protocol (wave-25..38 held):** write logic files in small
+   pieces, compact unittests, early test runs. Watch live transcripts; steer
+   quiet builders once — no re-dispatch unless a child dies. If a `terminal`
+   tool call exceeds ~7 min it may time out; treat as timed out, verify state,
+   continue — do not sit silent. **STEER TIMING (wave-38 lesson #4): expect one
+   builder stall per ~4 builders; a single steer resolves it — check quiet
+   transcripts at ~8-10 minutes, not 15+.**
+5. **Rate-at-creation ≥9.5 IN-TURN:** each builder appends its own ledger row at
+   creation time (rows 522+). No backfilling at close. Keep the
+   re-read-max+1 rule. Final rows must be contiguous 522-521+N.
+6. **Explicit-path commits ONLY** (no `git add -A`); commit identity ashfordeOU;
+   every commit a complete unit; message subject ≤50 chars, WHAT and WHY.
+   Shared-index commit race (wave-31..38 class): after any commit, verify
+   `git ls-tree`/status that YOUR leaf's six artifacts AND your ledger row are
+   on the HEAD chain; a swept file/row is not lost if you re-commit your own
+   paths. **Concurrent mid-wave automation (desc frontload + visuals regen +
+   its own publish-public sync) is now an EXPECTED wave class (wave-38 lesson
+   #2): recover cleanly with remainder commits, never fight it; re-run make
+   visuals at close regardless.**
+7. **Hit@1 no-task-stealing check BEFORE close-out:** after corpus merge,
+   re-run make validate; ZERO pre-existing tasks may be stolen by a new leaf
+   description; fence descriptions against siblings (distinctive hyphenated
+   tokens — standing lesson: embed 1-2 of the leaf's own hyphenated tag tokens
+   in corpus queries where a sibling holds a generic single-word fragment). Run
+   the PRE-MERGE routing simulation (state/wave39-sim-merge.py on corpus +
+   on-disk fragments BEFORE the real merge) so no rewording is needed.
+8. **Corpus:** 1058 → 1058+2N (merge via state/wave39-merge-corpus.py, delete
+   fragments — 0 on disk at close). Update family routers parent-side (one
+   table row + one routing-guidance bullet per family touched), router
+   descriptions ≤1024 chars. Router parity check (rows == leaves per family).
+9. **Close-out gates FRESH at rest** (re-run, not claimed): make validate 5/5
+   (1058+2N Hit@1 deterministic offline) · make attest 3/3 · make completeness
+   ALL REQUIRED PASS · make value-delta 10/10 ≥0.2 · visuals-check PASS
+   (numbers only via make visuals) · router descs ≤1024 · REPORT the real em
+   dash count in skills/ (grep; 0 preferred — write em-dash-free, cleanup
+   commit at prep/close if nonzero) · tree clean.
+10. **Push PRIVATE only** (arjun-0077/aero-agent-skills, GITHUB_TOKEN_ARJUN,
+    fast-forward, NO force) + ls-remote verify remote == HEAD. NO Ashforde, NO
+    visibility flip. Then **publish-public.sh sync** (sanctioned path) + verify
+    public HEAD + GitHub CI attest SUCCESS. Keep publish-public.sh fixes from
+    2da34f0e (leaf-count regression guard) and eec11e34 (About refresh from the
+    MIRROR post-push); do not revert. Concurrent automation may land
+    local-only commits mid-wave (wave-30..38 class) — fast-forward below the
+    wave commits, do not fight them; regenerate manifests at close.
+11. **GROUP 160 close-out post** as Ops Manager via
+    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160`
+    → verify SEND_EXIT=0.
+12. **wave39-state.md honest** at close (leaves, family spread, deviations,
+    disclosures, lessons, REAL em-dash count) + commit + push PRIVATE. Then
+    proc exit → CEO P5.2 WAVE-39 audit ≥9.5 → WAVE-40.
+
+## Sequence
+Prep (builder kit + 12-16 specs at ops/automation/state/wave39-specs/, commit)
+→ batches of 3-4 → ≥10 landed → corpus merge + routers → ratings header →
+gates FRESH → push PRIVATE + verify → publish-public sync + CI verify → GROUP
+160 post → wave39-state.md → exit. If the window approaches before close-out:
+stop cleanly, commit what landed, queue resume 08:00 UTC (per doctrine). No
+founder contact (routine progress).
