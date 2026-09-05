@@ -84,6 +84,9 @@ material selection.
 | structures/fem/lug-joint-analysis | Lug joint analysis | lug joint analysis, pin loaded lug, lug bearing stress, lug net section tension, lug tearout shear, lug edge distance ratio, round end lug |
 | structures/fem/torsion-shear-flow | Torsion shear flow | torsion shear flow, Bredt Batho, Saint-Venant torsion, angle of twist, multi-cell section, closed section shear flow, torsional stress margin |
 | structures/fatigue/random-vibration-fatigue | Random vibration fatigue | random vibration fatigue, Dirlik method, spectral fatigue, narrow band damage, PSD spectral moments, expected peak rate, Basquin gamma damage |
+| structures/materials/multiaxial-yield-criteria | Multiaxial yield criteria | multiaxial yield criteria, von Mises equivalent stress, Tresca margin, combined bending torsion, biaxial yield envelope |
+| structures/fem/diagonal-tension-field-webs | Diagonal tension field webs | diagonal tension field webs, tension field angle, post-buckled shear web, web tension stress, flange axial load |
+| structures/composites/peel-stress-bonded-joints | Peel stress bonded joints | peel stress bonded joints, Goland Reissner, bending moment factor, adherend bending, peel margin |
 
 
 ## Routing guidance
@@ -175,3 +178,9 @@ your host's skills directory (see README Install for per-host commands).
 - Closed and open section torsion questions (Bredt-Batho shear flow q = T over 2A, Saint-Venant J, angle of twist, multi-cell shear-flow distribution, torsional margin) route to the fem torsion-shear-flow sub-skill.
 - Fatigue damage from a response PSD questions (spectral moments, Dirlik and narrow-band damage rate, Basquin gamma life, expected peak rate) route to the fatigue random-vibration-fatigue sub-skill.
 - Orthotropic and laminated panel stability questions (critical in-plane compression load from the CLT D matrix with half-wave mode minimization, composite panel buckling margin) route to the composites laminate-plate-buckling sub-skill.
+
+- Isotropic-metal multiaxial yield questions (von Mises and Tresca equivalent stress, yield margin, combined bending and torsion, biaxial yield envelope) route to the materials multiaxial-yield-criteria sub-skill.
+
+- Post-buckled shear-web questions (diagonal tension field ratio and angle, web tension stress, flange and end-post axial loads, rivet shear flows) route to the fem diagonal-tension-field-webs sub-skill.
+
+- Bonded-joint peel questions (Goland-Reissner peel stress at the overlap end, bending moment factor, edge moment, peel margin) route to the composites peel-stress-bonded-joints sub-skill.

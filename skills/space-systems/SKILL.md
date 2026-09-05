@@ -85,6 +85,8 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/walker-delta-constellation | Walker-Delta constellation | walker delta constellation, walker delta tpf, constellation plane spacing, inter-plane phasing, constellation slot enumeration |
 | space-systems/orbit-mechanics/geostationary-station-keeping | GEO station keeping | geostationary station keeping, north-south inclination drift control, east-west deadband cycle, longitude acceleration, geo delta-v and propellant budget, uncontrolled drift years |
 | space-systems/subsystems/doppler-shift | Doppler shift | doppler shift, range rate frequency offset, doppler rate, line of sight relative velocity, acquisition frequency offset, worst case doppler |
+| space-systems/adcs/magnetometer-calibration | Magnetometer calibration | magnetometer calibration, scalar checking, bias estimation, field magnitude fit |
+| space-systems/mission-design/ground-station-pass-planning | Ground station pass planning | ground station pass planning, contact window schedule, downlink gap analysis, pass detection, multi station contact plan |
 
 
 ## Routing guidance
@@ -173,3 +175,7 @@ your host's skills directory (see README Install for per-host commands).
 - Doppler frequency questions (range rate from the pass geometry, received frequency offset, worst-case Doppler at the horizon, Doppler rate at acquisition for receiver design) route to the subsystems doppler-shift sub-skill.
 - Interplanetary window timing questions (synodic recurrence of launch opportunities, heliocentric departure phase angle for the Hohmann window, window epochs between two planets) route to the mission-design synodic-launch-window sub-skill.
 - Passive gravity-gradient stabilization questions (inertia-ratio stability criterion, pitch libration frequency and period, restoring torque at an offset, gravity-boom tip mass sizing for the target stiffness) route to the adcs gravity-gradient-stabilization sub-skill.
+
+- ADCS magnetometer calibration questions (scalar-checking batch bias estimation from the field magnitude, fit residual) route to the adcs magnetometer-calibration sub-skill.
+
+- Ground-station scheduling questions (multi-pass contact-window schedule, pass detection above the elevation mask, downlink-gap analysis, multi-station contact merge) route to the mission-design ground-station-pass-planning sub-skill.

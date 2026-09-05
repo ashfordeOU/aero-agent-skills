@@ -73,6 +73,7 @@ estimation, validated against classic reference data.
 | aerodynamics/boundary-layer/boundary-layer-separation | Boundary layer separation | boundary layer separation, Thwaites lambda criterion, Stratford separation criterion, laminar separation point, turbulent separation station, separation margin, adverse pressure gradient |
 | aerodynamics/high-speed/flat-plate-skin-friction-heating | Flat plate skin friction heating | flat plate skin friction heating, recovery factor, adiabatic wall temperature, cold wall heat flux, reference temperature method, Reynolds analogy factor, non-stagnation heating |
 | aerodynamics/high-speed/bow-shock-standoff | Bow shock standoff | bow shock standoff, Billig correlation, blunt body shock distance, shock layer thickness, stagnation streamline standoff |
+| aerodynamics/boundary-layer/rough-wall-skin-friction | Rough wall skin friction | rough wall skin friction, sand roughness, fully rough regime, roughness trip, skin friction regime |
 
 ## Routing guidance
 
@@ -130,3 +131,5 @@ your host's skills directory (see README Install for per-host commands).
 - Shock-expansion surface-pressure integration and wave-drag questions route to the high-speed shock-expansion-airfoil sub-skill.
 - Winglet sizing, tip-device induced-drag reduction, effective-aspect-ratio gain, and root bending moment penalty questions route to the wing-design winglet-design sub-skill.
 - Blunt-nose detached bow-shock standoff questions (standoff ratio and shock-layer thickness on the stagnation streamline for sphere and cylinder noses from the Billig-form correlations) route to the high-speed bow-shock-standoff sub-skill.
+
+- Rough-surface skin friction questions (sand-roughness regime classification, fully-rough turbulent skin friction, roughness trip criterion) route to the boundary-layer rough-wall-skin-friction sub-skill.
