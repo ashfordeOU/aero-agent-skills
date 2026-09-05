@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 1118,
+  "corpus_tasks": 1150,
   "families": 12,
-  "leaves": 551,
+  "leaves": 567,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 40,
+      "leaves": 43,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -36,7 +36,8 @@
           "boundary-layer-separation",
           "boundary-layer-theory",
           "boundary-layer-transition",
-          "rough-wall-skin-friction"
+          "rough-wall-skin-friction",
+          "stagnation-flow-boundary-layer"
         ],
         "cfd": [
           "cfd-convergence",
@@ -63,9 +64,11 @@
           "bow-shock-standoff",
           "flat-plate-skin-friction-heating",
           "hypersonic-flow",
+          "isentropic-flow-relations",
           "normal-shock",
           "oblique-shock",
           "prandtl-meyer",
+          "regular-shock-reflection",
           "shock-expansion-airfoil",
           "supercritical-airfoil",
           "swept-wing-aerodynamics",
@@ -83,7 +86,7 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 82
+      "tasks": 88
     },
     "avionics": {
       "label": "AVIONICS",
@@ -257,7 +260,7 @@
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 45,
+      "leaves": 46,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -297,6 +300,7 @@
           "rotorcraft-lead-lag-dynamics",
           "rotorcraft-range-endurance",
           "rotorcraft-tail-rotor-sizing",
+          "rotorcraft-turn-performance",
           "rotorcraft-vertical-climb-performance",
           "specific-range",
           "speed-stability",
@@ -321,11 +325,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 90
+      "tasks": 92
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 41,
+      "leaves": 43,
       "pack_names": [
         "envelope",
         "flutter",
@@ -361,7 +365,9 @@
           "cruise-performance-flight-test",
           "engine-failure-takeoff-flight-test",
           "engine-flight-test",
+          "fuel-jettison-flight-test",
           "glide-flight-test",
+          "in-flight-engine-relight-test",
           "landing-distance-determination",
           "level-acceleration-test",
           "rotorcraft-forward-flight-performance-test",
@@ -391,7 +397,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 82
+      "tasks": 86
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
@@ -549,7 +555,7 @@
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 42,
+      "leaves": 43,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -568,6 +574,7 @@
           "axial-compressor-stage",
           "compressor-map",
           "multi-stage-compressor",
+          "polytropic-efficiency",
           "turbine-blade-cooling",
           "turbine-stage"
         ],
@@ -628,11 +635,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 84
+      "tasks": 86
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 50,
+      "leaves": 52,
       "pack_names": [
         "adcs",
         "ecss",
@@ -647,11 +654,13 @@
           "attitude-determination-quest",
           "attitude-determination-triad",
           "control-moment-gyro",
+          "environmental-disturbance-torque-budget",
           "gravity-gradient-stabilization",
           "gyro-allan-variance",
           "magnetometer-calibration",
           "magnetorquer-control",
           "pointing-error-budget",
+          "reaction-jet-limit-cycle",
           "reaction-wheel-control",
           "star-tracker",
           "sun-pointing"
@@ -704,11 +713,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 103
+      "tasks": 107
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 49,
+      "leaves": 51,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -750,12 +759,14 @@
           "stress-life-curve"
         ],
         "fem": [
+          "beam-column-analysis",
           "beam-frame-analysis",
           "beam-vibration",
           "buckling-analysis",
           "calculix-linear",
           "calculix-nonlinear",
           "contact-analysis",
+          "curved-beam-analysis",
           "cylindrical-shell-buckling",
           "diagonal-tension-field-webs",
           "lug-joint-analysis",
@@ -785,11 +796,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 99
+      "tasks": 103
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 42,
+      "leaves": 45,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -814,6 +825,7 @@
         "arp4761a": [
           "beta-factor-analysis",
           "common-cause-analysis",
+          "event-tree-analysis",
           "failure-mode-criticality",
           "failure-rate-estimation",
           "fault-tree-importance-measures",
@@ -821,11 +833,13 @@
           "fmes-coverage-analysis",
           "fta-fmea",
           "functional-hazard-assessment",
+          "maintainability-prediction",
           "markov-analysis",
           "operating-support-hazard-analysis",
           "particular-risk-analysis",
           "preliminary-system-safety-assessment",
           "reliability-block-diagram",
+          "reliability-growth-analysis",
           "safety-assessment",
           "ssa-closure",
           "zonal-safety-analysis"
@@ -859,11 +873,11 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 86
+      "tasks": 92
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 52,
+      "leaves": 54,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -897,6 +911,7 @@
           "surrogate-modeling"
         ],
         "sizing": [
+          "air-cycle-machine-sizing",
           "aircraft-electrical-load-analysis",
           "aircraft-oxygen-system-sizing",
           "apu-fuel-burn-sizing",
@@ -929,6 +944,7 @@
           "spoiler-sizing",
           "tail-sizing",
           "tire-sizing",
+          "v-tail-sizing",
           "weight-estimation",
           "window-aperture-sizing",
           "wing-planform-sizing",
@@ -940,9 +956,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 106
+      "tasks": 110
     }
   },
-  "skill_files": 563,
+  "skill_files": 579,
   "standards": 30
 }

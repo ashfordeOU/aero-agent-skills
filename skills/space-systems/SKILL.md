@@ -87,6 +87,8 @@ selection, and classical orbital element determination.
 | space-systems/subsystems/doppler-shift | Doppler shift | doppler shift, range rate frequency offset, doppler rate, line of sight relative velocity, acquisition frequency offset, worst case doppler |
 | space-systems/adcs/magnetometer-calibration | Magnetometer calibration | magnetometer calibration, scalar checking, bias estimation, field magnitude fit |
 | space-systems/mission-design/ground-station-pass-planning | Ground station pass planning | ground station pass planning, contact window schedule, downlink gap analysis, pass detection, multi station contact plan |
+| space-systems/adcs/environmental-disturbance-torque-budget | Environmental disturbance torque budget | environmental disturbance torque budget, gravity gradient torque, solar pressure torque, residual dipole torque, aero drag torque, worst case disturbance |
+| space-systems/adcs/reaction-jet-limit-cycle | Reaction jet limit cycle | reaction jet limit cycle, RCS attitude propellant, bang bang deadband, limit cycle delta V, attitude hold propellant |
 
 
 ## Routing guidance
@@ -179,3 +181,6 @@ your host's skills directory (see README Install for per-host commands).
 - ADCS magnetometer calibration questions (scalar-checking batch bias estimation from the field magnitude, fit residual) route to the adcs magnetometer-calibration sub-skill.
 
 - Ground-station scheduling questions (multi-pass contact-window schedule, pass detection above the elevation mask, downlink-gap analysis, multi-station contact merge) route to the mission-design ground-station-pass-planning sub-skill.
+
+- Environmental disturbance-torque questions (worst-case gravity-gradient, solar-pressure, residual-dipole and aero-drag torques at an arbitrary attitude, rollup against actuator capability for ADCS sizing) route to the adcs environmental-disturbance-torque-budget sub-skill.
+- RCS attitude-hold propellant questions (bang-bang deadband limit-cycle rate, pulse duration, delta-V and propellant per cycle, cycles over mission life, three-axis total) route to the adcs reaction-jet-limit-cycle sub-skill.

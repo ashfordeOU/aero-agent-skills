@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 551
+Total skills rated: 567
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -352,11 +352,11 @@ Total skills rated: 551
 | 344 | vehicle-design/sizing/ice-protection-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 345 | vehicle-design/sizing/spoiler-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 346 | manufacturing-quality/ndt/computed-tomography | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 348 | flight-test-operations/planning/position-error-calibration | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 347 | avionics/flight-management/lateral-navigation | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 348 | flight-test-operations/planning/position-error-calibration | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 349 | flight-mechanics/performance/windshear-analysis | PASS | ✓ | far-25, cs-25 | flight-mechanics | 9.5 | PASS |
-| 351 | propulsion/rocket/hybrid-rocket-motor | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 350 | gnc-autonomy/control/control-allocation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 351 | propulsion/rocket/hybrid-rocket-motor | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
 | 352 | space-systems/adcs/control-moment-gyro | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 353 | structures/materials/creep-rupture | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
 | 354 | systems-engineering-safety/continued-airworthiness/in-service-safety-assessment | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
@@ -379,16 +379,16 @@ Total skills rated: 551
 | 371 | propulsion/gas-turbine-cycle/afterburner-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
 | 372 | gnc-autonomy/navigation/gnss-pseudorange-positioning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 373 | gnc-autonomy/guidance/dubins-path-planning | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
-| 375 | space-systems/orbit-mechanics/gravity-assist-swingby | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 374 | structures/composites/adhesive-bonded-joints | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 375 | space-systems/orbit-mechanics/gravity-assist-swingby | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 376 | space-systems/orbit-mechanics/conjunction-assessment | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 377 | structures/loads/shock-response-spectrum | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 378 | avionics/flight-management/rnp-anp-containment | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 379 | avionics/flight-management/radio-navigation-aids | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
 | 380 | aerodynamics/high-speed/hypersonic-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 381 | flight-test-operations/performance/cruise-performance-flight-test | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
-| 383 | vehicle-design/sizing/brake-energy-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 382 | cross-cutting/numerics/digital-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 383 | vehicle-design/sizing/brake-energy-sizing | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 384 | flight-test-operations/envelope/vmc-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
 | 385 | manufacturing-quality/special-processes/welding-qualification | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 386 | flight-test-operations/envelope/buffet-boundary-testing | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
@@ -428,7 +428,6 @@ Total skills rated: 551
 | 420 | cross-cutting/numerics/fir-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 421 | flight-mechanics/performance/rotorcraft-hover-ground-effect | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
 | 422 | space-systems/mission-design/c3-departure-energy | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-
 | 423 | flight-test-operations/performance/rotorcraft-performance-flight-test | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
 | 424 | gnc-autonomy/guidance/augmented-proportional-navigation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 425 | flight-mechanics/performance/rotorcraft-tail-rotor-sizing | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
@@ -480,8 +479,8 @@ Total skills rated: 551
 | 471 | cross-cutting/numerics/rank-based-hypothesis-testing | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 472 | cross-cutting/numerics/singular-value-decomposition | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 473 | vehicle-design/sizing/avionics-bay-cooling-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
-| 475 | vehicle-design/sizing/landing-gear-retraction-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 474 | vehicle-design/sizing/aircraft-electrical-load-analysis | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 475 | vehicle-design/sizing/landing-gear-retraction-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 476 | vehicle-design/sizing/fuel-feed-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 477 | vehicle-design/sizing/fuel-jettison-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 478 | vehicle-design/sizing/aircraft-oxygen-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
@@ -492,14 +491,14 @@ Total skills rated: 551
 | 483 | cross-cutting/numerics/information-entropy | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 484 | manufacturing-quality/as9100/attribute-control-charts | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 485 | avionics/data-bus/arinc429-bus-loading | PASS | ✓ | arinc-429 | avionics | 9.5 | PASS |
-| 489 | vehicle-design/sizing/apu-fuel-burn-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 486 | vehicle-design/sizing/fuel-tank-inerting-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 487 | vehicle-design/sizing/ram-air-turbine-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 488 | vehicle-design/sizing/bleed-air-system-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 489 | vehicle-design/sizing/apu-fuel-burn-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 490 | avionics/data-bus/mil-std-1553-bus-loading | PASS | ✓ | mil-std-1553 | avionics | 9.5 | PASS |
 | 491 | manufacturing-quality/as9100/gage-linearity-bias-study | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
-| 493 | vehicle-design/sizing/cabin-outflow-valve-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 492 | systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification | PASS | ✓ | far-25 | systems-engineering-safety | 9.5 | PASS |
+| 493 | vehicle-design/sizing/cabin-outflow-valve-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 494 | space-systems/orbit-mechanics/walker-delta-constellation | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 495 | cross-cutting/numerics/runs-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
 | 496 | propulsion/gas-turbine-cycle/propelling-nozzle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
@@ -558,3 +557,20 @@ Total skills rated: 551
 | 549 | vehicle-design/sizing/window-aperture-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 550 | vehicle-design/sizing/cargo-compartment-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 551 | vehicle-design/sizing/emergency-exit-configuration | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 552 | flight-test-operations/performance/fuel-jettison-flight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
+| 553 | aerodynamics/boundary-layer/stagnation-flow-boundary-layer | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 554 | aerodynamics/high-speed/isentropic-flow-relations | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 555 | aerodynamics/high-speed/regular-shock-reflection | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 556 | flight-test-operations/performance/in-flight-engine-relight-test | PASS | ✓ | far-25 | flight-test-operations | 9.5 | PASS |
+| 557 | propulsion/axial-compressor/polytropic-efficiency | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 558 | systems-engineering-safety/arp4761a/event-tree-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 559 | systems-engineering-safety/arp4761a/reliability-growth-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 560 | structures/fem/beam-column-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 561 | flight-mechanics/performance/rotorcraft-turn-performance | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 562 | systems-engineering-safety/arp4761a/maintainability-prediction | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 563 | structures/fem/curved-beam-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 564 | space-systems/adcs/environmental-disturbance-torque-budget | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 565 | vehicle-design/sizing/v-tail-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 566 | vehicle-design/sizing/air-cycle-machine-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 567 | space-systems/adcs/reaction-jet-limit-cycle | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+

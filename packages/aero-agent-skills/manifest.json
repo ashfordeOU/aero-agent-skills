@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 551,
+  "leaves": 567,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1118
+  "corpus_tasks": 1150
  },
  "skills": [
   {
@@ -205,6 +205,21 @@
     "fully-rough-cf",
     "k-plus-regime",
     "trip-criterion"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/stagnation-flow-boundary-layer",
+   "name": "stagnation-flow-boundary-layer",
+   "description": "Use when you must size the laminar boundary layer, wall shear and skin friction at a low-speed 2-D or axisymmetric stagnation point or leading edge: compute the potential-flow stagnation velocity gradient from the body radius and freestream speed (factor 2 in the Hiemenz 2-D regime, 1.5 in the Homann axisymmetric regime), the 99-percent laminar boundary-layer thickness about 2.4 sqrt(nu/a), the wall shear from the Hiemenz or Homann similarity wall-shear constant, and the skin-friction coefficient against the freestream dynamic pressure. Produces the a, delta, tau_w and Cf report that gates spinner, radome, wing and fin leading-edge boundary-layer sizing at low speed. Trigger: stagnation-flow-boundary-layer, hiemenz-similarity, homann-similarity, stagnation-velocity-gradient, stagnation-wall-shear, attachment-line flow, nose boundary layer.",
+   "tags": [
+    "stagnation-flow-boundary-layer",
+    "hiemenz-similarity",
+    "homann-similarity",
+    "stagnation-velocity-gradient",
+    "stagnation-wall-shear"
    ],
    "family": "aerodynamics",
    "pack": "boundary-layer",
@@ -501,6 +516,20 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/high-speed/isentropic-flow-relations",
+   "name": "isentropic-flow-relations",
+   "description": "Use when you must convert a Mach number into the isentropic total to static ratios of a compressible flow: the total temperature, pressure and density ratios of a perfect gas at gamma 1.4, rebuild total conditions from a static state and Mach number, recover the Mach number that produces a given area ratio from the area-Mach relation on the subsonic low branch or the supersonic high branch, and compute the choked mass flow a passage passes at its sonic throat from total pressure, total temperature and throat area. Produces the three total to static ratios, both Mach roots for the given area ratio and the choked mass flow in kg/s, the gate numbers for duct and wind tunnel analysis. Trigger: isentropic flow, total to static ratio, mach from area ratio, choked mass flow, sonic throat, wind tunnel contraction, compressible flow, mach number.",
+   "tags": [
+    "isentropic-flow-relations",
+    "total-to-static-ratio",
+    "mach-from-area-ratio",
+    "choked-mass-flow"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/high-speed/normal-shock",
    "name": "normal-shock",
    "description": "Use when you must compute normal shock relations for compressible flow: find the downstream Mach number, static pressure, density, and temperature ratios across the shock, and the stagnation pressure loss from the upstream Mach number. Produces the five shock ratios that gate inlet and high-speed aerodynamic analysis of a supersonic flow. Trigger: normal shock, oblique shock, mach number, compressible flow, pressure ratio, stagnation pressure, supersonic inlet, shock relations.",
@@ -548,6 +577,21 @@
     "turning-angle",
     "compressible-flow",
     "isentropic-expansion"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/regular-shock-reflection",
+   "name": "regular-shock-reflection",
+   "description": "Use when you must compute the regular reflection of an oblique shock impinging on a wall or symmetry plane: solve the weak-branch incident wave angle at the upstream Mach number and deflection, march the state behind it, solve the reflected shock that turns the flow back parallel to the wall, and assemble the post-reflection state from the two shock ratio products. Produces the incident and reflected wave angles, the intermediate and post-reflection Mach numbers, the pressure, density, temperature and stagnation-pressure ratios, the reflected-shock detachment limit and the regular-versus-Mach verdict. Trigger: regular reflection, reflected shock, wall impingement, symmetry plane, two-shock interaction, Mach reflection, post-reflection state.",
+   "tags": [
+    "regular-shock-reflection",
+    "reflected-shock",
+    "mach-reflection",
+    "two-shock-interaction",
+    "post-reflection-state"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -3005,6 +3049,21 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/rotorcraft-turn-performance",
+   "name": "rotorcraft-turn-performance",
+   "description": "Use when you must determine the banked-turn power of a helicopter rotor from momentum theory: the turning-flight inflow solved for the n-times-weight thrust of the banked level turn, the banked-turn-power breakdown into induced, profile and parasite terms, the sustained-load-factor an available power supports at the turn speed, the power-limited bank angle, and the turn rate and radius of the sustained maneuver. Produces the turn induced velocity, the turn power breakdown, the sustained-load-factor, bank angle, turn rate and turn radius that gate a rotorcraft maneuvering-power check at a chosen density. Momentum theory for level turns above one g only, not the fixed-wing method, level-flight power curve, hover, climb or autorotation. Trigger: helicopter banked turn, turning-flight inflow, rotorcraft turn power, sustained load factor, power-limited bank angle.",
+   "tags": [
+    "rotorcraft-turn-performance",
+    "turning-flight-inflow",
+    "banked-turn-power",
+    "sustained-load-factor",
+    "power-limited-bank-angle"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/rotorcraft-vertical-climb-performance",
    "name": "rotorcraft-vertical-climb-performance",
    "description": "Use when you must compute the vertical climb performance of a rotorcraft rotor with axial momentum theory: the climb induced velocity from the hover induced velocity and the climb rate, the induced power through an induced power factor, the total rotor power required in a vertical climb as induced plus profile power, and the maximum vertical rate of climb for an available shaft power. Produces the induced velocity in climb, the climb power required, the climb power margin and the maximum vertical rate of climb that gate a rotorcraft climb check at a chosen density altitude. Momentum theory only: uniform inflow, no ground effect, climb only. Trigger: rotorcraft vertical climb performance, axial momentum theory, climb induced velocity, rotorcraft climb power, vertical rate of climb, available shaft power, climb power margin.",
@@ -3733,6 +3792,21 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/performance/fuel-jettison-flight-test",
+   "name": "fuel-jettison-flight-test",
+   "description": "Use when you must reduce a fuel jettison flight test demonstration: least-squares fit the telemetered fuel-weight-vs-time samples taken while the dump runs, read the measured average dump rate from the fitted slope, extrapolate the time from the takeoff weight down to the landing weight at that measured rate, judge the PASS or FAIL verdict against the 900 s limit, and check the measured rate against the design-side required rate. Produces the fitted slope, intercept and R^2, the measured dump rate, the extrapolated landing-weight time, the verdict with margin in seconds, and the rate-requirement check with margin in kg/s. Trigger: fuel jettison flight test, measured dump rate, fuel-weight-vs-time samples, jettison demonstration.",
+   "tags": [
+    "fuel-jettison-flight-test",
+    "measured-jettison-rate",
+    "fuel-weight-vs-time-fit",
+    "dump-rate-requirement-check",
+    "jettison-demonstration-verification"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/performance/glide-flight-test",
    "name": "glide-flight-test",
    "description": "Use when you must run a glide flight test at idle thrust to measure the sink rate and the lift to drag ratio of an airplane: derive the sink rate from the altitude loss and the segment time, compute the lift to drag ratio from the true airspeed and the sink rate, correct the results for the weight change, the air density, and the residual idle thrust, and locate the best glide speed. Produces the measured and corrected sink rate in m/s, the lift to drag ratio, and the best glide speed that gate the glide test assessment. Trigger: glide test, sink rate, idle thrust, lift to drag, best glide speed, flight test.",
@@ -3742,6 +3816,22 @@
     "lift-to-drag",
     "idle-thrust",
     "flight-test"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-test-operations/performance/in-flight-engine-relight-test",
+   "name": "in-flight-engine-relight-test",
+   "description": "Use when you must reduce an in-flight engine restart demonstration: fit the least-squares windmill N2 regression against true airspeed from the windmill survey, read the minimum relight airspeed where the fitted N2 line crosses the required relight threshold, summarize the starter-assisted relight time-to-idle samples against the type-data limit per altitude band, and combine the band verdicts with the airspeed into the overall restart-demonstration verdict. Produces the regression slope, intercept and R-squared, the minimum relight airspeed in m/s, per-band time-to-idle statistics and verdicts, and the combined PASS or FAIL verdict. Trigger: in-flight relight test, engine restart demonstration, windmill N2 survey, relight airspeed, time-to-idle limit.",
+   "tags": [
+    "in-flight-engine-relight-test",
+    "windmill-relight-airspeed",
+    "starter-assisted-relight",
+    "time-to-idle",
+    "restart-demonstration",
+    "windmill-n2-regression"
    ],
    "family": "flight-test-operations",
    "pack": "performance",
@@ -5970,6 +6060,21 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/axial-compressor/polytropic-efficiency",
+   "name": "polytropic-efficiency",
+   "description": "Use when you must convert between the isentropic and the polytropic efficiency of a compressor or a turbine for performance sizing: recover the polytropic efficiency from the isentropic efficiency at the overall pressure ratio and the reverse, resolve either from inlet and exit total states, restate the stage-count-independent polytropic efficiency at the per-stage pressure ratio, and run the reheat-factor log-sum cross-check of per-stage ratios against the overall ratio. Produces the converted efficiency pair, the state-resolved efficiency and the stage-consistency verdict in air-standard gamma 1.4 closed forms. Trigger: polytropic efficiency, isentropic efficiency, stage-count-independent efficiency, per-stage pressure ratio, reheat-factor cross-check, efficiency conversion, compressor sizing, turbine sizing.",
+   "tags": [
+    "polytropic-efficiency",
+    "isentropic-to-polytropic-conversion",
+    "polytropic-to-isentropic-conversion",
+    "stage-count-independent-efficiency",
+    "reheat-factor-cross-check"
+   ],
+   "family": "propulsion",
+   "pack": "axial-compressor",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/axial-compressor/turbine-blade-cooling",
    "name": "turbine-blade-cooling",
    "description": "Use when you must analyze the cooling flow required to protect a gas turbine blade row: compute the cooling effectiveness from the hot gas total temperature, the allowable blade metal temperature and the coolant supply temperature, convert it into the required coolant-to-gas mass flow fraction with a simplified energy balance, check the fraction against the practical bleed limit, and estimate the achievable metal temperature when film cooling lifts the effectiveness. Produces the effectiveness, coolant fraction, bleed-limit verdict, metal temperature and margin that gate hot section cooling design in the FAR-33 engine context. Trigger: turbine blade cooling, cooling effectiveness, coolant flow fraction, film cooling, allowable metal temperature, coolant supply temperature, bleed limit, hot section cooling.",
@@ -6750,6 +6855,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/adcs/environmental-disturbance-torque-budget",
+   "name": "environmental-disturbance-torque-budget",
+   "description": "Use when you must estimate the worst-case environmental disturbance torque budget for a spacecraft: compute gravity-gradient torque from orbit mean motion and principal moment spread at the attitude offset, solar pressure torque from area, incidence cosine and lever arm with reflectivity convention, residual magnetic dipole torque against the local field, and aero drag torque from the free-molecular relation at explicit density. Produces per-source worst-case torques, aligned-axis total with dominant source, per-orbit disturbance impulse and actuator torque margin. Trigger: disturbance torque budget, worst-case disturbance torque, gravity-gradient torque, solar pressure torque, residual magnetic dipole, aero drag torque, per-orbit impulse.",
+   "tags": [
+    "environmental-disturbance-torque-budget",
+    "worst-case-disturbance-torque",
+    "gravity-gradient-torque",
+    "solar-pressure-torque",
+    "residual-magnetic-dipole",
+    "aero-drag-torque",
+    "disturbance-impulse-per-orbit"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/adcs/gravity-gradient-stabilization",
    "name": "gravity-gradient-stabilization",
    "description": "Use when you must design or analyze passive gravity-gradient stabilization: check the inertia-ratio stability criterion I_y > I_x > I_z with y along the orbit normal for a nadir-pointing spacecraft, compute the pitch libration frequency and period from the mean motion and the inertia spread, estimate the gravity-gradient restoring torque at a pitch offset, and size a gravity boom tip mass for a target libration stiffness. Produces the stability verdict, the libration period, the restoring torque and the boom sizing that gate the passive attitude design of a nadir-pointing spacecraft. Trigger: gravity-gradient stabilization, inertia-ratio criterion, pitch libration frequency and period, gravity boom sizing, nadir-pointing spacecraft, passive attitude stabilization.",
@@ -6831,6 +6953,22 @@
     "rss-pointing-error",
     "jitter-budget",
     "adcs-error-allocation"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/adcs/reaction-jet-limit-cycle",
+   "name": "reaction-jet-limit-cycle",
+   "description": "Use when you must estimate the RCS attitude-hold propellant demand of a reaction-jet limit cycle: the control angular acceleration from the control torque and axis inertia, the angular rate at the deadband crossing, the firing duration of each braking pulse, the delta-V and propellant mass per pulse and per cycle, the aggregate cycle period, the cycle count over the mission life, and the three-axis lifetime propellant total with an activity duty factor. Produces the per-axis limit-cycle state and the three-axis propellant total that gate whether reaction-jet attitude hold is propellant-feasible. Trigger: rcs attitude hold, reaction jet limit cycle, deadband crossing rate, braking pulse firing, limit cycle period, thruster pulse, attitude hold propellant.",
+   "tags": [
+    "reaction-jet-limit-cycle",
+    "rcs-attitude-hold-propellant",
+    "limit-cycle-propellant",
+    "deadband-crossing-rate",
+    "thruster-pulse-duration",
+    "three-axis-propellant-total"
    ],
    "family": "space-systems",
    "pack": "adcs",
@@ -8010,6 +8148,21 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/beam-column-analysis",
+   "name": "beam-column-analysis",
+   "description": "Use when you must margin-check a compression member that also carries bending: compute the Euler load P_E, the moment amplification factor delta that grows the moment as the axial load nears the Euler load, the amplified moment, the secant-formula peak compressive stress of an eccentrically loaded column, and the axial-plus-bending interaction ratio with its margin of safety and pass verdict. Produces P_E, the amplification factor, the amplified moment, the peak combined stress, the interaction ratio, the margin and the verdict for the combined-loading check. SI units, stdlib. Trigger: combined axial compression and bending, moment amplification factor, euler load, secant formula, load eccentricity, margin of safety.",
+   "tags": [
+    "beam-column-analysis",
+    "moment-amplification-factor",
+    "secant-formula",
+    "load-eccentricity",
+    "axial-bending-interaction-ratio"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/beam-frame-analysis",
    "name": "beam-frame-analysis",
    "description": "Use when you must solve a two-dimensional rigid-jointed frame with the Euler Bernoulli beam element: build the local beam element stiffness from the axial and bending contributions, rotate it into the global frame with the member orientation, assemble the global stiffness matrix, apply the fixed support conditions, solve for the nodal displacements and rotations with a compact elimination solver, and recover the support reactions and the member end actions. Produces the nodal displacement and rotation vector, the support reactions, the member end bending moments and shears, and equilibrium checks for a hand-calc or stdlib-only frame analysis. Units are SI. Trigger: beam frame analysis, rigid jointed frame, Euler Bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame.",
@@ -8119,6 +8272,22 @@
     "tie-constraint",
     "bolted-joint",
     "bearing-contact"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/curved-beam-analysis",
+   "name": "curved-beam-analysis",
+   "description": "Use when you must stress-check a curved member with the Winkler curved-beam correction: compute the neutral-axis radius from the closed form A / integral(dA / rho) for a rectangular radial or circular tube section, take the neutral-axis-eccentricity, resolve the Winkler inner and outer fiber stresses, add the axial stress P / A, compare the inner fiber to the straight Euler-Bernoulli reading for the curved-beam amplification, and return the stress-to-allowable ratio with the pass or fail verdict. Produces the neutral-axis radius, neutral-axis-eccentricity, inner and outer fiber stresses, curved-beam amplification over the straight-beam value, and verdict against the allowable. Trigger: winkler curved beam, curved frame segment, torque link arc, clevis arc, curved member stress.",
+   "tags": [
+    "curved-beam-analysis",
+    "winkler-curved-beam",
+    "neutral-axis-radius",
+    "neutral-axis-eccentricity",
+    "inner-fiber-stress",
+    "curved-beam-amplification"
    ],
    "family": "structures",
    "pack": "fem",
@@ -8663,6 +8832,23 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/arp4761a/event-tree-analysis",
+   "name": "event-tree-analysis",
+   "description": "Use when you must run a forward event-tree analysis of the sequences from an initiating event: enumerate every binary branch path through an ordered list of mitigating functions, each with its success probability, roll up each end-state outcome frequency as the initiator frequency times the product of the branch probabilities along the path, rank the end-state paths by frequency, sum the frequency over the paths that reach the failure end state, and screen the ranked sequences against the ARP4761A-class per-flight-hour severity targets to flag the dominant sequences. Produces the full path enumeration with per-path probabilities and frequencies, the frequency-ranked end-state list, the failure-end-state frequency sum and the dominant-sequence flags. Trigger: event tree, initiating event, mitigating function, branch path, end state, failure end state, dominant sequence, initiator frequency.",
+   "tags": [
+    "event-tree-analysis",
+    "event-sequence-rollup",
+    "end-state-frequency",
+    "dominant-sequence",
+    "mitigating-function",
+    "initiator-frequency",
+    "failure-end-state"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/arp4761a/failure-mode-criticality",
    "name": "failure-mode-criticality",
    "description": "Use when you must quantify and rank the failure modes of an item by their rate-based criticality: split the item failure rate into per-mode rates with the mode ratios, compute the MIL-STD-1629A style criticality number C_m = beta * alpha * lambda_p * t for every mode with its failure-effect probability, sum the per-mode criticalities into the item criticality C_r, and rank the modes by C_m with each mode's share of item criticality and a dominant-mode flag. Produces the per-mode rate split, the C_m values, C_r and the sorted rank list that gates maintenance and redesign prioritization. Trigger: failure-mode criticality, fmeca criticality number, mode ratio, failure-effect probability, item criticality.",
@@ -8781,6 +8967,21 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/arp4761a/maintainability-prediction",
+   "name": "maintainability-prediction",
+   "description": "Use when you must roll LRU-level failure rates and repair-task times into a system maintainability prediction: compute the failure-rate-weighted MTTR as the lambda-weighted mean of the per-LRU mean repair times, build the lognormal repair-time model on the failure-rate-weighted median t50, derive the t50 and t95 repair-time percentiles with the Acklam inverse normal quantile, and pass or fail the predicted t95 against the maximum-repair-time requirement with the margin. Produces the weighted MTTR, the t50 and t95 repair times with the lognormal sigma, the verdict and margin, and the per-LRU expected-downtime rollup. Trigger: maintainability prediction, failure-rate-weighted mttr, mttr rollup, mean time to repair, lognormal repair-time model, repair-time percentile, t95 repair time, maximum-repair-time requirement.",
+   "tags": [
+    "maintainability-prediction",
+    "failure-rate-weighted-mttr",
+    "lognormal-repair-time",
+    "repair-time-percentile",
+    "maximum-repair-time-requirement"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/arp4761a/markov-analysis",
    "name": "markov-analysis",
    "description": "Use when you must run a quantitative Markov analysis for an aircraft system safety model per ARP4761A: compute continuous time Markov chain state probabilities from the transition rate matrix, evaluate two-state failure and repair availability with steady state limits, derive the non-repairable failure probability and the mean time to failure, sum series failure rates, and estimate redundant configuration reliability with k-out-of-n combinations. Produces the state probability vector, the availability, and the MTTF that gate the quantitative safety case for the failed state. Trigger: Markov analysis, Markov chain, state probability, transition rate, failure rate, repair rate, availability, MTTF, absorbing state, k-out-of-n.",
@@ -8868,6 +9069,21 @@
     "mission-reliability",
     "failure-rate",
     "dominant-component"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/arp4761a/reliability-growth-analysis",
+   "name": "reliability-growth-analysis",
+   "description": "Use when you must determine whether a system failure rate is improving over development or field test time: fit the Duane growth slope by ordinary least squares of the log cumulative failure rate on log cumulative time, fit the Crow-AMSAA power-law process shape beta by deterministic MLE bisection, and read the growth verdict off the fitted shape against the 1.0 boundary. Produces the duane-growth-slope, the amsaa-shape-beta with the lambda scale, the fitted current-mtbf under both estimators, the projected-mtbf at a target cumulative test time, and the improving, hpp-constant or degrading verdict that decides whether continued testing or a corrective redesign is warranted. Trigger: reliability growth analysis, duane-growth-slope, amsaa-shape-beta, growth-verdict, test-time-projection, fitted current-mtbf, power-law process, cumulative test time.",
+   "tags": [
+    "reliability-growth-analysis",
+    "duane-growth-slope",
+    "amsaa-shape-beta",
+    "growth-verdict",
+    "test-time-projection"
    ],
    "family": "systems-engineering-safety",
    "pack": "arp4761a",
@@ -9516,6 +9732,24 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/air-cycle-machine-sizing",
+   "name": "air-cycle-machine-sizing",
+   "description": "Use when you must size the bootstrap air-cycle cooling pack thermodynamics for the ECS cooling load: compute the compressor exit state from the pack-inlet bleed condition, pressure ratio and isentropic efficiency, cool the discharge through the ram-air heat exchanger at a given effectiveness, expand through the cooling turbine to cabin pressure, close the two-wheel ACM shaft balance, and turn the turbine exit temperature into delivered cooling against the cabin design temperature. Produces compressor and turbine exit temperatures and pressures, heat-exchanger exit temperature, shaft powers, the balance verdict with work deficit or closing effectiveness, delivered cooling power versus the load and the required bleed flow. Trigger: air cycle machine, bootstrap air cycle, ACM shaft balance, cooling turbine exit, compressor exit state, heat exchanger effectiveness, required bleed flow, delivered cooling power.",
+   "tags": [
+    "air-cycle-machine-sizing",
+    "bootstrap-air-cycle",
+    "acm-shaft-balance",
+    "cooling-turbine-exit",
+    "compressor-exit-state",
+    "heat-exchanger-effectiveness",
+    "required-bleed-flow",
+    "delivered-cooling-power"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/aircraft-electrical-load-analysis",
    "name": "aircraft-electrical-load-analysis",
    "description": "Use when you must analyze the aircraft electrical power system load: roll up consumer apparent power (kVA) with each consumer duty cycle into the continuous load, apply the diversity factor for the coincident peak, total the essential load from the named essential consumers at full steady power, check the generator rating against the single-generator-out case where remaining capacity must cover the essential load, and report the load fraction against the installed capacity. Produces the continuous load, the coincident peak, the essential load, the generator-out margin and verdict, and the load fraction that gate the generator sizing. Trigger: aircraft electrical load analysis, electrical load rollup, generator rating check, duty cycle loading, essential load margin, coincident peak load, normal load fraction, single generator out.",
@@ -10065,6 +10299,22 @@
     "number-of-tires",
     "wheel",
     "wheels"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/v-tail-sizing",
+   "name": "v-tail-sizing",
+   "description": "Use when you must size a V-tail empennage from the equivalent horizontal and vertical tail volume requirements: convert each target volume coefficient into its equivalent area, resolve the two areas onto one canted surface pair under the planform-area projection convention, split the total area equally between the two panels, derive the panel span and chord from the surface aspect ratio, size the ruddervator control area as a fraction of the total, and verify the effective volume round trip at the dihedral angle. Produces the equivalent areas, total V-tail area, dihedral angle, per-surface area, span and chord, ruddervator area, and met verdicts. Trigger: v tail sizing, butterfly tail, vee tail, ruddervator, tail dihedral, projected tail area.",
+   "tags": [
+    "v-tail-sizing",
+    "ruddervator",
+    "vee-tail-empennage",
+    "tail-volume-equivalence",
+    "tail-dihedral-angle",
+    "projected-tail-area"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
