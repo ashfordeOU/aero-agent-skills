@@ -90,6 +90,8 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/cargo-compartment-sizing | Cargo compartment sizing | cargo compartment sizing, ULD layout, cargo door opening, unit load device |
 | vehicle-design/sizing/window-aperture-sizing | Window aperture sizing | window aperture sizing, window pane thickness, pressure differential stress, circular pane |
 | vehicle-design/sizing/emergency-exit-configuration | Emergency exit configuration | emergency exit configuration, exit type requirements, exit count check, exit placement |
+| vehicle-design/sizing/air-cycle-machine-sizing | Air cycle machine sizing | air cycle machine sizing, bootstrap air cycle, ACM shaft balance, cooling turbine, heat exchanger effectiveness, required bleed flow |
+| vehicle-design/sizing/v-tail-sizing | V tail sizing | v tail sizing, ruddervator, equivalent tail volume, V-tail dihedral, tail area from volume coefficient |
 
 
 ## Routing guidance
@@ -186,3 +188,6 @@ your host's skills directory (see README Install for per-host commands).
 - Passenger window aperture questions (pane thickness and stress from the pressure differential, design pressure factor, margin) route to the sizing window-aperture-sizing sub-skill.
 
 - Emergency exit configuration questions (exit type dimensions and capacity bands, required exit count by passenger capacity, exit placement spacing) route to the sizing emergency-exit-configuration sub-skill.
+
+- Bootstrap air-cycle pack questions (compressor and turbine exit states with efficiencies, heat-exchanger exit, two-wheel ACM shaft balance, delivered cooling power versus the ECS load and required bleed flow) route to the sizing air-cycle-machine-sizing sub-skill.
+- V-tail empennage questions (equivalent horizontal and vertical tail-volume requirements, total V-tail area and dihedral angle, per-surface geometry and ruddervator area) route to the sizing v-tail-sizing sub-skill.

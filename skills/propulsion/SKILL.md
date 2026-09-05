@@ -79,6 +79,7 @@ compressor stage and operating-map analysis.
 | propulsion/gas-turbine-cycle/intercooled-cycle | Intercooled cycle | intercooled cycle, intercooler effectiveness, intercooler pressure ratio, two stage compression, compression work split, cycle work gain |
 | propulsion/gas-turbine-cycle/turbojet-cycle | Turbojet cycle | turbojet cycle, ideal turbojet, compressor turbine matching, turbine inlet temperature, net specific thrust, turbojet TSFC, core engine matching |
 | propulsion/rocket/rocket-nozzle-flow-separation | Rocket nozzle flow separation | rocket nozzle flow separation, separation pressure ratio, Summerfield criterion, overexpanded nozzle, separation altitude, separated thrust loss, side load regime |
+| propulsion/axial-compressor/polytropic-efficiency | Polytropic efficiency | polytropic efficiency, isentropic efficiency conversion, stage count independent efficiency, per stage pressure ratio, reheat factor |
 
 
 ## Routing guidance
@@ -156,3 +157,5 @@ your host's skills directory (see README Install for per-host commands).
 - Overexpanded rocket nozzle flow-separation questions (separation pressure ratio, Summerfield criterion, separation-station area ratio, separation altitude, separated thrust loss, side-load regime) route to the rocket rocket-nozzle-flow-separation sub-skill.
 - Powered-ascent gravity-loss questions (burn time from propellant and mass flow, launch thrust-to-weight, gravity loss over the mean flight-path angle, effective ascent delta-v after the losses) route to the rocket rocket-gravity-loss sub-skill.
 - Ideal single-stream turbojet core questions (compressor-turbine work-balance matching, turbine-inlet-temperature-driven specific thrust, turbojet TSFC and propulsive efficiency at flight Mach) route to the gas-turbine-cycle turbojet-cycle sub-skill.
+
+- Compressor and turbine efficiency conversion questions (isentropic to polytropic and reverse at an overall pressure ratio, stage-count-independent polytropic efficiency, reheat-factor cross-check) route to the axial-compressor polytropic-efficiency sub-skill.

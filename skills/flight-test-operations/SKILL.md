@@ -80,6 +80,8 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/stability/control-force-flight-test | Control force flight test | control force flight test, stick force gradient, stick force per g, breakout force, control centering check, force transducer calibration, stick force stability |
 
 | flight-test-operations/planning/pcm-telemetry-decommutation | PCM telemetry decommutation | PCM frame sync lock, decommutation, supercommutated channel, subcommutated channel, subframe ID demultiplexing, telemetry time series recovery |
+| flight-test-operations/performance/fuel-jettison-flight-test | Fuel jettison flight test | fuel jettison flight test, measured dump rate, fuel weight versus time, time to landing weight, 900 second limit, jettison verification |
+| flight-test-operations/performance/in-flight-engine-relight-test | In flight engine relight test | in flight engine relight test, engine restart demonstration, windmill N2 survey, minimum relight airspeed, time to idle, altitude band verdict |
 
 
 ## Routing guidance
@@ -150,3 +152,6 @@ your host's skills directory (see README Install for per-host commands).
 - Level-acceleration and specific-excess-power flight test questions route to the performance level-acceleration-test sub-skill.
 - Icing certification flight test questions (natural icing encounters, artificial ice shapes, Appendix C envelope classification, ice protection effectiveness test points) route to the envelope icing-flight-test sub-skill.
 - Noise certification questions (EPNL from a PNLT time history, flyover sideline and approach conditions, cumulative margin) route to the planning noise-certification-test sub-skill.
+
+- Fuel-jettison flight-test reduction questions (least-squares measured dump rate from telemetered fuel weight versus time, time from takeoff weight to landing weight against the 900 second limit, PASS or FAIL verdict) route to the performance fuel-jettison-flight-test sub-skill.
+- In-flight engine restart demonstration questions (windmill N2 versus airspeed regression, minimum relight airspeed, starter-assisted time-to-idle per altitude band, combined restart verdict) route to the performance in-flight-engine-relight-test sub-skill.
