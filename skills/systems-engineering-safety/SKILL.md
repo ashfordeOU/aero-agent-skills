@@ -75,6 +75,9 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/fault-tree-importance-measures | Fault tree importance measures | fault tree importance measures, Birnbaum importance, Fussell-Vesely importance, risk achievement worth, risk reduction worth, basic event ranking, top event sensitivity |
 | systems-engineering-safety/arp4761a/failure-mode-criticality | Failure mode criticality | failure mode criticality, FMECA criticality number, mode ratio, failure effect probability, item criticality, rate based ranking |
 | systems-engineering-safety/arp4761a/beta-factor-analysis | Beta factor analysis | beta factor analysis, common cause fraction, CCF probability, common cause model, redundant channel common cause |
+| systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis | Fault tree uncertainty analysis | fault tree uncertainty, lognormal error factor, lognormal confidence band, exceedance probability, uncertainty variance share |
+| systems-engineering-safety/arp4761a/ssa-closure | SSA closure | ssa closure, system safety assessment close-out, closure gate, predicted probability margin, requirement closure |
+| systems-engineering-safety/arp4761a/fmes-coverage-analysis | FMES coverage analysis | FMES coverage, FMEA to FHA coverage, uncovered failure condition, orphan row, coverage score |
 
 ## Routing guidance
 
@@ -149,3 +152,9 @@ your host's skills directory (see README Install for per-host commands).
 - Fault-tree basic-event ranking questions (Birnbaum and Fussell-Vesely importance, risk-achievement-worth and risk-reduction-worth from the minimal cut sets, dominance thresholds) route to the arp4761a fault-tree-importance-measures sub-skill.
 - Rate-based failure-mode criticality questions (FMECA criticality number from the mode ratio and the failure-effect probability over an operating time, item criticality ranking for maintenance and redesign prioritization) route to the arp4761a failure-mode-criticality sub-skill.
 - Common-cause quantification questions (beta-factor rate split into the independent and the shared common-cause fraction, dual-channel CCF probability, enhancement over the independence-only assumption) route to the arp4761a beta-factor-analysis sub-skill.
+
+- Fault-tree uncertainty questions (lognormal error-factor propagation to a probability band around the top event, exceedance against a target, per-event uncertainty variance shares) route to the arp4761a fault-tree-uncertainty-analysis sub-skill.
+
+- System safety assessment close-out questions (post-implementation verdict rollup by severity, meet-versus-target margins, open-condition and open-requirement lists, closure gate) route to the arp4761a ssa-closure sub-skill.
+
+- FMES coverage questions (FMEA-row to FHA-failure-condition coverage, uncovered failure conditions, orphan FMEA rows, coverage score) route to the arp4761a fmes-coverage-analysis sub-skill.

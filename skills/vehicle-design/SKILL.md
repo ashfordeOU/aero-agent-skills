@@ -87,6 +87,9 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/cabin-outflow-valve-sizing | Cabin outflow valve sizing | cabin outflow valve sizing, outflow valve area, pressure relief valve, choked cabin flow, differential pressure clamp |
 | vehicle-design/sizing/electrical-wire-sizing | Electrical wire sizing | electrical wire sizing, conductor ampacity, ampacity derating, wire voltage drop, percent drop bus tolerance, EWIS conductor selection |
 | vehicle-design/sizing/hydraulic-actuator-sizing | Hydraulic actuator sizing | hydraulic actuator sizing, actuator bore diameter, piston area, rod buckling, annulus retract check, preferred actuator sizes, actuator mass |
+| vehicle-design/sizing/cargo-compartment-sizing | Cargo compartment sizing | cargo compartment sizing, ULD layout, cargo door opening, unit load device |
+| vehicle-design/sizing/window-aperture-sizing | Window aperture sizing | window aperture sizing, window pane thickness, pressure differential stress, circular pane |
+| vehicle-design/sizing/emergency-exit-configuration | Emergency exit configuration | emergency exit configuration, exit type requirements, exit count check, exit placement |
 
 
 ## Routing guidance
@@ -177,3 +180,9 @@ your host's skills directory (see README Install for per-host commands).
 
 - Electrical wire run questions (conductor gauge selection from derated ampacity, round-trip voltage drop and percent-drop verdict against the bus tolerance) route to the sizing electrical-wire-sizing sub-skill.
 - Hydraulic actuator questions (bore and piston area from load and system pressure, rod buckling diameter, annulus retract capability, preferred size selection and mass estimate) route to the sizing hydraulic-actuator-sizing sub-skill.
+
+- Cargo compartment questions (standard-ULD layout and position count, cargo door opening fit, payload volume closure) route to the sizing cargo-compartment-sizing sub-skill.
+
+- Passenger window aperture questions (pane thickness and stress from the pressure differential, design pressure factor, margin) route to the sizing window-aperture-sizing sub-skill.
+
+- Emergency exit configuration questions (exit type dimensions and capacity bands, required exit count by passenger capacity, exit placement spacing) route to the sizing emergency-exit-configuration sub-skill.

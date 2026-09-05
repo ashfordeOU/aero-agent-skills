@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 1088,
+  "corpus_tasks": 1118,
   "families": 12,
-  "leaves": 536,
+  "leaves": 551,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 39,
+      "leaves": 40,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -35,7 +35,8 @@
         "boundary-layer": [
           "boundary-layer-separation",
           "boundary-layer-theory",
-          "boundary-layer-transition"
+          "boundary-layer-transition",
+          "rough-wall-skin-friction"
         ],
         "cfd": [
           "cfd-convergence",
@@ -82,7 +83,7 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 80
+      "tasks": 82
     },
     "avionics": {
       "label": "AVIONICS",
@@ -256,7 +257,7 @@
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 43,
+      "leaves": 45,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -276,6 +277,7 @@
           "pitch-bandwidth-criteria"
         ],
         "performance": [
+          "balanced-field-length",
           "breguet-endurance",
           "breguet-range",
           "climb-performance",
@@ -293,6 +295,7 @@
           "rotorcraft-hover-ground-effect",
           "rotorcraft-hover-performance",
           "rotorcraft-lead-lag-dynamics",
+          "rotorcraft-range-endurance",
           "rotorcraft-tail-rotor-sizing",
           "rotorcraft-vertical-climb-performance",
           "specific-range",
@@ -318,7 +321,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 86
+      "tasks": 90
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
@@ -392,7 +395,7 @@
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 41,
+      "leaves": 42,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -441,6 +444,7 @@
           "gnss-pseudorange-positioning",
           "gnss-raim-fde",
           "inertial-navigation",
+          "ins-gnss-integrated-filter",
           "kalman-filter-design",
           "navigation-frames"
         ],
@@ -458,7 +462,7 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 83
+      "tasks": 85
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
@@ -628,7 +632,7 @@
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 48,
+      "leaves": 50,
       "pack_names": [
         "adcs",
         "ecss",
@@ -645,6 +649,7 @@
           "control-moment-gyro",
           "gravity-gradient-stabilization",
           "gyro-allan-variance",
+          "magnetometer-calibration",
           "magnetorquer-control",
           "pointing-error-budget",
           "reaction-wheel-control",
@@ -659,6 +664,7 @@
         "mission-design": [
           "c3-departure-energy",
           "entry-descent-landing",
+          "ground-station-pass-planning",
           "launch-window-analysis",
           "mission-delta-v-budget",
           "radiation-debris",
@@ -698,11 +704,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 99
+      "tasks": 103
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 46,
+      "leaves": 49,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -725,6 +731,7 @@
           "laminate-hygrothermal-response",
           "laminate-plate-buckling",
           "laminate-stiffness",
+          "peel-stress-bonded-joints",
           "sandwich-panels"
         ],
         "damage-tolerance": [
@@ -750,6 +757,7 @@
           "calculix-nonlinear",
           "contact-analysis",
           "cylindrical-shell-buckling",
+          "diagonal-tension-field-webs",
           "lug-joint-analysis",
           "modal-analysis",
           "plate-buckling",
@@ -768,6 +776,7 @@
           "fracture-toughness",
           "material-selection",
           "mmpsd-allowables",
+          "multiaxial-yield-criteria",
           "ramberg-osgood"
         ],
         "thermal-structures": [
@@ -776,11 +785,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 93
+      "tasks": 99
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 39,
+      "leaves": 42,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -808,6 +817,8 @@
           "failure-mode-criticality",
           "failure-rate-estimation",
           "fault-tree-importance-measures",
+          "fault-tree-uncertainty-analysis",
+          "fmes-coverage-analysis",
           "fta-fmea",
           "functional-hazard-assessment",
           "markov-analysis",
@@ -816,6 +827,7 @@
           "preliminary-system-safety-assessment",
           "reliability-block-diagram",
           "safety-assessment",
+          "ssa-closure",
           "zonal-safety-analysis"
         ],
         "certification": [
@@ -847,11 +859,11 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 80
+      "tasks": 86
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 49,
+      "leaves": 52,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -894,8 +906,10 @@
           "brake-energy-sizing",
           "cabin-outflow-valve-sizing",
           "canard-sizing",
+          "cargo-compartment-sizing",
           "control-surface-sizing",
           "electrical-wire-sizing",
+          "emergency-exit-configuration",
           "engine-sizing",
           "environmental-control-sizing",
           "fire-protection-sizing",
@@ -916,6 +930,7 @@
           "tail-sizing",
           "tire-sizing",
           "weight-estimation",
+          "window-aperture-sizing",
           "wing-planform-sizing",
           "ws-tw-trade"
         ],
@@ -925,9 +940,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 100
+      "tasks": 106
     }
   },
-  "skill_files": 548,
+  "skill_files": 563,
   "standards": 30
 }

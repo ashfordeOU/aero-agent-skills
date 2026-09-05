@@ -79,6 +79,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/estimation-filtering/interacting-multiple-model-filter | Interacting multiple model filter | IMM filter, mode probability, Markov mode switching, maneuvering target tracking, CV CA filter bank, model likelihood update, mixed state estimate |
 | gnc-autonomy/control/digital-control-design | Digital control design | z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, sample rate selection, unit circle stability, sampled data control |
 | gnc-autonomy/optimal-control/bang-bang-control | Bang-bang control | bang bang control, time optimal control, switching curve, minimum time maneuver, double integrator, rest to rest slew |
+| gnc-autonomy/navigation/ins-gnss-integrated-filter | INS GNSS integrated filter | ins gnss integrated filter, error state filter, loosely coupled integration, GNSS position update, INS drift correction |
 
 ## Routing guidance
 
@@ -151,3 +152,5 @@ your host's skills directory (see README Install for per-host commands).
 - Collision-course intercept questions (lead angle, constant bearing, collision triangle, predicted intercept point) route to the guidance collision-course-guidance sub-skill.
 - Augmented proportional navigation questions (target lateral acceleration term, maneuvering target intercept, APN command) route to the guidance augmented-proportional-navigation sub-skill.
 - Gibbs and Herrick-Gibbs initial orbit determination from three position vectors routes to the space orbit-determination sub-skill.
+
+- Loosely coupled INS/GNSS integration questions (error-state filter propagation with the psi-angle model, GNSS position updates, INS drift correction) route to the navigation ins-gnss-integrated-filter sub-skill.

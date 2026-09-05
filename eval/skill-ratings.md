@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 536
+Total skills rated: 551
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -543,3 +543,18 @@ Total skills rated: 536
 | 534 | space-systems/mission-design/synodic-launch-window | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
 | 535 | cross-cutting/tolerancing/fastener-position-tolerance-calc | PASS | ✓ | asme-y14-5 | cross-cutting | 9.5 | PASS |
 | 536 | cross-cutting/numerics/exact-binomial-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 537 | systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 538 | aerodynamics/boundary-layer/rough-wall-skin-friction | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 539 | systems-engineering-safety/arp4761a/fmes-coverage-analysis | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 540 | systems-engineering-safety/arp4761a/ssa-closure | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 541 | flight-mechanics/performance/rotorcraft-range-endurance | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 542 | gnc-autonomy/navigation/ins-gnss-integrated-filter | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 543 | structures/materials/multiaxial-yield-criteria | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
+| 544 | flight-mechanics/performance/balanced-field-length | PASS | ✓ | far-25 | flight-mechanics | 9.5 | PASS |
+| 545 | structures/fem/diagonal-tension-field-webs | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 546 | structures/composites/peel-stress-bonded-joints | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 547 | space-systems/adcs/magnetometer-calibration | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 548 | space-systems/mission-design/ground-station-pass-planning | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 549 | vehicle-design/sizing/window-aperture-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 550 | vehicle-design/sizing/cargo-compartment-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 551 | vehicle-design/sizing/emergency-exit-configuration | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
