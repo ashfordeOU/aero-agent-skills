@@ -81,6 +81,8 @@ material selection.
 | structures/fem/pressure-bulkhead | Pressure bulkhead | pressure bulkhead, membrane theory dome, bulkhead dome stress, ellipsoidal bulkhead, junction ring load, dome margin |
 | structures/fem/beam-vibration | Beam vibration | beam vibration, Euler-Bernoulli beam, characteristic equation roots, cantilever beam, pinned pinned beam, Rayleigh quotient |
 | structures/fem/lug-joint-analysis | Lug joint analysis | lug joint analysis, pin loaded lug, lug bearing stress, lug net section tension, lug tearout shear, lug edge distance ratio, round end lug |
+| structures/fem/torsion-shear-flow | Torsion shear flow | torsion shear flow, Bredt Batho, Saint-Venant torsion, angle of twist, multi-cell section, closed section shear flow, torsional stress margin |
+| structures/fatigue/random-vibration-fatigue | Random vibration fatigue | random vibration fatigue, Dirlik method, spectral fatigue, narrow band damage, PSD spectral moments, expected peak rate, Basquin gamma damage |
 
 
 ## Routing guidance
@@ -169,3 +171,5 @@ your host's skills directory (see README Install for per-host commands).
 - Coffin-Manson strain-life and Neuber local-strain questions route to the fatigue strain-life-fatigue sub-skill.
 - Shock response spectrum and transient half-sine or decaying-sine base acceleration questions route to the loads shock-response-spectrum sub-skill.
 - Single-lap adhesive bondline shear stress, shear-lag peak stress, and joint margin questions route to the composites adhesive-bonded-joints sub-skill.
+- Closed and open section torsion questions (Bredt-Batho shear flow q = T over 2A, Saint-Venant J, angle of twist, multi-cell shear-flow distribution, torsional margin) route to the fem torsion-shear-flow sub-skill.
+- Fatigue damage from a response PSD questions (spectral moments, Dirlik and narrow-band damage rate, Basquin gamma life, expected peak rate) route to the fatigue random-vibration-fatigue sub-skill.

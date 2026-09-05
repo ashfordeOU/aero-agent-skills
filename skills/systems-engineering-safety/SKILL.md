@@ -72,6 +72,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/continued-airworthiness/ica-cmr-ali-classification | ICA/CMR/ALI classification | airworthiness limitation items, ALI, certification maintenance requirements, CMR, airworthiness limitations section, ALS coverage, life-limited part, instructions for continued airworthiness |
 | systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance | AD compliance | airworthiness directive compliance, directive applicability, affected model and serial range, compliance time remaining, grace band, open due overdue fleet report, directive effectivity |
 | systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet | Type certificate data sheet | type certificate data sheet, TCDS, type design record, approved model list, category airspeed limits, weight block validation, revision diff |
+| systems-engineering-safety/arp4761a/fault-tree-importance-measures | Fault tree importance measures | fault tree importance measures, Birnbaum importance, Fussell-Vesely importance, risk achievement worth, risk reduction worth, basic event ranking, top event sensitivity |
 
 ## Routing guidance
 
@@ -143,3 +144,4 @@ your host's skills directory (see README Install for per-host commands).
 
 - AD compliance questions (directive applicability by affected model and serial range, compliance-time remaining in flight cycles, flight hours or calendar months, open due overdue status against the grace band, fleet compliance report) route to the continued-airworthiness airworthiness-directive-compliance sub-skill.
 - Type-certificate-data-sheet questions (TCDS section compilation, weight block and category airspeed-limit validation, revision diff for TC amendment or STC review) route to the continued-airworthiness type-certificate-data-sheet sub-skill.
+- Fault-tree basic-event ranking questions (Birnbaum and Fussell-Vesely importance, risk-achievement-worth and risk-reduction-worth from the minimal cut sets, dominance thresholds) route to the arp4761a fault-tree-importance-measures sub-skill.

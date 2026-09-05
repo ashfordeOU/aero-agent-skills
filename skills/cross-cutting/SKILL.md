@@ -88,6 +88,9 @@ integration) for engineering calculations.
 | cross-cutting/numerics/information-entropy | Information entropy | Shannon entropy, binary entropy function, information content, source coding bound, bits per symbol |
 | cross-cutting/numerics/runs-test | Runs test | runs test, Wald-Wolfowitz runs, sequence randomness test, runs count, expected runs, z statistic |
 | cross-cutting/numerics/grubbs-outlier-test | Grubbs outlier test | grubbs outlier test, G statistic, single outlier test, grubbs critical value, outlier screening verdict |
+| cross-cutting/numerics/multiple-linear-regression | Multiple linear regression | multiple linear regression, variance inflation factor, adjusted R squared, partial regression coefficient, regression F test, coefficient standard error, multicollinearity check |
+| cross-cutting/numerics/proportion-confidence-interval | Proportion confidence interval | proportion confidence interval, Wilson score interval, Clopper Pearson interval, binomial proportion, exact confidence bound, two proportion difference |
+| cross-cutting/numerics/fisher-exact-test | Fisher exact test | fisher exact test, two by two contingency, hypergeometric exact p, small expected count, exact independence test, odds ratio |
 
 
 ## Routing guidance
@@ -179,3 +182,6 @@ your host's skills directory (see README Install for per-host commands).
 - Wald-Wolfowitz runs test questions (runs count, expected runs under the randomness null, z statistic verdict) route to the numerics runs-test sub-skill.
 
 - Grubbs single-outlier questions (G statistic against the critical value, reject or no-outlier verdict, rejected value screening for a normal sample) route to the numerics grubbs-outlier-test sub-skill.
+- Multi-predictor linear regression questions (normal-equation OLS with two or more predictors, variance inflation factor, adjusted R-squared, partial-regression t-test, overall F test) route to the numerics multiple-linear-regression sub-skill.
+- Binomial proportion interval questions (Wilson score interval, continuity-corrected Wilson, exact Clopper-Pearson bound, two-proportion difference interval) route to the numerics proportion-confidence-interval sub-skill.
+- Small-sample 2x2 contingency questions (Fisher exact test, hypergeometric tail probability, odds ratio, exact p-value when the expected count is below 5) route to the numerics fisher-exact-test sub-skill.

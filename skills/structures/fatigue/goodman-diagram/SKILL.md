@@ -1,6 +1,6 @@
 ---
 name: goodman-diagram
-description: "Determine the allowable stress amplitude for infinite life under mean stress: compute the modified Goodman, Gerber, and Soderberg allowable amplitudes from the endurance limit, ultimate strength, and yield strength, plot the Haigh diagram with the design point, and give the infinite-life verdict when the applied amplitude exceeds the allowable. Use when a fluctuating load case must be checked against a mean-stress fatigue limit or a Haigh diagram / fatigue diagram comparison is needed for a structure. Trigger: goodman, gerber, soderberg, haigh diagram, fatigue diagram, mean stress, endurance limit, allowable amplitude, infinite life, stress ratio."
+description: "Use when a fluctuating load case must be checked against a mean-stress fatigue limit or a Haigh diagram / fatigue diagram comparison is needed for a structure. Determine the allowable stress amplitude for infinite life under mean stress: compute the modified Goodman, Gerber, and Soderberg allowable amplitudes from the endurance limit, ultimate strength, and yield strength, plot the Haigh diagram with the design point, and give the infinite-life verdict when the applied amplitude exceeds the allowable. Trigger: goodman, gerber, soderberg, haigh diagram, fatigue diagram, mean stress, endurance limit, allowable amplitude, infinite life, stress ratio."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

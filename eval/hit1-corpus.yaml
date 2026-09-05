@@ -240,6 +240,11 @@
 # leaves). Wave-37 new leaves: "manufacturing-quality/as9100/acceptance-sampling", "systems-engineering-safety/continued-airworthiness/airworthiness-directive-compliance", "vehicle-design/sizing/electrical-wire-sizing", "manufacturing-quality/as9100/gage-rr-anova", "space-systems/orbit-mechanics/geostationary-station-keeping", "cross-cutting/numerics/grubbs-outlier-test", "avionics/flight-management/holding-pattern-entry", "vehicle-design/sizing/hydraulic-actuator-sizing", "propulsion/gas-turbine-cycle/subsonic-inlet-recovery", "systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet".
 # Corpus: 1028 tasks (1008 prior plus 20 domain tasks). Owner: Ops
 # Manager, Wave 37 build.
+# P5.2 / Wave 38 (2026-09-05): fan-out continues on the public
+# v1.0.0 model to 521 verified skills (533 SKILL.md under gate 1: 12 routers + 521
+# leaves). Wave-38 new leaves: "aerodynamics/boundary-layer/boundary-layer-separation", "avionics/flight-management/dme-arc-leg", "space-systems/subsystems/doppler-shift", "systems-engineering-safety/arp4761a/fault-tree-importance-measures", "cross-cutting/numerics/fisher-exact-test", "aerodynamics/high-speed/flat-plate-skin-friction-heating", "propulsion/gas-turbine-cycle/intercooled-cycle", "cross-cutting/numerics/multiple-linear-regression", "cross-cutting/numerics/proportion-confidence-interval", "structures/fatigue/random-vibration-fatigue", "avionics/flight-management/rhumb-line-leg", "propulsion/rocket/rocket-nozzle-flow-separation", "avionics/fsw/shared-resource-access-control", "structures/fem/torsion-shear-flow", "manufacturing-quality/as9100/variables-acceptance-sampling".
+# Corpus: 1058 tasks (1028 prior plus 30 domain tasks). Owner: Ops
+# Manager, Wave 38 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4664,6 +4669,126 @@ tasks:
     query: "validate the type-certificate-data-sheet weight block and category airspeed limits for the approved type design"
     intent: "systems-engineering-safety; TCDS validation checks and revision diff"
     expected_skill: "systems-engineering-safety/continued-airworthiness/type-certificate-data-sheet"
+  - id: w38-boundary-layer-separation-1
+    query: "locate the laminar separation point where the thwaites-lambda-criterion crosses minus 0.09 on the edge-velocity distribution"
+    intent: "aerodynamics; laminar separation station from the Thwaites lambda traverse"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-separation"
+  - id: w38-boundary-layer-separation-2
+    query: "apply the stratford-separation-criterion to the pressure-recovery distribution to estimate the turbulent separation location and margin"
+    intent: "aerodynamics; turbulent separation by the Stratford pressure recovery criterion"
+    expected_skill: "aerodynamics/boundary-layer/boundary-layer-separation"
+  - id: w38-dme-arc-leg-1
+    query: "compute the dme-arc-leg arc length and chord between radial 045 and radial 100 at a 12 nm dme radius"
+    intent: "avionics; DME arc procedure geometry between radials"
+    expected_skill: "avionics/flight-management/dme-arc-leg"
+  - id: w38-dme-arc-leg-2
+    query: "find the bank angle to hold a dme-arc-leg at 180 kt and the point on the arc at a given radial"
+    intent: "avionics; DME arc holding bank angle and arc point"
+    expected_skill: "avionics/flight-management/dme-arc-leg"
+  - id: w38-doppler-shift-1
+    query: "compute the doppler-shift and received-frequency offset for an s-band downlink from a 600 km leo satellite at 30 degrees elevation"
+    intent: "space-systems; Doppler shift from range rate on a spacecraft link"
+    expected_skill: "space-systems/subsystems/doppler-shift"
+  - id: w38-doppler-shift-2
+    query: "estimate the worst-case doppler and the doppler-rate at acquisition for a satellite ground link pass"
+    intent: "space-systems; maximum Doppler and Doppler rate for receiver acquisition"
+    expected_skill: "space-systems/subsystems/doppler-shift"
+  - id: w38-fault-tree-importance-measures-1
+    query: "rank the basic events of the fault tree by birnbaum-importance and fussell-vesely-importance from the minimal-cut-set probabilities"
+    intent: "systems-engineering-safety; basic event importance ranking from cut sets"
+    expected_skill: "systems-engineering-safety/arp4761a/fault-tree-importance-measures"
+  - id: w38-fault-tree-importance-measures-2
+    query: "compute the risk-achievement-worth and risk-reduction-worth of each basic event to prioritize the safety-relevant components"
+    intent: "systems-engineering-safety; RAW and RRW importance measures"
+    expected_skill: "systems-engineering-safety/arp4761a/fault-tree-importance-measures"
+  - id: w38-fisher-exact-test-1
+    query: "run the fisher-exact-test on a 2x2 contingency table whose expected count is below 5 and report the exact two-tailed p-value"
+    intent: "cross-cutting; exact small-sample contingency test"
+    expected_skill: "cross-cutting/numerics/fisher-exact-test"
+  - id: w38-fisher-exact-test-2
+    query: "compute the hypergeometric-tail-probability and odds ratio for a two-by-two table with fixed margins"
+    intent: "cross-cutting; hypergeometric exact probability and odds ratio"
+    expected_skill: "cross-cutting/numerics/fisher-exact-test"
+  - id: w38-flat-plate-skin-friction-heating-1
+    query: "compute the flat-plate adiabatic-wall-temperature and cold-wall-heat-flux with the recovery-factor and reference-temperature-method skin friction"
+    intent: "aerodynamics; non-stagnation surface convective heating on a flat plate"
+    expected_skill: "aerodynamics/high-speed/flat-plate-skin-friction-heating"
+  - id: w38-flat-plate-skin-friction-heating-2
+    query: "estimate the turbulent flat-plate skin-friction-heating away from the stagnation point at mach 3 for a thermal protection check"
+    intent: "aerodynamics; turbulent flat plate skin heating with recovery factor"
+    expected_skill: "aerodynamics/high-speed/flat-plate-skin-friction-heating"
+  - id: w38-intercooled-cycle-1
+    query: "analyze the intercooled-brayton-cycle with two-stage compression and the optimum intercooler-pressure-ratio to minimize compressor work"
+    intent: "propulsion; intercooled gas turbine cycle with optimum pressure split"
+    expected_skill: "propulsion/gas-turbine-cycle/intercooled-cycle"
+  - id: w38-intercooled-cycle-2
+    query: "compute the intercooler-effectiveness exit temperature and the specific-work gain of the intercooled cycle over the simple cycle"
+    intent: "propulsion; intercooler effectiveness and cycle comparison"
+    expected_skill: "propulsion/gas-turbine-cycle/intercooled-cycle"
+  - id: w38-multiple-linear-regression-1
+    query: "fit a multiple-linear-regression with two predictors and report the partial-regression-coefficient t-test and variance-inflation-factor"
+    intent: "cross-cutting; multi-predictor OLS with coefficient diagnostics"
+    expected_skill: "cross-cutting/numerics/multiple-linear-regression"
+  - id: w38-multiple-linear-regression-2
+    query: "compute the adjusted-r-squared and the overall regression F p-value for a three-predictor linear model"
+    intent: "cross-cutting; regression goodness of fit and F test"
+    expected_skill: "cross-cutting/numerics/multiple-linear-regression"
+  - id: w38-proportion-confidence-interval-1
+    query: "compute the wilson-score-interval and the clopper-pearson-interval for a binomial proportion from k successes in n trials"
+    intent: "cross-cutting; binomial proportion confidence intervals"
+    expected_skill: "cross-cutting/numerics/proportion-confidence-interval"
+  - id: w38-proportion-confidence-interval-2
+    query: "estimate the two-proportion difference interval for attribute data with zero failures in the sample"
+    intent: "cross-cutting; difference of proportions interval"
+    expected_skill: "cross-cutting/numerics/proportion-confidence-interval"
+  - id: w38-random-vibration-fatigue-1
+    query: "estimate the random-vibration-fatigue damage rate and life from the response stress psd with the dirlik-method amplitude model"
+    intent: "structures; spectral fatigue damage from a response PSD"
+    expected_skill: "structures/fatigue/random-vibration-fatigue"
+  - id: w38-random-vibration-fatigue-2
+    query: "compute the narrow-band fatigue life from the psd spectral moments and the basquin S-N curve under base-excitation random vibration"
+    intent: "structures; narrow band fatigue life from PSD moments"
+    expected_skill: "structures/fatigue/random-vibration-fatigue"
+  - id: w38-rhumb-line-leg-1
+    query: "compute the rhumb-line-leg distance and constant mercator course between two waypoints at constant track"
+    intent: "avionics; rhumb line leg geometry at constant course"
+    expected_skill: "avionics/flight-management/rhumb-line-leg"
+  - id: w38-rhumb-line-leg-2
+    query: "find the along-parallel rhumb-line leg length at latitude 55 and the rhumb-versus-great-circle distance delta"
+    intent: "avionics; parallel rhumb leg and great circle comparison"
+    expected_skill: "avionics/flight-management/rhumb-line-leg"
+  - id: w38-rocket-nozzle-flow-separation-1
+    query: "check the overexpanded rocket nozzle for flow separation with the separation-pressure-ratio criterion and find the separation-station area ratio"
+    intent: "propulsion; rocket nozzle flow separation criterion and station"
+    expected_skill: "propulsion/rocket/rocket-nozzle-flow-separation"
+  - id: w38-rocket-nozzle-flow-separation-2
+    query: "estimate the rocket-nozzle separation altitude and the separated-thrust loss for an overexpanded nozzle at sea level"
+    intent: "propulsion; nozzle separation altitude and thrust correction"
+    expected_skill: "propulsion/rocket/rocket-nozzle-flow-separation"
+  - id: w38-shared-resource-access-control-1
+    query: "compute the priority-ceiling-protocol worst-case blocking time for an avionics task set sharing protected resources"
+    intent: "avionics; priority ceiling protocol blocking bounds"
+    expected_skill: "avionics/fsw/shared-resource-access-control"
+  - id: w38-shared-resource-access-control-2
+    query: "run the response-time-analysis with the blocking term for fixed-priority tasks under the stack-resource-policy and decide schedulability"
+    intent: "avionics; response time analysis with shared resource blocking"
+    expected_skill: "avionics/fsw/shared-resource-access-control"
+  - id: w38-torsion-shear-flow-1
+    query: "compute the bredt-batho shear-flow and twist rate of a closed single-cell section under an applied torque"
+    intent: "structures; closed section torsion shear flow"
+    expected_skill: "structures/fem/torsion-shear-flow"
+  - id: w38-torsion-shear-flow-2
+    query: "solve the saint-venant torsion constant and angle-of-twist for an open thin section and a multi-cell wing box"
+    intent: "structures; Saint-Venant open section torsion and multi-cell shear flow"
+    expected_skill: "structures/fem/torsion-shear-flow"
+  - id: w38-variables-acceptance-sampling-1
+    query: "design a variables-acceptance-sampling plan with the code letter and acceptability constant k from the lot size and AQL"
+    intent: "manufacturing-quality; variables sampling plan lookup"
+    expected_skill: "manufacturing-quality/as9100/variables-acceptance-sampling"
+  - id: w38-variables-acceptance-sampling-2
+    query: "form the Q statistic from the upper specification limit and the sample standard deviation and run the mil-std-414 k-method accept verdict"
+    intent: "manufacturing-quality; form-Q variables acceptance decision"
+    expected_skill: "manufacturing-quality/as9100/variables-acceptance-sampling"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

@@ -75,6 +75,8 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/injector-design | Injector design | injector design, unlike doublet, impinging jet atomization, injector pressure drop, momentum flux ratio, orifice flow count |
 | propulsion/gas-turbine-cycle/propelling-nozzle | Propelling nozzle | propelling nozzle, convergent jet nozzle, nozzle throat area, choked nozzle regime, gross thrust pressure term |
 | propulsion/gas-turbine-cycle/subsonic-inlet-recovery | Subsonic inlet recovery | subsonic inlet recovery, ram recovery ratio, engine face total pressure, intake capture area, spillage verdict, duct total pressure efficiency |
+| propulsion/gas-turbine-cycle/intercooled-cycle | Intercooled cycle | intercooled cycle, intercooler effectiveness, intercooler pressure ratio, two stage compression, compression work split, cycle work gain |
+| propulsion/rocket/rocket-nozzle-flow-separation | Rocket nozzle flow separation | rocket nozzle flow separation, separation pressure ratio, Summerfield criterion, overexpanded nozzle, separation altitude, separated thrust loss, side load regime |
 
 
 ## Routing guidance
@@ -148,3 +150,5 @@ your host's skills directory (see README Install for per-host commands).
 - Air-breathing propelling nozzle questions (choked or unchoked regime, throat area from design mass flow, gross thrust with the pressure term) route to the gas-turbine-cycle propelling-nozzle sub-skill.
 
 - Subsonic turbofan intake questions (ram recovery from flight Mach, engine-face total pressure after duct efficiency, capture-area and spillage verdict against the highlight) route to the gas-turbine-cycle subsonic-inlet-recovery sub-skill.
+- Intercooled Brayton questions (intercooler effectiveness, two-stage compression split, optimum intercooler pressure ratio, specific-work gain over the simple cycle) route to the gas-turbine-cycle intercooled-cycle sub-skill.
+- Overexpanded rocket nozzle flow-separation questions (separation pressure ratio, Summerfield criterion, separation-station area ratio, separation altitude, separated thrust loss, side-load regime) route to the rocket rocket-nozzle-flow-separation sub-skill.

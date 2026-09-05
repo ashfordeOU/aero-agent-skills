@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 1028,
+  "corpus_tasks": 1058,
   "families": 12,
-  "leaves": 506,
+  "leaves": 521,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 36,
+      "leaves": 38,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -33,6 +33,7 @@
           "xfoil-analysis"
         ],
         "boundary-layer": [
+          "boundary-layer-separation",
           "boundary-layer-theory",
           "boundary-layer-transition"
         ],
@@ -58,6 +59,7 @@
         ],
         "high-speed": [
           "aerodynamic-heating",
+          "flat-plate-skin-friction-heating",
           "hypersonic-flow",
           "normal-shock",
           "oblique-shock",
@@ -79,11 +81,11 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 74
+      "tasks": 78
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 43,
+      "leaves": 46,
       "pack_names": [
         "data-bus",
         "do160",
@@ -134,12 +136,14 @@
           "special-conditions"
         ],
         "flight-management": [
+          "dme-arc-leg",
           "flight-planning",
           "holding-pattern-entry",
           "lateral-navigation",
           "performance-computation",
           "radio-navigation-aids",
           "radius-to-fix-leg",
+          "rhumb-line-leg",
           "rnp-anp-containment",
           "rta-time-control",
           "vertical-navigation"
@@ -147,7 +151,8 @@
         "fsw": [
           "cfs-architecture",
           "fprime-component",
-          "real-time-scheduling"
+          "real-time-scheduling",
+          "shared-resource-access-control"
         ],
         "ima": [
           "do297",
@@ -160,11 +165,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 89
+      "tasks": 95
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 45,
+      "leaves": 48,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -197,6 +202,7 @@
           "fast-fourier-transform",
           "finite-difference-derivatives",
           "fir-filter-design",
+          "fisher-exact-test",
           "grubbs-outlier-test",
           "hypothesis-testing",
           "information-entropy",
@@ -204,11 +210,13 @@
           "least-squares-regression",
           "matrix-operations",
           "monte-carlo-sampling",
+          "multiple-linear-regression",
           "numerical-integration",
           "ode-solvers",
           "optimization-algorithms",
           "power-spectral-density",
           "probability-distributions",
+          "proportion-confidence-interval",
           "quaternion-algebra",
           "rank-based-hypothesis-testing",
           "root-finding",
@@ -237,7 +245,7 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 90
+      "tasks": 96
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
@@ -446,7 +454,7 @@
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
-      "leaves": 47,
+      "leaves": 48,
       "pack_names": [
         "additive",
         "as9100",
@@ -484,7 +492,8 @@
           "quality",
           "risk-management",
           "statistical-process-control",
-          "supplier-control"
+          "supplier-control",
+          "variables-acceptance-sampling"
         ],
         "as9102": [
           "ballooning",
@@ -524,11 +533,11 @@
         ]
       },
       "spine": "AS9100 / AS9102",
-      "tasks": 96
+      "tasks": 98
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 38,
+      "leaves": 40,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -565,6 +574,7 @@
           "afterburner-cycle",
           "combustor-design",
           "gas-turbine-cycle",
+          "intercooled-cycle",
           "propelling-nozzle",
           "real-cycle-effects",
           "regenerative-cycle",
@@ -582,6 +592,7 @@
           "nozzle-design",
           "propellant-selection",
           "rocket-engine-cycle",
+          "rocket-nozzle-flow-separation",
           "rocket-sizing",
           "rocket-staging",
           "solid-rocket-motor",
@@ -603,11 +614,11 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 76
+      "tasks": 80
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
-      "leaves": 45,
+      "leaves": 46,
       "pack_names": [
         "adcs",
         "ecss",
@@ -666,6 +677,7 @@
           "antenna-aperture-sizing",
           "command-data-handling",
           "communication-link-budget",
+          "doppler-shift",
           "power-thermal-budget",
           "propellant-tank-sizing",
           "solar-array-sizing",
@@ -674,11 +686,11 @@
         ]
       },
       "spine": "ECSS",
-      "tasks": 93
+      "tasks": 95
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 43,
+      "leaves": 45,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -713,6 +725,7 @@
           "load-spectrum-counting",
           "miner-damage",
           "notch-sensitivity",
+          "random-vibration-fatigue",
           "strain-life-fatigue",
           "stress-life-curve"
         ],
@@ -728,6 +741,7 @@
           "modal-analysis",
           "plate-buckling",
           "pressure-bulkhead",
+          "torsion-shear-flow",
           "truss-analysis"
         ],
         "loads": [
@@ -749,11 +763,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 87
+      "tasks": 91
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
-      "leaves": 36,
+      "leaves": 37,
       "pack_names": [
         "arp4754a",
         "arp4761a",
@@ -778,6 +792,7 @@
         "arp4761a": [
           "common-cause-analysis",
           "failure-rate-estimation",
+          "fault-tree-importance-measures",
           "fta-fmea",
           "functional-hazard-assessment",
           "markov-analysis",
@@ -817,7 +832,7 @@
         ]
       },
       "spine": "ARP4754A / ARP4761A",
-      "tasks": 74
+      "tasks": 76
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
@@ -898,6 +913,6 @@
       "tasks": 100
     }
   },
-  "skill_files": 518,
+  "skill_files": 533,
   "standards": 30
 }

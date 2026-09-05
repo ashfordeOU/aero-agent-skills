@@ -82,6 +82,7 @@ selection, and classical orbital element determination.
 | space-systems/adcs/pointing-error-budget | Pointing error budget | pointing error budget, pointing accuracy, rss pointing error, jitter budget, adcs error allocation |
 | space-systems/orbit-mechanics/walker-delta-constellation | Walker-Delta constellation | walker delta constellation, walker delta tpf, constellation plane spacing, inter-plane phasing, constellation slot enumeration |
 | space-systems/orbit-mechanics/geostationary-station-keeping | GEO station keeping | geostationary station keeping, north-south inclination drift control, east-west deadband cycle, longitude acceleration, geo delta-v and propellant budget, uncontrolled drift years |
+| space-systems/subsystems/doppler-shift | Doppler shift | doppler shift, range rate frequency offset, doppler rate, line of sight relative velocity, acquisition frequency offset, worst case doppler |
 
 
 ## Routing guidance
@@ -167,3 +168,4 @@ your host's skills directory (see README Install for per-host commands).
 - Walker-Delta constellation parameterization questions (t/p/f validity, RAAN and mean anomaly spacing, inter-plane phase, slot grid) route to the orbit-mechanics walker-delta-constellation sub-skill.
 
 - Geostationary station-keeping questions (annual north-south delta-v from the inclination drift, per-burn delta-v and propellant, east-west deadband cycle and cadence, uncontrolled drift time to the inclination tolerance) route to the orbit-mechanics geostationary-station-keeping sub-skill.
+- Doppler frequency questions (range rate from the pass geometry, received frequency offset, worst-case Doppler at the horizon, Doppler rate at acquisition for receiver design) route to the subsystems doppler-shift sub-skill.

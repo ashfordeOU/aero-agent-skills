@@ -1,6 +1,6 @@
 ---
 name: arinc429-protocol
-description: "Encode and decode ARINC 429 digital information transfer words for avionics data buses: build the 32-bit word from the octal label, SDI, 19-bit data field, SSM, and odd parity bit, split a received word back into its fields, and convert BNR and BCD parameters to and from engineering units at the word rate of 12.5 or 100 kbps. Use when checking a bus monitor decode, writing a test stimulus for an LRU interface, or explaining the one-transmitter up-to-20-receivers twisted shielded pair topology. Trigger: ARINC 429, data word, octal label, SDI, SSM, parity, BNR, BCD, 100 kbps, 12.5 kbps, avionics data bus."
+description: "Use when checking a bus monitor decode, writing a test stimulus for an LRU interface, or explaining the one-transmitter up-to-20-receivers twisted shielded pair topology. Encode and decode ARINC 429 digital information transfer words for avionics data buses: build the 32-bit word from the octal label, SDI, 19-bit data field, SSM, and odd parity bit, split a received word back into its fields, and convert BNR and BCD parameters to and from engineering units at the word rate of 12.5 or 100 kbps. Trigger: ARINC 429, data word, octal label, SDI, SSM, parity, BNR, BCD, 100 kbps, 12.5 kbps, avionics data bus."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

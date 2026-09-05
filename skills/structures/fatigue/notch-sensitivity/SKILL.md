@@ -1,6 +1,6 @@
 ---
 name: notch-sensitivity
-description: "Compute the stress concentration factor and fatigue notch factor for a notched aerospace part: determine Kt for an elliptical or circular hole from the geometry, estimate the Peterson material constant from the ultimate tensile strength, convert Kt into the fatigue notch factor Kf with the Peterson and Neuber corrections using the notch root radius, evaluate the notch sensitivity q, and apply the effective stress amplitude to the fatigue strength check. Use when a hole, fillet, or other stress raiser must be accounted for in a fatigue assessment of a structure. Trigger: stress concentration factor, fatigue notch factor, notch sensitivity, Neuber, Peterson, notch root radius, effective stress amplitude."
+description: "Use when a hole, fillet, or other stress raiser must be accounted for in a fatigue assessment of a structure. Compute the stress concentration factor and fatigue notch factor for a notched aerospace part: determine Kt for an elliptical or circular hole from the geometry, estimate the Peterson material constant from the ultimate tensile strength, convert Kt into the fatigue notch factor Kf with the Peterson and Neuber corrections using the notch root radius, evaluate the notch sensitivity q, and apply the effective stress amplitude to the fatigue strength check. Trigger: stress concentration factor, fatigue notch factor, notch sensitivity, Neuber, Peterson, notch root radius, effective stress amplitude."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
