@@ -1,6 +1,6 @@
 ---
 name: arinc664-afdx
-description: "Size and validate ARINC 664 Part 7 Avionics Full-Duplex Switched Ethernet (AFDX) network configurations for civil avionics: compute virtual link bandwidth from the BAG and the maximum frame size, check that the virtual link set fits the 100 Mbps link, bound frame transmission time, verify jitter against the tolerance, estimate end-to-end latency through the switched network, and select the largest legal BAG that still delivers a required bandwidth. Use when sizing an AFDX network, writing a virtual link configuration table, or reviewing a network design against bandwidth, jitter, and latency budgets for certification. Trigger: AFDX, ARINC 664, virtual link, BAG, jitter, end system, avionics network, switched ethernet."
+description: "Use when sizing an AFDX network, writing a virtual link configuration table, or reviewing a network design against bandwidth, jitter, and latency budgets for certification. Size and validate ARINC 664 Part 7 Avionics Full-Duplex Switched Ethernet (AFDX) network configurations for civil avionics: compute virtual link bandwidth from the BAG and the maximum frame size, check that the virtual link set fits the 100 Mbps link, bound frame transmission time, verify jitter against the tolerance, estimate end-to-end latency through the switched network, and select the largest legal BAG that still delivers a required bandwidth. Trigger: AFDX, ARINC 664, virtual link, BAG, jitter, end system, avionics network, switched ethernet."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

@@ -86,6 +86,7 @@ selection and ultrasonic inspection).
 | manufacturing-quality/as9100/gage-linearity-bias-study | Gage linearity and bias study | gage linearity and bias study, measurement bias, gage linearity regression, bias significance, linearity percent band |
 | manufacturing-quality/as9100/acceptance-sampling | Acceptance sampling | attribute acceptance sampling, lot size code letter, AQL accept and reject numbers, operating characteristic curve, lot accept reject decision |
 | manufacturing-quality/as9100/gage-rr-anova | ANOVA gage R&R | ANOVA gage R and R, two-way variance component decomposition, operator part interaction, percent GRR verdict, distinct categories count |
+| manufacturing-quality/as9100/variables-acceptance-sampling | Variables acceptance sampling | variables acceptance sampling, k method, acceptability constant, form Q statistic, estimated percent nonconforming, code letter lot size, AQL variables plan |
 
 
 ## Routing guidance
@@ -169,3 +170,4 @@ your host's skills directory (see README Install for per-host commands).
 
 - Lot acceptance questions (attribute sampling plan selection by lot size code letter and AQL, accept and reject numbers, operating-characteristic probability of acceptance) route to the as9100 acceptance-sampling sub-skill.
 - ANOVA gage R and R questions (two-way variance component decomposition, operator by part interaction F test, percent GRR verdict and distinct categories for replicated studies) route to the as9100 gage-rr-anova sub-skill.
+- Variables lot acceptance questions (measurement-based k-method plan by lot size code letter and AQL, form-Q statistic from the specification limit and sample statistics, acceptability-constant verdict, estimated percent nonconforming) route to the as9100 variables-acceptance-sampling sub-skill.

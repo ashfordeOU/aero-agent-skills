@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 506
+Total skills rated: 521
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -513,3 +513,18 @@ Total skills rated: 506
 | 504 | manufacturing-quality/as9100/acceptance-sampling | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |
 | 505 | avionics/flight-management/holding-pattern-entry | PASS | ✓ | far-25 | avionics | 9.5 | PASS |
 | 506 | cross-cutting/numerics/grubbs-outlier-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 507 | aerodynamics/high-speed/flat-plate-skin-friction-heating | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 508 | systems-engineering-safety/arp4761a/fault-tree-importance-measures | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 509 | aerodynamics/boundary-layer/boundary-layer-separation | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 510 | propulsion/gas-turbine-cycle/intercooled-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 511 | avionics/flight-management/dme-arc-leg | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 512 | avionics/flight-management/rhumb-line-leg | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 513 | avionics/fsw/shared-resource-access-control | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 514 | propulsion/rocket/rocket-nozzle-flow-separation | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 515 | structures/fem/torsion-shear-flow | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 516 | cross-cutting/numerics/multiple-linear-regression | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 517 | cross-cutting/numerics/proportion-confidence-interval | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 518 | structures/fatigue/random-vibration-fatigue | PASS | ✓ | far-25,cs-25 | structures | 9.5 | PASS |
+| 519 | space-systems/subsystems/doppler-shift | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 520 | cross-cutting/numerics/fisher-exact-test | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |
+| 521 | manufacturing-quality/as9100/variables-acceptance-sampling | PASS | ✓ | as9100 | manufacturing-quality | 9.5 | PASS |

@@ -1,6 +1,6 @@
 ---
 name: impact-point-prediction
-description: "Compute the ballistic impact point prediction for a projectile from launch position, launch speed, and flight path angle: determine the flat earth vacuum range with the range equation, the time of flight, the impact coordinates from the launch point and heading, and the sensitivity of the landing point to initial condition errors. Use when a task asks where a round will land, how long the ballistic flight lasts, or how launch speed and flight path angle errors displace the impact point. Trigger: impact point prediction, ballistic trajectory, range equation, time of flight, flight path angle, launch speed, impact coordinates, flat earth."
+description: "Use when a task asks where a round will land, how long the ballistic flight lasts, or how launch speed and flight path angle errors displace the impact point. Compute the ballistic impact point prediction for a projectile from launch position, launch speed, and flight path angle: determine the flat earth vacuum range with the range equation, the time of flight, the impact coordinates from the launch point and heading, and the sensitivity of the landing point to initial condition errors. Trigger: impact point prediction, ballistic trajectory, range equation, time of flight, flight path angle, launch speed, impact coordinates, flat earth."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

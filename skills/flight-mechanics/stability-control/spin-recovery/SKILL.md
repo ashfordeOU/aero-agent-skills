@@ -1,6 +1,6 @@
 ---
 name: spin-recovery
-description: "Analyze spin entry, developed spin modes, and recovery controls for a stalled aircraft: compute the post-stall autorotative band and stall penetration, estimate the spin descent rate and rotation rate from weight, wing area, and spin drag, classify the spin mode as steep or flat, and size the altitude lost and rotation stop time during spin-recovery. Use when the task is spin recovery, autorotation, spin modes, incipient spin, flat spin, or post-stall departure recovery. Trigger: spin recovery, autorotation, flat spin, incipient spin, spin entry, anti-spin controls, post-stall departure."
+description: "Use when the task is spin recovery, autorotation, spin modes, incipient spin, flat spin, or post-stall departure recovery. Analyze spin entry, developed spin modes, and recovery controls for a stalled aircraft: compute the post-stall autorotative band and stall penetration, estimate the spin descent rate and rotation rate from weight, wing area, and spin drag, classify the spin mode as steep or flat, and size the altitude lost and rotation stop time during spin-recovery. Trigger: spin recovery, autorotation, flat spin, incipient spin, spin entry, anti-spin controls, post-stall departure."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

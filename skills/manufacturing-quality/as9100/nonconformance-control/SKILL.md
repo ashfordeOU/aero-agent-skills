@@ -1,6 +1,6 @@
 ---
 name: nonconformance-control
-description: "Determine and record the disposition of nonconforming aerospace product per AS9100 control of nonconforming output: identify and segregate the part, choose between rework, repair, scrap, use-as-is (derogation), and return to supplier, route repair and use-as-is dispositions through the material review board (MRB), and re-verify reworked characteristics before release. Use when dispositioning nonconforming parts, running an MRB decision, or checking disposition record completeness for identification, segregation, disposition, disposition authority, and customer notification. Trigger: nonconforming product, material review board, mrb, disposition, rework, repair, scrap, use as is, segregation, re-verification."
+description: "Use when dispositioning nonconforming parts, running an MRB decision, or checking disposition record completeness for identification, segregation, disposition, disposition authority, and customer notification. Determine and record the disposition of nonconforming aerospace product per AS9100 control of nonconforming output: identify and segregate the part, choose between rework, repair, scrap, use-as-is (derogation), and return to supplier, route repair and use-as-is dispositions through the material review board (MRB), and re-verify reworked characteristics before release. Trigger: nonconforming product, material review board, mrb, disposition, rework, repair, scrap, use as is, segregation, re-verification."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

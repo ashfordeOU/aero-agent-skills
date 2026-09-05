@@ -70,6 +70,8 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/aerodynamic-heating | Aerodynamic heating | aerodynamic heating, stagnation point heating, Sutton-Graves, radiation equilibrium temperature, nose radius, hypersonic heat flux |
 | aerodynamics/boundary-layer/boundary-layer-transition | Boundary layer transition | boundary layer transition, transition location, Thwaites integral, Michel criterion, natural transition, momentum thickness Reynolds number |
 | aerodynamics/cfd/delta-wing-vortex-lift | Delta-wing vortex lift | delta wing vortex lift, leading edge suction analogy, slender delta wing, Polhamus, vortex lift split, drag due to lift |
+| aerodynamics/boundary-layer/boundary-layer-separation | Boundary layer separation | boundary layer separation, Thwaites lambda criterion, Stratford separation criterion, laminar separation point, turbulent separation station, separation margin, adverse pressure gradient |
+| aerodynamics/high-speed/flat-plate-skin-friction-heating | Flat plate skin friction heating | flat plate skin friction heating, recovery factor, adiabatic wall temperature, cold wall heat flux, reference temperature method, Reynolds analogy factor, non-stagnation heating |
 
 ## Routing guidance
 
@@ -115,6 +117,8 @@ objective studies route to
 - Laminar-turbulent transition location questions (transition location, Thwaites integral, Michel criterion, natural transition) route to the boundary-layer boundary-layer-transition sub-skill.
 
 - Delta-wing vortex-lift questions (leading edge suction analogy, slender delta wing, Polhamus vortex lift) route to the cfd delta-wing-vortex-lift sub-skill.
+- Boundary-layer separation questions (Thwaites lambda criterion crossing minus 0.09, Stratford pressure-recovery criterion, laminar separation point, turbulent separation station, separation margin) route to the boundary-layer boundary-layer-separation sub-skill.
+- Flat-plate surface skin heating questions (recovery factor, adiabatic wall temperature, cold wall heat flux, reference temperature method skin friction, non-stagnation heating) route to the high-speed flat-plate-skin-friction-heating sub-skill.
 
 ## Install
 

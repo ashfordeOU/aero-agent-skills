@@ -1,6 +1,6 @@
 ---
 name: truss-analysis
-description: "Compute the response of a 2D pin-jointed truss with the direct stiffness method: build each element stiffness matrix from E, A, L and orientation, assemble the global stiffness matrix, apply support conditions, solve the nodal displacements by Gaussian elimination, then recover member axial forces and support reactions. Use when a truss model must be solved by hand or in a stdlib-only environment without FEA software. Units are SI. Trigger: truss analysis, direct stiffness method, element stiffness matrix, global stiffness matrix, nodal displacements, member forces, reaction forces, Gaussian elimination, pin-jointed, support conditions."
+description: "Use when a truss model must be solved by hand or in a stdlib-only environment without FEA software. Compute the response of a 2D pin-jointed truss with the direct stiffness method: build each element stiffness matrix from E, A, L and orientation, assemble the global stiffness matrix, apply support conditions, solve the nodal displacements by Gaussian elimination, then recover member axial forces and support reactions. Units are SI. Trigger: truss analysis, direct stiffness method, element stiffness matrix, global stiffness matrix, nodal displacements, member forces, reaction forces, Gaussian elimination, pin-jointed, support conditions."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 506,
+  "leaves": 521,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1028
+  "corpus_tasks": 1058
  },
  "skills": [
   {
@@ -59,7 +59,7 @@
   {
    "path": "aerodynamics/aeroelasticity/flutter-speed-prediction",
    "name": "flutter-speed-prediction",
-   "description": "Compute the classical flutter speed of a two-degree-of-freedom bending-torsion wing section: build the typical section with plunge and pitch about the elastic axis, apply Theodorsen unsteady aerodynamics with the complex lift-deficiency function C(k), run the V-g method across the reduced frequency range, locate the flutter speed where the artificial structural damping g crosses zero, check frequency coalescence near the flutter boundary, and assess the flutter margin against the design dive speed in the FAR 25.629 clearance context. Produces the flutter speed, flutter frequency, reduced frequency, coalescence verdict, and a clearance margin assessment. Use when the task is classical wing flutter of the two-DOF typical section, the V-g method, damping crossing, frequency coalescence, or flutter clearance. Trigger: flutter speed, v-g method, bending-torsion flutter, frequency coalescence, typical section, flutter margin, far 25.629.",
+   "description": "Use when the task is classical wing flutter of the two-DOF typical section, the V-g method, damping crossing, frequency coalescence, or flutter clearance. Compute the classical flutter speed of a two-degree-of-freedom bending-torsion wing section: build the typical section with plunge and pitch about the elastic axis, apply Theodorsen unsteady aerodynamics with the complex lift-deficiency function C(k), run the V-g method across the reduced frequency range, locate the flutter speed where the artificial structural damping g crosses zero, check frequency coalescence near the flutter boundary, and assess the flutter margin against the design dive speed in the FAR 25.629 clearance context. Produces the flutter speed, flutter frequency, reduced frequency, coalescence verdict, and a clearance margin assessment. Trigger: flutter speed, v-g method, bending-torsion flutter, frequency coalescence, typical section, flutter margin, far 25.629.",
    "tags": [
     "flutter-speed",
     "v-g-method",
@@ -149,9 +149,26 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/boundary-layer/boundary-layer-separation",
+   "name": "boundary-layer-separation",
+   "description": "Use when you must predict boundary layer separation: grow the laminar layer with the Thwaites integral along the edge-velocity distribution of a two-dimensional body, flag the first station where the thwaites lambda parameter crosses minus 0.09 to give the laminar separation point, and apply the Stratford pressure-recovery criterion to the pressure-coefficient distribution to estimate the turbulent separation station and the separation margin below the 0.35 threshold. Produces the laminar separation station or none, the turbulent separation station or none, and the margin that gates airfoil and inlet-duct design checks. Trigger: boundary-layer-separation, thwaites-lambda-criterion, stratford-separation-criterion, laminar separation point, turbulent separation station, separation margin, adverse pressure gradient, pressure recovery, edge-velocity distribution.",
+   "tags": [
+    "boundary-layer-separation",
+    "thwaites-lambda-criterion",
+    "stratford-separation-criterion",
+    "laminar-separation-point",
+    "turbulent-separation-station",
+    "separation-margin",
+    "adverse-pressure-gradient"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/boundary-layer/boundary-layer-theory",
    "name": "boundary-layer-theory",
-   "description": "Compute laminar and turbulent boundary-layer thicknesses for a smooth flat plate: estimate the 99-percent thickness, displacement thickness, and momentum thickness from the local Reynolds number with the Blasius and 1/7 power-law correlations, evaluate the local and average skin-friction coefficients, and classify the flow into laminar or turbulent regimes by the transition Reynolds number. Use when the task is boundary-layer thickness estimation, displacement or momentum thickness, skin-friction coefficient on a surface, Reynolds-number regime classification, or transition location on a smooth surface. Trigger: boundary layer, displacement thickness, momentum thickness, skin friction, transition, Reynolds number, Blasius.",
+   "description": "Use when the task is boundary-layer thickness estimation, displacement or momentum thickness, skin-friction coefficient on a surface, Reynolds-number regime classification, or transition location on a smooth surface. Compute laminar and turbulent boundary-layer thicknesses for a smooth flat plate: estimate the 99-percent thickness, displacement thickness, and momentum thickness from the local Reynolds number with the Blasius and 1/7 power-law correlations, evaluate the local and average skin-friction coefficients, and classify the flow into laminar or turbulent regimes by the transition Reynolds number. Trigger: boundary layer, displacement thickness, momentum thickness, skin friction, transition, Reynolds number, Blasius.",
    "tags": [
     "boundary-layer",
     "displacement-thickness",
@@ -196,7 +213,7 @@
   {
    "path": "aerodynamics/cfd/cfd-mesh-generation",
    "name": "cfd-mesh-generation",
-   "description": "Generate a CFD mesh for an aerospace flow case: choose between structured, unstructured, and hybrid grids, size the near-wall first cell height from a y plus target and skin friction coefficient, build boundary-layer prism layers with a growth ratio, flag cell quality with skewness, orthogonality, and aspect ratio checks, size the far-field domain, and plan refinement levels. Use when the task is CFD mesh generation, grid type selection, prism layer setup, near-wall resolution, domain sizing, or cell quality checking for a solver run. Produces the grid type recommendation, first cell height, prism layer count, quality verdict, cell count estimate, and refinement plan. Trigger: mesh generation, grid types, prism layers, first cell height, skewness, orthogonality, aspect ratio, domain size, mesh refinement.",
+   "description": "Use when the task is CFD mesh generation, grid type selection, prism layer setup, near-wall resolution, domain sizing, or cell quality checking for a solver run. Generate a CFD mesh for an aerospace flow case: choose between structured, unstructured, and hybrid grids, size the near-wall first cell height from a y plus target and skin friction coefficient, build boundary-layer prism layers with a growth ratio, flag cell quality with skewness, orthogonality, and aspect ratio checks, size the far-field domain, and plan refinement levels. Produces the grid type recommendation, first cell height, prism layer count, quality verdict, cell count estimate, and refinement plan. Trigger: mesh generation, grid types, prism layers, first cell height, skewness, orthogonality, aspect ratio, domain size, mesh refinement.",
    "tags": [
     "cfd",
     "mesh-generation",
@@ -274,7 +291,7 @@
   {
    "path": "aerodynamics/cfd/panel-method",
    "name": "panel-method",
-   "description": "Compute the surface pressure distribution and force coefficients for an airfoil or body in incompressible potential flow with a panel method: build panel geometry from a closed point list, assemble the source panel influence matrix for the Neumann boundary condition, assemble the doublet panel influence matrix for the Dirichlet boundary condition, solve the linear system, evaluate the surface velocity and pressure coefficient, integrate pressure for lift and drag, and apply the Kutta condition to fix trailing-edge circulation. Use when the task is panel method setup, source or doublet panels, Neumann or Dirichlet boundary conditions, Kutta condition enforcement, pressure distribution on an airfoil or fuselage, or potential flow over 3D bodies. Trigger: panel method, source panel, doublet panel, kutta condition, neumann boundary condition, dirichlet boundary condition, pressure coefficient, potential flow, 3d body.",
+   "description": "Use when the task is panel method setup, source or doublet panels, Neumann or Dirichlet boundary conditions, Kutta condition enforcement, pressure distribution on an airfoil or fuselage, or potential flow over 3D bodies. Compute the surface pressure distribution and force coefficients for an airfoil or body in incompressible potential flow with a panel method: build panel geometry from a closed point list, assemble the source panel influence matrix for the Neumann boundary condition, assemble the doublet panel influence matrix for the Dirichlet boundary condition, solve the linear system, evaluate the surface velocity and pressure coefficient, integrate pressure for lift and drag, and apply the Kutta condition to fix trailing-edge circulation. Trigger: panel method, source panel, doublet panel, kutta condition, neumann boundary condition, dirichlet boundary condition, pressure coefficient, potential flow, 3d body.",
    "tags": [
     "panel-method",
     "source-panel",
@@ -352,7 +369,7 @@
   {
    "path": "aerodynamics/drag-polars/parasite-drag",
    "name": "parasite-drag",
-   "description": "Estimate the parasite (zero-lift) drag of a fixed-wing aircraft with the component buildup method: compute the flat-plate skin-friction coefficient from the Reynolds number for laminar and turbulent flow, apply the form factor and interference factor to each component, convert the wetted area into a drag coefficient, and sum the wing, fuselage, nacelle, and tail contributions into the total parasite drag. Also back out the equivalent skin-friction coefficient from the total wetted area and the total drag. Use when the task is drag buildup, zero-lift drag estimation, the wetted-area method, skin-friction coefficients, form factor, interference factor, or equivalent skin-friction coefficient in a preliminary drag assessment. Trigger: parasite drag, zero-lift drag, skin friction, wetted area, form factor, interference factor, drag buildup, Reynolds number.",
+   "description": "Use when the task is drag buildup, zero-lift drag estimation, the wetted-area method, skin-friction coefficients, form factor, interference factor, or equivalent skin-friction coefficient in a preliminary drag assessment. Estimate the parasite (zero-lift) drag of a fixed-wing aircraft with the component buildup method: compute the flat-plate skin-friction coefficient from the Reynolds number for laminar and turbulent flow, apply the form factor and interference factor to each component, convert the wetted area into a drag coefficient, and sum the wing, fuselage, nacelle, and tail contributions into the total parasite drag. Also back out the equivalent skin-friction coefficient from the total wetted area and the total drag. Trigger: parasite drag, zero-lift drag, skin friction, wetted area, form factor, interference factor, drag buildup, Reynolds number.",
    "tags": [
     "parasite-drag",
     "zero-lift-drag",
@@ -391,7 +408,7 @@
   {
    "path": "aerodynamics/high-lift/high-lift-systems",
    "name": "high-lift-systems",
-   "description": "Estimate high-lift system performance for conceptual design: compute the section clmax increment for trailing-edge flaps (plain, split, slotted, Fowler) and leading-edge devices (slat, Krueger), scale the increment with deflection, flap chord ratio, and flapped span fraction, combine flap and slat increments by superposition, apply the three-dimensional and sweep reduction to get wing CLmax, and derive the resulting stall speed. Produces the wing maximum lift coefficient, stall speed, drag increment, and pitching moment increment that size the flap schedule and drive field performance estimates. Use when the task is high-lift device selection, flap clmax estimation, slat contribution, wing CLmax, or stall speed with flaps. Trigger: high-lift, flap, slat, Fowler, Krueger, clmax, stall speed, lift increment.",
+   "description": "Use when the task is high-lift device selection, flap clmax estimation, slat contribution, wing CLmax, or stall speed with flaps. Estimate high-lift system performance for conceptual design: compute the section clmax increment for trailing-edge flaps (plain, split, slotted, Fowler) and leading-edge devices (slat, Krueger), scale the increment with deflection, flap chord ratio, and flapped span fraction, combine flap and slat increments by superposition, apply the three-dimensional and sweep reduction to get wing CLmax, and derive the resulting stall speed. Produces the wing maximum lift coefficient, stall speed, drag increment, and pitching moment increment that size the flap schedule and drive field performance estimates. Trigger: high-lift, flap, slat, Fowler, Krueger, clmax, stall speed, lift increment.",
    "tags": [
     "high-lift-systems",
     "trailing-edge-flaps",
@@ -413,6 +430,23 @@
     "sutton-graves",
     "radiation-equilibrium-temperature",
     "nose-radius-bluntness"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/flat-plate-skin-friction-heating",
+   "name": "flat-plate-skin-friction-heating",
+   "description": "Use when you must estimate the surface skin friction heating on a flat plate or vehicle skin at high Mach: it computes the recovery factor, adiabatic wall temperature, Eckert reference temperature, Sutherland viscosity, local skin friction coefficient and Reynolds-analogy heat transfer coefficient, then the cold-wall heat flux for a laminar or turbulent boundary layer. Produces the non-stagnation heating report with r, T_aw, T_star, Re_star, Cf, h_c and q_cold_wall in SI units for a thermal protection check. Trigger: recovery-factor, adiabatic-wall-temperature, cold-wall-heat-flux, reference-temperature-method, reynolds-analogy-factor, skin-friction-coefficient, turbulent-plate-heating, flat-plate-heating.",
+   "tags": [
+    "flat-plate-skin-friction-heating",
+    "recovery-factor",
+    "adiabatic-wall-temperature",
+    "cold-wall-heat-flux",
+    "reference-temperature-method",
+    "reynolds-analogy-factor",
+    "non-stagnation-heating"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -556,7 +590,7 @@
   {
    "path": "aerodynamics/high-speed/wave-drag-area-rule",
    "name": "wave-drag-area-rule",
-   "description": "Compute transonic wave drag with the Whitcomb area rule: build the streamwise cross-sectional area distribution of a wing-body combination, size the Sears-Haack minimum-drag body for a given length and volume, evaluate its zero-lift wave drag, and estimate the drag-divergence Mach number and the parabolic wave drag rise above it. Produces the Sears-Haack radius and area distributions, the equivalent drag area, the wave drag coefficient and force, and the area-rule fuselage pinch that smooths the total area distribution. Use when the task is wave drag estimation, area ruling, Sears-Haack bodies, drag divergence, or cross-sectional area distribution in transonic design. Trigger: wave drag, area rule, Sears-Haack, drag divergence, cross-sectional area.",
+   "description": "Use when the task is wave drag estimation, area ruling, Sears-Haack bodies, drag divergence, or cross-sectional area distribution in transonic design. Compute transonic wave drag with the Whitcomb area rule: build the streamwise cross-sectional area distribution of a wing-body combination, size the Sears-Haack minimum-drag body for a given length and volume, evaluate its zero-lift wave drag, and estimate the drag-divergence Mach number and the parabolic wave drag rise above it. Produces the Sears-Haack radius and area distributions, the equivalent drag area, the wave drag coefficient and force, and the area-rule fuselage pinch that smooths the total area distribution. Trigger: wave drag, area rule, Sears-Haack, drag divergence, cross-sectional area.",
    "tags": [
     "wave-drag",
     "area-rule",
@@ -588,7 +622,7 @@
   {
    "path": "aerodynamics/wind-tunnel/windtunnel-data-reduction",
    "name": "windtunnel-data-reduction",
-   "description": "Correct wind tunnel balance and pressure measurements into standard aerodynamic coefficients: subtract support tare and tareshift, apply solid and wake blockage corrections, correct wall interference and streamline curvature, apply Reynolds number and Mach corrections, estimate repeat-run uncertainty of the measured coefficients, and reduce raw runs to lift, drag, and pitching moment coefficients plus pressure distributions referenced to planform area and reference length, with a full correction ledger. Use when the task is experimental wind tunnel data reduction, tare or blockage correction, wall interference, dynamic pressure correction, coefficient reduction, or uncertainty from repeated runs. Trigger: windtunnel data reduction, tare correction, blockage correction, wall interference, reynolds correction, aerodynamic coefficients, pressure distribution, uncertainty estimation, balance data, experimental aerodynamics.",
+   "description": "Use when the task is experimental wind tunnel data reduction, tare or blockage correction, wall interference, dynamic pressure correction, coefficient reduction, or uncertainty from repeated runs. Correct wind tunnel balance and pressure measurements into standard aerodynamic coefficients: subtract support tare and tareshift, apply solid and wake blockage corrections, correct wall interference and streamline curvature, apply Reynolds number and Mach corrections, estimate repeat-run uncertainty of the measured coefficients, and reduce raw runs to lift, drag, and pitching moment coefficients plus pressure distributions referenced to planform area and reference length, with a full correction ledger. Trigger: windtunnel data reduction, tare correction, blockage correction, wall interference, reynolds correction, aerodynamic coefficients, pressure distribution, uncertainty estimation, balance data, experimental aerodynamics.",
    "tags": [
     "windtunnel-data-reduction",
     "tare-correction",
@@ -695,7 +729,7 @@
   {
    "path": "avionics/data-bus/arinc429-protocol",
    "name": "arinc429-protocol",
-   "description": "Encode and decode ARINC 429 digital information transfer words for avionics data buses: build the 32-bit word from the octal label, SDI, 19-bit data field, SSM, and odd parity bit, split a received word back into its fields, and convert BNR and BCD parameters to and from engineering units at the word rate of 12.5 or 100 kbps. Use when checking a bus monitor decode, writing a test stimulus for an LRU interface, or explaining the one-transmitter up-to-20-receivers twisted shielded pair topology. Trigger: ARINC 429, data word, octal label, SDI, SSM, parity, BNR, BCD, 100 kbps, 12.5 kbps, avionics data bus.",
+   "description": "Use when checking a bus monitor decode, writing a test stimulus for an LRU interface, or explaining the one-transmitter up-to-20-receivers twisted shielded pair topology. Encode and decode ARINC 429 digital information transfer words for avionics data buses: build the 32-bit word from the octal label, SDI, 19-bit data field, SSM, and odd parity bit, split a received word back into its fields, and convert BNR and BCD parameters to and from engineering units at the word rate of 12.5 or 100 kbps. Trigger: ARINC 429, data word, octal label, SDI, SSM, parity, BNR, BCD, 100 kbps, 12.5 kbps, avionics data bus.",
    "tags": [
     "arinc-429",
     "data-bus",
@@ -717,7 +751,7 @@
   {
    "path": "avionics/data-bus/arinc664-afdx",
    "name": "arinc664-afdx",
-   "description": "Size and validate ARINC 664 Part 7 Avionics Full-Duplex Switched Ethernet (AFDX) network configurations for civil avionics: compute virtual link bandwidth from the BAG and the maximum frame size, check that the virtual link set fits the 100 Mbps link, bound frame transmission time, verify jitter against the tolerance, estimate end-to-end latency through the switched network, and select the largest legal BAG that still delivers a required bandwidth. Use when sizing an AFDX network, writing a virtual link configuration table, or reviewing a network design against bandwidth, jitter, and latency budgets for certification. Trigger: AFDX, ARINC 664, virtual link, BAG, jitter, end system, avionics network, switched ethernet.",
+   "description": "Use when sizing an AFDX network, writing a virtual link configuration table, or reviewing a network design against bandwidth, jitter, and latency budgets for certification. Size and validate ARINC 664 Part 7 Avionics Full-Duplex Switched Ethernet (AFDX) network configurations for civil avionics: compute virtual link bandwidth from the BAG and the maximum frame size, check that the virtual link set fits the 100 Mbps link, bound frame transmission time, verify jitter against the tolerance, estimate end-to-end latency through the switched network, and select the largest legal BAG that still delivers a required bandwidth. Trigger: AFDX, ARINC 664, virtual link, BAG, jitter, end system, avionics network, switched ethernet.",
    "tags": [
     "afdx",
     "arinc-664",
@@ -739,7 +773,7 @@
   {
    "path": "avionics/data-bus/mil-std-1553",
    "name": "mil-std-1553",
-   "description": "Encode and decode MIL-STD-1553B avionics data bus words for the 1 Mbps command/response multiplex bus: build the 20-bit command word from the 5-bit remote terminal address, transmit/receive bit, 5-bit subaddress, and 5-bit word count with odd parity, split a received word back into its fields, classify the message format (BC-to-RT, RT-to-BC, RT-to-RT, broadcast, mode code), and lay out dual redundant bus A/B operation with bus controller and remote terminal message scheduling. Use when the task is a MIL-STD-1553 command word, status word, data word, Manchester II encoding, bus controller or remote terminal behavior, or military avionics data bus design. Trigger: mil-std-1553, 1553, command-response, remote-terminal, bus controller, dual redundant, Manchester II, mode code, 1 Mbps.",
+   "description": "Use when the task is a MIL-STD-1553 command word, status word, data word, Manchester II encoding, bus controller or remote terminal behavior, or military avionics data bus design. Encode and decode MIL-STD-1553B avionics data bus words for the 1 Mbps command/response multiplex bus: build the 20-bit command word from the 5-bit remote terminal address, transmit/receive bit, 5-bit subaddress, and 5-bit word count with odd parity, split a received word back into its fields, classify the message format (BC-to-RT, RT-to-BC, RT-to-RT, broadcast, mode code), and lay out dual redundant bus A/B operation with bus controller and remote terminal message scheduling. Trigger: mil-std-1553, 1553, command-response, remote-terminal, bus controller, dual redundant, Manchester II, mode code, 1 Mbps.",
    "tags": [
     "mil-std-1553",
     "1553",
@@ -783,7 +817,7 @@
   {
    "path": "avionics/do160/electrostatic-discharge",
    "name": "electrostatic-discharge",
-   "description": "Determine DO-160 Section 25 electrostatic discharge (ESD) test parameters for airborne equipment: select the single equipment category and 15 kV air discharge test level, compute the stored energy and discharge waveform currents (peak, 30 ns, 60 ns) from the 150 pF and 330 ohm generator model, check the 10 positive and 10 negative discharges per test point, and judge test point applicability from personnel accessibility with connector pins excluded. Use when planning or auditing ESD qualification of LRUs and cabin equipment that personnel handle during normal operation or maintenance. Verdict logic classifies pass criteria; input validation and summary formulas only, no standard tables reproduced. Trigger: electrostatic discharge, ESD testing, air discharge, discharge waveform, test point.",
+   "description": "Use when planning or auditing ESD qualification of LRUs and cabin equipment that personnel handle during normal operation or maintenance. Determine DO-160 Section 25 electrostatic discharge (ESD) test parameters for airborne equipment: select the single equipment category and 15 kV air discharge test level, compute the stored energy and discharge waveform currents (peak, 30 ns, 60 ns) from the 150 pF and 330 ohm generator model, check the 10 positive and 10 negative discharges per test point, and judge test point applicability from personnel accessibility with connector pins excluded. Verdict logic classifies pass criteria; input validation and summary formulas only, no standard tables reproduced. Trigger: electrostatic discharge, ESD testing, air discharge, discharge waveform, test point.",
    "tags": [
     "electrostatic-discharge",
     "esd-testing",
@@ -837,7 +871,7 @@
   {
    "path": "avionics/do160/power-input",
    "name": "power-input",
-   "description": "Assess DO-160 Section 16 power-input characteristics of airborne equipment: verify measured AC and DC steady-state voltages against normal and emergency limits, compute voltage-sag depth and voltage-surge height as percentages of nominal, check frequency-variation tolerance for 400 Hz AC buses, and verify transient-recovery time after a sag or surge event. Use when reviewing a power-input test plan, analyzing captured input-power waveforms against the equipment category, or deciding whether a transient event stays within its category envelope. Trigger: DO-160, power-input, voltage-sag, voltage-surge, frequency-variation, transient-recovery, emergency-power.",
+   "description": "Use when reviewing a power-input test plan, analyzing captured input-power waveforms against the equipment category, or deciding whether a transient event stays within its category envelope. Assess DO-160 Section 16 power-input characteristics of airborne equipment: verify measured AC and DC steady-state voltages against normal and emergency limits, compute voltage-sag depth and voltage-surge height as percentages of nominal, check frequency-variation tolerance for 400 Hz AC buses, and verify transient-recovery time after a sag or surge event. Trigger: DO-160, power-input, voltage-sag, voltage-surge, frequency-variation, transient-recovery, emergency-power.",
    "tags": [
     "power-input",
     "voltage-sag",
@@ -994,7 +1028,7 @@
   {
    "path": "avionics/do178c/software-testing",
    "name": "software-testing",
-   "description": "Generate requirements-based-testing test cases for DO-178C airborne software and count the test cases each structural-coverage metric demands: statement coverage needs 1 case per statement, decision coverage 2 cases per decision, and mc-dc needs n+1 cases for a compound boolean condition with n independent terms. Use when a task asks how many test cases a boolean condition requires, how to derive tests from high-level and low-level requirements, which coverage objectives apply per software level (level A requires mc-dc, B decision coverage, C statement coverage, D and E none), or how to measure and document structural coverage against the DO-178C Table A-7 objectives. Trigger: requirements-based-testing, mc-dc test-case-count, structural-coverage measurement, coverage-objectives per level, test case generation.",
+   "description": "Use when a task asks how many test cases a boolean condition requires, how to derive tests from high-level and low-level requirements, which coverage objectives apply per software level (level A requires mc-dc, B decision coverage, C statement coverage, D and E none), or how to measure and document structural coverage against the DO-178C Table A-7 objectives. Generate requirements-based-testing test cases for DO-178C airborne software and count the test cases each structural-coverage metric demands: statement coverage needs 1 case per statement, decision coverage 2 cases per decision, and mc-dc needs n+1 cases for a compound boolean condition with n independent terms. Trigger: requirements-based-testing, mc-dc test-case-count, structural-coverage measurement, coverage-objectives per level, test case generation.",
    "tags": [
     "requirements-based-testing",
     "structural-coverage",
@@ -1144,6 +1178,23 @@
    "router_doc": false
   },
   {
+   "path": "avionics/flight-management/dme-arc-leg",
+   "name": "dme-arc-leg",
+   "description": "Use when you must compute the geometry of a constant-DME arc leg: the arc length between two radials at a published DME radius, a point on the arc at a given radial, the bank angle that holds the arc at a true airspeed, the turn radius implied by a bank angle, the chord between two arc fixes, and the signed radial intercept for joining or leaving the arc. Produces the arc length, arc points, holding bank angle, chord and intercept angle that gate a DME-arc procedure path check around a VOR/DME station. Trigger: dme arc leg, vor dme arc, arc length between radials, dme radius, arc bank angle, radial intercept, arc chord.",
+   "tags": [
+    "dme-arc-leg",
+    "vor-dme-arc",
+    "arc-length-nm",
+    "arc-bank-angle",
+    "radial-intercept",
+    "arc-chord",
+    "dme-radius"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
    "path": "avionics/flight-management/flight-planning",
    "name": "flight-planning",
    "description": "Use when you must build and check a flight management system flight plan: compute great-circle leg distances between waypoints, verify the vertical profile against crossing constraints, and total the track distance for fuel and time planning. Produces the leg distance check, the vertical constraint verdict, and the flight plan validity flag that gates dispatch planning. Trigger: flight planning, flight management system, waypoints, vertical profile, track distance, fms.",
@@ -1198,7 +1249,7 @@
   {
    "path": "avionics/flight-management/performance-computation",
    "name": "performance-computation",
-   "description": "Compute flight management system performance values: derive the cost index from time and fuel costs, select the ECON cruise Mach that minimizes total fuel and time cost, quantify the fuel-for-time trade between candidate cruise speeds, evaluate step-climb benefit between flight levels, and compute the VNAV top of descent with wind-corrected descent distance for the vertical profile. Produces the ECON Mach and true airspeed, the fuel and time per leg, the step-climb verdict, and the top-of-descent distance from cruise altitude to the arrival constraint. Use when the task is FMS performance computation, ECON speed selection, cost index, fuel versus time trade, step-climb logic, or top of descent for a flight management system. Trigger: cost index, econ cruise speed, fuel time trade, step climb, top of descent, vnav, fms performance.",
+   "description": "Use when the task is FMS performance computation, ECON speed selection, cost index, fuel versus time trade, step-climb logic, or top of descent for a flight management system. Compute flight management system performance values: derive the cost index from time and fuel costs, select the ECON cruise Mach that minimizes total fuel and time cost, quantify the fuel-for-time trade between candidate cruise speeds, evaluate step-climb benefit between flight levels, and compute the VNAV top of descent with wind-corrected descent distance for the vertical profile. Produces the ECON Mach and true airspeed, the fuel and time per leg, the step-climb verdict, and the top-of-descent distance from cruise altitude to the arrival constraint. Trigger: cost index, econ cruise speed, fuel time trade, step climb, top of descent, vnav, fms performance.",
    "tags": [
     "performance-computation",
     "cost-index",
@@ -1244,6 +1295,23 @@
     "arc-length",
     "path-terminator",
     "flyable-arc-check"
+   ],
+   "family": "avionics",
+   "pack": "flight-management",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/flight-management/rhumb-line-leg",
+   "name": "rhumb-line-leg",
+   "description": "Use when you must compute the rhumb-line leg geometry between waypoints: derive the constant Mercator course and rhumb-line distance that connect two fixes, the along-parallel leg length at a fixed latitude, and the rhumb-versus-great-circle distance delta that gates long-range FMS leg and airway geometry checks. Produces the constant course in degrees, the rhumb distance in metres, the parallel leg length, and the comparison delta in metres and percent. Trigger: rhumb line leg, constant course leg, mercator course, parallel leg length, rhumb versus great circle, long range leg, fms leg geometry, waypoint leg distance.",
+   "tags": [
+    "rhumb-line-leg",
+    "constant-course-leg",
+    "mercator-course",
+    "parallel-leg-length",
+    "rhumb-vs-great-circle",
+    "long-range-leg",
+    "fms-leg-geometry"
    ],
    "family": "avionics",
    "pack": "flight-management",
@@ -1305,7 +1373,7 @@
   {
    "path": "avionics/fsw/cfs-architecture",
    "name": "cfs-architecture",
-   "description": "Model and simulate NASA core Flight Software (cFS) architecture: explain the cFE/OSAL/PSP layering (Executive Services, Software Bus, Event Services, Table Services, Time Services, File Services), structure apps with the classic APP_Init, APP_Execute, APP_Data pattern, and route messages by 16-bit message ID over a software bus publish/subscribe model, with a pure-Python simulation that registers apps, subscribes to message IDs, publishes payloads, routes queued messages in publish order, stamps telemetry sequence counters, and logs events by severity. Use when designing a cFS app, explaining cFS layering, or simulating software bus routing for flight software. Trigger: cFS, core flight software, cFE, OSAL, PSP, software bus, publish subscribe, app skeleton, telemetry pipeline.",
+   "description": "Use when designing a cFS app, explaining cFS layering, or simulating software bus routing for flight software. Model and simulate NASA core Flight Software (cFS) architecture: explain the cFE/OSAL/PSP layering (Executive Services, Software Bus, Event Services, Table Services, Time Services, File Services), structure apps with the classic APP_Init, APP_Execute, APP_Data pattern, and route messages by 16-bit message ID over a software bus publish/subscribe model, with a pure-Python simulation that registers apps, subscribes to message IDs, publishes payloads, routes queued messages in publish order, stamps telemetry sequence counters, and logs events by severity. Trigger: cFS, core flight software, cFE, OSAL, PSP, software bus, publish subscribe, app skeleton, telemetry pipeline.",
    "tags": [
     "cfs",
     "core-flight-software",
@@ -1322,7 +1390,7 @@
   {
    "path": "avionics/fsw/fprime-component",
    "name": "fprime-component",
-   "description": "Model and validate a NASA JPL F Prime (F´) flight software component architecture: define components as active, queued or passive, attach typed input and output ports plus serial interfaces, register commands with unique opcodes, declare telemetry channels and severity-flagged events, connect producer outputs to consumer inputs across a topology, schedule component input ports in rate groups, and run a deterministic clocked dispatch simulation that records invocations, deliveries, command log entries and telemetry samples with per-channel sequence counters. Use when designing or reviewing an F Prime topology, checking opcode and port-type consistency, or generating the component scaffold manifest. Produces the validated component model, the connection and rate group report, and a scaffold manifest for code generation. Trigger: F Prime, F´, component framework, topology, rate group, command dispatch, telemetry channel, port connection, flight software modeling.",
+   "description": "Use when designing or reviewing an F Prime topology, checking opcode and port-type consistency, or generating the component scaffold manifest. Model and validate a NASA JPL F Prime (F´) flight software component architecture: define components as active, queued or passive, attach typed input and output ports plus serial interfaces, register commands with unique opcodes, declare telemetry channels and severity-flagged events, connect producer outputs to consumer inputs across a topology, schedule component input ports in rate groups, and run a deterministic clocked dispatch simulation that records invocations, deliveries, command log entries and telemetry samples with per-channel sequence counters. Produces the validated component model, the connection and rate group report, and a scaffold manifest for code generation. Trigger: F Prime, F´, component framework, topology, rate group, command dispatch, telemetry channel, port connection, flight software modeling.",
    "tags": [
     "fprime-component",
     "active-component",
@@ -1355,9 +1423,26 @@
    "router_doc": false
   },
   {
+   "path": "avionics/fsw/shared-resource-access-control",
+   "name": "shared-resource-access-control",
+   "description": "Use when you must account for shared-resource blocking in a fixed-priority avionics task set: assign each protected resource its priority ceiling from the tasks that lock it, compute the worst-case blocking time each task can suffer from lower-priority tasks under the priority ceiling protocol, and run the response-time analysis with the blocking term to decide schedulability. Produces the per-resource ceiling map, the per-task worst-case blocking times, the response times with blocking, and the schedulability verdict that gate an avionics task set design. Trigger: shared resource access control, priority ceiling protocol, priority inheritance, stack resource policy, worst case blocking, blocking time bound, schedulability with blocking.",
+   "tags": [
+    "shared-resource-access-control",
+    "priority-ceiling-protocol",
+    "priority-inheritance",
+    "worst-case-blocking",
+    "stack-resource-policy",
+    "blocking-time-bound",
+    "schedulability-with-blocking"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
    "path": "avionics/ima/do297",
    "name": "do297",
-   "description": "Plan the integrated modular avionics (IMA) platform architecture in the spirit of DO-297: identify the IMA modules, application partitions, and shared resources, allocate applications to partitions with CPU, memory, and I/O budgets, and check the allocation for resource contention against integrity and availability requirements. Produce the module and application allocation plan, the resource budget table, and the module acceptance criteria that support incremental certification of the platform. Use when scoping an IMA platform, planning module acceptance, or laying out development assurance steps for an integrated modular avionics system. Trigger: integrated modular avionics, IMA architecture, module acceptance, incremental certification, partition allocation, resource budget.",
+   "description": "Use when scoping an IMA platform, planning module acceptance, or laying out development assurance steps for an integrated modular avionics system. Plan the integrated modular avionics (IMA) platform architecture in the spirit of DO-297: identify the IMA modules, application partitions, and shared resources, allocate applications to partitions with CPU, memory, and I/O budgets, and check the allocation for resource contention against integrity and availability requirements. Produce the module and application allocation plan, the resource budget table, and the module acceptance criteria that support incremental certification of the platform. Trigger: integrated modular avionics, IMA architecture, module acceptance, incremental certification, partition allocation, resource budget.",
    "tags": [
     "integrated-modular-avionics",
     "do297",
@@ -1377,7 +1462,7 @@
   {
    "path": "avionics/ima/ima-partitioning",
    "name": "ima-partitioning",
-   "description": "Compute and validate ARINC 653 integrated modular avionics (IMA) partition configurations: check partition schedule feasibility by summing the partition durations within the major frame and verifying that each partition receives its period slot, build the partition configuration table from frame and window data, bound sampling port and queuing port message latency for inter-partition communication, and scope the health monitoring responsibilities for fault detection and recovery. Use when sizing an ARINC 653 partition schedule, writing the partition configuration table, or reviewing inter-partition communication ports against frame, period, and latency budgets for certification. Trigger: ARINC 653, IMA, partition scheduling, major frame, MAF, sampling port, queuing port, inter-partition communication, health monitoring.",
+   "description": "Use when sizing an ARINC 653 partition schedule, writing the partition configuration table, or reviewing inter-partition communication ports against frame, period, and latency budgets for certification. Compute and validate ARINC 653 integrated modular avionics (IMA) partition configurations: check partition schedule feasibility by summing the partition durations within the major frame and verifying that each partition receives its period slot, build the partition configuration table from frame and window data, bound sampling port and queuing port message latency for inter-partition communication, and scope the health monitoring responsibilities for fault detection and recovery. Trigger: ARINC 653, IMA, partition scheduling, major frame, MAF, sampling port, queuing port, inter-partition communication, health monitoring.",
    "tags": [
     "arinc-653",
     "ima",
@@ -1649,7 +1734,7 @@
   {
    "path": "cross-cutting/numerics/eigenvalue-decomposition",
    "name": "eigenvalue-decomposition",
-   "description": "Compute eigenvalues and eigenvectors of square matrices with only the Python standard library: the power iteration returns the dominant eigenvalue-eigenvector pair of a general square matrix, deflation exposes the next pairs, and the Jacobi eigenvalue algorithm returns the full spectrum of a real symmetric matrix. Use when the task is an eigen-decomposition: spectral analysis, dominant eigenvalue, modal frequencies, covariance or stiffness matrix diagonalization, stability of a linear system, or verifying a pair with the residual A v minus lambda v, and numpy or other numerical libraries are unavailable. Produces the eigenvalue-eigenvector pairs in descending order, unit-norm eigenvectors, and the residual that gates each pair. Trigger: eigenvalue, eigenvector, spectral decomposition, jacobi, power iteration, dominant eigenvalue, deflation, diagonalization, rayleigh quotient.",
+   "description": "Use when the task is an eigen-decomposition: spectral analysis, dominant eigenvalue, modal frequencies, covariance or stiffness matrix diagonalization, stability of a linear system, or verifying a pair with the residual A v minus lambda v, and numpy or other numerical libraries are unavailable. Compute eigenvalues and eigenvectors of square matrices with only the Python standard library: the power iteration returns the dominant eigenvalue-eigenvector pair of a general square matrix, deflation exposes the next pairs, and the Jacobi eigenvalue algorithm returns the full spectrum of a real symmetric matrix. Produces the eigenvalue-eigenvector pairs in descending order, unit-norm eigenvectors, and the residual that gates each pair. Trigger: eigenvalue, eigenvector, spectral decomposition, jacobi, power iteration, dominant eigenvalue, deflation, diagonalization, rayleigh quotient.",
    "tags": [
     "eigenvalue-decomposition",
     "eigenvalues",
@@ -1713,6 +1798,22 @@
     "fir-lowpass",
     "filter-taps",
     "hamming-window"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/fisher-exact-test",
+   "name": "fisher-exact-test",
+   "description": "Use when you must test a 2x2 contingency table with small expected counts: run the exact Fisher test under the fixed-margin null, compute the hypergeometric probability of the observed table, enumerate every table with the same margins, sum the one-tailed and two-tailed exact p-values, compute the odds ratio with the Haldane-Anscombe zero-cell correction, and return the small-expected-count verdict that recommends the exact test over the large-sample approximation. Produces p_obs, p_one_tail, p_two_tail, direction, odds ratio and the verdict. Trigger: fisher exact test, 2x2 contingency table, hypergeometric tail probability, small expected count, two by two table, odds ratio, exact independence test.",
+   "tags": [
+    "fisher-exact-test",
+    "two-by-two-contingency",
+    "hypergeometric-exact-p",
+    "small-expected-count",
+    "exact-independence-test",
+    "odds-ratio"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -1814,7 +1915,7 @@
   {
    "path": "cross-cutting/numerics/matrix-operations",
    "name": "matrix-operations",
-   "description": "Compute and verify dense square-matrix operations with only the Python standard library: solve the linear system Ax=b by Gaussian elimination with partial pivoting, compute the determinant, invert the matrix, and detect singularity. Use when the task is a direct-method dense matrix problem: a linear system solve, a determinant evaluation, a matrix inverse, a singular-matrix check, or a residual verification of a solution, and numpy or other numerical libraries are unavailable. Produces the solution vector, the determinant value, the inverse matrix, and a singularity verdict with the residual check that gates the solve. Trigger: gaussian elimination, partial pivoting, linear system solve, Ax equals b, determinant, matrix inverse, singular matrix, pivot.",
+   "description": "Use when the task is a direct-method dense matrix problem: a linear system solve, a determinant evaluation, a matrix inverse, a singular-matrix check, or a residual verification of a solution, and numpy or other numerical libraries are unavailable. Compute and verify dense square-matrix operations with only the Python standard library: solve the linear system Ax=b by Gaussian elimination with partial pivoting, compute the determinant, invert the matrix, and detect singularity. Produces the solution vector, the determinant value, the inverse matrix, and a singularity verdict with the residual check that gates the solve. Trigger: gaussian elimination, partial pivoting, linear system solve, Ax equals b, determinant, matrix inverse, singular matrix, pivot.",
    "tags": [
     "matrix-operations",
     "linear-solve",
@@ -1847,6 +1948,23 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/multiple-linear-regression",
+   "name": "multiple-linear-regression",
+   "description": "Use when you must fit a multiple linear regression model: solve the normal equations for the partial-regression-coefficient vector from two or more predictors, compute each coefficient-standard-error with the two-sided p-value of its t statistic, the overall regression-f-test p-value, R-squared and adjusted-r-squared, and the variance-inflation-factor multicollinearity-check for every predictor, then predict the response at a new design point. Produces the coefficient vector, diagnostic table and prediction that gate whether the linear model explains the data. Trigger: multiple-linear-regression, variance-inflation-factor, adjusted-r-squared, partial-regression-coefficient, regression-f-test, coefficient-standard-error, multicollinearity-check.",
+   "tags": [
+    "multiple-linear-regression",
+    "variance-inflation-factor",
+    "adjusted-r-squared",
+    "partial-regression-coefficient",
+    "regression-f-test",
+    "coefficient-standard-error",
+    "multicollinearity-check"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/numerical-integration",
    "name": "numerical-integration",
    "description": "Use when you must integrate a function numerically: select the composite trapezoid rule, the composite Simpson rule, or Gauss-Legendre quadrature for the integrand, compute the integral estimate, and estimate the error with Richardson extrapolation of the trapezoid rule. Produces the integral estimate, the chosen method with its justification, and the error estimate that gate quantitative analysis of smooth, endpoint-singular, and high-degree integrands. Trigger: numerical integration, trapezoid rule, simpson rule, gauss legendre, quadrature, error estimate, definite integral.",
@@ -1867,7 +1985,7 @@
   {
    "path": "cross-cutting/numerics/ode-solvers",
    "name": "ode-solvers",
-   "description": "Solve first-order ordinary differential equations numerically with explicit Euler, Heun's method (RK2), and classical RK4: step the initial-value problem forward from y(t0), tabulate the solution, compare it against a closed-form reference, and check step-size convergence of the global error. Use when a task asks for an ODE solver, differential-equation time marching, an initial-value problem, a decay or response trajectory, or an error-versus-exact comparison. Produces the solution table, the chosen method, and the max absolute error. Trigger: ode solver, initial value problem, explicit euler, runge kutta, heun method, step size convergence.",
+   "description": "Use when a task asks for an ODE solver, differential-equation time marching, an initial-value problem, a decay or response trajectory, or an error-versus-exact comparison. Solve first-order ordinary differential equations numerically with explicit Euler, Heun's method (RK2), and classical RK4: step the initial-value problem forward from y(t0), tabulate the solution, compare it against a closed-form reference, and check step-size convergence of the global error. Produces the solution table, the chosen method, and the max absolute error. Trigger: ode solver, initial value problem, explicit euler, runge kutta, heun method, step size convergence.",
    "tags": [
     "ode-solvers",
     "explicit-euler",
@@ -1938,6 +2056,22 @@
    "router_doc": false
   },
   {
+   "path": "cross-cutting/numerics/proportion-confidence-interval",
+   "name": "proportion-confidence-interval",
+   "description": "Use when you must estimate a confidence interval for a binomial proportion: compute the Wilson score interval and its continuity-corrected variant, compute the exact Clopper-Pearson interval by inverting the binomial tail through an in-leaf regularized incomplete beta, and compute the confidence interval for the difference of two proportions from attribute data at a stated confidence level. Produces the lower and upper bounds by each method, the interval width, and the method recommendation that gates pass-rate, yield, and fraction-defective claims. Trigger: wilson score interval, clopper pearson interval, binomial proportion confidence bound, exact proportion interval, two proportion difference, pass fail rate.",
+   "tags": [
+    "proportion-confidence-interval",
+    "wilson-score-interval",
+    "clopper-pearson-interval",
+    "binomial-proportion",
+    "exact-confidence-bound",
+    "two-proportion-difference"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
    "path": "cross-cutting/numerics/quaternion-algebra",
    "name": "quaternion-algebra",
    "description": "Use when you must compute single-step quaternion algebra with the Python standard library: form the Hamilton quaternion product, take the conjugate, norm, and inverse, normalize to a unit quaternion, rotate a 3-vector by a quaternion with the stated conjugate rotation convention, build a quaternion from an axis and angle or from yaw-pitch-roll angles with the ZYX convention, convert between quaternion and direction cosine matrix, and interpolate between two unit quaternions with spherical linear interpolation. Produces the product quaternion, the rotated vector, the converted angles or matrix, and the slerp result at the requested parameter. Trigger: quaternion product, quaternion multiply, rotate vector by quaternion, euler to quaternion, quaternion to euler, direction cosine matrix, slerp, quaternion conjugate, unit quaternion, axis angle to quaternion.",
@@ -1978,7 +2112,7 @@
   {
    "path": "cross-cutting/numerics/root-finding",
    "name": "root-finding",
-   "description": "Determine the root of a nonlinear scalar equation f(x) = 0 numerically with the bisection method, Newton-Raphson, the secant method, or fixed-point iteration: bracket the root or supply an initial guess, apply the iteration, and produce the root to a specified tolerance under function tolerance, step tolerance, and max iteration convergence criteria. Use when a task asks for a root finder, zero finding, nonlinear equation solving, compressible flow Mach number solution, or implicit performance equation inversion in aerospace analysis. Produces the root, the method, and the iteration count. Trigger: root-finding, bisection, newton-raphson, secant-method, fixed-point iteration, mach number root, nonlinear equation, zero finding.",
+   "description": "Use when a task asks for a root finder, zero finding, nonlinear equation solving, compressible flow Mach number solution, or implicit performance equation inversion in aerospace analysis. Determine the root of a nonlinear scalar equation f(x) = 0 numerically with the bisection method, Newton-Raphson, the secant method, or fixed-point iteration: bracket the root or supply an initial guess, apply the iteration, and produce the root to a specified tolerance under function tolerance, step tolerance, and max iteration convergence criteria. Produces the root, the method, and the iteration count. Trigger: root-finding, bisection, newton-raphson, secant-method, fixed-point iteration, mach number root, nonlinear equation, zero finding.",
    "tags": [
     "root-finding",
     "bisection",
@@ -2120,7 +2254,7 @@
   {
    "path": "cross-cutting/tolerancing/gdandt-basics",
    "name": "gdandt-basics",
-   "description": "Interpret geometric dimensioning and tolerancing callouts per ASME Y14.5: parse a feature control frame into its symbol, tolerance, and datum references, identify the tolerance zone type and whether the callout is a form, orientation, position, profile, or runout tolerance, apply the material condition modifiers MMC, LMC, and RFS, and compute the bonus tolerance and the total tolerance when the feature departs from its maximum material condition size. Produce the callout summary with zone, category, modifier meaning, and any bonus. Use when the task is GD&T fundamentals: feature control frames, datum reference frames, form tolerances such as flatness, straightness, circularity, and cylindricity, orientation tolerances such as perpendicularity, parallelism, and angularity, position tolerance, profile, runout, or material condition and bonus tolerance on drawings. Trigger: feature control frame, GD&T, MMC, LMC, RFS, bonus tolerance, datum reference frame, flatness, perpendicularity, position tolerance.",
+   "description": "Use when the task is GD&T fundamentals: feature control frames, datum reference frames, form tolerances such as flatness, straightness, circularity, and cylindricity, orientation tolerances such as perpendicularity, parallelism, and angularity, position tolerance, profile, runout, or material condition and bonus tolerance on drawings. Interpret geometric dimensioning and tolerancing callouts per ASME Y14.5: parse a feature control frame into its symbol, tolerance, and datum references, identify the tolerance zone type and whether the callout is a form, orientation, position, profile, or runout tolerance, apply the material condition modifiers MMC, LMC, and RFS, and compute the bonus tolerance and the total tolerance when the feature departs from its maximum material condition size. Produce the callout summary with zone, category, modifier meaning, and any bonus. Trigger: feature control frame, GD&T, MMC, LMC, RFS, bonus tolerance, datum reference frame, flatness, perpendicularity, position tolerance.",
    "tags": [
     "gdandt-basics",
     "gdandt",
@@ -2334,7 +2468,7 @@
   {
    "path": "flight-mechanics/handling-qualities/cooper-harper-rating",
    "name": "cooper-harper-rating",
-   "description": "Determine a Cooper-Harper handling qualities rating (1 to 10) for an aircraft from a pilot-in-the-loop evaluation: walk the decision tree (controllability, adequate performance with desired or adequate tolerances, pilot compensation required), classify the rating band (1-3 satisfactory without improvement, 4-6 deficiencies warrant improvement, 7-9 deficiencies require improvement, 10 uncontrollable), and run the flight test procedure for collecting ratings. Use when the task is handling qualities assessment, pilot rating, flyability evaluation, or certification flight test analysis framed by FAR-25 and CS-25 flight characteristics requirements. Trigger: cooper-harper rating, handling qualities, pilot rating, flyability, controllability, adequate performance, pilot compensation.",
+   "description": "Use when the task is handling qualities assessment, pilot rating, flyability evaluation, or certification flight test analysis framed by FAR-25 and CS-25 flight characteristics requirements. Determine a Cooper-Harper handling qualities rating (1 to 10) for an aircraft from a pilot-in-the-loop evaluation: walk the decision tree (controllability, adequate performance with desired or adequate tolerances, pilot compensation required), classify the rating band (1-3 satisfactory without improvement, 4-6 deficiencies warrant improvement, 7-9 deficiencies require improvement, 10 uncontrollable), and run the flight test procedure for collecting ratings. Trigger: cooper-harper rating, handling qualities, pilot rating, flyability, controllability, adequate performance, pilot compensation.",
    "tags": [
     "cooper-harper-rating",
     "handling-qualities",
@@ -2352,7 +2486,7 @@
   {
    "path": "flight-mechanics/handling-qualities/mil-std-1797a",
    "name": "mil-std-1797a",
-   "description": "Assess the flying qualities of a piloted aircraft against MIL-STD-1797A level criteria: classify the flight phase category (A precision tracking, B gradual nonterminal, C terminal), select the aircraft class (I small light, II medium, III large heavy, IV high maneuverability), and grade each dynamic mode against the level tables: short period damping and frequency by category and class, phugoid minimum damping 0.04, dutch roll minimum damping 0.19, spiral minimum time to double 20 s, roll mode maximum time constant 1.0 s, roll performance. Produces a Level 1, 2, or 3 verdict per mode, the overall limiting level, and the Cooper-Harper band. Use when the task is flying qualities assessment, handling qualities level classification, or MIL-STD-1797A compliance review. Trigger: mil-std-1797a, flying qualities, handling qualities, short period, dutch roll, phugoid, spiral mode, roll mode, roll performance, flight phase category, aircraft class, cooper-harper band.",
+   "description": "Use when the task is flying qualities assessment, handling qualities level classification, or MIL-STD-1797A compliance review. Assess the flying qualities of a piloted aircraft against MIL-STD-1797A level criteria: classify the flight phase category (A precision tracking, B gradual nonterminal, C terminal), select the aircraft class (I small light, II medium, III large heavy, IV high maneuverability), and grade each dynamic mode against the level tables: short period damping and frequency by category and class, phugoid minimum damping 0.04, dutch roll minimum damping 0.19, spiral minimum time to double 20 s, roll mode maximum time constant 1.0 s, roll performance. Produces a Level 1, 2, or 3 verdict per mode, the overall limiting level, and the Cooper-Harper band. Trigger: mil-std-1797a, flying qualities, handling qualities, short period, dutch roll, phugoid, spiral mode, roll mode, roll performance, flight phase category, aircraft class, cooper-harper band.",
    "tags": [
     "mil-std-1797a",
     "flying-qualities",
@@ -2992,7 +3126,7 @@
   {
    "path": "flight-mechanics/stability-control/spin-recovery",
    "name": "spin-recovery",
-   "description": "Analyze spin entry, developed spin modes, and recovery controls for a stalled aircraft: compute the post-stall autorotative band and stall penetration, estimate the spin descent rate and rotation rate from weight, wing area, and spin drag, classify the spin mode as steep or flat, and size the altitude lost and rotation stop time during spin-recovery. Use when the task is spin recovery, autorotation, spin modes, incipient spin, flat spin, or post-stall departure recovery. Trigger: spin recovery, autorotation, flat spin, incipient spin, spin entry, anti-spin controls, post-stall departure.",
+   "description": "Use when the task is spin recovery, autorotation, spin modes, incipient spin, flat spin, or post-stall departure recovery. Analyze spin entry, developed spin modes, and recovery controls for a stalled aircraft: compute the post-stall autorotative band and stall penetration, estimate the spin descent rate and rotation rate from weight, wing area, and spin drag, classify the spin mode as steep or flat, and size the altitude lost and rotation stop time during spin-recovery. Trigger: spin recovery, autorotation, flat spin, incipient spin, spin entry, anti-spin controls, post-stall departure.",
    "tags": [
     "spin-recovery",
     "autorotation-band",
@@ -3105,7 +3239,7 @@
   {
    "path": "flight-test-operations/envelope/high-angle-of-attack-testing",
    "name": "high-angle-of-attack-testing",
-   "description": "Plan and run the high angle of attack flight test: calibrate the angle of attack sensor position error against a tower fly-by or trailing cone reference, size the post-stall and deep stall test points across configurations and center of gravity conditions, estimate the stall warning margin against the required margin in the certification context, and judge the departure resistance and spin entry resistance in the post-stall envelope. Produces the corrected AoA calibration, the HiAOA test matrix, the stall margin verdict, and the departure and spin resistance assessment. Use when the task is post-stall envelope definition, AoA instrumentation calibration, or deep stall testing. Trigger: high angle of attack, AoA calibration, deep stall, departure resistance, post-stall, spin entry.",
+   "description": "Use when the task is post-stall envelope definition, AoA instrumentation calibration, or deep stall testing. Plan and run the high angle of attack flight test: calibrate the angle of attack sensor position error against a tower fly-by or trailing cone reference, size the post-stall and deep stall test points across configurations and center of gravity conditions, estimate the stall warning margin against the required margin in the certification context, and judge the departure resistance and spin entry resistance in the post-stall envelope. Produces the corrected AoA calibration, the HiAOA test matrix, the stall margin verdict, and the departure and spin resistance assessment. Trigger: high angle of attack, AoA calibration, deep stall, departure resistance, post-stall, spin entry.",
    "tags": [
     "high-angle-of-attack",
     "post-stall",
@@ -3163,7 +3297,7 @@
   {
    "path": "flight-test-operations/envelope/spin-testing",
    "name": "spin-testing",
-   "description": "Plan and execute the spin flight test: build the spin test point matrix across configurations, center of gravity positions, weights, and altitudes, flag the points outside the approved CG envelope, classify the entry, incipient, and developed spin phases from the rotation, apply the recovery control procedure and check the recovery against the turn count and altitude loss limits, decide when the recovery parachute is required, and judge the FAR 25.201 spin resistance verdict with pro-spin controls held at the stall. Produces the test point matrix, the phase classification, the recovery verdict, the parachute decision, and the spin resistance assessment. Use when the task is spin flight testing, spin recovery, spin resistance, or recovery parachute planning. Trigger: spin testing, spin entry, incipient spin, developed spin, spin recovery, recovery parachute, spin resistance, FAR 25.201, spin test point matrix.",
+   "description": "Use when the task is spin flight testing, spin recovery, spin resistance, or recovery parachute planning. Plan and execute the spin flight test: build the spin test point matrix across configurations, center of gravity positions, weights, and altitudes, flag the points outside the approved CG envelope, classify the entry, incipient, and developed spin phases from the rotation, apply the recovery control procedure and check the recovery against the turn count and altitude loss limits, decide when the recovery parachute is required, and judge the FAR 25.201 spin resistance verdict with pro-spin controls held at the stall. Produces the test point matrix, the phase classification, the recovery verdict, the parachute decision, and the spin resistance assessment. Trigger: spin testing, spin entry, incipient spin, developed spin, spin recovery, recovery parachute, spin resistance, FAR 25.201, spin test point matrix.",
    "tags": [
     "spin-testing",
     "spin-entry",
@@ -3615,7 +3749,7 @@
   {
    "path": "flight-test-operations/planning/flight-test-safety",
    "name": "flight-test-safety",
-   "description": "Assess the flight test safety package: score the hazards on the severity by likelihood risk matrix, check that every test point stays inside the flight envelope limits, confirm the emergency procedures cover the required conditions, verify the safety pilot duties are assigned, run the go/no-go criteria gate, and list the mitigation gaps. Use when the task concerns flight test safety: risk assessment, flight envelope limits, emergency procedures, safety pilot duties, go/no-go criteria, risk mitigation. Trigger: flight test safety, risk assessment, safety pilot duties, emergency procedures, go/no-go criteria, flight envelope limits.",
+   "description": "Use when the task concerns flight test safety: risk assessment, flight envelope limits, emergency procedures, safety pilot duties, go/no-go criteria, risk mitigation. Assess the flight test safety package: score the hazards on the severity by likelihood risk matrix, check that every test point stays inside the flight envelope limits, confirm the emergency procedures cover the required conditions, verify the safety pilot duties are assigned, run the go/no-go criteria gate, and list the mitigation gaps. Trigger: flight test safety, risk assessment, safety pilot duties, emergency procedures, go/no-go criteria, flight envelope limits.",
    "tags": [
     "flight-test-safety",
     "risk-assessment",
@@ -3688,7 +3822,7 @@
   {
    "path": "flight-test-operations/planning/telemetry-data-acquisition",
    "name": "telemetry-data-acquisition",
-   "description": "Design and check the flight test telemetry and data acquisition chain: size the PCM minor frame and bit rate, assign supercommutated and subcommutated channels against the frame rate, encode the time of year in IRIG time format, condition the sensor signal to the ADC span, budget the end-to-end data latency against the requirement, and verify the ground station link margin and telemetry quality against the bit error rate and dropout limits. Produces the frame and bit rate, the channel assignments, the latency and link verdicts, and the quality verdict that gates the recorded data. Use when the task is flight test telemetry and data acquisition planning, PCM frame or IRIG time coding, data latency budgeting, signal conditioning, ground station link checks, or telemetry quality checks. Trigger: pcm telemetry formats, irig time coding, data latency, signal conditioning, ground station link, bit error rate, dropout.",
+   "description": "Use when the task is flight test telemetry and data acquisition planning, PCM frame or IRIG time coding, data latency budgeting, signal conditioning, ground station link checks, or telemetry quality checks. Design and check the flight test telemetry and data acquisition chain: size the PCM minor frame and bit rate, assign supercommutated and subcommutated channels against the frame rate, encode the time of year in IRIG time format, condition the sensor signal to the ADC span, budget the end-to-end data latency against the requirement, and verify the ground station link margin and telemetry quality against the bit error rate and dropout limits. Produces the frame and bit rate, the channel assignments, the latency and link verdicts, and the quality verdict that gates the recorded data. Trigger: pcm telemetry formats, irig time coding, data latency, signal conditioning, ground station link, bit error rate, dropout.",
    "tags": [
     "pcm-telemetry-formats",
     "irig-time-coding",
@@ -3708,7 +3842,7 @@
   {
    "path": "flight-test-operations/planning/test-point-matrix-design",
    "name": "test-point-matrix-design",
-   "description": "Design the flight test point matrix: expand the altitude, speed, and weight sweeps across the aircraft configurations into the full grid of test conditions, mark the repeat points for data quality, sequence the points so configuration changes and altitude hops are minimized for flight efficiency, and check the flown points against the steady state tolerance of each condition. Use when the task is building the test point matrix for a flight test program, laying out condition sweeps, choosing repeat points, or ordering the points for efficient flying. Trigger: test point matrix, condition sweep, altitude sweep, speed sweep, weight sweep, repeat point, steady state tolerance, test sequencing.",
+   "description": "Use when the task is building the test point matrix for a flight test program, laying out condition sweeps, choosing repeat points, or ordering the points for efficient flying. Design the flight test point matrix: expand the altitude, speed, and weight sweeps across the aircraft configurations into the full grid of test conditions, mark the repeat points for data quality, sequence the points so configuration changes and altitude hops are minimized for flight efficiency, and check the flown points against the steady state tolerance of each condition. Trigger: test point matrix, condition sweep, altitude sweep, speed sweep, weight sweep, repeat point, steady state tolerance, test sequencing.",
    "tags": [
     "test-point-matrix-design",
     "condition-sweep",
@@ -3745,7 +3879,7 @@
   {
    "path": "flight-test-operations/stability/dynamic-stability-flight-test",
    "name": "dynamic-stability-flight-test",
-   "description": "Plan and analyze a dynamic stability flight test: select the excitation technique for each mode (elevator doublet for the short period, elevator pulse for the phugoid, rudder pulse for the Dutch roll, aileron step for roll subsidence, rudder step for the spiral), reduce the decaying oscillation records to the log decrement, damping ratio, damped and undamped frequencies, time to half amplitude, and cycles to half amplitude, and return a handling qualities verdict per band. Produces the mode identification summary and the acceptable, marginal, or inadequate verdict that gates the stability demonstration. Use when the task is dynamic stability flight testing, mode damping estimation, log decrement analysis, or handling qualities assessment. Trigger: dynamic stability, short period, phugoid, Dutch roll, log decrement, damping ratio, handling qualities.",
+   "description": "Use when the task is dynamic stability flight testing, mode damping estimation, log decrement analysis, or handling qualities assessment. Plan and analyze a dynamic stability flight test: select the excitation technique for each mode (elevator doublet for the short period, elevator pulse for the phugoid, rudder pulse for the Dutch roll, aileron step for roll subsidence, rudder step for the spiral), reduce the decaying oscillation records to the log decrement, damping ratio, damped and undamped frequencies, time to half amplitude, and cycles to half amplitude, and return a handling qualities verdict per band. Produces the mode identification summary and the acceptable, marginal, or inadequate verdict that gates the stability demonstration. Trigger: dynamic stability, short period, phugoid, Dutch roll, log decrement, damping ratio, handling qualities.",
    "tags": [
     "dynamic-stability",
     "short-period",
@@ -3778,7 +3912,7 @@
   {
    "path": "flight-test-operations/stability/static-stability-flight-test",
    "name": "static-stability-flight-test",
-   "description": "Evaluate the static stability flight test results: fit the trim curve to the elevator angle versus speed points, derive the trim curve slope, locate the stick fixed neutral point from the slope, estimate the static margin, and assess the elevator angle per g from the incremental elevator angle per load factor step. Produces the trim curve fit, the slope, the stick fixed neutral point, the static margin, and the stability verdict that gate the static stability demonstration. Use when the task is static stability flight testing, trim curve reduction, neutral point location, or static margin estimation. Trigger: static stability, trim curve, elevator angle, stick fixed, neutral point, static margin, elevator angle per g.",
+   "description": "Use when the task is static stability flight testing, trim curve reduction, neutral point location, or static margin estimation. Evaluate the static stability flight test results: fit the trim curve to the elevator angle versus speed points, derive the trim curve slope, locate the stick fixed neutral point from the slope, estimate the static margin, and assess the elevator angle per g from the incremental elevator angle per load factor step. Produces the trim curve fit, the slope, the stick fixed neutral point, the static margin, and the stability verdict that gate the static stability demonstration. Trigger: static stability, trim curve, elevator angle, stick fixed, neutral point, static margin, elevator angle per g.",
    "tags": [
     "static-stability",
     "trim-curve",
@@ -3897,7 +4031,7 @@
   {
    "path": "gnc-autonomy/control/frequency-response-design",
    "name": "frequency-response-design",
-   "description": "Compute the Bode frequency response of an open loop transfer function for flight control design: evaluate the magnitude and phase at a frequency from the numerator and denominator coefficients at s = j*w, find the gain crossover and phase crossover frequencies, derive the gain margin in dB and the phase margin in degrees, and judge closed loop stability from the margins for the canonical type-1 plant K/(s(s+1)(s+2)). Produces the margins and the stability verdict that gate control law iteration. Use when the task is bode analysis, frequency response, gain crossover, phase crossover, gain margin, phase margin, or stability from the margins. Trigger: bode plot, frequency response, gain margin, phase margin, gain crossover, phase crossover.",
+   "description": "Use when the task is bode analysis, frequency response, gain crossover, phase crossover, gain margin, phase margin, or stability from the margins. Compute the Bode frequency response of an open loop transfer function for flight control design: evaluate the magnitude and phase at a frequency from the numerator and denominator coefficients at s = j*w, find the gain crossover and phase crossover frequencies, derive the gain margin in dB and the phase margin in degrees, and judge closed loop stability from the margins for the canonical type-1 plant K/(s(s+1)(s+2)). Produces the margins and the stability verdict that gate control law iteration. Trigger: bode plot, frequency response, gain margin, phase margin, gain crossover, phase crossover.",
    "tags": [
     "frequency-response",
     "bode-analysis",
@@ -3944,7 +4078,7 @@
   {
    "path": "gnc-autonomy/control/lead-lag-compensation",
    "name": "lead-lag-compensation",
-   "description": "Design phase lead and phase lag compensators for aerospace flight control and GNC loops: compute the plant phase margin at gain crossover from the open loop transfer function, size the phase boost the lead network must add to meet the phase margin specification, derive the lead ratio alpha from the boost, place the lead zero and pole at the new crossover frequency, and size the lag network pole zero pair below crossover to lift the steady state error constant. Produces the compensator transfer function, its zero and pole, the crossover frequency, and the compensated loop phase margin that gate the control law design. Use when the task is lead lag compensation, phase margin improvement, steady state error reduction, or compensator design for a flight control loop. Trigger: phase lead compensator, phase lag compensator, lead lag network, phase margin, gain crossover, steady state error, error constant.",
+   "description": "Use when the task is lead lag compensation, phase margin improvement, steady state error reduction, or compensator design for a flight control loop. Design phase lead and phase lag compensators for aerospace flight control and GNC loops: compute the plant phase margin at gain crossover from the open loop transfer function, size the phase boost the lead network must add to meet the phase margin specification, derive the lead ratio alpha from the boost, place the lead zero and pole at the new crossover frequency, and size the lag network pole zero pair below crossover to lift the steady state error constant. Produces the compensator transfer function, its zero and pole, the crossover frequency, and the compensated loop phase margin that gate the control law design. Trigger: phase lead compensator, phase lag compensator, lead lag network, phase margin, gain crossover, steady state error, error constant.",
    "tags": [
     "lead-lag-compensation",
     "phase-lead-compensator",
@@ -3993,7 +4127,7 @@
   {
    "path": "gnc-autonomy/control/pid-control-design",
    "name": "pid-control-design",
-   "description": "Design PID controller gains for aerospace flight and GNC control loops: compute the controller output from the proportional, integral, and derivative error terms, tune the gains from the plant model with Ziegler-Nichols using the ultimate gain and ultimate period, or place closed loop poles directly for a first or second order plant, add integrator anti-windup clamping, and check the gain margin and phase margin of the loop. Use when the task is PID tuning, proportional integral derivative terms, anti-windup, integrator clamping, pole placement, or gain and phase margin checks. Trigger: pid, proportional, integral, derivative, ziegler-nichols, ultimate gain, ultimate period, anti-windup, integrator clamp, pole placement, phase margin, gain margin.",
+   "description": "Use when the task is PID tuning, proportional integral derivative terms, anti-windup, integrator clamping, pole placement, or gain and phase margin checks. Design PID controller gains for aerospace flight and GNC control loops: compute the controller output from the proportional, integral, and derivative error terms, tune the gains from the plant model with Ziegler-Nichols using the ultimate gain and ultimate period, or place closed loop poles directly for a first or second order plant, add integrator anti-windup clamping, and check the gain margin and phase margin of the loop. Trigger: pid, proportional, integral, derivative, ziegler-nichols, ultimate gain, ultimate period, anti-windup, integrator clamp, pole placement, phase margin, gain margin.",
    "tags": [
     "pid-control-design",
     "pid",
@@ -4113,7 +4247,7 @@
   {
    "path": "gnc-autonomy/estimation-filtering/extended-kalman-filter",
    "name": "extended-kalman-filter",
-   "description": "Estimate the state of a nonlinear system with an extended Kalman filter: linearize the nonlinear dynamics and measurement model about the current estimate with the state Jacobian F and the measurement Jacobian H, run the predict step x_hat = f(x_hat), P = F P F^T + Q, then the update step with the innovation y = z - h(x_hat), the innovation covariance S = H P H^T + R, the Kalman gain K = P H^T S^-1, and the corrected state and covariance. Produces the predicted and corrected states, the state and innovation covariances, the gain, and the innovation sequence for nonlinear tracking problems. Use when the task is nonlinear state estimation, Jacobian linearization, or extended Kalman filtering for tracking. Trigger: extended kalman filter, jacobian linearization, innovation covariance, kalman gain, nonlinear state estimation, range bearing tracking.",
+   "description": "Use when the task is nonlinear state estimation, Jacobian linearization, or extended Kalman filtering for tracking. Estimate the state of a nonlinear system with an extended Kalman filter: linearize the nonlinear dynamics and measurement model about the current estimate with the state Jacobian F and the measurement Jacobian H, run the predict step x_hat = f(x_hat), P = F P F^T + Q, then the update step with the innovation y = z - h(x_hat), the innovation covariance S = H P H^T + R, the Kalman gain K = P H^T S^-1, and the corrected state and covariance. Produces the predicted and corrected states, the state and innovation covariances, the gain, and the innovation sequence for nonlinear tracking problems. Trigger: extended kalman filter, jacobian linearization, innovation covariance, kalman gain, nonlinear state estimation, range bearing tracking.",
    "tags": [
     "extended-kalman-filter",
     "jacobian-linearization",
@@ -4291,7 +4425,7 @@
   {
    "path": "gnc-autonomy/guidance/impact-point-prediction",
    "name": "impact-point-prediction",
-   "description": "Compute the ballistic impact point prediction for a projectile from launch position, launch speed, and flight path angle: determine the flat earth vacuum range with the range equation, the time of flight, the impact coordinates from the launch point and heading, and the sensitivity of the landing point to initial condition errors. Use when a task asks where a round will land, how long the ballistic flight lasts, or how launch speed and flight path angle errors displace the impact point. Trigger: impact point prediction, ballistic trajectory, range equation, time of flight, flight path angle, launch speed, impact coordinates, flat earth.",
+   "description": "Use when a task asks where a round will land, how long the ballistic flight lasts, or how launch speed and flight path angle errors displace the impact point. Compute the ballistic impact point prediction for a projectile from launch position, launch speed, and flight path angle: determine the flat earth vacuum range with the range equation, the time of flight, the impact coordinates from the launch point and heading, and the sensitivity of the landing point to initial condition errors. Trigger: impact point prediction, ballistic trajectory, range equation, time of flight, flight path angle, launch speed, impact coordinates, flat earth.",
    "tags": [
     "impact-point-prediction",
     "ballistic-trajectory",
@@ -4309,7 +4443,7 @@
   {
    "path": "gnc-autonomy/guidance/midcourse-guidance",
    "name": "midcourse-guidance",
-   "description": "Shape the midcourse flight of an interceptor or guided vehicle between launch and terminal handover: steer through a planned waypoint with a turn-rate-limited heading law, compute the velocity-to-be-gained speed deficit along the desired course, evaluate the zero-effort-miss of the closing geometry, size the handover condition that passes control to terminal guidance such as proportional navigation, and shape ascent trajectories with gravity-compensated commands. Use when a task asks how to reach an intermediate condition before final intercept, how much speed remains to be gained, or when to hand off to terminal guidance. Trigger: midcourse guidance, waypoint steering, trajectory shaping, velocity-to-be-gained, zero-effort-miss, handover condition, turn-rate limit, gravity-compensated ascent.",
+   "description": "Use when a task asks how to reach an intermediate condition before final intercept, how much speed remains to be gained, or when to hand off to terminal guidance. Shape the midcourse flight of an interceptor or guided vehicle between launch and terminal handover: steer through a planned waypoint with a turn-rate-limited heading law, compute the velocity-to-be-gained speed deficit along the desired course, evaluate the zero-effort-miss of the closing geometry, size the handover condition that passes control to terminal guidance such as proportional navigation, and shape ascent trajectories with gravity-compensated commands. Trigger: midcourse guidance, waypoint steering, trajectory shaping, velocity-to-be-gained, zero-effort-miss, handover condition, turn-rate limit, gravity-compensated ascent.",
    "tags": [
     "midcourse-guidance",
     "waypoint-steering",
@@ -4551,7 +4685,7 @@
   {
    "path": "gnc-autonomy/space/attitude-dynamics",
    "name": "attitude-dynamics",
-   "description": "Model spacecraft attitude dynamics with the Euler rotational equations of motion: propagate quaternion kinematics from angular velocity, integrate the inertia tensor and applied torques into angular rates, and compute angular momentum, torque-free nutation, gravity-gradient torque, and momentum wheel effects. Use when the task is spacecraft attitude dynamics, rotational kinematics, or momentum management for ADCS dynamics analysis and simulation. The stdlib logic is deterministic and offline: quaternion rate and Euler integration steps, body-cone nutation rates, gravity-gradient torque at a given orbital radius, and wheel angular momentum from spin rate. Trigger: quaternion, angular velocity, inertia tensor, nutation, gravity gradient, momentum wheel, euler equations.",
+   "description": "Use when the task is spacecraft attitude dynamics, rotational kinematics, or momentum management for ADCS dynamics analysis and simulation. Model spacecraft attitude dynamics with the Euler rotational equations of motion: propagate quaternion kinematics from angular velocity, integrate the inertia tensor and applied torques into angular rates, and compute angular momentum, torque-free nutation, gravity-gradient torque, and momentum wheel effects. The stdlib logic is deterministic and offline: quaternion rate and Euler integration steps, body-cone nutation rates, gravity-gradient torque at a given orbital radius, and wheel angular momentum from spin rate. Trigger: quaternion, angular velocity, inertia tensor, nutation, gravity gradient, momentum wheel, euler equations.",
    "tags": [
     "attitude-dynamics",
     "quaternion-kinematics",
@@ -4632,7 +4766,7 @@
   {
    "path": "manufacturing-quality/additive/additive-manufacturing-qualification",
    "name": "additive-manufacturing-qualification",
-   "description": "Define and validate the additive manufacturing process parameter set for aerospace parts: record the layer height, laser power, scan speed, and hatch spacing, compute the volumetric energy density from those four build parameters, size the witness coupon sample plan for material property verification, and check the additive manufacturing qualification record for first article completeness. Use when qualifying a powder bed fusion or directed energy deposition build, when a build parameter change needs energy density re-verification, or when preparing the AM qualification record and witness coupon plan. Trigger: additive manufacturing, volumetric energy density, laser power, scan speed, hatch spacing, layer height, witness coupon, powder bed fusion, AM build parameter.",
+   "description": "Use when qualifying a powder bed fusion or directed energy deposition build, when a build parameter change needs energy density re-verification, or when preparing the AM qualification record and witness coupon plan. Define and validate the additive manufacturing process parameter set for aerospace parts: record the layer height, laser power, scan speed, and hatch spacing, compute the volumetric energy density from those four build parameters, size the witness coupon sample plan for material property verification, and check the additive manufacturing qualification record for first article completeness. Trigger: additive manufacturing, volumetric energy density, laser power, scan speed, hatch spacing, layer height, witness coupon, powder bed fusion, AM build parameter.",
    "tags": [
     "additive",
     "manufacturing",
@@ -4667,7 +4801,7 @@
   {
    "path": "manufacturing-quality/additive/lpbf-parameter-development",
    "name": "lpbf-parameter-development",
-   "description": "Develop the laser powder bed fusion (LPBF) parameter window: compute the volumetric energy density from laser power, scan speed, hatch spacing, and layer thickness, check hatch overlap between melt tracks, classify the process window as conduction mode, transition, or keyhole mode with porosity expectations, and build the parameter development matrix across power, speed, and hatch grids plus the qualification test matrix of coupon builds, density, and mechanical testing per the additive manufacturing qualification framework. Use when developing LPBF process parameters, mapping energy density to melt pool regime, screening keyhole mode risk, or sizing the parameter development matrix for a powder bed fusion build. Trigger: LPBF, laser powder bed fusion, volumetric energy density, process window, keyhole mode, conduction mode, melt pool, parameter development matrix.",
+   "description": "Use when developing LPBF process parameters, mapping energy density to melt pool regime, screening keyhole mode risk, or sizing the parameter development matrix for a powder bed fusion build. Develop the laser powder bed fusion (LPBF) parameter window: compute the volumetric energy density from laser power, scan speed, hatch spacing, and layer thickness, check hatch overlap between melt tracks, classify the process window as conduction mode, transition, or keyhole mode with porosity expectations, and build the parameter development matrix across power, speed, and hatch grids plus the qualification test matrix of coupon builds, density, and mechanical testing per the additive manufacturing qualification framework. Trigger: LPBF, laser powder bed fusion, volumetric energy density, process window, keyhole mode, conduction mode, melt pool, parameter development matrix.",
    "tags": [
     "lpbf",
     "laser-powder-bed-fusion",
@@ -4955,7 +5089,7 @@
   {
    "path": "manufacturing-quality/as9100/nonconformance-control",
    "name": "nonconformance-control",
-   "description": "Determine and record the disposition of nonconforming aerospace product per AS9100 control of nonconforming output: identify and segregate the part, choose between rework, repair, scrap, use-as-is (derogation), and return to supplier, route repair and use-as-is dispositions through the material review board (MRB), and re-verify reworked characteristics before release. Use when dispositioning nonconforming parts, running an MRB decision, or checking disposition record completeness for identification, segregation, disposition, disposition authority, and customer notification. Trigger: nonconforming product, material review board, mrb, disposition, rework, repair, scrap, use as is, segregation, re-verification.",
+   "description": "Use when dispositioning nonconforming parts, running an MRB decision, or checking disposition record completeness for identification, segregation, disposition, disposition authority, and customer notification. Determine and record the disposition of nonconforming aerospace product per AS9100 control of nonconforming output: identify and segregate the part, choose between rework, repair, scrap, use-as-is (derogation), and return to supplier, route repair and use-as-is dispositions through the material review board (MRB), and re-verify reworked characteristics before release. Trigger: nonconforming product, material review board, mrb, disposition, rework, repair, scrap, use as is, segregation, re-verification.",
    "tags": [
     "nonconformance-control",
     "nonconforming-product",
@@ -5008,7 +5142,7 @@
   {
    "path": "manufacturing-quality/as9100/risk-management",
    "name": "risk-management",
-   "description": "Assess and plan mitigation for aerospace quality risks per AS9100D operational risk management: compute FMEA risk priority numbers from severity, likelihood, and detection ratings, classify RPN bands, score the post-mitigation residual RPN from reduction credits, derive occurrence probability from production history, apply the 5x5 severity-likelihood risk matrix, and rank risks for mitigation priority with residual-risk acceptance checks. Produces the risk register entries, mitigation plan, and residual-risk verdicts that AS9100D 8.1.1 requires before production changes proceed. Use when the task is risk assessment, mitigation planning, or operational risk review rather than dispositioning an actual nonconformance or closing a CAPA. Trigger: risk management, risk assessment, mitigation planning, operational risk, RPN, FMEA, risk matrix, residual risk.",
+   "description": "Use when the task is risk assessment, mitigation planning, or operational risk review rather than dispositioning an actual nonconformance or closing a CAPA. Assess and plan mitigation for aerospace quality risks per AS9100D operational risk management: compute FMEA risk priority numbers from severity, likelihood, and detection ratings, classify RPN bands, score the post-mitigation residual RPN from reduction credits, derive occurrence probability from production history, apply the 5x5 severity-likelihood risk matrix, and rank risks for mitigation priority with residual-risk acceptance checks. Produces the risk register entries, mitigation plan, and residual-risk verdicts that AS9100D 8.1.1 requires before production changes proceed. Trigger: risk management, risk assessment, mitigation planning, operational risk, RPN, FMEA, risk matrix, residual risk.",
    "tags": [
     "risk-management",
     "risk-assessment",
@@ -5056,6 +5190,23 @@
     "supplier-monitoring",
     "as9100",
     "procurement-control"
+   ],
+   "family": "manufacturing-quality",
+   "pack": "as9100",
+   "router_doc": false
+  },
+  {
+   "path": "manufacturing-quality/as9100/variables-acceptance-sampling",
+   "name": "variables-acceptance-sampling",
+   "description": "Use when you must design a variables acceptance sampling plan: map the lot size and inspection level to the sample size code letter, look up the sample size and acceptability constant k, with the maximum allowable percent nonconforming M, for the required AQL from a reduced MIL-STD-414 k-method table, form the Q statistic from the specification limit, the sample mean and the sample standard deviation, and decide accept or reject by comparing Q with k, with the estimated percent nonconforming p_hat as the M-method check. Produces the code letter, sample size, acceptability constant, Q statistic, p_hat and the accept verdict for lot disposition by measurement. Trigger: variables acceptance sampling, k-method, acceptability constant, mil-std-414.",
+   "tags": [
+    "variables-acceptance-sampling",
+    "k-method",
+    "acceptability-constant",
+    "form-q-statistic",
+    "estimated-percent-nonconforming",
+    "code-letter-lot-size",
+    "aql-variables-plan"
    ],
    "family": "manufacturing-quality",
    "pack": "as9100",
@@ -5228,7 +5379,7 @@
   {
    "path": "manufacturing-quality/ndt/acoustic-emission-inspection",
    "name": "acoustic-emission-inspection",
-   "description": "Compute acoustic emission inspection parameters for aerospace parts and structures: determine which recorded signals cross the amplitude threshold, group the hits into events with the hit definition time window, compute signal energy, locate the emission source by linear and planar triangulation from sensor arrival times, and evaluate the Kaiser effect and Felicity ratio to judge damage progression in composites and pressure vessels during load and proof testing. Produce the hit list, the event groups, the located source coordinates, and the Kaiser/Felicity verdict with the qualification context of NAS-410 personnel certification and AS9100 special process control. Use when the task is acoustic emission testing, AE monitoring, source location, hit thresholding, or Kaiser/Felicity assessment. Trigger: acoustic emission, ae monitoring, source location, kaiser effect, felicity ratio, hit threshold, planar triangulation.",
+   "description": "Use when the task is acoustic emission testing, AE monitoring, source location, hit thresholding, or Kaiser/Felicity assessment. Compute acoustic emission inspection parameters for aerospace parts and structures: determine which recorded signals cross the amplitude threshold, group the hits into events with the hit definition time window, compute signal energy, locate the emission source by linear and planar triangulation from sensor arrival times, and evaluate the Kaiser effect and Felicity ratio to judge damage progression in composites and pressure vessels during load and proof testing. Produce the hit list, the event groups, the located source coordinates, and the Kaiser/Felicity verdict with the qualification context of NAS-410 personnel certification and AS9100 special process control. Trigger: acoustic emission, ae monitoring, source location, kaiser effect, felicity ratio, hit threshold, planar triangulation.",
    "tags": [
     "acoustic-emission",
     "ae-monitoring",
@@ -5336,7 +5487,7 @@
   {
    "path": "manufacturing-quality/ndt/magnetic-particle-inspection",
    "name": "magnetic-particle-inspection",
-   "description": "Determine magnetic particle inspection (MT) parameters for ferromagnetic aerospace parts and turn particle indications into acceptance decisions: compute the magnetizing current for circular magnetization by head shot or central conductor, size the ampere-turns and coil current for longitudinal magnetization from the part L/D ratio, verify the tangential field strength against the 2400 to 4800 A/m band and the coverage overlap between shots, classify magnetic particles by median size and sensitivity, check the wet bath concentration, and disposition relevant and non-relevant indications with the residual field demagnetization check. Use when a task names magnetic particle testing on steel parts, magnetization current selection, field strength, particle sensitivity, magnetic indication, or residual field. Trigger: magnetic particle, magnetization current, circular magnetization, longitudinal magnetization, field strength, particle sensitivity, magnetic indication, residual field.",
+   "description": "Use when a task names magnetic particle testing on steel parts, magnetization current selection, field strength, particle sensitivity, magnetic indication, or residual field. Determine magnetic particle inspection (MT) parameters for ferromagnetic aerospace parts and turn particle indications into acceptance decisions: compute the magnetizing current for circular magnetization by head shot or central conductor, size the ampere-turns and coil current for longitudinal magnetization from the part L/D ratio, verify the tangential field strength against the 2400 to 4800 A/m band and the coverage overlap between shots, classify magnetic particles by median size and sensitivity, check the wet bath concentration, and disposition relevant and non-relevant indications with the residual field demagnetization check. Trigger: magnetic particle, magnetization current, circular magnetization, longitudinal magnetization, field strength, particle sensitivity, magnetic indication, residual field.",
    "tags": [
     "magnetic-particle-inspection",
     "magnetization-current",
@@ -5530,7 +5681,7 @@
   {
    "path": "manufacturing-quality/special-processes/special-process-qualification",
    "name": "special-process-qualification",
-   "description": "Assess special process qualification in aerospace manufacturing: determine whether a welding, heat treatment, NDT, surface finishing, or composites process stays qualified under a proposed change by classifying the change type (parameter, equipment, personnel, time interval) against the qualified envelope and the process qualification record, and build or validate the record checklist of parameters with ranges, variables, qualification date, and validity. Use when a special process must be qualified rather than inspected, when a process change triggers requalification, or when preparing for NADCAP accreditation or AS9100 production control. Trigger: special process, qualification, requalification, process qualification record, NADCAP, heat treat, welding, process control.",
+   "description": "Use when a special process must be qualified rather than inspected, when a process change triggers requalification, or when preparing for NADCAP accreditation or AS9100 production control. Assess special process qualification in aerospace manufacturing: determine whether a welding, heat treatment, NDT, surface finishing, or composites process stays qualified under a proposed change by classifying the change type (parameter, equipment, personnel, time interval) against the qualified envelope and the process qualification record, and build or validate the record checklist of parameters with ranges, variables, qualification date, and validity. Trigger: special process, qualification, requalification, process qualification record, NADCAP, heat treat, welding, process control.",
    "tags": [
     "special",
     "process",
@@ -5783,7 +5934,7 @@
   {
    "path": "propulsion/gas-turbine-cycle/combustor-design",
    "name": "combustor-design",
-   "description": "Compute the gas turbine combustor design point: the stoichiometric fuel-air-ratio from the fuel carbon and hydrogen mass fractions, the operating fuel-air-ratio from the fuel and air flows, the equivalence ratio, the combustion efficiency, the heat release from the fuel flow and lower heating value, and the temperature rise across the combustor with the adiabatic flame temperature estimate from a constant-specific-heat energy balance. Produces the fuel flow, heat release, combustor exit temperature, and flame temperature that gate the combustor design assessment. Use when the task is combustor sizing, burner fuel-air ratio, flame temperature, or heat release for a gas turbine engine. Trigger: combustor design, fuel air ratio, adiabatic flame temperature, combustion efficiency, heat release.",
+   "description": "Use when the task is combustor sizing, burner fuel-air ratio, flame temperature, or heat release for a gas turbine engine. Compute the gas turbine combustor design point: the stoichiometric fuel-air-ratio from the fuel carbon and hydrogen mass fractions, the operating fuel-air-ratio from the fuel and air flows, the equivalence ratio, the combustion efficiency, the heat release from the fuel flow and lower heating value, and the temperature rise across the combustor with the adiabatic flame temperature estimate from a constant-specific-heat energy balance. Produces the fuel flow, heat release, combustor exit temperature, and flame temperature that gate the combustor design assessment. Trigger: combustor design, fuel air ratio, adiabatic flame temperature, combustion efficiency, heat release.",
    "tags": [
     "combustor-design",
     "fuel-air-ratio",
@@ -5808,6 +5959,22 @@
     "turbine",
     "pressure-ratio",
     "engine-cycle"
+   ],
+   "family": "propulsion",
+   "pack": "gas-turbine-cycle",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/gas-turbine-cycle/intercooled-cycle",
+   "name": "intercooled-cycle",
+   "description": "Use when you must analyze a gas turbine cycle with intercooling: split the total pressure ratio into two compression stages with an intercooler between them, compute the intercooler exit temperature from the stage pressure ratio and effectiveness, determine the optimum intercooler pressure ratio minimizing total compressor work, and quantify net specific work and thermal efficiency against the simple non-intercooled cycle. Produces the intercooled cycle efficiency, the simple cycle baseline efficiency, the optimum intercooler pressure ratio, the specific work gain, and the station temperatures that gate an engine cycle comparison. Trigger: intercooled cycle, two-stage compression, intercooler effectiveness, intercooler pressure ratio, compression work split, cycle work gain.",
+   "tags": [
+    "intercooled-cycle",
+    "intercooler-effectiveness",
+    "intercooler-pressure-ratio",
+    "two-stage-compression",
+    "compression-work-split",
+    "cycle-work-gain"
    ],
    "family": "propulsion",
    "pack": "gas-turbine-cycle",
@@ -6049,6 +6216,23 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/rocket/rocket-nozzle-flow-separation",
+   "name": "rocket-nozzle-flow-separation",
+   "description": "Use when you must predict flow separation in an overexpanded rocket nozzle: apply the separation-pressure-ratio criterion (wall static pressure falling to K_SEP times ambient, K_SEP 0.4) to decide whether the wall flow separates, find the separation-station area ratio from the isentropic area-Mach relation at the separation pressure, estimate the separation altitude where the nozzle un-separates, and compute the separated-thrust loss and the side-load flag. Produces the separation verdict, separation-station area ratio, separation altitude, corrected thrust and side-load flag. Trigger: rocket-nozzle-flow-separation, separation-pressure-ratio, summerfield-criterion, overexpanded-nozzle, separation-altitude, separated-thrust-loss, side-load-regime.",
+   "tags": [
+    "rocket-nozzle-flow-separation",
+    "separation-pressure-ratio",
+    "summerfield-criterion",
+    "overexpanded-nozzle",
+    "separation-altitude",
+    "separated-thrust-loss",
+    "side-load-regime"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/rocket-sizing",
    "name": "rocket-sizing",
    "description": "Use when you must size launch-vehicle propulsion with the rocket equation: calculate delta-v from specific impulse and the initial and final masses, derive the mass ratio from a delta-v requirement, compute the propellant mass, and sum the delta-v across the stages of a multistage launch vehicle. Produces the stage delta-v, the mass ratio, and the propellant mass that gate the vehicle sizing. Applies to each stage of the launch vehicle in consistent SI units. Trigger: rocket equation, delta-v, mass ratio, propellant mass, staging, specific impulse.",
@@ -6084,7 +6268,7 @@
   {
    "path": "propulsion/rocket/solid-rocket-motor",
    "name": "solid-rocket-motor",
-   "description": "Size and analyze solid propellant rocket motors from first ballistics: compute the Vieille burn rate from the pressure exponent, solve the chamber pressure equilibrium between propellant burn rate and choked throat discharge, evaluate grain geometry with web thickness and burn area, and derive mass flow, thrust, and total impulse from the characteristic velocity c*. Uses typical AP/HTPB composite propellant parameters and judges the burn neutrality, regressivity, or progressivity of the grain. Produce the motor ballistics summary with the equilibrium chamber pressure, burn time, thrust, and impulse. Use when the task is solid rocket motor design, grain sizing, or ballistics estimation. Trigger: solid rocket motor, grain geometry, burn rate, chamber pressure, total impulse, characteristic velocity, web thickness.",
+   "description": "Use when the task is solid rocket motor design, grain sizing, or ballistics estimation. Size and analyze solid propellant rocket motors from first ballistics: compute the Vieille burn rate from the pressure exponent, solve the chamber pressure equilibrium between propellant burn rate and choked throat discharge, evaluate grain geometry with web thickness and burn area, and derive mass flow, thrust, and total impulse from the characteristic velocity c*. Uses typical AP/HTPB composite propellant parameters and judges the burn neutrality, regressivity, or progressivity of the grain. Produce the motor ballistics summary with the equilibrium chamber pressure, burn time, thrust, and impulse. Trigger: solid rocket motor, grain geometry, burn rate, chamber pressure, total impulse, characteristic velocity, web thickness.",
    "tags": [
     "solid-rocket-motor",
     "burn-rate",
@@ -6233,7 +6417,7 @@
   {
    "path": "propulsion/turboprop/free-turbine",
    "name": "free-turbine",
-   "description": "Size and match a free-turbine turboprop or turboshaft power section: compute the power-turbine exit temperature and shaft power from the gas generator exhaust state (mass flow, inlet temperature, expansion ratio, polytropic efficiency), convert to torque at the power-turbine speed, blade speed from the mean diameter, reduction gearbox ratio to the propeller or rotor, specific fuel consumption, and the flow function that the turbine nozzle must swallow for spool compatibility. Produces the free-turbine matching assessment dict that gates the power section selection. Use when the task is free-turbine sizing, power-turbine matching, turboprop shaft power, or turboshaft cycle estimates. Trigger: free turbine, power turbine, turboprop, turboshaft, gas generator, shaft power, spool matching.",
+   "description": "Use when the task is free-turbine sizing, power-turbine matching, turboprop shaft power, or turboshaft cycle estimates. Size and match a free-turbine turboprop or turboshaft power section: compute the power-turbine exit temperature and shaft power from the gas generator exhaust state (mass flow, inlet temperature, expansion ratio, polytropic efficiency), convert to torque at the power-turbine speed, blade speed from the mean diameter, reduction gearbox ratio to the propeller or rotor, specific fuel consumption, and the flow function that the turbine nozzle must swallow for spool compatibility. Produces the free-turbine matching assessment dict that gates the power section selection. Trigger: free turbine, power turbine, turboprop, turboshaft, gas generator, shaft power, spool matching.",
    "tags": [
     "free-turbine",
     "power-turbine",
@@ -6314,7 +6498,7 @@
   {
    "path": "space-systems/adcs/attitude-determination-triad",
    "name": "attitude-determination-triad",
-   "description": "Determine the spacecraft attitude matrix from a pair of non-parallel vector observations with the TRIAD algorithm: normalize the measured body frame directions and the matching reference frame directions, build the orthonormal triads from the cross products, assemble the 3 by 3 attitude matrix from the triad outer products, and validate the estimate with the rotation angle, the orthogonality error, and the inter observation angle consistency. Use when the task is attitude determination from two vector measurements such as a sun sensor and magnetometer pair, coarse attitude estimation for initial acquisition, or computing the attitude quaternion and rotation angle that gate the ADCS attitude reference before fine pointing. Trigger: triad algorithm, attitude determination, vector observation, reference vector, body frame, attitude matrix, coarse attitude, sun sensor, magnetometer.",
+   "description": "Use when the task is attitude determination from two vector measurements such as a sun sensor and magnetometer pair, coarse attitude estimation for initial acquisition, or computing the attitude quaternion and rotation angle that gate the ADCS attitude reference before fine pointing. Determine the spacecraft attitude matrix from a pair of non-parallel vector observations with the TRIAD algorithm: normalize the measured body frame directions and the matching reference frame directions, build the orthonormal triads from the cross products, assemble the 3 by 3 attitude matrix from the triad outer products, and validate the estimate with the rotation angle, the orthogonality error, and the inter observation angle consistency. Trigger: triad algorithm, attitude determination, vector observation, reference vector, body frame, attitude matrix, coarse attitude, sun sensor, magnetometer.",
    "tags": [
     "triad-algorithm",
     "triad-attitude-determination",
@@ -6368,7 +6552,7 @@
   {
    "path": "space-systems/adcs/magnetorquer-control",
    "name": "magnetorquer-control",
-   "description": "Compute the magnetic dipole moment for spacecraft magnetic attitude control with magnetorquers: solve torque = m x B for the required dipole from a torque demand and the local magnetic field vector, apply the B-dot detumbling law to damp body rates, check the achievable torque against the magnetorquer torque authority limit, warn when the torque demand lies along the field, and size the torque rod coils. Use when the task is magnetorquer control, dipole moment calculation, B-dot detumbling, cross-product torque steering, detumbling rate damping, or torque authority limits. Produces the dipole moment vector, the B-dot control dipole, the achievable torque magnitude, the underdetermined-axis warning, the coil sizing, and the orbit-averaged torque authority. Trigger: magnetorquer, dipole moment, B-dot, detumbling, torque authority, cross-product, magnetic field, coil sizing.",
+   "description": "Use when the task is magnetorquer control, dipole moment calculation, B-dot detumbling, cross-product torque steering, detumbling rate damping, or torque authority limits. Compute the magnetic dipole moment for spacecraft magnetic attitude control with magnetorquers: solve torque = m x B for the required dipole from a torque demand and the local magnetic field vector, apply the B-dot detumbling law to damp body rates, check the achievable torque against the magnetorquer torque authority limit, warn when the torque demand lies along the field, and size the torque rod coils. Produces the dipole moment vector, the B-dot control dipole, the achievable torque magnitude, the underdetermined-axis warning, the coil sizing, and the orbit-averaged torque authority. Trigger: magnetorquer, dipole moment, B-dot, detumbling, torque authority, cross-product, magnetic field, coil sizing.",
    "tags": [
     "adcs",
     "magnetorquer",
@@ -6425,7 +6609,7 @@
   {
    "path": "space-systems/adcs/star-tracker",
    "name": "star-tracker",
-   "description": "Determine star tracker attitude determination for spacecraft ADCS: identify measured star centroids against an onboard star catalog, compute the angular separation between each measured centroid and its catalog star, and return the best match inside the field of view. Use when the task is star identification, boresight and field of view selection, lost in space versus tracking mode, cross-boresight versus roll pointing accuracy, or star tracker update rate. The logic normalizes unit vectors, finds the nearest catalog star within the field of view radius, returns the matched star id plus boresight error in arcseconds, and selects lost in space or tracking mode from a prior attitude. Trigger: star identification, star catalog, boresight, field of view, lost in space, tracking mode, angular separation, pointing accuracy, attitude determination.",
+   "description": "Use when the task is star identification, boresight and field of view selection, lost in space versus tracking mode, cross-boresight versus roll pointing accuracy, or star tracker update rate. Determine star tracker attitude determination for spacecraft ADCS: identify measured star centroids against an onboard star catalog, compute the angular separation between each measured centroid and its catalog star, and return the best match inside the field of view. The logic normalizes unit vectors, finds the nearest catalog star within the field of view radius, returns the matched star id plus boresight error in arcseconds, and selects lost in space or tracking mode from a prior attitude. Trigger: star identification, star catalog, boresight, field of view, lost in space, tracking mode, angular separation, pointing accuracy, attitude determination.",
    "tags": [
     "adcs",
     "star-tracker",
@@ -6526,7 +6710,7 @@
   {
    "path": "space-systems/mission-design/entry-descent-landing",
    "name": "entry-descent-landing",
-   "description": "Size the atmospheric entry, descent, and landing phase of a spacecraft mission: check the entry corridor against the flight path angle, compute the ballistic coefficient beta = m / (Cd * A), estimate the peak deceleration g-load of a steep ballistic entry, apply the Sutton-Graves convective heating correlation q_dot = k * sqrt(rho) * V^3 for the stagnation point heat rate and integrate the heat load, and size the parachute descent with the terminal velocity v = sqrt(2 * W / (rho * Cd * S)). Produce the corridor verdict, peak g-load, heat rate and heat load, and terminal velocity for Earth or Mars conditions. Use when the task is entry corridor, ballistic coefficient, deceleration loads, convective heating, or parachute descent sizing for an entry vehicle. Trigger: entry corridor, flight path angle, ballistic coefficient, sutton-graves, convective heating, heat load, deceleration g-load, parachute terminal velocity, mars entry, reentry heating.",
+   "description": "Use when the task is entry corridor, ballistic coefficient, deceleration loads, convective heating, or parachute descent sizing for an entry vehicle. Size the atmospheric entry, descent, and landing phase of a spacecraft mission: check the entry corridor against the flight path angle, compute the ballistic coefficient beta = m / (Cd * A), estimate the peak deceleration g-load of a steep ballistic entry, apply the Sutton-Graves convective heating correlation q_dot = k * sqrt(rho) * V^3 for the stagnation point heat rate and integrate the heat load, and size the parachute descent with the terminal velocity v = sqrt(2 * W / (rho * Cd * S)). Produce the corridor verdict, peak g-load, heat rate and heat load, and terminal velocity for Earth or Mars conditions. Trigger: entry corridor, flight path angle, ballistic coefficient, sutton-graves, convective heating, heat load, deceleration g-load, parachute terminal velocity, mars entry, reentry heating.",
    "tags": [
     "entry-descent-landing",
     "entry-corridor",
@@ -6978,7 +7162,7 @@
   {
    "path": "space-systems/subsystems/command-data-handling",
    "name": "command-data-handling",
-   "description": "Design and check spacecraft command and data handling (C&DH): validate telecommands against opcode, length, and CRC-16 checksum; packetize telemetry into CCSDS-style frames with sequence counts and error detection; size onboard storage from per-orbit data volume; and budget downlink time and rate from stored data volume and link capacity. Use when the task is command validation, telemetry packetization, CCSDS framing, onboard data storage sizing, downlink budgeting, spacecraft data bus selection, or C&DH redundancy. Computes CRC-16 checksums, byte-exact CCSDS packets, storage sizes, and downlink verdicts with deterministic functions. Trigger: command data handling, telemetry, telecommand, CCSDS, packetization, downlink, CRC-16, onboard storage, data bus, SpaceWire, MIL-STD-1553.",
+   "description": "Use when the task is command validation, telemetry packetization, CCSDS framing, onboard data storage sizing, downlink budgeting, spacecraft data bus selection, or C&DH redundancy. Design and check spacecraft command and data handling (C&DH): validate telecommands against opcode, length, and CRC-16 checksum; packetize telemetry into CCSDS-style frames with sequence counts and error detection; size onboard storage from per-orbit data volume; and budget downlink time and rate from stored data volume and link capacity. Computes CRC-16 checksums, byte-exact CCSDS packets, storage sizes, and downlink verdicts with deterministic functions. Trigger: command data handling, telemetry, telecommand, CCSDS, packetization, downlink, CRC-16, onboard storage, data bus, SpaceWire, MIL-STD-1553.",
    "tags": [
     "command-data-handling",
     "telemetry",
@@ -7023,6 +7207,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/subsystems/doppler-shift",
+   "name": "doppler-shift",
+   "description": "Use when you must compute the doppler frequency shift on a spacecraft link: derive the line-of-sight range rate from the circular-orbit altitude and the ground elevation angle, convert it to the received frequency and offset on an s-band downlink carrier, and estimate the worst-case doppler near the horizon and the doppler-rate at acquisition for receiver acquisition design. Produces the range rate, received frequency, delta-f offset, maximum doppler, slant range and doppler rate that gate communication link acquisition. Trigger: doppler shift, received frequency offset, acquisition frequency offset, worst-case doppler, doppler rate, line-of-sight range rate, s-band downlink, leo overflight, spacecraft ground link.",
+   "tags": [
+    "doppler-shift",
+    "range-rate-frequency-offset",
+    "doppler-rate",
+    "line-of-sight-relative-velocity",
+    "acquisition-frequency-offset",
+    "worst-case-doppler"
+   ],
+   "family": "space-systems",
+   "pack": "subsystems",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/subsystems/power-thermal-budget",
    "name": "power-thermal-budget",
    "description": "Use when sizing spacecraft electrical power and thermal budgets per ECSS practice: estimate battery capacity from eclipse power draw, depth of discharge, and efficiency; size the solar array from daylight-only generation; and check power margins against spacecraft bus requirements. The skill covers orbit-period eclipse fractions, battery sizing, solar array sizing, and margin checks for power budgets. Trigger: power budget, thermal budget, eps, eclipse, battery sizing, solar array, spacecraft, orbit period, power margin.",
@@ -7061,7 +7261,7 @@
   {
    "path": "space-systems/subsystems/solar-array-sizing",
    "name": "solar-array-sizing",
-   "description": "Compute spacecraft solar-array sizing: determine the required photovoltaic array area in square meters from the orbit-average power demand, the eclipse fraction, the solar cell efficiency, the packing factor, and the end-of-life degradation over the mission life, then verify the array margin at end of life. Use when sizing a spacecraft EPS solar array or photovoltaic panel: array area, power demand, eclipse fraction, cell efficiency, packing factor, degradation, end of life, solar irradiance. Trigger: solar array sizing, array area, cell efficiency, degradation, power demand, eclipse fraction, photovoltaic.",
+   "description": "Use when sizing a spacecraft EPS solar array or photovoltaic panel: array area, power demand, eclipse fraction, cell efficiency, packing factor, degradation, end of life, solar irradiance. Compute spacecraft solar-array sizing: determine the required photovoltaic array area in square meters from the orbit-average power demand, the eclipse fraction, the solar cell efficiency, the packing factor, and the end-of-life degradation over the mission life, then verify the array margin at end of life. Trigger: solar array sizing, array area, cell efficiency, degradation, power demand, eclipse fraction, photovoltaic.",
    "tags": [
     "solar-array-sizing",
     "array-area",
@@ -7143,7 +7343,7 @@
   {
    "path": "structures/composites/cmh17-allowables",
    "name": "cmh17-allowables",
-   "description": "Compute composite material design allowables per the CMH-17 method: determine A-basis and B-basis values from coupon test data using the one-sided normal tolerance k-factor approximation, pool coupon batches across environments to enlarge the effective data set, and apply knockdown factors for environmental conditioning, barely visible impact damage, and open hole features to derive laminate-level allowables from lamina allowables. Produce the lamina and laminate allowable table with basis designation and the confidence and content statement, and validate the counts against the minimums. Use when the task is composite allowables, basis values, coupon pooling, or laminate knockdown factors for polymer matrix composites. Trigger: composite allowables, cmh-17, a-basis, b-basis, tolerance k-factors, coupon pooling, laminate allowables, knockdown factors, environmental conditioning, open hole.",
+   "description": "Use when the task is composite allowables, basis values, coupon pooling, or laminate knockdown factors for polymer matrix composites. Compute composite material design allowables per the CMH-17 method: determine A-basis and B-basis values from coupon test data using the one-sided normal tolerance k-factor approximation, pool coupon batches across environments to enlarge the effective data set, and apply knockdown factors for environmental conditioning, barely visible impact damage, and open hole features to derive laminate-level allowables from lamina allowables. Produce the lamina and laminate allowable table with basis designation and the confidence and content statement, and validate the counts against the minimums. Trigger: composite allowables, cmh-17, a-basis, b-basis, tolerance k-factors, coupon pooling, laminate allowables, knockdown factors, environmental conditioning, open hole.",
    "tags": [
     "cmh-17-allowables",
     "composite-allowables",
@@ -7283,7 +7483,7 @@
   {
    "path": "structures/composites/sandwich-panels",
    "name": "sandwich-panels",
-   "description": "Design and analyze aerospace sandwich panels: compute the equivalent bending stiffness from the face modulus, face thickness, and core thickness, the face sheet stresses from a bending moment, the core shear stress from a shear load, the face wrinkling stress from the face and core moduli, and the total deflection of a sandwich beam or panel including the core shear contribution. Use when the task is sandwich panel sizing or analysis, honeycomb or foam core selection, face sheet stress or core shear failure checks, face wrinkling, or sandwich bending stiffness and deflection. Trigger: sandwich panel, honeycomb core, foam core, face wrinkling, core shear, face stress, sandwich deflection.",
+   "description": "Use when the task is sandwich panel sizing or analysis, honeycomb or foam core selection, face sheet stress or core shear failure checks, face wrinkling, or sandwich bending stiffness and deflection. Design and analyze aerospace sandwich panels: compute the equivalent bending stiffness from the face modulus, face thickness, and core thickness, the face sheet stresses from a bending moment, the core shear stress from a shear load, the face wrinkling stress from the face and core moduli, and the total deflection of a sandwich beam or panel including the core shear contribution. Trigger: sandwich panel, honeycomb core, foam core, face wrinkling, core shear, face stress, sandwich deflection.",
    "tags": [
     "sandwich",
     "panel",
@@ -7375,7 +7575,7 @@
   {
    "path": "structures/fatigue/goodman-diagram",
    "name": "goodman-diagram",
-   "description": "Determine the allowable stress amplitude for infinite life under mean stress: compute the modified Goodman, Gerber, and Soderberg allowable amplitudes from the endurance limit, ultimate strength, and yield strength, plot the Haigh diagram with the design point, and give the infinite-life verdict when the applied amplitude exceeds the allowable. Use when a fluctuating load case must be checked against a mean-stress fatigue limit or a Haigh diagram / fatigue diagram comparison is needed for a structure. Trigger: goodman, gerber, soderberg, haigh diagram, fatigue diagram, mean stress, endurance limit, allowable amplitude, infinite life, stress ratio.",
+   "description": "Use when a fluctuating load case must be checked against a mean-stress fatigue limit or a Haigh diagram / fatigue diagram comparison is needed for a structure. Determine the allowable stress amplitude for infinite life under mean stress: compute the modified Goodman, Gerber, and Soderberg allowable amplitudes from the endurance limit, ultimate strength, and yield strength, plot the Haigh diagram with the design point, and give the infinite-life verdict when the applied amplitude exceeds the allowable. Trigger: goodman, gerber, soderberg, haigh diagram, fatigue diagram, mean stress, endurance limit, allowable amplitude, infinite life, stress ratio.",
    "tags": [
     "fatigue",
     "mean-stress",
@@ -7427,7 +7627,7 @@
   {
    "path": "structures/fatigue/notch-sensitivity",
    "name": "notch-sensitivity",
-   "description": "Compute the stress concentration factor and fatigue notch factor for a notched aerospace part: determine Kt for an elliptical or circular hole from the geometry, estimate the Peterson material constant from the ultimate tensile strength, convert Kt into the fatigue notch factor Kf with the Peterson and Neuber corrections using the notch root radius, evaluate the notch sensitivity q, and apply the effective stress amplitude to the fatigue strength check. Use when a hole, fillet, or other stress raiser must be accounted for in a fatigue assessment of a structure. Trigger: stress concentration factor, fatigue notch factor, notch sensitivity, Neuber, Peterson, notch root radius, effective stress amplitude.",
+   "description": "Use when a hole, fillet, or other stress raiser must be accounted for in a fatigue assessment of a structure. Compute the stress concentration factor and fatigue notch factor for a notched aerospace part: determine Kt for an elliptical or circular hole from the geometry, estimate the Peterson material constant from the ultimate tensile strength, convert Kt into the fatigue notch factor Kf with the Peterson and Neuber corrections using the notch root radius, evaluate the notch sensitivity q, and apply the effective stress amplitude to the fatigue strength check. Trigger: stress concentration factor, fatigue notch factor, notch sensitivity, Neuber, Peterson, notch root radius, effective stress amplitude.",
    "tags": [
     "notch-sensitivity",
     "stress-concentration-factor",
@@ -7441,6 +7641,23 @@
     "finite-width-plate",
     "material-constant",
     "elastic-peak-stress"
+   ],
+   "family": "structures",
+   "pack": "fatigue",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fatigue/random-vibration-fatigue",
+   "name": "random-vibration-fatigue",
+   "description": "Use when you must estimate fatigue damage directly from a random-vibration response PSD: compute the psd-spectral-moments of a one-sided stress power spectral density by trapezoid integration, derive the expected-peak-rate, and apply the narrow-band Rayleigh model and the Dirlik amplitude mixture (dirlik-method) for the expected damage rate under a Basquin S-N curve with gamma closed forms; convert each damage rate to a fatigue life in hours. Produces the spectral moments, the expected peak rate, the narrow-band-damage and Dirlik damage rates, and the fatigue life verdict that gates random-vibration fatigue screening. Trigger: random vibration fatigue, spectral fatigue, Dirlik method, PSD moments, narrow band fatigue life, response stress PSD, peak rate.",
+   "tags": [
+    "random-vibration-fatigue",
+    "dirlik-method",
+    "spectral-fatigue",
+    "narrow-band-damage",
+    "psd-spectral-moments",
+    "expected-peak-rate",
+    "basquin-gamma-damage"
    ],
    "family": "structures",
    "pack": "fatigue",
@@ -7468,7 +7685,7 @@
   {
    "path": "structures/fatigue/stress-life-curve",
    "name": "stress-life-curve",
-   "description": "Determine the stress-life (S-N) fatigue curve from test data and use it for fatigue life prediction: fit the Basquin equation S = A * N^b to the S-N test points by log-log regression, read the endurance limit from the runout stress level, and predict the cycles to failure at a given stress amplitude or the allowable amplitude for a required life. Use when S-N test data must be reduced to a Basquin curve, an endurance limit must be determined from runout tests, or a fatigue life must be predicted from a stress amplitude for a structure. Trigger: stress-life-curve, sn-curve, basquin-equation, endurance-limit, fatigue-life-prediction, sn-data.",
+   "description": "Use when S-N test data must be reduced to a Basquin curve, an endurance limit must be determined from runout tests, or a fatigue life must be predicted from a stress amplitude for a structure. Determine the stress-life (S-N) fatigue curve from test data and use it for fatigue life prediction: fit the Basquin equation S = A * N^b to the S-N test points by log-log regression, read the endurance limit from the runout stress level, and predict the cycles to failure at a given stress amplitude or the allowable amplitude for a required life. Trigger: stress-life-curve, sn-curve, basquin-equation, endurance-limit, fatigue-life-prediction, sn-data.",
    "tags": [
     "stress-life-curve",
     "sn-curve",
@@ -7516,7 +7733,7 @@
   {
    "path": "structures/fem/buckling-analysis",
    "name": "buckling-analysis",
-   "description": "Calculate the Euler critical buckling load of slender compression members: apply Pcr = pi^2*E*I/(K*L)^2 for pinned-pinned, fixed-fixed, fixed-pinned and cantilever end conditions, resolve the effective length factor K from the support type, compute the slenderness ratio from the radius of gyration, and run the buckling stress check against the yield-based transition slenderness. Use when a column, strut, spar cap, landing-gear leg or actuator rod must be sized or margin-checked against elastic instability in a stdlib-only environment without FEA software. Units are SI. Trigger: euler buckling, critical buckling load, slenderness ratio, effective length factor, column buckling, buckling stress, end conditions, radius of gyration, cantilever.",
+   "description": "Use when a column, strut, spar cap, landing-gear leg or actuator rod must be sized or margin-checked against elastic instability in a stdlib-only environment without FEA software. Calculate the Euler critical buckling load of slender compression members: apply Pcr = pi^2*E*I/(K*L)^2 for pinned-pinned, fixed-fixed, fixed-pinned and cantilever end conditions, resolve the effective length factor K from the support type, compute the slenderness ratio from the radius of gyration, and run the buckling stress check against the yield-based transition slenderness. Units are SI. Trigger: euler buckling, critical buckling load, slenderness ratio, effective length factor, column buckling, buckling stress, end conditions, radius of gyration, cantilever.",
    "tags": [
     "euler-buckling",
     "critical-buckling-load",
@@ -7575,7 +7792,7 @@
   {
    "path": "structures/fem/contact-analysis",
    "name": "contact-analysis",
-   "description": "Compute finite element contact analysis quantities for aircraft structure: determine normal contact forces with the penalty method from contact stiffness and penetration, estimate penalty stiffness from the contacting element properties, check Lagrange multiplier enforcement of zero penetration, apply Coulomb friction to categorize stick or slip, and run penetration control until penetration is under tolerance. The skill covers master-slave and node-to-surface gaps, tie constraints, and bolted joint and bearing contacts. Use when the task is FEA contact, penalty or Lagrange methods, contact stiffness, penetration, friction, stick-slip, master-slave contact, node-to-surface, or tied interfaces in bolted joints and bearing contacts. Trigger: contact analysis, fea contact, penalty method, lagrange multiplier, contact stiffness, penetration, coulomb friction, stick-slip, master-slave, node-to-surface, tie constraint, bolted joint, bearing contact.",
+   "description": "Use when the task is FEA contact, penalty or Lagrange methods, contact stiffness, penetration, friction, stick-slip, master-slave contact, node-to-surface, or tied interfaces in bolted joints and bearing contacts. Compute finite element contact analysis quantities for aircraft structure: determine normal contact forces with the penalty method from contact stiffness and penetration, estimate penalty stiffness from the contacting element properties, check Lagrange multiplier enforcement of zero penetration, apply Coulomb friction to categorize stick or slip, and run penetration control until penetration is under tolerance. The skill covers master-slave and node-to-surface gaps, tie constraints, and bolted joint and bearing contacts. Trigger: contact analysis, fea contact, penalty method, lagrange multiplier, contact stiffness, penetration, coulomb friction, stick-slip, master-slave, node-to-surface, tie constraint, bolted joint, bearing contact.",
    "tags": [
     "contact-analysis",
     "fea-contact",
@@ -7649,7 +7866,7 @@
   {
    "path": "structures/fem/plate-buckling",
    "name": "plate-buckling",
-   "description": "Calculate the elastic buckling of flat plates and skin panels under compression and shear: resolve the plate buckling coefficient k from the edge conditions and the panel aspect ratio (k = 4.0 for a simply supported long plate, 6.97 for a clamped long plate), compute the critical compression buckling stress sigma_cr = k*pi^2*E/(12*(1-nu^2))*(t/b)^2 and the shear buckling stress tau_cr with the shear buckling coefficient k_s, run the combined compression-shear interaction check, and size the effective width of stiffened skin. Use when a wing or fuselage skin panel, spar web or flat panel must be margin-checked against elastic instability in a stdlib-only environment without FEA software. Units are SI. Trigger: plate buckling, panel buckling, buckling coefficient, shear buckling, skin panel, spar web, critical buckling stress, effective width.",
+   "description": "Use when a wing or fuselage skin panel, spar web or flat panel must be margin-checked against elastic instability in a stdlib-only environment without FEA software. Calculate the elastic buckling of flat plates and skin panels under compression and shear: resolve the plate buckling coefficient k from the edge conditions and the panel aspect ratio (k = 4.0 for a simply supported long plate, 6.97 for a clamped long plate), compute the critical compression buckling stress sigma_cr = k*pi^2*E/(12*(1-nu^2))*(t/b)^2 and the shear buckling stress tau_cr with the shear buckling coefficient k_s, run the combined compression-shear interaction check, and size the effective width of stiffened skin. Units are SI. Trigger: plate buckling, panel buckling, buckling coefficient, shear buckling, skin panel, spar web, critical buckling stress, effective width.",
    "tags": [
     "plate-buckling",
     "panel-buckling",
@@ -7684,9 +7901,26 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/torsion-shear-flow",
+   "name": "torsion-shear-flow",
+   "description": "Use when you must compute the torsion shear flow of a closed or open structural section: the polar second moment J for solid and tube shafts, the Saint-Venant torsion constant for thin open rectangles and built-up open sections, the Bredt-Batho closed-section shear flow q = T/(2 A_m), the closed-section twist rate, the shear stress and torsional stress margin, and the multi-cell shear-flow distribution of a two-cell section under an applied torque. Produces the shear flow, twist rate, shear stress and margin that gate torsion checks of fuselage, wing-box and shaft sections. Trigger: torsion shear flow, Bredt-Batho, Saint-Venant torsion, angle of twist, closed-section shear flow, multi-cell section, torsional stress margin, shaft torque, fuselage torsion.",
+   "tags": [
+    "torsion-shear-flow",
+    "bredt-batho",
+    "saint-venant-torsion",
+    "angle-of-twist",
+    "multi-cell-section",
+    "closed-section-shear-flow",
+    "torsional-stress-margin"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/truss-analysis",
    "name": "truss-analysis",
-   "description": "Compute the response of a 2D pin-jointed truss with the direct stiffness method: build each element stiffness matrix from E, A, L and orientation, assemble the global stiffness matrix, apply support conditions, solve the nodal displacements by Gaussian elimination, then recover member axial forces and support reactions. Use when a truss model must be solved by hand or in a stdlib-only environment without FEA software. Units are SI. Trigger: truss analysis, direct stiffness method, element stiffness matrix, global stiffness matrix, nodal displacements, member forces, reaction forces, Gaussian elimination, pin-jointed, support conditions.",
+   "description": "Use when a truss model must be solved by hand or in a stdlib-only environment without FEA software. Compute the response of a 2D pin-jointed truss with the direct stiffness method: build each element stiffness matrix from E, A, L and orientation, assemble the global stiffness matrix, apply support conditions, solve the nodal displacements by Gaussian elimination, then recover member axial forces and support reactions. Units are SI. Trigger: truss analysis, direct stiffness method, element stiffness matrix, global stiffness matrix, nodal displacements, member forces, reaction forces, Gaussian elimination, pin-jointed, support conditions.",
    "tags": [
     "truss-analysis",
     "direct-stiffness-method",
@@ -7897,7 +8131,7 @@
   {
    "path": "structures/thermal-structures/thermal-stress-analysis",
    "name": "thermal-stress-analysis",
-   "description": "Compute thermal stress and strain in aerospace structures from a constrained temperature change: free thermal strain alpha*dT, fully constrained thermal stress sigma = E*alpha*dT when free expansion is blocked, the bimetallic strip curvature and per-layer thermal stress balance, and the critical temperature rise for thermal buckling of a constrained plate, each with the margin of safety against the allowable stress. Use when a structural member, bonded joint or skin panel is restrained against thermal expansion and must be assessed for thermal load in a stdlib-only environment without FEA software. Units are SI. Trigger: thermal stress, thermal expansion, coefficient of thermal expansion, bimetallic strip, constrained expansion, thermal buckling.",
+   "description": "Use when a structural member, bonded joint or skin panel is restrained against thermal expansion and must be assessed for thermal load in a stdlib-only environment without FEA software. Compute thermal stress and strain in aerospace structures from a constrained temperature change: free thermal strain alpha*dT, fully constrained thermal stress sigma = E*alpha*dT when free expansion is blocked, the bimetallic strip curvature and per-layer thermal stress balance, and the critical temperature rise for thermal buckling of a constrained plate, each with the margin of safety against the allowable stress. Units are SI. Trigger: thermal stress, thermal expansion, coefficient of thermal expansion, bimetallic strip, constrained expansion, thermal buckling.",
    "tags": [
     "thermal-stress",
     "thermal-expansion",
@@ -8096,6 +8330,23 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/arp4761a/fault-tree-importance-measures",
+   "name": "fault-tree-importance-measures",
+   "description": "Use when you must rank basic events of a fault tree by importance: compute the Birnbaum measure, the Fussell-Vesely measure, the risk achievement worth (RAW) and the risk reduction worth (RRW) of each basic event from the minimal cut sets and the basic-event probabilities, sort the events by each measure, and flag the dominant contributors above a Fussell-Vesely threshold. Produces the per-event measure dict, the sorted rank list and the dominance list that gate risk-reduction prioritization. Trigger: basic event ranking, birnbaum importance, fussell-vesely importance, risk achievement worth, risk reduction worth, top event sensitivity, dominant contributor.",
+   "tags": [
+    "fault-tree-importance-measures",
+    "birnbaum-importance",
+    "fussell-vesely-importance",
+    "risk-achievement-worth",
+    "risk-reduction-worth",
+    "basic-event-ranking",
+    "top-event-sensitivity"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/arp4761a/fta-fmea",
    "name": "fta-fmea",
    "description": "Use when scoping or executing FTA (fault tree analysis) and FMEA (failure modes and effects analysis) per ARP4761A: compute minimal cut sets from AND/OR gate structures, check cut-set probability sanity against the top event probability, select the analysis set for an assurance level (FTA/FMEA always, CCA at levels A and B), and map FMEA failure-condition severity to development assurance levels. Pairs with ARP4754A development assurance; all logic is deterministic, offline stdlib. Trigger: fault tree, FTA, FMEA, FMECA, cut set, minimal cut set, failure modes, common cause, severity, probability.",
@@ -8117,7 +8368,7 @@
   {
    "path": "systems-engineering-safety/arp4761a/functional-hazard-assessment",
    "name": "functional-hazard-assessment",
-   "description": "Identify and rate the failure conditions of a functional hazard assessment (FHA) per ARP4761A: derive the A-FHA and S-FHA failure conditions from each aircraft or system function, rate severity into the categories catastrophic, hazardous, major, minor, and no safety effect, map each severity to its quantitative probability target (extremely improbable below 1e-9/flight-hour, extremely remote below 1e-7, remote below 1e-5, probable below 1e-3), and populate the FHA worksheet rows with phase, effects, and the safety objective that feeds the PSSA and SSA. Use when the safety assessment starts with functional hazard assessment or an FHA worksheet must be produced. Trigger: functional hazard assessment, failure condition, severity category, probability target, FHA worksheet, A-FHA, S-FHA.",
+   "description": "Use when the safety assessment starts with functional hazard assessment or an FHA worksheet must be produced. Identify and rate the failure conditions of a functional hazard assessment (FHA) per ARP4761A: derive the A-FHA and S-FHA failure conditions from each aircraft or system function, rate severity into the categories catastrophic, hazardous, major, minor, and no safety effect, map each severity to its quantitative probability target (extremely improbable below 1e-9/flight-hour, extremely remote below 1e-7, remote below 1e-5, probable below 1e-3), and populate the FHA worksheet rows with phase, effects, and the safety objective that feeds the PSSA and SSA. Trigger: functional hazard assessment, failure condition, severity category, probability target, FHA worksheet, A-FHA, S-FHA.",
    "tags": [
     "functional-hazard-assessment",
     "failure-condition",
@@ -8633,7 +8884,7 @@
   {
    "path": "vehicle-design/conceptual/payload-range-diagram",
    "name": "payload-range-diagram",
-   "description": "Build the payload-range diagram for a conceptual transport aircraft: compute the range at the maximum payload point, the range at the maximum fuel point, the ferry range, and the payload available at the design range from operating empty weight, maximum payload, maximum takeoff weight, and fuel capacity using the Breguet range equation with a reserve fuel policy and fuel fraction. Use when the task is the payload versus range trade-off, max payload, max fuel, design range, ferry range, or reserve fuel sizing in conceptual aircraft design. Produces the diagram corner points that gate the payload-range trade assessment. Trigger: payload-range diagram, max payload, ferry range, design range, payload range trade, reserve fuel.",
+   "description": "Use when the task is the payload versus range trade-off, max payload, max fuel, design range, ferry range, or reserve fuel sizing in conceptual aircraft design. Build the payload-range diagram for a conceptual transport aircraft: compute the range at the maximum payload point, the range at the maximum fuel point, the ferry range, and the payload available at the design range from operating empty weight, maximum payload, maximum takeoff weight, and fuel capacity using the Breguet range equation with a reserve fuel policy and fuel fraction. Produces the diagram corner points that gate the payload-range trade assessment. Trigger: payload-range diagram, max payload, ferry range, design range, payload range trade, reserve fuel.",
    "tags": [
     "payload-range-diagram",
     "payload-range-trade",
@@ -9000,7 +9251,7 @@
   {
    "path": "vehicle-design/sizing/control-surface-sizing",
    "name": "control-surface-sizing",
-   "description": "Size the aileron, elevator, and rudder control surfaces of a fixed-wing aircraft from control power: the aileron area from the roll rate requirement with the roll damping derivative, the elevator area from the pitch moment requirement with the elevator effectiveness, the rudder area from the yaw moment requirement for the engine-out case, the hinge moment for the actuator, and the deflection limits against the typical travel ranges. Use when the task is control surface sizing, aileron sizing, elevator area, rudder area, roll rate requirement, pitch moment authority, yaw authority, hinge moment, or deflection limits. Trigger: control surface sizing, aileron sizing, elevator area, rudder area, hinge moment, deflection limits.",
+   "description": "Use when the task is control surface sizing, aileron sizing, elevator area, rudder area, roll rate requirement, pitch moment authority, yaw authority, hinge moment, or deflection limits. Size the aileron, elevator, and rudder control surfaces of a fixed-wing aircraft from control power: the aileron area from the roll rate requirement with the roll damping derivative, the elevator area from the pitch moment requirement with the elevator effectiveness, the rudder area from the yaw moment requirement for the engine-out case, the hinge moment for the actuator, and the deflection limits against the typical travel ranges. Trigger: control surface sizing, aileron sizing, elevator area, rudder area, hinge moment, deflection limits.",
    "tags": [
     "control-surface-sizing",
     "aileron-sizing",
@@ -9260,7 +9511,7 @@
   {
    "path": "vehicle-design/sizing/nacelle-sizing",
    "name": "nacelle-sizing",
-   "description": "Size the engine nacelle geometry for a turbofan: derive the fan face area and diameter from the fan mass flow, density, Mach number and temperature; enlarge the fan face to the inlet highlight area with the lip area ratio; compute the free stream capture area and the A0/A1 capture area ratio at the flight Mach number; scale the nacelle length from the fan diameter with a length to diameter ratio; set the cowl maximum thickness from a thickness to chord ratio; estimate the cowl wetted area with a shape factor; and bookkeep the nacelle drag into friction, form and interference components. Use when the task is nacelle geometric sizing, inlet capture and highlight sizing, cowl thickness, wetted area, or nacelle drag bookkeeping for a high bypass turbofan. Trigger: nacelle sizing, inlet highlight, fan face area, capture area ratio, cowl thickness, wetted area, nacelle drag.",
+   "description": "Use when the task is nacelle geometric sizing, inlet capture and highlight sizing, cowl thickness, wetted area, or nacelle drag bookkeeping for a high bypass turbofan. Size the engine nacelle geometry for a turbofan: derive the fan face area and diameter from the fan mass flow, density, Mach number and temperature; enlarge the fan face to the inlet highlight area with the lip area ratio; compute the free stream capture area and the A0/A1 capture area ratio at the flight Mach number; scale the nacelle length from the fan diameter with a length to diameter ratio; set the cowl maximum thickness from a thickness to chord ratio; estimate the cowl wetted area with a shape factor; and bookkeep the nacelle drag into friction, form and interference components. Trigger: nacelle sizing, inlet highlight, fan face area, capture area ratio, cowl thickness, wetted area, nacelle drag.",
    "tags": [
     "nacelle-sizing",
     "inlet-highlight-area",
