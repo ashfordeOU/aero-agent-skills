@@ -78,6 +78,9 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis | Fault tree uncertainty analysis | fault tree uncertainty, lognormal error factor, lognormal confidence band, exceedance probability, uncertainty variance share |
 | systems-engineering-safety/arp4761a/ssa-closure | SSA closure | ssa closure, system safety assessment close-out, closure gate, predicted probability margin, requirement closure |
 | systems-engineering-safety/arp4761a/fmes-coverage-analysis | FMES coverage analysis | FMES coverage, FMEA to FHA coverage, uncovered failure condition, orphan row, coverage score |
+| systems-engineering-safety/arp4761a/event-tree-analysis | Event tree analysis | event tree analysis, initiating event, mitigating function, branch path enumeration, end state frequency, dominant sequence |
+| systems-engineering-safety/arp4761a/reliability-growth-analysis | Reliability growth analysis | reliability growth analysis, Duane growth slope, Crow-AMSAA shape beta, current MTBF, projected MTBF, growth verdict |
+| systems-engineering-safety/arp4761a/maintainability-prediction | Maintainability prediction | maintainability prediction, failure rate weighted MTTR, mean time to repair, lognormal repair time percentile, t95 repair time |
 
 ## Routing guidance
 
@@ -158,3 +161,7 @@ your host's skills directory (see README Install for per-host commands).
 - System safety assessment close-out questions (post-implementation verdict rollup by severity, meet-versus-target margins, open-condition and open-requirement lists, closure gate) route to the arp4761a ssa-closure sub-skill.
 
 - FMES coverage questions (FMEA-row to FHA-failure-condition coverage, uncovered failure conditions, orphan FMEA rows, coverage score) route to the arp4761a fmes-coverage-analysis sub-skill.
+
+- Event-tree questions (forward branching from an initiating event through mitigating-function successes and failures, end-state frequency rollup, dominant-sequence screening against severity targets) route to the arp4761a event-tree-analysis sub-skill.
+- Reliability-growth questions (Duane log-log growth slope, Crow-AMSAA power-law process shape by MLE, improving or degrading verdict, current and projected MTBF) route to the arp4761a reliability-growth-analysis sub-skill.
+- Maintainability-prediction questions (failure-rate-weighted MTTR rollup, lognormal repair-time t50 and t95 percentiles, verdict against a maximum-repair-time requirement) route to the arp4761a maintainability-prediction sub-skill.

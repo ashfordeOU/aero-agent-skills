@@ -255,6 +255,11 @@
 # leaves). Wave-40 new leaves: "flight-mechanics/performance/balanced-field-length", "vehicle-design/sizing/cargo-compartment-sizing", "structures/fem/diagonal-tension-field-webs", "vehicle-design/sizing/emergency-exit-configuration", "systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis", "systems-engineering-safety/arp4761a/fmes-coverage-analysis", "space-systems/mission-design/ground-station-pass-planning", "gnc-autonomy/navigation/ins-gnss-integrated-filter", "space-systems/adcs/magnetometer-calibration", "structures/materials/multiaxial-yield-criteria", "structures/composites/peel-stress-bonded-joints", "flight-mechanics/performance/rotorcraft-range-endurance", "aerodynamics/boundary-layer/rough-wall-skin-friction", "systems-engineering-safety/arp4761a/ssa-closure", "vehicle-design/sizing/window-aperture-sizing".
 # Corpus: 1118 tasks (1088 prior plus 30 domain tasks). Owner: Ops
 # Manager, Wave 40 build.
+# P5.2 / Wave 41 (2026-09-05): fan-out continues on the public
+# v1.0.0 model to 567 verified skills (579 SKILL.md under gate 1: 12 routers + 567
+# leaves). Wave-41 new leaves: "vehicle-design/sizing/air-cycle-machine-sizing", "structures/fem/beam-column-analysis", "structures/fem/curved-beam-analysis", "space-systems/adcs/environmental-disturbance-torque-budget", "systems-engineering-safety/arp4761a/event-tree-analysis", "flight-test-operations/performance/fuel-jettison-flight-test", "flight-test-operations/performance/in-flight-engine-relight-test", "aerodynamics/high-speed/isentropic-flow-relations", "systems-engineering-safety/arp4761a/maintainability-prediction", "propulsion/axial-compressor/polytropic-efficiency", "space-systems/adcs/reaction-jet-limit-cycle", "aerodynamics/high-speed/regular-shock-reflection", "systems-engineering-safety/arp4761a/reliability-growth-analysis", "flight-mechanics/performance/rotorcraft-turn-performance", "aerodynamics/boundary-layer/stagnation-flow-boundary-layer", "vehicle-design/sizing/v-tail-sizing".
+# Corpus: 1150 tasks (1118 prior plus 32 domain tasks). Owner: Ops
+# Manager, Wave 41 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -806,9 +811,9 @@ tasks:
     intent: "aerodynamics; CFD y+ and turbulence model recommendation"
     expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
   - id: tbm2
-    query: "compute the friction velocity from the skin friction coefficient and check the wall\
-  \ treatment for the boundary layer"
-    intent: "aerodynamics; friction velocity and boundary layer wall treatment"
+    query: "estimate the y-plus wall-treatment first-cell height for a turbulence-modeling cfd\
+  \ mesh from the friction-velocity derived from the skin-friction-coefficient"
+    intent: "aerodynamics; cfd turbulence modeling y-plus friction velocity wall treatment first cell height"
     expected_skill: "aerodynamics/cfd/cfd-turbulence-modeling"
   - id: spt1
     query: "compute the sun pointing angle and check the attitude is within tolerance for the\
@@ -5039,6 +5044,134 @@ tasks:
     query: "check the window-pane-thickness margin and pane weight for the circular passenger window against the design pressure differential and the material allowable"
     intent: "vehicle-design; window pane margin and mass rollup"
     expected_skill: "vehicle-design/sizing/window-aperture-sizing"
+  - id: w41-air-cycle-machine-sizing-1
+    query: "size the bootstrap-air-cycle cooling pack for the cabin cooling load: compute the compressor-exit state and the heat-exchanger-exit temperature, expand through the cooling-turbine to cabin pressure with isentropic efficiencies, and confirm the acm-shaft-balance closes before quoting the delivered-cooling-power"
+    intent: "vehicle-design; bootstrap ACM pack thermodynamics, shaft balance closure and delivered cooling power"
+    expected_skill: "vehicle-design/sizing/air-cycle-machine-sizing"
+  - id: w41-air-cycle-machine-sizing-2
+    query: "check the bootstrap closure of the two-wheel air-cycle-machine before sizing the required-bleed-flow: compare the cooling-turbine power against the pack-compressor power on the shared shaft and flag the pack when the turbine cannot drive the compressor"
+    intent: "vehicle-design; two-wheel ACM bootstrap balance verdict and required bleed flow"
+    expected_skill: "vehicle-design/sizing/air-cycle-machine-sizing"
+  - id: w41-beam-column-analysis-1
+    query: "margin-check the longeron under combined axial compression and bending: the axial load sits at 45.6 percent of the euler load, so amplify the primary end moment by the moment-amplification factor 1 over (1 minus P over P_E) and run the axial-plus-bending interaction-ratio check for the margin of safety"
+    intent: "structures; compression member that also carries bending, moment-amplification factor, axial-bending interaction ratio, margin of safety"
+    expected_skill: "structures/fem/beam-column-analysis"
+  - id: w41-beam-column-analysis-2
+    query: "compute the peak compressive stress of the eccentrically loaded column by the secant formula from the load eccentricity, the radius of gyration and the axial stress P over A, and compare the peak stress against the yield strength for the global combined-loading case"
+    intent: "structures; eccentrically loaded column secant-formula peak stress, load eccentricity, axial and bending combined"
+    expected_skill: "structures/fem/beam-column-analysis"
+  - id: w41-curved-beam-analysis-1
+    query: "stress-check the curved frame segment as a winkler curved beam: find the neutral-axis radius from the closed form, the neutral-axis eccentricity, and the inner and outer fiber stresses before rating the member against the allowable"
+    intent: "structures; curved-beam neutral-axis radius and inner-outer fiber stress with the Winkler correction against an allowable"
+    expected_skill: "structures/fem/curved-beam-analysis"
+  - id: w41-curved-beam-analysis-2
+    query: "check the torque-link arc at the clevis for the curved-beam inner-fiber stress amplification over the straight euler-bernoulli reading and return the pass-fail verdict versus the allowable"
+    intent: "structures; torque link clevis arc curved-beam inner-fiber amplification and stress verdict"
+    expected_skill: "structures/fem/curved-beam-analysis"
+  - id: w41-environmental-disturbance-torque-budget-1
+    query: "estimate the worst-case environmental disturbance torque budget for the LEO spacecraft at the given attitude: roll up the gravity-gradient, solar pressure, residual magnetic dipole and aero drag worst-case torques against the reaction wheel and magnetorquer capability"
+    intent: "space-systems; worst-case environmental disturbance torque budget rollup at LEO for ADCS actuator margin"
+    expected_skill: "space-systems/adcs/environmental-disturbance-torque-budget"
+  - id: w41-environmental-disturbance-torque-budget-2
+    query: "compute the worst-case disturbance torque set at the arbitrary attitude and the per-orbit disturbance impulse the wheels must absorb, then check the total against the wheel torque margin"
+    intent: "space-systems; worst-case disturbance torque set and per-orbit disturbance impulse with the wheel torque margin check"
+    expected_skill: "space-systems/adcs/environmental-disturbance-torque-budget"
+  - id: w41-event-tree-analysis-1
+    query: "run the event-tree analysis from the cargo fire initiator: enumerate the binary branch paths through the detection and suppression functions and roll up the end-state frequency of every sequence"
+    intent: "systems safety; forward event-tree branch enumeration and end-state frequency rollup"
+    expected_skill: "systems-engineering-safety/arp4761a/event-tree-analysis"
+  - id: w41-event-tree-analysis-2
+    query: "flag the dominant event-tree sequences whose end-state frequency exceeds the severity target and sum the frequency of the paths that reach the failure end state"
+    intent: "systems safety; dominant event-tree sequence screening and failure end-state frequency sum"
+    expected_skill: "systems-engineering-safety/arp4761a/event-tree-analysis"
+  - id: w41-fuel-jettison-flight-test-1
+    query: "reduce the fuel jettison flight test telemetry: least-squares fit the fuel-weight-vs-time samples to the measured dump rate and extrapolate the time to reach the landing weight"
+    intent: "flight-test-operations; measured dump rate from telemetered fuel-weight-vs-time samples"
+    expected_skill: "flight-test-operations/performance/fuel-jettison-flight-test"
+  - id: w41-fuel-jettison-flight-test-2
+    query: "verify the fuel jettison demonstration from the flight test data: check the measured dump rate against the required rate and judge the PASS or FAIL verdict against the 900 s limit from the telemetered weight samples"
+    intent: "flight-test-operations; jettison demonstration verification, measured rate versus the 900 s limit"
+    expected_skill: "flight-test-operations/performance/fuel-jettison-flight-test"
+  - id: w41-in-flight-engine-relight-test-1
+    query: "reduce the in-flight-relight demonstration from the windmill-n2 survey: fit the least-squares windmill-n2 regression against true airspeed and read off the windmill-relight-airspeed where the fitted line crosses the required relight threshold"
+    intent: "flight-test-operations; windmill N2 vs TAS regression and minimum relight airspeed"
+    expected_skill: "flight-test-operations/performance/in-flight-engine-relight-test"
+  - id: w41-in-flight-engine-relight-test-2
+    query: "check the starter-assisted-relight time-to-idle samples at each altitude band against the type-data limit and form the restart-demonstration verdict for the in-flight relight test"
+    intent: "flight-test-operations; time-to-idle limit check and combined restart demonstration verdict"
+    expected_skill: "flight-test-operations/performance/in-flight-engine-relight-test"
+  - id: w41-isentropic-flow-relations-1
+    query: "for the isentropic flow of air at mach 2.0 in a wind tunnel passage compute the total to static pressure, temperature and density ratios and the choked mass flow the passage passes from its total pressure, total temperature and sonic throat area"
+    intent: "aerodynamics; isentropic total to static ratio conversion and choked mass flow through a passage"
+    expected_skill: "aerodynamics/high-speed/isentropic-flow-relations"
+  - id: w41-isentropic-flow-relations-2
+    query: "find both roots of the isentropic area ratio relation: the subsonic mach number and the supersonic mach number that give an A over A star of 1.6875 for the flow in the wind tunnel contraction"
+    intent: "aerodynamics; both subsonic and supersonic roots of the area-Mach relation for a given A over A star in isentropic duct flow"
+    expected_skill: "aerodynamics/high-speed/isentropic-flow-relations"
+  - id: w41-maintainability-prediction-1
+    query: "roll the LRU failure rates and median repair times into the failure-rate-weighted mean time to repair and check the lognormal t95 repair time against the two hour maximum-repair-time requirement"
+    intent: "systems-engineering-safety; failure-rate-weighted MTTR rollup and lognormal t95 repair-time verdict against the maximum-repair-time requirement"
+    expected_skill: "systems-engineering-safety/arp4761a/maintainability-prediction"
+  - id: w41-maintainability-prediction-2
+    query: "predict the system maintainability from the line replaceable unit failure rates and repair times: compute the failure-rate-weighted mttr and the t50 and t95 repair-time percentiles of the lognormal repair-time model for the repair-time-limit verdict"
+    intent: "systems-engineering-safety; failure-rate-weighted mttr with lognormal t50 and t95 repair-time percentiles for the maximum-repair-time verdict"
+    expected_skill: "systems-engineering-safety/arp4761a/maintainability-prediction"
+  - id: w41-polytropic-efficiency-1
+    query: "convert the polytropic-efficiency of the multistage axial compressor to the isentropic-efficiency at the overall pressure ratio, and recover the per-stage isentropic-efficiency from the same stage-count-independent polytropic-efficiency for the performance sizing"
+    intent: "propulsion; compressor polytropic-to-isentropic efficiency conversion at overall and per-stage pressure ratio, stage-count-independent polytropic efficiency"
+    expected_skill: "propulsion/axial-compressor/polytropic-efficiency"
+  - id: w41-polytropic-efficiency-2
+    query: "convert the turbine isentropic-efficiency to the polytropic-efficiency at the expansion ratio, then run the reheat-factor cross-check on the per-stage pressure ratios against the overall pressure ratio of the compressor"
+    intent: "propulsion; turbine isentropic-to-polytropic efficiency conversion and the log-sum reheat-factor cross-check on per-stage pressure ratios"
+    expected_skill: "propulsion/axial-compressor/polytropic-efficiency"
+  - id: w41-reaction-jet-limit-cycle-1
+    query: "estimate the rcs attitude-hold propellant demand of the reaction-jet deadband limit cycle: the angular rate at the deadband crossing, the pulse duration of each thruster firing, the delta-v and propellant per cycle, and the cycle period over the mission life"
+    intent: "space-systems; RCS attitude-hold propellant from the bang-bang deadband limit-cycle rate, pulse duration and cycle period"
+    expected_skill: "space-systems/adcs/reaction-jet-limit-cycle"
+  - id: w41-reaction-jet-limit-cycle-2
+    query: "compute the three-axis reaction-jet attitude-hold propellant budget over the mission life from the bang-bang limit-cycle period, the deadband half-angle, the control torque and inertia, and the thruster force and specific impulse"
+    intent: "space-systems; three-axis RCS attitude-hold propellant budget from limit-cycle period, deadband half-angle and control torque"
+    expected_skill: "space-systems/adcs/reaction-jet-limit-cycle"
+  - id: w41-regular-shock-reflection-1
+    query: "compute the regular reflection when the oblique shock from the wedge impinges on the wall, find the reflected shock angle and the post-reflection state, and decide regular versus mach reflection from the reflected-shock detachment limit"
+    intent: "high-speed aerodynamics; two-shock regular reflection at the wall, reflected shock angle and post-reflection state, reflected-shock detachment limit verdict"
+    expected_skill: "aerodynamics/high-speed/regular-shock-reflection"
+  - id: w41-regular-shock-reflection-2
+    query: "check whether the two-shock interaction of the incident and reflected shocks at the symmetry plane stays regular or turns mach by comparing the required deflection with the reflected-shock detachment limit"
+    intent: "high-speed aerodynamics; regular versus mach reflection verdict from the reflected-shock detachment limit at the symmetry plane"
+    expected_skill: "aerodynamics/high-speed/regular-shock-reflection"
+  - id: w41-reliability-growth-analysis-1
+    query: "fit the duane growth curve and the crow-amsaa power-law model to the failure times from the development test to decide whether the actuator failure rate is improving over cumulative test time, then project the cumulative test time at which the fitted MTBF reaches the 5000 hour target"
+    intent: "systems-engineering-safety; reliability growth trend analysis: Duane growth slope and Crow-AMSAA shape beta from failure times, improving or degrading verdict, test time to a target MTBF"
+    expected_skill: "systems-engineering-safety/arp4761a/reliability-growth-analysis"
+  - id: w41-reliability-growth-analysis-2
+    query: "compute the crow-amsaa shape beta from the cumulative failure times and the truncation time of the field test, report the current MTBF, and state whether the failure rate is improving, constant, or degrading under the growth verdict"
+    intent: "systems-engineering-safety; reliability growth trend test on cumulative failure times: Crow-AMSAA shape beta, current MTBF, improving versus degrading verdict"
+    expected_skill: "systems-engineering-safety/arp4761a/reliability-growth-analysis"
+  - id: w41-rotorcraft-turn-performance-1
+    query: "compute the helicopter banked-turn power from momentum theory: the turning-flight-inflow at the n-times-weight thrust, the banked-turn-power breakdown into induced, profile and parasite power, and the sustained-load-factor the available power supports at the turn speed"
+    intent: "flight-mechanics; rotorcraft banked turn inflow and power breakdown at n times weight"
+    expected_skill: "flight-mechanics/performance/rotorcraft-turn-performance"
+  - id: w41-rotorcraft-turn-performance-2
+    query: "find the sustained-load-factor of the helicopter banked turn from the available power against the turning-flight-inflow power required, and the power-limited-bank-angle with the turn rate and turn radius of the rotorcraft-turn-performance model"
+    intent: "flight-mechanics; rotorcraft sustained load factor from available power and the power-limited bank angle"
+    expected_skill: "flight-mechanics/performance/rotorcraft-turn-performance"
+  - id: w41-stagnation-flow-boundary-layer-1
+    query: "size the stagnation-flow-boundary-layer on the wing leading edge with the hiemenz-similarity solution from the stagnation-velocity-gradient and report the laminar boundary-layer thickness and the stagnation-wall-shear"
+    intent: "aerodynamics; low-speed 2-D laminar stagnation boundary layer, wall shear and skin friction from the Hiemenz similarity solution"
+    expected_skill: "aerodynamics/boundary-layer/stagnation-flow-boundary-layer"
+  - id: w41-stagnation-flow-boundary-layer-2
+    query: "estimate the homann-similarity boundary-layer thickness and wall shear at the axisymmetric nose stagnation point of the radome at low speed and report the skin-friction coefficient"
+    intent: "aerodynamics; axisymmetric laminar stagnation boundary layer and skin friction from the Homann similarity solution"
+    expected_skill: "aerodynamics/boundary-layer/stagnation-flow-boundary-layer"
+  - id: w41-v-tail-sizing-1
+    query: "size the V-tail empennage from the equivalent horizontal and vertical tail volume requirements: the total V-tail area and dihedral angle from the volume-coefficient equivalence, the per-surface geometry at the aspect ratio, and the ruddervator control area"
+    intent: "vehicle design; V-tail empennage sizing from the volume-coefficient equivalence with total V-tail area, dihedral angle, per-surface geometry and ruddervator control area"
+    expected_skill: "vehicle-design/sizing/v-tail-sizing"
+  - id: w41-v-tail-sizing-2
+    query: "check the effective volume coefficients of the V-tail at the dihedral angle: do the projected horizontal and vertical equivalent areas of the canted tail meet the tail volume requirements?"
+    intent: "vehicle design; effective volume coefficient check of the canted V-tail at the dihedral angle against the horizontal and vertical tail volume requirements"
+    expected_skill: "vehicle-design/sizing/v-tail-sizing"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

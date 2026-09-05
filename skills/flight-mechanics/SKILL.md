@@ -80,6 +80,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/rotorcraft-lead-lag-dynamics | Rotorcraft lead-lag dynamics | lead lag frequency, lag hinge offset, regressing lag mode, ground resonance clearance, coincidence rotor speed, multiblade modes |
 | flight-mechanics/performance/balanced-field-length | Balanced field length | balanced field length, V1 decision speed, accelerate-stop distance, accelerate-go distance, engine-out field length |
 | flight-mechanics/performance/rotorcraft-range-endurance | Rotorcraft range endurance | rotorcraft range endurance, hover endurance, cruise endurance, power required fuel closure, best range speed |
+| flight-mechanics/performance/rotorcraft-turn-performance | Rotorcraft turn performance | rotorcraft turn performance, helicopter banked turn, turning flight inflow, sustained load factor, power limited bank angle, turn rate |
 
 ## Routing guidance
 
@@ -154,3 +155,5 @@ your host's skills directory (see README Install for per-host commands).
 - Balanced-field-length questions (V1 decision-speed balance between the accelerate-stop and the accelerate-go distance over the obstacle, engine-out field length) route to the performance balanced-field-length sub-skill.
 
 - Rotorcraft fuel-closure questions (hover endurance from the weight-decay power integration, cruise range and endurance over the power-required curve, best-range speed pick) route to the performance rotorcraft-range-endurance sub-skill.
+
+- Rotorcraft banked-turn questions (momentum-theory turning-flight inflow at n-times weight, banked-turn power breakdown, sustained load factor from available power, turn rate and radius) route to the performance rotorcraft-turn-performance sub-skill.

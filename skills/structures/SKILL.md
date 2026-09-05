@@ -87,6 +87,8 @@ material selection.
 | structures/materials/multiaxial-yield-criteria | Multiaxial yield criteria | multiaxial yield criteria, von Mises equivalent stress, Tresca margin, combined bending torsion, biaxial yield envelope |
 | structures/fem/diagonal-tension-field-webs | Diagonal tension field webs | diagonal tension field webs, tension field angle, post-buckled shear web, web tension stress, flange axial load |
 | structures/composites/peel-stress-bonded-joints | Peel stress bonded joints | peel stress bonded joints, Goland Reissner, bending moment factor, adherend bending, peel margin |
+| structures/fem/beam-column-analysis | Beam column analysis | beam column analysis, combined axial and bending, moment amplification, secant formula, Euler load, interaction ratio |
+| structures/fem/curved-beam-analysis | Curved beam analysis | curved beam analysis, Winkler curved beam, eccentric neutral axis, curved member stress, inner fiber stress |
 
 
 ## Routing guidance
@@ -184,3 +186,6 @@ your host's skills directory (see README Install for per-host commands).
 - Post-buckled shear-web questions (diagonal tension field ratio and angle, web tension stress, flange and end-post axial loads, rivet shear flows) route to the fem diagonal-tension-field-webs sub-skill.
 
 - Bonded-joint peel questions (Goland-Reissner peel stress at the overlap end, bending moment factor, edge moment, peel margin) route to the composites peel-stress-bonded-joints sub-skill.
+
+- Beam-column questions (compression member with bending from lateral load, end moment or eccentricity, Euler load, moment amplification, secant-formula peak stress, axial-plus-bending interaction margin) route to the fem beam-column-analysis sub-skill.
+- Curved-beam questions (frame segment or torque link with the Winkler correction, inward-shifted neutral axis radius, inner and outer fiber stress against the allowable) route to the fem curved-beam-analysis sub-skill.
