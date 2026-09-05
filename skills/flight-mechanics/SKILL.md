@@ -78,6 +78,8 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/rotorcraft-blade-element-hover-performance | Rotorcraft blade element hover performance | blade element theory, thrust coefficient, torque coefficient, collective pitch, tip loss factor, hover figure of merit |
 | flight-mechanics/performance/rotorcraft-axial-descent-flow-states | Rotorcraft axial descent flow states | axial descent flow, vortex ring state, windmill brake state, descent induced velocity, torque reversal, momentum theory reachability |
 | flight-mechanics/performance/rotorcraft-lead-lag-dynamics | Rotorcraft lead-lag dynamics | lead lag frequency, lag hinge offset, regressing lag mode, ground resonance clearance, coincidence rotor speed, multiblade modes |
+| flight-mechanics/performance/balanced-field-length | Balanced field length | balanced field length, V1 decision speed, accelerate-stop distance, accelerate-go distance, engine-out field length |
+| flight-mechanics/performance/rotorcraft-range-endurance | Rotorcraft range endurance | rotorcraft range endurance, hover endurance, cruise endurance, power required fuel closure, best range speed |
 
 ## Routing guidance
 
@@ -148,3 +150,7 @@ your host's skills directory (see README Install for per-host commands).
 - Speed stability, the back side of the thrust-required curve, the region of reversed command, and slow-flight trim stability questions route to the performance speed-stability sub-skill.
 - Deep stall, T-tail blanking, alpha lock, and post-stall trim recovery questions route to the stability-control deep-stall-analysis sub-skill.
 - Pitch bandwidth and phase-delay flying qualities criterion questions route to the handling-qualities pitch-bandwidth-criteria sub-skill.
+
+- Balanced-field-length questions (V1 decision-speed balance between the accelerate-stop and the accelerate-go distance over the obstacle, engine-out field length) route to the performance balanced-field-length sub-skill.
+
+- Rotorcraft fuel-closure questions (hover endurance from the weight-decay power integration, cruise range and endurance over the power-required curve, best-range speed pick) route to the performance rotorcraft-range-endurance sub-skill.

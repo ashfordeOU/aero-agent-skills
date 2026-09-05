@@ -250,6 +250,11 @@
 # leaves). Wave-39 new leaves: "systems-engineering-safety/arp4761a/beta-factor-analysis", "aerodynamics/high-speed/bow-shock-standoff", "cross-cutting/numerics/chi-square-goodness-of-fit", "cross-cutting/numerics/exact-binomial-test", "systems-engineering-safety/arp4761a/failure-mode-criticality", "cross-cutting/tolerancing/fastener-position-tolerance-calc", "space-systems/adcs/gravity-gradient-stabilization", "cross-cutting/numerics/kruskal-wallis-test", "structures/composites/laminate-plate-buckling", "cross-cutting/numerics/poisson-confidence-interval", "cross-cutting/numerics/power-analysis", "flight-mechanics/performance/propeller-range", "propulsion/rocket/rocket-gravity-loss", "space-systems/mission-design/synodic-launch-window", "propulsion/gas-turbine-cycle/turbojet-cycle".
 # Corpus: 1088 tasks (1058 prior plus 30 domain tasks). Owner: Ops
 # Manager, Wave 39 build.
+# P5.2 / Wave 40 (2026-09-05): fan-out continues on the public
+# v1.0.0 model to 551 verified skills (563 SKILL.md under gate 1: 12 routers + 551
+# leaves). Wave-40 new leaves: "flight-mechanics/performance/balanced-field-length", "vehicle-design/sizing/cargo-compartment-sizing", "structures/fem/diagonal-tension-field-webs", "vehicle-design/sizing/emergency-exit-configuration", "systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis", "systems-engineering-safety/arp4761a/fmes-coverage-analysis", "space-systems/mission-design/ground-station-pass-planning", "gnc-autonomy/navigation/ins-gnss-integrated-filter", "space-systems/adcs/magnetometer-calibration", "structures/materials/multiaxial-yield-criteria", "structures/composites/peel-stress-bonded-joints", "flight-mechanics/performance/rotorcraft-range-endurance", "aerodynamics/boundary-layer/rough-wall-skin-friction", "systems-engineering-safety/arp4761a/ssa-closure", "vehicle-design/sizing/window-aperture-sizing".
+# Corpus: 1118 tasks (1088 prior plus 30 domain tasks). Owner: Ops
+# Manager, Wave 40 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -4914,6 +4919,126 @@ tasks:
     query: "use the compressor-turbine-matching work balance to size the turbine exit temperature of the turbojet-cycle core engine"
     intent: "propulsion; compressor-turbine work balance matching"
     expected_skill: "propulsion/gas-turbine-cycle/turbojet-cycle"
+  - id: w40-balanced-field-length-1
+    query: "compute the balanced-field-length of the twin with the v1-decision-speed balance between the accelerate-stop-distance and the accelerate-go-distance over the 35-foot obstacle"
+    intent: "flight-mechanics; balanced field length with V1 decision speed"
+    expected_skill: "flight-mechanics/performance/balanced-field-length"
+  - id: w40-balanced-field-length-2
+    query: "run the accelerate-go-distance and the accelerate-stop-distance balance to find the balanced V1 and the engine-out field length for the runway certification case"
+    intent: "flight-mechanics; accelerate-go versus accelerate-stop distance balance"
+    expected_skill: "flight-mechanics/performance/balanced-field-length"
+  - id: w40-cargo-compartment-sizing-1
+    query: "size the cargo-compartment-sizing uld-layout for the ld3-46 containers in the lower-lobe freight hold and check the required cargo volume against the payload density"
+    intent: "vehicle-design; freight compartment ULD layout and volume check"
+    expected_skill: "vehicle-design/sizing/cargo-compartment-sizing"
+  - id: w40-cargo-compartment-sizing-2
+    query: "verify the cargo-door-opening clearance and pick the largest unit-load-device that fits the door of the freight compartment"
+    intent: "vehicle-design; cargo door opening geometry against standard ULDs"
+    expected_skill: "vehicle-design/sizing/cargo-compartment-sizing"
+  - id: w40-diagonal-tension-field-webs-1
+    query: "compute the diagonal-tension-field-webs post-buckled state of the shear web with the tension-field-angle and the web-tension-stress above the shear-buckling stress"
+    intent: "structures; diagonal tension field post-buckled shear web analysis"
+    expected_skill: "structures/fem/diagonal-tension-field-webs"
+  - id: w40-diagonal-tension-field-webs-2
+    query: "find the flange-axial-load and the end-post-load plus the rivet-shear-flow on the attachments of the tension-field web carrying shear above the buckling stress"
+    intent: "structures; tension field attachment loads and rivet shear flows"
+    expected_skill: "structures/fem/diagonal-tension-field-webs"
+  - id: w40-emergency-exit-configuration-1
+    query: "check the emergency-exit-configuration against the far-25 exit-type-requirements for the 180-seat cabin with type-a and type-c doors on each side"
+    intent: "vehicle-design; per-side exit capacity and type rules verdict"
+    expected_skill: "vehicle-design/sizing/emergency-exit-configuration"
+  - id: w40-emergency-exit-configuration-2
+    query: "run the exit-count-check and the adjacent-exit spacing rule on the proposed per-side exit types and row locations of the single-aisle cabin"
+    intent: "vehicle-design; exit count adequacy and 60 foot spacing verdict"
+    expected_skill: "vehicle-design/sizing/emergency-exit-configuration"
+  - id: w40-fault-tree-uncertainty-analysis-1
+    query: "apply the fault-tree-uncertainty-analysis to propagate the lognormal error-factor of each basic event into the lognormal-confidence-band around the fault-tree top probability"
+    intent: "systems-engineering-safety; lognormal error-factor propagation to a fault-tree probability band"
+    expected_skill: "systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis"
+  - id: w40-fault-tree-uncertainty-analysis-2
+    query: "compute the lognormal-confidence-band and the exceedance-probability against a target probability from the lognormal error-factor inputs, then read the uncertainty-variance-share of each event from the fault-tree-uncertainty-analysis"
+    intent: "systems-engineering-safety; lognormal-confidence-band and exceedance against a target"
+    expected_skill: "systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis"
+  - id: w40-fmes-coverage-analysis-1
+    query: "run the fmes-coverage-analysis to compute the fmea-fha-coverage of the failure-mode rows and list every uncovered-failure-condition id"
+    intent: "systems-engineering-safety; fmea-row to fha-condition coverage ratio and uncovered condition ids"
+    expected_skill: "systems-engineering-safety/arp4761a/fmes-coverage-analysis"
+  - id: w40-fmes-coverage-analysis-2
+    query: "use the fmes-coverage-analysis to flag the orphan rows and the uncovered-failure-condition entries in the fmea-fha-coverage summary"
+    intent: "systems-engineering-safety; orphan row flags and uncovered conditions in the fmea-fha coverage summary"
+    expected_skill: "systems-engineering-safety/arp4761a/fmes-coverage-analysis"
+  - id: w40-ground-station-pass-planning-1
+    query: "build the ground-station-pass-planning daily contact-window-schedule of the low-earth satellite and list the downlink-gap-analysis intervals longer than the gap threshold"
+    intent: "space-systems; multi-pass ground station contact schedule and downlink gaps"
+    expected_skill: "space-systems/mission-design/ground-station-pass-planning"
+  - id: w40-ground-station-pass-planning-2
+    query: "propagate the subsatellite ground track and detect the passes above the elevation mask to merge the multi-station contact plan and report the maximum downlink gap"
+    intent: "space-systems; pass detection and multi-station contact merge"
+    expected_skill: "space-systems/mission-design/ground-station-pass-planning"
+  - id: w40-ins-gnss-integrated-filter-1
+    query: "run the ins-gnss-integrated-filter error-state-filter over the level profile and apply the gnss-position measurement update to correct the ins position error and velocity error states"
+    intent: "gnc-autonomy; loosely coupled INS/GNSS error-state integration filter"
+    expected_skill: "gnc-autonomy/navigation/ins-gnss-integrated-filter"
+  - id: w40-ins-gnss-integrated-filter-2
+    query: "propagate the ins drift error state with the psi-angle model and the state-transition matrix, then fuse the loosely-coupled-integration gnss fixes with the kalman measurement update"
+    intent: "gnc-autonomy; error-state propagation and GNSS measurement fusion"
+    expected_skill: "gnc-autonomy/navigation/ins-gnss-integrated-filter"
+  - id: w40-magnetometer-calibration-1
+    query: "run the magnetometer-calibration scalar-checking batch least squares to estimate the magnetometer bias vector from the in-flight field-magnitude samples"
+    intent: "space-systems; magnetometer bias estimation by scalar checking"
+    expected_skill: "space-systems/adcs/magnetometer-calibration"
+  - id: w40-magnetometer-calibration-2
+    query: "perform the in-flight bias-estimation for the adcs magnetometer and check the recovered bias-norm consistency against the field magnitudes"
+    intent: "space-systems; bias vector and consistency residual of the magnetometer"
+    expected_skill: "space-systems/adcs/magnetometer-calibration"
+  - id: w40-multiaxial-yield-criteria-1
+    query: "compute the multiaxial-yield-criteria von-mises-equivalent-stress and the yield margin for the plane-stress state on the isotropic aluminum part"
+    intent: "structures; isotropic von Mises plane-stress equivalent and yield margin"
+    expected_skill: "structures/materials/multiaxial-yield-criteria"
+  - id: w40-multiaxial-yield-criteria-2
+    query: "check the isotropic part against the tresca-margin for the biaxial plane-stress state and report the governing equivalent stress"
+    intent: "structures; Tresca margin and principal stress check for isotropic metal yield"
+    expected_skill: "structures/materials/multiaxial-yield-criteria"
+  - id: w40-peel-stress-bonded-joints-1
+    query: "compute the peel-stress-bonded-joints goland-reissner peel stress at the overlap end of the single-lap joint with the bending-moment-factor and the edge moment from the load and the adherend stiffness"
+    intent: "structures; Goland-Reissner peel stress and bending moment factor"
+    expected_skill: "structures/composites/peel-stress-bonded-joints"
+  - id: w40-peel-stress-bonded-joints-2
+    query: "estimate the adherend-bending peel stress and the peel-margin against the allowable for the peel-critical bonded joint beyond the lap-shear analysis"
+    intent: "structures; peel margin for peel-critical bonded joints"
+    expected_skill: "structures/composites/peel-stress-bonded-joints"
+  - id: w40-rotorcraft-range-endurance-1
+    query: "compute the rotorcraft-range-endurance hover endurance of the helicopter from the rotor disk area and figure of merit and the fuel mass with the weight-decay power integration"
+    intent: "flight-mechanics; rotorcraft hover endurance fuel closure"
+    expected_skill: "flight-mechanics/performance/rotorcraft-range-endurance"
+  - id: w40-rotorcraft-range-endurance-2
+    query: "close the rotorcraft cruise fuel budget into the cruise-range and cruise-endurance over the power-required curve with the average-weight power scaling and the best-range-speed pick"
+    intent: "flight-mechanics; rotorcraft cruise range and endurance fuel closure"
+    expected_skill: "flight-mechanics/performance/rotorcraft-range-endurance"
+  - id: w40-rough-wall-skin-friction-1
+    query: "estimate the rough-wall-skin-friction of the plate from the sand-roughness height and decide whether the fully-rough-cf correlation applies at this fetch"
+    intent: "aerodynamics; sand-roughness regime and fully-rough turbulent skin friction"
+    expected_skill: "aerodynamics/boundary-layer/rough-wall-skin-friction"
+  - id: w40-rough-wall-skin-friction-2
+    query: "check the k-plus-regime and the trip-criterion of the rough-wall-skin-friction estimate from the sand-roughness reynolds number before using the fully-rough-cf value"
+    intent: "aerodynamics; roughness reynolds trip test and fully-rough friction coefficient"
+    expected_skill: "aerodynamics/boundary-layer/rough-wall-skin-friction"
+  - id: w40-ssa-closure-1
+    query: "compute the ssa-closure rollup and the closure-gate verdict from the post-implementation-safety-verdict margins of the assessed conditions"
+    intent: "systems-engineering-safety; multi-condition closure-gate rollup of the post-implementation margins"
+    expected_skill: "systems-engineering-safety/arp4761a/ssa-closure"
+  - id: w40-ssa-closure-2
+    query: "produce the ssa-closure close-out with the requirement-closure-status list of verified and open items before the closure-gate is declared"
+    intent: "systems-engineering-safety; verified and open requirement closure statuses at the safety assessment close-out"
+    expected_skill: "systems-engineering-safety/arp4761a/ssa-closure"
+  - id: w40-window-aperture-sizing-1
+    query: "compute the window-aperture-sizing pane thickness for the pressurized cabin window from the pressure-differential-stress at the certified cabin pressure differential"
+    intent: "vehicle-design; circular window pane thickness from clamped plate pressure stress"
+    expected_skill: "vehicle-design/sizing/window-aperture-sizing"
+  - id: w40-window-aperture-sizing-2
+    query: "check the window-pane-thickness margin and pane weight for the circular passenger window against the design pressure differential and the material allowable"
+    intent: "vehicle-design; window pane margin and mass rollup"
+    expected_skill: "vehicle-design/sizing/window-aperture-sizing"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

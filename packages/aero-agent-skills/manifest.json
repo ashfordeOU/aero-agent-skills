@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 536,
+  "leaves": 551,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1088
+  "corpus_tasks": 1118
  },
  "skills": [
   {
@@ -190,6 +190,21 @@
     "michel-criterion",
     "transition-location",
     "natural-transition"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/rough-wall-skin-friction",
+   "name": "rough-wall-skin-friction",
+   "description": "Use when you must estimate the turbulent skin-friction on a rough flat plate: it computes the smooth-wall turbulent baseline Cf from the local Reynolds number, the friction velocity and the sand-roughness reynolds number k+; classifies the k-plus-regime as smooth, transitional or fully rough; evaluates the Schlichting fully-rough-cf correlation for the fetch; and selects the operative coefficient without iteration, the direct fully-rough value or a log-linear blend. Produces the regime class, k+ value, smooth baseline, rough or blended coefficient, operative coefficient with treatment note, and the trip-criterion verdict for roughness and trip-strip sizing on aerodynamic surfaces. Trigger: rough-wall-skin-friction, sand-roughness-height, equivalent-sand-roughness, roughness-reynolds-number, k-plus-regime, fully-rough-cf, trip-criterion, trip-strip-sizing.",
+   "tags": [
+    "rough-wall-skin-friction",
+    "sand-roughness",
+    "fully-rough-cf",
+    "k-plus-regime",
+    "trip-criterion"
    ],
    "family": "aerodynamics",
    "pack": "boundary-layer",
@@ -2651,6 +2666,21 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/balanced-field-length",
+   "name": "balanced-field-length",
+   "description": "Use when you must compute the balanced field length and V1 decision speed of a multi-engine transport: derate the total thrust to the remaining engines, derive the constant ground accelerations and the braking deceleration, trace the accelerate-stop distance (roll on all engines to V1, react, brake to a stop) and the accelerate-go distance (roll to V1, continue on the remaining engines to lift-off, rotate, and climb over the 35-ft obstacle on the engine-out climb gradient), solve the quadratic balance for the V1 where the two distances are equal, and read the balanced field length. Produces the engine-out thrust, the accelerations, the accelerate-stop and accelerate-go distance curves, the balanced V1, and the balanced field length that gate the runway-length and engine-out certification assessment. Trigger: balanced field length, V1 decision speed, accelerate-stop distance, accelerate-go distance, engine-out field length, balanced V1.",
+   "tags": [
+    "balanced-field-length",
+    "v1-decision-speed",
+    "accelerate-go-distance",
+    "accelerate-stop-distance",
+    "engine-out-field-length"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/breguet-endurance",
    "name": "breguet-endurance",
    "description": "Use when you must compute the loiter endurance time of an aircraft with the Breguet endurance equation: combine the specific fuel consumption and the lift to drag ratio with the initial and final weights to produce the holding endurance in seconds, the final weight after an endurance segment, and the fuel burn for the loiter requirement. Produces the endurance time, final weight, and fuel burn that gate the holding performance check. Trigger: loiter endurance, endurance equation, holding time, specific fuel consumption, lift to drag ratio, fuel burn, maximum endurance.",
@@ -2939,6 +2969,21 @@
     "ground-resonance-clearance",
     "coincidence-rotor-speed",
     "multiblade-modes"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-range-endurance",
+   "name": "rotorcraft-range-endurance",
+   "description": "Use when you must determine the rotorcraft fuel closure into hover endurance and cruise range and endurance: the hover power from the weight, the rotor disk area and the figure of merit, the exact weight-decay integration of the fuel burn into a closed-form hover endurance, and the cruise range and endurance at a chosen speed from an input power-required curve scaled with the average weight, together with the best-range and best-endurance speed picks. Produces the hover power and endurance, the cruise range and endurance, the fuel-flow rates, the specific range and the best-speed selection that gate the rotorcraft mission fuel check. Trigger: rotorcraft range endurance, hover endurance closure, cruise range closure, cruise endurance closure, rotorcraft fuel budget closure, specific range, best range speed, best endurance speed, average weight power scaling.",
+   "tags": [
+    "rotorcraft-range-endurance",
+    "hover-endurance",
+    "cruise-endurance",
+    "power-required-fuel-closure",
+    "average-weight-power"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -4691,6 +4736,21 @@
     "alignment",
     "ins-gps-integration",
     "inertial-measurement-unit"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/ins-gnss-integrated-filter",
+   "name": "ins-gnss-integrated-filter",
+   "description": "Use when you must fuse INS and GNSS in a loosely coupled error-state integration filter: assemble the 5-state psi-angle error model of the horizontal INS drift from the specific forces, discretize it into the state transition matrix, predict the position, velocity and heading error states and their covariance between GNSS fixes, and apply the GNSS position measurement update that drives the estimated error state toward the innovation through the Kalman gain. Produces the error-state matrix, the state transition matrix, the innovation and gain of each fix, the corrected error trajectory, and the gated integrated navigation solution of a level-flight profile. Trigger: ins-gnss-integrated-filter, error-state-filter, loosely-coupled-integration, gnss-position-update, ins-drift-correction, psi-angle-model, state-transition-matrix, horizontal-specific-force.",
+   "tags": [
+    "ins-gnss-integrated-filter",
+    "error-state-filter",
+    "loosely-coupled-integration",
+    "gnss-position-update",
+    "ins-drift-correction"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -6722,6 +6782,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/adcs/magnetometer-calibration",
+   "name": "magnetometer-calibration",
+   "description": "Use when you must estimate the in-flight magnetometer bias vector with scalar-checking batch least squares: expand |m_k - b|^2 = B_k^2 over the measured body-frame samples m_k and the known field magnitudes B_k, build the 4-unknown rows [-2 m_k, 1] with right sides B_k^2 - |m_k|^2, solve the normal equations A^T A x = A^T y by partial-pivot Gaussian elimination, and recover the bias from the first three unknowns with the fourth unknown |b|^2 as the consistency check. Produces the bias vector, the consistency gap against the recovered bias norm, the max fit residual, and the calibrated samples that gate attitude determination. Trigger: magnetometer calibration, scalar checking, in-flight bias estimation, hard-iron offset, field magnitude consistency.",
+   "tags": [
+    "magnetometer-calibration",
+    "scalar-checking",
+    "bias-estimation",
+    "in-flight-bias-calibration",
+    "hard-iron-offset-estimation",
+    "field-magnitude-consistency"
+   ],
+   "family": "space-systems",
+   "pack": "adcs",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/adcs/magnetorquer-control",
    "name": "magnetorquer-control",
    "description": "Use when the task is magnetorquer control, dipole moment calculation, B-dot detumbling, cross-product torque steering, detumbling rate damping, or torque authority limits. Compute the magnetic dipole moment for spacecraft magnetic attitude control with magnetorquers: solve torque = m x B for the required dipole from a torque demand and the local magnetic field vector, apply the B-dot detumbling law to damp body rates, check the achievable torque against the magnetorquer torque authority limit, warn when the torque demand lies along the field, and size the torque rod coils. Produces the dipole moment vector, the B-dot control dipole, the achievable torque magnitude, the underdetermined-axis warning, the coil sizing, and the orbit-averaged torque authority. Trigger: magnetorquer, dipole moment, B-dot, detumbling, torque authority, cross-product, magnetic field, coil sizing.",
@@ -6894,6 +6970,21 @@
     "heat-load",
     "parachute-terminal-velocity",
     "mars-entry"
+   ],
+   "family": "space-systems",
+   "pack": "mission-design",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/mission-design/ground-station-pass-planning",
+   "name": "ground-station-pass-planning",
+   "description": "Use when you must build the daily ground station contact schedule of a low-earth satellite: propagate the sub-satellite point over the planning horizon, compute the elevation of the satellite above each station, detect the contiguous passes above the station elevation mask, aggregate the daily contact window schedule with its downlink gap analysis, and merge the contacts of several ground stations into one plan. Produces the per-pass start, end, duration and maximum elevation, the daily contact totals, the gap list, the maximum downlink gap, and the merged multi-station contact plan that gate mission data collection and downlink assessment. Trigger: ground station pass planning, contact window schedule, pass detection, elevation mask, downlink gap analysis, multi-station contact plan, daily contact schedule, maximum downlink gap.",
+   "tags": [
+    "ground-station-pass-planning",
+    "contact-window-schedule",
+    "downlink-gap-analysis",
+    "pass-detection",
+    "multi-station-contact-plan"
    ],
    "family": "space-systems",
    "pack": "mission-design",
@@ -7687,6 +7778,21 @@
    "router_doc": false
   },
   {
+   "path": "structures/composites/peel-stress-bonded-joints",
+   "name": "peel-stress-bonded-joints",
+   "description": "Use when you must compute the peel stress at the overlap end of a single-lap bonded joint: find the Goland-Reissner bending moment factor from the load per unit width, the adherend thickness, modulus and Poisson ratio, and the overlap half length, form the edge moment at the overlap end, resolve the peak peel stress from the adhesive Winkler-foundation beam model with the peel decay coefficient, and rate the peel margin against an allowable peel strength. Produces the bending moment factor, the edge moment, the peel decay coefficient, the peak peel stress and the peel margin that gate the peel-critical joint check. Trigger: goland-reissner peel stress, adherend bending, peel critical joint, overlap end peel stress, bonded joint peel margin.",
+   "tags": [
+    "peel-stress-bonded-joints",
+    "goland-reissner",
+    "bending-moment-factor",
+    "adherend-bending",
+    "peel-margin"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
    "path": "structures/composites/sandwich-panels",
    "name": "sandwich-panels",
    "description": "Use when the task is sandwich panel sizing or analysis, honeycomb or foam core selection, face sheet stress or core shear failure checks, face wrinkling, or sandwich bending stiffness and deflection. Design and analyze aerospace sandwich panels: compute the equivalent bending stiffness from the face modulus, face thickness, and core thickness, the face sheet stresses from a bending moment, the core shear stress from a shear load, the face wrinkling stress from the face and core moduli, and the total deflection of a sandwich beam or panel including the core shear contribution. Trigger: sandwich panel, honeycomb core, foam core, face wrinkling, core shear, face stress, sandwich deflection.",
@@ -8035,6 +8141,21 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/diagonal-tension-field-webs",
+   "name": "diagonal-tension-field-webs",
+   "description": "Use when you must analyze a plane shear web above its shear-buckling stress with the diagonal tension field idealization: compute the tension field ratio of the applied shear above the buckling stress, take the classical 45 degree tension field angle or accept the angle for a non-45 web, and compute the diagonal web tension stress, the flange and end post axial loads from the diagonal tension, the rivet shear flows on the flange and end post attachments, and the margin against buckling. Produces the post-buckled web state and the attachment loads that gate the shear web reserve check. Trigger: diagonal tension field, tension field angle, web tension stress, post-buckled shear web, tension field attachment loads, shear web reserve.",
+   "tags": [
+    "diagonal-tension-field-webs",
+    "tension-field-angle",
+    "web-tension-stress",
+    "post-buckled-shear-web",
+    "tension-field-attachment-loads"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/lug-joint-analysis",
    "name": "lug-joint-analysis",
    "description": "Use when you must analyze a metallic pin-loaded lug fitting under an axial load: compute the hole bearing stress, the net section tension stress across the lug width, the tearout shear stress on the two planes from the hole tangent to the round outer contour, the per-mode margins against the material tension, shear and bearing allowables, the governing failure mode and the pass/fail verdict, the limiting allowable capacity, and the governing-mode map over the edge distance ratio for a round-end lug with w = 2e. Produces the applied stresses, per-mode margins, governing mode and margin, pass/fail, capacity, and the short-lug tension, intermediate tearout and long-lug bearing e/D sweep. Trigger: lug joint analysis, pin-loaded lug, lug bearing stress, lug tearout shear, lug net section tension, lug edge distance ratio, round-end lug.",
@@ -8297,6 +8418,19 @@
     "design-values",
     "mil-hdbk-5",
     "test-specimens"
+   ],
+   "family": "structures",
+   "pack": "materials",
+   "router_doc": false
+  },
+  {
+   "path": "structures/materials/multiaxial-yield-criteria",
+   "name": "multiaxial-yield-criteria",
+   "description": "Use when you must compute the multiaxial yield margin of an isotropic metal part: evaluate the von Mises equivalent stress in plane stress sqrt(sx^2 - sx*sy + sy^2 + 3*txy^2) and in full 3D, resolve the plane-stress principal stresses from the Mohr circle, compute the Tresca equivalent stress as the maximum principal stress difference including the zero out-of-plane principal, compute the yield margin yield/equivalent - 1, run the von Mises combined bending-plus-torsion margin for a shaft section, and check whether a biaxial tension point falls inside the von Mises yield envelope. Produces the von Mises and Tresca equivalent stresses, the principal stresses, the yield margins and the envelope verdict that gate metallic part hand checks. Trigger: multiaxial-yield-criteria, von-mises-equivalent-stress, tresca-margin.",
+   "tags": [
+    "multiaxial-yield-criteria",
+    "von-mises-equivalent-stress",
+    "tresca-margin"
    ],
    "family": "structures",
    "pack": "materials",
@@ -8584,6 +8718,35 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis",
+   "name": "fault-tree-uncertainty-analysis",
+   "description": "Use when you must quantify the epistemic uncertainty band around a quantified fault-tree probability: convert each basic-event lognormal error factor to a lognormal sigma with the 90 percent normal quantile, combine the per-event sigmas into the lognormal sigma of the tree probability weighted by the Fussell-Vesely fractions, form the two-sided 90 percent lognormal-confidence-band around the top probability, compute the exceedance-probability of the true value above a target probability, and decompose the variance of the spread into per-event uncertainty-variance-shares. Produces the per-event sigmas, the combined sigma, the band bounds, the exceedance probability and the variance shares that gate confidence in a top-event number. Trigger: fault-tree uncertainty analysis, lognormal error factor, lognormal confidence band, uncertainty variance share.",
+   "tags": [
+    "fault-tree-uncertainty-analysis",
+    "lognormal-error-factor",
+    "lognormal-confidence-band",
+    "uncertainty-variance-share"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/arp4761a/fmes-coverage-analysis",
+   "name": "fmes-coverage-analysis",
+   "description": "Use when you must verify the coverage of the failure-mode effect rows over the functional-hazard condition set: map every FMEA row to the failure condition it demonstrates through its condition_id, list the covered and the uncovered condition ids, flag the rows that carry no condition link as orphan rows, and report the coverage ratio of covered over total conditions. Breaks the coverage down per severity class when conditions carry severity, and suggests candidate condition ids for unlinked rows with a deterministic text-match score. Produces the covered and uncovered condition id lists, the orphan row list, the coverage ratio, the per-severity-class coverage dict and the match suggestions that gate the FMEA-to-FHA loop before the assessment closes. Trigger: fmes-coverage-analysis, fmea-fha-coverage, uncovered-failure-condition, orphan-row-flag, condition-match-score.",
+   "tags": [
+    "fmes-coverage-analysis",
+    "fmea-fha-coverage",
+    "uncovered-failure-condition",
+    "orphan-row-flag",
+    "condition-match-score"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/arp4761a/fta-fmea",
    "name": "fta-fmea",
    "description": "Use when scoping or executing FTA (fault tree analysis) and FMEA (failure modes and effects analysis) per ARP4761A: compute minimal cut sets from AND/OR gate structures, check cut-set probability sanity against the top event probability, select the analysis set for an assurance level (FTA/FMEA always, CCA at levels A and B), and map FMEA failure-condition severity to development assurance levels. Pairs with ARP4754A development assurance; all logic is deterministic, offline stdlib. Trigger: fault tree, FTA, FMEA, FMECA, cut set, minimal cut set, failure modes, common cause, severity, probability.",
@@ -8723,6 +8886,21 @@
     "fta",
     "fmea",
     "safety-assessment"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/arp4761a/ssa-closure",
+   "name": "ssa-closure",
+   "description": "Use when you must close out the post-implementation safety assessment over the assessed condition set: look up the quantitative probability target per flight hour for the severity class of each assessed condition, compute the per-condition margin of target over predicted with the strict meets verdict, roll the conditions up into the closure-gate verdict with the closed and open counts, the open condition ids and the per-severity-class closure fraction, and roll the safety requirement verification statuses into the verified and open requirement closure list. Produces the severity-target lookup, the per-condition margins, the closure-gate verdict dict and the requirement closure list that gate the close-out statement. Trigger: ssa-closure rollup, closure-gate verdict, post-implementation-safety-verdict margin, condition-margin, requirement-closure-status.",
+   "tags": [
+    "ssa-closure",
+    "closure-gate",
+    "post-implementation-safety-verdict",
+    "requirement-closure-status",
+    "condition-margin"
    ],
    "family": "systems-engineering-safety",
    "pack": "arp4761a",
@@ -9486,6 +9664,22 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/cargo-compartment-sizing",
+   "name": "cargo-compartment-sizing",
+   "description": "Use when you must size a freight cargo compartment and its cargo door around standard unit load devices: look up public ULD envelope dimensions from the module catalog, check whether a ULD cross-section passes through a cargo door with the rotated orientation tried, pick the largest-volume ULD that fits a door, lay out ULD positions with a deterministic 2D strip layout and aisle allowance, compute the required cargo volume from payload mass and density, and report the adequacy verdict. Produces the ULD count, the volume utilization, the unused length and width, the door opening width and height with clearance, and the volume adequacy verdict. Trigger: cargo door opening, unit load device, ULD layout, freight hold.",
+   "tags": [
+    "cargo-compartment-sizing",
+    "cargo-door-opening",
+    "uld-layout",
+    "unit-load-device-fit",
+    "uld-position-layout",
+    "freight-hold-utilization"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/control-surface-sizing",
    "name": "control-surface-sizing",
    "description": "Use when the task is control surface sizing, aileron sizing, elevator area, rudder area, roll rate requirement, pitch moment authority, yaw authority, hinge moment, or deflection limits. Size the aileron, elevator, and rudder control surfaces of a fixed-wing aircraft from control power: the aileron area from the roll rate requirement with the roll damping derivative, the elevator area from the pitch moment requirement with the elevator effectiveness, the rudder area from the yaw moment requirement for the engine-out case, the hinge moment for the actuator, and the deflection limits against the typical travel ranges. Trigger: control surface sizing, aileron sizing, elevator area, rudder area, hinge moment, deflection limits.",
@@ -9514,6 +9708,22 @@
     "bus-tolerance-verdict",
     "ewis-conductor-selection",
     "ampacity-derating"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/emergency-exit-configuration",
+   "name": "emergency-exit-configuration",
+   "description": "Use when you must configure passenger emergency exits against the discrete exit-type rules: look up each exit type's minimum rectangular opening and per-exit seating credit from the constant table, verify that the exits on each side of the fuselage alone cover the passenger capacity, check the capacity-band minimum exit counts and minimum types, apply the two-C-or-larger rule when a type-a, type-b or type-c exit is installed, check the 60-foot adjacent-exit spacing rule on the same side with the implied maximum seat distance to an exit, and compute the aggregate evacuation demand ratio. Produces the per-side capacity sums, the adequacy verdict with the failing-rule list, the required per-side exit set, and the demand ratio that gate the exit configuration. Trigger: emergency-exit-configuration, exit-type-requirements, exit-count-check, exit-placement-rule, per-side-exit-capacity, evacuation-demand-ratio.",
+   "tags": [
+    "emergency-exit-configuration",
+    "exit-type-requirements",
+    "exit-count-check",
+    "exit-placement-rule",
+    "per-side-exit-capacity",
+    "evacuation-demand-ratio"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
@@ -9874,6 +10084,22 @@
     "moment",
     "class-i",
     "class-ii"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/window-aperture-sizing",
+   "name": "window-aperture-sizing",
+   "description": "Use when you must size a pressurized-cabin passenger window aperture as a flat circular pane: compute the design pressure differential from the ISA pressures at the cabin and flight altitudes with the certification pressure factor applied, compute the clamped-circular-plate bending stress at the pane edge, invert the relation for the required window-pane-thickness, check the pane-margin against the material allowable, and roll up the pane weight over the window count. Produces the design differential, the pane stress, the required thickness, the margin and the weight that gate the window aperture layout. Trigger: window aperture sizing, window pane thickness, pressure differential stress, clamped circular plate, pane margin check, cabin pressure load.",
+   "tags": [
+    "window-aperture-sizing",
+    "window-pane-thickness",
+    "pressure-differential-stress",
+    "clamped-circular-plate",
+    "pane-margin-check",
+    "cabin-pressure-load"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
