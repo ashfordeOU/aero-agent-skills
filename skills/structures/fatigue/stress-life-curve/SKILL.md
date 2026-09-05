@@ -1,6 +1,6 @@
 ---
 name: stress-life-curve
-description: "Determine the stress-life (S-N) fatigue curve from test data and use it for fatigue life prediction: fit the Basquin equation S = A * N^b to the S-N test points by log-log regression, read the endurance limit from the runout stress level, and predict the cycles to failure at a given stress amplitude or the allowable amplitude for a required life. Use when S-N test data must be reduced to a Basquin curve, an endurance limit must be determined from runout tests, or a fatigue life must be predicted from a stress amplitude for a structure. Trigger: stress-life-curve, sn-curve, basquin-equation, endurance-limit, fatigue-life-prediction, sn-data."
+description: "Use when S-N test data must be reduced to a Basquin curve, an endurance limit must be determined from runout tests, or a fatigue life must be predicted from a stress amplitude for a structure. Determine the stress-life (S-N) fatigue curve from test data and use it for fatigue life prediction: fit the Basquin equation S = A * N^b to the S-N test points by log-log regression, read the endurance limit from the runout stress level, and predict the cycles to failure at a given stress amplitude or the allowable amplitude for a required life. Trigger: stress-life-curve, sn-curve, basquin-equation, endurance-limit, fatigue-life-prediction, sn-data."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

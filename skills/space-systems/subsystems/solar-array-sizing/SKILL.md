@@ -1,6 +1,6 @@
 ---
 name: solar-array-sizing
-description: "Compute spacecraft solar-array sizing: determine the required photovoltaic array area in square meters from the orbit-average power demand, the eclipse fraction, the solar cell efficiency, the packing factor, and the end-of-life degradation over the mission life, then verify the array margin at end of life. Use when sizing a spacecraft EPS solar array or photovoltaic panel: array area, power demand, eclipse fraction, cell efficiency, packing factor, degradation, end of life, solar irradiance. Trigger: solar array sizing, array area, cell efficiency, degradation, power demand, eclipse fraction, photovoltaic."
+description: "Use when sizing a spacecraft EPS solar array or photovoltaic panel: array area, power demand, eclipse fraction, cell efficiency, packing factor, degradation, end of life, solar irradiance. Compute spacecraft solar-array sizing: determine the required photovoltaic array area in square meters from the orbit-average power demand, the eclipse fraction, the solar cell efficiency, the packing factor, and the end-of-life degradation over the mission life, then verify the array margin at end of life. Trigger: solar array sizing, array area, cell efficiency, degradation, power demand, eclipse fraction, photovoltaic."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

@@ -1,6 +1,6 @@
 ---
 name: flight-test-safety
-description: "Assess the flight test safety package: score the hazards on the severity by likelihood risk matrix, check that every test point stays inside the flight envelope limits, confirm the emergency procedures cover the required conditions, verify the safety pilot duties are assigned, run the go/no-go criteria gate, and list the mitigation gaps. Use when the task concerns flight test safety: risk assessment, flight envelope limits, emergency procedures, safety pilot duties, go/no-go criteria, risk mitigation. Trigger: flight test safety, risk assessment, safety pilot duties, emergency procedures, go/no-go criteria, flight envelope limits."
+description: "Use when the task concerns flight test safety: risk assessment, flight envelope limits, emergency procedures, safety pilot duties, go/no-go criteria, risk mitigation. Assess the flight test safety package: score the hazards on the severity by likelihood risk matrix, check that every test point stays inside the flight envelope limits, confirm the emergency procedures cover the required conditions, verify the safety pilot duties are assigned, run the go/no-go criteria gate, and list the mitigation gaps. Trigger: flight test safety, risk assessment, safety pilot duties, emergency procedures, go/no-go criteria, flight envelope limits."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

@@ -1,6 +1,6 @@
 ---
 name: test-point-matrix-design
-description: "Design the flight test point matrix: expand the altitude, speed, and weight sweeps across the aircraft configurations into the full grid of test conditions, mark the repeat points for data quality, sequence the points so configuration changes and altitude hops are minimized for flight efficiency, and check the flown points against the steady state tolerance of each condition. Use when the task is building the test point matrix for a flight test program, laying out condition sweeps, choosing repeat points, or ordering the points for efficient flying. Trigger: test point matrix, condition sweep, altitude sweep, speed sweep, weight sweep, repeat point, steady state tolerance, test sequencing."
+description: "Use when the task is building the test point matrix for a flight test program, laying out condition sweeps, choosing repeat points, or ordering the points for efficient flying. Design the flight test point matrix: expand the altitude, speed, and weight sweeps across the aircraft configurations into the full grid of test conditions, mark the repeat points for data quality, sequence the points so configuration changes and altitude hops are minimized for flight efficiency, and check the flown points against the steady state tolerance of each condition. Trigger: test point matrix, condition sweep, altitude sweep, speed sweep, weight sweep, repeat point, steady state tolerance, test sequencing."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

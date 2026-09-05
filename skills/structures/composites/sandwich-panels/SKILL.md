@@ -1,6 +1,6 @@
 ---
 name: sandwich-panels
-description: "Design and analyze aerospace sandwich panels: compute the equivalent bending stiffness from the face modulus, face thickness, and core thickness, the face sheet stresses from a bending moment, the core shear stress from a shear load, the face wrinkling stress from the face and core moduli, and the total deflection of a sandwich beam or panel including the core shear contribution. Use when the task is sandwich panel sizing or analysis, honeycomb or foam core selection, face sheet stress or core shear failure checks, face wrinkling, or sandwich bending stiffness and deflection. Trigger: sandwich panel, honeycomb core, foam core, face wrinkling, core shear, face stress, sandwich deflection."
+description: "Use when the task is sandwich panel sizing or analysis, honeycomb or foam core selection, face sheet stress or core shear failure checks, face wrinkling, or sandwich bending stiffness and deflection. Design and analyze aerospace sandwich panels: compute the equivalent bending stiffness from the face modulus, face thickness, and core thickness, the face sheet stresses from a bending moment, the core shear stress from a shear load, the face wrinkling stress from the face and core moduli, and the total deflection of a sandwich beam or panel including the core shear contribution. Trigger: sandwich panel, honeycomb core, foam core, face wrinkling, core shear, face stress, sandwich deflection."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

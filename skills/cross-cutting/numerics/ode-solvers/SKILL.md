@@ -1,6 +1,6 @@
 ---
 name: ode-solvers
-description: "Solve first-order ordinary differential equations numerically with explicit Euler, Heun's method (RK2), and classical RK4: step the initial-value problem forward from y(t0), tabulate the solution, compare it against a closed-form reference, and check step-size convergence of the global error. Use when a task asks for an ODE solver, differential-equation time marching, an initial-value problem, a decay or response trajectory, or an error-versus-exact comparison. Produces the solution table, the chosen method, and the max absolute error. Trigger: ode solver, initial value problem, explicit euler, runge kutta, heun method, step size convergence."
+description: "Use when a task asks for an ODE solver, differential-equation time marching, an initial-value problem, a decay or response trajectory, or an error-versus-exact comparison. Solve first-order ordinary differential equations numerically with explicit Euler, Heun's method (RK2), and classical RK4: step the initial-value problem forward from y(t0), tabulate the solution, compare it against a closed-form reference, and check step-size convergence of the global error. Produces the solution table, the chosen method, and the max absolute error. Trigger: ode solver, initial value problem, explicit euler, runge kutta, heun method, step size convergence."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:

@@ -1,6 +1,6 @@
 ---
 name: power-input
-description: "Assess DO-160 Section 16 power-input characteristics of airborne equipment: verify measured AC and DC steady-state voltages against normal and emergency limits, compute voltage-sag depth and voltage-surge height as percentages of nominal, check frequency-variation tolerance for 400 Hz AC buses, and verify transient-recovery time after a sag or surge event. Use when reviewing a power-input test plan, analyzing captured input-power waveforms against the equipment category, or deciding whether a transient event stays within its category envelope. Trigger: DO-160, power-input, voltage-sag, voltage-surge, frequency-variation, transient-recovery, emergency-power."
+description: "Use when reviewing a power-input test plan, analyzing captured input-power waveforms against the equipment category, or deciding whether a transient event stays within its category envelope. Assess DO-160 Section 16 power-input characteristics of airborne equipment: verify measured AC and DC steady-state voltages against normal and emergency limits, compute voltage-sag depth and voltage-surge height as percentages of nominal, check frequency-variation tolerance for 400 Hz AC buses, and verify transient-recovery time after a sag or surge event. Trigger: DO-160, power-input, voltage-sag, voltage-surge, frequency-variation, transient-recovery, emergency-power."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
