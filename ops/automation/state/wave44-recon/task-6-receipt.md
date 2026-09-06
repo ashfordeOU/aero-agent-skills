@@ -1,0 +1,2 @@
+All probes complete. Here are the wave-44 aerodynamics probe receipts. ## AERODYNAMICS PROBE RECEIPTS (wave-44, at HEAD) **HEAD:** `ea778bbe` (wave-44 brief). Read-only; nothing modified. - **Count/packs summary:** 49 leaves / 10 packs (high-speed 18, cfd 7, boundary-layer 6, airfoil 5, aeroelasticity 3, drag-polars 3, wind-tunnel 3, wing-design 2, ground-effects 1, high-lift 1). 100 corpus tasks …(+97 chars)
+16:32:21 final    | end status=completed exit_reason=completed
