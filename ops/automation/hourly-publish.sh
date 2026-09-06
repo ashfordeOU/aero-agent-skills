@@ -32,7 +32,7 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 # file; the default below is only a fallback for whichever machine
 # hasn't set it.
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SITE_REPO="${ASHFORDE_SITE_REPO:-$HOME/dev-tree/ashforde-site}"
+SITE_REPO="${ASHFORDE_SITE_REPO:-$HOME/internal-tree/ashforde-site}"
 
 echo "===== $(date -u +%FT%TZ) hourly-publish starting ====="
 
