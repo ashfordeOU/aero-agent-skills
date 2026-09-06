@@ -1,0 +1,2 @@
+All checks complete. Set-identical: 52/52 corpus references match disk leaves, 0 orphans. Standards map: 30 ids, no `ccsds`/131.0-B. Assembling receipts: ## SPACE-SYSTEMS PROBE RECEIPTS (wave-44, at HEAD) - **Count/packs summary**: 52 leaves · 7 packs — adcs 14 · ecss 3 · mission-design 7 · orbit-mechanics 19 · subsystems 9 (subsystems 9: antenna-aperture-sizing, command-data-handling, communicati …(+98 chars)
+16:32:21 final    | end status=completed exit_reason=completed

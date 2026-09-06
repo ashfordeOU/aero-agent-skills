@@ -1,0 +1,2 @@
+All probes complete. Here are the wave-44 receipts. ## MANUFACTURING-QUALITY PROBE RECEIPTS (wave-44, at HEAD) - **Count/packs summary**: 48 leaves / 8 packs at HEAD `ea778bbe` (main, clean): additive 2, as9100 22, as9102 4, as9103 1, assembly 3, composites 1, ndt 13, special-processes 2. Router parity confirmed: 48 `| manufacturing-quality/<pack>/<leaf> |` rows in the family router. Corpus carrie …(+98 chars)
+16:32:21 final    | end status=completed exit_reason=completed
