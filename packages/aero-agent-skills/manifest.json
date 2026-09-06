@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 593,
+  "leaves": 597,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1178
+  "corpus_tasks": 1210
  },
  "skills": [
   {
@@ -8603,6 +8603,25 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/crippling-analysis",
+   "name": "crippling-analysis",
+   "description": "Use when you must compute the local crippling and inter-rivet allowables of a formed compression stiffener (angle, channel, Z, hat stringer, bulb angle): compute the element crippling stress F_cc = min(F_cy, C*sqrt(F_cy*E)*(t/b)**0.75) with the shape constants C = 0.31 for one-edge-free flanges and C = 0.55 for webs between corners, average the element crippling loads over the section area, compute the inter-rivet buckling stress of the attached flat from the rivet pitch, and run the Johnson-Euler interaction that anchors the stiffener column curve on the local crippling stress. Produces the crippling allowable, the inter-rivet allowable, the column interaction allowable, the compression allowable and the margin against the applied stress that gate the local stiffener compression check. Trigger: stringer crippling, local crippling stress, inter-rivet buckling, shape constant method, formed compression shapes.",
+   "tags": [
+    "crippling-analysis",
+    "shape-constant-method",
+    "element-crippling",
+    "local-crippling-stress",
+    "inter-rivet-buckling",
+    "stringer-crippling",
+    "stiffener-compression-allowable",
+    "formed-compression-shapes",
+    "johnson-euler-interaction"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/curved-beam-analysis",
    "name": "curved-beam-analysis",
    "description": "Use when you must stress-check a curved member with the Winkler curved-beam correction: compute the neutral-axis radius from the closed form A / integral(dA / rho) for a rectangular radial or circular tube section, take the neutral-axis-eccentricity, resolve the Winkler inner and outer fiber stresses, add the axial stress P / A, compare the inner fiber to the straight Euler-Bernoulli reading for the curved-beam amplification, and return the stress-to-allowable ratio with the pass or fail verdict. Produces the neutral-axis radius, neutral-axis-eccentricity, inner and outer fiber stresses, curved-beam amplification over the straight-beam value, and verdict against the allowable. Trigger: winkler curved beam, curved frame segment, torque link arc, clevis arc, curved member stress.",
@@ -8650,6 +8669,22 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/hertzian-contact-stress",
+   "name": "hertzian-contact-stress",
+   "description": "Use when you must compute the Hertzian contact stress between curved elastic bodies pressed together: determine the contact patch radius or half-width for sphere pairs, sphere-on-flat, ball-in-socket, cylinder pairs, cylinder-in-bore, roller-in-race or crossed cylinders from the load, the equivalent radius of curvature and the equivalent elastic modulus with 1/E* = (1-nu1^2)/E1 + (1-nu2^2)/E2; compute the maximum contact pressure p0 = 3P/(2 pi a^2) (circular) and p0 = 2P/(pi b L) (strip); report the subsurface shear and von Mises maxima with depth and magnitude; and run the yield-limit load check with p0_yield = 3.3 sigma_y (point) and 1.6 sigma_y (line). Produces patch size, peak pressure, subsurface stress location and magnitude, and yield-limit load and margin in SI units. Trigger: hertzian contact stress, hertz contact patch, contact pressure ellipse, subsurface shear stress, equivalent elastic modulus, equivalent radius of curvature, maximum contact pressure, contact yield limit.",
+   "tags": [
+    "hertzian-contact-stress",
+    "hertz-contact-patch",
+    "contact-pressure-ellipse",
+    "subsurface-shear-stress",
+    "contact-yield-limit-load",
+    "equivalent-contact-modulus"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/lug-joint-analysis",
    "name": "lug-joint-analysis",
    "description": "Use when you must analyze a metallic pin-loaded lug fitting under an axial load: compute the hole bearing stress, the net section tension stress across the lug width, the tearout shear stress on the two planes from the hole tangent to the round outer contour, the per-mode margins against the material tension, shear and bearing allowables, the governing failure mode and the pass/fail verdict, the limiting allowable capacity, and the governing-mode map over the edge distance ratio for a round-end lug with w = 2e. Produces the applied stresses, per-mode margins, governing mode and margin, pass/fail, capacity, and the short-lug tension, intermediate tearout and long-lug bearing e/D sweep. Trigger: lug joint analysis, pin-loaded lug, lug bearing stress, lug tearout shear, lug net section tension, lug edge distance ratio, round-end lug.",
@@ -8661,6 +8696,21 @@
     "lug-tearout-shear",
     "lug-edge-distance-ratio",
     "round-end-lug"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/metallic-fastener-joints",
+   "name": "metallic-fastener-joints",
+   "description": "Use when you must analyze a metallic multi-fastener joint: split the applied load into the per-fastener share of a symmetric bolt or rivet pattern, check the fastener shear in single or double shear, the sheet bearing P/(D*t), net-section tension across the row and shear-out at the edge distance, and resolve an eccentric bolt group by the polar moment method for a load applied off the pattern centroid. Produces the per-fastener loads, the shear, bearing, net-section and shear-out stresses, the group torque with the per-bolt direct and secondary resultants, the max-loaded fastener, and the margin of safety of each mode against MMPDS-style allowables stated as module parameters, under MoS = allowable/(factor*applied) - 1 with the 1.5 ultimate factor. Trigger: metallic fastener joints, bolt group analysis, eccentric bolt group, fastener shear margin, single lap splice.",
+   "tags": [
+    "metallic-fastener-joints",
+    "bolt-group-analysis",
+    "eccentric-bolt-group",
+    "fastener-shear-margin",
+    "fastener-load-share"
    ],
    "family": "structures",
    "pack": "fem",
@@ -8679,6 +8729,23 @@
     "vibration",
     "two-dof",
     "structural-dynamics"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/plastic-collapse-analysis",
+   "name": "plastic-collapse-analysis",
+   "description": "Use when you must find the plastic collapse (limit) load of a beam or a simple frame: compute the fully plastic moment Mp = sigma_y*Zp from the plastic section modulus Zp (rectangle b*h^2/4, circle d^3/6, I-beam with the plastic neutral axis in the web), the shape factor nu = Zp/Z, and the plastic hinge mechanisms of statically indeterminate beams and rectangular frames, applying the kinematic (virtual work) and static (equilibrium plus yield) theorems to give the plastic collapse load, the collapse load factor against the applied load and the ultimate margin in the 1.5 ultimate-factor context of FAR 25.303. Produces the plastic section moduli and shape factors, fully plastic moments, plastic collapse loads with hinge mechanisms, and the load factor and ultimate margin verdicts that gate metallic beam and frame strength checks. Trigger: plastic collapse, plastic hinge, collapse mechanism, fully plastic moment, shape factor.",
+   "tags": [
+    "plastic-collapse-analysis",
+    "plastic-hinge",
+    "collapse-mechanism",
+    "limit-analysis-beam",
+    "fully-plastic-moment",
+    "shape-factor",
+    "collapse-load-factor"
    ],
    "family": "structures",
    "pack": "fem",
