@@ -103,6 +103,11 @@ families.
   SUCCESS.
 - GROUP 160 close-out post sent as Ops Manager:
   SEND_EXIT=0.
+- FINAL public HEAD at this state note: 024d8a52 (the hourly automation
+  synced this state note itself; tree byte-identical content, CI attest
+  34048735925 SUCCESS + release-on-milestone 34048735932 SUCCESS on
+  024d8a52; 28408c3c was the publish-public sync point, fully attested
+  with runs 34048077096/34048077094).
 
 ## Disclosures / deviations
 
