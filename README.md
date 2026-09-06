@@ -31,8 +31,9 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/aero-agent-skills"><img src="https://img.shields.io/badge/npm-aero--agent--skills-0ea5e9?style=flat&labelColor=1a1e35" alt="npm aero-agent-skills"></a>
   <a href="packages/aero-agent-skills/"><img src="https://img.shields.io/badge/cli-aero--skills-8b5cf6?style=flat&labelColor=1a1e35" alt="cli aero-skills"></a>
-  <a href="docs/harness-integration.md"><img src="https://img.shields.io/badge/mcp_server-jetbrains_%C2%B7_claude_%C2%B7_vscode_%C2%B7_cursor-ec4899?style=flat&labelColor=1a1e35" alt="MCP server for JetBrains, Claude Desktop, VS Code, Cursor"></a>
+  <a href="docs/harness-integration.md"><img src="https://img.shields.io/badge/mcp_server-claude_%C2%B7_vscode_%C2%B7_cursor_%C2%B7_windsurf-ec4899?style=flat&labelColor=1a1e35" alt="MCP server for Claude Desktop, VS Code, Cursor, Windsurf"></a>
   <a href=".claude-plugin/"><img src="https://img.shields.io/badge/claude_code-plugin-f97316?style=flat&labelColor=1a1e35" alt="claude code plugin"></a>
+  <a href="packages/jetbrains-plugin/"><img src="https://img.shields.io/badge/jetbrains-plugin_34041-a78bfa?style=flat&labelColor=1a1e35" alt="JetBrains plugin, live on the Marketplace (com.ashforde.aeroskills)"></a>
 </p>
 <!-- /gen:badges -->
 
