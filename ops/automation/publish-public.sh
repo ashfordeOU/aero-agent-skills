@@ -164,7 +164,7 @@ if git -C "$MIRROR" status --porcelain | grep -q .; then
   : # real changes, continue below
 else
   log "no-op: public repo already matches the dev export. Nothing to push."
-  exit 0
+  NOOP=1
 fi
 
 LEAVES=$(python3 -c "import json; print(json.load(open('$EXPORT/docs/metrics.json'))['leaves'])")
@@ -181,6 +181,9 @@ pub_leaf_count() {
   git -C "$MIRROR" ls-tree -r --name-only HEAD -- skills/ 2>/dev/null \
     | grep -cE 'skills/[^/]+/[^/]+/[^/]+/SKILL\.md$' || true
 }
+# On no-op runs (content already matches public), skip push machinery
+# but STILL fall through to the About refreshes below.
+if [ -z "${NOOP:-}" ]; then
 CURRENT_PUB_LEAVES=$(pub_leaf_count)
 # The export's fresh working tree is already copied into $MIRROR (step 5);
 # count leaves from the FILESYSTEM (export content), not mirror HEAD (which
@@ -215,6 +218,7 @@ if [ "$REMOTE_HEAD" != "$LOCAL_HEAD" ]; then
   exit 1
 fi
 log "PASS: public repo updated and verified at $LOCAL_HEAD (${LEAVES} skills, ${PACKS} packs, ${FAMILIES} families)"
+fi # end NOOP guard
 
 # --- 7. About refresh from the MIRROR (has .git), NOT the export ---
 # The export has no .git, so update-about.sh cannot resolve slug/token
@@ -229,3 +233,13 @@ log "refreshing GitHub About from the mirror (post-push, non-fatal)…"
   > /tmp/publish-public-about.log 2>&1 \
   && log "About refreshed (see /tmp/publish-public-about.log)" \
   || log "WARN: About refresh failed (non-fatal — see /tmp/publish-public-about.log)"
+
+# --- 7b. PRIVATE repo About refresh (dev repo, post-push, non-fatal) ---
+# The private About (arjun-0077) went stale after waves (567 vs 581)
+# because nothing refreshed it on wave close. update-about.sh resolves
+# slug/token from the dev repo's origin (= private). Run it from DEV.
+log "refreshing PRIVATE GitHub About from dev repo (post-push, non-fatal)…"
+( cd "$DEV_REPO" && bash ops/automation/update-about.sh ) \
+  > /tmp/publish-private-about.log 2>&1 \
+  && log "PRIVATE About refreshed (see /tmp/publish-private-about.log)" \
+  || log "WARN: PRIVATE About refresh failed (non-fatal — see /tmp/publish-private-about.log)"

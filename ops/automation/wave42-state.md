@@ -167,14 +167,54 @@ git status --short clean (tree clean at rest)
   (581 dirs), committed dcff3923. Then ALL GATES GREEN and the push
   succeeded; ls-remote verified remote main == local HEAD dcff3923.
   No Ashforde token, no visibility flip.
-- PUBLIC sync: publish-public.sh PASS at ~12:25 UTC: full gate battery
-  inside the export green, leaf-count guard 581 >= 567 (no regression),
-  public repo fast-forward to f017adc8 (581 skills, 85 packs, 12
-  families), GitHub About refreshed. Public mirror HEAD == public
-  remote main == f017adc8. GitHub CI attest SUCCESS (4m+) and
-  release-on-milestone SUCCESS for f017adc8. publish-public.sh fixes
-  from 2da34f0e/eec11e34 kept.
-- GROUP 160 close-out post sent as Ops Manager, SEND_EXIT=0.
+- PUBLIC sync: publish-public.sh PASS at 10:25-10:28 UTC (log
+  /tmp/w42_pub.log; ~12:25 CEST): full gate battery inside the
+  export green, leaf-count guard 581 >= 567 (no regression), public
+  repo fast-forward to f017adc8 (581 skills, 85 packs, 12 families),
+  GitHub About refreshed. Public mirror HEAD == public remote main ==
+  f017adc8 at the wave sync (10:28 UTC). GitHub CI for f017adc8:
+  attest run 34027538618 SUCCESS (completed ~10:33 UTC; re-verified
+  by the close-out rescue at 10:43 UTC) and release-on-milestone run
+  34027538616 SUCCESS. NOTE: the publish-public AUTOMATION later
+  synced the local dev tree (f42208e9 + 4819dc97, then still
+  unpushed privately) to public as 358c5824 at 10:41 UTC - gates
+  verified in-export; CI attest run 34028106082 SUCCESS +
+  release-on-milestone run 34028106088 SUCCESS for 358c5824 (the
+  wave-41 race-ahead pattern; further automation syncs may follow
+  the rescue commits).
+  publish-public.sh fixes kept: 2da34f0e (leaf-count guard),
+  eec11e34 (About refreshed from the mirror post-push), 4819dc97
+  (refresh BOTH Abouts public+private + no-op falls through;
+  committed 12:41 +0200 by the build proc seconds before the kill).
+- GROUP 160 close-out post sent as Ops Manager at 12:36:55 CEST
+  (10:36:55 UTC): SEND_EXIT=0, hermes send output "sent" (the CLI
+  emits no numeric message_id; platform_message_id NULL in the
+  session DB). Landed verified: opsmanager session DB row 73130 in
+  telegram session 20260830_210110_3522b7ea (session_key
+  agent:opsmanager:telegram:group:-1004333545328:160, "Project
+  Veda"). The close-out rescue did NOT re-post: the message landed
+  before the build proc was killed, so a second post would duplicate
+  (dedup; relay task 3 satisfied by verification, not re-send).
+- Close-out rescue (relay dispatch ~12:35 CEST): the relay snapshot
+  was stale - the build proc actually survived to 12:41 +0200,
+  completing the GROUP post (above), the state-note commit f42208e9,
+  and the publish fix 4819dc97 before the kill; its final push
+  (origin target dcff3923..f42208e9) was killed mid-pre-push-hook
+  and never landed (origin stayed at dcff3923). Rescue tail: attest
+  re-verified SUCCESS (run 34027538618), receipts completed here,
+  GROUP post deduped (not re-sent), and f42208e9 + 4819dc97 + relay
+  brief 4498e568 + the receipts commit were pushed together to the
+  private origin (arjun token, CI-first). Push verification: the
+  rescue's pre-push battery ran ALL GATES GREEN on c9e81c46; the ref
+  update was rejected only because a concurrent pusher (a respawned
+  push chain from the dead session's still-alive gateway-supervised
+  process - since terminated) landed the SAME sha c9e81c46 first.
+  Final state: origin/main == c9e81c46, ls-remote verified by the
+  rescue at ~10:57 UTC; no Ashforde token, no force, fast-forward
+  only. The gateway-supervised build-proc husk (started 10:13 UTC)
+  was NOT dead at relay dispatch - it respawned push retries until
+  terminated by the rescue; the relay snapshot that declared it
+  killed at 12:29 CEST was stale by ~12 minutes.
 
 ## Lessons (this wave, for the next brief)
 1. INTERPRETER-DEPENDENT SUM (wave-42, extends the wave-41 exact-float
