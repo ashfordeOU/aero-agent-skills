@@ -1,0 +1,14 @@
+# Hit@1 wave-43 fragment: vmu-determination (flight-test-operations)
+# Two tasks per new leaf skill. w43-vmu-determination-1 routes on the
+# vmu-determination minimum-unstick-speed reduction with the
+# rotation-limit-speed tail strike classification; w43-vmu-determination-2
+# routes on the unstick-certification verdict gating the V1/VR schedule.
+tasks:
+  - id: w43-vmu-determination-1
+    query: "reduce the takeoff rotation runs of the transport flight test to the vmu-determination minimum-unstick-speed with the rotation-limit-speed tail strike check and the standard weight and density corrections"
+    intent: "flight-test-operations; FAR 25.107(b) minimum unstick speed reduction from measured takeoff rotation runs with the certified rotation-limit classification and the standard-condition weight and density corrections"
+    expected_skill: "flight-test-operations/envelope/vmu-determination"
+  - id: w43-vmu-determination-2
+    query: "issue the unstick-certification verdict from the corrected rotation runs that gates the V1 and VR scheduling against the 1.08 Vmu liftoff margin and the 1.10 Vs1 stall floor"
+    intent: "flight-test-operations; Vmu verdict from corrected rotation runs gating the V1/VR schedule against the 1.08 Vmu liftoff margin and the 1.10 Vs1 rotation stall floor"
+    expected_skill: "flight-test-operations/envelope/vmu-determination"

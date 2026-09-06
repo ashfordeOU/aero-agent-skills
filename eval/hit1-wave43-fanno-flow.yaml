@@ -1,0 +1,15 @@
+# Hit@1 wave-43 fragment: fanno-flow (aerodynamics)
+# Two tasks per new leaf skill. w43-fanno-flow-1 routes on the Fanno-line
+# integral fL*/D, the friction-duct-choking length, the friction required
+# to choke and the branch-preserving downstream Mach inversion; -2 routes
+# on the total-pressure loss p0/p0* and the static ratios along the duct
+# with the fld-star margin to the sonic state.
+tasks:
+  - id: w43-fanno-flow-1
+    query: "analyze the fanno-flow of the constant-area adiabatic duct with wall friction: from the inlet mach number compute the fanno-line integral fL*/D, the friction-duct-choking length and the friction required to choke, then recover the downstream mach number for a given duct length on the subsonic and the supersonic branch"
+    intent: "aerodynamics; Fanno friction-duct states: fL*/D Fanno-line integral, friction choke length, branch-preserving downstream Mach inversion and friction required to choke"
+    expected_skill: "aerodynamics/high-speed/fanno-flow"
+  - id: w43-fanno-flow-2
+    query: "find the total pressure loss p0/p0* and the static pressure, temperature and density ratios along a fanno-line duct of given friction parameter, with the fld-star margin remaining to the sonic state for subsonic and supersonic entry"
+    intent: "aerodynamics; total-pressure loss and static ratios to the sonic reference along a constant-area adiabatic friction duct"
+    expected_skill: "aerodynamics/high-speed/fanno-flow"

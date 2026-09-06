@@ -1,0 +1,21 @@
+# Hit@1 wave-43 fragment: tightly-coupled-ins-gnss (gnc-autonomy)
+# Two tasks per new leaf skill. w43-tightly-coupled-ins-gnss-1 routes on the
+# 8-state INS error-state Kalman filter updated on raw pseudorange
+# observables: the inter-epoch propagation of the position and velocity
+# error states plus the receiver clock bias and drift, the pseudorange
+# prediction from the inertial position estimate and the clock bias state,
+# the line-of-sight geometry measurement matrix with the unit clock column
+# and the raw-pseudorange-update Kalman correction on the residuals;
+# -2 routes on the clock-state-filter estimation of the receiver clock bias
+# and drift within the ins-gnss-tight-coupling filter on raw pseudoranges
+# with the corrected position, velocity and clock estimates checked against
+# the true trajectory of a moving receiver.
+tasks:
+  - id: w43-tightly-coupled-ins-gnss-1
+    query: "run the tightly-coupled-ins-gnss filter on raw pseudoranges: propagate the ins error states of position and velocity error plus the receiver clock bias and drift between epochs, predict each satellite pseudorange from the inertial position estimate and the clock bias state, build the measurement matrix from the line of sight geometry and the clock column, and apply the raw-pseudorange-update Kalman correction on the residuals"
+    intent: "gnc-autonomy; 8-state INS error-state Kalman filter updated on raw pseudorange observables with the LOS geometry measurement matrix, the unit clock column and the clock bias and drift states"
+    expected_skill: "gnc-autonomy/navigation/tightly-coupled-ins-gnss"
+  - id: w43-tightly-coupled-ins-gnss-2
+    query: "estimate the receiver clock bias and clock drift with a clock-state-filter inside an ins-gnss-tight-coupling filter that updates on raw pseudoranges, and check the corrected position, velocity and clock estimates against the true trajectory of a moving receiver"
+    intent: "gnc-autonomy; clock-state-filter estimation of the receiver clock bias and drift within the tightly coupled INS/GNSS raw pseudorange update with corrected position and velocity outputs"
+    expected_skill: "gnc-autonomy/navigation/tightly-coupled-ins-gnss"
