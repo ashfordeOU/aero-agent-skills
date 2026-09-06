@@ -45,6 +45,7 @@ compressor stage and operating-map analysis.
 | propulsion/turbofan/turbofan-cycle | Turbofan cycle | bypass ratio, propulsive efficiency, specific thrust, fan/core mass flow |
 | propulsion/turbofan/bypass-ratio-trade | Bypass ratio trade | BPR vs TSFC, thrust split, specific thrust, fan pressure ratio |
 | propulsion/turbofan/turbofan-off-design | Turbofan off-design | corrected mass flow, corrected spool speed, altitude thrust, ram drag, cruise SFC, throttle setting |
+| propulsion/turbofan/turbofan-design-point | Turbofan design point | turbofan design point, fan stream station states, two-spool work balance, separate-exhaust cycle, design point turbofan |
 | propulsion/turboprop/free-turbine | Free turbine | power turbine exit temperature, shaft power, torque, gear ratio, flow function, spool matching |
 | propulsion/turboprop/turboprop-cycle | Turboprop cycle | propeller efficiency, static thrust, equivalent shaft power, advance ratio, power and thrust coefficients, SFC on shaft power |
 | propulsion/axial-compressor/axial-compressor-stage | Axial compressor stage | velocity triangle, specific work, flow coefficient, degree of reaction, stage pressure ratio, blade loading |
@@ -79,6 +80,7 @@ compressor stage and operating-map analysis.
 | propulsion/gas-turbine-cycle/intercooled-cycle | Intercooled cycle | intercooled cycle, intercooler effectiveness, intercooler pressure ratio, two stage compression, compression work split, cycle work gain |
 | propulsion/gas-turbine-cycle/turbojet-cycle | Turbojet cycle | turbojet cycle, ideal turbojet, compressor turbine matching, turbine inlet temperature, net specific thrust, turbojet TSFC, core engine matching |
 | propulsion/rocket/rocket-nozzle-flow-separation | Rocket nozzle flow separation | rocket nozzle flow separation, separation pressure ratio, Summerfield criterion, overexpanded nozzle, separation altitude, separated thrust loss, side load regime |
+| propulsion/rocket/rocket-nozzle-divergence-loss | Rocket nozzle divergence loss | rocket nozzle divergence loss, conical nozzle thrust correction, bell nozzle efficiency, nozzle delivered Isp |
 | propulsion/axial-compressor/polytropic-efficiency | Polytropic efficiency | polytropic efficiency, isentropic efficiency conversion, stage count independent efficiency, per stage pressure ratio, reheat factor |
 | propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio | Brayton optimum pressure ratio | max-work pressure ratio, maximum specific work, zero-work limiting ratio, ideal and lossy cycle |
 
@@ -161,3 +163,5 @@ your host's skills directory (see README Install for per-host commands).
 - Ideal single-stream turbojet core questions (compressor-turbine work-balance matching, turbine-inlet-temperature-driven specific thrust, turbojet TSFC and propulsive efficiency at flight Mach) route to the gas-turbine-cycle turbojet-cycle sub-skill.
 
 - Compressor and turbine efficiency conversion questions (isentropic to polytropic and reverse at an overall pressure ratio, stage-count-independent polytropic efficiency, reheat-factor cross-check) route to the axial-compressor polytropic-efficiency sub-skill.
+- Turbofan design-point questions (fan and core stream station states from OPR, turbine-inlet temperature, fan pressure ratio and bypass ratio, two-spool work balance, separate-exhaust net thrust and TSFC) route to the turbofan turbofan-design-point sub-skill.
+- Rocket nozzle delivered-thrust loss questions (conical-nozzle divergence factor, bell-contour efficiency, boundary-layer displacement effect, delivered Isp versus the ideal ceiling) route to the rocket rocket-nozzle-divergence-loss sub-skill.

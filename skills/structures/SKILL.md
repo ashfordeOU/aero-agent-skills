@@ -42,6 +42,7 @@ material selection.
 | structures/fem/modal-analysis | Modal analysis | natural frequencies, mode shapes, resonance check |
 | structures/fem/truss-analysis | Truss analysis | direct stiffness method, element stiffness matrices, global assembly, nodal displacements, member forces, support reactions |
 | structures/fem/buckling-analysis | Buckling analysis | euler critical buckling load, slenderness ratio, effective length factor, end conditions, buckling stress, radius of gyration, column instability |
+| structures/fem/crippling-analysis | Crippling analysis | crippling analysis, local crippling stress, inter rivet buckling, stringer crippling, shape constant method |
 | structures/fem/plate-buckling | Plate buckling | flat plate and skin panel buckling, buckling coefficient, compression and shear buckling stress, spar web, effective width |
 | structures/damage-tolerance/residual-strength | Residual strength | fracture toughness, critical crack length, limit-load margin |
 | structures/damage-tolerance/crack-growth | Crack growth | fatigue crack propagation, Paris law, growth life, inspection intervals |
@@ -65,12 +66,14 @@ material selection.
 | structures/thermal-structures/thermal-stress-analysis | Thermal stress analysis | thermal stress, coefficient of thermal expansion, temperature change, bimetallic strip, thermal strain, constrained member |
 | structures/composites/cmh17-allowables | CMH-17 composite allowables | CMH-17 allowables, composite allowables, A-basis, B-basis, tolerance k-factors, pooling, laminate allowables, knockdown factors, environmental conditioning, open hole |
 | structures/fem/contact-analysis | Contact analysis | contact analysis, penalty method, Lagrange, contact stiffness, penetration, friction, stick slip, master slave |
+| structures/fem/hertzian-contact-stress | Hertzian contact stress | hertzian contact stress, hertz contact patch, contact pressure ellipse, subsurface shear stress, equivalent elastic modulus |
 | structures/loads/gust-maneuver-loads | Gust Maneuver Loads | gust loads, maneuver loads, gust load factor, V-n diagram, flight envelope, FAR 25.341, FAR 25.337, discrete gust, 1-cosine gust, gust alleviation factor, mass ratio, load factor, corner point, maneuvering speed, VA VB VC VD, margin check. |
 | structures/loads/random-vibration-analysis | Random vibration analysis | random vibration, PSD response, Miles equation, transmissibility, base excitation, g-rms |
 | structures/loads/shock-response-spectrum | Shock response spectrum | shock response spectrum, SRS, transient shock response, half sine pulse, base acceleration, pseudo acceleration, oscillator peak response, shock qualification, amplified frequency |
 | structures/fatigue/strain-life-fatigue | Strain-life fatigue | strain life, Coffin-Manson, low-cycle fatigue, reversals to failure, Neuber local strain, transition life |
 | structures/materials/creep-rupture | Creep rupture | creep, creep rate, Norton law, Larson-Miller, rupture life, stress rupture, Monkman-Grant, accumulated creep strain, time to 1 percent creep, elevated temperature |
 | structures/fem/beam-frame-analysis | Beam frame analysis | beam frame analysis, rigid jointed frame, Euler Bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame |
+| structures/fem/plastic-collapse-analysis | Plastic collapse analysis | plastic collapse analysis, plastic hinge, collapse mechanism, limit analysis beam, fully plastic moment, shape factor |
 | structures/composites/delamination-growth | Delamination growth | delamination growth, strain energy release rate, DCB double cantilever beam, ENF end notched flexure, mixed mode fracture, Benzeggagh Kenane criterion |
 | structures/composites/composite-repair | Composite repair | composite repair, scarf repair, scarf length, adhesive shear stress, required scarf angle, stiffness matched patch |
 | structures/thermal-structures/thermal-buckling | Thermal buckling | thermal buckling, critical temperature rise, restrained thermal expansion, buckling margin, hot structure panel |
@@ -82,6 +85,7 @@ material selection.
 | structures/fem/pressure-bulkhead | Pressure bulkhead | pressure bulkhead, membrane theory dome, bulkhead dome stress, ellipsoidal bulkhead, junction ring load, dome margin |
 | structures/fem/beam-vibration | Beam vibration | beam vibration, Euler-Bernoulli beam, characteristic equation roots, cantilever beam, pinned pinned beam, Rayleigh quotient |
 | structures/fem/lug-joint-analysis | Lug joint analysis | lug joint analysis, pin loaded lug, lug bearing stress, lug net section tension, lug tearout shear, lug edge distance ratio, round end lug |
+| structures/fem/metallic-fastener-joints | Metallic fastener joints | metallic fastener joints, bolt group analysis, eccentric bolt group, fastener shear margin, net section tension, shear out |
 | structures/fem/torsion-shear-flow | Torsion shear flow | torsion shear flow, Bredt Batho, Saint-Venant torsion, angle of twist, multi-cell section, closed section shear flow, torsional stress margin |
 | structures/fatigue/random-vibration-fatigue | Random vibration fatigue | random vibration fatigue, Dirlik method, spectral fatigue, narrow band damage, PSD spectral moments, expected peak rate, Basquin gamma damage |
 | structures/materials/multiaxial-yield-criteria | Multiaxial yield criteria | multiaxial yield criteria, von Mises equivalent stress, Tresca margin, combined bending torsion, biaxial yield envelope |
@@ -193,3 +197,7 @@ your host's skills directory (see README Install for per-host commands).
 
 - Beam-column questions (compression member with bending from lateral load, end moment or eccentricity, Euler load, moment amplification, secant-formula peak stress, axial-plus-bending interaction margin) route to the fem beam-column-analysis sub-skill.
 - Curved-beam questions (frame segment or torque link with the Winkler correction, inward-shifted neutral axis radius, inner and outer fiber stress against the allowable) route to the fem curved-beam-analysis sub-skill.
+- Local crippling and inter-rivet buckling questions (formed stringer shapes, shape-constant crippling allowable, Johnson-Euler interaction compression allowable) route to the fem crippling-analysis sub-skill.
+- Hertzian contact stress questions (sphere and cylinder contact patch, contact pressure, subsurface shear, yield-limit load) route to the fem hertzian-contact-stress sub-skill.
+- Metallic fastener joint questions (bolt and rivet shear, bearing, net-section and shear-out margins, eccentric bolt-group polar method) route to the fem metallic-fastener-joints sub-skill.
+- Plastic collapse questions (fully-plastic moment, plastic hinge mechanisms, kinematic and static collapse loads of indeterminate beams and frames) route to the fem plastic-collapse-analysis sub-skill.

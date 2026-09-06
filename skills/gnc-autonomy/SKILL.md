@@ -53,6 +53,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/guidance/pursuit-guidance | Pursuit guidance | pure pursuit aim heading, wrapped guidance error, lead pursuit lead angle, capture condition, intercept time |
 | gnc-autonomy/navigation/kalman-filter-design | Kalman filter design | kalman gain, innovation variance, error covariance, process noise, measurement noise, state estimation |
 | gnc-autonomy/navigation/gnss-pseudorange-positioning | GNSS pseudorange positioning | pseudorange positioning, GNSS position fix, receiver clock bias, iterated least squares fix, ECEF position solution, satellite pseudorange residual, snapshot navigation solution |
+| gnc-autonomy/navigation/gnss-doppler-velocity-positioning | GNSS doppler velocity positioning | gnss doppler velocity positioning, receiver velocity fix, doppler positioning, clock drift estimate, delta range rate |
 | gnc-autonomy/guidance/command-to-line-of-sight | Command to line of sight | CLOS guidance, line of sight angle, steering command, LOS error |
 | gnc-autonomy/guidance/impact-point-prediction | Impact point prediction | ballistic range equation, time of flight, impact coordinates, launch speed and angle sensitivity |
 | gnc-autonomy/guidance/midcourse-guidance | Midcourse guidance | midcourse guidance, waypoint steering, trajectory shaping, velocity to be gained, zero effort miss, handover, turn rate limit |
@@ -63,6 +64,8 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/observer-design | Observer design | Luenberger observer, observability matrix, estimator gain, pole placement, separation principle |
 | gnc-autonomy/estimation-filtering/alpha-beta-filter | Alpha-beta filter | alpha beta filter, constant velocity target, tracking update, smoothing factor, steady state gain, position and velocity tracking |
 | gnc-autonomy/estimation-filtering/unscented-kalman-filter | Unscented Kalman filter | unscented Kalman filter, sigma points, scaled unscented transform, nonlinear state estimation, state prediction, measurement update, innovation covariance, NEES, bearing-range tracking |
+| gnc-autonomy/estimation-filtering/process-noise-discretization | Process noise discretization | process noise discretization, van loan, continuous spectral density, discrete noise covariance |
+| gnc-autonomy/estimation-filtering/imu-static-calibration | IMU static calibration | imu static calibration, six position test, rate table calibration, accelerometer bias scale |
 | gnc-autonomy/estimation-filtering/extended-kalman-filter | Extended Kalman filter | extended kalman filter, EKF, Jacobian linearization, predict update, innovation covariance, kalman gain, nonlinear estimation |
 | gnc-autonomy/optimal-control/model-predictive-control | Model Predictive Control | mpc, model predictive control, receding horizon, quadratic cost, prediction horizon, control horizon, input constraints, state constraints, terminal cost, double integrator, constrained control, closed loop simulation, kkt system, active set. |
 | gnc-autonomy/estimation-filtering/particle-filter | Particle filter | particle filter, bootstrap filter, sequential Monte Carlo, SIR resampling, non-Gaussian estimation, effective sample size |
@@ -80,6 +83,7 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/digital-control-design | Digital control design | z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, sample rate selection, unit circle stability, sampled data control |
 | gnc-autonomy/optimal-control/bang-bang-control | Bang-bang control | bang bang control, time optimal control, switching curve, minimum time maneuver, double integrator, rest to rest slew |
 | gnc-autonomy/navigation/ins-gnss-integrated-filter | INS GNSS integrated filter | ins gnss integrated filter, error state filter, loosely coupled integration, GNSS position update, INS drift correction |
+| gnc-autonomy/navigation/tightly-coupled-ins-gnss | Tightly coupled INS GNSS | tightly coupled ins gnss, raw pseudorange update, ins gnss tight coupling, clock state filter |
 | gnc-autonomy/navigation/gnss-carrier-smoothing | GNSS carrier smoothing | code-carrier Hatch smoothing time constant, carrier delta range, code-carrier ionospheric divergence, smoothed range noise reduction |
 | gnc-autonomy/optimal-control/lqg-design | LQG design | linear-quadratic-Gaussian output-feedback compensator, regulator and filter Riccati gains, separation principle |
 | gnc-autonomy/navigation/bearing-only-localization | Bearing only localization | passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse |
@@ -160,3 +164,7 @@ your host's skills directory (see README Install for per-host commands).
 - Gibbs and Herrick-Gibbs initial orbit determination from three position vectors routes to the space orbit-determination sub-skill.
 
 - Loosely coupled INS/GNSS integration questions (error-state filter propagation with the psi-angle model, GNSS position updates, INS drift correction) route to the navigation ins-gnss-integrated-filter sub-skill.
+- Tightly coupled INS/GNSS questions (raw-pseudorange measurement updates, clock bias and drift states, INS error-state filter on the raw observables) route to the navigation tightly-coupled-ins-gnss sub-skill.
+- GNSS receiver-velocity questions (carrier delta-range-rate doppler observables, iterated least-squares velocity and clock-drift fix) route to the navigation gnss-doppler-velocity-positioning sub-skill.
+- Process-noise discretization questions (van Loan method, continuous spectral density to discrete covariance, filter Q design) route to the estimation-filtering process-noise-discretization sub-skill.
+- IMU static calibration questions (six-position accelerometer test, rate-table gyro calibration, bias and scale factor estimation) route to the estimation-filtering imu-static-calibration sub-skill.

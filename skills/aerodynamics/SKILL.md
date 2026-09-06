@@ -39,6 +39,7 @@ estimation, validated against classic reference data.
 | aerodynamics/airfoil/airfoil-geometry | Airfoil geometry | NACA 4/5/6-series geometry, camber and thickness distribution, leading-edge radius, naming decode |
 | aerodynamics/airfoil/airfoil-optimization | Airfoil optimization | shape trade studies, thickness/camber objectives, drag bucket, L/D targets |
 | aerodynamics/boundary-layer/boundary-layer-theory | Boundary layer theory | flat-plate thickness, displacement and momentum thickness, skin friction, transition |
+| aerodynamics/boundary-layer/unsteady-laminar-stokes-layers | Unsteady laminar Stokes layers | unsteady laminar stokes layers, stokes first problem, oscillating plate layer, rayleigh layer |
 | aerodynamics/cfd/cfd-convergence | CFD convergence | residual convergence, Courant number, mesh refinement, solver stability |
 | aerodynamics/cfd/cfd-turbulence-modeling | Turbulence modeling | turbulence model selection, Reynolds number, near-wall treatment, y-plus |
 | aerodynamics/cfd/cfd-mesh-generation | CFD mesh generation | grid types, structured/unstructured/hybrid, prism layers, cell quality, first cell height, y-plus target, domain sizing |
@@ -80,6 +81,8 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/shock-tube | Shock tube | shock-tube diaphragm pressure ratio, incident-shock Mach number, contact-surface velocity, expansion fan |
 | aerodynamics/airfoil/thin-airfoil-section-theory | Thin airfoil section theory | camber-line glauert sine series, zero-lift angle, quarter-chord pitching moment, section lift coefficient |
 | aerodynamics/high-speed/compressible-couette-flow | Compressible Couette flow | shear-driven high-Mach plate gap, Crocco energy integral, recovery factor, wall shear and heat flux |
+| aerodynamics/high-speed/fanno-flow | Fanno flow | fanno flow, fanno line, friction duct choking, fL star over D, adiabatic duct friction |
+| aerodynamics/high-speed/rayleigh-flow | Rayleigh flow | rayleigh flow, heat addition duct, thermal choking, rayleigh line |
 
 ## Routing guidance
 
@@ -146,3 +149,6 @@ your host's skills directory (see README Install for per-host commands).
 - Low-speed stagnation-point boundary layer questions (Hiemenz 2-D and Homann axisymmetric similarity, stagnation velocity gradient from body radius, wall shear and skin friction at a spinner, radome or leading edge) route to the boundary-layer stagnation-flow-boundary-layer sub-skill.
 - Isentropic flow relation questions (total to static ratios from Mach number, Mach from a given area ratio on the subsonic or supersonic branch, choked mass flow at a sonic throat) route to the high-speed isentropic-flow-relations sub-skill.
 - Shock-reflection questions (incident oblique shock impinging on a wall or symmetry plane, reflected shock turning the flow back parallel, regular versus Mach reflection verdict from the detachment limit) route to the high-speed regular-shock-reflection sub-skill.
+- Fanno flow questions (adiabatic constant-area duct with friction, fL star over D integral, choking length, downstream Mach from a given friction length) route to the high-speed fanno-flow sub-skill.
+- Rayleigh flow questions (constant-area frictionless duct with heat addition, thermal choking, maximum heat addition, rayleigh-line ratios) route to the high-speed rayleigh-flow sub-skill.
+- Unsteady laminar Stokes layer questions (impulsively started plate, oscillating plate penetration depth, Stokes first and second problem velocity profiles and wall shear) route to the boundary-layer unsteady-laminar-stokes-layers sub-skill.

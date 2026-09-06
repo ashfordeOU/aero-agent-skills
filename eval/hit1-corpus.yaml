@@ -265,6 +265,11 @@
 # leaves). Wave-42 new leaves: "gnc-autonomy/navigation/bearing-only-localization", "propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio", "aerodynamics/high-speed/compressible-couette-flow", "systems-engineering-safety/arp4761a/fault-tree-quantification", "gnc-autonomy/navigation/gnss-carrier-smoothing", "vehicle-design/sizing/landing-gear-layout", "gnc-autonomy/optimal-control/lqg-design", "systems-engineering-safety/arp4761a/reliability-allocation", "flight-test-operations/performance/rotorcraft-autorotation-flight-test", "flight-mechanics/performance/rotorcraft-main-rotor-sizing", "structures/fem/shear-center-analysis", "aerodynamics/high-speed/shock-tube", "structures/fem/shrink-fit-analysis", "aerodynamics/airfoil/thin-airfoil-section-theory".
 # Corpus: 1178 tasks (1150 prior plus 28 domain tasks). Owner: Ops
 # Manager, Wave 42 build.
+# P5.2 / Wave 43 (2026-09-06): fan-out continues on the public
+# v1.0.0 model to 597 verified skills (609 SKILL.md under gate 1: 12 routers + 597
+# leaves). Wave-43 new leaves: "structures/fem/crippling-analysis", "aerodynamics/high-speed/fanno-flow", "gnc-autonomy/navigation/gnss-doppler-velocity-positioning", "structures/fem/hertzian-contact-stress", "gnc-autonomy/estimation-filtering/imu-static-calibration", "structures/fem/metallic-fastener-joints", "structures/fem/plastic-collapse-analysis", "gnc-autonomy/estimation-filtering/process-noise-discretization", "aerodynamics/high-speed/rayleigh-flow", "propulsion/rocket/rocket-nozzle-divergence-loss", "flight-test-operations/performance/rotorcraft-forward-flight-climb-test", "flight-test-operations/performance/rotorcraft-height-velocity-diagram-test", "gnc-autonomy/navigation/tightly-coupled-ins-gnss", "propulsion/turbofan/turbofan-design-point", "aerodynamics/boundary-layer/unsteady-laminar-stokes-layers", "flight-test-operations/envelope/vmu-determination".
+# Corpus: 1210 tasks (1178 prior plus 32 domain tasks). Owner: Ops
+# Manager, Wave 43 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5289,6 +5294,134 @@ tasks:
     query: "derive the section lift coefficient cl at a given alpha from the thin-airfoil A0 and A1 Fourier coefficients of a cambered airfoil"
     intent: "aerodynamics; section lift coefficient cl of a cambered thin airfoil from the thin-airfoil A0/A1 Fourier coefficients"
     expected_skill: "aerodynamics/airfoil/thin-airfoil-section-theory"
+  - id: w43-crippling-analysis-1
+    query: "compute the local crippling stress of a 2024-T3 Z-stringer by the shape-constant method, add the inter-rivet buckling allowable of the riveted flange, and report the stiffener column interaction margin against the applied compression stress"
+    intent: "structures; local crippling-analysis of a formed Z-stringer by the shape-constant power law with the inter-rivet buckling allowable and the Johnson-Euler stiffener column interaction margin"
+    expected_skill: "structures/fem/crippling-analysis"
+  - id: w43-crippling-analysis-2
+    query: "crippling-analysis of formed angle, channel, Z and hat stringers: element crippling stress from the shape constants, inter-rivet buckling stress between fasteners, and the interaction allowable that gates stringer-crippling"
+    intent: "structures; per-shape element crippling and inter-rivet allowables of formed compression stiffeners with the compression allowable conversion"
+    expected_skill: "structures/fem/crippling-analysis"
+  - id: w43-fanno-flow-1
+    query: "analyze the fanno-flow of the constant-area adiabatic duct with wall friction: from the inlet mach number compute the fanno-line integral fL*/D, the friction-duct-choking length and the friction required to choke, then recover the downstream mach number for a given duct length on the subsonic and the supersonic branch"
+    intent: "aerodynamics; Fanno friction-duct states: fL*/D Fanno-line integral, friction choke length, branch-preserving downstream Mach inversion and friction required to choke"
+    expected_skill: "aerodynamics/high-speed/fanno-flow"
+  - id: w43-fanno-flow-2
+    query: "find the total pressure loss p0/p0* and the static pressure, temperature and density ratios along a fanno-line duct of given friction parameter, with the fld-star margin remaining to the sonic state for subsonic and supersonic entry"
+    intent: "aerodynamics; total-pressure loss and static ratios to the sonic reference along a constant-area adiabatic friction duct"
+    expected_skill: "aerodynamics/high-speed/fanno-flow"
+  - id: w43-gnss-doppler-velocity-positioning-1
+    query: "estimate the 3-D receiver velocity vector and the receiver clock drift of a GNSS receiver from per-satellite carrier doppler range-rate measurements at a single epoch"
+    intent: "gnc-autonomy; snapshot receiver velocity and clock drift fix from carrier delta-range-rate doppler observables by iterated least squares with per-axis precision"
+    expected_skill: "gnc-autonomy/navigation/gnss-doppler-velocity-positioning"
+  - id: w43-gnss-doppler-velocity-positioning-2
+    query: "recover the receiver velocity of a moving GNSS user from doppler observables given the satellite ECEF velocities propagated from the broadcast ephemeris"
+    intent: "gnc-autonomy; doppler-based velocity positioning using Kepler-propagated satellite ECEF velocities and the line-of-sight range-rate residual system"
+    expected_skill: "gnc-autonomy/navigation/gnss-doppler-velocity-positioning"
+  - id: w43-hertzian-contact-stress-1
+    query: "compute the hertzian-contact-stress contact patch half-width and maximum contact pressure between a steel roller and a steel flat from the applied load and material properties, and the subsurface-shear-stress depth and yield-limit load against the roller yield strength"
+    intent: "structures; analytic Hertz line contact of a cylinder on a flat: patch half-width, maximum contact pressure, subsurface max shear depth and the yield-limit load from the standard Hertz yield relation"
+    expected_skill: "structures/fem/hertzian-contact-stress"
+  - id: w43-hertzian-contact-stress-2
+    query: "find the hertz-contact-patch radius and the contact-pressure-ellipse maximum pressure of a ball in a socket from the applied load, the equivalent radius of curvature and the equivalent elastic modulus, and check the point-contact yield limit against the ball yield strength"
+    intent: "structures; analytic Hertz point contact of a sphere in a concave socket: circular patch radius, elliptic pressure peak p0 and the 3.3 sigma_y point yield-limit check"
+    expected_skill: "structures/fem/hertzian-contact-stress"
+  - id: w43-imu-static-calibration-1
+    query: "reduce the six-position-test accelerometer holds and the rate-table-calibration gyro runs of an imu-static-calibration lab campaign to the per-axis bias and scale factors with the residual fit errors"
+    intent: "gnc-autonomy; offline IMU static calibration reducing six-position accelerometer means against the known +/- 1 g references and rate-table gyro rates against the commanded rates to the per-axis bias and scale factors with the residual fit errors"
+    expected_skill: "gnc-autonomy/estimation-filtering/imu-static-calibration"
+  - id: w43-imu-static-calibration-2
+    query: "recover the accelerometer-bias-scale and gyro bias and scale factor from six-position-test lab data and commanded rate-table-calibration runs, including the misalignment matrix fit over all six positions and the residual fit errors"
+    intent: "gnc-autonomy; six-position and rate-table lab data reduction to the IMU accelerometer and gyro bias and scale factors, the cross-axis misalignment matrix from the least-squares fit over all six positions, and the residual fit errors"
+    expected_skill: "gnc-autonomy/estimation-filtering/imu-static-calibration"
+  - id: w43-metallic-fastener-joints-1
+    query: "analyze the metallic-fastener-joints single-lap shear splice: split the limit load into the per-fastener share of the four 1/4-inch MS bolts in the 2024-T3 sheet and compute the fastener shear margin in single and double shear, the bearing margin, the net-section tension margin and the shear-out margin under the 1.5 ultimate factor"
+    intent: "structures; metallic multi-fastener joint analysis: per-fastener load share with fastener shear, bearing, net-section and shear-out margins of safety against MMPDS-style allowables"
+    expected_skill: "structures/fem/metallic-fastener-joints"
+  - id: w43-metallic-fastener-joints-2
+    query: "run the bolt-group-analysis of the eccentric-bolt-group bracket by the polar moment method: the torque about the group centroid, the per-bolt direct and secondary resultants, and the fastener-shear-margin of the max-loaded fastener"
+    intent: "structures; eccentric bolt group polar moment method: applied torque about the group centroid, per-bolt direct plus secondary loads, max-loaded fastener and its shear margin"
+    expected_skill: "structures/fem/metallic-fastener-joints"
+  - id: w43-plastic-collapse-analysis-1
+    query: "analyze the plastic collapse of a fixed-fixed beam and a propped cantilever under a central point load: compute the fully plastic moment Mp = sigma_y*Zp from the plastic section modulus Zp and the shape factor nu = Zp/Z of the section, form the plastic hinge mechanism and find the plastic collapse load by the kinematic theorem"
+    intent: "structures; plastic collapse (limit) analysis of statically indeterminate beams: plastic section modulus and shape factor closed forms, fully plastic moment, plastic hinge mechanisms and collapse loads by the kinematic (virtual work) theorem"
+    expected_skill: "structures/fem/plastic-collapse-analysis"
+  - id: w43-plastic-collapse-analysis-2
+    query: "find the plastic collapse load of a simple frame under a lateral load by the sway mechanism with pinned and fixed bases, then report the collapse load factor against the applied load and the ultimate margin in the 1.5 ultimate-factor context of FAR 25.303"
+    intent: "structures; rectangular frame sway plastic collapse loads under lateral load, collapse load factor versus the applied limit load and the FAR 25.303 1.5 ultimate-factor margin with the adequate or inadequate verdict"
+    expected_skill: "structures/fem/plastic-collapse-analysis"
+  - id: w43-process-noise-discretization-1
+    query: "apply the process-noise-discretization to a continuous linear system with the van-loan method: given the plant matrices F and G and the continuous-spectral-density Qc of the driving white noise, compute the discrete-noise-covariance Qd and the state transition matrix exp(F dt) for the filter propagation step"
+    intent: "gnc-autonomy; van Loan discretization of the continuous white-noise spectral density into the discrete process-noise covariance Qd with the exact state transition matrix for Kalman filter propagation"
+    expected_skill: "gnc-autonomy/estimation-filtering/process-noise-discretization"
+  - id: w43-process-noise-discretization-2
+    query: "discretize the continuous process noise of a discrete white noise acceleration model with the van-loan method and verify the discrete-noise-covariance against the closed form q times dt cubed over three from the continuous-spectral-density at the sampling interval"
+    intent: "gnc-autonomy; discrete white noise acceleration closed-form Qd identity against the van Loan discretization of the continuous spectral density"
+    expected_skill: "gnc-autonomy/estimation-filtering/process-noise-discretization"
+  - id: w43-rayleigh-flow-1
+    query: "compute the rayleigh-flow state change of air heated in a constant-area frictionless duct: the rayleigh-line static and total pressure and temperature ratios at the inlet Mach number, and the exit Mach and stagnation pressure ratio after a given heat addition per kilogram"
+    intent: "aerodynamics; the closed-form Rayleigh-line station ratios of a constant-area frictionless heat-addition duct and the exit Mach and stagnation pressure change after a specified heat addition"
+    expected_skill: "aerodynamics/high-speed/rayleigh-flow"
+  - id: w43-rayleigh-flow-2
+    query: "find the maximum heat addition that thermally chokes a constant-area heat-addition duct from a subsonic or supersonic inlet Mach number and the entropy rise of the heated flow"
+    intent: "aerodynamics; the thermal-choking heat addition q_max of a Rayleigh flow duct from either inlet branch and the second-law entropy rise of the heat addition"
+    expected_skill: "aerodynamics/high-speed/rayleigh-flow"
+  - id: w43-rocket-nozzle-divergence-loss-1
+    query: "compute the rocket-nozzle-divergence-loss delivered thrust of a conical nozzle from the half-angle divergence factor and the turbulent boundary-layer correction and report the nozzle-delivered-isp as a fraction of the ideal"
+    intent: "propulsion; rocket nozzle divergence factor and boundary layer loss bookkeeping to the delivered Isp fraction of the ideal attached-flow thrust"
+    expected_skill: "propulsion/rocket/rocket-nozzle-divergence-loss"
+  - id: w43-rocket-nozzle-divergence-loss-2
+    query: "compare the conical-nozzle-thrust-correction of a 15 degree half-angle conical rocket nozzle with the bell-nozzle-efficiency of the equivalent 80 percent length bell contour for delivered specific impulse"
+    intent: "propulsion; conical divergence thrust correction versus the equivalent 80-percent-length bell contour efficiency and their delivered Isp comparison"
+    expected_skill: "propulsion/rocket/rocket-nozzle-divergence-loss"
+  - id: w43-rotorcraft-forward-flight-climb-test-1
+    query: "reduce the rotorcraft-forward-flight-climb-test sweep from measured data: least-squares rate of climb from the steady climb pressure-altitude windows, corrected to the reference weight and standard day, to find the best-rate-of-climb speed and the maximum rate of climb"
+    intent: "flight-test-operations; rotorcraft forward-flight climb sweep reduction to Vy and the maximum corrected rate of climb"
+    expected_skill: "flight-test-operations/performance/rotorcraft-forward-flight-climb-test"
+  - id: w43-rotorcraft-forward-flight-climb-test-2
+    query: "determine the forward-flight climb ceilings of the rotorcraft climb flight test: reduce the Vy-schedule climb runs measured across density altitudes to the service ceiling where the corrected rate of climb decays to the 0.5 m/s rotorcraft convention"
+    intent: "flight-test-operations; rotorcraft climb ceilings from corrected best-rate points across density altitudes"
+    expected_skill: "flight-test-operations/performance/rotorcraft-forward-flight-climb-test"
+  - id: w43-rotorcraft-height-velocity-diagram-test-1
+    query: "reduce the rotorcraft height-velocity demonstration flight test from the hover and low-speed engine-failure runs: measure the height loss and the time to establish autorotation and complete the flare from the baro/radar altitude traces and interpolate the dead-man-curve boundary height where the height loss plus the recovery altitude equals the starting height"
+    intent: "flight-test-operations; hover and low-speed engine-failure demonstration reduction to the measured rotorcraft height-velocity boundary"
+    expected_skill: "flight-test-operations/performance/rotorcraft-height-velocity-diagram-test"
+  - id: w43-rotorcraft-height-velocity-diagram-test-2
+    query: "build the measured avoid-region map over the height and speed grid from the hover engine-failure height-loss demonstrations of the rotorcraft-height-velocity-diagram-test and judge the clearance of the dead-man-curve boundary against the predicted height-velocity diagram"
+    intent: "flight-test-operations; measured avoid-region map and clearance verdict against the predicted rotorcraft height-velocity diagram"
+    expected_skill: "flight-test-operations/performance/rotorcraft-height-velocity-diagram-test"
+  - id: w43-tightly-coupled-ins-gnss-1
+    query: "run the tightly-coupled-ins-gnss filter on raw pseudoranges: propagate the ins error states of position and velocity error plus the receiver clock bias and drift between epochs, predict each satellite pseudorange from the inertial position estimate and the clock bias state, build the measurement matrix from the line of sight geometry and the clock column, and apply the raw-pseudorange-update Kalman correction on the residuals"
+    intent: "gnc-autonomy; 8-state INS error-state Kalman filter updated on raw pseudorange observables with the LOS geometry measurement matrix, the unit clock column and the clock bias and drift states"
+    expected_skill: "gnc-autonomy/navigation/tightly-coupled-ins-gnss"
+  - id: w43-tightly-coupled-ins-gnss-2
+    query: "estimate the receiver clock bias and clock drift with a clock-state-filter inside an ins-gnss-tight-coupling filter that updates on raw pseudoranges, and check the corrected position, velocity and clock estimates against the true trajectory of a moving receiver"
+    intent: "gnc-autonomy; clock-state-filter estimation of the receiver clock bias and drift within the tightly coupled INS/GNSS raw pseudorange update with corrected position and velocity outputs"
+    expected_skill: "gnc-autonomy/navigation/tightly-coupled-ins-gnss"
+  - id: w43-turbofan-design-point-1
+    query: "analyze the turbofan-design-point of the two-spool separate-exhaust-cycle at mach 0.8 and 35000 feet: traverse the fan-stream-station-states and the core stream from the overall pressure ratio, the turbine-inlet temperature, the bypass ratio and the fan pressure ratio with the component efficiencies, and report the burner fuel-air ratio, the net thrust and the tsfc"
+    intent: "propulsion; two-spool separate-exhaust turbofan design-point station-level cycle from OPR, turbine-inlet temperature, bypass ratio and fan pressure ratio with component efficiencies"
+    expected_skill: "propulsion/turbofan/turbofan-design-point"
+  - id: w43-turbofan-design-point-2
+    query: "close the two-spool-work-balance of the turbofan-design-point: size the hp and lp turbine exit temperatures that drive the high-pressure compressor and the fan plus booster, then the core and fan nozzle exit velocities and the net thrust of the separate-exhaust-cycle"
+    intent: "propulsion; HP and LP spool work balances of the turbofan design point with the per-stream nozzle exit velocities and net thrust"
+    expected_skill: "propulsion/turbofan/turbofan-design-point"
+  - id: w43-unsteady-laminar-stokes-layers-1
+    query: "compute the velocity profile and the wall shear of the unsteady-laminar-stokes-layers for the stokes-first-problem of an impulsively started flat plate in air at 30 m per s and check the rayleigh-layer growth and shear decay with time"
+    intent: "aerodynamics; unsteady laminar Stokes first problem (Rayleigh layer) of an impulsively started plate: erfc similarity velocity profile, layer edge growing as 3.64*sqrt(nu*t), wall shear decaying as 1/sqrt(t), displacement thickness"
+    expected_skill: "aerodynamics/boundary-layer/unsteady-laminar-stokes-layers"
+  - id: w43-unsteady-laminar-stokes-layers-2
+    query: "evaluate the oscillating-plate-layer of the stokes second problem for a plate oscillating at 50 rad per s in air: penetration depth, velocity amplitude decay and phase lag with depth, and the wall shear amplitude with its 45 degree phase shift"
+    intent: "aerodynamics; Stokes second problem of a plate oscillating in its own plane: penetration depth sqrt(2*nu/omega), exp(-1) amplitude and 1 rad phase lag at the penetration depth, wall shear amplitude rho*U*sqrt(nu*omega) and one-eighth-period phase relation"
+    expected_skill: "aerodynamics/boundary-layer/unsteady-laminar-stokes-layers"
+  - id: w43-vmu-determination-1
+    query: "reduce the takeoff rotation runs of the transport flight test to the vmu-determination minimum-unstick-speed with the rotation-limit-speed tail strike check and the standard weight and density corrections"
+    intent: "flight-test-operations; FAR 25.107(b) minimum unstick speed reduction from measured takeoff rotation runs with the certified rotation-limit classification and the standard-condition weight and density corrections"
+    expected_skill: "flight-test-operations/envelope/vmu-determination"
+  - id: w43-vmu-determination-2
+    query: "issue the unstick-certification verdict from the corrected rotation runs that gates the V1 and VR scheduling against the 1.08 Vmu liftoff margin and the 1.10 Vs1 stall floor"
+    intent: "flight-test-operations; Vmu verdict from corrected rotation runs gating the V1/VR schedule against the 1.08 Vmu liftoff margin and the 1.10 Vs1 rotation stall floor"
+    expected_skill: "flight-test-operations/envelope/vmu-determination"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

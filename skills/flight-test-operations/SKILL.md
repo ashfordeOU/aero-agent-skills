@@ -69,6 +69,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/envelope/icing-flight-test | Icing flight test | icing flight test, natural icing, artificial ice shape, appendix C envelope, liquid water content, median volumetric diameter, icing encounter severity, ice protection effectiveness test |
 | flight-test-operations/planning/noise-certification-test | Noise certification test | noise certification flight test, EPNL, effective perceived noise level, PNLT, tone corrected, 10 dB down, flyover noise, sideline noise, approach noise, cumulative margin |
 | flight-test-operations/envelope/vmc-determination | Vmc determination | minimum control speed, Vmc, critical engine, asymmetric yawing moment, rudder pedal force, engine inoperative demonstration |
+| flight-test-operations/envelope/vmu-determination | Vmu determination | vmu determination, minimum unstick speed, rotation limit speed, unstick certification, tail strike rotation limit, takeoff rotation run |
 | flight-test-operations/envelope/buffet-boundary-testing | Buffet boundary testing | buffet boundary, buffet onset, accelerometer RMS rise, high speed buffet, maneuver buffet, buffet margin |
 | flight-test-operations/performance/cruise-performance-flight-test | Cruise performance flight test | cruise performance flight test, fuel flow versus Mach, stabilized fuel flow runs, weight corrected fuel flow, maximum range cruise speed, long range cruise speed |
 | flight-test-operations/performance/rotorcraft-performance-flight-test | Rotorcraft performance flight test | rotorcraft flight test, measured figure of merit, torque to power, hover ceiling determination, weight density correction |
@@ -83,6 +84,8 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/performance/fuel-jettison-flight-test | Fuel jettison flight test | fuel jettison flight test, measured dump rate, fuel weight versus time, time to landing weight, 900 second limit, jettison verification |
 | flight-test-operations/performance/in-flight-engine-relight-test | In flight engine relight test | in flight engine relight test, engine restart demonstration, windmill N2 survey, minimum relight airspeed, time to idle, altitude band verdict |
 | flight-test-operations/performance/rotorcraft-autorotation-flight-test | Rotorcraft autorotation flight test | power-off autorotation demonstration, measured sink rate regression, rotor-RPM band checks, altitude lost to recovery |
+| flight-test-operations/performance/rotorcraft-forward-flight-climb-test | Rotorcraft forward flight climb test | rotorcraft forward flight climb test, best rate of climb rotorcraft, rotorcraft rate of climb sweep, forward flight climb flight test, rotorcraft climb ceiling |
+| flight-test-operations/performance/rotorcraft-height-velocity-diagram-test | Rotorcraft height velocity diagram test | rotorcraft height velocity diagram test, height velocity demonstration, dead man curve flight test, hover engine failure height loss |
 
 
 ## Routing guidance
@@ -157,3 +160,6 @@ your host's skills directory (see README Install for per-host commands).
 
 - Fuel-jettison flight-test reduction questions (least-squares measured dump rate from telemetered fuel weight versus time, time from takeoff weight to landing weight against the 900 second limit, PASS or FAIL verdict) route to the performance fuel-jettison-flight-test sub-skill.
 - In-flight engine restart demonstration questions (windmill N2 versus airspeed regression, minimum relight airspeed, starter-assisted time-to-idle per altitude band, combined restart verdict) route to the performance in-flight-engine-relight-test sub-skill.
+- Minimum unstick speed determination questions (vmu determination, takeoff rotation runs, tail-strike rotation limit, unstick certification margin against the 1.08 Vmu constraint) route to the envelope vmu-determination sub-skill.
+- Rotorcraft forward-flight climb test questions (measured rate of climb versus airspeed sweep, best rate of climb Vy, rotorcraft climb ceilings, weight and density corrections) route to the performance rotorcraft-forward-flight-climb-test sub-skill.
+- Rotorcraft height-velocity demonstration questions (hover and low-speed engine-failure height-loss measurement, dead-man-curve boundary mapping, avoid-region clearance verdict) route to the performance rotorcraft-height-velocity-diagram-test sub-skill.

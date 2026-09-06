@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 581
+Total skills rated: 597
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -599,3 +599,7 @@ Total skills rated: 581
 | 591 | aerodynamics/boundary-layer/unsteady-laminar-stokes-layers | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
 | 592 | gnc-autonomy/navigation/tightly-coupled-ins-gnss | PASS | ✓ | rtca-do-229, arp4754a | gnc-autonomy | 9.5 | PASS |
 | 593 | aerodynamics/high-speed/rayleigh-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 594 | structures/fem/plastic-collapse-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 595 | structures/fem/hertzian-contact-stress | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 596 | structures/fem/crippling-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 597 | structures/fem/metallic-fastener-joints | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
