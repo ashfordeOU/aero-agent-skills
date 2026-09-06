@@ -92,6 +92,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/emergency-exit-configuration | Emergency exit configuration | emergency exit configuration, exit type requirements, exit count check, exit placement |
 | vehicle-design/sizing/air-cycle-machine-sizing | Air cycle machine sizing | air cycle machine sizing, bootstrap air cycle, ACM shaft balance, cooling turbine, heat exchanger effectiveness, required bleed flow |
 | vehicle-design/sizing/v-tail-sizing | V tail sizing | v tail sizing, ruddervator, equivalent tail volume, V-tail dihedral, tail area from volume coefficient |
+| vehicle-design/sizing/landing-gear-layout | Landing gear layout | tipback angle, tail strike clearance, lateral turnover angle, nose gear load fraction band, main gear position |
 
 
 ## Routing guidance
@@ -165,6 +166,7 @@ ons route to the weight-estimation
 - Aircraft supplemental oxygen sizing questions (passenger oxygen generator count, crew gaseous oxygen bottle volume) route to the sizing aircraft-oxygen-system-sizing sub-skill.
 - Fire protection and extinguishing agent questions (total flooding agent mass for cargo compartment or powerplant fire zone) route to the sizing fire-protection-sizing sub-skill.
 - Fuel jettison questions (required dump rate to landing weight within 15 minutes, mast flow split) route to the sizing fuel-jettison-sizing sub-skill.
+- tipback angle, tail strike clearance, lateral turnover angle, nose gear load fraction band, main gear position questions route to the sizing landing-gear-layout sub-skill.
 
 
 ## Install

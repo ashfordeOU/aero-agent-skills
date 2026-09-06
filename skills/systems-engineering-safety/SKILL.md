@@ -81,6 +81,8 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/arp4761a/event-tree-analysis | Event tree analysis | event tree analysis, initiating event, mitigating function, branch path enumeration, end state frequency, dominant sequence |
 | systems-engineering-safety/arp4761a/reliability-growth-analysis | Reliability growth analysis | reliability growth analysis, Duane growth slope, Crow-AMSAA shape beta, current MTBF, projected MTBF, growth verdict |
 | systems-engineering-safety/arp4761a/maintainability-prediction | Maintainability prediction | maintainability prediction, failure rate weighted MTTR, mean time to repair, lognormal repair time percentile, t95 repair time |
+| systems-engineering-safety/arp4761a/fault-tree-quantification | Fault tree quantification | top-event probability from minimal cut sets, rare-event approximation, min-cut upper bound, cut-set truncation |
+| systems-engineering-safety/arp4761a/reliability-allocation | Reliability allocation | failure-rate and MTBF budget flow-down, equal-split and complexity-weighted apportionment, series-sum closure |
 
 ## Routing guidance
 
@@ -137,6 +139,8 @@ ocation coverage, and unallocated
 - Certification regulation applicability, special condition determination, and TC, STC, and TSO path selection route to the certification certification-basis sub-skill.
 - PSSA derivation of safety requirements from FHA outcomes, FDAL/IDAL allocation, and quantitative safety target allocation across the architecture routes to the arp4761a preliminary-system-safety-assessment sub-skill.
 - MSG-3 scheduled maintenance task selection and hidden-failure exposure questions route to the continued-airworthiness msg3-maintenance-analysis sub-skill.
+- top-event probability from minimal cut sets, rare-event approximation, min-cut upper bound, cut-set truncation questions route to the arp4761a fault-tree-quantification sub-skill.
+- failure-rate and MTBF budget flow-down, equal-split and complexity-weighted apportionment, series-sum closure questions route to the arp4761a reliability-allocation sub-skill.
 
 ## Install
 

@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 567,
+  "leaves": 581,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1150
+  "corpus_tasks": 1178
  },
  "skills": [
   {
@@ -124,6 +124,21 @@
     "thickness",
     "naca-airfoils",
     "section-selection"
+   ],
+   "family": "aerodynamics",
+   "pack": "airfoil",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/airfoil/thin-airfoil-section-theory",
+   "name": "thin-airfoil-section-theory",
+   "description": "Use when you must compute the section lift and the quarter-chord pitching moment of a thin cambered airfoil from its camber line: decompose the camber slope into the glauert-sine-series coefficients A0, A1 and A2 by trapezoid quadrature over the theta transform x = (1 - cos(theta))/2, then recover the zero-lift angle alpha_L0, the section lift coefficient cl = 2*pi*(alpha - alpha_L0), the quarter-chord pitching-moment coefficient cm_c4 = (pi/4)*(A2 - A1) and the center-of-pressure location x_cp/c = 1/4 - cm_c4/cl, for a NACA 4-digit mean line, a polynomial camber line or sampled camber stations. Produces the closed-form analytic section aerodynamics that anchor the numerical panel and viscous section tools. Trigger: glauert coefficients, zero lift angle, section pitching moment, camber line analysis, thin airfoil section.",
+   "tags": [
+    "thin-airfoil-section-theory",
+    "glauert-sine-series",
+    "zero-lift-angle",
+    "quarter-chord-moment",
+    "camber-line"
    ],
    "family": "aerodynamics",
    "pack": "airfoil",
@@ -481,6 +496,20 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/high-speed/compressible-couette-flow",
+   "name": "compressible-couette-flow",
+   "description": "Use when you must compute the exact constant-property solution for compressible Couette flow in a high-Mach plate gap: the linear velocity profile u = Ue y / h, the Crocco energy-integral temperature profile, the insulated moving-plate temperature from the recovery relation r = Pr, the wall shear tau_w = mu Ue / h, the wall heat flux q_w into the stationary plate and the dissipation energy-balance check at a given plate Mach number, Prandtl number and gap Reynolds number. Produces the full gap solution with velocity and temperature profiles. Trigger: compressible-couette-flow, shear-driven-gap-flow, crocco-energy-integral, gap-reynolds-number, plate-gap, linear-velocity-profile, moving-plate, high-mach-plate-gap.",
+   "tags": [
+    "compressible-couette-flow",
+    "shear-driven-gap-flow",
+    "crocco-energy-integral",
+    "gap-reynolds-number"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/high-speed/flat-plate-skin-friction-heating",
    "name": "flat-plate-skin-friction-heating",
    "description": "Use when you must estimate the surface skin friction heating on a flat plate or vehicle skin at high Mach: it computes the recovery factor, adiabatic wall temperature, Eckert reference temperature, Sutherland viscosity, local skin friction coefficient and Reynolds-analogy heat transfer coefficient, then the cold-wall heat flux for a laminar or turbulent boundary layer. Produces the non-stagnation heating report with r, T_aw, T_star, Re_star, Cf, h_c and q_cold_wall in SI units for a thermal protection check. Trigger: recovery-factor, adiabatic-wall-temperature, cold-wall-heat-flux, reference-temperature-method, reynolds-analogy-factor, skin-friction-coefficient, turbulent-plate-heating, flat-plate-heating.",
@@ -609,6 +638,20 @@
     "double-wedge",
     "surface-pressure-integration",
     "wave-drag-coefficient"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/shock-tube",
+   "name": "shock-tube",
+   "description": "Use when you must determine the four-region state of a shock-tube run from the driver-to-driven diaphragm pressure ratio and driver sound-speed ratio: recover the incident-shock Mach number by deterministic bisection of the implicit diaphragm-match equation, then the post-shock pressure, temperature and density ratios with the region-2 absolute state, the contact-surface velocity shared by shocked driven gas and expanded driver gas with the region-2 and region-3 flow Mach numbers, the driver expansion wave ratios with the region-3 absolute state, and the fan head and tail wave speeds. Produces the incident-shock Mach number, the four-region state table and the contact checks that gate shock-tube facility design, driver-gas selection and gas-dynamics coursework. Trigger: shock tube, shock-tube run, diaphragm pressure ratio, contact surface, driver gas, driven gas, incident shock, driver sound-speed ratio, post-shock state, fan head wave, fan tail wave, four-region state table.",
+   "tags": [
+    "shock-tube",
+    "diaphragm-pressure-ratio",
+    "incident-shock-mach-number",
+    "contact-surface-velocity"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -3019,6 +3062,21 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/rotorcraft-main-rotor-sizing",
+   "name": "rotorcraft-main-rotor-sizing",
+   "description": "Use when you must size the main rotor of a single-main-rotor rotorcraft from the takeoff weight and design ceilings: the main-rotor-disk-loading ceiling sets the disk area and radius, the rotor-thrust-coefficient follows from momentum theory at the chosen rotor tip speed, the rotor solidity closes from the ct-over-sigma hover design point, the blade area and chord follow from the blade count on constant-chord blades, and the rotor-tip-mach number checks the tip speed against the speed of sound. Produces the disk area, radius, thrust coefficient, solidity, blade area, chord and tip mach that gate a main rotor sizing pass before the power leaves consume the geometry. Sizing only: closed-form inversions from weight, no rotor power, no flight-state performance; the geometry-consuming rotorcraft leaves keep their owners. Trigger: main rotor sizing, disk loading ceiling, ct-over-sigma, rotor tip speed.",
+   "tags": [
+    "rotorcraft-main-rotor-sizing",
+    "main-rotor-disk-loading",
+    "rotor-thrust-coefficient",
+    "ct-over-sigma",
+    "rotor-tip-mach"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/rotorcraft-range-endurance",
    "name": "rotorcraft-range-endurance",
    "description": "Use when you must determine the rotorcraft fuel closure into hover endurance and cruise range and endurance: the hover power from the weight, the rotor disk area and the figure of merit, the exact weight-decay integration of the fuel burn into a closed-form hover endurance, and the cruise range and endurance at a chosen speed from an input power-required curve scaled with the average weight, together with the best-range and best-endurance speed picks. Produces the hover power and endurance, the cruise range and endurance, the fuel-flow rates, the specific range and the best-speed selection that gate the rotorcraft mission fuel check. Trigger: rotorcraft range endurance, hover endurance closure, cruise range closure, cruise endurance closure, rotorcraft fuel budget closure, specific range, best range speed, best endurance speed, average weight power scaling.",
@@ -3871,6 +3929,21 @@
     "thrust-available",
     "acceleration-capability",
     "constant-altitude-run"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-test-operations/performance/rotorcraft-autorotation-flight-test",
+   "name": "rotorcraft-autorotation-flight-test",
+   "description": "Use when you must reduce a rotorcraft power-off autorotation demonstration flight test: least-squares fit the telemetered pressure-altitude samples against time over the steady autorotative descent, read the measured sink rate from the fitted slope, run the rotor-RPM checks across the entry decay, steady descent and flare recovery against the declared floor, band and recovery target, compute the altitude lost to the recovery from the flare-initiation and re-established level-flight altitudes, and give the PASS or FAIL verdict per check plus the overall demonstration verdict. Produces the fitted slope, intercept and R-squared, the measured sink rate in the realistic 8 to 15 m/s autorotative band, the three rotor-RPM check verdicts, the altitude loss with its limit verdict and margin, and the overall verdict gating the demonstration. Trigger: rotorcraft-autorotation-flight-test, measured-sink-rate, rotor-rpm-band-check, autorotation-demonstration-reduction, flare-altitude-loss.",
+   "tags": [
+    "rotorcraft-autorotation-flight-test",
+    "measured-sink-rate",
+    "rotor-rpm-band-check",
+    "autorotation-demonstration-reduction",
+    "flare-altitude-loss"
    ],
    "family": "flight-test-operations",
    "pack": "performance",
@@ -4755,6 +4828,23 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/navigation/bearing-only-localization",
+   "name": "bearing-only-localization",
+   "description": "Use when you must locate a stationary emitter from passive angle-of-arrival bearing lines measured at known observer positions. Build the linearized bearing equations sin(beta_i)*(x - xi) - cos(beta_i)*(y - yi) = 0 per observer, solve the Stansfield closed-form weighted least squares for the two-dimensional emitter fix with an equal-angle first pass and a distance-weighted second pass, and read the fix covariance error ellipse plus the per-bearing residual angles. Produces the emitter position fix, the 1-sigma error ellipse, the per-bearing residuals and the observer-geometry dilution verdict. Trigger: bearing-only-localization, angle-of-arrival-triangulation, stansfield-weighted-least-squares, bearing-line-intersection, emitter-fix-covariance, per-bearing-residual, observer-geometry-dilution.",
+   "tags": [
+    "bearing-only-localization",
+    "angle-of-arrival-triangulation",
+    "stansfield-weighted-least-squares",
+    "bearing-line-intersection",
+    "emitter-fix-covariance",
+    "per-bearing-residual",
+    "observer-geometry-dilution"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/navigation/dilution-of-precision",
    "name": "dilution-of-precision",
    "description": "Use when you must evaluate GNSS positioning accuracy from satellite geometry: build the geometry matrix H from satellite line-of-sight unit vectors, form the normal matrix H^T H, invert it, and read the dilution of precision values (GDOP, PDOP, HDOP, VDOP, TDOP) off the diagonal. Applies to GPS/GNSS receiver analysis, elevation mask studies, and satellite subset selection. Produces the DOP values, the 1-sigma position error from a user equivalent range error, the elevation mask filter, and the k-satellite subset with the lowest PDOP. Trigger: dilution of precision, gdop, pdop, hdop, vdop, tdop, satellite geometry, elevation mask, uere, gps, gnss, satellite selection.",
@@ -4770,6 +4860,22 @@
     "uere",
     "gnss",
     "satellite-selection"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/gnss-carrier-smoothing",
+   "name": "gnss-carrier-smoothing",
+   "description": "Use when you must smooth GNSS code pseudoranges with carrier-phase delta ranges before positioning: run the first-order Hatch recursion at a smoothing time constant, carry the smoothed range between epochs on the precise carrier increments, and monitor the code-carrier ionospheric divergence whose trailing-window slope fit predicts the smoothed-minus-code bias that would alarm a diverging range. Computes the noise-reduction verdict from the exact steady-state code-noise closed form sigma_code*sqrt(alpha/(2 - alpha)), its sigma_code/sqrt(2*tau/T) textbook limit and the carrier delta-range term. Produces the smoothed range time series, the verdict (code-only std, quoted limit, carrier term, total std, improvement factor) and the divergence alarm that gate the range before it feeds positioning. Trigger: carrier-phase smoothing, code-carrier smoothing, hatch recursion, smoothing time constant, code-carrier divergence, ionospheric divergence, smoothed range noise reduction.",
+   "tags": [
+    "gnss-carrier-smoothing",
+    "carrier-phase-smoothing",
+    "hatch-filter-recursion",
+    "code-carrier-divergence-monitor",
+    "ionospheric-divergence-check",
+    "smoothed-range-noise-reduction"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -4915,6 +5021,22 @@
     "collocation",
     "launch-ascent",
     "bounds"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "optimal-control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/optimal-control/lqg-design",
+   "name": "lqg-design",
+   "description": "Use when you must design a linear-quadratic-Gaussian output-feedback compensator for a two-state system whose state is not fully measurable: solve the regulator algebraic Riccati equation for the symmetric stabilizing P and the gain K from the quadratic cost weights, solve the filter (Kalman) algebraic Riccati equation for the error covariance S and the estimator gain L from the process and measurement noise covariances, assemble the dynamic output-feedback compensator state-space realization, and verify the separation principle that the closed-loop eigenvalues are the union of the regulator and estimator poles. Produces the two Riccati solutions with their gains, the compensator matrices and transfer function, and the separation verdict. Trigger: lqg, linear-quadratic-gaussian, output-feedback-compensator, separation-principle, regulator-riccati, filter-riccati-gain, compensator-transfer-function.",
+   "tags": [
+    "lqg-design",
+    "linear-quadratic-gaussian",
+    "output-feedback-compensator",
+    "separation-principle",
+    "filter-riccati-gain",
+    "compensator-transfer-function"
    ],
    "family": "gnc-autonomy",
    "pack": "optimal-control",
@@ -6213,6 +6335,21 @@
     "dry-versus-reheat-thrust",
     "reheat-specific-fuel-consumption",
     "afterburner-nozzle-exit-velocity"
+   ],
+   "family": "propulsion",
+   "pack": "gas-turbine-cycle",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio",
+   "name": "brayton-optimum-pressure-ratio",
+   "description": "Use when you must select the pressure ratio of a simple gas-turbine-cycle that maximizes the net specific work at the cycle temperature limits: compute the max-work pressure ratio from x_opt = sqrt(tau) for the ideal cycle and x_opt = sqrt(tau*eta_c*eta_t) with component efficiencies; check the zero-work limiting ratio, exactly the max-work ratio squared; and judge the verdict that the max-efficiency ratio diverges from the max-work ratio. Produces the ideal and lossy max-work pressure ratios, the zero-work limit with the r_zero = r_opt**2 cross-check, the specific work at the optimum, and the efficiency-versus-work verdict in SI units. Trigger: maximum specific work, max-work pressure ratio, gas turbine cycle pressure ratio selection.",
+   "tags": [
+    "brayton-optimum-pressure-ratio",
+    "max-specific-work-pressure-ratio",
+    "work-optimum-compression-ratio",
+    "zero-work-limiting-pressure-ratio",
+    "ideal-and-lossy-cycle-selection"
    ],
    "family": "propulsion",
    "pack": "gas-turbine-cycle",
@@ -8397,6 +8534,36 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/shear-center-analysis",
+   "name": "shear-center-analysis",
+   "description": "Use when you must locate the shear center of a thin-walled open section under transverse shear: walk the contour from the free edge accumulating the first moment Q, build the V*Q/I shear-flow distribution, integrate the wall-shear resultant and its moment, and report the shear-center offset from the web, centroid or corner in millimeters for channel, Z, angle, hat and slit single-cell box sections, with the bending shear-stress check tau = V*Q/(I*t) at the critical wall station. Doubly symmetric I-beam and closed box sections carry the shear center at the centroid by symmetry, so the leaf reports their web shear-flow maximum instead. Produces the shear-center coordinates, the offset from the stated reference, the per-wall shear flow q(s) and the vertical-resultant equilibrium check that gate open-section spar, stiffener and frame design. Trigger: shear center, shear flow, channel section, Z-section, angle section, thin-walled spar, stiffener, I-beam web shear, transverse shear.",
+   "tags": [
+    "shear-center-analysis",
+    "shear-center-location",
+    "transverse-shear-flow",
+    "thin-walled-open-section"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/shrink-fit-analysis",
+   "name": "shrink-fit-analysis",
+   "description": "Use when you must compute the shrink-fit contact pressure and stresses of a two-cylinder radial-interference assembly: convert the total radial interference into the interface contact pressure from the Lame thick-cylinder radial compliance of both members, recover the bore radial and hoop stresses at the critical bore of each member, form the von-Mises yield margin of each bore against its yield strength, and close with the governing member and the maximum allowable radial interference before that bore yields. Produces the interference-fit contact pressure, the bore radial and hoop stresses of both members, the von-Mises yield margins of both bores, the governing member and the allowable radial interference that gate the shrink-fit design check. Trigger: shrink fit, press fit, interference fit, contact pressure, radial interference, Lame solution, thick cylinder, bore hoop stress, yield margin.",
+   "tags": [
+    "shrink-fit-analysis",
+    "interference-fit-contact-pressure",
+    "lame-thick-cylinder-stress",
+    "bore-hoop-stress",
+    "von-mises-yield-margin",
+    "allowable-interference"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/torsion-shear-flow",
    "name": "torsion-shear-flow",
    "description": "Use when you must compute the torsion shear flow of a closed or open structural section: the polar second moment J for solid and tube shafts, the Saint-Venant torsion constant for thin open rectangles and built-up open sections, the Bredt-Batho closed-section shear flow q = T/(2 A_m), the closed-section twist rate, the shear stress and torsional stress margin, and the multi-cell shear-flow distribution of a two-cell section under an applied torque. Produces the shear flow, twist rate, shear stress and margin that gate torsion checks of fuselage, wing-box and shaft sections. Trigger: torsion shear flow, Bredt-Batho, Saint-Venant torsion, angle of twist, closed-section shear flow, multi-cell section, torsional stress margin, shaft torque, fuselage torsion.",
@@ -8904,6 +9071,22 @@
    "router_doc": false
   },
   {
+   "path": "systems-engineering-safety/arp4761a/fault-tree-quantification",
+   "name": "fault-tree-quantification",
+   "description": "Use when you must quantify a fault-tree top event from its minimal cut sets and basic-event probabilities: compute the rare-event approximation (sum of cut-set probabilities), the Esary-Proschan min-cut upper bound, and the exact inclusion-exclusion top probability when 2^n stays tractable; truncate the cut sets below an analyst probability threshold and keep the retained probability share; rank the cut sets by per-cut-set probability share to flag dominant failure combinations. Produces the quantified top-event probability, its bound chain, and the truncated cut-set mass picture, the predicted-probability input the SSA closure comparison consumes. Trigger: fault-tree quantification, rare-event approximation, min-cut upper bound, cut-set truncation, cut-set probability share, top-event probability.",
+   "tags": [
+    "fault-tree-quantification",
+    "rare-event-approximation",
+    "min-cut-upper-bound",
+    "cut-set-truncation",
+    "cut-set-probability-share",
+    "top-event-probability"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
    "path": "systems-engineering-safety/arp4761a/fault-tree-uncertainty-analysis",
    "name": "fault-tree-uncertainty-analysis",
    "description": "Use when you must quantify the epistemic uncertainty band around a quantified fault-tree probability: convert each basic-event lognormal error factor to a lognormal sigma with the 90 percent normal quantile, combine the per-event sigmas into the lognormal sigma of the tree probability weighted by the Fussell-Vesely fractions, form the two-sided 90 percent lognormal-confidence-band around the top probability, compute the exceedance-probability of the true value above a target probability, and decompose the variance of the spread into per-event uncertainty-variance-shares. Produces the per-event sigmas, the combined sigma, the band bounds, the exceedance probability and the variance shares that gate confidence in a top-event number. Trigger: fault-tree uncertainty analysis, lognormal error factor, lognormal confidence band, uncertainty variance share.",
@@ -9049,6 +9232,22 @@
     "fta",
     "quantitative-safety-requirement",
     "redundant-channels"
+   ],
+   "family": "systems-engineering-safety",
+   "pack": "arp4761a",
+   "router_doc": false
+  },
+  {
+   "path": "systems-engineering-safety/arp4761a/reliability-allocation",
+   "name": "reliability-allocation",
+   "description": "Use when you must allocate a system reliability requirement down to the design items: flow one top-level failure rate per flight hour, or its MTBF equivalent, into per-item target rates by equal split or by complexity-weighted apportionment from design-team complexity weights, produce the per-item failure-rate and MTBF targets for the item development specifications, verify the series-sum closure of the item budgets against the system rate, and report each item capability margin against its predicted capability rate to flag overruns and slack for rebalancing. Produces the per-item failure-rate and MTBF targets, the closure result and the margin report. Trigger: reliability allocation, failure-rate budget, MTBF target flow-down, complexity weights, apportionment, item development specification, series-sum closure, capability margin.",
+   "tags": [
+    "reliability-allocation",
+    "mtbf-target-flow-down",
+    "complexity-weighted-apportionment",
+    "item-failure-rate-budget",
+    "series-sum-closure",
+    "capability-margin-report"
    ],
    "family": "systems-engineering-safety",
    "pack": "arp4761a",
@@ -10149,6 +10348,22 @@
     "bleed-air-mass-flow",
     "protected-area",
     "mvd-catch-efficiency"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/landing-gear-layout",
+   "name": "landing-gear-layout",
+   "description": "Use when you must lay out the landing gear arrangement of an aircraft against its center-of-gravity envelope: compute the tipback angle at the aft CG limit about the main gear contact, the tail strike clearance angle at rotation, the lateral turnover angle from the wheel track at the forward CG limit, and the nose gear load fraction band across the CG travel. Produces the three layout angles in degrees, the nose gear load fraction at the forward and aft CG limits with band verdicts, and the main gear position check that gate the landing gear configuration. Trigger: landing gear layout, tipback angle, tail strike clearance, lateral turnover, nose gear load fraction, main gear position, wheel track, CG travel limits.",
+   "tags": [
+    "landing-gear-layout",
+    "tipback-angle",
+    "lateral-turnover-angle",
+    "tail-strike-clearance-angle",
+    "nose-gear-load-fraction",
+    "main-gear-positioning"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

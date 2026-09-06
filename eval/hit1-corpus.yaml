@@ -260,6 +260,11 @@
 # leaves). Wave-41 new leaves: "vehicle-design/sizing/air-cycle-machine-sizing", "structures/fem/beam-column-analysis", "structures/fem/curved-beam-analysis", "space-systems/adcs/environmental-disturbance-torque-budget", "systems-engineering-safety/arp4761a/event-tree-analysis", "flight-test-operations/performance/fuel-jettison-flight-test", "flight-test-operations/performance/in-flight-engine-relight-test", "aerodynamics/high-speed/isentropic-flow-relations", "systems-engineering-safety/arp4761a/maintainability-prediction", "propulsion/axial-compressor/polytropic-efficiency", "space-systems/adcs/reaction-jet-limit-cycle", "aerodynamics/high-speed/regular-shock-reflection", "systems-engineering-safety/arp4761a/reliability-growth-analysis", "flight-mechanics/performance/rotorcraft-turn-performance", "aerodynamics/boundary-layer/stagnation-flow-boundary-layer", "vehicle-design/sizing/v-tail-sizing".
 # Corpus: 1150 tasks (1118 prior plus 32 domain tasks). Owner: Ops
 # Manager, Wave 41 build.
+# P5.2 / Wave 42 (2026-09-06): fan-out continues on the public
+# v1.0.0 model to 581 verified skills (593 SKILL.md under gate 1: 12 routers + 581
+# leaves). Wave-42 new leaves: "gnc-autonomy/navigation/bearing-only-localization", "propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio", "aerodynamics/high-speed/compressible-couette-flow", "systems-engineering-safety/arp4761a/fault-tree-quantification", "gnc-autonomy/navigation/gnss-carrier-smoothing", "vehicle-design/sizing/landing-gear-layout", "gnc-autonomy/optimal-control/lqg-design", "systems-engineering-safety/arp4761a/reliability-allocation", "flight-test-operations/performance/rotorcraft-autorotation-flight-test", "flight-mechanics/performance/rotorcraft-main-rotor-sizing", "structures/fem/shear-center-analysis", "aerodynamics/high-speed/shock-tube", "structures/fem/shrink-fit-analysis", "aerodynamics/airfoil/thin-airfoil-section-theory".
+# Corpus: 1178 tasks (1150 prior plus 28 domain tasks). Owner: Ops
+# Manager, Wave 42 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5172,6 +5177,118 @@ tasks:
     query: "check the effective volume coefficients of the V-tail at the dihedral angle: do the projected horizontal and vertical equivalent areas of the canted tail meet the tail volume requirements?"
     intent: "vehicle design; effective volume coefficient check of the canted V-tail at the dihedral angle against the horizontal and vertical tail volume requirements"
     expected_skill: "vehicle-design/sizing/v-tail-sizing"
+  - id: w42-bearing-only-localization-1
+    query: "locate the stationary emitter by bearing-only localization from passive angle-of-arrival bearing lines measured at known observer positions: stansfield weighted least squares fix, emitter fix covariance and error ellipse, per-bearing residual angles"
+    intent: "gnc-autonomy navigation; static emitter geolocation from bearing lines by the Stansfield closed-form weighted least squares with the fix covariance error ellipse and per-bearing residual angles"
+    expected_skill: "gnc-autonomy/navigation/bearing-only-localization"
+  - id: w42-bearing-only-localization-2
+    query: "triangulate the passive emitter with aoa measurements from spaced observers, print the two-dimensional fix, the 1-sigma error ellipse axes, the per-line residual angles and the observer-geometry dilution verdict"
+    intent: "gnc-autonomy navigation; angle-of-arrival triangulation fix with the error ellipse, the per-line residual angles and the observer-geometry dilution of the bearing-line set"
+    expected_skill: "gnc-autonomy/navigation/bearing-only-localization"
+  - id: w42-brayton-optimum-pressure-ratio-1
+    query: "select the brayton-optimum-pressure-ratio that maximizes the net specific work of the simple gas-turbine-cycle at a given turbine-inlet temperature ratio and check the zero-work limiting ratio"
+    intent: "propulsion; simple gas-turbine-cycle pressure ratio selection for maximum net specific work at the cycle temperature limits with the zero-work limiting ratio cross-check"
+    expected_skill: "propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio"
+  - id: w42-brayton-optimum-pressure-ratio-2
+    query: "find the maximum-work compression ratio of the ideal and lossy brayton cycle from the cycle temperature limits and component efficiencies"
+    intent: "propulsion; ideal and component-efficiency closed forms for the maximum-work pressure ratio of the brayton simple cycle"
+    expected_skill: "propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio"
+  - id: w42-compressible-couette-flow-1
+    query: "compute the wall shear and heat flux of a shear-driven compressible-couette-flow between a moving and a stationary plate from the linear-velocity-profile and the crocco energy relation"
+    intent: "high-speed aerodynamics; compressible Couette flow exact solution, wall shear and wall heat flux of the shear-driven plate gap from the linear velocity profile and Crocco energy relation"
+    expected_skill: "aerodynamics/high-speed/compressible-couette-flow"
+  - id: w42-compressible-couette-flow-2
+    query: "evaluate the exact couette-flow temperature profile and heat transfer rate across a high-mach plate gap at a given gap-reynolds-number and Prandtl number"
+    intent: "high-speed aerodynamics; exact Couette temperature profile and heat transfer across a high-Mach plate gap at given gap Reynolds number and Prandtl number"
+    expected_skill: "aerodynamics/high-speed/compressible-couette-flow"
+  - id: w42-fault-tree-quantification-1
+    query: "quantify the elevator actuation fault tree: given the minimal cut sets and the per-flight-hour basic-event probabilities, compute the rare-event approximation, the Esary-Proschan min-cut upper bound and the exact inclusion-exclusion probability of the top event"
+    intent: "systems safety; fault-tree top-event probability quantification from minimal cut sets by rare-event, min-cut upper bound and exact inclusion-exclusion"
+    expected_skill: "systems-engineering-safety/arp4761a/fault-tree-quantification"
+  - id: w42-fault-tree-quantification-2
+    query: "truncate the quantified fault tree's cut sets below a probability threshold, report the retained probability share and rank the retained cut sets by probability share to find the dominant failure combinations feeding the SSA predicted probability"
+    intent: "systems safety; cut-set truncation and per-cut-set probability-share ranking of a quantified fault tree"
+    expected_skill: "systems-engineering-safety/arp4761a/fault-tree-quantification"
+  - id: w42-gnss-carrier-smoothing-1
+    query: "smooth the gnss code pseudoranges with carrier-phase delta ranges: run the hatch recursion at a 100 s smoothing time constant, watch the code-carrier divergence monitor, and report the noise reduction verdict against the raw code noise"
+    intent: "gnc-autonomy; first-order Hatch code-carrier pseudorange smoothing at a smoothing time constant, code-carrier divergence monitoring, closed-form noise reduction verdict"
+    expected_skill: "gnc-autonomy/navigation/gnss-carrier-smoothing"
+  - id: w42-gnss-carrier-smoothing-2
+    query: "apply carrier-phase smoothing to the gnss code pseudoranges, run the ionospheric-divergence check on the code-carrier difference, and compare the smoothed range error with the raw code noise"
+    intent: "gnc-autonomy; carrier-phase smoothing of GNSS code pseudoranges with an ionospheric-divergence check and a smoothed-range-noise comparison"
+    expected_skill: "gnc-autonomy/navigation/gnss-carrier-smoothing"
+  - id: w42-landing-gear-layout-1
+    query: "Lay out the main and nose gear of an aircraft against the CG envelope: compute the tipback angle at the aft CG limit, the lateral turnover angle at the forward CG limit from the wheel track, and the tail strike clearance angle at rotation about the main gear contact"
+    intent: "vehicle design; landing gear arrangement geometry against the CG envelope with the tipback angle, the lateral turnover angle from the wheel track, and the tail strike clearance angle at rotation"
+    expected_skill: "vehicle-design/sizing/landing-gear-layout"
+  - id: w42-landing-gear-layout-2
+    query: "Position the main gear relative to the CG travel limits for a transport: check the nose gear load fraction band at the forward and aft CG limits and the main gear station choice that keeps the fraction band inside its limits"
+    intent: "vehicle design; main gear position check against the CG travel limits with the nose gear load fraction band at the forward and aft CG limits"
+    expected_skill: "vehicle-design/sizing/landing-gear-layout"
+  - id: w42-lqg-design-1
+    query: "design the linear-quadratic-gaussian compensator for the double integrator: solve the regulator-riccati and the filter-riccati gains, assemble the dynamic output-feedback compensator, verify the separation-principle closed-loop eigenvalues as the union of the regulator and estimator poles"
+    intent: "gnc-autonomy; LQG output-feedback compensator from the regulator and filter Riccati gains, separation-principle eigenvalue union"
+    expected_skill: "gnc-autonomy/optimal-control/lqg-design"
+  - id: w42-lqg-design-2
+    query: "lqg controller from the kalman-filter state estimate: compensator state-space realization and transfer function, closed-loop poles as the union of the lqr and the estimator eigenvalues"
+    intent: "gnc-autonomy; LQG compensator state-space realization and transfer function, closed-loop poles as union of regulator and estimator eigenvalues"
+    expected_skill: "gnc-autonomy/optimal-control/lqg-design"
+  - id: w42-reliability-allocation-1
+    query: "flow down the system reliability requirement: allocate the 1e-4 per flight hour failure-rate budget across the six items by their complexity weights and check that the item failure-rate targets sum to the system rate"
+    intent: "systems safety; complexity-weighted reliability budget flow-down and series-sum closure check"
+    expected_skill: "systems-engineering-safety/arp4761a/reliability-allocation"
+  - id: w42-reliability-allocation-2
+    query: "split the 10000 hour MTBF system target equally and by complexity weight into per-item MTBF targets for the item development specifications and report each item margin against its predicted capability rate"
+    intent: "systems safety; equal and weighted MTBF target allocation to items with margin report"
+    expected_skill: "systems-engineering-safety/arp4761a/reliability-allocation"
+  - id: w42-rotorcraft-autorotation-flight-test-1
+    query: "reduce the power-off autorotation demonstration flight test from the telemetered record: least-squares fit the pressure-altitude-vs-time samples over the steady autorotative descent to the measured sink rate"
+    intent: "flight-test-operations; measured autorotative sink rate from telemetered pressure-altitude samples"
+    expected_skill: "flight-test-operations/performance/rotorcraft-autorotation-flight-test"
+  - id: w42-rotorcraft-autorotation-flight-test-2
+    query: "check the rotor-rpm band of the rotorcraft autorotation demonstration through the entry decay, the steady descent and the flare recovery and judge the altitude-loss and overall demonstration verdicts against the declared limits"
+    intent: "flight-test-operations; rotor RPM band checks and altitude-loss verdict of the autorotation demonstration"
+    expected_skill: "flight-test-operations/performance/rotorcraft-autorotation-flight-test"
+  - id: w42-rotorcraft-main-rotor-sizing-1
+    query: "size the main rotor of a 4500-kg helicopter: set the disk area and radius from the takeoff weight against the main-rotor-disk-loading ceiling, close the rotor solidity from the 0.12 ct-over-sigma hover design point, and check the rotor-tip-mach number at the 210 m/s rotor tip speed"
+    intent: "flight-mechanics; main rotor disk area and radius from the takeoff weight at the disk loading ceiling, solidity closure and tip mach check"
+    expected_skill: "flight-mechanics/performance/rotorcraft-main-rotor-sizing"
+  - id: w42-rotorcraft-main-rotor-sizing-2
+    query: "select main-rotor blade geometry for a 3000-kg rotorcraft: the rotor-thrust-coefficient from momentum theory at the rotor tip speed, the blade area and blade chord from the closed rotor solidity and a 4-blade count, and the disk-loading verdict against the ceiling"
+    intent: "flight-mechanics; rotor thrust coefficient, blade area and blade chord from the solidity closure and the blade count"
+    expected_skill: "flight-mechanics/performance/rotorcraft-main-rotor-sizing"
+  - id: w42-shear-center-analysis-1
+    query: "locate the shear-center-location of a thin-walled channel-section spar: integrate the transverse-shear-flow VQ/I along the web and flanges from the free edge and report the shear-center offset behind the web"
+    intent: "structures; shear-center location of a channel from the VQ/I transverse-shear-flow distribution, offset from the web"
+    expected_skill: "structures/fem/shear-center-analysis"
+  - id: w42-shear-center-analysis-2
+    query: "compute the shear-center offset and web shear-flow distribution of a Z-section stiffener carrying a vertical shear load, given the flange and web widths, the wall thickness and the section second moment of area"
+    intent: "structures; Z-section shear-center offset from the centroid and the per-wall shear-flow distribution"
+    expected_skill: "structures/fem/shear-center-analysis"
+  - id: w42-shock-tube-1
+    query: "compute the incident-shock-mach number and post-shock state of a shock-tube run from the driver-to-driven diaphragm-pressure-ratio, driver sound-speed ratio and gamma ratio"
+    intent: "high-speed aerodynamics; classical shock-tube problem, incident-shock Mach number from the diaphragm pressure ratio and the post-shock state of the driven gas"
+    expected_skill: "aerodynamics/high-speed/shock-tube"
+  - id: w42-shock-tube-2
+    query: "determine the contact-surface-velocity and the expansion-fan head and tail Mach numbers for a given shock-tube driver gas and driven gas condition"
+    intent: "high-speed aerodynamics; shock-tube contact-surface velocity and the driver expansion wave head and tail states for a given driver and driven gas pair"
+    expected_skill: "aerodynamics/high-speed/shock-tube"
+  - id: w42-shrink-fit-analysis-1
+    query: "Compute the shrink-fit contact pressure and bore hoop stress when a steel sleeve is fit over an aluminum hub with 0.05 mm radial-interference, using the lame-contact-pressure thick-cylinder solution, and check the von-Mises yield margin at the inner bore."
+    intent: "structures; two-cylinder Lame interference fit contact pressure and bore hoop stress with von-Mises yield margin"
+    expected_skill: "structures/fem/shrink-fit-analysis"
+  - id: w42-shrink-fit-analysis-2
+    query: "Size the interference fit of a steel bushing into an aluminum lug: contact pressure from the radial-interference, shrink-fit-bore-hoop-stress at the bushing bore, and the maximum allowable interference before the lug bore yields."
+    intent: "structures; bushing-in-lug interference fit sizing, contact pressure and allowable radial interference before the lug bore yields"
+    expected_skill: "structures/fem/shrink-fit-analysis"
+  - id: w42-thin-airfoil-section-theory-1
+    query: "compute the zero-lift-angle and the quarter-chord-pitching-moment coefficient of a NACA 2412 from its camber-line slope with the glauert-sine-series coefficients"
+    intent: "aerodynamics; section zero-lift angle and quarter-chord pitching-moment coefficient of a cambered thin airfoil derived from its camber-line slope via the Glauert A0/A1/A2 sine series"
+    expected_skill: "aerodynamics/airfoil/thin-airfoil-section-theory"
+  - id: w42-thin-airfoil-section-theory-2
+    query: "derive the section lift coefficient cl at a given alpha from the thin-airfoil A0 and A1 Fourier coefficients of a cambered airfoil"
+    intent: "aerodynamics; section lift coefficient cl of a cambered thin airfoil from the thin-airfoil A0/A1 Fourier coefficients"
+    expected_skill: "aerodynamics/airfoil/thin-airfoil-section-theory"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

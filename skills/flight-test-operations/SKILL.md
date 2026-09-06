@@ -82,6 +82,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/planning/pcm-telemetry-decommutation | PCM telemetry decommutation | PCM frame sync lock, decommutation, supercommutated channel, subcommutated channel, subframe ID demultiplexing, telemetry time series recovery |
 | flight-test-operations/performance/fuel-jettison-flight-test | Fuel jettison flight test | fuel jettison flight test, measured dump rate, fuel weight versus time, time to landing weight, 900 second limit, jettison verification |
 | flight-test-operations/performance/in-flight-engine-relight-test | In flight engine relight test | in flight engine relight test, engine restart demonstration, windmill N2 survey, minimum relight airspeed, time to idle, altitude band verdict |
+| flight-test-operations/performance/rotorcraft-autorotation-flight-test | Rotorcraft autorotation flight test | power-off autorotation demonstration, measured sink rate regression, rotor-RPM band checks, altitude lost to recovery |
 
 
 ## Routing guidance
@@ -143,6 +144,7 @@ actor-envelope.
 
 - Longitudinal control-force flight test reduction questions (force transducer calibration, stick force gradient, stick force per g, breakout force, centering check) route to the stability control-force-flight-test sub-skill.
 - PCM telemetry decode questions (frame sync lock, decommutation of supercommutated and subcommutated channels, subframe ID demultiplexing) route to the planning pcm-telemetry-decommutation sub-skill.
+- power-off autorotation demonstration, measured sink rate regression, rotor-RPM band checks, altitude lost to recovery questions route to the performance rotorcraft-autorotation-flight-test sub-skill.
 
 
 ## Install
