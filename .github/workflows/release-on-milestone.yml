@@ -81,3 +81,11 @@ jobs:
           git push origin "$TAG"
           gh release create "$TAG" --title "Aero Agent Skills $TAG" --notes "$BODY"
           echo "Released $TAG at $LEAVES leaves"
+          # FIX 2026-09-06: tag pushes made from actions with GITHUB_TOKEN do
+          # NOT fire the publish-npm tag-push trigger (GitHub recursion
+          # protection). workflow_dispatch is the documented exception that
+          # DOES fire from GITHUB_TOKEN, so dispatch npm publish explicitly.
+          # publish-npm derives its version from this tag, so it always ships
+          # the released version regardless of package.json staleness.
+          gh workflow run publish-npm.yml --ref main
+          echo "Dispatched publish-npm for $TAG"
