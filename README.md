@@ -86,7 +86,7 @@ Package: **[aero-agent-skills on npm](https://www.npmjs.com/package/aero-agent-s
 
 - Marketplace: **[Aero Agent Skills on the JetBrains Marketplace](https://plugins.jetbrains.com/plugin/34041-aero-agent-skills)**
 - In the IDE: **Settings → Plugins → Marketplace** → search `Aero Agent Skills` → Install
-- After install, the plugin's MCP server serves `search_skills` / `get_skill` to AI Assistant and Junie with zero manual MCP config
+- The plugin adds a tool window with the skill catalog, a **Copy MCP Server Config** action (one-click registration for AI Assistant / Junie — the MCP server then serves `search_skills` / `get_skill`), a **Copy Registry URL** action, and a **Docs & Harness Guide** action
 
 **Or as an MCP server** — JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, or any Model Context Protocol host. The `search_skills` tool is the same deterministic router the Hit@1 gate proves; `get_skill` streams the full SKILL.md:
 
