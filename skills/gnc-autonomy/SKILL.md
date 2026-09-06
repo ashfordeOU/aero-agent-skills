@@ -80,6 +80,9 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/digital-control-design | Digital control design | z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, sample rate selection, unit circle stability, sampled data control |
 | gnc-autonomy/optimal-control/bang-bang-control | Bang-bang control | bang bang control, time optimal control, switching curve, minimum time maneuver, double integrator, rest to rest slew |
 | gnc-autonomy/navigation/ins-gnss-integrated-filter | INS GNSS integrated filter | ins gnss integrated filter, error state filter, loosely coupled integration, GNSS position update, INS drift correction |
+| gnc-autonomy/navigation/gnss-carrier-smoothing | GNSS carrier smoothing | code-carrier Hatch smoothing time constant, carrier delta range, code-carrier ionospheric divergence, smoothed range noise reduction |
+| gnc-autonomy/optimal-control/lqg-design | LQG design | linear-quadratic-Gaussian output-feedback compensator, regulator and filter Riccati gains, separation principle |
+| gnc-autonomy/navigation/bearing-only-localization | Bearing only localization | passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse |
 
 ## Routing guidance
 
@@ -140,6 +143,9 @@ amics sub-skill.
 - Sampled-data digital control questions (z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, unit circle stability) route to the control digital-control-design sub-skill.
 
 - Time-optimal bang-bang control questions (switching curve, minimum-time rest-to-rest slew, double integrator) route to the optimal-control bang-bang-control sub-skill.
+- code-carrier Hatch smoothing time constant, carrier delta range, code-carrier ionospheric divergence, smoothed range noise reduction questions route to the navigation gnss-carrier-smoothing sub-skill.
+- linear-quadratic-Gaussian output-feedback compensator, regulator and filter Riccati gains, separation principle questions route to the optimal-control lqg-design sub-skill.
+- passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse questions route to the navigation bearing-only-localization sub-skill.
 
 ## Install
 

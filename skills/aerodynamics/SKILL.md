@@ -77,6 +77,9 @@ estimation, validated against classic reference data.
 | aerodynamics/boundary-layer/stagnation-flow-boundary-layer | Stagnation flow boundary layer | stagnation flow boundary layer, Hiemenz, Homann, stagnation velocity gradient, stagnation point wall shear, leading edge boundary layer |
 | aerodynamics/high-speed/isentropic-flow-relations | Isentropic flow relations | isentropic flow relations, total to static ratio, area Mach relation, Mach from area ratio, choked mass flow, sonic throat |
 | aerodynamics/high-speed/regular-shock-reflection | Regular shock reflection | regular shock reflection, reflected shock, shock impingement on a wall, Mach reflection, two shock interaction |
+| aerodynamics/high-speed/shock-tube | Shock tube | shock-tube diaphragm pressure ratio, incident-shock Mach number, contact-surface velocity, expansion fan |
+| aerodynamics/airfoil/thin-airfoil-section-theory | Thin airfoil section theory | camber-line glauert sine series, zero-lift angle, quarter-chord pitching moment, section lift coefficient |
+| aerodynamics/high-speed/compressible-couette-flow | Compressible Couette flow | shear-driven high-Mach plate gap, Crocco energy integral, recovery factor, wall shear and heat flux |
 
 ## Routing guidance
 
@@ -124,6 +127,9 @@ objective studies route to
 - Delta-wing vortex-lift questions (leading edge suction analogy, slender delta wing, Polhamus vortex lift) route to the cfd delta-wing-vortex-lift sub-skill.
 - Boundary-layer separation questions (Thwaites lambda criterion crossing minus 0.09, Stratford pressure-recovery criterion, laminar separation point, turbulent separation station, separation margin) route to the boundary-layer boundary-layer-separation sub-skill.
 - Flat-plate surface skin heating questions (recovery factor, adiabatic wall temperature, cold wall heat flux, reference temperature method skin friction, non-stagnation heating) route to the high-speed flat-plate-skin-friction-heating sub-skill.
+- shock-tube diaphragm pressure ratio, incident-shock Mach number, contact-surface velocity, expansion fan questions route to the high-speed shock-tube sub-skill.
+- camber-line glauert sine series, zero-lift angle, quarter-chord pitching moment, section lift coefficient questions route to the airfoil thin-airfoil-section-theory sub-skill.
+- shear-driven high-Mach plate gap, Crocco energy integral, recovery factor, wall shear and heat flux questions route to the high-speed compressible-couette-flow sub-skill.
 
 ## Install
 

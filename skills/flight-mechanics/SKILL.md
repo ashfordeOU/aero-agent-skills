@@ -81,6 +81,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/balanced-field-length | Balanced field length | balanced field length, V1 decision speed, accelerate-stop distance, accelerate-go distance, engine-out field length |
 | flight-mechanics/performance/rotorcraft-range-endurance | Rotorcraft range endurance | rotorcraft range endurance, hover endurance, cruise endurance, power required fuel closure, best range speed |
 | flight-mechanics/performance/rotorcraft-turn-performance | Rotorcraft turn performance | rotorcraft turn performance, helicopter banked turn, turning flight inflow, sustained load factor, power limited bank angle, turn rate |
+| flight-mechanics/performance/rotorcraft-main-rotor-sizing | Rotorcraft main rotor sizing | main-rotor disk loading ceiling, radius and solidity closure, ct-over-sigma design point, blade chord, tip Mach |
 
 ## Routing guidance
 
@@ -141,6 +142,7 @@ to the
 - Rotorcraft blade-element hover performance questions (thrust coefficient, torque coefficient, collective pitch, tip loss factor, hover figure of merit) route to the performance rotorcraft-blade-element-hover-performance sub-skill.
 - Rotorcraft axial-descent flow-state questions (vortex-ring band, windmill-brake state, descent induced velocity, torque reversal) route to the performance rotorcraft-axial-descent-flow-states sub-skill.
 - Rotorcraft lead-lag dynamics questions (lag frequency ratio, regressing lag mode, ground-resonance clearance, coincidence rotor speed) route to the performance rotorcraft-lead-lag-dynamics sub-skill.
+- main-rotor disk loading ceiling, radius and solidity closure, ct-over-sigma design point, blade chord, tip Mach questions route to the performance rotorcraft-main-rotor-sizing sub-skill.
 
 ## Install
 

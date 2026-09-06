@@ -89,6 +89,8 @@ material selection.
 | structures/composites/peel-stress-bonded-joints | Peel stress bonded joints | peel stress bonded joints, Goland Reissner, bending moment factor, adherend bending, peel margin |
 | structures/fem/beam-column-analysis | Beam column analysis | beam column analysis, combined axial and bending, moment amplification, secant formula, Euler load, interaction ratio |
 | structures/fem/curved-beam-analysis | Curved beam analysis | curved beam analysis, Winkler curved beam, eccentric neutral axis, curved member stress, inner fiber stress |
+| structures/fem/shear-center-analysis | Shear center analysis | thin-walled open section shear-center location, V*Q/I shear flow, channel Z angle hat sections |
+| structures/fem/shrink-fit-analysis | Shrink fit analysis | radial-interference contact pressure, Lame thick-cylinder bore hoop stress, von-Mises yield margin, allowable interference |
 
 
 ## Routing guidance
@@ -168,6 +170,8 @@ ance) route
 - Continuous-beam vibration questions (Euler-Bernoulli natural frequencies, characteristic equation roots, Rayleigh quotient) route to the fem beam-vibration sub-skill.
 
 - Metallic pin-loaded lug analysis questions (bearing, net-section tension and tearout stresses and margins, governing mode, capacity over the edge-distance ratio) route to the fem lug-joint-analysis sub-skill.
+- thin-walled open section shear-center location, V*Q/I shear flow, channel Z angle hat sections questions route to the fem shear-center-analysis sub-skill.
+- radial-interference contact pressure, Lame thick-cylinder bore hoop stress, von-Mises yield margin, allowable interference questions route to the fem shrink-fit-analysis sub-skill.
 
 ## Install
 

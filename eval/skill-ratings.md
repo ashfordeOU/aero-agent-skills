@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 567
+Total skills rated: 581
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -573,4 +573,17 @@ Total skills rated: 567
 | 565 | vehicle-design/sizing/v-tail-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 566 | vehicle-design/sizing/air-cycle-machine-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 567 | space-systems/adcs/reaction-jet-limit-cycle | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
-
+| 568 | gnc-autonomy/navigation/gnss-carrier-smoothing | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
+| 569 | gnc-autonomy/optimal-control/lqg-design | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 570 | aerodynamics/high-speed/shock-tube | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 571 | gnc-autonomy/navigation/bearing-only-localization | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 572 | flight-test-operations/performance/rotorcraft-autorotation-flight-test | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
+| 573 | aerodynamics/high-speed/compressible-couette-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 574 | aerodynamics/airfoil/thin-airfoil-section-theory | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 575 | propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 576 | flight-mechanics/performance/rotorcraft-main-rotor-sizing | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 577 | systems-engineering-safety/arp4761a/reliability-allocation | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 578 | systems-engineering-safety/arp4761a/fault-tree-quantification | PASS | ✓ | arp4761a | systems-engineering-safety | 9.5 | PASS |
+| 579 | structures/fem/shear-center-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 580 | vehicle-design/sizing/landing-gear-layout | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
+| 581 | structures/fem/shrink-fit-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |

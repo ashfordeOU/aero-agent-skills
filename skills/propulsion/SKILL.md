@@ -80,6 +80,7 @@ compressor stage and operating-map analysis.
 | propulsion/gas-turbine-cycle/turbojet-cycle | Turbojet cycle | turbojet cycle, ideal turbojet, compressor turbine matching, turbine inlet temperature, net specific thrust, turbojet TSFC, core engine matching |
 | propulsion/rocket/rocket-nozzle-flow-separation | Rocket nozzle flow separation | rocket nozzle flow separation, separation pressure ratio, Summerfield criterion, overexpanded nozzle, separation altitude, separated thrust loss, side load regime |
 | propulsion/axial-compressor/polytropic-efficiency | Polytropic efficiency | polytropic efficiency, isentropic efficiency conversion, stage count independent efficiency, per stage pressure ratio, reheat factor |
+| propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio | Brayton optimum pressure ratio | max-work pressure ratio, maximum specific work, zero-work limiting ratio, ideal and lossy cycle |
 
 
 ## Routing guidance
@@ -140,6 +141,7 @@ to turbofan-cycle;
 - Rocket thrust chamber regenerative cooling questions (Bartz hot gas coefficient, coolant side convection, wall heat flux and temperature, coolant mass flux for the wall limit, film cooling handoff) route to the rocket thrust-chamber-cooling sub-skill.
 
 - Rocket engine injector element design questions (orifice discharge flow, injection velocity, unlike-doublet momentum flux ratio, fuel and oxidizer orifice counts, per-element flow balance) route to the rocket injector-design sub-skill.
+- max-work pressure ratio, maximum specific work, zero-work limiting ratio, ideal and lossy cycle questions route to the gas-turbine-cycle brayton-optimum-pressure-ratio sub-skill.
 
 ## Install
 
