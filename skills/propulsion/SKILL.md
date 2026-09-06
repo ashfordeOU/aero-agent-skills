@@ -84,6 +84,8 @@ compressor stage and operating-map analysis.
 | propulsion/axial-compressor/polytropic-efficiency | Polytropic efficiency | polytropic efficiency, isentropic efficiency conversion, stage count independent efficiency, per stage pressure ratio, reheat factor |
 | propulsion/gas-turbine-cycle/brayton-optimum-pressure-ratio | Brayton optimum pressure ratio | max-work pressure ratio, maximum specific work, zero-work limiting ratio, ideal and lossy cycle |
 
+| propulsion/turbofan/mixed-flow-exhaust | Mixed flow exhaust | mixed flow exhaust, turbofan mixing exhaust, constant area mixer, exhaust mixer, common nozzle, mixing loss, mixed versus separate exhaust |
+| propulsion/rocket/nozzle-area-ratio-selection | Nozzle area ratio selection | nozzle area ratio selection, design altitude expansion ratio, matched expansion ratio, optimum area ratio, sea level vacuum Isp, expansion ratio selection |
 
 ## Routing guidance
 
@@ -164,4 +166,5 @@ your host's skills directory (see README Install for per-host commands).
 
 - Compressor and turbine efficiency conversion questions (isentropic to polytropic and reverse at an overall pressure ratio, stage-count-independent polytropic efficiency, reheat-factor cross-check) route to the axial-compressor polytropic-efficiency sub-skill.
 - Turbofan design-point questions (fan and core stream station states from OPR, turbine-inlet temperature, fan pressure ratio and bypass ratio, two-spool work balance, separate-exhaust net thrust and TSFC) route to the turbofan turbofan-design-point sub-skill.
+- Mixed-flow exhaust questions (two-stream mixer energy and momentum balance, common nozzle, mixing loss) route to the turbofan mixed-flow-exhaust sub-skill; rocket nozzle design-altitude expansion-ratio selection (matched area ratio, delivered Isp at sea level and vacuum) routes to the rocket nozzle-area-ratio-selection sub-skill.
 - Rocket nozzle delivered-thrust loss questions (conical-nozzle divergence factor, bell-contour efficiency, boundary-layer displacement effect, delivered Isp versus the ideal ceiling) route to the rocket rocket-nozzle-divergence-loss sub-skill.

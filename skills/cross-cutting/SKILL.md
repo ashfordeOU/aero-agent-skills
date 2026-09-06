@@ -98,6 +98,7 @@ integration) for engineering calculations.
 | cross-cutting/numerics/poisson-confidence-interval | Poisson confidence interval | poisson confidence interval, count rate interval, defect rate estimation, Garwood exact interval, poisson rate CI |
 | cross-cutting/numerics/power-analysis | Power analysis | power analysis, sample size determination, type II error, effect size, minimum sample size, achieved power |
 
+| cross-cutting/numerics/bandpass-bandstop-filter-design | Bandpass bandstop filter design | bandpass filter design, bandstop filter design, Butterworth bandpass, digital frequency transformation, band edge verification |
 
 ## Routing guidance
 
@@ -196,4 +197,5 @@ your host's skills directory (see README Install for per-host commands).
 - Single-proportion significance questions (exact binomial tail test of an observed k-of-n count against a hypothesized p0, mid-p variant, small-count recommendation) route to the numerics exact-binomial-test sub-skill.
 - Poisson rate interval questions (exact Garwood chi-square bounds for a count over an exposure, defect rate per unit, normal-approximation cross-check) route to the numerics poisson-confidence-interval sub-skill.
 - Test-sizing questions (minimum sample size per group from alpha, power and effect size for two-sample, one-sample and proportion comparisons, achieved power at the rounded sample size, type-II error) route to the numerics power-analysis sub-skill.
+- Bandpass and bandstop digital-filter questions (Butterworth IIR bandpass/bandstop by the z-domain frequency transformation, band-edge verification) route to the numerics bandpass-bandstop-filter-design sub-skill; lowpass and highpass questions stay with digital-filter-design.
 - Mating fastener pattern questions (ASME Y14.5 fixed and floating fastener positional tolerance budgets, projected tolerance zone, minimum clearance hole at MMC) route to the tolerancing fastener-position-tolerance-calc sub-skill.

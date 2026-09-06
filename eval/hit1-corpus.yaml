@@ -270,6 +270,11 @@
 # leaves). Wave-43 new leaves: "structures/fem/crippling-analysis", "aerodynamics/high-speed/fanno-flow", "gnc-autonomy/navigation/gnss-doppler-velocity-positioning", "structures/fem/hertzian-contact-stress", "gnc-autonomy/estimation-filtering/imu-static-calibration", "structures/fem/metallic-fastener-joints", "structures/fem/plastic-collapse-analysis", "gnc-autonomy/estimation-filtering/process-noise-discretization", "aerodynamics/high-speed/rayleigh-flow", "propulsion/rocket/rocket-nozzle-divergence-loss", "flight-test-operations/performance/rotorcraft-forward-flight-climb-test", "flight-test-operations/performance/rotorcraft-height-velocity-diagram-test", "gnc-autonomy/navigation/tightly-coupled-ins-gnss", "propulsion/turbofan/turbofan-design-point", "aerodynamics/boundary-layer/unsteady-laminar-stokes-layers", "flight-test-operations/envelope/vmu-determination".
 # Corpus: 1210 tasks (1178 prior plus 32 domain tasks). Owner: Ops
 # Manager, Wave 43 build.
+# P5.2 / Wave 44 (2026-09-06): fan-out continues on the public
+# v1.0.0 model to 611 verified skills (623 SKILL.md under gate 1: 12 routers + 611
+# leaves). Wave-44 new leaves: "aerodynamics/high-speed/ackeret-linearized-supersonic", "aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow", "avionics/fsw/aperiodic-server-scheduling", "cross-cutting/numerics/bandpass-bandstop-filter-design", "gnc-autonomy/navigation/gnss-rtk-positioning", "aerodynamics/high-speed/hypersonic-piston-theory", "gnc-autonomy/optimal-control/ilqr-ddp", "propulsion/turbofan/mixed-flow-exhaust", "propulsion/rocket/nozzle-area-ratio-selection", "structures/fem/restrained-warping", "structures/fem/statically-indeterminate", "aerodynamics/boundary-layer/stokes-creeping-flow-drag", "gnc-autonomy/navigation/terrain-referenced-navigation", "flight-test-operations/envelope/vmcg-determination".
+# Corpus: 1238 tasks (1210 prior plus 28 domain tasks). Owner: Ops
+# Manager, Wave 44 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5422,6 +5427,118 @@ tasks:
     query: "issue the unstick-certification verdict from the corrected rotation runs that gates the V1 and VR scheduling against the 1.08 Vmu liftoff margin and the 1.10 Vs1 stall floor"
     intent: "flight-test-operations; Vmu verdict from corrected rotation runs gating the V1/VR schedule against the 1.08 Vmu liftoff margin and the 1.10 Vs1 rotation stall floor"
     expected_skill: "flight-test-operations/envelope/vmu-determination"
+  - id: w44-ackeret-linearized-supersonic-1
+    query: "analyze the ackeret linearized-supersonic flow over a thin airfoil section at a supersonic mach number: from the freestream mach compute the ackeret parameter sqrt(M^2 - 1), the ackeret surface pressure coefficient Cp = +-2*theta/sqrt(M^2 - 1) for a surface deflection theta, the section lift cl = 4*alpha/sqrt(M^2 - 1) and the supersonic lift curve slope"
+    intent: "aerodynamics; ackeret linearized supersonic thin-airfoil section coefficients: Cp law, cl and the supersonic lift-curve slope"
+    expected_skill: "aerodynamics/high-speed/ackeret-linearized-supersonic"
+  - id: w44-ackeret-linearized-supersonic-2
+    query: "compute the ackeret wave drag of the thin biconvex circular-arc section and of a cambered thin plate in linear supersonic flow from the linearized pressure integral over the surface slopes, with the section leading edge moment coefficient cm_le, at mach 2"
+    intent: "aerodynamics; ackeret wave-drag and moment coefficients of biconvex and cambered thin sections by the linearized pressure integral"
+    expected_skill: "aerodynamics/high-speed/ackeret-linearized-supersonic"
+  - id: w44-added-mass-coefficients-potential-flow-1
+    query: "determine the added-mass-coefficients-potential-flow virtual mass of a body accelerating through an inviscid irrotational fluid from the kinetic energy of the irrotational flow it sets up: the 2-D circular cylinder and normal flat plate coefficients per unit span, the 3-D sphere coefficient, and the airship hull spheroid coefficients"
+    intent: "aerodynamics; added mass coefficients (virtual mass, apparent mass) of bodies accelerating through an inviscid irrotational fluid, from the kinetic energy T = (1/2)*rho*integral(phi*dphi/dn dS) of the irrotational flow: 2-D circular cylinder rho*pi*R^2 and normal flat plate rho*pi*a^2 per unit span, 3-D sphere (2/3)*rho*pi*R^3, and the prolate and oblate spheroid catalog with the displaced-mass ratios"
+    expected_skill: "aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow"
+  - id: w44-added-mass-coefficients-potential-flow-2
+    query: "compute the acceleration-reaction force and the fluid kinetic energy at a translation speed from the added mass of a ditching float cylinder, a slamming plate, and a sphere, and the apparent-mass share of the virtual mass against the body mass"
+    intent: "aerodynamics; acceleration-reaction force m_a*acceleration and fluid kinetic energy (1/2)*m_a*U^2 from the potential-flow added mass catalog of a circular float, a normal flat plate and a sphere, with the virtual mass and the added-mass fraction against a body mass"
+    expected_skill: "aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow"
+  - id: w44-aperiodic-server-scheduling-1
+    query: "size the aperiodic-server-scheduling server-budget from the aperiodic load utilization and place the sporadic-server at the fixed-priority slot that keeps the periodic task set feasible"
+    intent: "avionics/fsw; sizing the sporadic-server capacity and period from the aperiodic load utilization and inserting the server budget into the fixed-priority response-time analysis at the highest feasible priority slot so the periodic tasks keep their deadlines"
+    expected_skill: "avionics/fsw/aperiodic-server-scheduling"
+  - id: w44-aperiodic-server-scheduling-2
+    query: "bound the aperiodic-response-time of the event-driven jobs under the deferrable-server and polling-server worst-case phases with the capacity-loss wait and the replenishment arithmetic"
+    intent: "avionics/fsw; worst-case aperiodic response bounds and budget-replenishment waits for the deferrable-server and polling-server mechanisms servicing event-driven jobs beside a fixed-priority periodic task set"
+    expected_skill: "avionics/fsw/aperiodic-server-scheduling"
+  - id: w44-bandpass-bandstop-filter-design-1
+    query: "apply the bandpass-filter-design to a sampled channel by the digital-frequency-transformation: given the lower and upper band edge frequencies, the sample rate and the prototype order, compute the butterworth-bandpass coefficients from a digital Butterworth prototype and verify that both band edges sit at minus 3.0103 dB on the magnitude response"
+    intent: "cross-cutting; Butterworth IIR bandpass design by the z-domain digital frequency transformation with both band edges verified at -3.0103 dB on the magnitude response"
+    expected_skill: "cross-cutting/numerics/bandpass-bandstop-filter-design"
+  - id: w44-bandpass-bandstop-filter-design-2
+    query: "run the bandstop-filter-design to notch out a narrow band: compute the bandstop coefficients by the z-domain LP-to-BS digital-frequency-transformation, check the stopband edge gains at minus 3.0103 dB and the notch center null, and filter a deterministic test signal containing a tone inside the notch"
+    intent: "cross-cutting; Butterworth IIR bandstop design by the z-domain LP-to-BS digital frequency transformation with stopband edge checks, notch center null and filtered test signal"
+    expected_skill: "cross-cutting/numerics/bandpass-bandstop-filter-design"
+  - id: w44-gnss-rtk-positioning-1
+    query: "resolve the integer carrier-phase ambiguities and compute the rover position relative to a fixed base from double-difference carrier-phase observables: form the single and double differences across the satellite pairs and epochs, solve for the float baseline and ambiguities, then apply the ratio test to the rounding candidate sets"
+    intent: "gnc-autonomy; differential GNSS rover fix relative to a fixed base from double-difference carrier-phase observables with float baseline and integer ambiguity resolution by rounding candidate sets and a ratio test on the float covariance"
+    expected_skill: "gnc-autonomy/navigation/gnss-rtk-positioning"
+  - id: w44-gnss-rtk-positioning-2
+    query: "carrier-phase differential positioning: given the common-view L1 phase streams at a fixed base and a rover over several epochs, resolve the double-difference integer ambiguities and report the fixed baseline as the ENU offset at the base"
+    intent: "gnc-autonomy; RTK fixed baseline and ENU offset from carrier-phase differential double-difference observables with the integer ambiguities resolved"
+    expected_skill: "gnc-autonomy/navigation/gnss-rtk-positioning"
+  - id: w44-hypersonic-piston-theory-1
+    query: "estimate the surface pressure on the compression and the expansion side of a small-perturbation hypersonic surface by Lighthill piston theory: from the freestream Mach and the local inclination compute the piston-theory pressure ratio p/p_inf and the surface-pressure coefficient with the linearized limit"
+    intent: "aerodynamics; Lighthill piston-theory surface pressure: piston-theory pressure ratio and per-side surface-pressure coefficient of an inclined small-perturbation hypersonic surface with the linearized limit"
+    expected_skill: "aerodynamics/high-speed/hypersonic-piston-theory"
+  - id: w44-hypersonic-piston-theory-2
+    query: "find the instantaneous surface-pressure coefficient of an unsteady hypersonic surface whose oscillatory normal motion adds to the geometric piston velocity, with the small-perturbation hypersonic-piston analogy at hypersonic Mach"
+    intent: "aerodynamics; unsteady hypersonic piston theory: piston velocity as the geometric term plus the wall normal motion, instantaneous surface-pressure ratio and pressure coefficient of a moving surface"
+    expected_skill: "aerodynamics/high-speed/hypersonic-piston-theory"
+  - id: w44-ilqr-ddp-1
+    query: "run iterative LQR (ilqr-ddp) on the nonlinear discrete-time soft-landing dynamics under gravity and quadratic drag: roll the nominal control forward, run the backward Riccati pass that forms the value-function quadratics Qx, Qu, Qxx, Qux, Quu and the local affine control law at each step, and execute the forward pass with backtracking line search until the total cost converges"
+    intent: "gnc-autonomy; ilqr-ddp differential dynamic programming on nonlinear discrete-time dynamics: forward rollout, backward Riccati pass with the value-function quadratics and the local affine control law, forward pass with backtracking line search to convergence"
+    expected_skill: "gnc-autonomy/optimal-control/ilqr-ddp"
+  - id: w44-ilqr-ddp-2
+    query: "compute the iterative-lqr backward-riccati-pass gains and the converged feedforward control of the differential-dynamic-programming constant-descent-rate soft landing with drag, and check the touchdown state, the gain sequences and the cost history against the documented landing trajectory"
+    intent: "gnc-autonomy; iterative-lqr backward-riccati-pass and differential-dynamic-programming gain sequences with the converged feedforward control, touchdown state and cost history of the nonlinear soft-landing trajectory"
+    expected_skill: "gnc-autonomy/optimal-control/ilqr-ddp"
+  - id: w44-mixed-flow-exhaust-1
+    query: "compute the mixed total temperature and pressure of a low bypass ratio turbofan mixing exhaust by the constant area mixer energy and momentum balance and size the common choked nozzle for the mixed stream"
+    intent: "propulsion; two-stream turbofan mixing exhaust design point with the constant-area mixer and common nozzle"
+    expected_skill: "propulsion/turbofan/mixed-flow-exhaust"
+  - id: w44-mixed-flow-exhaust-2
+    query: "compare the mixed flow exhaust net thrust and TSFC of a two stream turbofan against the separate exhaust baseline at the design point"
+    intent: "propulsion; mixed-flow vs separate-exhaust F and TSFC comparison at a low-BPR design point"
+    expected_skill: "propulsion/turbofan/mixed-flow-exhaust"
+  - id: w44-nozzle-area-ratio-selection-1
+    query: "solve the design-altitude-expansion-ratio for the rocket nozzle: find the matched-expansion-ratio whose isentropic exit pressure equals the ambient pressure at the 20 km design altitude and report the sea-level vacuum and design-altitude isp at the chosen area ratio"
+    intent: "propulsion; design-altitude expansion-ratio selection, matched Pe = Pa(h_design) by the inverse area-Mach solve, with the sea-level/vacuum/design-altitude Isp triple at the chosen ratio"
+    expected_skill: "propulsion/rocket/nozzle-area-ratio-selection"
+  - id: w44-nozzle-area-ratio-selection-2
+    query: "select the nozzle-area-ratio-selection matched to the design altitude of the LOX RP1 upper stage and apply the attached-flow-guard to verify that the chosen expansion ratio keeps the nozzle wall flow attached when the stage fires near sea level"
+    intent: "propulsion; expansion-ratio selection at a design altitude plus the K_SEP attached-flow guard decision on the chosen ratio at a lower ambient"
+    expected_skill: "propulsion/rocket/nozzle-area-ratio-selection"
+  - id: w44-restrained-warping-1
+    query: "compute the restrained torsion response of a thin-walled open I-beam built in at one end under a tip torque: the warping constant Cw = I_y*h^2/4 of the doubly symmetric I-section, the bimoment B = -E*Cw*theta'' with the hyperbolic closed-form twist of the non-uniform torsion equation, the warping normal stress at the flange tip and the Saint-Venant versus warping torque split along the span"
+    intent: "structures; restrained (non-uniform) torsion of a thin-walled open I-section: warping constant, decay parameter of the non-uniform torsion ODE, hyperbolic twist solution of the built-in cantilever under a tip torque, bimoment and flange-tip warping normal stress, and the T_sv/T_w torque split along the span"
+    expected_skill: "structures/fem/restrained-warping"
+  - id: w44-restrained-warping-2
+    query: "find the twist, bimoment and warping normal stress of an I-beam with fork supports (twist fixed, warping free at the ends) carrying a point torque at midspan, and report how the warping restraint stiffens the beam against the free Saint-Venant twist"
+    intent: "structures; non-uniform torsion of a fork-supported beam under a midspan torque: half-beam hyperbolic solution, midspan bimoment peak, warping normal stress and the restraint twist ratio against the free Saint-Venant baseline"
+    expected_skill: "structures/fem/restrained-warping"
+  - id: w44-statically-indeterminate-1
+    query: "analyze a statically indeterminate propped cantilever and a continuous beam elastically: compute the fixed-end moments of the standard load cases, find the interior support moment of the two-span continuous beam with the three-moment (Clapeyron) equation, verify it with moment distribution (Hardy-Cross) using the stiffness distribution factors and the 1/2 carry-over factor, and report the support reactions and end moments"
+    intent: "structures; elastic redundancy analysis of statically indeterminate beams and continuous beams: fixed-end moments of the standard load cases, three-moment (Clapeyron) interior support moments, moment distribution (Hardy-Cross) verification with distribution factors and carry-over, support reactions and end moments"
+    expected_skill: "structures/fem/statically-indeterminate"
+  - id: w44-statically-indeterminate-2
+    query: "find the redundant reactions and the fixed-end moment of a statically indeterminate propped cantilever by the consistent deformation (force) method with flexibility coefficients and by slope-deflection with joint rotations, then report the continuous beam support moments and the fixed-base frame end moments under a central beam load"
+    intent: "structures; elastic redundant analysis by the consistent deformation (force) method with flexibility coefficients and by slope-deflection joint rotations: propped cantilever reactions and fixed-end moments, continuous-beam support moments, fixed-base frame end moments"
+    expected_skill: "structures/fem/statically-indeterminate"
+  - id: w44-stokes-creeping-flow-drag-1
+    query: "compute the stokes-drag of the creeping flow about a small sphere of radius 0.1 mm moving at 0.01 m per s through still air: evaluate the stokes streamfunction velocity field around the sphere, the total stokes drag six pi mu a U, the pressure drag to friction drag split, and the drag coefficient"
+    intent: "aerodynamics; steady low-Reynolds-number creeping flow about a sphere in the viscous boundary-layer vein: Stokes streamfunction velocity field, Stokes drag F = 6*pi*mu*a*U with the pressure (form) drag one third and the friction drag two thirds of the total, drag coefficient 24/Re_D at the diameter Reynolds number"
+    expected_skill: "aerodynamics/boundary-layer/stokes-creeping-flow-drag"
+  - id: w44-stokes-creeping-flow-drag-2
+    query: "estimate the terminal velocity of a tiny water sphere of 10 micron radius settling in still air when its weight balances the stokes-drag at low reynolds number, and apply the oseen correction factor one plus three eighths of the radius reynolds number to the stokes drag"
+    intent: "aerodynamics; creeping-flow Stokes drag applied to a settling sphere: terminal velocity from the Stokes balance (2/9)*(rho_p - rho_f)*g*a^2/mu with the diameter-Reynolds-number creeping check, Oseen first-order drag correction factor 1 + (3/8)*Re_a on the radius-based Reynolds number"
+    expected_skill: "aerodynamics/boundary-layer/stokes-creeping-flow-drag"
+  - id: w44-terrain-referenced-navigation-1
+    query: "estimate the along-track and cross-track position error of an unaided inertial navigation solution by matching a measured radar-altimeter terrain profile against a stored digital elevation model strip with TERCOM-style grid correlation and report the correlation surface and the best-match position offset"
+    intent: "gnc-autonomy; TERCOM terrain contour matching of a radar-altimeter terrain profile against a stored DEM strip, the correlation surface and the best-match along-track and cross-track offset that corrects the inertial position"
+    expected_skill: "gnc-autonomy/navigation/terrain-referenced-navigation"
+  - id: w44-terrain-referenced-navigation-2
+    query: "run a point-mass terrain-referenced navigation update with the linearized terrain-slope measurement model to correct the inertial position from a radar-altimeter clearance measurement against the stored digital elevation model"
+    intent: "gnc-autonomy; SITAN point-mass fine stage with the linearized terrain-slope measurement update correcting the inertial position error from radar-altimeter height over digital terrain"
+    expected_skill: "gnc-autonomy/navigation/terrain-referenced-navigation"
+  - id: w44-vmcg-determination-1
+    query: "reduce the engine-failure ground roll demonstration runs of the transport flight test to the vmcg-determination ground-minimum-control-speed with the nosewheel-steering-authority cutout check and the steering-free rudder balance on the ground"
+    intent: "flight-test-operations; FAR/CS 25.149 ground minimum control speed Vmcg reduction from the engine-failure takeoff roll runs with the nosewheel steering cutout and the steering-free rudder authority and pedal force checks"
+    expected_skill: "flight-test-operations/envelope/vmcg-determination"
+  - id: w44-vmcg-determination-2
+    query: "issue the ground-control verdict from the corrected steering-free roll runs with the 150 lbf rudder pedal force criterion that gates the balanced field V1 schedule above the demonstrated vmcg-determination ground-minimum-control-speed"
+    intent: "flight-test-operations; Vmcg verdict from corrected steering-free roll runs gating the balanced-field V1 schedule with the 150 lbf pedal force criterion and the boost factor"
+    expected_skill: "flight-test-operations/envelope/vmcg-determination"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

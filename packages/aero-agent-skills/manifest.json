@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 597,
+  "leaves": 611,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1210
+  "corpus_tasks": 1238
  },
  "skills": [
   {
@@ -15,6 +15,22 @@
    "family": "aerodynamics",
    "pack": null,
    "router_doc": true
+  },
+  {
+   "path": "aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow",
+   "name": "added-mass-coefficients-potential-flow",
+   "description": "Use when you must determine the added-mass-coefficients-potential-flow virtual mass (apparent mass) of a body accelerating through an inviscid irrotational fluid from the kinetic energy of the irrotational flow it sets up: the 2-D circular cylinder rho pi R^2 and normal flat plate rho pi a^2 per unit span, the 3-D sphere two-thirds rho pi R^3, the elliptic cylinder and the prolate and oblate spheroid coefficients, plus the kinetic-energy and acceleration-reaction relations. Produces the added mass of the requested shape, its ratio to the displaced fluid mass, the fluid kinetic energy at a translation speed, the virtual mass with the body mass, and the acceleration-reaction force for the fluid inertia of unsteady motion. Trigger: added mass coefficients, virtual mass, apparent mass, acceleration reaction force, kinetic energy of irrotational flow, body accelerating in fluid, airship hull added mass, ditching float added mass, spheroid added mass.",
+   "tags": [
+    "added-mass-coefficients-potential-flow",
+    "virtual-mass",
+    "apparent-mass",
+    "acceleration-reaction-force",
+    "kinetic-energy-catalog",
+    "displaced-fluid-inertia"
+   ],
+   "family": "aerodynamics",
+   "pack": "aeroelasticity",
+   "router_doc": false
   },
   {
    "path": "aerodynamics/aeroelasticity/aeroelastic-gust-response",
@@ -235,6 +251,22 @@
     "homann-similarity",
     "stagnation-velocity-gradient",
     "stagnation-wall-shear"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/stokes-creeping-flow-drag",
+   "name": "stokes-creeping-flow-drag",
+   "description": "Use when you must compute the steady low-Reynolds-number viscous drag on a sphere in creeping flow, the Stokes solution for the slow motion of a sphere through a viscous fluid: evaluate the stokes streamfunction and the velocity field about the sphere, the surface pressure and wall-shear distributions with their high-pressure-facing-the-stream signature, the total stokes drag F = 6*pi*mu*a*U split one third pressure drag to two thirds friction drag, the drag coefficient Cd = 24/Re_D at the diameter Reynolds number, the Oseen correction factor 1 + (3/8)*Re_a on the radius-based Reynolds number, and the terminal settling velocity (2/9)*(rho_p - rho_f)*g*a^2/mu of a small dense sphere in still air. Produces the creeping-flow drag, the field values and the settling speed in SI units that anchor low-Reynolds-number body-drag estimates and viscous-flow checks. Trigger: stokes-creeping-flow-drag, creeping-flow, stokes-drag, stokes-streamfunction, oseen-correction, terminal-velocity.",
+   "tags": [
+    "stokes-creeping-flow-drag",
+    "creeping-flow",
+    "stokes-drag",
+    "stokes-streamfunction",
+    "oseen-correction",
+    "terminal-velocity"
    ],
    "family": "aerodynamics",
    "pack": "boundary-layer",
@@ -482,6 +514,22 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/high-speed/ackeret-linearized-supersonic",
+   "name": "ackeret-linearized-supersonic",
+   "description": "Use when you must compute the section coefficients of a thin airfoil at supersonic speed by ackeret linearized supersonic theory: evaluate the ackeret parameter sqrt(M^2 - 1), the surface pressure coefficient Cp = 2*theta/sqrt(M^2 - 1) for a deflection theta, the section lift cl = 4*alpha/sqrt(M^2 - 1), the supersonic lift curve slope, and the wave drag of the flat plate, the thin biconvex circular-arc section and a cambered thin plate from the linearized pressure integral over the surface slopes, with the leading edge moment coefficient cm_le. Produces the ackeret Cp, cl, cd_wave and cm_le values that gate thin supersonic airfoil wave drag estimates, section design cross-checks and gas dynamics coursework. Trigger: ackeret theory, linearized supersonic flow, linear supersonic thin airfoil, biconvex wave drag, supersonic lift curve slope.",
+   "tags": [
+    "ackeret-linearized-supersonic",
+    "ackeret-theory",
+    "linear-supersonic-thin-airfoil",
+    "supersonic-lift-curve-slope",
+    "biconvex-section",
+    "cambered-plate-supersonic"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/high-speed/aerodynamic-heating",
    "name": "aerodynamic-heating",
    "description": "Use when you must estimate the aerodynamic heating at the stagnation point of a hypersonic body: stagnation-point convective heat flux from the Sutton-Graves correlation using freestream density, flight velocity and nose radius, radiation-equilibrium wall temperature from the Stefan-Boltzmann balance at a chosen surface emissivity, and the nose-radius bluntness trade that scales the flux for blunt versus sharp geometries. Produces the stagnation heat flux, the radiation-equilibrium temperature and the bluntness comparison that gate a thermal protection material choice. Trigger: aerodynamic heating, stagnation-point-heating, sutton-graves, radiation-equilibrium-temperature, nose-radius-bluntness, reentry heating, thermal protection.",
@@ -570,6 +618,21 @@
     "sphere-drag-coefficient",
     "cone-axial-force",
     "hypersonic-vacuum-limit"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/hypersonic-piston-theory",
+   "name": "hypersonic-piston-theory",
+   "description": "Use when you must estimate the surface pressure on a small-perturbation hypersonic surface by Lighthill piston theory: evaluate the piston-theory pressure ratio p/p_inf = (1 + ((gamma - 1)/2) v/a_inf)^(2 gamma/(gamma - 1)) from the piston velocity ratio, apply the linearized limit p/p_inf = 1 + gamma v/a_inf for a small piston velocity, split the compression side from the expansion side of the inclined surface, compute the surface-pressure coefficient Cp = 2/(gamma M^2) (p/p_inf - 1) from the freestream Mach and inclination on either side, and extend the same law to an unsteady surface whose normal motion adds to the geometric piston velocity. Produces the piston-theory surface-pressure ratios, the linearized limits and the per-side and instantaneous pressure coefficients that gate hypersonic panel pressure, stability derivative and oscillating-surface load estimates. Trigger: piston theory, hypersonic piston analogy, small perturbation hypersonic surface pressure, Lighthill.",
+   "tags": [
+    "hypersonic-piston-theory",
+    "lighthill-piston-analogy",
+    "small-perturbation-hypersonic",
+    "piston-theory-pressure-ratio",
+    "unsteady-hypersonic-surface-pressure"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -1533,6 +1596,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/fsw/aperiodic-server-scheduling",
+   "name": "aperiodic-server-scheduling",
+   "description": "Use when you must give the aperiodic or event-driven jobs of an avionics flight software task set a bounded service under fixed-priority scheduling: reduce the event streams to their load utilization, size the polling-server, deferrable-server or sporadic-server capacity and period from that load with a burst margin, fold the server budget into the fixed-priority response-time analysis as a periodic task at its priority slot, and place it at the highest slot where every periodic task keeps its implicit deadline and the budget completes within its period. Produces the sized server budget, the insertion index with the augmented response times and total utilization, the worst-case aperiodic response bounds with the capacity-loss wait and replenishment arithmetic, and the no-feasible-slot verdict. Trigger: aperiodic server, sporadic server, deferrable server, polling server, server budget, event driven jobs, aperiodic response time.",
+   "tags": [
+    "aperiodic-server-scheduling",
+    "sporadic-server",
+    "deferrable-server",
+    "polling-server",
+    "server-capacity",
+    "aperiodic-response-bound"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
    "path": "avionics/fsw/cfs-architecture",
    "name": "cfs-architecture",
    "description": "Use when designing a cFS app, explaining cFS layering, or simulating software bus routing for flight software. Model and simulate NASA core Flight Software (cFS) architecture: explain the cFE/OSAL/PSP layering (Executive Services, Software Bus, Event Services, Table Services, Time Services, File Services), structure apps with the classic APP_Init, APP_Execute, APP_Data pattern, and route messages by 16-bit message ID over a software bus publish/subscribe model, with a pure-Python simulation that registers apps, subscribes to message IDs, publishes payloads, routes queued messages in publish order, stamps telemetry sequence counters, and logs events by severity. Trigger: cFS, core flight software, cFE, OSAL, PSP, software bus, publish subscribe, app skeleton, telemetry pipeline.",
@@ -1785,6 +1864,22 @@
    ],
    "family": "cross-cutting",
    "pack": "export-control",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/bandpass-bandstop-filter-design",
+   "name": "bandpass-bandstop-filter-design",
+   "description": "Use when you must design a digital Butterworth IIR bandpass or bandstop filter from its two band-edge frequencies, sample rate, and order by the z-domain LP-to-BP / LP-to-BS digital frequency transformation: map a digital Butterworth prototype into the band so both edges land at exactly -3.0103 dB on the magnitude response, then filter a sampled signal. Produces the bandpass or bandstop coefficient vectors, substitution parameters, center frequency, band-edge gain checks, filtered output, and stability evidence; all coefficients computed, none looked up. Trigger: bandpass filter design, bandstop filter design, Butterworth bandpass, Butterworth bandstop, digital frequency transformation, band edge frequencies, notch filter, band-limited channel.",
+   "tags": [
+    "bandpass-filter-design",
+    "bandstop-filter-design",
+    "butterworth-bandpass",
+    "butterworth-bandstop",
+    "digital-frequency-transformation",
+    "band-edge-gain"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
    "router_doc": false
   },
   {
@@ -3724,6 +3819,20 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/envelope/vmcg-determination",
+   "name": "vmcg-determination",
+   "description": "Use when you must reduce the engine-failure ground roll demonstration runs of a transport airplane flight test to the ground minimum control speed Vmcg in the spirit of the FAR/CS 25.149 ground leg method, summary-only: build the asymmetric yawing moment from the failed engine thrust at its lateral arm, apply the nosewheel steering authority below the steering cutout speed, solve the steering-free rudder authority limited and 150 lbf pedal force limited ground speeds with the boost factor, classify runs into the steering-held, departed, at-limit and with-margin classes, and take the minimum corrected at-limit speed as the Vmcg verdict with bracket checks. Produces the corrected run table, the Vmcg in m/s and knots, the bracket verdict, the stall guard check against 1.05 Vs1, and the V1 gate verdict with the required V1 speed. Trigger: ground minimum control speed, vmcg determination, nosewheel steering authority, steering cutout speed, engine failure ground roll run.",
+   "tags": [
+    "vmcg-determination",
+    "ground-minimum-control-speed",
+    "nosewheel-steering-authority",
+    "steering-cutout-speed"
+   ],
+   "family": "flight-test-operations",
+   "pack": "envelope",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/envelope/vmu-determination",
    "name": "vmu-determination",
    "description": "Use when you must reduce the takeoff rotation runs of a transport airplane flight test to the minimum unstick speed Vmu in the spirit of the FAR/CS 25.107(b) method, summary-only: classify each measured rotation run against the certified tail-strike rotation limit, correct each liftoff speed from the test weight, altitude, temperature, and flap setting to the reference conditions, and take the minimum corrected speed of the limit-reaching runs as the Vmu verdict with the no-unstick and premature-unstick bracket checks. Produces the corrected run table, the Vmu in m/s and knots, the bracket consistency verdict, and the certification margins against the 1.08 Vmu liftoff constraint and the 1.10 Vs1 rotation floor that gate the V1/VR scheduling. Trigger: minimum unstick speed, vmu determination, rotation limit speed, unstick certification, tail strike rotation limit, takeoff rotation run.",
@@ -5059,6 +5168,22 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/navigation/gnss-rtk-positioning",
+   "name": "gnss-rtk-positioning",
+   "description": "Use when you must compute the position of a GNSS rover relative to a fixed base station from double-difference carrier-phase observables: form the per-satellite single differences across the receivers at each epoch of a common-view observation arc, then the double differences across satellite pairs and epochs, and solve the stacked least-squares normal equations for the float baseline and the per-pair float ambiguities. Resolve the integer ambiguities by rounding candidate sets around the float solution with a ratio test on the float covariance, impose the winning integer set, and re-solve for the fixed baseline with per-axis 1-sigma precision. Produces the float baseline and the fixed rover baseline in ECEF, the resolved integer ambiguity set with its ratio, and the fixed ENU offset at the base. Trigger: carrier phase differential, RTK positioning, integer ambiguity resolution, double difference baseline, fixed baseline ENU offset.",
+   "tags": [
+    "gnss-rtk-positioning",
+    "gnss-rtk",
+    "rtk-positioning",
+    "carrier-phase-differential",
+    "integer-ambiguity-resolution",
+    "double-difference-baseline"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/navigation/inertial-navigation",
    "name": "inertial-navigation",
    "description": "Use when you must assess an inertial navigation system (INS): estimate position error growth from accelerometer bias and gyro drift, check the Schuler period and the leveling response, compare strapdown and gimbaled mechanization, and scope alignment and INS/GPS integration. Produces the double-integration position error from an accelerometer bias, the cubic position error from gyro drift, the bounded Schuler steady-state offset, and the Schuler period and frequency. Trigger: inertial navigation, ins, strapdown, gimbaled, gyro drift, accelerometer bias, schuler period, gyrocompass alignment, ins/gps integration, inertial measurement unit.",
@@ -5132,6 +5257,23 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/navigation/terrain-referenced-navigation",
+   "name": "terrain-referenced-navigation",
+   "description": "Use when you must aid an unaided inertial navigation solution from terrain with no GNSS available: correlate a measured radar-altimeter terrain profile (INS altitude minus radar clearance) along the INS indicated track against a stored digital elevation model strip, form the TERCOM correlation surface over the candidate along-track and cross-track offsets, and take the best-match offset as the coarse position correction. Then run the point-mass SITAN fine stage, per-mass terrain-height likelihood updates and the linearized terrain-slope measurement update that refine the inertial correction epoch by epoch. Produces the correlation surface and best-match offset, the corrected inertial position with per-axis 1-sigma, the recovered vertical bias, and each slope update's innovation, variance and gain. Trigger: terrain referenced navigation, tercom correlation, digital elevation model matching, terrain slope update, radar altimeter profile, point mass sitan, ins position correction.",
+   "tags": [
+    "terrain-referenced-navigation",
+    "tercom-correlation",
+    "radar-altimeter-profile",
+    "digital-elevation-model-matching",
+    "terrain-slope-update",
+    "sitan-point-mass",
+    "ins-position-correction"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/navigation/tightly-coupled-ins-gnss",
    "name": "tightly-coupled-ins-gnss",
    "description": "Use when you must run a tightly-coupled-ins-gnss integration filter: propagate the eight INS error states (3 position error, 3 velocity error, receiver clock bias in metres, clock drift in m/s) of the constant-velocity-error model between epochs, predict each raw pseudorange from the inertial position estimate plus the clock bias state, build the measurement matrix from the line-of-sight geometry rows with the unit clock column, and apply the raw-pseudorange-update Kalman correction on the residuals. Produces the corrected receiver position and velocity, the clock-state-filter estimates of bias and drift, the per-epoch innovation vector and the propagated and corrected covariance, in SI units, that gate the tightly coupled navigation solution of a moving receiver. Trigger: tightly coupled INS GNSS, raw pseudorange measurement update, ins-gnss-tight-coupling, clock-state-filter, INS error state with clock bias and drift.",
@@ -5178,6 +5320,22 @@
     "collocation",
     "launch-ascent",
     "bounds"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "optimal-control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/optimal-control/ilqr-ddp",
+   "name": "ilqr-ddp",
+   "description": "Use when you must run iterative LQR / differential dynamic programming (ilqr-ddp) on a nonlinear discrete-time system: roll the nominal control forward through the two-state soft-landing dynamics under gravity and quadratic drag, run the backward Riccati pass that forms the value-function quadratics Qx, Qu, Qxx, Qux, Quu and the local affine control law u = ubar + K(x - xbar) + k at each step, and execute the forward pass with backtracking line search and regularization until the total cost converges. Produces the converged control sequence, the touchdown state of the constant-descent-rate landing, the feedforward and feedback gain sequences, the per-iteration cost, alpha and mu traces, and the model-versus-actual improvement comparison gating the optimal soft-landing trajectory. Trigger: ilqr-ddp, differential dynamic programming, iterative LQR, backward Riccati pass, local affine control law, forward rollout, nonlinear soft-landing flare.",
+   "tags": [
+    "ilqr-ddp",
+    "differential-dynamic-programming",
+    "iterative-lqr",
+    "backward-riccati-pass",
+    "forward-rollout",
+    "local-affine-control-law"
    ],
    "family": "gnc-autonomy",
    "pack": "optimal-control",
@@ -6757,6 +6915,21 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/rocket/nozzle-area-ratio-selection",
+   "name": "nozzle-area-ratio-selection",
+   "description": "Use when you must select the rocket nozzle expansion ratio for a design altitude: solve the inverse isentropic problem for the matched-expansion-ratio whose ideal exit static pressure equals the ambient pressure at the design altitude, using the supersonic-branch area-Mach root and the monotone expansion solve by bisection, and evaluate the sea-level, vacuum and design-altitude delivered isp at the chosen ratio from the ideal rocket relations with the choked mass flow. Produces the design-altitude-expansion-ratio, the matched exit Mach and exit static pressure, the delivered isp triple at the chosen ratio, and the attached-flow-guard decision that the exit static pressure stays above K_SEP times the operating ambient. Trigger: nozzle-area-ratio-selection, design-altitude-expansion-ratio, matched-expansion-ratio, expansion-ratio-selection, attached-flow-guard.",
+   "tags": [
+    "nozzle-area-ratio-selection",
+    "design-altitude-expansion-ratio",
+    "matched-expansion-ratio",
+    "expansion-ratio-selection",
+    "attached-flow-guard"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/nozzle-design",
    "name": "nozzle-design",
    "description": "Use when you must design a rocket engine nozzle from the chamber conditions: compute the exit Mach number for a target area ratio, the choked mass flow through the throat, the exit velocity and the exit static pressure, and the ideal thrust with the pressure term. Produces the nozzle area ratio, exit Mach number, mass flow, exit velocity, and thrust, plus the expansion verdict against the ambient pressure, all in consistent SI units (Pa, K, kg/s, m/s, N). Trigger: nozzle design, area ratio, exit mach, mass flow, ideal thrust, expansion ratio, choked throat.",
@@ -6966,6 +7139,23 @@
     "tsfc",
     "fan-pressure-ratio",
     "turbofan"
+   ],
+   "family": "propulsion",
+   "pack": "turbofan",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/turbofan/mixed-flow-exhaust",
+   "name": "mixed-flow-exhaust",
+   "description": "Use when you must compute the two-stream turbofan design point with a mixing exhaust: traverse the fan and core streams to the mixer entry, close the constant-area mixer by the energy and momentum balance over the two streams' total states to the mixed total temperature and pressure with the mixing loss, expand the mixed stream through the common convergent nozzle, and report the net thrust and TSFC of the mixed-flow configuration against the separate-exhaust baseline. Produces the mixed total state, the mixer pressure loss ratio, the common-nozzle exit velocity, net thrust and TSFC, and the mixed-vs-separate comparison that gate the exhaust-configuration decision. Trigger: mixed-flow exhaust, turbofan mixing exhaust, constant-area mixer, common nozzle, mixing loss, exhaust mixer, low bypass ratio mixed turbofan.",
+   "tags": [
+    "mixed-flow-exhaust",
+    "turbofan-mixing-exhaust",
+    "constant-area-mixer",
+    "exhaust-mixer",
+    "common-nozzle",
+    "mixing-loss",
+    "mixed-vs-separate-exhaust"
    ],
    "family": "propulsion",
    "pack": "turbofan",
@@ -8789,6 +8979,22 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/restrained-warping",
+   "name": "restrained-warping",
+   "description": "Use when you must compute the restrained (non-uniform) torsion response of a thin-walled open I-beam section: the warping constant Cw = I_y*h^2/4 of the doubly symmetric I-section, the sectorial coordinate at the flange tip, the decay parameter k = sqrt(G*J/(E*Cw)) of the non-uniform torsion equation E*Cw*theta'''' - G*J*theta'' = 0, the hyperbolic closed-form twist and twist rate, the bimoment B = -E*Cw*theta'' and the warping normal stress sigma_w = B*omega/Cw at the flange tip for a built-in cantilever under a tip torque and a fork-supported beam under a midspan torque, and the shear-torque versus warping-torque split. Produces the section constants, the twist and twist-rate profiles, the bimoment with its root or midspan peak, the flange-tip warping stress and the torque-partition table that gate restrained-torsion checks of open-section spars and stiffeners. Trigger: restrained warping, non-uniform torsion, warping constant, bimoment, torsional flexure, warping normal stress.",
+   "tags": [
+    "restrained-warping",
+    "non-uniform-torsion",
+    "bimoment",
+    "warping-constant",
+    "warping-normal-stress",
+    "torsional-flexure"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/shear-center-analysis",
    "name": "shear-center-analysis",
    "description": "Use when you must locate the shear center of a thin-walled open section under transverse shear: walk the contour from the free edge accumulating the first moment Q, build the V*Q/I shear-flow distribution, integrate the wall-shear resultant and its moment, and report the shear-center offset from the web, centroid or corner in millimeters for channel, Z, angle, hat and slit single-cell box sections, with the bending shear-stress check tau = V*Q/(I*t) at the critical wall station. Doubly symmetric I-beam and closed box sections carry the shear center at the centroid by symmetry, so the leaf reports their web shear-flow maximum instead. Produces the shear-center coordinates, the offset from the stated reference, the per-wall shear flow q(s) and the vertical-resultant equilibrium check that gate open-section spar, stiffener and frame design. Trigger: shear center, shear flow, channel section, Z-section, angle section, thin-walled spar, stiffener, I-beam web shear, transverse shear.",
@@ -8813,6 +9019,23 @@
     "bore-hoop-stress",
     "von-mises-yield-margin",
     "allowable-interference"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/statically-indeterminate",
+   "name": "statically-indeterminate",
+   "description": "Use when you must find the elastic end moments and support reactions of statically indeterminate beams and continuous beams: compute the fixed-end moments (uniform w*L^2/12 and central P*L/8 hogging at both fixed ends; w*L^2/8 and 3*P*L/16 hogging at the fixed end of a propped cantilever), solve the interior support moments with the three-moment (Clapeyron) equation, apply the moment distribution (Hardy-Cross) method with distribution factors and the 1/2 carry-over, and the slope-deflection and consistent deformation (force) methods with flexibility coefficients for propped cantilevers and frames. Produces the fixed-end moments, interior support moments, member end moments, joint rotations, support reactions and the equilibrium and method-agreement checks in a stdlib-only elastic redundancy analysis. Trigger: moment distribution, three-moment equation, slope deflection, fixed-end moment, consistent deformation, statically indeterminate beam, continuous beam support moment.",
+   "tags": [
+    "statically-indeterminate",
+    "three-moment-equation",
+    "moment-distribution",
+    "fixed-end-moment",
+    "slope-deflection",
+    "consistent-deformation",
+    "continuous-beam-support-moment"
    ],
    "family": "structures",
    "pack": "fem",
