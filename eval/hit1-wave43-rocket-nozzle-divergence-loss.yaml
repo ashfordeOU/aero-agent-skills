@@ -1,0 +1,15 @@
+# Hit@1 wave-43 fragment: rocket-nozzle-divergence-loss (propulsion)
+# Two tasks per new leaf skill. w43-rocket-nozzle-divergence-loss-1 routes
+# on the conical divergence factor and boundary-layer loss bookkeeping to
+# the delivered Isp fraction of the ideal; -2 routes on the conical
+# thrust correction versus the equivalent 80-percent-length bell contour
+# efficiency and their delivered specific impulse comparison.
+tasks:
+  - id: w43-rocket-nozzle-divergence-loss-1
+    query: "compute the rocket-nozzle-divergence-loss delivered thrust of a conical nozzle from the half-angle divergence factor and the turbulent boundary-layer correction and report the nozzle-delivered-isp as a fraction of the ideal"
+    intent: "propulsion; rocket nozzle divergence factor and boundary layer loss bookkeeping to the delivered Isp fraction of the ideal attached-flow thrust"
+    expected_skill: "propulsion/rocket/rocket-nozzle-divergence-loss"
+  - id: w43-rocket-nozzle-divergence-loss-2
+    query: "compare the conical-nozzle-thrust-correction of a 15 degree half-angle conical rocket nozzle with the bell-nozzle-efficiency of the equivalent 80 percent length bell contour for delivered specific impulse"
+    intent: "propulsion; conical divergence thrust correction versus the equivalent 80-percent-length bell contour efficiency and their delivered Isp comparison"
+    expected_skill: "propulsion/rocket/rocket-nozzle-divergence-loss"

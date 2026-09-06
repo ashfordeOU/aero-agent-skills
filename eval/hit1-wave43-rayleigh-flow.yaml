@@ -1,0 +1,15 @@
+# Hit@1 wave-43 fragment: rayleigh-flow (aerodynamics)
+# Two tasks per new leaf skill. w43-rayleigh-flow-1 routes on the closed-form
+# Rayleigh-line station ratios of a constant-area frictionless heat-addition
+# duct and the exit Mach and stagnation pressure change after a specified heat
+# addition per kilogram; -2 routes on the thermal-choking heat addition q_max
+# from either inlet branch and the second-law entropy rise of the heated flow.
+tasks:
+  - id: w43-rayleigh-flow-1
+    query: "compute the rayleigh-flow state change of air heated in a constant-area frictionless duct: the rayleigh-line static and total pressure and temperature ratios at the inlet Mach number, and the exit Mach and stagnation pressure ratio after a given heat addition per kilogram"
+    intent: "aerodynamics; the closed-form Rayleigh-line station ratios of a constant-area frictionless heat-addition duct and the exit Mach and stagnation pressure change after a specified heat addition"
+    expected_skill: "aerodynamics/high-speed/rayleigh-flow"
+  - id: w43-rayleigh-flow-2
+    query: "find the maximum heat addition that thermally chokes a constant-area heat-addition duct from a subsonic or supersonic inlet Mach number and the entropy rise of the heated flow"
+    intent: "aerodynamics; the thermal-choking heat addition q_max of a Rayleigh flow duct from either inlet branch and the second-law entropy rise of the heat addition"
+    expected_skill: "aerodynamics/high-speed/rayleigh-flow"

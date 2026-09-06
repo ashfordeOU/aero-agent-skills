@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 581,
+  "leaves": 593,
   "live_packs": 85,
   "families": 12,
   "corpus_tasks": 1178
@@ -235,6 +235,22 @@
     "homann-similarity",
     "stagnation-velocity-gradient",
     "stagnation-wall-shear"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/unsteady-laminar-stokes-layers",
+   "name": "unsteady-laminar-stokes-layers",
+   "description": "Use when you must compute the exact unsteady laminar Stokes layer of an infinite plate in a quiescent fluid, either impulsively started or oscillating in its own plane: for the stokes-first-problem Rayleigh layer of a plate started at speed U, evaluate the similarity profile u/U = erfc(y/(2*sqrt(nu*t))), the layer edge at 3.64*sqrt(nu*t) where u/U = 0.01, the wall shear decaying as 1/sqrt(t) from rho*U*sqrt(nu/(pi*t)), and the displacement thickness; for the stokes-second-problem oscillating-plate-layer at omega, evaluate the exponential-cosine velocity field, the penetration depth sqrt(2*nu/omega) with exp(-1) amplitude and 1-rad lag, and the wall shear amplitude rho*U*sqrt(nu*omega) leading the plate velocity by 45 degrees. Produces the closed-form velocity profiles, thicknesses and wall-shear histories in SI units for unsteady shear-layer and viscous time-scale checks. Trigger: unsteady-laminar-stokes-layers, stokes-first-problem, oscillating-plate-layer, rayleigh-layer.",
+   "tags": [
+    "unsteady-laminar-stokes-layers",
+    "stokes-first-problem",
+    "oscillating-plate-layer",
+    "rayleigh-layer",
+    "stokes-second-problem",
+    "penetration-depth"
    ],
    "family": "aerodynamics",
    "pack": "boundary-layer",
@@ -510,6 +526,21 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/high-speed/fanno-flow",
+   "name": "fanno-flow",
+   "description": "Use when you must solve the Fanno flow of a steady adiabatic constant-area duct with wall friction: evaluate the fanno-line integral fL*/D that chokes the duct from a Mach number, compute the friction-duct-choking length from the inlet Mach, recover the downstream Mach number for a given friction parameter fL/D on the subsonic or the supersonic branch, find the friction required to choke a duct of given length, and report the total-pressure loss ratio p0/p0* and the static pressure, temperature and density ratios to the sonic state along the duct. Produces the fL*/D values, choke lengths, downstream Mach numbers, friction to choke and the loss ratios that gate duct sizing and gas-dynamics coursework. Trigger: fanno flow, fanno line, friction duct, choking length, adiabatic duct friction, fL*/D.",
+   "tags": [
+    "fanno-flow",
+    "fanno-line",
+    "friction-duct-choking",
+    "fld-star",
+    "fanno-choking-length"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/high-speed/flat-plate-skin-friction-heating",
    "name": "flat-plate-skin-friction-heating",
    "description": "Use when you must estimate the surface skin friction heating on a flat plate or vehicle skin at high Mach: it computes the recovery factor, adiabatic wall temperature, Eckert reference temperature, Sutherland viscosity, local skin friction coefficient and Reynolds-analogy heat transfer coefficient, then the cold-wall heat flux for a laminar or turbulent boundary layer. Produces the non-stagnation heating report with r, T_aw, T_star, Re_star, Cf, h_c and q_cold_wall in SI units for a thermal protection check. Trigger: recovery-factor, adiabatic-wall-temperature, cold-wall-heat-flux, reference-temperature-method, reynolds-analogy-factor, skin-friction-coefficient, turbulent-plate-heating, flat-plate-heating.",
@@ -606,6 +637,20 @@
     "turning-angle",
     "compressible-flow",
     "isentropic-expansion"
+   ],
+   "family": "aerodynamics",
+   "pack": "high-speed",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/high-speed/rayleigh-flow",
+   "name": "rayleigh-flow",
+   "description": "Use when you must compute the rayleigh-flow state change of a perfect gas heated or cooled in a constant-area frictionless duct: convert the inlet Mach number into the Rayleigh-line ratios against the sonic state T/T*, p/p*, rho/rho*, T0/T0*, p0/p0*; find the maximum heat addition that thermally chokes the duct from a subsonic or supersonic inlet Mach number, q_max = cp*T1*(1 - M^2)^2/(2*(gamma+1)*M^2); recover the exit Mach number after a given heat addition per unit mass on the inlet branch; and report the entropy rise from the second law. Produces the station ratio set, the choking heat addition, the exit Mach and stagnation pressure ratio, and the entropy rise, in SI units, that gate the heat-addition duct assessment. Trigger: heat addition duct, thermal choking, rayleigh flow, rayleigh line, constant area frictionless duct.",
+   "tags": [
+    "rayleigh-flow",
+    "heat-addition-duct",
+    "thermal-choking",
+    "rayleigh-line"
    ],
    "family": "aerodynamics",
    "pack": "high-speed",
@@ -3679,6 +3724,21 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/envelope/vmu-determination",
+   "name": "vmu-determination",
+   "description": "Use when you must reduce the takeoff rotation runs of a transport airplane flight test to the minimum unstick speed Vmu in the spirit of the FAR/CS 25.107(b) method, summary-only: classify each measured rotation run against the certified tail-strike rotation limit, correct each liftoff speed from the test weight, altitude, temperature, and flap setting to the reference conditions, and take the minimum corrected speed of the limit-reaching runs as the Vmu verdict with the no-unstick and premature-unstick bracket checks. Produces the corrected run table, the Vmu in m/s and knots, the bracket consistency verdict, and the certification margins against the 1.08 Vmu liftoff constraint and the 1.10 Vs1 rotation floor that gate the V1/VR scheduling. Trigger: minimum unstick speed, vmu determination, rotation limit speed, unstick certification, tail strike rotation limit, takeoff rotation run.",
+   "tags": [
+    "vmu-determination",
+    "minimum-unstick-speed",
+    "rotation-limit-speed",
+    "unstick-certification",
+    "takeoff-rotation-run"
+   ],
+   "family": "flight-test-operations",
+   "pack": "envelope",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/flutter/flight-vibration-survey",
    "name": "flight-vibration-survey",
    "description": "Use when you must reduce an in-flight vibration survey: extract the per-rev order amplitudes from measured accelerometer time histories with a synchronous DFT over integer-revolution windows, compute the windowed total RMS survey level, combine the order components by root-sum-square, and gate each survey point against the declared vibration limit and the 1P trim limit. Produces the per-order amplitudes, the total level, the RSS check, and the pass or needs-trim verdicts for rotorcraft main-rotor track-and-balance and airframe vibration limits, and for fixed-wing vibration or buzz surveys. Trigger: vibration survey, track and balance, per-rev order, order analysis, synchronous DFT, rotor balance survey, 1P trim.",
@@ -3950,6 +4010,24 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/performance/rotorcraft-forward-flight-climb-test",
+   "name": "rotorcraft-forward-flight-climb-test",
+   "description": "Use when you must reduce a rotorcraft forward-flight climb flight test from measured data: reduce the measured rate of climb from the least-squares pressure-altitude windows of the steady climb runs across the airspeed sweep, convert the calibrated airspeeds to true airspeed at the test density, correct the measured rate of climb to the reference weight and the standard day with the rho/weight ratio law, identify the best-rate-of-climb speed Vy at the peak of the corrected rate-of-climb curve, and reduce the Vy-schedule climb runs across density altitudes to the service ceiling at the 0.5 m/s rotorcraft convention. Produces the corrected rates of climb, Vy, the maximum rate of climb and the climb ceilings that gate the rotorcraft climb flight test assessment. Trigger: rotorcraft-forward-flight-climb-test, rotorcraft climb flight test, best-rate-of-climb speed, measured rate of climb, climb ceiling determination.",
+   "tags": [
+    "rotorcraft-forward-flight-climb-test",
+    "rotorcraft-climb-flight-test",
+    "forward-flight-climb-sweep",
+    "measured-rate-of-climb",
+    "best-rate-of-climb-speed",
+    "vy-determination",
+    "corrected-climb-rate",
+    "rotorcraft-service-ceiling"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/performance/rotorcraft-forward-flight-performance-test",
    "name": "rotorcraft-forward-flight-performance-test",
    "description": "Use when you must reduce a rotorcraft level-flight performance flight test from measured data: convert measured main rotor torque and rotor speed samples into shaft power across a forward-flight speed sweep, correct the measured power-required polar to a reference weight and standard day with the induced and profile power split, fit the corrected polar, and read off the best-endurance speed at the minimum-power point, the best-range speed at the tangent from the origin, and the maximum level-flight speed Vh against the maximum continuous available power. Produces the measured torque-to-shaft-power values, the corrected polar, the fitted curve coefficients, the best-endurance speed, the best-range speed and the Vh verdict that gate a rotorcraft level-flight performance assessment. Trigger: rotorcraft-forward-flight-performance-test, rotorcraft-forward-flight, level-flight-speed-sweep, torque-to-shaft-power, power-required-polar, vh-determination, max-continuous-power.",
@@ -3961,6 +4039,21 @@
     "power-required-polar",
     "vh-determination",
     "max-continuous-power"
+   ],
+   "family": "flight-test-operations",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-test-operations/performance/rotorcraft-height-velocity-diagram-test",
+   "name": "rotorcraft-height-velocity-diagram-test",
+   "description": "Use when you must reduce a rotorcraft height-velocity (dead-man-curve) demonstration flight test from the hover and low-speed engine-failure runs: measure the recognition delay, the height loss and time to establish autorotation and complete the flare or landing from the baro/radar altitude traces, apply the reaction time allowance, interpolate the dead-man-curve boundary height where height loss plus recovery altitude equals the starting height at each speed, build the avoid-region map over the height and speed grid, and compare it against the predicted height-velocity diagram for the clearance verdict. Produces the recognition delay, the establishment and recovery times, the height-loss split with the flare and recovery altitudes, the boundary heights with and without the reaction allowance, and the per-speed clearance margins and verdicts that gate the demonstration. Trigger: rotorcraft-height-velocity-diagram-test, dead-man-curve boundary, hover engine-failure height-loss.",
+   "tags": [
+    "rotorcraft-height-velocity-diagram-test",
+    "dead-man-curve-boundary",
+    "hover-engine-failure-height-loss",
+    "height-velocity-boundary-interpolation",
+    "avoid-region-map"
    ],
    "family": "flight-test-operations",
    "pack": "performance",
@@ -4593,6 +4686,21 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/estimation-filtering/imu-static-calibration",
+   "name": "imu-static-calibration",
+   "description": "Use when you must calibrate an IMU from laboratory static test data: reduce the six-position accelerometer test, the mean specific force with each body axis held up and down against the known plus/minus 1 g references, to the per-axis bias and scale factor from the paired holds, and extend the least-squares fit over all six positions to the scale and misalignment sensitivity matrix; reduce the rate-table gyro test, the measured rates regressed on the commanded rates of each axis, to the per-axis gyro bias and scale factor. Produces the accelerometer bias vector and scale factors in m/s^2, the dimensionless misalignment matrix, the gyro bias in deg/s and scale factors, and the residual fit errors of both reductions, which gate the navigation error assessment. Trigger: imu static calibration, six position accelerometer test, rate table gyro calibration, accelerometer bias and scale factor, gyro bias and scale factor, misalignment matrix fit.",
+   "tags": [
+    "imu-static-calibration",
+    "six-position-test",
+    "rate-table-calibration",
+    "accelerometer-bias-scale",
+    "residual-fit-error"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "estimation-filtering",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/estimation-filtering/interacting-multiple-model-filter",
    "name": "interacting-multiple-model-filter",
    "description": "Use when you must track a maneuvering target with an interacting multiple model filter: run a two-mode IMM bank of constant velocity (CV) and constant acceleration (CA) Kalman filters per planar axis, mix the mode-conditioned estimates through the Markov mode-transition probabilities, refresh mode probabilities from innovation likelihoods, and combine the per-mode estimates into the mixed state estimate. Produces mode probabilities that gate maneuver detection, per-mode estimates, the combined estimate and position error history on a scripted maneuvering track. Hand-coded stdlib matrices, deterministic, offline. Trigger: interacting multiple model filter, imm filter, mode probability, Markov mode switching, maneuvering target tracking.",
@@ -4625,6 +4733,23 @@
     "non-gaussian-posterior",
     "nonlinear-state-estimation",
     "multimodal-tracking"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "estimation-filtering",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/estimation-filtering/process-noise-discretization",
+   "name": "process-noise-discretization",
+   "description": "Use when you must discretize the continuous white noise of a linear system into the discrete-time process noise covariance for a Kalman filter with the van-loan method: given the continuous plant matrices F and G and the continuous-spectral-density Qc, compute the discrete-noise-covariance Qd as the exact integral of the propagated noise strength over the filter step and the state transition matrix from the matrix exponential of F times the step. Produces the discrete noise covariance Qd, the exact transition matrix, and the closed forms of the discrete white noise acceleration, random walk and INS velocity random walk models, in SI units, that gate the filter propagation of every estimation-filtering leaf that consumes a given Q. Trigger: van loan discretization, continuous spectral density, process-noise-discretization, discrete noise covariance, continuous white noise to discrete Q, discrete white noise acceleration, velocity random walk.",
+   "tags": [
+    "process-noise-discretization",
+    "van-loan-discretization",
+    "continuous-spectral-density",
+    "discrete-noise-covariance",
+    "discrete-white-noise-acceleration",
+    "velocity-random-walk",
+    "state-transition-matrix"
    ],
    "family": "gnc-autonomy",
    "pack": "estimation-filtering",
@@ -4882,6 +5007,22 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/navigation/gnss-doppler-velocity-positioning",
+   "name": "gnss-doppler-velocity-positioning",
+   "description": "Use when you must estimate the 3-D velocity of a GNSS receiver and its receiver clock drift at a single epoch from carrier-phase delta-range-rate (doppler) observables: propagate each satellite ECEF position and velocity from the broadcast-ephemeris Kepler elements, form the line-of-sight unit vector from the receiver position (pseudorange fix first, or supplied), predict the range rate rho_dot = (v_sat - v_rec) dot u + c*dt_dot, and solve the iterated least-squares system over the per-satellite doppler residuals, rows [u, -1.0], by 4x4 normal equations for the receiver velocity and clock drift. Produces the velocity fix in m/s with the per-axis 1-sigma precision from the doppler covariance, the recovered clock drift in m/s and s/s, the post-fit residual RMS and the convergence state that gate the navigation velocity output. Trigger: receiver velocity fix, doppler positioning, carrier delta range rate, clock drift estimate, velocity fix per-axis precision.",
+   "tags": [
+    "gnss-doppler-velocity-positioning",
+    "receiver-velocity-fix",
+    "doppler-positioning",
+    "clock-drift-estimate",
+    "carrier-delta-range-rate",
+    "velocity-fix-per-axis-precision"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/navigation/gnss-pseudorange-positioning",
    "name": "gnss-pseudorange-positioning",
    "description": "Use when you must compute a GNSS receiver position fix from pseudorange measurements: given satellite positions in ECEF and their pseudoranges (geometric range plus receiver clock bias), solve the four-unknown navigation equations for x, y, z and clock bias with an iterated least-squares adjustment and 4x4 normal equation solves. Produces the converged ECEF position, clock bias, post-fit residuals with RMS, and post-fit position error from the geometry matrix. Requires at least four satellites; treats the Earth as spherical for geodetic conversion only. Trigger: pseudorange positioning, GNSS position fix, receiver clock bias, iterated least squares fix, ECEF position solution, satellite pseudorange residual, snapshot navigation solution.",
@@ -4985,6 +5126,22 @@
     "earth-rotation",
     "coordinate-conversion",
     "gmst"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/tightly-coupled-ins-gnss",
+   "name": "tightly-coupled-ins-gnss",
+   "description": "Use when you must run a tightly-coupled-ins-gnss integration filter: propagate the eight INS error states (3 position error, 3 velocity error, receiver clock bias in metres, clock drift in m/s) of the constant-velocity-error model between epochs, predict each raw pseudorange from the inertial position estimate plus the clock bias state, build the measurement matrix from the line-of-sight geometry rows with the unit clock column, and apply the raw-pseudorange-update Kalman correction on the residuals. Produces the corrected receiver position and velocity, the clock-state-filter estimates of bias and drift, the per-epoch innovation vector and the propagated and corrected covariance, in SI units, that gate the tightly coupled navigation solution of a moving receiver. Trigger: tightly coupled INS GNSS, raw pseudorange measurement update, ins-gnss-tight-coupling, clock-state-filter, INS error state with clock bias and drift.",
+   "tags": [
+    "tightly-coupled-ins-gnss",
+    "raw-pseudorange-update",
+    "ins-gnss-tight-coupling",
+    "clock-state-filter",
+    "pseudorange-los-geometry",
+    "ins-error-state-ekf"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -6674,6 +6831,22 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/rocket/rocket-nozzle-divergence-loss",
+   "name": "rocket-nozzle-divergence-loss",
+   "description": "Use when you must compute the rocket-nozzle-divergence-loss bookkeeping from the nozzle geometry and the ideal attached-flow state: apply the conical divergence factor lambda = (1 + cos(alpha))/2 for the half-angle to the ideal axial momentum thrust, or the bell contour efficiency (0.98 typical for the 80-percent bell) in its place; grow the turbulent boundary layer over the divergent length to the displacement thickness and convert it with the 1-D mass-flux correction to the momentum loss fraction; assemble the delivered thrust from the loss-corrected momentum term and the unchanged pressure term. Produces the shape factor, the loss fraction, the effective exit area ratio, the delivered thrust and the nozzle-delivered-isp fraction of the ideal in SI units, replacing the band multiplier. Trigger: rocket-nozzle-divergence-loss, conical-nozzle-thrust-correction, bell-nozzle-efficiency, nozzle-delivered-isp, divergence loss, half-angle thrust loss.",
+   "tags": [
+    "rocket-nozzle-divergence-loss",
+    "conical-nozzle-thrust-correction",
+    "bell-nozzle-efficiency",
+    "nozzle-delivered-isp",
+    "divergence-loss-bookkeeping",
+    "boundary-layer-thrust-loss"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/rocket-nozzle-flow-separation",
    "name": "rocket-nozzle-flow-separation",
    "description": "Use when you must predict flow separation in an overexpanded rocket nozzle: apply the separation-pressure-ratio criterion (wall static pressure falling to K_SEP times ambient, K_SEP 0.4) to decide whether the wall flow separates, find the separation-station area ratio from the isentropic area-Mach relation at the separation pressure, estimate the separation altitude where the nozzle un-separates, and compute the separated-thrust loss and the side-load flag. Produces the separation verdict, separation-station area ratio, separation altitude, corrected thrust and side-load flag. Trigger: rocket-nozzle-flow-separation, separation-pressure-ratio, summerfield-criterion, overexpanded-nozzle, separation-altitude, separated-thrust-loss, side-load-regime.",
@@ -6809,6 +6982,21 @@
     "specific-thrust",
     "fan-flow",
     "mass-flow"
+   ],
+   "family": "propulsion",
+   "pack": "turbofan",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/turbofan/turbofan-design-point",
+   "name": "turbofan-design-point",
+   "description": "Use when you must compute the two-stream turbofan design point at flight Mach and altitude: traverse the fan-stream-station-states and the core stream of the separate-exhaust-cycle down the 0-2-13-2.5-3-4-4.5-5-9/19 station chain from the overall pressure ratio, the turbine-inlet temperature, the bypass ratio and the fan pressure ratio with the component efficiencies; close the two-spool-work-balance of the high-pressure compressor on the HP turbine and of the fan plus booster on the LP turbine; and report the burner fuel-air ratio, the per-stream nozzle exit velocities with the choked pressure terms, and the net thrust and TSFC of the separate-exhaust turbofan. Produces the station total states, the spool works, the jet velocities, the net thrust and the TSFC, in SI units, that gate the engine design-point assessment. Trigger: turbofan design point, two-spool engine cycle, fan stream station states, separate exhaust cycle, overall pressure ratio, fuel-air ratio, net thrust and tsfc.",
+   "tags": [
+    "turbofan-design-point",
+    "fan-stream-station-states",
+    "two-spool-work-balance",
+    "separate-exhaust-cycle",
+    "hp-and-lp-turbine-matching"
    ],
    "family": "propulsion",
    "pack": "turbofan",

@@ -1,0 +1,16 @@
+# Hit@1 wave-43 fragment: gnss-doppler-velocity-positioning (gnc-autonomy)
+# Two tasks per new leaf skill. w43-gnss-doppler-velocity-positioning-1 routes on
+# the single-epoch receiver velocity and clock drift fix from per-satellite
+# carrier doppler range-rate observables by iterated least squares with
+# per-axis precision; -2 routes on doppler-based velocity positioning from
+# Kepler-propagated satellite ECEF velocities and the line-of-sight range-rate
+# residual system.
+tasks:
+  - id: w43-gnss-doppler-velocity-positioning-1
+    query: "estimate the 3-D receiver velocity vector and the receiver clock drift of a GNSS receiver from per-satellite carrier doppler range-rate measurements at a single epoch"
+    intent: "gnc-autonomy; snapshot receiver velocity and clock drift fix from carrier delta-range-rate doppler observables by iterated least squares with per-axis precision"
+    expected_skill: "gnc-autonomy/navigation/gnss-doppler-velocity-positioning"
+  - id: w43-gnss-doppler-velocity-positioning-2
+    query: "recover the receiver velocity of a moving GNSS user from doppler observables given the satellite ECEF velocities propagated from the broadcast ephemeris"
+    intent: "gnc-autonomy; doppler-based velocity positioning using Kepler-propagated satellite ECEF velocities and the line-of-sight range-rate residual system"
+    expected_skill: "gnc-autonomy/navigation/gnss-doppler-velocity-positioning"

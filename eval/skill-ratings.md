@@ -587,3 +587,15 @@ Total skills rated: 581
 | 579 | structures/fem/shear-center-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
 | 580 | vehicle-design/sizing/landing-gear-layout | PASS | ✓ | far-25, cs-25 | vehicle-design | 9.5 | PASS |
 | 581 | structures/fem/shrink-fit-analysis | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 582 | flight-test-operations/performance/rotorcraft-forward-flight-climb-test | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
+| 583 | propulsion/rocket/rocket-nozzle-divergence-loss | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 584 | flight-test-operations/envelope/vmu-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 585 | flight-test-operations/performance/rotorcraft-height-velocity-diagram-test | PASS | ✓ | far-29 | flight-test-operations | 9.5 | PASS |
+| 586 | propulsion/turbofan/turbofan-design-point | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 587 | gnc-autonomy/estimation-filtering/process-noise-discretization | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 588 | gnc-autonomy/estimation-filtering/imu-static-calibration | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 589 | gnc-autonomy/navigation/gnss-doppler-velocity-positioning | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
+| 590 | aerodynamics/high-speed/fanno-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 591 | aerodynamics/boundary-layer/unsteady-laminar-stokes-layers | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 592 | gnc-autonomy/navigation/tightly-coupled-ins-gnss | PASS | ✓ | rtca-do-229, arp4754a | gnc-autonomy | 9.5 | PASS |
+| 593 | aerodynamics/high-speed/rayleigh-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |

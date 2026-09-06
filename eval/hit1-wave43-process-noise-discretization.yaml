@@ -1,0 +1,16 @@
+# Hit@1 wave-43 fragment: process-noise-discretization (gnc-autonomy)
+# Two tasks per new leaf skill. w43-process-noise-discretization-1 routes on
+# the van Loan discretization of the continuous white-noise spectral density
+# into the discrete process-noise covariance Qd with the exact transition
+# matrix for the filter propagation step; -2 routes on the discrete white
+# noise acceleration closed-form Qd identity against the van Loan
+# discretization of the continuous spectral density.
+tasks:
+  - id: w43-process-noise-discretization-1
+    query: "apply the process-noise-discretization to a continuous linear system with the van-loan method: given the plant matrices F and G and the continuous-spectral-density Qc of the driving white noise, compute the discrete-noise-covariance Qd and the state transition matrix exp(F dt) for the filter propagation step"
+    intent: "gnc-autonomy; van Loan discretization of the continuous white-noise spectral density into the discrete process-noise covariance Qd with the exact state transition matrix for Kalman filter propagation"
+    expected_skill: "gnc-autonomy/estimation-filtering/process-noise-discretization"
+  - id: w43-process-noise-discretization-2
+    query: "discretize the continuous process noise of a discrete white noise acceleration model with the van-loan method and verify the discrete-noise-covariance against the closed form q times dt cubed over three from the continuous-spectral-density at the sampling interval"
+    intent: "gnc-autonomy; discrete white noise acceleration closed-form Qd identity against the van Loan discretization of the continuous spectral density"
+    expected_skill: "gnc-autonomy/estimation-filtering/process-noise-discretization"

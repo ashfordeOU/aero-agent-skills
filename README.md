@@ -13,13 +13,13 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="581 verified skills · 85 live packs · 12 families · 30 standards · 1178 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="593 verified skills · 85 live packs · 12 families · 30 standards · 1178 router tasks · 8/8 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-581-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 581"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-593-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 593"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-85-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 85"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
@@ -60,7 +60,19 @@ Every number and chart in this README is **generated from the tree at HEAD** by 
 
 ## Quick start
 
-**Install everything — one command, any agent:**
+**Every package Aero Agent Skills ships — pick the one that fits your host:**
+
+| Package / channel | What it gives you | Get it |
+|---|---|---|
+| **npm CLI** `aero-agent-skills` | `list` · `search` · `show` · `install` (harness-aware) · `mcp` · `where` — one zero-dependency binary | `npm i -g aero-agent-skills` (aliases: `aero-skills`, `npx aero-skills`) |
+| **MCP server** (same package) | `search_skills` (deterministic Hit@1 router) · `get_skill` · `list_skills` for any MCP host — Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, JetBrains AI Assistant | add the JSON block below to your MCP config |
+| **JetBrains plugin** | skill catalog tool window + **Copy MCP Config** / **Copy Registry URL** / **Docs & Harness Guide** actions inside the IDE | [Marketplace plugin 34041](https://plugins.jetbrains.com/plugin/34041-aero-agent-skills) → Settings → Plugins → `Aero Agent Skills` |
+| **Claude Code plugin** | the twelve family routers load always-on (a few hundred tokens each), pull leaf skills on demand | `claude plugin marketplace add ashfordeOU/aero-agent-skills` |
+| **agentskills.io format** | open spec — any SKILL.md host can load the library (Claude, Codex, Gemini, Cursor, OpenCode, DeepSeek, GitHub Copilot, Kimi, Cline/Roo, Continue, 70+) | `npx skills add ashfordeOU/aero-agent-skills` |
+| **GitHub repo** | full source: skills, packs, standards map, docs | `git clone https://github.com/ashfordeOU/aero-agent-skills` |
+| **Skill folders (any host)** | copy any skill folder into your harness — skills are files | `aero-skills install avionics/do178c --harness claude` or clone + `cp -r` |
+
+**1 · Install everything — one command, any agent:**
 
 ```bash
 npx skills add ashfordeOU/aero-agent-skills
@@ -72,23 +84,24 @@ npx skills add ashfordeOU/aero-agent-skills
 npx skills use ashfordeOU/aero-agent-skills --skill avionics/do178c/planning | claude
 ```
 
-**Or the npm CLI** — list, search, show, install, and the MCP server in one zero-dependency binary:
+**2 · Or the npm CLI** — list, search, show, install, and the MCP server in one zero-dependency binary:
 
 ```bash
 npm i -g aero-agent-skills            # or: npx aero-agent-skills <command>
 aero-skills search "draft a PSAC for a DAL B system"
-aero-skills install avionics/do178c --harness claude
+aero-skills show avionics/do178c/planning
+aero-skills install avionics/do178c --harness claude   # or: --harness codex|gemini|cursor|agents|opencode
 ```
 
 Package: **[aero-agent-skills on npm](https://www.npmjs.com/package/aero-agent-skills)** (published by Ashforde OÜ).
 
-**Or install the JetBrains IDE plugin** (AI Assistant + Junie integration, searchable skill router in the IDE):
+**3 · Or install the JetBrains IDE plugin** (AI Assistant + Junie integration, searchable skill router in the IDE):
 
 - Marketplace: **[Aero Agent Skills on the JetBrains Marketplace](https://plugins.jetbrains.com/plugin/34041-aero-agent-skills)**
 - In the IDE: **Settings → Plugins → Marketplace** → search `Aero Agent Skills` → Install
 - The plugin adds a tool window with the skill catalog, a **Copy MCP Server Config** action (one-click registration for AI Assistant / Junie — the MCP server then serves `search_skills` / `get_skill`), a **Copy Registry URL** action, and a **Docs & Harness Guide** action
 
-**Or as an MCP server** — JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, or any Model Context Protocol host. The `search_skills` tool is the same deterministic router the Hit@1 gate proves; `get_skill` streams the full SKILL.md:
+**4 · Or as an MCP server** — JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, or any Model Context Protocol host. The `search_skills` tool is the same deterministic router the Hit@1 gate proves; `get_skill` streams the full SKILL.md:
 
 ```json
 {
@@ -98,16 +111,14 @@ Package: **[aero-agent-skills on npm](https://www.npmjs.com/package/aero-agent-s
 }
 ```
 
-Publisher page: [npmjs.com/package/aero-agent-skills](https://www.npmjs.com/package/aero-agent-skills) (published by Ashforde OÜ). Per-host setup paths: [docs/harness-integration.md](docs/harness-integration.md).
-
-**Or as a Claude Code plugin** — the twelve family routers load always-on (a few hundred tokens each) and pull leaf skills on demand:
+**5 · Or as a Claude Code plugin** — the twelve family routers load always-on (a few hundred tokens each) and pull leaf skills on demand:
 
 ```bash
 claude plugin marketplace add ashfordeOU/aero-agent-skills
 claude plugin install aero-agent-skills@aero-agent-skills
 ```
 
-**Or copy a folder** — skills are just files:
+**6 · Or copy a folder** — skills are just files:
 
 ```bash
 git clone https://github.com/ashfordeOU/aero-agent-skills
@@ -116,12 +127,14 @@ cp -r aero-agent-skills/skills/avionics/do178c/planning ~/.claude/skills/
 
 **You know it worked when** your agent drafts a DO-178C verification plan with DAL allocation and a "stop — human sign-off required" gate, instead of a Wikipedia summary.
 
+Per-host setup paths: [docs/harness-integration.md](docs/harness-integration.md). Publisher: **[aero-agent-skills on npm](https://www.npmjs.com/package/aero-agent-skills)** by Ashforde OÜ, Apache-2.0.
+
 ## For humans
 
 ### The domain map
 
 <!-- gen:overview -->
-**581 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **1178-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**593 verified skills** across **12 families** and **85 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **1178-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -145,19 +158,19 @@ The 12-family register — every count computed from the tree, regenerated on ev
 <!-- gen:family-table -->
 | Family | Standard spine | Packs | Skills | Router tasks |
 |---|---|---:|---:|---:|
-| **Aerodynamics** | NACA TR-824 | 10 | 46 | 94 |
+| **Aerodynamics** | NACA TR-824 | 10 | 49 | 94 |
 | **Avionics** | DO-178C / DO-254 / DO-160G | 9 | 46 | 95 |
 | **Cross-cutting** | SEP-2640 | 7 | 54 | 108 |
 | **Flight mechanics** | FAR-25 / CS-25 | 4 | 47 | 94 |
-| **Flight test & operations** | FAR-25 / CS-25 | 6 | 44 | 88 |
-| **GNC & autonomy** | ARP4754A | 6 | 45 | 91 |
+| **Flight test & operations** | FAR-25 / CS-25 | 6 | 47 | 88 |
+| **GNC & autonomy** | ARP4754A | 6 | 49 | 91 |
 | **Manufacturing quality** | AS9100 / AS9102 | 8 | 48 | 98 |
-| **Propulsion** | FAR-33 | 10 | 44 | 88 |
+| **Propulsion** | FAR-33 | 10 | 46 | 88 |
 | **Space systems** | ECSS | 5 | 52 | 107 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 53 | 107 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 47 | 96 |
 | **Vehicle design** | FAR-25 / CS-25 | 6 | 55 | 112 |
-| **Total** | 30 standards mapped | **85** | **581** | **1178** |
+| **Total** | 30 standards mapped | **85** | **593** | **1178** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -298,7 +311,7 @@ Verified means the full bar passes on the commit you are looking at. That is wha
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 581 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 1178-task corpus) and Claude Code plugin packaging
+- **Shipped:** 593 verified skills in 85 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 1178-task corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->
