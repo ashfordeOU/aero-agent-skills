@@ -993,9 +993,11 @@ def block_badges(m):
     dist = [
         b("npm", "aero-agent-skills", "0ea5e9", "https://www.npmjs.com/package/aero-agent-skills"),
         b("cli", "aero-skills", "8b5cf6", "packages/aero-agent-skills/"),
-        b("mcp server", "jetbrains_%C2%B7_claude_%C2%B7_vscode_%C2%B7_cursor", "ec4899", "docs/harness-integration.md",
-          alt="MCP server for JetBrains, Claude Desktop, VS Code, Cursor"),
+        b("mcp server", "claude_%C2%B7_vscode_%C2%B7_cursor_%C2%B7_windsurf", "ec4899", "docs/harness-integration.md",
+          alt="MCP server for Claude Desktop, VS Code, Cursor, Windsurf"),
         b("claude code", "plugin", "f97316", ".claude-plugin/"),
+        b("jetbrains", "plugin_34041", "a78bfa", "packages/jetbrains-plugin/",
+          alt="JetBrains plugin, live on the Marketplace (com.ashforde.aeroskills)"),
     ]
     return ("<p align=\"center\">\n" + "\n".join(row) + "\n</p>\n"
             + "<p align=\"center\">\n" + "\n".join(dist) + "\n</p>")
