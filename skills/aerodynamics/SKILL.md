@@ -84,6 +84,11 @@ estimation, validated against classic reference data.
 | aerodynamics/high-speed/fanno-flow | Fanno flow | fanno flow, fanno line, friction duct choking, fL star over D, adiabatic duct friction |
 | aerodynamics/high-speed/rayleigh-flow | Rayleigh flow | rayleigh flow, heat addition duct, thermal choking, rayleigh line |
 
+| aerodynamics/high-speed/ackeret-linearized-supersonic | Ackeret linearized supersonic | ackeret linearized supersonic theory, biconvex airfoil, linear supersonic lift curve slope, supersonic wave drag, thin airfoil supersonic |
+| aerodynamics/high-speed/hypersonic-piston-theory | Hypersonic piston theory | hypersonic piston theory, Lighthill piston, small perturbation hypersonic, unsteady hypersonic surface pressure, piston theory surface pressure |
+| aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow | Added mass coefficients potential flow | added mass coefficients, virtual mass, apparent mass, acceleration reaction, kinetic energy irrotational flow, added mass catalog |
+| aerodynamics/boundary-layer/stokes-creeping-flow-drag | Stokes creeping flow drag | stokes creeping flow drag, creeping flow sphere, stokes drag law, Oseen correction, terminal velocity settling, low Reynolds body drag |
+
 ## Routing guidance
 
 - Airfoil family and section constraint questions route to the
@@ -151,4 +156,5 @@ your host's skills directory (see README Install for per-host commands).
 - Shock-reflection questions (incident oblique shock impinging on a wall or symmetry plane, reflected shock turning the flow back parallel, regular versus Mach reflection verdict from the detachment limit) route to the high-speed regular-shock-reflection sub-skill.
 - Fanno flow questions (adiabatic constant-area duct with friction, fL star over D integral, choking length, downstream Mach from a given friction length) route to the high-speed fanno-flow sub-skill.
 - Rayleigh flow questions (constant-area frictionless duct with heat addition, thermal choking, maximum heat addition, rayleigh-line ratios) route to the high-speed rayleigh-flow sub-skill.
+- Linearized supersonic thin-airfoil questions (Ackeret pressure coefficient, biconvex wave drag, supersonic lift curve slope) route to high-speed ackeret-linearized-supersonic; Lighthill piston-theory surface pressure (small-perturbation unsteady hypersonic surfaces) routes to high-speed hypersonic-piston-theory; added/virtual mass coefficient questions (accelerating bodies in inviscid flow) route to aeroelasticity added-mass-coefficients-potential-flow; steady low-Reynolds creeping flow sphere drag (Stokes drag, Oseen correction, terminal velocity) routes to boundary-layer stokes-creeping-flow-drag.
 - Unsteady laminar Stokes layer questions (impulsively started plate, oscillating plate penetration depth, Stokes first and second problem velocity profiles and wall shear) route to the boundary-layer unsteady-laminar-stokes-layers sub-skill.

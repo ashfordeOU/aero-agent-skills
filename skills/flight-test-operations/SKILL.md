@@ -87,6 +87,7 @@ flight test instrumentation, and campaign planning.
 | flight-test-operations/performance/rotorcraft-forward-flight-climb-test | Rotorcraft forward flight climb test | rotorcraft forward flight climb test, best rate of climb rotorcraft, rotorcraft rate of climb sweep, forward flight climb flight test, rotorcraft climb ceiling |
 | flight-test-operations/performance/rotorcraft-height-velocity-diagram-test | Rotorcraft height velocity diagram test | rotorcraft height velocity diagram test, height velocity demonstration, dead man curve flight test, hover engine failure height loss |
 
+| flight-test-operations/envelope/vmcg-determination | Vmcg determination | vmcg determination, minimum control speed on ground, ground minimum control speed, nosewheel steering authority, Vmcg V1 gate |
 
 ## Routing guidance
 
@@ -162,4 +163,5 @@ your host's skills directory (see README Install for per-host commands).
 - In-flight engine restart demonstration questions (windmill N2 versus airspeed regression, minimum relight airspeed, starter-assisted time-to-idle per altitude band, combined restart verdict) route to the performance in-flight-engine-relight-test sub-skill.
 - Minimum unstick speed determination questions (vmu determination, takeoff rotation runs, tail-strike rotation limit, unstick certification margin against the 1.08 Vmu constraint) route to the envelope vmu-determination sub-skill.
 - Rotorcraft forward-flight climb test questions (measured rate of climb versus airspeed sweep, best rate of climb Vy, rotorcraft climb ceilings, weight and density corrections) route to the performance rotorcraft-forward-flight-climb-test sub-skill.
+- Ground-leg minimum-control-speed questions (critical engine failure on the takeoff ground run, nosewheel steering and rudder authority versus ground speed, 150 lbf pedal force, Vmcg against the V1 schedule) route to the envelope vmcg-determination sub-skill, not the air-side vmc-determination.
 - Rotorcraft height-velocity demonstration questions (hover and low-speed engine-failure height-loss measurement, dead-man-curve boundary mapping, avoid-region clearance verdict) route to the performance rotorcraft-height-velocity-diagram-test sub-skill.

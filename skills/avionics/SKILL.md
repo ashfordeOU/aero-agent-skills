@@ -94,6 +94,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/flight-management/dme-arc-leg | DME arc leg | dme arc leg, VOR DME arc, arc length in nautical miles, arc bank angle, radial intercept, arc chord, DME radius |
 | avionics/flight-management/rhumb-line-leg | Rhumb line leg | rhumb line leg, constant course leg, Mercator course, parallel leg length, rhumb versus great circle, long range leg, FMS leg geometry |
 
+| avionics/fsw/aperiodic-server-scheduling | Aperiodic server scheduling | aperiodic server scheduling, sporadic server, deferrable server, polling server, server capacity, aperiodic response time, fixed priority aperiodic service |
 
 ## Routing guidance
 
@@ -164,4 +165,5 @@ your host's skills directory (see README Install for per-host commands).
 - Holding pattern questions (direct, teardrop and parallel entry classification from the approach angle, outbound leg timing from altitude, 1-in-60 wind-corrected outbound heading) route to the flight-management holding-pattern-entry sub-skill.
 - Shared-resource blocking questions (priority ceiling protocol ceilings, worst-case blocking from lower-priority critical sections, response-time analysis with the blocking term, stack-resource-policy schedulability) route to the fsw shared-resource-access-control sub-skill.
 - Constant-DME arc questions (arc length between radials, bank angle to hold the arc, point on the arc, chord between arc fixes) route to the flight-management dme-arc-leg sub-skill.
+- Aperiodic/event-driven job service questions (sporadic server, deferrable server, polling server capacity and period, server budget replenishment, aperiodic worst-case response time) route to the fsw aperiodic-server-scheduling sub-skill.
 - Constant-course rhumb-line leg questions (Mercator course, rhumb distance, along-parallel leg length, rhumb versus great-circle delta for long legs) route to the flight-management rhumb-line-leg sub-skill.

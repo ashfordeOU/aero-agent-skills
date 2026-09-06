@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 597
+Total skills rated: 611
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -603,3 +603,17 @@ Total skills rated: 597
 | 595 | structures/fem/hertzian-contact-stress | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 596 | structures/fem/crippling-analysis | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
 | 597 | structures/fem/metallic-fastener-joints | PASS | ✓ | mmpsd, far-25 | structures | 9.5 | PASS |
+| 598 | avionics/fsw/aperiodic-server-scheduling | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 599 | propulsion/turbofan/mixed-flow-exhaust | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 600 | flight-test-operations/envelope/vmcg-determination | PASS | ✓ | far-25, cs-25 | flight-test-operations | 9.5 | PASS |
+| 601 | propulsion/rocket/nozzle-area-ratio-selection | PASS | ✓ | ecss | propulsion | 9.5 | PASS |
+| 602 | aerodynamics/boundary-layer/stokes-creeping-flow-drag | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 603 | aerodynamics/high-speed/ackeret-linearized-supersonic | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 604 | aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 605 | aerodynamics/high-speed/hypersonic-piston-theory | PASS | ✓ | naca-tr-824 | aerodynamics | 9.5 | PASS |
+| 606 | gnc-autonomy/navigation/gnss-rtk-positioning | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
+| 607 | gnc-autonomy/optimal-control/ilqr-ddp | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 608 | gnc-autonomy/navigation/terrain-referenced-navigation | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 609 | structures/fem/restrained-warping | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 610 | structures/fem/statically-indeterminate | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 611 | cross-cutting/numerics/bandpass-bandstop-filter-design | PASS | ✓ | naca-tr-824 | cross-cutting | 9.5 | PASS |

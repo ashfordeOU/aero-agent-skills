@@ -88,6 +88,10 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/optimal-control/lqg-design | LQG design | linear-quadratic-Gaussian output-feedback compensator, regulator and filter Riccati gains, separation principle |
 | gnc-autonomy/navigation/bearing-only-localization | Bearing only localization | passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse |
 
+| gnc-autonomy/optimal-control/ilqr-ddp | Iterative LQR DDP | ilqr ddp, iterative LQR, differential dynamic programming, backward Riccati pass, nonlinear trajectory optimization, finite horizon optimal control |
+| gnc-autonomy/navigation/terrain-referenced-navigation | Terrain referenced navigation | terrain referenced navigation, TERCOM correlation, digital elevation model matching, SITAN terrain slope update, radar altimeter profile matching |
+| gnc-autonomy/navigation/gnss-rtk-positioning | GNSS RTK positioning | GNSS RTK positioning, carrier phase differential, double difference baseline, integer ambiguity resolution, real time kinematic |
+
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -167,4 +171,5 @@ your host's skills directory (see README Install for per-host commands).
 - Tightly coupled INS/GNSS questions (raw-pseudorange measurement updates, clock bias and drift states, INS error-state filter on the raw observables) route to the navigation tightly-coupled-ins-gnss sub-skill.
 - GNSS receiver-velocity questions (carrier delta-range-rate doppler observables, iterated least-squares velocity and clock-drift fix) route to the navigation gnss-doppler-velocity-positioning sub-skill.
 - Process-noise discretization questions (van Loan method, continuous spectral density to discrete covariance, filter Q design) route to the estimation-filtering process-noise-discretization sub-skill.
+- Nonlinear finite-horizon trajectory optimization questions (iterative LQR, differential dynamic programming, backward Riccati pass) route to optimal-control ilqr-ddp; terrain/map-aided INS questions (TERCOM correlation, DEM matching, SITAN terrain-slope update) route to navigation terrain-referenced-navigation; carrier-phase differential positioning (double differences, integer ambiguity resolution) routes to navigation gnss-rtk-positioning.
 - IMU static calibration questions (six-position accelerometer test, rate-table gyro calibration, bias and scale factor estimation) route to the estimation-filtering imu-static-calibration sub-skill.

@@ -96,6 +96,8 @@ material selection.
 | structures/fem/shear-center-analysis | Shear center analysis | thin-walled open section shear-center location, V*Q/I shear flow, channel Z angle hat sections |
 | structures/fem/shrink-fit-analysis | Shrink fit analysis | radial-interference contact pressure, Lame thick-cylinder bore hoop stress, von-Mises yield margin, allowable interference |
 
+| structures/fem/statically-indeterminate | Statically indeterminate analysis | statically indeterminate, three moment equation, moment distribution, slope deflection, fixed end moment, continuous beam support moment, elastic redundant analysis |
+| structures/fem/restrained-warping | Restrained warping torsion | restrained warping, non uniform torsion, bimoment, warping constant, warping normal stress, torsional flexure, thin walled open section |
 
 ## Routing guidance
 
@@ -200,4 +202,5 @@ your host's skills directory (see README Install for per-host commands).
 - Local crippling and inter-rivet buckling questions (formed stringer shapes, shape-constant crippling allowable, Johnson-Euler interaction compression allowable) route to the fem crippling-analysis sub-skill.
 - Hertzian contact stress questions (sphere and cylinder contact patch, contact pressure, subsurface shear, yield-limit load) route to the fem hertzian-contact-stress sub-skill.
 - Metallic fastener joint questions (bolt and rivet shear, bearing, net-section and shear-out margins, eccentric bolt-group polar method) route to the fem metallic-fastener-joints sub-skill.
+- Elastic redundancy questions (fixed-end moments, three-moment equation, moment distribution, slope-deflection, continuous-beam support moments) route to fem statically-indeterminate; non-uniform torsion and warping restraint (bimoment, warping constant, warping normal stress of thin-walled open sections) routes to fem restrained-warping.
 - Plastic collapse questions (fully-plastic moment, plastic hinge mechanisms, kinematic and static collapse loads of indeterminate beams and frames) route to the fem plastic-collapse-analysis sub-skill.
