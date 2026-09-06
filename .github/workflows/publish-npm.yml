@@ -5,6 +5,8 @@ on:
     tags:
       - 'v[0-9]+.[0-9]+.0'
   workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   publish-npm:
@@ -14,10 +16,24 @@ jobs:
         working-directory: packages/aero-agent-skills
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
+      - name: Sync package version to latest release tag
+        run: |
+          # FIX 2026-09-06: npm was stuck at 1.3.0 because (1) API-created
+          # tags via GITHUB_TOKEN did not fire the tag-push trigger, and
+          # (2) package.json version lagged behind the release tags. Derive
+          # the version from the newest v*.0 tag and sync package.json so
+          # `npm publish` always ships the released version.
+          TAG=$(git tag --list 'v[0-9]*.[0-9]*.0' --sort=-v:refname | head -1)
+          VER=${TAG#v}
+          if [ -z "$VER" ]; then echo "no release tag found"; exit 1; fi
+          npm version "$VER" --no-git-tag-version --allow-same-version
+          echo "Publishing version $VER (from tag $TAG)"
       - name: Install + smoke test
         run: |
           npm install --no-audit --no-fund
