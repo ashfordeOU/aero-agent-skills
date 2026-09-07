@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 611,
+  "leaves": 625,
   "live_packs": 85,
   "families": 12,
-  "corpus_tasks": 1238
+  "corpus_tasks": 1266
  },
  "skills": [
   {
@@ -87,6 +87,21 @@
     "reduced-frequency",
     "far-25-629",
     "aeroelasticity"
+   ],
+   "family": "aerodynamics",
+   "pack": "aeroelasticity",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/aeroelasticity/sears-function-gust-lift",
+   "name": "sears-function-gust-lift",
+   "description": "Use when you must compute the frequency-domain gust response of a rigid thin airfoil to a convected sinusoidal vertical gust: evaluate the complex sears-function S(k) from the Bessel series with the Theodorsen lift-deficiency function, the gust gain and the phase lag of the gust load, and the unsteady gust-load amplitude against the quasi-steady 2*pi*rho*V*b*w_g reference, with the |S| = 1 quasi-steady limit at zero reduced frequency, the monotone gain roll-off, and the reduced frequency where the gust load falls to half the quasi-steady value. Produces the complex sears function, gain and phase tables versus reduced frequency, and the unsteady gust-load amplitudes that gate sinusoidal-gust load estimates and unsteady thin-airfoil coursework. Trigger: sears function, sinusoidal gust, gust transfer function, unsteady gust load, gust reduced frequency sweep.",
+   "tags": [
+    "sears-function",
+    "sinusoidal-gust",
+    "unsteady-gust-load",
+    "gust-transfer-function",
+    "reduced-frequency-gust"
    ],
    "family": "aerodynamics",
    "pack": "aeroelasticity",
@@ -227,6 +242,36 @@
    "router_doc": false
   },
   {
+   "path": "aerodynamics/boundary-layer/laminar-far-wake",
+   "name": "laminar-far-wake",
+   "description": "Use when you must compute the two-dimensional laminar far-wake velocity-defect profile and drag downstream of a thin flat plate or slender body at zero incidence, the Goldstein 1933 similarity wake: evaluate the Gaussian cross-stream velocity-defect profile with the spread parameter U/(4*nu*x), the centerline-defect decay as x^-1/2 and the wake half-width growth as x^1/2 downstream of the trailing edge, integrate the momentum deficit across the wake with the wake-momentum-integral drag identity D = rho*U*integral u1 dy to recover the plate drag, and link the far-wake traverse to the laminar Blasius trailing-edge momentum state with the 0.664 constant. Produces the wake velocity-defect and recovered-velocity profiles, the decay and spreading laws and the wake-survey drag in SI units that anchor laminar wake diagnostics and drag checks. Trigger: laminar-far-wake, far-wake-velocity-defect, wake-momentum-integral, velocity-defect-profile, wake-survey-drag.",
+   "tags": [
+    "laminar-far-wake",
+    "far-wake-velocity-defect",
+    "wake-momentum-integral",
+    "velocity-defect-profile",
+    "wake-survey-drag"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/mangler-axisymmetric-transform",
+   "name": "mangler-axisymmetric-transform",
+   "description": "Use when you must map the steady laminar boundary layer on a slender axisymmetric body of revolution or a sharp cone into an equivalent 2-D flow with the mangler-transformation: evaluate the Mangler transformed running length xi = integral (r0/L)^2 dx and the transformed normal coordinate from the body radius distribution, the cone-surface radius and the equivalent 2-D length for power-law bodies, and the sharp-cone values at equal running length from flat-plate baseline values passed in: skin friction and wall shear times the sqrt-3 laminar cone factor, the 99-percent, displacement and momentum thicknesses divided by sqrt-3, the thinner higher-shear cone layer at the same station. Produces the cone boundary-layer values and the coordinate mapping in SI units that anchor laminar cone-surface and body-of-revolution boundary-layer estimates. Trigger: mangler-transformation, cone-boundary-layer, axisymmetric-body-boundary-layer, laminar-cone-factor, body-of-revolution-bl.",
+   "tags": [
+    "mangler-transformation",
+    "cone-boundary-layer",
+    "axisymmetric-body-boundary-layer",
+    "laminar-cone-factor",
+    "body-of-revolution-bl"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
    "path": "aerodynamics/boundary-layer/rough-wall-skin-friction",
    "name": "rough-wall-skin-friction",
    "description": "Use when you must estimate the turbulent skin-friction on a rough flat plate: it computes the smooth-wall turbulent baseline Cf from the local Reynolds number, the friction velocity and the sand-roughness reynolds number k+; classifies the k-plus-regime as smooth, transitional or fully rough; evaluates the Schlichting fully-rough-cf correlation for the fetch; and selects the operative coefficient without iteration, the direct fully-rough value or a log-linear blend. Produces the regime class, k+ value, smooth baseline, rough or blended coefficient, operative coefficient with treatment note, and the trip-criterion verdict for roughness and trip-strip sizing on aerodynamic surfaces. Trigger: rough-wall-skin-friction, sand-roughness-height, equivalent-sand-roughness, roughness-reynolds-number, k-plus-regime, fully-rough-cf, trip-criterion, trip-strip-sizing.",
@@ -236,6 +281,22 @@
     "fully-rough-cf",
     "k-plus-regime",
     "trip-criterion"
+   ],
+   "family": "aerodynamics",
+   "pack": "boundary-layer",
+   "router_doc": false
+  },
+  {
+   "path": "aerodynamics/boundary-layer/squire-young-profile-drag",
+   "name": "squire-young-profile-drag",
+   "description": "Use when you must compute the section profile-drag coefficient of a two-dimensional body or airfoil from the boundary-layer momentum state at its trailing edge: evaluate the squire-young-formula c_d,p = 2*(theta_TE/c)*(U_TE/U_inf)^((H_TE+5)/2) with the documented trailing-edge shape factor about 1.4, and the zero-pressure-gradient reduction to the Blasius flat-plate drag 1.328/sqrt(Re_c) when the trailing-edge velocity equals the freestream. Grows the laminar momentum thickness to the trailing edge on the integral growth relation for the fully laminar chain, then applies the edge-velocity-ratio exponent. Produces the section profile-drag-coefficient, the trailing-edge momentum thickness and the edge-velocity factor that gate airfoil section drag estimates and boundary-layer checks. Trigger: squire young formula, profile drag coefficient, trailing edge momentum thickness, edge velocity ratio, laminar profile drag, momentum integral drag.",
+   "tags": [
+    "squire-young-profile-drag",
+    "squire-young-formula",
+    "profile-drag-coefficient",
+    "trailing-edge-momentum-thickness",
+    "laminar-profile-drag",
+    "momentum-integral-drag"
    ],
    "family": "aerodynamics",
    "pack": "boundary-layer",
@@ -1629,6 +1690,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/fsw/deadline-monotonic-scheduling",
+   "name": "deadline-monotonic-scheduling",
+   "description": "Use when you must decide the fixed-priority schedulability of an avionics flight software task set whose per-task relative deadlines are not the implicit period: order the tasks by deadline-monotonic priority assignment so the shorter deadline ranks higher, run the exact jitter-aware fixed-point response-time iteration against each task's own deadline, and cover constrained deadlines (D no greater than T) and arbitrary deadlines (D beyond T) with the busy-period job scan when a queued job can be the worst. Produces the deadline-monotonic priority order, the per-task worst-case response times against the per-task deadlines, the release-jitter recomputation when a higher-priority task carries release jitter, the feasible verdict for the whole set, and the divergence verdict when an iterate or a queued job's response crosses its deadline. Trigger: deadline monotonic scheduling, constrained deadline, arbitrary deadline, release jitter, relative deadline, shorter deadline priority.",
+   "tags": [
+    "deadline-monotonic-scheduling",
+    "constrained-deadline-rta",
+    "arbitrary-deadline-rta",
+    "release-jitter-rta",
+    "dm-priority-assignment",
+    "shorter-deadline-order"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
    "path": "avionics/fsw/fprime-component",
    "name": "fprime-component",
    "description": "Use when designing or reviewing an F Prime topology, checking opcode and port-type consistency, or generating the component scaffold manifest. Model and validate a NASA JPL F Prime (F´) flight software component architecture: define components as active, queued or passive, attach typed input and output ports plus serial interfaces, register commands with unique opcodes, declare telemetry channels and severity-flagged events, connect producer outputs to consumer inputs across a topology, schedule component input ports in rate groups, and run a deterministic clocked dispatch simulation that records invocations, deliveries, command log entries and telemetry samples with per-channel sequence counters. Produces the validated component model, the connection and rate group report, and a scaffold manifest for code generation. Trigger: F Prime, F´, component framework, topology, rate group, command dispatch, telemetry channel, port connection, flight software modeling.",
@@ -2068,6 +2145,23 @@
     "step-size",
     "second-derivative",
     "tabulated-data"
+   ],
+   "family": "cross-cutting",
+   "pack": "numerics",
+   "router_doc": false
+  },
+  {
+   "path": "cross-cutting/numerics/fir-bandpass-bandstop-filter-design",
+   "name": "fir-bandpass-bandstop-filter-design",
+   "description": "Use when you must design a linear-phase finite-impulse-response highpass, bandpass, or bandstop filter by the windowed-sinc method with spectral inversion and cosine frequency translation of a lowpass prototype: build the windowed prototype at the cutoff, the half bandwidth for bands, form the highpass as the windowed unit sample minus the prototype, the bandpass as twice the prototype times the center cosine, and the bandstop as spectral inversion of the translated bandpass, under the rectangular, Hann, Hamming, or Blackman windows, with unity passband gain at Nyquist, center, or DC, with the requested edges at the -6.020599913 dB midpoint. Produces the tap vector, band-edge gain checks, the magnitude response in dB as the real cosine sum, the group delay, and the filtered signal. Trigger: fir-highpass-filter-design, fir-bandpass-filter-design, fir-bandstop-filter-design, spectral-inversion-method, frequency-translation-method, windowed-sinc-band-filter, linear-phase-band-filter.",
+   "tags": [
+    "fir-highpass-filter-design",
+    "fir-bandpass-filter-design",
+    "fir-bandstop-filter-design",
+    "spectral-inversion-method",
+    "frequency-translation-method",
+    "windowed-sinc-band-filter",
+    "linear-phase-band-filter"
    ],
    "family": "cross-cutting",
    "pack": "numerics",
@@ -3833,6 +3927,23 @@
    "router_doc": false
   },
   {
+   "path": "flight-test-operations/envelope/vmcl-determination",
+   "name": "vmcl-determination",
+   "description": "Use when you must reduce the landing-configuration approach-cut demonstration runs of a multi-engine transport airplane flight test to the approach and landing minimum control speeds VMCL and VMCL-2 in the spirit of the FAR/CS 25.149(f)/(g) method, summary-only: build the asymmetric yawing moment of the critical-engine cut over the operating engine set, solve the rudder authority limited and 150 lbf pedal force limited airspeeds with go-around thrust, classify each run by the bank-5-degree and 20-degree-heading-change control criteria, correct the demonstrated speeds to the most favorable weight and reference landing flap, and add the VMCL-2 second-cut leg for three-plus-engine airplanes with the go-around thrust change. Produces the predicted and demonstrated VMCL in m/s and knots, the run-classed verdict with bracket checks, the stall guard check, and the margin against the operating approach speed set. Trigger: VMCL, VMCL-2, landing minimum control speed, go-around thrust.",
+   "tags": [
+    "vmcl-determination",
+    "landing-minimum-control-speed",
+    "approach-configuration-control",
+    "go-around-thrust",
+    "critical-engine-cut",
+    "most-favorable-weight",
+    "second-engine-cut"
+   ],
+   "family": "flight-test-operations",
+   "pack": "envelope",
+   "router_doc": false
+  },
+  {
    "path": "flight-test-operations/envelope/vmu-determination",
    "name": "vmu-determination",
    "description": "Use when you must reduce the takeoff rotation runs of a transport airplane flight test to the minimum unstick speed Vmu in the spirit of the FAR/CS 25.107(b) method, summary-only: classify each measured rotation run against the certified tail-strike rotation limit, correct each liftoff speed from the test weight, altitude, temperature, and flap setting to the reference conditions, and take the minimum corrected speed of the limit-reaching runs as the Vmu verdict with the no-unstick and premature-unstick bracket checks. Produces the corrected run table, the Vmu in m/s and knots, the bracket consistency verdict, and the certification margins against the 1.08 Vmu liftoff constraint and the 1.10 Vs1 rotation floor that gate the V1/VR scheduling. Trigger: minimum unstick speed, vmu determination, rotation limit speed, unstick certification, tail strike rotation limit, takeoff rotation run.",
@@ -4608,6 +4719,21 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/control/l1-adaptive-control",
+   "name": "l1-adaptive-control",
+   "description": "Use when you must design and simulate an l1-adaptive-control law for a first-order plant with an unknown coefficient: run the state-predictor from the design model, drive the projection-based-adaptation-law with the prediction error, pass the adaptive signal through the low-pass filter omega_c/(s + omega_c) and form the control as the feedforward minus the filtered estimate. Produces the tracking-error and prediction-error time histories, the sigma_hat and filtered-signal histories, the projection engagement, the convergence verdict and the certified transient-bound check that gate an L1 adaptive control assessment. Trigger: l1-adaptive-control, state-predictor, low-pass-filtered-adaptation, projection-based-adaptation-law, guaranteed-transient-response.",
+   "tags": [
+    "l1-adaptive-control",
+    "state-predictor",
+    "low-pass-filtered-adaptation",
+    "projection-based-adaptation-law",
+    "guaranteed-transient-response"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/control/lead-lag-compensation",
    "name": "lead-lag-compensation",
    "description": "Use when the task is lead lag compensation, phase margin improvement, steady state error reduction, or compensator design for a flight control loop. Design phase lead and phase lag compensators for aerospace flight control and GNC loops: compute the plant phase margin at gain crossover from the open loop transfer function, size the phase boost the lead network must add to meet the phase margin specification, derive the lead ratio alpha from the boost, place the lead zero and pole at the new crossover frequency, and size the lag network pole zero pair below crossover to lift the steady state error constant. Produces the compensator transfer function, its zero and pole, the crossover frequency, and the compensated loop phase margin that gate the control law design. Trigger: phase lead compensator, phase lag compensator, lead lag network, phase margin, gain crossover, steady state error, error constant.",
@@ -4771,6 +4897,21 @@
     "attitude-quaternion",
     "innovation-norm",
     "rate-gyro-fusion"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "estimation-filtering",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/estimation-filtering/cramer-rao-lower-bound",
+   "name": "cramer-rao-lower-bound",
+   "description": "Use when you must compute the cramer-rao-lower-bound on the variance of an unbiased parametric estimator before data arrives: build the fisher-information-matrix as the negative expected second derivative of the log-likelihood for the scalar dc level in white gaussian noise, the gaussian mean with known variance, the vector gaussian mean with known covariance, the sinusoid phase in noise, or the poisson rate, and invert the information matrix to report the best achievable variance. Produces the fisher information, the scalar variance bound var(theta_hat) >= 1/I(theta) or the covariance bound CRLB = I(theta)^-1, the closed-form variance of the bound-achieving maximum-likelihood estimators, and the estimator efficiency that gate a pre-data estimation accuracy assessment. Trigger: cramer rao lower bound, fisher information matrix, best achievable variance, estimator efficiency, bound achieving estimator.",
+   "tags": [
+    "cramer-rao-lower-bound",
+    "fisher-information-matrix",
+    "estimator-efficiency",
+    "best-achievable-variance",
+    "bound-achieving-estimator"
    ],
    "family": "gnc-autonomy",
    "pack": "estimation-filtering",
@@ -5336,6 +5477,21 @@
     "backward-riccati-pass",
     "forward-rollout",
     "local-affine-control-law"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "optimal-control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/optimal-control/loop-transfer-recovery",
+   "name": "loop-transfer-recovery",
+   "description": "Use when you must run loop-transfer-recovery on the LQG loop of the two-state plant family: inflate the filter process noise weight q on the driven input channel through Qw(q) = Qw0 + q^2 B B^T, re-solve the filter Riccati equation for the error covariance and the estimator gain at every q, and compare the recovered output loop transfer function with the full-state target loop on a log-spaced frequency grid until the grid-max mismatch M(q) falls at or below the recovery tolerance. Produces the full-state target loop samples, the mismatch-versus-q recovery trace, the recovery gain q* first meeting the tolerance, the recovered filter covariance and estimator gain, and the recovery verdict that gate the loop-shaped LQG design. Trigger: loop-transfer-recovery, LTR, full-state-loop-recovery, lqg-loop-shaping, recovery-gain-tuning, target-feedback-loop.",
+   "tags": [
+    "loop-transfer-recovery",
+    "full-state-loop-recovery",
+    "lqg-loop-shaping",
+    "recovery-gain-tuning",
+    "target-feedback-loop"
    ],
    "family": "gnc-autonomy",
    "pack": "optimal-control",
@@ -6622,6 +6778,21 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/electric/mpd-thruster",
+   "name": "mpd-thruster",
+   "description": "Use when you must compute the steady operating point of a magnetoplasmadynamic (self-field electromagnetic) MPD thruster for electric propulsion: electromagnetic thrust from the discharge current squared via the self-field thrust law T = (mu0/(4 pi)) J^2 ln(r_a/r_c) at the anode-to-cathode radius ratio, exhaust velocity and specific impulse from the propellant mass flow, jet kinetic power, and the reference-only thrust-to-power band verdict for the steady-state self-field MPD class. Produces the single-point MPD summary with thrust, exhaust velocity, specific impulse, jet power, thrust-to-power and the class operating-band verdict in one call, bands reported never enforced. Trigger: mpd thruster, magnetoplasmadynamic thruster, self-field electromagnetic arc, discharge current squared thrust law, anode to cathode radius ratio, MPD jet power, thrust-to-power band verdict.",
+   "tags": [
+    "mpd-thruster",
+    "magnetoplasmadynamic-thruster",
+    "self-field-thrust-law",
+    "electromagnetic-acceleration",
+    "discharge-current-scaling"
+   ],
+   "family": "propulsion",
+   "pack": "electric",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/engine-airframe/engine-airframe-integration",
    "name": "engine-airframe-integration",
    "description": "Use when you must account for how an engine behaves once it is installed on an airframe: compute installed thrust from uninstalled gross thrust minus intake momentum (ram) drag, nacelle and pylon drag, and bleed and accessory power extraction losses, and reconcile the thrust-drag bookkeeping convention with the airframe drag count. Produces the per-term installation loss split, the installed thrust lapse and misalignment effects, and the performance verdict that feeds aircraft sizing and FAR-25/33 certification framing. Trigger: installed thrust, installation drag, ram drag, intake momentum drag, nacelle drag, pylon drag, thrust-drag bookkeeping, engine-airframe integration.",
@@ -6893,6 +7064,21 @@
     "of-shift",
     "port-area",
     "hybrid-grain"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/rocket/hydrazine-monopropellant-thruster",
+   "name": "hydrazine-monopropellant-thruster",
+   "description": "Use when you must size and assess a hydrazine monopropellant thruster for spacecraft reaction control: compute the catalytic decomposition products and net decomposition heat release of hydrazine at a documented ammonia dissociation fraction, the adiabatic decomposition temperature from the hydrazine decomposition energy balance, and the frozen composition isentropic nozzle expansion of the decomposed gas mixture to the vacuum exhaust velocity, the vacuum specific impulse and the propellant mass flow at the required thrust, with the advisory catalyst-bed temperature band check. Produces the decomposed mixture composition, decomposition temperature, mixture gas constant, isentropic exponent, exhaust velocity, vacuum specific impulse, propellant mass flow and the catalyst-bed band verdict that size a monopropellant RCS thruster. Trigger: hydrazine-monopropellant-thruster, catalytic-decomposition, ammonia-dissociation-fraction, monopropellant-rcs, decomposition-temperature.",
+   "tags": [
+    "hydrazine-monopropellant-thruster",
+    "catalytic-decomposition",
+    "ammonia-dissociation-fraction",
+    "monopropellant-rcs",
+    "decomposition-temperature"
    ],
    "family": "propulsion",
    "pack": "rocket",
@@ -8520,6 +8706,23 @@
    "router_doc": false
   },
   {
+   "path": "structures/damage-tolerance/walker-forman-crack-growth",
+   "name": "walker-forman-crack-growth",
+   "description": "Use when you must compute the walker-forman-crack-growth rate of a mode I crack under a nonzero stress ratio in airframe structure: apply the walker-equation equivalent range dK_bar = dK/(1-R)^(1-gamma) with the material gamma exponent and the forman-equation rate da/dN = C_F*dK^m/((1-R)*K_c - dK) with the kc-limited denominator, then extend the crack over a stated cycle block at constant or piecewise stress ratio R. Produces the R-corrected rate table with the walker-equation and forman-equation rates at each station, the equivalent-delta-k correction, the kc-limited amplification of the rate over the zero-R baseline that grows as the peak stress-intensity factor approaches fracture toughness K_c, and the block extension feeding the follow-on life and inspection-interval assessment. Trigger: walker equation, forman equation, stress ratio R, equivalent delta-k, kc-limited growth, R-ratio correction.",
+   "tags": [
+    "walker-forman-crack-growth",
+    "walker-equation",
+    "forman-equation",
+    "r-ratio-correction",
+    "equivalent-delta-k",
+    "kc-limited-growth",
+    "stress-ratio-crack-growth"
+   ],
+   "family": "structures",
+   "pack": "damage-tolerance",
+   "router_doc": false
+  },
+  {
    "path": "structures/damage-tolerance/widespread-fatigue-damage",
    "name": "widespread-fatigue-damage",
    "description": "Use when you must screen transport airplane structure for widespread fatigue damage (WFD) per FAR 25.571: classify multiple site damage (MSD) cracks in adjacent fastener holes and multiple element damage (MED) in adjacent load paths, run the WFD susceptibility screening, and flag when a supplemental inspection (for example the supplemental inspection document, SID/SLWFD) is required for fatigue critical baseline structure. Produces the MSD site-count verdict, the WFD susceptibility verdict, and the supplemental inspection required flag that feed the damage tolerance certification review. Trigger: widespread fatigue damage, MSD, MED, multiple site damage, multiple element damage, supplemental inspection, fatigue critical baseline, WFD.",
@@ -8869,6 +9072,23 @@
     "subsurface-shear-stress",
     "contact-yield-limit-load",
     "equivalent-contact-modulus"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/fem/inelastic-column-buckling",
+   "name": "inelastic-column-buckling",
+   "description": "Use when you must compute the inelastic column strength of a solid round, tube or extruded compression member in the intermediate slenderness band: the effective slenderness lambda = K*L/r of the member, the euler-johnson-tangent transition lambda_t = sqrt(2*pi^2*E/F_cy) where the yield-anchored Johnson parabola meets the Euler arm at F_cy/2, the johnson-parabola stress F_col = F_cy*(1 - F_cy*lambda^2/(4*pi^2*E)) below the transition and the Euler arm stress above it, the column capacity P_col = F_col*A and the margin of safety against the applied axial load, with the johnson or euler regime verdict. Produces the inelastic column allowable stress and load, the stubby-column-allowable and the pass-fail margin that gate compression checks of 7075-T6 and 2024-T3 actuator rods, tube members and extruded struts. Trigger: inelastic column buckling, Johnson parabola, column strength curve, intermediate slenderness, stubby column allowable.",
+   "tags": [
+    "inelastic-column-buckling",
+    "johnson-parabola",
+    "column-strength-curve",
+    "intermediate-slenderness",
+    "euler-johnson-tangent",
+    "yield-anchored-johnson",
+    "stubby-column-allowable"
    ],
    "family": "structures",
    "pack": "fem",

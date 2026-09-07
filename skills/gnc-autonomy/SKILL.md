@@ -92,6 +92,9 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/navigation/terrain-referenced-navigation | Terrain referenced navigation | terrain referenced navigation, TERCOM correlation, digital elevation model matching, SITAN terrain slope update, radar altimeter profile matching |
 | gnc-autonomy/navigation/gnss-rtk-positioning | GNSS RTK positioning | GNSS RTK positioning, carrier phase differential, double difference baseline, integer ambiguity resolution, real time kinematic |
 
+| gnc-autonomy/optimal-control/loop-transfer-recovery | Loop Transfer Recovery | loop-transfer-recovery, full-state-loop-recovery, lqg-loop-shaping, recovery-gain-tuning, target-feedback-loop |
+| gnc-autonomy/control/l1-adaptive-control | L1 Adaptive Control | l1-adaptive-control, state-predictor, low-pass-filtered-adaptation, projection-based-adaptation-law, guaranteed-transient-response |
+| gnc-autonomy/estimation-filtering/cramer-rao-lower-bound | Cramer Rao Lower Bound | cramer-rao-lower-bound, fisher-information-matrix, estimator-efficiency, best-achievable-variance, bound-achieving-estimator |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -140,12 +143,14 @@ amics sub-skill.
 - Full-order state observer design, observability checks, estimator gain pole placement, and separation principle questions route to the control observer-design sub-skill.
 - Alpha-beta tracking, constant velocity target, smoothing factor, steady state gain, and position and velocity tracking questions route to the estimation-filtering alpha-beta-filter sub-skill.
 - Sigma-point nonlinear state estimation, scaled unscented transform, UKF predict and update, and innovation covariance checks route to the estimation-filtering unscented-kalman-filter sub-skill.
+- Estimation-bound questions (Fisher information, Cramer-Rao lower bound for scalar and vector estimators, DC level in Gaussian noise, estimator efficiency against the bound) route to the estimation-filtering cramer-rao-lower-bound sub-skill.
 - Extended Kalman filter design for nonlinear systems with Jacobian linearization, predict and update recursion, innovation covariance, and Kalman gain computation routes to the estimation-filtering extended-kalman-filter sub-skill.
 - Control allocation across redundant effectors, pseudoinverse and weighted least squares, daisy chain, and actuator saturation redistribution questions route to the control control-allocation sub-skill.
 - RAIM integrity questions (fault detection and exclusion, horizontal protection level, chi-square threshold, normalized residual) route to the navigation gnss-raim-fde sub-skill.
 - Rauch-Tung-Striebel fixed-interval smoothing and backward-pass post-processing questions route to the estimation-filtering rts-smoother sub-skill.
 - Coverage path planning, boustrophedon, and lawnmower aerial survey pattern questions route to the guidance coverage-path-planning sub-skill.
 - Model-reference adaptive control questions (MRAC, adaptation law, tracking error convergence, unknown plant coefficient) route to the control adaptive-control sub-skill.
+- L1 adaptive control questions (state predictor, projection-based adaptation law, low-pass-filtered adaptive signal, guaranteed transient response of the first-order uncertain plant) route to the control l1-adaptive-control sub-skill; first-order MRAC stays with adaptive-control.
 
 - Interacting multiple model filter questions (IMM filter bank, mode probability, Markov mode switching, maneuvering target tracking, CV CA modes) route to the estimation-filtering interacting-multiple-model-filter sub-skill.
 - Sampled-data digital control questions (z transform, Tustin bilinear emulation, frequency prewarping, zero order hold, discrete PID, unit circle stability) route to the control digital-control-design sub-skill.
@@ -153,6 +158,7 @@ amics sub-skill.
 - Time-optimal bang-bang control questions (switching curve, minimum-time rest-to-rest slew, double integrator) route to the optimal-control bang-bang-control sub-skill.
 - code-carrier Hatch smoothing time constant, carrier delta range, code-carrier ionospheric divergence, smoothed range noise reduction questions route to the navigation gnss-carrier-smoothing sub-skill.
 - linear-quadratic-Gaussian output-feedback compensator, regulator and filter Riccati gains, separation principle questions route to the optimal-control lqg-design sub-skill.
+- Loop-transfer-recovery questions (LQG output loop recovery by filter noise weight inflation, full-state-loop matching, recovery-gain tuning, target feedback loop) route to the optimal-control loop-transfer-recovery sub-skill.
 - passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse questions route to the navigation bearing-only-localization sub-skill.
 
 ## Install

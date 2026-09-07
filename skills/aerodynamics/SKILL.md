@@ -89,6 +89,10 @@ estimation, validated against classic reference data.
 | aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow | Added mass coefficients potential flow | added mass coefficients, virtual mass, apparent mass, acceleration reaction, kinetic energy irrotational flow, added mass catalog |
 | aerodynamics/boundary-layer/stokes-creeping-flow-drag | Stokes creeping flow drag | stokes creeping flow drag, creeping flow sphere, stokes drag law, Oseen correction, terminal velocity settling, low Reynolds body drag |
 
+| aerodynamics/aeroelasticity/sears-function-gust-lift | Sears Function Gust Lift | sears-function, sinusoidal-gust, unsteady-gust-load, gust-transfer-function, reduced-frequency-gust |
+| aerodynamics/boundary-layer/squire-young-profile-drag | Squire Young Profile Drag | squire-young-profile-drag, squire-young-formula, profile-drag-coefficient, trailing-edge-momentum-thickness, laminar-profile-drag, momentum-integral-drag |
+| aerodynamics/boundary-layer/laminar-far-wake | Laminar Far Wake | laminar-far-wake, far-wake-velocity-defect, wake-momentum-integral, velocity-defect-profile, wake-survey-drag |
+| aerodynamics/boundary-layer/mangler-axisymmetric-transform | Mangler Axisymmetric Transform | mangler-transformation, cone-boundary-layer, axisymmetric-body-boundary-layer, laminar-cone-factor, body-of-revolution-bl |
 ## Routing guidance
 
 - Airfoil family and section constraint questions route to the
@@ -134,6 +138,7 @@ objective studies route to
 
 - Delta-wing vortex-lift questions (leading edge suction analogy, slender delta wing, Polhamus vortex lift) route to the cfd delta-wing-vortex-lift sub-skill.
 - Boundary-layer separation questions (Thwaites lambda criterion crossing minus 0.09, Stratford pressure-recovery criterion, laminar separation point, turbulent separation station, separation margin) route to the boundary-layer boundary-layer-separation sub-skill.
+- Profile-drag questions (Squire-Young formula from the trailing-edge momentum thickness and edge-velocity ratio, laminar profile drag from the integral growth chain, Blasius flat-plate reduction) route to the boundary-layer squire-young-profile-drag sub-skill.
 - Flat-plate surface skin heating questions (recovery factor, adiabatic wall temperature, cold wall heat flux, reference temperature method skin friction, non-stagnation heating) route to the high-speed flat-plate-skin-friction-heating sub-skill.
 - shock-tube diaphragm pressure ratio, incident-shock Mach number, contact-surface velocity, expansion fan questions route to the high-speed shock-tube sub-skill.
 - camber-line glauert sine series, zero-lift angle, quarter-chord pitching moment, section lift coefficient questions route to the airfoil thin-airfoil-section-theory sub-skill.
@@ -145,6 +150,7 @@ To install only this pack, copy or symlink each leaf folder above into
 your host's skills directory (see README Install for per-host commands).
 - Wind tunnel wall and blockage correction questions route to the wind-tunnel windtunnel-wall-corrections sub-skill.
 - Dynamic indicial gust response and magnification-factor questions route to the aeroelasticity aeroelastic-gust-response sub-skill.
+- Frequency-domain gust questions (Sears function gain and phase versus reduced frequency, sinusoidal-gust unsteady lift on the rigid airfoil, gust-load amplitude against the quasi-steady reference) route to the aeroelasticity sears-function-gust-lift sub-skill; discrete-gust time-domain response stays with aeroelastic-gust-response.
 - Shock-expansion surface-pressure integration and wave-drag questions route to the high-speed shock-expansion-airfoil sub-skill.
 - Winglet sizing, tip-device induced-drag reduction, effective-aspect-ratio gain, and root bending moment penalty questions route to the wing-design winglet-design sub-skill.
 - Blunt-nose detached bow-shock standoff questions (standoff ratio and shock-layer thickness on the stagnation streamline for sphere and cylinder noses from the Billig-form correlations) route to the high-speed bow-shock-standoff sub-skill.
@@ -152,9 +158,11 @@ your host's skills directory (see README Install for per-host commands).
 - Rough-surface skin friction questions (sand-roughness regime classification, fully-rough turbulent skin friction, roughness trip criterion) route to the boundary-layer rough-wall-skin-friction sub-skill.
 
 - Low-speed stagnation-point boundary layer questions (Hiemenz 2-D and Homann axisymmetric similarity, stagnation velocity gradient from body radius, wall shear and skin friction at a spinner, radome or leading edge) route to the boundary-layer stagnation-flow-boundary-layer sub-skill.
+- Axisymmetric boundary-layer questions (Mangler transformation to an equivalent 2-D flow, sharp-cone thickness and wall-shear ratios against the flat plate, slender body-of-revolution laminar layer) route to the boundary-layer mangler-axisymmetric-transform sub-skill.
 - Isentropic flow relation questions (total to static ratios from Mach number, Mach from a given area ratio on the subsonic or supersonic branch, choked mass flow at a sonic throat) route to the high-speed isentropic-flow-relations sub-skill.
 - Shock-reflection questions (incident oblique shock impinging on a wall or symmetry plane, reflected shock turning the flow back parallel, regular versus Mach reflection verdict from the detachment limit) route to the high-speed regular-shock-reflection sub-skill.
 - Fanno flow questions (adiabatic constant-area duct with friction, fL star over D integral, choking length, downstream Mach from a given friction length) route to the high-speed fanno-flow sub-skill.
 - Rayleigh flow questions (constant-area frictionless duct with heat addition, thermal choking, maximum heat addition, rayleigh-line ratios) route to the high-speed rayleigh-flow sub-skill.
 - Linearized supersonic thin-airfoil questions (Ackeret pressure coefficient, biconvex wave drag, supersonic lift curve slope) route to high-speed ackeret-linearized-supersonic; Lighthill piston-theory surface pressure (small-perturbation unsteady hypersonic surfaces) routes to high-speed hypersonic-piston-theory; added/virtual mass coefficient questions (accelerating bodies in inviscid flow) route to aeroelasticity added-mass-coefficients-potential-flow; steady low-Reynolds creeping flow sphere drag (Stokes drag, Oseen correction, terminal velocity) routes to boundary-layer stokes-creeping-flow-drag.
 - Unsteady laminar Stokes layer questions (impulsively started plate, oscillating plate penetration depth, Stokes first and second problem velocity profiles and wall shear) route to the boundary-layer unsteady-laminar-stokes-layers sub-skill.
+- Laminar far-wake questions (Goldstein similarity wake behind a flat plate, centerline defect decay, wake half-width growth, wake-momentum-integral drag from a velocity-defect traverse) route to the boundary-layer laminar-far-wake sub-skill.

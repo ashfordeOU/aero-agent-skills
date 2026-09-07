@@ -87,12 +87,15 @@ compressor stage and operating-map analysis.
 | propulsion/turbofan/mixed-flow-exhaust | Mixed flow exhaust | mixed flow exhaust, turbofan mixing exhaust, constant area mixer, exhaust mixer, common nozzle, mixing loss, mixed versus separate exhaust |
 | propulsion/rocket/nozzle-area-ratio-selection | Nozzle area ratio selection | nozzle area ratio selection, design altitude expansion ratio, matched expansion ratio, optimum area ratio, sea level vacuum Isp, expansion ratio selection |
 
+| propulsion/electric/mpd-thruster | Mpd Thruster | mpd-thruster, magnetoplasmadynamic-thruster, self-field-thrust-law, electromagnetic-acceleration, discharge-current-scaling |
+| propulsion/rocket/hydrazine-monopropellant-thruster | Hydrazine Monopropellant Thruster | hydrazine-monopropellant-thruster, catalytic-decomposition, ammonia-dissociation-fraction, monopropellant-rcs, decomposition-temperature |
 ## Routing guidance
 
 - Brayton/gas-turbine thermodynamics route to the gas-turbine-cycle
   sub-skill; regenerator and recuperator cycle questions route to the
   regenerative-cycle sub-skill.
 - Turbofan bypass and efficiency questions route - Hall thruster questions route to the electric hall-thruster sub-skill.
+- Magnetoplasmadynamic thruster questions (self-field electromagnetic thrust from the discharge-current-squared law, anode-to-cathode radius ratio, exhaust velocity and specific impulse from the mass flow, jet power, thrust-to-power band verdict) route to the electric mpd-thruster sub-skill.
 to turbofan-cycle;
   BPR vs TSFC design-trade questions route to bypass-ratio-trade;
   off-design and altitude behavior questions route to
@@ -140,6 +143,7 @@ to turbofan-cycle;
 - Solid rocket motor ballistics, burn-rate law, chamber pressure equilibrium, grain geometry, mass flow, thrust, and total impulse questions route to the rocket solid-rocket-motor sub-skill.
 - Hybrid rocket motor regression rate, oxidizer mass flux, O/F shift, port area, and chamber pressure ballistics questions route to the rocket hybrid-rocket-motor sub-skill.
 - Cold gas thruster choked flow, plenum blowdown, and total impulse questions route to the rocket cold-gas-thruster sub-skill.
+- Hydrazine monopropellant thruster questions (catalytic decomposition energy balance, ammonia dissociation fraction, adiabatic decomposition temperature, nozzle expansion of the decomposed mixture, vacuum specific impulse for the RCS duty) route to the rocket hydrazine-monopropellant-thruster sub-skill.
 - Rocket turbopump specific speed, suction performance, and cavitation questions route to the turbomachinery rocket-turbopump sub-skill.
 
 - Rocket thrust chamber regenerative cooling questions (Bartz hot gas coefficient, coolant side convection, wall heat flux and temperature, coolant mass flux for the wall limit, film cooling handoff) route to the rocket thrust-chamber-cooling sub-skill.

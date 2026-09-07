@@ -100,6 +100,7 @@ integration) for engineering calculations.
 
 | cross-cutting/numerics/bandpass-bandstop-filter-design | Bandpass bandstop filter design | bandpass filter design, bandstop filter design, Butterworth bandpass, digital frequency transformation, band edge verification |
 
+| cross-cutting/numerics/fir-bandpass-bandstop-filter-design | Fir Bandpass Bandstop Filter Design | fir-highpass-filter-design, fir-bandpass-filter-design, fir-bandstop-filter-design, spectral-inversion-method, frequency-translation-method, windowed-sinc-band-filter, linear-phase-band-filter |
 ## Routing guidance
 
 - Skill packaging and MCP delivery questions route to the SEP-2640
@@ -198,4 +199,5 @@ your host's skills directory (see README Install for per-host commands).
 - Poisson rate interval questions (exact Garwood chi-square bounds for a count over an exposure, defect rate per unit, normal-approximation cross-check) route to the numerics poisson-confidence-interval sub-skill.
 - Test-sizing questions (minimum sample size per group from alpha, power and effect size for two-sample, one-sample and proportion comparisons, achieved power at the rounded sample size, type-II error) route to the numerics power-analysis sub-skill.
 - Bandpass and bandstop digital-filter questions (Butterworth IIR bandpass/bandstop by the z-domain frequency transformation, band-edge verification) route to the numerics bandpass-bandstop-filter-design sub-skill; lowpass and highpass questions stay with digital-filter-design.
+- FIR band and highpass filter questions (windowed-sinc FIR highpass by spectral inversion, FIR bandpass by cosine frequency translation, FIR bandstop by inversion of the translated bandpass, linear-phase band-filter tap sets) route to the numerics fir-bandpass-bandstop-filter-design sub-skill; FIR lowpass stays with fir-filter-design.
 - Mating fastener pattern questions (ASME Y14.5 fixed and floating fastener positional tolerance budgets, projected tolerance zone, minimum clearance hole at MMC) route to the tolerancing fastener-position-tolerance-calc sub-skill.

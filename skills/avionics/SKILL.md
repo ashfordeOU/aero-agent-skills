@@ -96,6 +96,7 @@ airworthiness certification (FAR-25/CS-25).
 
 | avionics/fsw/aperiodic-server-scheduling | Aperiodic server scheduling | aperiodic server scheduling, sporadic server, deferrable server, polling server, server capacity, aperiodic response time, fixed priority aperiodic service |
 
+| avionics/fsw/deadline-monotonic-scheduling | Deadline Monotonic Scheduling | deadline-monotonic-scheduling, constrained-deadline-rta, arbitrary-deadline-rta, release-jitter-rta, dm-priority-assignment, shorter-deadline-order |
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
@@ -166,4 +167,5 @@ your host's skills directory (see README Install for per-host commands).
 - Shared-resource blocking questions (priority ceiling protocol ceilings, worst-case blocking from lower-priority critical sections, response-time analysis with the blocking term, stack-resource-policy schedulability) route to the fsw shared-resource-access-control sub-skill.
 - Constant-DME arc questions (arc length between radials, bank angle to hold the arc, point on the arc, chord between arc fixes) route to the flight-management dme-arc-leg sub-skill.
 - Aperiodic/event-driven job service questions (sporadic server, deferrable server, polling server capacity and period, server budget replenishment, aperiodic worst-case response time) route to the fsw aperiodic-server-scheduling sub-skill.
+- Deadline-monotonic and constrained/arbitrary-deadline response-time questions (deadline-monotonic priority assignment, shorter-deadline order, per-task relative deadlines, release jitter in the response-time iteration) route to the fsw deadline-monotonic-scheduling sub-skill; classic implicit-deadline periodic feasibility stays with real-time-scheduling.
 - Constant-course rhumb-line leg questions (Mercator course, rhumb distance, along-parallel leg length, rhumb versus great-circle delta for long legs) route to the flight-management rhumb-line-leg sub-skill.
