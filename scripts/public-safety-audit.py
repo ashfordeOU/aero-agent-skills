@@ -10,7 +10,7 @@ Default repo = current directory.
 
 Checks (all across every commit reachable from HEAD):
   1. Local absolute paths      /Users/<user>, /home/<user>, /Volumes/, C:\\Users
-  2. Local usernames           chak, enterprisehq
+  2. Local usernames           chak, developer (formerly enterprisehq — scrubbed 2026-09-07)
   3. Personal names            chakshu, baweja, subhash
   4. Tokens/secrets            ghp_, github_pat_, gho_, sk-, AKIA, xox*, private keys
   5. Private IPs               192.168.x, 10.x, 172.16-31.x (loopback 127.x is OK — documented default)
