@@ -26,11 +26,11 @@ yourself; if you see another wave-44 chat process, stop and report.
 ## Probe phase: COMPLETE (9/9, deleg_2ff07eac, all completed 16:32:21 CEST)
 The FULL probe receipts are the subagent summaries — READ THESE, they are the
 real receipts (the task-*-receipt.md files in wave44-recon/ are short extracts):
-- ~/.hermes/profiles/opsmanager/cache/delegation/subagent-summary-{0..8}-20260906_163221_*.txt
+- ~/.hermes/profiles/<PROFILE>/cache/delegation/subagent-summary-{0..8}-20260906_163221_*.txt
   (task index → family: 0=avionics, 1=propulsion, 2=flight-mechanics,
    3=flight-test-operations, 4=systems-engineering-safety, 5=manufacturing-quality,
    6=aerodynamics, 7=gnc-autonomy, 8=space-systems)
-- Task logs (same detail): ~/.hermes/profiles/opsmanager/cache/delegation/live/deleg_2ff07eac/task-{0..8}.log
+- Task logs (same detail): ~/.hermes/profiles/<PROFILE>/cache/delegation/live/deleg_2ff07eac/task-{0..8}.log
 
 ### Candidate set from the probes (11 GO total)
 - **avionics (1):** aperiodic-server-scheduling (avionics/fsw) — sporadic/deferrable/
@@ -81,7 +81,7 @@ completeness + leaf-create-gate + rate-at-creation >=9.5 in-turn.
    visuals-check · em-dash 0 · ledger contiguous (598-597+N) → push PRIVATE + ls-remote
    verify → publish-public.sh sync (sanctioned; record ACTUAL public commit — hourly
    automation may race ahead) + CI attest → GROUP 160 close-out post AS YOURSELF
-   (env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160 "...")
+   (env -u HERMES_HOME hermes -p opsmanager send --to telegram:<CHAT_ID> "...")
    → wave44-state.md (honest receipts, ALL gates + counts real at YOUR HEAD) → commit +
    push → final close-out report (the ONLY text-only response allowed).
 7. Final report: one concise block — leaves landed (families), final leaf count, corpus,

@@ -36,7 +36,7 @@ touch leaves.
    Keep the honest-deviation disclosures already in the file.
 3. POST the close-out message to GROUP 160 AS YOURSELF (Ops Manager, profile
    opsmanager):
-   `env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160 "<wave-42 close-out: 14 leaves landed 567→581, corpus 1178, gates FRESH green, private push + public sync f017adc8 + CI attest success, state note committed — ready for CEO audit>"`
+   `env -u HERMES_HOME hermes -p opsmanager send --to telegram:<CHAT_ID> "<wave-42 close-out: 14 leaves landed 567→581, corpus 1178, gates FRESH green, private push + public sync f017adc8 + CI attest success, state note committed — ready for CEO audit>"`
    Capture the message_id from the send output and append it to the receipts.
 4. COMMIT + PUSH: `cd ~/AeroSkills && git add ops/automation/wave42-state.md && git commit -m "ops: wave-42 close-out receipts (14 leaves, public f017adc8, CI attest)"` then push PRIVATE with the arjun origin token:
    `git push "https://x-access-token:${GITHUB_TOKEN_ARJUN}@github.com/arjun-0077/aero-agent-skills.git" main` (or the origin URL pattern used at wave close; verify with `git remote -v` first — NEVER push to ashfordeOU directly, publish law). Verify `git ls-remote origin main` == local HEAD.

@@ -2,7 +2,7 @@
 """Dump each probe's FINAL summary (full text) to a per-task file under wave44-recon."""
 import glob, os, re
 
-logdir = os.path.expanduser('~/.hermes/profiles/opsmanager/cache/delegation/live/deleg_2ff07eac')
+logdir = os.path.expanduser('~/.hermes/profiles/<PROFILE>/cache/delegation/live/deleg_2ff07eac')
 outdir = os.path.expanduser('~/AeroSkills/ops/automation/state/wave44-recon')
 logs = sorted(glob.glob(os.path.join(logdir, 'task-*.log')))
 for lp in logs:
