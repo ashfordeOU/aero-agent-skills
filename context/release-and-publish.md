@@ -34,3 +34,16 @@ count has crossed, so skipped bands release one at a time.
 - **Content-policy sweep trips on docs quoting red-flag terms** —
   definitional docs (MAINTENANCE_AND_HANDOVER) are exempted in
   ops/automation/content-policy-sweep.sh meta_doc_exempt.
+- **npm publish never fired for API-created tags (FIXED 2026-09-06)** —
+  release-on-milestone creates tags with GITHUB_TOKEN; GitHub does NOT
+  fire tag-push workflows from actions-created tags (recursion
+  protection). npm stuck at 1.3.0 while v1.4.0/v1.5.0 released. Fix:
+  (1) publish-npm.yml now also fires on release:published +
+  workflow_dispatch, (2) derives version from the latest v*.0 tag
+  (package.json lag was a second bug), (3) release-on-milestone
+  dispatches `gh workflow run publish-npm.yml` after tagging
+  (workflow_dispatch IS the documented GITHUB_TOKEN exception).
+  Verified: npm 1.5.0 live 2026-09-06.
+- **ashfordeOU API token lives at hosts.yml users.ashfordeOU** (gho_*,
+  NOT the top-level arjun-0077 token). Use it for ashfordeOU repo API
+  writes; the arjun-0077 token 401s on ashfordeOU repos.
