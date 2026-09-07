@@ -1,12 +1,12 @@
 {
-  "corpus_tasks": 1238,
+  "corpus_tasks": 1266,
   "families": 12,
-  "leaves": 611,
+  "leaves": 625,
   "live_packs": 85,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
-      "leaves": 53,
+      "leaves": 57,
       "pack_names": [
         "aeroelasticity",
         "airfoil",
@@ -25,7 +25,8 @@
           "added-mass-coefficients-potential-flow",
           "aeroelastic-gust-response",
           "divergence-speed",
-          "flutter-speed-prediction"
+          "flutter-speed-prediction",
+          "sears-function-gust-lift"
         ],
         "airfoil": [
           "airfoil-geometry",
@@ -38,7 +39,10 @@
           "boundary-layer-separation",
           "boundary-layer-theory",
           "boundary-layer-transition",
+          "laminar-far-wake",
+          "mangler-axisymmetric-transform",
           "rough-wall-skin-friction",
+          "squire-young-profile-drag",
           "stagnation-flow-boundary-layer",
           "stokes-creeping-flow-drag",
           "unsteady-laminar-stokes-layers"
@@ -96,11 +100,11 @@
         ]
       },
       "spine": "NACA TR-824",
-      "tasks": 108
+      "tasks": 116
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 47,
+      "leaves": 48,
       "pack_names": [
         "data-bus",
         "do160",
@@ -166,6 +170,7 @@
         "fsw": [
           "aperiodic-server-scheduling",
           "cfs-architecture",
+          "deadline-monotonic-scheduling",
           "fprime-component",
           "real-time-scheduling",
           "shared-resource-access-control"
@@ -181,11 +186,11 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 97
+      "tasks": 99
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
-      "leaves": 55,
+      "leaves": 56,
       "pack_names": [
         "data-sources",
         "documentation",
@@ -220,6 +225,7 @@
           "exact-binomial-test",
           "fast-fourier-transform",
           "finite-difference-derivatives",
+          "fir-bandpass-bandstop-filter-design",
           "fir-filter-design",
           "fisher-exact-test",
           "grubbs-outlier-test",
@@ -268,7 +274,7 @@
         ]
       },
       "spine": "SEP-2640",
-      "tasks": 110
+      "tasks": 112
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
@@ -342,7 +348,7 @@
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
-      "leaves": 48,
+      "leaves": 49,
       "pack_names": [
         "envelope",
         "flutter",
@@ -366,6 +372,7 @@
           "v-speeds",
           "vmc-determination",
           "vmcg-determination",
+          "vmcl-determination",
           "vmu-determination"
         ],
         "flutter": [
@@ -415,11 +422,11 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 96
+      "tasks": 98
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 52,
+      "leaves": 55,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -436,6 +443,7 @@
           "digital-control-design",
           "frequency-response-design",
           "gain-scheduling",
+          "l1-adaptive-control",
           "lead-lag-compensation",
           "observer-design",
           "pid-control-design",
@@ -446,6 +454,7 @@
         "estimation-filtering": [
           "alpha-beta-filter",
           "complementary-filter",
+          "cramer-rao-lower-bound",
           "extended-kalman-filter",
           "imu-static-calibration",
           "interacting-multiple-model-filter",
@@ -484,6 +493,7 @@
           "bang-bang-control",
           "dymos-trajectory",
           "ilqr-ddp",
+          "loop-transfer-recovery",
           "lqg-design",
           "lqr-design",
           "model-predictive-control"
@@ -496,7 +506,7 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 105
+      "tasks": 111
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
@@ -583,7 +593,7 @@
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 48,
+      "leaves": 50,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -612,7 +622,8 @@
         "electric": [
           "electrothermal-thruster",
           "gridded-ion-thruster",
-          "hall-thruster"
+          "hall-thruster",
+          "mpd-thruster"
         ],
         "engine-airframe": [
           "engine-airframe-integration"
@@ -637,6 +648,7 @@
           "cold-gas-thruster",
           "combustion-chamber-design",
           "hybrid-rocket-motor",
+          "hydrazine-monopropellant-thruster",
           "injector-design",
           "nozzle-area-ratio-selection",
           "nozzle-design",
@@ -668,7 +680,7 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 96
+      "tasks": 100
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
@@ -750,7 +762,7 @@
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 59,
+      "leaves": 61,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -780,6 +792,7 @@
           "bird-strike",
           "crack-growth",
           "residual-strength",
+          "walker-forman-crack-growth",
           "widespread-fatigue-damage"
         ],
         "fatigue": [
@@ -804,6 +817,7 @@
           "cylindrical-shell-buckling",
           "diagonal-tension-field-webs",
           "hertzian-contact-stress",
+          "inelastic-column-buckling",
           "lug-joint-analysis",
           "metallic-fastener-joints",
           "modal-analysis",
@@ -837,7 +851,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 119
+      "tasks": 123
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -1003,6 +1017,6 @@
       "tasks": 112
     }
   },
-  "skill_files": 623,
+  "skill_files": 637,
   "standards": 30
 }

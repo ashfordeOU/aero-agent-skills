@@ -99,6 +99,8 @@ material selection.
 | structures/fem/statically-indeterminate | Statically indeterminate analysis | statically indeterminate, three moment equation, moment distribution, slope deflection, fixed end moment, continuous beam support moment, elastic redundant analysis |
 | structures/fem/restrained-warping | Restrained warping torsion | restrained warping, non uniform torsion, bimoment, warping constant, warping normal stress, torsional flexure, thin walled open section |
 
+| structures/fem/inelastic-column-buckling | Inelastic Column Buckling | inelastic-column-buckling, johnson-parabola, column-strength-curve, intermediate-slenderness, euler-johnson-tangent, yield-anchored-johnson, stubby-column-allowable |
+| structures/damage-tolerance/walker-forman-crack-growth | Walker Forman Crack Growth | walker-forman-crack-growth, walker-equation, forman-equation, r-ratio-correction, equivalent-delta-k, kc-limited-growth, stress-ratio-crack-growth |
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
@@ -115,6 +117,7 @@ ance) route
   load, slenderness ratio, effective length factor, end conditions,
   buckling stress, radius of gyration, cantilever columns) route to
   the fem buckling-analysis sub-skill.
+- Inelastic column questions (Johnson parabola column-strength curve, Euler-Johnson tangent transition, intermediate-slenderness allowable anchored on the material yield, stubby-column margin) route to the fem inelastic-column-buckling sub-skill; elastic Euler buckling stays with buckling-analysis and crippling stays with crippling-analysis.
 - Flat plate and skin panel stability questions (plate buckling
   coefficient, compression or shear buckling of a skin panel or spar
   web, combined compression-shear interaction, effective width) route
@@ -125,6 +128,7 @@ ance) route
   sub-skill.
 - Fatigue crack growth and inspection interval questions route to the
   damage-tolerance crack-growth sub-skill; MSD/MED and supplemental
+- Stress-ratio crack-growth questions (Walker equivalent delta-K, Forman rate with the Kc-limited denominator, R-ratio correction gamma exponent, block crack extension toward fracture toughness) route to the damage-tolerance walker-forman-crack-growth sub-skill; Paris constant-amplitude growth stays with crack-growth.
   inspection questions route to the damage-tolerance
   widespread-fatigue-damage sub-skill.
 - Cumulative damage and fatigue life questions route to the fatigue

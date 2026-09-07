@@ -275,6 +275,11 @@
 # leaves). Wave-44 new leaves: "aerodynamics/high-speed/ackeret-linearized-supersonic", "aerodynamics/aeroelasticity/added-mass-coefficients-potential-flow", "avionics/fsw/aperiodic-server-scheduling", "cross-cutting/numerics/bandpass-bandstop-filter-design", "gnc-autonomy/navigation/gnss-rtk-positioning", "aerodynamics/high-speed/hypersonic-piston-theory", "gnc-autonomy/optimal-control/ilqr-ddp", "propulsion/turbofan/mixed-flow-exhaust", "propulsion/rocket/nozzle-area-ratio-selection", "structures/fem/restrained-warping", "structures/fem/statically-indeterminate", "aerodynamics/boundary-layer/stokes-creeping-flow-drag", "gnc-autonomy/navigation/terrain-referenced-navigation", "flight-test-operations/envelope/vmcg-determination".
 # Corpus: 1238 tasks (1210 prior plus 28 domain tasks). Owner: Ops
 # Manager, Wave 44 build.
+# P5.2 / Wave 45 (2026-09-07): fan-out continues on the public
+# v1.0.0 model to 625 verified skills (637 SKILL.md under gate 1: 12 routers + 625
+# leaves). Wave-45 new leaves: "gnc-autonomy/estimation-filtering/cramer-rao-lower-bound", "avionics/fsw/deadline-monotonic-scheduling", "cross-cutting/numerics/fir-bandpass-bandstop-filter-design", "propulsion/rocket/hydrazine-monopropellant-thruster", "structures/fem/inelastic-column-buckling", "gnc-autonomy/control/l1-adaptive-control", "aerodynamics/boundary-layer/laminar-far-wake", "gnc-autonomy/optimal-control/loop-transfer-recovery", "aerodynamics/boundary-layer/mangler-axisymmetric-transform", "propulsion/electric/mpd-thruster", "aerodynamics/aeroelasticity/sears-function-gust-lift", "aerodynamics/boundary-layer/squire-young-profile-drag", "flight-test-operations/envelope/vmcl-determination", "structures/damage-tolerance/walker-forman-crack-growth".
+# Corpus: 1266 tasks (1238 prior plus 28 domain tasks). Owner: Ops
+# Manager, Wave 45 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -806,8 +811,7 @@ tasks:
     intent: "flight test; Vs1g reference stall speed from wing loading"
     expected_skill: "flight-test-operations/performance/stall-speed-determination"
   - id: vs2
-    query: "correct the stall speed for the weight change and check the stall margin for the\
-  \ flight test"
+    query: "correct the flight-test stall-speed for the weight change with the weight-correction relation and check the stall-margin"
     intent: "flight test; weight-corrected stall speed and stall margin"
     expected_skill: "flight-test-operations/performance/stall-speed-determination"
   - id: lig1
@@ -5539,6 +5543,118 @@ tasks:
     query: "issue the ground-control verdict from the corrected steering-free roll runs with the 150 lbf rudder pedal force criterion that gates the balanced field V1 schedule above the demonstrated vmcg-determination ground-minimum-control-speed"
     intent: "flight-test-operations; Vmcg verdict from corrected steering-free roll runs gating the balanced-field V1 schedule with the 150 lbf pedal force criterion and the boost factor"
     expected_skill: "flight-test-operations/envelope/vmcg-determination"
+  - id: w45-cramer-rao-lower-bound-1
+    query: "compute the cramer-rao-lower-bound for the scalar dc level in gaussian noise: build the fisher-information-matrix and report the best achievable variance"
+    intent: "gnc-autonomy; cramer-rao-lower-bound on the scalar dc level in gaussian noise: build the fisher-information-matrix and report the best achievable variance of the estimator"
+    expected_skill: "gnc-autonomy/estimation-filtering/cramer-rao-lower-bound"
+  - id: w45-cramer-rao-lower-bound-2
+    query: "check whether the maximum likelihood estimator reaches the cramer-rao-lower-bound: compare the sample covariance to the fisher-information-matrix inverse and report the estimator efficiency"
+    intent: "gnc-autonomy; cramer-rao-lower-bound attainment check: compare the sample covariance of the maximum likelihood estimator to the fisher-information-matrix inverse and report the estimator efficiency"
+    expected_skill: "gnc-autonomy/estimation-filtering/cramer-rao-lower-bound"
+  - id: w45-deadline-monotonic-scheduling-1
+    query: "check the deadline-monotonic-scheduling feasibility of the avionics process set where the 40 ms task carries a constrained-deadline of 25 ms shorter than its period: order the priorities by the shorter deadline and run the fixed-priority response-time iteration against each per-task deadline"
+    intent: "avionics/fsw; deadline-monotonic priority assignment by shorter relative deadline and the fixed-priority response-time iteration converged against each per-task deadline, for a 40 ms process whose constrained deadline of 25 ms is shorter than its period"
+    expected_skill: "avionics/fsw/deadline-monotonic-scheduling"
+  - id: w45-deadline-monotonic-scheduling-2
+    query: "test the arbitrary-deadline response time of the process whose 60 ms relative deadline exceeds its 30 ms period under deadline-monotonic priority assignment, then recompute the worst-case response with a 4 ms release-jitter on the highest priority task"
+    intent: "avionics/fsw; arbitrary-deadline (D > T) response-time analysis under deadline-monotonic priority assignment, including the busy-period job scan, and the release-jitter recomputation of the worst-case response when the highest-priority task carries 4 ms release jitter"
+    expected_skill: "avionics/fsw/deadline-monotonic-scheduling"
+  - id: w45-fir-bandpass-bandstop-filter-design-1
+    query: "apply the fir-bandpass-filter-design by the windowed-sinc frequency-translation-method: build the 101-tap bandpass tap set for the 200 to 800 hertz passband at a 4000 hertz sample rate with the hamming window, verify the center-band gain and the band-edge gains at the minus 6.0206 dB midpoint, and filter the 400 hertz test tone"
+    intent: "cross-cutting; windowed-sinc FIR bandpass design by cosine frequency translation of the windowed-sinc lowpass prototype at the 101-tap 200 to 800 hertz passband geometry, with center-band and band-edge gain verification and a filtered 400 hertz test tone"
+    expected_skill: "cross-cutting/numerics/fir-bandpass-bandstop-filter-design"
+  - id: w45-fir-bandpass-bandstop-filter-design-2
+    query: "strip the accelerometer bias drift with the fir-highpass-filter-design built by the spectral-inversion-method from the windowed-sinc lowpass prototype: 51 taps, hamming window, 0.5 hertz cutoff at 100 hertz sample rate, and report the low-frequency rejection in dB at 0.1 hertz"
+    intent: "cross-cutting; windowed-sinc FIR highpass design by spectral inversion of the windowed-sinc lowpass prototype, reporting the low-frequency rejection in dB at 0.1 hertz"
+    expected_skill: "cross-cutting/numerics/fir-bandpass-bandstop-filter-design"
+  - id: w45-hydrazine-monopropellant-thruster-1
+    query: "size the hydrazine-monopropellant-thruster for the 5 N spacecraft reaction control duty: the catalytic-decomposition chamber temperature from the hydrazine-decomposition energy balance at the 0.4 ammonia-dissociation fraction, then the nozzle exhaust velocity and vacuum specific impulse for the decomposed gas mixture"
+    intent: "propulsion; hydrazine monopropellant RCS sizing, chamber temperature from the catalytic-decomposition energy balance at the 0.4 ammonia-dissociation fraction, then vacuum exhaust velocity and specific impulse of the decomposed mixture"
+    expected_skill: "propulsion/rocket/hydrazine-monopropellant-thruster"
+  - id: w45-hydrazine-monopropellant-thruster-2
+    query: "run the hydrazine-decomposition energy balance for the monopropellant-thruster design point at 22 N: chamber temperature and specific impulse at the frozen and the 0.6 ammonia-dissociation limits, and the catalyst-bed temperature band check for the RCS thruster"
+    intent: "propulsion; hydrazine decomposition energy balance at 22 N with the frozen and 0.6 dissociation-fraction chamber temperatures and impulses plus the advisory catalyst-bed temperature band check"
+    expected_skill: "propulsion/rocket/hydrazine-monopropellant-thruster"
+  - id: w45-inelastic-column-buckling-1
+    query: "run the inelastic-column-buckling check of the 7075-T6 solid round actuator rod with the johnson-parabola column-strength-curve: at the intermediate-slenderness of 55 below the euler-johnson-tangent transition the allowable falls between the yield anchor and the euler arm, so compute the parabola stress and the margin against the applied axial load"
+    intent: "structures; inelastic column buckling of the 7075-T6 solid round rod at intermediate slenderness 55 below the euler-johnson-tangent transition: yield-anchored johnson-parabola stress of the column strength curve and the margin against the applied axial load"
+    expected_skill: "structures/fem/inelastic-column-buckling"
+  - id: w45-inelastic-column-buckling-2
+    query: "determine the stubby-column-allowable of the 2024-T3 extruded tube compression member in the johnson-parabola range: the inelastic-column-buckling stress at effective slenderness 40 where the euler stress overpredicts, tangent to the euler arm at the column-strength-curve transition"
+    intent: "structures; inelastic column buckling of the 2024-T3 extruded tube member at effective slenderness 40 in the johnson-parabola range: stubby-column-allowable of the yield-anchored column strength curve where the euler stress overpredicts, tangent to the euler arm at the transition"
+    expected_skill: "structures/fem/inelastic-column-buckling"
+  - id: w45-l1-adaptive-control-1
+    query: "design an l1-adaptive-control law for the first order plant with unknown coefficient: run the state-predictor and the low-pass-filtered projection adaptation law and report the tracking error"
+    intent: "gnc-autonomy; l1-adaptive-control state-predictor law with the low-pass-filtered projection-based-adaptation-law on the prediction error of a first-order plant with unknown coefficient, reporting the tracking error"
+    expected_skill: "gnc-autonomy/control/l1-adaptive-control"
+  - id: w45-l1-adaptive-control-2
+    query: "run the l1-adaptive-control simulation: propagate the state-predictor with the low-pass-filtered adaptation term and the projection based adaptation law and verify the transient bound of the tracking error"
+    intent: "gnc-autonomy; l1-adaptive-control simulation propagating the state-predictor with the low-pass-filtered-adaptation term and the projection-based-adaptation-law, verifying the guaranteed-transient-response bound of the tracking error"
+    expected_skill: "gnc-autonomy/control/l1-adaptive-control"
+  - id: w45-laminar-far-wake-1
+    query: "compute the drag of the thin plate from the measured laminar far-wake velocity-defect profile at the traverse station: integrate the momentum deficit across the wake with the wake-momentum-integral identity and report the drag coefficient"
+    intent: "aerodynamics; laminar free-shear far wake in the viscous boundary-layer vein: velocity-defect profile of the Gaussian laminar far wake behind a thin plate, wake-momentum-integral drag identity D = rho*U*integral u1 dy as the closed-form basis of wake-survey drag, drag coefficient from the integrated momentum deficit"
+    expected_skill: "aerodynamics/boundary-layer/laminar-far-wake"
+  - id: w45-laminar-far-wake-2
+    query: "predict the laminar far-wake velocity-defect profile downstream of the flat plate: the Gaussian similarity defect shape, the centerline-defect decay with downstream distance, and the wake half-width growth from the similarity solution"
+    intent: "aerodynamics; Goldstein laminar far-wake similarity behind a flat plate: Gaussian cross-stream velocity-defect profile with spread parameter U/(4*nu*x), centerline defect decaying as x^-1/2, wake half-width growing as x^1/2, linking the far-wake traverse to the laminar Blasius trailing-edge momentum state"
+    expected_skill: "aerodynamics/boundary-layer/laminar-far-wake"
+  - id: w45-loop-transfer-recovery-1
+    query: "design a loop-transfer-recovery controller for the lqg compensator: inflate the process noise weight q on the driven input channel and recover the full-state loop transfer function at the plant output"
+    intent: "gnc-autonomy; output-side loop-transfer-recovery of the lqg compensator: inflate the filter process noise weight q on the driven input channel and recover the full-state loop transfer function at the plant output against the target feedback loop"
+    expected_skill: "gnc-autonomy/optimal-control/loop-transfer-recovery"
+  - id: w45-loop-transfer-recovery-2
+    query: "run loop-transfer-recovery on the lqg design: increase the recovery gain until the recovered output loop singular values match the target-feedback-loop full-state loop"
+    intent: "gnc-autonomy; run the loop-transfer-recovery recovery-gain sweep: increase the recovery gain q until the recovered output loop singular values match the target-feedback-loop full-state loop on the frequency grid"
+    expected_skill: "gnc-autonomy/optimal-control/loop-transfer-recovery"
+  - id: w45-mangler-axisymmetric-transform-1
+    query: "apply the mangler-transformation to the laminar boundary layer on the sharp cone: report the cone boundary-layer thickness and skin friction versus the flat-plate values at the same running length with the sqrt-3 cone factor"
+    intent: "aerodynamics; geometry transform of a steady laminar incompressible boundary layer on an axisymmetric body of revolution into an equivalent 2-D flow, with the sharp-cone closed-form ratios at equal running length: the sqrt(3) laminar cone factor on wall shear and skin friction, the inverse sqrt(3) factor on the cone boundary-layer thickness, and the Mangler transformed coordinate machinery for slender axisymmetric bodies"
+    expected_skill: "aerodynamics/boundary-layer/mangler-axisymmetric-transform"
+  - id: w45-mangler-axisymmetric-transform-2
+    query: "transform the axisymmetric-body boundary layer into the equivalent 2-D flow with the mangler-transformation coordinate mapping and compute the cone wall-shear ratio against the flat plate for the laminar case"
+    intent: "aerodynamics; Mangler mapping of an axisymmetric-body laminar boundary layer to an equivalent 2-D flow through the transformed running length xi = integral (r0/L)^2 dx and the transformed normal coordinate, with the laminar cone wall-shear ratio sqrt(3) against the flat plate at the same running length"
+    expected_skill: "aerodynamics/boundary-layer/mangler-axisymmetric-transform"
+  - id: w45-mpd-thruster-1
+    query: "size an mpd-thruster for the 10 kA discharge current with the 10 to 1 anode-to-cathode radius ratio: compute the self-field electromagnetic thrust from the current-squared thrust law and the exhaust velocity from the 0.1 g/s argon mass flow"
+    intent: "propulsion; steady self-field MPD operating point from the discharge-current-squared electromagnetic thrust law at the anode-to-cathode radius ratio"
+    expected_skill: "propulsion/electric/mpd-thruster"
+  - id: w45-mpd-thruster-2
+    query: "analyze the magnetoplasmadynamic-thruster self-field arc operating points: thrust from the discharge-current-squared thrust law at 5 kA and 10 kA, jet power and specific impulse from the argon mass flow, and the thrust-to-power band verdict for the steady-state mpd-thruster class"
+    intent: "propulsion; self-field MPD thrust, jet power, specific impulse and thrust-to-power across the 5 kA and 10 kA discharge-current operating points with the reference-only band verdict"
+    expected_skill: "propulsion/electric/mpd-thruster"
+  - id: w45-sears-function-gust-lift-1
+    query: "evaluate the sears-function lift response of the rigid airfoil to a sinusoidal-gust field at reduced frequency 0.5: compute the complex sears-function from the Bessel series, the gust gain and phase lag, and the unsteady gust-load amplitude against the quasi-steady 2 pi rho V b w_g reference"
+    intent: "aerodynamics; sears-function sinusoidal-gust response of the rigid thin airfoil: complex sears function from the Bessel series, gust gain and phase lag, unsteady gust-load amplitude against the 2 pi rho V b w_g quasi-steady reference"
+    expected_skill: "aerodynamics/aeroelasticity/sears-function-gust-lift"
+  - id: w45-sears-function-gust-lift-2
+    query: "sweep the sears-function gain of the thin airfoil in the sinusoidal-gust encounter across reduced frequencies 0.1 to 2.0 and report the reduced frequency where the unsteady gust-load amplitude falls to half the quasi-steady value"
+    intent: "aerodynamics; sears-function gain sweep across reduced frequencies 0.1 to 2.0 and the half-amplitude reduced frequency of the unsteady gust load"
+    expected_skill: "aerodynamics/aeroelasticity/sears-function-gust-lift"
+  - id: w45-squire-young-profile-drag-1
+    query: "compute the section profile-drag coefficient of the airfoil with the squire-young-formula from the trailing-edge momentum thickness, the trailing-edge to freestream edge-velocity ratio, and the shape factor 1.4 at the trailing edge"
+    intent: "aerodynamics; boundary-layer trailing-edge drag mapping: squire-young-formula section profile-drag coefficient from the trailing-edge momentum thickness over chord, the trailing-edge to freestream edge-velocity ratio, and the trailing-edge shape factor 1.4"
+    expected_skill: "aerodynamics/boundary-layer/squire-young-profile-drag"
+  - id: w45-squire-young-profile-drag-2
+    query: "estimate the profile drag of the fully laminar 2-D section at low Reynolds number with the squire-young-formula: grow the boundary-layer momentum thickness to the trailing edge on the integral growth relation and apply the edge-velocity-ratio exponent to the profile-drag coefficient"
+    intent: "aerodynamics; fully laminar low-Reynolds section drag chain: integral growth of the boundary-layer momentum thickness to the trailing edge and the squire-young-formula edge-velocity-ratio exponent applied to the profile-drag coefficient"
+    expected_skill: "aerodynamics/boundary-layer/squire-young-profile-drag"
+  - id: w45-vmcl-determination-1
+    query: "reduce the landing-configuration VMCL demonstration runs to the approach minimum-control-speed after the critical-engine cut with go-around thrust"
+    intent: "flight-test-operations; FAR/CS 25.149(f) approach and landing minimum control speed VMCL reduction of the landing-configuration critical-engine-cut demonstration runs at go-around thrust with the bank-5-degree and 20-degree-heading-change run classification and the standard-condition corrections"
+    expected_skill: "flight-test-operations/envelope/vmcl-determination"
+  - id: w45-vmcl-determination-2
+    query: "VMCL-2 second-critical-engine cut on approach, three-degree path thrust change to go-around, directional control speed reduction"
+    intent: "flight-test-operations; FAR/CS 25.149(g) VMCL-2 second-cut leg for three-plus-engine airplanes: second critical engine cut on approach with one engine inoperative and the operating engines at go-around thrust, directional control speed reduction against the landing configuration authority and pedal force limits"
+    expected_skill: "flight-test-operations/envelope/vmcl-determination"
+  - id: w45-walker-forman-crack-growth-1
+    query: "estimate the walker-forman-crack-growth rate of the 2024-T3 fuselage panel at stress ratio R = 0.35: apply the walker-equation equivalent delta-k with the gamma exponent and the forman-equation rate with the kc-limited denominator, then the crack extension over the 2000-cycle block"
+    intent: "structures; stress-ratio-corrected crack growth rate: Walker equivalent stress intensity range dK_bar = dK/(1-R)^(1-gamma) with the gamma exponent, the Forman rate with the K_c-limited denominator, the walker-versus-paris and forman-versus-paris ratios, and the crack extension over a 2000-cycle block at R = 0.35"
+    expected_skill: "structures/damage-tolerance/walker-forman-crack-growth"
+  - id: w45-walker-forman-crack-growth-2
+    query: "compute the walker-equation equivalent delta-k and the forman-equation rate for the growing crack at stress ratio R = -0.4 with the r-ratio-correction gamma exponent, and report the walker-forman crack extension over the block so the kc-limited acceleration near fracture toughness is captured"
+    intent: "structures; walker-equation equivalent delta-k and forman-equation rate at negative stress ratio R = -0.4 with the gamma exponent, the R-corrected rate table and the block extension showing the kc-limited terminal acceleration as peak K approaches K_c"
+    expected_skill: "structures/damage-tolerance/walker-forman-crack-growth"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

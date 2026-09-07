@@ -89,6 +89,7 @@ flight test instrumentation, and campaign planning.
 
 | flight-test-operations/envelope/vmcg-determination | Vmcg determination | vmcg determination, minimum control speed on ground, ground minimum control speed, nosewheel steering authority, Vmcg V1 gate |
 
+| flight-test-operations/envelope/vmcl-determination | Vmcl Determination | vmcl-determination, landing-minimum-control-speed, approach-configuration-control, go-around-thrust, critical-engine-cut, most-favorable-weight, second-engine-cut |
 ## Routing guidance
 
 - Envelope expansion and corner speed questions route to the
@@ -164,4 +165,5 @@ your host's skills directory (see README Install for per-host commands).
 - Minimum unstick speed determination questions (vmu determination, takeoff rotation runs, tail-strike rotation limit, unstick certification margin against the 1.08 Vmu constraint) route to the envelope vmu-determination sub-skill.
 - Rotorcraft forward-flight climb test questions (measured rate of climb versus airspeed sweep, best rate of climb Vy, rotorcraft climb ceilings, weight and density corrections) route to the performance rotorcraft-forward-flight-climb-test sub-skill.
 - Ground-leg minimum-control-speed questions (critical engine failure on the takeoff ground run, nosewheel steering and rudder authority versus ground speed, 150 lbf pedal force, Vmcg against the V1 schedule) route to the envelope vmcg-determination sub-skill, not the air-side vmc-determination.
+- Landing-configuration minimum control speed questions (VMCL and VMCL-2 demonstration reduction, critical-engine cut on approach with go-around thrust, bank-5-degree and 20-degree-heading run classification, most-favorable-weight and reference-flap correction) route to the envelope vmcl-determination sub-skill; airborne Vmc stays with vmc-determination and the ground leg with vmcg-determination.
 - Rotorcraft height-velocity demonstration questions (hover and low-speed engine-failure height-loss measurement, dead-man-curve boundary mapping, avoid-region clearance verdict) route to the performance rotorcraft-height-velocity-diagram-test sub-skill.
