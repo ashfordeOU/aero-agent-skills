@@ -60,7 +60,7 @@ bash ops/automation/publish-public.sh   (keeps 2da34f0e + eec11e34 fixes)
   needed for public? publish script handles; check API).
 
 ## 10. GROUP 160 close-out post
-env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160 "..." 
+env -u HERMES_HOME hermes -p opsmanager send --to telegram:<CHAT_ID> "..." 
 -> capture exit code, verify SEND_EXIT=0.
 
 ## 11. wave34-state.md honest close + commit + push PRIVATE.

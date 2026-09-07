@@ -178,7 +178,7 @@ MAINTENANCE_AND_HANDOVER.md section 5a.
     local-only commits mid-wave (wave-30..39 class) — fast-forward below the
     wave commits, do not fight them; regenerate manifests at close.
 11. **GROUP 160 close-out post** as Ops Manager via
-    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160`
+    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:<CHAT_ID>`
     → verify SEND_EXIT=0.
 12. **wave40-state.md honest** at close (leaves, family spread, deviations,
     disclosures, lessons, REAL em-dash count) + commit + push PRIVATE. Then

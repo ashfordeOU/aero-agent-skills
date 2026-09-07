@@ -64,7 +64,7 @@ references/ + assets/ only when the body inlines long external content.
     visibility flip. Then **publish-public.sh sync** (sanctioned path) + verify
     public HEAD + GitHub CI attest SUCCESS.
 11. **GROUP 160 close-out post** as Ops Manager via
-    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160`
+    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:<CHAT_ID>`
     → verify SEND_EXIT=0.
 12. **wave26-state.md honest** at close (leaves, family spread, deviations,
     disclosures, lessons) + commit + push PRIVATE. Then proc exit → CEO P5.2

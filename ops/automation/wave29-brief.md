@@ -89,7 +89,7 @@ content.
     at 2da34f0e (leaf-count regression guard) and eec11e34 (About refresh from
     the MIRROR post-push); keep those fixes, do not revert.
 11. **GROUP 160 close-out post** as Ops Manager via
-    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:-1004333545328:160`
+    `env -u HERMES_HOME hermes -p opsmanager send --to telegram:<CHAT_ID>`
     → verify SEND_EXIT=0.
 12. **wave29-state.md honest** at close (leaves, family spread, deviations,
     disclosures, lessons) + commit + push PRIVATE. Then proc exit → CEO P5.2

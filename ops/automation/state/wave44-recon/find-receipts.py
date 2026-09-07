@@ -3,7 +3,7 @@
 report in probe logs, print them with generous width, in full."""
 import glob, os
 
-logdir = os.path.expanduser('~/.hermes/profiles/opsmanager/cache/delegation/live/deleg_2ff07eac')
+logdir = os.path.expanduser('~/.hermes/profiles/<PROFILE>/cache/delegation/live/deleg_2ff07eac')
 logs = sorted(glob.glob(os.path.join(logdir, 'task-*.log')))
 for lp in logs:
     with open(lp, encoding='utf-8', errors='replace') as f:
