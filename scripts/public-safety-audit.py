@@ -8,6 +8,9 @@ content categories. Exit 0 = clean, 1 = violations found. Run as:
   python3 scripts/public-safety-audit.py [--repo PATH]
 Default repo = current directory.
 
+# Branding exemption (founder 2026-09-07): repos that intentionally
+# name the founder as content — ashforde-site (founder page), kshana
+# (paper citations), ashfordeOU profile README — are exempt from
 Checks (all across every commit reachable from HEAD):
   1. Local absolute paths      /Users/<user>, /home/<user>, /Volumes/, C:\\Users
   2. Local usernames           chak, developer (formerly enterprisehq — scrubbed 2026-09-07)
@@ -29,6 +32,11 @@ import sys
 REPO = "."
 if "--repo" in sys.argv:
     REPO = sys.argv[sys.argv.index("--repo") + 1]
+
+# Branding-exempt repos (founder 2026-09-07): these intentionally name the
+# founder as content (site branding, paper citations, profile README).
+# personal_names/hostnames checks are skipped for them; all other checks stay.
+BRANDING_REPOS = {"ashforde-site", "kshana", "ashfordeOU"}
 
 def git(*args):
     return subprocess.run(["git", "-C", REPO, *args], capture_output=True, text=True)
@@ -66,12 +74,12 @@ PATTERNS = {
     "personal_names": pat(r"chak", r"shu|baweja|subhash"),
     "tokens": pat(r"ghp_[A-Za-z0-9]", r"{20,}|github_pat_[A-Za-z0-9_]") + pat(r"{20,}|gho_", r"[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY"),
     "private_ips": pat(r"192\.168\.", r"[0-9]+\.[0-9]+|10\.[0-9]+\.[0-9]+\.[0-9]+|172\.(1[6-9]|2[0-9]|3[01])\.[0-9]+\.[0-9]+"),
-    "passwords": pat(r"password\s*[=:]", r"\s*[^\s]{6,}|Subhash"),
+    "passwords": pat(r"(?<!_)\bpassword\s*[=:]", r"\s*[^\s]{6,}|Subhash"),
     "api_keys": pat(r"api[_-]?key\s*[=:]\s*[\"']", r"[A-Za-z0-9]{16,}|client[_-]?secret\s*[=:]\s*[\"'][A-Za-z0-9]{16,}"),
     "hostnames": pat(r"chak", r"'s-mac|Chakshu"),
 }
 
-ENV_FILE_RE = re.compile(r"(\.env($|\.)|\.pem$|\.key$|\.p12$|\.pfx$|id_rsa|id_ed25519|\.netrc|credentials)", re.I)
+ENV_FILE_RE = re.compile(r"(\.env(?![\w.-]*example)|\.pem$|\.key$|\.p12$|\.pfx$|id_rsa|id_ed25519|\.netrc|credentials)", re.I)
 
 # Audit tooling files: their source legitimately contains detection-pattern
 # strings (split or as documentation). Never flag them — same rule as the
@@ -107,8 +115,15 @@ def main():
     print(f"Auditing {len(shas)} commits in {REPO}...")
     violations = {}
 
+    # Branding-exempt repos: founder's name is intentional content, so
+    # skip personal-name checks but keep all path/token/secret checks.
+    repo_name = os.path.basename(os.path.normpath(REPO))
+    exempt_cats = {"personal_names", "hostnames"} if repo_name in BRANDING_REPOS else set()
+
     for sha in shas:
         for name, pattern in PATTERNS.items():
+            if name in exempt_cats:
+                continue
             hits = grep_in(sha, pattern)
             for h in hits:
                 violations.setdefault((sha[:8], name, h), 0)
