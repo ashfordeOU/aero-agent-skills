@@ -53,6 +53,7 @@ material selection.
 | structures/fatigue/load-spectrum-counting | Load spectrum counting | rainflow counting, level crossing, exceedance spectra, mission load spectra, spectrum truncation |
 | structures/fatigue/notch-sensitivity | Notch sensitivity | stress concentration factor Kt, fatigue notch factor Kf, Neuber, Peterson, notch root radius, effective stress amplitude, notched fatigue assessment |
 | structures/composites/laminate-stiffness | Laminate stiffness | CLT, lamina stiffness, laminate ABD matrix, ply layup |
+| structures/composites/unidirectional-lamina-micromechanics | Unidirectional lamina micromechanics | unidirectional-lamina-micromechanics, rule-of-mixtures, halpin-tsai, hashin-shtrikman-bounds, lamina-elastic-constants, fiber-volume-fraction |
 | structures/composites/laminate-plate-buckling | Laminate plate buckling | laminate plate buckling, orthotropic plate buckling, CLT D matrix, buckling mode minimization, composite panel stability, compression buckling |
 | structures/composites/composite-bolted-joints | Composite bolted joints | bearing stress, bypass load, net tension, shear-out, edge distance |
 | structures/composites/adhesive-bonded-joints | Adhesive bonded joints | adhesive bonded joint, single lap joint, shear lag parameter, adhesive shear stress, overlap length, Volkersen shear distribution, bondline peak stress, adhesive allowable |
@@ -72,6 +73,7 @@ material selection.
 | structures/loads/shock-response-spectrum | Shock response spectrum | shock response spectrum, SRS, transient shock response, half sine pulse, base acceleration, pseudo acceleration, oscillator peak response, shock qualification, amplified frequency |
 | structures/fatigue/strain-life-fatigue | Strain-life fatigue | strain life, Coffin-Manson, low-cycle fatigue, reversals to failure, Neuber local strain, transition life |
 | structures/materials/creep-rupture | Creep rupture | creep, creep rate, Norton law, Larson-Miller, rupture life, stress rupture, Monkman-Grant, accumulated creep strain, time to 1 percent creep, elevated temperature |
+| structures/materials/creep-stress-relaxation | Creep stress relaxation | creep-stress-relaxation, fixed-total-strain-relaxation, norton-power-law-relaxation, relaxed-stress, relaxation-time-constant |
 | structures/fem/beam-frame-analysis | Beam frame analysis | beam frame analysis, rigid jointed frame, Euler Bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame |
 | structures/fem/plastic-collapse-analysis | Plastic collapse analysis | plastic collapse analysis, plastic hinge, collapse mechanism, limit analysis beam, fully plastic moment, shape factor |
 | structures/composites/delamination-growth | Delamination growth | delamination growth, strain energy release rate, DCB double cantilever beam, ENF end notched flexure, mixed mode fracture, Benzeggagh Kenane criterion |
@@ -146,7 +148,9 @@ ance) route
   notch sensitivity questions route to the fatigue notch-sensitivity
   sub-skill.
 - Lamina and laminate stiffness questions (CLT, ABD) route to the
-  composites laminate-stiffness sub-skill; bolted joint bearing,
+  composites laminate-stiffness sub-skill; micromechanics estimation of
+  lamina constants (E1/E2/nu12/G12) from fiber and matrix constituents
+  routes to composites unidirectional-lamina-micromechanics; bolted joint bearing,
   bypass, net-tension and shear-out questions route to the composites
   composite-bolted-joints sub-skill; sandwich panel face/core stress,
   wrinkling, and core selection questions route to the composites
@@ -169,6 +173,7 @@ ance) route
 - Composite material A-basis and B-basis allowables from coupon data, batch pooling, and laminate knockdown factors route to the composites cmh17-allowables sub-skill.
 - Finite element contact analysis, penalty and Lagrange methods, contact stiffness and penetration, friction and stick-slip, and master-slave formulation questions route to the fem contact-analysis sub-skill.
 - Creep rate, Norton law, Larson-Miller and Monkman-Grant rupture life, and accumulated creep strain questions route to the materials creep-rupture sub-skill.
+- Fixed-total-strain creep relaxation questions (Norton power-law stress relaxation, relaxed stress after hold time, n=1 exponential limit) route to the materials creep-stress-relaxation sub-skill; rupture life and Larson-Miller stay with creep-rupture.
 - Beam frame analysis questions (beam frame analysis, rigid jointed frame, euler bernoulli beam element, rotation degree of freedom, bending moment recovery, portal frame) route to the beam-frame-analysis sub-skill.
 - Delamination growth questions (delamination growth, strain energy release rate, dcb double cantilever beam, enf end notched flexure, mixed mode fracture, benzeggagh kenane criterion) route to the delamination-growth sub-skill.
 - Bonded scarf composite repair questions (scarf repair, scarf length, adhesive shear stress, required scarf angle, stiffness matched patch) route to the composites composite-repair sub-skill.

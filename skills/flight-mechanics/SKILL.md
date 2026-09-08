@@ -83,6 +83,7 @@ lateral-directional stability, and dynamic stability modes analysis.
 | flight-mechanics/performance/rotorcraft-turn-performance | Rotorcraft turn performance | rotorcraft turn performance, helicopter banked turn, turning flight inflow, sustained load factor, power limited bank angle, turn rate |
 | flight-mechanics/performance/rotorcraft-main-rotor-sizing | Rotorcraft main rotor sizing | main-rotor disk loading ceiling, radius and solidity closure, ct-over-sigma design point, blade chord, tip Mach |
 | flight-mechanics/performance/rotorcraft-forward-flight-flapping | Rotorcraft forward flight flapping | forward-flight-flapping, tip-path-plane-tilt, first-harmonic-flap-response, longitudinal-flapping-angle, lateral-flapping-angle, advance-ratio-flapping, flap-equilibrium-tilt |
+| flight-mechanics/performance/rotorcraft-cyclic-pitch-trim | Rotorcraft cyclic pitch trim | rotorcraft-cyclic-pitch-trim, cyclic-pitch-control, tip-path-plane-tilt, trim-inversion, swashplate-cyclic-input, longitudinal-cyclic, lateral-cyclic |
 
 ## Routing guidance
 
@@ -145,6 +146,7 @@ to the
 - Rotorcraft lead-lag dynamics questions (lag frequency ratio, regressing lag mode, ground-resonance clearance, coincidence rotor speed) route to the performance rotorcraft-lead-lag-dynamics sub-skill.
 - main-rotor disk loading ceiling, radius and solidity closure, ct-over-sigma design point, blade chord, tip Mach questions route to the performance rotorcraft-main-rotor-sizing sub-skill.
 - Steady forward-flight rotor flapping questions (first-harmonic flap equilibrium, tip-path-plane tilt, longitudinal and lateral flapping angles vs advance ratio, flap-equilibrium tilt) route to the performance rotorcraft-forward-flight-flapping sub-skill; hover-state coning, Lock number and flap frequency ratio stay with rotorcraft-blade-flapping-dynamics.
+- Rotorcraft cyclic trim questions (longitudinal and lateral cyclic pitch inputs, swashplate cyclic, cyclic required to hold a target tip-path-plane attitude, trim inversion) route to the performance rotorcraft-cyclic-pitch-trim sub-skill; collective-only flap equilibrium stays with rotorcraft-forward-flight-flapping.
 
 ## Install
 

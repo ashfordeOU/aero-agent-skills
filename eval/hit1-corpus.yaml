@@ -285,6 +285,11 @@
 # leaves). Wave-46 new leaves: "structures/materials/crack-tip-plasticity-correction", "gnc-autonomy/control/deadbeat-control", "structures/fem/elliptical-hertz-contact", "propulsion/rocket/hydrogen-peroxide-monopropellant-thruster", "gnc-autonomy/guidance/impact-time-control-guidance", "gnc-autonomy/navigation/ionospheric-delay-correction", "vehicle-design/sizing/landing-gear-height-sizing", "avionics/fsw/mixed-criticality-scheduling", "propulsion/reciprocating/piston-engine-cycle", "flight-mechanics/performance/rotorcraft-forward-flight-flapping".
 # Corpus: 1286 tasks (1266 prior plus 20 domain tasks). Owner: Ops
 # Manager, Wave 46 build.
+# P5.2 / Wave 46 (2026-09-07): fan-out continues on the public
+# v1.0.0 model to 645 verified skills (647 SKILL.md under gate 1: 12 routers + 645
+# leaves). Wave-46 new leaves: "vehicle-design/sizing/component-weight-estimation", "structures/materials/creep-stress-relaxation", "propulsion/reciprocating/diesel-cycle", "gnc-autonomy/control/h-infinity-control", "gnc-autonomy/guidance/impact-angle-control-guidance", "flight-mechanics/performance/rotorcraft-cyclic-pitch-trim", "gnc-autonomy/control/smith-predictor", "gnc-autonomy/navigation/tropospheric-delay-correction", "structures/composites/unidirectional-lamina-micromechanics", "avionics/fsw/virtual-deadline-scheduling".
+# Corpus: 1306 tasks (1286 prior plus 20 domain tasks). Owner: Ops
+# Manager, Wave 46 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5740,6 +5745,112 @@ tasks:
     query: "compute the rotorcraft tip-path-plane-tilt in forward flight for the trim assessment: the steady first-harmonic longitudinal-flapping-angle of the centrally hinged uniform blade at an advance ratio of 0.3 with uniform inflow"
     intent: "flight-mechanics; rotorcraft tip-path-plane-tilt in forward flight for the trim assessment: steady first-harmonic longitudinal-flapping-angle of the centrally hinged uniform blade at advance ratio 0.3 with uniform inflow"
     expected_skill: "flight-mechanics/performance/rotorcraft-forward-flight-flapping"
+  - id: w47-component-weight-estimation-1
+    query: "run the component-weight-estimation at class II for the
+      transport: evaluate the wing-group-weight regression on the
+      planform area, aspect ratio, sweep, thickness ratio and design
+      load factor, then the fuselage-group-weight regression on the
+      fuselage dimensions, and hand the group-weight totals to the
+      balance sheet"
+    intent: "vehicle-design/sizing; component-weight-estimation: the
+      class-II wing-group-weight statistical regression on the planform
+      area, aspect ratio, sweep, thickness ratio and design load factor,
+      then the fuselage-group-weight regression on the fuselage
+      dimensions, and the group-weight totals handed to the balance
+      sheet"
+    expected_skill: "vehicle-design/sizing/component-weight-estimation"
+  - id: w47-component-weight-estimation-2
+    query: "predict the empennage group weights with the
+      statistical-weight equations: horizontal-tail-group-weight and
+      vertical-tail-group-weight from the tail areas, tail aspect
+      ratios and the design gross weight, then roll the
+      component-weight totals into the mass-budget"
+    intent: "vehicle-design/sizing; the statistical-weight regressions
+      for the empennage groups: horizontal-tail-group-weight and
+      vertical-tail-group-weight from the tail areas, tail aspect
+      ratios and the design gross weight, with the component-weight
+      totals rolled into the mass-budget"
+    expected_skill: "vehicle-design/sizing/component-weight-estimation"
+  - id: w47-creep-stress-relaxation-1
+    query: "compute the creep-stress-relaxation of the 200 MPa bolt preload held at 600 C for 10000 seconds with the norton-relaxation closed form: the relaxed stress from the fixed-strain rate-law integral, the retained-preload fraction and the preload-retention margin"
+    intent: "structures/materials; creep-stress-relaxation: the relaxed stress of the 200 MPa bolt preload after the hold time from the fixed-total-strain norton-relaxation closed-form integral of d(sigma)/dt = -E*A*sigma^n*exp(-Q/(R*T)), the retained-preload fraction sigma/sigma_0 and the preload-retention margin against the required retained fraction"
+    expected_skill: "structures/materials/creep-stress-relaxation"
+  - id: w47-creep-stress-relaxation-2
+    query: "find the stress-relaxation time for the titanium fastener preload to decay to 80 percent of its initial value at the elevated temperature with the norton-power-law relaxation equation, and report the remaining preload after the design hold time"
+    intent: "structures/materials; creep-stress-relaxation: the time for the fastener preload to relax to 80 percent of its initial value from the inverted norton-power-law relaxation closed form at the elevated temperature, and the remaining preload after the design hold time"
+    expected_skill: "structures/materials/creep-stress-relaxation"
+  - id: w47-diesel-cycle-1
+    query: "run the air-standard-diesel-cycle for the compression-ignition aircraft engine at the 17 to 1 compression ratio: the diesel-cycle efficiency from the cutoff-ratio constant-pressure heat-addition model and the compression temperature ratio, then the brake-horsepower from the mean-effective-pressure and the displacement and the specific fuel consumption of the jet-a-fueled diesel powerplant at the cruise rating with the published compression-ignition band check"
+    intent: "propulsion; compression-ignition reciprocating aircraft powerplant station bookkeeping: air-standard Diesel cycle efficiency from the compression ratio, the cutoff ratio and the specific-heat ratio, the compression temperature ratio, indicated power from the indicated mean effective pressure, displacement and crankshaft speed, brake power at mechanical efficiency, and brake specific fuel consumption on Jet-A with the reference-only compression-ignition band check"
+    expected_skill: "propulsion/reciprocating/diesel-cycle"
+  - id: w47-diesel-cycle-2
+    query: "compare the compression-ignition diesel-cycle ideal efficiency against the spark-ignition otto ceiling at the same 16 to 1 compression ratio: the air-standard-diesel-cycle cutoff-ratio sensitivity from 2 to 2.5 and the jet-a-fuel brake specific fuel consumption band for the compression-ignition aircraft powerplant"
+    intent: "propulsion; compression-ignition diesel-cycle assessment: ideal Diesel efficiency from the cutoff-ratio model against the same-compression-ratio constant-volume ceiling, cutoff-ratio sensitivity, and the Jet-A brake specific fuel consumption band for the compression-ignition aircraft powerplant"
+    expected_skill: "propulsion/reciprocating/diesel-cycle"
+  - id: w47-h-infinity-control-1
+    query: "compute the h-infinity-norm of the weighted sensitivity function of the loop: given the sensitivity-weight and the control-effort-weight on the generalized plant, run the gamma-iteration over the imaginary-axis frequency response and report the worst-case-peak-gain of the weighted mixed-sensitivity channel"
+    intent: "gnc-autonomy/control; h-infinity-control: the H-infinity norm of the weighted sensitivity function of the loop by gamma iteration over the imaginary-axis frequency response with the sensitivity weight and the control-effort weight of the generalized plant, reporting the worst-case-peak-gain of the weighted mixed-sensitivity channel"
+    expected_skill: "gnc-autonomy/control/h-infinity-control"
+  - id: w47-h-infinity-control-2
+    query: "verify the s-over-ks-weighting bounds of the candidate controller on the mixed-sensitivity loop: compute the h-infinity norm of the weighted sensitivity function and of the weighted control sensitivity by gamma-iteration frequency sweep, and check both weighted norms stay below one so the sensitivity bound holds"
+    intent: "gnc-autonomy/control; h-infinity-control: the s-over-ks-weighting bounds of the candidate controller on the mixed-sensitivity loop, the H-infinity norms of the weighted sensitivity function and the weighted control sensitivity by gamma-iteration frequency sweep, and the check that both weighted norms stay below one so the sensitivity bound holds at every frequency"
+    expected_skill: "gnc-autonomy/control/h-infinity-control"
+  - id: w47-impact-angle-control-guidance-1
+    query: "compute the impact-angle-control-guidance command so the
+      interceptor meets the target at the commanded impact angle: form the
+      impact-angle error feedback from the current flight path angle and the
+      time to go and shape the guidance command"
+    intent: "gnc-autonomy; impact-angle-constrained guidance command from
+      impact-angle-error feedback and time to go"
+    expected_skill: "gnc-autonomy/guidance/impact-angle-control-guidance"
+  - id: w47-impact-angle-control-guidance-2
+    query: "run the terminal-impact-angle guidance law: evaluate the
+      impact-angle-error-feedback term shaped by time to go and report the
+      guidance command that drives the terminal flight path angle to the
+      commanded-impact-angle"
+    intent: "gnc-autonomy; terminal impact angle arrival via
+      impact-angle-error-feedback and time-to-go shaping"
+    expected_skill: "gnc-autonomy/guidance/impact-angle-control-guidance"
+  - id: w47-rotorcraft-cyclic-pitch-trim-1
+    query: "check the main-rotor trim control at cruise: solve for the longitudinal-cyclic-pitch and the lateral-cyclic-pitch required to hold the tip-path plane at the level-disk attitude at an advance ratio of 0.3 with uniform inflow"
+    intent: "flight-mechanics; rotorcraft cyclic-pitch trim: the longitudinal-cyclic-pitch and the lateral-cyclic-pitch required to hold the tip-path plane at the level-disk attitude at an advance ratio of 0.3 with uniform inflow, the trim inversion of the steady first-harmonic flap equilibrium with the cyclic control channel"
+    expected_skill: "flight-mechanics/performance/rotorcraft-cyclic-pitch-trim"
+  - id: w47-rotorcraft-cyclic-pitch-trim-2
+    query: "compute the swashplate-tilt cyclic inputs to trim the rotor disk to a target longitudinal and lateral flapping state at a given advance ratio and inflow ratio, and report the cyclic-flap-response gains of the centrally hinged blade"
+    intent: "flight-mechanics; rotorcraft cyclic-pitch trim: the swashplate-tilt cyclic inputs that trim the rotor disk to a target longitudinal and lateral flapping state at a given advance ratio and inflow ratio, and the cyclic-flap-response gains of the centrally hinged blade"
+    expected_skill: "flight-mechanics/performance/rotorcraft-cyclic-pitch-trim"
+  - id: w47-smith-predictor-1
+    query: "design the smith-predictor for the loop with dead time: model the delay-free plant, compute the delayed model output, and form the compensated feedback by subtracting the delayed prediction from the measured plant output before the primary controller"
+    intent: "gnc-autonomy/control; smith-predictor dead-time compensation: the delay-free FOPDT plant model, the delayed model output held in the delay line, and the compensated feedback formed by subtracting the delayed prediction from the measured plant output before the primary controller closes on the delay-free error"
+    expected_skill: "gnc-autonomy/control/smith-predictor"
+  - id: w47-smith-predictor-2
+    query: "apply dead-time-compensation with the smith predictor structure: build the predictor output from the delay-free plant model and the transport delay and report the compensated error signal for the primary loop"
+    intent: "gnc-autonomy/control; dead-time-compensation with the smith-predictor structure: the predictor output built from the delay-free plant model and the transport delay, and the compensated error signal reported for the primary loop"
+    expected_skill: "gnc-autonomy/control/smith-predictor"
+  - id: w47-tropospheric-delay-correction-1
+    query: "compute the saastamoinen zenith hydrostatic delay and the zenith wet delay from the surface pressure, temperature and water-vapour partial pressure and map them to the slant tropospheric delay at the satellite elevation to correct the GNSS range"
+    intent: "gnc-autonomy; compute the saastamoinen zenith hydrostatic delay and the zenith wet delay from the surface pressure, temperature and water-vapour partial pressure and map them to the slant tropospheric delay at the satellite elevation to correct the GNSS range"
+    expected_skill: "gnc-autonomy/navigation/tropospheric-delay-correction"
+  - id: w47-tropospheric-delay-correction-2
+    query: "apply the tropospheric-delay-correction to the pseudorange: evaluate the saastamoinen model zenith delay with the elevation mapping function and subtract the slant tropospheric delay in metres before the position fix"
+    intent: "gnc-autonomy; apply the tropospheric-delay-correction to the pseudorange: evaluate the saastamoinen model zenith delay with the elevation mapping function and subtract the slant tropospheric delay in metres before the position fix"
+    expected_skill: "gnc-autonomy/navigation/tropospheric-delay-correction"
+  - id: w47-unidirectional-lamina-micromechanics-1
+    query: "predict the unidirectional-lamina stiffness properties of the T300/5208 ply at 0.60 fiber-volume-fraction by the rule-of-mixtures longitudinal modulus and Poisson ratio and the halpin-tsai transverse and in-plane shear moduli from the fiber and matrix constituent properties, then verify the transverse modulus against the hashin-shtrikman bounds"
+    intent: "structures/composites; unidirectional-lamina-micromechanics: the E1 longitudinal modulus and nu12 major Poisson ratio by the rule-of-mixtures from the fiber axial modulus and the matrix modulus, the E2 transverse modulus by the halpin-tsai closed form with the fiber transverse modulus and the xi equal to 2 shape factor, the G12 in-plane shear modulus by the halpin-tsai closed form with the fiber shear modulus and the xi equal to 1 shape factor, at the 0.60 fiber-volume-fraction of the T300/5208 ply, with the transverse modulus verified against the hashin-shtrikman band"
+    expected_skill: "structures/composites/unidirectional-lamina-micromechanics"
+  - id: w47-unidirectional-lamina-micromechanics-2
+    query: "compute the E1, E2 and G12 lamina engineering constants of an E-glass-epoxy unidirectional ply from the fiber and matrix moduli, the fiber-volume-fraction and the standard halpin-tsai shape factors, and report the voigt-reuss bound band the transverse modulus must fall inside for the laminate-stiffness chain"
+    intent: "structures/composites; unidirectional-lamina-micromechanics: the E1, E2 and G12 lamina engineering constants of the isotropic-fiber E-glass-epoxy ply (the isotropic-fiber collapse, e_ft = e_f and g_f derived from the fiber modulus and Poisson ratio), with the voigt-reuss bound band reported as the envelope, producing the engineering constants the laminate-stiffness chain consumes"
+    expected_skill: "structures/composites/unidirectional-lamina-micromechanics"
+  - id: w47-virtual-deadline-scheduling-1
+    query: "run the edf-vd virtual-deadline-scheduling analysis on the dual-criticality flight-control task set with C_LO and C_HI execution time estimates: assign each HI task its virtual deadline factor x and verify the lo-criticality-mode and hi-criticality-mode feasibility of the set after the criticality mode change"
+    intent: "avionics/fsw; virtual-deadline-scheduling: the dual-criticality execution time estimates C_LO and C_HI per task, the common virtual-deadline factor x assigned to the HI tasks, the lo-criticality-mode demand condition over the LO-mode estimates and the hi-criticality-mode demand condition after the criticality mode change"
+    expected_skill: "avionics/fsw/virtual-deadline-scheduling"
+  - id: w47-virtual-deadline-scheduling-2
+    query: "check the virtual-deadline-factor schedulability of the two-criticality process set under edf-vd: compute the per-task virtual deadlines x*T for the HI tasks and confirm both the LO-mode and the HI-mode demand conditions hold for the chosen factor"
+    intent: "avionics/fsw; the virtual-deadline factor x and the per-HI-task virtual deadlines x*T of the two-criticality process set under edf-vd, then the LO-mode and the HI-mode demand conditions for the chosen factor"
+    expected_skill: "avionics/fsw/virtual-deadline-scheduling"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

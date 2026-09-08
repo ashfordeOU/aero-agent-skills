@@ -98,6 +98,10 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/navigation/ionospheric-delay-correction | Ionospheric Delay Correction | ionospheric-delay-correction, klobuchar-broadcast-model, slant-delay-correction, pierce-point-geometry, broadcast-alpha-beta-coefficients |
 | gnc-autonomy/guidance/impact-time-control-guidance | Impact Time Control Guidance | impact-time-control-guidance, salvo-attack-guidance, commanded-impact-time, time-to-go-error-feedback, simultaneous-impact-guidance |
 | gnc-autonomy/control/deadbeat-control | Deadbeat Control | deadbeat-control, finite-settling-time, pole-placement-at-origin, minimum-settling-time, z-domain-deadbeat |
+| gnc-autonomy/navigation/tropospheric-delay-correction | Tropospheric Delay Correction | tropospheric-delay-correction, saastamoinen-model, zenith-wet-delay, dry-delay-mapping, elevation-angle-mapping |
+| gnc-autonomy/guidance/impact-angle-control-guidance | Impact Angle Control Guidance | impact-angle-control-guidance, impact-angle-constraint, terminal-flight-path-angle, biased-proportional-navigation, trajectory-shaping-guidance |
+| gnc-autonomy/control/smith-predictor | Smith Predictor | smith-predictor, dead-time-compensation, time-delay-compensator, predictor-controller, process-dead-time |
+| gnc-autonomy/control/h-infinity-control | H-infinity Control | h-infinity-control, mixed-sensitivity-design, s-ks-weighting, h-infinity-norm, loop-shaping-robustness |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -164,7 +168,10 @@ amics sub-skill.
 - Loop-transfer-recovery questions (LQG output loop recovery by filter noise weight inflation, full-state-loop matching, recovery-gain tuning, target feedback loop) route to the optimal-control loop-transfer-recovery sub-skill.
 - Ionospheric delay correction questions (Klobuchar broadcast model slant delay, alpha and beta coefficient polynomials, pierce-point geometry, L1 pseudorange delay removal) route to the navigation ionospheric-delay-correction sub-skill; carrier-smoothed code divergence stays with gnss-carrier-smoothing.
 - Impact-time-control questions (salvo and simultaneous-impact guidance, commanded impact time, time-to-go error feedback, simultaneous-impact-guidance law) route to the guidance impact-time-control-guidance sub-skill.
-- Deadbeat-control questions (z-domain deadbeat pole placement at the origin, finite settling time, minimum-settling-time control sequence) route to the control deadbeat-control sub-skill; sampled-data PID emulation stays with digital-control-design.
+- Tropospheric delay correction questions (Saastamoinen zenith dry and wet delay, elevation-angle mapping to slant delay, pressure temperature humidity inputs) route to the navigation tropospheric-delay-correction sub-skill; ionospheric Klobuchar delay stays with ionospheric-delay-correction.
+- Impact-angle-constrained guidance questions (terminal flight-path-angle control, biased proportional navigation, trajectory-shaping guidance laws) route to the guidance impact-angle-control-guidance sub-skill; impact-time control stays with impact-time-control-guidance.
+- Smith predictor questions (dead-time compensation, predictor structure for time-delayed plants, delay-free characteristic equation) route to the control smith-predictor sub-skill; PID tuning and digital emulation stay with pid-control-design and digital-control-design.
+- H-infinity control questions (mixed-sensitivity S/KS loop shaping, H-infinity norm computation, robustness weights) route to the control h-infinity-control sub-skill; LQR and LQG synthesis stay with lqr-design and lqg-design.
 - passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse questions route to the navigation bearing-only-localization sub-skill.
 
 ## Install

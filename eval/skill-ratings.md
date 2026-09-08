@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 635
+Total skills rated: 645
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -641,3 +641,13 @@ Total skills rated: 635
 | 633 | vehicle-design/sizing/landing-gear-height-sizing | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
 | 634 | structures/fem/elliptical-hertz-contact | PASS | ✓ | far-25 | structures | 9.5 | PASS |
 | 635 | structures/materials/crack-tip-plasticity-correction | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
+| 636 | avionics/fsw/virtual-deadline-scheduling | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 637 | vehicle-design/sizing/component-weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 638 | propulsion/reciprocating/diesel-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 639 | flight-mechanics/performance/rotorcraft-cyclic-pitch-trim | PASS | ✓ | far-29 | flight-mechanics | 9.5 | PASS |
+| 640 | gnc-autonomy/control/smith-predictor | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 641 | gnc-autonomy/navigation/tropospheric-delay-correction | PASS | ✓ | rtca-do-229 | gnc-autonomy | 9.5 | PASS |
+| 642 | structures/composites/unidirectional-lamina-micromechanics | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 643 | gnc-autonomy/guidance/impact-angle-control-guidance | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 644 | structures/materials/creep-stress-relaxation | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
+| 645 | gnc-autonomy/control/h-infinity-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
