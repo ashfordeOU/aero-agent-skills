@@ -10,7 +10,7 @@ import pathlib
 import sys
 import yaml
 
-REPO = pathlib.Path(__file__).resolve().parents[1]  # ~/AeroSkills (scripts/ -> repo root)
+REPO = pathlib.Path(__file__).resolve().parents[1]  # scripts/ -> repo root
 OUT = REPO / "packages" / "jetbrains-plugin" / "src" / "main" / "resources" / "catalog" / "catalog.json"
 
 def main() -> int:
