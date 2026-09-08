@@ -280,6 +280,11 @@
 # leaves). Wave-45 new leaves: "gnc-autonomy/estimation-filtering/cramer-rao-lower-bound", "avionics/fsw/deadline-monotonic-scheduling", "cross-cutting/numerics/fir-bandpass-bandstop-filter-design", "propulsion/rocket/hydrazine-monopropellant-thruster", "structures/fem/inelastic-column-buckling", "gnc-autonomy/control/l1-adaptive-control", "aerodynamics/boundary-layer/laminar-far-wake", "gnc-autonomy/optimal-control/loop-transfer-recovery", "aerodynamics/boundary-layer/mangler-axisymmetric-transform", "propulsion/electric/mpd-thruster", "aerodynamics/aeroelasticity/sears-function-gust-lift", "aerodynamics/boundary-layer/squire-young-profile-drag", "flight-test-operations/envelope/vmcl-determination", "structures/damage-tolerance/walker-forman-crack-growth".
 # Corpus: 1266 tasks (1238 prior plus 28 domain tasks). Owner: Ops
 # Manager, Wave 45 build.
+# P5.2 / Wave 46 (2026-09-07): fan-out continues on the public
+# v1.0.0 model to 635 verified skills (647 SKILL.md under gate 1: 12 routers + 635
+# leaves). Wave-46 new leaves: "structures/materials/crack-tip-plasticity-correction", "gnc-autonomy/control/deadbeat-control", "structures/fem/elliptical-hertz-contact", "propulsion/rocket/hydrogen-peroxide-monopropellant-thruster", "gnc-autonomy/guidance/impact-time-control-guidance", "gnc-autonomy/navigation/ionospheric-delay-correction", "vehicle-design/sizing/landing-gear-height-sizing", "avionics/fsw/mixed-criticality-scheduling", "propulsion/reciprocating/piston-engine-cycle", "flight-mechanics/performance/rotorcraft-forward-flight-flapping".
+# Corpus: 1286 tasks (1266 prior plus 20 domain tasks). Owner: Ops
+# Manager, Wave 46 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5655,6 +5660,86 @@ tasks:
     query: "compute the walker-equation equivalent delta-k and the forman-equation rate for the growing crack at stress ratio R = -0.4 with the r-ratio-correction gamma exponent, and report the walker-forman crack extension over the block so the kc-limited acceleration near fracture toughness is captured"
     intent: "structures; walker-equation equivalent delta-k and forman-equation rate at negative stress ratio R = -0.4 with the gamma exponent, the R-corrected rate table and the block extension showing the kc-limited terminal acceleration as peak K approaches K_c"
     expected_skill: "structures/damage-tolerance/walker-forman-crack-growth"
+  - id: w46-crack-tip-plasticity-correction-1
+    query: "compute the irwin-plastic-zone radius and the effective-crack-length correction for the 5 mm edge crack in 7075-T6 at 180 MPa: the small-scale-yielding ratio of the plastic zone to the crack size, the corrected stress intensity K_eff at the effective crack and the LEFM-validity verdict"
+    intent: "structures; Irwin plastic-zone radius (plane stress and plane-strain), the effective-crack-length single-pass correction a_eff = a + r_p, the corrected stress intensity K_eff at the effective crack, the plastic-zone-to-crack size ratio and the LEFM-validity (small-scale-yielding) verdict of a 5 mm edge crack in 7075-T6 at 180 MPa"
+    expected_skill: "structures/materials/crack-tip-plasticity-correction"
+  - id: w46-crack-tip-plasticity-correction-2
+    query: "apply the dugdale-strip-yield model to the center crack loaded to 90 percent of the flow stress: the strip-yield plastic-zone size, the effective-crack-length corrected stress intensity and the k-eff to elastic-K ratio when the small-scale-yielding limit is exceeded"
+    intent: "structures; Dugdale strip-yield model on a center crack at 90 percent of the flow stress: the exact secant strip-yield zone, the effective-crack-length corrected stress intensity and the k-eff to elastic-K ratio beyond the small-scale-yielding limit"
+    expected_skill: "structures/materials/crack-tip-plasticity-correction"
+  - id: w46-deadbeat-control-1
+    query: "design the deadbeat-control law for the discretized plant: place all closed loop poles at the origin of the z plane so the output settles in a finite number of sample periods and compute the minimum-settling-time control sequence"
+    intent: "gnc-autonomy; deadbeat-control law for a discretized plant with all closed loop poles at the origin of the z plane (pole-placement-at-origin), the finite-settling-time output settling in a finite number of sample periods, computing the minimum-settling-time control sequence"
+    expected_skill: "gnc-autonomy/control/deadbeat-control"
+  - id: w46-deadbeat-control-2
+    query: "compute the z-domain deadbeat controller for the digital loop: solve the deadbeat design equation so the finite-settling-time response reaches the reference in N samples and report the control sequence"
+    intent: "gnc-autonomy; z-domain-deadbeat controller for the digital loop solving the deadbeat design equation so the finite-settling-time response reaches the reference in N samples, reporting the control sequence"
+    expected_skill: "gnc-autonomy/control/deadbeat-control"
+  - id: w46-elliptical-hertz-contact-1
+    query: "compute the elliptical-contact-patch semi-axes of the 12.7 mm ball in the 15.875 mm groove-radius raceway under 4.45 kN radial load: solve the hertz-elliptic-integrals eccentricity from the unequal principal curvature sum and difference, then the contact-ellipse major and minor semi-axes, the maximum contact pressure and the yield-limit margin"
+    intent: "structures; general Hertz elliptical contact patch of the 12.7 mm ball in the 15.875 mm groove-radius conforming raceway under 4.45 kN radial load: hertz-elliptic-integrals eccentricity from the unequal principal curvature sum and difference, contact-ellipse major and minor semi-axes, maximum contact pressure and yield-limit margin"
+    expected_skill: "structures/fem/elliptical-hertz-contact"
+  - id: w46-elliptical-hertz-contact-2
+    query: "find the elliptical-contact-patch of crossed unequal cylinders with 25 mm and 40 mm radii at right angles under 2 kN: the elliptic-integral eccentricity, the contact-ellipse semi-axes, the peak pressure p0 = 3P/(2 pi a b) of the general hertz solution and the subsurface von Mises check against the yield strength"
+    intent: "structures; general Hertz elliptical contact patch of crossed unequal cylinders with 25 mm and 40 mm radii at right angles under 2 kN: elliptic-integral eccentricity, contact-ellipse semi-axes, the peak pressure p0 = 3P/(2 pi a b) of the general hertz solution and the yield check of the peak pressure against the yield strength under the circular-arm and line-arm static conventions"
+    expected_skill: "structures/fem/elliptical-hertz-contact"
+  - id: w46-hydrogen-peroxide-monopropellant-thruster-1
+    query: "size the hydrogen-peroxide-monopropellant-thruster for the 1 N spacecraft reaction control duty: the peroxide-decomposition chamber temperature from the catalytic energy balance of H2O2 at the 90 percent concentration with the water dilution, then the vacuum exhaust velocity and specific impulse of the steam-oxygen product mixture through the nozzle"
+    intent: "propulsion; hydrogen peroxide monopropellant RCS sizing at 1 N, chamber temperature from the peroxide-decomposition catalytic energy balance of H2O2 at the 90 percent concentration with the water dilution, then vacuum exhaust velocity and specific impulse of the steam-oxygen product mixture"
+    expected_skill: "propulsion/rocket/hydrogen-peroxide-monopropellant-thruster"
+  - id: w46-hydrogen-peroxide-monopropellant-thruster-2
+    query: "run the peroxide-decomposition energy balance for the hydrogen-peroxide-thruster design point: adiabatic decomposition temperature and frozen-mixture expansion to vacuum specific impulse at the 85 and the 98 percent concentration limits, with the silver-catalyst-bed band check for the monopropellant RCS thruster"
+    intent: "propulsion; peroxide-decomposition energy balance at the 85 and 98 percent concentration limits with decomposition temperatures and frozen-mixture vacuum impulses plus the advisory silver-catalyst-bed band check"
+    expected_skill: "propulsion/rocket/hydrogen-peroxide-monopropellant-thruster"
+  - id: w46-impact-time-control-guidance-1
+    query: "compute the impact-time-control-guidance command for the salvo attack: form the proportional navigation baseline from the line of sight rate and closing velocity, estimate time to go, and add the impact-time-error feedback term scaled by the navigation constant"
+    intent: "gnc-autonomy; salvo impact-time-control guidance command from PN baseline and time-to-go-error feedback"
+    expected_skill: "gnc-autonomy/guidance/impact-time-control-guidance"
+  - id: w46-impact-time-control-guidance-2
+    query: "run the impact-time-control-guidance law so the interceptor group arrives at the commanded-impact-time: evaluate the time-to-go-error-feedback term and report the simultaneous-impact guidance command"
+    intent: "gnc-autonomy; commanded-impact-time arrival via time-to-go-error-feedback"
+    expected_skill: "gnc-autonomy/guidance/impact-time-control-guidance"
+  - id: w46-ionospheric-delay-correction-1
+    query: "apply the klobuchar-broadcast-model to the L1 pseudorange with the alpha and beta coefficients: compute the pierce-point geometry and the slant ionospheric delay correction"
+    intent: "gnc-autonomy; klobuchar-broadcast-model on the L1 pseudorange with the alpha and beta coefficients: compute the pierce-point geometry and the slant ionospheric delay correction"
+    expected_skill: "gnc-autonomy/navigation/ionospheric-delay-correction"
+  - id: w46-ionospheric-delay-correction-2
+    query: "compute the klobuchar broadcast model slant delay: evaluate the broadcast alpha and beta coefficient polynomials at the pierce point elevation and subtract the ionospheric delay correction from the L1 pseudorange"
+    intent: "gnc-autonomy; klobuchar-broadcast-model slant delay: evaluate the broadcast alpha and beta coefficient polynomials at the pierce point and subtract the ionospheric delay correction from the L1 pseudorange"
+    expected_skill: "gnc-autonomy/navigation/ionospheric-delay-correction"
+  - id: w46-landing-gear-height-sizing-1
+    query: "check the landing-gear-height of the tricycle transport at the conceptual level: solve the static-ground-line from the tail-cone clearance at the design rotation attitude and compute the main-gear-height and the nose-gear-height that level the cabin waterline over the wheelbase"
+    intent: "vehicle-design; solve the static-ground-line of the tricycle transport from the tail-cone-clearance at the design rotation attitude about the main gear contact, compute the main-gear-height and the nose-gear-height that level the cabin waterline over the wheelbase, and report the clearance margins and the height verdict"
+    expected_skill: "vehicle-design/sizing/landing-gear-height-sizing"
+  - id: w46-landing-gear-height-sizing-2
+    query: "select the landing-gear-height-sizing for the nosewheel aircraft: derive the required static-ground-line from the tail-cone-clearance margin at the rotation reference, then verify the nacelle ground clearance at the level and rotated attitudes and report the height verdict"
+    intent: "vehicle-design; select the landing-gear-height-sizing for the nosewheel aircraft: derive the required static-ground-line from the tail-cone-clearance margin at the rotation reference, verify the nacelle and propeller clearances at the level and rotated attitudes, check the nose gear static load share at the design CG, and report the height verdict"
+    expected_skill: "vehicle-design/sizing/landing-gear-height-sizing"
+  - id: w46-mixed-criticality-scheduling-1
+    query: "run the mixed-criticality-scheduling amc-rtb-analysis on the flight-control task set where each task carries a dual-criticality execution time estimate C_LO and C_HI, and verify the hi-criticality-mode response time of the level-A task against its deadline after the criticality mode change"
+    intent: "avionics/fsw; mixed-criticality-scheduling: the dual-criticality execution time estimates C_LO and C_HI per task, the lo-criticality-mode response-time analysis over the C_LO estimates, then the hi-criticality-mode AMC-rtb response time of the HI-criticality flight-control task against its deadline after the criticality-mode change"
+    expected_skill: "avionics/fsw/mixed-criticality-scheduling"
+  - id: w46-mixed-criticality-scheduling-2
+    query: "check the lo-criticality-mode feasibility of the two-criticality process set with the C_LO estimates, then recompute the hi-criticality-mode response times under the AMC-rtb interference bound when the HI tasks overrun their LO budgets"
+    intent: "avionics/fsw; lo-criticality-mode feasibility of the two-criticality process set over the C_LO execution-time estimates, then hi-criticality-mode response times of the HI tasks under the AMC-rtb interference bound after the HI tasks overrun their LO budgets"
+    expected_skill: "avionics/fsw/mixed-criticality-scheduling"
+  - id: w46-piston-engine-cycle-1
+    query: "size the piston-engine-cycle for the 180 horsepower four-stroke aircraft powerplant at 2700 rpm: the air-standard-otto-cycle thermal efficiency at the 8.5 to 1 compression ratio, indicated power from the mean-effective-pressure and the displacement, brake power at the 0.85 mechanical efficiency, and the brake-specific-fuel-consumption at the cruise rating"
+    intent: "propulsion; reciprocating four-stroke aircraft powerplant station bookkeeping: air-standard Otto cycle efficiency, indicated power from mean effective pressure, displacement and crankshaft speed, brake power at mechanical efficiency, and brake specific fuel consumption"
+    expected_skill: "propulsion/reciprocating/piston-engine-cycle"
+  - id: w46-piston-engine-cycle-2
+    query: "analyze the reciprocating-engine powerplant altitude bookkeeping for the general-aviation aircraft: otto-cycle efficiency from the compression ratio, brake-horsepower at altitude from the sea-level rating with the density-ratio power lapse, and the specific-fuel-consumption band check for the four-stroke piston engine"
+    intent: "propulsion; reciprocating-engine powerplant cycle assessment: Otto efficiency from the compression ratio, indicated and brake power bookkeeping, and the reference-only GA BSFC band check for the four-stroke piston engine"
+    expected_skill: "propulsion/reciprocating/piston-engine-cycle"
+  - id: w46-rotorcraft-forward-flight-flapping-1
+    query: "check the forward-flight-flapping of the helicopter main rotor at cruise: solve the first-harmonic flap equilibrium for the longitudinal and lateral flapping angles and report the tip-path-plane-tilt from the inflow ratio and the advance ratio"
+    intent: "flight-mechanics; rotorcraft forward-flight-flapping of the helicopter main rotor at cruise: first-harmonic flap equilibrium for the longitudinal and lateral flapping angles and the tip-path-plane-tilt from the inflow ratio and the advance ratio"
+    expected_skill: "flight-mechanics/performance/rotorcraft-forward-flight-flapping"
+  - id: w46-rotorcraft-forward-flight-flapping-2
+    query: "compute the rotorcraft tip-path-plane-tilt in forward flight for the trim assessment: the steady first-harmonic longitudinal-flapping-angle of the centrally hinged uniform blade at an advance ratio of 0.3 with uniform inflow"
+    intent: "flight-mechanics; rotorcraft tip-path-plane-tilt in forward flight for the trim assessment: steady first-harmonic longitudinal-flapping-angle of the centrally hinged uniform blade at advance ratio 0.3 with uniform inflow"
+    expected_skill: "flight-mechanics/performance/rotorcraft-forward-flight-flapping"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"

@@ -95,6 +95,9 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/optimal-control/loop-transfer-recovery | Loop Transfer Recovery | loop-transfer-recovery, full-state-loop-recovery, lqg-loop-shaping, recovery-gain-tuning, target-feedback-loop |
 | gnc-autonomy/control/l1-adaptive-control | L1 Adaptive Control | l1-adaptive-control, state-predictor, low-pass-filtered-adaptation, projection-based-adaptation-law, guaranteed-transient-response |
 | gnc-autonomy/estimation-filtering/cramer-rao-lower-bound | Cramer Rao Lower Bound | cramer-rao-lower-bound, fisher-information-matrix, estimator-efficiency, best-achievable-variance, bound-achieving-estimator |
+| gnc-autonomy/navigation/ionospheric-delay-correction | Ionospheric Delay Correction | ionospheric-delay-correction, klobuchar-broadcast-model, slant-delay-correction, pierce-point-geometry, broadcast-alpha-beta-coefficients |
+| gnc-autonomy/guidance/impact-time-control-guidance | Impact Time Control Guidance | impact-time-control-guidance, salvo-attack-guidance, commanded-impact-time, time-to-go-error-feedback, simultaneous-impact-guidance |
+| gnc-autonomy/control/deadbeat-control | Deadbeat Control | deadbeat-control, finite-settling-time, pole-placement-at-origin, minimum-settling-time, z-domain-deadbeat |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -159,6 +162,9 @@ amics sub-skill.
 - code-carrier Hatch smoothing time constant, carrier delta range, code-carrier ionospheric divergence, smoothed range noise reduction questions route to the navigation gnss-carrier-smoothing sub-skill.
 - linear-quadratic-Gaussian output-feedback compensator, regulator and filter Riccati gains, separation principle questions route to the optimal-control lqg-design sub-skill.
 - Loop-transfer-recovery questions (LQG output loop recovery by filter noise weight inflation, full-state-loop matching, recovery-gain tuning, target feedback loop) route to the optimal-control loop-transfer-recovery sub-skill.
+- Ionospheric delay correction questions (Klobuchar broadcast model slant delay, alpha and beta coefficient polynomials, pierce-point geometry, L1 pseudorange delay removal) route to the navigation ionospheric-delay-correction sub-skill; carrier-smoothed code divergence stays with gnss-carrier-smoothing.
+- Impact-time-control questions (salvo and simultaneous-impact guidance, commanded impact time, time-to-go error feedback, simultaneous-impact-guidance law) route to the guidance impact-time-control-guidance sub-skill.
+- Deadbeat-control questions (z-domain deadbeat pole placement at the origin, finite settling time, minimum-settling-time control sequence) route to the control deadbeat-control sub-skill; sampled-data PID emulation stays with digital-control-design.
 - passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse questions route to the navigation bearing-only-localization sub-skill.
 
 ## Install

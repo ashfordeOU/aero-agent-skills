@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 625,
-  "live_packs": 85,
+  "leaves": 635,
+  "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1266
+  "corpus_tasks": 1286
  },
  "skills": [
   {
@@ -1724,6 +1724,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/fsw/mixed-criticality-scheduling",
+   "name": "mixed-criticality-scheduling",
+   "description": "Use when you must decide the offline schedulability of an avionics flight software task set under the dual-criticality execution-time model: each task carries the C_LO and C_HI execution-time estimates with C_HI at least C_LO, run the lo-criticality-mode fixed-point response-time iteration over the C_LO estimates for every task, then run the hi-criticality-mode amc-rtb fixed point after the criticality-mode change, with higher-priority LO tasks charged at C_LO and higher-priority HI tasks charged at C_HI in the interference sum. Produces the per-task lo-mode response times and the LO-mode feasible verdict, the hi-mode response times of the HI tasks under the AMC-rtb bound with the HI-mode feasible verdict, the overall mixed-criticality feasible verdict, and the divergence verdict when an iterate crosses a deadline. Trigger: mixed criticality scheduling, amc rtb analysis, dual criticality execution time, lo mode feasibility, hi mode response time, criticality mode change.",
+   "tags": [
+    "mixed-criticality-scheduling",
+    "amc-rtb-analysis",
+    "dual-criticality-execution-time",
+    "hi-criticality-mode-rta",
+    "lo-criticality-mode-rta",
+    "criticality-mode-change-rta"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
    "path": "avionics/fsw/real-time-scheduling",
    "name": "real-time-scheduling",
    "description": "Use when you must decide the offline schedulability of a periodic hard-real-time task set: compute the processor utilization of (C, T) tasks with implicit deadlines, apply the Liu-Layland utilization bound for rate-monotonic fixed-priority scheduling, run the exact iterative response-time analysis task by task, and test earliest-deadline-first feasibility with the full-utilization condition. Produces the utilization, the RM bound verdict, the exact response times with an RM feasibility verdict, the EDF feasibility verdict, and an overall scheduling verdict for avionics process and partition task sets. Trigger: rate monotonic scheduling, response time analysis, liu layland bound, earliest deadline first, cpu utilization, fixed priority scheduling, schedulability, worst case execution time.",
@@ -3231,6 +3247,23 @@
    "router_doc": false
   },
   {
+   "path": "flight-mechanics/performance/rotorcraft-forward-flight-flapping",
+   "name": "rotorcraft-forward-flight-flapping",
+   "description": "Use when you must compute the steady first-harmonic (1/rev) flapping equilibrium of a helicopter main rotor blade in forward flight under uniform inflow: the longitudinal flapping angle a1s (the tip-path-plane aft tilt, negative few degrees at cruise) and the lateral flapping angle b1s of the idealized centrally hinged untwisted blade from the advance ratio, the inflow ratio, the collective pitch and the blade Lock number gamma, with the forward-flight coning angle a0 that reduces to the hover coning value at zero advance ratio. Produces the longitudinal and lateral flapping angles and the coning angle in radians and degrees and the first-harmonic flap summary that gates rotorcraft trim assessments and tip-path-plane checks. Trigger: rotorcraft forward flight flapping, tip path plane tilt, first harmonic flap response, longitudinal flapping angle, lateral flapping angle, advance ratio flapping, flap equilibrium tilt.",
+   "tags": [
+    "forward-flight-flapping",
+    "tip-path-plane-tilt",
+    "first-harmonic-flap-response",
+    "longitudinal-flapping-angle",
+    "lateral-flapping-angle",
+    "advance-ratio-flapping",
+    "flap-equilibrium-tilt"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
    "path": "flight-mechanics/performance/rotorcraft-forward-flight-performance",
    "name": "rotorcraft-forward-flight-performance",
    "description": "Use when you must compute the forward-flight power required of a rotorcraft rotor with momentum-theory inflow: the Glauert induced velocity at a given flight speed, the induced power, the parasite power from the equivalent flat-plate drag area, the profile power from rotor blade solidity and tip speed, and the total power, then find the best endurance speed (minimum total power) and the best range speed (minimum power per unit speed) over a speed sweep. Produces the forward induced velocity, the three power components, the total power curve, and the two characteristic speeds that gate a rotorcraft cruise performance assessment. Trigger: rotorcraft forward flight, glauert inflow, induced power model, parasite power, equivalent flat plate area, best endurance speed, best range speed, rotor profile drag.",
@@ -4653,6 +4686,21 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/control/deadbeat-control",
+   "name": "deadbeat-control",
+   "description": "Use when you must design a deadbeat-control law for a discrete-time plant given by its pulse transfer function: verify admissibility for direct deadbeat synthesis (every plant pole and zero strictly inside the unit circle), solve the deadbeat design equation that places every closed loop pole at the origin of the z plane, form the finite-settling-time controller difference equation from the plant polynomials, and simulate the closed loop to confirm the output reaches and holds the reference in the minimum number of sample periods with the minimum-settling-time control sequence. Produces the admissibility verdict, the controller coefficients, the settling sample and settling time, the step response and control effort histories, the steady-state tracking check and the control effort summary that gate a deadbeat digital control assessment. Trigger: deadbeat-control, finite-settling-time, pole-placement-at-origin, minimum-settling-time, z-domain-deadbeat.",
+   "tags": [
+    "deadbeat-control",
+    "finite-settling-time",
+    "pole-placement-at-origin",
+    "minimum-settling-time",
+    "z-domain-deadbeat"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/control/digital-control-design",
    "name": "digital-control-design",
    "description": "Use when you must design a sampled-data digital control loop in the z-domain: discretize a continuous plant with a zero-order hold, emulate a continuous compensator with the Tustin bilinear transform with frequency prewarping, compute discrete PID coefficients in the position and velocity forms, check the sampled poles against the unit circle for stability, and select the sample rate from the closed-loop bandwidth. Produces the discretized plant coefficients, the emulated compensator, the discrete PID gains, the stability verdict and the sample-rate verdict that gate a digital control design. Trigger: z transform, zero order hold, zoh, tustin bilinear emulation, frequency prewarping, discrete pid, unit circle stability, sample rate selection.",
@@ -5146,6 +5194,21 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/guidance/impact-time-control-guidance",
+   "name": "impact-time-control-guidance",
+   "description": "Use when you must compute the impact-time-control-guidance command for a salvo or simultaneous-impact engagement: the proportional-navigation baseline acceleration from the closing speed and the line of sight rate, the PNG time-to-go estimate on the collision course, the impact-time error between the commanded remaining time to go and the natural PNG time, and the time-to-go-error-feedback bias that lengthens or shortens the intercept path so the group arrives at the commanded impact time. Produces the total lateral acceleration command with its PN baseline, bias term, time-to-go estimate and impact-time error. Trigger: impact time control, salvo attack, simultaneous impact, commanded impact time, time to go error feedback, ITCG.",
+   "tags": [
+    "impact-time-control-guidance",
+    "salvo-attack-guidance",
+    "commanded-impact-time",
+    "time-to-go-error-feedback",
+    "simultaneous-impact-guidance"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "guidance",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/guidance/midcourse-guidance",
    "name": "midcourse-guidance",
    "description": "Use when a task asks how to reach an intermediate condition before final intercept, how much speed remains to be gained, or when to hand off to terminal guidance. Shape the midcourse flight of an interceptor or guided vehicle between launch and terminal handover: steer through a planned waypoint with a turn-rate-limited heading law, compute the velocity-to-be-gained speed deficit along the desired course, evaluate the zero-effort-miss of the closing geometry, size the handover condition that passes control to terminal guidance such as proportional navigation, and shape ascent trajectories with gravity-compensated commands. Trigger: midcourse guidance, waypoint steering, trajectory shaping, velocity-to-be-gained, zero-effort-miss, handover condition, turn-rate limit, gravity-compensated ascent.",
@@ -5354,6 +5417,21 @@
     "loosely-coupled-integration",
     "gnss-position-update",
     "ins-drift-correction"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/ionospheric-delay-correction",
+   "name": "ionospheric-delay-correction",
+   "description": "Use when you must correct the L1 pseudorange for the broadcast ionospheric delay: apply the klobuchar-broadcast-model to the user position and the satellite line of sight, compute the geomagnetic latitude of the ionospheric pierce point from the earth-centred angle and the azimuth, evaluate the amplitude and period quartic polynomials in the broadcast alpha and beta coefficients at that geomagnetic latitude, form the vertical delay from the 5 ns base and the day-curve shape about the 14:00 local-time peak, and map the vertical delay to the slant delay with the elevation obliquity factor. Produces the pierce-point geomagnetic latitude, the amplitude and period coefficients, the vertical delay in seconds and the slant ionospheric delay in seconds and metres that gate the L1 pseudorange correction before positioning. Trigger: klobuchar broadcast model, ionospheric delay correction, slant delay correction, pierce point geometry, broadcast alpha and beta coefficients.",
+   "tags": [
+    "ionospheric-delay-correction",
+    "klobuchar-broadcast-model",
+    "slant-delay-correction",
+    "pierce-point-geometry",
+    "broadcast-alpha-beta-coefficients"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -7013,6 +7091,22 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/reciprocating/piston-engine-cycle",
+   "name": "piston-engine-cycle",
+   "description": "Use when you must compute the operating point of a reciprocating four-stroke aircraft powerplant for general-aviation propulsion: the air-standard Otto cycle thermal efficiency from the compression ratio and the specific-heat ratio, the four-stroke indicated power from the indicated mean effective pressure, the displacement and the crankshaft speed, the brake power at the mechanical efficiency, and the brake specific fuel consumption from the fuel flow and the brake power. Produces the single-point summary dict with the ideal cycle efficiency, indicated and brake power, BSFC in both reporting units, thermal efficiencies, volumetric fuel flow and the reference-only general-aviation band verdict in one call, the published bands reported and never enforced. Trigger: piston-engine-cycle, air-standard-otto-cycle, compression ratio Otto efficiency, four-stroke engine, mean effective pressure, indicated power, brake power, mechanical efficiency, brake specific fuel consumption, BSFC.",
+   "tags": [
+    "piston-engine-cycle",
+    "air-standard-otto-cycle",
+    "mean-effective-pressure",
+    "brake-specific-fuel-consumption",
+    "reciprocating-engine-powerplant",
+    "four-stroke-powerplant"
+   ],
+   "family": "propulsion",
+   "pack": "reciprocating",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/rocket/cold-gas-thruster",
    "name": "cold-gas-thruster",
    "description": "Use when you must size and assess a cold gas thruster for spacecraft reaction control: compute the choked mass flow through the nozzle throat from the plenum pressure and temperature, the thrust from the mass flow and specific impulse, the tank gas mass from the plenum volume and pressure, the isothermal blowdown time constant and pressure history, the operating time to the minimum usable pressure, and the total impulse available over the blowdown. Produces the throat area, mass flow, thrust, tank gas mass, time constant, pressure at a query time, operating time, and total impulse that gate a cold gas RCS sizing. Trigger: cold gas thruster, nitrogen RCS, choked mass flow, plenum blowdown, total impulse, reaction control thruster sizing, isothermal blowdown time constant.",
@@ -7079,6 +7173,21 @@
     "ammonia-dissociation-fraction",
     "monopropellant-rcs",
     "decomposition-temperature"
+   ],
+   "family": "propulsion",
+   "pack": "rocket",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/rocket/hydrogen-peroxide-monopropellant-thruster",
+   "name": "hydrogen-peroxide-monopropellant-thruster",
+   "description": "Use when you must size and assess a hydrogen peroxide monopropellant thruster for spacecraft reaction control: compute the decomposition heat release of H2O2 at a documented concentration with the water dilution, the adiabatic decomposition temperature from the peroxide decomposition energy balance, and the frozen composition isentropic nozzle expansion of the steam-oxygen product mixture to the vacuum exhaust velocity, the vacuum specific impulse and the propellant mass flow at the required thrust, with the advisory silver-catalyst-bed band check. Produces the steam-oxygen mixture composition and mass fractions, decomposition temperature, mixture gas constant, isentropic exponent, exhaust velocity, vacuum specific impulse, propellant mass flow and the silver-catalyst-bed band verdict that size a monopropellant RCS thruster. Trigger: hydrogen-peroxide-monopropellant-thruster, peroxide-decomposition, steam-oxygen-mixture, silver-catalyst-bed, concentration-limited-decomposition.",
+   "tags": [
+    "hydrogen-peroxide-monopropellant-thruster",
+    "peroxide-decomposition",
+    "steam-oxygen-mixture",
+    "silver-catalyst-bed",
+    "concentration-limited-decomposition"
    ],
    "family": "propulsion",
    "pack": "rocket",
@@ -9062,6 +9171,23 @@
    "router_doc": false
   },
   {
+   "path": "structures/fem/elliptical-hertz-contact",
+   "name": "elliptical-hertz-contact",
+   "description": "Use when you must compute the general Hertz elliptical contact patch between two elastic bodies with unequal principal radii pressed together: form the per-plane curvature sums A and B from the signed principal curvatures (convex positive, concave negative, flat infinite), solve the hertz-elliptic-integrals eccentricity from the unequal curvature ratio, then the contact-ellipse major and minor semi-axes a and b, the peak pressure p0 = 3P/(2 pi a b), the approach, the patch area and the yield-limit margin for the elliptical patch. Produces the elliptical contact solution with semi-axes, peak pressure, approach and yield verdicts. Trigger: elliptical contact, unequal principal radii, ball in groove, conforming raceway, crossed unequal cylinders, contact ellipse eccentricity.",
+   "tags": [
+    "elliptical-hertz-contact",
+    "elliptical-contact-patch",
+    "hertz-elliptic-integrals",
+    "ball-in-groove-contact",
+    "conforming-raceway-contact",
+    "crossed-unequal-cylinders",
+    "contact-ellipse-eccentricity"
+   ],
+   "family": "structures",
+   "pack": "fem",
+   "router_doc": false
+  },
+  {
    "path": "structures/fem/hertzian-contact-stress",
    "name": "hertzian-contact-stress",
    "description": "Use when you must compute the Hertzian contact stress between curved elastic bodies pressed together: determine the contact patch radius or half-width for sphere pairs, sphere-on-flat, ball-in-socket, cylinder pairs, cylinder-in-bore, roller-in-race or crossed cylinders from the load, the equivalent radius of curvature and the equivalent elastic modulus with 1/E* = (1-nu1^2)/E1 + (1-nu2^2)/E2; compute the maximum contact pressure p0 = 3P/(2 pi a^2) (circular) and p0 = 2P/(pi b L) (strip); report the subsurface shear and von Mises maxima with depth and magnitude; and run the yield-limit load check with p0_yield = 3.3 sigma_y (point) and 1.6 sigma_y (line). Produces patch size, peak pressure, subsurface stress location and magnitude, and yield-limit load and margin in SI units. Trigger: hertzian contact stress, hertz contact patch, contact pressure ellipse, subsurface shear stress, equivalent elastic modulus, equivalent radius of curvature, maximum contact pressure, contact yield limit.",
@@ -9375,6 +9501,23 @@
    ],
    "family": "structures",
    "pack": "loads",
+   "router_doc": false
+  },
+  {
+   "path": "structures/materials/crack-tip-plasticity-correction",
+   "name": "crack-tip-plasticity-correction",
+   "description": "Use when you must compute the crack-tip-plasticity-correction for a crack in metallic structure: evaluate the Irwin plastic-zone radius in plane stress r_p = (1/pi)*(K/sigma_ys)^2 and the reduced plane-strain zone (1/(3*pi))*(K/sigma_ys)^2, form the effective-crack-length a_eff = a + r_p from the uncorrected elastic K, compute the corrected stress intensity K_eff = Y*sigma*sqrt(pi*a_eff), and judge the LEFM-validity verdict from the zone-to-crack ratio against the 2.5*(K/sigma_ys)^2 size rule. Applies the dugdale-strip-yield model to a center crack: the strip-yield zone rho = a*(sec(pi*sigma/(2*sigma_0)) - 1), its small-scale-yielding asymptote (pi/8)*(K/sigma_0)^2, and the k-eff to elastic-K ratio beyond that limit. Produces the plastic-zone radius, effective crack length, corrected stress intensity, k-eff ratio and validity verdict gating elastic fracture results. Trigger: plastic zone, effective crack length, small-scale yielding, Dugdale strip yield, Irwin zone, K_eff correction.",
+   "tags": [
+    "crack-tip-plasticity-correction",
+    "irwin-plastic-zone",
+    "effective-crack-length",
+    "dugdale-strip-yield-model",
+    "small-scale-yielding-check",
+    "k-eff-correction",
+    "plastic-zone-radius"
+   ],
+   "family": "structures",
+   "pack": "materials",
    "router_doc": false
   },
   {
@@ -11046,6 +11189,23 @@
     "bleed-air-mass-flow",
     "protected-area",
     "mvd-catch-efficiency"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/landing-gear-height-sizing",
+   "name": "landing-gear-height-sizing",
+   "description": "Use when you must select the vertical landing gear geometry of a tricycle-gear aircraft at the conceptual level: solve the static-ground-line from the tail-cone-clearance margin at the design rotation attitude about the main gear contact, compute the main-gear-height and the nose-gear-height that level the cabin waterline over the wheelbase, verify the nacelle and propeller clearances at the level and rotated attitudes, and check the nose gear static load share at the design CG. Produces the static-ground-line, the main and nose gear heights, the achieved tail cone, nacelle and propeller clearance margins at both attitudes, the tail strike margin of the solved geometry, and the height verdict that gates the gear configuration. Trigger: landing-gear-height, static-ground-line, gear-height-selection, tail-cone-clearance, rotation-clearance-margin.",
+   "tags": [
+    "landing-gear-height-sizing",
+    "static-ground-line",
+    "main-gear-height-selection",
+    "nose-gear-height-selection",
+    "tail-cone-clearance",
+    "rotation-clearance-margin",
+    "waterline-leveling"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

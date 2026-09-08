@@ -89,6 +89,8 @@ compressor stage and operating-map analysis.
 
 | propulsion/electric/mpd-thruster | Mpd Thruster | mpd-thruster, magnetoplasmadynamic-thruster, self-field-thrust-law, electromagnetic-acceleration, discharge-current-scaling |
 | propulsion/rocket/hydrazine-monopropellant-thruster | Hydrazine Monopropellant Thruster | hydrazine-monopropellant-thruster, catalytic-decomposition, ammonia-dissociation-fraction, monopropellant-rcs, decomposition-temperature |
+| propulsion/rocket/hydrogen-peroxide-monopropellant-thruster | Hydrogen Peroxide Monopropellant Thruster | hydrogen-peroxide-monopropellant-thruster, peroxide-decomposition, steam-oxygen-mixture, silver-catalyst-bed, concentration-limited-decomposition |
+| propulsion/reciprocating/piston-engine-cycle | Piston Engine Cycle | piston-engine-cycle, air-standard-otto-cycle, mean-effective-pressure, brake-specific-fuel-consumption, reciprocating-engine-powerplant, four-stroke-powerplant |
 ## Routing guidance
 
 - Brayton/gas-turbine thermodynamics route to the gas-turbine-cycle
@@ -144,6 +146,8 @@ to turbofan-cycle;
 - Hybrid rocket motor regression rate, oxidizer mass flux, O/F shift, port area, and chamber pressure ballistics questions route to the rocket hybrid-rocket-motor sub-skill.
 - Cold gas thruster choked flow, plenum blowdown, and total impulse questions route to the rocket cold-gas-thruster sub-skill.
 - Hydrazine monopropellant thruster questions (catalytic decomposition energy balance, ammonia dissociation fraction, adiabatic decomposition temperature, nozzle expansion of the decomposed mixture, vacuum specific impulse for the RCS duty) route to the rocket hydrazine-monopropellant-thruster sub-skill.
+- Hydrogen peroxide monopropellant thruster questions (peroxide decomposition temperature from the catalytic energy balance, steam-oxygen mixture state, silver-catalyst-bed decomposition, concentration-limited decomposition, vacuum specific impulse for the monopropellant RCS duty) route to the rocket hydrogen-peroxide-monopropellant-thruster sub-skill.
+- Reciprocating aircraft powerplant questions (air-standard Otto cycle efficiency at the compression ratio, four-stroke indicated power from mean effective pressure and displacement, brake power at mechanical efficiency, brake specific fuel consumption) route to the reciprocating piston-engine-cycle sub-skill; gas-turbine and turboshaft shaft-power questions stay with the turbine packs.
 - Rocket turbopump specific speed, suction performance, and cavitation questions route to the turbomachinery rocket-turbopump sub-skill.
 
 - Rocket thrust chamber regenerative cooling questions (Bartz hot gas coefficient, coolant side convection, wall heat flux and temperature, coolant mass flux for the wall limit, film cooling handoff) route to the rocket thrust-chamber-cooling sub-skill.
