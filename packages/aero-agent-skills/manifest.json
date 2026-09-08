@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 635,
+  "leaves": 645,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1286
+  "corpus_tasks": 1306
  },
  "skills": [
   {
@@ -1774,6 +1774,22 @@
    "router_doc": false
   },
   {
+   "path": "avionics/fsw/virtual-deadline-scheduling",
+   "name": "virtual-deadline-scheduling",
+   "description": "Use when you must decide the offline schedulability of an avionics flight software task set under the dual-criticality execution-time model scheduled by edf-vd virtual-deadline scheduling: each task carries the C_LO and C_HI execution-time estimates with C_HI at least C_LO and the implicit-deadline period T, sum the per-mode demand contributions of the LO and HI tasks, derive the common virtual-deadline factor x for the HI tasks, and check the lo-criticality-mode and the hi-criticality-mode demand conditions after the criticality mode change. Produces the per-mode demand sums, the virtual-deadline factor x, the per-HI-task virtual deadlines x*T, the lo-criticality-mode feasible verdict, the hi-criticality-mode feasible verdict, and the whole-set edf-vd feasible verdict. Trigger: edf vd scheduling, virtual deadline scheduling, virtual deadline factor, dual criticality mode change, lo criticality mode demand, hi criticality mode demand.",
+   "tags": [
+    "virtual-deadline-scheduling",
+    "edf-vd-analysis",
+    "virtual-deadline-factor",
+    "hi-criticality-mode-edf",
+    "lo-criticality-mode-edf",
+    "dual-mode-demand-check"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
    "path": "avionics/ima/do297",
    "name": "do297",
    "description": "Use when scoping an IMA platform, planning module acceptance, or laying out development assurance steps for an integrated modular avionics system. Plan the integrated modular avionics (IMA) platform architecture in the spirit of DO-297: identify the IMA modules, application partitions, and shared resources, allocate applications to partitions with CPU, memory, and I/O budgets, and check the allocation for resource contention against integrity and availability requirements. Produce the module and application allocation plan, the resource budget table, and the module acceptance criteria that support incremental certification of the platform. Trigger: integrated modular avionics, IMA architecture, module acceptance, incremental certification, partition allocation, resource budget.",
@@ -3241,6 +3257,24 @@
     "flap-frequency-ratio",
     "rotor-dynamics",
     "hinge-offset"
+   ],
+   "family": "flight-mechanics",
+   "pack": "performance",
+   "router_doc": false
+  },
+  {
+   "path": "flight-mechanics/performance/rotorcraft-cyclic-pitch-trim",
+   "name": "rotorcraft-cyclic-pitch-trim",
+   "description": "Use when you must compute the cyclic-pitch trim of a helicopter main rotor blade in forward flight under uniform inflow: the steady first-harmonic (1/rev) flapping equilibrium of the idealized centrally hinged blade with the control channel added, longitudinal cyclic theta1s and lateral cyclic theta1c about the collective, in the standard rotor convention, and the trim inversion for the cyclic pitch and equivalent swashplate tilt that hold the tip-path plane at a target longitudinal and lateral attitude, level or prescribed. Produces the coning angle and the longitudinal and lateral flapping angles of the cyclic-forced equilibrium, the affine cyclic-flap-response gains, and the trim cyclic and swashplate tilt for the target attitude; the zero-cyclic limit reproduces the collective-only forward-flight flapping sibling exactly. Trigger: rotorcraft cyclic pitch trim, longitudinal cyclic pitch, lateral cyclic pitch, swashplate tilt, trim cyclic, cyclic flap response, disk attitude trim.",
+   "tags": [
+    "rotorcraft-cyclic-pitch-trim",
+    "longitudinal-cyclic-pitch",
+    "lateral-cyclic-pitch",
+    "swashplate-tilt",
+    "cyclic-flap-response",
+    "trim-cyclic",
+    "control-plane-tilt",
+    "disk-attitude-trim"
    ],
    "family": "flight-mechanics",
    "pack": "performance",
@@ -4767,6 +4801,27 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/control/h-infinity-control",
+   "name": "h-infinity-control",
+   "description": "Use when you must run the h-infinity mixed-sensitivity norm analysis of a feedback loop: given the plant transfer function, a candidate controller, the sensitivity weight and the control-effort weight, verify the closed loop is stable and compute the h-infinity norms of the weighted sensitivity functions by gamma iteration over the imaginary-axis frequency response, locating the worst-case peak magnitude of each channel. Produces the weighted-sensitivity norm, the weighted control-sensitivity norm, the achieved gamma of the mixed-sensitivity weighting as the larger of the two norms, and the bound verdict when both weighted norms stay below one so the s-over-ks sensitivity bounds hold at every frequency. Trigger: h infinity norm, gamma iteration, mixed sensitivity weighting, s ks weighted bounds, sensitivity weight, control weight, worst case peak gain, weighted loop analysis.",
+   "tags": [
+    "h-infinity-control",
+    "h-infinity-norm",
+    "h-infinity",
+    "gamma-iteration",
+    "mixed-sensitivity",
+    "s-over-ks-weighting",
+    "sensitivity-weighting",
+    "control-effort-weighting",
+    "generalized-plant-weighting",
+    "worst-case-peak-gain",
+    "imaginary-axis-frequency-response"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/control/l1-adaptive-control",
    "name": "l1-adaptive-control",
    "description": "Use when you must design and simulate an l1-adaptive-control law for a first-order plant with an unknown coefficient: run the state-predictor from the design model, drive the projection-based-adaptation-law with the prediction error, pass the adaptive signal through the low-pass filter omega_c/(s + omega_c) and form the control as the feedforward minus the filtered estimate. Produces the tracking-error and prediction-error time histories, the sigma_hat and filtered-signal histories, the projection engagement, the convergence verdict and the certified transient-bound check that gate an L1 adaptive control assessment. Trigger: l1-adaptive-control, state-predictor, low-pass-filtered-adaptation, projection-based-adaptation-law, guaranteed-transient-response.",
@@ -4888,6 +4943,21 @@
     "characteristic-equation",
     "stability",
     "zeta"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/control/smith-predictor",
+   "name": "smith-predictor",
+   "description": "Use when you must compensate the dead time of a feedback loop with the smith-predictor structure: given a first-order-plus-dead-time plant model and given PI controller gains, run the delay-free plant model on the controller output, hold the model output in the delay line by the dead time, and subtract the delayed model output from the measured plant output to form the predictor feedback signal, so the primary controller closes on a delay-free compensated error. Produces the compensated error signal of the primary loop, the closed-loop step responses of the predictor-compensated loop, which re-emits the delay-free design response after the dead time, and of the same loop without compensation, and the step-response metrics of both loops: overshoot, settling time to the 2 percent band and final deviation. Trigger: smith predictor, dead time compensation, time delay compensation, transport delay, delay free model prediction, predictor feedback signal.",
+   "tags": [
+    "smith-predictor",
+    "dead-time-compensation",
+    "time-delay-compensation",
+    "delay-free-model-prediction",
+    "predictor-feedback-signal"
    ],
    "family": "gnc-autonomy",
    "pack": "control",
@@ -5170,6 +5240,21 @@
     "arc-tangent-path",
     "fixed-wing-turn-radius",
     "path-length-between-poses"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "guidance",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/guidance/impact-angle-control-guidance",
+   "name": "impact-angle-control-guidance",
+   "description": "Use when you must compute the impact-angle-control-guidance command for a planar intercept against a stationary target with a commanded terminal flight path angle: the collision-course nulling baseline from the crossrange offset, the crossrange velocity and the time to go, the terminal crossrange velocity that realizes the commanded impact angle, the impact-angle error between the commanded terminal flight path angle and the current flight path angle, and the impact-angle-error-feedback bias that reshapes the intercept path so the interceptor meets the target at the commanded impact angle. Produces the total lateral acceleration command with its nulling baseline, bias term, time-to-go estimate and impact-angle error. Trigger: impact angle control, terminal impact angle, commanded impact angle, impact angle error feedback, terminal flight path angle constraint, angle-constrained intercept, impact angle guidance, ryoo cho tahk.",
+   "tags": [
+    "impact-angle-control-guidance",
+    "terminal-impact-angle",
+    "commanded-impact-angle",
+    "impact-angle-error-feedback",
+    "terminal-flight-path-angle-constraint"
    ],
    "family": "gnc-autonomy",
    "pack": "guidance",
@@ -5503,6 +5588,22 @@
     "clock-state-filter",
     "pseudorange-los-geometry",
     "ins-error-state-ekf"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "navigation",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/navigation/tropospheric-delay-correction",
+   "name": "tropospheric-delay-correction",
+   "description": "Use when you must correct the GNSS range for the tropospheric delay: evaluate the saastamoinen-model delay from the surface pressure, temperature and water-vapour partial pressure, form the gravity and height factor from latitude and station height, form the zenith-hydrostatic-delay by dividing the pressure by that factor, form the zenith-wet-delay from the water-vapour partial pressure and the temperature term, sum both into the zenith total delay and map it to the slant-tropospheric-delay with cosecant elevation-mapping-function at the satellite elevation. Produces the gravity and height factor, the zenith hydrostatic delay, the zenith wet delay, the zenith total delay, the elevation mapping factor and the slant tropospheric delay in metres that gate the range correction before positioning. Trigger: saastamoinen model, tropospheric delay correction, zenith hydrostatic delay, zenith wet delay, slant tropospheric delay, elevation mapping function.",
+   "tags": [
+    "tropospheric-delay-correction",
+    "saastamoinen-model",
+    "zenith-hydrostatic-delay",
+    "zenith-wet-delay",
+    "slant-tropospheric-delay",
+    "elevation-mapping-function"
    ],
    "family": "gnc-autonomy",
    "pack": "navigation",
@@ -7088,6 +7189,22 @@
    ],
    "family": "propulsion",
    "pack": "ramjet",
+   "router_doc": false
+  },
+  {
+   "path": "propulsion/reciprocating/diesel-cycle",
+   "name": "diesel-cycle",
+   "description": "Use when you must compute the operating point of a reciprocating compression-ignition aircraft powerplant: the air-standard Diesel cycle thermal efficiency from the compression ratio, the specific-heat ratio and the cutoff ratio of the constant-pressure heat-addition model, the isentropic compression temperature ratio and state temperatures, the four-stroke indicated power from the indicated mean effective pressure, displacement and crankshaft speed, the brake power at the mechanical efficiency, and the brake specific fuel consumption from the fuel flow and the brake power on Jet-A. Produces the single-point summary dict with the ideal Diesel cycle efficiency, the state temperatures, indicated and brake power, BSFC in both units, thermal efficiencies, volumetric fuel flow and the reference-only compression-ignition band verdict, the bands reported and never enforced. Trigger: diesel-cycle, air-standard-diesel-cycle, compression-ignition, cutoff ratio, jet-a-fuel-cycle.",
+   "tags": [
+    "diesel-cycle",
+    "air-standard-diesel-cycle",
+    "compression-ignition",
+    "cutoff-ratio",
+    "constant-pressure-heat-addition",
+    "jet-a-fuel-cycle"
+   ],
+   "family": "propulsion",
+   "pack": "reciprocating",
    "router_doc": false
   },
   {
@@ -8762,6 +8879,23 @@
    "router_doc": false
   },
   {
+   "path": "structures/composites/unidirectional-lamina-micromechanics",
+   "name": "unidirectional-lamina-micromechanics",
+   "description": "Use when you must predict the engineering constants of a unidirectional composite lamina from the fiber and matrix constituent properties and the fiber volume fraction: compute the longitudinal modulus E1 and the major Poisson ratio nu12 by the rule of mixtures, the transverse modulus E2 by the Halpin-Tsai closed form with the xi equal to 2 shape factor on the fiber transverse modulus, the in-plane shear modulus G12 by the Halpin-Tsai closed form with the xi equal to 1 shape factor on the fiber shear modulus, and the density by the rule of mixtures. Produces the lamina engineering constants in the material axes and the Voigt-Reuss and Hashin-Shtrikman bound bands on E2 and G12 as the verification envelope predictions fall inside. Constituent properties are inputs; no property tables are reproduced. Trigger: unidirectional lamina micromechanics, fiber volume fraction, rule of mixtures, halpin tsai transverse and shear moduli, hashin shtrikman bounds.",
+   "tags": [
+    "unidirectional-lamina-micromechanics",
+    "rule-of-mixtures",
+    "halpin-tsai-equations",
+    "fiber-volume-fraction",
+    "constituent-property-prediction",
+    "voigt-reuss-bounds",
+    "hashin-shtrikman-bounds"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
    "path": "structures/damage-tolerance/bird-strike",
    "name": "bird-strike",
    "description": "Use when the task is bird strike impact analysis and certification of transport aeroplane structure per FAR 25.631 and CS-25: estimate the impact kinetic energy of a 4 pound or 8 pound bird at cruise velocity with impact_energy, convert the bird mass to kilograms with bird_mass_kg, compute the specific energy with specific_energy, and rate the strike against the component damage threshold with damage_severity_ratio, penetration_verdict, and residual_strength_fraction for the residual strength after impact. Covers leading edge, windshield, radome, and engine inlet damage modes, energy absorption, soft-body impact behavior, and test versus analysis compliance. Trigger: bird strike, birdstrike, bird-strike, soft body impact, soft-body-impact, impact energy, impact-energy, leading edge, leading-edge, 4 pound bird, 8 pound bird, FAR 25.631, windshield, radome, engine inlet.",
@@ -9535,6 +9669,22 @@
     "accumulated-creep-strain",
     "time-to-one-percent-creep",
     "elevated-temperature"
+   ],
+   "family": "structures",
+   "pack": "materials",
+   "router_doc": false
+  },
+  {
+   "path": "structures/materials/creep-stress-relaxation",
+   "name": "creep-stress-relaxation",
+   "description": "Use when you must compute the stress relaxation of a preloaded metallic part held at fixed total strain at elevated temperature: evaluate the closed-form integral of the fixed-strain relaxation ODE for a Norton power-law creeping material, the relaxed stress sigma(t) = [sigma_0^(1-n) + (n-1)*A*E*t*exp(-Q/(R*T))]^(1/(1-n)) from the initial preload stress, the hold time, the temperature and the Norton constants A, n, Q and elastic modulus E, the retained-preload fraction after the hold, the time for the preload to relax to a target fraction, and the preload-retention margin against a required retained fraction with the PASS or FAIL verdict for bolted joints, spring preloads and interference-fit fasteners. Produces the relaxed stress, the retained-preload fraction and the retention margin verdict at the operating point. Trigger: creep-stress-relaxation, norton-relaxation-closed-form, preload-retention, fixed-strain-creep-relaxation, relaxed-stress-fraction, elevated-temperature-preload.",
+   "tags": [
+    "creep-stress-relaxation",
+    "norton-relaxation-closed-form",
+    "preload-retention",
+    "fixed-strain-creep-relaxation",
+    "relaxed-stress-fraction",
+    "elevated-temperature-preload"
    ],
    "family": "structures",
    "pack": "materials",
@@ -10948,6 +11098,24 @@
     "unit-load-device-fit",
     "uld-position-layout",
     "freight-hold-utilization"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/component-weight-estimation",
+   "name": "component-weight-estimation",
+   "description": "Use when you must predict the airframe structural group weights at the class-II level from geometry and design loading: evaluate the statistical wing-group-weight regression on the planform area, aspect ratio, sweep, thickness ratio and design load factor, the horizontal-tail-group-weight and vertical-tail-group-weight regressions on the tail planforms, and the fuselage-group-weight regression on the wetted area, fineness ratio and design gross weight, with the limit load factor scaled to ultimate by the 1.5 safety factor and the pressurization penalty added when a pressurized volume and differential are supplied. Produces the four group masses in kg, the airframe group total, and the group fractions of MTOW that feed the weight statement. Trigger: component weight estimation, group weight equation, wing group weight, fuselage group weight, horizontal tail weight, vertical tail weight, statistical weight prediction, class ii weight buildup.",
+   "tags": [
+    "component-weight-estimation",
+    "group-weight-equation",
+    "wing-group-weight",
+    "fuselage-group-weight",
+    "horizontal-tail-group-weight",
+    "vertical-tail-group-weight",
+    "statistical-weight-prediction",
+    "class-ii-weight-buildup"
    ],
    "family": "vehicle-design",
    "pack": "sizing",

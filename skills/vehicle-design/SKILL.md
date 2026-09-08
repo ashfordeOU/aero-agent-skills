@@ -40,6 +40,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/conceptual/tow-estimation | Takeoff gross weight estimation | fuel-fraction method, empty-weight fraction, sizing iteration |
 | vehicle-design/conceptual/payload-range-diagram | Payload-range diagram | payload vs range trade, max payload, max fuel, design range, ferry range, Breguet range, reserve fuel |
 | vehicle-design/sizing/weight-estimation | Weight estimation | class-I weights, weight and balance sheets, component weights |
+| vehicle-design/sizing/component-weight-estimation | Component weight estimation | component-weight-estimation, class-II-weight-estimation, airframe-group-weights, statistical-weight-regression, raymer-group-weight, group-weight-summary |
 | vehicle-design/sizing/fuselage-sizing | Fuselage sizing | cabin length and width, fuselage diameter, L/D band, cargo volume check |
 | vehicle-design/sizing/tail-sizing | Tail sizing | horizontal and vertical tail volume coefficients, required tail area, tail arm |
 | vehicle-design/sizing/control-surface-sizing | Control surface sizing | aileron and elevator and rudder area from control power, roll rate requirement, pitch moment requirement, yaw moment requirement, hinge moment, deflection limits |
@@ -102,9 +103,13 @@ aerodynamic, structural, and performance disciplines together.
   conceptual tow-estimation sub-skill.
 - Payload-range and Breguet-range trade questions route to the
   conceptual payload-range-diagram sub-skill.
-- Weight and balance sheet questi- Mission profile questions route to the conceptual sizing-mission-profile sub-skill.
-ons route to the weight-estimation
-  sub-skill.
+- Weight and balance sheet questions route to the
+  sizing weight-estimation sub-skill.
+- Component group-weight and class-II statistical weight questions
+  (Raymer/Torenbeek airframe group-weight regressions, group-weight
+  rollup) route to the sizing component-weight-estimation sub-skill;
+  class-I totals stay with weight-estimation.
+- Mission profile questions route to the conceptual sizing-mission-profile sub-skill.
 - Cabin layout and fuselage diameter questions route to the sizing
   fuselage-sizing sub-skill.
 - Empennage sizing questions (tail volume coefficients, required tail

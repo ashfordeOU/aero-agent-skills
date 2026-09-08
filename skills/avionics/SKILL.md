@@ -98,6 +98,7 @@ airworthiness certification (FAR-25/CS-25).
 
 | avionics/fsw/deadline-monotonic-scheduling | Deadline Monotonic Scheduling | deadline-monotonic-scheduling, constrained-deadline-rta, arbitrary-deadline-rta, release-jitter-rta, dm-priority-assignment, shorter-deadline-order |
 | avionics/fsw/mixed-criticality-scheduling | Mixed Criticality Scheduling | mixed-criticality-scheduling, amc-rtb-analysis, dual-criticality-execution-time, hi-criticality-mode-rta, lo-criticality-mode-rta, criticality-mode-change-rta |
+| avionics/fsw/virtual-deadline-scheduling | Virtual Deadline Scheduling | virtual-deadline-scheduling, edf-vd, virtual-deadline-scaling, dual-criticality-schedulability, mode-switch-feasibility |
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
@@ -170,4 +171,5 @@ your host's skills directory (see README Install for per-host commands).
 - Aperiodic/event-driven job service questions (sporadic server, deferrable server, polling server capacity and period, server budget replenishment, aperiodic worst-case response time) route to the fsw aperiodic-server-scheduling sub-skill.
 - Deadline-monotonic and constrained/arbitrary-deadline response-time questions (deadline-monotonic priority assignment, shorter-deadline order, per-task relative deadlines, release jitter in the response-time iteration) route to the fsw deadline-monotonic-scheduling sub-skill; classic implicit-deadline periodic feasibility stays with real-time-scheduling.
 - Mixed-criticality scheduling questions (AMC response-time analysis with a dual-criticality execution-time estimate per task, hi- and lo-criticality-mode response times, criticality mode change) route to the fsw mixed-criticality-scheduling sub-skill; single-execution-time implicit-deadline feasibility stays with real-time-scheduling.
+- Virtual-deadline scheduling questions (EDF-VD virtual deadline scaling factor, dual-criticality schedulability under virtual deadlines, mode-switch feasibility) route to the fsw virtual-deadline-scheduling sub-skill; AMC-rtb fixed-priority analysis stays with mixed-criticality-scheduling.
 - Constant-course rhumb-line leg questions (Mercator course, rhumb distance, along-parallel leg length, rhumb versus great-circle delta for long legs) route to the flight-management rhumb-line-leg sub-skill.
