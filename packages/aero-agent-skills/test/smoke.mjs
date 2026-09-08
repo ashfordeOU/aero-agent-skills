@@ -114,7 +114,7 @@ const mcpRoundTrip = () => new Promise((resolve, reject) => {
     while ((nl = buf.indexOf('\n')) !== -1) {
       responses.push(JSON.parse(buf.slice(0, nl)));
       buf = buf.slice(nl + 1);
-      if (responses.length === 4) {
+      if (responses.length === 7) {
         clearTimeout(timer);
         child.stdin.end();
         resolve(responses);
@@ -128,13 +128,17 @@ const mcpRoundTrip = () => new Promise((resolve, reject) => {
   send({ jsonrpc: '2.0', id: 2, method: 'tools/list' });
   send({ jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'search_skills', arguments: { query: 'determine the software level and draft the PSAC for DO-178C certification planning' } } });
   send({ jsonrpc: '2.0', id: 4, method: 'tools/call', params: { name: 'get_skill', arguments: { path: 'avionics/do178c/planning' } } });
+  send({ jsonrpc: '2.0', id: 5, method: 'resources/list' });
+  send({ jsonrpc: '2.0', id: 6, method: 'resources/read', params: { uri: 'skill://avionics/do178c/planning' } });
+  send({ jsonrpc: '2.0', id: 7, method: 'resources/read', params: { uri: 'skill://aerodynamics/cfd/cfd-validation/references/vv-guidance.md' } });
 });
 
 try {
-  const [init, toolsList, search, getSkill] = await mcpRoundTrip();
+  const [init, toolsList, search, getSkill, resList, resRead, refRead] = await mcpRoundTrip();
   check('MCP initialize handshake', () => {
     assert.equal(init.result.serverInfo.name, 'aero-agent-skills');
     assert.ok(init.result.capabilities.tools);
+    assert.ok(init.result.capabilities.resources, 'advertises resources capability');
   });
   check('MCP tools/list exposes 5 tools', () => {
     assert.equal(toolsList.result.tools.length, 5);
@@ -145,6 +149,18 @@ try {
   });
   check('MCP get_skill returns the full SKILL.md', () => {
     assert.ok(getSkill.result.content[0].text.includes('# DO-178C Planning'));
+  });
+  check('MCP resources/list enumerates skill:// URIs', () => {
+    assert.ok(resList.result.resources.length > 500, `expected >500 resources, got ${resList.result.resources.length}`);
+    assert.ok(resList.result.resources.some((r) => r.uri === 'skill://avionics/do178c/planning'), 'leaf listed');
+  });
+  check('MCP resources/read serves a skill body', () => {
+    assert.equal(resRead.result.contents[0].uri, 'skill://avionics/do178c/planning');
+    assert.ok(resRead.result.contents[0].text.includes('# DO-178C Planning'), 'body is the SKILL.md');
+  });
+  check('MCP resources/read serves a reference file', () => {
+    assert.ok(refRead.result.contents[0].text.length > 200, 'reference body returned');
+    assert.ok(/V&V Guidance/i.test(refRead.result.contents[0].text), 'reference content is the file');
   });
 } catch (e) {
   failures += 1;

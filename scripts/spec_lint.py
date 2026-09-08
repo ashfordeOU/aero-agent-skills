@@ -152,6 +152,44 @@ def check_compliance_flags(fm, index, errs):
         errs.append("metadata.author required")
 
 
+def check_mcp_policy(fm, errs):
+    """Optional MCP access policy (SEP-2640 delivery): skills may declare
+    which MCP servers a host may consult to enrich the workflow. Absent =
+    offline-only skill (the default: content + stdlib scripts). Present must
+    be an allow list of '<server>:<read|write>' entries; mcp_blocked is a
+    hard deny list that wins. This mirrors the roles repo role-lint rule so
+    both libraries carry the same access grammar."""
+    allowed = fm.get("mcp_allowed")
+    blocked = fm.get("mcp_blocked")
+    if allowed is None and blocked is None:
+        return  # offline-only by default
+    if allowed is None:
+        errs.append(
+            "mcp_blocked without mcp_allowed is redundant (absent mcp_allowed "
+            "already blocks all); remove it or add an allow list"
+        )
+        return
+    if not isinstance(allowed, list) or not allowed:
+        errs.append("mcp_allowed must be a non-empty list of '<server>:<read|write>' entries")
+        return
+    for item in allowed:
+        if not isinstance(item, str) or re.fullmatch(
+            r"[a-z0-9][a-z0-9\-_]*:(read|write)", item
+        ) is None:
+            errs.append("mcp_allowed entry %r must be '<server>:<read|write>' (e.g. 'aero-agent-roles:read')" % (item,))
+    allow_names = {item.split(":", 1)[0] for item in allowed if isinstance(item, str)}
+    if isinstance(blocked, list):
+        for item in blocked:
+            if not isinstance(item, str) or re.fullmatch(
+                r"[a-z0-9][a-z0-9\-_]*", item
+            ) is None:
+                errs.append("mcp_blocked entry %r must be a server name" % (item,))
+            elif item in allow_names:
+                errs.append("mcp_blocked contradicts mcp_allowed for '%s'" % item)
+    elif blocked is not None:
+        errs.append("mcp_blocked must be a list of server names")
+
+
 def main():
     p = pathlib.Path(sys.argv[1])
     text = p.read_text(encoding="utf-8")
@@ -195,6 +233,7 @@ def main():
         errs.append("cannot load standards-map.yaml: %s" % exc)
         index = {}
     check_compliance_flags(fm, index, errs)
+    check_mcp_policy(fm, errs)
     body = parts[2] if len(parts) >= 3 else text
     n_body = len(body.splitlines())
     if n_body >= MAX_BODY_LINES:
