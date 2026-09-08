@@ -101,6 +101,8 @@ material selection.
 
 | structures/fem/inelastic-column-buckling | Inelastic Column Buckling | inelastic-column-buckling, johnson-parabola, column-strength-curve, intermediate-slenderness, euler-johnson-tangent, yield-anchored-johnson, stubby-column-allowable |
 | structures/damage-tolerance/walker-forman-crack-growth | Walker Forman Crack Growth | walker-forman-crack-growth, walker-equation, forman-equation, r-ratio-correction, equivalent-delta-k, kc-limited-growth, stress-ratio-crack-growth |
+| structures/fem/elliptical-hertz-contact | Elliptical Hertz Contact | elliptical-hertz-contact, elliptical-contact-patch, hertz-elliptic-integrals, ball-in-groove-contact, conforming-raceway-contact, crossed-unequal-cylinders, contact-ellipse-eccentricity |
+| structures/materials/crack-tip-plasticity-correction | Crack Tip Plasticity Correction | crack-tip-plasticity-correction, irwin-plastic-zone, effective-crack-length, dugdale-strip-yield-model, small-scale-yielding-check, k-eff-correction, plastic-zone-radius |
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
@@ -129,6 +131,7 @@ ance) route
 - Fatigue crack growth and inspection interval questions route to the
   damage-tolerance crack-growth sub-skill; MSD/MED and supplemental
 - Stress-ratio crack-growth questions (Walker equivalent delta-K, Forman rate with the Kc-limited denominator, R-ratio correction gamma exponent, block crack extension toward fracture toughness) route to the damage-tolerance walker-forman-crack-growth sub-skill; Paris constant-amplitude growth stays with crack-growth.
+- Crack-tip plastic-zone and effective-crack questions (Irwin plastic-zone radius in plane stress and plane strain, single-pass effective-crack-length correction, corrected stress intensity K_eff, the small-scale-yielding validity verdict, Dugdale strip-yield zone of a center crack) route to the materials crack-tip-plasticity-correction sub-skill; the K_IC test-specimen validity frame and critical crack length stay with fracture-toughness, and the Paris-law rate stays with crack-growth.
   inspection questions route to the damage-tolerance
   widespread-fatigue-damage sub-skill.
 - Cumulative damage and fatigue life questions route to the fatigue
@@ -205,6 +208,7 @@ your host's skills directory (see README Install for per-host commands).
 - Curved-beam questions (frame segment or torque link with the Winkler correction, inward-shifted neutral axis radius, inner and outer fiber stress against the allowable) route to the fem curved-beam-analysis sub-skill.
 - Local crippling and inter-rivet buckling questions (formed stringer shapes, shape-constant crippling allowable, Johnson-Euler interaction compression allowable) route to the fem crippling-analysis sub-skill.
 - Hertzian contact stress questions (sphere and cylinder contact patch, contact pressure, subsurface shear, yield-limit load) route to the fem hertzian-contact-stress sub-skill.
+- General elliptical-contact questions (elliptical contact patch of a ball in a groove-radius raceway or of crossed unequal cylinders, Hertz elliptic-integral eccentricity, contact-ellipse semi-axes, peak pressure of the general Hertz solution) route to the fem elliptical-hertz-contact sub-skill; circular and line contact of the classic Hertz arm stays with hertzian-contact-stress.
 - Metallic fastener joint questions (bolt and rivet shear, bearing, net-section and shear-out margins, eccentric bolt-group polar method) route to the fem metallic-fastener-joints sub-skill.
 - Elastic redundancy questions (fixed-end moments, three-moment equation, moment distribution, slope-deflection, continuous-beam support moments) route to fem statically-indeterminate; non-uniform torsion and warping restraint (bimoment, warping constant, warping normal stress of thin-walled open sections) routes to fem restrained-warping.
 - Plastic collapse questions (fully-plastic moment, plastic hinge mechanisms, kinematic and static collapse loads of indeterminate beams and frames) route to the fem plastic-collapse-analysis sub-skill.

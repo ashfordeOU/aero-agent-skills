@@ -93,6 +93,7 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/sizing/air-cycle-machine-sizing | Air cycle machine sizing | air cycle machine sizing, bootstrap air cycle, ACM shaft balance, cooling turbine, heat exchanger effectiveness, required bleed flow |
 | vehicle-design/sizing/v-tail-sizing | V tail sizing | v tail sizing, ruddervator, equivalent tail volume, V-tail dihedral, tail area from volume coefficient |
 | vehicle-design/sizing/landing-gear-layout | Landing gear layout | tipback angle, tail strike clearance, lateral turnover angle, nose gear load fraction band, main gear position |
+| vehicle-design/sizing/landing-gear-height-sizing | Landing gear height sizing | landing-gear-height-sizing, static-ground-line, main-gear-height-selection, nose-gear-height-selection, tail-cone-clearance, rotation-clearance-margin, waterline-leveling |
 
 
 ## Routing guidance
@@ -115,6 +116,7 @@ ons route to the weight-estimation
   sub-skill.
 - Landing gear questions (strut loads, gear loads, shock absorber
   stroke) route to the sizing landing-gear-sizing sub-skill.
+- Landing gear height and static-ground-line questions (tail-cone clearance at rotation attitude, main- and nose-gear height selection that levels the fuselage, waterline leveling, rotation clearance margin) route to the sizing landing-gear-height-sizing sub-skill; gear layout (tipback, turnover, load fraction) stays with landing-gear-layout.
 - Wing loading and thrust to weight matching questions (the sizing
   matching chart, takeoff distance, climb gradient, and cruise
   constraints) route to the sizing/ws-tw-trade sub-skill.

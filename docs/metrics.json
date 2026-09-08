@@ -1,8 +1,8 @@
 {
-  "corpus_tasks": 1266,
+  "corpus_tasks": 1286,
   "families": 12,
-  "leaves": 625,
-  "live_packs": 85,
+  "leaves": 635,
+  "live_packs": 86,
   "per_family": {
     "aerodynamics": {
       "label": "AERODYNAMICS",
@@ -104,7 +104,7 @@
     },
     "avionics": {
       "label": "AVIONICS",
-      "leaves": 48,
+      "leaves": 49,
       "pack_names": [
         "data-bus",
         "do160",
@@ -172,6 +172,7 @@
           "cfs-architecture",
           "deadline-monotonic-scheduling",
           "fprime-component",
+          "mixed-criticality-scheduling",
           "real-time-scheduling",
           "shared-resource-access-control"
         ],
@@ -186,7 +187,7 @@
         ]
       },
       "spine": "DO-178C / DO-254 / DO-160G",
-      "tasks": 99
+      "tasks": 101
     },
     "cross-cutting": {
       "label": "CROSS-CUTTING",
@@ -278,7 +279,7 @@
     },
     "flight-mechanics": {
       "label": "FLIGHT MECHANICS",
-      "leaves": 47,
+      "leaves": 48,
       "pack_names": [
         "flight-dynamics-sim",
         "handling-qualities",
@@ -312,6 +313,7 @@
           "rotorcraft-axial-descent-flow-states",
           "rotorcraft-blade-element-hover-performance",
           "rotorcraft-blade-flapping-dynamics",
+          "rotorcraft-forward-flight-flapping",
           "rotorcraft-forward-flight-performance",
           "rotorcraft-hover-ground-effect",
           "rotorcraft-hover-performance",
@@ -344,7 +346,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 94
+      "tasks": 96
     },
     "flight-test-operations": {
       "label": "FLIGHT TEST & OPS",
@@ -426,7 +428,7 @@
     },
     "gnc-autonomy": {
       "label": "GNC & AUTONOMY",
-      "leaves": 55,
+      "leaves": 58,
       "pack_names": [
         "control",
         "estimation-filtering",
@@ -440,6 +442,7 @@
         "control": [
           "adaptive-control",
           "control-allocation",
+          "deadbeat-control",
           "digital-control-design",
           "frequency-response-design",
           "gain-scheduling",
@@ -470,6 +473,7 @@
           "coverage-path-planning",
           "dubins-path-planning",
           "impact-point-prediction",
+          "impact-time-control-guidance",
           "midcourse-guidance",
           "proportional-navigation",
           "pursuit-guidance"
@@ -484,6 +488,7 @@
           "gnss-rtk-positioning",
           "inertial-navigation",
           "ins-gnss-integrated-filter",
+          "ionospheric-delay-correction",
           "kalman-filter-design",
           "navigation-frames",
           "terrain-referenced-navigation",
@@ -506,7 +511,7 @@
         ]
       },
       "spine": "ARP4754A",
-      "tasks": 111
+      "tasks": 117
     },
     "manufacturing-quality": {
       "label": "MANUFACTURING QUALITY",
@@ -593,7 +598,7 @@
     },
     "propulsion": {
       "label": "PROPULSION",
-      "leaves": 50,
+      "leaves": 52,
       "pack_names": [
         "axial-compressor",
         "combustion",
@@ -601,12 +606,13 @@
         "engine-airframe",
         "gas-turbine-cycle",
         "ramjet",
+        "reciprocating",
         "rocket",
         "turbofan",
         "turbomachinery",
         "turboprop"
       ],
-      "packs": 10,
+      "packs": 11,
       "packs_detail": {
         "axial-compressor": [
           "axial-compressor-stage",
@@ -644,11 +650,15 @@
           "ramjet-cycle",
           "ramjet-inlet"
         ],
+        "reciprocating": [
+          "piston-engine-cycle"
+        ],
         "rocket": [
           "cold-gas-thruster",
           "combustion-chamber-design",
           "hybrid-rocket-motor",
           "hydrazine-monopropellant-thruster",
+          "hydrogen-peroxide-monopropellant-thruster",
           "injector-design",
           "nozzle-area-ratio-selection",
           "nozzle-design",
@@ -680,7 +690,7 @@
         ]
       },
       "spine": "FAR-33",
-      "tasks": 100
+      "tasks": 104
     },
     "space-systems": {
       "label": "SPACE SYSTEMS",
@@ -762,7 +772,7 @@
     },
     "structures": {
       "label": "STRUCTURES",
-      "leaves": 61,
+      "leaves": 63,
       "pack_names": [
         "composites",
         "damage-tolerance",
@@ -816,6 +826,7 @@
           "curved-beam-analysis",
           "cylindrical-shell-buckling",
           "diagonal-tension-field-webs",
+          "elliptical-hertz-contact",
           "hertzian-contact-stress",
           "inelastic-column-buckling",
           "lug-joint-analysis",
@@ -838,6 +849,7 @@
           "shock-response-spectrum"
         ],
         "materials": [
+          "crack-tip-plasticity-correction",
           "creep-rupture",
           "fracture-toughness",
           "material-selection",
@@ -851,7 +863,7 @@
         ]
       },
       "spine": "FAR-25 / CS-25 / MMPDS",
-      "tasks": 123
+      "tasks": 127
     },
     "systems-engineering-safety": {
       "label": "SYSTEMS ENG & SAFETY",
@@ -934,7 +946,7 @@
     },
     "vehicle-design": {
       "label": "VEHICLE DESIGN",
-      "leaves": 55,
+      "leaves": 56,
       "pack_names": [
         "conceptual",
         "cost-estimation",
@@ -993,6 +1005,7 @@
           "hydraulic-actuator-sizing",
           "hydraulic-system-sizing",
           "ice-protection-sizing",
+          "landing-gear-height-sizing",
           "landing-gear-layout",
           "landing-gear-retraction-sizing",
           "landing-gear-sizing",
@@ -1014,9 +1027,9 @@
         ]
       },
       "spine": "FAR-25 / CS-25",
-      "tasks": 112
+      "tasks": 114
     }
   },
-  "skill_files": 637,
+  "skill_files": 647,
   "standards": 30
 }
