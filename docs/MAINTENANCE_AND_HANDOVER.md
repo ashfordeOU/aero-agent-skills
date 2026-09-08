@@ -19,14 +19,14 @@ NASA · ARP4754A · FAR/CS) as agent-executable workflows.
 
 - **Public repo:** github.com/ashfordeOU/aero-agent-skills (Apache-2.0)
 - **Private dev repo:** github.com/arjun-0077/aero-agent-skills
-- **Local dev tree:** ~/AeroSkills (the ONLY place skills are authored)
+- **Local dev tree:** ~/company-ops/aero-agent-skills (the ONLY place skills are authored)
 - **Site:** ashforde.org/aeroagentskills (GitHub Pages from ashforde-site repo)
 - **Owner org:** Ashforde OÜ (Estonia)
 
 ## 2. Repository topology (three repos, one flow)
 
 ```
-~/AeroSkills (dev tree, authoring happens HERE)
+~/company-ops/aero-agent-skills (dev tree, authoring happens HERE)
     │  commit as ashfordeOU <contact@ashforde.org>
     ▼
 arjun-0077/aero-agent-skills (private dev mirror — git push origin)
@@ -39,7 +39,7 @@ ashforde.org/aeroagentskills (landing page)
 ```
 
 **Golden rules:**
-1. SKILLS ARE ONLY AUTHORED IN ~/AeroSkills. Never edit the public repo
+1. SKILLS ARE ONLY AUTHORED IN ~/company-ops/aero-agent-skills. Never edit the public repo
    directly; it is fed by publish-public.sh exports.
 2. publish-public.sh exports the full tree (excluding ops/automation/test),
    runs real gates INSIDE the export (validate 5/5 · attest 3/3 ·
@@ -220,7 +220,7 @@ To take over this project from scratch:
    ~/company-ops/aeroskills-internal/), docs/harness-contract.md.
 4. Verify the machine is whole:
    ```bash
-   cd ~/AeroSkills
+   cd ~/company-ops/aero-agent-skills
    which rsvg-convert && make validate 2>&1 | tail -1
    python3 scripts/public-safety-audit.py --repo . 2>&1 | tail -1
    bash ops/automation/hourly-publish.sh  # both steps should PASS
@@ -240,7 +240,7 @@ To take over this project from scratch:
 5. Check portfolio + project state:
    ```bash
    cd ~/company-ops/veda && python3 scripts/project_onboard.py --list
-   python3 scripts/release-manager.py --status   # from ~/AeroSkills
+   python3 scripts/release-manager.py --status   # from ~/company-ops/aero-agent-skills
    ```
 6. Continue from the current state: relay advances active projects on their
    cadence; wave state is in _PROJECTS.md + wave*-state.md.

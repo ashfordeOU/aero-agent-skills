@@ -27,7 +27,7 @@ import re
 import sys
 import glob
 
-REPO = os.path.expanduser("~/AeroSkills")
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKILLS = os.path.join(REPO, "skills")
 EVAL = os.path.join(REPO, "eval")
 RATINGS = os.path.join(EVAL, "skill-ratings.md")

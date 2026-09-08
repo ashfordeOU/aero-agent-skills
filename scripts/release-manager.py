@@ -26,7 +26,7 @@ import re
 import subprocess
 import sys
 
-REPO = os.path.expanduser("~/AeroSkills")
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 METRICS = os.path.join(REPO, "docs/metrics.json")
 PKG = os.path.join(REPO, "packages/aero-agent-skills/package.json")
 PLUGIN_GRADLE = os.path.join(REPO, "packages/jetbrains-plugin/build.gradle.kts")
