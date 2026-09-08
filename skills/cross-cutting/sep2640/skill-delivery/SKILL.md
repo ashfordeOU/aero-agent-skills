@@ -10,6 +10,11 @@ gated: false
 domain: cross-cutting
 pack: cross-cutting
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+mcp_allowed:
+  - aero-agent-skills:read
+  - aero-agent-roles:read
+mcp_blocked:
+  - worldintel
 metadata:
   domain: cross-cutting
   subdomain: sep2640
@@ -25,16 +30,18 @@ package conformance, skill URIs, and server readiness.
 
 ## Domain quick reference
 
-- SEP-2640 (Skills-over-MCP, MCP working group) is an emerging
-  extension that serves skills as resources: skill:// URIs,
-  resources/read, and directory listing behind the directoryRead
-  capability.
+- SEP-2640 (Skills-over-MCP, MCP working group) serves skills as
+  resources: skill:// URIs, resources/read, and directory listing
+  behind the directoryRead capability.
 - The agentskills.io SKILL.md format remains the canonical content
   form; SEP-2640 is an adapter layer for discovery and delivery.
 - A deliverable package carries a conformant SKILL.md at its root:
   kebab-case name and a description.
-- Status: draft, not yet stable; pin the spec revision you build
-  against.
+- Status: the SEP-2640 spec draft is not yet stable, but the Aero
+  Agent Skills delivery server (packages/aero-agent-skills/lib/mcp.js)
+  implements the resources model TODAY over skill:// URIs — reference
+  files under references/ are served too. Same for Aero Agent Roles
+  (role:// URIs in packages/aero-agent-roles/lib/mcp.js).
 
 ## Workflow
 
@@ -42,8 +49,20 @@ package conformance, skill URIs, and server readiness.
    kebab-case name, description).
 2. Build the skill URI from the namespace and skill path.
 3. Verify the MCP server exposes the delivery model: skill URIs,
-   resources/read, and directory listing.
-4. Pin the SEP-2640 revision and note the emerging status.
+   resources/read, and directory listing. The in-repo servers speak
+   newline-delimited JSON-RPC 2.0 over stdio (zero deps):
+     node packages/aero-agent-skills/bin/aero-agent-skills.js mcp
+     node packages/aero-agent-roles/bin/aero-agent-roles.js mcp
+   Register them with any MCP host (Hermes mcp_servers config,
+   `claude mcp add`, VS Code/Cursor/Windsurf .mcp.json) and call
+   resources/list + resources/read.
+4. To read a skill's deep files, read the skill body first — the
+   server appends a `skill files:` footer listing references/,
+   scripts/, assets/ — then fetch a file at
+   skill://<family>/<pack>/<leaf>/references/<file>.
+5. Pin the SEP-2640 revision and note the emerging status when you
+   build against the external spec; the in-repo server implements the
+   resources shape so it also works as a reference implementation.
 
 ## Pitfalls
 
@@ -52,6 +71,9 @@ package conformance, skill URIs, and server readiness.
 - Treating SEP-2640 as stable while the spec is still a draft.
 - Using the MCP layer as the source of truth instead of the
   SKILL.md files.
+- Local-path shadowing: inside readResource, never name the local
+  URI variable `path` (it shadows node:path; use relPath).
+- Reference reads must stay under the skill dir — reject `..`.
 
 ## Behavior contract (gate 3)
 

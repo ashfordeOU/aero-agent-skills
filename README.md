@@ -101,7 +101,7 @@ Package: **[aero-agent-skills on npm](https://www.npmjs.com/package/aero-agent-s
 - In the IDE: **Settings → Plugins → Marketplace** → search `Aero Agent Skills` → Install
 - The plugin adds a tool window with the skill catalog, a **Copy MCP Server Config** action (one-click registration for AI Assistant / Junie — the MCP server then serves `search_skills` / `get_skill`), a **Copy Registry URL** action, and a **Docs & Harness Guide** action
 
-**4 · Or as an MCP server** — JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, or any Model Context Protocol host. The `search_skills` tool is the same deterministic router the Hit@1 gate proves; `get_skill` streams the full SKILL.md:
+**4 · Or as an MCP server** — JetBrains AI Assistant / Junie, Claude Desktop, VS Code, Cursor, Windsurf, Gemini CLI, or any Model Context Protocol host. The `search_skills` tool is the same deterministic router the Hit@1 gate proves; `get_skill` streams the full SKILL.md. **Working from this repo? The server lives in the repo** — see [MCP.md](MCP.md): the committed `.mcp.json` registers it with editors project-scope, and `bash scripts/mcp-install.sh` wires every host found on the machine (Claude Code, Hermes, self-verify). Consumers use the published copy:
 
 ```json
 {

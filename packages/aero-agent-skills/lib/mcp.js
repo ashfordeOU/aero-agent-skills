@@ -1,11 +1,33 @@
 // MCP server over stdio: newline-delimited JSON-RPC 2.0, zero dependencies.
 // Implements the subset every MCP host needs (initialize, ping, tools/list,
-// tools/call); anything else gets -32601 per spec, and requests without an
-// id are treated as notifications and never answered. Deterministic and
-// offline: every answer comes from the bundled tree — no network, ever.
+// tools/call) plus the SEP-2640 resources model (resources/list,
+// resources/read over skill:// URIs) so skills are discoverable and loadable
+// as resources, not only through tool calls. Anything else gets -32601 per
+// spec, and requests without an id are treated as notifications and never
+// answered. Deterministic and offline: every answer comes from the bundled
+// tree — no network, ever.
 'use strict';
 
 const { Catalog, version } = require('./catalog');
+const fs = require('fs');
+const path = require('path');
+
+/* Reference-file exposure: list skill-local support dirs (references/,
+   scripts/, assets/) one level below the SKILL.md so a host loading a
+   skill knows what deep files exist. Offline, filesystem-only. */
+const LOCAL_DIRS = ['references', 'scripts', 'assets'];
+function skillFiles(catalog, skillPath) {
+  const root = path.join(catalog.root, skillPath);
+  const found = [];
+  for (const dir of LOCAL_DIRS) {
+    const abs = path.join(root, dir);
+    let names = [];
+    try { names = fs.readdirSync(abs).filter((n) => !n.startsWith('.')); } catch (e) { continue; }
+    names.sort();
+    found.push(`${dir}/: ${names.join(', ')}`);
+  }
+  return found;
+}
 
 const TOOLS = [
   {
@@ -111,7 +133,10 @@ function callTool(catalog, name, args) {
           .map((h) => h.skill.path).join(', ');
         return toolError(`no skill at '${args.path}'. Closest: ${near}`);
       }
-      return text(catalog.read(skill.path));
+      const files = skillFiles(catalog, skill.path);
+      const footer = files.length
+        ? `\n\n---\nskill files: ${files.join(' · ')}` : '';
+      return text(catalog.read(skill.path) + footer);
     }
     case 'list_families':
       return text(familiesSummary(catalog));
@@ -138,6 +163,74 @@ function callTool(catalog, name, args) {
   }
 }
 
+function resourcesList(catalog) {
+  // SEP-2640: skills are resources under the skill:// namespace.
+  // Every leaf is listed individually so hosts can enumerate without
+  // guessing paths; families/packs are listed as collection URIs.
+  const out = [];
+  const seen = new Set();
+  const push = (uri, name, kind) => {
+    if (seen.has(uri)) return;
+    seen.add(uri);
+    out.push({ uri, name, mimeType: 'text/markdown', description: `${kind} — ${name}` });
+  };
+  for (const s of catalog.leaves) {
+    push(`skill://${s.path}`, s.path, 'skill');
+    const packUri = s.path.split('/').slice(0, -1).join('/');
+    push(`skill://${packUri}`, packUri, 'skill pack');
+    const famUri = s.path.split('/')[0];
+    push(`skill://${famUri}`, famUri, 'skill family');
+  }
+  push('skill://', 'library root', 'skill');
+  return out;
+}
+
+function readResource(catalog, uri) {
+  const u = String(uri || '');
+  if (u === 'skill://' || u === 'skill:') {
+    const fams = familiesSummary(catalog);
+    return text(`Aero Agent Skills — resource root\n\nFamilies:\n${fams}\n\nLoad a family, pack, or leaf with skill://<family>[/<pack>[/<leaf>]]\n`);
+  }
+  if (!u.startsWith('skill://')) return toolError(`unknown resource uri '${uri}' (expected skill://…)`);
+  const relPath = u.slice('skill://'.length).replace(/\/+$/, '');
+  if (!relPath) return text(`Aero Agent Skills — resource root\n\n${familiesSummary(catalog)}\n`);
+  // reference-file read: skill://<path>/references/<file> or scripts/ or assets/
+  const segs = relPath.split('/');
+  if (segs.length > 3 && LOCAL_DIRS.includes(segs[3])) {
+    const skillPath = segs.slice(0, 3).join('/');
+    const rel = segs.slice(3).join('/');
+    if (rel.includes('..')) return toolError('path traversal not allowed');
+    const skill = catalog.find(skillPath);
+    if (!skill) return toolError(`no skill at '${skillPath}'`);
+    try {
+      const abs = path.join(catalog.root, skillPath, rel);
+      const content = fs.readFileSync(abs, 'utf8');
+      return text(content);
+    } catch (e) {
+      return toolError(`cannot read '${rel}' under ${skillPath} (${e.code || e.message})`);
+    }
+  }
+  // family or pack listing
+  const kids = catalog.leaves.filter((s) => s.path === relPath || s.path.startsWith(relPath + '/'));
+  const exact = catalog.find(relPath);
+  if (exact) {
+    const files = skillFiles(catalog, relPath);
+    const footer = files.length ? `\n\n---\nskill files: ${files.join(' · ')}` : '';
+    return text(catalog.read(relPath) + footer);
+  }
+  if (kids.length > 0) {
+    const byPrefix = (p) => kids.filter((s) => s.path.startsWith(p + '/') && s.path.split('/').length === p.split('/').length + 1);
+    let listing = `${relPath}/ — ${kids.length} skills beneath\n`;
+    const fam = relPath.split('/')[0];
+    if (relPath.split('/').length === 1) {
+      listing += `packs: ${[...new Set(catalog.leaves.filter((s) => s.family === relPath && s.pack).map((s) => s.pack))].join(', ')}\n`;
+    }
+    listing += kids.map((s) => `${s.path}: ${s.description.split('. ')[0]}.`).join('\n');
+    return text(listing);
+  }
+  return toolError(`no skill at '${relPath}'. Closest: ${catalog.search(relPath.replace(/\//g, ' '), 3).map((h) => h.skill.path).join(', ')}`);
+}
+
 function serve() {
   const catalog = new Catalog();
   let buffer = '';
@@ -155,7 +248,10 @@ function serve() {
       case 'initialize':
         return reply(req.id, {
           protocolVersion: (req.params && req.params.protocolVersion) || '2025-06-18',
-          capabilities: { tools: { listChanged: false } },
+          capabilities: {
+            tools: { listChanged: false },
+            resources: { subscribe: false, listChanged: false },
+          },
           serverInfo: { name: 'aero-agent-skills', version: version() },
         });
       case 'ping':
@@ -167,6 +263,20 @@ function serve() {
           return reply(req.id, callTool(catalog, req.params && req.params.name, req.params && req.params.arguments));
         } catch (e) {
           return reply(req.id, toolError(`tool failed: ${e.message}`));
+        }
+      case 'resources/list':
+        try {
+          return reply(req.id, { resources: resourcesList(catalog) });
+        } catch (e) {
+          return reply(req.id, undefined, { code: -32603, message: `resources/list failed: ${e.message}` });
+        }
+      case 'resources/read':
+        try {
+          const uri = req.params && req.params.uri;
+          const res = readResource(catalog, uri);
+          return reply(req.id, { contents: [{ uri, mimeType: 'text/markdown', text: res.content[0].text }] });
+        } catch (e) {
+          return reply(req.id, undefined, { code: -32603, message: `resources/read failed: ${e.message}` });
         }
       default:
         if (isNotification) return undefined; // notifications/* — no response by design
@@ -195,4 +305,4 @@ function serve() {
   process.stdin.on('end', () => process.exit(0));
 }
 
-module.exports = { serve, callTool, TOOLS };
+module.exports = { serve, callTool, TOOLS, resourcesList, readResource };
