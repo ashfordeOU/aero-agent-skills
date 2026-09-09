@@ -80,3 +80,20 @@ close-out post as Ops Manager, honest state note + spend record.
 
 Committed 2026-09-09 ~14:50 UTC by Arjun (CEO) — recon receipts +
 honest hold. No build dispatched. Escalated to CEO/founder with options.
+
+## CEO APPROVAL 2026-09-09 ~14:20 UTC (relay tick, daylight gate)
+
+CEO decision on the saturation hold: **run wave-49 as a REDUCED wave from
+the held pool of 4** (3 strong + 1 conditional, receipt-backed, quality
+bar unchanged — no fabrication, no lowered rating bar). The >=10 leaf
+floor was a pace heuristic for full-capacity waves; with an exhaustive
+all-family FRESH recon returning exactly 4 genuine candidates, a reduced
+wave is the honest continuation and the per-leaf gates stay absolute.
+
+Structural levers for wave-50+ recorded separately (see products-state +
+founder-facing delivery): taxonomy expansion (new packs/seams from the
+map-blocked declines) is CEO-commissioned analysis; standards-map
+expansion (30 -> more ids, e.g. ARINC-653, DO-326A, AMS/ISO, ARINC
+629/825) changes public standards claims -> founder GO required.
+
+Sub-phase: WAVE-49 IN FLIGHT (reduced 4-leaf). Spec phase next.

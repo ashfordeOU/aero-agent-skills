@@ -107,6 +107,8 @@ material selection.
 | structures/damage-tolerance/walker-forman-crack-growth | Walker Forman Crack Growth | walker-forman-crack-growth, walker-equation, forman-equation, r-ratio-correction, equivalent-delta-k, kc-limited-growth, stress-ratio-crack-growth |
 | structures/fem/elliptical-hertz-contact | Elliptical Hertz Contact | elliptical-hertz-contact, elliptical-contact-patch, hertz-elliptic-integrals, ball-in-groove-contact, conforming-raceway-contact, crossed-unequal-cylinders, contact-ellipse-eccentricity |
 | structures/materials/crack-tip-plasticity-correction | Crack Tip Plasticity Correction | crack-tip-plasticity-correction, irwin-plastic-zone, effective-crack-length, dugdale-strip-yield-model, small-scale-yielding-check, k-eff-correction, plastic-zone-radius |
+| structures/composites/laminate-progressive-failure | Laminate Progressive Failure | laminate-progressive-failure, ply-discount-method, last-ply-failure, ultimate-laminate-load, degraded-laminate-stiffness, post-fpf-load-redistribution, sequential-ply-failure, progressive-failure-analysis |
+| structures/loads/continuous-turbulence-gust-loads | Continuous Turbulence Gust Loads | continuous-turbulence-gust-loads, von-karman-spectrum, dryden-spectrum, turbulence-psd, gust-response-transfer-function, power-spectral-density-gust-method, rms-load-response, continuous-turbulence-design |
 ## Routing guidance
 
 - FEM and margin-of-safety questions route to the calculix-linear
@@ -221,3 +223,5 @@ your host's skills directory (see README Install for per-host commands).
 - Metallic fastener joint questions (bolt and rivet shear, bearing, net-section and shear-out margins, eccentric bolt-group polar method) route to the fem metallic-fastener-joints sub-skill.
 - Elastic redundancy questions (fixed-end moments, three-moment equation, moment distribution, slope-deflection, continuous-beam support moments) route to fem statically-indeterminate; non-uniform torsion and warping restraint (bimoment, warping constant, warping normal stress of thin-walled open sections) routes to fem restrained-warping.
 - Plastic collapse questions (fully-plastic moment, plastic hinge mechanisms, kinematic and static collapse loads of indeterminate beams and frames) route to the fem plastic-collapse-analysis sub-skill.
+- Laminate progressive-failure questions (ply-discount stiffness degradation past first-ply failure, sequential ply events, last-ply-failure ultimate load) route to the composites laminate-progressive-failure sub-skill; first-ply-failure Tsai-Wu index and critical ply stay with laminate-first-ply-failure.
+- Continuous-turbulence gust-load questions (von Karman and Dryden PSD descriptions, gust response transfer function, rms load response, continuous-turbulence design loads) route to the loads continuous-turbulence-gust-loads sub-skill; the discrete 1-cosine gust stays with gust-maneuver-loads; SDOF random-vibration response stays with random-vibration-analysis.

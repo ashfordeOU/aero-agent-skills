@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 655
+Total skills rated: 659
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -661,3 +661,7 @@ Total skills rated: 655
 | 653 | gnc-autonomy/control/h-infinity-synthesis | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 654 | structures/composites/honeycomb-core-micromechanics | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
 | 655 | structures/composites/laminate-bending-stiffness | PASS | ✓ | far-25 | structures | 9.5 | PASS |
+| 656 | gnc-autonomy/control/backstepping-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 657 | structures/loads/continuous-turbulence-gust-loads | PASS | ✓ | far-25, cs-25 | structures | 9.5 | PASS |
+| 658 | structures/composites/laminate-progressive-failure | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 659 | gnc-autonomy/control/active-disturbance-rejection-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
