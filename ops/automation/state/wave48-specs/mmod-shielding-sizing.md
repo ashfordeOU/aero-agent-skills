@@ -491,15 +491,17 @@ scores only 2.5 against radiation-debris, marking the honest seam
 line: environment/risk-probability language belongs to
 radiation-debris, shield-sizing language to the candidate. Prep grep
 re-run fresh at spec time: each of the tokens micrometeoroid,
-hypervelocity, whipple, ballistic-limit, mmod (real hits), and
-debris-penetration returns ZERO matches in every skills/ SKILL.md and
-in eval/hit1-corpus.yaml over all 1306 task blocks (grep exit 1),
-so the queries are collision-free. Task ids follow the wave-48 close
-convention (w48-mmod-shielding-sizing-1 and -2). Add one routing
-bullet to radiation-debris at build time pointing whipple-shield,
-ballistic-limit, and "impact protection sizing" questions at the new
-leaf (wave-45 routing-line precedent), keeping flux and
-collision-probability questions with radiation-debris.
+hypervelocity, whipple, ballistic-limit, and debris-penetration
+returns ZERO matches in every skills/ SKILL.md and in
+eval/hit1-corpus.yaml over all 1306 task blocks (grep exit 1); the
+only whole-tree mmod substring hit is "accommODate" in
+vehicle-design/sizing/bleed-air-system-sizing, a documented false
+positive. The queries are collision-free. Task ids follow the
+wave-48 close convention (w48-mmod-shielding-sizing-1 and -2). Add
+one routing bullet to radiation-debris at build time pointing
+whipple-shield, ballistic-limit, and "impact protection sizing"
+questions at the new leaf (wave-45 routing-line precedent), keeping
+flux and collision-probability questions with radiation-debris.
 
 ## Description/tag guidance (gate 1/2 and tag-steal rules)
 

@@ -92,6 +92,7 @@ compressor stage and operating-map analysis.
 | propulsion/rocket/hydrogen-peroxide-monopropellant-thruster | Hydrogen Peroxide Monopropellant Thruster | hydrogen-peroxide-monopropellant-thruster, peroxide-decomposition, steam-oxygen-mixture, silver-catalyst-bed, concentration-limited-decomposition |
 | propulsion/reciprocating/piston-engine-cycle | Piston Engine Cycle | piston-engine-cycle, air-standard-otto-cycle, mean-effective-pressure, brake-specific-fuel-consumption, reciprocating-engine-powerplant, four-stroke-powerplant |
 | propulsion/reciprocating/diesel-cycle | Diesel Cycle | diesel-cycle, compression-ignition-cycle, air-standard-diesel-cycle, cutoff-ratio, diesel-cycle-efficiency, compression-ignition-powerplant |
+| propulsion/reciprocating/dual-cycle | Dual Cycle | dual-cycle, sabathe-cycle, limited-pressure-cycle, pressure-ratio, cutoff-ratio, dual-cycle-efficiency |
 ## Routing guidance
 
 - Brayton/gas-turbine thermodynamics route to the gas-turbine-cycle
@@ -156,6 +157,7 @@ to turbofan-cycle;
 
 - Rocket engine injector element design questions (orifice discharge flow, injection velocity, unlike-doublet momentum flux ratio, fuel and oxidizer orifice counts, per-element flow balance) route to the rocket injector-design sub-skill.
 - max-work pressure ratio, maximum specific work, zero-work limiting ratio, ideal and lossy cycle questions route to the gas-turbine-cycle brayton-optimum-pressure-ratio sub-skill.
+- Dual-cycle powerplant questions (Sabathe limited-pressure air-standard cycle efficiency at the compression ratio, pressure ratio and cutoff ratio, dual-cycle state points) route to the reciprocating dual-cycle sub-skill; compression-ignition stays with diesel-cycle and spark-ignition Otto stays with piston-engine-cycle.
 
 ## Install
 

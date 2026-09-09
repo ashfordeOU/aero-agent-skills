@@ -41,6 +41,8 @@ aerodynamic, structural, and performance disciplines together.
 | vehicle-design/conceptual/payload-range-diagram | Payload-range diagram | payload vs range trade, max payload, max fuel, design range, ferry range, Breguet range, reserve fuel |
 | vehicle-design/sizing/weight-estimation | Weight estimation | class-I weights, weight and balance sheets, component weights |
 | vehicle-design/sizing/component-weight-estimation | Component weight estimation | component-weight-estimation, class-II-weight-estimation, airframe-group-weights, statistical-weight-regression, raymer-group-weight, group-weight-summary |
+| vehicle-design/sizing/landing-gear-weight-estimation | Landing gear weight estimation | landing-gear-weight-estimation, class-II-gear-group-weight, gear-group-mass-regression, design-landing-weight, ultimate-landing-load-factor |
+| vehicle-design/sizing/fuel-system-weight-estimation | Fuel system weight estimation | fuel-system-weight-estimation, class-II-fuel-system-group-weight, tankage-plumbing-pumps-mass, fuel-system-hardware-mass, fuel-weight-regression |
 | vehicle-design/sizing/fuselage-sizing | Fuselage sizing | cabin length and width, fuselage diameter, L/D band, cargo volume check |
 | vehicle-design/sizing/tail-sizing | Tail sizing | horizontal and vertical tail volume coefficients, required tail area, tail arm |
 | vehicle-design/sizing/control-surface-sizing | Control surface sizing | aileron and elevator and rudder area from control power, roll rate requirement, pitch moment requirement, yaw moment requirement, hinge moment, deflection limits |
@@ -175,6 +177,8 @@ aerodynamic, structural, and performance disciplines together.
 - Fuel jettison questions (required dump rate to landing weight within 15 minutes, mast flow split) route to the sizing fuel-jettison-sizing sub-skill.
 - tipback angle, tail strike clearance, lateral turnover angle, nose gear load fraction band, main gear position questions route to the sizing landing-gear-layout sub-skill.
 
+- Landing gear group weight questions (class-II main and nose gear mass regressions from design landing weight and ultimate load factor, gear group total) route to the sizing landing-gear-weight-estimation sub-skill; gear geometry, retraction loads and layout stay with the landing-gear design leaves.
+- Fuel system group weight questions (class-II tankage, plumbing and pumps hardware mass from total fuel weight and tank arrangement) route to the sizing fuel-system-weight-estimation sub-skill; tank volume and feed rates stay with the fuel-tank-sizing and fuel-feed leaves.
 
 ## Install
 

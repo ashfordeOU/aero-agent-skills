@@ -85,6 +85,7 @@ selection, and classical orbital element determination.
 | space-systems/orbit-mechanics/walker-delta-constellation | Walker-Delta constellation | walker delta constellation, walker delta tpf, constellation plane spacing, inter-plane phasing, constellation slot enumeration |
 | space-systems/orbit-mechanics/geostationary-station-keeping | GEO station keeping | geostationary station keeping, north-south inclination drift control, east-west deadband cycle, longitude acceleration, geo delta-v and propellant budget, uncontrolled drift years |
 | space-systems/subsystems/doppler-shift | Doppler shift | doppler shift, range rate frequency offset, doppler rate, line of sight relative velocity, acquisition frequency offset, worst case doppler |
+| space-systems/subsystems/mmod-shielding-sizing | MMOD shielding sizing | mmod-shielding-sizing, whipple-shield, ballistic-limit-equation, dual-wall-shield, critical-projectile-diameter, debris-impact-protection |
 | space-systems/adcs/magnetometer-calibration | Magnetometer calibration | magnetometer calibration, scalar checking, bias estimation, field magnitude fit |
 | space-systems/mission-design/ground-station-pass-planning | Ground station pass planning | ground station pass planning, contact window schedule, downlink gap analysis, pass detection, multi station contact plan |
 | space-systems/adcs/environmental-disturbance-torque-budget | Environmental disturbance torque budget | environmental disturbance torque budget, gravity gradient torque, solar pressure torque, residual dipole torque, aero drag torque, worst case disturbance |
@@ -159,6 +160,7 @@ selection, and classical orbital element determination.
 - Gyroscope noise characterization questions (overlapping Allan deviation, log-log noise slope classification, angle random walk coefficient) route to the adcs gyro-allan-variance sub-skill.
 
 - ADCS pointing error budget questions (RSS of 1-sigma contributors, 3-sigma requirement verdict, allocation to the remaining contributor, dominant error source) route to the adcs pointing-error-budget sub-skill.
+- MMOD impact protection sizing questions (Whipple-shield ballistic-limit critical projectile diameter, dual-wall shield sizing, shield thickness and standoff, penetration verdict) route to the subsystems mmod-shielding-sizing sub-skill; radiation environment flux and collision-probability questions stay with mission-design radiation-debris.
 
 ## Install
 

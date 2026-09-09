@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 645,
+  "leaves": 655,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1306
+  "corpus_tasks": 1326
  },
  "skills": [
   {
@@ -1684,6 +1684,23 @@
     "software-bus",
     "publish-subscribe",
     "app-skeleton"
+   ],
+   "family": "avionics",
+   "pack": "fsw",
+   "router_doc": false
+  },
+  {
+   "path": "avionics/fsw/cyclic-executive-scheduling",
+   "name": "cyclic-executive-scheduling",
+   "description": "Use when you must design and verify the offline repeating frame table of a time-triggered cyclic executive for a periodic avionics flight software task set with implicit deadlines: compute the hyperperiod as the least common multiple of the task periods, choose an admissible frame length that divides every task period and is at least every task execution time C_i, lay each frame-boundary release into the frame that starts at its release time over the hyperperiod, and confirm every per-frame execution total stays within the frame length. Produces the hyperperiod, the admissible and capacity-feasible frame lengths, the constructive cyclic frame table with per-frame loads and per-frame slack, and a FITS or no-admissible-frame verdict with the reject reason. Trigger: cyclic executive scheduling, cyclic frame table, hyperperiod, frame length selection, frame fit feasibility, time triggered frame schedule, frame boundary release.",
+   "tags": [
+    "cyclic-executive-scheduling",
+    "cyclic-frame-table",
+    "frame-length-selection",
+    "hyperperiod-design",
+    "time-triggered-frame-schedule",
+    "frame-fit-feasibility",
+    "frame-boundary-release"
    ],
    "family": "avionics",
    "pack": "fsw",
@@ -4754,6 +4771,24 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/control/feedback-linearization",
+   "name": "feedback-linearization",
+   "description": "Use when you must apply feedback linearization to a nonlinear plant with a known exact model: compute the Lie derivatives of the output along the drift and control vector fields to establish the relative degree, invert the decoupling scalar at the operating state, form the linearizing control that cancels the nonlinear terms so the output channel obeys the linear relation y^(r) = v, apply the outer linear tracking loop with the assigned closed-loop pole placement, and check the internal dynamics via their zero dynamics before accepting the design. Produces the relative-degree verdict, the linearizing control with the decoupling scalar, the exactly linearized closed-loop response against the assigned closed form, and the zero-dynamics stability verdict that gates the design. Trigger: feedback linearization, input output linearization, lie derivative, relative degree, decoupling matrix, linearizing control, zero dynamics, internal dynamics stability.",
+   "tags": [
+    "feedback-linearization",
+    "lie-derivative",
+    "relative-degree",
+    "decoupling-matrix",
+    "linearizing-control",
+    "zero-dynamics",
+    "internal-dynamics-stability",
+    "input-output-linearization"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/control/frequency-response-design",
    "name": "frequency-response-design",
    "description": "Use when the task is bode analysis, frequency response, gain crossover, phase crossover, gain margin, phase margin, or stability from the margins. Compute the Bode frequency response of an open loop transfer function for flight control design: evaluate the magnitude and phase at a frequency from the numerator and denominator coefficients at s = j*w, find the gain crossover and phase crossover frequencies, derive the gain margin in dB and the phase margin in degrees, and judge closed loop stability from the margins for the canonical type-1 plant K/(s(s+1)(s+2)). Produces the margins and the stability verdict that gate control law iteration. Trigger: bode plot, frequency response, gain margin, phase margin, gain crossover, phase crossover.",
@@ -4816,6 +4851,23 @@
     "generalized-plant-weighting",
     "worst-case-peak-gain",
     "imaginary-axis-frequency-response"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/control/h-infinity-synthesis",
+   "name": "h-infinity-synthesis",
+   "description": "Use when you must synthesize the state-space h-infinity controller of the generalized plant with the dgkf two-Riccati method: given the state matrices and the performance and control channels, iterate the gamma level while the x-infinity and y-infinity algebraic Riccati equations admit stabilizing positive-semidefinite solutions and the spectral-radius coupling stays below gamma squared, then form the central h-infinity controller state matrices from the state-feedback gain and the observer gain. Produces the infimum feasible gamma level from the bisection, the two stabilizing Riccati solutions with the coupling check, the central controller state matrices at the working suboptimal level, and the closed-loop stability check with the disturbance-to-output peak below that level. Trigger: h infinity synthesis, dgkf two riccati, gamma level iteration, spectral radius coupling, central h infinity controller, x infinity y infinity riccati, state feedback gain, observer gain.",
+   "tags": [
+    "h-infinity-synthesis",
+    "dgkf-two-riccati",
+    "gamma-level-iteration",
+    "spectral-radius-coupling",
+    "central-h-infinity-controller",
+    "state-space-h-infinity-synthesis",
+    "algebraic-riccati-synthesis"
    ],
    "family": "gnc-autonomy",
    "pack": "control",
@@ -4943,6 +4995,25 @@
     "characteristic-equation",
     "stability",
     "zeta"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/control/sliding-mode-control",
+   "name": "sliding-mode-control",
+   "description": "Use when you must design a sliding-mode-control law for a second-order plant with matched uncertainty: choose the sliding surface from the tracking error and its derivative, compute the equivalent control that holds the surface on the nominal model, add the switching term sized above the uncertainty bound inside the boundary layer to enforce the reachability condition, and suppress chattering with the saturation thickness. Produces the surface and equivalent-control histories, the sliding-condition audit of the reachability inequality at every sample, the finite-time reach of the boundary layer, the boundary-layer command with the chattering-suppression check, and the tracking-error history that gate a sliding-mode control assessment. Trigger: sliding-mode-control, sliding-surface-design, equivalent-control, constant-plus-proportional-reaching-law, switching-term, chattering-suppression, matched-uncertainty, variable-structure-control, boundary-layer-command.",
+   "tags": [
+    "sliding-mode-control",
+    "sliding-surface-design",
+    "equivalent-control",
+    "constant-plus-proportional-reaching-law",
+    "switching-term",
+    "chattering-suppression",
+    "matched-uncertainty",
+    "variable-structure-control",
+    "boundary-layer-command"
    ],
    "family": "gnc-autonomy",
    "pack": "control",
@@ -7208,6 +7279,22 @@
    "router_doc": false
   },
   {
+   "path": "propulsion/reciprocating/dual-cycle",
+   "name": "dual-cycle",
+   "description": "Use when you must compute the operating point of a reciprocating high-speed compression-ignition aircraft powerplant: the air-standard dual-cycle thermal efficiency from the compression ratio, the specific-heat ratio, the pressure ratio of the constant-volume heat-addition phase and the cutoff ratio of the constant-pressure phase, the isentropic compression temperature ratio and state temperatures, the four-stroke indicated and brake power from the indicated mean effective pressure, displacement, crankshaft speed and mechanical efficiency, and the brake specific fuel consumption on Jet-A. Produces the single-point summary dict with the dual-cycle efficiency, heat additions, mean effective pressure, BSFC in both units, thermal efficiencies, volumetric fuel flow and the reference-only compression-ignition band verdict, reported and never enforced. Trigger: dual-cycle, air-standard-dual-cycle, sabathe-cycle, limited-pressure-cycle, mixed-heat-addition, pressure-ratio-of-heat-addition.",
+   "tags": [
+    "dual-cycle",
+    "air-standard-dual-cycle",
+    "sabathe-cycle",
+    "limited-pressure-cycle",
+    "mixed-heat-addition",
+    "pressure-ratio-of-heat-addition"
+   ],
+   "family": "propulsion",
+   "pack": "reciprocating",
+   "router_doc": false
+  },
+  {
    "path": "propulsion/reciprocating/piston-engine-cycle",
    "name": "piston-engine-cycle",
    "description": "Use when you must compute the operating point of a reciprocating four-stroke aircraft powerplant for general-aviation propulsion: the air-standard Otto cycle thermal efficiency from the compression ratio and the specific-heat ratio, the four-stroke indicated power from the indicated mean effective pressure, the displacement and the crankshaft speed, the brake power at the mechanical efficiency, and the brake specific fuel consumption from the fuel flow and the brake power. Produces the single-point summary dict with the ideal cycle efficiency, indicated and brake power, BSFC in both reporting units, thermal efficiencies, volumetric fuel flow and the reference-only general-aviation band verdict in one call, the published bands reported and never enforced. Trigger: piston-engine-cycle, air-standard-otto-cycle, compression ratio Otto efficiency, four-stroke engine, mean effective pressure, indicated power, brake power, mechanical efficiency, brake specific fuel consumption, BSFC.",
@@ -8568,6 +8655,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/subsystems/mmod-shielding-sizing",
+   "name": "mmod-shielding-sizing",
+   "description": "Use when you must size meteoroid and orbital debris (MMOD) impact protection: compute the Cour-Palais cratering penetration depth and critical projectile diameter of a single aluminum wall, size a Whipple shield bumper and rear wall so a design projectile at its design impact produces no rear-wall penetration, evaluate the Christiansen ballistic limit across low, intermediate, and hypervelocity regimes with the 3 and 7 km/s normal-velocity transitions and the 65 degree obliquity cap, and grade an impact as penetration or no penetration against the critical diameter. Produces the required rear-wall thickness for the no-penetration condition, the ballistic-limit curve over velocity, and the mission penetration probability from the expected number of penetrating impacts. Debris fluence and expected-impact inputs come from the space environment leaf; no environment model is built. Trigger: micrometeoroid, whipple shield, hypervelocity impact, ballistic limit, bumper sizing.",
+   "tags": [
+    "mmod-shielding-sizing",
+    "mmod-protection",
+    "hypervelocity-impact",
+    "whipple-shield",
+    "ballistic-limit",
+    "micrometeoroid-shielding",
+    "debris-penetration-risk"
+   ],
+   "family": "space-systems",
+   "pack": "subsystems",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/subsystems/power-thermal-budget",
    "name": "power-thermal-budget",
    "description": "Use when sizing spacecraft electrical power and thermal budgets per ECSS practice: estimate battery capacity from eclipse power draw, depth of discharge, and efficiency; size the solar array from daylight-only generation; and check power margins against spacecraft bus requirements. The skill covers orbit-period eclipse fractions, battery sizing, solar array sizing, and margin checks for power budgets. Trigger: power budget, thermal budget, eps, eclipse, battery sizing, solar array, spacecraft, orbit period, power margin.",
@@ -8770,6 +8874,43 @@
     "lamina",
     "ply-allowables",
     "composite-lamina"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
+   "path": "structures/composites/honeycomb-core-micromechanics",
+   "name": "honeycomb-core-micromechanics",
+   "description": "Use when you must predict the equivalent mechanical properties of a hexagonal honeycomb core from the cell geometry and the foil material: compute the relative density of the hexagonal cell with double-thickness vertical walls, the core density from the foil density, the stabilized out-of-plane compressive modulus E3 from the foil modulus, the out-of-plane shear moduli G13 and G23 from the foil shear modulus, and the in-plane cell-wall-bending moduli E1, E2 and G12 by the Gibson and Ashby hexagonal-cell closed forms. Produces the equivalent core properties the sandwich panel workflow collects as given inputs; the foil shear modulus derives from the foil modulus and Poisson ratio of the isotropic foil. Cell geometry and foil properties are inputs; no core property tables are reproduced. Trigger: honeycomb core micromechanics, hexagonal honeycomb cell, gibson ashby closed forms, equivalent core properties, out of plane shear modulus, stabilized compressive modulus, relative density.",
+   "tags": [
+    "honeycomb-core-micromechanics",
+    "hexagonal-honeycomb-cell",
+    "gibson-ashby-closed-forms",
+    "equivalent-core-properties",
+    "out-of-plane-shear-modulus",
+    "stabilized-compressive-modulus",
+    "relative-density",
+    "double-thickness-cell-walls",
+    "core-density-prediction"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
+   "path": "structures/composites/laminate-bending-stiffness",
+   "name": "laminate-bending-stiffness",
+   "description": "Use when you must assemble the full classical lamination theory stiffness of a composite laminate stack for the bending and coupling response: compute the bending-extension coupling matrix B and the bending matrix D by the z-squared and z-cubed thickness integrals over the ply z coordinates, the full ABD stiffness matrices for symmetric and unsymmetric laminates, the D11 D22 D12 and D66 bending terms the laminate plate buckling analysis takes as given inputs, the exact zero-coupling identity for symmetric stacks, the coupling magnitude of unsymmetric stacks, and the equivalent flexural engineering constants of symmetric stacks with vanishing D16 and D26. Produces the coupling and bending matrices, the four bending terms and the flexural constants in SI units. Trigger: laminate bending stiffness, bending-extension coupling, laminate d matrix, abd matrices, unsymmetric laminate analysis, d11 d22 d12 d66, equivalent laminate bending stiffness.",
+   "tags": [
+    "laminate-bending-stiffness",
+    "clt-abd-matrices",
+    "laminate-d-matrix",
+    "bending-extension-coupling",
+    "unsymmetric-laminate-analysis",
+    "laminate-bending-response",
+    "d11-d22-d12-d66",
+    "equivalent-laminate-bending-stiffness"
    ],
    "family": "structures",
    "pack": "composites",
@@ -11257,6 +11398,21 @@
    "router_doc": false
   },
   {
+   "path": "vehicle-design/sizing/fuel-system-weight-estimation",
+   "name": "fuel-system-weight-estimation",
+   "description": "Use when you must predict the fuel system group weight at the class-II level for the weight statement: evaluate the statistical fuel system weight regression of the transport integral-tank fuel system on the total fuel weight and the tank arrangement, the fixed 80 lb count allowance per tank and engine unit plus the 15 lb volume term scaling with the square root of the tank count and the cube root of the fuel quantity at the published fuel specific weight, and sum the terms into the fuel system group mass. Produces the fuel system group mass in kg for the tanks, sealing, pumps, plumbing and distribution hardware, and its fraction of the total fuel weight for the weight statement and the mass budget rollup. Trigger: fuel system weight estimation, fuel system group weight, fuel system weight regression, class ii fuel system weight buildup, tank group weight estimation.",
+   "tags": [
+    "fuel-system-weight-estimation",
+    "fuel-system-group-weight",
+    "fuel-system-weight-regression",
+    "class-ii-fuel-system-weight-buildup",
+    "tank-group-weight-estimation"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
    "path": "vehicle-design/sizing/fuel-tank-inerting-sizing",
    "name": "fuel-tank-inerting-sizing",
    "description": "Use when you must size the fuel tank inerting system at the conceptual level: model the ullage as a well-mixed volume washed by nitrogen-enriched air (NEA), compute the required NEA flow from the exponential oxygen decay C(t) = C_NEA + (C0 - C_NEA) exp(-Q t / V), and solve the flow that reaches a target oxygen fraction within a required time Q = (V/t) ln((C0 - C_NEA)/(C_tgt - C_NEA)). Produces the required NEA flow in m3/s and in SCFM, the ullage oxygen fraction at the required time, the washout time at a given flow, and a PASS or FAIL verdict against the NEA generator capacity limit (FAR 25.981 fuel tank flammability reduction context). Trigger: obiggs flow sizing, ullage oxygen washout, nitrogen enriched air, fuel ullage inerting, nea generator capacity.",
@@ -11425,6 +11581,22 @@
     "sink-speed",
     "tire-rating",
     "landing-load-factor"
+   ],
+   "family": "vehicle-design",
+   "pack": "sizing",
+   "router_doc": false
+  },
+  {
+   "path": "vehicle-design/sizing/landing-gear-weight-estimation",
+   "name": "landing-gear-weight-estimation",
+   "description": "Use when you must predict the landing gear group weight at the class-II level for the weight statement: evaluate the statistical main-gear-group-weight regression on the design landing weight, the ultimate landing load factor and the main gear strut length with the wheel, strut and stall speed terms, evaluate the nose-gear-group-weight regression on the design landing weight, the ultimate landing load factor and the nose gear strut length with the nose wheel count, with the limit landing load factor scaled to ultimate by the 1.5 safety factor, and sum the two group masses into the landing gear group total. Produces the main and nose gear group masses in kg, the gear group total, and its fraction of the design landing weight for the weight statement. Trigger: landing gear group weight estimation, gear weight regression, main gear group weight, nose gear group weight, class ii gear weight buildup.",
+   "tags": [
+    "landing-gear-weight-estimation",
+    "landing-gear-group-weight",
+    "main-gear-group-weight",
+    "nose-gear-group-weight",
+    "gear-group-weight-regression",
+    "class-ii-gear-weight-buildup"
    ],
    "family": "vehicle-design",
    "pack": "sizing",
