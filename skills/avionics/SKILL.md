@@ -99,6 +99,7 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/fsw/deadline-monotonic-scheduling | Deadline Monotonic Scheduling | deadline-monotonic-scheduling, constrained-deadline-rta, arbitrary-deadline-rta, release-jitter-rta, dm-priority-assignment, shorter-deadline-order |
 | avionics/fsw/mixed-criticality-scheduling | Mixed Criticality Scheduling | mixed-criticality-scheduling, amc-rtb-analysis, dual-criticality-execution-time, hi-criticality-mode-rta, lo-criticality-mode-rta, criticality-mode-change-rta |
 | avionics/fsw/virtual-deadline-scheduling | Virtual Deadline Scheduling | virtual-deadline-scheduling, edf-vd, virtual-deadline-scaling, dual-criticality-schedulability, mode-switch-feasibility |
+| avionics/fsw/cyclic-executive-scheduling | Cyclic Executive Scheduling | cyclic-executive-scheduling, time-triggered-frame-schedule, hyperperiod-major-cycle, frame-length-admissibility, per-frame-capacity, frame-table-slack |
 ## Routing guidance
 
 - Software certification questions (levels, PSAC, coverage, traceability,
@@ -155,6 +156,7 @@ est case count, coverage objectives per
 - DO-178C previously developed software reuse questions (reuse classification, delta objective coverage, modified software regression scope) route to the do178c previously-developed-software sub-skill.
 - ARINC 429 bus loading questions (per-label rate schedule, percent utilization of the 100 kbps link, capacity and headroom) route to the data-bus arinc429-bus-loading sub-skill.
 
+- Time-triggered cyclic executive scheduling questions (hyperperiod frame table, admissible frame length dividing every task period, per-frame capacity, FITS or no-admissible-frame verdict) route to the fsw cyclic-executive-scheduling sub-skill; priority-driven feasibility (RM bound, RTA, EDF, AMC-rtb, EDF-VD) stays with the fsw real-time-scheduling family.
 
 ## Install
 

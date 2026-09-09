@@ -102,6 +102,9 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/guidance/impact-angle-control-guidance | Impact Angle Control Guidance | impact-angle-control-guidance, impact-angle-constraint, terminal-flight-path-angle, biased-proportional-navigation, trajectory-shaping-guidance |
 | gnc-autonomy/control/smith-predictor | Smith Predictor | smith-predictor, dead-time-compensation, time-delay-compensator, predictor-controller, process-dead-time |
 | gnc-autonomy/control/h-infinity-control | H-infinity Control | h-infinity-control, mixed-sensitivity-design, s-ks-weighting, h-infinity-norm, loop-shaping-robustness |
+| gnc-autonomy/control/h-infinity-synthesis | H-infinity Synthesis | h-infinity-synthesis, dgkf-two-riccati, gamma-iteration, spectral-radius-coupling, central-controller, generalized-plant-weighting |
+| gnc-autonomy/control/sliding-mode-control | Sliding Mode Control | sliding-mode-control, sliding-surface, equivalent-control, reaching-law, chattering-suppression, variable-structure-control |
+| gnc-autonomy/control/feedback-linearization | Feedback Linearization | feedback-linearization, input-output-linearization, relative-degree, lie-derivative, zero-dynamics, nonlinearity-cancelling-control |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -173,6 +176,9 @@ amics sub-skill.
 - Smith predictor questions (dead-time compensation, predictor structure for time-delayed plants, delay-free characteristic equation) route to the control smith-predictor sub-skill; PID tuning and digital emulation stay with pid-control-design and digital-control-design.
 - H-infinity control questions (mixed-sensitivity S/KS loop shaping, H-infinity norm computation, robustness weights) route to the control h-infinity-control sub-skill; LQR and LQG synthesis stay with lqr-design and lqg-design.
 - passive angle-of-arrival bearing lines, Stansfield weighted least squares emitter fix, bearing-line error ellipse questions route to the navigation bearing-only-localization sub-skill.
+- H-infinity synthesis questions (DGKF two-Riccati state-space synthesis, gamma iteration, spectral-radius coupling condition, central controller) route to the control h-infinity-synthesis sub-skill; mixed-sensitivity S/KS norm analysis of a given pair stays with h-infinity-control.
+- Sliding-mode control questions (sliding surface design, equivalent control, reaching law, chattering suppression) route to the control sliding-mode-control sub-skill; model-reference and L1 adaptation stay with adaptive-control and l1-adaptive-control.
+- Feedback-linearization questions (input-output linearization, relative degree, zero-dynamics stability, nonlinearity-cancelling control law) route to the control feedback-linearization sub-skill; variable-structure control stays with sliding-mode-control.
 
 ## Install
 

@@ -54,6 +54,8 @@ material selection.
 | structures/fatigue/notch-sensitivity | Notch sensitivity | stress concentration factor Kt, fatigue notch factor Kf, Neuber, Peterson, notch root radius, effective stress amplitude, notched fatigue assessment |
 | structures/composites/laminate-stiffness | Laminate stiffness | CLT, lamina stiffness, laminate ABD matrix, ply layup |
 | structures/composites/unidirectional-lamina-micromechanics | Unidirectional lamina micromechanics | unidirectional-lamina-micromechanics, rule-of-mixtures, halpin-tsai, hashin-shtrikman-bounds, lamina-elastic-constants, fiber-volume-fraction |
+| structures/composites/honeycomb-core-micromechanics | Honeycomb core micromechanics | honeycomb-core-micromechanics, hexagonal-cell-relative-density, out-of-plane-core-moduli, core-equivalent-properties, cell-geometry-foil-material |
+| structures/composites/laminate-bending-stiffness | Laminate bending stiffness | laminate-bending-stiffness, clt-d-matrix, bending-extension-coupling, unsymmetric-laminate, laminate-abd-assembly |
 | structures/composites/laminate-plate-buckling | Laminate plate buckling | laminate plate buckling, orthotropic plate buckling, CLT D matrix, buckling mode minimization, composite panel stability, compression buckling |
 | structures/composites/composite-bolted-joints | Composite bolted joints | bearing stress, bypass load, net tension, shear-out, edge distance |
 | structures/composites/adhesive-bonded-joints | Adhesive bonded joints | adhesive bonded joint, single lap joint, shear lag parameter, adhesive shear stress, overlap length, Volkersen shear distribution, bondline peak stress, adhesive allowable |
@@ -190,6 +192,8 @@ ance) route
 - Metallic pin-loaded lug analysis questions (bearing, net-section tension and tearout stresses and margins, governing mode, capacity over the edge-distance ratio) route to the fem lug-joint-analysis sub-skill.
 - thin-walled open section shear-center location, V*Q/I shear flow, channel Z angle hat sections questions route to the fem shear-center-analysis sub-skill.
 - radial-interference contact pressure, Lame thick-cylinder bore hoop stress, von-Mises yield margin, allowable interference questions route to the fem shrink-fit-analysis sub-skill.
+- Honeycomb core property questions (hexagonal-cell relative density, out-of-plane compressive and shear moduli from cell geometry and foil material) route to the composites honeycomb-core-micromechanics sub-skill; panel-level face stress, core shear and core selection stay with sandwich-panels.
+- Laminate bending stiffness questions (CLT B and D matrices, bending-extension coupling, unsymmetric layups, full ABD assembly) route to the composites laminate-bending-stiffness sub-skill; symmetric-laminate A-matrix assembly stays with laminate-stiffness.
 
 ## Install
 

@@ -2,7 +2,7 @@
 
 Audit: CEO, Ashforde OÜ - regenerated 2026-09-02 · Founder directive: "run the checks and ratings on them too"
 Method: 5 REAL gates (make validate) + contract presence + standards-map resolution + domain-pack alignment + CEO spot-check.
-Total skills rated: 645
+Total skills rated: 655
 
 | # | Skill | Gates 5/5 | Contract | Standard | Domain | CEO Rating | Verdict |
 |---|---|---|---|---|---|---|---|
@@ -651,3 +651,13 @@ Total skills rated: 645
 | 643 | gnc-autonomy/guidance/impact-angle-control-guidance | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
 | 644 | structures/materials/creep-stress-relaxation | PASS | ✓ | mmpsd | structures | 9.5 | PASS |
 | 645 | gnc-autonomy/control/h-infinity-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 646 | avionics/fsw/cyclic-executive-scheduling | PASS | ✓ | do-178c | avionics | 9.5 | PASS |
+| 647 | propulsion/reciprocating/dual-cycle | PASS | ✓ | far-33 | propulsion | 9.5 | PASS |
+| 648 | vehicle-design/sizing/landing-gear-weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 649 | space-systems/subsystems/mmod-shielding-sizing | PASS | ✓ | ecss | space-systems | 9.5 | PASS |
+| 650 | vehicle-design/sizing/fuel-system-weight-estimation | PASS | ✓ | far-25 | vehicle-design | 9.5 | PASS |
+| 651 | gnc-autonomy/control/feedback-linearization | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 652 | gnc-autonomy/control/sliding-mode-control | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 653 | gnc-autonomy/control/h-infinity-synthesis | PASS | ✓ | arp4754a | gnc-autonomy | 9.5 | PASS |
+| 654 | structures/composites/honeycomb-core-micromechanics | PASS | ✓ | cmh-17 | structures | 9.5 | PASS |
+| 655 | structures/composites/laminate-bending-stiffness | PASS | ✓ | far-25 | structures | 9.5 | PASS |

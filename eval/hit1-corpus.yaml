@@ -290,6 +290,11 @@
 # leaves). Wave-46 new leaves: "vehicle-design/sizing/component-weight-estimation", "structures/materials/creep-stress-relaxation", "propulsion/reciprocating/diesel-cycle", "gnc-autonomy/control/h-infinity-control", "gnc-autonomy/guidance/impact-angle-control-guidance", "flight-mechanics/performance/rotorcraft-cyclic-pitch-trim", "gnc-autonomy/control/smith-predictor", "gnc-autonomy/navigation/tropospheric-delay-correction", "structures/composites/unidirectional-lamina-micromechanics", "avionics/fsw/virtual-deadline-scheduling".
 # Corpus: 1306 tasks (1286 prior plus 20 domain tasks). Owner: Ops
 # Manager, Wave 46 build.
+# P5.2 / Wave 46 (2026-09-07): fan-out continues on the public
+# v1.0.0 model to 655 verified skills (667 SKILL.md under gate 1: 12 routers + 655
+# leaves). Wave-46 new leaves: "avionics/fsw/cyclic-executive-scheduling", "propulsion/reciprocating/dual-cycle", "gnc-autonomy/control/feedback-linearization", "vehicle-design/sizing/fuel-system-weight-estimation", "gnc-autonomy/control/h-infinity-synthesis", "structures/composites/honeycomb-core-micromechanics", "structures/composites/laminate-bending-stiffness", "vehicle-design/sizing/landing-gear-weight-estimation", "space-systems/subsystems/mmod-shielding-sizing", "gnc-autonomy/control/sliding-mode-control".
+# Corpus: 1326 tasks (1306 prior plus 20 domain tasks). Owner: Ops
+# Manager, Wave 46 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5851,6 +5856,86 @@ tasks:
     query: "check the virtual-deadline-factor schedulability of the two-criticality process set under edf-vd: compute the per-task virtual deadlines x*T for the HI tasks and confirm both the LO-mode and the HI-mode demand conditions hold for the chosen factor"
     intent: "avionics/fsw; the virtual-deadline factor x and the per-HI-task virtual deadlines x*T of the two-criticality process set under edf-vd, then the LO-mode and the HI-mode demand conditions for the chosen factor"
     expected_skill: "avionics/fsw/virtual-deadline-scheduling"
+  - id: w48-cyclic-executive-scheduling-1
+    query: "run the cyclic-executive-scheduling analysis on the periodic flight control software task set and lay out the repeating cyclic frame table: compute the hyperperiod as the least common multiple of the task periods, choose a frame length that divides every task period, verify each task worst-case execution time fits inside its own frame, and confirm every per-frame execution total stays within the frame length"
+    intent: "avionics/fsw; cyclic-executive-scheduling: the hyperperiod as the least common multiple of the task periods, an admissible frame length dividing every task period, the frame-fit check that each task worst-case execution time fits inside its own frame, and the per-frame capacity check that every per-frame execution total stays within the frame length over the repeating cyclic frame table"
+    expected_skill: "avionics/fsw/cyclic-executive-scheduling"
+  - id: w48-cyclic-executive-scheduling-2
+    query: "design the cyclic-executive-scheduling frame table for the periodic avionics tasks: compute the hyperperiod as the least common multiple of the periods, pick the frame length dividing every period, and check the frame-fit feasibility of the repeating frame table frame by frame"
+    intent: "avionics/fsw; the repeating cyclic frame table of a periodic avionics task set: the hyperperiod as the least common multiple of the periods, the frame length dividing every period, and the frame-fit feasibility check of the repeating frame table frame by frame"
+    expected_skill: "avionics/fsw/cyclic-executive-scheduling"
+  - id: w48-dual-cycle-1
+    query: "run the air-standard-dual-cycle for the high-speed compression-ignition aircraft powerplant at the 17 to 1 compression ratio: the dual-cycle thermal efficiency from the pressure-ratio-of-heat-addition across the constant-volume phase and the cutoff-ratio of the constant-pressure phase of the sabathe limited-pressure-cycle, then the indicated power from the mean-effective-pressure and the displacement and the brake power at the mechanical efficiency on the jet-a fuel"
+    intent: "propulsion; dual-cycle thermal efficiency and four-stroke indicated and brake power bookkeeping"
+    expected_skill: "propulsion/reciprocating/dual-cycle"
+  - id: w48-dual-cycle-2
+    query: "analyze the sabathe-cycle limited-pressure-cycle operating point of the high-speed compression-ignition aircraft engine: the air-standard-dual-cycle thermal efficiency from the pressure-ratio-of-heat-addition across the constant-volume phase and the cutoff-ratio across the constant-pressure phase of the mixed heat-addition model, and the jet-a fuel brake-specific-fuel-consumption band check for the dual-cycle powerplant"
+    intent: "propulsion; dual-cycle mixed heat-addition efficiency and reference-only compression-ignition BSFC band verdict"
+    expected_skill: "propulsion/reciprocating/dual-cycle"
+  - id: w48-feedback-linearization-1
+    query: "apply feedback-linearization to the nonlinear plant: compute the lie-derivative of the output along the control vector field to establish the relative-degree, invert the decoupling-matrix for the linearizing-control, and verify the zero-dynamics of the internal-dynamics are stable"
+    intent: "gnc-autonomy/control; feedback-linearization: the Lie-derivative of the output along the control vector field that establishes the relative-degree, the inversion of the decoupling-matrix for the linearizing-control, and the zero-dynamics stability verification of the internal-dynamics that gates the design"
+    expected_skill: "gnc-autonomy/control/feedback-linearization"
+  - id: w48-feedback-linearization-2
+    query: "linearize the input-output response of the nonlinear plant by feedback-linearization: compute the lie-derivatives up to the relative-degree, form the linearizing-control from the decoupling-matrix and apply the outer tracking loop with the zero-dynamics stability check"
+    intent: "gnc-autonomy/control; input-output linearization of the nonlinear plant: the lie-derivatives computed up to the relative-degree, the linearizing-control formed from the decoupling-matrix, and the outer tracking loop applied on the linearized channel with the zero-dynamics stability check"
+    expected_skill: "gnc-autonomy/control/feedback-linearization"
+  - id: w48-fuel-system-weight-estimation-1
+    query: "estimate the fuel-system-group-weight for the weight statement with the statistical fuel system weight regression from the total fuel weight and roll the fuel-system-group-weight into the mass budget"
+    intent: "vehicle-design; statistical fuel system weight regression producing the fuel system group weight for the mass budget rollup"
+    expected_skill: "vehicle-design/sizing/fuel-system-weight-estimation"
+  - id: w48-fuel-system-weight-estimation-2
+    query: "run the fuel-system-weight-estimation at class II: compute the fuel-system-group-weight with the class-ii-fuel-system-weight-buildup regression from the total fuel weight for the tank and plumbing group mass"
+    intent: "vehicle-design; class-II fuel system weight buildup producing the tank and plumbing group mass"
+    expected_skill: "vehicle-design/sizing/fuel-system-weight-estimation"
+  - id: w48-h-infinity-synthesis-1
+    query: "synthesize the state-space h-infinity controller with the dgkf-two-riccati method: iterate the gamma-level while the two algebraic-riccati equations admit stabilizing-solutions and the spectral-radius-coupling stays below gamma-squared, then form the central-h-infinity-controller from the stabilizing-solutions"
+    intent: "gnc-autonomy/control; h-infinity-synthesis: the DGKF two-Riccati state-space H-infinity controller of the generalized plant, iterating the gamma level while the two algebraic Riccati equations admit stabilizing solutions and the spectral-radius coupling stays below gamma squared, then forming the central H-infinity controller from the stabilizing solutions"
+    expected_skill: "gnc-autonomy/control/h-infinity-synthesis"
+  - id: w48-h-infinity-synthesis-2
+    query: "run the h-infinity-synthesis for the generalized-plant: solve the x-infinity and y-infinity algebraic-riccati equations under the spectral-radius-coupling check and assemble the central-h-infinity-controller state matrices from the state-feedback gain and the observer gain"
+    intent: "gnc-autonomy/control; h-infinity-synthesis: the X_inf and Y_inf algebraic Riccati equations of the generalized plant under the spectral-radius-coupling check, assembling the central H-infinity controller state matrices from the state-feedback gain F_inf and the observer gain H_inf"
+    expected_skill: "gnc-autonomy/control/h-infinity-synthesis"
+  - id: w48-honeycomb-core-micromechanics-1
+    query: "predict the equivalent-core-properties of the 3.2 mm cell 5056 aluminum honeycomb core with 0.038 mm foil thickness for the sandwich panel: the relative-density, the out-of-plane stabilized compressive modulus and the out-of-plane shear moduli from the gibson-ashby hexagonal-cell closed forms with the double-thickness vertical cell walls and the foil modulus and density inputs for the core-shear margin"
+    intent: "structures; honeycomb core micromechanics: the equivalent core properties (relative density, stabilized out-of-plane compressive modulus, out-of-plane shear moduli) of the 3.2 mm cell 5056 foil core predicted from the cell geometry by the Gibson and Ashby hexagonal-cell closed forms, the producer side of the core-property chain the sandwich panel workflow collects as given inputs"
+    expected_skill: "structures/composites/honeycomb-core-micromechanics"
+  - id: w48-honeycomb-core-micromechanics-2
+    query: "compute the honeycomb-core shear modulus G13 and G23 and the core density of the 1-8 inch cell 7075 foil core from the cell geometry, the cell-wall thickness to edge-length ratio and the foil shear modulus by the hexagonal-cell closed forms, the equivalent-core-properties the sandwich-panels workflow collects as given inputs"
+    intent: "structures; honeycomb core micromechanics: the out-of-plane shear moduli G13 and G23 and the core density of the 7075 foil core computed from the cell-wall thickness to edge-length ratio, the cell aspect ratio and the foil shear modulus by the hexagonal-cell closed forms, the equivalent core properties the sandwich-panels workflow collects as given inputs"
+    expected_skill: "structures/composites/honeycomb-core-micromechanics"
+  - id: w48-laminate-bending-stiffness-1
+    query: "compute the laminate d-matrix bending stiffnesses D11 D22 D12 and D66 of the 8-ply carbon-epoxy stack from the rotated ply stiffnesses and the ply z-coordinate z-cubed thickness integrals by classical lamination theory, the laminate-bending-stiffness inputs the laminate plate buckling analysis takes as given"
+    intent: "structures/composites; laminate-bending-stiffness: the D11, D22, D12 and D66 bending terms of the 8-ply carbon-epoxy stack by the z-cubed thickness integrals of the rotated ply stiffnesses over the ply z coordinates, producing exactly the bending terms the laminate plate buckling analysis fixes as its given inputs"
+    expected_skill: "structures/composites/laminate-bending-stiffness"
+  - id: w48-laminate-bending-stiffness-2
+    query: "assemble the full clt stiffness of the unsymmetric laminate stack: the in-plane a-matrix, the bending-extension coupling b-matrix and the bending d-matrix from the ply stack geometry, and the equivalent laminate bending stiffness of the symmetric angle-ply for the laminate-bending-response check"
+    intent: "structures/composites; laminate-bending-stiffness: the full ABD assembly of the unsymmetric stack with the bending-extension coupling B and bending D matrices from the ply stack geometry, and the equivalent flexural (bending) engineering constants of the symmetric balanced stack for the bending-response check"
+    expected_skill: "structures/composites/laminate-bending-stiffness"
+  - id: w48-landing-gear-weight-estimation-1
+    query: "estimate the landing-gear-group-weight at class II with the statistical gear-weight regression: main-gear-group-weight and nose-gear-group-weight from the design landing weight, the ultimate landing load factor and the main and nose gear strut lengths, then hand the gear weight total to the mass budget"
+    intent: "vehicle-design; class-II gear group weight regression producing the main and nose gear group masses for the mass budget rollup"
+    expected_skill: "vehicle-design/sizing/landing-gear-weight-estimation"
+  - id: w48-landing-gear-weight-estimation-2
+    query: "run the landing-gear-weight-estimation for the tricycle transport: predict the landing-gear-group-weight with the class-ii-gear-weight-buildup regression so the retraction mechanism sizing gets the gear weight input"
+    intent: "vehicle-design; class-II gear weight buildup producing the gear weight input the retraction-sizing sibling consumes"
+    expected_skill: "vehicle-design/sizing/landing-gear-weight-estimation"
+  - id: w48-mmod-shielding-sizing-1
+    query: "size a whipple shield for a spacecraft: rear wall thickness that stops a 1 cm aluminum projectile at 7 km per second hypervelocity impact"
+    intent: "space-systems; Whipple shield sizing: the rear-wall design thickness that stops a 1 cm aluminum projectile at its 7 km per second hypervelocity design impact"
+    expected_skill: "space-systems/subsystems/mmod-shielding-sizing"
+  - id: w48-mmod-shielding-sizing-2
+    query: "compute the ballistic limit of a single aluminum wall and a whipple shield bumper for a micrometeoroid projectile at 10 km per second"
+    intent: "space-systems; the ballistic limit of a single aluminum wall and of a whipple shield bumper against a micrometeoroid projectile at 10 km per second"
+    expected_skill: "space-systems/subsystems/mmod-shielding-sizing"
+  - id: w48-sliding-mode-control-1
+    query: "design the sliding-mode-control law for the second-order plant with matched-uncertainty: choose the sliding-surface from the error and its derivative, compute the equivalent-control from the nominal model, and add the switching-term inside the boundary-layer to enforce the reachability condition"
+    intent: "gnc-autonomy/control; sliding-mode-control: the sliding-surface chosen from the tracking error and its derivative, the equivalent-control computed from the nominal model, and the switching-term added inside the boundary-layer to enforce the reachability condition"
+    expected_skill: "gnc-autonomy/control/sliding-mode-control"
+  - id: w48-sliding-mode-control-2
+    query: "apply sliding-mode-control with the constant-plus-proportional-reaching-law: evaluate the equivalent-control, size the switching-gain from the matched-uncertainty bound and report the boundary-layer command with the chattering-suppression check"
+    intent: "gnc-autonomy/control; sliding-mode-control with the constant-plus-proportional-reaching-law: the equivalent-control evaluated from the nominal model, the switching-gain sized from the matched-uncertainty bound, and the boundary-layer command reported with the chattering-suppression check"
+    expected_skill: "gnc-autonomy/control/sliding-mode-control"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
