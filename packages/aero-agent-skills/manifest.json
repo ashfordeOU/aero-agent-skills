@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 655,
+  "leaves": 659,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1326
+  "corpus_tasks": 1334
  },
  "skills": [
   {
@@ -4700,6 +4700,23 @@
    "router_doc": true
   },
   {
+   "path": "gnc-autonomy/control/active-disturbance-rejection-control",
+   "name": "active-disturbance-rejection-control",
+   "description": "Use when you must design and simulate an active-disturbance-rejection-control law for a second-order plant with an unknown total disturbance: run the linear-extended-state-observer with bandwidth-parameterized observer gains placing every observer pole at omega_o to estimate the state and the total disturbance, cancel the estimate with the disturbance-rejection term divided by the plant-gain estimate b0, and close the outer loop with the bandwidth-parameterized PD law on the estimated states placing the tracking poles at omega_c. Produces the observer-gain triple from the (s + omega_o)^3 expansion, the disturbance-cancellation audit of the rejection term, and the tracking-error, command and total-disturbance-estimate histories that gate an active disturbance rejection control assessment. Trigger: active-disturbance-rejection-control, linear-extended-state-observer, adrc, bandwidth-parameterization, total-disturbance-estimate, disturbance-rejection-term, observer-gain-parameterization.",
+   "tags": [
+    "active-disturbance-rejection-control",
+    "linear-extended-state-observer",
+    "adrc",
+    "bandwidth-parameterization",
+    "total-disturbance-estimate",
+    "disturbance-rejection-term",
+    "observer-gain-parameterization"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/control/adaptive-control",
    "name": "adaptive-control",
    "description": "Use when you must design and simulate a model-reference adaptive controller (MRAC) for a first-order plant with an unknown plant coefficient: run the reference model from the command, form the control as the sum of a state-feedback term and a feedforward term with adaptive gains, update the gains online with the gradient (Lyapunov-motivated) adaptation law scaled by the tracking error, and assess convergence of the tracking error and of the gains toward the ideal-cancellation values. Produces the error history, the gain histories and the convergence verdict that gate an adaptive control assessment. Trigger: adaptive-control, mrac, model-reference-adaptive, adaptation-law, tracking-error, unknown-plant.",
@@ -4709,6 +4726,24 @@
     "model-reference-adaptive",
     "adaptation-law",
     "tracking-error"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
+   "path": "gnc-autonomy/control/backstepping-control",
+   "name": "backstepping-control",
+   "description": "Use when you must design and simulate the backstepping control law for a second-order strict-feedback plant x1_dot = x2 + f1(x1), x2_dot = u + f2(x1, x2) tracking a reference: choose the virtual control that stabilizes the first error variable z1 = x1 - x1d, propagate the inner-state mismatch z2 = x2 - alpha1 as the second error variable, differentiate the virtual control analytically along the plant, and assemble the final control from the recursion so the composite Lyapunov function V2 = (z1^2 + z2^2)/2 decays at the design rates set by c1 and c2. Produces the error-variable and virtual-control histories, the analytic virtual-control derivative, the closed-loop command, the quadratic-Lyapunov decay audit, and the tracking-error history that gate a backstepping control assessment. Trigger: backstepping-control, integrator-backstepping, strict-feedback, virtual-control, control-lyapunov-function, recursive-control-design, backstepping-control-law, error-variable-recursion.",
+   "tags": [
+    "backstepping-control",
+    "integrator-backstepping",
+    "strict-feedback",
+    "virtual-control",
+    "control-lyapunov-function",
+    "recursive-control-design",
+    "backstepping-control-law",
+    "error-variable-recursion"
    ],
    "family": "gnc-autonomy",
    "pack": "control",
@@ -8968,6 +9003,24 @@
    "router_doc": false
   },
   {
+   "path": "structures/composites/laminate-progressive-failure",
+   "name": "laminate-progressive-failure",
+   "description": "Use when you must compute the progressive failure of a composite laminate past first-ply failure by the ply-discount method: degrade the stiffness of the failed ply at each ply event, reassemble the in-plane laminate stiffness, reapply the load resultant and march to the last-ply-failure ultimate load. Produces the sequential-ply-failure event loads with the matrix and fiber modes, the degraded laminate stiffness after each event, the first-ply-failure load from the per-ply Tsai-Wu index at unity, the ultimate laminate load and the post-FPF reserve factor of the post-fpf-load-redistribution analysis. Trigger: laminate progressive failure, ply discount method, last ply failure, ultimate laminate load, degraded laminate stiffness, sequential ply failure, progressive failure analysis.",
+   "tags": [
+    "laminate-progressive-failure",
+    "ply-discount-method",
+    "last-ply-failure",
+    "ultimate-laminate-load",
+    "degraded-laminate-stiffness",
+    "post-fpf-load-redistribution",
+    "sequential-ply-failure",
+    "progressive-failure-analysis"
+   ],
+   "family": "structures",
+   "pack": "composites",
+   "router_doc": false
+  },
+  {
    "path": "structures/composites/laminate-stiffness",
    "name": "laminate-stiffness",
    "description": "Use when you must compute the stiffness of a composite laminate with classical lamination theory: build the ply stiffness from the material constants, rotate it to the ply angle, and assemble the A matrix for a symmetric laminate. Produces the ply stiffness, the rotated stiffness with coupling terms, and the laminate A matrix used in strength and stability analyses. Trigger: composite laminate, classical lamination theory, ply stiffness, laminate a matrix, symmetric laminate, composites.",
@@ -9697,6 +9750,24 @@
    ],
    "family": "structures",
    "pack": "fem",
+   "router_doc": false
+  },
+  {
+   "path": "structures/loads/continuous-turbulence-gust-loads",
+   "name": "continuous-turbulence-gust-loads",
+   "description": "Use when you must compute the continuous turbulence gust design loads of an airplane by the power spectral density gust method: build the von Karman or Dryden power spectral density of the vertical gust velocity from the scale of turbulence and the turbulence intensity, form the rigid-aircraft gust response transfer function, multiply into the response power spectral density, integrate to the rms load response and scale to the design limit load factor of the continuous turbulence design criterion, and report the equivalent discrete gust velocity the discrete-gust envelope analysis takes as its input. Produces turbulence PSD and response PSD ordinates, the rms load factor, the design gust loads and the discrete-gust equivalent in SI units. Trigger: continuous turbulence gust loads, von Karman spectrum, Dryden spectrum, gust response transfer function, turbulence PSD, power spectral density gust method, rms load response, continuous turbulence design.",
+   "tags": [
+    "continuous-turbulence-gust-loads",
+    "von-karman-spectrum",
+    "dryden-spectrum",
+    "turbulence-psd",
+    "gust-response-transfer-function",
+    "power-spectral-density-gust-method",
+    "rms-load-response",
+    "continuous-turbulence-design"
+   ],
+   "family": "structures",
+   "pack": "loads",
    "router_doc": false
   },
   {

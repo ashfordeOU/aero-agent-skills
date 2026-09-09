@@ -105,6 +105,8 @@ and guidance laws (proportional navigation, pursuit).
 | gnc-autonomy/control/h-infinity-synthesis | H-infinity Synthesis | h-infinity-synthesis, dgkf-two-riccati, gamma-iteration, spectral-radius-coupling, central-controller, generalized-plant-weighting |
 | gnc-autonomy/control/sliding-mode-control | Sliding Mode Control | sliding-mode-control, sliding-surface, equivalent-control, reaching-law, chattering-suppression, variable-structure-control |
 | gnc-autonomy/control/feedback-linearization | Feedback Linearization | feedback-linearization, input-output-linearization, relative-degree, lie-derivative, zero-dynamics, nonlinearity-cancelling-control |
+| gnc-autonomy/control/backstepping-control | Backstepping Control | backstepping-control, integrator-backstepping, strict-feedback, virtual-control, control-lyapunov-function, recursive-control-design, backstepping-control-law, error-variable-recursion |
+| gnc-autonomy/control/active-disturbance-rejection-control | Active Disturbance Rejection Control | active-disturbance-rejection-control, linear-extended-state-observer, adrc, bandwidth-parameterization, total-disturbance-estimate, disturbance-rejection-term, observer-gain-parameterization |
 ## Routing guidance
 
 - Orbit and maneuver questions route to the orbit-dynamics sub-skill.
@@ -198,3 +200,5 @@ your host's skills directory (see README Install for per-host commands).
 - Process-noise discretization questions (van Loan method, continuous spectral density to discrete covariance, filter Q design) route to the estimation-filtering process-noise-discretization sub-skill.
 - Nonlinear finite-horizon trajectory optimization questions (iterative LQR, differential dynamic programming, backward Riccati pass) route to optimal-control ilqr-ddp; terrain/map-aided INS questions (TERCOM correlation, DEM matching, SITAN terrain-slope update) route to navigation terrain-referenced-navigation; carrier-phase differential positioning (double differences, integer ambiguity resolution) routes to navigation gnss-rtk-positioning.
 - IMU static calibration questions (six-position accelerometer test, rate-table gyro calibration, bias and scale factor estimation) route to the estimation-filtering imu-static-calibration sub-skill.
+- Backstepping questions (strict-feedback recursive design, error-variable recursion, virtual control, analytic virtual-control derivative, control-Lyapunov decay audit) route to the control backstepping-control sub-skill; model-reference and L1 adaptation stay with adaptive-control and l1-adaptive-control; switching laws stay with sliding-mode-control.
+- Active-disturbance-rejection questions (linear-extended-state-observer bandwidth parameterization, total-disturbance estimation, disturbance-rejection term) route to the control active-disturbance-rejection-control sub-skill; classical PID tuning stays with pid-control-design; model-reference and L1 adaptation stay with adaptive-control and l1-adaptive-control.

@@ -295,6 +295,11 @@
 # leaves). Wave-46 new leaves: "avionics/fsw/cyclic-executive-scheduling", "propulsion/reciprocating/dual-cycle", "gnc-autonomy/control/feedback-linearization", "vehicle-design/sizing/fuel-system-weight-estimation", "gnc-autonomy/control/h-infinity-synthesis", "structures/composites/honeycomb-core-micromechanics", "structures/composites/laminate-bending-stiffness", "vehicle-design/sizing/landing-gear-weight-estimation", "space-systems/subsystems/mmod-shielding-sizing", "gnc-autonomy/control/sliding-mode-control".
 # Corpus: 1326 tasks (1306 prior plus 20 domain tasks). Owner: Ops
 # Manager, Wave 46 build.
+# P5.2 / Wave 46 (2026-09-07): fan-out continues on the public
+# v1.0.0 model to 659 verified skills (671 SKILL.md under gate 1: 12 routers + 659
+# leaves). Wave-46 new leaves: "gnc-autonomy/control/active-disturbance-rejection-control", "gnc-autonomy/control/backstepping-control", "structures/loads/continuous-turbulence-gust-loads", "structures/composites/laminate-progressive-failure".
+# Corpus: 1334 tasks (1326 prior plus 8 domain tasks). Owner: Ops
+# Manager, Wave 46 build.
 tasks:
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
@@ -5936,6 +5941,38 @@ tasks:
     query: "apply sliding-mode-control with the constant-plus-proportional-reaching-law: evaluate the equivalent-control, size the switching-gain from the matched-uncertainty bound and report the boundary-layer command with the chattering-suppression check"
     intent: "gnc-autonomy/control; sliding-mode-control with the constant-plus-proportional-reaching-law: the equivalent-control evaluated from the nominal model, the switching-gain sized from the matched-uncertainty bound, and the boundary-layer command reported with the chattering-suppression check"
     expected_skill: "gnc-autonomy/control/sliding-mode-control"
+  - id: w49-active-disturbance-rejection-control-1
+    query: "design the active-disturbance-rejection-control law for the second-order plant: run the linear-extended-state-observer with bandwidth-parameterized observer gains to estimate the total disturbance and cancel it with the disturbance-rejection term before the bandwidth-parameterized outer loop"
+    intent: "gnc-autonomy/control; active-disturbance-rejection-control: the linear-extended-state-observer run with bandwidth-parameterized observer gains to estimate the total disturbance, canceled by the disturbance-rejection term before the bandwidth-parameterized outer loop"
+    expected_skill: "gnc-autonomy/control/active-disturbance-rejection-control"
+  - id: w49-active-disturbance-rejection-control-2
+    query: "apply the linear-extended-state-observer in the adrc loop: estimate the state and the total disturbance from the plant output, divide the estimated disturbance by the plant gain for the rejection term, and close the controller on the estimated states"
+    intent: "gnc-autonomy/control; active-disturbance-rejection-control with the linear-extended-state-observer in the adrc loop: the state and the total disturbance estimated from the plant output, the estimated disturbance divided by the plant gain for the rejection term, and the controller closed on the estimated states"
+    expected_skill: "gnc-autonomy/control/active-disturbance-rejection-control"
+  - id: w49-backstepping-control-1
+    query: "design the backstepping control law for the strict-feedback plant: choose the virtual control that stabilizes the first error variable, propagate the inner-state mismatch as the second error variable, and assemble the final control with the Lyapunov-derivative audit"
+    intent: "gnc-autonomy/control; backstepping-control: the virtual control chosen to stabilize the first error variable, the inner-state mismatch propagated as the second error variable, and the final control assembled with the Lyapunov-derivative audit"
+    expected_skill: "gnc-autonomy/control/backstepping-control"
+  - id: w49-backstepping-control-2
+    query: "apply integrator-backstepping to the second-order strict-feedback nonlinear system: compute the virtual control and its analytic derivative, form the recursive backstepping control law and verify the closed-loop Lyapunov function decays"
+    intent: "gnc-autonomy/control; integrator-backstepping on the second-order strict-feedback nonlinear system: the virtual control and its analytic derivative computed, the recursive backstepping control law formed, and the closed-loop Lyapunov decay verified"
+    expected_skill: "gnc-autonomy/control/backstepping-control"
+  - id: w49-continuous-turbulence-gust-loads-1
+    query: "compute the continuous-turbulence-gust-loads of the transport airplane by the power-spectral-density-gust-method with the von-karman-spectrum of the vertical gust velocity, the gust-response-transfer-function and the rms-load-response, and report the design load factor and turbulence-psd ordinates of the continuous-turbulence-design criterion"
+    intent: "structures/loads; continuous-turbulence-gust-loads: the continuous-turbulence design loads of the transport airplane by the power-spectral-density gust method with the von Karman spectrum of the vertical gust velocity, the rigid-aircraft gust-response transfer function and the rms load response, reporting the design load factor and the turbulence PSD ordinates of the continuous-turbulence design criterion"
+    expected_skill: "structures/loads/continuous-turbulence-gust-loads"
+  - id: w49-continuous-turbulence-gust-loads-2
+    query: "estimate the design gust loads of the airplane in continuous turbulence from the dryden-spectrum input and the gust-response-transfer-function: integrate the response power spectral density to the rms load factor, scale to the design turbulence intensity and report the equivalent discrete-gust velocity the gust-maneuver-loads envelope takes as input"
+    intent: "structures/loads; continuous-turbulence-gust-loads: the design gust loads in continuous turbulence from the Dryden spectrum input and the gust-response transfer function, integrating the response power spectral density to the rms load factor, scaling to the design turbulence intensity and reporting the equivalent discrete-gust velocity the gust-maneuver-loads envelope analysis takes as its input"
+    expected_skill: "structures/loads/continuous-turbulence-gust-loads"
+  - id: w49-laminate-progressive-failure-1
+    query: "compute the laminate-progressive-failure ultimate load of the quasi-isotropic carbon-epoxy stack by the ply-discount-method: at the first-ply-failure event degrade the stiffness of the failed ply, reassemble the laminate a-matrix, march the load to the next sequential-ply-failure event and repeat to the last-ply-failure, and report the ultimate-laminate-load and the degraded-laminate-stiffness of the post-fpf-load-redistribution analysis"
+    intent: "structures/composites; laminate-progressive-failure: the ply-discount march of the quasi-isotropic carbon-epoxy stack past first-ply failure, degrading the failed-ply stiffness, reassembling the laminate A matrix and reapplying the load to the last-ply failure, reporting the ultimate laminate load and the degraded laminate stiffness of the post-FPF load-redistribution analysis"
+    expected_skill: "structures/composites/laminate-progressive-failure"
+  - id: w49-laminate-progressive-failure-2
+    query: "find the last-ply-failure load of the cross-ply laminate with the ply-discount-method: discount the failed-ply stiffness after each ply event, re-assemble the in-plane laminate stiffness and re-apply the load resultant until the laminate-progressive-failure march reaches the ultimate-laminate-load, and give the per-event failure sequence for the progressive-failure-analysis"
+    intent: "structures/composites; laminate-progressive-failure: the last-ply-failure load of a laminate by the ply-discount method with the per-event failure sequence, the failed-ply stiffness discount, the in-plane laminate stiffness reassembly and the reapplied load resultant to the ultimate laminate load of the progressive-failure-analysis"
+    expected_skill: "structures/composites/laminate-progressive-failure"
 
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
