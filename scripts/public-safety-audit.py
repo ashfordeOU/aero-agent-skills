@@ -100,6 +100,13 @@ TOOLING_FILES = {
     "scripts/public-safety-audit.py",
     "ops/automation/publish-public.sh",
     "packages/jetbrains-plugin/build.gradle.kts",
+    # The audit's own regression test necessarily contains literal examples of
+    # the patterns it tests ("recipient 10.2.4.1", a token shape, ...), or it
+    # cannot test the detector. Exempt ONLY this test — it is tooling for the
+    # detector, like the detector source itself; every other file (including
+    # all leaf scripts and tests) stays fully scanned. Hit 2026-09-10: the
+    # new ip-boundary regression test blocked the public publish.
+    "scripts/test_public_safety_audit_ips.py",
 }
 
 def main():
