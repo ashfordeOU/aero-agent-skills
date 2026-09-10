@@ -75,6 +75,60 @@ if [ "$DRY_RUN" = 0 ]; then
   fi
 fi
 
+# --- 0b. SINGLE-WRITER LOCK (VEDA-0037) ---
+# The steps below mutate ONE shared mirror (reset --hard → find -delete →
+# cp -a → commit → push). Two overlapping runs can interleave that sequence
+# and BOTH land on the "no-op: nothing to push" branch — a silent FALSE no-op
+# that leaves the public repo behind the dev tree (the VEDA-0033 residual).
+# The launchd StartInterval serialises the timer against ITSELF only: on
+# 2026-09-10 20:04Z a gateway session raced the 20:08Z hourly job on this one
+# mirror. The lock is taken first and held to the end of the push, so the
+# mirror always has exactly one writer.
+# The lock file lives OUTSIDE the repo (host-local state, never committed and
+# never exported; same convention as the founder-GO hold below):
+#   default:  $HOME/.hermes/state/aero-public-publish.lock
+#   override: AERO_PUBLISH_LOCK_FILE · wait: AERO_PUBLISH_LOCK_TIMEOUT (s)
+# Primitive: flock on fd 9. Stock macOS ships no flock(1), so fall back to
+# python3's stdlib fcntl.flock — the SAME advisory lock, on the SAME open file
+# description bash holds on fd 9, so the helper exiting does not release it
+# (only this script exiting does). If the host offers NEITHER primitive we
+# ABORT: publishing without mutual exclusion is the defect itself. A held lock
+# waits a bounded time and then exits non-zero — never a silent skip.
+PUBLISH_LOCK_FILE="${AERO_PUBLISH_LOCK_FILE:-$HOME/.hermes/state/aero-public-publish.lock}"
+PUBLISH_LOCK_TIMEOUT="${AERO_PUBLISH_LOCK_TIMEOUT:-120}"
+LOCK_BUSY_EXIT=75   # distinct exit code: lock held by another publish (waited, gave up)
+mkdir -p "$(dirname "$PUBLISH_LOCK_FILE")"
+exec 9>"$PUBLISH_LOCK_FILE" || {
+  log "FAIL: cannot open publish lock $PUBLISH_LOCK_FILE — refusing to publish without it (VEDA-0037)."
+  exit 1
+}
+LOCK_RC=0
+if command -v flock >/dev/null 2>&1; then
+  flock -w "$PUBLISH_LOCK_TIMEOUT" 9 || LOCK_RC=$?
+elif command -v python3 >/dev/null 2>&1; then
+  python3 -c '
+import fcntl, sys, time
+timeout, fd = float(sys.argv[1]), int(sys.argv[2])
+deadline = time.monotonic() + timeout
+while True:
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        break
+    except OSError:
+        if time.monotonic() >= deadline:
+            sys.exit(75)
+        time.sleep(0.2)
+' "$PUBLISH_LOCK_TIMEOUT" 9 || LOCK_RC=$?
+else
+  log "FAIL: no flock(1) and no python3 — cannot take the publish lock $PUBLISH_LOCK_FILE; refusing to publish WITHOUT mutual exclusion (VEDA-0037)."
+  exit 1
+fi
+if [ "$LOCK_RC" -ne 0 ]; then
+  log "FAIL: publish lock $PUBLISH_LOCK_FILE is held by another publish — waited ${PUBLISH_LOCK_TIMEOUT}s, giving up (exit $LOCK_BUSY_EXIT). Nothing exported, nothing pushed."
+  exit "$LOCK_BUSY_EXIT"
+fi
+log "single-writer lock acquired ($PUBLISH_LOCK_FILE)."
+
 # --- 0. dev tree itself must be gate-clean before it is worth exporting ---
 log "checking dev tree has no uncommitted changes…"
 # The export in step 1 is `git archive HEAD` — COMMITTED state only. An
