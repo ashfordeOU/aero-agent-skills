@@ -79,9 +79,13 @@ PATTERNS = {
     # public sync for every ECSS leaf (101 leaves held). Require either a
     # port suffix or an explicit networking keyword nearby. ERE only: no
     # lookarounds available in git grep -E.
+    # NOTE 2 (VEDA-0031): the keyword branch needs a LEFT BOUNDARY, else the
+    # two-letter alternative "ip" matches inside ordinary words ("pr(ip)le",
+    # "descr(ip)tion", "rec(ip)ient") and blocks a leaf carrying e.g.
+    # "recipient 10.2.4.1". (^|[^A-Za-z]) is the ERE-safe lookbehind.
     "private_ips": pat(r"192\.168\.", r"[0-9]+\.[0-9]+|172\.(1[6-9]|2[0-9]|3[01])\.[0-9]+\.[0-9]+")
                   + pat(r"|10\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+",
-                        r"|(ip|addr|address|gateway|subnet|netmask)[^0-9]{0,24}10\.[0-9]+\.[0-9]+\.[0-9]+"),
+                        r"|(^|[^A-Za-z])(ip|addr|address|gateway|subnet|netmask)[^0-9]{0,24}10\.[0-9]+\.[0-9]+\.[0-9]+"),
     "passwords": pat(r"(?<!_)\bpassword\s*[=:]", r"\s*[^\s]{6,}|Subhash"),
     "api_keys": pat(r"api[_-]?key\s*[=:]\s*[\"']", r"[A-Za-z0-9]{16,}|client[_-]?secret\s*[=:]\s*[\"'][A-Za-z0-9]{16,}"),
     "hostnames": pat(r"chak", r"'s-mac|Chakshu"),
