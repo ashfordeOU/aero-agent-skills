@@ -13,7 +13,22 @@ jobs:
       - name: Harness gates (5/5 REAL, deterministic)
         run: make validate
       - name: Attestation gates (offline, deterministic at rest)
-        run: make attest
+        # FIX 2026-09-10: 'make attest' includes number-snapshot-offline, which
+        # reads ops/automation/state/ — the export DELIBERATELY excludes that
+        # dir (internal ops state), so on the public tree the gate failed with
+        # "no snapshot exists" and every public commit went red. Same dev-only
+        # situation as the negative-control suite below: run the full attest
+        # when the snapshot state is present (dev tree), otherwise run the
+        # attestation gates that ARE valid at rest on a public export.
+        run: |
+          if [ -d ops/automation/state ]; then
+            make attest
+          else
+            echo "public export: ops/automation/state absent (dev-only snapshot state)"
+            echo "running the public-valid attestation gates: brief-audit + content-policy-sweep"
+            make brief-audit
+            make content-policy-sweep
+          fi
       - name: Visuals fresh (charts + README numbers regenerate to zero diff)
         run: make visuals-check
       - name: Negative-control regression suite (N1-N7, G1-G6; dev-only)
