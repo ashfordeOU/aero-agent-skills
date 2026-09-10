@@ -44,6 +44,8 @@ rc=0
 bash "$SCRIPT_DIR/publish-public.sh" || rc=$?
 if [ "$rc" -eq 78 ]; then
   echo "--- public repo sync HELD (exit 78): no founder GO — correct, nothing published"
+elif [ "$rc" -eq 75 ]; then
+  echo "--- public repo sync SKIPPED (exit 75): another publish run owned the mirror lock — nothing published this tick"
 elif [ "$rc" -ne 0 ]; then
   echo "!!! public repo sync FAILED (exit $rc) — see above, nothing was published to ashfordeOU/aero-agent-skills"
 fi

@@ -12,6 +12,8 @@ Runs from the dev repo root (or any subdir — it finds the root itself).
 """
 from __future__ import annotations
 
+import pathlib
+
 import json
 import os
 import re
@@ -25,6 +27,25 @@ PUBLIC_REPO = "ashfordeOU/aero-agent-skills"
 SITE = "https://ashforde.org/aeroagentskills/"
 STATE = os.path.expanduser("~/.hermes/state")
 CRON_DIRS = [os.path.expanduser("~/.hermes/cron"), os.path.expanduser("~/.hermes/cron/jobs")]
+
+# Publish single-writer lock (VEDA-0037). Every token the wiring needs, mapped
+# to why its absence is a failure — the audit must name the broken piece.
+PUBLISH_LOCK_HOST_STATE = os.path.join(".hermes", "state")
+PUBLISH_LOCK_REQUIRED = {
+    "AERO_PUBLISH_LOCK_FILE": "the lock path is not overridable (AERO_PUBLISH_GO_FILE convention)",
+    "AERO_PUBLISH_LOCK_TIMEOUT": "the lock wait is not a bounded named constant",
+    "exec 9>": "no flock-on-fd lock — the shared mirror has no mutual exclusion",
+    "command -v flock": "no explicit handling when flock(1) is unavailable",
+    "LOCK_BUSY_EXIT": "the lock-busy exit code is not named",
+}
+# The ACTUAL mirror mutations, as commands — never a prose marker: the file's
+# header comments say "reset --hard" too, so a bare substring search reports
+# the lock as taken AFTER the mirror (a false FAIL) and hides real drift.
+PUBLISH_MIRROR_MUTATIONS = (
+    'git -C "$MIRROR" reset --hard',
+    'find "$MIRROR" -mindepth 1',
+    'cp -a "$EXPORT/." "$MIRROR/"',
+)
 
 # Crons that constitute the machine (substring match on the job name).
 REQUIRED_CRONS = {
@@ -90,6 +111,63 @@ def check_dev_tree():
         fail("dev-tree", f"{n} unpushed commit(s) — push or they are not durable")
 
 
+# ------------------------------------------------- 1b. publish single-writer
+def check_publish_single_writer():
+    """The public publish must own a single-writer lock before the mirror.
+
+    VEDA-0037: publish-public.sh mutates ONE shared mirror clone
+    (reset --hard -> find -delete -> cp -a -> commit -> push) and nothing
+    serialised its callers — the launchd StartInterval only stops the timer
+    overlapping ITSELF. Two runs fought over that worktree on 2026-09-10, the
+    setup for the silent FALSE no-op of VEDA-0033 (public repo left behind the
+    dev tree while every gate stayed green). This keeps the WIRING from
+    rotting: a lock taken AFTER the mirror phase protects nothing, and a lock
+    path inside the repo would be committed and exported. Deterministic and
+    offline — source analysis of publish-public.sh only, no git, no network.
+    """
+    publish = os.path.join(ROOT, "ops", "automation", "publish-public.sh")
+    if not os.path.isfile(publish):
+        fail("publish-lock", "ops/automation/publish-public.sh missing — cannot verify the mirror lock")
+        return
+    with open(publish, encoding="utf-8") as fh:
+        body = fh.read()
+
+    # A missing token is a FAIL, never a clean bill of health: a script whose
+    # lock cannot be read must not audit as PASS (silent-skip class).
+    for token, why in PUBLISH_LOCK_REQUIRED.items():
+        if token not in body:
+            fail("publish-lock", f"{why} ({token!r} absent from publish-public.sh)")
+            return
+
+    missing = [m for m in PUBLISH_MIRROR_MUTATIONS if m not in body]
+    if missing:
+        fail("publish-lock", f"mirror mutations not found ({', '.join(missing)}) — lock ordering cannot be verified")
+        return
+    locked_at = body.index("exec 9>")
+    first_mutation = min(body.index(m) for m in PUBLISH_MIRROR_MUTATIONS)
+    if locked_at > first_mutation:
+        fail("publish-lock", "the single-writer lock is taken AFTER the first mirror mutation — it protects nothing")
+        return
+    if 'exit "$LOCK_BUSY_EXIT"' not in body:
+        fail("publish-lock", "the lock-busy path does not exit non-zero — a silent skip of the publish is possible")
+        return
+
+    # The lock must live OUTSIDE the repo (host-local state): inside it the
+    # lock file would be committed, exported and shipped to the public repo.
+    m = re.search(r"AERO_PUBLISH_LOCK_FILE:-(\S+?)\}", body)
+    if not m:
+        fail("publish-lock", "cannot read the default lock path from publish-public.sh")
+        return
+    lock_path = m.group(1).replace("$HOME", os.path.expanduser("~"))
+    if lock_path.startswith(ROOT):
+        fail("publish-lock", f"default lock path is inside the repo: {lock_path}")
+        return
+    if PUBLISH_LOCK_HOST_STATE not in lock_path:
+        fail("publish-lock", f"default lock path is not host-local state ({PUBLISH_LOCK_HOST_STATE}): {lock_path}")
+        return
+    note(f"publish-lock: single-writer flock before the mirror, host-local ({lock_path})")
+
+
 # ------------------------------------------------------- 2. gates + corpus
 def check_gates():
     v = run(["make", "validate"], timeout=900)
@@ -106,15 +184,59 @@ def check_gates():
         note(f"gates: PASS · Hit@1 {hit}/{total}")
 
 
-def count_leaves() -> int:
-    base = os.path.join(ROOT, "skills")
-    n = 0
-    for dirpath, dirnames, filenames in os.walk(base):
-        if ".git" in dirpath:
-            continue
-        if "SKILL.md" in filenames:
-            n += 1
-    return n
+def count_leaves():
+    """Return (pack_leaves, family_indexes).
+
+    The AUTHORITATIVE leaf count is pack leaves at
+    skills/<family>/<pack>/<leaf>/SKILL.md - what metrics.json, the built
+    manifest, the router and the site all count. Each family ALSO carries an
+    index SKILL.md at skills/<family>/SKILL.md; those are structure, never
+    leaves, and must not be double-counted (they caused a false audit alarm
+    on 2026-09-10: raw 772 vs authoritative 760).
+    """
+    base = pathlib.Path(ROOT) / "skills"
+    if not base.is_dir():
+        return 0, 0
+    families = [d for d in sorted(base.iterdir()) if d.is_dir()]
+    pack_leaves = 0
+    for fam in families:
+        for pack in sorted(p for p in fam.iterdir() if p.is_dir()):
+            pack_leaves += len(list(fam.glob(f"{pack.name}/*/SKILL.md")))
+    indexes = sum(1 for fam in families if (fam / "SKILL.md").is_file())
+    return pack_leaves, indexes
+
+
+def check_structure(leaves: int, indexes: int):
+    """Structure invariants.
+
+    1. docs/metrics.json must agree with the leaves actually on disk. Nothing
+       checked this before 2026-09-10, so published numbers could drift stale
+       while every gate stayed green (the drift class this audit exists for).
+    2. Each family carries exactly one index SKILL.md.
+    """
+    mf = os.path.join(ROOT, "docs", "metrics.json")
+    if not os.path.exists(mf):
+        fail("structure", "docs/metrics.json missing")
+    else:
+        try:
+            declared = int(json.load(open(mf)).get("leaves", -1))
+        except Exception:  # noqa: BLE001
+            declared = -1
+        if declared != leaves:
+            fail("structure",
+                 f"docs/metrics.json says {declared} leaves but {leaves} exist "
+                 f"— stale metrics (run `make visuals`)")
+        else:
+            note(f"structure: metrics.json matches disk ({leaves} leaves)")
+
+    base = pathlib.Path(ROOT) / "skills"
+    fam_count = len([d for d in base.iterdir() if d.is_dir()]) if base.is_dir() else 0
+    if indexes != fam_count:
+        fail("structure",
+             f"{fam_count} families but {indexes} family index SKILL.md "
+             f"(each family needs exactly one)")
+    else:
+        note(f"structure: {indexes} family indexes present")
 
 
 def check_corpus_coverage(leaves: int):
@@ -188,7 +310,8 @@ def public_leaves(token):
         d = api(f"/repos/{PUBLIC_REPO}/contents/docs/metrics.json", token)
         import base64
         txt = base64.b64decode(d["content"]).decode()
-        return int(re.search(r'"leaves":\s*(\d+)', txt).group(1))
+        m = re.search(r'"leaves":\s*(\d+)', txt)
+        return int(m.group(1)) if m else None
     except Exception:  # noqa: BLE001
         return None
 
@@ -276,8 +399,10 @@ def main():
     token = gh_token()
 
     check_dev_tree()
+    check_publish_single_writer()
     check_gates()
-    leaves = count_leaves()
+    leaves, indexes = count_leaves()
+    check_structure(leaves, indexes)
     check_corpus_coverage(leaves)
     check_ecss_and_ccd()
     check_releases(token)
@@ -287,7 +412,7 @@ def main():
 
     if not quiet:
         print("AERO SYSTEM AUDIT")
-        print(f"  leaves: {leaves}")
+        print(f"  leaves: {leaves} pack (+{indexes} family indexes)")
         for n in notes:
             print(f"  ok  · {n}")
     if failures:
