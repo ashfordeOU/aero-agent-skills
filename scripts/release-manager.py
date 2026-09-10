@@ -23,12 +23,20 @@ import datetime
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC_REPO = "ashfordeOU/aero-agent-skills"   # where releases ship (Ruling 3 gates it)
+
+# Resolve the GitHub CLI once (VEDA-0034). A cron no_agent job spawns with a
+# managed PATH that omits /opt/homebrew/bin, so a bare "gh" raised
+# FileNotFoundError inside cut_release() and spammed the group every 30m.
+# Resolving here lets the cut path print a named failure and exit 1 instead
+# of raising, and every call site (cut + parity) shares the resolved path.
+GH = shutil.which("gh")
 
 # Publish token (2026-09-10): releases live on the ashfordeOU org repo, which
 # the dev account's gh token cannot write (HTTP 403). The org token file is
@@ -196,13 +204,13 @@ def release_check() -> int:
 
     # 2. public parity (best effort; gh may be unavailable)
     try:
-        r = subprocess.run(["gh", "release", "list", "-R", PUBLIC_REPO,
+        r = subprocess.run([GH or "gh", "release", "list", "-R", PUBLIC_REPO,
                             "-L", "30", "--json", "tagName"],
                            capture_output=True, text=True, timeout=25)
         if r.returncode == 0:
             rel = {x["tagName"] for x in json.loads(r.stdout or "[]")}
-            t = subprocess.run(["gh", "api", f"repos/{PUBLIC_REPO}/git/refs/tags",
-                                "--jq", ".[].ref"],
+            t = subprocess.run([GH or "gh", "api", f"repos/{PUBLIC_REPO}/git/refs/tags",
+                               "--jq", ".[].ref"],
                                capture_output=True, text=True, timeout=25)
             ptags = {x.replace("refs/tags/", "") for x in t.stdout.split()
                      if x.startswith("refs/tags/v")}
@@ -267,7 +275,12 @@ def cut_release(dry: bool, auto: bool = False) -> int:
         return 0
     tag = "v" + band_version(completed)
 
-    r = subprocess.run(["gh", "release", "view", tag, "-R", PUBLIC_REPO],
+    if not GH:
+        print(f"cut: gh unavailable on PATH — cannot query or create Releases "
+              f"on {PUBLIC_REPO}; install gh or export PATH=/opt/homebrew/bin:$PATH")
+        return 1
+
+    r = subprocess.run([GH, "release", "view", tag, "-R", PUBLIC_REPO],
                        capture_output=True, text=True)
     if r.returncode == 0:
         print(f"cut: {tag} already released on {PUBLIC_REPO} — nothing to do")
@@ -296,7 +309,7 @@ def cut_release(dry: bool, auto: bool = False) -> int:
                  f"(convention: every 100 new skills = one minor bump).\n\n"
                  f"{changelog_body()}\n")
     r = subprocess.run(
-        ["gh", "release", "create", tag, "-R", PUBLIC_REPO,
+        [GH, "release", "create", tag, "-R", PUBLIC_REPO,
          "--title", f"Aero Agent Skills {tag}",
          "--notes-file", notes],
         capture_output=True, text=True)
