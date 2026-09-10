@@ -8,12 +8,12 @@
 #   gate 4 no-verbatim    RTCA/SAE/IAQG copyright control, skills/ + docs/
 #   gate 5 hit1           Hit@1 corpus eval, deterministic offline router
 
-.PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 \
+.PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law \
         attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep \
         packs visuals visuals-check
 
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1
-	@echo "Aero Agent Skills validate: PASS (5/5 REAL gates green - docs/harness-contract.md)"
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law
+	@echo "Aero Agent Skills validate: PASS (7/7 REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
 # must have SKILL.md + scripts/ + contract test + no broken refs, with
@@ -46,6 +46,14 @@ no-verbatim:
 
 hit1:
 	@scripts/gate-hit1-corpus.sh
+
+independence:
+	@scripts/gate-verify-independence.sh
+
+# Release convention (founder 2026-09-03: every 100 skills = one minor bump).
+# Was prose + a manual tool, so the fast lanes drifted silently. Blocking.
+release-law:
+	@python3 scripts/release-manager.py --check
 
 # Per-domain install inventory (founder directive 2026-08-31): list the
 # domain packs and their leaf skills from frontmatter so an installer

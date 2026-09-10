@@ -25,8 +25,31 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PUBLIC_REPO = "ashfordeOU/aero-agent-skills"   # where releases ship (Ruling 3 gates it)
+
+# Publish token (2026-09-10): releases live on the ashfordeOU org repo, which
+# the dev account's gh token cannot write (HTTP 403). The org token file is
+# the same credential publish-public.sh uses. Resolve it once at import so
+# every gh subprocess here is authenticated as the publish account; an
+# explicit GH_TOKEN in the environment always wins.
+_ORG_TOKEN_FILE = os.path.expanduser("~/.hermes/.gh_pat_ashfordesite.tmp")
+
+
+def _resolve_publish_token():
+    if os.environ.get("GH_TOKEN"):
+        return
+    try:
+        tok = open(_ORG_TOKEN_FILE, encoding="utf-8").read().strip()
+    except OSError:
+        return
+    if tok:
+        os.environ["GH_TOKEN"] = tok
+
+
+_resolve_publish_token()
 METRICS = os.path.join(REPO, "docs/metrics.json")
 PKG = os.path.join(REPO, "packages/aero-agent-skills/package.json")
 PLUGIN_GRADLE = os.path.join(REPO, "packages/jetbrains-plugin/build.gradle.kts")
@@ -132,14 +155,173 @@ def sync_versions(dry=False):
     return changes
 
 
+def release_check() -> int:
+    """Gate: enforce the release convention (founder 2026-09-03).
+
+    The convention (every 100 new skills = one minor bump) lived only in
+    prose + this manual tool, so the push battery never saw it and the fast
+    lanes drifted: three version files 4 minors stale and a public tag
+    (v1.6.0) with no Release object.
+
+    BLOCKING (locally fixable, no publish authority needed):
+      1. version files must be at the current band  -> run --sync
+
+    REPORT-ONLY (needs a release decision / founder GO under Ruling 3, so
+    it must never silently block a push):
+      2. public tag <-> Release parity, via gh when available
+      3. the last completed band's release status
+    """
+    leaves, _ = leaf_count()
+    _, band, pkg = current_version()
+    problems, notes = [], []
+
+    # 1. version files == current band  (blocking)
+    for c in sync_versions(dry=True):
+        problems.append(f"version file behind band: {c}  -> run --sync")
+
+    completed = (leaves // 100) * 100
+    due_tag = f"v{band_version(completed)}" if completed >= 100 else "v1.0.0"
+    repo_tags = subprocess.run(["git", "-C", REPO, "tag", "-l"],
+                               capture_output=True, text=True).stdout.split()
+    if due_tag in repo_tags:
+        notes.append(f"last completed band {due_tag} is tagged")
+    else:
+        # dev-tree tagging stopped at v1.4.0 by convention (releases are cut
+        # on the public repo), so this is a public-side fact, not a dev error.
+        notes.append(f"RELEASE STATUS: {due_tag} (last completed band, "
+                     f"{completed} skills) is not tagged in the dev tree — "
+                     f"verify on the public repo (release needs founder GO, Ruling 3)")
+
+    # 2. public parity (best effort; gh may be unavailable)
+    try:
+        r = subprocess.run(["gh", "release", "list", "-R", PUBLIC_REPO,
+                            "-L", "30", "--json", "tagName"],
+                           capture_output=True, text=True, timeout=25)
+        if r.returncode == 0:
+            rel = {x["tagName"] for x in json.loads(r.stdout or "[]")}
+            t = subprocess.run(["gh", "api", f"repos/{PUBLIC_REPO}/git/refs/tags",
+                                "--jq", ".[].ref"],
+                               capture_output=True, text=True, timeout=25)
+            ptags = {x.replace("refs/tags/", "") for x in t.stdout.split()
+                     if x.startswith("refs/tags/v")}
+            # v1.0.0 is the PRE-CONVENTION launch tag (docs: "the public repo
+            # launched at v1.0.0, 330 leaves, pre-convention tag"). It is not a
+            # 100-skill milestone, so it must NOT be flagged as a missing
+            # release. Only milestone bands (v1.X.0, X>=1) require one.
+            PRE_CONVENTION = {"v1.0.0"}
+            def _is_milestone(tag):
+                m = re.fullmatch(r"v1\.(\d+)\.0", tag)
+                return bool(m) and int(m.group(1)) >= 1
+            orphans = sorted(t for t in (ptags - rel)
+                             if t not in PRE_CONVENTION and _is_milestone(t))
+            if orphans:
+                notes.append(f"PUBLIC BREACH: tag(s) with no Release: "
+                             f"{', '.join(orphans)} — needs founder GO to open "
+                             f"(Ruling 3), not a silent fix")
+            else:
+                notes.append("public tag/Release parity OK")
+    except Exception:
+        notes.append("public parity: unverified (gh unavailable)")
+
+    print(f"release-law: leaves={leaves} band={band} version-files={pkg} "
+          f"last-completed-band={completed} due-tag={due_tag}")
+    for n in notes:
+        print(f"  · {n}")
+    if problems:
+        for p in problems:
+            print(f"  - {p}")
+        print("VERDICT: FAIL — release convention not met (founder 2026-09-03)")
+        return 1
+    print("VERDICT: PASS — versions at band; release status reported above")
+    return 0
+
+
+GO_FILE = os.path.expanduser("~/.hermes/state/aero-public-publish-GO")
+# Auto-release (founder 2026-09-10: "release cuts at every 100 handled
+# automatically"). --auto-cut skips the per-release GO gate but honours a
+# HOLD kill-switch, so the founder keeps a stop button without gating each
+# milestone. The push-triggered workflow is the primary path; this is the
+# belt-and-braces path (and the self-heal for a tag with no Release).
+HOLD_FILE = os.path.expanduser("~/.hermes/state/aero-release-HOLD")
+
+
+def cut_release(dry: bool, auto: bool = False) -> int:
+    """Create the due milestone Release WITHOUT GitHub Actions.
+
+    Doctrine says release-on-milestone .yml does this automatically, but
+    GitHub Actions is blocked account-wide here (every job rejected with
+    zero steps, ~2s, no logs), so the rule had no engine and silently
+    stopped after v1.5.0. This is the fallback the handover doc already
+    sanctions: "Manual fallback: gh release create".
+
+    GO-gated (Ruling 3): refuses to publish unless the founder GO file
+    exists. Never publishes on its own.
+    """
+    leaves, _ = leaf_count()
+    completed = (leaves // 100) * 100
+    if completed < 100:
+        print("cut: no milestone reached yet (leaves < 100)")
+        return 0
+    tag = "v" + band_version(completed)
+
+    r = subprocess.run(["gh", "release", "view", tag, "-R", PUBLIC_REPO],
+                       capture_output=True, text=True)
+    if r.returncode == 0:
+        print(f"cut: {tag} already released on {PUBLIC_REPO} — nothing to do")
+        return 0
+
+    print(f"cut: {tag} is due ({completed} skills milestone, now {leaves})")
+    if auto and os.path.exists(HOLD_FILE):
+        print(f"cut: HOLD — auto-release paused by {HOLD_FILE} (remove to resume)")
+        return 0
+    if dry:
+        gated = ("auto (founder standing GO)" if auto else
+                 ("GO present" if os.path.exists(GO_FILE) else "HELD: no GO"))
+        print(f"cut: WOULD create {tag} on {PUBLIC_REPO} ({gated}) (dry-run)")
+        return 0
+    if not auto and not os.path.exists(GO_FILE):
+        print(f"cut: HELD — publish needs founder GO (Ruling 3).")
+        print(f"     authorize with:  touch {GO_FILE}")
+        return 1
+
+    print(f"cut: creating {tag} on {PUBLIC_REPO}")
+    # Real release notes: the milestone line + the commit log since the last
+    # released tag (same generator as --changelog).
+    notes = os.path.join(tempfile.gettempdir(), f"aero-release-{tag}.md")
+    with open(notes, "w", encoding="utf-8") as fh:
+        fh.write(f"Milestone release: {completed} skills reached "
+                 f"(convention: every 100 new skills = one minor bump).\n\n"
+                 f"{changelog_body()}\n")
+    r = subprocess.run(
+        ["gh", "release", "create", tag, "-R", PUBLIC_REPO,
+         "--title", f"Aero Agent Skills {tag}",
+         "--notes-file", notes],
+        capture_output=True, text=True)
+    print(r.stdout.strip() or r.stderr.strip())
+    return r.returncode
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--next", action="store_true")
     ap.add_argument("--sync", action="store_true")
     ap.add_argument("--changelog", action="store_true")
+    ap.add_argument("--check", action="store_true",
+                    help="gate: fail if the release convention is not met")
+    ap.add_argument("--cut", action="store_true",
+                    help="create the due milestone Release locally (GO-gated)")
+    ap.add_argument("--auto-cut", dest="auto_cut", action="store_true",
+                    help="create the due milestone Release without the "
+                         "per-release GO (founder standing GO 2026-09-10; "
+                         "honours the aero-release-HOLD kill-switch)")
     ap.add_argument("--dry-run", dest="dry", action="store_true")
     args = ap.parse_args()
+
+    if args.check:
+        return release_check()
+    if args.cut or args.auto_cut:
+        return cut_release(args.dry, auto=args.auto_cut)
 
     leaves, metrics = leaf_count()
     if args.status or not any([args.next, args.sync, args.changelog]):

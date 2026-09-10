@@ -251,6 +251,10 @@ The plant and the reference model both settle at x = 1, sigma_ideal =
 - gnc-autonomy/control/python-control-design: scripted fixed-gain loop
   design for known plants, the alternative when no online estimation
   is needed.
+- gnc-autonomy/control/adaptive-backstepping: recursive tuning-function
+  backstepping for a second-order strict-feedback plant carrying a
+  structural drift-coefficient estimate theta_hat; it runs no state
+  predictor, no projection and no low-pass filter.
 
 ## Behavior contract (gate 3)
 

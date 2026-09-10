@@ -1,2 +1,0 @@
-All evidence gathered. Compiling the probe receipts. ## GNC-AUTONOMY PROBE RECEIPTS (wave-44, at HEAD `ea778bbe`) **Count/packs summary:** 49 leaves / 6 packs at HEAD — control 11, navigation 11, estimation-filtering 9, guidance 9, optimal-control 5, space 4 (router `skills/gnc-autonomy/SKILL.md` = the 50th SKILL.md). Wave-43's +4 (gnss-doppler-velocity-positioning, process-noise-discretization, i …(+98 chars)
-16:32:21 final    | end status=completed exit_reason=completed

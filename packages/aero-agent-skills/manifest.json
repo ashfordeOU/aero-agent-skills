@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 659,
+  "leaves": 760,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1334
+  "corpus_tasks": 1536
  },
  "skills": [
   {
@@ -4717,6 +4717,24 @@
    "router_doc": false
   },
   {
+   "path": "gnc-autonomy/control/adaptive-backstepping",
+   "name": "adaptive-backstepping",
+   "description": "Use when you must design and simulate the tuning-functions adaptive backstepping control law for a second-order strict-feedback plant x1_dot = x2 + theta f1(x1), x2_dot = u + f2(x1, x2) with the unknown constant plant parameter theta inside the recursion: update the single parameter estimate theta_hat with the second tuning function carried through the z1 z2 error recursion, assemble the adaptive virtual control and the final control, and audit the augmented Lyapunov function with the parameter-error term. Produces the error-variable and parameter-estimate histories, the tuning-function updates, the closed-loop command, and the parameter-error convergence verdict that gate an adaptive backstepping control assessment. Trigger: adaptive-backstepping, tuning-function, parameter-estimate, strict-feedback, adaptive-virtual-control, augmented-lyapunov-function, parameter-error-convergence, no-over-parameterization.",
+   "tags": [
+    "adaptive-backstepping",
+    "tuning-function",
+    "parameter-estimate",
+    "strict-feedback",
+    "adaptive-virtual-control",
+    "augmented-lyapunov-function",
+    "parameter-error-convergence",
+    "no-over-parameterization"
+   ],
+   "family": "gnc-autonomy",
+   "pack": "control",
+   "router_doc": false
+  },
+  {
    "path": "gnc-autonomy/control/adaptive-control",
    "name": "adaptive-control",
    "description": "Use when you must design and simulate a model-reference adaptive controller (MRAC) for a first-order plant with an unknown plant coefficient: run the reference model from the command, form the control as the sum of a state-feedback term and a feedforward term with adaptive gains, update the gains online with the gradient (Lyapunov-motivated) adaptation law scaled by the tracking error, and assess convergence of the tracking error and of the gains toward the ideal-cancellation values. Produces the error history, the gain histories and the convergence verdict that gate an adaptive control assessment. Trigger: adaptive-control, mrac, model-reference-adaptive, adaptation-law, tracking-error, unknown-plant.",
@@ -8073,6 +8091,1738 @@
    ],
    "family": "space-systems",
    "pack": "adcs",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-budget-margin-policy",
+   "name": "e10-budget-margin-policy",
+   "description": "Use when consolidating technical budgets (mass, power, data rate, pointing, thermal, propellant, etc.) at system level under ECSS-E-ST-10C flow-down and applying the project margin policy: roll up contributor current-best-estimate plus maturity margin, add the system-level contingency margin, and check the result against the allocated value with a phase-appropriate minimum remaining margin. Trigger: ecss, e-st-10c, technical budget, budget consolidation, margin policy, mass budget, power budget, data rate budget, link budget, contingency margin, maturity margin, system margin.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "technical-budget",
+    "margin-policy",
+    "mass-budget",
+    "power-budget",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-changes-nc",
+   "name": "e10-changes-nc",
+   "description": "Use when controlling an engineering change or nonconformance that may affect requirements or design under ECSS-E-ST-10C: assess whether it impacts the approved baseline, route it to the right approval authority, and gate implementation on an approved disposition with the baseline updated, consistent with M-ST-40 (configuration management) and Q-ST-10-09 (nonconformance control). Trigger: ecss, e-st-10c, engineering change, change request, nonconformance, ncr, m-st-40, q-st-10-09, baseline impact, ccb, nrb, disposition.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "engineering-change",
+    "nonconformance",
+    "m-st-40",
+    "q-st-10-09",
+    "configuration-management",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-coordsys-units",
+   "name": "e10-coordsys-units",
+   "description": "Use when engineering data across an ECSS-E-ST-10C programme (system level) needs to be checked for consistent use of reference coordinate systems per E-ST-10-09 and SI units, before it is exchanged between disciplines, suppliers, or verification/operations teams. Trigger: coordinate system, reference frame, SI units, unit consistency, coordinate systems document, CSD, E-ST-10-09, frame consistency, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "coordinate-systems",
+    "si-units",
+    "csd",
+    "consistency"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-delivery-per-review",
+   "name": "e10-delivery-per-review",
+   "description": "Use when planning or checking which systems-engineering documents a space project must deliver or re-baseline at each review milestone per ECSS-E-ST-10C Annex A (informative): build the document-by-review delivery schedule, verify a given review's deliveries against it (missing and unplanned deliveries), and roll up readiness across the whole review sequence. Trigger: delivery schedule, document delivery per review, Annex A, review deliverables, MDR PRR SRR PDR CDR QR AR FRR CRR ER documents, ECSS-E-ST-10C Annex A.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "annex-a",
+    "delivery-schedule",
+    "review",
+    "document-management"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-mdd-drd",
+   "name": "e10-mdd-drd",
+   "description": "Use when generating or validating a Mission Description Document (MDD) for a European space project per ECSS-E-ST-10C Annex B: check that the required sections (objectives, mission statement, mission scenario, constraints) are present, that the mission statement carries an objective/target/timeframe, that the mission scenario phases follow the launch-to-disposal order, and that every constraint is categorised (programmatic, technical, operational, environmental) before the MDD is handed off at MDR. Trigger: mdd, mission description document, annex b, e-st-10c annex b, mission statement, mission scenario, mission constraints, drd, mission definition review, mdr package.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "annex-b",
+    "mdd",
+    "mission-description-document",
+    "drd",
+    "mdr"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-phase-task-overview",
+   "name": "e10-phase-task-overview",
+   "description": "Use when checking per-phase system engineering task lists and outputs under ECSS-E-ST-10C: confirm the project's tasks for lifecycle phases 0 through F (mission analysis through disposal) are identified and tracked against the System Engineering Plan (SEP) deliverables. ECSS-E-ST-10C clause 4.3.3-4.3.9 gives the informative per-phase task overview. Trigger: ecss, e-st-10c, phase task, lifecycle phase, phase 0, phase A, phase B, phase C, phase D, phase E, phase F, systems engineering, 4.3.3, space systems engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "phase-task-overview",
+    "lifecycle",
+    "phase-0",
+    "phase-a",
+    "phase-b",
+    "phase-c",
+    "phase-d",
+    "phase-e",
+    "phase-f",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-pretailoring",
+   "name": "e10-pretailoring",
+   "description": "Use when applying the ECSS-E-ST-10C clause 7 pre-tailoring matrix to a space project: for the project's declared space product type (e.g. space segment, ground segment, launch service segment element), determine which clause-5 system-engineering requirements are applicable, optional, or not applicable, before project-specific tailoring per ECSS-S-ST-00-01. Checks the matrix itself is complete and well-formed, and checks the project's carried-forward requirement clauses against the resolved applicability (missing mandatory clauses, out-of-scope clauses kept without justification, unknown clause ids). Trigger: ecss, e-st-10c, pre-tailoring, pretailoring matrix, tailoring matrix, product type, applicability, clause 7.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "pre-tailoring",
+    "tailoring-matrix",
+    "product-type",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-allocation",
+   "name": "e10-req-allocation",
+   "description": "Use when allocating requirements to functions and to product-tree elements (configuration items) under ECSS-E-ST-10C: run functional analysis to establish the function tree, allocate each requirement to the function(s) it drives, allocate each requirement to the configuration item(s) that implement it, and check allocation completeness (no unallocated requirement, no orphan function or element) before the requirement baseline is frozen. ECSS-E-ST-10C clause 5.2.3.5 governs requirement allocation as part of system engineering requirement flow-down. Trigger: ecss, e-st-10c, requirement allocation, functional analysis, product tree, configuration item, function tree, 5.2.3.5, space systems engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirement-allocation",
+    "functional-analysis",
+    "product-tree",
+    "configuration-item",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-analysis",
+   "name": "e10-req-analysis",
+   "description": "Use when analysing customer or upper-level requirements to derive, generate, control and document the requirement set for a space system and for each lower level, per ECSS-E-ST-10C clause 5.2.1. Checks that every requirement traces to a customer requirement or an existing upper-level requirement (no orphans), carries identifying text and rationale (documented), and is under configuration control (released or baselined). Trigger: ecss, e-st-10c, requirement analysis, derive requirements, requirement derivation, requirement set, lower-level requirements, requirement control, 5.2.1.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirement-analysis",
+    "requirement-derivation",
+    "traceability",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-consolidation",
+   "name": "e10-req-consolidation",
+   "description": "Use when a requirement subject is common to several next-lower-level products in an ECSS-E-ST-10C specification tree and must be consolidated into a support specification instead of repeated per product, or when the same requirement flows down to two or more products with conflicting values and the conflict must be resolved before the requirement baseline is set. ECSS-E-ST-10C clause 5.2.3.2 governs requirement consolidation and flow-down conflict resolution. Trigger: ecss, e-st-10c, requirement consolidation, support specification, flow-down conflict, common requirements, specification tree, 5.2.3.2.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirement-consolidation",
+    "support-specification",
+    "flow-down",
+    "conflict-resolution"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-risk-analysis",
+   "name": "e10-req-risk-analysis",
+   "description": "Use when assessing the technical/requirement risk of a candidate or derived requirement during ECSS-E-ST-10C flow-down: determine likelihood x severity into a risk class, feed the project risk register, and gate baselining on a defined mitigation for medium-and-above risk consistent with M-ST-80. Trigger: ecss, e-st-10c, requirement risk, risk register, risk analysis, technical risk, mitigation, m-st-80, risk index, likelihood severity.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirement-risk",
+    "risk-register",
+    "mitigation",
+    "m-st-80",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-traceability",
+   "name": "e10-req-traceability",
+   "description": "Use when maintaining bidirectional requirement traceability under ECSS-E-ST-10C: keep the requirements traceability matrix (RTM) aligned across customer requirements, derived requirements, allocated products and verification records, and detect broken, missing or dangling trace links before review gates. ECSS-E-ST-10C clause 5.2.2 governs requirement traceability as part of system engineering requirement flow-down. Trigger: ecss, e-st-10c, requirement traceability, RTM, trace matrix, bidirectional trace, 5.2.2, space systems engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirement-traceability",
+    "rtm",
+    "traceability-matrix",
+    "bidirectional-trace",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-verif-methods",
+   "name": "e10-req-verif-methods",
+   "description": "Use when every requirement in an ECSS-E-ST-10C requirements set needs a verification method (test, analysis, review-of-design, inspection) and a verification level (equipment, subsystem, element, segment, system) assigned before verification planning, consistent with E-ST-10-02 verification methods/levels and E-ST-10-03 testing. Trigger: verification method, review of design, ROD, verification level, test analysis inspection, verification matrix, E-ST-10-02, E-ST-10-03, requirement verification, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "verification-method",
+    "verification-level",
+    "review-of-design",
+    "requirements-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-risk-mgmt",
+   "name": "e10-risk-mgmt",
+   "description": "Use when managing technical risk for a space project under ECSS-E-ST-10C clause 5.6.8: identify a risk, analyse it into a likelihood x severity risk class, plan and record mitigation actions for risks that require them, assess the residual risk left after mitigation, and escalate residual risk that remains above the acceptable band for formal acceptance, in coordination with the ECSS risk-management standard M-ST-80. Distinct from the sibling e10-req-risk-analysis leaf, which scores risk per individual requirement rather than tracking the project-wide risk register through mitigation, residual assessment, and acceptance. Trigger: ecss, e-st-10c, technical risk management, risk register, mitigation action, residual risk, risk acceptance, m-st-80, risk escalation.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "technical-risk",
+    "risk-register",
+    "mitigation",
+    "residual-risk",
+    "m-st-80",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-scr-drd",
+   "name": "e10-scr-drd",
+   "description": "Use when preparing a System Concept Report (SCR) for a European space project per ECSS-E-ST-10C Annex C: validate that the required sections (candidate concepts, trade summary, feasibility assessment, recommended concept) are present, that every candidate concept carries a description, that the trade summary scores every candidate against all trade criteria (technical, programmatic, cost, risk), that every candidate carries a valid feasibility verdict, and that the recommended concept is a known candidate that is not itself flagged not_feasible before the SCR is handed off at the end of phase 0/A. Trigger: scr, system concept report, annex c, e-st-10c annex c, candidate concepts, trade summary, trade-off analysis, feasibility assessment, drd, concept selection, down-select.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "annex-c",
+    "scr",
+    "system-concept-report",
+    "drd",
+    "trade-off"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-sep",
+   "name": "e10-sep",
+   "description": "Use when you must produce or maintain the System Engineering Plan (SEP) for a European space project per ECSS-E-ST-10C: decide when a lifecycle event forces the SEP to be revised, check that lower-level plans (product assurance, AIV, risk management, configuration management, software management) stay baseline-consistent with the SEP, and assemble the SEP-derived support package the SE function hands the project manager (PM) at each review gate. Produces the maintenance-trigger verdict, the per-plan consistency verdict, and the review support package. Trigger: ecss sep, system engineering plan, sep baseline, sep maintenance, lower-level plan consistency, review support package, e-st-10c 5.1.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "sep",
+    "system-engineering-plan",
+    "plan-consistency",
+    "review-support"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-sep-drd",
+   "name": "e10-sep-drd",
+   "description": "Use when you must generate or validate a System Engineering Plan (SEP) document against its document-requirements-definition (DRD) per ECSS-E-ST-10C Annex D: check the document carries every mandatory content block (introduction, applicable/reference documents, SE organisation, SE processes, SE tasks, DRD linkage), that every organisation interface (product assurance, AIV, risk management, configuration management, software engineering) is covered by an assigned role, that every task has a known owner, and that every document the SEP claims to plan or control exists in the project's master document list. This checks the SEP document's DRD content shape; see the sibling e10-sep leaf for SEP maintenance and baseline-consistency logic. Trigger: sep drd, system engineering plan drd, ecss annex d, sep content, sep document requirements, e-st-10c annex d.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "annex-d",
+    "sep",
+    "drd",
+    "document-check",
+    "system-engineering-plan"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-spec-tree",
+   "name": "e10-spec-tree",
+   "description": "Use when establishing or maintaining the specification tree of a space product decomposition per ECSS-E-ST-10C clause 5.2.3.1c and Annex J: mirror the product tree with one technical specification per node (support specifications included), check the tree has no orphan or duplicate specs, and confirm every spec's parent link matches the product tree's parent-child structure. Trigger: specification tree, spec tree, product decomposition, support specification, ECSS-E-ST-10C 5.2.3.1c, Annex J.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "specification-tree",
+    "annex-j",
+    "product-tree",
+    "support-specification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-tech-matrix-drd",
+   "name": "e10-tech-matrix-drd",
+   "description": "Use when generating or validating the Technology Matrix deliverable per ECSS-E-ST-10C Annex F: check the document carries the required DRD sections, each listed technology carries the required matrix fields (name, current TRL, target TRL, mission applicability), TRL values are valid (integer 1-9) and non-regressing (target TRL at or above current TRL), and mission applicability is resolved rather than left blank or TBD. Trigger: ecss, e-st-10c, technology matrix, trl, technology readiness level, annex f, mission applicability, technology plan.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "technology-matrix",
+    "trl",
+    "annex-f",
+    "drd"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-technology",
+   "name": "e10-technology",
+   "description": "Use when identifying critical technologies for a space project under ECSS-E-ST-10C clause 5.6.7, assessing their Technology Readiness Level (TRL) per E-AS-11 (ISO 16290), building the technology matrix, and defining the development plan that closes the gap to the TRL required for the project. Trigger: ecss, e-st-10c, technology plan, technology matrix, trl, technology readiness level, iso 16290, e-as-11, technology risk, critical technology, annex e, annex f.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "technology-plan",
+    "technology-matrix",
+    "trl",
+    "iso-16290",
+    "technology-risk",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-tp-drd",
+   "name": "e10-tp-drd",
+   "description": "Use when you must generate or validate the Technology Plan (TP) for a European space project per ECSS-E-ST-10C Annex E: check the draft TP against the required DRD content blocks, assess each critical/enabling technology's TRL entry (current vs. target TRL, assessment-due date vs. need-by date), roll up the technology development schedule, and decide whether the TP is ready to submit or needs revision. Produces the completeness verdict, per-technology TRL/schedule verdicts, and the overall TP status. Trigger: ecss technology plan, tp drd, trl assessment plan, technology development schedule, technology schedule risk, e-st-10c annex e.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "technology-plan",
+    "tp-drd",
+    "trl-assessment",
+    "annex-e"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-trs-flowdown",
+   "name": "e10-trs-flowdown",
+   "description": "Use when flowing customer technical requirements down to next-lower-level technical requirements specifications (TRS) per ECSS-E-ST-10C clause 5.2.3.1: check every customer TS requirement reaches at least one child TRS, that no child TRS value contradicts the parent TS or a sibling TRS, and that each TRS carries the document structure expected by E-ST-10-06. Trigger: ecss, e-st-10c, trs flowdown, technical requirements specification, requirement flow-down, customer TS, next-lower-level requirements, e-st-10-06.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "trs",
+    "flowdown",
+    "requirements",
+    "e-st-10-06"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-acceptance",
+   "name": "e1002-acceptance",
+   "description": "Use when running the acceptance stage of ECSS-E-ST-10-02C verification for a flight (or protoflight) article: gate the article on flight-standard workmanship/configuration eligibility, apply the acceptance-article rules distinguishing a dedicated acceptance test (prototype philosophy) from protoflight credit, guard against an acceptance test overstepping its qualified margin, disposition the workmanship/performance outcome, and close out the stage across a product set. Anchor: E-ST-10-02C clause 5.2.4.3. Trigger: acceptance stage, acceptance test, acceptance article, flight-standard workmanship, protoflight credit, overtest, acceptance review, e-st-10-02, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "acceptance-stage",
+    "acceptance-article",
+    "workmanship",
+    "protoflight",
+    "verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-approach",
+   "name": "e1002-approach",
+   "description": "Use when defining the verification approach under ECSS-E-ST-10-02C clause 5.2.1: decide which requirements enter verification, check whether a chosen method is applicable at a given life-cycle stage, assess the risks for requirements that cannot be verified by test and the mitigations for them, validate a per-requirement strategy, roll closure status up by verification level, and confirm the plan is complete. Trigger: ecss, e-st-10-02c, verification approach, verification strategy, method applicability, stage, risk assessment, mitigation, plan completeness, closure roll-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-approach",
+    "strategy",
+    "method-applicability",
+    "risk-assessment",
+    "roll-up",
+    "plan-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-facilities",
+   "name": "e1002-facilities",
+   "description": "Use when qualifying an integration and test facility or a test tool before it is used on a flight article under ECSS-E-ST-10-02C clause 5.2.6.6: map the planned test method to the facility type it requires, verify the facility's operating envelope covers the test's required range, confirm the facility's quality accreditation is a live Q-ST-20-07 test-centre accreditation, confirm calibration currency for the facility and for any measurement instrument, confirm a test tool's interfaces fit the article, check a qualification-plan record for missing fields, and roll many facility/tool qualification results up into a single AIT readiness gate. Trigger: ecss, e-st-10-02c, facilities, test tools, facility qualification, q-st-20-07, test-centre quality, calibration, capability envelope, ait readiness.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "facilities",
+    "test-tools",
+    "q-st-20-07",
+    "calibration",
+    "ait-readiness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-gse-tools",
+   "name": "e1002-gse-tools",
+   "description": "Use when ground support equipment (GSE) will interface with flight hardware during verification and needs to be qualified as verification tooling before use, consistent with ECSS-E-ST-10-02C clause 5.2.6.2 (GSE qualification) and the general tool-qualification regime of clause 5.2.6.1. Classifies GSE as mechanical (MGSE) or electrical (EGSE) and determines the required qualification actions (interface control document, proof test, periodic re-proof, interface safety verification, calibration with traceability). Trigger: GSE, ground support equipment, MGSE, EGSE, proof test, handling equipment, test stimulation equipment, tool qualification, E-ST-10-02, verification tooling, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "gse",
+    "mgse",
+    "egse",
+    "verification-tooling",
+    "tool-qualification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-in-orbit",
+   "name": "e1002-in-orbit",
+   "description": "Use when a flight item has requirements that cannot be fully closed on the ground and must be verified once on orbit under ECSS-E-ST-10-02C clause 5.2.4.5: identify which requirements need the in-orbit stage, close them out against commissioning evidence, and reopen a previously closed requirement for re-verification when an in-orbit anomaly affects it. Trigger: in-orbit verification, commissioning, on-orbit performance, anomaly re-verification, post-launch checkout, e-st-10-02, verification stage, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "verification-stage",
+    "in-orbit",
+    "commissioning",
+    "anomaly",
+    "re-verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-levels",
+   "name": "e1002-levels",
+   "description": "Use when a product tree needs its verification levels defined and every requirement needs a verification level assigned before verification planning under ECSS-E-ST-10-02C: build the equipment/subsystem/element/segment/system hierarchy, assign each requirement to the level of the component(s) it is allocated to, and check whether a level is ready to close out. Trigger: verification level, verification levels, equipment subsystem element segment system, product tree, common ancestor, level closure, level close-out, E-ST-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-level",
+    "product-tree",
+    "requirements-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-method-analysis",
+   "name": "e1002-method-analysis",
+   "description": "Use when determine which ECSS-E-ST-10-02C clause 5.2.2.3 analysis technique (worst-case, statistical, qualitative, classical calculation, or similarity) applies to a requirement being verified by analysis, validate the heritage conditions that must all hold before a case can close by similarity to a previously verified reference item -- verified reference item, design/manufacturing equivalence, and an enveloped operating environment -- check an analysis plan for the fields a closure review requires, and roll a set of analysis cases up into open/closed status. Trigger: ecss, e-st-10-02c, verification by analysis, verification by similarity, heritage, analysis technique selection, similarity validation conditions, environment envelope, analysis plan completeness.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-by-analysis",
+    "verification-by-similarity",
+    "heritage",
+    "analysis-technique"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-method-general",
+   "name": "e1002-method-general",
+   "description": "Use when you need to determine which verification method or combination of methods -- test, analysis, review-of-design, inspection -- satisfies a requirement under ECSS-E-ST-10-02C clause 5.2.2.1: categorize the requirement, filter to the methods eligible for that category, enforce that a safety-critical requirement always carries test, apply the test-over-analysis-over-review-of-design-over-inspection precedence rule with a stated rationale whenever a more rigorous eligible method is skipped, and roll up a verification plan's per-method counts and its non-compliant requirement ids. Trigger: ecss, e-st-10-02c, verification method selection, test analysis review-of-design inspection, method precedence, verification plan completeness, safety-critical verification, method applicability rules.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-method",
+    "test",
+    "analysis",
+    "review-of-design",
+    "inspection",
+    "verification-plan"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-method-inspection",
+   "name": "e1002-method-inspection",
+   "description": "Use when applying the inspection verification method under ECSS-E-ST-10-02C clause 5.2.2.5: categorize each checklist item as a visual or measurement inspection technique, decide whether inspection may be used for a given requirement, evaluate a visual item outcome and a measurement item outcome against their criteria, check the inspection programme's completeness in the verification plan, and roll the item statuses up to an overall inspection verdict. Trigger: ecss, e-st-10-02c, inspection method, visual inspection, measurement check, checklist, verification plan, item outcome, roll-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "inspection",
+    "visual-check",
+    "measurement",
+    "checklist",
+    "plan-completeness",
+    "verification-method"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-method-rod",
+   "name": "e1002-method-rod",
+   "description": "Use when verify a requirement's compliance under the review-of-design method of ECSS-E-ST-10-02C clause 5.2.2.4: classify each design-evidence item (drawing, analysis report, design description, supplier certificate, heritage data, similarity data) as direct or heritage evidence, apply the admissibility rule for a safety-critical requirement backed only by heritage evidence, roll up each item's compliant, non_compliant, open, or not_applicable disposition into an overall requirement status, and assemble a review-of-design report entry per requirement while flagging any requirement absent from the report. Trigger: ecss, e-st-10-02c, review of design, rod, design evidence, heritage data, similarity data, verification report, requirement close-out.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "review-of-design",
+    "verification-method",
+    "design-evidence",
+    "heritage-data",
+    "verification-report"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-method-test",
+   "name": "e1002-method-test",
+   "description": "Use when determine whether the test method can serve as the formal verification method for a requirement under ECSS-E-ST-10-02C clause 5.2.2.2: check that the requirement's outcome is physically measurable, a representative test article is available, the operational environment is reproducible in a facility, and pass/fail criteria are defined; validate that a test-method record delegates detailed procedure, configuration, and criteria-level detail to an E-ST-10-03 test specification rather than embedding it; and roll up a requirement set's test-readiness and delegation-compliance status. Trigger: ecss, e-st-10-02c, test method, formal verification, verification conditions, test applicability, e-st-10-03, test specification delegation, pass/fail criteria, test readiness roll-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "test-method",
+    "formal-verification",
+    "verification-conditions",
+    "e-st-10-03",
+    "test-specification-delegation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-models",
+   "name": "e1002-models",
+   "description": "Use when a space project must define its verification model philosophy under ECSS-E-ST-10-02C: choosing prototype vs protoflight, listing the physical models (STM, EM, QM, PFM, FM, EQM) with purpose/configuration/stages for the Verification Plan, checking a model is representative of the item it stands in for, and flagging re-verification after a design change. Trigger: model philosophy, prototype model, protoflight, qualification model, flight model, engineering model, model list, verification plan, VP, model-based verification, E-ST-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "model-philosophy",
+    "protoflight",
+    "prototype",
+    "verification-plan"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-other-planning-docs",
+   "name": "e1002-other-planning-docs",
+   "description": "Use when determine which other ECSS-E-ST-10-02C verification planning documents (the interface to the AIT plan, the analysis plans) are required for a set of requirements based on the verification method assigned to each one, check every required document against its minimum content fields and against full cross-reference coverage of the requirement identifiers assigned to its method, track each document's draft/in_review/approved status, and roll up an overall other-planning-documents readiness status and compliance flag for the verification programme. Trigger: ecss, e-st-10-02c, verification planning, AIT plan interface, analysis plan, other planning documents, verification method, document completeness, requirement linkage, planning document status roll-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-planning",
+    "ait-plan-interface",
+    "analysis-plan",
+    "other-planning-documents"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-phasing",
+   "name": "e1002-phasing",
+   "description": "Use when phasing verification activities with the project life cycle under ECSS-E-ST-10-02C clause 5.2.7: locate a life-cycle phase in the project phase sequence, decide whether a phase carries a verification output requirement, list the outputs that phase owes and the gaps against them, check entry readiness for a target phase, rank per-requirement verification maturity, roll that up to a project-wide status, and run the full phasing review. Trigger: ecss, e-st-10-02c, verification phasing, life cycle, phase A, phase outputs, entry readiness, maturity rank, project verification status.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-phasing",
+    "life-cycle",
+    "phase-outputs",
+    "entry-readiness",
+    "maturity",
+    "project-status"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-post-landing",
+   "name": "e1002-post-landing",
+   "description": "Use when an element's mission profile includes physical return of hardware to Earth (descent capsule, sample-return canister, recoverable payload, splashdown-recovered stage) and the post-landing verification stage of ECSS-E-ST-10-02C must be run: confirm applicability, assess each recovered item's condition against its pre-flight baseline, flag safety-critical findings, and track items that could not be recovered for alternate evidence. Trigger: post-landing verification, recovery, returned hardware, descent capsule, sample return, splashdown, recovered payload, E-ST-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "e-st-10-02c",
+    "post-landing",
+    "recovery",
+    "verification-stage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-pre-launch",
+   "name": "e1002-pre-launch",
+   "description": "Use when a flight item needs a pre-launch readiness go/no-go before launch under ECSS-E-ST-10-02C: transport-induced damage check, storage/shelf-life and environmental-excursion check, launch-site health/functional checks, and as-built launch configuration vs qualified/accepted baseline. Trigger: pre-launch readiness, launch readiness review, LRR, transport check, shelf life, storage excursion, launch-site checkout, launch configuration, as-built vs baseline, verification stage, E-ST-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "e-st-10-02",
+    "pre-launch",
+    "verification-stage",
+    "launch-readiness",
+    "configuration-baseline"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-process",
+   "name": "e1002-process",
+   "description": "Use when running the verification process as a customer-supplier activity under ECSS-E-ST-10-02C clause 5.1: validate the product level, life-cycle phase, activity status and document type of each verification activity, assign the executor and the closure approver by role, determine which documents a phase still owes before it can close, roll individual activity statuses up to a single process status, and verify a closure sign-off against the activity's required evidence. Trigger: ecss, e-st-10-02c, verification process, customer supplier, product level, responsibility assignment, documentation completeness, closure sign-off, activity roll-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-process",
+    "responsibilities",
+    "product-level",
+    "documentation",
+    "closure",
+    "activity-status"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-qualification",
+   "name": "e1002-qualification",
+   "description": "Use when running the qualification stage of an ECSS-E-ST-10-02C verification programme: closing design qualification against requirements before acceptance/QR, tailoring the qualification scope by product heritage category (Table 5-1: new design, unmodified heritage within envelope, modified or envelope-exceeding heritage), and confirming every product in scope is closed with matching evidence. Trigger: qualification stage, design qualification, heritage product category, Table 5-1, qualification by similarity, delta qualification, qualification review, QR, e-st-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "qualification",
+    "heritage",
+    "verification-stage",
+    "delta-qualification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-simulators",
+   "name": "e1002-simulators",
+   "description": "Use when a simulator (functional, real-time, or closed-loop / hardware-in-the-loop) is used to generate verification evidence under ECSS-E-ST-10-02C and its own qualification status needs to be established before that evidence can be credited: which fidelity evidence a simulator's role requires, whether it is currently qualified, and whether a design or interface change triggers re-qualification. Trigger: simulator qualification, functional simulator, real-time simulator, closed-loop simulator, hardware-in-the-loop, HIL simulator, verification tool qualification, e1002, e-st-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "e-st-10-02",
+    "simulator-qualification",
+    "verification-tools",
+    "hardware-in-the-loop"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-stages",
+   "name": "e1002-stages",
+   "description": "Use when defining verification stages for a product under ECSS-E-ST-10-02C: qualify, accept, verify pre-launch, in-orbit (incl. commissioning) and post-landing each with its objective and applicability to the product's launched/recovered life profile, ahead of stage-specific planning (qualification, acceptance, pre-launch, in-orbit, post-landing leaves). Trigger: verification stages, qualification stage, acceptance stage, pre-launch verification, in-orbit verification, commissioning, post-landing verification, E-ST-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "verification-stages",
+    "qualification",
+    "acceptance",
+    "pre-launch",
+    "in-orbit",
+    "post-landing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-sw-tools",
+   "name": "e1002-sw-tools",
+   "description": "Use when a software tool (simulation code, FEM solver, thermal/analysis package) is being used to generate verification-by-analysis evidence under ECSS-E-ST-10-02C and needs a qualification check before its output is accepted: was the tool validated, is it under configuration control, are the analysis conditions inside its validated domain, and does a safety-critical use have an independent cross-check, consistent with the tool/model validation principle of E-ST-10 §5.3.4. Trigger: software tool qualification, verification by analysis, analysis tool validation, tool configuration control, validated domain, independent check, e1002, e-st-10-02, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-by-analysis",
+    "software-tool-qualification",
+    "configuration-control",
+    "validated-domain"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-tools-general",
+   "name": "e1002-tools-general",
+   "description": "Use when a verification tool (test equipment, GSE, simulator, software tool, or facility) needs to be categorized and given a qualification-status category (A/B/C/D) before it is used to generate verification evidence, consistent with ECSS-E-ST-10-02C verification tools clause 5.2.6.1. Trigger: verification tool, tool classification, tool qualification status, category A B C D, GSE, EGSE, MGSE, simulator qualification, software tool validation, test facility, E-ST-10-02, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "verification-tools",
+    "tool-qualification",
+    "qualification-status",
+    "gse"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-vcd",
+   "name": "e1002-vcd",
+   "description": "Use when establishing and maintaining the Verification Control Document (VCD) under ECSS-E-ST-10-02C clause 5.2.8.2 and Annex B: validate a recorded verification method and status against their enumerations, determine which methods are permitted to close a given requirement category, check the recorded method is permitted, check that the recorded method is consistent with the requirement's applicability, check a closed status carries its closure evidence, evaluate one VCD entry, roll entries up to a program status, and decide VCD completeness. Trigger: ecss, e-st-10-02c, vcd, verification control document, annex b, method permission, requirement category, closure evidence, status roll-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-control-document",
+    "vcd",
+    "annex-b",
+    "method-permission",
+    "applicability",
+    "closure",
+    "status-rollup"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-vp",
+   "name": "e1002-vp",
+   "description": "Use when producing and maintaining the Verification Plan (VP) under ECSS-E-ST-10-02C clause 5.2.8.1 and Annex A: check whether a verification method is applicable at a stage, find completeness and consistency issues for one VP entry and across the whole plan, roll entry closure statuses up to an overall closure status, and decide whether the plan is ready. Trigger: ecss, e-st-10-02c, verification plan, vp, annex a, entry completeness, method stage applicability, closure status, plan readiness.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-plan",
+    "vp",
+    "annex-a",
+    "entry-completeness",
+    "method-stage",
+    "closure-status"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-acceptance",
+   "name": "e1003-eq-acceptance",
+   "description": "Use when defining the acceptance test baseline for a piece of equipment under ECSS-E-ST-10-03C: derive per-test-type acceptance levels and durations from the equipment's qualification baseline and its margin/duration reduction rules, guard against an acceptance level or duration that fails to sit below its qualification counterpart, and check the baseline for coverage gaps before it is released to the test programme. Anchor: E-ST-10-03C clause 5.3 + Tables 5-3/5-4. Trigger: equipment acceptance test, acceptance test baseline, acceptance level, acceptance duration, Table 5-3, Table 5-4, e-st-10-03, ecss testing.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "equipment-testing",
+    "acceptance-test",
+    "test-levels",
+    "test-durations"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-electrical",
+   "name": "e1003-eq-electrical",
+   "description": "Use when scoping and running the ECSS-E-ST-10-03C equipment electrical/RF test set for one equipment item: verify test applicability (EMC, magnetic, ESD, passive intermodulation, multipactor, corona/arc discharge) from equipment risk flags, define each test's status (not applicable, missing, passed, failed), and roll up the campaign disposition (complete, incomplete, failed) before equipment qualification/acceptance sign-off. Anchor: E-ST-10-03C clause 5.5.5. Trigger: equipment electrical test, EMC test, magnetic test, ESD test, passive intermodulation, PIM test, multipactor test, corona test, arc discharge test, e-st-10-03, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "equipment-test",
+    "emc",
+    "esd",
+    "pim",
+    "multipactor",
+    "corona-arc",
+    "verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-general",
+   "name": "e1003-eq-general",
+   "description": "Use when verifying the general equipment-level test requirements under ECSS-E-ST-10-03C clause 5.1, ahead of picking the qualification, acceptance, or protoflight test baseline: confirm the test model carries the correct campaign (qualification/acceptance/protoflight), validate the test configuration is flight-representative or has documented deviations with every required interface simulated, check that mechanical/electrical interface checks bookend the test sequence, and run the functional-test-before/after and performance-test-bookend rules across the sequence. Trigger: ecss, e-st-10-03c, equipment test requirements, test configuration, interface check, functional test, performance test, test model applicability, general equipment tests.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "equipment-test",
+    "test-configuration",
+    "interface-check",
+    "functional-test",
+    "performance-test"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-general-tests",
+   "name": "e1003-eq-general-tests",
+   "description": "Use when running the general equipment test requirements of ECSS-E-ST-10-03C 5.5.1 within a qualification, acceptance, or protoflight test sequence: run the functional/performance test at each sequence position (baseline and final comprehensive, interim abbreviated unless an anomaly is suspected), evaluate current measurements against the baseline to flag degraded parameters, verify physical configuration (mass properties and visual inspection) at each test point, and confirm the launch configuration for any test representative of the launch environment, closing out the sequence only when every mandatory position is present and clear. Anchor: E-ST-10-03C clause 5.5.1. Trigger: equipment general tests, functional test, performance test, physical configuration check, launch configuration check, baseline functional test, protoflight test sequence, e-st-10-03, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "equipment-testing",
+    "functional-test",
+    "physical-configuration",
+    "launch-configuration",
+    "test-sequence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-mechanical",
+   "name": "e1003-eq-mechanical",
+   "description": "Use when running equipment-level mechanical tests under ECSS-E-ST-10-03C clause 5.5.2: determine which mechanical tests apply to a given equipment item (physical properties, acceleration by static/spin/sine-burst, sinusoidal vibration, random vibration, acoustic, shock, and micro-vibration for both disturbance-generating and micro-vibration-sensitive equipment), and verify every applicable test is closed with matching evidence before the equipment's mechanical test campaign is declared complete. Trigger: equipment mechanical test, run mechanical test, physical properties test, static acceleration, spin test, sine burst, sinusoidal vibration, random vibration, acoustic test, shock test, micro-vibration, e-st-10-03, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "equipment-testing",
+    "mechanical-test",
+    "vibration",
+    "shock",
+    "micro-vibration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-pressure",
+   "name": "e1003-eq-pressure",
+   "description": "Use when running equipment structural-integrity-under-pressure tests under ECSS-E-ST-10-03C: run the leak, proof pressure, pressure cycling, design burst and burst tests on pressurized space segment equipment, derive which of these tests apply from the test campaign and the item's service profile, select whether burst margin is demonstrated by a physical burst test or a design burst analysis depending on whether the article can be sacrificed, sequence a destructive burst test last, and evaluate each test's pass/fail criteria before declaring the item's pressure-test set complete. Trigger: pressure test, leak test, proof pressure, proof pressure test, pressure cycling, design burst, burst test, MEOP, burst factor, structural integrity under pressure, e-st-10-03, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "e-st-10-03c",
+    "pressure-test",
+    "leak-test",
+    "proof-pressure",
+    "pressure-cycling",
+    "burst-test",
+    "equipment-testing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-protoflight",
+   "name": "e1003-eq-protoflight",
+   "description": "Use when you define the equipment protoflight test baseline under ECSS-E-ST-10-03C clause 5.4: decide whether an equipment item must follow the protoflight test approach (one hardware model demonstrating both design qualification and flight acceptance, with no separate dedicated qualification model), and derive, for each test type, the protoflight test level from the Table 5-5 qualification/acceptance severities and the protoflight test duration from the Table 5-6 qualification/acceptance durations. Also flag any protoflight baseline entry whose level or duration deviates from the standard qualification-level/acceptance-duration rule without a documented engineering deviation. Trigger: protoflight test baseline, protoflight approach, equipment test levels, test duration, Table 5-5, Table 5-6, E-ST-10-03, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "protoflight",
+    "equipment-testing",
+    "test-levels",
+    "test-duration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-qual",
+   "name": "e1003-eq-qual",
+   "description": "Use when defining the equipment qualification test baseline of an ECSS-E-ST-10-03C testing programme: select which test families apply to a piece of equipment and in what sequence (Table 5-1), and derive each applicable test's qualification level and duration from its reference level/duration plus a margin and duration factor (Table 5-2). Trigger: equipment qualification test, qualification baseline, test sequence, Table 5-1, Table 5-2, qualification level, qualification duration, margin factor, E-ST-10-03, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "equipment-testing",
+    "qualification",
+    "test-sequence",
+    "test-levels"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-eq-thermal",
+   "name": "e1003-eq-thermal",
+   "description": "Use when running equipment-level thermal tests under ECSS-E-ST-10-03C clause 5.5.4: select thermal vacuum vs thermal test at mission pressure for a unit based on its vacuum exposure, execute the qualification/acceptance/protoflight thermal cycle plan (cold/hot plateaus, dwell stabilization, functional/performance checks at the extremes), and verify the test as complete only when every required cycle stabilizes and passes. Trigger: thermal vacuum, TVAC, thermal cycling, thermal test at mission pressure, equipment thermal test, dwell stabilization, hot plateau, cold plateau, e-st-10-03, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "thermal-vacuum",
+    "thermal-cycling",
+    "equipment-test",
+    "tvac"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-objectives",
+   "name": "e1003-objectives",
+   "description": "Use when defining the test objectives for a qualification, acceptance or protoflight test campaign under ECSS-E-ST-10-03C clause 4.5: define the demonstrated-margin and workmanship-screen objectives assigned to each campaign type, derive the required test level (qualification level vs acceptance level) and duration class (full vs reduced) that those objectives imply, and validate a proposed test definition against the campaign's assigned objectives before test conditions, levels and durations are locked in downstream. Trigger: test objectives, qualification testing, acceptance testing, protoflight testing, demonstrated margin, workmanship screen, e-st-10-03, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "test-objectives",
+    "qualification",
+    "acceptance",
+    "protoflight"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-retesting",
+   "name": "e1003-retesting",
+   "description": "Use when applying ECSS-E-ST-10-03C clause 4.6 retesting rules to define whether an article must be retested: a design modification made after qualification, storage after a protoflight/acceptance test beyond the qualified shelf life, a previously flown article being prepared for reflight, or a qualification-model article proposed for flight use. Classify each case's required action (no retest, requalification, acceptance-level retest, or disallowed for flight) ahead of test-programme execution (sibling e1003-test-programme leaf), and verify no case in the retesting scope is left undetermined. Anchor: E-ST-10-03C clause 4.6. Trigger: retesting, retest, requalification, design modification after qualification, storage shelf life, reflown hardware, qualification model flight use, E-ST-10-03C, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "retesting",
+    "requalification",
+    "storage-shelf-life",
+    "reflown-hardware",
+    "qualification-model",
+    "testing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-uncertainties",
+   "name": "e1003-uncertainties",
+   "description": "Use when verifying that a demonstrated test margin under ECSS-E-ST-10-03C still holds once measurement uncertainty is taken into account: compute the effective margin by subtracting the applicable measurement/instrumentation uncertainty (Table 4-2 typical values, overridable by project-specific characterization) from the demonstrated margin, assess whether the result is still positive, and flag any project-specific uncertainty that exceeds its Table 4-2 typical value for justification. Trigger: measurement uncertainty, instrumentation uncertainty, Table 4-2, test margin, demonstrated margin, effective margin, e-st-10-03, ecss, e-st-10c, test accuracy.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "measurement-uncertainty",
+    "test-margin",
+    "testing",
+    "verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-annex-a-data",
+   "name": "e1004-annex-a-data",
+   "description": "Use when assembling the natural electromagnetic radiation and solar/geomagnetic index reference dataset from ECSS-E-ST-10-04C Annex A for a mission design case: determine which quantities (TSI, EUV/XUV band irradiance, Earth albedo, Earth IR emission, F10.7, F10.7A, geomagnetic index) apply, verify each quantity's solar-cycle phase tagging and that phase-dependent values ordered minimum/mean/maximum, and flag missing quantities, missing phases, or phase-tagging errors before the dataset feeds e1004-em-radiation or e1004-indices. Trigger: Annex A, natural EM radiation data, solar/geomagnetic indices, F10.7, F10.7A, Ap, Kp, TSI, solar constant, solar-cycle reference values, Earth albedo, Earth IR emission, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "annex-a",
+    "em-radiation",
+    "solar-indices",
+    "reference-data",
+    "space-systems"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-annex-c-flux",
+   "name": "e1004-annex-c-flux",
+   "description": "Use when computing meteoroid background flux and meteor-shower stream enhancement for a space mission per ECSS-E-ST-10-04C Annex C: apply the Grün interplanetary flux model, add meteor-stream enhancement tables for known shower epochs, and apply Earth shielding and gravitational focusing corrections for near-Earth orbits to produce the meteoroid environment input for impact risk assessment. Trigger: meteoroid flux, Grün model, meteor stream, shower enhancement, Earth shielding, gravitational focusing, impact risk, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "meteoroid",
+    "gruen-model",
+    "meteor-stream",
+    "shower-enhancement",
+    "earth-shielding",
+    "gravitational-focusing",
+    "annex-c"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-atmosphere",
+   "name": "e1004-atmosphere",
+   "description": "Use when defining the neutral atmosphere environment for a mission under ECSS-E-ST-10-04C: select the applicable neutral-atmosphere density model (NRLMSISE-00 for general-purpose drag and lifetime work, JB-2006 for precision analyses) based on the case's precision need, verify the analysis altitude falls within the model's valid range, classify the solar activity level from the F10.7 solar flux index, apply solar/geomagnetic scaling to the reference density, select a wind model (HWM-type) when the case needs thermospheric wind data, and flag any non-Earth target body as needing a planet-specific atmosphere model instead of an Earth model. Trigger: neutral atmosphere, NRLMSISE-00, JB-2006, HWM, thermosphere, atmospheric density, drag, orbital lifetime, F10.7, solar flux index, geomagnetic index, wind model, e-st-10-04, ecss, space environment, planetary atmosphere.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "atmosphere",
+    "neutral-atmosphere",
+    "nrlmsise",
+    "jb2006",
+    "thermosphere",
+    "drag",
+    "density",
+    "wind-model"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b2-ige2006",
+   "name": "e1004-b2-ige2006",
+   "description": "Use when implementing the IGE-2006 geostationary trapped-electron flux model under ECSS-E-ST-10-04C Annex B.2: look up the differential electron flux at a requested energy and L-shell by log-linear interpolation between the model's tabulated energy and L-shell nodes, resolve the requested confidence level (mean or a worst-case percentile) to its flux scale factor, assemble a full energy-spectrum table for a request, and flag any energy or L-shell query that falls outside the tabulated node range as an extrapolation rather than silently returning a boundary value. Trigger: IGE-2006, geostationary electron model, GEO electron flux, trapped electron spectrum, L-shell interpolation, confidence level, worst-case percentile, Annex B.2, e-st-10-04, ecss, space environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "annex-b2",
+    "ige-2006",
+    "geostationary",
+    "trapped-electrons",
+    "l-shell",
+    "energy-spectrum",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b3-meov2",
+   "name": "e1004-b3-meov2",
+   "description": "Use when implementing the ONERA MEOv2 trapped-electron flux model for GNSS/navigation-orbit (MEO) radiation analyses under ECSS-E-ST-10-04C Annex B.3: represent the model's flux-versus-energy spectral form as a function of McIlwain L-shell, interpolate the model's L-shell reference grid to an arbitrary L-shell (including along a full mission orbit's L-shell trace), and compute per-energy, orbit-averaged, and worst-case-L-shell flux outputs for the orbit. Trigger: MEOv2, ONERA, GNSS orbit radiation, MEO electron flux, McIlwain L-shell, spectral flux model, orbit interpolation, e-st-10-04c annex b.3, ecss, space environment, trapped radiation.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "meov2",
+    "onera",
+    "meo",
+    "gnss",
+    "trapped-electron",
+    "l-shell",
+    "spectral-model",
+    "orbit-interpolation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b4-flumic",
+   "name": "e1004-b4-flumic",
+   "description": "Use when implementing the FLUMIC outer/inner radiation belt worst-case trapped electron model under ECSS-E-ST-10-04C Annex B.4: select the belt region (inner belt, outer belt, or both for a belt-crossing orbit), apply the confidence (percentile) level and the worst-case exposure-duration class the analysis purpose requires, evaluate the resulting electron energy spectrum, and integrate the flux above a shielding-relevant threshold energy for internal (deep-dielectric) charging design. Trigger: FLUMIC, worst-case electron spectrum, outer belt, inner belt, internal charging, deep dielectric charging, trapped electrons, Annex B.4, e-st-10-04, ecss, space environment, radiation belt model.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "flumic",
+    "trapped-electrons",
+    "internal-charging",
+    "radiation-belt",
+    "annex-b4"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b5-geo-wc",
+   "name": "e1004-b5-geo-wc",
+   "description": "Use when implementing the NASA worst-case geosynchronous (GEO) electron environment spectrum per ECSS-E-ST-10-04C Annex B.5: select the applicable energy band of the two-population exponential spectral fit (a lower-energy population associated with spacecraft surface charging and a higher-energy, penetrating population associated with deep-dielectric/internal charging), compute the differential and integral electron flux at a given energy, derive the worst-case fluence for a stated exposure duration, and assess a case's worst-case fluence against its qualified fluence limit. Trigger: NASA worst-case GEO electron spectrum, geosynchronous electron environment, internal charging, deep dielectric charging, Annex B.5, e-st-10-04, ecss, space environment, electron fluence.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "annex-b5",
+    "geo",
+    "electron-spectrum",
+    "internal-charging",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b6-esp",
+   "name": "e1004-b6-esp",
+   "description": "Use when generating the Annex B.6 Emission of Solar Protons (ESP) worst-case fluence spectra for a mission under ECSS-E-ST-10-04C: build the reference annual integral fluence spectrum, apply the confidence-level scale factor for the required design percentile, apply the mission-duration scale factor for the exposure period, assemble the resulting fluence-above-energy spectrum, and verify the selected confidence level meets the mission's worst-case design threshold. Trigger: ESP, emission of solar protons, solar proton fluence, solar particle event, worst-case fluence, confidence level, JPL model, Annex B.6, e-st-10-04, ecss, space environment, radiation environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "esp",
+    "solar-proton",
+    "fluence",
+    "confidence-level",
+    "annex-b",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b7-solar-ions",
+   "name": "e1004-b7-solar-ions",
+   "description": "Use when deriving solar energetic particle (SEP) heavy-ion energy spectra with Z-dependent elemental abundances for single-event-effects (SEE) analysis under ECSS-E-ST-10-04C Annex B.7: derive each species' differential flux spectrum from a reference element (oxygen) spectrum, classify the SEP event type (gradual/shock-associated vs impulsive/flare-associated) from its iron-to-oxygen abundance ratio, apply the event type's elemental abundance table to scale species spectra, verify heavy-ion species coverage extends through the iron group, and identify whether the worst-case impulsive-enhanced abundance table is selected for SEE. Trigger: solar energetic particle, SEP heavy ion, Annex B.7, Z-dependent abundance, iron-rich event, Fe/O ratio, heavy ion spectrum, SEE analysis, e-st-10-04, ecss, space environment, radiation environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "sep",
+    "solar-energetic-particle",
+    "heavy-ion",
+    "z-dependent-abundance",
+    "annex-b7",
+    "see"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b8-stormer",
+   "name": "e1004-b8-stormer",
+   "description": "Use when computing the Størmer vertical cutoff rigidity for a spacecraft location under ECSS-E-ST-10-04C Annex B.8: apply the dipole-field Størmer formula scaled by an epoch-dependent geomagnetic dipole moment coefficient to derive the cutoff rigidity at a geomagnetic latitude and radial distance, verify whether a given charged-particle rigidity penetrates the geomagnetic field at that location, and roll per-orbit-sample penetration results into a geomagnetic-shielding assessment for low-inclination low-Earth-orbit missions. Trigger: Stormer cutoff, Størmer cutoff, vertical cutoff rigidity, geomagnetic cutoff, dipole moment epoch, geomagnetic shielding, cosmic ray cutoff, rigidity spectrum, e-st-10-04, ecss, space environment, radiation environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "stormer",
+    "cutoff-rigidity",
+    "geomagnetic-shielding",
+    "dipole",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-b9-mobe-dic",
+   "name": "e1004-b9-mobe-dic",
+   "description": "Use when characterizing the directional transmission of galactic cosmic ray (GCR) and solar energetic particle (SEP) flux through the geomagnetic field under ECSS-E-ST-10-04C Annex B.9: compute the local vertical Stormer-type geomagnetic cutoff rigidity from geomagnetic latitude, apply the Mobius-class Directional Intensity Change (DIC) correction for a given arrival zenith angle and azimuth to obtain the directional cutoff rigidity (capturing the east-west asymmetry between eastward- and westward-arriving primaries), classify a candidate particle rigidity as forbidden, penumbra, or allowed transmission across that directional cutoff's penumbra band, and select the worst-case (lowest-cutoff) arrival direction to verify that a direction-resolved radiation environment case bounds the true geomagnetic shielding. Trigger: geomagnetic cutoff, Stormer cutoff, Directional Intensity Change, DIC, Mobius model, east-west effect, penumbra, geomagnetic transmission, rigidity, asymptotic direction, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "annex-b9",
+    "mobius",
+    "dic",
+    "directional-intensity-change",
+    "geomagnetic-cutoff",
+    "stormer",
+    "east-west-effect",
+    "penumbra"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-contamination",
+   "name": "e1004-contamination",
+   "description": "Use when assessing on-orbit contamination of a spacecraft external surface under ECSS-E-ST-10-04C clause 11.2: classify each contamination source as molecular (outgassing, venting, propulsion effluent, leak) or particulate (debris, MLI fragment, handling residue, paint flake), determine the molecular transport path (direct line-of-sight vs. LEO ram/wake return flux), compute the deposited molecular mass and compare it against the surface's allowable budget, and verify every particulate-generating surface carries a cleanliness level per the ECSS-Q-ST-70-01 contamination control linkage. Trigger: ecss, e-st-10-04c, contamination, molecular contamination, particulate contamination, outgassing, deposition, cleanliness level, q-st-70-01, on-orbit contamination assessment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "contamination",
+    "molecular-contamination",
+    "particulate-contamination",
+    "deposition",
+    "q-st-70-01"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-debris",
+   "name": "e1004-debris",
+   "description": "Use when a space project must define which space debris flux model (MASTER-class or ORDEM-class) to select and apply, under ECSS-E-ST-10-04C clause 10.2.2.1, for a mission's orbit and analysis epoch: validating that a candidate model's declared altitude/inclination/epoch/diameter envelope actually covers the mission envelope, building a complete model run request, and determining when a prior result needs re-assessment. Trigger: space debris flux, debris environment model, MASTER model, ORDEM model, orbital debris, debris flux envelope, debris risk input, E-ST-10-04, ecss, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "debris",
+    "master",
+    "ordem",
+    "space-environment",
+    "flux-model"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-em-radiation",
+   "name": "e1004-em-radiation",
+   "description": "Use when you must define a mission's natural electromagnetic radiation environment per ECSS-E-ST-10-04C clause 6.2: assemble the solar spectrum bands (XUV through IR and solar radio), scale total solar irradiance (TSI) to the mission's heliocentric distance, and combine planetary albedo and infrared emission into the incident EM flux a spacecraft must design against. Trigger: electromagnetic radiation environment, solar spectrum, TSI, total solar irradiance, solar radio, planetary albedo, planetary IR, earth albedo, e-st-10-04c 6.2.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "em-radiation",
+    "solar-spectrum",
+    "tsi",
+    "solar-radio",
+    "planetary-albedo",
+    "planetary-ir",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-gcr",
+   "name": "e1004-gcr",
+   "description": "Use when specifying the galactic cosmic ray (GCR) radiation environment for a mission under ECSS-E-ST-10-04C: select the applicable GCR reference model (heavy-ion energy spectra for single-event-effects analyses, integral LET/dose spectra for total-dose analyses) based on the analysis type and required ion species coverage, classify the solar activity condition from a solar modulation potential, apply solar modulation to scale the reference solar-minimum energy spectra to the mission epoch, and verify that the selected worst-case condition and species coverage meet the analysis's requirements. Trigger: galactic cosmic ray, GCR, solar modulation, CREME96, Badhwar-O'Neill, ISO 15390, heavy ion spectrum, SEE analysis, total dose, e-st-10-04, ecss, space environment, radiation environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "gcr",
+    "galactic-cosmic-ray",
+    "solar-modulation",
+    "radiation-environment",
+    "see",
+    "dose"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-geo-ige",
+   "name": "e1004-geo-ige",
+   "description": "Use when computing GEO trapped energetic-electron flux and mission fluence for a geostationary spacecraft per ECSS-E-ST-10-04C Annex B.2: interpolate an IGE-2006-style local-time and energy spectral model at fixed L ~= 6.6, apply local-time sector weighting, and produce the differential and integral electron fluence inputs for internal charging and dose analysis. Trigger: GEO trapped electrons, IGE-2006, geostationary, L-shell 6.6, local-time spectrum, electron fluence, internal charging, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "geo",
+    "ige-2006",
+    "trapped-electrons",
+    "geostationary",
+    "l-shell-6.6",
+    "annex-b2"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-geomag",
+   "name": "e1004-geomag",
+   "description": "Use when defining the geomagnetic field environment model for a mission under ECSS-E-ST-10-04C: select the applicable geomagnetic field model (an IGRF-class internal field model alone at low/mid geocentric distance, or that model combined with an external/magnetospheric field model at high geocentric distance) from the mission orbit's geocentric distance, determine the correct IGRF epoch and apply secular variation to update the reference internal field for the mission's target date, verify the target date remains within the secular-variation extrapolation validity window, compute the dipole-approximation B,L equatorial field magnitude for radiation-belt characterization, and validate that the analysis case's declared model and epoch handling meet these requirements. Trigger: geomagnetic field, IGRF, secular variation, B L coordinates, magnetospheric field, external field model, Tsyganenko, dipole approximation, e-st-10-04, ecss, space environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "geomag",
+    "igrf",
+    "secular-variation",
+    "b-l-coordinates",
+    "external-field",
+    "space-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-gravity",
+   "name": "e1004-gravity",
+   "description": "Use when you need to define the gravity environment (magnitude and gradient) for a mission orbit under ECSS-E-ST-10-04C: select and apply the Earth gravity model appropriate to the orbit regime (point-mass/low-degree geopotential vs. high-degree geopotential, plus third-body and solid-Earth-tide perturbation terms), compute the gravitational acceleration magnitude and radial gravity gradient at the mission orbit's altitude, verify the mission's stated altitude falls inside the selected model's validity range, and check that the perturbation terms included for the case cover what the orbit regime and mission duration require. Trigger: gravity model, geopotential, Earth gravity field, third-body perturbation, solid Earth tide, gravity gradient, gravitational acceleration, mission orbit, e-st-10-04, ecss, space environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "gravity",
+    "geopotential",
+    "third-body",
+    "tides",
+    "gravity-gradient",
+    "space-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-impact-risk",
+   "name": "e1004-impact-risk",
+   "description": "Use when running a meteoroid/space-debris impact risk assessment for a space element under ECSS-E-ST-10-04C clause 10.2.5: combine the cumulative damaging flux from each contributing particle population at the ballistic-limit critical diameter, turn it into an expected impact count over the exposed area and mission duration, and compute the probability of no penetration (PNP) and probability of damage via the Annex J Poisson method, checking the result against the mission's PNP acceptance requirement. Distinct from the sibling e1004-debris and e1004-meteoroid leaves, which select and evaluate the flux models this leaf consumes, and from the sibling e1004-mm-margins leaf, which applies design margins to flux or damage predictions rather than running the probability calculation itself. Trigger: ecss, e-st-10-04c, impact risk, damage probability, probability of no penetration, pnp, annex j, meteoroid debris risk, ballistic limit, space environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "space-environment",
+    "meteoroid",
+    "debris",
+    "impact-risk",
+    "annex-j",
+    "pnp"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-indices",
+   "name": "e1004-indices",
+   "description": "Use when you must determine which solar and geomagnetic activity indices (F10.7, Ap/Kp) apply to a space environment analysis epoch under ECSS-E-ST-10-04C clause 6.2.2 and Annex A: identify the index set an analysis purpose requires (atmospheric drag/lifetime, electromagnetic radiation reference, geomagnetic field epoch), classify the solar-cycle epoch from the F10.7 81-day-average index into solar minimum/mean/maximum, select the reference index values for that epoch, and verify a case's provided indices are complete and match the worst-case solar condition its purpose requires before the epoch is handed to the leaf that consumes it. Trigger: F10.7, solar radio flux, Ap index, Kp index, geomagnetic activity index, solar activity index, solar-cycle epoch, environment epoch selection, e-st-10-04c 6.2.2, annex a, ecss, space environment indices.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "indices",
+    "f10.7",
+    "ap-index",
+    "kp-index",
+    "solar-activity",
+    "geomagnetic-activity",
+    "space-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-internal-charging",
+   "name": "e1004-internal-charging",
+   "description": "Use when assessing internal (deep-dielectric) charging risk for a space mission under ECSS-E-ST-10-04C clause 9.2.1.3 and Annex B.4/B.5: compute the worst-case trapped electron spectrum by enveloping the FLUMIC and NASA worst-case GEO models at each modeled energy, verify the envelope is physically consistent (flux non-increasing with energy), and screen the enveloped flux at the mission's critical energy against a stated threshold to flag orbit regimes (MEO, GEO, GTO, HEO) with elevated internal charging risk. Trigger: internal charging, deep dielectric charging, worst-case electron spectrum, FLUMIC, NASA worst-case GEO spectrum, e-st-10-04, annex b.4, annex b.5, charging risk screening.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "internal-charging",
+    "deep-dielectric",
+    "electron-spectrum",
+    "space-systems"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-l2-tail",
+   "name": "e1004-l2-tail",
+   "description": "Use when defining the radiation environment for a Sun-Earth L2 or deep-magnetotail mission under ECSS-E-ST-10-04C clause 9.2.7: define which unshielded galactic-cosmic-ray and solar-energetic-particle components apply once the trapped-belt boundary is left behind, flag orbit segments that cross the magnetotail plasma sheet or lobes so a supplemental charging environment is added, and verify the resulting environment definition is complete before it feeds the radiation environment specification (RES). Trigger: L2, Lagrange point, deep magnetotail, magnetotail plasma sheet, magnetotail lobe, deep-space radiation environment, unshielded GCR, unshielded SEP, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "l2",
+    "magnetotail",
+    "radiation-environment",
+    "gcr",
+    "sep"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-meo-meov2",
+   "name": "e1004-meo-meov2",
+   "description": "Use when computing MEO trapped-radiation flux spectra and mission fluence for a medium-Earth-orbit spacecraft per ECSS-E-ST-10-04C Annex B.3: interpolate a MEOv2-style spectral model across the crossed L-shell range, apply orbit-averaging across the radiation belts, and produce differential and integral electron and proton fluence inputs for total-dose and charging analyses. Trigger: MEO trapped radiation, MEOv2 model, L-shell crossing, orbit-averaged spectrum, electron fluence, proton fluence, radiation belts, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "meo",
+    "meov2",
+    "trapped-radiation",
+    "radiation-belts",
+    "orbit-averaged",
+    "annex-b3"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-meteoroid",
+   "name": "e1004-meteoroid",
+   "description": "Use when computing the meteoroid flux environment for a mission profile under ECSS-E-ST-10-04C clause 10.2.2.2/10.2.4 and Annex C: determine which meteoroid model components apply (the Grun-type sporadic background model plus any meteoroid stream active on the mission epoch), compute the background cumulative mass flux, apply Earth-shielding geometry for Earth-orbiting cases, and combine them into the total incident flux consumed by the downstream impact-risk assessment. Trigger: ecss, e-st-10-04c, meteoroid environment, grun model, meteoroid streams, sporadic background flux, earth shielding, space environment, impact risk input.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "meteoroid",
+    "grun-model",
+    "meteoroid-streams",
+    "space-environment",
+    "background-flux"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-mm-margins",
+   "name": "e1004-mm-margins",
+   "description": "Use when applying margins to a debris/meteoroid flux prediction and its ballistic-limit damage prediction for an ECSS-E-ST-10-04C space environment specification: compute the margined expected-impact rate from a flux margin factor, compute the margined critical (ballistic-limit) diameter from a diameter margin factor, derive the margined probability of no penetration (PNP), and verify the margin factors used meet the project's minimum conservatism before the PNP is compared against its requirement. Trigger: debris margin, meteoroid margin, MMOD margin, flux margin factor, ballistic limit margin, critical diameter margin, damage prediction margin, probability of no penetration, PNP, margined flux, §10.2.6, E-ST-10-04, ecss, e-st-10c space environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "space-environment",
+    "debris",
+    "meteoroid",
+    "mmod",
+    "margins",
+    "damage-prediction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-neutrons",
+   "name": "e1004-neutrons",
+   "description": "Use when you must define the atmospheric albedo neutron environment for a LEO mission and include it in the radiation environment specification (RES) per ECSS-E-ST-10-04C: decide whether the environment applies to the orbit regime, classify the neutron energy spectrum into bands, assess the geomagnetic-latitude exposure that drives the flux, and verify the RES entry carries every required field before the RES is closed out. Trigger: ecss atmospheric albedo neutrons, albedo neutron environment, leo neutron flux, radiation environment specification neutrons, e-st-10-04c 9.2.5.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "radiation",
+    "albedo-neutrons",
+    "leo",
+    "radiation-environment-spec"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-plasma",
+   "name": "e1004-plasma",
+   "description": "Use when defining the plasma environment required by ECSS-E-ST-10-04C clause 8.2 for spacecraft charging analysis: determine which plasma regions (ionosphere, plasmasphere, auroral, outer magnetosphere, solar wind, magnetosheath, magnetotail/L2, planetary, induced) apply to each orbit segment, verify that a model and the electron density, electron temperature, ion density, and ion temperature are recorded for every applicable region, and identify missing regions or incomplete entries before the charging environment definition is closed out. Trigger: plasma environment, spacecraft charging, e-st-10-04, ecss, electron density, ion temperature, surface charging, auroral charging, outer magnetosphere plasma, plasmasphere, induced plasma.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "plasma-environment",
+    "spacecraft-charging",
+    "space-systems"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-rad-env-spec",
+   "name": "e1004-rad-env-spec",
+   "description": "Use when producing the radiation environment specification (RES) required by ECSS-E-ST-10-04C clause 9.3 for a space mission: determine which radiation environment components (trapped radiation, solar energetic particles, galactic cosmic rays, internal-charging worst-case spectra, trapped-proton worst-case spectra, atmospheric albedo neutrons) apply to each orbit segment, verify that the RES states the model choice, basis (long-term-average vs. worst-case), and uncertainty for every applicable component, and flag missing sections or missing uncertainty statements before the RES is closed out. Trigger: radiation environment specification, RES, e-st-10-04, ecss, per-orbit radiation data, model choice, worst-case spectrum, radiation uncertainty.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "radiation-environment",
+    "res",
+    "space-systems"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-atmosphere",
+   "name": "e1004-ref-atmosphere",
+   "description": "Use when determining which reference atmosphere model and inputs apply to a mission atmosphere lookup under ECSS-E-ST-10-04C Annex G: map the target body and altitude to the cataloged reference models (NRLMSISE-00, JB-2006, and GRAM-class planetary models), select the model that matches the analysis purpose (drag prediction, density reference, or full-profile engineering) while validating the altitude against that model's supported range, and verify every input the selected model needs (solar/geomagnetic activity or trajectory fields) is present before the model is run; also classifies an Earth altitude into its atmospheric regime for scoping. Trigger: ecss, e-st-10-04c, annex g, atmosphere model, nrlmsise-00, jb-2006, gram, planetary atmosphere, reference atmosphere, drag prediction.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "atmosphere",
+    "nrlmsise-00",
+    "jb-2006",
+    "gram",
+    "reference-atmosphere"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-debris",
+   "name": "e1004-ref-debris",
+   "description": "Use when selecting a meteoroid or orbital-debris flux model for a spacecraft environment analysis per ECSS-E-ST-10-04C Annex J: determine whether a candidate model (natural meteoroid or catalogued orbital debris) is applicable to a case's altitude, epoch, and particle-diameter range, compute the model's stated uncertainty band around a nominal flux value, and validate a reported flux/model pairing against the model's applicability envelope so an out-of-envelope claim is flagged rather than accepted at face value. Trigger: ecss, e-st-10-04c, meteoroid flux, orbital debris flux, flux model applicability, model uncertainty factor, ORDEM, MASTER, Annex J.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "debris",
+    "meteoroid",
+    "flux-model",
+    "uncertainty",
+    "annex-j",
+    "orbital-debris"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-geomag",
+   "name": "e1004-ref-geomag",
+   "description": "Use when selecting the geomagnetic field model reference data for a mission per ECSS-E-ST-10-04C Annex E: determine whether the internal field alone (IGRF) is sufficient for a given orbit altitude or an external/magnetospheric model must be added, validate an IGRF coefficient generation epoch as definitive, predictive, or stale, select the required spherical-harmonic degree/order truncation for the altitude, choose an external field model tier from the geomagnetic activity (Kp) index, and check a position against the solar-wind-pressure-dependent magnetopause standoff distance. Produces a structured field-model-source determination with explicit error paths for out-of-range inputs. Trigger: ecss, e-st-10-04c, geomagnetic field, igrf, external field model, magnetospheric model, magnetopause, kp index, space environment reference data.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "geomagnetic-field",
+    "igrf",
+    "external-field-model",
+    "magnetopause",
+    "space-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-gravity",
+   "name": "e1004-ref-gravity",
+   "description": "Use when defining Earth and third-body gravitational reference constants (GM, J2 oblateness coefficient) per ECSS-E-ST-10-04C Annex A for a space mission: compute point-mass, J2 zonal-harmonic, and third-body tidal perturbation accelerations at a given orbit radius, and determine which gravity-model terms the mission's environment specification must carry for the orbit regime and mission duration. Trigger: gravity constants, GM, J2 oblateness, zonal harmonic, third-body tidal acceleration, gravity environment specification, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "gravity",
+    "gm",
+    "j2",
+    "zonal-harmonic",
+    "third-body",
+    "tidal",
+    "annex-a"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-indices",
+   "name": "e1004-ref-indices",
+   "description": "Use when selecting solar-activity and albedo/IR reference data for a space-environment case under ECSS-E-ST-10-04C Annex F (informative): determine the solar-cycle activity level (minimum/mean/maximum) that a case should assume from its F10.7 solar-flux value, look up the reference index set (F10.7 flux, sunspot number) and the Earth albedo/IR flux references for that level, validate a proposed index value against the dataset's valid range, interpolate an index across the solar-cycle phase when a cycle-phase fraction is given, and produce the combined solar-index plus albedo/IR reference record that a thermal or radiation case must cite. Trigger: ecss, e-st-10-04c, annex f, solar index, f10.7, sunspot number, solar cycle, albedo, earth ir, reference data, activity level, thermal case.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "annex-f",
+    "solar-index",
+    "f107",
+    "sunspot",
+    "solar-cycle",
+    "albedo-ir",
+    "reference-data"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-particles",
+   "name": "e1004-ref-particles",
+   "description": "Use when selecting particle-radiation reference models for a space-environment case under ECSS-E-ST-10-04C Annex I (informative): categorize the particle population (trapped proton, trapped electron, solar energetic particle, galactic cosmic ray, albedo neutron) and the orbit regime, check a proposed energy against the population's cataloged model energy range and a proposed altitude against its altitude range, determine whether a low-Earth orbit is geomagnetically shielded for a given inclination, determine whether the South Atlantic Anomaly enhancement applies to a low-Earth orbit's altitude and inclination, and select the cataloged model identifier a radiation case must cite. Trigger: ecss, e-st-10-04c, annex i, particle radiation, trapped proton, trapped electron, solar energetic particle, galactic cosmic ray, albedo neutron, model selection, south atlantic anomaly, geomagnetic shielding.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "annex-i",
+    "particle-radiation",
+    "trapped-proton",
+    "trapped-electron",
+    "sep",
+    "gcr",
+    "albedo-neutron",
+    "saa",
+    "reference-data"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-ref-plasma",
+   "name": "e1004-ref-plasma",
+   "description": "Use when determine the ECSS-E-ST-10-04C Annex H plasma-environment reference region for a mission orbit regime (ionosphere, plasmasphere, auroral, outer magnetosphere, solar wind, magnetosheath, magnetotail/L2), validate a candidate density or temperature value against that region's reference order-of-magnitude range, derive a log-space representative value for margin analysis, and identify the hot, tenuous plasma condition associated with spacecraft surface-charging risk. Trigger: ecss, e-st-10-04c, annex h, plasma environment, plasma density, plasma temperature, ionosphere, plasmasphere, auroral, magnetosphere, solar wind, magnetosheath, magnetotail, spacecraft charging.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "plasma",
+    "plasma-environment",
+    "ionosphere",
+    "plasmasphere",
+    "magnetosphere",
+    "spacecraft-charging"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-sep-direction",
+   "name": "e1004-sep-direction",
+   "description": "Use when characterizing the directional solar particle flux for a mission under ECSS-E-ST-10-04C 9.2.2.5: compute the interplanetary magnetic field connection geometry (Parker spiral angle) to categorize a solar particle event's magnetic connection, classify the event's arrival phase (anisotropic onset versus later quasi-isotropic diffusion), compute the cone angle between a look/arrival direction and the field-aligned streaming direction, apply the anisotropy scaling to an omnidirectional-equivalent flux, and verify that a case's magnetospheric entry channel has its required cutoff-rigidity check before closing the directional assessment. Trigger: solar particle event, SEP, SPE, anisotropy, cone angle, pitch angle, Parker spiral, magnetic connection, well-connected, directional flux, magnetospheric entry, polar cusp, E-ST-10-04C 9.2.2.5, ecss, space environment, radiation environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "sep",
+    "solar-particle-event",
+    "anisotropy",
+    "directional-flux",
+    "cone-angle",
+    "magnetosphere",
+    "parker-spiral"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-sep-fluence",
+   "name": "e1004-sep-fluence",
+   "description": "Use when you must compute solar proton fluences for a mission's radiation environment using the ESP model per ECSS-E-ST-10-04C clause 9.2.2.2 and Annex B.6: select the confidence level and mission duration, compute the cumulative fluence spectrum across energy thresholds, and verify the fluence is monotonically consistent with duration, confidence level and energy threshold before it feeds the radiation environment specification. Trigger: solar proton fluence, ESP model, solar particle event fluence, confidence level, mission duration, sep fluence, e-st-10-04c 9.2.2.2, annex b.6.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "sep",
+    "solar-proton",
+    "esp-model",
+    "fluence",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-sep-peakflux",
+   "name": "e1004-sep-peakflux",
+   "description": "Use when you must compute solar energetic particle (SEP) peak proton fluxes with JPL-type worst-case models for single event effect (SEE) worst-case analyses per ECSS-E-ST-10-04C: confirm the analysis purpose actually needs a peak-flux (not fluence) model, pick the standard proton energy channel that covers the device's SEE sensitivity threshold, compute the worst-case integral peak flux at the chosen confidence level, and check the worst-case window is a short high-intensity period rather than a mission-duration integration. Produces the peak-flux applicability verdict, the selected energy channel, the computed peak flux, and the worst-case window classification. Trigger: sep peak flux, solar particle peak flux, jpl model, see worst case, single event effect worst case, proton peak flux, e-st-10-04c 9.2.2.3.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "sep",
+    "peak-flux",
+    "jpl-model",
+    "see",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-stormer",
+   "name": "e1004-stormer",
+   "description": "Use when scoping geomagnetic shielding for LEO solar-energetic-particle (SEP) and galactic-cosmic-ray (GCR) environments under ECSS-E-ST-10-04C clause 9.2.4 and Annex B.8: compute the Stormer vertical cutoff rigidity at a point from its geomagnetic latitude and radial distance, determine whether a particle of given rigidity is geomagnetically excluded or allowed to reach that point, build the exposure-fraction profile across an LEO ground track, and verify the assessment before escalating to full trajectory tracing when the vertical-cutoff approximation cannot be trusted. Trigger: Stormer cutoff, vertical cutoff rigidity, geomagnetic shielding, geomagnetic cutoff, trajectory tracing, penumbra, LEO SEP shielding, GCR geomagnetic cutoff, rigidity cutoff, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "space-environment",
+    "geomagnetic-shielding",
+    "stormer-cutoff",
+    "trajectory-tracing",
+    "leo",
+    "sep",
+    "gcr"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-trapped-leo",
+   "name": "e1004-trapped-leo",
+   "description": "Use when computing the trapped radiation electron environment for a LEO spacecraft per ECSS-E-ST-10-04C 9.2.1.2: apply AE-8/AE-9-class flux tables indexed by McIlwain L-shell and B-L (B/B0) coordinates, include the South Atlantic Anomaly dose contribution, and produce the differential and integral electron flux inputs for total-dose and internal-charging assessments of the spacecraft. Trigger: trapped electrons, LEO radiation environment, AE-8, AE-9, McIlwain L-shell, B-L coordinates, South Atlantic Anomaly, electron flux, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "trapped-radiation",
+    "ae-8",
+    "ae-9",
+    "leo",
+    "south-atlantic-anomaly",
+    "mcllwain-l-shell"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-trapped-other",
+   "name": "e1004-trapped-other",
+   "description": "Use when determining how the trapped-radiation environment applies to a non-LEO/GEO/MEO orbit (HEO, GTO, interplanetary transfer) under ECSS-E-ST-10-04C: determine the orbit regime from perigee/apogee altitude, split the trajectory into segments inside versus beyond the geomagnetically trapped domain using the magnetopause standoff distance, verify both trapped species (proton and electron) are covered wherever trapped-domain dwell exists, and hand off out-of-domain segments to the interplanetary radiation leaves rather than silently dropping them. Trigger: HEO, GTO, geostationary transfer orbit, highly elliptical orbit, interplanetary trajectory, escape trajectory, trapped radiation, magnetopause standoff, Van Allen belt crossing, e-st-10-04, ecss, space environment, radiation environment.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "trapped-radiation",
+    "heo",
+    "gto",
+    "interplanetary",
+    "magnetopause",
+    "radiation-environment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1004-trapped-proton-wc",
+   "name": "e1004-trapped-proton-wc",
+   "description": "Use when computing worst-case trapped proton radiation flux spectra for a space mission per ECSS-E-ST-10-04C: apply AP-8/AP-9-class models over solar maximum and solar minimum epochs, build the point-wise maximum envelope across source models and epochs, and categorize which source dominates at each energy to support radiation design margin analysis. Trigger: trapped protons, AP-8, AP-9, solar maximum, solar minimum, worst-case spectrum, point-wise envelope, radiation design margin, e-st-10-04, ecss.",
+   "tags": [
+    "ecss",
+    "e-st-10-04c",
+    "trapped-protons",
+    "ap-8",
+    "ap-9",
+    "solar-maximum",
+    "solar-minimum",
+    "worst-case"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
    "router_doc": false
   },
   {

@@ -300,7 +300,189 @@
 # leaves). Wave-46 new leaves: "gnc-autonomy/control/active-disturbance-rejection-control", "gnc-autonomy/control/backstepping-control", "structures/loads/continuous-turbulence-gust-loads", "structures/composites/laminate-progressive-failure".
 # Corpus: 1334 tasks (1326 prior plus 8 domain tasks). Owner: Ops
 # Manager, Wave 46 build.
+# P5.2 / Wave 52 (2026-09-10): Hit@1 corpus completion for the ECSS
+# E-ST-10C tranches shipped in wave-51 without router tasks (the CCD
+# leaf template scoped SKILL.md + scripts only, no corpus tasks). No
+# new leaves. 100 uncovered space-systems/ecss leaves get 2 tasks
+# each: e10-* (22), e1002-* (24), e1003-* (12), e1004-* (42).
+# Corpus: 1336 -> 1536 tasks (+200). Owner: Ops Manager, Wave 52 build.
 tasks:
+  - id: w52-e10-budget-margin-policy-1
+    query: "consolidate the mass and power technical budgets at system level and apply the project margin policy with maturity and contingency margin"
+    intent: "ECSS technical budget consolidation; maturity and contingency margin roll-up"
+    expected_skill: "space-systems/ecss/e10-budget-margin-policy"
+  - id: w52-e10-budget-margin-policy-2
+    query: "check the consolidated system budget against the allocated value using the phase-appropriate minimum remaining margin"
+    intent: "ECSS margin policy; minimum remaining margin check against allocated value"
+    expected_skill: "space-systems/ecss/e10-budget-margin-policy"
+  - id: w52-e10-changes-nc-1
+    query: "assess whether an engineering change request impacts the requirements baseline and route it to the ccb per m-st-40"
+    intent: "ECSS engineering change control; baseline impact and CCB routing"
+    expected_skill: "space-systems/ecss/e10-changes-nc"
+  - id: w52-e10-changes-nc-2
+    query: "disposition a nonconformance ncr against an approved requirement per q-st-10-09 and update the baseline"
+    intent: "ECSS nonconformance control; NCR disposition and baseline update"
+    expected_skill: "space-systems/ecss/e10-changes-nc"
+  - id: w52-e10-coordsys-units-1
+    query: "check that engineering data uses consistent reference coordinate systems and SI units before exchange between disciplines"
+    intent: "ECSS coordinate system and SI unit consistency check"
+    expected_skill: "space-systems/ecss/e10-coordsys-units"
+  - id: w52-e10-coordsys-units-2
+    query: "verify the coordinate systems document csd records the approved frames and transformations per e-st-10-09"
+    intent: "ECSS coordinate systems document; approved frame and transformation records"
+    expected_skill: "space-systems/ecss/e10-coordsys-units"
+  - id: w52-e10-delivery-per-review-1
+    query: "build the systems engineering document delivery schedule per annex a mapping se documents to review milestones"
+    intent: "ECSS Annex A delivery schedule; SE document to review milestone mapping"
+    expected_skill: "space-systems/ecss/e10-delivery-per-review"
+  - id: w52-e10-delivery-per-review-2
+    query: "check whether the pdr review deliverables satisfy the annex a document delivery schedule"
+    intent: "ECSS Annex A; review deliverables readiness against delivery schedule"
+    expected_skill: "space-systems/ecss/e10-delivery-per-review"
+  - id: w52-e10-mdd-drd-1
+    query: "validate the mission description document mdd sections against annex b before the mission definition review"
+    intent: "ECSS mission description document; Annex B DRD section validation"
+    expected_skill: "space-systems/ecss/e10-mdd-drd"
+  - id: w52-e10-mdd-drd-2
+    query: "check that the mission statement carries an objective target and timeframe and the mission scenario follows launch to disposal order"
+    intent: "ECSS MDD mission statement and mission scenario ordering check"
+    expected_skill: "space-systems/ecss/e10-mdd-drd"
+  - id: w52-e10-phase-task-overview-1
+    query: "confirm which system engineering tasks belong to phase 0 mission analysis versus phase b definition"
+    intent: "ECSS per-phase SE task overview; phase 0 versus phase B task lists"
+    expected_skill: "space-systems/ecss/e10-phase-task-overview"
+  - id: w52-e10-phase-task-overview-2
+    query: "audit the project plan against the generic per phase task list from phase c through phase f disposal"
+    intent: "ECSS phase task overview; phase C through phase F audit"
+    expected_skill: "space-systems/ecss/e10-phase-task-overview"
+  - id: w52-e10-pretailoring-1
+    query: "determine which clause 5 requirements are applicable optional or not applicable for the space segment product type using the pre-tailoring matrix"
+    intent: "ECSS pre-tailoring matrix; clause 5 applicability by product type"
+    expected_skill: "space-systems/ecss/e10-pretailoring"
+  - id: w52-e10-pretailoring-2
+    query: "check the project's carried forward requirement clauses against the resolved pre-tailoring applicability for missing mandatory clauses"
+    intent: "ECSS pre-tailoring; carried-forward clause audit for missing mandatory clauses"
+    expected_skill: "space-systems/ecss/e10-pretailoring"
+  - id: w52-e10-req-allocation-1
+    query: "allocate each requirement to the function it drives via functional analysis and the function tree"
+    intent: "ECSS requirement allocation; functional analysis and function tree"
+    expected_skill: "space-systems/ecss/e10-req-allocation"
+  - id: w52-e10-req-allocation-2
+    query: "check requirement allocation completeness for orphan functions and unallocated requirements against configuration items"
+    intent: "ECSS requirement allocation completeness; orphan function and CI check"
+    expected_skill: "space-systems/ecss/e10-req-allocation"
+  - id: w52-e10-req-analysis-1
+    query: "derive and generate the requirement set for the system and each lower level from customer requirement text, documenting it and checking for an orphan requirement with no valid parent chain, per clause 5.2.1"
+    intent: "ECSS requirement analysis; derivation and orphan requirement check per 5.2.1"
+    expected_skill: "space-systems/ecss/e10-req-analysis"
+  - id: w52-e10-req-analysis-2
+    query: "verify each derived requirement carries a rationale and is under configuration control per clause 5.2.1"
+    intent: "ECSS requirement analysis; rationale and configuration control per 5.2.1"
+    expected_skill: "space-systems/ecss/e10-req-analysis"
+  - id: w52-e10-req-consolidation-1
+    query: "consolidate a requirement subject common to several next lower level products into a support specification"
+    intent: "ECSS requirement consolidation; support specification for shared subjects"
+    expected_skill: "space-systems/ecss/e10-req-consolidation"
+  - id: w52-e10-req-consolidation-2
+    query: "resolve a flow-down conflict where the same requirement flows down to two products with disagreeing values"
+    intent: "ECSS requirement consolidation; flow-down conflict resolution"
+    expected_skill: "space-systems/ecss/e10-req-consolidation"
+  - id: w52-e10-req-risk-analysis-1
+    query: "score the likelihood times severity requirement risk class for a derived requirement and feed the project risk register"
+    intent: "ECSS requirement risk analysis; likelihood x severity scoring into risk register"
+    expected_skill: "space-systems/ecss/e10-req-risk-analysis"
+  - id: w52-e10-req-risk-analysis-2
+    query: "gate baselining of a medium requirement risk on a defined mitigation consistent with m-st-80"
+    intent: "ECSS requirement risk analysis; mitigation gate before baselining"
+    expected_skill: "space-systems/ecss/e10-req-risk-analysis"
+  - id: w52-e10-req-traceability-1
+    query: "keep the requirements traceability matrix rtm aligned across customer derived and allocated requirements"
+    intent: "ECSS requirement traceability matrix; alignment across requirement levels"
+    expected_skill: "space-systems/ecss/e10-req-traceability"
+  - id: w52-e10-req-traceability-2
+    query: "detect broken missing or dangling bidirectional trace links before a review gate"
+    intent: "ECSS requirement traceability; broken and dangling trace link detection"
+    expected_skill: "space-systems/ecss/e10-req-traceability"
+  - id: w52-e10-req-verif-methods-1
+    query: "tag every requirement in the specification with a method and a level per clause 5.2.3.4 before e-st-10-02 planning begins"
+    intent: "ECSS requirement method/level tagging; clause 5.2.3.4"
+    expected_skill: "space-systems/ecss/e10-req-verif-methods"
+  - id: w52-e10-req-verif-methods-2
+    query: "flag any requirement in the set that is missing either its method or its level assignment before the detailed e-st-10-02 planning stage"
+    intent: "ECSS requirement method/level completeness flag before E-ST-10-02 planning"
+    expected_skill: "space-systems/ecss/e10-req-verif-methods"
+  - id: w52-e10-risk-mgmt-1
+    query: "identify and analyse a project technical risk into a likelihood times severity class and plan mitigation actions"
+    intent: "ECSS technical risk management; identification, analysis, mitigation planning"
+    expected_skill: "space-systems/ecss/e10-risk-mgmt"
+  - id: w52-e10-risk-mgmt-2
+    query: "assess residual risk remaining after mitigation and escalate risk above the acceptable band for formal acceptance"
+    intent: "ECSS technical risk management; residual risk escalation for acceptance"
+    expected_skill: "space-systems/ecss/e10-risk-mgmt"
+  - id: w52-e10-scr-drd-1
+    query: "validate the system concept report scr trade summary scores every candidate concept against technical programmatic cost and risk criteria"
+    intent: "ECSS system concept report; Annex C trade summary validation"
+    expected_skill: "space-systems/ecss/e10-scr-drd"
+  - id: w52-e10-scr-drd-2
+    query: "check that the recommended concept in the system concept report is a feasible candidate at the end of phase 0/a"
+    intent: "ECSS system concept report; recommended concept feasibility check"
+    expected_skill: "space-systems/ecss/e10-scr-drd"
+  - id: w52-e10-sep-1
+    query: "decide whether a phase transition or requirements baseline change forces the system engineering plan sep to be revised"
+    intent: "ECSS system engineering plan; maintenance-trigger decision"
+    expected_skill: "space-systems/ecss/e10-sep"
+  - id: w52-e10-sep-2
+    query: "check that lower level product assurance and configuration management plans stay baseline consistent with the sep"
+    intent: "ECSS SEP; lower-level plan baseline-consistency check"
+    expected_skill: "space-systems/ecss/e10-sep"
+  - id: w52-e10-sep-drd-1
+    query: "check the system engineering plan document carries every mandatory annex d content block including se organisation and se tasks"
+    intent: "ECSS SEP document; Annex D mandatory content block check"
+    expected_skill: "space-systems/ecss/e10-sep-drd"
+  - id: w52-e10-sep-drd-2
+    query: "confirm every organisation interface in the sep is covered by an assigned role and every se task has a known owner"
+    intent: "ECSS SEP DRD; organisation interface role and task owner check"
+    expected_skill: "space-systems/ecss/e10-sep-drd"
+  - id: w52-e10-spec-tree-1
+    query: "establish the specification tree mirroring the product tree with one technical specification per node"
+    intent: "ECSS specification tree; one technical specification per product-tree node"
+    expected_skill: "space-systems/ecss/e10-spec-tree"
+  - id: w52-e10-spec-tree-2
+    query: "check the specification tree for orphan or duplicate specs and confirm parent links match the product tree"
+    intent: "ECSS specification tree; orphan/duplicate spec and parent-link check"
+    expected_skill: "space-systems/ecss/e10-spec-tree"
+  - id: w52-e10-tech-matrix-drd-1
+    query: "validate the technology matrix document trl values are integer 1 to 9 and non regressing against target trl"
+    intent: "ECSS technology matrix DRD; TRL value validity and non-regression"
+    expected_skill: "space-systems/ecss/e10-tech-matrix-drd"
+  - id: w52-e10-tech-matrix-drd-2
+    query: "check every technology matrix row carries mission applicability resolved rather than left blank or tbd"
+    intent: "ECSS technology matrix DRD; mission applicability field completeness"
+    expected_skill: "space-systems/ecss/e10-tech-matrix-drd"
+  - id: w52-e10-technology-1
+    query: "identify critical technologies not yet mature enough for the mission and assess their trl per iso 16290"
+    intent: "ECSS technology plan; critical technology identification and TRL assessment"
+    expected_skill: "space-systems/ecss/e10-technology"
+  - id: w52-e10-technology-2
+    query: "define the technology development plan that closes the trl gap and track the associated technology risk"
+    intent: "ECSS technology plan; development plan closing the TRL gap"
+    expected_skill: "space-systems/ecss/e10-technology"
+  - id: w52-e10-tp-drd-1
+    query: "check the technology plan tp document against its annex e drd content including trl assessment plan and maturation schedule"
+    intent: "ECSS Technology Plan DRD; Annex E content block check"
+    expected_skill: "space-systems/ecss/e10-tp-drd"
+  - id: w52-e10-tp-drd-2
+    query: "assess whether the technology development schedule commits to a trl assessment due date consistent with the need-by date"
+    intent: "ECSS Technology Plan DRD; assessment-due vs need-by date consistency"
+    expected_skill: "space-systems/ecss/e10-tp-drd"
+  - id: w52-e10-trs-flowdown-1
+    query: "flow customer technical requirements down to next lower level technical requirements specifications trs"
+    intent: "ECSS TRS flow-down; customer TS to next-lower-level TRS"
+    expected_skill: "space-systems/ecss/e10-trs-flowdown"
+  - id: w52-e10-trs-flowdown-2
+    query: "check that no child trs contradicts the parent ts or a sibling trs and is structured per e-st-10-06"
+    intent: "ECSS TRS flow-down; parent/sibling consistency and E-ST-10-06 structure"
+    expected_skill: "space-systems/ecss/e10-trs-flowdown"
   - id: p1
     query: "determine the do-178c software-levels for the flight control function whose failure condition is catastrophic and draft the psac planning scope"
     intent: "DO-178C software level / DAL determination from failure-condition severity"
@@ -426,9 +608,8 @@ tasks:
     intent: "orbit dynamics; Hohmann maneuver and vis-viva"
     expected_skill: "gnc-autonomy/space/orbit-dynamics"
   - id: g2
-    query: "propagate an orbit and check whether the J2 perturbation drift is significant for\
-  \ the mission"
-    intent: "orbit dynamics; J2 perturbation significance"
+    query: "propagate an orbit and check whether the J2 nodal-regression drift is significant for the mission's orbit maintenance planning"
+    intent: "orbit dynamics; J2 nodal-regression drift significance for orbit maintenance (propagation domain, not environment reference data)"
     expected_skill: "gnc-autonomy/space/orbit-dynamics"
   - id: g3
     query: "design a PID controller and check gain margin and phase margin for closed loop stability"
@@ -481,9 +662,8 @@ tasks:
     intent: "vehicle sizing; class-I weight estimation and weight fractions"
     expected_skill: "vehicle-design/sizing/weight-estimation"
   - id: w2
-    query: "draft a preflight weight-and-balance sheet and verify the center of gravity is inside\
-  \ the envelope"
-    intent: "vehicle loading; weight and balance and CG envelope"
+    query: "draft a preflight weight-and-balance sheet for the aircraft and verify the center of gravity is inside the certified CG envelope"
+    intent: "vehicle loading; aircraft weight and balance and CG envelope (NOT spacecraft gravity-environment modeling)"
     expected_skill: "vehicle-design/sizing/weight-estimation"
   - id: sa3
     query: "build a fault tree and extract the minimal cut sets for a flight control failure\
@@ -682,8 +862,8 @@ tasks:
     intent: "cross-cutting; ISA standard atmosphere state"
     expected_skill: "cross-cutting/units-atmos/isa-atmosphere"
   - id: isa2
-    query: "compute the atmospheric density at cruise altitude from the standard atmosphere model"
-    intent: "cross-cutting; standard atmosphere density"
+    query: "compute ISA standard atmosphere density at cruise altitude for flight performance calculations"
+    intent: "cross-cutting; ISA standard atmosphere density at aircraft altitudes (NOT orbital neutral-atmosphere modeling)"
     expected_skill: "cross-cutting/units-atmos/isa-atmosphere"
   - id: xp1
     query: "quality system for safety assessment"
@@ -5974,6 +6154,675 @@ tasks:
     intent: "structures/composites; laminate-progressive-failure: the last-ply-failure load of a laminate by the ply-discount method with the per-event failure sequence, the failed-ply stiffness discount, the in-plane laminate stiffness reassembly and the reapplied load resultant to the ultimate laminate load of the progressive-failure-analysis"
     expected_skill: "structures/composites/laminate-progressive-failure"
 
+
+# P5.3 / Wave 50 (2026-09-09): reduced wave - one leaf
+# (gnc-autonomy adaptive-backstepping, tuning functions), 2 tasks, ledger 660.
+  - id: w50-adaptive-backstepping-1
+    query: "design the tuning-functions adaptive backstepping law for the second-order strict-feedback plant with the unknown constant parameter inside the recursion: form the parameter estimate update driven by the second tuning function carried through the z1 z2 error recursion, assemble the adaptive virtual control and the final control, and audit the augmented Lyapunov function with the parameter-error term"
+    intent: "gnc-autonomy/control; adaptive-backstepping by the tuning-functions construction: the parameter estimate updated by the second tuning function carried through the z1 z2 recursion of the second-order strict-feedback plant, the adaptive virtual control and final control assembled, and the augmented Lyapunov function with the parameter-error term audited"
+    expected_skill: "gnc-autonomy/control/adaptive-backstepping"
+  - id: w50-adaptive-backstepping-2
+    query: "apply tuning-function adaptive backstepping to the second-order strict-feedback nonlinear system with the unknown plant parameter: compute the z1 z2 error variables, the theta-hat virtual control and the carried-through tuning function tau2, and verify the parameter estimate converges to the unknown constant"
+    intent: "gnc-autonomy/control; tuning-function adaptive backstepping on the second-order strict-feedback system with the unknown plant parameter: the z1 z2 error variables, the theta_hat virtual control and the carried-through tuning function tau2 computed, and the convergence of the parameter estimate to the unknown constant verified"
+    expected_skill: "gnc-autonomy/control/adaptive-backstepping"
+  - id: w52-e1002-acceptance-1
+    query: "run the acceptance stage per e-st-10-02c clause 5.2.4.3 for a protoflight article: confirm flight-standard workmanship eligibility, decide whether protoflight credit satisfies acceptance test severity without exceeding the qualified margin, and disposition the workmanship outcome"
+    intent: "ECSS acceptance stage (e-st-10-02c 5.2.4.3): acceptance-article eligibility on flight-standard workmanship, protoflight credit vs dedicated acceptance test, overtest guard against the qualified margin, and workmanship/performance disposition"
+    expected_skill: "space-systems/ecss/e1002-acceptance"
+  - id: w52-e1002-acceptance-2
+    query: "close out the acceptance review for a flight article: verify the acceptance article matches the qualified flight-standard baseline (parts, materials, processes) and check the acceptance test did not overstep the article's qualified margin"
+    intent: "ECSS acceptance-article baseline eligibility check and overtest guard ahead of the acceptance review close-out"
+    expected_skill: "space-systems/ecss/e1002-acceptance"
+  - id: w52-e1002-approach-1
+    query: "define the ecss e-st-10-02c clause 5.2.1 verification approach: decide which requirements enter verification, check method applicability at the current life-cycle stage, and assess the risk mitigation for a requirement not verified by test"
+    intent: "verification approach under clause 5.2.1: requirement entry decision, method-applicability-at-stage check, and risk assessment/mitigation for a non-test-verified requirement"
+    expected_skill: "space-systems/ecss/e1002-approach"
+  - id: w52-e1002-approach-2
+    query: "roll verification closure status up by verification level and confirm the overall verification approach plan is complete before it moves to detailed planning"
+    intent: "verification approach roll-up: closure status by level and plan-completeness confirmation (clause 5.2.1)"
+    expected_skill: "space-systems/ecss/e1002-approach"
+  - id: w52-e1002-facilities-1
+    query: "qualify the integration and test facility per e-st-10-02c clause 5.2.6.6 before it hosts a flight-article test: map the test method to the required facility type, verify the operating envelope covers the test range, and confirm the facility carries a live q-st-20-07 test-centre accreditation"
+    intent: "AIT facility qualification (clause 5.2.6.6): method-to-facility-type mapping, operating-envelope coverage, and Q-ST-20-07 test-centre accreditation currency"
+    expected_skill: "space-systems/ecss/e1002-facilities"
+  - id: w52-e1002-facilities-2
+    query: "check calibration currency for the test facility and its measurement instruments, confirm the test tool's interfaces fit the article, and roll many facility qualification records up into one ait readiness gate"
+    intent: "facility/test-tool calibration currency, interface fit, and AIT readiness gate roll-up"
+    expected_skill: "space-systems/ecss/e1002-facilities"
+  - id: w52-e1002-gse-tools-1
+    query: "qualify the mgse handling fixture before it contacts flight hardware per e-st-10-02c clause 5.2.6.2: run the proof test above design load and set the periodic re-proof interval"
+    intent: "GSE qualification (clause 5.2.6.2): MGSE proof test above design load and periodic re-proof scheduling before flight-hardware contact"
+    expected_skill: "space-systems/ecss/e1002-gse-tools"
+  - id: w52-e1002-gse-tools-2
+    query: "classify the egse test stimulation equipment, verify its interface safety verification and calibration traceability before it is used as verification tooling"
+    intent: "EGSE classification, interface safety verification, and calibration traceability as qualified verification tooling"
+    expected_skill: "space-systems/ecss/e1002-gse-tools"
+  - id: w52-e1002-in-orbit-1
+    query: "identify which requirements must close in the in-orbit verification stage per e-st-10-02c clause 5.2.4.5 and tie their closure to post-launch commissioning evidence"
+    intent: "in-orbit verification stage (clause 5.2.4.5): requirement identification and closure against commissioning evidence"
+    expected_skill: "space-systems/ecss/e1002-in-orbit"
+  - id: w52-e1002-in-orbit-2
+    query: "an in-orbit anomaly affects a deployment mechanism whose requirement was already closed on the ground: reopen that requirement for anomaly-driven re-verification"
+    intent: "anomaly-driven re-verification: reopening a previously closed requirement after an in-orbit anomaly"
+    expected_skill: "space-systems/ecss/e1002-in-orbit"
+  - id: w52-e1002-levels-1
+    query: "define the equipment/subsystem/element/segment/system verification-level hierarchy of the product tree per e-st-10-02c clause 5.2.3 and assign each requirement to the level of the component it is allocated to"
+    intent: "verification-level hierarchy (clause 5.2.3): product-tree level definition and per-requirement level assignment"
+    expected_skill: "space-systems/ecss/e1002-levels"
+  - id: w52-e1002-levels-2
+    query: "an interface requirement spans two subsystem components: verify it at their closest common ancestor level in the product tree, not at each component's own level, and check whether that level is ready to close"
+    intent: "interface-requirement common-ancestor level assignment and verification-level closure check"
+    expected_skill: "space-systems/ecss/e1002-levels"
+  - id: w52-e1002-method-analysis-1
+    query: "select the e-st-10-02c clause 5.2.2.3 analysis technique -- worst-case, statistical, qualitative, classical calculation, or similarity -- for a requirement being verified by analysis"
+    intent: "verification-by-analysis technique selection (clause 5.2.2.3): worst-case, statistical, qualitative, classical-calculation, or similarity"
+    expected_skill: "space-systems/ecss/e1002-method-analysis"
+  - id: w52-e1002-method-analysis-2
+    query: "validate the heritage conditions -- verified reference item, design/manufacturing equivalence, enveloped operating environment -- that must all hold before closing a case by verification by similarity"
+    intent: "verification-by-similarity heritage validation conditions and analysis-plan completeness roll-up"
+    expected_skill: "space-systems/ecss/e1002-method-analysis"
+  - id: w52-e1002-method-general-1
+    query: "determine which e-st-10-02c clause 5.2.2.1 verification method -- test, analysis, review-of-design, or inspection -- satisfies a requirement, and enforce that a safety-critical requirement always carries test"
+    intent: "general verification-method selection (clause 5.2.2.1): method applicability by requirement category and the safety-critical-always-test rule"
+    expected_skill: "space-systems/ecss/e1002-method-general"
+  - id: w52-e1002-method-general-2
+    query: "apply the test-over-analysis-over-review-of-design-over-inspection precedence rule with a stated rationale whenever a more rigorous eligible method is skipped, and roll up the verification plan's per-method counts"
+    intent: "verification-method precedence rule and per-method verification-plan roll-up"
+    expected_skill: "space-systems/ecss/e1002-method-general"
+  - id: w52-e1002-method-inspection-1
+    query: "apply the e-st-10-02c clause 5.2.2.5 inspection method: categorize a checklist item as a visual inspection technique or a measurement inspection technique and evaluate its outcome against acceptance criteria"
+    intent: "inspection verification method (clause 5.2.2.5): visual vs measurement checklist-item classification and outcome evaluation"
+    expected_skill: "space-systems/ecss/e1002-method-inspection"
+  - id: w52-e1002-method-inspection-2
+    query: "check the inspection programme's completeness in the verification plan and roll the checklist item statuses up to an overall inspection verdict"
+    intent: "inspection-programme completeness check and checklist status roll-up to an inspection verdict"
+    expected_skill: "space-systems/ecss/e1002-method-inspection"
+  - id: w52-e1002-method-rod-1
+    query: "verify a requirement's compliance by the e-st-10-02c clause 5.2.2.4 review-of-design method: classify a design-evidence item as direct evidence (drawing, analysis report) or heritage evidence (heritage data, similarity data)"
+    intent: "review-of-design verification method (clause 5.2.2.4): direct-vs-heritage design-evidence classification"
+    expected_skill: "space-systems/ecss/e1002-method-rod"
+  - id: w52-e1002-method-rod-2
+    query: "apply the admissibility rule for a safety-critical requirement backed only by heritage evidence in the review-of-design report, and roll up the requirement's compliant/non_compliant/open/not_applicable disposition"
+    intent: "review-of-design safety-critical heritage-evidence admissibility rule and requirement disposition roll-up"
+    expected_skill: "space-systems/ecss/e1002-method-rod"
+  - id: w52-e1002-method-test-1
+    query: "determine whether the test method can serve as the formal verification method for a requirement per e-st-10-02c clause 5.2.2.2: check the outcome is physically measurable, a representative test article is available, and the operational environment is reproducible in a facility"
+    intent: "test-method formal-verification applicability check (clause 5.2.2.2): measurable outcome, representative article, reproducible environment, pass/fail criteria"
+    expected_skill: "space-systems/ecss/e1002-method-test"
+  - id: w52-e1002-method-test-2
+    query: "validate that a test-method verification record delegates detailed procedure, configuration and criteria-level detail to an e-st-10-03 test specification rather than embedding it"
+    intent: "test-method delegation to an E-ST-10-03 test specification and test-readiness roll-up"
+    expected_skill: "space-systems/ecss/e1002-method-test"
+  - id: w52-e1002-models-1
+    query: "define the project's verification model philosophy per e-st-10-02c clause 5.2.5: choose prototype vs protoflight and list the physical models -- stm, em, qm, pfm, fm, eqm -- with purpose and configuration for the verification plan"
+    intent: "verification model philosophy (clause 5.2.5): prototype-vs-protoflight choice and STM/EM/QM/PFM/FM/EQM model list for the Verification Plan"
+    expected_skill: "space-systems/ecss/e1002-models"
+  - id: w52-e1002-models-2
+    query: "check that a chosen physical model is representative of the item it stands in for and flag re-verification when a design change affects a model-based verification result"
+    intent: "model representativeness check and re-verification flag after a design change to a model-based result"
+    expected_skill: "space-systems/ecss/e1002-models"
+  - id: w52-e1002-other-planning-docs-1
+    query: "determine which other e-st-10-02c clause 5.2.8.3 verification planning documents -- the ait plan interface, the analysis plans -- are required based on the verification method assigned to each requirement"
+    intent: "other verification planning documents (clause 5.2.8.3): AIT-plan-interface and analysis-plan triggering by assigned verification method"
+    expected_skill: "space-systems/ecss/e1002-other-planning-docs"
+  - id: w52-e1002-other-planning-docs-2
+    query: "check the ait plan interface document against its minimum content fields and against full cross-reference coverage of the requirement identifiers assigned to the test method"
+    intent: "AIT-plan-interface document completeness and requirement cross-reference coverage check"
+    expected_skill: "space-systems/ecss/e1002-other-planning-docs"
+  - id: w52-e1002-phasing-1
+    query: "phase verification activities with the project life cycle per e-st-10-02c clause 5.2.7: locate a life-cycle phase, decide whether it carries a verification output requirement, and list the outputs that phase still owes"
+    intent: "verification phasing with the life cycle (clause 5.2.7): phase location, output applicability, and owed-output gap listing"
+    expected_skill: "space-systems/ecss/e1002-phasing"
+  - id: w52-e1002-phasing-2
+    query: "check entry readiness for the next life-cycle phase and rank per-requirement verification maturity to roll up a project-wide verification status"
+    intent: "phase entry-readiness check and requirement-maturity roll-up to a project-wide verification status"
+    expected_skill: "space-systems/ecss/e1002-phasing"
+  - id: w52-e1002-post-landing-1
+    query: "run the post-landing verification stage per e-st-10-02c clause 5.2.4.6 for a sample-return canister: assess the recovered item's condition against its pre-flight baseline and flag safety-critical findings"
+    intent: "post-landing verification stage (clause 5.2.4.6): recovered-item condition-vs-baseline assessment and safety-critical finding flag"
+    expected_skill: "space-systems/ecss/e1002-post-landing"
+  - id: w52-e1002-post-landing-2
+    query: "a descent capsule component could not be recovered after splashdown: track it for alternate evidence instead of a post-landing condition assessment"
+    intent: "unrecoverable returned-hardware tracking for alternate evidence under the post-landing stage"
+    expected_skill: "space-systems/ecss/e1002-post-landing"
+  - id: w52-e1002-pre-launch-1
+    query: "confirm pre-launch readiness per e-st-10-02c clause 5.2.4.4: check for transport-induced damage and verify storage shelf-life and environmental-excursion limits were not exceeded"
+    intent: "pre-launch readiness (clause 5.2.4.4): transport-damage check and storage shelf-life/environmental-excursion check"
+    expected_skill: "space-systems/ecss/e1002-pre-launch"
+  - id: w52-e1002-pre-launch-2
+    query: "verify the launch-site health and functional checks are complete and that the as-built launch configuration matches the qualified and accepted baseline before the launch readiness review"
+    intent: "launch-site checkout completeness and as-built-vs-qualified-baseline configuration check ahead of the LRR"
+    expected_skill: "space-systems/ecss/e1002-pre-launch"
+  - id: w52-e1002-process-1
+    query: "run the verification process as a customer-supplier activity per e-st-10-02c clause 5.1: assign the executor role and a different closure approver role for a verification activity"
+    intent: "verification process customer-supplier responsibility assignment (clause 5.1): executor vs closure-approver roles"
+    expected_skill: "space-systems/ecss/e1002-process"
+  - id: w52-e1002-process-2
+    query: "determine which documents a life-cycle phase still owes before it can close, roll individual verification activity statuses up to a single process status, and verify a closure sign-off against required evidence"
+    intent: "phase documentation completeness, activity-status roll-up, and closure sign-off verification"
+    expected_skill: "space-systems/ecss/e1002-process"
+  - id: w52-e1002-qualification-1
+    query: "run the qualification stage of an e-st-10-02c verification programme per clause 5.2.4.2: tailor and close design qualification against requirements by product heritage category using table 5-1, then complete the qualification review QR"
+    intent: "qualification stage (clause 5.2.4.2): design qualification closure ahead of acceptance and the QR"
+    expected_skill: "space-systems/ecss/e1002-qualification"
+  - id: w52-e1002-qualification-2
+    query: "tailor the qualification scope by table 5-1 product heritage category -- new design, unmodified heritage within envelope, or modified/envelope-exceeding heritage -- and confirm every product in scope closes with matching evidence"
+    intent: "Table 5-1 heritage-category qualification tailoring and per-product qualification-evidence closure check"
+    expected_skill: "space-systems/ecss/e1002-qualification"
+  - id: w52-e1002-simulators-1
+    query: "establish simulator qualification for a closed-loop hardware-in-the-loop simulator per e-st-10-02c clause 5.2.6.4: determine the fidelity evidence its role requires before the verification-tool is qualified and its evidence credited"
+    intent: "simulator qualification for verification (clause 5.2.6.4): closed-loop/hardware-in-the-loop fidelity evidence before evidence is credited"
+    expected_skill: "space-systems/ecss/e1002-simulators"
+  - id: w52-e1002-simulators-2
+    query: "decide which fidelity evidence a functional simulator's role requires, check whether it is currently qualified, and flag when a design or interface change triggers simulator re-qualification"
+    intent: "functional-simulator fidelity-evidence requirement and re-qualification trigger on design/interface change"
+    expected_skill: "space-systems/ecss/e1002-simulators"
+  - id: w52-e1002-stages-1
+    query: "define which of the five e-st-10-02c clause 5.2.4.1 verification stages -- qualification, acceptance, pre-launch, in-orbit, post-landing -- apply to a product and what each stage is meant to demonstrate"
+    intent: "verification-stages overview (clause 5.2.4.1): the five-stage sequence and each stage's objective, ahead of detailed stage-specific planning"
+    expected_skill: "space-systems/ecss/e1002-stages"
+  - id: w52-e1002-stages-2
+    query: "sequence the verification stages across a product's launched and recovered life profile before writing the stage-specific plans"
+    intent: "verification-stage sequencing across the launched/recovered life profile as the entry point into stage-specific planning"
+    expected_skill: "space-systems/ecss/e1002-stages"
+  - id: w52-e1002-sw-tools-1
+    query: "qualify the fem solver used to produce verification-by-analysis evidence per e-st-10-02c clause 5.2.6.5: confirm it was validated against reference cases and is under configuration control for the analysis campaign"
+    intent: "software-tool qualification for verification-by-analysis (clause 5.2.6.5): validation-against-reference-cases and configuration-control checks"
+    expected_skill: "space-systems/ecss/e1002-sw-tools"
+  - id: w52-e1002-sw-tools-2
+    query: "check that the analysis conditions fall inside the software tool's validated domain and that a safety-critical analysis use has an independent cross-check before its output is accepted"
+    intent: "analysis-tool validated-domain check and independent cross-check requirement for safety-critical software-tool use"
+    expected_skill: "space-systems/ecss/e1002-sw-tools"
+  - id: w52-e1002-tools-general-1
+    query: "categorize a verification tool and give it a qualification-status category a/b/c/d per e-st-10-02c clause 5.2.6.1 before it is used to generate verification evidence"
+    intent: "general verification-tool classification and category A/B/C/D qualification-status assignment (clause 5.2.6.1)"
+    expected_skill: "space-systems/ecss/e1002-tools-general"
+  - id: w52-e1002-tools-general-2
+    query: "decide whether a tool only supports the verification activity (handling, access) without generating accepted evidence, ahead of routing it to the gse, simulator, software-tool, or facility qualification rules"
+    intent: "supporting-vs-evidence-generating tool distinction as the general classification gate ahead of the specific tool-family qualification leaves"
+    expected_skill: "space-systems/ecss/e1002-tools-general"
+  - id: w52-e1002-vcd-1
+    query: "establish the verification control document per e-st-10-02c clause 5.2.8.2 annex b: validate a recorded verification method and status against their enumerations for a requirement entry"
+    intent: "Verification Control Document (VCD, clause 5.2.8.2 Annex B): method/status enumeration validation per entry"
+    expected_skill: "space-systems/ecss/e1002-vcd"
+  - id: w52-e1002-vcd-2
+    query: "check that the recorded vcd method is permitted for the requirement's category and that a closed vcd entry carries its closure evidence, then roll entries up to a program status"
+    intent: "VCD method-permission-by-category check, closure-evidence check, and entry roll-up to a program status"
+    expected_skill: "space-systems/ecss/e1002-vcd"
+  - id: w52-e1002-vp-1
+    query: "produce the verification plan per e-st-10-02c clause 5.2.8.1 annex a: check whether a chosen verification method is applicable at a given verification stage for an entry"
+    intent: "Verification Plan (VP, clause 5.2.8.1 Annex A): method-applicable-at-stage check per entry"
+    expected_skill: "space-systems/ecss/e1002-vp"
+  - id: w52-e1002-vp-2
+    query: "find completeness and consistency issues across the whole verification plan, roll entry closure statuses up to an overall closure status, and decide whether the plan is ready"
+    intent: "VP-wide completeness/consistency check, closure-status roll-up, and plan-readiness decision"
+    expected_skill: "space-systems/ecss/e1002-vp"
+
+# P5.2 / Wave 52 (2026-09-10): e1002-* family merged (ECSS-E-ST-10-02C
+# verification leaves, 24 leaves: acceptance, approach, facilities,
+# gse-tools, in-orbit, levels, method-analysis, method-general,
+# method-inspection, method-rod, method-test, models,
+# other-planning-docs, phasing, post-landing, pre-launch, process,
+# qualification, simulators, stages, sw-tools, tools-general, vcd, vp).
+# Corpus: 1428 tasks (1380 prior plus 48 domain tasks, w52-e1002-<slug>-1/-2
+# per leaf). e10 family already merged (44 tasks); e1003 (12 leaves) and
+# e1004 (42 leaves) pending other wave-52 turns; final corpus target
+# remains 1536 per the wave-52 brief. Owner: Ops Manager, Wave 52 build.
+  - id: w52-e1003-eq-acceptance-1
+    query: "derive the equipment acceptance test baseline per e-st-10-03c clause 5.3 tables 5-3 and 5-4: work out the acceptance level and acceptance duration for each applicable test type from the qualification baseline plus the margin and duration reduction rules"
+    intent: "Equipment acceptance test baseline (clause 5.3, Tables 5-3/5-4): derive acceptance level/duration per test type from qualification baseline"
+    expected_skill: "space-systems/ecss/e1003-eq-acceptance"
+  - id: w52-e1003-eq-acceptance-2
+    query: "review the released equipment acceptance test baseline against tables 5-3 and 5-4: confirm every applicable test type's acceptance level and duration was cut down from its qualification counterpart per the margin and duration reduction rules, and flag any test type with a coverage gap in the baseline before it goes to the test programme"
+    intent: "Acceptance-below-qualification guard and coverage-gap check on the acceptance test baseline before release"
+    expected_skill: "space-systems/ecss/e1003-eq-acceptance"
+  - id: w52-e1003-eq-electrical-1
+    query: "scope the equipment electrical and rf test set under e-st-10-03c clause 5.5.5: determine which of emc, magnetic, esd, passive intermodulation, multipactor, and corona/arc discharge tests apply to this item from its risk flags"
+    intent: "Equipment electrical/RF test applicability (clause 5.5.5): EMC/magnetic/ESD/PIM/multipactor/corona-arc from risk flags"
+    expected_skill: "space-systems/ecss/e1003-eq-electrical"
+  - id: w52-e1003-eq-electrical-2
+    query: "record the status -- not applicable, missing, passed, or failed -- for each electrical/rf test in the set and roll the results up into the equipment's electrical test campaign disposition before qualification sign-off"
+    intent: "Per-test status recording and campaign disposition roll-up for the equipment electrical/RF test set"
+    expected_skill: "space-systems/ecss/e1003-eq-electrical"
+  - id: w52-e1003-eq-general-tests-1
+    query: "run the general equipment test requirements of e-st-10-03c clause 5.5.1 at each position in the test sequence: execute a comprehensive functional/performance test at the baseline and final positions and an abbreviated one at interim positions unless an anomaly is suspected"
+    intent: "Clause 5.5.1 functional/performance test execution across baseline, interim, and final sequence positions"
+    expected_skill: "space-systems/ecss/e1003-eq-general-tests"
+  - id: w52-e1003-eq-general-tests-2
+    query: "verify physical configuration -- mass properties and visual inspection -- at each equipment test point, confirm the launch configuration for any test representative of the launch environment, and close out the sequence once every mandatory position is present"
+    intent: "Physical-configuration and launch-configuration verification at each test point, sequence closeout check"
+    expected_skill: "space-systems/ecss/e1003-eq-general-tests"
+  - id: w52-e1003-eq-general-1
+    query: "verify the general equipment test requirements of e-st-10-03c clause 5.1: confirm the test model -- qualification model, protoflight model, or flight model -- carries the correct campaign before picking a qualification, acceptance, or protoflight baseline"
+    intent: "General equipment-test requirements (clause 5.1): test-model-to-campaign applicability check ahead of baseline selection"
+    expected_skill: "space-systems/ecss/e1003-eq-general"
+  - id: w52-e1003-eq-general-2
+    query: "check that the equipment test configuration is flight-representative -- or has a documented deviation with every required interface simulated -- and that mechanical and electrical interface checks bookend the equipment test sequence"
+    intent: "Flight-representative test-configuration check and interface-check bookending across the equipment test sequence"
+    expected_skill: "space-systems/ecss/e1003-eq-general"
+  - id: w52-e1003-eq-mechanical-1
+    query: "determine which equipment mechanical tests under e-st-10-03c clause 5.5.2 apply to this item -- physical properties, static/spin/sine-burst acceleration, sinusoidal vibration, random vibration, acoustic, shock, and micro-vibration"
+    intent: "Mechanical test applicability determination (clause 5.5.2): physical properties/acceleration/vibration/acoustic/shock/micro-vibration"
+    expected_skill: "space-systems/ecss/e1003-eq-mechanical"
+  - id: w52-e1003-eq-mechanical-2
+    query: "verify every applicable mechanical test for this equipment item is closed with matching evidence before the mechanical test campaign is declared complete"
+    intent: "Mechanical-test-campaign closure check: every applicable test closed with evidence"
+    expected_skill: "space-systems/ecss/e1003-eq-mechanical"
+  - id: w52-e1003-eq-pressure-1
+    query: "derive which structural-integrity-under-pressure tests apply to this pressurized equipment item -- leak, proof pressure, pressure cycling, and design burst or burst -- from the test campaign and the item's service profile"
+    intent: "Pressure test applicability derivation from campaign and service profile: leak/proof pressure/cycling/burst"
+    expected_skill: "space-systems/ecss/e1003-eq-pressure"
+  - id: w52-e1003-eq-pressure-2
+    query: "decide whether burst margin is demonstrated with a physical burst test on a sacrificial qualification article or a design burst analysis, and sequence a destructive burst test last in the pressure-test set"
+    intent: "Burst-margin demonstration method choice (physical burst vs design burst analysis) and destructive-test sequencing"
+    expected_skill: "space-systems/ecss/e1003-eq-pressure"
+  - id: w52-e1003-eq-protoflight-1
+    query: "decide whether an equipment item must follow the protoflight test approach under e-st-10-03c clause 5.4, with one hardware model demonstrating both design qualification and flight acceptance and no separate dedicated qualification model"
+    intent: "Protoflight-approach applicability decision (clause 5.4): single-model qualification-plus-acceptance demonstration"
+    expected_skill: "space-systems/ecss/e1003-eq-protoflight"
+  - id: w52-e1003-eq-protoflight-2
+    query: "derive the protoflight test level from the table 5-5 qualification/acceptance severities and the protoflight test duration from table 5-6, and flag any protoflight baseline entry that deviates from the standard rule without a documented engineering deviation"
+    intent: "Protoflight level/duration derivation (Tables 5-5/5-6) and deviation flagging against the standard rule"
+    expected_skill: "space-systems/ecss/e1003-eq-protoflight"
+  - id: w52-e1003-eq-qual-1
+    query: "select which test families apply to a piece of equipment and in what sequence per e-st-10-03c table 5-1, tailoring the fixed catalogue of physical properties, functional/performance, mechanical, pressure integrity, thermal, electrical/rf, and mission-specific tests"
+    intent: "Qualification test-family selection and sequencing (Table 5-1) from the fixed equipment test catalogue"
+    expected_skill: "space-systems/ecss/e1003-eq-qual"
+  - id: w52-e1003-eq-qual-2
+    query: "derive each applicable test's qualification level and duration per table 5-2 from its reference level and duration plus the margin and duration factor"
+    intent: "Qualification level/duration derivation (Table 5-2) from reference values plus margin/duration factor"
+    expected_skill: "space-systems/ecss/e1003-eq-qual"
+  - id: w52-e1003-eq-thermal-1
+    query: "choose between a thermal vacuum test and a thermal test at mission pressure for this equipment unit under e-st-10-03c clause 5.5.4, based on whether the unit is exposed to vacuum in its operational environment"
+    intent: "TVAC-vs-mission-pressure thermal test selection (clause 5.5.4) from vacuum exposure"
+    expected_skill: "space-systems/ecss/e1003-eq-thermal"
+  - id: w52-e1003-eq-thermal-2
+    query: "execute the equipment thermal cycle plan -- cold and hot plateaus, dwell stabilization, and functional/performance checks at the temperature extremes -- and verify the test is complete only once every required cycle stabilizes and passes"
+    intent: "Thermal cycle plan execution (plateaus, dwell stabilization, functional checks) and completion verification"
+    expected_skill: "space-systems/ecss/e1003-eq-thermal"
+  - id: w52-e1003-objectives-1
+    query: "define the demonstrated-margin objective for a qualification test campaign and the workmanship-screen objective for an acceptance campaign under e-st-10-03c clause 4.5, ahead of setting test levels and durations"
+    intent: "Test-objective definition by campaign type (clause 4.5): demonstrated-margin vs workmanship-screen"
+    expected_skill: "space-systems/ecss/e1003-objectives"
+  - id: w52-e1003-objectives-2
+    query: "check whether a proposed test's level and duration class actually satisfy the demonstrated-margin objective for qualification or the workmanship-screen objective for acceptance, before test conditions are locked in downstream"
+    intent: "Objective-satisfaction validation for a proposed test (demonstrated-margin vs workmanship-screen) ahead of downstream lock-in"
+    expected_skill: "space-systems/ecss/e1003-objectives"
+  - id: w52-e1003-retesting-1
+    query: "decide whether a design modification made after an article's design was already qualified forces requalification of the affected requirements, or only needs a documented engineering justification, under e-st-10-03c clause 4.6"
+    intent: "Design-modification-after-qualification retesting trigger (clause 4.6): requalification vs justification-only"
+    expected_skill: "space-systems/ecss/e1003-retesting"
+  - id: w52-e1003-retesting-2
+    query: "classify the required retest action -- no retest, requalification, acceptance-level retest, or disallowed for flight -- for an article stored beyond its qualified shelf life, a previously flown article being prepared for reflight, or a qualification-model article proposed for flight use"
+    intent: "Retest-action classification for storage-shelf-life, reflown-hardware, and qualification-model-for-flight cases"
+    expected_skill: "space-systems/ecss/e1003-retesting"
+  - id: w52-e1003-uncertainties-1
+    query: "compute the effective test margin under e-st-10-03c clause 4.4.3 by subtracting the applicable measurement and instrumentation uncertainty from the demonstrated margin, and assess whether the result is still positive"
+    intent: "Effective-margin computation (clause 4.4.3): demonstrated margin minus measurement/instrumentation uncertainty"
+    expected_skill: "space-systems/ecss/e1003-uncertainties"
+  - id: w52-e1003-uncertainties-2
+    query: "flag any project-specific measurement uncertainty value that exceeds its table 4-2 typical value for a test parameter, so it can be justified before it is used to compute an effective test margin"
+    intent: "Project-specific uncertainty vs Table 4-2 typical-value flagging for justification"
+    expected_skill: "space-systems/ecss/e1003-uncertainties"
+
+# P5.2 / Wave 52 (2026-09-10): e1003-* family merged (ECSS-E-ST-10-03C
+# testing leaves, 12 leaves: eq-acceptance, eq-electrical, eq-general,
+# eq-general-tests, eq-mechanical, eq-pressure, eq-protoflight, eq-qual,
+# eq-thermal, objectives, retesting, uncertainties). Corpus: 1452 tasks
+# (1428 prior plus 24 domain tasks, w52-e1003-<slug>-1/-2 per leaf).
+# e10 and e1002 families already merged; e1004 (42 leaves) pending other
+# wave-52 turns; final corpus target remains 1536 per the wave-52 brief.
+# Owner: Ops Manager, Wave 52 build.
+  - id: w52-e1004-annex-a-data-1
+    query: "assemble the annex-a natural em-radiation and solar/geomagnetic indices reference dataset for a mission design case: work out which quantities -- tsi, euv/xuv band irradiance, earth albedo, earth ir emission, f10.7, f10.7a, and geomagnetic index -- apply and confirm each one's solar-cycle phase tagging is present"
+    intent: "Annex A reference dataset: quantity applicability and solar-cycle phase tagging"
+    expected_skill: "space-systems/ecss/e1004-annex-a-data"
+  - id: w52-e1004-annex-a-data-2
+    query: "check that every annex-a reference-data quantity feeding e1004-em-radiation and e1004-indices has its minimum/mean/maximum phase-dependent values correctly ordered, and flag any missing quantity or phase-tagging error before the dataset is released"
+    intent: "Annex A phase-ordering and completeness check ahead of downstream consumption"
+    expected_skill: "space-systems/ecss/e1004-annex-a-data"
+  - id: w52-e1004-annex-c-flux-1
+    query: "pull the annex-c meteoroid flux reference data: apply the gruen-model sporadic background flux and add the meteor-stream shower-enhancement tables for the known shower epochs the mission profile crosses"
+    intent: "Annex C reference data: Gruen-model background plus meteor-stream shower enhancement"
+    expected_skill: "space-systems/ecss/e1004-annex-c-flux"
+  - id: w52-e1004-annex-c-flux-2
+    query: "apply earth-shielding and gravitational-focusing corrections from annex-c to the 1 au meteoroid background flux for a near-earth orbit, to produce the shielding-input environment for impact risk"
+    intent: "Annex C Earth-shielding and gravitational-focusing corrections for near-Earth orbits"
+    expected_skill: "space-systems/ecss/e1004-annex-c-flux"
+  - id: w52-e1004-atmosphere-1
+    query: "select the neutral-atmosphere density model for a drag and orbital-lifetime study -- nrlmsise for general-purpose work or jb2006 for a precision case -- and classify the solar activity level from the f10.7 index to scale the reference thermosphere density"
+    intent: "Neutral-atmosphere model selection (NRLMSISE/JB2006) and solar-activity density scaling"
+    expected_skill: "space-systems/ecss/e1004-atmosphere"
+  - id: w52-e1004-atmosphere-2
+    query: "pick a wind-model for thermospheric wind data on this mission and flag that a non-earth target body needs a planet-specific atmosphere model instead of an earth density model"
+    intent: "Wind-model selection and non-Earth target-body flag for atmosphere modeling"
+    expected_skill: "space-systems/ecss/e1004-atmosphere"
+  - id: w52-e1004-b2-ige2006-1
+    query: "implement the ige-2006 energy-spectrum table lookup: interpolate the tabulated differential electron flux log-linearly between energy and l-shell nodes and resolve the requested confidence level to its flux scale factor"
+    intent: "IGE-2006 internal mechanics: log-linear energy/L-shell interpolation and confidence-level scale factor"
+    expected_skill: "space-systems/ecss/e1004-b2-ige2006"
+  - id: w52-e1004-b2-ige2006-2
+    query: "assemble a full ige-2006 energy-spectrum table for a request and flag any energy or l-shell query outside the tabulated node range as an extrapolation rather than returning a boundary value"
+    intent: "IGE-2006 full spectrum assembly and out-of-range extrapolation flagging"
+    expected_skill: "space-systems/ecss/e1004-b2-ige2006"
+  - id: w52-e1004-b3-meov2-1
+    query: "implement the onera meov2 spectral-model internals for gnss-orbit radiation analysis: represent flux-versus-energy as a function of mcilwain l-shell and interpolate the model's l-shell reference grid to an arbitrary l-shell along a full orbit trace"
+    intent: "MEOv2 internal mechanics: ONERA spectral form vs McIlwain L-shell, grid interpolation"
+    expected_skill: "space-systems/ecss/e1004-b3-meov2"
+  - id: w52-e1004-b3-meov2-2
+    query: "compute per-energy, orbit-averaged, and worst-case-l-shell flux outputs from the meov2 spectral-model's l-shell interpolation for a gnss navigation-orbit case"
+    intent: "MEOv2 per-energy, orbit-averaged, and worst-case-L-shell flux outputs"
+    expected_skill: "space-systems/ecss/e1004-b3-meov2"
+  - id: w52-e1004-b4-flumic-1
+    query: "apply the flumic worst-case trapped electron model: select inner belt, outer belt, or both for a belt-crossing orbit, and apply the confidence percentile and worst-case exposure-duration class the internal-charging design case needs"
+    intent: "FLUMIC belt-region selection and confidence/exposure-duration class"
+    expected_skill: "space-systems/ecss/e1004-b4-flumic"
+  - id: w52-e1004-b4-flumic-2
+    query: "evaluate the flumic electron energy spectrum and integrate the flux above a shielding-relevant threshold energy for a deep-dielectric internal-charging design assessment"
+    intent: "FLUMIC energy-spectrum evaluation and threshold-energy flux integration"
+    expected_skill: "space-systems/ecss/e1004-b4-flumic"
+  - id: w52-e1004-b5-geo-wc-1
+    query: "compute the nasa worst-case geo electron-spectrum from annex-b5's two-population exponential fit: select the lower-energy surface-charging band or the higher-energy penetrating deep-dielectric band and derive the differential and integral flux at a given energy"
+    intent: "Annex B.5 NASA worst-case GEO electron-spectrum two-population fit"
+    expected_skill: "space-systems/ecss/e1004-b5-geo-wc"
+  - id: w52-e1004-b5-geo-wc-2
+    query: "derive the annex-b5 worst-case geo electron fluence for a stated exposure duration and check it against the qualified fluence limit for the internal-charging assessment"
+    intent: "Annex B.5 worst-case fluence derivation vs qualified fluence limit"
+    expected_skill: "space-systems/ecss/e1004-b5-geo-wc"
+  - id: w52-e1004-b6-esp-1
+    query: "build the annex-b (section 6) esp reference annual integral fluence spectrum and apply the confidence-level scale factor for the design percentile the case requires"
+    intent: "Annex B.6 ESP reference fluence spectrum and confidence-level scale factor"
+    expected_skill: "space-systems/ecss/e1004-b6-esp"
+  - id: w52-e1004-b6-esp-2
+    query: "apply the esp mission-duration scale factor to the exposure period, assemble the resulting fluence-above-energy spectrum, and verify the selected confidence-level meets the worst-case design threshold, per annex-b section 6"
+    intent: "Annex B.6 ESP mission-duration scale factor and worst-case threshold verification"
+    expected_skill: "space-systems/ecss/e1004-b6-esp"
+  - id: w52-e1004-b7-solar-ions-1
+    query: "derive sep heavy-ion energy spectra with z-dependent-abundance scaling from a reference oxygen spectrum for a single-event-effects see analysis under annex-b7"
+    intent: "Annex B.7 heavy-ion Z-dependent abundance scaling from a reference element spectrum"
+    expected_skill: "space-systems/ecss/e1004-b7-solar-ions"
+  - id: w52-e1004-b7-solar-ions-2
+    query: "classify the sep event type as gradual/shock-associated versus impulsive/flare-associated from its iron-to-oxygen fe/o abundance ratio and verify heavy-ion species coverage extends through the iron group for the worst-case impulsive-enhanced abundance table"
+    intent: "Annex B.7 event-type classification by Fe/O ratio and iron-group species coverage"
+    expected_skill: "space-systems/ecss/e1004-b7-solar-ions"
+  - id: w52-e1004-b8-stormer-1
+    query: "apply the dipole-field stormer formula scaled by the epoch-dependent geomagnetic dipole-moment coefficient to derive the vertical cutoff-rigidity at a spacecraft geomagnetic latitude and radial distance"
+    intent: "Annex B.8 dipole Stormer formula and epoch-dependent dipole-moment coefficient"
+    expected_skill: "space-systems/ecss/e1004-b8-stormer"
+  - id: w52-e1004-b8-stormer-2
+    query: "verify whether a charged particle of a given rigidity penetrates the geomagnetic field at a location using the stormer cutoff-rigidity formula, and roll the per-sample penetration results into a geomagnetic-shielding coefficient assessment"
+    intent: "Annex B.8 rigidity-penetration check and per-sample geomagnetic-shielding roll-up"
+    expected_skill: "space-systems/ecss/e1004-b8-stormer"
+  - id: w52-e1004-b9-mobe-dic-1
+    query: "apply the mobius-class directional-intensity-change dic correction for a given arrival zenith angle and azimuth to get the directional geomagnetic-cutoff rigidity, capturing the east-west-effect asymmetry between eastward and westward primaries"
+    intent: "Annex B.9 Mobius DIC correction and east-west-effect asymmetry"
+    expected_skill: "space-systems/ecss/e1004-b9-mobe-dic"
+  - id: w52-e1004-b9-mobe-dic-2
+    query: "classify a candidate particle rigidity as forbidden, penumbra, or allowed transmission across the annex-b9 directional geomagnetic-cutoff's penumbra band, and select the worst-case lowest-cutoff arrival direction"
+    intent: "Annex B.9 forbidden/penumbra/allowed classification and worst-case arrival direction"
+    expected_skill: "space-systems/ecss/e1004-b9-mobe-dic"
+  - id: w52-e1004-contamination-1
+    query: "classify each on-orbit contamination source on this spacecraft external surface as molecular-contamination -- outgassing, venting, propulsion effluent, leak -- or particulate-contamination -- debris, mli fragment, handling residue, paint flake"
+    intent: "Contamination source classification: molecular vs particulate"
+    expected_skill: "space-systems/ecss/e1004-contamination"
+  - id: w52-e1004-contamination-2
+    query: "determine whether molecular deposition reaches a sensitive surface by direct line-of-sight or leo ram/wake return flux, compute the deposited mass against the allowable budget, and confirm the surface carries a cleanliness level per q-st-70-01"
+    intent: "Molecular transport path, deposited-mass budget, and Q-ST-70-01 cleanliness linkage"
+    expected_skill: "space-systems/ecss/e1004-contamination"
+  - id: w52-e1004-debris-1
+    query: "select a master-class or ordem-class space debris flux-model for this mission's orbit and analysis epoch, and validate that the candidate model's declared altitude/inclination/epoch/diameter envelope actually covers the mission envelope"
+    intent: "MASTER/ORDEM debris flux-model selection and validity-envelope check"
+    expected_skill: "space-systems/ecss/e1004-debris"
+  - id: w52-e1004-debris-2
+    query: "build a complete debris flux-model run request and determine when a prior master or ordem debris result needs re-assessment for a changed mission epoch"
+    intent: "Debris flux-model run-request assembly and re-assessment trigger"
+    expected_skill: "space-systems/ecss/e1004-debris"
+  - id: w52-e1004-em-radiation-1
+    query: "assemble the solar-spectrum bands from xuv through ir and solar-radio, and scale the total solar irradiance tsi to the mission's heliocentric distance for the natural em-radiation environment"
+    intent: "Solar-spectrum band assembly and TSI heliocentric-distance scaling"
+    expected_skill: "space-systems/ecss/e1004-em-radiation"
+  - id: w52-e1004-em-radiation-2
+    query: "combine planetary-albedo reflected flux and planetary-ir emission into the incident em-radiation flux a spacecraft at this body must design against, checking the solar-spectrum bands are ordered with no gaps or overlaps"
+    intent: "Planetary albedo/IR combination and solar-spectrum band well-formedness check"
+    expected_skill: "space-systems/ecss/e1004-em-radiation"
+  - id: w52-e1004-gcr-1
+    query: "select the applicable galactic-cosmic-ray gcr reference model -- heavy-ion energy spectra for see analyses or integral let/dose spectra for total-dose analyses -- based on the analysis type and required ion species coverage"
+    intent: "GCR reference-model selection by analysis type and ion species coverage"
+    expected_skill: "space-systems/ecss/e1004-gcr"
+  - id: w52-e1004-gcr-2
+    query: "classify the solar activity condition from a solar-modulation potential and scale the reference solar-minimum gcr energy spectra to the mission epoch, verifying the worst-case condition meets the analysis requirement"
+    intent: "GCR solar-modulation classification and solar-minimum spectrum scaling"
+    expected_skill: "space-systems/ecss/e1004-gcr"
+  - id: w52-e1004-geo-ige-1
+    query: "compute the geo trapped-electron flux at fixed l-shell-6.6 for a geostationary spacecraft: interpolate the ige-2006-style local-time and energy spectral model and apply local-time sector weighting"
+    intent: "GEO trapped-electron flux at fixed L-shell 6.6 via local-time/energy interpolation"
+    expected_skill: "space-systems/ecss/e1004-geo-ige"
+  - id: w52-e1004-geo-ige-2
+    query: "integrate dwell-weighted mission fluence across one or more magnetic local-time park segments for a geostationary spacecraft and categorize the local-time sector severity for internal charging and dose analysis"
+    intent: "GEO dwell-weighted mission fluence across local-time park segments"
+    expected_skill: "space-systems/ecss/e1004-geo-ige"
+  - id: w52-e1004-geomag-1
+    query: "select the geomagnetic field model for a mission orbit: an igrf-class internal field model alone at low geocentric distance, or that model combined with an external-field magnetospheric model at high geocentric distance"
+    intent: "Geomagnetic field model selection: internal-only vs internal-plus-external"
+    expected_skill: "space-systems/ecss/e1004-geomag"
+  - id: w52-e1004-geomag-2
+    query: "determine the correct igrf epoch, apply secular-variation to update the internal field for the mission target date, and compute the dipole-approximation b-l-coordinates equatorial field magnitude for radiation-belt characterization"
+    intent: "IGRF epoch/secular-variation handling and dipole-approximation B,L computation"
+    expected_skill: "space-systems/ecss/e1004-geomag"
+  - id: w52-e1004-gravity-1
+    query: "select the earth gravity model appropriate to the orbit regime -- point-mass/low-degree geopotential versus high-degree geopotential -- plus third-body and solid-earth-tides perturbation terms"
+    intent: "Gravity model selection by orbit regime and perturbation terms"
+    expected_skill: "space-systems/ecss/e1004-gravity"
+  - id: w52-e1004-gravity-2
+    query: "compute the gravitational acceleration magnitude and radial gravity-gradient at the mission orbit altitude and verify the perturbation terms included cover what the orbit regime and mission duration require"
+    intent: "Gravity magnitude/gradient computation and perturbation-term coverage check"
+    expected_skill: "space-systems/ecss/e1004-gravity"
+  - id: w52-e1004-impact-risk-1
+    query: "combine the cumulative damaging flux from each contributing meteoroid/debris population at the ballistic-limit critical diameter into an expected impact count over the exposed area and mission duration"
+    intent: "Cumulative damaging flux to expected-impact-count conversion"
+    expected_skill: "space-systems/ecss/e1004-impact-risk"
+  - id: w52-e1004-impact-risk-2
+    query: "compute the probability-of-no-penetration pnp and probability of damage via the annex-j poisson method and check the impact-risk result against the mission's pnp acceptance requirement"
+    intent: "Annex J Poisson PNP/damage-probability computation and acceptance check"
+    expected_skill: "space-systems/ecss/e1004-impact-risk"
+  - id: w52-e1004-indices-1
+    query: "identify which solar and geomagnetic activity indices -- f10.7, ap-index, kp-index -- an analysis purpose requires, whether atmospheric drag, em-radiation reference, or geomagnetic field epoch"
+    intent: "Index-set selection (F10.7/Ap/Kp) by analysis purpose"
+    expected_skill: "space-systems/ecss/e1004-indices"
+  - id: w52-e1004-indices-2
+    query: "classify the solar-cycle epoch from the f10.7 81-day-average into solar minimum/mean/maximum and verify a case's provided indices are complete and match the worst-case solar-activity condition its purpose requires"
+    intent: "Solar-cycle epoch classification and index-completeness verification"
+    expected_skill: "space-systems/ecss/e1004-indices"
+  - id: w52-e1004-internal-charging-1
+    query: "compute the worst-case internal-charging trapped electron-spectrum by enveloping the flumic and nasa worst-case geo models at each modeled energy for a deep-dielectric charging risk case"
+    intent: "Internal-charging worst-case envelope of FLUMIC and NASA worst-case GEO models"
+    expected_skill: "space-systems/ecss/e1004-internal-charging"
+  - id: w52-e1004-internal-charging-2
+    query: "verify the internal-charging electron-spectrum envelope is physically consistent with flux non-increasing versus energy, and screen the enveloped flux at the mission's critical energy against a stated threshold across meo/geo/gto/heo orbit regimes"
+    intent: "Internal-charging envelope consistency check and critical-energy threshold screening"
+    expected_skill: "space-systems/ecss/e1004-internal-charging"
+  - id: w52-e1004-l2-tail-1
+    query: "define the radiation environment for a sun-earth l2 mission: which unshielded galactic-cosmic-ray and solar-energetic-particle components apply once the trapped-belt boundary is left behind"
+    intent: "L2 radiation environment: unshielded GCR/SEP components beyond the trapped belt"
+    expected_skill: "space-systems/ecss/e1004-l2-tail"
+  - id: w52-e1004-l2-tail-2
+    query: "flag orbit segments that cross the deep-magnetotail plasma sheet or lobes so a supplemental charging environment is added, and verify the l2/magnetotail environment definition is complete before feeding the radiation environment specification"
+    intent: "Magnetotail plasma-sheet/lobe crossing flag and RES completeness check"
+    expected_skill: "space-systems/ecss/e1004-l2-tail"
+  - id: w52-e1004-meo-meov2-1
+    query: "compute orbit-averaged meo trapped-radiation flux spectra using a meov2-style spectral model interpolated across the l-shell range this medium-earth-orbit spacecraft crosses every revolution"
+    intent: "MEO orbit-averaged trapped-radiation flux via MEOv2-style L-shell interpolation"
+    expected_skill: "space-systems/ecss/e1004-meo-meov2"
+  - id: w52-e1004-meo-meov2-2
+    query: "produce differential and integral electron and proton fluence inputs for total-dose and charging analyses by integrating the annex-b3 meov2 orbit-averaged spectrum with the dwell time spent at each l-shell across the radiation-belts"
+    intent: "Annex B.3 dwell-time-weighted electron/proton fluence for total-dose and charging"
+    expected_skill: "space-systems/ecss/e1004-meo-meov2"
+  - id: w52-e1004-meteoroid-1
+    query: "determine which meteoroid environment model components apply to this mission profile: the grun-model sporadic background-flux plus any meteoroid-streams active on the mission epoch"
+    intent: "Meteoroid model-component determination: sporadic background plus active streams"
+    expected_skill: "space-systems/ecss/e1004-meteoroid"
+  - id: w52-e1004-meteoroid-2
+    query: "compute the background cumulative mass flux, apply earth-shielding geometry for an earth-orbiting case, and combine background and stream flux into the total incident meteoroid flux for the impact-risk assessment"
+    intent: "Background flux computation, Earth-shielding, and total incident meteoroid flux"
+    expected_skill: "space-systems/ecss/e1004-meteoroid"
+  - id: w52-e1004-mm-margins-1
+    query: "apply a flux margin-factor to the mmod debris/meteoroid expected-impact rate and a diameter margin-factor to the ballistic-limit critical diameter for the damage-prediction"
+    intent: "MMOD flux and critical-diameter margin factors for damage prediction"
+    expected_skill: "space-systems/ecss/e1004-mm-margins"
+  - id: w52-e1004-mm-margins-2
+    query: "derive the margined probability-of-no-penetration from the margined mmod flux and margined critical diameter, and verify the margin factors used meet the project's minimum conservatism"
+    intent: "Margined PNP derivation and minimum-conservatism verification"
+    expected_skill: "space-systems/ecss/e1004-mm-margins"
+  - id: w52-e1004-neutrons-1
+    query: "decide whether the atmospheric albedo-neutrons environment belongs in a leo mission's radiation-environment-spec res, classifying the neutron energy spectrum into bands"
+    intent: "Albedo-neutron RES applicability decision and energy-band classification"
+    expected_skill: "space-systems/ecss/e1004-neutrons"
+  - id: w52-e1004-neutrons-2
+    query: "assess the geomagnetic-latitude exposure that drives albedo-neutrons flux for a leo orbit and verify the res entry for the atmospheric neutron environment carries every required field before it is closed out"
+    intent: "Geomagnetic-latitude exposure assessment and albedo-neutron RES-entry completeness"
+    expected_skill: "space-systems/ecss/e1004-neutrons"
+  - id: w52-e1004-plasma-1
+    query: "for each orbit segment of this mission's clause-8.2 spacecraft-charging assessment, determine whether the auroral, solar-wind, magnetosheath, magnetotail/l2, planetary, or induced plasma region applies, since each region drives a different charging risk"
+    intent: "Plasma-region applicability determination per orbit segment for charging analysis"
+    expected_skill: "space-systems/ecss/e1004-plasma"
+  - id: w52-e1004-plasma-2
+    query: "verify that a model and the electron density, electron temperature, ion density, and ion temperature are recorded for every applicable plasma-environment region, and identify missing regions or incomplete entries before the charging environment definition is closed out"
+    intent: "Plasma-region density/temperature completeness verification"
+    expected_skill: "space-systems/ecss/e1004-plasma"
+  - id: w52-e1004-rad-env-spec-1
+    query: "determine which radiation-environment components -- trapped radiation, solar energetic particles, galactic cosmic rays, internal-charging worst-case spectra, trapped-proton worst-case spectra, atmospheric albedo neutrons -- apply to each orbit segment of the res"
+    intent: "RES component applicability determination per orbit segment"
+    expected_skill: "space-systems/ecss/e1004-rad-env-spec"
+  - id: w52-e1004-rad-env-spec-2
+    query: "verify the res states the model choice, basis long-term-average versus worst-case, and uncertainty for every applicable radiation-environment component, and flag missing sections or missing uncertainty statements before the res is closed out"
+    intent: "RES model-choice/basis/uncertainty completeness verification"
+    expected_skill: "space-systems/ecss/e1004-rad-env-spec"
+  - id: w52-e1004-ref-atmosphere-1
+    query: "map the target celestial body and altitude to the cataloged reference-atmosphere models -- nrlmsise-00, jb-2006, and gram-class planetary models -- under annex-g"
+    intent: "Annex G body/altitude mapping to cataloged reference-atmosphere models"
+    expected_skill: "space-systems/ecss/e1004-ref-atmosphere"
+  - id: w52-e1004-ref-atmosphere-2
+    query: "select the reference-atmosphere model that matches the analysis purpose -- drag prediction, density reference, or full-profile engineering -- validate the altitude against that model's supported range, and confirm every solar/geomagnetic or trajectory input the selected model needs is present"
+    intent: "Annex G model selection by analysis purpose and input-completeness check"
+    expected_skill: "space-systems/ecss/e1004-ref-atmosphere"
+  - id: w52-e1004-ref-debris-1
+    query: "determine whether a candidate natural-meteoroid or catalogued orbital-debris flux-model is applicable to a case's altitude, epoch, and particle-diameter range under annex-j"
+    intent: "Annex J flux-model applicability determination by altitude/epoch/diameter"
+    expected_skill: "space-systems/ecss/e1004-ref-debris"
+  - id: w52-e1004-ref-debris-2
+    query: "compute the annex-j model's stated uncertainty band around a nominal orbital-debris flux value and validate a reported flux/model pairing against the model's applicability envelope so an out-of-envelope claim is flagged"
+    intent: "Annex J uncertainty-band computation and out-of-envelope flagging"
+    expected_skill: "space-systems/ecss/e1004-ref-debris"
+  - id: w52-e1004-ref-geomag-1
+    query: "validate an igrf coefficient-generation epoch as definitive, predictive, or stale and select the required spherical-harmonic degree/order truncation for the mission altitude under annex-e"
+    intent: "Annex E IGRF epoch validation and spherical-harmonic truncation selection"
+    expected_skill: "space-systems/ecss/e1004-ref-geomag"
+  - id: w52-e1004-ref-geomag-2
+    query: "choose an external-field-model tier from the geomagnetic activity kp index and check a position against the solar-wind-pressure-dependent magnetopause standoff distance for the geomagnetic-field reference determination"
+    intent: "Annex E external-field-model tier selection and magnetopause standoff check"
+    expected_skill: "space-systems/ecss/e1004-ref-geomag"
+  - id: w52-e1004-ref-gravity-1
+    query: "look up the annex-a gravity reference constants gm and the j2 oblateness zonal-harmonic coefficient and compute point-mass and zonal-harmonic perturbation accelerations at a given orbit radius"
+    intent: "Annex A GM/J2 reference constants and point-mass/zonal-harmonic acceleration computation"
+    expected_skill: "space-systems/ecss/e1004-ref-gravity"
+  - id: w52-e1004-ref-gravity-2
+    query: "compute the third-body tidal perturbation acceleration from the annex-a gravity reference data and determine which gravity-model terms the mission's environment specification must carry for the orbit regime and duration"
+    intent: "Annex A third-body tidal acceleration and gravity-term coverage determination"
+    expected_skill: "space-systems/ecss/e1004-ref-gravity"
+  - id: w52-e1004-ref-indices-1
+    query: "determine the solar-cycle activity level minimum/mean/maximum a case should assume from its f10.7 solar-index value and look up the annex-f reference solar-index set including sunspot number for that level"
+    intent: "Annex F solar-cycle activity-level determination and reference solar-index lookup"
+    expected_skill: "space-systems/ecss/e1004-ref-indices"
+  - id: w52-e1004-ref-indices-2
+    query: "look up the annex-f earth albedo-ir flux reference for a thermal case, validate a proposed solar-index value against the dataset's valid range, and interpolate an index across the solar-cycle phase when a cycle-phase fraction is given"
+    intent: "Annex F albedo/IR reference lookup, range validation, and cycle-phase interpolation"
+    expected_skill: "space-systems/ecss/e1004-ref-indices"
+  - id: w52-e1004-ref-particles-1
+    query: "categorize the annex-i particle-radiation population -- trapped-proton, trapped-electron, sep, gcr, or albedo-neutron -- and orbit regime, and check a proposed energy against that population's cataloged model energy range"
+    intent: "Annex I particle-population categorization and cataloged energy-range check"
+    expected_skill: "space-systems/ecss/e1004-ref-particles"
+  - id: w52-e1004-ref-particles-2
+    query: "determine whether a low-earth orbit is geomagnetically shielded for a given inclination and whether the south-atlantic-anomaly saa enhancement applies to its altitude and inclination, then select the cataloged annex-i model identifier to cite"
+    intent: "Annex I geomagnetic-shielding and SAA-applicability determination with model citation"
+    expected_skill: "space-systems/ecss/e1004-ref-particles"
+  - id: w52-e1004-ref-plasma-1
+    query: "select the annex-h plasma-environment reference region -- ionosphere, plasmasphere, auroral, outer magnetosphere, solar wind, magnetosheath, or magnetotail/l2 -- for a mission orbit regime and validate a candidate density or temperature value against that region's order-of-magnitude range"
+    intent: "Annex H plasma-region selection and order-of-magnitude value validation"
+    expected_skill: "space-systems/ecss/e1004-ref-plasma"
+  - id: w52-e1004-ref-plasma-2
+    query: "derive a log-space representative plasma value for margin analysis and identify the hot, tenuous plasma condition associated with spacecraft-charging risk from the annex-h reference table"
+    intent: "Annex H log-space representative value and hot/tenuous charging-risk screening"
+    expected_skill: "space-systems/ecss/e1004-ref-plasma"
+  - id: w52-e1004-sep-direction-1
+    query: "compute the interplanetary magnetic field parker-spiral connection angle to categorize a solar-particle-event's magnetic connection and classify the event's arrival phase as anisotropic onset versus later quasi-isotropic diffusion"
+    intent: "Parker-spiral connection angle and SPE arrival-phase classification"
+    expected_skill: "space-systems/ecss/e1004-sep-direction"
+  - id: w52-e1004-sep-direction-2
+    query: "compute the cone-angle between a sensor look direction and the field-aligned streaming direction and apply the anisotropy scaling to get a directional-flux value for a magnetospheric entry channel"
+    intent: "Cone-angle computation and anisotropy scaling for directional flux"
+    expected_skill: "space-systems/ecss/e1004-sep-direction"
+  - id: w52-e1004-sep-fluence-1
+    query: "compute the cumulative solar-proton fluence a mission must design against using the esp-model for a stated confidence level and mission duration per clause 9.2.2.2"
+    intent: "Cumulative solar-proton fluence via the ESP model (clause 9.2.2.2)"
+    expected_skill: "space-systems/ecss/e1004-sep-fluence"
+  - id: w52-e1004-sep-fluence-2
+    query: "verify the sep fluence result is monotonically consistent with mission duration, confidence level, and energy threshold before the esp-model output feeds the radiation-environment specification"
+    intent: "SEP fluence monotonic-consistency verification before RES hand-off"
+    expected_skill: "space-systems/ecss/e1004-sep-fluence"
+  - id: w52-e1004-sep-peakflux-1
+    query: "confirm the analysis purpose actually needs a jpl-model peak-flux value rather than a fluence value, and pick the standard proton energy channel that covers the device's see sensitivity threshold"
+    intent: "Peak-flux applicability check and proton energy-channel selection (JPL model)"
+    expected_skill: "space-systems/ecss/e1004-sep-peakflux"
+  - id: w52-e1004-sep-peakflux-2
+    query: "compute the jpl-model worst-case integral peak-flux at the chosen confidence level and check the worst-case window is a short high-intensity period rather than a mission-duration integration"
+    intent: "JPL-model worst-case peak-flux computation and worst-case-window classification"
+    expected_skill: "space-systems/ecss/e1004-sep-peakflux"
+  - id: w52-e1004-stormer-1
+    query: "build the exposure-fraction profile across a leo ground track applying stormer-cutoff geomagnetic-shielding to the sep and gcr environments, and decide when to escalate to full trajectory-tracing when the vertical-cutoff approximation cannot be trusted"
+    intent: "LEO exposure-fraction profile via Stormer-cutoff shielding and trajectory-tracing escalation"
+    expected_skill: "space-systems/ecss/e1004-stormer"
+  - id: w52-e1004-stormer-2
+    query: "determine whether a particle of given rigidity is geomagnetically excluded or allowed to reach a leo point using the stormer-cutoff approximation, ahead of scoping geomagnetic-shielding for this low-earth-orbit sep/gcr case"
+    intent: "LEO particle-exclusion determination via Stormer-cutoff approximation"
+    expected_skill: "space-systems/ecss/e1004-stormer"
+  - id: w52-e1004-trapped-leo-1
+    query: "compute the trapped-radiation electron environment for a leo spacecraft using ae-8/ae-9-class flux tables indexed by mcllwain-l-shell and b-l b/b0 coordinates"
+    intent: "LEO trapped-electron environment via AE-8/AE-9 tables indexed by L-shell and B-L"
+    expected_skill: "space-systems/ecss/e1004-trapped-leo"
+  - id: w52-e1004-trapped-leo-2
+    query: "include the south-atlantic-anomaly dose contribution across the entire leo ground track and produce the differential and integral electron flux inputs for total-dose and internal-charging assessments"
+    intent: "SAA dose contribution across the LEO ground track and flux-input production"
+    expected_skill: "space-systems/ecss/e1004-trapped-leo"
+  - id: w52-e1004-trapped-other-1
+    query: "determine the orbit regime from perigee/apogee altitude for a heo or gto trajectory and split it into segments inside versus beyond the geomagnetically trapped domain using the magnetopause standoff distance"
+    intent: "HEO/GTO regime determination and trapped-domain segmentation by magnetopause standoff"
+    expected_skill: "space-systems/ecss/e1004-trapped-other"
+  - id: w52-e1004-trapped-other-2
+    query: "verify both trapped-radiation species, proton and electron, are covered wherever heo/gto trapped-domain dwell exists, and hand off out-of-domain interplanetary segments to the interplanetary radiation leaves rather than dropping them"
+    intent: "HEO/GTO species-coverage verification and out-of-domain interplanetary hand-off"
+    expected_skill: "space-systems/ecss/e1004-trapped-other"
+  - id: w52-e1004-trapped-proton-wc-1
+    query: "build the worst-case trapped-protons envelope by combining ap-8 solar-maximum and solar-minimum epoch spectra, and optionally an ap-9 percentile spectrum, into one conservative bounding spectrum"
+    intent: "Worst-case trapped-proton envelope from AP-8 solar-max/min epochs and AP-9 percentile"
+    expected_skill: "space-systems/ecss/e1004-trapped-proton-wc"
+  - id: w52-e1004-trapped-proton-wc-2
+    query: "categorize which trapped-protons source, ap-8 or ap-9, dominates at each energy across the point-wise maximum envelope to support radiation design margin analysis"
+    intent: "Per-energy source-dominance categorization (AP-8 vs AP-9) for margin analysis"
+    expected_skill: "space-systems/ecss/e1004-trapped-proton-wc"
+
+# P5.2 / Wave 52 (2026-09-10): e1004-* family merged (ECSS-E-ST-10-04C
+# space-environment leaves, 42 leaves: annex-a-data, annex-c-flux,
+# atmosphere, b2-ige2006, b3-meov2, b4-flumic, b5-geo-wc, b6-esp,
+# b7-solar-ions, b8-stormer, b9-mobe-dic, contamination, debris,
+# em-radiation, gcr, geo-ige, geomag, gravity, impact-risk, indices,
+# internal-charging, l2-tail, meo-meov2, meteoroid, mm-margins,
+# neutrons, plasma, rad-env-spec, ref-atmosphere, ref-debris,
+# ref-geomag, ref-gravity, ref-indices, ref-particles, ref-plasma,
+# sep-direction, sep-fluence, sep-peakflux, stormer, trapped-leo,
+# trapped-other, trapped-proton-wc). Corpus: 1536 tasks (1452 prior
+# plus 84 domain tasks, w52-e1004-<slug>-1/-2 per leaf). All four
+# wave-52 families (e10, e1002, e1003, e1004) now merged; 1536/1536
+# target reached. Owner: Ops Manager, Wave 52 build.
 future_pins:
   - "expected_skill": "manufacturing-quality/as9100/quality"
 "id": "t3"

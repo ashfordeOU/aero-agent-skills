@@ -181,6 +181,11 @@ softer bounds below already hold with error 5.1e-5 and gains
   needed.
 - gnc-autonomy/control/frequency-response-design: classical
   frequency-domain design for known plants in the same pack.
+- gnc-autonomy/control/adaptive-backstepping: tuning-function adaptive
+  backstepping for a second-order strict-feedback plant whose single
+  parameter estimate is updated by the second tuning function carried
+  through the error recursion, not by a gradient on a first-order
+  model-reference tracking error.
 
 ## Behavior contract (gate 3)
 

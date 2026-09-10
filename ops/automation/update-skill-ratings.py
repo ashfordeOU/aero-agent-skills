@@ -28,8 +28,10 @@ METHOD_LINE = "Method: 5 REAL gates (make validate) + contract presence + standa
 
 def main() -> int:
     # Precondition: gates green. Never rate over a red tree.
+    # Cap covers the full gate battery: validate runs ~740 contract tests
+    # sequentially, so 180s is stale for a 742-leaf tree (2026-09-10).
     r = subprocess.run(
-        ["make", "validate"], cwd=ROOT, capture_output=True, text=True, timeout=180
+        ["make", "validate"], cwd=ROOT, capture_output=True, text=True, timeout=1200
     )
     if "PASS (5/5 REAL gates green" not in r.stdout:
         print("GATES FAIL — refusing to write ratings over a red tree")
