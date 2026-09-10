@@ -185,7 +185,7 @@ git archive --format=tar HEAD -- . \
   ':(exclude)ops/automation/state' | tar -x -C "$EXPORT"
 # NOTE: About is refreshed post-push from the MIRROR (has .git), see step 7 —
 # the export has no .git so update-about.sh cannot resolve slug/token there.
-printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
+printf 'make validate\nmake brief-audit\nmake content-policy-sweep\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
 
 # --- 2. hygiene: secrets sweep + defense-in-depth name check (fail closed) ---
 # Patterns require a REALISTIC token shape (prefix + a real alnum run),
@@ -240,6 +240,23 @@ log "running full gate battery INSIDE the export (several minutes)…"
   exit 1
 }
 log "gates green inside the export."
+
+# --- 3b. FAIL-CLOSED PUBLIC-CI PARITY (VEDA-0035) ---
+# The battery above runs OUR list of gates. This runs the PUBLIC WORKFLOWS'
+# own gate steps inside the export, so a divergence between "what we prove"
+# and "what public CI will do" aborts the publish here instead of landing a
+# commit that is red on arrival — the class that produced ec9d037b / b1f8c440e
+# / 0fd80ee0 (attest ran a dev-only gate, number-snapshot-offline, against an
+# export that excludes ops/automation/state by construction). Steps needing
+# the network or mutating GitHub state are skipped and named; a gate hidden
+# inside a skipped step fails the run.
+log "verifying the export passes the public CI's own gate steps (public-ci-parity)…"
+if ! python3 "$DEV_REPO/ops/automation/public-ci-parity.py" --repo "$EXPORT" > /tmp/publish-public-ci-parity.log 2>&1; then
+  log "FAIL: the export would not pass the public CI — NOTHING pushed to the public repo"
+  tail -40 /tmp/publish-public-ci-parity.log
+  exit 1
+fi
+tail -2 /tmp/publish-public-ci-parity.log
 
 if [ "$DRY_RUN" = 1 ]; then
   log "dry-run: export + gates only, stopping before touching the mirror or GitHub."
