@@ -59,11 +59,39 @@ trap 'rm -rf "$SCRATCH"' EXIT
 
 cd "$DEV_REPO"
 
+# --- 0a. FOUNDER-GO HOLD (Ruling 3: no public pushes without founder GO) ---
+# Added 2026-09-10 (relay): the ECSS hold was policy-only — nothing in code
+# stopped a publish, so the sync held solely because the public-safety audit
+# happened to abort on a false positive. One fix to that audit would have
+# released 101 unpublished ECSS leaves with no founder GO. The guard now sits
+# FIRST, before the export, so no downstream gate can release a publish on
+# its own. Fail-closed: absent/blank GO file => HELD, exit 78, nothing
+# exported, nothing pushed. --dry-run deliberately skips it (dry-run never
+# pushes, and pre-GO gate verification must stay possible).
+if [ "$DRY_RUN" = 0 ]; then
+  if ! bash "$(cd "$(dirname "$0")" && pwd)/public-publish-hold.sh"; then
+    log "HELD: founder GO not present — refusing to publish (Ruling 3). Nothing exported, nothing pushed."
+    exit 78
+  fi
+fi
+
 # --- 0. dev tree itself must be gate-clean before it is worth exporting ---
 log "checking dev tree is itself clean (make visuals-check)…"
 make visuals-check >/tmp/publish-public-devcheck.log 2>&1 || {
   log "FAIL: dev tree is not visuals-clean — run 'make visuals' first"
   cat /tmp/publish-public-devcheck.log
+  exit 1
+}
+
+# --- 0b. numbers register must be live-fresh (DEV-side only) ---
+# The snapshot lives in ops/automation/state/, which the export deliberately
+# EXCLUDES (internal ops state). So this gate can only be evaluated on the dev
+# tree. Running it inside the export was a guaranteed false FAIL that made
+# every publish impossible - found and fixed 2026-09-10.
+log "checking numbers register vs stored snapshot (make number-snapshot-offline)…"
+make number-snapshot-offline >/tmp/publish-public-numbers.log 2>&1 || {
+  log "FAIL: numbers register is stale - run ops/automation/number-snapshot.sh --live, then rebaseline ops/automation/numbers.yaml"
+  cat /tmp/publish-public-numbers.log
   exit 1
 }
 
@@ -80,7 +108,15 @@ make visuals-check >/tmp/publish-public-devcheck.log 2>&1 || {
 EXPORT="$SCRATCH/export"
 mkdir -p "$EXPORT"
 log "exporting the full tree to ${EXPORT}…"
-git archive --format=tar HEAD -- . ':(exclude)ops/automation/test' | tar -x -C "$EXPORT"
+# ECSS-100 (founder 2026-09-09): scope docs + ECSS planning stay PRIVATE.
+# ops/ecss-program excluded (above); wave state notes are the internal ops
+# record — they document ECSS-standard builds + program status, so they are
+# NOT public content. Automation scripts + briefs stay public (release tooling).
+git archive --format=tar HEAD -- . \
+  ':(exclude)ops/automation/test' \
+  ':(exclude)ops/ecss-program' \
+  ':(exclude)ops/automation/*-state.md' \
+  ':(exclude)ops/automation/state' | tar -x -C "$EXPORT"
 # NOTE: About is refreshed post-push from the MIRROR (has .git), see step 7 —
 # the export has no .git so update-about.sh cannot resolve slug/token there.
 printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
@@ -131,7 +167,7 @@ fi
 
 # --- 3. prove the export is self-contained: run the REAL gates inside it ---
 log "running full gate battery INSIDE the export (several minutes)…"
-( cd "$EXPORT" && make validate && make attest && make visuals-check && make package-test ) \
+( cd "$EXPORT" && make validate && make brief-audit && make content-policy-sweep && make visuals-check && make package-test ) \
   > /tmp/publish-public-gates.log 2>&1 || {
   log "FAIL: gate battery failed inside the export — NOTHING pushed to the public repo"
   tail -60 /tmp/publish-public-gates.log

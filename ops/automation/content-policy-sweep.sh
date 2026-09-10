@@ -69,9 +69,11 @@ hits=0
 skip_exempt() {
   local line="$1" ex
   for ex in "${meta_doc_exempt[@]}"; do
-    case "$line" in
-      *"$ex:"*) return 1 ;;
-    esac
+    # bash-3.2-safe check: case patterns with quoted "$ex" mid-pattern
+    # break under macOS bash 3.2; use a case-free prefix test instead.
+    if [[ "$line" == *"$ex:"* ]]; then
+      return 1
+    fi
   done
   return 0
 }

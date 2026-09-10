@@ -18,39 +18,53 @@ jobs:
 
       - name: Check if a 100-skill release milestone was crossed
         id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           LEAVES=$(python3 -c "import json; print(json.load(open('docs/metrics.json'))['leaves'])")
           echo "leaves=$LEAVES"
           # Release convention (founder 2026-09-03): every 100 new skills =
-          # one minor version bump. v1.0.0 = 1-100 ... v1.3.0 = 301-400.
-          # FIX 2026-09-03: waves can jump past a boundary in one push (e.g.
-          # 393 -> 404). The old check held for the CURRENT band's end (500)
-          # and silently skipped the crossed v1.3.0 (400) band. Now: find the
-          # LOWEST band tag that is missing but whose boundary the count has
-          # REACHED (leaves >= (minor+1)*100), so skipped bands get released
-          # one at a time instead of never.
+          # one minor version bump. v1.0.0 = 1-100 ... v1.6.0 = 601-700.
+          #
+          # FIX 2026-09-03: waves can jump past a boundary in one push (393 ->
+          # 404). Find the LOWEST band whose boundary the count has REACHED
+          # and that is not yet RELEASED, so skipped bands get released one at
+          # a time instead of never.
+          #
+          # FIX 2026-09-10 (founder: "release cuts at every 100 automatic"):
+          # the old test was TAG-existence, so a tag pushed without a Release
+          # (v1.6.0) looked "done" and could never self-heal. The test is now
+          # RELEASE-existence: a tag with no Release object is re-cut here, and
+          # the tag is only created when it is actually missing.
           SHOULD="false"
           NEXT_TAG=""
+          NEED_TAG="false"
           MINOR=$(( (LEAVES - 1) / 100 ))
           for m in $(seq 0 "$MINOR"); do
             TAG="v1.${m}.0"
             BOUNDARY=$(( (m + 1) * 100 ))
-            if ! git rev-parse -q --verify "refs/tags/$TAG" >/dev/null 2>&1 && [ "$LEAVES" -ge "$BOUNDARY" ]; then
+            [ "$LEAVES" -ge "$BOUNDARY" ] || continue
+            HAVE_TAG="false"; HAVE_REL="false"
+            git rev-parse -q --verify "refs/tags/$TAG" >/dev/null 2>&1 && HAVE_TAG="true"
+            gh release view "$TAG" >/dev/null 2>&1 && HAVE_REL="true"
+            if [ "$HAVE_REL" = "false" ]; then
               SHOULD="true"
               NEXT_TAG="$TAG"
+              [ "$HAVE_TAG" = "false" ] && NEED_TAG="true"
               break
             fi
           done
           echo "band_minor=$MINOR" >> "$GITHUB_OUTPUT"
           echo "next_tag=$NEXT_TAG" >> "$GITHUB_OUTPUT"
+          echo "need_tag=$NEED_TAG" >> "$GITHUB_OUTPUT"
           LAST=$(git tag --list 'v*' --sort=-v:refname | head -1 || echo "")
           echo "last_tag=$LAST" >> "$GITHUB_OUTPUT"
           echo "Last release tag: $LAST"
           if [ "$SHOULD" = "true" ]; then
-            echo "Milestone $NEXT_TAG due (leaves=$LEAVES crossed boundary)."
+            echo "Milestone $NEXT_TAG due (leaves=$LEAVES, release missing; tag present=$([ "$NEED_TAG" = "false" ] && echo yes || echo no))."
             echo "should_release=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No missing milestone band (all tags through v1.${MINOR}.0 exist or not reached)."
+            echo "No missing milestone release through v1.${MINOR}.0."
             echo "should_release=false" >> "$GITHUB_OUTPUT"
           fi
 
@@ -60,6 +74,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ steps.check.outputs.next_tag }}
           LEAVES: ${{ steps.check.outputs.leaves }}
+          NEED_TAG: ${{ steps.check.outputs.need_tag }}
         run: |
           BODY=$(cat <<'EOF'
           ## Aero Agent Skills — {{TAG}}
@@ -70,15 +85,20 @@ jobs:
           - npm CLI + MCP server: `aero-agent-skills`
           - Claude Code plugin + agentskills.io format skills
           - JetBrains Marketplace plugin (com.ashforde.aeroskills)
-          - GitHub public repo with attest CI (validate 5/5 · attest 3/3)
+          - GitHub public repo with attest CI (validate 6/6 · attest 3/3)
 
           Install: `npx skills add ashfordeOU/aero-agent-skills`
           EOF
           )
           BODY=${BODY//"{{TAG}}"/$TAG}
           BODY=${BODY//"{{LEAVES}}"/$LEAVES}
-          git tag "$TAG"
-          git push origin "$TAG"
+          if [ "$NEED_TAG" = "true" ]; then
+            git tag "$TAG"
+            git push origin "$TAG"
+            echo "Pushed new tag $TAG"
+          else
+            echo "Tag $TAG already exists — re-cutting the missing Release only"
+          fi
           gh release create "$TAG" --title "Aero Agent Skills $TAG" --notes "$BODY"
           echo "Released $TAG at $LEAVES leaves"
           # FIX 2026-09-06: tag pushes made from actions with GITHUB_TOKEN do

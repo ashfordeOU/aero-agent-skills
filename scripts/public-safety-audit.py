@@ -73,7 +73,15 @@ PATTERNS = {
     "local_usernames": pat(r"ent", r"erprisehq|chak\b"),
     "personal_names": pat(r"chak", r"shu|baweja|subhash"),
     "tokens": pat(r"ghp_[A-Za-z0-9]", r"{20,}|github_pat_[A-Za-z0-9_]") + pat(r"{20,}|gho_", r"[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY"),
-    "private_ips": pat(r"192\.168\.", r"[0-9]+\.[0-9]+|10\.[0-9]+\.[0-9]+\.[0-9]+|172\.(1[6-9]|2[0-9]|3[01])\.[0-9]+\.[0-9]+"),
+    # NOTE (2026-09-10): the 10.x branch MUST require IP context. A bare
+    # 10\.[0-9]+\.[0-9]+\.[0-9]+ matches ECSS clause numbers (10.2.2.1,
+    # 10.2.2.2, 10.2.4...) - the same shape as RFC1918 - which aborted the
+    # public sync for every ECSS leaf (101 leaves held). Require either a
+    # port suffix or an explicit networking keyword nearby. ERE only: no
+    # lookarounds available in git grep -E.
+    "private_ips": pat(r"192\.168\.", r"[0-9]+\.[0-9]+|172\.(1[6-9]|2[0-9]|3[01])\.[0-9]+\.[0-9]+")
+                  + pat(r"|10\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+",
+                        r"|(ip|addr|address|gateway|subnet|netmask)[^0-9]{0,24}10\.[0-9]+\.[0-9]+\.[0-9]+"),
     "passwords": pat(r"(?<!_)\bpassword\s*[=:]", r"\s*[^\s]{6,}|Subhash"),
     "api_keys": pat(r"api[_-]?key\s*[=:]\s*[\"']", r"[A-Za-z0-9]{16,}|client[_-]?secret\s*[=:]\s*[\"'][A-Za-z0-9]{16,}"),
     "hostnames": pat(r"chak", r"'s-mac|Chakshu"),

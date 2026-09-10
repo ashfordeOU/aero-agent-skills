@@ -12,29 +12,29 @@
 # to integers before comparison. `measurements` = attributed historical quotes
 # ("measured N", "same week") that never override canonical live values.
 
-as_of: "2026-08-31"
+as_of: "2026-09-10"
 note: >
-  Reconcile target for docs: K-Dense 40,842 · cyber 31,700 · devideamax 21 ·
-  ajhcs 22 · largest aerospace repo 22 · total aerospace ≈ 228.
+  Reconcile target for docs: K-Dense 44,256 · cyber 32,557 · devideamax 21 ·
+  ajhcs 24 · largest aerospace repo 24 · total aerospace ≈ 228.
   Never prosa away a number — fix it or gate it.
 
 tracked:
   - id: kdense
     repo: K-Dense-AI/scientific-agent-skills
-    stars: 41986
+    stars: 44256
     forks: 3801
     skills: 163
     tolerance_pct: 1
     aliases: ["K-Dense", "scientific-agent-skills", "K-Dense Scientific", "K-Dense Scientific Agent Skills", "scientific skills"]
-    source: "GitHub API 2026-09-02 (distribution-channels rebaseline; live growth 41256->41986)"
+    source: "GitHub API 2026-09-10 (publish rebaseline; live growth 41986->44256)"
   - id: cyber
     repo: mukul975/Anthropic-Cybersecurity-Skills
-    stars: 31987
+    stars: 32557
     forks: 3818
     skills: 818
     tolerance_pct: 1
     aliases: ["mukul975", "Anthropic-Cybersecurity-Skills", "Anthropic Cybersecurity Skills", "Anthropic-Cybersecurity", "cybersecurity skills", "Cybersecurity Skills", "cybersecurity"]
-    source: "GitHub API 2026-09-02 (distribution-channels rebaseline; was at +0.9% of the 1% band)"
+    source: "GitHub API 2026-09-10 (publish rebaseline; live growth 31987->32557)"
   - id: devideamax
     repo: devideamax/aerospace-team
     stars: 21
@@ -42,21 +42,21 @@ tracked:
     skills: 12
     tolerance_abs: 1
     aliases: ["devideamax", "aerospace-team", "IDEAMAX"]
-    source: "GitHub API 2026-08-31 (task baseline)"
+    source: "GitHub API 2026-09-10 (publish rebaseline)"
   - id: ajhcs
     repo: ajhcs/mbse-agents
-    stars: 22
+    stars: 24
     tolerance_abs: 1
     aliases: ["ajhcs", "mbse-agents", "MBSE Agents"]
     source: "GitHub API 2026-08-31 (task baseline)"
 
 derived:
   - id: largest_aerospace_repo
-    value: 22
+    value: 24
     tolerance_abs: 1
     derived_from: "max(live ajhcs, live devideamax)"
     phrases: ["largest active aerospace repo", "largest active repo", "largest aerospace agent repo", "largest active"]
-    source: "GitHub API 2026-08-31"
+    source: "GitHub API 2026-09-10 (publish rebaseline; ajhcs 22->24)"
   - id: total_aerospace_stars
     value: 228
     tolerance_pct: 10

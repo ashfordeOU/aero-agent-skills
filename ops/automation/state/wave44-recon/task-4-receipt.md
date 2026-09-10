@@ -1,2 +1,0 @@
-All probe steps complete. Read-only maintained (no writes anywhere). ## SYSTEMS-ENGINEERING-SAFETY PROBE RECEIPTS (wave-44, at HEAD) - **Count/packs summary:** 47 leaves at HEAD `ea778bbe` (wave-44 brief) across 7 packs — arp4754a **8**, arp4761a **22**, certification **4**, continued-airworthiness **5**, mbse **6**, requirements **1**, safety-case **1**. Router `skills/systems-engineering-safety/ …(+98 chars)
-16:32:21 final    | end status=completed exit_reason=completed

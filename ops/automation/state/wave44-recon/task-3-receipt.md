@@ -1,2 +1,0 @@
-Sweep complete. All evidence gathered; composing the receipts. ## FLIGHT-TEST-OPERATIONS PROBE RECEIPTS (wave-44, at HEAD) - **Count/packs summary:** 47 leaves at HEAD `ea778bbe` across 6 packs: envelope 12 · performance 17 · planning 9 · stability 4 · flutter 4 · uas 1. Router parity rows==leaves holds (47 rows). Corpus tasks mentioning FTO: 160 lines/1211 total. - **Verdict:** 1 candidate (ranke …(+96 chars)
-16:32:21 final    | end status=completed exit_reason=completed

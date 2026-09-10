@@ -164,6 +164,13 @@ scripts/backstepping_control_logic.py:
 
 ## Related leaves
 
+- gnc-autonomy/control/adaptive-backstepping: replaces the known drift in
+  the first error channel with the online estimate theta_hat updated by
+  the second tuning function carried through the z1 z2 recursion of the
+  same second-order strict-feedback plant; this leaf's plant drift terms
+  are known exactly, its gains c1, c2 never adapt, and its recursion is
+  the exact-model limit the tuning-functions leaf reduces to at zero
+  adaptation gain with theta_hat(0) = theta.
 - gnc-autonomy/control/adaptive-control: designs a model-reference
   adaptive controller whose gains update online against an unknown
   first-order plant coefficient; this leaf's plant model is known

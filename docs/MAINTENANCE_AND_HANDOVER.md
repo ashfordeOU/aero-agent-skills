@@ -90,8 +90,17 @@ ashforde.org/aeroagentskills (landing page)
 1. Wait for leaves to hit the 100-boundary (metrics.json `leaves` — the
    source of truth, never hand-counted).
 2. The auto-workflow release-on-milestone.yml creates the GitHub Release
-   + tag when it sees the boundary crossed on main. (Manual fallback:
-   `gh release create vX.Y.0 --title ... --notes ...`.)
+   + tag when it sees the boundary crossed on main.
+   **LOCAL FALLBACK (use this: GH Actions is blocked account-wide on this
+   setup - every job is rejected before any step runs, 0 steps / ~2s / no
+   logs):**
+   ```bash
+   python3 scripts/release-manager.py --cut --dry-run   # preview
+   python3 scripts/release-manager.py --cut             # create, GO-gated
+   ```
+   `--cut` is idempotent and REFUSES unless
+   `~/.hermes/state/aero-public-publish-GO` exists (Ruling 3). A daily
+   watchdog (aero-release-due.sh) reports a due milestone, silent otherwise.
 3. npm publish fires on the vX.Y.0 tag (workflow publish-npm.yml) IF the
    NPM_TOKEN secret is set. JetBrains publishes on jb-vX.Y.0 (separate tag
    prefix because JetBrains has its own version cadence + marketplace

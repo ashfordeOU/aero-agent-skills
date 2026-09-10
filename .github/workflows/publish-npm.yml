@@ -38,7 +38,23 @@ jobs:
         run: |
           npm install --no-audit --no-fund
           node test/smoke.mjs
+      - name: Skip if this version is already on npm
+        id: npmcheck
+        run: |
+          # Idempotency (2026-09-10): re-running the milestone release (or a
+          # self-heal of a tag-without-Release) must not turn the workflow red
+          # on "cannot publish over the previously published versions". If the
+          # version is already on the registry, this is a no-op success.
+          VER=$(node -p "require('./package.json').version")
+          if npm view "aero-agent-skills@$VER" version >/dev/null 2>&1; then
+            echo "already=true" >> "$GITHUB_OUTPUT"
+            echo "npm already has aero-agent-skills@$VER — skipping publish"
+          else
+            echo "already=false" >> "$GITHUB_OUTPUT"
+            echo "npm does not yet have $VER — will publish"
+          fi
       - name: Publish to npm
+        if: steps.npmcheck.outputs.already != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public

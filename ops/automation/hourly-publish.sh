@@ -37,8 +37,15 @@ SITE_REPO="${ASHFORDE_SITE_REPO:-$HOME/company-ops/ashforde-site}"
 echo "===== $(date -u +%FT%TZ) hourly-publish starting ====="
 
 echo "--- public repo sync ---"
-if ! bash "$SCRIPT_DIR/publish-public.sh"; then
-  echo "!!! public repo sync FAILED — see above, nothing was published to ashfordeOU/aero-agent-skills"
+# NOTE: capture the exit code directly — inside `if ! cmd; then`, $? is the
+# status of the NEGATED list (always 0), so the held/failed distinction must
+# come from `cmd || rc=$?` or the HELD case silently reports as "exit 0".
+rc=0
+bash "$SCRIPT_DIR/publish-public.sh" || rc=$?
+if [ "$rc" -eq 78 ]; then
+  echo "--- public repo sync HELD (exit 78): no founder GO — correct, nothing published"
+elif [ "$rc" -ne 0 ]; then
+  echo "!!! public repo sync FAILED (exit $rc) — see above, nothing was published to ashfordeOU/aero-agent-skills"
 fi
 
 echo "--- landing page sync (skills) ---"
