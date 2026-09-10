@@ -23,6 +23,7 @@ jobs:
         run: |
           LEAVES=$(python3 -c "import json; print(json.load(open('docs/metrics.json'))['leaves'])")
           echo "leaves=$LEAVES"
+          echo "leaves=$LEAVES" >> "$GITHUB_OUTPUT"
           # Release convention (founder 2026-09-03): every 100 new skills =
           # one minor version bump. v1.0.0 = 1-100 ... v1.6.0 = 601-700.
           #
@@ -34,13 +35,22 @@ jobs:
           # FIX 2026-09-10 (founder: "release cuts at every 100 automatic"):
           # the old test was TAG-existence, so a tag pushed without a Release
           # (v1.6.0) looked "done" and could never self-heal. The test is now
-          # RELEASE-existence: a tag with no Release object is re-cut here, and
-          # the tag is only created when it is actually missing.
+          # RELEASE-existence, and the tag is created only when actually
+          # missing.
+          #
+          # FIX 2026-09-10 (b): v1.0.0 is the PRE-CONVENTION launch tag (330
+          # leaves). It is not a 100-skill milestone and must never be
+          # auto-cut here — its draft release made gh release view fail, so
+          # the loop picked it and published it. Milestones start at v1.1.0.
+          #
+          # NOTE: gh release view cannot see DRAFT releases, so a draft at a
+          # milestone tag reads as "missing" and gets published — that is the
+          # intended behaviour (a staged draft is meant to go out).
           SHOULD="false"
           NEXT_TAG=""
           NEED_TAG="false"
           MINOR=$(( (LEAVES - 1) / 100 ))
-          for m in $(seq 0 "$MINOR"); do
+          for m in $(seq 1 "$MINOR"); do
             TAG="v1.${m}.0"
             BOUNDARY=$(( (m + 1) * 100 ))
             [ "$LEAVES" -ge "$BOUNDARY" ] || continue
@@ -61,7 +71,7 @@ jobs:
           echo "last_tag=$LAST" >> "$GITHUB_OUTPUT"
           echo "Last release tag: $LAST"
           if [ "$SHOULD" = "true" ]; then
-            echo "Milestone $NEXT_TAG due (leaves=$LEAVES, release missing; tag present=$([ "$NEED_TAG" = "false" ] && echo yes || echo no))."
+            echo "Milestone $NEXT_TAG due (leaves=$LEAVES; tag present=$([ "$NEED_TAG" = "false" ] && echo yes || echo no))."
             echo "should_release=true" >> "$GITHUB_OUTPUT"
           else
             echo "No missing milestone release through v1.${MINOR}.0."
@@ -97,15 +107,12 @@ jobs:
             git push origin "$TAG"
             echo "Pushed new tag $TAG"
           else
-            echo "Tag $TAG already exists — re-cutting the missing Release only"
+            echo "Tag $TAG already exists — (re)cutting the missing Release only"
           fi
-          gh release create "$TAG" --title "Aero Agent Skills $TAG" --notes "$BODY"
+          # gh release create publishes the Release; publish-npm.yml has a
+          # `release: [published]` trigger, so npm fires from this alone. The
+          # old explicit `gh workflow run publish-npm.yml` dispatch 403'd
+          # ("Resource not accessible by integration") because the workflow
+          # GITHUB_TOKEN cannot dispatch workflows — dropped as redundant.
+          gh release create "$TAG" --title "Aero Agent Skills $TAG" --notes "$BODY" --latest
           echo "Released $TAG at $LEAVES leaves"
-          # FIX 2026-09-06: tag pushes made from actions with GITHUB_TOKEN do
-          # NOT fire the publish-npm tag-push trigger (GitHub recursion
-          # protection). workflow_dispatch is the documented exception that
-          # DOES fire from GITHUB_TOKEN, so dispatch npm publish explicitly.
-          # publish-npm derives its version from this tag, so it always ships
-          # the released version regardless of package.json staleness.
-          gh workflow run publish-npm.yml --ref main
-          echo "Dispatched publish-npm for $TAG"
