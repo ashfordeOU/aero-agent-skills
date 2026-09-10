@@ -129,7 +129,7 @@ printf 'make validate\nmake attest\nmake visuals-check\nmake package-test\n' > "
 # itself every run. A prefix immediately followed by 25+ alnum chars is
 # never true of the pattern SOURCE, only of an actual leaked token.
 log "secrets + leak sweep…"
-if grep -rnE 'ghp_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9]{25,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY' "$EXPORT" 2>/dev/null | grep -q .; then
+if [ -n "$(grep -rnE 'ghp_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9]{25,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY' "$EXPORT" 2>/dev/null)" ]; then
   log "FAIL: secret-shaped string found in export — aborting, nothing pushed"
   exit 1
 fi
@@ -140,17 +140,17 @@ fi
 # export) does not match its own source — same trick as the secret sweep.
 U_PAT="/Us""ers/[A-Za-z0-9_-]+/"
 H_PAT="/ho""me/[A-Za-z0-9_-]+/"
-if grep -rnE "$U_PAT|$H_PAT" "$EXPORT" 2>/dev/null | grep -q .; then
+if [ -n "$(grep -rnE "$U_PAT|$H_PAT" "$EXPORT" 2>/dev/null)" ]; then
   log "FAIL: machine-local path found in export — aborting, nothing pushed"
   exit 1
 fi
 # Belt-and-suspenders: these paths should no longer exist in the tree at
 # all (relocated above), so this should always be empty; kept as a
 # tripwire in case one is ever re-added without also being relocated.
-if find "$EXPORT" -iname 'social-card*' -o -iname 'ashforde-seal*' -o -iname 'logo-full*' \
+if [ -n "$(find "$EXPORT" -iname 'social-card*' -o -iname 'ashforde-seal*' -o -iname 'logo-full*' \
      -o -iname 'DESIGN.md' -o -type d -iname 'marketing' -o -iname 'ops-notes.md' \
      -o -iname 'release-runbook-ashforde.md' -o -type d -iname 'superpowers' -o -iname 'AGENTS.md' \
-     2>/dev/null | grep -q .; then
+     2>/dev/null)" ]; then
   log "FAIL: a marketing/internal-only path leaked into the export — aborting"
   exit 1
 fi
@@ -196,7 +196,15 @@ fi
 # --- 5. replace the mirror's working tree with the fresh export, diff ---
 find "$MIRROR" -mindepth 1 -maxdepth 1 -not -name '.git' -exec rm -rf {} +
 cp -a "$EXPORT/." "$MIRROR/"
-if git -C "$MIRROR" status --porcelain | grep -q .; then
+# NOTE (2026-09-10): do NOT use `git status --porcelain | grep -q .` here.
+# This script runs under `set -o pipefail`, and `grep -q` exits at the FIRST
+# match, which SIGPIPEs git status (141). pipefail then makes the pipeline
+# non-zero, so the `if` took the else branch and logged "no-op: nothing to
+# push" exactly when there WERE changes. It is a race (git may finish writing
+# before grep exits), so it failed intermittently - silently. That is why the
+# public repo sat at 659 leaves while the dev tree was at 760. Command
+# substitution has no pipe and no SIGPIPE.
+if [ -n "$(git -C "$MIRROR" status --porcelain)" ]; then
   : # real changes, continue below
 else
   log "no-op: public repo already matches the dev export. Nothing to push."
