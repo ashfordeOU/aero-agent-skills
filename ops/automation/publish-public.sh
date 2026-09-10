@@ -76,6 +76,18 @@ if [ "$DRY_RUN" = 0 ]; then
 fi
 
 # --- 0. dev tree itself must be gate-clean before it is worth exporting ---
+log "checking dev tree has no uncommitted changes…"
+# The export in step 1 is `git archive HEAD` — COMMITTED state only. An
+# uncommitted fix is silently dropped from the export and never reaches the
+# public repo. Hit 2026-09-10: a safety-audit fix was patched, the publish
+# ran, reported success, and the fix never shipped. Fail loud instead.
+DEV_DIRTY="$(git -C "$DEV_REPO" status --porcelain)"
+if [ -n "$DEV_DIRTY" ]; then
+  log "FAIL: dev tree has uncommitted changes — commit them first (the export takes COMMITTED state only):"
+  printf '%s\n' "$DEV_DIRTY" | head -20
+  exit 1
+fi
+
 log "checking dev tree is itself clean (make visuals-check)…"
 make visuals-check >/tmp/publish-public-devcheck.log 2>&1 || {
   log "FAIL: dev tree is not visuals-clean — run 'make visuals' first"
