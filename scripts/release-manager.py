@@ -190,7 +190,9 @@ def release_check() -> int:
         # on the public repo), so this is a public-side fact, not a dev error.
         notes.append(f"RELEASE STATUS: {due_tag} (last completed band, "
                      f"{completed} skills) is not tagged in the dev tree — "
-                     f"verify on the public repo (release needs founder GO, Ruling 3)")
+                     f"releases are cut on the PUBLIC repo (standing GO "
+                     f"2026-09-10: auto-cut cron + release-on-milestone; "
+                     f"touch ~/.hermes/state/aero-release-HOLD to pause)")
 
     # 2. public parity (best effort; gh may be unavailable)
     try:
@@ -216,8 +218,9 @@ def release_check() -> int:
                              if t not in PRE_CONVENTION and _is_milestone(t))
             if orphans:
                 notes.append(f"PUBLIC BREACH: tag(s) with no Release: "
-                             f"{', '.join(orphans)} — needs founder GO to open "
-                             f"(Ruling 3), not a silent fix")
+                             f"{', '.join(orphans)} — self-heals on the next "
+                             f"push (release-on-milestone) or via "
+                             f"release-manager.py --auto-cut")
             else:
                 notes.append("public tag/Release parity OK")
     except Exception:
