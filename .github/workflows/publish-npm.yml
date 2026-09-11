@@ -8,6 +8,17 @@ on:
   release:
     types: [published]
 
+# Serialise publishes (2026-09-11). The tag-push and release-published
+# triggers BOTH fire for one milestone, so two publish runs raced the
+# check-then-publish guard and the loser went red with npm E403 "cannot
+# publish over the previously published versions" (run 34602128067). Its
+# sibling (34602128683) published the same version one second earlier.
+# Queueing instead of racing lets the loser's guard see the version on the
+# registry and skip as the designed no-op success.
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
 jobs:
   publish-npm:
     runs-on: ubuntu-latest

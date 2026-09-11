@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 800,
+  "leaves": 806,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1616
@@ -9056,6 +9056,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-closeout-docs",
+   "name": "e1002-closeout-docs",
+   "description": "Use when consolidate verification close-out documentation under ECSS-E-ST-10C §5.4.4.2: gather all verification reports at the applicable review milestone, merge per-requirement verification statuses into a consolidated register, identify requirements that failed or were not verified and determine whether each needs a waiver or a deviation, draft register entries with technical justification and risk-level tag, and confirm every requirement carries a final disposition (Pass, Fail, Waived, or Deferred) before the review board gate. Trigger: ecss, e-st-10-system-scope, closeout-documents, verification-consolidation, waiver-register, deviation-register, review-gate, close-out.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "closeout-documents",
+    "verification-consolidation",
+    "waiver-register",
+    "deviation-register",
+    "review-gate",
+    "close-out"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-control-closeout",
    "name": "e1002-control-closeout",
    "description": "Use when control and close out product verification under ECSS-E-ST-10-02 clause 5.4.1: confirm every verification control document row reached a closed status with evidence cited, confirm each closure taken against a waiver names a waiver the authority actually approved, confirm no nonconformance is still open, and confirm the verification database was delivered machine-readable in the agreed format covering every row the control document holds. Trigger: ecss, e-st-10-02c, verification-closeout, verification-control-document, waiver-approval, nonconformance, verification-database, electronic-delivery.",
@@ -9356,6 +9374,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-pretailoring",
+   "name": "e1002-pretailoring",
+   "description": "Use when apply the ECSS-E-ST-10-02C §6 pre-tailoring matrix to a space product type: determine the applicability level (applicable, recommended, optional, or not applicable) for each clause-5 verification requirement for the product category under assessment, identify every applicable requirement that must be covered, flag any applicable verification requirement absent from the project's captured requirement set, and produce the per-requirement applicability record for engineering review. Product categories cover space system, segment, equipment, and payload. Trigger: ecss, e-st-10-02c, pretailoring, verification-matrix, product-type, verification-requirements, clause-5, requirements-applicability.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "pretailoring",
+    "verification-matrix",
+    "product-type",
+    "verification-requirements",
+    "clause-5",
+    "requirements-applicability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-process",
    "name": "e1002-process",
    "description": "Use when running the verification process as a customer-supplier activity under ECSS-E-ST-10-02C clause 5.1: validate the product level, life-cycle phase, activity status and document type of each verification activity, assign the executor and the closure approver by role, determine which documents a phase still owes before it can close, roll individual activity statuses up to a single process status, and verify a closure sign-off against the activity's required evidence. Trigger: ecss, e-st-10-02c, verification process, customer supplier, product level, responsibility assignment, documentation completeness, closure sign-off, activity roll-up.",
@@ -9383,6 +9419,25 @@
     "qualification",
     "heritage",
     "verification-stage",
+    "delta-qualification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-reverification",
+   "name": "e1002-reverification",
+   "description": "Use when determine whether a previously verified hardware item or software configuration requires re-verification following a design change, extended storage period, re-flight of previously flown hardware, or an observed anomaly. Apply ECSS-E-ST-10C §5.4.3 to categorize the triggering event, derive the minimum re-verification scope, enumerate the required activities (inspection, functional test, delta qualification, similarity assessment, structural and thermal analysis, anomaly investigation, documentation review), check which activities are documented, and confirm the item re-enters the verified database only after all required activities are closed or formally waived. Trigger: ecss, e-st-10-system-scope, re-verification, design-change, anomaly, re-flight, storage, verification-scope, delta-qualification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "re-verification",
+    "design-change",
+    "anomaly",
+    "re-flight",
+    "storage",
+    "verification-scope",
     "delta-qualification"
    ],
    "family": "space-systems",
@@ -9490,6 +9545,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-vcb",
+   "name": "e1002-vcb",
+   "description": "Use when establish or operate a Verification Control Board (VCB) under ECSS-E-ST-10-02C §5.4.2: validate the board composition carries at least one customer representative and one supplier representative, confirm quorum is met before deliberation, categorize each agenda item by the decision authority it requires, evaluate whether attending members hold sufficient authority for each item, record each decision with rationale, and assess overall meeting compliance. Trigger: ecss, e-st-10-02c, verification-control-board, vcb, verification-governance, quorum, decision-authority, closeout-approval.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "verification-control-board",
+    "vcb",
+    "verification-governance",
+    "quorum",
+    "decision-authority",
+    "closeout-approval"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-vcd",
    "name": "e1002-vcd",
    "description": "Use when establishing and maintaining the Verification Control Document (VCD) under ECSS-E-ST-10-02C clause 5.2.8.2 and Annex B: validate a recorded verification method and status against their enumerations, determine which methods are permitted to close a given requirement category, check the recorded method is permitted, check that the recorded method is consistent with the requirement's applicability, check a closed status carries its closure evidence, evaluate one VCD entry, roll entries up to a program status, and decide VCD completeness. Trigger: ecss, e-st-10-02c, vcd, verification control document, annex b, method permission, requirement category, closure evidence, status roll-up.",
@@ -9503,6 +9576,24 @@
     "applicability",
     "closure",
     "status-rollup"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-vcd-closeout",
+   "name": "e1002-vcd-closeout",
+   "description": "Use when closing out the Verification Control Document (VCD) per ECSS-E-ST-10C §5.4.4.1: determine the compliance status of each verifiable requirement as compliant, not compliant, or waived; collect every linked verification record (test report, analysis report, inspection record, review-of-design output); assign compliant when all records are passed or not applicable, not compliant when any record is open or failed and no approved waiver is on file, and waived when a formal approved waiver document reference is recorded against the requirement. Flag rows with no verification evidence, open records blocking closeout, and failed records without an approved waiver reference. Produce a VCD closeout summary with counts by status and a list of all blocking findings. Trigger: ecss, e-st-10-system-scope, vcd-closeout, verification-control-document, compliance-status, waiver, verification-records, requirement-closeout.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "vcd-closeout",
+    "verification-control-document",
+    "compliance-status",
+    "waiver",
+    "verification-records",
+    "requirement-closeout"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -9725,6 +9816,23 @@
     "reflown-hardware",
     "qualification-model",
     "testing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-test-programme",
+   "name": "e1003-test-programme",
+   "description": "Use when define the overall test programme for a space system or subsystem under ECSS-E-ST-10C §4.1: identify each hardware model entering the programme (BB, EM, QM, EQM, PFM, FM), derive its corresponding test level (development, qualification, proto-flight, or acceptance), build and validate the ordered test sequence for each model ensuring positions are unique and consecutive, verify that functional tests bookend the sequence at position 1 and the final position, confirm all required programme-level documents are on record before scheduling begins, and validate that the required verification inputs for each test activity are supplied. Trigger: ecss, e-st-10-system-scope, test-programme, models-under-test, test-sequence, verification-inputs, programme-documentation, qualification, acceptance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "test-programme",
+    "models-under-test",
+    "test-sequence",
+    "verification-inputs",
+    "programme-documentation"
    ],
    "family": "space-systems",
    "pack": "ecss",
