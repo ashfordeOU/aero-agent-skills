@@ -13,7 +13,7 @@ compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes,
 metadata:
   domain: space-systems
   subdomain: ecss
-  tags: [ecss, e-st-10c, coordinate-systems, si-units, csd, consistency]
+  tags: [ecss, e-st-10c, coordinate-systems, si-units, csd, consistency, frames, transformations]
   version: 0.1.0
   author: Aero Agent Skills
 ---
