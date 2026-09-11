@@ -49,7 +49,7 @@ fi
 patterns=(
   'ITAR[- ]?compliant'
   'ITAR[- ]?certif'
-  'EAR[- ]?compliant'
+  '\bEAR[- ]?compliant'
   'export[- ]?compliant'
   'FAA[- ]?certified'
   'EASA[- ]?certified'

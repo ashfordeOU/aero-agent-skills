@@ -9,22 +9,30 @@ founder to real breaks.
 
 Covers:
   - check_dev_tree(): a dirty/unpushed dev tree is expected while a CCD lane
-    build is in flight (same signal aero-lane-harvest.py's claude_running()
-    uses: `pgrep -f "claude -p"`). An IDLE dirty or unpushed tree must still
-    FAIL exactly as before.
+    build is in flight. "In flight" (VEDA-0066) is `claude -p` running (same
+    signal aero-lane-harvest.py's claude_running() uses: `pgrep -f
+    "claude -p"`) OR an open lane worktree under LANE_ROOT (same discovery
+    as aero-lane-harvest.py's main(): a directory directly under LANE_ROOT
+    containing a .git entry) — the pgrep signal alone reads FALSE between
+    two claude invocations while a lane is genuinely still open. An IDLE
+    dirty or unpushed tree with no lane open and no claude running must
+    still FAIL exactly as before.
   - check_public_and_site(): the public mirror lagging dev is only a break
     if the mirror's newest commit is older than one publish cycle (hourly
     launchd publish, PUBLISH_CYCLE_TOLERANCE_MINUTES = 120).
 
 Offline, stdlib only, python3.9-compatible. All git/pgrep/GitHub-API reads
-are stubbed — no subprocess or network calls actually run.
+are stubbed — no subprocess or network calls actually run. LANE_ROOT is
+patched per-test to a scratch tmp directory — no real lane repos are read.
 """
 import base64
 import datetime
 import os
 import subprocess
 import sys
+import tempfile
 import unittest
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import system_audit  # noqa: E402
@@ -39,9 +47,40 @@ class CheckDevTreeInFlightTest(unittest.TestCase):
         system_audit.failures = []
         system_audit.notes = []
         self._orig_run = system_audit.run
+        self._orig_lane_root = system_audit.LANE_ROOT
+        self._tmp = tempfile.TemporaryDirectory()
+        # default: LANE_ROOT points at a path that does not exist -> no
+        # real filesystem is ever consulted unless a test opts in below.
+        system_audit.LANE_ROOT = Path(self._tmp.name) / "no-such-lane-root"
 
     def tearDown(self):
         system_audit.run = self._orig_run
+        system_audit.LANE_ROOT = self._orig_lane_root
+        self._tmp.cleanup()
+
+    def _lane_root(self):
+        root = Path(self._tmp.name) / "lanes"
+        root.mkdir(parents=True, exist_ok=True)
+        system_audit.LANE_ROOT = root
+        return root
+
+    def _make_open_lane(self, name):
+        """A directory under LANE_ROOT with a .git entry — a genuine open
+        lane per aero-lane-harvest.py's discovery."""
+        lane = self._lane_root() / name
+        lane.mkdir(parents=True, exist_ok=True)
+        (lane / ".git").mkdir()
+        return lane
+
+    def _make_lane_dir_without_git(self, name):
+        lane = self._lane_root() / name
+        lane.mkdir(parents=True, exist_ok=True)
+        return lane
+
+    def _make_plain_file(self, name):
+        f = self._lane_root() / name
+        f.write_text("not a lane")
+        return f
 
     def _stub_run(self, dirty_lines, unpushed, claude_running):
         def fake_run(cmd, cwd=None, timeout=120):
@@ -87,6 +126,61 @@ class CheckDevTreeInFlightTest(unittest.TestCase):
         self._stub_run(dirty_lines=0, unpushed=0, claude_running=False)
         system_audit.check_dev_tree()
         self.assertEqual(system_audit.failures, [])
+
+    # (1) lane open + claude not running + dirty/unpushed tree -> NOTE, zero failures
+    def test_open_lane_no_claude_dirty_unpushed_tree_notes_not_fails(self):
+        self._make_open_lane("e-abc-1")
+        self._stub_run(dirty_lines=2, unpushed=3, claude_running=False)
+        system_audit.check_dev_tree()
+        self.assertEqual(
+            [f for f in system_audit.failures if f.startswith("dev-tree:")], [])
+        self.assertTrue(any(
+            "in flight" in n and "e-abc-1" in n for n in system_audit.notes))
+
+    # (2) no lane + claude not running + dirty tree -> still a FAIL (unchanged)
+    def test_no_lane_no_claude_dirty_tree_still_fails(self):
+        self._stub_run(dirty_lines=2, unpushed=0, claude_running=False)
+        system_audit.check_dev_tree()
+        self.assertTrue(any(
+            f.startswith("dev-tree:") and "uncommitted" in f
+            for f in system_audit.failures))
+
+    # (3) claude running, no lane -> in flight (unchanged)
+    def test_claude_running_no_lane_in_flight_unchanged(self):
+        self._stub_run(dirty_lines=1, unpushed=1, claude_running=True)
+        system_audit.check_dev_tree()
+        self.assertEqual(
+            [f for f in system_audit.failures if f.startswith("dev-tree:")], [])
+        self.assertTrue(any(
+            "in flight" in n and "claude -p running" in n
+            for n in system_audit.notes))
+
+    # (4a) a plain file directly under LANE_ROOT is NOT an open lane
+    def test_plain_file_under_lane_root_is_not_an_open_lane(self):
+        self._make_plain_file("scratch.txt")
+        self.assertEqual(system_audit.open_lanes(system_audit.LANE_ROOT), [])
+        self._stub_run(dirty_lines=1, unpushed=1, claude_running=False)
+        system_audit.check_dev_tree()
+        self.assertTrue(any(
+            f.startswith("dev-tree:") for f in system_audit.failures))
+
+    # (4b) a directory under LANE_ROOT without a .git entry is NOT an open lane
+    def test_lane_dir_without_git_is_not_an_open_lane(self):
+        self._make_lane_dir_without_git("e-half-cloned")
+        self.assertEqual(system_audit.open_lanes(system_audit.LANE_ROOT), [])
+        self._stub_run(dirty_lines=1, unpushed=1, claude_running=False)
+        system_audit.check_dev_tree()
+        self.assertTrue(any(
+            f.startswith("dev-tree:") for f in system_audit.failures))
+
+    def test_open_lanes_names_every_genuine_lane(self):
+        self._make_open_lane("e-open-1")
+        self._make_open_lane("e-open-2")
+        self._make_plain_file("README.txt")
+        self._make_lane_dir_without_git("e-not-a-lane")
+        self.assertEqual(
+            system_audit.open_lanes(system_audit.LANE_ROOT),
+            ["e-open-1", "e-open-2"])
 
 
 class CheckPublicPublishCycleTest(unittest.TestCase):

@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 830,
+  "leaves": 938,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1646
+  "corpus_tasks": 1742
  },
  "skills": [
   {
@@ -8240,7 +8240,9 @@
     "coordinate-systems",
     "si-units",
     "csd",
-    "consistency"
+    "consistency",
+    "frames",
+    "transformations"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -10144,6 +10146,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1003-tailoring",
+   "name": "e1003-tailoring",
+   "description": "Use when determine the tailoring profile of ECSS-E-ST-10-03C for a specific space project class (A–D) using the Annex D informative method: map each standard requirement to an applicability status (Applicable, Not Applicable, Tailored, or Conditional), assign verification methods, and produce a compliance matrix and a verification matrix. Apply when a project team must scope the system engineering requirements set to their mission category, justify deviations, and supply the matrices required by a review or product-assurance gate. Trigger: ecss, e-st-10-03c, tailoring, annex-d, compliance-matrix, verification-matrix, project-class, system-engineering, applicability.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "tailoring",
+    "annex-d",
+    "compliance-matrix",
+    "verification-matrix",
+    "project-class"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1003-test-conditions",
    "name": "e1003-test-conditions",
    "description": "Use when define test conditions for a space equipment or system verification campaign under ECSS-E-ST-10C §4.4.1: establish the required ambient environment parameter ranges (temperature, pressure, humidity, EMI environment), the cleanliness class for each test area, the ESD protection measures required for each test item, the unit-under-test configuration state and interface definitions, and the monitoring channel set with recording rates and acceptance limits. Each condition input is categorized as compliant or non-compliant; undefined mandatory conditions are flagged; and monitoring coverage is confirmed before test execution is permitted. Trigger: ecss, e-st-10-system-scope, test-conditions, ambient-environment, esd-protection, cleanliness, test-configuration, monitoring.",
@@ -11031,6 +11050,1980 @@
     "solar-maximum",
     "solar-minimum",
     "worst-case"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-ambiguity",
+   "name": "e1006-char-ambiguity",
+   "description": "Use when determine whether requirements are unambiguous under ECSS-E-ST-10C §8.2.4: identify vague qualitative terms (adequate, sufficient, appropriate, optimal), weasel qualifiers (TBD, TBC, as required, where possible), compound connective ambiguity (and/or without explicit resolution), and implicit subjects with no stated system element; flag each finding with its category and severity; confirm every requirement admits exactly one interpretation before passing the ambiguity gate. Trigger: ecss, e-st-10-system-scope, requirement-ambiguity, vague-terms, single-interpretation, requirement-quality, e1006, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirement-ambiguity",
+    "vague-terms",
+    "single-interpretation",
+    "requirement-quality",
+    "e1006"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-cm-trace",
+   "name": "e1006-char-cm-trace",
+   "description": "Use when auditing configuration management traceability of requirements under ECSS-E-ST-10C §8.2.3: verify each requirement carries a unique identifier, a documented source trace linking it to an originating parent requirement, standard clause, or customer specification, and an assignment to a configuration baseline. Flag requirements with missing identifiers, empty source traces, unrecognized source types, or unassigned baselines. Identify duplicate requirement identifiers across the set. A requirement achieves CM-trace compliance only when its identity, source trace, and baseline assignment are all present and valid. Trigger: ecss, e-st-10c, e-st-10-system-scope, configuration-management, cm-trace, traceability, requirements-identity, cm-baseline.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "e-st-10-system-scope",
+    "configuration-management",
+    "cm-trace",
+    "traceability",
+    "requirements-identity",
+    "cm-baseline"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-completeness",
+   "name": "e1006-char-completeness",
+   "description": "Use when assess requirement-set completeness against a mission or function decomposition tree per ECSS-E-ST-10C §8.2.8: verify every leaf node in the tree has at least one covering requirement, every requirement traces to a known tree node, and no invalid trace references exist. Flag uncovered leaf nodes as completeness gaps. Flag requirements with no valid tree trace as uncategorized. Flag trace references to nonexistent nodes as data-entry errors, distinct from structural gaps. Returns a structured result: uncovered leaves, orphan requirements, and invalid trace pairs; is_complete is True only when all three lists are empty. Trigger: ecss, e-st-10-system-scope, e-st-10c, requirement-completeness, function-tree, mission-tree, traceability, gap-analysis, requirement-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10c",
+    "requirement-completeness",
+    "function-tree",
+    "mission-tree",
+    "traceability",
+    "gap-analysis",
+    "requirement-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-identifiability",
+   "name": "e1006-char-identifiability",
+   "description": "Use when verify every requirement in a system specification carries a stable, unique identifier per ECSS-E-ST-10C §8.2.6: confirm each requirement has an assigned, project-controlled identifier in the agreed format, confirm no two requirements share an identifier, confirm no requirement is without an identifier, and flag identifier patterns suggesting instability such as gaps from renumbering events or placeholder values. Trigger: ecss, e-st-10-system-scope, requirements-management, identifiability, unique-identifier, requirements-traceability, stable-identifier.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirements-management",
+    "identifiability",
+    "unique-identifier",
+    "requirements-traceability",
+    "stable-identifier"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-justification",
+   "name": "e1006-char-justification",
+   "description": "Use when verify that every system requirement in the requirements database carries a recorded justification explaining why the requirement exists, per ECSS-E-ST-10C §8.2.2. For each requirement, determine whether the justification field is populated and whether the justification cites a traceable source — such as a stakeholder need, mission objective, standard clause, derived rationale, or safety argument. Flag any requirement whose justification text is absent or empty, and any requirement whose justification source reference is not recorded or belongs to an unrecognised source category. Produce a per-requirement verdict and a summary count of non-compliant items across the set. Trigger: ecss, e-st-10-system-scope, requirement-justification, rationale, char-justification, traceability, requirements-management, §8.2.2.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirement-justification",
+    "rationale",
+    "char-justification",
+    "traceability",
+    "requirements-management"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-performance",
+   "name": "e1006-char-performance",
+   "description": "Use when verify each requirement in a system specification for performance content under ECSS-E-ST-10C §8.2.1: confirm each performance requirement carries quantified parameters — numeric value, engineering unit, and comparison operator — flag requirements with missing or unquantified performance data, and confirm that performance requirement types are recognized before assessment. Trigger: ecss, e-st-10-system-scope, performance-requirements, quantification, parameter-values, requirements-review, verification, system-specification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "performance-requirements",
+    "quantification",
+    "parameter-values",
+    "requirements-review",
+    "verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-singularity",
+   "name": "e1006-char-singularity",
+   "description": "Use when verify each requirement statement adheres to the singularity characteristic of ECSS-E-ST-10-06C §8.2.7: confirm that every statement expresses exactly one verifiable requirement and does not embed multiple requirements through coordinating conjunctions, compound predicates, or stacked modal clauses. Scan each statement for multiple 'shall' occurrences, coordinating conjunctions joining independent requirement predicates, and list structures under a single modal verb. Flag each violating statement, identify the conjunction or structural pattern causing the violation, and recommend how to split the statement so each result expresses a single, standalone requirement. Trigger: ecss, e-st-10-system-scope, e-st-10-06c, requirements, singularity, compound-requirement, shall, conjunction, requirement-quality.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-06c",
+    "requirements",
+    "singularity",
+    "compound-requirement",
+    "shall",
+    "conjunction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-tolerance",
+   "name": "e1006-char-tolerance",
+   "description": "Use when verify that each quantitative performance characteristic in a system requirement set carries an explicit tolerance alongside its nominal value, per ECSS-E-ST-10C §8.2.10: for each quantitative requirement, confirm a nominal value is present, a plus-tolerance and minus-tolerance are both stated (symmetric or asymmetric), and tolerance magnitudes are non-negative. Qualitative requirements are out of scope. Trigger: ecss, e-st-10c, e-st-10-system-scope, characteristic-tolerance, quantitative-requirements, tolerance-verification, requirements-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "characteristic-tolerance",
+    "quantitative-requirements",
+    "tolerance-verification",
+    "requirements-completeness",
+    "performance-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-uniqueness",
+   "name": "e1006-char-uniqueness",
+   "description": "Use when verify that every requirement in a spacecraft system specification is unique in wording and content — detecting exact duplicates (identical normalised text) and near-duplicates (high substantive-vocabulary overlap) across the requirement set, and reporting each offending pair with a finding that identifies which requirements must be reworded or consolidated. Applies the uniqueness characteristic of ECSS-E-ST-10C §8.2.5: a requirement whose meaning or wording already exists in another requirement in the same set adds no engineering value and creates traceability ambiguity. Trigger: ecss, e-st-10-system-scope, requirement-uniqueness, duplicate-detection, near-duplicate, requirement-quality, wording-overlap, consolidation.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirement-uniqueness",
+    "duplicate-detection",
+    "near-duplicate",
+    "requirement-quality",
+    "wording-overlap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-char-verifiability",
+   "name": "e1006-char-verifiability",
+   "description": "Use when verify that every system requirement is assigned at least one recognized verification method (Test, Analysis, Inspection, Review of Design) and at least one verification level (system, subsystem, equipment, component) as required by ECSS-E-ST-10C §8.2.9 and ECSS-E-ST-10-02C: flag requirements with no method, no level, an unrecognized method or level code, or text that bundles multiple independently verifiable conditions into one statement, and confirm each method-level pairing is on record in the project verification requirements database. Trigger: ecss, e-st-10-system-scope, verifiability, verification-method, verification-level, e-st-10-02, vrdb, requirement-verifiability.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "verifiability",
+    "verification-method",
+    "verification-level",
+    "vrdb"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-content-structure",
+   "name": "e1006-content-structure",
+   "description": "Use when verify that a Technical Specification (TS) document satisfies ECSS-E-ST-10C §7.2 overall requirements: confirm the document organisation includes all mandatory sections in the required order, assign section-level responsibility owners, anchor each technical reference to its document identifier, confirm configuration-management baseline tagging, validate section-numbering format, mark supplementary information in dedicated annexes, and apply applicable content-distribution restrictions on the title page. Trigger: ecss, e-st-10-system-scope, technical-specification, ts-organisation, ts-responsibility, technical-reference, configuration-management, supplementary-information, content-restrictions.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "technical-specification",
+    "ts-organisation",
+    "ts-responsibility",
+    "technical-reference",
+    "configuration-management",
+    "supplementary-information",
+    "content-restrictions"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-process",
+   "name": "e1006-process",
+   "description": "Use when execute the Technical Specification establishment process under ECSS-E-ST-10C §5: advance through phase-0 preliminary TS tasks (F1.1–F1.4), verify that prerequisites are satisfied before starting each task, iterate requirements at each decomposition level until no open changes remain, then advance through phase-A TS tasks (F1.5–F1.10) and issue the phase-A Technical Specification. Trigger: ecss, e-st-10-system-scope, ts-establishment, technical-specification, phase-0, phase-a, requirements-iteration, decomposition, systems-engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "ts-establishment",
+    "technical-specification",
+    "requirements-iteration",
+    "decomposition",
+    "systems-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-purpose",
+   "name": "e1006-purpose",
+   "description": "Use when assess the purpose, chain position, and content model of an ECSS Technical Specification (TS) per ECSS-E-ST-10C §4: determine whether each TS section belongs to the general part (scope, applicability, normative references, terms and definitions, product definition) or the requirements part (technical requirements, verification requirements, interface requirements, design requirements), identify the TS issuer and recipient roles in the customer–supplier chain, and verify that all mandatory sections are present before placing the TS under configuration control. Trigger: ecss, e-st-10-system-scope, technical-specification, ts-purpose, ts-content-model, customer-supplier-chain, general-part, requirements-part, ts-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "technical-specification",
+    "ts-purpose",
+    "ts-content-model",
+    "customer-supplier-chain",
+    "general-part",
+    "requirements-part"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-ts-drd",
+   "name": "e1006-ts-drd",
+   "description": "Use when validate a Technical requirements specification (TS) document against the ECSS-E-ST-10C Annex A DRD: confirm all mandatory sections are present (system identification, mission context, technical performance requirements, interface requirements, environmental conditions, and verification cross-reference table), verify each requirement carries a unique identifier and an assigned verification method (test, analysis, inspection, or review of design), check that interface requirements reference a registered ICD entry, and flag any absent mandatory section or any requirement lacking a verification method. Trigger: ecss, e-st-10-system-scope, technical-specification, ts-drd, requirements-document, verification-method, interface-requirement, drd-validation.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "technical-specification",
+    "ts-drd",
+    "requirements-document",
+    "verification-method",
+    "interface-requirement",
+    "drd-validation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-types",
+   "name": "e1006-types",
+   "description": "Use when classify technical requirements for a space system under ECSS-E-ST-10C §6.2.1–6.2.13: assign each requirement to one of twelve requirement types (functional, mission, interface, environmental, operational, human factor, ILS, physical, PA-induced, configuration, design, verification), confirm every requirement belongs to exactly one type, and flag requirement statements that cannot be assigned without additional information. Trigger: ecss, e-st-10-system-scope, requirement-types, functional, mission, interface, environmental, operational, physical, PA-induced, configuration, design, verification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirement-types",
+    "functional",
+    "mission",
+    "interface",
+    "environmental",
+    "operational",
+    "physical",
+    "pa-induced",
+    "configuration",
+    "design",
+    "verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1006-wording",
+   "name": "e1006-wording",
+   "description": "Use when verify requirement wording against ECSS-E-ST-10C §8.3 rules: confirm each statement uses shall (mandatory), should (recommendation), or may (permission); detect non-standard verbal forms (will, must); flag ambiguous or unverifiable terms (adequate, appropriate, user-friendly); enforce single obligation per statement; and reject embedded rationale text. Replace forbidden terms with measurable criteria and move justification to a NOTE. Trigger: ecss, e-st-10-system-scope, wording, verbal-form, shall, requirements-authoring, ambiguity, single-statement, verifiability.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "wording",
+    "verbal-form",
+    "shall",
+    "requirements-authoring",
+    "ambiguity",
+    "single-statement",
+    "verifiability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-applicability",
+   "name": "e1009-applicability",
+   "description": "Use when apply the coordinate-system definitions required by ECSS-E-ST-10C §5.3.1 across all five activity domains: mission definition, engineering, verification, operations, and data processing. For each domain, determine which reference frames must be formally defined, verify that at least the required frame families are present, and identify any domain that lacks a valid frame definition. Trigger: ecss, e-st-10-system-scope, coordinate-systems, reference-frames, applicability, mission-definition, data-processing, frame-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-systems",
+    "reference-frames",
+    "applicability",
+    "mission-definition",
+    "data-processing",
+    "frame-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-authorities",
+   "name": "e1009-authorities",
+   "description": "Use when identify the appropriate international standards authority for a space mission's time scale, reference frame, ephemeris, geodesy, or data-format requirement; map each required data product to its originating body (IERS, IAU, USNO, BIPM, IMCCE/JPL, CCSDS, NIMA, WGCCRE); verify that citations are correctly attributed to the producing authority; and audit a product list for coverage gaps against the Annex C authority registry. Trigger: ecss, e-st-10-system-scope, authorities, reference-frames, time-scales, ephemerides, geodesy, iers, iau, bipm, ccsds.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "authorities",
+    "reference-frames",
+    "time-scales",
+    "ephemerides",
+    "geodesy",
+    "iers",
+    "iau",
+    "bipm",
+    "ccsds"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-chain-analysis",
+   "name": "e1009-chain-analysis",
+   "description": "Use when verify end-to-end coordinate system transformation chains across all frame users in a spacecraft project, following ECSS-E-ST-10C §5.2.3. Inventory every coordinate system in the project, register each inter-frame transformation link, and trace the chain from each user frame back to a common root frame. Flag any user frame that cannot reach the root, detect circular dependencies in the directed transformation graph, and check handedness consistency along each resolved chain. A project is chain-compliant only when all users are reachable, no cycles exist, and all frames in every chain share the same handedness convention. Trigger: ecss, e-st-10-system-scope, coordinate-systems, transformation-chain, reference-frames, chain-analysis, frame-consistency, handedness, e-st-10c.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-systems",
+    "transformation-chain",
+    "reference-frames",
+    "chain-analysis",
+    "frame-consistency",
+    "handedness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-csd-drd",
+   "name": "e1009-csd-drd",
+   "description": "Use when generate or validate a Coordinate Systems Document (CSD) for a spacecraft project under ECSS-E-ST-10-09C Annex A DRD requirements: define each coordinate frame with a unique identifier, origin, axis directions, frame type, and attachment body; record every frame-to-frame transformation with its rotation sequence and translation vector; populate the parameter tables with numeric values and units referencing the correct frame; and verify the document satisfies the DRD completeness checklist. Apply at any project phase that produces or updates a formal CSD deliverable. Trigger: ecss, e-st-10-system-scope, coordinate-systems, csd, frames, transformations, parameter-tables, drd, annex-a, rotation-sequence.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-systems",
+    "csd",
+    "parameter-tables",
+    "drd",
+    "annex-a"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-csys",
+   "name": "e1009-csys",
+   "description": "Use when define coordinate systems for a spacecraft or mission under ECSS-E-ST-10C §5.4.2: select a frame type (inertial, rotating, body-fixed, orbital, or topocentric), confirm that all axes within the chosen representation (Cartesian, spherical, or cylindrical) carry unambiguous direction references, flag every frame whose origin or orientation varies with time as time-dependent, and verify that no frame with an underdefined axis or unresolved parent reference enters the system model. A compliant set has all axes defined, all time-dependent frames explicitly flagged, and every non-root frame referencing a known parent. Trigger: ecss, e-st-10-system-scope, coordinate-systems, reference-frames, time-dependent-frames, frame-definition, axis-definition, spacecraft-geometry.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-systems",
+    "reference-frames",
+    "time-dependent-frames",
+    "frame-definition",
+    "axis-definition",
+    "spacecraft-geometry"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-documentation",
+   "name": "e1009-documentation",
+   "description": "Use when maintain the Coordinate Systems Document (CSD) across the spacecraft project life cycle under ECSS-E-ST-10C §5.2.2: define each coordinate system with a unique identifier, origin, axis triad, and reference frame; validate entry completeness; enforce permissible lifecycle state transitions (draft -> review -> approved -> superseded); verify that required project phases each carry at least one applicable coordinate system; and compute a CSD readiness score to track documentation maturity. Trigger: ecss, e-st-10-system-scope, coordinate-systems-document, csd, reference-frame, axis-definition, lifecycle, project-phases, documentation-maturity.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-systems-document",
+    "csd",
+    "reference-frame",
+    "axis-definition",
+    "lifecycle",
+    "project-phases"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-figures",
+   "name": "e1009-figures",
+   "description": "Use when verify that coordinate-frame relationship diagrams conform to ECSS-E-ST-10-09C §5.3.3 figure conventions: confirm each diagram carries a complete annotation set (figure ID, title, origin description, all three axis labels, and frame name), validate the three axes form a right-handed orthogonal triad, check that any Euler-angle rotation sequence is a valid proper-Euler or Tait-Bryan form (three characters, no two consecutive identical axes), and confirm the frame type falls within the recognized ECSS categories (body, orbital, sensor, structural, inertial). Applies to coordinate-system diagrams entering a system data package or design review under ECSS-E-ST-10C. Trigger: ecss, e-st-10-system-scope, coordinate-frame, figure-convention, right-hand-rule, euler-sequence, axis-labeling, frame-diagram, coordinate-relationship.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-frame",
+    "figure-convention",
+    "right-hand-rule",
+    "euler-sequence",
+    "axis-labeling",
+    "frame-diagram",
+    "coordinate-relationship"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-frame",
+   "name": "e1009-frame",
+   "description": "Use when define and validate a spacecraft reference frame under ECSS-E-ST-10C §5.4.1: establish the frame origin and three orthogonal right-handed axes, label each axis with a physical direction reference, determine whether the frame is inertial or time-varying (body-fixed, orbit-referenced, or planet-fixed), supply an epoch for inertial frames, confirm the name follows the ECSS uppercase-alphanumeric convention, and verify that any child frame traces an unbroken chain back to a root inertial frame. Trigger: ecss, e-st-10-system-scope, reference-frame, coordinate-frame, axes, right-handed, inertial, body-fixed, orbit-referenced, frame-naming.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "reference-frame",
+    "coordinate-frame",
+    "axes",
+    "right-handed",
+    "inertial",
+    "body-fixed"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-mech-frames",
+   "name": "e1009-mech-frames",
+   "description": "Use when define mechanical body frames for a spacecraft under ECSS-E-ST-10-09C §5.4.5: determine each frame's type (spacecraft body, equipment, or sensor mounting), verify the direction cosine matrix (DCM) satisfies orthogonality and proper-rotation constraints, confirm every equipment and sensor frame names a valid parent frame traceable to the spacecraft body frame, and validate that each equipment and sensor frame carries a tied alignment data record with a declared measurement status (measured, nominal, or estimated). Trigger: ecss, e-st-10-system-scope, mechanical-frames, body-frame, alignment-data, dcm, coordinate-frame, spacecraft-frame, sensor-mounting-frame.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "mechanical-frames",
+    "body-frame",
+    "alignment-data",
+    "dcm",
+    "coordinate-frame",
+    "spacecraft-frame",
+    "sensor-mounting-frame"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-notation",
+   "name": "e1009-notation",
+   "description": "Use when verify that all frames, coordinate systems, and transformation data in exchanged engineering products comply with the ECSS-E-ST-10C §5.3.2 standard notation: confirm each frame identifier is an uppercase alphanumeric label, confirm each rotation matrix is orthogonal with determinant +1, confirm each quaternion carries unit norm, confirm each Euler-angle representation declares an explicit 3-digit axis-sequence code with no two adjacent axes identical, confirm every annotated vector carries a frame label, confirm transformation chains are gap-free between consecutive steps, and flag any exchange record that omits a mandatory notation field. Trigger: ecss, e-st-10-system-scope, notation, coordinate-frame, rotation-matrix, quaternion, euler-angles, frame-annotation, transformation, interface-data.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "notation",
+    "coordinate-frame",
+    "rotation-matrix",
+    "quaternion",
+    "euler-angles",
+    "frame-annotation",
+    "transformation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-parameterisation",
+   "name": "e1009-parameterisation",
+   "description": "Use when define the parameterisation of a coordinate system per ECSS-E-ST-10-09C §5.4.7: categorize the geometry as Cartesian, spherical, or cylindrical; confirm the origin and orientation convention are documented; verify Cartesian axes form a right-hand triad; and check that spherical or cylindrical coordinate parameters fall within their valid ranges. Trigger: ecss, e-st-10-system-scope, coordinate-systems, parameterisation, spherical-coordinates, cylindrical-coordinates, cartesian-coordinates, orientation-convention.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-systems",
+    "parameterisation",
+    "spherical-coordinates",
+    "cylindrical-coordinates",
+    "cartesian-coordinates",
+    "orientation-convention"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-planet-coords",
+   "name": "e1009-planet-coords",
+   "description": "Use when define a planetary body-fixed coordinate frame per ECSS-E-ST-10-09C §5.4.6: retrieve WGCCRE rotation-model coefficients for the target body, compute the right ascension and declination of the North Pole in ICRF from the polynomial evaluated at the given epoch, determine the prime-meridian angle W, validate that pole angles fall within physical bounds, derive the pole unit vector in ICRF Cartesian form, and verify the prime-meridian wraps to [0°, 360°). Apply to any Solar System body that carries a WGCCRE entry—planets, dwarf planets, or major moons. Trigger: ecss, e-st-10-system-scope, planet-coords, wgccre, body-fixed-frame, pole-orientation, prime-meridian, rotation-elements, icrf.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "planet-coords",
+    "wgccre",
+    "body-fixed-frame",
+    "pole-orientation",
+    "prime-meridian",
+    "rotation-elements"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-responsibility",
+   "name": "e1009-responsibility",
+   "description": "Use when verify responsibility assignments for each coordinate system definition and transformation entry in a Coordinate System Document, ensuring every entry carries exactly one identified owner before the document is baselined. The procedure checks no CSD entry is unassigned (orphaned) and no entry carries ambiguous dual ownership, producing a compliant responsibility matrix per ECSS-E-ST-10C §5.2.1. Trigger: ecss, e-st-10-system-scope, coordinate-system, transformation, responsibility, ownership, csd, single-owner, assignment.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-system",
+    "transformation",
+    "responsibility",
+    "ownership",
+    "csd",
+    "single-owner"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-time",
+   "name": "e1009-time",
+   "description": "Use when define the time scale and epoch for each spacecraft reference frame under ECSS E-ST-10C §5.4.4: select from TAI, UTC, UT1, TT, TDB, TCB, TCG, or GPS for inertial (ECI, GCRS), Earth-rotating (ECEF, ITRS), or barycentric (BCRS, HCI) frames; identify the standard epoch (J2000.0, J1950.0, B1950.0, or MJD) used as the time origin; verify each frame–time-scale pairing is consistent with its motion description; and convert between time scales using the TAI–TT constant offset or a supplied leap-second count for UTC. Trigger: ecss, e-st-10-system-scope, time-scales, epochs, tai, utc, tt, tdb, j2000, reference-frames.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "time-scales",
+    "epochs",
+    "tai",
+    "utc",
+    "tt",
+    "tdb",
+    "j2000",
+    "reference-frames"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-transform-decomp",
+   "name": "e1009-transform-decomp",
+   "description": "Use when decompose a spacecraft coordinate transformation chain per ECSS-E-ST-10-09C §5.4.8: validate each rotation matrix for orthogonality and proper orientation (determinant +1), determine the ordering of translation and rotation primitives in the chain, resolve a composed rotation into its Euler angle sequence, compose a series of elementary transforms into a single homogeneous matrix, and verify roundtrip consistency. Apply at any stage of mission reference frame analysis where transformation chains must be broken into auditable primitive steps. Trigger: ecss, e-st-10-09c, e-st-10-system-scope, reference-frames, transformation-chain, rotation-matrix, euler-angles, homogeneous-transform.",
+   "tags": [
+    "ecss",
+    "e-st-10-09c",
+    "e-st-10-system-scope",
+    "reference-frames",
+    "transformation-chain",
+    "rotation-matrix",
+    "euler-angles",
+    "homogeneous-transform"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-transform-def",
+   "name": "e1009-transform-def",
+   "description": "Use when define each coordinate transformation in a spacecraft or system model under ECSS-E-ST-10-09C §5.4.9: specify every transform with a verbal statement, a rotation-matrix equation, and a figure reference; express each matrix relative to its parent frame using a declared row-column convention; and verify that numerical precision is consistent across all entries in the model. Check orthogonality (R^T R = I, determinant +1) for each rotation matrix, confirm the parent frame is in the defined frame set, and flag any transform missing its verbal description, figure reference, or declared convention. Trigger: ecss, e-st-10-system-scope, coordinate-transformation, rotation-matrix, parent-frame, row-column-convention, precision-consistency, frame-definition.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "coordinate-transformation",
+    "rotation-matrix",
+    "parent-frame",
+    "row-column-convention",
+    "precision-consistency",
+    "frame-definition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-tree-analysis",
+   "name": "e1009-tree-analysis",
+   "description": "Use when map product-tree frame relationships and derive transformation chains per ECSS-E-ST-10C Annex B: register each assembly element as a body-frame node in a directed tree, verify the tree has a single root and no cycles, find the transformation chain between any two frames through the lowest common ancestor, compose the chain of 4x4 homogeneous matrices into one frame-to-frame transform, and export the Franck diagram edge list showing every parent-to-child frame link. Trigger: ecss, e-st-10-system-scope, transformation-tree, Franck-diagram, frame-relationships, product-tree, coordinate-chain, homogeneous-transform.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "transformation-tree",
+    "franck-diagram",
+    "frame-relationships",
+    "product-tree",
+    "coordinate-chain",
+    "homogeneous-transform"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1009-units",
+   "name": "e1009-units",
+   "description": "Use when verify that every coordinate and derived quantity in a space-system interface document or software parameter list states its unit as the SI standard or an explicitly listed stated exception, per ECSS-E-ST-10-09C §5.4.3. For each parameter: determine the quantity type (distance, angle, time, angular rate, velocity, mass, force, pressure, temperature, frequency, acceleration), identify the prescribed SI unit, check whether the actual stated unit is SI or appears on the stated-exception list, and flag any parameter whose unit is neither. Output a per-parameter verdict (si, stated_exception, or non_compliant) and a summary of all findings. Trigger: ecss, e-st-10-system-scope, units, SI-units, coordinates, reference-frames, stated-exceptions, quantity-types, parameter-verification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "units",
+    "si-units",
+    "coordinates",
+    "reference-frames",
+    "stated-exceptions",
+    "quantity-types"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-analysis-drd",
+   "name": "e1011-analysis-drd",
+   "description": "Use when generate or validate an HFE analysis and simulation report per ECSS-E-ST-10-11C Annex B DRD: verify the document covers all required sections (task analysis, human performance requirements, workload assessment, error analysis, simulation activities, and verification evidence); check each task-analysis entry for mission phase, crew allocation, and time budget; confirm every simulation activity records its objective, participant count, scenario, and findings; assess workload distribution and flag when high-or-critical tasks exceed 30 percent of the total; and verify each error analysis item carries an identified mitigation with a valid probability estimate. Trigger: ecss, e-st-10-system-scope, hfe, human-factors-engineering, analysis-drd, simulation-report, task-analysis, workload-assessment.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe",
+    "human-factors-engineering",
+    "analysis-drd",
+    "simulation-report",
+    "task-analysis",
+    "workload-assessment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-anthropometry",
+   "name": "e1011-anthropometry",
+   "description": "Use when apply anthropometric and biomechanical reference data to spacecraft or habitat design under ECSS-E-ST-10-11C §4.5.1: determine the percentile range the design must accommodate (typically 5th–95th), interpolate body dimensions at the required percentile, check that every clearance and reach envelope covers the full target population, verify that required operator forces stay within the 5th-percentile strength limit, and apply microgravity spinal-unloading corrections to stature and seated-height before comparing with design envelopes. Trigger: ecss, e-st-10-system-scope, anthropometry, biomechanics, percentile, reach-envelope, strength-limit, microgravity-correction, human-factors, crew-provisions.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "anthropometry",
+    "biomechanics",
+    "percentile",
+    "reach-envelope",
+    "strength-limit",
+    "microgravity-correction",
+    "human-factors",
+    "crew-provisions"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-arch-complements",
+   "name": "e1011-arch-complements",
+   "description": "Use when verify that an internal spacecraft zone provides adequate architecture complements under ECSS-E-ST-10-11C §4.7.4: check that every crew-access path has handrails spaced within the allowable gap limit, every defined workstation carries at least one foot or body restraint, all mobility-aid elements form a continuous path with no uncovered gap exceeding the threshold, and all stowage items fall within the anthropometric reach envelope. Collect findings per zone and determine overall compliance. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, architecture-complements, handrails, restraints, mobility-aids, stowage, microgravity, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "e-st-10-system-scope",
+    "architecture-complements",
+    "handrails",
+    "restraints",
+    "mobility-aids",
+    "stowage",
+    "microgravity",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-assessment-drd",
+   "name": "e1011-assessment-drd",
+   "description": "Use when generate or validate the HFE continuous assessment process report per ECSS-E-ST-10-11C Annex C (normative DRD): confirm the report identifies assessment scope (system under review, mission phase, review gate or milestone), the assessment method applied (inspection, walkthrough, simulation, or user trial), a finding register where each entry carries an HFE criterion label, a severity level (critical, major, minor, or observation), and a recommendation, and a corrective-action register that links each finding to an owner and status. Derive the overall result: fail when any critical finding remains unresolved, conditional when a critical or major finding is in progress, pass otherwise. Flag any mandatory DRD section that is absent. Trigger: ecss, e-st-10-system-scope, hfe-assessment, drd, continuous-assessment, finding-register, corrective-action, assessment-report, hfe-drd.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe-assessment",
+    "drd",
+    "continuous-assessment",
+    "finding-register",
+    "corrective-action",
+    "assessment-report",
+    "hfe-drd"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-assessment-events",
+   "name": "e1011-assessment-events",
+   "description": "Use when execute usability reviews, project design reviews, and crew station assessments of crew hardware under ECSS-E-ST-10-11C §4.10.2: determine the applicable review type for each hardware item based on hardware category, schedule each review event against the programme milestone plan, define evaluation criteria and acceptance thresholds per event, conduct the review with human factors engineers and project stakeholders, record each finding as a tracked action item with severity level, verify all findings are either resolved or formally waived, and confirm gate readiness before advancing to the next programme phase. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, usability-review, design-review, crew-station-review, crew-hardware, human-factors, hfe-review, assessment-events.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "usability-review",
+    "design-review",
+    "crew-station-review",
+    "crew-hardware",
+    "human-factors",
+    "hfe-review",
+    "assessment-events"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-assessment-process",
+   "name": "e1011-assessment-process",
+   "description": "Use when run the continuous assessment process for a space system project under ECSS-E-ST-10 clause 4.10.1: categorize each finding by type (observation, action item, non-conformance), evaluate technical performance measures against their thresholds to derive a nominal/marginal/exceeded status, determine closure validity for each finding, compute the overall compliance status across all open findings and measure outcomes, and generate the structured Annex C assessment-report fields. The process applies at every review event across all project phases; open non-conformances and exceeded thresholds both block a compliant outcome. Trigger: ecss, e-st-10-system-scope, continuous-assessment, technical-performance-measure, finding-categorization, review-event, annex-c-report, compliance-status.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "continuous-assessment",
+    "technical-performance-measure",
+    "finding-categorization",
+    "review-event",
+    "annex-c-report",
+    "compliance-status"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-assessment-tools",
+   "name": "e1011-assessment-tools",
+   "description": "Use when validate human factors engineering assessment tool selection and coverage under ECSS-E-ST-10-11C §4.10.3: categorize each candidate tool into one of the four recognized families (simulation, development test, space analogue via neutral buoyancy facility or partial-gravity parabolic flight, or consensus report), confirm every identified HFE concern area is addressed by at least one tool, and verify that EVA-related concern areas are backed by a space analogue test rather than ground simulation alone. Trigger: ecss, e-st-10-11c, human-factors, hfe, assessment-tools, simulation, neutral-buoyancy, space-analogue, development-test, consensus-report.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "human-factors",
+    "hfe",
+    "assessment-tools",
+    "simulation",
+    "neutral-buoyancy",
+    "space-analogue",
+    "development-test",
+    "consensus-report"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-cognitive-ergo",
+   "name": "e1011-cognitive-ergo",
+   "description": "Use when assess cognitive ergonomics for a human-operated space system interface under ECSS-E-ST-10-11C §4.6.6: evaluate information presentation density and coding-dimension count per display element, determine workload band from a composite operator workload index, check simultaneous-task count against the cognitive capacity threshold, and verify that situation-awareness indicators at all three levels — perception, comprehension, and projection — are present. Trigger: ecss, e-st-10-system-scope, cognitive-ergonomics, information-presentation, workload-management, situation-awareness, hfe.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "cognitive-ergonomics",
+    "information-presentation",
+    "workload-management",
+    "situation-awareness",
+    "hfe"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-cognitive-perf",
+   "name": "e1011-cognitive-perf",
+   "description": "Use when apply cognitive performance and fatigue reference data under ECSS-E-ST-10-11 §4.5.4 to assess crew task feasibility: categorize each fatigue source as task-induced, sleep-deprivation, or circadian; determine the fatigue-adjusted sustained-attention duration available; evaluate working memory loading against fatigue-reduced capacity; and verify that decision time available is sufficient for the option count at the crew member's fatigue level. Compute a per-domain risk rating (acceptable, marginal, unacceptable) and derive an aggregate crew cognitive risk. Flag any domain that breaches its threshold as a finding before task or crew assignment proceeds. Trigger: ecss, e-st-10-system-scope, cognitive-performance, fatigue, attention, working-memory, decision-making, crew-performance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "cognitive-performance",
+    "fatigue",
+    "attention",
+    "working-memory",
+    "decision-making",
+    "crew-performance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-context-of-use",
+   "name": "e1011-context-of-use",
+   "description": "Use when define the context-of-use description for a product or system as the foundational human-centred design (HCD) input under ECSS-E-ST-10-11C §4.2.2: identify the intended user population, the tasks they must perform, the physical and organisational environment, any relevant constraints, and the mission phases in which users interact with the system, then structure these elements into a reviewable context-of-use record that feeds subsequent HCD planning and human factors evaluation. Trigger: ecss, e-st-10-system-scope, context-of-use, human-centred-design, hcd, user-population, task-analysis, operational-environment, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "context-of-use",
+    "human-centred-design",
+    "hcd",
+    "user-population",
+    "task-analysis",
+    "operational-environment",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-crew-provisions",
+   "name": "e1011-crew-provisions",
+   "description": "Use when specifying crew station provisions under ECSS-E-ST-10C §4.7.5: identify each station by type (piloting, mission, payload, maintenance), verify seat dimensions against the crew anthropometric envelope, confirm restraint load capacities for shoulder harness, lap belt, and footrest, assess console reach and height against the seated crew envelope, and validate egress clearance against the minimum path width. Flag each station that fails a geometry, load, or clearance requirement before proceeding to detailed design. Trigger: ecss, e-st-10-system-scope, crew-stations, seat-restraints, console-layout, egress, anthropometry, crew-accommodation.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "crew-stations",
+    "seat-restraints",
+    "console-layout",
+    "egress",
+    "anthropometry",
+    "crew-accommodation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-cue-cards",
+   "name": "e1011-cue-cards",
+   "description": "Use when develop cue cards for spacecraft emergency and contingency operations under ECSS-E-ST-10-11C §4.9.2: identify the scenario scope and crew task sequence, structure each card as a compact step-by-step action list within brevity and legibility limits, assign severity and scenario type, verify action steps carry imperative verbs and respect the maximum step count per card face, and confirm the complete card set covers all mandatory emergency and contingency scenarios. Trigger: ecss, e-st-10-system-scope, cue-cards, emergency-procedures, contingency-operations, crew-procedures, quick-reference, human-spaceflight.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "cue-cards",
+    "emergency-procedures",
+    "contingency-operations",
+    "crew-procedures",
+    "quick-reference",
+    "human-spaceflight"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-displays",
+   "name": "e1011-displays",
+   "description": "Use when design displays for a crewed spacecraft interface under ECSS-E-ST-10-11C §4.9.4: verify each display's format properties (layout type, font size, contrast ratio) against HFE minimum thresholds, check the information-density budget (parameter count and visible alarm count per display) against project limits, and assess each alarm entry for valid priority, consistent state, visual and auditory distinctiveness for high-priority active alarms, and correct suppression-indicator visibility. Flag every format, density, or alarm finding; a display is not compliant until all findings are resolved. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, displays, display-format, information-density, alarm-presentation, hfe, human-factors-engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "e-st-10-system-scope",
+    "displays",
+    "display-format",
+    "information-density",
+    "alarm-presentation",
+    "hfe",
+    "human-factors-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-env-ergonomics",
+   "name": "e1011-env-ergonomics",
+   "description": "Use when assess environmental ergonomics for a crewed space habitat or EVA station under ECSS-E-ST-10-11 §4.6.5: evaluate noise sound-pressure levels against habitable-area and sleep-quarter limits, verify whole-body vibration doses against daily exposure thresholds, confirm illuminance levels suit each operational area type, check atmospheric pressure, oxygen and carbon-dioxide partial pressures, and humidity against habitable limits, verify operative temperature and radiant-asymmetry boundaries, and audit EVA suit internal atmosphere for pressure, oxygen fraction, and CO₂ concentration. Trigger: ecss, e-st-10-system-scope, human-factors, environmental-ergonomics, noise, vibration, lighting, atmosphere, eva.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "human-factors",
+    "environmental-ergonomics",
+    "noise",
+    "vibration",
+    "lighting",
+    "atmosphere",
+    "eva"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-eva",
+   "name": "e1011-eva",
+   "description": "Use when design EVA and planetary surface activity requirements for a space system under ECSS-E-ST-10-11C §4.7.10: verify suit interface compatibility (operating pressure, thermal envelope, life support endurance), assess tool design parameters (operator force limits, reach envelope, glove compatibility), evaluate crew mobility timelines and terrain trafficability, and compute consumable margins with required reserves for O2, power, and thermal control. Verify abort scenario timelines confirm safe crew return within consumable limits. Trigger: ecss, e-st-10-system-scope, eva, extravehicular-activity, suit-interface, eva-tools, crew-mobility, planetary-activity, consumable-margin.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "eva",
+    "extravehicular-activity",
+    "suit-interface",
+    "eva-tools",
+    "crew-mobility",
+    "planetary-activity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-habitable-env",
+   "name": "e1011-habitable-env",
+   "description": "Use when evaluate crew habitable environments under ECSS-E-ST-10-11C §4.7.1–4.7.2: verify net habitable volume per crew member against the minimum per-person threshold, assess atmospheric parameters (oxygen partial pressure, carbon dioxide partial pressure, total cabin pressure, temperature, relative humidity) against allowable bands, check layout provisions for emergency egress paths and workstation accessibility, and confirm hygiene-system allocations are on record for each compartment. The skill aggregates findings per compartment and flags every non-compliant or unrecorded item before the design review. Trigger: ecss, e-st-10-11c, habitable-environment, crew-provisions, atmospheric-habitability, volume-allocation, layout-design, hygiene.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "habitable-environment",
+    "crew-provisions",
+    "atmospheric-habitability",
+    "volume-allocation",
+    "layout-design",
+    "hygiene"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-hcd-activities",
+   "name": "e1011-hcd-activities",
+   "description": "Use when run HCD activities for a crewed or human-tended space system per ECSS-E-ST-10-11C §4.4.3: decompose human tasks into steps with performer roles and criticality levels via task analysis; capture user and organisational requirements with priority and category; produce design solution elements traceable to each requirement; evaluate each design element against structured criteria to reach a pass, conditional, or fail outcome. Apply to crew interfaces, ground control workstations, maintenance operations, and any human-in-the-loop function requiring structured design justification. Trigger: ecss, e-st-10-11c, hcd, human-centred-design, task-analysis, user-requirements, design-evaluation, crew-interface.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "hcd",
+    "human-centred-design",
+    "task-analysis",
+    "user-requirements",
+    "design-evaluation",
+    "crew-interface"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-hcd-drd",
+   "name": "e1011-hcd-drd",
+   "description": "Use when validate the Human-Centred Design (HCD) process plan against the ECSS-E-ST-10-11C Annex A Document Requirements Definition (DRD): confirm every mandatory section is present (scope, context-of-use description, stakeholder inventory, HCD activity schedule, evaluation plan, HFE staffing, and requirements traceability), verify each HCD activity is linked to a project milestone and a responsible practitioner, confirm evaluation events are categorized as formative or summative with success criteria, and flag any missing HFE practitioner competency record or traceability gap before the plan is submitted for review. Trigger: ecss, e-st-10-11c, hcd, human-centred-design, hfe, human-factors, hcd-plan, drd, evaluation-plan.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "hcd",
+    "human-centred-design",
+    "hfe",
+    "human-factors",
+    "hcd-plan",
+    "drd",
+    "evaluation-plan"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-hcd-planning",
+   "name": "e1011-hcd-planning",
+   "description": "Use when plan the human-centred design (HCD) process for a space system or product under ECSS-E-ST-10-11C §4.4.1–4.4.2: identify every HCD activity required by Annex A (context-of-use analysis, user requirements specification, design solution, evaluation, implementation verification), assign each activity to an ECSS project phase (0 through F), allocate at minimum one HF specialist as the responsible party per activity, and confirm the resulting HCD plan covers all mandatory activities with no phase-order violations. Trigger: ecss, e-st-10-system-scope, hcd-planning, human-centred-design, hfe, hcd-plan, annex-a, project-phases, responsibilities.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hcd-planning",
+    "human-centred-design",
+    "hfe",
+    "annex-a",
+    "project-phases",
+    "responsibilities"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-hfe-req-process",
+   "name": "e1011-hfe-req-process",
+   "description": "Use when manage the HFE requirements process for a space system under ECSS-E-ST-10-11C §4.6.1–4.6.2: capture each human factors engineering requirement with a non-empty source identifier, categorize it by type (functional, performance, environmental, safety, anthropometric), allocate it to one or more system elements (hardware, software, procedure, training), and verify bidirectional traceability from source to requirement and from requirement to implementing element. Flag any requirement missing its upstream source trace, any requirement in an allocation-required lifecycle state with no assigned implementing element, and any element of an unrecognized type. Track lifecycle status through proposed, approved, allocated, implemented, verified, and closed. Trigger: ecss, e-st-10-11c, hfe, human-factors-engineering, hfe-requirements, requirements-process, traceability, allocation.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "hfe",
+    "human-factors-engineering",
+    "hfe-requirements",
+    "requirements-process",
+    "traceability",
+    "allocation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-hfe-role",
+   "name": "e1011-hfe-role",
+   "description": "Use when define the Human Factors Engineering (HFE) role in a space-systems project under ECSS-E-ST-10-11C §4.3.1–4.3.2: identify required HFE task categories (requirements definition, task analysis, design support, human-machine interface definition, verification and validation, design-review participation), assign each task to a lifecycle phase, and verify that formal interfaces are established with Systems Engineering, Safety, Operations, Training, and Software Engineering. Flag any task category missing from the role definition, any mandatory interface discipline absent, and any lifecycle phase with no HFE task assigned. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, hfe-role, human-factors-engineering, hfe-interface, hfe-tasks, lifecycle-phase.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "e-st-10-system-scope",
+    "hfe-role",
+    "human-factors-engineering",
+    "hfe-interface",
+    "hfe-tasks",
+    "lifecycle-phase"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-hw-ergonomics",
+   "name": "e1011-hw-ergonomics",
+   "description": "Use when you apply hardware ergonomics requirements to space system hardware items under ECSS-E-ST-10-11C §4.6.4: categorize each item as a control, display, handle, or maintenance access point; check controls against operating-force and torque limits with inadvertent-activation safeguards in mind; verify displays satisfy minimum and maximum character visual angle and minimum contrast ratio thresholds; confirm handles provide adequate grip clearance and stay within one-hand or two-hand payload limits; and validate maintenance access openings against task-type minimum diameters. Flag each non-conformance with the specific limit exceeded so that the design can be corrected before the human factors engineering review. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, hardware-ergonomics, controls, displays, handles, maintainability, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "hardware-ergonomics",
+    "controls",
+    "displays",
+    "handles",
+    "maintainability",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-informatics",
+   "name": "e1011-informatics",
+   "description": "Use when evaluate on-board informatics support for a crewed space system under ECSS-E-ST-10-11C §4.8: categorize each display element as numerical, graphical, status_text, alert, or control; determine alert urgency level from hazard severity and time criticality; check display format compliance against minimum contrast ratio and character height thresholds; and assess automation authority to confirm crew override is available for supervisory and autonomous operating modes. Flag every display format shortfall, alert level mismatch, and missing crew override before the workstation is accepted. Trigger: ecss, e-st-10-11c, informatics, hfe, display-design, alerts, automation-authority, crew-interface, workstation-review.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "informatics",
+    "hfe",
+    "display-design",
+    "alerts",
+    "automation-authority",
+    "crew-interface"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-iso-index",
+   "name": "e1011-iso-index",
+   "description": "Use when identify the applicable ISO and European standards that support an ECSS-E-ST-10-11C human factors engineering (HFE) requirement: map each HFE topic area to the relevant indexed standards (ISO 9241 series, ISO 10075, ISO 11064, ISO 14738, EN 614, EN 894), confirm every topic area in the HFE design plan has at least one indexed standard on record, and flag any topic area with no indexed standard so the coverage gap can be resolved before the HFE plan is accepted. Trigger: ecss, e-st-10-system-scope, hfe, iso-9241, iso-10075, iso-11064, human-factors, ergonomics, hfe-standards-index, annex-e.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe",
+    "iso-9241",
+    "iso-10075",
+    "iso-11064",
+    "human-factors",
+    "ergonomics",
+    "hfe-standards-index",
+    "annex-e"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-labels-cues",
+   "name": "e1011-labels-cues",
+   "description": "Use when verify labels, colour codings, and warning cues for a crewed spacecraft interface under ECSS-E-ST-10-11C §4.7.3: categorize each marking as a label (text identifying a control, display, or panel) or a cue (colour-coded indicator or alert signal), confirm every label is non-empty and within the character-length limit, check each colour-coded indicator against the HFE colour-status convention (red for danger, amber for caution, green for nominal, white or grey for information), and confirm every warning cue is detectable and that items with criticality 'warning' or 'emergency' carry at least two redundant cueing modalities (visual, auditory, or tactile). Flag every label, colour, or cue that fails its check; a panel is not compliant until all findings are resolved. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, labels-cues, colour-coding, warning-cues, hfe, human-factors-engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "e-st-10-system-scope",
+    "labels-cues",
+    "colour-coding",
+    "warning-cues",
+    "hfe",
+    "human-factors-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-maint-stations",
+   "name": "e1011-maint-stations",
+   "description": "Use when design physical maintenance stations for a crewed spacecraft per ECSS-E-ST-10-11C §4.7.8: verify that each station's access zone meets minimum reach depth, lateral clearance, and vertical clearance thresholds for intravehicular, extravehicular, or hybrid zone types; confirm that registered tools are compatible with the station zone type and that large-envelope single-hand tools are flagged for operating-arc review; validate that lighting levels meet the minimum lux requirement for the zone; and categorize all maintenance tasks by frequency and zone type while flagging tasks that reference tools not on record at the station. Trigger: ecss, e-st-10-system-scope, maintenance-stations, access-zone, workspace, tooling, lighting, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "maintenance-stations",
+    "access-zone",
+    "workspace",
+    "tooling",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-mannequin",
+   "name": "e1011-mannequin",
+   "description": "Use when verify fit, reach, and visibility of crewed spacecraft workstations and habitable volumes using electronic mannequins and digital human models, per ECSS-E-ST-10-11C §4.5.2. Select the bounding anthropometric population percentiles (5th-female for minimum reach, 95th-male for maximum envelope), position the mannequin at each defined workstation, evaluate clearance against the required fit margin, check whether each control target lies within the functional reach envelope, and confirm each critical display falls within the accepted visibility cone without obstruction. Flag any station where fit margin, reach shortfall, or obstruction check fails. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, mannequin, digital-human-model, fit-verification, reach-envelope, visibility-check, anthropometry, crewed-spacecraft.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "e-st-10-system-scope",
+    "mannequin",
+    "digital-human-model",
+    "fit-verification",
+    "reach-envelope",
+    "visibility-check",
+    "anthropometry"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-medical",
+   "name": "e1011-medical",
+   "description": "Use when assess medical facilities and provisions for a crewed spacecraft against ECSS-E-ST-10-11C §4.7.9 HFE requirements: categorize each provision item as emergency, diagnostic, routine, or preventive; determine the minimum required provision set for the mission duration category (short ≤30 days, medium 31–180 days, long >180 days); verify the on-board inventory covers every required item; compute consumable quantities against crew size and mission duration with a 10 percent margin; and flag any missing capability or consumable shortfall as a non-compliance finding. Trigger: ecss, e-st-10-system-scope, medical, crew-health, hfe, medical-provisions, consumables, mission-duration.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "medical",
+    "crew-health",
+    "hfe",
+    "medical-provisions",
+    "mission-duration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-mission-phases",
+   "name": "e1011-mission-phases",
+   "description": "Use when map mission phases and identify human-in-the-loop activities for HFE requirements capture under ECSS-E-ST-10-11C §4.3.6: inventory each canonical phase (ground operations, launch, ascent, deployment, on-orbit checkout, nominal operations, contingency, disposal), categorize every operator or crew activity within each phase, flag phases with no human-in-the-loop coverage, flag critical activities lacking human oversight in safety-critical phases, and derive one HFE requirement per human-assigned activity to populate the requirements register. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, human-factors, mission-phases, human-in-the-loop, hfe-requirements, operator-activities.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "human-factors",
+    "mission-phases",
+    "human-in-the-loop",
+    "hfe-requirements",
+    "operator-activities"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-offduty",
+   "name": "e1011-offduty",
+   "description": "Use when design off-duty stations — sleep quarters, personal hygiene facilities, and recreation areas — aboard a crewed spacecraft per ECSS-E-ST-10-11C §4.7.7 HFE requirements: categorize each station as sleep, hygiene, or recreation, verify mandatory parameters (acoustic attenuation, lighting range, thermal envelope, volume, restraint, privacy) for sleep stations, verify containment and accessibility parameters for hygiene facilities, verify exercise volume and communication link availability for recreation areas, and aggregate findings per station to determine overall HFE compliance. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, off-duty-stations, sleep-station, hygiene-facility, recreation, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "off-duty-stations",
+    "sleep-station",
+    "hygiene-facility",
+    "recreation",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-ops-ergo",
+   "name": "e1011-ops-ergo",
+   "description": "Use when assess spacecraft operations design ergonomics under ECSS-E-ST-10C §4.6.7: evaluate each operational procedure for step-count limits, decision-branch density, and time-critical verification coverage; determine the automation level for each function given its response-time requirement and consequence severity; and verify that safety-critical commands carry sufficient independent inhibit actions. Each function is categorized into manual, supervised, or automated allocation and each finding is raised before operations documentation is finalised. Trigger: ecss, e-st-10-system-scope, operations-ergonomics, automation-allocation, error-tolerance, procedures, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "operations-ergonomics",
+    "automation-allocation",
+    "error-tolerance",
+    "procedures",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-ops-nomenclature",
+   "name": "e1011-ops-nomenclature",
+   "description": "Use when validate operations nomenclature consistency across a mission operations document or interface control document per ECSS-E-ST-10-11C §4.3.3: confirm each crew role label belongs to the canonical set (Commander, Pilot, Mission Specialist, Payload Specialist, Flight Engineer, Ground Controller, Flight Director), confirm each mission phase term matches the standard vocabulary (launch, ascent, orbit insertion, on-orbit operations, rendezvous, docking, de-orbit, reentry, landing, recovery), confirm command type labels match the authorized taxonomy, and detect synonym conflicts where a single operational concept is referred to by multiple non-equivalent terms within the same document. Flag abbreviations, non-standard synonyms, and unrecognized terms for correction to canonical form before baselining. Trigger: ecss, e-st-10-system-scope, ops-nomenclature, crew-roles, mission-phases, command-types, operational-terminology, nomenclature-consistency.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "ops-nomenclature",
+    "crew-roles",
+    "mission-phases",
+    "command-types",
+    "operational-terminology",
+    "nomenclature-consistency"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-org-env",
+   "name": "e1011-org-env",
+   "description": "Use when you document the organisational environment for a human spaceflight or ground-intensive mission under ECSS-E-ST-10-11C §4.2.1.5: identify crew roles and their authority levels, map ground support units and interface types, record procedure types with designated approval authorities, and verify that mandatory functions — flight control, systems monitoring, crew support — are covered by at least one ground unit. Flag gaps: missing commander role, uncovered mandatory ground function, or procedure without an approval authority. Produce a complete org-env record before the human factors context-of-use analysis proceeds. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, org-env, crew-organisation, ground-support, procedures, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "org-env",
+    "crew-organisation",
+    "ground-support",
+    "procedures",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-params",
+   "name": "e1011-params",
+   "description": "Use when identify and map the interrelated HFE parameters that characterise a human-machine system under ECSS-E-ST-10-11C §4.2.1.1–4.2.1.2: categorize each parameter into the standard parameter set (performance, workload, situation awareness, human error, training, environment, interface, communication), trace interrelationships among parameter categories, assess completeness of the parameter set against required categories, and verify that every defined system phase carries at least one parameter assignment. Trigger: ecss, e-st-10-system-scope, hfe-parameters, human-machine-system, workload, situation-awareness, human-error, parameter-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe-parameters",
+    "human-machine-system",
+    "workload",
+    "situation-awareness",
+    "human-error",
+    "parameter-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-phys-env",
+   "name": "e1011-phys-env",
+   "description": "Use when assess the physical and psycho-physiological environments relevant to human performance under ECSS-E-ST-10-11C §4.2.1.6: categorize each environment parameter as physical (thermal, acoustic, vibration, lighting, or atmospheric composition) or psycho-physiological (workload, stress, sleep adequacy), verify that all required parameters have been assessed for the applicable mission phase, check each measured or predicted value against its human-performance acceptability bound, flag any parameter that falls outside the acceptable range, and confirm full coverage before closing the environment characterisation. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, physical-environment, psycho-physiological, human-performance, thermal, acoustic, vibration, illuminance, atmospheric-quality.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "physical-environment",
+    "psycho-physiological",
+    "human-performance",
+    "thermal",
+    "acoustic",
+    "vibration",
+    "illuminance",
+    "atmospheric-quality"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-physical-perf",
+   "name": "e1011-physical-perf",
+   "description": "Use when evaluate crew physical performance and fatigue limits under ECSS-E-ST-10-11C §4.5.3: categorize each crew task by metabolic rate band (rest, light, moderate, heavy, or very heavy), check the continuous-work duration against the per-category allowable limit, compute the minimum required recovery period, flag any work bout that exceeds the sustained-performance threshold, and validate a full work-rest schedule against the daily workload accumulation limit for each category. Applicable to IVA and EVA crew scheduling, ergonomic compliance review, and mission-phase workload analysis. Trigger: ecss, e-st-10-system-scope, physical-performance, crew-workload, fatigue, metabolic-rate, work-rest-schedule, human-factors, ergonomics.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "physical-performance",
+    "crew-workload",
+    "fatigue",
+    "metabolic-rate",
+    "work-rest-schedule",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-procedures",
+   "name": "e1011-procedures",
+   "description": "Use when develop, validate, or review operational procedures for a space system under ECSS-E-ST-10-11C §4.9.1: structure each procedure with mandatory fields (procedure_id, title, purpose, procedure_type, preconditions, numbered steps, expected_outcome), verify the procedure_type is one of the accepted operational categories (nominal, contingency, maintenance, test, launch_countdown, on_orbit), confirm every step begins with an imperative verb and does not exceed the cognitive-load word limit, check that verification checkpoints are spaced within the allowed consecutive-step count, and flag compound actions that should be split into discrete steps. Trigger: ecss, e-st-10-system-scope, procedures, operational-procedures, hfe-review, procedure-validation, procedure-format, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "procedures",
+    "operational-procedures",
+    "hfe-review",
+    "procedure-validation",
+    "procedure-format",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-req-id",
+   "name": "e1011-req-id",
+   "description": "Use when identify HFE requirements from mission-phase and operator-role analysis and capture them into the Technical Specification (TS) under ECSS-E-ST-10-11C §4.3.7: enumerate every applicable mission phase, assign the operator roles active in each phase, map each phase-role pair to the relevant HFE driver categories (workload, habitability, anthropometry, visibility, reachability, cognitive, communication, safety), generate a structured requirement ID for each identified driver, verify that every phase carries at least the mandatory safety and workload requirements, and confirm that all generated IDs are unique and correctly formatted before the TS baseline is closed. Trigger: ecss, e-st-10-system-scope, hfe-requirements, mission-phase, operator-role, human-factors, requirement-identification, technical-specification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe-requirements",
+    "mission-phase",
+    "operator-role",
+    "human-factors",
+    "requirement-identification",
+    "technical-specification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-safety",
+   "name": "e1011-safety",
+   "description": "Use when assess HFE safety requirements for a spacecraft operations catalogue under ECSS-E-ST-10-11C §4.6.3: categorize each operation by hazard criticality (critical, high, medium, low), verify that human-error prevention measures — confirmation steps, interlocks, reversibility checks, crew notification, dual verification — are present at the level each criticality demands, check that irreversible high-consequence operations carry maximum protection, confirm safety-critical operator interfaces provide clear state cues and go/no-go criteria, and flag every operation whose protection set falls below the minimum for its level. Trigger: ecss, e-st-10-system-scope, hfe, human-factors, safety-critical-operations, human-error-prevention, interlock, crew-notification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe",
+    "human-factors",
+    "safety-critical-operations",
+    "human-error-prevention",
+    "interlock"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-task",
+   "name": "e1011-task",
+   "description": "Use when define task characteristics to feed human-centred design (HCD) analysis per ECSS-E-ST-10-11C §4.2.1.4: identify each operator task by name and mission phase, assign a frequency category (rare, occasional, routine), determine the criticality level (safety-critical, mission-critical, non-critical), score four workload dimensions (physical demand, cognitive demand, time pressure, consequence of error) on a three-point scale, and flag high-risk pairings where elevated criticality coincides with high workload for priority HCD attention. The resulting task inventory and characteristics drive display design, automation boundary decisions, training scope, and workload mitigation strategies. Trigger: ecss, e-st-10-system-scope, hcd, human-factors, task-analysis, workload, criticality, operator-task.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hcd",
+    "human-factors",
+    "task-analysis",
+    "workload",
+    "criticality",
+    "operator-task"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-test-drd",
+   "name": "e1011-test-drd",
+   "description": "Use when generate and validate the Human Factors Engineering (HFE) test report against the ECSS-E-ST-10-11C Annex D Document Requirements Definition (DRD): confirm all mandatory sections are present and complete, verify participant counts meet the minimum for the test type (formative or summative), check that every finding is assigned a severity category (critical, major, or minor), confirm each finding has at least one linked recommendation, and verify that all planned test scenarios are represented in the execution record. Trigger: ecss, e-st-10-11c, hfe, human-factors, test-report, drd, findings, recommendations, usability-test.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe",
+    "human-factors",
+    "test-report",
+    "drd",
+    "findings",
+    "usability-test"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-timeline",
+   "name": "e1011-timeline",
+   "description": "Use when build the operations timeline for a human-rated space system per ECSS-E-ST-10-11C §4.9.3: sequence each crew task in a phased timeline, compute the time-averaged workload index for each hourly assessment window, verify no window exceeds the maximum allowable workload level, confirm mandatory rest gaps are preserved between consecutive high-demand activity clusters, and check that concurrent task counts remain within the cognitive limit specified by the HFE requirement. Trigger: ecss, e-st-10-system-scope, operations-timeline, crew-workload, workload-index, human-factors, task-sequencing, rest-period, concurrent-tasks.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "operations-timeline",
+    "crew-workload",
+    "workload-index",
+    "human-factors",
+    "task-sequencing",
+    "rest-period",
+    "concurrent-tasks"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-training-approach",
+   "name": "e1011-training-approach",
+   "description": "Use when defining the training approach for human operators as required by ECSS-E-ST-10-11C §4.3.5: categorize each operator task by criticality and worst-case error consequence, determine the minimum required training level (awareness, procedural, or expert), select admissible training means (simulation, CBT, classroom, on-the-job, handbook, or briefing), assign a training strategy (initial, recurrent, refresher, or qualification), set the recurrent interval for strategies that repeat, and verify every identified task has a training approach record so no task enters operation without a traceable HFE training provision. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, training-approach, human-factors-engineering, hfe, operator-training, training-level, training-strategy, training-means.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "training-approach",
+    "human-factors-engineering",
+    "hfe",
+    "operator-training",
+    "training-level",
+    "training-strategy",
+    "training-means"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-training-req",
+   "name": "e1011-training-req",
+   "description": "Use when define training requirements and materials for operator tasks derived from operational products under ECSS-E-ST-10-11C §4.9.5: determine the training need tier for each task from task complexity, procedural novelty, and safety criticality (routine / standard / enhanced / specialized); verify that the minimum required training materials exist for the assigned tier; confirm that every personnel role performing the task holds a training assignment before first operational use; and assess whether available training time and scheduling window meet the tier minimum. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, training-requirements, training-need-assessment, training-materials, personnel-roles, human-factors-engineering, hfe.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "training-requirements",
+    "training-need-assessment",
+    "training-materials",
+    "personnel-roles",
+    "human-factors-engineering",
+    "hfe"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-user-pop",
+   "name": "e1011-user-pop",
+   "description": "Use when define user populations for a space system under ECSS-E-ST-10-11 §4.2.1.3: categorize each user group as crew, ground operator, or maintainer; establish capability ranges across physical, cognitive, sensory, and training dimensions for each population; verify that all design-relevant population types are covered; and flag populations with missing or internally inconsistent capability entries, or any design parameter that falls outside the target population's capability envelope. Trigger: ecss, e-st-10-system-scope, user-population, human-factors, crew, ground-operator, maintainer, capability-range, hfe.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "user-population",
+    "human-factors",
+    "crew",
+    "ground-operator",
+    "maintainer",
+    "capability-range",
+    "hfe"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-users-manual",
+   "name": "e1011-users-manual",
+   "description": "Use when define the users manual for a human-rated space system under ECSS-E-ST-10-11C §4.3.4: verify that all required HFE input sections are present (user population, task procedures, interface description, error recovery, mission-phase applicability, training requirements), validate each task procedure's steps against applicable mission phases, confirm that safety-critical steps carry a warning note, verify that every task procedure with safety-critical steps has a linked error-recovery entry, and check that user-population entries carry skill level, physical constraints, cognitive load limits, and operating language. Trigger: ecss, e-st-10-11c, e-st-10-system-scope, users-manual, hfe-inputs, task-procedures, error-recovery, human-factors-engineering.",
+   "tags": [
+    "ecss",
+    "e-st-10-11c",
+    "e-st-10-system-scope",
+    "users-manual",
+    "hfe-inputs",
+    "task-procedures",
+    "error-recovery",
+    "human-factors-engineering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-verif-analysis",
+   "name": "e1011-verif-analysis",
+   "description": "Use when verify Human Factors Engineering (HFE) requirements by analysis or similarity under ECSS-E-ST-10-11 §4.11.2: select the applicable analysis method (task analysis, cognitive workload, workspace envelope, anthropometric analysis, or digital human model simulation), score heritage similarity against the target design to determine whether prior evidence transfers, run DHM simulations and compare joint angles, reach zones, crew forces, and visual fields against acceptance thresholds, and compile the mandatory analysis/simulation report per Annex B. Trigger: ecss, e-st-10-11, hfe, human-factors, verif-analysis, dhm, digital-human-model, similarity, annex-b, ergonomics.",
+   "tags": [
+    "ecss",
+    "e-st-10-11",
+    "hfe",
+    "human-factors",
+    "verif-analysis",
+    "dhm",
+    "digital-human-model",
+    "similarity",
+    "annex-b",
+    "ergonomics"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-verif-sim",
+   "name": "e1011-verif-sim",
+   "description": "Use when verify human factors engineering requirements for a space system by running crew-in-the-loop simulations under ECSS-E-ST-10-11C §4.11.4: define simulation scope and acceptance criteria, recruit representative and qualified crew participants, execute integrated system simulations, measure task completion, error rate, and workload against thresholds, compare results to acceptance criteria, and produce a simulation-based HFE verification report. Trigger: ecss, e-st-10-system-scope, hfe-verification, crew-in-the-loop, simulation, task-performance, workload-assessment, human-factors.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe-verification",
+    "crew-in-the-loop",
+    "simulation",
+    "task-performance",
+    "workload-assessment",
+    "human-factors"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-verif-test",
+   "name": "e1011-verif-test",
+   "description": "Use when verify human factors engineering (HFE) requirements for a space system by ground tests and demonstrations per ECSS-E-ST-10-11C §4.11.3 and Annex D: identify each HFE requirement needing ground verification, assign a verification method (test, demonstration, analysis, or inspection), map each test or demonstration method to its Annex D event category, check that all mandatory Annex D ground events are covered, evaluate pre-event readiness criteria, and aggregate pass, fail, and pending status across all requirements into an overall compliance determination. Trigger: ecss, e-st-10-system-scope, hfe, human-factors, ground-test, verification, annex-d, hfe-testing, ergonomics.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "hfe",
+    "human-factors",
+    "ground-test",
+    "verification",
+    "annex-d",
+    "hfe-testing",
+    "ergonomics"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1011-workstations",
+   "name": "e1011-workstations",
+   "description": "Use when assess workstation layout and human-factors design for a crewed spacecraft under ECSS-E-ST-10-11C §4.7.6: verify display placement within acceptable viewing angles from the crew Eye Reference Point, verify controls fall within the reach envelope for their access-frequency zone (primary, secondary, or tertiary), and verify ingress/egress clearance dimensions meet minimum crew-access requirements. Categorize each workstation element by access-frequency zone, flag any element outside its zone's viewing or reach limits, and confirm every access path meets clearance minimums. Trigger: ecss, e-st-10-system-scope, e-st-10-11c, workstation, human-factors, viewing-angle, reach-envelope, ingress-egress, layout.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-11c",
+    "workstation",
+    "human-factors",
+    "viewing-angle",
+    "reach-envelope",
+    "ingress-egress",
+    "layout"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-bio-margins",
+   "name": "e1012-bio-margins",
+   "description": "Use when calculate biological effects margins for a crewed mission under ECSS-E-ST-10C §5.5.5: categorize each biological stressor as radiation (ionizing), physiological (microgravity effects), atmospheric (gas composition, pressure), thermal, or acoustic; determine the design-point exposure for each stressor; apply the margin factor appropriate to that stressor category (radiation uses 1.5×; all other biological stressors use 1.25×); compare the margined exposure against the crew health allowable limit; and flag every stressor whose margined exposure exceeds its limit or whose allowable limit is not on record. Trigger: ecss, e-st-10-system-scope, biological-effects, bio-margins, crewed-missions, radiation, margin-philosophy, crew-health, physiological.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "biological-effects",
+    "bio-margins",
+    "crewed-missions",
+    "radiation",
+    "crew-health",
+    "margin-philosophy",
+    "physiological"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-dd-expression",
+   "name": "e1012-dd-expression",
+   "description": "Use when compute the displacement damage (DD) dose for a spacecraft device under ECSS-E-ST-10-12C §8.2: identify all contributing particle types and energy bins from the mission radiation environment, retrieve the Non-Ionizing Energy Loss (NIEL) value for each bin, multiply each bin fluence by its NIEL to obtain the partial DD contribution, sum all partial contributions to obtain the total DD dose in MeV/g, convert to a reference-particle equivalent fluence using the DD equivalence relation (NIEL ratio to the chosen reference), and compare the resulting equivalent fluence against the device displacement damage requirement. Trigger: ecss, e-st-10-system-scope, displacement-damage, niel, damage-factor, equivalent-fluence, radiation-effects, dd-dose, proton-damage.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "displacement-damage",
+    "niel",
+    "damage-factor",
+    "equivalent-fluence",
+    "radiation-effects"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-dd-unc",
+   "name": "e1012-dd-unc",
+   "description": "Use when determine displacement damage (DD) assessment uncertainty factors for a spacecraft radiation analysis under ECSS-E-ST-10-12C §8.7: identify each uncertainty source (environment model, NIEL scaling, shielding transport, and device response data), assign a numeric factor to each source, combine the factors into an overall uncertainty multiplier using either the multiplicative or root-sum-square method, apply the combined factor to the nominal proton-equivalent fluence to obtain the design fluence, and verify the result accommodates the required design margin. Trigger: ecss, e-st-10-12c, displacement-damage, dd-uncertainty, niel-scaling, radiation-hardness-assurance, proton-fluence, uncertainty-budget, design-margin.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "displacement-damage",
+    "dd-uncertainty",
+    "niel-scaling",
+    "radiation-hardness-assurance",
+    "proton-fluence",
+    "uncertainty-budget",
+    "design-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-dose-effects",
+   "name": "e1012-dose-effects",
+   "description": "Use when assessing radiation dose-effects margin compliance for electronic components under ECSS-E-ST-10 §5.5.2: apply the radiation design margin factor to the predicted component dose, compare the result against each component's specified tolerance, check parametric degradation limits (gain, leakage current, threshold voltage) against allowable change fractions, verify functional continuity at the margin-multiplied dose, and flag every component that fails a dose, parametric, or functional limit. Trigger: ecss, e-st-10-system-scope, dose-effects, radiation-design-margin, total-ionizing-dose, parametric-degradation, functional-degradation, component-tolerance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "dose-effects",
+    "radiation-design-margin",
+    "total-ionizing-dose",
+    "parametric-degradation",
+    "functional-degradation",
+    "component-tolerance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-dose-margins",
+   "name": "e1012-dose-margins",
+   "description": "Use when compute deposited dose with margin split across environment, shielding, and susceptibility uncertainties per ECSS-E-ST-10-12C §5.4: derive the nominal absorbed dose from the environment model, apply the three independent uncertainty factors (environment, shielding, susceptibility) to obtain the design dose, compute the margin ratio against the component lot-testing threshold, and determine whether each part meets the required design margin. Trigger: ecss, e-st-10-system-scope, dose-margin, total-ionizing-dose, radiation-hardness, uncertainty-factor, design-dose, shielding-uncertainty, susceptibility-uncertainty.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "dose-margin",
+    "total-ionizing-dose",
+    "radiation-hardness",
+    "uncertainty-factor",
+    "design-dose",
+    "shielding-uncertainty"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-env-margins",
+   "name": "e1012-env-margins",
+   "description": "Use when apply environment-driven margins for a spacecraft radiation assessment under ECSS-E-ST-10C §5.3: determine whether the AE-8 worst-case GEO trapped-electron exemption applies for a given mission orbit, compute the design dose by multiplying the predicted total ionising dose by the required radiation design margin factor for deterministic models, verify that a probabilistic-model confidence level meets the level agreed with the customer or authority, confirm that model-uncertainty evidence is documented, and record the §5.3a–e obligation status before the environment input is released to the radiation-effects analysis. Trigger: ecss, e-st-10-system-scope, radiation-margins, ae-8, geo-environment, model-uncertainty, rdm, probabilistic-model, confidence-level, environment-driven-margins.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "radiation-margins",
+    "ae-8",
+    "geo-environment",
+    "model-uncertainty",
+    "rdm",
+    "probabilistic-model"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-phase-margins",
+   "name": "e1012-phase-margins",
+   "description": "Use when establish project-phase radiation hardness margins for a space mission under ECSS-E-ST-10-12C §5.6: determine the required radiation design margin (RDM) at each review milestone (pre-PDR, PDR-to-CDR, post-CDR), verify that the RDM for total ionising dose and displacement damage meets or exceeds 2.0 relative to the predicted mission environment, confirm phase-appropriate hardness assurance activities are scoped, and validate that post-CDR test methods (cobalt-60, proton, heavy-ion, or verified heritage similarity) are appropriate for each radiation type. Apply at every phase gate where a component radiation tolerance is compared against the mission environment budget. Trigger: ecss, e-st-10-12c, e-st-10-system-scope, radiation-hardness-assurance, phase-margins, rdm, tid-margin, dd-margin, see-qualification, test-methods.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "e-st-10-system-scope",
+    "radiation-hardness-assurance",
+    "phase-margins",
+    "rdm",
+    "tid-margin",
+    "dd-margin",
+    "see-qualification",
+    "test-methods"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-principles",
+   "name": "e1012-principles",
+   "description": "Use when assess radiation effects on space components or systems under ECSS-E-ST-10-12C §4 evaluation framework: identify which radiation effect types apply (total ionising dose, displacement damage, single-event effects, enhanced low dose rate sensitivity), determine the evaluation activities required for the current project phase from the stage-activity table, validate parameter-unit pairs against the §4 parameter table, and verify evaluation completeness before phase closure. The framework spans phase A concept screening through phase F end-of-life verification, with cross-references to ECSS-E-ST-10-04C for the radiation environment inputs. Trigger: ecss, e-st-10-12c, radiation-effects, total-ionising-dose, displacement-damage, single-event-effects, eldrs, radiation-hardness-assurance, evaluation-activities, project-phase.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "radiation-effects",
+    "total-ionising-dose",
+    "displacement-damage",
+    "single-event-effects",
+    "eldrs",
+    "radiation-hardness-assurance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-rdm-basis",
+   "name": "e1012-rdm-basis",
+   "description": "Use when define the radiation design margin (RDM) requirement basis for a spacecraft component from the mission radiation environment specification (ECSS-E-ST-10-12C §5.1.1): take the total ionising dose, proton fluence, and electron fluence from the environment model, apply the minimum RDM factor to each parameter to derive the required component withstand level, verify the factor meets the ECSS minimum threshold, and flag any component whose radiation tolerance falls short of the required level. Trigger: ecss, e-st-10-system-scope, e-st-10-12c, radiation-design-margin, rdm, total-ionising-dose, proton-fluence, electron-fluence.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-12c",
+    "radiation-design-margin",
+    "rdm",
+    "total-ionising-dose",
+    "proton-fluence",
+    "electron-fluence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-rdm-general",
+   "name": "e1012-rdm-general",
+   "description": "Use when compute the radiation design margin (RDM) in the general dose-effects case under ECSS-E-ST-10-12 §5.1.2/§5.2: determine the mission total ionizing dose at the component shielded location, obtain the component's lot-qualified failure dose, derive the design dose by applying an uncertainty factor to the mission dose, calculate the RDM as the ratio of failure dose to design dose, and verify that each component's RDM meets or exceeds the minimum required margin for its application category. Flag any component where the margin is insufficient before design acceptance. Trigger: ecss, e-st-10-system-scope, radiation-design-margin, rdm, total-ionizing-dose, dose-effects, radiation-hardness-assurance, margin-approach, lot-acceptance-test.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "radiation-design-margin",
+    "rdm",
+    "total-ionizing-dose",
+    "dose-effects",
+    "radiation-hardness-assurance",
+    "margin-approach",
+    "lot-acceptance-test"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-rdm-see",
+   "name": "e1012-rdm-see",
+   "description": "Use when determine the radiation design margin for single-event effects (SEE) on spacecraft EEE parts under ECSS-E-ST-10-12C §5.1.3: categorize each SEE-sensitive device as subject to destructive effects (latchup, burnout, gate rupture) or non-destructive effects (upset, functional interrupt, transient), compute the LET-threshold margin for destructive parts and the upset rate margin for non-destructive parts, verify each margin meets the required RDM factor, and flag any part with insufficient margin before design acceptance. Trigger: ecss, e-st-10-system-scope, e-st-10-12c, radiation-design-margin, single-event-effects, see, let-threshold, upset-rate, see-hardness-assurance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-12c",
+    "radiation-design-margin",
+    "single-event-effects",
+    "see",
+    "let-threshold",
+    "upset-rate",
+    "see-hardness-assurance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-see-env-tech",
+   "name": "e1012-see-env-tech",
+   "description": "Use when define SEE-relevant mission orbit environments and electronic technology susceptibility profiles under ECSS-E-ST-10-12C §9.2–9.3: categorize the mission orbit as LEO, MEO, GEO, HEO, interplanetary, or lunar to determine the dominant particle population (trapped protons, heavy ions, galactic cosmic rays, solar particle events), map each candidate technology (CMOS, BiCMOS, SRAM, DRAM, Flash, FPGA, power MOSFET, linear bipolar) to its applicable SEE types (SEU, SET, SEFI, SEL, SEB, SEGR), and flag technologies with destructive SEE risk requiring protective controls. Trigger: ecss, e-st-10-system-scope, see, single-event-effects, orbital-environment, technology-susceptibility, sel, seb, segr, seu, table-9-1.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "see",
+    "single-event-effects",
+    "orbital-environment",
+    "technology-susceptibility",
+    "sel",
+    "seb",
+    "segr",
+    "seu",
+    "table-9-1"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-see-margins",
+   "name": "e1012-see-margins",
+   "description": "Use when evaluate single event effects (SEE) margin compliance for space electronics under ECSS-E-ST-10C §5.5.3: categorize each event type as soft (SEU, SET, SEFI) or potentially destructive (SEL, SEB, SEGR), compute the predicted event count over the mission duration, apply the required margin factor, compare the margined total against the mission allowable, and flag any device that exceeds the allowable or lacks current-limiting protection for a destructive-category event. Trigger: ecss, e-st-10-system-scope, see-margins, seu, sel, single-event-effects, radiation-margins, space-electronics, latch-up.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "see-margins",
+    "seu",
+    "sel",
+    "single-event-effects",
+    "radiation-margins",
+    "space-electronics",
+    "latch-up"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-sensor-bg-margin",
+   "name": "e1012-sensor-bg-margin",
+   "description": "Use when assess radiation-induced sensor background margins for space detector systems under ECSS-E-ST-10C §5.5.4: identify each contributing particle population (trapped protons, trapped electrons, galactic cosmic rays, solar energetic particles), compute the raw background count rate at the sensor sensitive area from each population flux and conversion efficiency, sum all contributions over the exposure duration, apply the required radiation design margin to account for environment model uncertainty, compare the margin-loaded background count against the sensor allocated background budget, and flag any exceedance or missing budget record. Trigger: ecss, e-st-10-system-scope, radiation-background, sensor-background, radiation-margin, particle-flux, background-budget, radiation-design-factor.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "radiation-background",
+    "sensor-background",
+    "radiation-margin",
+    "particle-flux",
+    "background-budget",
+    "radiation-design-factor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-set",
+   "name": "e1012-set",
+   "description": "Use when compute Single Event Transient (SET) rates for a spacecraft device population under ECSS-E-ST-10C §9.4.1.7: identify each sensitive device and its cross-section model (Weibull for heavy ions, threshold/saturation for protons, effective cross-section for neutrons), integrate each cross-section against the mission particle environment (heavy-ion LET spectrum, proton energy spectrum, ambient neutron flux) to derive per-device rates for all three particle families, sum the three contributions to obtain a total SET rate per device per day, and compare that rate against each device's system-level SET rate budget to flag exceedances. Trigger: ecss, e-st-10-system-scope, set, single-event-transient, heavy-ion, proton, neutron, let-spectrum, weibull, transient-rate.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "set",
+    "single-event-transient",
+    "heavy-ion",
+    "proton",
+    "neutron",
+    "let-spectrum",
+    "weibull",
+    "transient-rate"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-seu-ion",
+   "name": "e1012-seu-ion",
+   "description": "Use when calculating heavy-ion-induced single-event upset (SEU), multiple-cell upset (MCU), and single-word multiple-bit upset (SMU) rates for a space-qualified device under ECSS-E-ST-10-12C §9.4.1.2: fit the device cross-section versus LET curve with a Weibull model (LETth, W, s, σsat), integrate over the mission LET spectrum using the rectangular parallelepiped (RPP) method, optionally apply the integral RPP (IRPP) chord-length correction for sensitive-volume geometry, derive MCU and SMU rates from upset multiplicity and same-word fractions, and verify the predicted rate meets the system requirement with a 10× design margin. Trigger: ecss, e-st-10-12c, e-st-10-system-scope, seu, mcu, smu, heavy-ion, let-spectrum, rpp, irpp, weibull.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "e-st-10-system-scope",
+    "seu",
+    "mcu",
+    "smu",
+    "heavy-ion",
+    "let-spectrum",
+    "rpp",
+    "irpp"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-shield-geometry",
+   "name": "e1012-shield-geometry",
+   "description": "Use when build the radiation shielding geometry model for a component or equipment item under ECSS-E-ST-10-12C §6.3: assemble the three-tier shielding hierarchy (parts packaging, equipment housing, spacecraft structure), compute the areal density contribution of each shielding layer, sum contributions across all tiers to derive the effective shielding seen by the sensitive part, and check interfaces (connectors, cutouts, feed-throughs) where the local effective shielding falls below a required minimum threshold. Trigger: ecss, e-st-10-12c, shield-geometry, areal-density, radiation-shielding, parts-packaging, equipment-shielding, spacecraft-structure.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "shield-geometry",
+    "areal-density",
+    "radiation-shielding",
+    "parts-packaging",
+    "equipment-shielding",
+    "spacecraft-structure"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-shield-process",
+   "name": "e1012-shield-process",
+   "description": "Use when execute the spacecraft shielding calculation process under ECSS-E-ST-10-12C §6.2.1: identify the radiation effects that require quantification (TID, DD, SEE proton, SEE heavy-ion), select the appropriate calculation method for each effect from the geometry- and effect-dependent method table (slab approximation, sector analysis, or Monte Carlo for primary shielding; NIEL-weighted fluence for DD; LET-spectrum assessment for heavy-ion SEE), compute the predicted dose or fluence behind the combined primary and secondary shielding, and compare each result against the component's dose or fluence limit including the radiation design margin. Trigger: ecss, e-st-10-system-scope, shielding, radiation shielding, TID, displacement damage, SEE, sector analysis, Monte Carlo, radiation design margin, primary shielding, secondary shielding.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "shielding",
+    "tid",
+    "displacement-damage",
+    "see",
+    "sector-analysis",
+    "monte-carlo",
+    "radiation-design-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-shield-simple",
+   "name": "e1012-shield-simple",
+   "description": "Use when run the simplified shielding analysis for a sensitive component under ECSS-E-ST-10-12C §6.2.2: model the shield as a planar slab, a spherical shell, or a set of solid-angle sectors, compute the areal density of each layer as thickness × density, invert that relation to derive the thickness needed for an areal-density budget, flux-weight the mean areal density across sectors, verify the sector set covers the full 4π sphere within tolerance, and report the minimum and maximum shielded ray directions as the worst- and best-case exposure paths. Trigger: ecss, e-st-10-12c, simplified-shielding, planar-slab, spherical-shell, solid-angle-sectoring, areal-density, shielding-summary.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "simplified-shielding",
+    "planar-slab",
+    "spherical-shell",
+    "solid-angle-sectoring",
+    "areal-density"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-shield-unc",
+   "name": "e1012-shield-unc",
+   "description": "Use when determine shielding calculation uncertainties for a spacecraft radiation analysis under ECSS-E-ST-10C §6.4: identify each uncertainty contributor as model (transport-code assumptions and dose-conversion factors), geometry (simplified mesh versus as-built structural detail), or cross-section (nuclear reaction data spread), assign a fractional uncertainty to each contributor, combine them by RSS or linear worst-case summation, apply a k-sigma margin to the nominal computed dose or fluence, and verify the margined result remains within the allowable shielding requirement. Trigger: ecss, e-st-10-system-scope, shielding-uncertainty, model-uncertainty, geometry-uncertainty, cross-section-uncertainty, radiation-margin, dose-budget.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "shielding-uncertainty",
+    "model-uncertainty",
+    "geometry-uncertainty",
+    "cross-section-uncertainty",
+    "radiation-margin",
+    "dose-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-suscept-unc",
+   "name": "e1012-suscept-unc",
+   "description": "Use when assess radiation design margins for EEE components where susceptibility test data carries uncertainty—small sample counts, single-lot characterization, non-equivalent radiation sources, or absent test data entirely. The procedure categorizes the data quality for each radiation effect type (TID, SEE, NIEL, displacement damage), selects an uncertainty multiplication factor proportional to the data shortfall, applies that factor on top of the base radiation design margin, and checks that each component's rated threshold meets the uncertainty-scaled environment dose. Components that fail under uncertainty-adjusted margins require additional testing, design change, or formal derogation. Trigger: ecss, e-st-10-system-scope, radiation-margins, eee-components, susceptibility-uncertainty, TID, SEE, radiation-design-margin, data-quality.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "radiation-margins",
+    "eee-components",
+    "susceptibility-uncertainty",
+    "tid",
+    "see",
+    "radiation-design-margin",
+    "data-quality"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-tid-assessment",
+   "name": "e1012-tid-assessment",
+   "description": "Use when calculate total ionising dose (TID) damage for spacecraft electronic components under ECSS-E-ST-10-12C §7.5: derive the applicable radiation damage parameters for each component category (§7.5.1), compute the accumulated ionising dose from orbit-specific dose rates and mission duration using an aluminium shielding model (§7.5.2), apply the required design margin, and compare each component's dose requirement against its TID limit to produce a compliant or non-compliant finding. Trigger: ecss, e-st-10-12c, e-st-10-system-scope, tid, total-ionising-dose, radiation-damage, dose-calculation, shielding, rha, component-assessment.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "e-st-10-system-scope",
+    "tid",
+    "total-ionising-dose",
+    "radiation-damage",
+    "dose-calculation",
+    "shielding",
+    "rha",
+    "component-assessment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1012-tid-unc",
+   "name": "e1012-tid-unc",
+   "description": "Use when evaluate TID assessment uncertainties for space electronic components under ECSS-E-ST-10-12C §7.8: identify every uncertainty source (radiation environment model, shielding geometry, dose-rate and temperature effects during test, part-to-part variability), assign a multiplicative uncertainty factor to each source, compute the combined factor as the product of all individual factors, derive the design TID as the product of the mean environment TID and the combined uncertainty factor, and verify that the component's minimum lot tolerance divided by the design TID meets the required Radiation Design Margin. Trigger: ecss, e-st-10-12c, tid, total-ionizing-dose, uncertainty, radiation-design-margin, dose-rate, shielding, part-variability, rdm.",
+   "tags": [
+    "ecss",
+    "e-st-10-12c",
+    "tid",
+    "total-ionizing-dose",
+    "uncertainty",
+    "radiation-design-margin",
+    "dose-rate",
+    "shielding",
+    "part-variability",
+    "rdm"
    ],
    "family": "space-systems",
    "pack": "ecss",

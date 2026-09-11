@@ -68,6 +68,12 @@ PAUSE_REGISTRY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state
 # here rather than inventing a second in-flight signal.
 CLAUDE_RUNNING_PAT = "claude -p"
 
+# Same root + discovery aero-lane-harvest.py's main() uses to find open lane
+# worktrees (VEDA-0066): pgrep alone reads FALSE between two claude
+# invocations while a lane is genuinely still open, so a dirty/unpushed tree
+# from a healthy mid-build lane hard-FAILed the daily audit.
+LANE_ROOT = pathlib.Path.home() / "aero-lanes"
+
 # Hourly launchd public publish + slack, named so the audit never hardcodes
 # a bare number for "how behind is too behind".
 PUBLISH_CYCLE_TOLERANCE_MINUTES = 120
@@ -112,10 +118,36 @@ def note(msg: str):
 
 
 # ---------------------------------------------------------------- 1. dev tree
-def lane_build_in_flight() -> bool:
-    """CCD lane build in flight (same check as aero-lane-harvest.py)."""
+def _claude_running() -> bool:
     r = run(["pgrep", "-f", CLAUDE_RUNNING_PAT])
     return r.returncode == 0 and r.stdout.strip() != ""
+
+
+def open_lanes(lane_root: pathlib.Path | None = None) -> list[str]:
+    """Open lane worktrees, named. Same discovery as aero-lane-harvest.py's
+    main(): every directory directly under LANE_ROOT that is a directory and
+    contains a .git entry. Pure-local filesystem check only — no network, no
+    git subprocess.
+    """
+    root = pathlib.Path(lane_root) if lane_root is not None else LANE_ROOT
+    if not root.is_dir():
+        return []
+    return sorted(
+        entry.name for entry in root.iterdir()
+        if entry.is_dir() and (entry / ".git").exists()
+    )
+
+
+def lane_build_in_flight(claude_running=None, lane_root=None) -> bool:
+    """CCD lane build in flight: `claude -p` is running (same signal
+    aero-lane-harvest.py's claude_running() uses) OR an open lane worktree
+    exists (same discovery as aero-lane-harvest.py's main()). The pgrep
+    signal alone reads FALSE between two claude invocations while a lane is
+    genuinely still open (VEDA-0066), so it is not sufficient on its own.
+    `claude_running` and `lane_root` are injectable seams for tests.
+    """
+    running = claude_running() if claude_running is not None else _claude_running()
+    return running or bool(open_lanes(lane_root))
 
 
 def check_dev_tree():
@@ -140,8 +172,13 @@ def check_dev_tree():
         return
 
     if lane_build_in_flight():
+        lanes = open_lanes()
+        if lanes:
+            signal = f"open lane(s): {', '.join(lanes)}"
+        else:
+            signal = "claude -p running"
         note(f"dev-tree: {dirty} uncommitted, {unpushed} unpushed — CCD lane "
-             "build in flight (claude -p running); expected while the lane "
+             f"build in flight ({signal}); expected while the lane "
              "is unmerged, not a break")
         return
 
