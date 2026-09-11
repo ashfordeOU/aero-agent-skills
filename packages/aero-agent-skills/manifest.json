@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 806,
+  "leaves": 830,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1616
+  "corpus_tasks": 1646
  },
  "skills": [
   {
@@ -9635,6 +9635,256 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1003-ait-drd",
+   "name": "e1003-ait-drd",
+   "description": "Use when validate an Assembly, Integration and Test (AIT) plan against the ECSS-E-ST-10C Annex A Document Requirements Definition: verify all required DRD sections are present (objectives, product tree, test campaign, schedule, facilities, responsibilities), confirm every test traces to at least one verifiable requirement, check that every product tree item carries at least one test assignment, and flag tests that need a special facility but carry no facility reference. Trigger: ecss, e-st-10c, e-st-10-system-scope, ait-plan, assembly-integration-test, drd, test-traceability, product-tree, facility-assignment.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "e-st-10-system-scope",
+    "ait-plan",
+    "assembly-integration-test",
+    "drd",
+    "test-traceability",
+    "product-tree"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-anomaly",
+   "name": "e1003-anomaly",
+   "description": "Use when resolving anomalies or failures detected during spacecraft testing under ECSS-E-ST-10C §4.3.4: categorize each failure by domain (hardware, software, environmental, electrical, mechanical), determine containment actions scaled to the severity level (critical/major/minor), verify the anomaly record captures all required documentation fields, assign a disposition code (accept as-is, repair and retest, waiver required, reject, pending analysis), and identify which test cases must be repeated as a consequence of the anomaly or its corrective action. Trigger: ecss, e-st-10c, anomaly, test-anomaly, containment, disposition, retest-decision, anomaly-resolution, test-failure.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "anomaly",
+    "test-anomaly",
+    "containment",
+    "disposition",
+    "retest-decision"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-dev-tests",
+   "name": "e1003-dev-tests",
+   "description": "Use when plan and execute development tests for a space system under ECSS-E-ST-10C §4.2: define each test objective with a traceable success criterion, specify the test conditions and their acceptable tolerance bands, record actual conditions during test execution, evaluate all measurements against minimum and maximum requirement bounds, and confirm the development test report contains every mandatory element (objective reference, actual conditions, measurements, outcome, and anomaly record). Development tests precede the qualification test programme and generate design margin data to reduce programme risk. Trigger: ecss, e-st-10-system-scope, development-testing, test-objectives, test-conditions, test-reporting, test-plan, qualification-precursor.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "development-testing",
+    "test-objectives",
+    "test-conditions",
+    "test-reporting",
+    "test-plan"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-acceptance",
+   "name": "e1003-el-acceptance",
+   "description": "Use when determine the acceptance test baseline for a space hardware element under ECSS-E-ST-10C §6.3 and Tables 6-3/6-4: identify which test types are mandatory for the element category, derive acceptance levels from qualification levels by applying the prescribed margin factors (vibration random −3 dB, thermal range narrowed by the acceptance margin), confirm each test duration meets the category minimum, and verify the complete proposed test plan contains no missing required tests before acceptance test review is convened. Trigger: ecss, e-st-10c, element-acceptance, acceptance-test, test-baseline, acceptance-levels, test-duration, vibration-acceptance, thermal-acceptance, acceptance-margin.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "element-acceptance",
+    "acceptance-test",
+    "test-baseline",
+    "acceptance-levels",
+    "test-duration",
+    "acceptance-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-crewed",
+   "name": "e1003-el-crewed",
+   "description": "Use when run crewed-mission element tests under ECSS-E-ST-10C §6.5.7: vibroacoustic emission, human factors engineering (HFE), toxic offgassing, and audible noise. Categorize each test record into one of the four mandated test families, evaluate measured results against acceptance limits, and flag any missing test families or limit exceedances before crewed-mission qualification sign-off. Each family has distinct acceptance criteria: vibroacoustic levels in dB, HFE pass/fail judgments, offgassing concentration in mg/m³, and audible noise in dB(A). A crewed element is compliant only when all four families produce no findings. Trigger: ecss, e-st-10-system-scope, crewed-mission, vibroacoustic, hfe, toxic-offgassing, audible-noise, crewed-element-test.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "crewed-mission",
+    "vibroacoustic",
+    "hfe",
+    "toxic-offgassing",
+    "audible-noise"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-emc",
+   "name": "e1003-el-emc",
+   "description": "Use when running element electromagnetic compatibility tests under ECSS-E-ST-10-03C §6.5.5: determine auto-compatibility by verifying that each internal emitter's frequency has sufficient isolation margin against every internal receive band, evaluate passive intermodulation (PIM) products for RF-bearing elements to confirm no odd-order products fall within the receive band, perform residual magnetic dipole moment checks against the element magnetic budget, and identify the correct test mode—stand-alone or embedded—per §6.5.5.2 for each applicable test category. Trigger: ecss, e-st-10-03c, emc, electromagnetic-compatibility, pim, passive-intermodulation, magnetic-field, auto-compatibility, stand-alone, embedded.",
+   "tags": [
+    "ecss",
+    "e-st-10-03c",
+    "emc",
+    "electromagnetic-compatibility",
+    "pim",
+    "passive-intermodulation",
+    "magnetic-field",
+    "auto-compatibility"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-general",
+   "name": "e1003-el-general",
+   "description": "Use when verify general element test requirements under ECSS-E-ST-10C §6.1: order the test campaign by ascending scope (unit, integration, element), confirm that every declared interface is exercised by at least one passing test, check that all element-level functions are covered by the campaign, and flag missing required test levels before formal acceptance. Trace each test result to its driving requirement and control the test configuration throughout. Trigger: ecss, e-st-10-system-scope, element-testing, test-sequence, interface-verification, functional-check, test-campaign, test-compliance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "element-testing",
+    "test-sequence",
+    "interface-verification",
+    "functional-check",
+    "test-compliance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-general-tests",
+   "name": "e1003-el-general-tests",
+   "description": "Use when run element-level general tests per ECSS-E-ST-10-03C §6.5.1 to verify that all mechanical functions and electrical performance parameters of a space element meet their acceptance requirements: categorize each test item as mechanical-functional (deployment, retraction, separation, latch-release) or electrical-functional (continuity, insulation resistance, bonding); evaluate each measured parameter against its lower and upper acceptance limits; flag any pre-test or post-test inspection failure before accepting results; and confirm the complete set of required test items has been performed before releasing the element for integration. Trigger: ecss, e-st-10-system-scope, e1003, element-general-tests, mechanical-functional, electrical-functional, deployment-test, insulation-resistance, element-acceptance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e1003",
+    "element-general-tests",
+    "mechanical-functional",
+    "electrical-functional",
+    "deployment-test",
+    "insulation-resistance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-mechanical",
+   "name": "e1003-el-mechanical",
+   "description": "Use when run element-level mechanical tests for a space hardware item under ECSS-E-ST-10C §6.5.2: categorize each test type (physical properties, modal survey, static load, spin, transient/sine-burst, acoustic, random vibration, sinusoidal vibration) into its structural or dynamic family, confirm test levels and durations are within their qualification, protoflight, or acceptance specification, enforce the required test sequence (physical-properties and modal-survey before dynamic tests), and flag any non-compliant result or missing test item. Trigger: ecss, e-st-10c, element-mechanical, modal-survey, random-vibration, sinusoidal-vibration, acoustic, physical-properties, static-load, mechanical-testing.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "element-mechanical",
+    "modal-survey",
+    "random-vibration",
+    "sinusoidal-vibration",
+    "acoustic",
+    "physical-properties",
+    "static-load",
+    "mechanical-testing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-mission",
+   "name": "e1003-el-mission",
+   "description": "Use when run element mission-specific tests under ECSS-E-ST-10C clause 6.5.6: determine the applicable test categories for a given element type and mission orbit, validate that the planned test programme covers every required category, evaluate individual test results against acceptance limits, and produce an aggregated per-element mission-test compliance verdict. Test categories are divided into functional, environmental, and performance-verification types. Category selection depends on both the mission orbit (LEO, GEO, MEO, HEO, interplanetary) and the element type (propulsion, structure, avionics, payload, power). Trigger: ecss, e-st-10-system-scope, mission-specific-tests, element-testing, test-programme, mission-profile, acceptance-criteria, test-compliance.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "mission-specific-tests",
+    "element-testing",
+    "test-programme",
+    "mission-profile",
+    "acceptance-criteria",
+    "test-compliance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-pressure",
+   "name": "e1003-el-pressure",
+   "description": "Use when run element-level pressure tests for pressurized space hardware under ECSS-E-ST-10C §6.5.3: determine proof pressure from the maximum expected operating pressure and verify the hold duration, cycle pressure between bounds for the required number of fatigue cycles, apply design burst pressure to confirm ultimate structural integrity, and measure leakage against the allowable leak rate. Each test produces a pass/fail verdict with explicit findings. Trigger: ecss, e-st-10-system-scope, pressure-test, proof-pressure, burst-pressure, pressure-cycling, leak-test, meop.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "pressure-test",
+    "proof-pressure",
+    "burst-pressure",
+    "pressure-cycling",
+    "leak-test",
+    "meop"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-protoflight",
+   "name": "e1003-el-protoflight",
+   "description": "Use when define the element protoflight test baseline under ECSS-E-ST-10-03C §6.4: decide whether a space element must follow the protoflight test approach (one hardware model demonstrating both design qualification and flight acceptance, with no separate dedicated qualification model), and derive, for each required test type, the protoflight test level from the Table 6-5 qualification severities and the protoflight test duration from the Table 6-6 acceptance durations. Also flag any protoflight baseline entry whose level or duration deviates from the standard qualification-level/acceptance-duration rule without a documented engineering deviation. Trigger: ecss, e-st-10-system-scope, protoflight, element-testing, test-levels, test-durations, Table-6-5, Table-6-6, qualification-baseline, acceptance-baseline.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "protoflight",
+    "element-testing",
+    "test-levels",
+    "test-durations",
+    "qualification-baseline"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-qual",
+   "name": "e1003-el-qual",
+   "description": "Use when define the element qualification test baseline for a space hardware item under ECSS-E-ST-10C §6.2: determine the qualification approach (full qualification versus protoflight) from the element category and prototype test history, map the mission environment drivers to the required test types, compute the qualification level by applying the standard margin over the acceptance level for each test type (vibration, acoustic, shock, thermal cycling, thermal vacuum, quasi-static), compute the qualification duration by applying the duration factor or soak extension over the acceptance duration, and verify that a proposed test plan meets every level and duration requirement against the computed baseline. Trigger: ecss, e-st-10c, element-qualification, qualification-level, qualification-duration, test-baseline, vibration-margin, thermal-margin, protoflight, acceptance-level.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "element-qualification",
+    "qualification-level",
+    "qualification-duration",
+    "test-baseline",
+    "vibration-margin",
+    "thermal-margin",
+    "protoflight"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-el-thermal",
+   "name": "e1003-el-thermal",
+   "description": "Use when run and validate element-level thermal tests per ECSS-E-ST-10C §6.5.4: thermal vacuum cycling, thermal balance correlation, mission-pressure thermal cases, and Space-Station-specific thermal conditions for a spacecraft element. Checks each test case for conformance with temperature setpoint, soak duration, cycle count, chamber pressure, and margin requirements. Verifies thermal model correlation against balance measurements and confirms the mandatory thermal test campaign is complete before closure. Trigger: ecss, e-st-10c, thermal-vacuum, thermal-balance, tvac, tbal, mission-pressure, iss-thermal, element-thermal-test.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "thermal-vacuum",
+    "thermal-balance",
+    "mission-pressure",
+    "iss-thermal",
+    "element-thermal-test",
+    "tvac"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1003-eq-acceptance",
    "name": "e1003-eq-acceptance",
    "description": "Use when defining the acceptance test baseline for a piece of equipment under ECSS-E-ST-10-03C: derive per-test-type acceptance levels and durations from the equipment's qualification baseline and its margin/duration reduction rules, guard against an acceptance level or duration that fails to sit below its qualification counterpart, and check the baseline for coverage gaps before it is released to the test programme. Anchor: E-ST-10-03C clause 5.3 + Tables 5-3/5-4. Trigger: equipment acceptance test, acceptance test baseline, acceptance level, acceptance duration, Table 5-3, Table 5-4, e-st-10-03, ecss testing.",
@@ -9721,6 +9971,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1003-eq-mission",
+   "name": "e1003-eq-mission",
+   "description": "Use when execute equipment mission-specific test verification under ECSS-E-ST-10-03C §5.5.6: categorize each test by mission-environment type (acoustic sound pressure, dynamic vibration, electromagnetic compatibility, thermal environment, or functional performance), validate measured values against acceptance or qualification limits, compute test margins, verify all required mission-specific test types are present in the campaign, and confirm each result meets its pass criterion. Covers airborne sound pressure measurement per §5.5.6.1 and other mission-environment verification steps. Trigger: ecss, e-st-10-system-scope, e-st-10-03c, equipment-testing, mission-specific-tests, sound-pressure, vibration, emc.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10-03c",
+    "equipment-testing",
+    "mission-specific-tests",
+    "sound-pressure",
+    "vibration",
+    "emc"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1003-eq-pressure",
    "name": "e1003-eq-pressure",
    "description": "Use when running equipment structural-integrity-under-pressure tests under ECSS-E-ST-10-03C: run the leak, proof pressure, pressure cycling, design burst and burst tests on pressurized space segment equipment, derive which of these tests apply from the test campaign and the item's service profile, select whether burst margin is demonstrated by a physical burst test or a design burst analysis depending on whether the article can be sacrificed, sequence a destructive burst test last, and evaluate each test's pass/fail criteria before declaring the item's pressure-test set complete. Trigger: pressure test, leak test, proof pressure, proof pressure test, pressure cycling, design burst, burst test, MEOP, burst factor, structural integrity under pressure, e-st-10-03, ecss, e-st-10c.",
@@ -9788,6 +10056,41 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1003-input-tolerances",
+   "name": "e1003-input-tolerances",
+   "description": "Use when you need to verify that each test input applied during a space qualification or acceptance campaign falls within the allowable deviation for its input type, as specified in ECSS-E-ST-10C §4.4.2 and Table 4-1. Categorize the input by type (temperature, pressure, supply voltage, frequency, random vibration power spectral density, sine vibration level, acoustic level, humidity, or test duration), compute the actual deviation from the nominal target, and confirm the deviation does not exceed the permitted band for that category. Flag any out-of-tolerance input before the test run proceeds. Trigger: ecss, e-st-10-system-scope, input-tolerances, test-tolerances, test-input, table-4-1, tolerance-band, acceptance-testing.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "input-tolerances",
+    "test-tolerances",
+    "test-input",
+    "table-4-1",
+    "tolerance-band",
+    "acceptance-testing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-management",
+   "name": "e1003-management",
+   "description": "Use when manage a system-level test campaign under ECSS-E-ST-10C §4.3.1: assign customer and supplier responsibilities to each test event, verify that all mandatory readiness conditions (configuration baseline locked, procedure approved, support-equipment calibrated, personnel qualified, safety clearance granted) are satisfied before authorising a test, sequence campaign phases from planning through closeout, and flag any responsibility gap or unmet readiness prerequisite before the test-readiness review is held. Trigger: ecss, e-st-10-system-scope, test-management, test-campaign, readiness-review, customer-supplier, test-responsibility, test-readiness.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "test-management",
+    "test-campaign",
+    "readiness-review",
+    "customer-supplier",
+    "test-responsibility"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1003-objectives",
    "name": "e1003-objectives",
    "description": "Use when defining the test objectives for a qualification, acceptance or protoflight test campaign under ECSS-E-ST-10-03C clause 4.5: define the demonstrated-margin and workmanship-screen objectives assigned to each campaign type, derive the required test level (qualification level vs acceptance level) and duration class (full vs reduced) that those objectives imply, and validate a proposed test definition against the campaign's assigned objectives before test conditions, levels and durations are locked in downstream. Trigger: test objectives, qualification testing, acceptance testing, protoflight testing, demonstrated margin, workmanship screen, e-st-10-03, ecss, e-st-10c.",
@@ -9798,6 +10101,25 @@
     "qualification",
     "acceptance",
     "protoflight"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-pre-launch",
+   "name": "e1003-pre-launch",
+   "description": "Use when running pre-launch health checks, leak verification, functional tests, and campaign constraint checks at the launch site under ECSS-E-ST-10C §7: categorize each health check as structural, electrical, thermal, propulsion, software, or mechanical; compare measured leak rates against the allowable limit for each pressurized system; evaluate functional test outcomes for critical and non-critical subsystems; and verify every launch campaign environmental and temporal constraint is within its bounds before declaring launch readiness. Trigger: ecss, e-st-10-system-scope, pre-launch, launch-site, health-check, leak-verification, functional-test, launch-campaign, launch-readiness.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "pre-launch",
+    "launch-site",
+    "health-check",
+    "leak-verification",
+    "functional-test",
+    "launch-campaign",
+    "launch-readiness"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -9822,6 +10144,61 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1003-test-conditions",
+   "name": "e1003-test-conditions",
+   "description": "Use when define test conditions for a space equipment or system verification campaign under ECSS-E-ST-10C §4.4.1: establish the required ambient environment parameter ranges (temperature, pressure, humidity, EMI environment), the cleanliness class for each test area, the ESD protection measures required for each test item, the unit-under-test configuration state and interface definitions, and the monitoring channel set with recording rates and acceptance limits. Each condition input is categorized as compliant or non-compliant; undefined mandatory conditions are flagged; and monitoring coverage is confirmed before test execution is permitted. Trigger: ecss, e-st-10-system-scope, test-conditions, ambient-environment, esd-protection, cleanliness, test-configuration, monitoring.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "test-conditions",
+    "ambient-environment",
+    "esd-protection",
+    "cleanliness",
+    "test-configuration",
+    "monitoring"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-test-data",
+   "name": "e1003-test-data",
+   "description": "Use when record, reduce, and deliver test measurement data for a spacecraft test campaign under ECSS-E-ST-10C §4.3.5: determine the minimum sampling rate for each channel type (vibration, acoustic, thermal, pressure, electrical, strain), validate that raw data records carry complete metadata (channel ID, calibration coefficients, timestamp, format), compute storage requirements, apply linear calibration to convert raw counts to engineering units, categorize each data channel as primary, secondary, or housekeeping, and confirm that the delivery package bundles a calibration file, test report reference, and all required traceability fields before handover. Trigger: ecss, e-st-10-system-scope, test-data, sampling-rate, data-reduction, data-delivery, calibration, test-measurement, storage-requirement.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "test-data",
+    "sampling-rate",
+    "data-reduction",
+    "data-delivery",
+    "calibration",
+    "storage-requirement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-test-docs",
+   "name": "e1003-test-docs",
+   "description": "Use when producing the test documentation set required by ECSS-E-ST-10C §4.3.3: draft the Assembly, Integration and Test (AIT) plan, the Test Specification (TSPE), the Test Procedure (TPRO), and the Test Report; verify each document carries the mandatory control fields (type, issue number, date, approval status); confirm the TSPE and TPRO trace every item to a recorded test requirement; check that document sequencing is respected (AIT plan approved before TSPE is released, TSPE approved before TPRO is released, TPRO approved before the Test Report is issued); and flag any missing document, broken traceability link, or sequence violation before the test campaign proceeds. Trigger: ecss, e-st-10-system-scope, test-documentation, ait-plan, tspe, tpro, test-report, document-control, traceability.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "test-documentation",
+    "ait-plan",
+    "tspe",
+    "tpro",
+    "test-report",
+    "document-control",
+    "traceability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1003-test-programme",
    "name": "e1003-test-programme",
    "description": "Use when define the overall test programme for a space system or subsystem under ECSS-E-ST-10C §4.1: identify each hardware model entering the programme (BB, EM, QM, EQM, PFM, FM), derive its corresponding test level (development, qualification, proto-flight, or acceptance), build and validate the ordered test sequence for each model ensuring positions are unique and consecutive, verify that functional tests bookend the sequence at position 1 and the final position, confirm all required programme-level documents are on record before scheduling begins, and validate that the required verification inputs for each test activity are supplied. Trigger: ecss, e-st-10-system-scope, test-programme, models-under-test, test-sequence, verification-inputs, programme-documentation, qualification, acceptance.",
@@ -9833,6 +10210,60 @@
     "test-sequence",
     "verification-inputs",
     "programme-documentation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-test-reviews",
+   "name": "e1003-test-reviews",
+   "description": "Use when perform test readiness reviews and close-out reviews for a spacecraft test campaign under ECSS-E-ST-10C §4.3.2: verify each review has defined entry criteria grouped as mandatory or advisory, determine the outcome (pass, conditional pass, or fail) from which criteria are met, confirm all test anomalies carry a disposition before close-out, and ensure every review produces a complete record capturing review type, chair, attendees, criteria verdicts, outcome, and open action items. Apply the Test Readiness Review to gate entry to testing and the close-out review to gate release of results. Trigger: ecss, e-st-10-system-scope, test-readiness-review, close-out-review, review-criteria, anomaly-disposition, test-records, review-outcome.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "test-readiness-review",
+    "close-out-review",
+    "review-criteria",
+    "anomaly-disposition",
+    "test-records"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-tpro-drd",
+   "name": "e1003-tpro-drd",
+   "description": "Use when validate a Test Procedure (TPRO) document against ECSS-E-ST-10C Annex C DRD requirements: confirm the header carries all required identification fields (document ID, title, revision, objective, test level, applicable standard, safety requirements), verify each procedure step is numbered sequentially with an explicit action, expected result, and data-recording entries specifying parameter, unit, and acceptance range, check that pass/fail criteria cover all measured parameters, and surface any structural gap before the procedure enters formal review. Trigger: ecss, e-st-10-system-scope, e-st-10c, tpro, test-procedure, drd, data-recording, pass-fail-criteria, procedure-validation, annex-c.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "e-st-10c",
+    "tpro",
+    "test-procedure",
+    "drd",
+    "data-recording",
+    "pass-fail-criteria",
+    "annex-c"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1003-tspe-drd",
+   "name": "e1003-tspe-drd",
+   "description": "Use when validate or generate a Test Specification (TSPE) document against the ECSS-E-ST-10C Annex B Data Requirement Document: verify the document carries a test identification block (ID, name, and test-type category), a substantive description of the test objective, a conditions block covering environment, configuration, and stimuli, an ordered procedure list with step numbers and actions, and at least one measurable success criterion with parameter, limit, and measurement unit. Flag each absent or incomplete section as a compliance finding before the review board accepts the document. Trigger: ecss, e-st-10c, tspe, test-specification, drd, test-conditions, success-criteria, annex-b.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "tspe",
+    "test-specification",
+    "drd",
+    "test-conditions",
+    "success-criteria",
+    "annex-b"
    ],
    "family": "space-systems",
    "pack": "ecss",

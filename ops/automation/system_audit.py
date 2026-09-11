@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import pathlib
 
+import datetime
 import json
 import os
 import re
@@ -62,6 +63,15 @@ REQUIRED_CRONS = {
 # absence, emptiness or corruption must never silence a real break.
 PAUSE_REGISTRY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "paused-crons.json")
 
+# Same signal aero-lane-harvest.py's claude_running() uses to defer a harvest
+# ("AERO HARVEST: deferred — CCD still building (claude running).") — reused
+# here rather than inventing a second in-flight signal.
+CLAUDE_RUNNING_PAT = "claude -p"
+
+# Hourly launchd public publish + slack, named so the audit never hardcodes
+# a bare number for "how behind is too behind".
+PUBLISH_CYCLE_TOLERANCE_MINUTES = 120
+
 failures: list[str] = []
 notes: list[str] = []
 
@@ -102,18 +112,43 @@ def note(msg: str):
 
 
 # ---------------------------------------------------------------- 1. dev tree
+def lane_build_in_flight() -> bool:
+    """CCD lane build in flight (same check as aero-lane-harvest.py)."""
+    r = run(["pgrep", "-f", CLAUDE_RUNNING_PAT])
+    return r.returncode == 0 and r.stdout.strip() != ""
+
+
 def check_dev_tree():
+    """A dirty/unpushed dev tree is durable-work-in-progress, not a break, for
+    as long as a CCD lane build is running: aero-night-lane.py commits leaves
+    into the tree while claude -p is alive, and they land on origin only once
+    the lane is harvested and merged (aero-lane-harvest.py). A fixed-minute
+    daily audit landing mid-build was reporting that as FAIL — same false-red
+    class as the paused-cron fix in check_crons(). An IDLE dirty or unpushed
+    tree (no build running) is still a real break and must still FAIL.
+    """
     st = run(["git", "status", "--porcelain"])
-    if st.stdout.strip():
-        fail("dev-tree", f"{len(st.stdout.strip().splitlines())} uncommitted change(s) — commit before publishing")
+    dirty = len(st.stdout.strip().splitlines()) if st.stdout.strip() else 0
     run(["git", "fetch", "origin", "--quiet"], timeout=120)
     ahead = run(["git", "rev-list", "--count", "origin/main..HEAD"])
     try:
-        n = int(ahead.stdout.strip() or "0")
+        unpushed = int(ahead.stdout.strip() or "0")
     except ValueError:
-        n = 0
-    if n:
-        fail("dev-tree", f"{n} unpushed commit(s) — push or they are not durable")
+        unpushed = 0
+
+    if not dirty and not unpushed:
+        return
+
+    if lane_build_in_flight():
+        note(f"dev-tree: {dirty} uncommitted, {unpushed} unpushed — CCD lane "
+             "build in flight (claude -p running); expected while the lane "
+             "is unmerged, not a break")
+        return
+
+    if dirty:
+        fail("dev-tree", f"{dirty} uncommitted change(s) — commit before publishing")
+    if unpushed:
+        fail("dev-tree", f"{unpushed} unpushed commit(s) — push or they are not durable")
 
 
 # ------------------------------------------------- 1b. publish single-writer
@@ -321,12 +356,47 @@ def public_leaves(token):
         return None
 
 
+def public_newest_commit_minutes_ago(token):
+    """Age in minutes of the public repo's newest commit, or None if it could
+    not be read."""
+    try:
+        commits = api(f"/repos/{PUBLIC_REPO}/commits?per_page=1", token)
+        date_str = commits[0]["commit"]["committer"]["date"]
+        ts = datetime.datetime.strptime(
+            date_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc)
+        age = datetime.datetime.now(datetime.timezone.utc) - ts
+        return age.total_seconds() / 60.0
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def check_public_and_site(leaves, token):
+    """The public mirror lagging dev is expected — publish-public.sh runs
+    hourly (launchd), so the mirror is legitimately up to one publish cycle
+    behind. It is only a real break when the publisher itself has stopped,
+    which shows up as the mirror's newest commit being older than one cycle
+    (PUBLISH_CYCLE_TOLERANCE_MINUTES). A fixed-minute daily audit landing
+    mid-cycle was reporting the lag alone as FAIL — same false-red class as
+    the paused-cron fix in check_crons() and the in-flight fix in
+    check_dev_tree().
+    """
     pub = public_leaves(token)
     if pub is None:
         fail("public", "could not read public metrics.json")
     elif pub < leaves:
-        fail("public", f"public repo lags dev: {pub} < {leaves} leaves")
+        age = public_newest_commit_minutes_ago(token)
+        if age is None:
+            fail("public", f"public repo lags dev: {pub} < {leaves} leaves "
+                 "(and its newest commit could not be read)")
+        elif age > PUBLISH_CYCLE_TOLERANCE_MINUTES:
+            fail("public", f"public repo lags dev: {pub} < {leaves} leaves, "
+                 f"newest commit {age:.0f}m old (> "
+                 f"{PUBLISH_CYCLE_TOLERANCE_MINUTES}m publish-cycle "
+                 "tolerance) — publisher appears stopped")
+        else:
+            note(f"public: {pub} < {leaves} leaves — within one publish "
+                 f"cycle (newest commit {age:.0f}m ago, tolerance "
+                 f"{PUBLISH_CYCLE_TOLERANCE_MINUTES}m)")
     else:
         note(f"public: {pub} leaves (dev {leaves})")
 
