@@ -1,10 +1,10 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 784,
+  "leaves": 800,
   "live_packs": 86,
   "families": 12,
-  "corpus_tasks": 1536
+  "corpus_tasks": 1616
  },
  "skills": [
   {
@@ -8094,6 +8094,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-analysis-report-guide",
+   "name": "e10-analysis-report-guide",
+   "description": "Use when assemble an engineering analysis report to the ECSS-E-ST-10C Annex S content guideline so its result can be cited as verification evidence: confirm every required section carries content, confirm each input datum states where it came from, confirm the analysis tool is named with its qualification status, confirm every reported result carries an uncertainty, and confirm a compliance conclusion actually survives its own uncertainty against the limit. Trigger: ecss, e-st-10-system-scope, analysis-report, annex-s-guideline, input-provenance, tool-qualification, result-uncertainty, verification-evidence.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "analysis-report",
+    "annex-s-guideline",
+    "input-provenance",
+    "result-uncertainty",
+    "verification-evidence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-analysis-tools-models",
    "name": "e10-analysis-tools-models",
    "description": "Use when validate the analysis methods, tools and models behind a space system analysis before its results are used, under ECSS-E-ST-10C clause 5.3.4: decide whether a tool qualifies by heritage reuse or must be correlated, compute its correlation error against independently derived reference data, compare that error against the acceptance tolerance set by the analysis criticality, and aggregate every tool review into a single verdict on whether the analysis is valid. Trigger: ecss, e-st-10-system-scope, analysis-tools, model-qualification, tool-correlation, heritage-reuse, domain-of-applicability, analysis-criticality.",
@@ -8263,6 +8280,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-ddp-mapping",
+   "name": "e10-ddp-mapping",
+   "description": "Use when convert a heritage programme's legacy design data pack onto the ECSS document set following the ECSS-E-ST-10C Annex R mapping guidance: validate each legacy item's disposition, confirm a carried-forward item names at least one recognized ECSS target document, confirm a retired item states why and claims no target, and walk the mapping in the opposite direction to find any owed ECSS document that no legacy content feeds. Trigger: ecss, e-st-10-system-scope, legacy-data-pack, annex-r-mapping, heritage-conversion, document-set, content-retirement, coverage.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "legacy-data-pack",
+    "annex-r-mapping",
+    "heritage-conversion",
+    "document-set"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-delivery-per-review",
    "name": "e10-delivery-per-review",
    "description": "Use when planning or checking which systems-engineering documents a space project must deliver or re-baseline at each review milestone per ECSS-E-ST-10C Annex A (informative): build the document-by-review delivery schedule, verify a given review's deliveries against it (missing and unplanned deliveries), and roll up readiness across the whole review sequence. Trigger: delivery schedule, document delivery per review, Annex A, review deliverables, MDR PRR SRR PDR CDR QR AR FRR CRR ER documents, ECSS-E-ST-10C Annex A.",
@@ -8324,6 +8357,22 @@
     "domain-of-applicability",
     "design-rules",
     "confirmation-weight"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-djf-drd",
+   "name": "e10-djf-drd",
+   "description": "Use when assemble or review a product Design Justification File against the ECSS-E-ST-10C Annex K Document Requirements Definition: validate each justification record's method and review status, confirm every record cites the document its evidence lives in, resolve each requirement to justified, open, rejected-evidence or no-evidence under a severity ordering, surface a requirement whose accepted argument rests on similarity alone, and decide whether the file supports the design. Trigger: ecss, e-st-10-system-scope, design-justification-file, djf, annex-k-drd, justification-evidence, similarity-heritage, evidence-traceability.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "design-justification-file",
+    "annex-k-drd",
+    "justification-evidence",
+    "evidence-traceability"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8465,6 +8514,23 @@
     "objective-evidence",
     "close-out",
     "verification-file"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-pum-drd",
+   "name": "e10-pum-drd",
+   "description": "Use when produce or review a Product User Manual against the ECSS-E-ST-10C Annex P Document Requirements Definition: confirm the manual declares the product configuration it describes and that it matches what was delivered, confirm every required section is present and not empty, confirm procedure steps are numbered contiguously without repeats, confirm every hazardous step carries its warning ahead of the step, and confirm each maintenance task states its interval and required resources. Trigger: ecss, e-st-10-system-scope, product-user-manual, pum, annex-p-drd, operating-procedures, hazard-warnings, maintenance-interval, configuration-match.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "product-user-manual",
+    "annex-p-drd",
+    "operating-procedures",
+    "hazard-warnings",
+    "maintenance-interval"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8655,6 +8721,39 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-rjf-drd",
+   "name": "e10-rjf-drd",
+   "description": "Use when compile or audit a Requirements Justification File against the ECSS-E-ST-10C Annex O Document Requirements Definition: validate each requirement's derivation basis, confirm a parent-derived requirement names its parent and that a top-level requirement rests on a standard or mission need instead, detect a rationale that merely restates the requirement it is meant to justify, confirm each rationale is attributed, and decide whether every requirement is justified. Trigger: ecss, e-st-10-system-scope, requirements-justification-file, rjf, annex-o-drd, derivation-basis, requirement-rationale, attribution.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirements-justification-file",
+    "annex-o-drd",
+    "derivation-basis",
+    "requirement-rationale"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-rtm-drd",
+   "name": "e10-rtm-drd",
+   "description": "Use when build or audit a requirements traceability matrix against the ECSS-E-ST-10C Annex N Document Requirements Definition: confirm every row carries its DRD fields, trace each derived requirement upward to a parent that exists in the matrix, trace each requirement that must flow down to at least one child, detect parent-pointer cycles, and confirm each allocation names a real product-tree element and each verification method is one of the four recognized ones. Trigger: ecss, e-st-10-system-scope, traceability-matrix, annex-n-drd, upward-trace, downward-trace, requirement-allocation, trace-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "traceability-matrix",
+    "annex-n-drd",
+    "upward-trace",
+    "downward-trace",
+    "requirement-allocation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-scr-drd",
    "name": "e10-scr-drd",
    "description": "Use when preparing a System Concept Report (SCR) for a European space project per ECSS-E-ST-10C Annex C: validate that the required sections (candidate concepts, trade summary, feasibility assessment, recommended concept) are present, that every candidate concept carries a description, that the trade summary scores every candidate against all trade criteria (technical, programmatic, cost, risk), that every candidate carries a valid feasibility verdict, and that the recommended concept is a known candidate that is not itself flagged not_feasible before the SCR is handed off at the end of phase 0/A. Trigger: scr, system concept report, annex c, e-st-10c annex c, candidate concepts, trade summary, trade-off analysis, feasibility assessment, drd, concept selection, down-select.",
@@ -8754,6 +8853,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-spec-tree-drd",
+   "name": "e10-spec-tree-drd",
+   "description": "Use when generate or validate a project specification tree against the ECSS-E-ST-10C Annex J Document Requirements Definition: confirm the tree is singly rooted, fully connected and free of duplicate identifiers, confirm each specification sits exactly one level below its parent, confirm every product-tree node carries exactly one specification, and confirm every non-root specification declares the parent it flows its requirements down from. Trigger: ecss, e-st-10-system-scope, specification-tree, annex-j-drd, requirement-flowdown, product-tree-coverage, specification-levels.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "specification-tree",
+    "annex-j-drd",
+    "requirement-flowdown",
+    "product-tree-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-system-analysis",
    "name": "e10-system-analysis",
    "description": "Use when scoping and scheduling ECSS-E-ST-10C system analyses for a space project: classify a required system analysis as mission, functional, interface, environmental, or operational, determine which analysis types a given project phase requires, verify each analysis definition carries a non-empty objective and defined outputs, and check whether an analysis is scheduled early enough to feed the phase that first requires it. Trigger: ecss, e-st-10-system-scope, system-analysis, mission-analysis, functional-analysis, interface-analysis, environmental-analysis, operational-analysis, analysis-scheduling.",
@@ -8816,6 +8931,23 @@
     "tp-drd",
     "trl-assessment",
     "annex-e"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-tradeoff-drd",
+   "name": "e10-tradeoff-drd",
+   "description": "Use when produce or review a trade-off report against the ECSS-E-ST-10C Annex L Document Requirements Definition: validate that the criterion weights form a normalized set, confirm every option carries a score against every criterion rather than defaulting a gap to zero, compute the weighted ranking and the margin to the runner-up, test whether shifting any single weight flips the winner, and decide whether the report reaches a defensible recommendation. Trigger: ecss, e-st-10-system-scope, trade-off-report, annex-l-drd, weighted-criteria, option-ranking, sensitivity-analysis, decision-margin.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "trade-off-report",
+    "annex-l-drd",
+    "weighted-criteria",
+    "sensitivity-analysis",
+    "decision-margin"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8889,6 +9021,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-analysis-report",
+   "name": "e1002-analysis-report",
+   "description": "Use when determine whether an analysis report actually verifies its requirement under ECSS-E-ST-10-02 clause 5.3.2.2: confirm the analysis was run against the design baseline under verification rather than a superseded model, confirm every case the requirement's envelope demands was analysed and flag cases that drifted outside it, confirm each case carries a verdict and that a case not run states why, and roll the case results up to a requirement verdict. Trigger: ecss, e-st-10-02c, analysis-report, verification-by-analysis, case-coverage, model-baseline, envelope, verdict-rollup.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "analysis-report",
+    "verification-by-analysis",
+    "case-coverage",
+    "model-baseline",
+    "verdict-rollup"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-approach",
    "name": "e1002-approach",
    "description": "Use when defining the verification approach under ECSS-E-ST-10-02C clause 5.2.1: decide which requirements enter verification, check whether a chosen method is applicable at a given life-cycle stage, assess the risks for requirements that cannot be verified by test and the mitigations for them, validate a per-requirement strategy, roll closure status up by verification level, and confirm the plan is complete. Trigger: ecss, e-st-10-02c, verification approach, verification strategy, method applicability, stage, risk assessment, mitigation, plan completeness, closure roll-up.",
@@ -8901,6 +9050,38 @@
     "risk-assessment",
     "roll-up",
     "plan-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-control-closeout",
+   "name": "e1002-control-closeout",
+   "description": "Use when control and close out product verification under ECSS-E-ST-10-02 clause 5.4.1: confirm every verification control document row reached a closed status with evidence cited, confirm each closure taken against a waiver names a waiver the authority actually approved, confirm no nonconformance is still open, and confirm the verification database was delivered machine-readable in the agreed format covering every row the control document holds. Trigger: ecss, e-st-10-02c, verification-closeout, verification-control-document, waiver-approval, nonconformance, verification-database, electronic-delivery.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-closeout",
+    "verification-control-document",
+    "waiver-approval",
+    "verification-database"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-execution",
+   "name": "e1002-execution",
+   "description": "Use when execute verification activities against the verification plan and control document under ECSS-E-ST-10-02 clause 5.3.1: confirm every readiness condition holds before an activity starts, suspend it while any nonconformance raised against it stays open, confirm each departure from the approved procedure was authorized before execution rather than after, reconcile the as-run steps against the as-planned steps, and derive the activity's true state from its own record. Trigger: ecss, e-st-10-02c, verification-execution, readiness-review, nonconformance, deviation-approval, as-run-record, activity-state.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-execution",
+    "nonconformance",
+    "deviation-approval",
+    "as-run-record"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8952,6 +9133,23 @@
     "commissioning",
     "anomaly",
     "re-verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-inspection-report",
+   "name": "e1002-inspection-report",
+   "description": "Use when produce or audit an inspection report against the ECSS-E-ST-10-02 clause 5.3.2.4 and Annex E Document Requirements Definition: judge each variable characteristic against its own tolerance band with the limits included, take an attribute characteristic's recorded result, confirm the measuring equipment held a calibration valid on the day the measurement was taken, confirm the inspector appears on the qualified roster, and separate characteristics never inspected from those inspected and found out of tolerance. Trigger: ecss, e-st-10-02c, inspection-report, annex-e-drd, tolerance-band, calibration-validity, inspector-qualification, conformity.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "inspection-report",
+    "annex-e-drd",
+    "tolerance-band",
+    "calibration-validity",
+    "conformity"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -9091,6 +9289,22 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-other-reports",
+   "name": "e1002-other-reports",
+   "description": "Use when decide whether a verification activity needs documentation beyond the four report DRDs under ECSS-E-ST-10-02 clause 5.3.2.6, and check what is produced: derive the need from the activity's own trigger conditions rather than preference, confirm any additional report carries the minimum identification that makes it citable, confirm its author did not also approve it, and flag a report that restates the scope of a DRD report already produced for the same activity. Trigger: ecss, e-st-10-02c, additional-documentation, verification-reporting, trigger-conditions, report-duplication, self-approval, citability.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "additional-documentation",
+    "verification-reporting",
+    "trigger-conditions",
+    "report-duplication"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-phasing",
    "name": "e1002-phasing",
    "description": "Use when phasing verification activities with the project life cycle under ECSS-E-ST-10-02C clause 5.2.7: locate a life-cycle phase in the project phase sequence, decide whether a phase carries a verification output requirement, list the outputs that phase owes and the gaps against them, check entry readiness for a target phase, rank per-requirement verification maturity, roll that up to a project-wide status, and run the full phasing review. Trigger: ecss, e-st-10-02c, verification phasing, life cycle, phase A, phase outputs, entry readiness, maturity rank, project verification status.",
@@ -9176,6 +9390,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-rod-report",
+   "name": "e1002-rod-report",
+   "description": "Use when produce or audit a review-of-design report against the ECSS-E-ST-10-02 clause 5.3.2.3 and Annex D Document Requirements Definition: confirm the review panel exists and is independent of the design authors by identity rather than by declaration, confirm every reviewed document is pinned to a revision, confirm each checklist item carries a result with an adverse item dispositioned and a not-applicable item justified, and close the review only when nothing adverse remains open. Trigger: ecss, e-st-10-02c, review-of-design, annex-d-drd, reviewer-independence, checklist-disposition, document-revision, design-evidence.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "review-of-design",
+    "annex-d-drd",
+    "reviewer-independence",
+    "checklist-disposition",
+    "document-revision"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-simulators",
    "name": "e1002-simulators",
    "description": "Use when a simulator (functional, real-time, or closed-loop / hardware-in-the-loop) is used to generate verification evidence under ECSS-E-ST-10-02C and its own qualification status needs to be established before that evidence can be credited: which fidelity evidence a simulator's role requires, whether it is currently qualified, and whether a design or interface change triggers re-qualification. Trigger: simulator qualification, functional simulator, real-time simulator, closed-loop simulator, hardware-in-the-loop, HIL simulator, verification tool qualification, e1002, e-st-10-02, ecss, e-st-10c.",
@@ -9226,6 +9457,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e1002-test-report",
+   "name": "e1002-test-report",
+   "description": "Use when produce or review a verification test report against the ECSS-E-ST-10-02 clause 5.3.2.1 and Annex C Document Requirements Definition: confirm the report identifies the article, its configuration, the facility and the test procedure by revision, confirm the cited revision is the one actually run, confirm every test objective carries its own verdict, confirm each observed discrepancy is linked to a raised nonconformance, and aggregate the objective verdicts under a severity ordering. Trigger: ecss, e-st-10-02c, test-report, annex-c-drd, test-objectives, procedure-revision, discrepancy, nonconformance-link, measured-data.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "test-report",
+    "annex-c-drd",
+    "test-objectives",
+    "procedure-revision",
+    "discrepancy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e1002-tools-general",
    "name": "e1002-tools-general",
    "description": "Use when a verification tool (test equipment, GSE, simulator, software tool, or facility) needs to be categorized and given a qualification-status category (A/B/C/D) before it is used to generate verification evidence, consistent with ECSS-E-ST-10-02C verification tools clause 5.2.6.1. Trigger: verification tool, tool classification, tool qualification status, category A B C D, GSE, EGSE, MGSE, simulator qualification, software tool validation, test facility, E-ST-10-02, ecss, e-st-10c.",
@@ -9254,6 +9502,23 @@
     "method-permission",
     "applicability",
     "closure",
+    "status-rollup"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e1002-verification-report",
+   "name": "e1002-verification-report",
+   "description": "Use when compile or audit the Verification Report against the ECSS-E-ST-10-02 clause 5.3.2.5 and Annex F Document Requirements Definition: confirm every verification event cites the underlying report holding its evidence, reconcile the executed methods against the methods the verification control document planned in both directions, detect an event whose claimed status contradicts the verdict of the report it cites, and roll the events up to a status for each requirement. Trigger: ecss, e-st-10-02c, verification-report, vrpt, annex-f-drd, method-agreement, evidence-linkage, status-rollup.",
+   "tags": [
+    "ecss",
+    "e-st-10-02c",
+    "verification-report",
+    "vrpt",
+    "annex-f-drd",
+    "method-agreement",
     "status-rollup"
    ],
    "family": "space-systems",

@@ -24,6 +24,24 @@ jobs:
           LEAVES=$(python3 -c "import json; print(json.load(open('docs/metrics.json'))['leaves'])")
           echo "leaves=$LEAVES"
           echo "leaves=$LEAVES" >> "$GITHUB_OUTPUT"
+
+          # Operator release HOLD (doctrine section 5 stop switch). The switch
+          # itself is host-local and invisible here, so the publish path mirrors
+          # it into the tree it pushes (ops/automation/release-hold-marker.sh);
+          # while that marker is present this workflow must not auto-cut. The
+          # marker disappears on its own once the switch is cleared, and the
+          # next push cuts the milestone then. Added 2026-09-11 after a HOLD was
+          # measured set while the next hourly publish would still have cut.
+          if [ -f .release-hold ]; then
+            echo "release HOLD active — auto-cut suppressed by .release-hold"
+            echo "band_minor=$(( (LEAVES - 1) / 100 ))" >> "$GITHUB_OUTPUT"
+            echo "next_tag=" >> "$GITHUB_OUTPUT"
+            echo "need_tag=false" >> "$GITHUB_OUTPUT"
+            echo "last_tag=" >> "$GITHUB_OUTPUT"
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           # Release convention (founder 2026-09-03): every 100 new skills =
           # one minor version bump. v1.0.0 = 1-100 ... v1.6.0 = 601-700.
           #

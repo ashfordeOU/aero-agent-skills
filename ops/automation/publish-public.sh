@@ -187,6 +187,18 @@ git archive --format=tar HEAD -- . \
 # the export has no .git so update-about.sh cannot resolve slug/token there.
 printf 'make validate\nmake brief-audit\nmake content-policy-sweep\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
 
+# --- 1b. release HOLD mirror (doctrine section 5 stop switch) -----------
+# The operator switch ~/.hermes/state/aero-release-HOLD is documented as
+# pausing "all auto-cuts", but the PRIMARY cut is release-on-milestone.yml on
+# the public repo, and a GitHub workflow cannot read host-local state — only
+# release-manager.py --auto-cut ever read the switch (measured 2026-09-11:
+# dev 800 leaves vs public 784, switch set 11:59Z, and the workflow path
+# would have cut regardless). Carry the switch with the export instead: the
+# workflow refuses to cut while .release-hold is present, and the marker
+# disappears by itself on the next publish after the switch is cleared.
+# Marker-only — the host switch file is never written here (founder-owned).
+bash "$(cd "$(dirname "$0")" && pwd)/release-hold-marker.sh" "$EXPORT"
+
 # --- 2. hygiene: secrets sweep + defense-in-depth name check (fail closed) ---
 # Patterns require a REALISTIC token shape (prefix + a real alnum run),
 # not a bare prefix literal — this script itself ships inside the export
