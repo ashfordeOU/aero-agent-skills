@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 760,
+  "leaves": 784,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1536
@@ -8094,6 +8094,40 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-analysis-tools-models",
+   "name": "e10-analysis-tools-models",
+   "description": "Use when validate the analysis methods, tools and models behind a space system analysis before its results are used, under ECSS-E-ST-10C clause 5.3.4: decide whether a tool qualifies by heritage reuse or must be correlated, compute its correlation error against independently derived reference data, compare that error against the acceptance tolerance set by the analysis criticality, and aggregate every tool review into a single verdict on whether the analysis is valid. Trigger: ecss, e-st-10-system-scope, analysis-tools, model-qualification, tool-correlation, heritage-reuse, domain-of-applicability, analysis-criticality.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "analysis-tools",
+    "model-qualification",
+    "tool-correlation",
+    "heritage-reuse",
+    "analysis-criticality"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-budget-drd",
+   "name": "e10-budget-drd",
+   "description": "Use when produce or review a project technical budget report against the ECSS-E-ST-10C Annex I Document Requirements Definition: place every budget item in a recognized category, inflate its basic value into a current best estimate using the margin its design maturity earns, check each estimate against its allocated maximum, roll the estimates up per category and system-wide, apply the system margin, and decide whether the report satisfies the DRD. Trigger: ecss, e-st-10-system-scope, technical-budget, annex-i-drd, mass-budget, power-budget, margin-philosophy, design-maturity, budget-allocation.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "technical-budget",
+    "annex-i-drd",
+    "margin-philosophy",
+    "design-maturity",
+    "budget-allocation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-budget-margin-policy",
    "name": "e10-budget-margin-policy",
    "description": "Use when consolidating technical budgets (mass, power, data rate, pointing, thermal, propellant, etc.) at system level under ECSS-E-ST-10C flow-down and applying the project margin policy: roll up contributor current-best-estimate plus maturity margin, add the system-level contingency margin, and check the result against the allocated value with a phase-appropriate minimum remaining margin. Trigger: ecss, e-st-10c, technical budget, budget consolidation, margin policy, mass budget, power budget, data rate budget, link budget, contingency margin, maturity margin, system margin.",
@@ -8129,6 +8163,57 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-config-assembly",
+   "name": "e10-config-assembly",
+   "description": "Use when determining the physical and functional grouping rules that govern how configuration items are assembled for integration under ECSS-E-ST-10C clause 5.4.2.3: check every pair of configuration items proposed for one physical assembly for mounting-zone match, hazard separation between energetic and non-energetic items, and EMI role conflict between a sensitive and an emitting item; flag a functional grouping conflict when items sharing a function group are physically incompatible; account each assembly's total mass against its allocable mass budget; and derive a dependency-ordered integration sequence across assemblies. Trigger: ecss, e-st-10c, configuration assembly, configuration item grouping, physical grouping rules, functional grouping rules, integration sequence, mass budget, hazard separation, emi conflict.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "config-assembly",
+    "configuration-items",
+    "integration-sequence",
+    "mass-budget",
+    "hazard-separation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-config-baselines",
+   "name": "e10-config-baselines",
+   "description": "Use when establishing the functional, allocated, or product configuration baseline for a space system under ECSS-E-ST-10C clause 5.4.2.2: classify the baseline type, confirm every earlier baseline in the functional-then-allocated-then-product sequence is already established, verify the gating milestone review (SRR for functional, PDR for allocated, CDR for product) has passed, check that the baseline's required configuration-management artifacts are on record, and aggregate the findings per baseline type so a program-level compliance status can be derived. Trigger: ecss, e-st-10-system-scope, configuration baseline, functional baseline, allocated baseline, product baseline, m-st-40, srr, pdr, cdr, configuration management milestones.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "configuration-baseline",
+    "functional-baseline",
+    "allocated-baseline",
+    "product-baseline",
+    "m-st-40"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-config-content",
+   "name": "e10-config-content",
+   "description": "Use when define or check the configuration content of a space product under ECSS-E-ST-10C clause 5.4.2.1 and Annex H: confirm the product tree resolves as a hierarchy with no dangling parent and no cycle, allocate every function of the function tree to a real product-tree node, confirm each leaf node performs at least one function and carries a design definition, and confirm the assembly constraints reference only real nodes in an acyclic precedence order. Trigger: ecss, e-st-10-system-scope, configuration-content, product-tree, function-tree, annex-h, design-definition, assembly-constraints, precedence.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "configuration-content",
+    "product-tree",
+    "function-tree",
+    "design-definition",
+    "assembly-constraints"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-coordsys-units",
    "name": "e10-coordsys-units",
    "description": "Use when engineering data across an ECSS-E-ST-10C programme (system level) needs to be checked for consistent use of reference coordinate systems per E-ST-10-09 and SI units, before it is exchanged between disciplines, suppliers, or verification/operations teams. Trigger: coordinate system, reference frame, SI units, unit consistency, coordinate systems document, CSD, E-ST-10-09, frame consistency, ecss, e-st-10c.",
@@ -8145,6 +8230,39 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-ddf",
+   "name": "e10-ddf",
+   "description": "Use when produce or maintain the Design Definition File (DDF) for a space system product under ECSS-E-ST-10C clause 5.4.1.4 and Annex G: classify each DDF content item into its section (design description, budget, or interface data), compute a budget item's margin against the minimum margin required at the current review milestone, verify each interface data item declares a valid mating product, confirm every mandatory DDF section is populated for the product, and determine whether the product's DDF is ready to baseline at that milestone. Trigger: ecss, e-st-10-system-scope, design-definition-file, ddf, design-budgets, interface-data, review-milestone, baseline-readiness.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "design-definition-file",
+    "design-budgets",
+    "interface-data",
+    "review-milestone"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-ddf-drd",
+   "name": "e10-ddf-drd",
+   "description": "Use when validating or generating a Design Definition File (DDF) against the ECSS-E-ST-10 Annex G document requirements definition (DRD): identify the content blocks (introduction, applicable and reference documents, terms/definitions/abbreviations, design overview, per-item design solution, budgets and margins, interface definition, design justification, open-points register, supporting annexes) that are mandatory at the current review milestone (SRR, PDR, CDR, AR), classify each block as present or missing, verify its reported maturity (draft, consolidated, final) meets the milestone's minimum, and confirm the open-points register carries zero unresolved TBD/TBC items by acceptance review. Trigger: ecss, e-st-10-system-scope, ddf, design definition file, annex g, drd, review milestone, tbd tbc closure.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "ddf",
+    "design-definition-file",
+    "annex-g",
+    "drd",
+    "review-milestone"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-delivery-per-review",
    "name": "e10-delivery-per-review",
    "description": "Use when planning or checking which systems-engineering documents a space project must deliver or re-baseline at each review milestone per ECSS-E-ST-10C Annex A (informative): build the document-by-review delivery schedule, verify a given review's deliveries against it (missing and unplanned deliveries), and roll up readiness across the whole review sequence. Trigger: delivery schedule, document delivery per review, Annex A, review deliverables, MDR PRR SRR PDR CDR QR AR FRR CRR ER documents, ECSS-E-ST-10C Annex A.",
@@ -8155,6 +8273,126 @@
     "delivery-schedule",
     "review",
     "document-management"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-design-budgets",
+   "name": "e10-design-budgets",
+   "description": "Use when allocate technical budgets (mass, power, data rate, link, pointing, thermal, or any other quantifiable design resource) for a space system under ECSS-E-ST-10C clause 5.4.1.2 and Annex I: determine the minimum required margin for the project's current life-cycle phase, track each item's current best estimate against its allocation and the phase's required margin, verify that sub-item allocations sum within the parent system-level allocation, and check the system-level margin on the summed current best estimates. Trigger: ecss, e-st-10c, technical budget, margin philosophy, budget allocation, current best estimate, mass budget, power budget, margin management, maturity margin.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "technical-budgets",
+    "margin-philosophy",
+    "budget-allocation",
+    "current-best-estimate",
+    "maturity-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-design-general",
+   "name": "e10-design-general",
+   "description": "Use when conduct and document a product's design against its allocated Technical Requirements Specification under ECSS-E-ST-10C clause 5.4.1.1: confirm every allocated requirement is covered by at least one design definition item, confirm every design item traces back to a known requirement, and confirm every design decision records the alternatives considered, the option selected and the rationale for selecting it, then decide whether the product's design is complete for the assessment. Trigger: ecss, e-st-10-system-scope, design-definition, design-decision, technical-requirements-specification, requirement-coverage, design-traceability, design-rationale.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "design-definition",
+    "design-decision",
+    "requirement-coverage",
+    "design-traceability",
+    "design-rationale"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-design-methods",
+   "name": "e10-design-methods",
+   "description": "Use when select and validate the design methods, tools and models behind a design output under ECSS-E-ST-10C clause 5.4.1.3: separate model-based methods from rule-based ones, establish each model's validation status against the domain of applicability of the present design case, weight the confirmation each model contributes and compare the total against the threshold in the method selection plan, and confirm a recorded rationale exists wherever a design rule is applied outside its documented precedent. Trigger: ecss, e-st-10-system-scope, design-methods, model-validation, domain-of-applicability, design-rules, heritage-precedent, confirmation-weight.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "design-methods",
+    "model-validation",
+    "domain-of-applicability",
+    "design-rules",
+    "confirmation-weight"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-engineering-data",
+   "name": "e10-engineering-data",
+   "description": "Use when manage a space project's engineering data items under ECSS-E-ST-10C clause 5.6.3 consistently with the ECSS-M-ST-40 configuration identification scheme: parse and check an item identifier against its declared type, originator and revision, place the item in a controlled repository with a retention period, link it to a configuration baseline before distribution is authorized, and report which items in the register are still short of configuration control. Trigger: ecss, e-st-10-system-scope, engineering-data, data-identification, m-st-40, configuration-control, controlled-storage, data-distribution, retention.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "engineering-data",
+    "data-identification",
+    "configuration-control",
+    "controlled-storage",
+    "data-distribution"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-env-design-factors",
+   "name": "e10-env-design-factors",
+   "description": "Use when you define the natural and induced environments a product is exposed to across its mission phases under ECSS-E-ST-10C clause 5.3.2: determine the set of applicable environment types from the product's declared mission phases, identify the engineering domain each environment type belongs to, derive the design-and-test factor for that domain from the product's verification approach (qualification test, protoflight test, acceptance test, analysis, or similarity), compute the resulting test level from a captured limit level, and flag any applicable environment for which no limit level has been captured. Trigger: ecss, e-st-10c, environment definition, design and test factors, mission phase environment, qualification test, protoflight test, acceptance test, verification approach, limit level.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "environment-definition",
+    "design-and-test-factors",
+    "mission-phase",
+    "verification-approach",
+    "test-level"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-function-tree-drd",
+   "name": "e10-function-tree-drd",
+   "description": "Use when generate or validate a system function tree against the ECSS-E-ST-10C Annex H Document Requirements Definition: confirm the functional breakdown resolves as a single-rooted, fully connected hierarchy with unique identifiers and resolvable parent links, confirm each function is named with a bare action verb plus an object, reject a level that splits into a single pass-through child, and confirm every elementary function traces to a requirement and is allocated to exactly one system element. Trigger: ecss, e-st-10-system-scope, function-tree, annex-h-drd, functional-breakdown, elementary-function, function-allocation, requirement-trace.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "function-tree",
+    "annex-h-drd",
+    "functional-breakdown",
+    "function-allocation",
+    "requirement-trace"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-interface-control",
+   "name": "e10-interface-control",
+   "description": "Use when you identify and control system-level interfaces under ECSS-E-ST-10C clause 5.6.4: catalog each interface between two interfacing elements, classify its physical domain (mechanical, electrical, thermal, data, fluid) and reject an unrecognized domain, determine whether it crosses an internal or external responsibility boundary and which control document ECSS-E-ST-10-24 requires as a result, draft the interface requirement document (IRD) before the interface matures, define the interface control document (ICD) baseline once it does, verify that both sides declare matching interface parameters, and manage the interface through its control status lifecycle from identified to verified without skipping a step. Trigger: ecss, e-st-10-system-scope, interface management, interface control document, interface requirement document, icd, ird, e-st-10-24.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "interface-management",
+    "interface-control-document",
+    "interface-requirement-document",
+    "icd",
+    "ird",
+    "e-st-10-24"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8216,6 +8454,40 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-product-verification",
+   "name": "e10-product-verification",
+   "description": "Use when verify a product against its Technical Specification and close the verification out under ECSS-E-ST-10C clause 5.5.2: confirm each requirement carries at least one recognized verification method, resolve each assigned method to a status from its recorded objective evidence, partition the product's requirements into verified, open, failed and no-method-assigned, and decide whether the verification file supports close-out. Trigger: ecss, e-st-10-system-scope, product-verification, verification-methods, objective-evidence, close-out, djf, verification-file, technical-specification.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "product-verification",
+    "verification-methods",
+    "objective-evidence",
+    "close-out",
+    "verification-file"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-agreement",
+   "name": "e10-req-agreement",
+   "description": "Use when drive the customer and supplier sign-off loop on a technical requirements specification under ECSS-E-ST-10C clause 5.2.3.7: determine who must sign, check each party's recorded review against the specification's current baseline revision, separate a stale agreement from an open comment and from a party that has not responded, flag a review left open beyond the agreed review period, and decide whether the specification is agreed. Trigger: ecss, e-st-10-system-scope, requirements-agreement, sign-off, customer-approval, supplier-approval, baseline-revision, stale-agreement, overdue-review.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirements-agreement",
+    "sign-off",
+    "baseline-revision",
+    "stale-agreement",
+    "overdue-review"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-req-allocation",
    "name": "e10-req-allocation",
    "description": "Use when allocating requirements to functions and to product-tree elements (configuration items) under ECSS-E-ST-10C: run functional analysis to establish the function tree, allocate each requirement to the function(s) it drives, allocate each requirement to the configuration item(s) that implement it, and check allocation completeness (no unallocated requirement, no orphan function or element) before the requirement baseline is frozen. ECSS-E-ST-10C clause 5.2.3.5 governs requirement allocation as part of system engineering requirement flow-down. Trigger: ecss, e-st-10c, requirement allocation, functional analysis, product tree, configuration item, function tree, 5.2.3.5, space systems engineering.",
@@ -8249,6 +8521,39 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-req-baseline",
+   "name": "e10-req-baseline",
+   "description": "Use when establishing or controlling the requirements baseline for a configuration item (CI) under ECSS-E-ST-10C clause 5.2.3.9: classify each requirement's approval status ahead of an agreed baseline milestone, verify it carries requirement text and a verification method, identify duplicate requirement identifiers within the set, define the baseline record once every requirement in the set is ready, and validate every subsequent addition, modification, or deletion of a baselined requirement against an approved change request. Trigger: ecss, e-st-10c, requirements baseline, baseline management, configuration item, milestone review, change control, requirement verification.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirements-baseline",
+    "baseline-management",
+    "configuration-item",
+    "change-control"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-consistency",
+   "name": "e10-req-consistency",
+   "description": "Use when identify and resolve internal inconsistencies inside a requirement baseline under ECSS-E-ST-10C clause 5.2.3.6: reduce each requirement that bounds a shared parameter to the feasible interval its constraint implies, intersect the intervals of a group to find a parameter no value can satisfy, and compare every requirement binding on a shared interface attribute to find the same attribute given two different values. Trigger: ecss, e-st-10-system-scope, requirement-consistency, conflicting-requirements, constraint-interval, feasible-range, interface-attribute, requirement-baseline.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "requirement-consistency",
+    "conflicting-requirements",
+    "constraint-interval",
+    "interface-attribute",
+    "requirement-baseline"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-req-consolidation",
    "name": "e10-req-consolidation",
    "description": "Use when a requirement subject is common to several next-lower-level products in an ECSS-E-ST-10C specification tree and must be consolidated into a support specification instead of repeated per product, or when the same requirement flows down to two or more products with conflicting values and the conflict must be resolved before the requirement baseline is set. ECSS-E-ST-10C clause 5.2.3.2 governs requirement consolidation and flow-down conflict resolution. Trigger: ecss, e-st-10c, requirement consolidation, support specification, flow-down conflict, common requirements, specification tree, 5.2.3.2.",
@@ -8259,6 +8564,23 @@
     "support-specification",
     "flow-down",
     "conflict-resolution"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-req-maintenance",
+   "name": "e10-req-maintenance",
+   "description": "Use when maintaining ECSS-E-ST-10C requirements under configuration control (clause 5.2.3.8): determine whether a requirement's lifecycle state transition (draft, proposed, baselined, obsolete) is allowed, verify that a change to a baselined requirement carries an approved change request before it is applied, assess the change's impact on derived requirements found via the parent-child traceability link and on verification items linked to the requirement, and confirm the impact assessment and a maintenance record are captured before the change is closed. Trigger: ecss, e-st-10c, requirement maintenance, configuration control, change impact assessment, derived requirements, verification impact, baseline change request.",
+   "tags": [
+    "ecss",
+    "e-st-10c",
+    "requirement-maintenance",
+    "configuration-control",
+    "change-impact-assessment",
+    "traceability",
+    "verification-impact"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8350,6 +8672,39 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-se-mgmt",
+   "name": "e10-se-mgmt",
+   "description": "Use when manage the system engineering activities, responsibilities and interfaces of the SE function as defined in the System Engineering Plan (SEP) under ECSS-E-ST-10C clause 5.6.1: categorize each SE activity by kind, determine its assigned responsible role against the SEP responsibility assignment, verify each activity's required interfaces to other project functions (project management, product assurance, engineering disciplines, customer) are on record, and track activity status so a blocked activity carries a reason and a completed activity has no open prerequisite. Trigger: ecss, e-st-10-system-scope, se management, sep, responsibility assignment, interface control, system engineering plan, e-st-10c 5.6.1.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "se-mgmt",
+    "sep",
+    "responsibility-assignment",
+    "interface-control"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-se-planning",
+   "name": "e10-se-planning",
+   "description": "Use when plan the systems engineering (SE) activities and milestones for an ECSS-E-ST-10C project: integrate each technical discipline's own plan (product assurance, verification, configuration management, software engineering, assembly/integration/verification) into the single project schedule, phase the SE activities against the canonical technical review sequence, and check that every discipline's input is delivered on or before the review milestone it feeds. Also determine when a required discipline plan is missing from the schedule and verify the review milestones themselves run in sequence. Trigger: ecss, e-st-10c, se planning, systems engineering plan, sep, milestone phasing, discipline integration, review sequence, 5.6.2.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "se-planning",
+    "systems-engineering-plan",
+    "milestone-phasing",
+    "discipline-integration",
+    "5.6.2"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-sep",
    "name": "e10-sep",
    "description": "Use when you must produce or maintain the System Engineering Plan (SEP) for a European space project per ECSS-E-ST-10C: decide when a lifecycle event forces the SEP to be revised, check that lower-level plans (product assurance, AIV, risk management, configuration management, software management) stay baseline-consistent with the SEP, and assemble the SEP-derived support package the SE function hands the project manager (PM) at each review gate. Produces the maintenance-trigger verdict, the per-plan consistency verdict, and the review support package. Trigger: ecss sep, system engineering plan, sep baseline, sep maintenance, lower-level plan consistency, review support package, e-st-10c 5.1.",
@@ -8393,6 +8748,24 @@
     "annex-j",
     "product-tree",
     "support-specification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-system-analysis",
+   "name": "e10-system-analysis",
+   "description": "Use when scoping and scheduling ECSS-E-ST-10C system analyses for a space project: classify a required system analysis as mission, functional, interface, environmental, or operational, determine which analysis types a given project phase requires, verify each analysis definition carries a non-empty objective and defined outputs, and check whether an analysis is scheduled early enough to feed the phase that first requires it. Trigger: ecss, e-st-10-system-scope, system-analysis, mission-analysis, functional-analysis, interface-analysis, environmental-analysis, operational-analysis, analysis-scheduling.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "system-analysis",
+    "mission-analysis",
+    "functional-analysis",
+    "interface-analysis",
+    "environmental-analysis",
+    "operational-analysis"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -8449,6 +8822,23 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e10-tradeoffs",
+   "name": "e10-tradeoffs",
+   "description": "Use when comparing candidate solutions to a system engineering decision under ECSS-E-ST-10C clause 5.3.3 and Annex L: define the evaluation criteria and their weights, score each candidate against every criterion on a common scale, gate any candidate that fails a mandatory pass/fail criterion, rank the remaining candidates by weighted score, and flag when the recommendation is a close call sensitive to the weighting assumptions rather than a clear-cut winner -- then record the result as a trade-off report. Trigger: ecss, e-st-10-system-scope, trade-off analysis, tradeoff, evaluation criteria, weighted scoring, candidate solution, annex l, trade-off report.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "tradeoffs",
+    "trade-off-analysis",
+    "weighted-scoring",
+    "annex-l",
+    "decision-analysis"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e10-trs-flowdown",
    "name": "e10-trs-flowdown",
    "description": "Use when flowing customer technical requirements down to next-lower-level technical requirements specifications (TRS) per ECSS-E-ST-10C clause 5.2.3.1: check every customer TS requirement reaches at least one child TRS, that no child TRS value contradicts the parent TS or a sibling TRS, and that each TRS carries the document structure expected by E-ST-10-06. Trigger: ecss, e-st-10c, trs flowdown, technical requirements specification, requirement flow-down, customer TS, next-lower-level requirements, e-st-10-06.",
@@ -8459,6 +8849,23 @@
     "flowdown",
     "requirements",
     "e-st-10-06"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e10-verif-general",
+   "name": "e10-verif-general",
+   "description": "Use when plan and manage system-level product verification under ECSS-E-ST-10C clause 5.5.1, consistently with the verification process of E-ST-10-02 and the testing scope of E-ST-10-03: assign recognized verification methods to a system requirement, link its approach back to the verification policy in the System Engineering Plan, track each method to a status, require an evidence reference before any method counts as closed, and aggregate the methods into the requirement's verification status. Trigger: ecss, e-st-10-system-scope, verification-planning, verification-policy, sep, verification-methods, method-status, closure-evidence, deviation.",
+   "tags": [
+    "ecss",
+    "e-st-10-system-scope",
+    "verification-planning",
+    "verification-policy",
+    "verification-methods",
+    "closure-evidence",
+    "deviation"
    ],
    "family": "space-systems",
    "pack": "ecss",
