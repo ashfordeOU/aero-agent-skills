@@ -57,6 +57,11 @@ REQUIRED_CRONS = {
     "Aero system audit": "this audit",
 }
 
+# Explicit registry of intentionally-paused required crons. A DISABLED cron
+# is only ever silenced from FAIL if it is named here — the registry's
+# absence, emptiness or corruption must never silence a real break.
+PAUSE_REGISTRY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "paused-crons.json")
+
 failures: list[str] = []
 notes: list[str] = []
 
@@ -367,6 +372,30 @@ def check_topics(token):
 
 
 # -------------------------------------------------------------- 8. crons
+def read_pause_registry() -> dict:
+    """Read PAUSE_REGISTRY -> {cron name: entry dict}.
+
+    Never raises: a missing file, empty file, bad JSON or wrong shape all
+    resolve to {} (no pauses on record) — the registry can only silence a
+    failure by explicitly naming the cron, never by being absent or broken.
+    """
+    try:
+        with open(PAUSE_REGISTRY, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except Exception:  # noqa: BLE001
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    pauses = data.get("pauses")
+    if not isinstance(pauses, list):
+        return {}
+    out = {}
+    for entry in pauses:
+        if isinstance(entry, dict) and isinstance(entry.get("name"), str):
+            out[entry["name"]] = entry
+    return out
+
+
 def check_crons():
     names: list[str] = []
     for d in CRON_DIRS:
@@ -383,15 +412,36 @@ def check_crons():
             for j in jobs:
                 if isinstance(j, dict) and j.get("name"):
                     names.append(("%s|%s" % (j["name"], j.get("enabled", True))))
-    blob = "\n".join(names)
+
+    pauses = read_pause_registry()
+    present = 0
+    paused = 0
+    enabled = 0
     for want, role in REQUIRED_CRONS.items():
         line = next((l for l in names if want in l.split("|")[0]), None)
         if line is None:
             fail("crons", f"missing cron '{want}' ({role})")
-        elif line.endswith("|False"):
+            continue
+        present += 1
+        is_disabled = line.endswith("|False")
+        pause_entry = pauses.get(want)
+        if is_disabled and pause_entry is None:
             fail("crons", f"cron '{want}' is DISABLED ({role})")
+        elif is_disabled and pause_entry is not None:
+            paused += 1
+            note(f"crons: cron '{want}' is DISABLED but intentionally paused "
+                 f"({role}) — {pause_entry.get('reason', 'no reason on record')} "
+                 f"(since {pause_entry.get('since', 'unknown')})")
+        elif not is_disabled and pause_entry is not None:
+            enabled += 1
+            note(f"crons: cron '{want}' is ENABLED but still in the pause "
+                 f"registry — pause lifted, remove its entry from "
+                 f"{PAUSE_REGISTRY}")
+        else:
+            enabled += 1
     if not any(f.startswith("crons:") for f in failures):
-        note(f"crons: all {len(REQUIRED_CRONS)} required jobs present and enabled")
+        note(f"crons: {present}/{len(REQUIRED_CRONS)} required jobs present "
+             f"({paused} intentionally paused, {enabled} enabled)")
 
 
 def main():

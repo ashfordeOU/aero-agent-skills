@@ -6809,6 +6809,326 @@ tasks:
     query: "categorize which trapped-protons source, ap-8 or ap-9, dominates at each energy across the point-wise maximum envelope to support radiation design margin analysis"
     intent: "Per-energy source-dominance categorization (AP-8 vs AP-9) for margin analysis"
     expected_skill: "space-systems/ecss/e1004-trapped-proton-wc"
+  - id: w53-e10-spec-tree-drd-1
+    query: "validate a specification tree against the annex-j-drd: one top specification, each kind exactly one level below its parent, and product-tree-coverage with exactly one specification per node"
+    intent: "Annex J specification tree structure and product coverage"
+    expected_skill: "space-systems/ecss/e10-spec-tree-drd"
+  - id: w53-e10-spec-tree-drd-2
+    query: "check requirement-flowdown in the annex-j-drd where a non-root specification declares a flowdown link naming something other than its own parent, and specification-levels skip a step"
+    intent: "Annex J flow-down link and level consistency"
+    expected_skill: "space-systems/ecss/e10-spec-tree-drd"
+  - id: w53-e10-djf-drd-1
+    query: "review a design-justification-file against the annex-k-drd where a justification-evidence record cites no document so evidence-traceability is broken"
+    intent: "Annex K DJF evidence traceability"
+    expected_skill: "space-systems/ecss/e10-djf-drd"
+  - id: w53-e10-djf-drd-2
+    query: "resolve each requirement in a design-justification-file to justified open or rejected under annex-k-drd and surface an accepted argument resting on similarity alone"
+    intent: "Annex K DJF status ordering and similarity-only justification"
+    expected_skill: "space-systems/ecss/e10-djf-drd"
+  - id: w53-e10-tradeoff-drd-1
+    query: "audit a trade-off-report against the annex-l-drd where weighted-criteria do not sum to one and an option is missing a score for a criterion"
+    intent: "Annex L trade-off weighting and score completeness"
+    expected_skill: "space-systems/ecss/e10-tradeoff-drd"
+  - id: w53-e10-tradeoff-drd-2
+    query: "compute the decision-margin to the runner-up and run sensitivity-analysis to find which weight shift flips the winner in a trade-off-report"
+    intent: "Annex L decision margin and weight sensitivity"
+    expected_skill: "space-systems/ecss/e10-tradeoff-drd"
+  - id: w53-e10-rtm-drd-1
+    query: "audit a traceability-matrix against the annex-n-drd checking upward-trace to an existing parent and downward-trace coverage of every requirement that must flow down"
+    intent: "Annex N RTM two-direction trace coverage"
+    expected_skill: "space-systems/ecss/e10-rtm-drd"
+  - id: w53-e10-rtm-drd-2
+    query: "find dangling parents, parent-pointer cycles and a bad requirement-allocation target in a traceability-matrix per annex-n-drd"
+    intent: "Annex N RTM dangling parents, cycles and allocation"
+    expected_skill: "space-systems/ecss/e10-rtm-drd"
+  - id: w53-e10-rjf-drd-1
+    query: "audit a requirements-justification-file against the annex-o-drd where the derivation-basis is a parent requirement but no parent is named"
+    intent: "Annex O RJF derivation basis versus level"
+    expected_skill: "space-systems/ecss/e10-rjf-drd"
+  - id: w53-e10-rjf-drd-2
+    query: "detect a requirement-rationale that merely restates the requirement it justifies in a requirements-justification-file under annex-o-drd"
+    intent: "Annex O RJF restating rationale detection"
+    expected_skill: "space-systems/ecss/e10-rjf-drd"
+  - id: w53-e10-pum-drd-1
+    query: "check a product-user-manual against the annex-p-drd so hazard-warnings precede the step they protect and every maintenance-interval is stated"
+    intent: "Annex P PUM hazard warning placement and maintenance"
+    expected_skill: "space-systems/ecss/e10-pum-drd"
+  - id: w53-e10-pum-drd-2
+    query: "verify operating-procedures step numbering is contiguous and the declared configuration matches the delivered article in a product-user-manual per annex-p-drd"
+    intent: "Annex P PUM step numbering and configuration match"
+    expected_skill: "space-systems/ecss/e10-pum-drd"
+  - id: w53-e10-ddp-mapping-1
+    query: "map a legacy-data-pack onto the ecss document-set using the annex-r-mapping guidance for a heritage-conversion"
+    intent: "Annex R heritage data pack conversion"
+    expected_skill: "space-systems/ecss/e10-ddp-mapping"
+  - id: w53-e10-ddp-mapping-2
+    query: "find content retired without a reason and owed documents that no legacy item feeds in an annex-r-mapping heritage-conversion of a legacy-data-pack"
+    intent: "Annex R two-direction conversion coverage"
+    expected_skill: "space-systems/ecss/e10-ddp-mapping"
+  - id: w53-e10-analysis-report-guide-1
+    query: "assemble an analysis report to the annex-s-guideline with input-provenance and result-uncertainty so the result stands as verification-evidence"
+    intent: "Annex S analysis report content for evidence"
+    expected_skill: "space-systems/ecss/e10-analysis-report-guide"
+  - id: w53-e10-analysis-report-guide-2
+    query: "check whether a compliance conclusion survives its own result-uncertainty against the limit, and whether the tool qualification status is stated, per the annex-s-guideline"
+    intent: "Annex S conclusion support and tool qualification"
+    expected_skill: "space-systems/ecss/e10-analysis-report-guide"
+  - id: w53-e1002-execution-1
+    query: "control verification-execution where an open nonconformance suspends the activity and deviation-approval must precede the run rather than follow it"
+    intent: "Clause 5.3.1 execution control and deviation timing"
+    expected_skill: "space-systems/ecss/e1002-execution"
+  - id: w53-e1002-execution-2
+    query: "reconcile the as-run-record against the planned steps in both directions and derive the true state of a verification-execution activity from its own record"
+    intent: "Clause 5.3.1 as-run reconciliation and derived state"
+    expected_skill: "space-systems/ecss/e1002-execution"
+  - id: w53-e1002-test-report-1
+    query: "review a test-report against the annex-c-drd confirming the procedure-revision cited is the revision actually run and each discrepancy is linked to a nonconformance"
+    intent: "Annex C test report revision and discrepancy linkage"
+    expected_skill: "space-systems/ecss/e1002-test-report"
+  - id: w53-e1002-test-report-2
+    query: "aggregate test-objectives verdicts in a test-report per annex-c-drd where one objective failed and another was not performed without a reason"
+    intent: "Annex C objective verdict aggregation"
+    expected_skill: "space-systems/ecss/e1002-test-report"
+  - id: w53-e1002-analysis-report-1
+    query: "decide whether an analysis discharges its requirement by checking case-coverage against the required envelope and the model-baseline it was run against"
+    intent: "Clause 5.3.2.2 envelope coverage and model baseline"
+    expected_skill: "space-systems/ecss/e1002-analysis-report"
+  - id: w53-e1002-analysis-report-2
+    query: "apply verdict-rollup across analysis cases where a required envelope case was never run and the model-baseline is superseded by a later design"
+    intent: "Clause 5.3.2.2 case roll-up with superseded baseline"
+    expected_skill: "space-systems/ecss/e1002-analysis-report"
+  - id: w53-e1002-rod-report-1
+    query: "audit a review-of-design report against the annex-d-drd checking reviewer-independence by identity against the design authors"
+    intent: "Annex D review-of-design reviewer independence"
+    expected_skill: "space-systems/ecss/e1002-rod-report"
+  - id: w53-e1002-rod-report-2
+    query: "confirm every checklist-disposition is recorded and every reviewed document-revision is pinned in a review-of-design report per annex-d-drd"
+    intent: "Annex D checklist disposition and document revision"
+    expected_skill: "space-systems/ecss/e1002-rod-report"
+  - id: w53-e1002-inspection-report-1
+    query: "check an inspection-report against the annex-e-drd for calibration-validity on the day the measurement was taken and each tolerance-band judged with limits included"
+    intent: "Annex E calibration validity and tolerance band"
+    expected_skill: "space-systems/ecss/e1002-inspection-report"
+  - id: w53-e1002-inspection-report-2
+    query: "separate characteristics never inspected from those inspected and out of tolerance, and confirm conformity of each attribute characteristic per annex-e-drd"
+    intent: "Annex E conformity partition and uninspected characteristics"
+    expected_skill: "space-systems/ecss/e1002-inspection-report"
+  - id: w53-e1002-verification-report-1
+    query: "audit the vrpt against the annex-f-drd where an event claims passed while the source report it cites failed"
+    intent: "Annex F VRPT status versus source report"
+    expected_skill: "space-systems/ecss/e1002-verification-report"
+  - id: w53-e1002-verification-report-2
+    query: "reconcile method-agreement between the methods planned and the methods executed for each requirement in the vrpt per annex-f-drd"
+    intent: "Annex F VRPT planned versus executed methods"
+    expected_skill: "space-systems/ecss/e1002-verification-report"
+  - id: w53-e1002-other-reports-1
+    query: "decide whether additional-documentation is required for a verification activity from its trigger-conditions such as a supplier performed campaign or an invoked deviation"
+    intent: "Clause 5.3.2.6 trigger conditions for extra documentation"
+    expected_skill: "space-systems/ecss/e1002-other-reports"
+  - id: w53-e1002-other-reports-2
+    query: "flag report-duplication where additional verification-reporting restates the scope of a drd report already produced for the same activity"
+    intent: "Clause 5.3.2.6 duplication against DRD reports"
+    expected_skill: "space-systems/ecss/e1002-other-reports"
+  - id: w53-e1002-control-closeout-1
+    query: "close out verification confirming waiver-approval by the granting authority and that the verification-database was delivered covering every control document row"
+    intent: "Clause 5.4.1 waiver approval and database delivery"
+    expected_skill: "space-systems/ecss/e1002-control-closeout"
+  - id: w53-e1002-control-closeout-2
+    query: "check verification-closeout conditions where every row is closed with evidence, no nonconformance is open, and the verification-database is machine readable"
+    intent: "Clause 5.4.1 conjunctive close-out conditions"
+    expected_skill: "space-systems/ecss/e1002-control-closeout"
+  - id: w53-e10-analysis-tools-models-1
+    query: "qualify the analysis-tools behind a study: decide heritage-reuse versus tool-correlation and set the acceptance tolerance from the analysis-criticality"
+    intent: "Clause 5.3.4 tool qualification basis and tolerance"
+    expected_skill: "space-systems/ecss/e10-analysis-tools-models"
+  - id: w53-e10-analysis-tools-models-2
+    query: "compute model-qualification correlation error against reference data and decide whether every tool backing the analysis is qualified"
+    intent: "Clause 5.3.4 correlation error and aggregate validity"
+    expected_skill: "space-systems/ecss/e10-analysis-tools-models"
+  - id: w53-e10-budget-drd-1
+    query: "validate a technical-budget report against the annex-i-drd where design-maturity sets the margin and each item needs a budget-allocation"
+    intent: "Annex I budget DRD maturity margin and allocation"
+    expected_skill: "space-systems/ecss/e10-budget-drd"
+  - id: w53-e10-budget-drd-2
+    query: "roll a technical-budget up per category and apply the system margin against the allocated budget per the annex-i-drd"
+    intent: "Annex I budget DRD system roll-up"
+    expected_skill: "space-systems/ecss/e10-budget-drd"
+  - id: w53-e10-config-assembly-1
+    query: "order configuration-items into an integration-sequence respecting hazard-separation and the mass-budget at each assembly step"
+    intent: "Assembly sequencing of configuration items"
+    expected_skill: "space-systems/ecss/e10-config-assembly"
+  - id: w53-e10-config-assembly-2
+    query: "check a config-assembly plan where two configuration-items violate hazard-separation in the integration-sequence"
+    intent: "Assembly constraint and hazard separation check"
+    expected_skill: "space-systems/ecss/e10-config-assembly"
+  - id: w53-e10-config-baselines-1
+    query: "establish the functional-baseline allocated-baseline and product-baseline as a configuration-baseline consistent with m-st-40"
+    intent: "Configuration baseline progression"
+    expected_skill: "space-systems/ecss/e10-config-baselines"
+  - id: w53-e10-config-baselines-2
+    query: "decide which configuration-baseline a product sits on and whether the allocated-baseline was frozen before the product-baseline opened"
+    intent: "Baseline ordering and freeze points"
+    expected_skill: "space-systems/ecss/e10-config-baselines"
+  - id: w53-e10-config-content-1
+    query: "check configuration-content where the product-tree has a dangling parent and a function-tree function is allocated to a node outside it"
+    intent: "Clause 5.4.2.1 product tree and function allocation"
+    expected_skill: "space-systems/ecss/e10-config-content"
+  - id: w53-e10-config-content-2
+    query: "confirm every leaf node carries a design-definition and the assembly-constraints precedence graph is acyclic"
+    intent: "Clause 5.4.2.1 design definition and precedence"
+    expected_skill: "space-systems/ecss/e10-config-content"
+  - id: w53-e10-ddf-1
+    query: "assemble a design-definition-file for a product sorting each item into design description, design-budgets or interface-data at its review-milestone"
+    intent: "Clause 5.4.1.4 DDF content sections"
+    expected_skill: "space-systems/ecss/e10-ddf"
+  - id: w53-e10-ddf-2
+    query: "compute a budget item margin and check every interface-data item declares a mating product before the design-definition-file is baselined"
+    intent: "Clause 5.4.1.4 DDF budget margin and interface linkage"
+    expected_skill: "space-systems/ecss/e10-ddf"
+  - id: w53-e10-ddf-drd-1
+    query: "validate the ddf against the annex-g drd content list for the review-milestone the product is being baselined at"
+    intent: "Annex G DDF document requirements definition"
+    expected_skill: "space-systems/ecss/e10-ddf-drd"
+  - id: w53-e10-ddf-drd-2
+    query: "check the annex-g drd sections of a ddf are all populated before baseline at a review-milestone"
+    intent: "Annex G DDF section completeness"
+    expected_skill: "space-systems/ecss/e10-ddf-drd"
+  - id: w53-e10-design-budgets-1
+    query: "derive the current-best-estimate from a basic value using the maturity-margin and check it against the budget-allocation"
+    intent: "Design budget CBE and maturity margin"
+    expected_skill: "space-systems/ecss/e10-design-budgets"
+  - id: w53-e10-design-budgets-2
+    query: "apply the margin-philosophy to technical-budgets so a less mature item carries a larger maturity-margin in its current-best-estimate"
+    intent: "Design budget margin philosophy by maturity"
+    expected_skill: "space-systems/ecss/e10-design-budgets"
+  - id: w53-e10-design-general-1
+    query: "check requirement-coverage and design-traceability so every allocated requirement has a design-definition item and no design item is unallocated"
+    intent: "Clause 5.4.1.1 two-direction design coverage"
+    expected_skill: "space-systems/ecss/e10-design-general"
+  - id: w53-e10-design-general-2
+    query: "confirm each design-decision records its alternatives selected option and design-rationale before it counts as closed"
+    intent: "Clause 5.4.1.1 design decision closure"
+    expected_skill: "space-systems/ecss/e10-design-general"
+  - id: w53-e10-design-methods-1
+    query: "establish model-validation status against the domain-of-applicability and weight the confirmation-weight of each design method"
+    intent: "Clause 5.4.1.3 model validation and confirmation weight"
+    expected_skill: "space-systems/ecss/e10-design-methods"
+  - id: w53-e10-design-methods-2
+    query: "confirm a rationale is on record where design-rules are applied outside their documented precedent for a design output"
+    intent: "Clause 5.4.1.3 rule-based method traceability"
+    expected_skill: "space-systems/ecss/e10-design-methods"
+  - id: w53-e10-engineering-data-1
+    query: "manage engineering-data through data-identification controlled-storage and configuration-control before data-distribution is authorized"
+    intent: "Clause 5.6.3 engineering data lifecycle"
+    expected_skill: "space-systems/ecss/e10-engineering-data"
+  - id: w53-e10-engineering-data-2
+    query: "find engineering-data items sitting in controlled-storage that are not yet under configuration-control and so may not be distributed"
+    intent: "Clause 5.6.3 stored but uncontrolled data gap"
+    expected_skill: "space-systems/ecss/e10-engineering-data"
+  - id: w53-e10-env-design-factors-1
+    query: "define the environment-definition per mission-phase and set design-and-test-factors with the right test-level"
+    intent: "Environment definition and design/test factors"
+    expected_skill: "space-systems/ecss/e10-env-design-factors"
+  - id: w53-e10-env-design-factors-2
+    query: "pick the verification-approach and test-level from the mission-phase environment-definition and applicable design-and-test-factors"
+    intent: "Environment-driven verification approach"
+    expected_skill: "space-systems/ecss/e10-env-design-factors"
+  - id: w53-e10-function-tree-drd-1
+    query: "validate a function-tree against the annex-h-drd: single rooted functional-breakdown with bare verb naming and no pass-through level"
+    intent: "Annex H function tree structure and naming"
+    expected_skill: "space-systems/ecss/e10-function-tree-drd"
+  - id: w53-e10-function-tree-drd-2
+    query: "confirm every elementary function has a requirement-trace and a function-allocation to exactly one element per the annex-h-drd"
+    intent: "Annex H elementary function trace and allocation"
+    expected_skill: "space-systems/ecss/e10-function-tree-drd"
+  - id: w53-e10-interface-control-1
+    query: "run interface-management producing the interface-requirement-document and interface-control-document per e-st-10-24"
+    intent: "Interface management ICD and IRD"
+    expected_skill: "space-systems/ecss/e10-interface-control"
+  - id: w53-e10-interface-control-2
+    query: "decide what belongs in the ird versus the icd and keep both consistent under interface-management"
+    intent: "IRD versus ICD content split"
+    expected_skill: "space-systems/ecss/e10-interface-control"
+  - id: w53-e10-product-verification-1
+    query: "close out product-verification against the technical specification with objective-evidence recorded in the verification-file"
+    intent: "Clause 5.5.2 product verification close-out"
+    expected_skill: "space-systems/ecss/e10-product-verification"
+  - id: w53-e10-product-verification-2
+    query: "partition requirements into verified open failed and no method assigned during product-verification close-out"
+    intent: "Clause 5.5.2 close-out partition"
+    expected_skill: "space-systems/ecss/e10-product-verification"
+  - id: w53-e10-req-agreement-1
+    query: "run the requirements-agreement sign-off loop where a party agreed to an older baseline-revision leaving a stale-agreement"
+    intent: "Clause 5.2.3.7 agreement against revision"
+    expected_skill: "space-systems/ecss/e10-req-agreement"
+  - id: w53-e10-req-agreement-2
+    query: "separate an open comment from a silent party in the sign-off loop and flag an overdue-review past the agreed period"
+    intent: "Clause 5.2.3.7 signatory states and overdue reviews"
+    expected_skill: "space-systems/ecss/e10-req-agreement"
+  - id: w53-e10-req-baseline-1
+    query: "manage the requirements-baseline through baseline-management and change-control for each configuration-item"
+    intent: "Requirements baseline and change control"
+    expected_skill: "space-systems/ecss/e10-req-baseline"
+  - id: w53-e10-req-baseline-2
+    query: "decide when a requirements-baseline is frozen and what change-control applies to a configuration-item afterwards"
+    intent: "Baseline freeze and change control entry"
+    expected_skill: "space-systems/ecss/e10-req-baseline"
+  - id: w53-e10-req-consistency-1
+    query: "find conflicting-requirements where constraint-interval bounds on one parameter intersect to nothing"
+    intent: "Clause 5.2.3.6 value conflict via interval intersection"
+    expected_skill: "space-systems/ecss/e10-req-consistency"
+  - id: w53-e10-req-consistency-2
+    query: "detect an interface-attribute given two different values by different requirements in the same requirement set"
+    intent: "Clause 5.2.3.6 shared interface attribute conflict"
+    expected_skill: "space-systems/ecss/e10-req-consistency"
+  - id: w53-e10-req-maintenance-1
+    query: "run requirement-maintenance under configuration-control with a change-impact-assessment on traceability and verification-impact"
+    intent: "Requirement maintenance and change impact"
+    expected_skill: "space-systems/ecss/e10-req-maintenance"
+  - id: w53-e10-req-maintenance-2
+    query: "assess the verification-impact of a requirement change and update traceability under configuration-control"
+    intent: "Change impact on verification and traceability"
+    expected_skill: "space-systems/ecss/e10-req-maintenance"
+  - id: w53-e10-se-mgmt-1
+    query: "set up se-mgmt with responsibility-assignment across the project and the interface-control it owns in the sep"
+    intent: "Systems engineering management and responsibilities"
+    expected_skill: "space-systems/ecss/e10-se-mgmt"
+  - id: w53-e10-se-mgmt-2
+    query: "define who is responsible for what in se-mgmt and record the responsibility-assignment in the sep"
+    intent: "SE management responsibility assignment"
+    expected_skill: "space-systems/ecss/e10-se-mgmt"
+  - id: w53-e10-se-planning-1
+    query: "produce the systems-engineering-plan with milestone-phasing and discipline-integration for se-planning"
+    intent: "Clause 5.6.2 SEP production and phasing"
+    expected_skill: "space-systems/ecss/e10-se-planning"
+  - id: w53-e10-se-planning-2
+    query: "phase se-planning activities across milestones and integrate the disciplines in the systems-engineering-plan"
+    intent: "Clause 5.6.2 SEP milestone phasing"
+    expected_skill: "space-systems/ecss/e10-se-planning"
+  - id: w53-e10-system-analysis-1
+    query: "run system-analysis covering mission-analysis functional-analysis interface-analysis and environmental-analysis"
+    intent: "System analysis coverage across analysis types"
+    expected_skill: "space-systems/ecss/e10-system-analysis"
+  - id: w53-e10-system-analysis-2
+    query: "decide which of mission-analysis operational-analysis or environmental-analysis a system-analysis question belongs to"
+    intent: "System analysis type selection"
+    expected_skill: "space-systems/ecss/e10-system-analysis"
+  - id: w53-e10-tradeoffs-1
+    query: "run a trade-off-analysis with weighted-scoring over annex-l criteria to support decision-analysis between design options"
+    intent: "Annex L trade-off analysis and weighted scoring"
+    expected_skill: "space-systems/ecss/e10-tradeoffs"
+  - id: w53-e10-tradeoffs-2
+    query: "score design options by weighted-scoring in tradeoffs and pick the option decision-analysis supports"
+    intent: "Trade-off weighted scoring and option choice"
+    expected_skill: "space-systems/ecss/e10-tradeoffs"
+  - id: w53-e10-verif-general-1
+    query: "plan verification at system level from the verification-policy in the sep and track closure-evidence per method"
+    intent: "Clause 5.5.1 verification planning and policy linkage"
+    expected_skill: "space-systems/ecss/e10-verif-general"
+  - id: w53-e10-verif-general-2
+    query: "aggregate a requirement status where one method closed with an accepted deviation and another still lacks closure-evidence"
+    intent: "Clause 5.5.1 status aggregation with deviation"
+    expected_skill: "space-systems/ecss/e10-verif-general"
 
 # P5.2 / Wave 52 (2026-09-10): e1004-* family merged (ECSS-E-ST-10-04C
 # space-environment leaves, 42 leaves: annex-a-data, annex-c-flux,

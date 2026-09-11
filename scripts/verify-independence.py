@@ -21,6 +21,10 @@ Fails when:
   * the verifier is a self-reference ("self", "own output", ...)
   * the verifier names an LLM model while the generator names the same model
     (correlated error: an LLM cannot independently check its own output)
+  * a claims ledger's `verification` column holds a class outside the
+    contract vocabulary (VEDA-0055: ledgers state the vocabulary in prose;
+    this is the mechanical enforcement, so an off-vocabulary class cannot
+    ride through on a PASS verdict)
 
 Deterministic verifiers (a script, test, hash, count) always pass — they are
 independent of any model by construction.
@@ -45,6 +49,10 @@ DETERMINISTIC_HINTS = ("test", "audit", "hash", "count", "byte", "clock",
 ARTIFACT_RE = re.compile(r"\.(py|sh|md|json|yaml|yml|lean|txt|csv|npz|parquet)\b")
 # a token that looks like a model id (llm-ish), used for correlated-error check
 MODEL_RE = re.compile(r"\b(gpt|claude|gemini|deepseek|llama|qwen|mistral|sonnet|opus|haiku|grok|kimi)[\w.\-]*\b", re.I)
+# The verification CLASS vocabulary a claims ledger must use. Contract:
+# knowledge/scripts/claims-audit.py in the veda repo. Enforced here too so
+# gate 6 catches an off-vocabulary class the moment it is written (VEDA-0055).
+VALID_VERIFICATION = frozenset({"formal", "deterministic", "source-cited", "unverified"})
 
 
 def norm(s: str) -> str:
@@ -81,7 +89,8 @@ def check_claims_md(path: str) -> tuple[int, list[str]]:
     Columns are resolved BY NAME from the header row, so any ledger layout
     (the veda 10-column ledger, the ECSS 9-column ledger, reordered columns)
     is handled the same way. A ledger with no generator/verifier columns is
-    not a claims ledger and is skipped.
+    not a claims ledger and is skipped. When a `verification` column is
+    present its class is validated against VALID_VERIFICATION (VEDA-0055).
     """
     text = open(path, encoding="utf-8").read()
     rows, probs = 0, []
@@ -96,6 +105,8 @@ def check_claims_md(path: str) -> tuple[int, list[str]]:
                 idx = {"generator": cells.index("generator"),
                        "verifier": cells.index("verifier"),
                        "id": cells.index("id") if "id" in cells else 0}
+                if "verification" in cells:
+                    idx["verification"] = cells.index("verification")
             continue
         if set("".join(cells)) <= set("-: "):
             continue
@@ -105,6 +116,13 @@ def check_claims_md(path: str) -> tuple[int, list[str]]:
         rows += 1
         label = f"{os.path.basename(path)}:{raw[idx['id']]}"
         probs += check_pair(raw[idx["generator"]], raw[idx["verifier"]], label)
+        if "verification" in idx:
+            raw_cls = raw[idx["verification"]]
+            if raw_cls.strip().lower() not in VALID_VERIFICATION:
+                probs.append(
+                    f"{label}: verification class {raw_cls!r} is off-vocabulary "
+                    f"(expected one of: {', '.join(sorted(VALID_VERIFICATION))})"
+                )
     return rows, probs
 
 
