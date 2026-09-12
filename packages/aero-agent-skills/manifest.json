@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1127,
+  "leaves": 1187,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -14761,6 +14761,1123 @@
     "vcd",
     "verification-control-document",
     "interface-compliance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-arc-discharge-performance-recovery",
+   "name": "e20-arc-discharge-performance-recovery",
+   "description": "Use when judge whether a spacecraft function interrupted by an electrostatic arc returns to its specified performance under ECSS-E-ST-20C clause 6.3.4.3: categorize the event as a self-extinguishing primary discharge or a power-fed sustained secondary arc, derive the outage from arc onset to restored service and check it against the allowance the function holds, compare every post-arc parameter against its specified level in the correct direction of merit, quantify the residual shortfall that never comes back, and reject a recovery that depends on a ground loop slower than the permitted outage. Trigger: ecss, e-st-20c-clause-6-3-4-3, arc-discharge-recovery, electrostatic-discharge-outage, sustained-secondary-arc, post-arc-performance-recovery, autonomous-recovery-latency, residual-performance-shortfall.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-arc-discharge-performance-recovery",
+    "arc-discharge-recovery",
+    "electrostatic-discharge-outage",
+    "sustained-secondary-arc",
+    "post-arc-performance-recovery",
+    "autonomous-recovery-latency",
+    "residual-performance-shortfall"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-attitude-control-magnetic-cleanliness",
+   "name": "e20-attitude-control-magnetic-cleanliness",
+   "description": "Use when derive a spacecraft magnetic cleanliness requirement from the attitude control need under ECSS-E-ST-20C clause 6.3.7.3: evaluate the ambient geomagnetic field at the orbit, convert the control system's allowable magnetic disturbance torque into an allowable spacecraft residual dipole moment, split that allowance across the steady, switching-transient and long-term-drift contributions, categorize every contributor into exactly one of those three families, grow the drifting ones to end of life, check each family against its allocated share, and confirm the accumulated momentum over an orbit stays inside the desaturation capacity. Trigger: ecss, e-st-20c-clause-6-3-7-3, magnetic-cleanliness, residual-dipole-moment, magnetic-disturbance-torque, attitude-control-magnetic-requirement, transient-magnetic-variation, long-term-magnetic-drift, momentum-desaturation-capacity.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-attitude-control-magnetic-cleanliness",
+    "magnetic-cleanliness",
+    "residual-dipole-moment",
+    "magnetic-disturbance-torque",
+    "attitude-control-magnetic-requirement",
+    "transient-magnetic-variation",
+    "long-term-magnetic-drift"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-battery-cell-rating-limits",
+   "name": "e20-battery-cell-rating-limits",
+   "description": "Use when define the maximum cell ratings that ECSS-E-ST-20C clause 5.6.3 requires a battery design to hold, and verify a duty profile against them: hold a temperature window, a charge ceiling and a discharge floor voltage, and charge, discharge and storage current limits for every operating mode; tighten the whole set through a derating policy of voltage and current factors plus a thermal margin; then examine each declared operating point mode by mode, name the parameter with the least normalized margin, and list every exceedance. Trigger: ecss, e-st-20-electrical-scope, e20-battery-cell-rating-limits, cell-rating-envelope, charge-current-limit, discharge-current-limit, cell-voltage-ceiling, cell-temperature-window, cell-derating-policy, c-rate-limit.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-cell-rating-limits",
+    "cell-rating-envelope",
+    "charge-current-limit",
+    "discharge-current-limit",
+    "cell-voltage-ceiling",
+    "cell-temperature-window",
+    "cell-derating-policy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-battery-charge-discharge-management",
+   "name": "e20-battery-charge-discharge-management",
+   "description": "Use when verify that a spacecraft battery charger can bring a deeply discharged pack, including one taken all the way to zero volts, back into service under ECSS-E-ST-20C clause 5.7.3: categorize the cell terminal state from its measured voltage, select the charge stage that state permits, derive each stage current limit from the rated capacity, time the recovery trickle against its budget, and report a commanded current, cell voltage, charge temperature, depth of discharge or end-of-discharge voltage outside the permitted window. Trigger: ecss, e-st-20-electrical-scope, battery-charge-management, zero-volt-battery-recovery, deep-discharge-recovery, recovery-trickle-charge, charge-stage-selection, depth-of-discharge-limit, charge-temperature-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-charge-discharge-management",
+    "battery-charge-management",
+    "zero-volt-battery-recovery",
+    "deep-discharge-recovery",
+    "recovery-trickle-charge",
+    "charge-stage-selection",
+    "depth-of-discharge-limit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-battery-clause-applicability",
+   "name": "e20-battery-clause-applicability",
+   "description": "Use when determine whether the ECSS-E-ST-20C clause 5.6.1 battery provisions reach a given on-board energy store: categorize every item as a secondary rechargeable electrochemical battery, a primary non-rechargeable electrochemical battery, an electrochemical converter that holds no internal reactants, or a non-electrochemical store; resolve the declared cell assembly into nominal voltage, ampere-hour capacity and stored energy; select the provision groups that follow from the category; and reconcile the derived reach against the scope the electrical architecture declared. Trigger: ecss, e-st-20-electrical-scope, e20-battery-clause-applicability, battery-provision-applicability, electrochemical-energy-store, secondary-battery-chemistry, primary-battery-chemistry, cell-assembly-topology, battery-scope-boundary.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-clause-applicability",
+    "battery-provision-applicability",
+    "electrochemical-energy-store",
+    "secondary-battery-chemistry",
+    "primary-battery-chemistry",
+    "cell-assembly-topology"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-battery-removal-and-storage",
+   "name": "e20-battery-removal-and-storage",
+   "description": "Use when plan, verify and record the pre-launch removal, replacement or storage of a spacecraft battery module under ECSS-E-ST-20C clause 5.6.4: categorize the module access path (direct-hatch-access, panel-removal, harness-demate, stack-teardown or non-removable), project the open-circuit state of charge a stored module reaches from its temperature-corrected self-discharge rate, screen the storage envelope for temperature excursion, deep-discharge, shelf-life and humidity breaches, derive the delta re-verification task set the operation triggers, and decide whether the module keeps its acceptance status or has to re-establish it. Trigger: ecss, e-st-20-electrical-scope, battery-module-removal, pre-launch-battery-replacement, battery-storage-envelope, open-circuit-self-discharge, maintenance-charge-interval, delta-reverification-scope, acceptance-status-retention.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-removal-and-storage",
+    "battery-module-removal",
+    "battery-storage-envelope",
+    "open-circuit-self-discharge",
+    "delta-reverification-scope",
+    "acceptance-status-retention"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-battery-safety-management",
+   "name": "e20-battery-safety-management",
+   "description": "Use when manage the safety case for a spacecraft battery under ECSS-E-ST-20C clause 5.6.5.2 and the product assurance space-safety route: categorize each battery hazard by severity and likelihood, scale the control strategy it earns (independent inhibit count, containment provision, cell-to-cell propagation barrier), count only the inhibits that are genuinely independent and verifiable towards the achieved failure tolerance, compute the thermal margin between the predicted cell temperature and runaway onset, place the residual risk in an acceptance band, and refuse to close the case while a hazard lacks its product-assurance safety requirement link. Trigger: ecss, e-st-20-electrical-scope, battery-safety-case, battery-hazard-severity, independent-inhibit-chain, failure-tolerance-sizing, thermal-runaway-propagation-barrier, residual-risk-band, product-assurance-safety-link.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-safety-management",
+    "battery-safety-case",
+    "independent-inhibit-chain",
+    "failure-tolerance-sizing",
+    "thermal-runaway-propagation-barrier",
+    "residual-risk-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-battery-specification-for-energy-balance",
+   "name": "e20-battery-specification-for-energy-balance",
+   "description": "Use when size a spacecraft secondary battery so that the ECSS-E-ST-20C clause 5.6.2 energy balance closes in every declared mission phase: convert each phase into produced, consumed and net energy over its duration, divide the phase discharge by the discharge-path efficiency and the allowable depth of discharge to obtain the capacity it demands, carry the driving phase back to a beginning-of-life rating through capacity fade, confirm the charge window restores what the discharge window drew, and prove the contingency and safe modes are inside the phase set. Trigger: ecss, e-st-20-electrical-scope, e20-battery-specification-for-energy-balance, battery-capacity-sizing, mission-energy-balance, depth-of-discharge-limit, eclipse-discharge-energy, contingency-mode-sizing, capacity-fade-end-of-life.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-specification-for-energy-balance",
+    "battery-capacity-sizing",
+    "mission-energy-balance",
+    "depth-of-discharge-limit",
+    "eclipse-discharge-energy",
+    "contingency-mode-sizing",
+    "capacity-fade-end-of-life"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-bus-voltage-excursion-robustness",
+   "name": "e20-bus-voltage-excursion-robustness",
+   "description": "Use when verify that a spacecraft electrical subsystem stays robust when a protection device clears a fault and when the primary bus voltage leaves its normal band, under ECSS-E-ST-20C clause 5.7.4: categorize each protection device, check its rating against the derated steady current and the fault current available to clear it, compare the let-through energy with the harness withstand and with the downstream device for coordination, categorize each bus excursion by magnitude and duration, and report equipment outside its declared ride-through envelope. Trigger: ecss, e-st-20-electrical-scope, bus-voltage-excursion, fuse-blowing-robustness, fuse-let-through-i2t, protection-selectivity, primary-bus-undervoltage, primary-bus-overvoltage, equipment-ride-through-envelope.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-bus-voltage-excursion-robustness",
+    "bus-voltage-excursion",
+    "fuse-blowing-robustness",
+    "fuse-let-through-i2t",
+    "protection-selectivity",
+    "primary-bus-undervoltage",
+    "equipment-ride-through-envelope"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-cable-and-shield-categories",
+   "name": "e20-cable-and-shield-categories",
+   "description": "Use when group the cables and shields of a spacecraft harness into categories under ECSS-E-ST-20C clause 6.3.8.3: assign every wire run to one harness category, from very sensitive receive coaxial and low-level analogue through sensitive digital and secondary power to noisy primary power, very noisy motor drive and transmit coaxial, and segregated pyrotechnic firing; derive the minimum bundle separation for each routed pair from the category ranks; select the shield termination style from the category and the highest frequency carried, and check the pigtail reactance it leaves; confirm braid optical coverage; and size the voltage a shield transfer impedance couples into a victim run. Trigger: ecss, e-st-20-electrical-scope, cable-and-shield-categories, harness-category-assignment, bundle-separation-distance, shield-termination-style, pigtail-reactance, shield-transfer-impedance, braid-optical-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-cable-and-shield-categories",
+    "harness-category-assignment",
+    "bundle-separation-distance",
+    "shield-termination-style",
+    "pigtail-reactance",
+    "shield-transfer-impedance",
+    "braid-optical-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-charging-programme-analysis-and-testing",
+   "name": "e20-charging-programme-analysis-and-testing",
+   "description": "Use when maintain the analysis and test planning inside a spacecraft charging protection programme under ECSS-E-ST-20C clause 6.3.4.2: categorize each planned activity as a charging analysis task or a charging test task, derive the mandatory task set from the charging regime the item is exposed to, report every required task that is absent or left unplanned, compute the steady-state field a penetrating electron flux drives into a dielectric against its derated breakdown strength, derive the charge bleed-off time constant against the permitted limit, and confirm every planned test severity envelopes the worst case the analysis predicts. Trigger: ecss, e-st-20c-clause-6-3-4-2, spacecraft-charging-protection-programme, charging-analysis-planning, charging-test-planning, deep-dielectric-charging, electrostatic-discharge-test-environment, bleed-off-time-constant, differential-potential-onset.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-charging-programme-analysis-and-testing",
+    "spacecraft-charging-protection-programme",
+    "charging-analysis-planning",
+    "charging-test-planning",
+    "deep-dielectric-charging",
+    "bleed-off-time-constant",
+    "differential-potential-onset"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-charging-protection-programme-applicability",
+   "name": "e20-charging-protection-programme-applicability",
+   "description": "Use when determine whether a spacecraft owes a charging protection programme under ECSS-E-ST-20C clause 6.3.4.1 and whether the one on record is complete and agreed in time: map the mission orbit onto its charging environment regime, collect the drivers that make the programme applicable including bus voltage, exposed external dielectric area, cumulative exposure and any ungrounded conductive element, derive the section list those drivers demand, report every section the programme does not carry, and check that customer approval sits at a project milestone ahead of the preliminary design review with the required calendar lead. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-6-3-4-1, charging-protection-programme, spacecraft-charging-applicability, internal-charging-analysis-section, esd-design-rules, customer-approval-before-pdr, project-milestone-lead-time.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-charging-protection-programme-applicability",
+    "charging-protection-programme",
+    "spacecraft-charging-applicability",
+    "internal-charging-analysis-section",
+    "esd-design-rules",
+    "customer-approval-before-pdr",
+    "project-milestone-lead-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-circuit-criticality-categories",
+   "name": "e20-circuit-criticality-categories",
+   "description": "Use when assess and group the equipment and subsystem circuits of a spacecraft by functional criticality under ECSS-E-ST-20C clause 6.3.1.1: derive each circuit's category from its hazard, mission-loss and degradation attributes, order the inventory with the safety-critical group first, raise a circuit that couples into a higher-criticality victim to that victim's level for interference control, read the interference margin the category demands from the project ladder, and compare the demonstrated susceptibility-to-emission separation against it. Trigger: ecss, e-st-20-electrical-scope, circuit-criticality-categories, safety-critical-circuit, mission-critical-circuit, criticality-grouping-order, interference-margin-ladder, coupled-victim-escalation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-circuit-criticality-categories",
+    "circuit-criticality-categories",
+    "safety-critical-circuit",
+    "mission-critical-circuit",
+    "interference-margin-ladder",
+    "coupled-victim-escalation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-command-criticality-assessment",
+   "name": "e20-command-criticality-assessment",
+   "description": "Use when rate the criticality of every spacecraft command under ECSS-E-ST-20C clause 4.1.3: categorize the worst-case effect of an inadvertent or erroneous execution at equipment level, evaluate reversibility and the available onboard recovery to determine an equipment criticality level, then confirm that level system wide by escalating any command that drives a single-string critical function or propagates across subsystems, bound any downgrade claimed from redundancy, and verify each retained level carries the protection it demands, such as arm-and-execute sequencing, command authentication or inhibit status telemetry. Trigger: ecss, e-st-20-electrical-scope, command-criticality-assessment, hazardous-command, arm-and-execute, command-authentication, equipment-level-criticality, system-level-confirmation, command-inhibit.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-command-criticality-assessment",
+    "hazardous-command",
+    "arm-and-execute",
+    "command-authentication",
+    "command-inhibit",
+    "equipment-level-criticality"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-converter-control-loop-stability",
+   "name": "e20-converter-control-loop-stability",
+   "description": "Use when evaluate the closed-loop stability of a spacecraft power converter or regulator under ECSS-E-ST-20C clause 5.7.5: categorize the loop as a switching converter, a linear regulator or a bus control loop, set the phase-margin and gain-margin targets that category carries unless the project requirement overrides them, enumerate the worst-case corner set from the temperature, input-voltage and load extremes, build the open-loop frequency response from the direct-current gain, poles, zeros, any right-half-plane zero and the modulator transport delay, locate the gain- and phase-crossover frequencies, and confirm every corner holds both margins rather than the nominal point alone. Trigger: ecss, e-st-20c-clause-5-7-5, converter-control-loop-stability, phase-margin-target, gain-margin-target, gain-crossover-frequency, phase-crossover-frequency, worst-case-corner-stability, closed-loop-regulator-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-converter-control-loop-stability",
+    "converter-control-loop-stability",
+    "phase-margin-target",
+    "gain-margin-target",
+    "gain-crossover-frequency",
+    "worst-case-corner-stability",
+    "closed-loop-regulator-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-bonding-conformance",
+   "name": "e20-electrical-bonding-conformance",
+   "description": "Use when verify that the bonding of spacecraft structure and equipment meets the electromagnetic design provisions referenced by ECSS-E-ST-20C clause 6.3.8.1: categorize each bond by the function it performs, take the resistance window that function imposes, compute a strap's direct-current resistance from its geometry and contact interfaces, check a radio-frequency reference bond for strap length-to-width ratio and impedance at the frequency of interest, screen the dissimilar-metal couple against the environment it will see, and bound the conductor heating a fault or surge current produces. Trigger: ecss, e-st-20c-clause-6-3-8-1, electrical-bonding-conformance, bond-resistance-window, bond-strap-inductance, radio-frequency-bond-reference, electrostatic-charge-bleed-path, galvanic-couple-compatibility, fault-current-return-path.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-bonding-conformance",
+    "electrical-bonding-conformance",
+    "bond-resistance-window",
+    "bond-strap-inductance",
+    "radio-frequency-bond-reference",
+    "electrostatic-charge-bleed-path",
+    "galvanic-couple-compatibility",
+    "fault-current-return-path"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-budgets-and-margin-policy",
+   "name": "e20-electrical-budgets-and-margin-policy",
+   "description": "Use when compute an electrical technical budget and evaluate it against the margin policy that ECSS-E-ST-20C clause 4.2.2.2 inherits from the general engineering standard: categorize the budget into its power, signal or physical domain, apply the maturity-based contingency to each equipment line item without double counting a contingency already folded into its nominal value, roll the duty-cycled line items up into a per-mode demand, select the worst-case mission mode, add the project-phase system margin on top, and compare the declared capability against that demand to report the achieved margin and the shortfall. Trigger: ecss, e-st-20-electrical-scope, electrical-power-budget, design-maturity-contingency, project-phase-system-margin, worst-case-mode-demand, harness-voltage-drop-budget, data-bus-bandwidth-budget, e-st-10c-margin-policy-linkage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-budgets-and-margin-policy",
+    "electrical-power-budget",
+    "design-maturity-contingency",
+    "project-phase-system-margin",
+    "worst-case-mode-demand",
+    "harness-voltage-drop-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-connector-design-rules",
+   "name": "e20-electrical-connector-design-rules",
+   "description": "Use when verify the safety features of a separable electrical connector under ECSS-E-ST-20C clause 4.2.3, so that no energized contact is exposed during a mating or demating operation: categorize the connection as power, test, signal or ordnance, determine which side stays energized once demated and require recessed socket contacts there, derive the full safety-feature set the connection demands and report every feature not implemented, decide whether a scoop-proof shroud is required from working voltage and contact count, check the first-mate-last-break contact sequence, and detect two mateable connectors that share a keying arrangement. Trigger: ecss, e-st-20-electrical-scope, connector-mating-safety, exposed-energized-contact, socket-contact-on-live-side, scoop-proof-shroud, first-mate-last-break, connector-keying-uniqueness, test-connector-isolation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-connector-design-rules",
+    "connector-mating-safety",
+    "exposed-energized-contact",
+    "scoop-proof-shroud",
+    "first-mate-last-break",
+    "connector-keying-uniqueness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-design-documentation-set",
+   "name": "e20-electrical-design-documentation-set",
+   "description": "Use when audit the electrical design documentation set required by ECSS-E-ST-20C clause 4.3.2: derive which supporting analyses an electronic item actually owes -- worst case and reliability always, thermal once it dissipates power, radiation once it accumulates mission dose, electromagnetic once it carries external interfaces -- compute the worst-case parameter excursion by extreme-value or root-sum-square stacking of tolerance, temperature drift and ageing, check part derating and radiation design margin against their limits, and confirm every owed report is issued by the right review and rebuilt against the current design revision. Trigger: ecss, e-st-20-electrical-scope, electrical-design-documentation-set, worst-case-parameter-drift, part-derating-margin, radiation-design-margin, electromagnetic-compatibility-report, design-report-maturity.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-design-documentation-set",
+    "worst-case-parameter-drift",
+    "part-derating-margin",
+    "radiation-design-margin",
+    "electromagnetic-compatibility-report",
+    "design-report-maturity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-design-verification-provisions",
+   "name": "e20-electrical-design-verification-provisions",
+   "description": "Use when determine the verification method and closure milestone for every electrical and electronic engineering requirement under ECSS-E-ST-20C clause 4.3.1: pick the method that actually produces evidence for the requirement characteristic at hand, check that the planned review is not earlier than the selected method can physically close, confirm each provision names an evidence artefact, and prove the verification matrix covers every requirement with no orphan provision pointing at a requirement that does not exist. Trigger: ecss, e-st-20-electrical-scope, electrical-verification-provisions, verification-method-selection, verification-milestone-closure, review-of-design-method, verification-evidence-artefact, electrical-verification-matrix.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-design-verification-provisions",
+    "verification-method-selection",
+    "verification-milestone-closure",
+    "review-of-design-method",
+    "electrical-verification-matrix",
+    "verification-evidence-artefact"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-power-engineering-overview",
+   "name": "e20-electrical-power-engineering-overview",
+   "description": "Use when size and cross-check the spacecraft electrical power chain introduced by ECSS-E-ST-20C clause 5.1: place every power element into generation, storage, conditioning or distribution, derive the bus architecture from whether the bus is regulated in sunlight and in eclipse, compute the eclipse energy the storage must deliver through the distribution efficiency, the usable capacity that implies at the allowed depth of discharge, the sunlit generation needed to carry the load and recharge within the sunlit arc, and the resulting power margin, then flag any stage of the chain left unpopulated. Trigger: ecss, e-st-20-electrical-scope, electrical-power-engineering-overview, power-generation-chain, energy-storage-sizing, power-conditioning-bus, power-distribution-protection, eclipse-energy-balance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-power-engineering-overview",
+    "power-generation-chain",
+    "energy-storage-sizing",
+    "power-conditioning-bus",
+    "power-distribution-protection",
+    "eclipse-energy-balance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electrical-subsystem-safety-conformance",
+   "name": "e20-electrical-subsystem-safety-conformance",
+   "description": "Use when assess whether a payload or electrical subsystem conforms to the space product assurance safety requirements invoked by ECSS-E-ST-20C clause 5.9: categorize each electrical hazard into its family, derive the severity band from the credible worst-case consequence, translate that band into a failure tolerance and the count of independent monitored inhibits the design must carry, compute the charge a stored-energy source still holds when the bleed period ends and compare it against the safe touch voltage and the safe energy limit, and confirm every hazard closes on a recognized verification method with a traceable record. Trigger: ecss, e-st-20-electrical-scope, electrical-subsystem-safety-conformance, electrical-hazard-severity, failure-tolerance-inhibits, independent-inhibit-count, capacitor-bleed-down, safe-touch-voltage, hazard-closure-record, product-assurance-safety-linkage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electrical-subsystem-safety-conformance",
+    "electrical-hazard-severity",
+    "failure-tolerance-inhibits",
+    "independent-inhibit-count",
+    "capacitor-bleed-down",
+    "safe-touch-voltage",
+    "hazard-closure-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electromagnetic-compatibility-advisory-board",
+   "name": "e20-electromagnetic-compatibility-advisory-board",
+   "description": "Use when structure and run the electromagnetic compatibility advisory board that ECSS-E-ST-20C clause 6.2.3 places over a project's electromagnetic compatibility decisions: categorize each nominated member as a core, contributing or observer seat, check the mandatory chairperson, system-engineering, customer, product-assurance and grounding-authority roles are filled, confirm every emitting or susceptible subsystem holds a representative, compute the voting membership and the quorum a sitting requires, and dispose each agenda item as endorsed, rejected, deferred or escalated for customer approval. Trigger: ecss, e-st-20-electrical-scope, electromagnetic-compatibility-advisory-board, emc-board-composition, emc-board-quorum, emc-board-remit, grounding-authority-representation, emc-decision-escalation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electromagnetic-compatibility-advisory-board",
+    "electromagnetic-compatibility-advisory-board",
+    "emc-board-composition",
+    "emc-board-quorum",
+    "emc-board-remit",
+    "emc-decision-escalation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electromagnetic-interference-safety-margins",
+   "name": "e20-electromagnetic-interference-safety-margins",
+   "description": "Use when determine the electromagnetic interference safety margins at the critical points of a spacecraft electrical design under ECSS-E-ST-20C clause 6.3.1.3: categorize each critical point as an ordnance firing circuit or as a safety-critical, mission-critical or non-critical function, read off the separation that category demands, normalise the demonstrated susceptibility threshold and the observed interference level onto one scale, compute the separation in decibels with the amplitude or power law the measured quantity requires, confirm every mandatory operating condition was exercised, and report the governing worst-case condition together with its margin. Trigger: ecss, e-st-20c-clause-6-3-1-3, interference-safety-margin, susceptibility-threshold, emi-critical-circuit, ordnance-firing-circuit-margin, worst-case-operating-condition, emc-margin-demonstration.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electromagnetic-interference-safety-margins",
+    "interference-safety-margin",
+    "susceptibility-threshold",
+    "emi-critical-circuit",
+    "ordnance-firing-circuit-margin",
+    "worst-case-operating-condition",
+    "emc-margin-demonstration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electromagnetic-radiation-hazard-control",
+   "name": "e20-electromagnetic-radiation-hazard-control",
+   "description": "Use when compute whether radiated fields keep people, propellant, ordnance and actuated thruster valves below their hazard thresholds under ECSS-E-ST-20C clause 6.3.3: categorize every receptor as personnel, fuel, ordnance or thruster actuation, derive the emitter's effective radiated power and far-field boundary, evaluate the incident power density in whichever field region the receptor stands in, compare it against the frequency-dependent occupational limit or the propellant-vapour limit, convert the power an initiator or valve drive couples out of that field into a decibel margin below its firing threshold, and size the separation distance the hazard limit demands. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-6-3-3, electromagnetic-radiation-hazard-control, radiation-hazard-to-personnel, radiation-hazard-to-ordnance, radiation-hazard-to-fuel, thruster-inadvertent-actuation, incident-power-density, minimum-safe-separation-distance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electromagnetic-radiation-hazard-control",
+    "radiation-hazard-to-personnel",
+    "radiation-hazard-to-ordnance",
+    "radiation-hazard-to-fuel",
+    "thruster-inadvertent-actuation",
+    "incident-power-density",
+    "minimum-safe-separation-distance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-emc-control-plan-delivery",
+   "name": "e20-emc-control-plan-delivery",
+   "description": "Use when draft and hand over the electromagnetic compatibility control plan in time for the preliminary design review under ECSS-E-ST-20C clause 6.2.2: categorize each mandatory plan section as management, design or verification content, list the sections the plan does not declare, score the maturity every declared section has reached, compute the completeness index the plan holds at hand-over, count the calendar lead between the issue date and the review against the data package deadline, and prove every compatibility requirement traces into a section that exists and has been started. Trigger: ecss, e-st-20-electrical-scope, emc-control-plan-delivery, emc-control-plan-sections, plan-section-maturity-index, control-plan-delivery-lead-time, emc-requirement-plan-traceability, preliminary-design-review-data-package.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-emc-control-plan-delivery",
+    "emc-control-plan-delivery",
+    "emc-control-plan-sections",
+    "plan-section-maturity-index",
+    "control-plan-delivery-lead-time",
+    "emc-requirement-plan-traceability",
+    "preliminary-design-review-data-package"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-emc-detailed-design-requirements",
+   "name": "e20-emc-detailed-design-requirements",
+   "description": "Use when derive and check the detailed electromagnetic compatibility design of spacecraft equipment under ECSS-E-ST-20C clause 6.3.9: categorize each requirement as conducted emission, conducted susceptibility, radiated emission, radiated susceptibility or electrostatic discharge immunity; read the applicable level off a piecewise limit line interpolated against the logarithm of frequency and compare the measured level with it; power-sum the conducted emission of every unit sharing a bus before judging the bus; compute the electromagnetic safety margin between a susceptibility threshold and the environment level and hold it against what the criticality demands; and derive the shielding effectiveness an enclosure owes. Trigger: ecss, e-st-20-electrical-scope, emc-detailed-design-requirements, emc-safety-margin, emission-limit-line-interpolation, conducted-emission-power-sum, radiated-susceptibility-threshold, shielding-effectiveness-requirement, electrostatic-discharge-immunity.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-emc-detailed-design-requirements",
+    "emc-detailed-design-requirements",
+    "emc-safety-margin",
+    "emission-limit-line-interpolation",
+    "conducted-emission-power-sum",
+    "radiated-susceptibility-threshold",
+    "shielding-effectiveness-requirement",
+    "electrostatic-discharge-immunity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-equipment-interchangeability-requirements",
+   "name": "e20-equipment-interchangeability-requirements",
+   "description": "Use when determine whether one space equipment item may replace another under ECSS-E-ST-20C clause 4.2.6: confirm both units carry the same part number and a revision declared form-fit-function neutral, categorize every recorded attribute as form, fit or function, grade numeric attributes against the declared interchangeability tolerance and discrete attributes on exact equality, report an attribute whose tolerance was never declared instead of passing it, check the candidate's qualification status ranks at or above the status the slot requires, reject a unit that drops in only after matched-set pairing or on-installation trimming, and screen a fleet down to the acceptable spares. Trigger: ecss, e-st-20-electrical-scope, equipment-interchangeability, form-fit-function-equivalence, part-number-identity, qualification-status-ranking, interchangeability-tolerance, matched-set-pairing, flight-spare-screening.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-equipment-interchangeability-requirements",
+    "form-fit-function-equivalence",
+    "part-number-identity",
+    "qualification-status-ranking",
+    "interchangeability-tolerance",
+    "matched-set-pairing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-equipment-test-point-accessibility",
+   "name": "e20-equipment-test-point-accessibility",
+   "description": "Use when verify that the stimulus and measurement points of a space electrical equipment item meet ECSS-E-ST-20C clause 4.2.4: categorize each access provision as non-intrusive (dedicated test connector, buffered monitor pin, breakout box) or intrusive (connector demate, wire splice, solder-lug tap), flag any provision that alters the electrical configuration of the unit under test, compute the instrument loading error from source and input impedance and derive the input impedance the allowable demands, grade series isolation against node criticality, and confirm every signal the verification plan needs maps to a reachable point. Trigger: ecss, e-st-20-electrical-scope, test-point-accessibility, stimulus-injection-point, non-intrusive-probing, instrument-loading-error, test-connector-provision, series-isolation-resistor, electrical-configuration-integrity, unit-under-test.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-equipment-test-point-accessibility",
+    "test-point-accessibility",
+    "stimulus-injection-point",
+    "non-intrusive-probing",
+    "instrument-loading-error",
+    "series-isolation-resistor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-failure-propagation-general-requirements",
+   "name": "e20-failure-propagation-general-requirements",
+   "description": "Use when verify that a single hardware fault inside one spacecraft electrical item cannot spread to a neighbouring circuit, component or interface under ECSS-E-ST-20C clause 4.2.1.1: categorize each postulated fault mode into its propagation family (conducted overcurrent, conducted overvoltage, loss of continuity, dielectric breakdown), enumerate the coupling paths tying the faulted item to each neighbour, credit a declared containment barrier only where it covers that family on that path, and size the series protection device so it clears before the upstream source current-limits. Trigger: ecss, e-st-20-electrical-scope, fault-propagation, fault-containment, single-fault-tolerance, protection-selectivity, coupling-path, containment-barrier, electrical-fault-isolation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-failure-propagation-general-requirements",
+    "fault-propagation",
+    "fault-containment",
+    "single-fault-tolerance",
+    "protection-selectivity",
+    "containment-barrier"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-harness-mechanical-load-exclusion",
+   "name": "e20-harness-mechanical-load-exclusion",
+   "description": "Use when verify that a spacecraft harness is routed so the wiring never carries structural or mechanical load under ECSS-E-ST-20C clause 5.8.2: categorize each attachment as a restraint or a load-path misuse, compute the transverse load per metre a bundle sees under quasi-static launch acceleration, derive the span tension and sag from the installed slack, check that tension against the bundle allowable and that sag against the clearance to neighbouring hardware, size the service loop a crossing of a moving or thermally displacing interface needs so the bundle never goes taut, and confirm no connector backshell reacts the weight of an unsupported bundle. Trigger: ecss, e-st-20-electrical-scope, harness-mechanical-load-exclusion, harness-routing-rules, clamp-spacing-rule, bundle-span-tension, service-loop-slack, connector-strain-relief, quasi-static-launch-acceleration, harness-bend-radius.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-harness-mechanical-load-exclusion",
+    "harness-routing-rules",
+    "clamp-spacing-rule",
+    "bundle-span-tension",
+    "service-loop-slack",
+    "connector-strain-relief",
+    "harness-bend-radius"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-high-voltage-equipment-provisions",
+   "name": "e20-high-voltage-equipment-provisions",
+   "description": "Use when determine whether unpotted, unpressurised high voltage hardware may be energised at a given ambient pressure under ECSS-E-ST-20C clause 5.10: categorize the operating state by ambient regime, confirm the provision bites because the item is neither encapsulated nor sealed behind a pressurised wall, evaluate the gas breakdown voltage of the gap from its pressure-times-gap product, bracket the critical pressure window in which the applied voltage can strike a discharge, check that the energisation inhibit releases only below that window, and time the venting profile so the enclosure falls clear of the window before power is applied. Trigger: ecss, e-st-20-electrical-scope, high-voltage-equipment-provisions, critical-pressure-range, paschen-breakdown-voltage, corona-inception-margin, energisation-inhibit-pressure, unpotted-high-voltage-hardware, depressurisation-profile.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-high-voltage-equipment-provisions",
+    "critical-pressure-range",
+    "paschen-breakdown-voltage",
+    "corona-inception-margin",
+    "energisation-inhibit-pressure",
+    "unpotted-high-voltage-hardware",
+    "depressurisation-profile"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-interference-critical-point-list",
+   "name": "e20-interference-critical-point-list",
+   "description": "Use when derive and submit for customer approval the list of points at which electromagnetic interference margin is demonstrated, as ECSS-E-ST-20C clause 6.3.1.2 requires: select a candidate point for every safety-critical and mission-critical victim circuit on each distinct coupling path, validate each point's frequency band and mandatory record fields, merge the point bands to expose any uncovered stretch of the project's electromagnetic spectrum span, and track whether the assembled list reached the customer and carries a dated approval. Trigger: ecss, e-st-20-electrical-scope, interference-critical-point-list, emi-margin-demonstration-point, coupling-path-selection, frequency-band-coverage-gap, customer-approval-record, emc-critical-point-submission.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-interference-critical-point-list",
+    "interference-critical-point-list",
+    "emi-margin-demonstration-point",
+    "coupling-path-selection",
+    "frequency-band-coverage-gap",
+    "customer-approval-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-launch-system-emc-compatibility",
+   "name": "e20-launch-system-emc-compatibility",
+   "description": "Use when assess the electromagnetic environment a spacecraft meets before and during launch and demonstrate compatibility with it under ECSS-E-ST-20C clause 6.3.2.2: categorize each campaign phase as prelaunch or launch and each environment source as a launch-site fixed emitter, a launcher-borne emitter, a processing-facility emitter or an electrostatic source, compute the free-space field an emitter puts on the spacecraft at its separation distance, attenuate it through the fairing while the vehicle is encapsulated, check the source sits beyond the far-field boundary, confirm its frequency falls inside the tested susceptibility envelope, and hold the required margin in every mandatory phase. Trigger: ecss, e-st-20c-clause-6-3-2-2, launch-campaign-emc, prelaunch-electromagnetic-environment, launch-site-emitter, fairing-shielding-effectiveness, radiated-susceptibility-margin, far-field-boundary-check, triboelectric-charging-control.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-launch-system-emc-compatibility",
+    "launch-campaign-emc",
+    "prelaunch-electromagnetic-environment",
+    "launch-site-emitter",
+    "fairing-shielding-effectiveness",
+    "radiated-susceptibility-margin",
+    "far-field-boundary-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-lightning-protection-requirements",
+   "name": "e20-lightning-protection-requirements",
+   "description": "Use when verify that a space system withstands direct and indirect lightning effects under ECSS-E-ST-20C clause 6.3.2.4 without performance degradation: categorize each coupling mechanism as a direct attachment effect or an indirect induced effect, assign every external region its lightning attachment zone, confirm the zone provisions and the adiabatic conductor cross-section carry the stroke action integral, build the induced bundle transient from its inductive and resistive coupling terms, compare that level against the equipment transient design level as a decibel separation, and record every function whose performance degrades or needs intervention to recover. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-6-3-2-4, lightning-protection-requirements, direct-lightning-effect, indirect-lightning-effect, lightning-attachment-zone, lightning-induced-transient, transient-design-level-margin, stroke-action-integral.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-lightning-protection-requirements",
+    "direct-lightning-effect",
+    "indirect-lightning-effect",
+    "lightning-attachment-zone",
+    "lightning-induced-transient",
+    "transient-design-level-margin",
+    "stroke-action-integral"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-overall-emc-programme-establishment",
+   "name": "e20-overall-emc-programme-establishment",
+   "description": "Use when establish the supplier electromagnetic compatibility programme for a spacecraft under ECSS-E-ST-20C clause 6.2.1: map each declared compatibility activity onto the programme area it serves, derive the area set the mission profile actually demands from its radio frequency payload, ordnance, magnetic sensor, crewed element and launcher exposure, list the areas and the mandatory programme elements nobody has declared yet, check every activity names an owner and is established no later than the milestone at which it can still shape the design, and apply the programme margin policy to each victim circuit category. Trigger: ecss, e-st-20-electrical-scope, overall-emc-programme-establishment, spacecraft-emc-programme-setup, emc-programme-area-coverage, emc-programme-milestone-establishment, emc-programme-margin-policy, named-emc-authority.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-overall-emc-programme-establishment",
+    "overall-emc-programme-establishment",
+    "spacecraft-emc-programme-setup",
+    "emc-programme-area-coverage",
+    "emc-programme-milestone-establishment",
+    "emc-programme-margin-policy",
+    "named-emc-authority"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-payload-bus-interaction-verification",
+   "name": "e20-payload-bus-interaction-verification",
+   "description": "Use when verify how a payload interacts with the spacecraft primary power bus under ECSS-E-ST-20C clause 5.7.6: categorize each campaign case as an inrush case, an undervoltage case or an agreed failure case, confirm it carries the mandatory case fields, compute the peak inrush current and the time it spends above the protection threshold against the trip delay, derive the transient bus sag from the load step, the bus capacitance and the control bandwidth and check it against the bus lower limit and the payload undervoltage lockout, size the fault current and the protection clearing time against the containment requirement, and report coverage of the three families. Trigger: ecss, e-st-20c-clause-5-7-6, payload-bus-interaction-verification, inrush-current-limiting, undervoltage-transient-sag, agreed-failure-case, protection-trip-delay, payload-undervoltage-lockout, primary-bus-load-step.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-payload-bus-interaction-verification",
+    "payload-bus-interaction-verification",
+    "inrush-current-limiting",
+    "undervoltage-transient-sag",
+    "agreed-failure-case",
+    "protection-trip-delay",
+    "payload-undervoltage-lockout"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-budget-establishment-timing",
+   "name": "e20-power-budget-establishment-timing",
+   "description": "Use when derive the spacecraft electrical power budget and its margin policy under ECSS-E-ST-20C clause 5.2.1: fix the budget at the phase-B milestone, allocate a maturity-dependent margin to every equipment line (flight-proven, modified, newly developed), roll the lines up into a subsystem demand figure, compare the achieved system-level margin against the margin required at the current project phase, and confirm the budget was re-reviewed at each later phase gate rather than frozen after phase B. Flags a late establishment phase, a skipped phase review, an uncategorized equipment maturity, and a margin erosion below the phase requirement. Trigger: ecss, e-st-20-electrical-scope, power-budget-establishment, phase-b-milestone, power-margin-policy, equipment-maturity-margin, budget-phase-review, power-margin-erosion.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-budget-establishment-timing",
+    "power-budget-establishment",
+    "phase-b-milestone",
+    "power-margin-policy",
+    "equipment-maturity-margin",
+    "budget-phase-review"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-demand-versus-availability-analysis",
+   "name": "e20-power-demand-versus-availability-analysis",
+   "description": "Use when compute the available electrical power against the demand for every mission phase under ECSS-E-ST-20C clause 5.2.2.2: build each phase load list from peak power and duty cycle, separate the loads that fire together from the time-averaged ones, degrade the generated power to the phase epoch, compare availability against both the averaged and the coincident-peak demand, size the stored energy that covers any deficit, and grade the discharge depth and the phase margin against their limits. Flags an energy balance that does not close, a coincident-peak shortfall, an over-discharged store, a thin phase margin and an uncategorized load. Trigger: ecss, e-st-20-electrical-scope, power-demand-versus-availability, coincident-peak-load, mission-phase-power-balance, eclipse-energy-balance, depth-of-discharge-limit, array-degradation-epoch.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-demand-versus-availability-analysis",
+    "power-demand-versus-availability",
+    "coincident-peak-load",
+    "mission-phase-power-balance",
+    "eclipse-energy-balance",
+    "depth-of-discharge-limit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-engineering-verification-provisions",
+   "name": "e20-power-engineering-verification-provisions",
+   "description": "Use when determine how each electrical power engineering requirement of ECSS-E-ST-20C clause 5.11.1 is verified: categorize the power verification item as a budget, sizing, dynamic or protection item, check the proposed method can actually produce closure evidence for that item, confirm the planned review point is not earlier than the method can mature, prove the evidence represents every mandatory worst-case power condition including end-of-life degradation, maximum eclipse, worst-case solar aspect and the thermal corners, compute the demonstrated power margin from available against demanded power, and show the provision set covers every required item with no orphan. Trigger: ecss, e-st-20-electrical-scope, power-engineering-verification-provisions, power-budget-verification-evidence, energy-balance-verification-case, worst-case-power-condition, end-of-life-power-margin, power-verification-review-point.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-engineering-verification-provisions",
+    "power-engineering-verification-provisions",
+    "power-budget-verification-evidence",
+    "energy-balance-verification-case",
+    "worst-case-power-condition",
+    "end-of-life-power-margin",
+    "power-verification-review-point"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-interface-specification",
+   "name": "e20-power-interface-specification",
+   "description": "Use when define and check the internal and external power interfaces of a spacecraft electrical power subsystem under ECSS-E-ST-20C clause 5.4: categorize each interface as internal to the subsystem or external to a user, confirm the specification carries every mandatory field including source and load impedance, compute the harness drop so the delivered voltage stays inside the load's operating window across the current range, derive the constant-power load's negative-incremental input impedance, and evaluate the source-to-load impedance separation in decibels against the stability margin the interface must hold. Trigger: ecss, e-st-20c-clause-5-4, power-interface-specification, source-impedance, load-impedance, impedance-stability-margin, harness-voltage-drop, constant-power-load, bus-interface-control-document.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-interface-specification",
+    "power-interface-specification",
+    "source-impedance",
+    "load-impedance",
+    "impedance-stability-margin",
+    "harness-voltage-drop",
+    "constant-power-load"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-protection-failure-containment",
+   "name": "e20-power-protection-failure-containment",
+   "description": "Use when verify that the protection functions of a spacecraft power converter or regulator are independent enough to stop a fault spreading, under ECSS-E-ST-20C clause 5.3: categorize each protection function as current-limiting, voltage-limiting, thermal or isolating; confirm it shares no sense element, reference, control loop, housekeeping supply or return path with the function it protects; size the trip threshold above the load's steady-state and inrush draw yet below the harness and source fault rating; confirm the load-side protection trips before the source-side one with selectivity margin; and confirm the trip clears faster than the bus ride-through time. Trigger: ecss, e-st-20c-clause-5-3, power-protection-independence, fault-containment, latching-current-limiter, overcurrent-trip-threshold, protection-selectivity, converter-regulator-protection, bus-ride-through.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-protection-failure-containment",
+    "power-protection-independence",
+    "fault-containment",
+    "latching-current-limiter",
+    "overcurrent-trip-threshold",
+    "protection-selectivity",
+    "bus-ride-through"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-robustness-clause-applicability",
+   "name": "e20-power-robustness-clause-applicability",
+   "description": "Use when determine which ECSS-E-ST-20C clause 5.7.1 robustness provisions bind the power subsystem, which bind the payload, and which bind both across their shared interface: categorize each element by its scoping role, resolve every provision-element pair as applicable, applicable-via-interface or not-applicable, derive the governing interface threshold as the strictest demand on either side rather than the provision's own floor, grade demonstrated capability against that threshold, keep absent evidence distinct from a failed margin, and refuse an exclusion that carries no recorded rationale. Trigger: ecss, e-st-20-electrical-scope, power-robustness-provisions, clause-applicability-scoping, power-payload-interface, governing-withstand-threshold, applicability-rationale-record, robustness-coverage-matrix.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-robustness-clause-applicability",
+    "power-robustness-provisions",
+    "clause-applicability-scoping",
+    "power-payload-interface",
+    "governing-withstand-threshold",
+    "robustness-coverage-matrix"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-subsystem-core-functions",
+   "name": "e20-power-subsystem-core-functions",
+   "description": "Use when verify that a spacecraft electrical power subsystem covers its five core functions under ECSS-E-ST-20C clause 5.2.2.1: map every declared element (solar-array, regulator, battery, distribution unit, sensor) onto the generation, conditioning, storage, distribution and monitoring functions it performs, flag any core function left without an element, confirm every energy-carrying element is observable in telemetry, check redundancy unless a single-string architecture is explicitly accepted, and compute the power delivered to the loads through the conditioning and distribution efficiencies. Flags an unallocated core function, an unobservable element, an uncategorized element type and an undeclared single-string function. Trigger: ecss, e-st-20-electrical-scope, power-subsystem-core-functions, power-generation-function, power-conditioning-function, energy-storage-function, power-distribution-function, power-monitoring-function.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-subsystem-core-functions",
+    "power-generation-function",
+    "power-conditioning-function",
+    "energy-storage-function",
+    "power-distribution-function",
+    "power-monitoring-function"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-primary-power-grounding-concept",
+   "name": "e20-primary-power-grounding-concept",
+   "description": "Use when assess the primary power grounding concept of a spacecraft under ECSS-E-ST-20C clause 5.8.1: categorize the declared topology as a single-point star reference or a deviation that needs justification, confirm exactly one bond ties the primary power return to structure, size that star strap against the maximum credible fault current and the protection clearing time using the adiabatic conductor rule, compute its direct-current resistance and the structure potential offset the fault drives across it, and confirm every user return stays isolated from structure so no second path forms. Trigger: ecss, e-st-20c-clause-5-8-1, primary-power-grounding-concept, single-point-star-reference, structure-bonding-strap, fault-current-carrying-capability, adiabatic-conductor-sizing, power-return-isolation, ground-loop-prevention.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-primary-power-grounding-concept",
+    "primary-power-grounding-concept",
+    "single-point-star-reference",
+    "structure-bonding-strap",
+    "fault-current-carrying-capability",
+    "adiabatic-conductor-sizing",
+    "power-return-isolation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-protected-frequency-band-emissions",
+   "name": "e20-protected-frequency-band-emissions",
+   "description": "Use when verify that the emissions of a spacecraft transmitter stay inside the limits protecting radiometric and communication bands under ECSS-E-ST-20C clause 6.3.2.3: categorize each protected band by the service it carries, build the emission set from the carrier, its harmonic series and every declared spurious product, work out how much of each emission falls inside each band from its spectral overlap and its power spectral density, sum the contributions band by band, compare each total against the limit that service carries, and confirm the harmonic sweep reaches the order the applicable radio standard expects. Trigger: ecss, e-st-20c-clause-6-3-2-3, protected-frequency-band, radio-astronomy-band-protection, passive-radiometry-band, spurious-emission-limit, harmonic-emission-suppression, in-band-power-summation, spacecraft-receive-band-protection.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-protected-frequency-band-emissions",
+    "protected-frequency-band",
+    "radio-astronomy-band-protection",
+    "passive-radiometry-band",
+    "spurious-emission-limit",
+    "harmonic-emission-suppression",
+    "in-band-power-summation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-radio-frequency-compatibility",
+   "name": "e20-radio-frequency-compatibility",
+   "description": "Use when verify that every antenna-connected unit on a spacecraft coexists with the rest of the vehicle against the mission performance criteria of ECSS-E-ST-20C clause 6.3.6: categorize each unit as transmitter, receiver or transceiver, propagate transmit power to a victim input through antenna-to-antenna isolation and front-end rejection, generate the intermodulation products of every emitter pair and report those landing inside the victim receive band, check the interference margin against the victim susceptibility threshold, and convert the summed coupled power into a noise-floor rise judged against the mission budget. Trigger: ecss, e-st-20c-clause-6-3-6, radio-frequency-compatibility, antenna-to-antenna-isolation, intermodulation-product-screening, receiver-susceptibility-threshold, noise-floor-degradation-budget, transmitter-filter-rejection.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-radio-frequency-compatibility",
+    "radio-frequency-compatibility",
+    "antenna-to-antenna-isolation",
+    "intermodulation-product-screening",
+    "receiver-susceptibility-threshold",
+    "noise-floor-degradation-budget",
+    "transmitter-filter-rejection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-reliable-insulation-applicability-scope",
+   "name": "e20-reliable-insulation-applicability-scope",
+   "description": "Use when determine which spacecraft electrical nets the reliable-insulation provisions of ECSS-E-ST-20C clause 4.2.1.2.2 actually cover: categorize each net into its family (power distribution, ordnance, high voltage, signal, bonding), admit the always-in-scope families outright, otherwise test the net against the hazardous-energy thresholds on voltage, prospective fault power and stored energy, fold in the failure-severity rank and whether the net is a single-point path, mark a net indeterminate when its data is missing, and list in-scope nets carrying no declared reliable insulation. Trigger: ecss, e-st-20-electrical-scope, reliable-insulation-scope, critical-net-selection, hazardous-energy-threshold, ordnance-firing-line, high-voltage-net, single-point-failure-net.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-reliable-insulation-applicability-scope",
+    "reliable-insulation-scope",
+    "critical-net-selection",
+    "hazardous-energy-threshold",
+    "ordnance-firing-line",
+    "single-point-failure-net"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-reliable-insulation-design-provisions",
+   "name": "e20-reliable-insulation-design-provisions",
+   "description": "Use when determine the dedicated insulation provisions an electrical line needs where it is exposed to meteoroid and debris impact or a comparable hazardous space environment under ECSS-E-ST-20C clause 4.2.1.2.3: categorize each exposure hazard acting on the line, derive the provision set that hazard demands and flag any provision not implemented, verify the line carries enough independent insulation barriers for a single-barrier failure to remain non-hazardous, evaluate the dielectric withstand margin of the insulation against the applied working voltage, size the impact protection areal density against the meteoroid screening requirement, and confirm the routing standoff from exposed external surfaces. Trigger: ecss, e-st-20-electrical-scope, reliable-insulation, meteoroid-damage-protection, redundant-insulation-barrier, atomic-oxygen-resistant-jacket, harness-routing-standoff, dielectric-withstand-margin, insulation-provision-review.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-reliable-insulation-design-provisions",
+    "reliable-insulation",
+    "meteoroid-damage-protection",
+    "redundant-insulation-barrier",
+    "harness-routing-standoff",
+    "dielectric-withstand-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-reliable-insulation-underlying-assumptions",
+   "name": "e20-reliable-insulation-underlying-assumptions",
+   "description": "Use when validate the background assumptions a reliable-insulation argument rests on under ECSS-E-ST-20C clause 4.2.1.2.1, the provision formerly termed double insulation: categorize each declared layer as basic, supplementary, reinforced or merely functional, confirm the layer set is admissible (two independent layers, or one reinforced layer), test the pair for the shared part, material or process that would defeat independence, check that the surviving layer alone withstands the full applied stress with margin, and screen the applied environment against the qualification envelope including the low-pressure corona band. Trigger: ecss, e-st-20-electrical-scope, reliable-insulation, double-insulation, insulation-layer-independence, common-cause-exclusion, dielectric-withstand-margin, corona-onset-pressure.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-reliable-insulation-underlying-assumptions",
+    "reliable-insulation",
+    "double-insulation",
+    "insulation-layer-independence",
+    "common-cause-exclusion",
+    "dielectric-withstand-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-signal-interface-compatibility",
+   "name": "e20-signal-interface-compatibility",
+   "description": "Use when verify that the electrical characteristics of a spacecraft signal interface are compatible end to end under ECSS-E-ST-20C clause 4.1.2: categorize each interface as a bi-level discrete, an analog measurement, a serial data line or a pulse command, compute the loaded signal voltage from the source open-circuit level and the source/load impedance divider, evaluate the resulting high and low noise margins against the receiver switching thresholds, confirm the load-to-source impedance ratio suits the interface family, and verify the source can supply the drive current the loaded interface demands. Trigger: ecss, e-st-20-electrical-scope, signal-interface-compatibility, source-impedance, load-impedance, signal-noise-margin, receiver-switching-threshold, drive-current-capability, impedance-matching.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-signal-interface-compatibility",
+    "signal-interface",
+    "source-impedance",
+    "load-impedance",
+    "signal-noise-margin",
+    "impedance-matching"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-solar-array-drive-current-capability",
+   "name": "e20-solar-array-drive-current-capability",
+   "description": "Use when verify that every conductor carrying solar array section output meets ECSS-E-ST-20C clause 5.5.4: take the applied current as the hot, near-sun short-circuit current of the section rather than its maximum-power current, categorize each element of the path as harness wire, connector pin or slip-ring contact, derate the catalogue rating of that element for conductor temperature against insulation rating, for bundle size and for vacuum operation, reduce a paralleled slip-ring set for imperfect current sharing and for the loss of one contact where redundancy is demanded, then report the current margin of every element and name the weakest link. Trigger: ecss, e-st-20-electrical-scope, solar-array-drive, slip-ring-contact-rating, connector-pin-current-rating, harness-wire-derating, short-circuit-current-sizing, current-sharing-imbalance, power-path-current-capability.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-solar-array-drive-current-capability",
+    "solar-array-drive",
+    "slip-ring-contact-rating",
+    "connector-pin-current-rating",
+    "harness-wire-derating",
+    "short-circuit-current-sizing",
+    "current-sharing-imbalance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-solar-array-power-computation",
+   "name": "e20-solar-array-power-computation",
+   "description": "Use when compute the predicted output of a spacecraft solar array under ECSS-E-ST-20C clause 5.5.3, basing the prediction on cell-level measurements taken per the photovoltaic assembly standard rather than on catalogue figures: validate each measured current-voltage record and the traceability of its provenance, derive the fill factor as a plausibility screen, correct the measured maximum-power point for operating temperature, solar distance and sun-incidence angle, apply particle-fluence, ultraviolet and coverglass retention, assemble series-parallel sections with string mismatch, interconnect, harness and blocking-diode losses, then compare predicted section power against the demand and report the shortfall. Trigger: ecss, e-st-20-electrical-scope, solar-array-power-prediction, cell-level-measurement, maximum-power-point, temperature-coefficient-correction, particle-fluence-retention, series-parallel-string, photovoltaic-assembly-traceability.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-solar-array-power-computation",
+    "solar-array-power-prediction",
+    "cell-level-measurement",
+    "maximum-power-point",
+    "temperature-coefficient-correction",
+    "particle-fluence-retention",
+    "photovoltaic-assembly-traceability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-solar-array-sizing-and-design",
+   "name": "e20-solar-array-sizing-and-design",
+   "description": "Use when size a spacecraft solar array against ECSS-E-ST-20C clause 5.5.2: walk every operational mission phase, categorize its illumination regime as continuous-sunlight, eclipse-cycling or dark-coast, derive the array power each phase demands from its sunlit load, its eclipse load and the battery recharge energy that must be returned inside the remaining sunlit time, degrade the reference cell power density for accumulated life, operating temperature and sun-incidence angle, then size the array area on the driving phase with a design margin and re-check the per-phase energy balance so no phase closes negative. Trigger: ecss, e-st-20-electrical-scope, solar-array-sizing, power-budget-closure, eclipse-recharge-energy, orbit-average-energy-balance, end-of-life-power-density, array-area-sizing, mission-phase-power-demand.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-solar-array-sizing-and-design",
+    "solar-array-sizing",
+    "power-budget-closure",
+    "eclipse-recharge-energy",
+    "orbit-average-energy-balance",
+    "end-of-life-power-density"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-solar-cell-and-array-qualification",
+   "name": "e20-solar-cell-and-array-qualification",
+   "description": "Use when derive the qualification route for a spacecraft photovoltaic assembly under ECSS-E-ST-20C clause 5.5.1: categorize each item as bare cell, coverglass, interconnect, protection diode, cell-coverglass assembly or panel, select full, delta or similarity qualification from its heritage and the environment envelope already covered, list the qualification tests that category owes and flag the ones absent from the programme, size the thermal-cycle count against mission eclipse cycles and the qualification fluence against the end-of-life particle dose, and roll the degradation factors into an end-of-life power check. Trigger: ecss, e-st-20c-clause-5-5-1, photovoltaic-assembly-qualification, solar-cell-qualification, coverglass-qualification, bypass-diode-qualification, thermal-cycling-qualification, radiation-fluence-margin, end-of-life-power-degradation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-solar-cell-and-array-qualification",
+    "photovoltaic-assembly-qualification",
+    "solar-cell-qualification",
+    "coverglass-qualification",
+    "bypass-diode-qualification",
+    "thermal-cycling-qualification",
+    "radiation-fluence-margin",
+    "end-of-life-power-degradation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-spacecraft-bus-single-failure-tolerance",
+   "name": "e20-spacecraft-bus-single-failure-tolerance",
+   "description": "Use when verify that a spacecraft electrical power chain survives any single fault without dropping below the power its minimum mission objectives need, under ECSS-E-ST-20C clause 5.7.2: categorize each unit failure mode and its redundancy scheme, sum the essential minimum-mission load demand, recompute the surviving bus capability with each branch failed in turn, report every non-redundant essential function, and check the stored energy carries the essential load across a cold-standby switchover outage. Trigger: ecss, e-st-20-electrical-scope, single-failure-tolerance, single-point-failure, power-chain-redundancy, cold-standby-reconfiguration, minimum-mission-power-demand, surviving-bus-capability, cross-strapped-power-branch.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-spacecraft-bus-single-failure-tolerance",
+    "single-failure-tolerance",
+    "single-point-failure",
+    "power-chain-redundancy",
+    "cold-standby-reconfiguration",
+    "minimum-mission-power-demand",
+    "surviving-bus-capability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-spacecraft-grounding-reference-concept",
+   "name": "e20-spacecraft-grounding-reference-concept",
+   "description": "Use when define and verify the controlled reference grounding concept of a spacecraft under ECSS-E-ST-20C clause 6.3.8.2: categorize every circuit as primary power, secondary power, sensitive analogue, digital signal, pyrotechnic firing or coaxial radio frequency, categorize every unit as a power source, power user, signal source, signal receiver or pyrotechnic initiator, decide whether the reference topology may remain single-point by comparing the longest return run against the wavelength at the highest circuit frequency, confirm each isolated power domain carries exactly one reference point, check unit-to-structure bonding and secondary-side isolation resistance, and size the common-impedance voltage a shared return path injects into a victim circuit. Trigger: ecss, e-st-20-electrical-scope, spacecraft-grounding-reference-concept, distributed-single-point-ground, structure-return-current, unit-bonding-resistance, common-impedance-coupling, grounding-topology-selection, secondary-side-isolation-resistance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-spacecraft-grounding-reference-concept",
+    "spacecraft-grounding-reference-concept",
+    "distributed-single-point-ground",
+    "structure-return-current",
+    "unit-bonding-resistance",
+    "common-impedance-coupling",
+    "secondary-side-isolation-resistance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-susceptible-payload-magnetic-limits",
+   "name": "e20-susceptible-payload-magnetic-limits",
+   "description": "Use when determine the maximum static magnetic field a direct-current-sensitive payload unit may be exposed to under ECSS-E-ST-20C clause 6.3.7.2: categorize the unit by how strongly a steady field degrades it, take the allowable static field at its reference point, convert every onboard source (permanent magnet, harness current loop, magnetorquer remanence, latching relay, soft-magnetic part) into an equivalent dipole moment, propagate each dipole to the unit along its axial or equatorial direction, combine the contributions worst-case or by root-sum-square, apply the required design margin, and solve the minimum separation distance a dominant source needs to respect the limit. Trigger: ecss, e-st-20c-clause-6-3-7-2, static-magnetic-field-limit, dc-magnetic-susceptibility, magnetic-dipole-moment, payload-magnetic-limit, magnetic-separation-distance, magnetic-source-inventory, magnetorquer-remanence.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-susceptible-payload-magnetic-limits",
+    "static-magnetic-field-limit",
+    "dc-magnetic-susceptibility",
+    "magnetic-dipole-moment",
+    "payload-magnetic-limit",
+    "magnetic-separation-distance",
+    "magnetorquer-remanence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-telemetry-monitoring-coverage",
+   "name": "e20-telemetry-monitoring-coverage",
+   "description": "Use when determine whether the telemetry set of a spacecraft subsystem or payload is sufficient to monitor it in flight under ECSS-E-ST-20C clause 4.1.4: categorize each parameter as housekeeping, discrete status, payload measurement or event diagnostic, compute the sampling rate its observed bandwidth demands and compare it with the rate actually allocated, verify that every parameter feeding an onboard limit check carries an ordered warning and alarm pair inside the sensor range, sum the resulting source bit rate against the downlink allocation, and flag any monitored function left without a parameter. Trigger: ecss, e-st-20-electrical-scope, telemetry-monitoring-coverage, housekeeping-telemetry, telemetry-sampling-rate, limit-checking, downlink-bit-rate, parameter-coverage-gap, onboard-monitoring.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-telemetry-monitoring-coverage",
+    "housekeeping-telemetry",
+    "telemetry-sampling-rate",
+    "limit-checking",
+    "downlink-bit-rate",
+    "onboard-monitoring"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-wired-connection-stress-relief",
+   "name": "e20-wired-connection-stress-relief",
+   "description": "Use when verify that a wired connection on space electrical hardware carries the strain-relief provisions of ECSS-E-ST-20C clause 4.2.5: categorize the relief fitted as restraining (clamp, backshell relief, tie to a support, potted transition) or non-restraining, compute the quasi-static inertial load the unsupported harness span imposes on the wire, compare it against the conductor tensile and termination pull-out allowables at the required margin, derive the clamp spacing that load permits, check the relief does not force the bundle inside its minimum bend radius, and flag a soldered joint left as the primary load path. Trigger: ecss, e-st-20-electrical-scope, wired-connection-stress-relief, harness-strain-relief, conductor-tensile-load, termination-pull-out-load, unsupported-span-limit, minimum-bend-radius, soldered-joint-load-path.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-wired-connection-stress-relief",
+    "harness-strain-relief",
+    "conductor-tensile-load",
+    "termination-pull-out-load",
+    "unsupported-span-limit",
+    "minimum-bend-radius"
    ],
    "family": "space-systems",
    "pack": "ecss",
