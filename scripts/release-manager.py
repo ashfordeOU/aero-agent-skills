@@ -111,11 +111,74 @@ def git_log_since_last_tag():
     return out.strip()
 
 
-def changelog_body():
-    leaves, m = leaf_count()
-    log = git_log_since_last_tag()
+def public_tree_state():
+    """(sha, metrics) for the PUBLIC repo's release branch, or (None, None).
+
+    Releases are cut on the public mirror, which lags the dev tree by up to
+    one publish cycle. Anything a release ASSERTS has to be read from here,
+    never from this working copy.
+    """
+    if not GH:
+        return None, None
+    import base64
+    r = subprocess.run([GH, "api", f"repos/{PUBLIC_REPO}/commits/main",
+                        "--jq", ".sha"], capture_output=True, text=True)
+    if r.returncode != 0:
+        return None, None
+    sha = r.stdout.strip()
+    r = subprocess.run(
+        [GH, "api", f"repos/{PUBLIC_REPO}/contents/docs/metrics.json?ref={sha}",
+         "--jq", ".content"], capture_output=True, text=True)
+    if r.returncode != 0:
+        return sha, None
+    try:
+        return sha, json.loads(base64.b64decode(r.stdout.strip()))
+    except Exception:
+        return sha, None
+
+
+def public_log_since(prev_tag, sha):
+    """Commit subjects on the PUBLIC repo between prev_tag and sha.
+
+    The dev tree's `git log` names lane bookkeeping commits that never reach
+    the mirror, so a release cut on the mirror must list the mirror's own
+    commits.
+    """
+    if not (GH and prev_tag and sha):
+        return ""
+    r = subprocess.run(
+        [GH, "api", f"repos/{PUBLIC_REPO}/compare/{prev_tag}...{sha}",
+         "--jq", r'.commits[] | "\(.sha[0:8]) \(.commit.message | split("\n")[0])"'],
+        capture_output=True, text=True)
+    if r.returncode != 0:
+        return ""
+    return "\n".join(reversed(r.stdout.strip().split("\n"))) if r.stdout.strip() else ""
+
+
+def previous_released_tag(tag):
+    """The milestone tag released immediately before `tag` (for the log range)."""
+    m = re.match(r"v1\.(\d+)\.0$", tag or "")
+    if not m:
+        return None
+    n = int(m.group(1))
+    return f"v1.{n - 1}.0" if n >= 1 else None
+
+
+def changelog_body(leaves=None, m=None, version=None, log=None):
+    """Release notes for ONE tree.
+
+    Every number here is an assertion about the artifact a user downloads,
+    so callers cutting a release pass the TAGGED tree's metrics and the
+    tag's own version. Defaults keep `--changelog` describing this working
+    copy. Regression guarded by test_release_notes_describe_tagged_tree.py.
+    """
+    if m is None:
+        leaves, m = leaf_count()
+    version = version or band_version(leaves)
+    if log is None:
+        log = git_log_since_last_tag()
     lines = []
-    lines.append(f"## Aero Agent Skills — {band_version(leaves)}")
+    lines.append(f"## Aero Agent Skills — {version}")
     lines.append("")
     lines.append(f"**{leaves} verified leaves · {m['live_packs']} packs · "
                  f"{m['families']} families · {m['corpus_tasks']} router tasks**")
@@ -287,6 +350,21 @@ def cut_release(dry: bool, auto: bool = False) -> int:
         return 0
 
     print(f"cut: {tag} is due ({completed} skills milestone, now {leaves})")
+
+    # The tag lands on the PUBLIC mirror's HEAD, so the mirror — not this
+    # working copy — decides whether the milestone has actually shipped.
+    # Cutting before it catches up produces a release whose notes and
+    # artifact disagree (v1.8.0: 830 leaves shipped, 926 claimed).
+    pub_sha, pub_metrics = public_tree_state()
+    pub_leaves = (pub_metrics or {}).get("leaves")
+    if pub_leaves is None:
+        print(f"cut: cannot read {PUBLIC_REPO} docs/metrics.json — refusing to "
+              f"cut {tag} against an unknown tree")
+        return 1
+    if pub_leaves < completed:
+        print(f"cut: {tag} due but {PUBLIC_REPO} is at {pub_leaves} leaves "
+              f"(needs {completed}) — waiting for the next publish")
+        return 0
     if auto and os.path.exists(HOLD_FILE):
         print(f"cut: HOLD — auto-release paused by {HOLD_FILE} (remove to resume)")
         return 0
@@ -307,9 +385,10 @@ def cut_release(dry: bool, auto: bool = False) -> int:
     with open(notes, "w", encoding="utf-8") as fh:
         fh.write(f"Milestone release: {completed} skills reached "
                  f"(convention: every 100 new skills = one minor bump).\n\n"
-                 f"{changelog_body()}\n")
+                 f"{changelog_body(pub_leaves, pub_metrics, tag[1:], log=public_log_since(previous_released_tag(tag), pub_sha))}\n")
     r = subprocess.run(
         [GH, "release", "create", tag, "-R", PUBLIC_REPO,
+         "--target", pub_sha,
          "--title", f"Aero Agent Skills {tag}",
          "--notes-file", notes],
         capture_output=True, text=True)
