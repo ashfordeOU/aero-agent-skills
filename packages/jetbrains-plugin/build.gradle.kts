@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.ashforde.aeroskills"
-version = "1.9.0"
+version = "1.11.0"
 
 repositories {
     mavenCentral()
