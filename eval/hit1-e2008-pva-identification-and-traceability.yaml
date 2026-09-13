@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-pva-identification-and-traceability (space-systems/ecss,
+# E-ST-20-08C 5.4.4). pit1 routes on marking the non-cell parts, pit2 on the
+# record keeping that carries the identity through production and back out
+# again. Both must deterministically hit
+# space-systems/ecss/e2008-pva-identification-and-traceability.
+tasks:
+  - id: pit1
+    query: "set up non-cell-component-traceability and photovoltaic-assembly-identification-marking for the coverglass adhesive and interconnector stock"
+    intent: "ecss photovoltaic assemblies; marking scheme for the non-cell components of an assembly"
+    expected_skill: "space-systems/ecss/e2008-pva-identification-and-traceability"
+  - id: pit2
+    query: "walk the production-route-identity-chain and resolve the suspect-lot-recall-scope from the lot-identifier-record-keeping"
+    intent: "ecss photovoltaic assemblies; production record keeping and forward lot traceability"
+    expected_skill: "space-systems/ecss/e2008-pva-identification-and-traceability"

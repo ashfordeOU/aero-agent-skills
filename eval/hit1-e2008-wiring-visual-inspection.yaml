@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-wiring-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. wvi1 routes on the faults excluded once
+# acceptance testing is complete; wvi2 routes on the minimum bend radius in
+# cable outer diameters. Both must deterministically hit
+# space-systems/ecss/e2008-wiring-visual-inspection.
+tasks:
+  - id: wvi1
+    query: "exclude the sharp bends twists and jacket creases found in the solar array harness after its acceptance testing was completed"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.12; post acceptance test wiring fault exclusion"
+    expected_skill: "space-systems/ecss/e2008-wiring-visual-inspection"
+  - id: wvi2
+    query: "check the measured harness bend radius against the minimum the shielded cable allows in its own outer diameters and grade the jacket chafe"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.12; cable bend radius and chafe assessment"
+    expected_skill: "space-systems/ecss/e2008-wiring-visual-inspection"

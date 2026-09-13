@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-adhesive-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. cga1 routes on the delamination allowance behind
+# the rear weld areas; cga2 routes on grading discoloured adhesive into a
+# transmission loss. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-adhesive-visual-inspection.
+tasks:
+  - id: cga1
+    query: "apply the rear weld area allowance to the coverglass adhesive delamination and count the spill against the bonded area"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.7; adhesive delamination with rear-weld allowance"
+    expected_skill: "space-systems/ecss/e2008-coverglass-adhesive-visual-inspection"
+  - id: cga2
+    query: "grade the discoloured coverglass adhesive over the active cell area into a transmission loss and disposition the bond line"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.7; adhesive discolouration grading"
+    expected_skill: "space-systems/ecss/e2008-coverglass-adhesive-visual-inspection"

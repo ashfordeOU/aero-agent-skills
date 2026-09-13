@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-esd-test-process (space-systems/ecss)
+# Two tasks for the new leaf. esd1 routes on the run conditions and the
+# defined bias settings of a coupon discharge test; esd2 routes on the
+# purpose-built instrumentation that has to capture the event. Both must
+# deterministically hit space-systems/ecss/e2008-esd-test-process.
+tasks:
+  - id: esd1
+    query: "check the coupon discharge test was run at the defined bias settings with the required stored energy on the external capacitance"
+    intent: "ECSS-E-ST-20-08C clause 5.5.1.5.3; solar-array coupon discharge test process"
+    expected_skill: "space-systems/ecss/e2008-esd-test-process"
+  - id: esd2
+    query: "verify the transient recorder resolution and current probe range of the purpose-built instrumentation for the solar array coupon discharge run"
+    intent: "ECSS-E-ST-20-08C clause 5.5.1.5.3; discharge-test instrumentation adequacy"
+    expected_skill: "space-systems/ecss/e2008-esd-test-process"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-pva-process-validation (space-systems/ecss)
+# Two tasks for the new leaf; pva1 routes on design-configuration coverage
+# before production release, pva2 routes on validation-run admissibility and
+# process-change supersession. Both must deterministically hit
+# space-systems/ecss/e2008-pva-process-validation.
+tasks:
+  - id: e2008pva1
+    query: "which photovoltaic assembly design configurations still lack pva process validation before the production release is permitted"
+    intent: "ecss photovoltaic; design-configuration coverage of process validation before production"
+    expected_skill: "space-systems/ecss/e2008-pva-process-validation"
+  - id: e2008pva2
+    query: "is this validation run admissible for the configuration or has a process-change supersession withdrawn it"
+    intent: "ecss photovoltaic; validation-run admissibility and process-change supersession"
+    expected_skill: "space-systems/ecss/e2008-pva-process-validation"

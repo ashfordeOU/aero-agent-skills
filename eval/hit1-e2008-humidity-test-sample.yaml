@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2008-humidity-test-sample (space-systems/ecss, E-ST-20-08C 5.5.1.4.3)
+# Two tasks per leaf; hts1 routes on the flight-equivalence of the specimen
+# materials, hts2 on the qualification window of the processes that built it.
+# Both must deterministically hit space-systems/ecss/e2008-humidity-test-sample.
+tasks:
+  - id: hts1
+    query: "grade the photovoltaic-humidity-test-specimen for flight-equivalent-materials by running a solar-panel-stackup-comparison and scoring coupon-representativeness"
+    intent: "ecss photovoltaic assemblies; specimen built from flight-equivalent materials"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-sample"
+  - id: hts2
+    query: "confirm every process that laid the humidity coupon sat inside its qualified-process-window and that the encapsulant-thickness-band was held"
+    intent: "ecss photovoltaic assemblies; qualified processes and thickness band for a humidity specimen"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-sample"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-dimensions-and-stay-out-zones (space-systems/ecss)
+# Two tasks for the new leaf. dsz1 routes on the dimensional tolerance band and
+# the governing dimension; dsz2 routes on keep-out intrusion, clearance and the
+# standoff footprint. Both must deterministically hit
+# space-systems/ecss/e2008-dimensions-and-stay-out-zones.
+tasks:
+  - id: dsz1
+    query: "place every measured coupon dimension inside its plus and minus drawing band and name the one that governs"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.4; coupon dimensional tolerance check"
+    expected_skill: "space-systems/ecss/e2008-dimensions-and-stay-out-zones"
+  - id: dsz2
+    query: "test each placed feature against every stay-out zone for shared area intrusion depth and shortest clearance"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.4; keep-out area intrusion and standoff footprint"
+    expected_skill: "space-systems/ecss/e2008-dimensions-and-stay-out-zones"

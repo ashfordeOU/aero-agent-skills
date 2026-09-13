@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-thermal-cycling-pass-fail-criteria (space-systems/ecss, E-ST-20-08C 5.5.1.3.5)
+# Two tasks per leaf; tpf1 routes on the continuity side of the acceptance
+# decision, tpf2 on corrected output-power retention. Both must
+# deterministically hit
+# space-systems/ecss/e2008-thermal-cycling-pass-fail-criteria.
+tasks:
+  - id: tpf1
+    query: "decide the solar-array-string-continuity result after cycling from the interconnect-resistance-drift and the discontinuity-event-count the monitor logged"
+    intent: "ecss photovoltaic assemblies; continuity acceptance criteria for a cycled coupon"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-pass-fail-criteria"
+  - id: tpf2
+    query: "correct the post-cycling-power-measurement to reference irradiance and cell temperature and check coupon-power-retention against the photovoltaic-coupon-acceptance-criteria"
+    intent: "ecss photovoltaic assemblies; power retention threshold after a cycling campaign"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-pass-fail-criteria"

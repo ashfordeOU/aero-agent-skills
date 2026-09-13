@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bus-bar-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. bbv1 routes on the not-tolerated bus bar
+# conditions and the residual isolation gap a bridging call turns into;
+# bbv2 routes on the clear fraction of an obstructed bus bar opening. Both
+# must deterministically hit space-systems/ecss/e2008-bus-bar-visual-inspection.
+tasks:
+  - id: bbv1
+    query: "decide whether the solder on the solar array bus bar has bridged the design gap between adjacent conductors or is only encroaching on the isolation minimum"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.11; bus bar solder bridging and isolation gap"
+    expected_skill: "space-systems/ecss/e2008-bus-bar-visual-inspection"
+  - id: bbv2
+    query: "disposition the obstructed opening in the bus bar against the fraction of the opening that stayed clear and the not tolerated defect list"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.11; blocked bus bar opening disposition"
+    expected_skill: "space-systems/ecss/e2008-bus-bar-visual-inspection"
