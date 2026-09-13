@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1187,
+  "leaves": 1262,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -14767,6 +14767,197 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-antenna-design-baseline-definition",
+   "name": "e20-antenna-design-baseline-definition",
+   "description": "Use when define the antenna design-baseline that has to be fixed early in the design cycle under ECSS-E-ST-20C clause 7.2.2.1: categorize the declared build into its antenna family (reflector, lens, array, horn, wire), confirm every mandatory element role of that family is present and that no element belongs to another family, check each selected technology is an admissible implementation of its element role and carries enough technology-readiness at the baseline-freeze review, verify the fixed performance-parameter set (frequency-band, peak-gain, half-power-beamwidth, axial-ratio, input-return-loss, polarization) is complete and inside its declared bounds, and flag anything still open at or after the freeze. Trigger: ecss, e-st-20-electrical-scope, e20-antenna-design-baseline-definition, antenna-design-baseline, antenna-family, radiating-element-set, technology-readiness-level, performance-parameter-set, baseline-freeze.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-design-baseline-definition",
+    "antenna-design-baseline",
+    "antenna-family",
+    "radiating-element-set",
+    "technology-readiness-level",
+    "performance-parameter-set",
+    "baseline-freeze"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-engineering-process-steps",
+   "name": "e20-antenna-engineering-process-steps",
+   "description": "Use when structure the antenna engineering steps of ECSS-E-ST-20C clause 7.2.1.2.2, from mission-transmission-reception-analysis through to the antenna design decision: validate that a step is entered only once its predecessors are complete and its entry data is on record, derive the antenna-gain that the required-effective-isotropic-radiated-power leaves after transmitter output and feeder-loss, turn the coverage footprint at the orbit altitude into an edge-of-coverage half-angle, convert that into the half-power-beamwidth and directivity the radiation pattern must hold, select the antenna concept the beamwidth and the beam count imply, and report which step the project may enter next. Trigger: ecss, e-st-20-electrical-scope, e20-antenna-engineering-process-steps, antenna-engineering-sequence, mission-transmission-reception-analysis, coverage-half-angle-derivation, half-power-beamwidth-derivation, antenna-concept-selection.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-engineering-process-steps",
+    "antenna-engineering-sequence",
+    "mission-transmission-reception-analysis",
+    "coverage-half-angle-derivation",
+    "half-power-beamwidth-derivation",
+    "antenna-concept-selection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-failure-rate-agreement",
+   "name": "e20-antenna-failure-rate-agreement",
+   "description": "Use when determine whether a spacecraft antenna retained without redundancy is a single-point-failure item under ECSS-E-ST-20C clause 7.2.1.3, and whether its failure-rate is agreed with the customer, specified in the requirement-baseline and demonstrated by evidence: categorize the redundancy-scheme (none, cold-standby, hot-standby, cross-strapped), confirm a numeric failure-rate in failures-per-billion-hours is on record, check that the demonstrated failure-rate does not exceed the specified value, grade the demonstration evidence (test, in-orbit-heritage, similarity, analysis), and propagate the series-reliability of every retained single-point-failure antenna against the mission reliability-allocation. Trigger: ecss, e-st-20-electrical-scope, e20-antenna-failure-rate-agreement, single-point-failure, antenna-failure-rate, failure-rate-demonstration, reliability-allocation, redundancy-scheme, customer-agreement, failures-per-billion-hours.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-failure-rate-agreement",
+    "single-point-failure",
+    "antenna-failure-rate",
+    "failure-rate-demonstration",
+    "reliability-allocation",
+    "redundancy-scheme"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-guided-wave-interfaces",
+   "name": "e20-antenna-guided-wave-interfaces",
+   "description": "Use when verify the guided-wave interfaces on an antenna port under ECSS-E-ST-20C clause 7.2.3.1: categorize each port as a coaxial-connector or a waveguide-flange, convert the declared voltage-standing-wave-ratio into reflection-coefficient, return-loss and mismatch-loss, check the operating-frequency against the rectangular-waveguide cutoff-frequency and single-mode-band or against the coaxial higher-order-mode-onset and characteristic-impedance tolerance, derate the interface rf-power-rating for vacuum and hot-case-temperature, raise the applied peak rf-power by the standing-wave-enhancement, and confirm the power-handling-margin reaches the required value. Trigger: ecss, e-st-20-electrical-scope, antenna-port-interface, waveguide-flange, coaxial-connector, impedance-match, voltage-standing-wave-ratio, rf-power-handling, higher-order-mode-onset, waveguide-cutoff-frequency.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-guided-wave-interfaces",
+    "antenna-port-interface",
+    "waveguide-flange",
+    "coaxial-connector",
+    "impedance-match",
+    "voltage-standing-wave-ratio",
+    "rf-power-handling",
+    "higher-order-mode-onset"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-performance-parameter-set",
+   "name": "e20-antenna-performance-parameter-set",
+   "description": "Use when determine the antenna characterisation parameter-set demanded by ECSS-E-ST-20C clause 7.2.2.5: confirm every mandatory radiative parameter is declared for the antenna-function at hand, sort each declared entry into its beam-coverage, directivity-and-antenna-gain, polarisation-purity, boresight-pointing or port-matching family, derive directivity from the half-power-beamwidth pair, convert directivity into antenna-gain through radiation-efficiency, translate axial-ratio into cross-polar-discrimination, root-sum-square the boresight-pointing-error contributors against the allowable, and judge each declared value against its specified bound. Trigger: ecss, e-st-20-electrical-scope, antenna-characterisation, antenna-parameter-set, half-power-beamwidth, axial-ratio, cross-polar-discrimination, boresight-pointing-error, radiation-efficiency, edge-of-coverage-level.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-performance-parameter-set",
+    "antenna-characterisation",
+    "antenna-parameter-set",
+    "half-power-beamwidth",
+    "axial-ratio",
+    "cross-polar-discrimination",
+    "boresight-pointing-error",
+    "edge-of-coverage-level"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-radiative-interfaces",
+   "name": "e20-antenna-radiative-interfaces",
+   "description": "Use when evaluate the radiative interaction between an antenna and its surrounding spacecraft-structure under ECSS-E-ST-20C clause 7.2.3.2, from phase B onward: place each appendage (solar-array-wing, thermal-radiator, deployable-boom, neighbouring radiating-port) in the reactive-near-field, radiating-near-field or far-field zone, categorize its interaction-path as main-beam-blockage, near-field-coupling, side-lobe-scattering or port-to-port-coupling, convert the item radar-cross-section and the antenna-gain toward it into a re-radiated level, turn that level into peak pattern-ripple and a boresight-pointing-perturbation, and compare every figure against the declared allowable. Trigger: ecss, e-st-20-electrical-scope, antenna-structure-interaction, main-beam-blockage, near-field-coupling, side-lobe-scattering, port-to-port-isolation, pattern-ripple, radar-cross-section, appendage-scattering.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-radiative-interfaces",
+    "antenna-structure-interaction",
+    "main-beam-blockage",
+    "near-field-coupling",
+    "side-lobe-scattering",
+    "port-to-port-isolation",
+    "pattern-ripple",
+    "appendage-scattering"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-requirement-verification",
+   "name": "e20-antenna-requirement-verification",
+   "description": "Use when verify the antenna engineering provisions of ECSS-E-ST-20C clause 7.2.4: assign each antenna requirement a verification method its characteristic can actually evidence, check the planned closure gate is neither earlier than that method can physically close nor later than the gate the antenna category is held to, confirm every closed requirement names a well-formed antenna verification record and every waived one carries a reference and a rationale, and compute the verification-coverage fraction against the agreed threshold before the antenna data package is presented. Trigger: ecss, e-st-20-electrical-scope, antenna-requirement-verification, antenna-verification-matrix, radiation-pattern-verification, antenna-review-gate-closure, antenna-verification-record, guided-wave-interface-verification.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-requirement-verification",
+    "antenna-verification-matrix",
+    "radiation-pattern-verification",
+    "antenna-review-gate-closure",
+    "antenna-verification-record",
+    "guided-wave-interface-verification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-rf-chain-characterisation",
+   "name": "e20-antenna-rf-chain-characterisation",
+   "description": "Use when evaluate the feed-chain of a spacecraft antenna as a circuit in its own right under ECSS-E-ST-20C clause 7.2.2.3.5: categorize every stage as a waveguide-run, filter, diplexer, orthomode-transducer, rotary-joint, directional-coupler, polariser or switch, sum the cascaded-insertion-loss against its allocation, refer each stage dissipation back through the Friis cascade into a chain noise temperature, turn the stage return losses into adjacent-interface mismatch ripple and a worst-case input-port-standing-wave-ratio, walk the forward power down a transmit chain for its rf-power-handling-margin, combine the stage delay ripples, and charge the receive figure-of-merit penalty the chain costs the antenna. Trigger: ecss, e-st-20c-clause-7-2-2-3-5, antenna-feed-chain-characterisation, cascaded-insertion-loss-budget, friis-noise-temperature-cascade, interface-mismatch-ripple, input-port-standing-wave-ratio, rf-power-handling-margin, group-delay-ripple-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-rf-chain-characterisation",
+    "antenna-feed-chain-characterisation",
+    "cascaded-insertion-loss-budget",
+    "friis-noise-temperature-cascade",
+    "interface-mismatch-ripple",
+    "input-port-standing-wave-ratio",
+    "rf-power-handling-margin",
+    "group-delay-ripple-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-support-structure-scattering",
+   "name": "e20-antenna-support-structure-scattering",
+   "description": "Use when compute the support-structure-scattering assessment of ECSS-E-ST-20C clause 7.2.2.3.6: categorize every feed-support-strut, subreflector tripod-leg and rim-fitting by the field-region it intercepts, separate plane-wave-scattering in the collimated aperture-field from spherical-wave-scattering in the diverging feed-wave and from rim edge-diffraction, magnify each feed-region shadow onto the reflector, sum the projected aperture-blockage-area, derive the blockage-efficiency antenna-gain-loss, predict the scattered side-lobe-level and split it into co-polar and cross-polar shares from the strut-tilt, and judge each figure against the declared allowable. Trigger: ecss, e-st-20-electrical-scope, support-structure-scattering, feed-support-strut, aperture-blockage, plane-wave-scattering, spherical-wave-scattering, edge-diffraction, side-lobe-degradation, reflector-antenna-blockage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-support-structure-scattering",
+    "support-structure-scattering",
+    "feed-support-strut",
+    "aperture-blockage",
+    "plane-wave-scattering",
+    "spherical-wave-scattering",
+    "edge-diffraction",
+    "reflector-antenna-blockage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-antenna-terminology-definitions",
+   "name": "e20-antenna-terminology-definitions",
+   "description": "Use when verify that one recognised source of antenna terminology governs every project document under ECSS-E-ST-20C clause 7.2.1.2.1: confirm exactly one terminology-source is declared and that it is a recognised vocabulary, resolve each term used in a specification, drawing or report against the canonical-term registry, rewrite a deprecated-synonym onto its canonical form, flag an uncategorized term and a term whose defining vocabulary differs from the declared one, check each project-glossary entry for a unit or a source that contradicts the canonical definition, then take the terminology-conformance-ratio across documents and hold it against the project threshold. Trigger: ecss, e-st-20-electrical-scope, e20-antenna-terminology-definitions, antenna-terminology-source, canonical-term-registry, deprecated-synonym-mapping, project-glossary-conformance, cross-document-term-consistency.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-antenna-terminology-definitions",
+    "antenna-terminology-source",
+    "canonical-term-registry",
+    "deprecated-synonym-mapping",
+    "project-glossary-conformance",
+    "cross-document-term-consistency"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-arc-discharge-performance-recovery",
    "name": "e20-arc-discharge-performance-recovery",
    "description": "Use when judge whether a spacecraft function interrupted by an electrostatic arc returns to its specified performance under ECSS-E-ST-20C clause 6.3.4.3: categorize the event as a self-extinguishing primary discharge or a power-fed sustained secondary arc, derive the outage from arc onset to restored service and check it against the allowance the function holds, compare every post-arc parameter against its specified level in the correct direction of merit, quantify the residual shortfall that never comes back, and reject a recovery that depends on a ground loop slower than the permitted outage. Trigger: ecss, e-st-20c-clause-6-3-4-3, arc-discharge-recovery, electrostatic-discharge-outage, sustained-secondary-arc, post-arc-performance-recovery, autonomous-recovery-latency, residual-performance-shortfall.",
@@ -14780,6 +14971,46 @@
     "post-arc-performance-recovery",
     "autonomous-recovery-latency",
     "residual-performance-shortfall"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-array-element-mutual-coupling",
+   "name": "e20-array-element-mutual-coupling",
+   "description": "Use when compute the element-to-element mutual-coupling of a spacecraft phased-array antenna under ECSS-E-ST-20C clause 7.2.2.2.3: build the pair coupling matrix from the lattice spacing in wavelengths and the E-plane, H-plane or diagonal pair orientation, categorize every pair as strong, moderate, weak or negligible, combine the commanded element excitations with that matrix into the active-reflection-coefficient and active-standing-wave-ratio of each radiator, sweep the scan volume for a scan-blindness angle, turn the coupling-induced excitation departure into an aperture-efficiency-loss and a sidelobe-level-penalty, and grade every result against the coupling allocation while keeping edge radiators separate from the lattice interior. Trigger: ecss, e-st-20c-clause-7-2-2-2-3, array-element-mutual-coupling, element-coupling-matrix, active-reflection-coefficient, active-standing-wave-ratio, scan-blindness-screening, embedded-element-pattern, coupling-induced-excitation-error.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-array-element-mutual-coupling",
+    "array-element-mutual-coupling",
+    "element-coupling-matrix",
+    "active-reflection-coefficient",
+    "active-standing-wave-ratio",
+    "scan-blindness-screening",
+    "embedded-element-pattern",
+    "coupling-induced-excitation-error"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-array-fed-reflector-antennas",
+   "name": "e20-array-fed-reflector-antennas",
+   "description": "Use when verify that an array-fed reflector antenna satisfies both provision families of ECSS-E-ST-20C clause 7.2.2.2.4 at once: confirm the dossier declares and verifies a reflector provision and a radiating-array provision, categorize each beam as single-feed-per-beam or multiple-feed-per-beam, turn the reflector profile error into a ruze-surface-efficiency, trade the feed-cluster edge-taper between illumination and spillover, fold in the feed-cluster excitation efficiency, convert a laterally displaced feed into a beam-deviation-factor, a beam squint and an offset in beamwidths, charge the resulting scan-loss and beam-forming-network loss, and grade every realized beam gain against its requirement. Trigger: ecss, e-st-20c-clause-7-2-2-2-4, array-fed-reflector-antenna, dual-provision-coverage, feed-cluster-illumination, ruze-surface-efficiency, beam-deviation-factor, multiple-feed-per-beam, beam-scan-loss-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-array-fed-reflector-antennas",
+    "array-fed-reflector-antenna",
+    "dual-provision-coverage",
+    "feed-cluster-illumination",
+    "ruze-surface-efficiency",
+    "beam-deviation-factor",
+    "multiple-feed-per-beam",
+    "beam-scan-loss-budget"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -14916,6 +15147,45 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-battery-user-manual-contents",
+   "name": "e20-battery-user-manual-contents",
+   "description": "Use when verify that a battery-user-manual carries the content required by the ECSS-E-ST-20C Annex D data-requirement: check each mandated chapter (cell-and-battery identification, operating-envelope, charge-and-discharge-control, ground-handling-and-storage, safety-and-hazard-precautions, life-and-degradation-data, transport-and-shipping), reject an uncategorized chapter, prove the declared operating-envelope is self-consistent and that the charge-termination-voltage sits inside it, check the storage state-of-charge and storage-temperature against the chemistry band, and confirm the cycle-life and calendar-life entries cover the mission duty-profile. Trigger: ecss, e-st-20-electrical-scope, battery-user-manual, charge-termination-voltage, state-of-charge-storage, depth-of-discharge-limit, cell-balancing-procedure, thermal-runaway-precaution, annex-d-data-requirement.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-battery-user-manual-contents",
+    "battery-user-manual",
+    "charge-termination-voltage",
+    "state-of-charge-storage",
+    "depth-of-discharge-limit",
+    "cell-balancing-procedure",
+    "annex-d-data-requirement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-beam-forming-network-characterisation",
+   "name": "e20-beam-forming-network-characterisation",
+   "description": "Use when compute the independent circuit characterisation of a spacecraft antenna beam-forming-network under ECSS-E-ST-20C clause 7.2.2.3.4: categorize the network topology as corporate, series, matrix or switched, turn commanded element excitations plus per-path insertion-loss, amplitude-error and phase-error entries into the realized element excitations, separate that departure into a linear phase-gradient that shifts the boresight and a residual scatter that costs aperture-efficiency, add the quantisation floor of a digital phase-shifter, sum the dissipative insertion-loss chain against its allocation, and recombine the element reflections coherently into an input-port-match. Trigger: ecss, e-st-20c-clause-7-2-2-3-4, beam-forming-network-characterisation, element-excitation-error-budget, phase-shifter-quantisation-loss, ruze-gain-loss, beam-pointing-shift, insertion-loss-allocation, input-port-match.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-beam-forming-network-characterisation",
+    "beam-forming-network-characterisation",
+    "element-excitation-error-budget",
+    "phase-shifter-quantisation-loss",
+    "ruze-gain-loss",
+    "beam-pointing-shift",
+    "insertion-loss-allocation",
+    "input-port-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-bus-voltage-excursion-robustness",
    "name": "e20-bus-voltage-excursion-robustness",
    "description": "Use when verify that a spacecraft electrical subsystem stays robust when a protection device clears a fault and when the primary bus voltage leaves its normal band, under ECSS-E-ST-20C clause 5.7.4: categorize each protection device, check its rating against the derated steady current and the fault current available to clear it, compare the let-through energy with the harness withstand and with the downstream device for coordination, categorize each bus excursion by magnitude and duration, and report equipment outside its declared ride-through envelope. Trigger: ecss, e-st-20-electrical-scope, bus-voltage-excursion, fuse-blowing-robustness, fuse-let-through-i2t, protection-selectivity, primary-bus-undervoltage, primary-bus-overvoltage, equipment-ride-through-envelope.",
@@ -15028,6 +15298,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-composite-antenna-surface-finish",
+   "name": "e20-composite-antenna-surface-finish",
+   "description": "Use when assess how the surface finish of a composite antenna part changes its radiating performance under ECSS-E-ST-20C clause 7.2.2.4.2: categorize the radiating face as a bare woven-carbon face, a resin-rich face, a metallized face or a coating carried over metallization, convert the root-mean-square surface error into the Ruze aperture-efficiency loss at the operating wavelength, derive the ohmic reflection loss from the sheet resistance of the conducting face, add the loss of incomplete metallization coverage and the two-way absorption of the coating, and check the summed gain-degradation against the allocation the antenna-gain-budget holds. Trigger: ecss, e-st-20c-clause-7-2-2-4-2, composite-antenna-surface-finish, ruze-surface-error-loss, sheet-resistance-ohmic-loss, metallization-coverage-loss, coating-absorption-loss, antenna-gain-degradation-allocation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-composite-antenna-surface-finish",
+    "composite-antenna-surface-finish",
+    "ruze-surface-error-loss",
+    "sheet-resistance-ohmic-loss",
+    "metallization-coverage-loss",
+    "coating-absorption-loss",
+    "antenna-gain-degradation-allocation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-converter-control-loop-stability",
    "name": "e20-converter-control-loop-stability",
    "description": "Use when evaluate the closed-loop stability of a spacecraft power converter or regulator under ECSS-E-ST-20C clause 5.7.5: categorize the loop as a switching converter, a linear regulator or a bus control loop, set the phase-margin and gain-margin targets that category carries unless the project requirement overrides them, enumerate the worst-case corner set from the temperature, input-voltage and load extremes, build the open-loop frequency response from the direct-current gain, poles, zeros, any right-half-plane zero and the modulator transport delay, locate the gain- and phase-crossover frequencies, and confirm every corner holds both margins rather than the nominal point alone. Trigger: ecss, e-st-20c-clause-5-7-5, converter-control-loop-stability, phase-margin-target, gain-margin-target, gain-crossover-frequency, phase-crossover-frequency, worst-case-corner-stability, closed-loop-regulator-margin.",
@@ -15041,6 +15330,81 @@
     "gain-crossover-frequency",
     "worst-case-corner-stability",
     "closed-loop-regulator-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-corona-design-and-verification",
+   "name": "e20-corona-design-and-verification",
+   "description": "Use when design radio-frequency chain hardware against corona onset and verify it with the margin-allowance the evidence in hand actually earns, under ECSS-E-ST-20C clause 7.3.3.2: convert an onset voltage into a corona-onset-power, raise the applied peak voltage for the standing-wave mismatch the item presents, state the headroom between them as a corona-margin, categorize the route as flight-standard-test, representative-model-test, numerical-analysis or heritage-similarity, apply the allowance that route earns, and reject a relaxed allowance with no agreement on record, a null result taken without a seed-electron-source, and a pressure sweep that never crossed the critical band. Trigger: ecss, e-st-20-electrical-scope, corona-design-and-verification, corona-onset-voltage, corona-margin-allowance, seed-electron-source, discharge-detection-method, verification-route-category, critical-pressure-sweep.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-corona-design-and-verification",
+    "corona-onset-voltage",
+    "corona-margin-allowance",
+    "seed-electron-source",
+    "discharge-detection-method",
+    "verification-route-category",
+    "critical-pressure-sweep"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-critical-intermodulation-product-identification",
+   "name": "e20-critical-intermodulation-product-identification",
+   "description": "Use when identify which intermodulation products of a transmit carrier-plan fall inside a sensitive receive-band or a protected-band under ECSS-E-ST-20C clause 7.4.3: enumerate the integer coefficient sets of every carrier combination up to the declared maximum intermodulation-order, compute each product frequency, drop the non-physical and the mirrored-duplicate sets, test every surviving frequency against the victim band edges widened by the guard-band, rank the hits by intermodulation-order and by frequency-margin, and report the lowest critical order that drives the hardware design and the verification campaign. Trigger: ecss, e-st-20-electrical-scope, intermodulation-product, passive-intermodulation, protected-band, receive-band-overlap, mixing-product-frequency, intermodulation-order, guard-band.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-critical-intermodulation-product-identification",
+    "intermodulation-product",
+    "passive-intermodulation",
+    "protected-band",
+    "receive-band-overlap",
+    "mixing-product-frequency",
+    "intermodulation-order",
+    "guard-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-detailed-emc-verification-requirements",
+   "name": "e20-detailed-emc-verification-requirements",
+   "description": "Use when perform an electromagnetic compatibility verification run against the detailed requirement it references under ECSS-E-ST-20C clause 6.4.3: resolve that reference and flag a run citing a requirement the applicable set does not hold, compare the swept segments with the frequency range the procedure fixes and list the sub-bands nobody swept, hold the frequency step inside the share of the measurement-bandwidth allowed, divide each segment dwell over its frequency points and accumulate the sweep total against the minimum, keep the ambient-background the demanded separation below the limit-line, and settle every level as compliant, non-compliant or inconclusive once the measurement-uncertainty is applied. Trigger: ecss, e-st-20-electrical-scope, detailed-emc-verification-requirements, referenced-verification-procedure, swept-frequency-coverage-gap, measurement-bandwidth-step-fraction, sweep-dwell-accumulation, ambient-background-separation, measurement-uncertainty-disposition.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-detailed-emc-verification-requirements",
+    "detailed-emc-verification-requirements",
+    "referenced-verification-procedure",
+    "swept-frequency-coverage-gap",
+    "measurement-bandwidth-step-fraction",
+    "measurement-uncertainty-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-eed-circuit-safety-margin-demonstration",
+   "name": "e20-eed-circuit-safety-margin-demonstration",
+   "description": "Use when verify the interference-safety-margin demonstrated for a critical circuit or an electro-explosive-device firing circuit under ECSS-E-ST-20C clause 6.4.2: read the separation the circuit category demands off the programme ladder, de-rate the declared no-fire-threshold to the demonstration value, convert an induced-current or an induced-radio-frequency-level onto the decibel scale with the field-quantity or energy-quantity law the measurement obeys, refuse paper-only evidence where the firing-circuit demands instrumented measurement on flight-representative hardware, confirm every mandated operating-condition was exercised, and report the governing worst-case-condition with the separation it showed. Trigger: ecss, e-st-20-electrical-scope, eed-circuit-safety-margin-demonstration, electro-explosive-device-firing-circuit, no-fire-threshold-derating, bridgewire-no-fire-power, instrumented-margin-evidence, mandated-operating-condition-coverage, governing-worst-case-condition.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-eed-circuit-safety-margin-demonstration",
+    "eed-circuit-safety-margin-demonstration",
+    "electro-explosive-device-firing-circuit",
+    "no-fire-threshold-derating",
+    "instrumented-margin-evidence",
+    "mandated-operating-condition-coverage"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15194,6 +15558,43 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-electromagnetic-effects-verification-plan",
+   "name": "e20-electromagnetic-effects-verification-plan",
+   "description": "Use when assess whether a verification plan closes every electromagnetic effects requirement the way the ECSS-E-ST-20C Annex B data-requirement expects: categorize each requirement by kind (radiated-emission, conducted-susceptibility, electrostatic-discharge, electrical-bonding-resistance, grounding-architecture, magnetic-moment-limit), check the assigned method -- verification-by-test, verification-by-analysis, verification-by-similarity, verification-by-review-of-design, verification-by-inspection -- can close that kind and names the evidence it needs, hold each activity at or above the requirement's integration level, and sum the declared coverage shares to a full requirement. Trigger: ecss, e-st-20-electrical-scope, e20-electromagnetic-effects-verification-plan, verification-method-admissibility, verification-coverage-share, integration-level-adequacy, electromagnetic-effects-requirement, method-evidence-record.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electromagnetic-effects-verification-plan",
+    "verification-method-admissibility",
+    "verification-coverage-share",
+    "integration-level-adequacy",
+    "electromagnetic-effects-requirement",
+    "method-evidence-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-electromagnetic-effects-verification-report",
+   "name": "e20-electromagnetic-effects-verification-report",
+   "description": "Use when audit an electromagnetic-effects verification report against the ECSS-E-ST-20C Annex C data-requirement: categorize every verification activity into its electromagnetic family (conducted-emission, radiated-emission, conducted-susceptibility, radiated-susceptibility, electrostatic-discharge-immunity, magnetic-moment, bonding-and-isolation), recompute the demonstrated-margin from the applicable-limit and the measured-level in the correct sense, grade each demonstrated-margin against the required-margin, register every deviation with a disposition and demand a waiver-reference where one is claimed, and refuse a report whose mandated sections or mandated activity coverage are incomplete. Trigger: ecss, e-st-20-electrical-scope, electromagnetic-effects-verification-report, demonstrated-margin, deviation-register, radiated-emission-limit, conducted-susceptibility-level, magnetic-moment-characterisation, annex-c-data-requirement.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-electromagnetic-effects-verification-report",
+    "electromagnetic-effects-verification-report",
+    "demonstrated-margin",
+    "deviation-register",
+    "radiated-emission-limit",
+    "conducted-susceptibility-level",
+    "annex-c-data-requirement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-electromagnetic-interference-safety-margins",
    "name": "e20-electromagnetic-interference-safety-margins",
    "description": "Use when determine the electromagnetic interference safety margins at the critical points of a spacecraft electrical design under ECSS-E-ST-20C clause 6.3.1.3: categorize each critical point as an ordnance firing circuit or as a safety-critical, mission-critical or non-critical function, read off the separation that category demands, normalise the demonstrated susceptibility threshold and the observed interference level onto one scale, compute the separation in decibels with the amplitude or power law the measured quantity requires, confirm every mandatory operating condition was exercised, and report the governing worst-case condition together with its margin. Trigger: ecss, e-st-20c-clause-6-3-1-3, interference-safety-margin, susceptibility-threshold, emi-critical-circuit, ordnance-firing-circuit-margin, worst-case-operating-condition, emc-margin-demonstration.",
@@ -15226,6 +15627,24 @@
     "thruster-inadvertent-actuation",
     "incident-power-density",
     "minimum-safe-separation-distance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-emc-control-plan-contents",
+   "name": "e20-emc-control-plan-contents",
+   "description": "Use when verify that an electromagnetic-compatibility control plan carries the content ECSS-E-ST-20C Annex A calls for: check every content block is declared and non-empty, confirm the organisation block names the compatibility owner, its reporting path and its control-board interface, categorize each register entry by interference mechanism and control measure and reject a measure that does not act on the coupling path it claims to control, power-sum the emitter levels behind each victim and compare the resulting margin against the required one, and hold every milestone far enough ahead of the review it anchors to. Trigger: ecss, e-st-20-electrical-scope, e20-emc-control-plan-contents, emc-control-plan-content-blocks, control-measure-register, electromagnetic-budget-margin, grounding-and-bonding-scheme, interference-coupling-path, control-plan-milestone-lead.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-emc-control-plan-contents",
+    "emc-control-plan-content-blocks",
+    "control-measure-register",
+    "electromagnetic-budget-margin",
+    "grounding-and-bonding-scheme",
+    "control-plan-milestone-lead"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15265,6 +15684,24 @@
     "radiated-susceptibility-threshold",
     "shielding-effectiveness-requirement",
     "electrostatic-discharge-immunity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-emc-verification-plan-and-report",
+   "name": "e20-emc-verification-plan-and-report",
+   "description": "Use when prepare and check the paired electromagnetic compatibility verification plan and verification report a supplier owes under ECSS-E-ST-20C clause 6.4.1: confirm each document declares the content its own mandatory section set demands, trace every planned verification activity into a report entry and reject an orphan entry no plan activity foresaw, hold the plan issue date far enough ahead of the first activity and the report issue date after the last one and inside the review data-package date, close a non-compliant activity through a named repeat run or an accepted deviation record, and sum the declared requirement-set shares of the closed activities against the coverage the programme demands. Trigger: ecss, e-st-20-electrical-scope, emc-verification-plan-and-report, verification-plan-report-pairing, emc-verification-activity-traceability, verification-report-issue-lead, non-compliance-deviation-closure, requirement-set-coverage-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-emc-verification-plan-and-report",
+    "emc-verification-plan-and-report",
+    "verification-plan-report-pairing",
+    "emc-verification-activity-traceability",
+    "verification-report-issue-lead",
+    "requirement-set-coverage-share"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15325,6 +15762,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-gas-discharge-general-requirements",
+   "name": "e20-gas-discharge-general-requirements",
+   "description": "Use when verify that a radio-frequency chain stays free of corona and gas discharge at its maximum-operating-power across the whole declared environment envelope under ECSS-E-ST-20C clause 7.3.3.1: build the peak-envelope-power the item really carries from its carrier set, mismatch uplift and tolerance stack, categorize every mission phase into its ambient-pressure regime, locate the worst-case pressure inside each declared band instead of assuming an edge, scale the measured discharge-onset-power to that pressure and gap, express the headroom as a discharge-margin, and flag an envelope that leaves a required phase unexercised. Trigger: ecss, e-st-20-electrical-scope, gas-discharge-general-requirements, gas-discharge-freedom, maximum-operating-power-envelope, peak-envelope-power, discharge-onset-power, worst-case-pressure-band, environment-envelope-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-gas-discharge-general-requirements",
+    "gas-discharge-freedom",
+    "maximum-operating-power-envelope",
+    "peak-envelope-power",
+    "discharge-onset-power",
+    "worst-case-pressure-band",
+    "environment-envelope-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-harness-mechanical-load-exclusion",
    "name": "e20-harness-mechanical-load-exclusion",
    "description": "Use when verify that a spacecraft harness is routed so the wiring never carries structural or mechanical load under ECSS-E-ST-20C clause 5.8.2: categorize each attachment as a restraint or a load-path misuse, compute the transverse load per metre a bundle sees under quasi-static launch acceleration, derive the span tension and sag from the installed slack, check that tension against the bundle allowable and that sag against the clearance to neighbouring hardware, size the service loop a crossing of a moving or thermally displacing interface needs so the bundle never goes taut, and confirm no connector backshell reacts the weight of an unsupported bundle. Trigger: ecss, e-st-20-electrical-scope, harness-mechanical-load-exclusion, harness-routing-rules, clamp-spacing-rule, bundle-span-tension, service-loop-slack, connector-strain-relief, quasi-static-launch-acceleration, harness-bend-radius.",
@@ -15363,6 +15819,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-inclusive-and-exclusive-category-use",
+   "name": "e20-inclusive-and-exclusive-category-use",
+   "description": "Use when determine which requirements of a standard apply to one product while tailoring by product type, per ECSS-E-ST-20C clause 8.2: read each requirement's applicability category, treat an exclusive requirement as applicable only to the product types it names and an inclusive requirement as applicable to every product type it does not except, resolve a product carrying several type roles by union, reject a catalogue entry whose category and product-type list contradict each other, and build the pre-tailoring-matrix column with a deletion rationale recorded against every requirement dropped and an approved deviation behind every applicable requirement deleted anyway. Trigger: ecss, e-st-20-electrical-scope, exclusive-requirement-category, inclusive-requirement-category, applicability-matrix, pre-tailoring-matrix, product-type-role, deletion-rationale, requirement-tailoring.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-inclusive-and-exclusive-category-use",
+    "exclusive-requirement-category",
+    "inclusive-requirement-category",
+    "pre-tailoring-matrix",
+    "product-type-role",
+    "requirement-tailoring"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-interference-critical-point-list",
    "name": "e20-interference-critical-point-list",
    "description": "Use when derive and submit for customer approval the list of points at which electromagnetic interference margin is demonstrated, as ECSS-E-ST-20C clause 6.3.1.2 requires: select a candidate point for every safety-critical and mission-critical victim circuit on each distinct coupling path, validate each point's frequency band and mandatory record fields, merge the point bands to expose any uncovered stretch of the project's electromagnetic spectrum span, and track whether the assembled list reached the customer and carries a dated approval. Trigger: ecss, e-st-20-electrical-scope, interference-critical-point-list, emi-margin-demonstration-point, coupling-path-selection, frequency-band-coverage-gap, customer-approval-record, emc-critical-point-submission.",
@@ -15375,6 +15849,25 @@
     "coupling-path-selection",
     "frequency-band-coverage-gap",
     "customer-approval-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-intermodulation-verification-testing",
+   "name": "e20-intermodulation-verification-testing",
+   "description": "Use when verify by measurement that the intermodulation products of a unit stay inside the agreed acceptance-level under ECSS-E-ST-20C clause 7.4.4: take the lowest critical intermodulation-order as the product to measure, check the two-carrier-test-configuration (carrier-power, carrier frequencies, measurement-bandwidth, dwell) against the flight carrier-plan, confirm the measurement-system residual sits the required headroom below the acceptance-level so a reading means something, add the measurement-uncertainty to every reading, and categorize each run as pass, fail, uncertainty-limited or instrument-limited. Trigger: ecss, e-st-20-electrical-scope, passive-intermodulation, two-carrier-measurement, measurement-system-residual, lowest-intermodulation-order, pim-acceptance-level, measurement-uncertainty.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-intermodulation-verification-testing",
+    "passive-intermodulation",
+    "two-carrier-measurement",
+    "measurement-system-residual",
+    "lowest-intermodulation-order",
+    "pim-acceptance-level",
+    "measurement-uncertainty"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15400,6 +15893,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-lens-material-properties",
+   "name": "e20-lens-material-properties",
+   "description": "Use when compute the reflective and transmissive behaviour of a lens-antenna dielectric material and the resulting antenna impact under ECSS-E-ST-20C clause 7.2.2.3.3: categorize the lens material as a low-loss-thermoplastic, dielectric-foam, ceramic-dielectric or artificial-dielectric, read its relative-permittivity and loss-tangent, compute the air-to-dielectric interface-reflectance at the illuminated and exit faces, design or check a quarter-wave matching-layer, turn the loss-tangent and the ray-path-length into a dielectric-absorption-loss, convert a permittivity-tolerance into a lens-aperture-phase-error and its gain-loss, translate the reflected wave into a feed-return-loss, and compare the summed lens-loss against its allocation. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-7-2-2-3-3, lens-material-properties, relative-permittivity, dielectric-loss-tangent, quarter-wave-matching-layer, dielectric-absorption-loss, lens-aperture-phase-error.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-lens-material-properties",
+    "relative-permittivity",
+    "dielectric-loss-tangent",
+    "quarter-wave-matching-layer",
+    "dielectric-absorption-loss",
+    "lens-aperture-phase-error",
+    "feed-return-loss"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-lightning-protection-requirements",
    "name": "e20-lightning-protection-requirements",
    "description": "Use when verify that a space system withstands direct and indirect lightning effects under ECSS-E-ST-20C clause 6.3.2.4 without performance degradation: categorize each coupling mechanism as a direct attachment effect or an indirect induced effect, assign every external region its lightning attachment zone, confirm the zone provisions and the adiabatic conductor cross-section carry the stroke action integral, build the induced bundle transient from its inductive and resistive coupling terms, compare that level against the equipment transient design level as a decibel separation, and record every function whose performance degrades or needs intervention to recover. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-6-3-2-4, lightning-protection-requirements, direct-lightning-effect, indirect-lightning-effect, lightning-attachment-zone, lightning-induced-transient, transient-design-level-margin, stroke-action-integral.",
@@ -15413,6 +15925,25 @@
     "lightning-induced-transient",
     "transient-design-level-margin",
     "stroke-action-integral"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-metal-antenna-intermodulation",
+   "name": "e20-metal-antenna-intermodulation",
+   "description": "Use when compute the passive intermodulation a metal based antenna generates under ECSS-E-ST-20C clause 7.2.2.4.1 and the performance consequence it carries: categorize every metal junction on the radiating path as a loose contact, a pressure joint, a ferromagnetic plating, an oxidised or contaminated face or a benign welded interface, enumerate the intermodulation products of the transmit carrier set with their coefficient vector, order and frequency, isolate the products landing inside a receive band, scale each one from the measured reference level by its per-carrier order, carry it through the transmit-to-receive isolation, and check the receiver-noise-floor degradation against the allowance that band holds. Trigger: ecss, e-st-20c-clause-7-2-2-4-1, passive-intermodulation-product, metal-antenna-junction-nonlinearity, intermodulation-product-order, receive-band-fall-in, pim-reference-level-scaling, receiver-noise-floor-degradation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-metal-antenna-intermodulation",
+    "passive-intermodulation-product",
+    "metal-antenna-junction-nonlinearity",
+    "intermodulation-product-order",
+    "receive-band-fall-in",
+    "pim-reference-level-scaling",
+    "receiver-noise-floor-degradation"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15438,6 +15969,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-passive-intermodulation-acceptance-levels",
+   "name": "e20-passive-intermodulation-acceptance-levels",
+   "description": "Use when determine the passive-intermodulation interference a development may present to a victim receive-chain under ECSS-E-ST-20C clause 7.4.2 and agree it with the customer: convert each victim band's receiver-noise-floor and permitted interference-to-noise-ratio into a tolerable interference level, refer that level to the transmit antenna port through the antenna-port-isolation, subtract the measurement-uncertainty and the design-margin, reconcile the supplier-proposed level against the customer-required level, and bind the agreed level to the carrier-plan (carrier count, carrier-power, carrier frequencies) it was derived for. Trigger: ecss, e-st-20-electrical-scope, passive-intermodulation, pim-acceptance-level, customer-agreed-interference, receiver-noise-floor, interference-to-noise-ratio, antenna-port-isolation, carrier-plan.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-passive-intermodulation-acceptance-levels",
+    "passive-intermodulation",
+    "pim-acceptance-level",
+    "customer-agreed-interference",
+    "receiver-noise-floor",
+    "interference-to-noise-ratio",
+    "antenna-port-isolation",
+    "carrier-plan"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-passive-intermodulation-qualification",
+   "name": "e20-passive-intermodulation-qualification",
+   "description": "Use when verify that every passive-intermodulation product raised by a spacecraft transmit carrier-plan stays under its allowable level inside an own receive-band or a third-party protected-band, per ECSS-E-ST-20C clause 7.4.5: enumerate the mixing products of the carrier-plan up to a chosen order, keep the ones whose frequency lands inside a protected-band, predict each product level from a measured passive-intermodulation reference using the per-carrier order coefficients and the order roll-off, compare it against the band interference-limit, and derive the qualification carrier-level and dwell-duration that envelope the flight carrier-plan. Trigger: ecss, e-st-20-electrical-scope, passive-intermodulation, intermodulation-product, receive-band-protection, protected-band-interference, carrier-plan, pim-qualification-level, order-coefficient.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-passive-intermodulation-qualification",
+    "passive-intermodulation",
+    "intermodulation-product",
+    "receive-band-protection",
+    "carrier-plan",
+    "pim-qualification-level"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-payload-bus-interaction-verification",
    "name": "e20-payload-bus-interaction-verification",
    "description": "Use when verify how a payload interacts with the spacecraft primary power bus under ECSS-E-ST-20C clause 5.7.6: categorize each campaign case as an inrush case, an undervoltage case or an agreed failure case, confirm it carries the mandatory case fields, compute the peak inrush current and the time it spends above the protection threshold against the trip delay, derive the transient bus sag from the load step, the bus capacitance and the control bandwidth and check it against the bus lower limit and the payload undervoltage lockout, size the fault current and the protection clearing time against the containment requirement, and report coverage of the three families. Trigger: ecss, e-st-20c-clause-5-7-6, payload-bus-interaction-verification, inrush-current-limiting, undervoltage-transient-sag, agreed-failure-case, protection-trip-delay, payload-undervoltage-lockout, primary-bus-load-step.",
@@ -15451,6 +16020,44 @@
     "agreed-failure-case",
     "protection-trip-delay",
     "payload-undervoltage-lockout"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-plastic-antenna-dielectric-losses",
+   "name": "e20-plastic-antenna-dielectric-losses",
+   "description": "Use when compute the dielectric loss that plastic parts add in the radio-frequency-power-path of a spacecraft antenna under ECSS-E-ST-20C clause 7.2.2.4.3: categorize each part as a radome, a lens, a matching layer, a waveguide window, a feed-support insulator or a structural item sitting outside the field, derive the attenuation constant from the relative permittivity and loss-tangent at the operating frequency, stretch the refracted path by the incidence angle, cascade the insertion-loss of the chain against the allocated radio-frequency-path budget, convert each dissipated fraction into a temperature rise through the part thermal-resistance, and reject a part driven past its maximum-use-temperature. Trigger: ecss, e-st-20c-clause-7-2-2-4-3, plastic-part-dielectric-loss, loss-tangent-attenuation, radome-insertion-loss, dielectric-interface-mismatch, dissipated-radio-frequency-heating, maximum-use-temperature-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-plastic-antenna-dielectric-losses",
+    "plastic-part-dielectric-loss",
+    "loss-tangent-attenuation",
+    "radome-insertion-loss",
+    "dielectric-interface-mismatch",
+    "dissipated-radio-frequency-heating",
+    "maximum-use-temperature-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-and-discharge-qualification",
+   "name": "e20-power-and-discharge-qualification",
+   "description": "Use when plan or audit a qualification approach that has to close radio-frequency power-handling-capability and gas-discharge-behaviour together, under ECSS-E-ST-20C clause 7.3.4: derive the qualification-power-level from maximum-operating-power and the agreed overstress-factor, categorize the evidence route behind each axis and refuse a non-standalone route with nothing supporting it, check the dwell reaches thermal steady state at the hot case, confirm the pressure sweep crossed the whole critical band instead of sitting in vacuum, insist both axes close on one hardware-standard, and determine which axes a later design change reopens. Trigger: ecss, e-st-20-electrical-scope, power-and-discharge-qualification, qualification-power-level, qualification-overstress-factor, power-handling-capability, gas-discharge-behaviour, delta-qualification-trigger, hardware-standard-consistency.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-and-discharge-qualification",
+    "qualification-power-level",
+    "qualification-overstress-factor",
+    "power-handling-capability",
+    "gas-discharge-behaviour",
+    "delta-qualification-trigger",
+    "hardware-standard-consistency"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15506,6 +16113,24 @@
     "worst-case-power-condition",
     "end-of-life-power-margin",
     "power-verification-review-point"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-power-handling-design-and-verification",
+   "name": "e20-power-handling-design-and-verification",
+   "description": "Use when compute the required design level of each radio-frequency chain element and judge the evidence offered for it, under ECSS-E-ST-20C clause 7.3.2.2: resolve the agreed power-handling margin from the element category and from how its capability is substantiated, raise the maximum operating radio-frequency power by that margin to obtain the required design level, check the declared design capability reaches it, then check the substantiation actually demonstrates it - an applied level and a dwell for verification-by-test, a correlated model for verification-by-analysis, a heritage reference and a delta-environment statement for verification-by-similarity. Trigger: ecss, e-st-20-electrical-scope, rf-power-handling-design, agreed-power-handling-margin, required-design-level, elevated-level-substantiation, rf-chain-element-capability, heritage-delta-environment.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-power-handling-design-and-verification",
+    "rf-power-handling-design",
+    "agreed-power-handling-margin",
+    "required-design-level",
+    "elevated-level-substantiation",
+    "heritage-delta-environment"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15605,6 +16230,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-product-type-pre-tailoring-matrix",
+   "name": "e20-product-type-pre-tailoring-matrix",
+   "description": "Use when determine which ECSS-E-ST-20C electrical engineering provision groups reach a deliverable before any project-specific tailoring runs, under the clause 8.3 pre-tailoring matrix: categorize each item as an equipment-unit, a subsystem, a payload or a launcher-stage, resolve its declared feature set (solar-array-generator, electrochemical-energy-store, radio-frequency-transmitter, electro-explosive-device, high-voltage-assembly, harness-and-cable-network, magnetically-quiet-item), derive the disposition each provision group holds for that pairing, admit a downgrade only against a written justification and a named approval authority, and prove no matrix cell is left undeclared. Trigger: ecss, e-st-20-electrical-scope, e20-product-type-pre-tailoring-matrix, product-type-pre-tailoring, pre-tailoring-disposition-matrix, provision-group-applicability, launcher-stage-product-type, feature-driven-applicability, tailoring-downgrade-justification.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-product-type-pre-tailoring-matrix",
+    "product-type-pre-tailoring",
+    "pre-tailoring-disposition-matrix",
+    "provision-group-applicability",
+    "launcher-stage-product-type",
+    "feature-driven-applicability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-protected-frequency-band-emissions",
    "name": "e20-protected-frequency-band-emissions",
    "description": "Use when verify that the emissions of a spacecraft transmitter stay inside the limits protecting radiometric and communication bands under ECSS-E-ST-20C clause 6.3.2.3: categorize each protected band by the service it carries, build the emission set from the carrier, its harmonic series and every declared spurious product, work out how much of each emission falls inside each band from its spectral overlap and its power spectral density, sum the contributions band by band, compare each total against the limit that service carries, and confirm the harmonic sweep reaches the order the applicable radio standard expects. Trigger: ecss, e-st-20c-clause-6-3-2-3, protected-frequency-band, radio-astronomy-band-protection, passive-radiometry-band, spurious-emission-limit, harmonic-emission-suppression, in-band-power-summation, spacecraft-receive-band-protection.",
@@ -15624,6 +16267,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-radiating-element-characterisation",
+   "name": "e20-radiating-element-characterisation",
+   "description": "Use when determine whether an isolated radiating-element characterisation is adequate to feed a whole-antenna-performance-prediction under ECSS-E-ST-20C clause 7.2.2.3.1: categorize the element as an aperture-type, resonant-printed or travelling-wave radiator, check the characterisation record carries every quantity its family needs, convert aperture area and aperture-efficiency into isolated directivity, subtract mismatch-loss and dissipative-loss to reach realised element-gain, fit the cosine-q element-pattern from a measured half-power-beamwidth, verify cross-polar-discrimination and phase-centre-defocus against their limits, and decide when element-mutual-coupling forces an embedded-element-pattern instead. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-7-2-2-3-1, radiating-element-characterisation, isolated-element-pattern, embedded-element-pattern, cross-polar-discrimination, element-phase-centre, aperture-efficiency, realised-element-gain.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-radiating-element-characterisation",
+    "isolated-element-pattern",
+    "embedded-element-pattern",
+    "cross-polar-discrimination",
+    "element-phase-centre",
+    "aperture-efficiency",
+    "realised-element-gain"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-radio-frequency-compatibility",
    "name": "e20-radio-frequency-compatibility",
    "description": "Use when verify that every antenna-connected unit on a spacecraft coexists with the rest of the vehicle against the mission performance criteria of ECSS-E-ST-20C clause 6.3.6: categorize each unit as transmitter, receiver or transceiver, propagate transmit power to a victim input through antenna-to-antenna isolation and front-end rejection, generate the intermodulation products of every emitter pair and report those landing inside the victim receive band, check the interference margin against the victim susceptibility threshold, and convert the summed coupled power into a noise-floor rise judged against the mission budget. Trigger: ecss, e-st-20c-clause-6-3-6, radio-frequency-compatibility, antenna-to-antenna-isolation, intermodulation-product-screening, receiver-susceptibility-threshold, noise-floor-degradation-budget, transmitter-filter-rejection.",
@@ -15637,6 +16299,62 @@
     "receiver-susceptibility-threshold",
     "noise-floor-degradation-budget",
     "transmitter-filter-rejection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-radio-frequency-systems-overview",
+   "name": "e20-radio-frequency-systems-overview",
+   "description": "Use when compute and cross-check the radio-frequency chain introduced by ECSS-E-ST-20C clause 7.1: place every element into transmitter-chain, receiver-chain, antenna or transmission-line and confirm no family is left unpopulated, derive effective-isotropic-radiated-power from transmitter output, feeder-loss and antenna-gain, add free-space-path-loss over the slant-range at the carrier frequency, convert the voltage-standing-wave-ratio of each guided-wave interface into mismatch-loss, form the receiver figure-of-merit and the carrier-to-noise-density it yields, then compare that against the density the data-rate and the required-energy-per-bit demand before declaring the link-margin. Trigger: ecss, e-st-20-electrical-scope, e20-radio-frequency-systems-overview, radio-frequency-chain, transmitter-receiver-chain, transmission-line-mismatch, free-space-path-loss, carrier-to-noise-density, link-margin-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-radio-frequency-systems-overview",
+    "radio-frequency-chain",
+    "transmitter-receiver-chain",
+    "transmission-line-mismatch",
+    "free-space-path-loss",
+    "carrier-to-noise-density",
+    "link-margin-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-reflector-and-lens-antennas",
+   "name": "e20-reflector-and-lens-antennas",
+   "description": "Use when compute the dissipative loss, depolarisation and diffusivity of a reflecting or transmitting antenna surface under ECSS-E-ST-20C clause 7.2.2.2.2: categorize each surface as reflecting-surface (metal-reflector, mesh-reflector, grid-polariser) or transmitting-surface (dielectric-lens, radome-wall, dichroic-panel), derive conductor-loss from the surface-resistance at the operating frequency or dielectric-loss from wall-thickness, permittivity and loss-tangent, convert rms-surface-roughness into a specular-efficiency and a diffuse-scattered fraction, combine depolarisation contributions into a cross-polar-discrimination and an axial-ratio, then check the summed surface-loss-budget, diffusivity and cross-polar-discrimination against the antenna requirement. Trigger: ecss, e-st-20-electrical-scope, reflector-and-lens-antennas, reflecting-surface, transmitting-surface, cross-polar-discrimination, diffuse-scattering, surface-roughness-efficiency, dielectric-loss-tangent, conductor-surface-resistance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-reflector-and-lens-antennas",
+    "reflecting-surface",
+    "transmitting-surface",
+    "cross-polar-discrimination",
+    "diffuse-scattering",
+    "surface-roughness-efficiency"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-reflector-material-properties",
+   "name": "e20-reflector-material-properties",
+   "description": "Use when compute the reflective behaviour of a reflector-antenna surface material or composite laminate and the resulting antenna impact under ECSS-E-ST-20C clause 7.2.2.3.2: categorize the reflecting surface as a metallic sheet, metallised composite, metallised membrane, bare-carbon-composite or knitted-metal-mesh, derive the skin-depth and confirm any metallisation is thick enough to stop through-coating leakage, turn the material conductivity into a radio-frequency surface-resistance and an ohmic-reflection-loss, model mesh-leakage from the cell-opening and the wire-radius, convert thermoelastic distortion into a surface-rms-error and its Ruze gain-loss, and compare the summed reflector-efficiency-loss against its allocation. Trigger: ecss, e-st-20-electrical-scope, e-st-20c-clause-7-2-2-3-2, reflector-material-properties, reflector-surface-resistance, ohmic-reflection-loss, knitted-metal-mesh-leakage, metallisation-skin-depth, ruze-surface-error-loss.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-reflector-material-properties",
+    "reflector-surface-resistance",
+    "ohmic-reflection-loss",
+    "knitted-metal-mesh-leakage",
+    "metallisation-skin-depth",
+    "ruze-surface-error-loss",
+    "reflector-efficiency-loss"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15691,6 +16409,42 @@
     "insulation-layer-independence",
     "common-cause-exclusion",
     "dielectric-withstand-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-rf-power-and-intermodulation-verification",
+   "name": "e20-rf-power-and-intermodulation-verification",
+   "description": "Use when evaluate the verification provisions that close out radio-frequency power-handling and intermodulation requirements under ECSS-E-ST-20C clause 7.5: check that each provision carries an admissible verification-method, that a similarity claim is backed by a heritage reference and a bounded design-delta, that the demonstrated level covers the nominal carrier-level plus the qualification-margin required for that method, that every item is allocated to a review-gate and closed by the time that gate is held, and that a verification-plan and a verification-report reference exist before the gate is declared passed. Trigger: ecss, e-st-20-electrical-scope, rf-power-handling, intermodulation-verification, verification-method-admissibility, review-gate-closure, qualification-margin-demonstration, verification-plan-and-report, heritage-similarity.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-rf-power-and-intermodulation-verification",
+    "rf-power-handling",
+    "intermodulation-verification",
+    "review-gate-closure",
+    "qualification-margin-demonstration",
+    "heritage-similarity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e20-rf-power-handling-general-requirements",
+   "name": "e20-rf-power-handling-general-requirements",
+   "description": "Use when determine whether every element of a spacecraft radio-frequency chain sustains the maximum operating radio-frequency power it actually sees in vacuum without damage, under ECSS-E-ST-20C clause 7.3.2.1: derive the average and peak-envelope drive from the carrier set, propagate both through the insertion-loss budget of each waveguide-run, filter, switch and antenna-feed, derate any capability substantiated only in ambient air and vented to vacuum, then compare a thermally-limited element against the average and a voltage-breakdown-limited element against the peak envelope. Trigger: ecss, e-st-20-electrical-scope, rf-power-handling, maximum-operating-rf-power, rf-chain-element-rating, peak-envelope-power, vacuum-power-derating, multi-carrier-rf-chain.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-rf-power-handling-general-requirements",
+    "rf-power-handling",
+    "maximum-operating-rf-power",
+    "rf-chain-element-rating",
+    "peak-envelope-power",
+    "vacuum-power-derating"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -15848,6 +16602,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e20-telemetry-and-data-antenna-patterns",
+   "name": "e20-telemetry-and-data-antenna-patterns",
+   "description": "Use when characterize the radiation-pattern of a spacecraft telecommand or telemetry-and-data antenna, including scattering from nearby structures, under ECSS-E-ST-20C clause 7.2.2.2.1: validate the angular-sampling of each pattern cut, categorize every nearby structure as blockage, scattering or negligible from its size in wavelengths and whether it obscures the boresight path, apply the worst-case blockage attenuation and scattering ripple to the free-space cut, compute the installed worst-case gain inside the required coverage-cone and the solid-angle-weighted coverage-fraction above the threshold-gain, and report each shortfall against the link requirement. Trigger: ecss, e-st-20-electrical-scope, e20-telemetry-and-data-antenna-patterns, radiation-pattern, telecommand-antenna, structure-scattering, coverage-cone, angular-sampling, blockage-attenuation, low-gain-antenna.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e20-telemetry-and-data-antenna-patterns",
+    "radiation-pattern",
+    "telecommand-antenna",
+    "structure-scattering",
+    "coverage-cone",
+    "angular-sampling",
+    "blockage-attenuation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e20-telemetry-monitoring-coverage",
    "name": "e20-telemetry-monitoring-coverage",
    "description": "Use when determine whether the telemetry set of a spacecraft subsystem or payload is sufficient to monitor it in flight under ECSS-E-ST-20C clause 4.1.4: categorize each parameter as housekeeping, discrete status, payload measurement or event diagnostic, compute the sampling rate its observed bandwidth demands and compare it with the rate actually allocated, verify that every parameter feeding an onboard limit check carries an ordered warning and alarm pair inside the sensor range, sum the resulting source bit rate against the downlink allocation, and flag any monitored function left without a parameter. Trigger: ecss, e-st-20-electrical-scope, telemetry-monitoring-coverage, housekeeping-telemetry, telemetry-sampling-rate, limit-checking, downlink-bit-rate, parameter-coverage-gap, onboard-monitoring.",
@@ -15878,6 +16651,640 @@
     "termination-pull-out-load",
     "unsupported-span-limit",
     "minimum-bend-radius"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-analysis-frequency-selection",
+   "name": "e2001-analysis-frequency-selection",
+   "description": "Use when compute the worst-case in-band frequency for the multipaction design-analysis of an RF component under ECSS-E-ST-20-01C clause 5.3.1: sweep the operating band, form the frequency-gap product of the critical gap at each candidate frequency, interpolate the surface susceptibility-curve for the breakdown-voltage threshold, convert that threshold into a breakdown-power through the local characteristic-impedance and the voltage-magnification factor, then keep the frequency giving the lowest breakdown-power and compare its achieved multipaction-margin in dB with the required value. Refuses a frequency-gap product outside the tabulated curve and flags a candidate set that samples the band edges only. Trigger: ecss, e-st-20-01c, multipaction-design-analysis, frequency-gap-product, breakdown-voltage-threshold, breakdown-power, susceptibility-curve, worst-case-frequency, voltage-magnification, multipaction-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-analysis-frequency-selection",
+    "multipaction",
+    "frequency-gap-product",
+    "breakdown-power",
+    "susceptibility-curve",
+    "voltage-magnification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-analysis-level-one-requirements",
+   "name": "e2001-analysis-level-one-requirements",
+   "description": "Use when determine whether the first, simpler multipaction analysis level of ECSS-E-ST-20-01C clause 5.3.2.2.1 may be used for a component and what that level then demands: check the chart-covered canonical gap-geometry, the field-homogeneity ratio across the critical gap, a charted surface-material, the absence of dielectric-loading, a single-dominant-mode region and a frequency-gap product inside the charted span; escalate to the second level on any failing criterion, otherwise derive the worst-case gap from the dimensional tolerance-stack, read the charted breakdown-voltage threshold there, and report the achieved margin plus any missing evidence item. Trigger: ecss, e-st-20-01c, multipaction-first-analysis-level, level-escalation, canonical-gap-geometry, field-homogeneity-ratio, tolerance-stack-gap, charted-threshold, secondary-emission-chart.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-analysis-level-one-requirements",
+    "multipaction",
+    "first-analysis-level",
+    "canonical-gap-geometry",
+    "field-homogeneity-ratio",
+    "tolerance-stack-gap",
+    "charted-threshold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-analysis-level-two-requirements",
+   "name": "e2001-analysis-level-two-requirements",
+   "description": "Use when determine which radio-frequency equipment items escalate to the second multipactor-analysis-level of ECSS-E-ST-20-01C clause 5.3.2.3.1 instead of staying with the first-level susceptibility-chart lookup: categorize each item against its equipment-type profile, form the frequency-gap-product of its narrowest multipactor-gap and check the validated chart-band, evaluate the peak-to-mean field-uniformity-ratio, and read the first-level margin-outcome. Any driver - geometry no parallel-plate-chart represents, an out-of-band frequency-gap-product, field-non-uniformity above the uniformity-limit, a first-level margin-shortfall - escalates the item, while a dielectric-exposed equipment-type routes instead to a seeded multipactor-test because the tracked-electron model carries no surface-charging path. Trigger: ecss, e-st-20-electrical-scope, second-analysis-level, multipactor-analysis-level, frequency-gap-product, equipment-type-eligibility, parallel-plate-chart-band, field-uniformity-ratio.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-analysis-level-two-requirements",
+    "second-analysis-level",
+    "multipactor-analysis-level",
+    "frequency-gap-product",
+    "equipment-type-eligibility",
+    "field-uniformity-ratio"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-analysis-margin-strategy",
+   "name": "e2001-analysis-margin-strategy",
+   "description": "Use when derive the multipaction margin-strategy of ECSS-E-ST-20-01C clause 5.3.3.1 from the data actually in hand: categorize the dimension-basis as measured-hardware, tolerance-worst-case or nominal-design and the secondary-emission basis as surface-measured, material-measured or generic-literature, take the smallest credible gap and a bounding-yield-curve wherever a basis is weak, build up the required multipaction-margin in decibel from those two shortfalls and the failure-consequence, then compare the achieved multipaction-margin and name the measurement that would retire the largest increment. Trigger: ecss, e-st-20-electrical-scope, multipaction-margin-strategy, dimensional-data-basis, yield-data-basis, tolerance-worst-case-gap, bounding-yield-curve, margin-build-up, as-built-gap-measurement.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-analysis-margin-strategy",
+    "multipaction-margin-strategy",
+    "dimensional-data-basis",
+    "yield-data-basis",
+    "tolerance-worst-case-gap",
+    "bounding-yield-curve",
+    "margin-build-up",
+    "as-built-gap-measurement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-analysis-technique-validation",
+   "name": "e2001-analysis-technique-validation",
+   "description": "Use when validate the multipaction analysis-technique and its software under ECSS-E-ST-20-01C clause 5.3.2.4 before any predicted breakdown-level is used as evidence: categorize each evidence-record as demonstrable-heritage or measured-correlation, check a heritage-record for the same tool-build, a comparable configuration and a prior multipaction-test confrontation, check a correlation-record point by point for prediction-deviation inside the declared agreement-criterion in decibel, assemble the validated applicability-envelope in frequency-gap-product, geometry-family and electrode-material, then confirm every analysis-case falls inside it. Trigger: ecss, e-st-20-electrical-scope, analysis-technique-validation, demonstrable-heritage, measured-correlation, agreement-criterion, applicability-envelope, frequency-gap-product, prediction-deviation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-analysis-technique-validation",
+    "analysis-technique-validation",
+    "demonstrable-heritage",
+    "measured-correlation",
+    "agreement-criterion",
+    "applicability-envelope",
+    "frequency-gap-product",
+    "prediction-deviation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-design-analysis-general-requirements",
+   "name": "e2001-design-analysis-general-requirements",
+   "description": "Use when determine which equipment the multipaction design-analysis of ECSS-E-ST-20-01C clause 5.3.2.1 applies to and what coverage each carrier case demands: categorize every transmit-chain item by equipment-type, route a vacuum-exposed RF region to the multipaction case and a sealed pressurised region to the gas-discharge case, derive the coherent peak-envelope power of a multicarrier set, screen out an item whose peak gap-voltage cannot reach the lowest breakdown-voltage threshold, then compare the demanded single-carrier and multicarrier coverage against what the design file declares and flag every gap in either direction. Trigger: ecss, e-st-20-01c, multipaction-design-analysis, equipment-type-categorisation, single-carrier-case, multicarrier-case, peak-envelope-power, gap-voltage-screening, coverage-gap.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-design-analysis-general-requirements",
+    "multipaction",
+    "equipment-type-categorisation",
+    "single-carrier-case",
+    "multicarrier-case",
+    "peak-envelope-power"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-dimensional-accuracy-and-stability",
+   "name": "e2001-dimensional-accuracy-and-stability",
+   "description": "Use when derive the worst-case gap dimension of a multipactor-critical radio-frequency gap under ECSS-E-ST-20-01C clause 5.3.3.2: categorize every dimensional contribution as manufacturing-accuracy (machining-tolerance, assembly-tolerance, plating-thickness-variation) or in-service-dimensional-stability (thermo-elastic-expansion, launch-induced-permanent-set, material-creep, moisture-release-shrinkage), stack them arithmetically for a true worst-case bound or root-sum-square for independent random terms while systematic terms stay linear, bound the gap between its smallest and largest in-service value, reject a stack-up that closes the electrode gap, and map the resulting frequency-gap-product interval onto the susceptibility-chart band. Trigger: ecss, e-st-20-electrical-scope, worst-case-gap-dimension, manufacturing-accuracy, in-service-dimensional-stability, tolerance-stack-up, thermo-elastic-expansion, frequency-gap-product, multipactor-critical-gap.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-dimensional-accuracy-and-stability",
+    "worst-case-gap-dimension",
+    "manufacturing-accuracy",
+    "in-service-dimensional-stability",
+    "tolerance-stack-up",
+    "thermo-elastic-expansion",
+    "frequency-gap-product"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-electromagnetic-field-analysis",
+   "name": "e2001-electromagnetic-field-analysis",
+   "description": "Use when analyse the internal electromagnetic-field distribution of ECSS-E-ST-20-01C clause 5.2 inside a radio-frequency item before any worst-case multipactor-threshold is established: categorize the model against the recognized field-solver list, validate its mesh-convergence evidence and its frequency-sampling density across the operating band, scale each region's reference peak-field to the operating carrier-power by the square-root-power law, convert it through the field-uniformity-factor into an equivalent gap-voltage, then select the governing region together with every region inside the closeness band and refuse a threshold claim resting on an unconverged or under-sampled model. Trigger: ecss, e-st-20-electrical-scope, internal-field-analysis, field-solver-convergence, frequency-sampling-density, gap-voltage-derivation, field-uniformity-factor, peak-field-location, worst-case-multipactor-threshold.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-electromagnetic-field-analysis",
+    "internal-field-analysis",
+    "field-solver-convergence",
+    "frequency-sampling-density",
+    "gap-voltage-derivation",
+    "field-uniformity-factor",
+    "worst-case-multipactor-threshold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-equipment-type-categorisation",
+   "name": "e2001-equipment-type-categorisation",
+   "description": "Use when determine the multipactor type-group that one item of radio-frequency hardware falls into under ECSS-E-ST-20-01C clause 4.4.1, and read the applicable multipactor-margin off it: tier the gap-geometry from uniform-waveguide through printed-line and non-uniform-assembly to dielectric-loaded, tier the secondary-emission surface knowledge from flight-surface-measured through process-coupon-sample to unknown, take the worse of the two tiers, add the design-heritage adder, roll an assembly up to its most demanding constituent, and flag every declared group or declared margin the derived policy does not support. Trigger: ecss, e-st-20-electrical-scope, e2001-equipment-type-categorisation, multipactor-type-group, gap-geometry-tier, secondary-emission-surface-knowledge, design-heritage-adder, assembly-rollup-grouping, equipment-component-grouping.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-equipment-type-categorisation",
+    "multipactor-type-group",
+    "gap-geometry-tier",
+    "secondary-emission-surface-knowledge",
+    "design-heritage-adder",
+    "assembly-rollup-grouping"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-level-one-geometry-criteria",
+   "name": "e2001-level-one-geometry-criteria",
+   "description": "Use when screen a radio-frequency gap under ECSS-E-ST-20-01C clause 5.3.2.2.2 to decide whether the first multipactor analysis level applies: categorize the critical-region gap as a parallel-plate or a coaxial shape, reject shapes the level-one charts never covered, derive the effective gap from the plate separation or from the coaxial radius difference, check the quasi-parallel tilt tolerance and the surface-extent-to-gap ratio that keeps edge effects negligible, confirm the coaxial radius ratio sits inside the charted band, compute the frequency-gap product and verify it falls inside the charted range, then escalate every gap that fails a criterion to a level-two or three-dimensional treatment. Trigger: ecss, e-st-20-01c, e-st-20-electrical-scope, multipactor-geometry-criteria, parallel-plate-gap, coaxial-gap, frequency-gap-product, level-one-multipaction-screening, critical-region-gap, edge-effect-ratio.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-level-one-geometry-criteria",
+    "multipactor-geometry-criteria",
+    "parallel-plate-gap",
+    "coaxial-gap",
+    "frequency-gap-product",
+    "level-one-multipaction-screening"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-level-one-multicarrier-method",
+   "name": "e2001-level-one-multicarrier-method",
+   "description": "Use when assess the first-level multicarrier multipactor check of ECSS-E-ST-20-01C clause 5.3.2.2.4 for a critical region already treated for one carrier: convert each carrier-power into its own gap voltage, sum the crests into the worst-case peak-envelope voltage reached when every carrier aligns in phase, compare that against the single-carrier boundary voltage with the verification-route margin applied, and where the envelope crosses the derated boundary, derive the envelope repetition period from the carrier spacing, measure how long the crest holds above it, and set that dwell against the time a resonance needs to grow through the agreed number of gap crossings. Trigger: ecss, e-st-20-01c, e-st-20-electrical-scope, multicarrier-level-one-method, peak-envelope-voltage, envelope-repetition-period, gap-crossing-build-up-rule, envelope-dwell-time, carrier-frequency-spacing.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-level-one-multicarrier-method",
+    "multicarrier-level-one-method",
+    "peak-envelope-voltage",
+    "envelope-repetition-period",
+    "gap-crossing-build-up-rule",
+    "envelope-dwell-time",
+    "carrier-frequency-spacing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-level-one-single-carrier-method",
+   "name": "e2001-level-one-single-carrier-method",
+   "description": "Use when compute the first-level single-carrier multipactor check of ECSS-E-ST-20-01C clause 5.3.2.2.3: convert the carrier-power on the feeding line into the peak critical-region voltage, carrying the standing-wave rise and the field-concentration factor taken from the electromagnetic field solution, index the susceptibility boundary on the frequency-gap product of the driving gap and its surface-finish, interpolate that boundary in log-log space and refuse to extrapolate outside the charted span, turn the boundary-to-applied voltage ratio into a decibel multipactor-margin, compare it against the margin owed by the chosen verification-route, and invert the procedure for the largest carrier-power that still holds margin. Trigger: ecss, e-st-20-01c, e-st-20-electrical-scope, single-carrier-level-one-method, critical-region-voltage, susceptibility-chart-lookup, frequency-gap-product, multipactor-threshold-voltage, decibel-multipactor-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-level-one-single-carrier-method",
+    "single-carrier-level-one-method",
+    "critical-region-voltage",
+    "susceptibility-chart-lookup",
+    "frequency-gap-product",
+    "multipactor-threshold-voltage",
+    "decibel-multipactor-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-level-two-material-criteria",
+   "name": "e2001-level-two-material-criteria",
+   "description": "Use when evaluate candidate secondary-emission records and select the one that feeds the second multipactor-analysis-level of ECSS-E-ST-20-01C clause 5.3.2.3.2: screen every secondary-electron-yield dataset against the electrode-material of the susceptible gap, against a flight surface-condition the measured sample is no cleaner than, against the representative temperature-window, and against the impact-energy-range the tracked electrons actually reach. Rank the qualifying records by conservatism - lowest first-crossover-energy, then highest peak-yield - take the leading one, and reconcile its declared cross-over energies with the yield-curve model before the detailed run starts. Trigger: ecss, e-st-20-electrical-scope, secondary-electron-yield, first-crossover-energy, yield-curve-selection, surface-condition-representativeness, electrode-material-match, impact-energy-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-level-two-material-criteria",
+    "secondary-electron-yield",
+    "first-crossover-energy",
+    "yield-curve-selection",
+    "surface-condition-representativeness",
+    "electrode-material-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-level-two-multicarrier-method",
+   "name": "e2001-level-two-multicarrier-method",
+   "description": "Use when determine the level-two multicarrier multipaction result of ECSS-E-ST-20-01C clause 5.3.2.3.4 for a radio-frequency unit: rebuild the carrier-beat envelope of a uniformly-spaced carrier comb, derive the electron gap-crossing-time and the sustaining pulse-width that the twenty-crossing rule demands, sweep every pulse-width in the pulsed susceptibility data for the envelope level held that long, drop a pulse-width the beat envelope cannot hold and one shorter than the sustaining pulse-width, then report the worst-case pulse-width, the minimum breakdown-level it governs, and the multipaction-margin in decibel against the required multipaction-margin. Trigger: ecss, e-st-20-electrical-scope, multicarrier-envelope-sweep, twenty-gap-crossing-rule, worst-case-pulse-width, minimum-breakdown-level, carrier-beat-envelope, pulsed-susceptibility-data, multipaction-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-level-two-multicarrier-method",
+    "multicarrier-envelope-sweep",
+    "twenty-gap-crossing-rule",
+    "worst-case-pulse-width",
+    "minimum-breakdown-level",
+    "carrier-beat-envelope",
+    "pulsed-susceptibility-data"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-level-two-single-carrier-method",
+   "name": "e2001-level-two-single-carrier-method",
+   "description": "Use when compute the single-carrier multipactor-threshold of a susceptible gap by three-dimensional field solution and electron-tracking under ECSS-E-ST-20-01C clause 5.3.2.3.3: rescale the field-model amplitude to a trial carrier-power, seed electrons across the radio-frequency launch-phase, integrate every trajectory to its wall-impact, apply the secondary-electron-yield curve at each impact, and walk the amplitude upward until the tracked population first sustains itself - the lower edge of the susceptibility-band, since a two-point bracket misses a band that closes again above it. Convert that threshold-field into a threshold-power, form the multipactor-margin, and grade seed-count and field-mesh convergence separately. Trigger: ecss, e-st-20-electrical-scope, electron-tracking, single-carrier-threshold, susceptibility-band-edge, secondary-electron-yield, threshold-gap-voltage, field-mesh-convergence.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-level-two-single-carrier-method",
+    "electron-tracking",
+    "single-carrier-threshold",
+    "susceptibility-band-edge",
+    "threshold-gap-voltage",
+    "field-mesh-convergence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multicarrier-analysis-levels",
+   "name": "e2001-multicarrier-analysis-levels",
+   "description": "Use when determine which of the two multicarrier multipactor design analysis levels ECSS-E-ST-20-01C clause 4.7.2.1 requires for a radio-frequency chain: build the coherent peak-envelope-power of the carrier plan, compare it against the single-carrier multipactor threshold derated by the applicable margin, close the case at the worst-case first level when it fits, and otherwise run the time-resolved second level -- sample the envelope over its beat period, measure the longest dwell above the margined threshold, and hold it against the gap-crossing-rule window set by the credited crossings and resonance-order. Trigger: ecss, e-st-20-01c, multicarrier-multipactor, multipactor-analysis-level, gap-crossing-rule, peak-envelope-power, envelope-dwell-time, resonance-order.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multicarrier-analysis-levels",
+    "multicarrier-multipactor",
+    "multipactor-analysis-level",
+    "gap-crossing-rule",
+    "peak-envelope-power",
+    "envelope-dwell-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multicarrier-analysis-margins",
+   "name": "e2001-multicarrier-analysis-margins",
+   "description": "Use when determine the nominal multipactor-analysis-margins of ECSS-E-ST-20-01C clause 4.7.2.2 for a multicarrier radio-frequency unit: build the multicarrier peak-envelope-power from the individual carrier-powers, categorize the unit against the recognized equipment-type list, resolve its design-heritage level, look up the nominal analysis-margin that pair owes, accumulate the declared margin-contributions (geometry-tolerance, secondary-emission-yield-uncertainty, field-solver-uncertainty, carrier-phasing-uncertainty) into one applied analysis-margin, then verify that it covers the required value and report the per-contribution shortfall where it does not. Trigger: ecss, e-st-20-electrical-scope, multicarrier-analysis-margin, multipactor-margin-contribution, peak-envelope-power, design-heritage-margin, equipment-type-categorisation, secondary-emission-yield-uncertainty.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multicarrier-analysis-margins",
+    "multicarrier-analysis-margin",
+    "multipactor-margin-contribution",
+    "peak-envelope-power",
+    "design-heritage-margin",
+    "equipment-type-categorisation",
+    "secondary-emission-yield-uncertainty"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multicarrier-margin-overview",
+   "name": "e2001-multicarrier-margin-overview",
+   "description": "Use when evaluate the numerical multipactor margins ECSS-E-ST-20-01C clause 4.7.1 places on a multicarrier radio-frequency chain: normalize the verification route as analysis-based or test-based, read the base decibel-margin that route owes, add the uplifts the design-heritage and a computed rather than measured anchoring threshold attract, build the reference power the margin applies to -- the coherent peak-envelope-power for the analysis route, the applied multicarrier level for the test route -- and report both routes side by side with the demonstration power and crest-factor each carrier plan demands. Trigger: ecss, e-st-20-01c, multicarrier-multipactor, multicarrier-margin-policy, peak-envelope-power, multipactor-verification-route, crest-factor, carrier-plan-power.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multicarrier-margin-overview",
+    "multicarrier-multipactor",
+    "multicarrier-margin-policy",
+    "peak-envelope-power",
+    "multipactor-verification-route",
+    "crest-factor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multicarrier-test-margins",
+   "name": "e2001-multicarrier-test-margins",
+   "description": "Use when derive the multicarrier multipactor test-margins of ECSS-E-ST-20-01C clause 4.7.3.1 for a radio-frequency article: categorize the item against the recognized equipment-type and component-type list, resolve its design-heritage level and the model-philosophy of the article on the bench, credit the sample-count relief earned by testing more than one unit, build the multicarrier peak-envelope-power of the carrier set, raise it by the resolved test-margin to the level the campaign must actually reach, and verify the facility holds that power-headroom before the run is scheduled. Trigger: ecss, e-st-20-electrical-scope, multicarrier-test-margin, multipactor-test-level, peak-envelope-power, design-heritage-margin, component-type-categorisation, model-philosophy-selection, facility-power-headroom.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multicarrier-test-margins",
+    "multicarrier-test-margin",
+    "multipactor-test-level",
+    "peak-envelope-power",
+    "design-heritage-margin",
+    "component-type-categorisation",
+    "model-philosophy-selection",
+    "facility-power-headroom"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-failure-mode-coverage",
+   "name": "e2001-multipactor-failure-mode-coverage",
+   "description": "Use when assess whether every credible degraded case of a critical payload radio-frequency unit is carried into both the multipactor design-case-set and the verification-case-set of ECSS-E-ST-20-01C clause 4.3.1.3: build each degraded case from a power-redistribution factor, a standing-wave voltage rise taken from the mismatch ratio and a secondary-emission threshold derating, convert the nominal and degraded operating points into peak-gap-voltage, compute the breakdown-margin in decibels, name the governing credible case, and flag every credible case absent from either set or short of its required-margin. Trigger: ecss, e-st-20-electrical-scope, e2001-multipactor-failure-mode-coverage, multipactor-failure-mode, credible-degraded-case, standing-wave-voltage-rise, secondary-emission-threshold, breakdown-margin-decibels, payload-equipment-criticality.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-failure-mode-coverage",
+    "multipactor-failure-mode",
+    "credible-degraded-case",
+    "standing-wave-voltage-rise",
+    "secondary-emission-threshold",
+    "breakdown-margin-decibels"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-nominal-power-definition",
+   "name": "e2001-multipactor-nominal-power-definition",
+   "description": "Use when derive the nominal input power at which equipment stays free of multipactor discharge under ECSS-E-ST-20-01C clause 4.3.1.1: take the declared per-carrier powers at the equipment input, combine them by the agreed rule -- the in-phase peak envelope for a multi-carrier unit, the average sum where that is what the input sees -- convert between watt and decibel-milliwatt, aggregate the input-power budget with signed biases added algebraically and uncertainty magnitudes combined linearly or by root-sum-square, check the declared multipactor-free power covers that worst-case input rather than the nominal drive level, and raise it by the route margin to obtain the level the analysis or the multipactor-test has to reach. Trigger: ecss, e-st-20-electrical-scope, multipactor-free-power, nominal-input-power, multi-carrier-peak-envelope, peak-to-average-ratio, power-uncertainty-budget, decibel-milliwatt-conversion.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-nominal-power-definition",
+    "multipactor-free-power",
+    "nominal-input-power",
+    "multi-carrier-peak-envelope",
+    "peak-to-average-ratio",
+    "power-uncertainty-budget",
+    "decibel-milliwatt-conversion"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-test-cleanliness",
+   "name": "e2001-multipactor-test-cleanliness",
+   "description": "Use when verify that the airborne-particle cleanliness required for multipactor-sensitive RF-hardware is held through assembly, multipactor-testing, delivery and hardware-handling under ECSS-E-ST-20-01C clause 6.1: convert each declared cleanroom-class into a monitored concentration-limit at the sampled particle-size, grade measured airborne-counts against that limit, confirm every lifecycle-phase declares a regime no coarser than the hardware requirement, estimate particulate fall-out onto the exposed critical-gap surfaces over the dwell, and report the containment-controls a phase has not declared. Trigger: ecss, e-st-20-01c, multipactor-test-cleanliness, airborne-particle-count, cleanroom-class-limit, particulate-fall-out, containment-controls, critical-gap-surface.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-test-cleanliness",
+    "multipactor-test-cleanliness",
+    "airborne-particle-count",
+    "cleanroom-class-limit",
+    "particulate-fall-out",
+    "critical-gap-surface"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-test-temperature",
+   "name": "e2001-multipactor-test-temperature",
+   "description": "Use when plan and grade a multipactor-test campaign run at the temperature-extremes defined for the critical-gap region under ECSS-E-ST-20-01C clause 6.3: derive cold and hot qualification setpoints from the predicted thermal range plus qualification-margin, expand the critical-gap with temperature, form the frequency-gap-product at each extreme, read the first-order breakdown-threshold off the susceptibility trend, convert applied RF-power into a peak gap-voltage, name the worst-case extreme, and confirm the tested setpoints covered both extremes after a stabilising thermal-soak. Trigger: ecss, e-st-20-01c, multipactor-test-temperature, critical-gap-region, temperature-extremes, frequency-gap-product, breakdown-threshold-voltage, thermal-soak-stabilisation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-test-temperature",
+    "multipactor-test-temperature",
+    "critical-gap-region",
+    "temperature-extremes",
+    "frequency-gap-product",
+    "thermal-soak-stabilisation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-verification-plan-content",
+   "name": "e2001-multipactor-verification-plan-content",
+   "description": "Use when audit what a multipactor-verification-plan adds to the generic verification-plan data item under ECSS-E-ST-20-01C clause 4.2.2: confirm the plan carries a multipactor-critical-item-list, the route agreed per item, the multipactor-margin policy, the drive level and dwell duration, the vacuum-and-venting conditions, the electron-seeding provision, an independent detection-method-pair, the pass-fail criteria and the non-conformance route; reject an entry that is a placeholder or a bare cross-reference back to the parent data item; and enforce the extra fields each route owes -- seeding and detection for a multipactor-test, susceptibility-model and secondary-electron-yield source for an analysis, reference-equipment and delta-justification for a similarity case. Trigger: ecss, e-st-20-electrical-scope, multipactor-verification-plan-content, verification-plan-data-item, multipactor-critical-item-list, electron-seeding-provision, detection-method-pair, similarity-delta-justification.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-verification-plan-content",
+    "multipactor-verification-plan-content",
+    "verification-plan-data-item",
+    "multipactor-critical-item-list",
+    "electron-seeding-provision",
+    "detection-method-pair",
+    "similarity-delta-justification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-verification-process",
+   "name": "e2001-multipactor-verification-process",
+   "description": "Use when execute the multipactor verification process of ECSS-E-ST-20-01C clause 4.1 on a radio-frequency unit: inventory every multipactor-critical gap, derive its frequency-gap-product, drop a gap outside the validated susceptibility-chart band as carrying no credible multipactor risk, look up the parallel-plate breakdown-voltage of the electrode material, convert the peak operating-power at that gap into a multipactor-margin in decibel, then select the verification route, taking analysis-only above the analysis-threshold, a seeded multipactor-test at the elevated test-level below it, and redesign below the test-threshold. Trigger: ecss, e-st-20-electrical-scope, multipactor-verification, frequency-gap-product, secondary-electron-yield, multipactor-margin, electron-seeding-source, multipactor-breakdown-voltage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-verification-process",
+    "multipactor-verification",
+    "frequency-gap-product",
+    "secondary-electron-yield",
+    "multipactor-margin",
+    "electron-seeding-source",
+    "multipactor-breakdown-voltage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-multipactor-verification-routes",
+   "name": "e2001-multipactor-verification-routes",
+   "description": "Use when determine which permitted route proves the multipactor performance of a radio-frequency unit under ECSS-E-ST-20-01C clause 4.5 -- similarity to a qualified unit, analysis-only, analysis-and-test, or test-only: weigh the analysis-method support against the computed and required multipactor-margin, ratchet a critical unit off the analysis-only route, price the demonstration level in watts from the required-margin, check the facility reaches that level, and confirm the discharge-detection set carries two independent methods with one of them observing the gap locally. Trigger: ecss, e-st-20-electrical-scope, e2001-multipactor-verification-routes, multipactor-verification-route, qualification-by-similarity, analysis-only-justification, demonstration-power-level, discharge-detection-methods, analysis-method-validation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-multipactor-verification-routes",
+    "multipactor-verification-route",
+    "qualification-by-similarity",
+    "analysis-only-justification",
+    "demonstration-power-level",
+    "discharge-detection-methods"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-pre-test-vacuum-bakeout",
+   "name": "e2001-pre-test-vacuum-bakeout",
+   "description": "Use when size and grade the vacuum-bakeout an RF-item receives before any multipactor-test under ECSS-E-ST-20-01C clause 6.2: check the bakeout setpoint against the non-operating temperature allowance reduced by its thermal-margin, convert the dwell at that setpoint into an equivalent dwell at the reference temperature through the desorption Arrhenius relation, track the power-law outgassing-rate decay down to the target rate, grade the chamber pressure actually reached, and decide whether the hold between bakeout completion and test start preserved the bakeout or voided it through an ambient-air break. Trigger: ecss, e-st-20-01c, pre-test-vacuum-bakeout, bakeout-dwell-equivalence, outgassing-rate-decay, chamber-pressure-requirement, inert-backfill-hold, desorption-activation-energy.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-pre-test-vacuum-bakeout",
+    "pre-test-vacuum-bakeout",
+    "bakeout-dwell-equivalence",
+    "outgassing-rate-decay",
+    "chamber-pressure-requirement",
+    "inert-backfill-hold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-secondary-emission-data-sources",
+   "name": "e2001-secondary-emission-data-sources",
+   "description": "Use when validate and select the secondary-emission dataset behind a multipactor analysis under ECSS-E-ST-20-01C clause 5.3.3.3: categorize each candidate by provenance -- flight-lot-sample-measurement, representative-coupon-measurement, standard-tabulated-dataset, supplier-datasheet, open-literature -- test it against the critical part's base-material, surface-treatment, surface-condition and the primary-energy span the analysis needs, reject a secondary-electron-yield curve that is malformed or contradicts its own crossover-energies, prefer the best-provenance representative curve with the more conservative one breaking a tie, and fall back to the conservative standard-tabulated curve when no candidate represents the emitting surface. Trigger: ecss, e-st-20-electrical-scope, secondary-electron-yield, secondary-emission-data, first-crossover-energy, surface-treatment-representativeness, standard-tabulated-yield-curve, multipactor-critical-material, coupon-measurement-provenance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-secondary-emission-data-sources",
+    "secondary-electron-yield",
+    "secondary-emission-data",
+    "first-crossover-energy",
+    "surface-treatment-representativeness",
+    "standard-tabulated-yield-curve",
+    "multipactor-critical-material"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-single-carrier-analysis-levels",
+   "name": "e2001-single-carrier-analysis-levels",
+   "description": "Use when evaluate which of the two design-analysis-levels of ECSS-E-ST-20-01C clause 4.6.2.1 applies to a single-carrier multipactor assessment: reduce the gap geometry to a chart-representable family, compute its frequency-gap-product, check that product against the charted band of the electrode material, confirm the gap stays quasi-static against the operating wavelength, and admit the simplified level-one route only when every applicability condition holds; otherwise route the case to the detailed level-two numerical-modelling path and verify its prerequisites, a validated electromagnetic-field solver, traceable secondary-electron-yield data and an electron-seeding model. Trigger: ecss, e-st-20-electrical-scope, single-carrier-multipactor, design-analysis-level-one, design-analysis-level-two, frequency-gap-product, susceptibility-chart-band, quasi-static-gap-check, secondary-electron-yield-data.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-single-carrier-analysis-levels",
+    "single-carrier-multipactor",
+    "design-analysis-level-one",
+    "design-analysis-level-two",
+    "frequency-gap-product",
+    "susceptibility-chart-band",
+    "secondary-electron-yield-data"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-single-carrier-analysis-margins",
+   "name": "e2001-single-carrier-analysis-margins",
+   "description": "Use when derive the nominal analysis-margin of ECSS-E-ST-20-01C clause 4.6.2.2 for single-carrier operation: start from the base value owed by the selected design-analysis-level, add a contribution for every uncertainty the worst-case model does not already bound - manufacturing-tolerance spread, secondary-emission-yield scatter, electromagnetic-field-model error, power-measurement uncertainty and temperature-induced gap change - add the equipment-type adder, subtract the design-heritage credit only when the recurring unit keeps the same manufacturing route, hold the result at the declared floor, then compare it against the achieved decibel multipactor-margin and report the shortfall. Trigger: ecss, e-st-20-electrical-scope, single-carrier-multipactor, nominal-analysis-margin, margin-contribution-budget, equipment-type-adder, design-heritage-credit, secondary-emission-yield-scatter, multipactor-margin-shortfall.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-single-carrier-analysis-margins",
+    "single-carrier-multipactor",
+    "nominal-analysis-margin",
+    "margin-contribution-budget",
+    "equipment-type-adder",
+    "design-heritage-credit",
+    "secondary-emission-yield-scatter"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-single-carrier-margin-overview",
+   "name": "e2001-single-carrier-margin-overview",
+   "description": "Use when determine the single-carrier multipactor-margin scheme of ECSS-E-ST-20-01C clause 4.6.1 for a radio-frequency unit: categorize every operating condition as continuous-wave or pulsed-carrier, reduce it to the governing carrier-power the multipactor-margin applies to, screen a pulsed condition against the discharge-build-up-time so a build-up-limited short-pulse is flagged rather than silently credited, convert the multipactor-threshold-power into an achieved decibel multipactor-margin, then compare that against the nominal value owed by the selected verification-route, keeping the analysis-margin family apart from the multipactor-test-margin family. Trigger: ecss, e-st-20-electrical-scope, single-carrier-multipactor, continuous-wave-operation, pulsed-carrier-operation, multipactor-margin, multipactor-threshold-power, discharge-build-up-time, margin-budget-overview.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-single-carrier-margin-overview",
+    "single-carrier-multipactor",
+    "continuous-wave-operation",
+    "pulsed-carrier-operation",
+    "multipactor-margin",
+    "multipactor-threshold-power",
+    "discharge-build-up-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-single-carrier-test-margins",
+   "name": "e2001-single-carrier-test-margins",
+   "description": "Use when determine the single-carrier multipactor test-margin an ECSS-E-ST-20-01C clause 4.6.3.1 verification campaign owes a radio-frequency article: categorize the article as equipment-level or component-level, categorize its multipactor design-heritage as recurrent, modified or first-of-kind, derive the required decibel-margin from that pair with uplifts for a single tested article and for a transposed multipactor-threshold, convert the declared maximum-operating-power into the power-level the multipactor-test must actually apply, and compare the measured multipactor-threshold against that level to report every article margin-compliant or margin-deficient. Trigger: ecss, e-st-20-01c, multipactor-test-margin, single-carrier-multipactor, design-heritage-category, multipactor-threshold, rf-breakdown-margin, tested-article-count.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-single-carrier-test-margins",
+    "multipactor-test-margin",
+    "single-carrier-multipactor",
+    "design-heritage-category",
+    "multipactor-threshold",
+    "rf-breakdown-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-standard-multipactor-charts",
+   "name": "e2001-standard-multipactor-charts",
+   "description": "Use when compute a first-level multipactor threshold from the tabulated susceptibility-charts of ECSS-E-ST-20-01C clause 5.3.3.4: form the frequency-gap-product of each multipactor-critical gap, select the chart tabulated for that electrode base-material and surface-treatment, interpolate the parallel-plate threshold-voltage logarithmically between tabulated points, refuse any read-out outside the chart validity-range and escalate that gap to a dedicated second-level-analysis instead of extrapolating, convert peak-operating-power and line-impedance into the equivalent gap-voltage, and grade the resulting multipactor-margin in decibel against the first-level requirement. Trigger: ecss, e-st-20-electrical-scope, multipactor-susceptibility-chart, frequency-gap-product, multipactor-threshold-voltage, first-level-multipactor-analysis, chart-validity-range, parallel-plate-breakdown-voltage, multipactor-margin-decibel.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-standard-multipactor-charts",
+    "multipactor-susceptibility-chart",
+    "frequency-gap-product",
+    "multipactor-threshold-voltage",
+    "first-level-multipactor-analysis",
+    "chart-validity-range",
+    "parallel-plate-breakdown-voltage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2001-verification-plan-generation-and-update",
+   "name": "e2001-verification-plan-generation-and-update",
+   "description": "Use when produce the multipactor-verification-plan required by ECSS-E-ST-20-01C clause 4.2.1 and keep it current afterwards: confirm the baseline plan is issued no later than the equipment-qualification-review and carries an approved sign-off rather than a draft state, validate the revision-history for unique identifiers and non-decreasing dates, categorize every configuration-change-event as one that forces a plan-update -- radio-frequency power increase, gap-geometry change, electrode-material change, multipactor-test-failure, analysis-margin erosion -- or one with no technical impact, measure how long each forcing event has stayed outside the plan against the agreed response-window, and trace every forcing event into the change-log before the plan counts as current. Trigger: ecss, e-st-20-electrical-scope, multipactor-verification-plan, equipment-qualification-review, plan-update-trigger, plan-revision-history, change-log-traceability, verification-plan-baseline.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2001-verification-plan-generation-and-update",
+    "multipactor-verification-plan",
+    "equipment-qualification-review",
+    "plan-update-trigger",
+    "plan-revision-history",
+    "change-log-traceability",
+    "verification-plan-baseline"
    ],
    "family": "space-systems",
    "pack": "ecss",
