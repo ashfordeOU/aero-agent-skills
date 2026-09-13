@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-welding-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. wvi1 routes on grading the welds at a string
+# termination against the assembly control drawing; wvi2 routes on the weld that
+# appears at a location the drawing never declared. Both must deterministically
+# hit space-systems/ecss/e2008-welding-visual-inspection.
+tasks:
+  - id: wvi1
+    query: "check the welds at the string terminations and terminals against the assembly control drawing and say how many sound welds each location has left"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.14; termination and terminal welds against the assembly control drawing"
+    expected_skill: "space-systems/ecss/e2008-welding-visual-inspection"
+  - id: wvi2
+    query: "one weld sits outside its drawn position tolerance and another is at a location the control drawing does not carry, disposition both"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.14; weld position tolerance and undeclared weld location"
+    expected_skill: "space-systems/ecss/e2008-welding-visual-inspection"

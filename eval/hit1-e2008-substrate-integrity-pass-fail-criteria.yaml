@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-substrate-integrity-pass-fail-criteria (space-systems/ecss)
+# Two tasks for the new leaf. sip1 routes on the thresholds being taken from
+# the assembly control drawing and the revision they are bound to; sip2 routes
+# on an indication kind the drawing declares no threshold for, which is
+# undetermined rather than passing. Both must deterministically hit
+# space-systems/ecss/e2008-substrate-integrity-pass-fail-criteria.
+tasks:
+  - id: sip1
+    query: "disposition the disbond and residual bond strength measured on the cycled coupon substrate against the acceptance thresholds the assembly control drawing declares for that revision"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.10.2; drawing-sourced substrate integrity acceptance thresholds"
+    expected_skill: "space-systems/ecss/e2008-substrate-integrity-pass-fail-criteria"
+  - id: sip2
+    query: "the assembly control drawing sets no limit for the indication kind we found on the substrate, decide whether that coupon passes and what the margin fraction against each declared limit is"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.10.2; undeclared substrate criteria and margin fractions"
+    expected_skill: "space-systems/ecss/e2008-substrate-integrity-pass-fail-criteria"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-acceptance-testing-general (space-systems/ecss,
+# E-ST-20-08C 6.3.1). Two tasks per leaf; atg1 routes on applying the
+# acceptance activity set to the delivered assemblies and to the assemblies
+# used for qualification, atg2 on a qualification population exempted from
+# acceptance testing. Both must deterministically hit
+# space-systems/ecss/e2008-sca-acceptance-testing-general.
+tasks:
+  - id: atg1
+    query: "check the sca acceptance matrix applies the acceptance tests to the delivered cell assemblies and to the assemblies used for qualification, not only to the shipped lot"
+    intent: "ECSS-E-ST-20-08C clause 6.3.1; SCA acceptance testing of both delivery and qualification articles"
+    expected_skill: "space-systems/ecss/e2008-sca-acceptance-testing-general"
+  - id: atg2
+    query: "the qualification coupons in this lot have no acceptance record at all; work out the per-population acceptance coverage and give me a lot verdict"
+    intent: "ECSS-E-ST-20-08C clause 6.3.1; SCA acceptance coverage per population and lot acceptance verdict"
+    expected_skill: "space-systems/ecss/e2008-sca-acceptance-testing-general"

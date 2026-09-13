@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-vacuum-thermal-cycling-process (space-systems/ecss, E-ST-20-08C 5.5.3.11.2)
+# Two tasks for the leaf; vtm1 routes on which items owe a continuity channel,
+# vtm2 on the sampling interval and the unmonitored time of the run. Both must
+# deterministically hit
+# space-systems/ecss/e2008-vacuum-thermal-cycling-process.
+tasks:
+  - id: vtm1
+    query: "list which parts of the cycled article carry a current path and do the monitor-channel-assignment for vacuum-cycling-continuity-monitoring, separating the items no continuity monitor can watch"
+    intent: "ecss photovoltaic assemblies; naming the components watched for continuity during the vacuum cycling run"
+    expected_skill: "space-systems/ecss/e2008-vacuum-thermal-cycling-process"
+  - id: vtm2
+    query: "size the continuity-sampling-interval for in-situ-discontinuity-detection during the vacuum run and account for the unmonitored-run-time from the late monitor start and the logged gaps"
+    intent: "ecss photovoltaic assemblies; sampling rate and monitoring coverage across the vacuum cycling run"
+    expected_skill: "space-systems/ecss/e2008-vacuum-thermal-cycling-process"

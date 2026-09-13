@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-acceptance-methods-and-conditions (space-systems/ecss,
+# E-ST-20-08C 6.3.2). Two tasks per leaf; amc1 routes on reusing the
+# qualification test methods for cell assembly acceptance, amc2 on the
+# conditions that reuse carries and the relaxation or over-test it drifts into.
+# Both must deterministically hit
+# space-systems/ecss/e2008-sca-acceptance-methods-and-conditions.
+tasks:
+  - id: amc1
+    query: "confirm the sca acceptance procedure reuses the qualification test methods rather than substituting a quicker measurement for the one the baseline was produced with"
+    intent: "ECSS-E-ST-20-08C clause 6.3.2; SCA acceptance reuse of qualification test methods"
+    expected_skill: "space-systems/ecss/e2008-sca-acceptance-methods-and-conditions"
+  - id: amc2
+    query: "compare the acceptance test condition table against the qualification baseline and tell me which conditions were relaxed and which over-test the delivered assemblies"
+    intent: "ECSS-E-ST-20-08C clause 6.3.2; SCA acceptance condition deviation against the qualification baseline"
+    expected_skill: "space-systems/ecss/e2008-sca-acceptance-methods-and-conditions"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-vacuum-thermal-cycling-criteria (space-systems/ecss, E-ST-20-08C 5.5.3.11.3)
+# Two tasks for the leaf; vtc1 routes on the allowed coupon performance
+# degradation, vtc2 on the insulation side of the same decision. Both must
+# deterministically hit
+# space-systems/ecss/e2008-vacuum-thermal-cycling-criteria.
+tasks:
+  - id: vtc1
+    query: "judge the coupon-performance-degradation after the vacuum cycling run by correcting maximum power, short-circuit current and open-circuit voltage to reference conditions against the vacuum-cycling-acceptance-criteria"
+    intent: "ecss photovoltaic assemblies; allowed performance loss of a vacuum-cycled coupon"
+    expected_skill: "space-systems/ecss/e2008-vacuum-thermal-cycling-criteria"
+  - id: vtc2
+    query: "compare the post-cycling-insulation-resistance with its floor, the insulation-decade-loss since the pre-cycling value and the coupon-leakage-current at the test voltage, and handle a dielectric-breakdown-after-cycling"
+    intent: "ecss photovoltaic assemblies; insulation resistance acceptance after vacuum thermal cycling"
+    expected_skill: "space-systems/ecss/e2008-vacuum-thermal-cycling-criteria"

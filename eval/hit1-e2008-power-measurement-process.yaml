@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2008-power-measurement-process (space-systems/ecss, E-ST-20-08C 5.5.3.4.2)
+# Two tasks per leaf; pmpr1 routes on where the string is probed, pmpr2 on
+# referring the measured curve to the reference temperature. Both must
+# deterministically hit space-systems/ecss/e2008-power-measurement-process.
+tasks:
+  - id: pmpr1
+    query: "check the solar-array-string-iv-measurement was taken at the interface-connector-measurement-plane and do the harness-voltage-drop-allocation the shorter plane skipped"
+    intent: "ecss photovoltaic assemblies; was the string measured at the interface connector"
+    expected_skill: "space-systems/ecss/e2008-power-measurement-process"
+  - id: pmpr2
+    query: "apply the string-reference-temperature-correction to the measured curve and do the string-maximum-power-referral for the assembly"
+    intent: "ecss photovoltaic assemblies; refer a string measurement to the reference temperature"
+    expected_skill: "space-systems/ecss/e2008-power-measurement-process"

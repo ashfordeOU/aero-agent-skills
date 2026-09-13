@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-attachment-material-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. amv1 routes on examining bonded attachments for full
+# cure and remaining tackiness; amv2 routes on the disagreement between a cure
+# profile that says cured and a surface that is still tacky. Both must
+# deterministically hit
+# space-systems/ecss/e2008-attachment-material-visual-inspection.
+tasks:
+  - id: amv1
+    query: "examine the bonded attachments for full cure and for any tackiness left on the adhesive and disposition each one"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.16; bonded attachment full cure and remaining tackiness"
+    expected_skill: "space-systems/ecss/e2008-attachment-material-visual-inspection"
+  - id: amv2
+    query: "the recorded cure profile adds up to a full dwell but the adhesive on the bonded bracket is still tacky, which one governs the disposition"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.16; cure accumulation against the tack observation"
+    expected_skill: "space-systems/ecss/e2008-attachment-material-visual-inspection"

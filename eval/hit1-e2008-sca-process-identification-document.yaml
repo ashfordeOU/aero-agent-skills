@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-process-identification-document (space-systems/ecss,
+# E-ST-20-08C 6.2). Two tasks per leaf; pid1 routes on the supplier production
+# control document that identifies the cell assembly processes to be qualified,
+# pid2 on the control parameters and tolerance bands that document has to hold.
+# Both must deterministically hit
+# space-systems/ecss/e2008-sca-process-identification-document.
+tasks:
+  - id: pid1
+    query: "review the supplier sca-process-identification-document and check every cell assembly process the build depends on was identified for qualification before the campaign started"
+    intent: "ECSS-E-ST-20-08C clause 6.2; solar cell assembly process identification document coverage and issue date"
+    expected_skill: "space-systems/ecss/e2008-sca-process-identification-document"
+  - id: pid2
+    query: "check each process in the sca-production-control-document names its controlling document and carries control parameters with a tolerance band around the nominal"
+    intent: "ECSS-E-ST-20-08C clause 6.2; SCA production control document parameters and tolerance bands"
+    expected_skill: "space-systems/ecss/e2008-sca-process-identification-document"

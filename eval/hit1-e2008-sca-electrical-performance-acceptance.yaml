@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-electrical-performance-acceptance (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the acceptance-sequence electrical
+# measurement of cell assemblies and its translation to reference conditions;
+# to2 routes on the lot rollup, sample size and reject share. Both must
+# deterministically hit
+# space-systems/ecss/e2008-sca-electrical-performance-acceptance.
+tasks:
+  - id: to1
+    query: "the flash bench measured the cell assemblies at 1300 W/m2 and 35 C, correct the short-circuit current, open-circuit voltage and maximum power to reference conditions and say whether each assembly clears its declared minimum power"
+    intent: "ECSS-E-ST-20-08C clause 6.3.3; SCA acceptance electrical performance measurement corrected to reference irradiance and temperature"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-performance-acceptance"
+  - id: to2
+    query: "work out whether the acceptance power measurement covered enough of the solar cell assembly lot and whether the share of assemblies falling under the declared minimum stays inside the allowed reject fraction"
+    intent: "ECSS-E-ST-20-08C clause 6.3.3; SCA acceptance lot sample size and reject share rollup"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-performance-acceptance"

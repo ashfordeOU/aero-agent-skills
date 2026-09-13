@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-qualification-schedule (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the order of the production and
+# test steps in an SCA design qualification; to2 routes on sizing the coupon
+# batch against that order. Both must deterministically hit
+# space-systems/ecss/e2008-sca-qualification-schedule.
+tasks:
+  - id: to1
+    query: "lay out the production and test sequence for qualifying a solar cell assembly design and say which steps are placed before the baseline measurements and exposures they depend on"
+    intent: "ECSS-E-ST-20-08C clause 6.4.2; SCA design qualification production and test schedule step precedence"
+    expected_skill: "space-systems/ecss/e2008-sca-qualification-schedule"
+  - id: to2
+    query: "size the qualification coupon batch for the thermal cycling, humidity and discharge steps and find the step in the declared order where the batch runs out"
+    intent: "ECSS-E-ST-20-08C clause 6.4.2; SCA qualification coupon batch sizing walked through the declared schedule"
+    expected_skill: "space-systems/ecss/e2008-sca-qualification-schedule"

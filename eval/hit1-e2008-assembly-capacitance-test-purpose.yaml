@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-assembly-capacitance-test-purpose (space-systems/ecss,
+# E-ST-20-08C 5.5.3.5.1). Two tasks per leaf; actp1 routes on why the string
+# capacitance is measured, actp2 on whether the planned bridge can measure it.
+# Both must deterministically hit
+# space-systems/ecss/e2008-assembly-capacitance-test-purpose.
+tasks:
+  - id: actp1
+    query: "combine the solar-array-string-capacitance into an assembly value and derive the assembly-displacement-current-transient and array-switching-time-constant it drives"
+    intent: "ecss photovoltaic assemblies; purpose of measuring the capacitance of assembly strings"
+    expected_skill: "space-systems/ecss/e2008-assembly-capacitance-test-purpose"
+  - id: actp2
+    query: "check the capacitance-bridge-frequency-range and bias suit the photovoltaic-assembly-dynamic-behaviour being characterised"
+    intent: "ecss photovoltaic assemblies; can the planned capacitance bridge measure the string"
+    expected_skill: "space-systems/ecss/e2008-assembly-capacitance-test-purpose"

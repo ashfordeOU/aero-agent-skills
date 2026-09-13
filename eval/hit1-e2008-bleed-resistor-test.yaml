@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bleed-resistor-test (space-systems/ecss, E-ST-20-08C 5.5.3.3.5)
+# Two tasks per leaf; brt1 routes on the resistance value of the fitted
+# part against its drawing band, brt2 on the in-circuit reading and the
+# drain the part actually delivers. Both must deterministically hit
+# space-systems/ecss/e2008-bleed-resistor-test.
+tasks:
+  - id: brt1
+    query: "take the bleed-resistor-resistance-measurement on the fitted part and grade it against the bleed-resistor-tolerance-band"
+    intent: "ecss photovoltaic assemblies; resistance value of the bleed resistor fitted to the assembly"
+    expected_skill: "space-systems/ecss/e2008-bleed-resistor-test"
+  - id: brt2
+    query: "apply in-circuit-parallel-deembedding to the photovoltaic-assembly-bleed-path reading then check the assembly-discharge-time-constant against the safe-voltage-bleed-time"
+    intent: "ecss photovoltaic assemblies; in-circuit bleed resistor reading and the drain it delivers"
+    expected_skill: "space-systems/ecss/e2008-bleed-resistor-test"
