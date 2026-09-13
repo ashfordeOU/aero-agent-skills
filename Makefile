@@ -7,13 +7,18 @@
 #   gate 3 pytest-contract  per-skill DAL A-E behavior test, stdlib unittest (skill-shipped scripts/test_*.py)
 #   gate 4 no-verbatim    RTCA/SAE/IAQG copyright control, skills/ + docs/
 #   gate 5 hit1           Hit@1 corpus eval, deterministic offline router
+#   gate 8 portability    no strict inequality within 1e-12 of its bound
+#                         (pow/log10 are not correctly rounded, so a test
+#                          pinned to a last-place result passes on the
+#                          build host and fails on the Linux CI runner)
 
 .PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law \
+        portability \
         attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep \
         packs visuals visuals-check
 
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law
-	@echo "Aero Agent Skills validate: PASS (7/7 REAL gates green - docs/harness-contract.md)"
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability
+	@echo "Aero Agent Skills validate: PASS (8/8 REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
 # must have SKILL.md + scripts/ + contract test + no broken refs, with
@@ -40,6 +45,11 @@ desc-lint:
 
 pytest-contract:
 	@scripts/gate-pytest-contract.sh
+
+# Gate 8: a contract test must not depend on which side of the last bit a
+# libm result lands on. See scripts/portability_check.py for the incident.
+portability:
+	@python3 scripts/portability_check.py
 
 no-verbatim:
 	@scripts/gate-no-verbatim.sh
