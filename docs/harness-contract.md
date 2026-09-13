@@ -2,6 +2,23 @@
 
 Status: contract landed 2026-09-02. Harness REAL on skill 1
 (avionics/do178c/planning), and the 09-04 milestone landed early 2026-08-31.
+
+P6 (2026-09-13): gate 8 `portability` added, taking `make validate` to
+8/8. math.pow, 10**x and math.log10 are not correctly rounded, so which
+side of the last bit a result lands on differs between libm
+implementations. A contract test that asserts a STRICT inequality at that
+boundary passes on the macOS build host and fails on the Linux CI runner,
+and the local battery cannot see it because it runs on the build host.
+Measured: e20-launch-system-emc-compatibility asserted
+`assertLess(raw, 10.0)` on 20*log10() of a field built from 10**(-db/20);
+locally a few ULP under ten, on the runner exactly ten. Four consecutive
+public commits went red on that one line. Gate 8 instruments
+assertLess/assertGreater/assertLessEqual/assertGreaterEqual across every
+shipped contract test and fails on any comparison within 1e-12 relative of
+its bound. The fix is always to assert the behaviour rather than the
+rounding direction (assertAlmostEqual at the boundary), never to widen the
+engineering limit.
+
 P5.2 (2026-08-31): Wave 2 fan-out build to sixty-nine verified
 skills in twelve installable domain packs (81 SKILL.md under gate 1:
 12 routers + 69 leaves). Fourteen new leaves across seven families:

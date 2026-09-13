@@ -423,11 +423,14 @@ class SourceFindingsTest(unittest.TestCase):
         # shielding leaves exactly a tenth of the 30.0 V/m qualified
         # level, so the separation is nominally exactly 10 dB.
         #
-        # Do NOT assert which side of the last bit it lands on: this is
-        # 20*log10() of a field built from 10**(-db/20), and neither pow
-        # nor log10 is correctly rounded, so the rounding direction
-        # differs between libm implementations - a few ULP below ten on
-        # macOS/arm64, exactly ten on the Linux CI runner.
+        # Do NOT assert which side of the last bit it lands on. The value
+        # is 20*log10() of a field built from 10**(-db/20), and neither
+        # pow nor log10 is correctly rounded, so the rounding direction
+        # differs between libm implementations: a few ULP BELOW ten on
+        # macOS/arm64 and exactly ten on the Linux/x86-64 CI runner. A
+        # strict assertLess here passes locally and fails in CI.
+        # What matters, and what is portable, is that the case sits ON the
+        # boundary and that the tolerance absorbs it into no finding.
         radar = _range_radar()
         incident = lc.incident_field_at_spacecraft(radar, "on_pad_standby", 10.0)
         raw = lc.radiated_susceptibility_margin_db(30.0, incident)
