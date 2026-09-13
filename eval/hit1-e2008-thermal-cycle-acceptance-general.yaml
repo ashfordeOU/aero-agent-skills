@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-thermal-cycle-acceptance-general (space-systems/ecss)
+# Two tasks for the new leaf. tcg1 routes on the preference for cycling
+# under vacuum rather than in atmosphere; tcg2 routes on the deviations a
+# gas fill introduces and the justification it needs. Both must
+# deterministically hit
+# space-systems/ecss/e2008-thermal-cycle-acceptance-general.
+tasks:
+  - id: tcg1
+    query: "can we run the solar array acceptance thermal cycling in ambient atmosphere instead of the vacuum chamber, and what has to be recorded to justify the departure"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.7.2; vacuum preferred over ambient atmosphere for acceptance cycling"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycle-acceptance-general"
+  - id: tcg2
+    query: "size what the chamber gas fill changes: knudsen conduction regime across the gap, cold dwell frost point margin, and interconnect oxidation at the hot dwell"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.7.2; deviations a non-vacuum cycling environment introduces"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycle-acceptance-general"

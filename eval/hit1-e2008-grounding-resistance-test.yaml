@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-grounding-resistance-test (space-systems/ecss, E-ST-20-08C 5.5.3.3.4)
+# Two tasks per leaf; grt1 routes on the resistance measured at each
+# grounding point back to the declared structural reference, grt2 on the
+# quality screen the milliohm reading needs. Both must deterministically
+# hit space-systems/ecss/e2008-grounding-resistance-test.
+tasks:
+  - id: grt1
+    query: "measure the grounding-point-bond-resistance at every point the photovoltaic-assembly-grounding-plan declares and grade the dissipative-path-resistance-window"
+    intent: "ecss photovoltaic assemblies; resistance at each grounding point of the assembly"
+    expected_skill: "space-systems/ecss/e2008-grounding-resistance-test"
+  - id: grt2
+    query: "screen the four-wire-bond-measurement for bond-reading-repeatability and close the grounding-point-coverage against the structural reference"
+    intent: "ecss photovoltaic assemblies; how a grounding resistance reading is taken and covered"
+    expected_skill: "space-systems/ecss/e2008-grounding-resistance-test"

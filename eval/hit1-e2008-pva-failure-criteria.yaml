@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-pva-failure-criteria (space-systems/ecss)
+# Two tasks for the leaf; fc1 routes on deciding which observed conditions
+# count as a photovoltaic-assembly failure during a test subgroup, fc2 on the
+# per-sample record coverage behind that verdict. Both must deterministically
+# hit space-systems/ecss/e2008-pva-failure-criteria.
+tasks:
+  - id: fc1
+    query: "decide which conditions seen on the photovoltaic assembly during subgroup testing count as a failure, separating the ones that fail on occurrence alone from the ones governed by a declared limit"
+    intent: "space systems ECSS; photovoltaic assembly failure conditions under subgroup test"
+    expected_skill: "space-systems/ecss/e2008-pva-failure-criteria"
+  - id: fc2
+    query: "confirm every declared sample of the solar-array test subgroup carries a reading for every required failure condition before the subgroup verdict is formed"
+    intent: "space systems ECSS; subgroup sample record coverage behind a PVA failure verdict"
+    expected_skill: "space-systems/ecss/e2008-pva-failure-criteria"

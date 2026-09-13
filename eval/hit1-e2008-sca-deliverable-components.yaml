@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-deliverable-components (space-systems/ecss,
+# E-ST-20-08C 6.1.3). scd1 routes on the approved process identification
+# document behind the build, scd2 on the lot disposition that follows from the
+# inspection records. Both must deterministically hit
+# space-systems/ecss/e2008-sca-deliverable-components.
+tasks:
+  - id: scd1
+    query: "confirm process-identification-document-approval and pid-revision-build-alignment before sca-deliverable-component-release"
+    intent: "ecss solar cell assemblies; delivered assemblies produced under the approved process document"
+    expected_skill: "space-systems/ecss/e2008-sca-deliverable-components"
+  - id: scd2
+    query: "grade sca-inspection-record-completeness and settle the cell-assembly-delivery-lot-disposition including any sca-concession-disposition"
+    intent: "ecss solar cell assemblies; releasing a delivery lot on its inspection and concession records"
+    expected_skill: "space-systems/ecss/e2008-sca-deliverable-components"

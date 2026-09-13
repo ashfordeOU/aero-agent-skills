@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-vacuum-thermal-cycling-purpose (space-systems/ecss, E-ST-20-08C 5.5.3.11.1)
+# Two tasks for the leaf; vtp1 routes on why the run needs a vacuum
+# environment at all, vtp2 on whether the planned chamber conditions bound the
+# flight case. Both must deterministically hit
+# space-systems/ecss/e2008-vacuum-thermal-cycling-purpose.
+tasks:
+  - id: vtp1
+    query: "say which components, assemblies and interfaces of the photovoltaic assembly carry a vacuum-specific-failure-mode such as cold-welding-interface-survival, so the solar-array-vacuum-cycling run cannot be replaced by an ambient-air one"
+    intent: "ecss photovoltaic assemblies; justifying a vacuum environment for the cycling run and the survival objectives it demonstrates"
+    expected_skill: "space-systems/ecss/e2008-vacuum-thermal-cycling-purpose"
+  - id: vtp2
+    query: "check the chamber-vacuum-level-bound, the hot and cold extremes and the cycle count of the planned vacuum cycling run bound the predicted environment, and confirm cycled-article-item-coverage of every declared interface"
+    intent: "ecss photovoltaic assemblies; does the planned vacuum cycling run serve the purpose it was bought for"
+    expected_skill: "space-systems/ecss/e2008-vacuum-thermal-cycling-purpose"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-identification-and-traceability (space-systems/ecss,
+# E-ST-20-08C 6.1.4). sci1 routes on the permanent code on the delivered
+# assembly, sci2 on the depth the process document sets for it. Both must
+# deterministically hit
+# space-systems/ecss/e2008-sca-identification-and-traceability, and neither may
+# fall through to the non-cell-component clause 5.4.4 leaf.
+tasks:
+  - id: sci1
+    query: "assess the sca-permanent-coding-scheme and cell-assembly-marking-permanence for assemblies bonded down and cycled"
+    intent: "ecss solar cell assemblies; permanent coding of delivered cell assemblies"
+    expected_skill: "space-systems/ecss/e2008-sca-identification-and-traceability"
+  - id: sci2
+    query: "compare delivered-cell-assembly-traceability-depth with the process-document-traceability-depth and run the sca-code-uniqueness-register check"
+    intent: "ecss solar cell assemblies; traceability depth and code uniqueness across a delivery"
+    expected_skill: "space-systems/ecss/e2008-sca-identification-and-traceability"

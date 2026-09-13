@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-thermal-cycle-acceptance-process (space-systems/ecss)
+# Two tasks for the new leaf. tca1 routes on the acceptance cycle count being
+# read out of the referenced testing standard rather than derived from the
+# mission, which is what separates it from the qualification execution leaf;
+# tca2 routes on cycles credited after an interruption took some back. Both
+# must deterministically hit
+# space-systems/ecss/e2008-thermal-cycle-acceptance-process.
+tasks:
+  - id: tca1
+    query: "resolve how many acceptance thermal cycles this coupon category owes from the referenced testing standard the assembly documentation cites, and refuse the count the programme declared locally if it sits below it"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.7.3; referenced-standard acceptance cycle count for a coupon set"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycle-acceptance-process"
+  - id: tca2
+    query: "work out how many cycles each solar array acceptance coupon is actually credited with once the chamber interruptions took back the cycles run since the last valid checkpoint"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.7.3; credited versus run acceptance cycles after interruptions"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycle-acceptance-process"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-failed-qualification-coupons (space-systems/ecss)
+# Two tasks for the leaf; fq1 routes on the disposition of a coupon that showed
+# one or more failure modes, fq2 on how far the retest reaches once the cause is
+# attributed. Both must deterministically hit
+# space-systems/ecss/e2008-failed-qualification-coupons.
+tasks:
+  - id: fq1
+    query: "decide what happens to a qualification coupon that showed one or more of the listed failure modes, and whether it can still stand as qualification evidence"
+    intent: "space systems ECSS; disposition of a failed photovoltaic qualification coupon"
+    expected_skill: "space-systems/ecss/e2008-failed-qualification-coupons"
+  - id: fq2
+    query: "work out how far the retest reaches for a failed solar-array coupon once the root cause is attributed, and whether the corrective action lets the retest go ahead"
+    intent: "space systems ECSS; retest scope and corrective-action gate after a coupon failure"
+    expected_skill: "space-systems/ecss/e2008-failed-qualification-coupons"

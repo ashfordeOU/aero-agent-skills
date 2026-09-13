@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-substrate-integrity-inspection-process (space-systems/ecss)
+# Two tasks for the new leaf. sii1 routes on the post-cycling sequencing and
+# the stabilisation period the survey has to wait out; sii2 routes on whether
+# each substrate zone was surveyed by a method that can actually see its
+# failure modes. Both must deterministically hit
+# space-systems/ecss/e2008-substrate-integrity-inspection-process.
+tasks:
+  - id: sii1
+    query: "the coupon has finished its thermal cycling and I need to survey the substrate structural integrity, decide whether it has settled long enough after the chamber for the record to mean anything"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.10.1; post-cycling substrate integrity survey sequencing"
+    expected_skill: "space-systems/ecss/e2008-substrate-integrity-inspection-process"
+  - id: sii2
+    query: "check whether every substrate zone on the cycled coupon was covered by an inspection method admissible for it, or whether the bondline and the core were only looked at by eye"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.10.1; substrate inspection zone and method coverage"
+    expected_skill: "space-systems/ecss/e2008-substrate-integrity-inspection-process"

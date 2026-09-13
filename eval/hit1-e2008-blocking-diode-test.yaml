@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-test (space-systems/ecss)
+# Two tasks for the new leaf. bdt1 routes on sentencing measured reverse
+# current against the worst-case open-circuit voltage the string reaches;
+# bdt2 routes on whether the bench bias covered the cold-case flight
+# condition at all. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-test.
+tasks:
+  - id: e2008bdt1
+    query: "sentence the blocking diode reverse current measured at the highest open circuit voltage the string reaches in flight, referred to the reference junction temperature"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.3.6; blocking diode reverse-current acceptance at the worst-case string open-circuit voltage"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-test"
+  - id: e2008bdt2
+    query: "did the reverse bias adequacy check cover the cold case, and what parasitic reverse loss do the blocking diode leakage currents add up to"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.3.6; blocking diode leakage limit and reverse-bias adequacy of the test condition"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-test"

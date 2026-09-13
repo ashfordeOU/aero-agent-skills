@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-crimping-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. cvi1 routes on grading crimped terminations against
+# the customer-accepted crimping workmanship standard; cvi2 routes on the crimp
+# height band for a gauge the standard does not tabulate. Both must
+# deterministically hit space-systems/ecss/e2008-crimping-visual-inspection.
+tasks:
+  - id: cvi1
+    query: "verify the crimped wire terminations against the crimping workmanship standard the customer accepted and disposition each one"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.15; crimped terminations against an accepted crimping workmanship standard"
+    expected_skill: "space-systems/ecss/e2008-crimping-visual-inspection"
+  - id: cvi2
+    query: "the measured crimp height is outside the band for its gauge and one wire is a gauge the workmanship standard does not tabulate, what happens to those terminations"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.15; crimp height gauge band and an untabulated gauge"
+    expected_skill: "space-systems/ecss/e2008-crimping-visual-inspection"

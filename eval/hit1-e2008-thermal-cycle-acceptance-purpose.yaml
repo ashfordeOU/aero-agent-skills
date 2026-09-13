@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-thermal-cycle-acceptance-purpose (space-systems/ecss)
+# Two tasks for the new leaf. tcp1 routes on what acceptance cycling of a
+# photovoltaic assembly is for; tcp2 routes on the screen-depth and
+# consumed-life arithmetic that decides whether it served that purpose.
+# Both must deterministically hit
+# space-systems/ecss/e2008-thermal-cycle-acceptance-purpose.
+tasks:
+  - id: tcp1
+    query: "why is the flight solar array assembly thermally cycled at acceptance when the design is already qualified, and does this campaign reveal infant mortality or confirm supplier workmanship"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.7.1; purpose of acceptance thermal cycling"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycle-acceptance-purpose"
+  - id: tcp2
+    query: "is the acceptance cycling deep enough to screen anything and how much of the demonstrated fatigue life does it spend, with each failure grouped by onset cycle"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.7.1; screen adequacy, Coffin-Manson life consumption, failure onset"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycle-acceptance-purpose"

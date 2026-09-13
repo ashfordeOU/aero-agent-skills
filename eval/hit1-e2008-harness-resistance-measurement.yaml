@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-harness-resistance-measurement (space-systems/ecss)
+# Two tasks for the new leaf. hrm1 routes on reducing a series loop read
+# across redundant wiring to one leg at the interface connector; hrm2 routes
+# on the interface voltage drop the referred leg produces. Both must
+# deterministically hit
+# space-systems/ecss/e2008-harness-resistance-measurement.
+tasks:
+  - id: e2008hrm1
+    query: "measure the harness resistance at the interface connector with the redundant wiring joined in series and reduce the loop reading to one leg"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.3.9; harness resistance from a redundant-wiring series loop read at the interface connector"
+    expected_skill: "space-systems/ecss/e2008-harness-resistance-measurement"
+  - id: e2008hrm2
+    query: "refer the four wire harness loop reading to the reference temperature and give the interface connector voltage drop at maximum array current"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.3.9; four-wire harness measurement, temperature referral and interface voltage drop"
+    expected_skill: "space-systems/ecss/e2008-harness-resistance-measurement"

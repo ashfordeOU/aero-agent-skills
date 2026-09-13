@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-electrical-health-check-purpose (space-systems/ecss)
+# Two tasks for the new leaf. ehc1 routes on why continuity and insulation
+# together form the health assessment; ehc2 routes on the discrimination and
+# coverage bounds that decide what the assessment is worth. Both must
+# deterministically hit
+# space-systems/ecss/e2008-electrical-health-check-purpose.
+tasks:
+  - id: ehc1
+    query: "explain why continuity insulation polarity and bypass diode checks together make up the electrical health assessment of a photovoltaic assembly"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.3.1; purpose of the grouped electrical checks"
+    expected_skill: "space-systems/ecss/e2008-electrical-health-check-purpose"
+  - id: ehc2
+    query: "decide whether these continuity and insulation results cover every current carrying path and isolation barrier and whether the instruments could resolve the defect"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.3.1; coverage and measurement discrimination bounds"
+    expected_skill: "space-systems/ecss/e2008-electrical-health-check-purpose"

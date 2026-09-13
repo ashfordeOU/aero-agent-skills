@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-pva-data-documentation-package (space-systems/ecss)
+# Two tasks for the leaf; dp1 routes on the completeness of the data package
+# delivered with a coupon, dp2 on the approval and revision state of the records
+# inside it. Both must deterministically hit
+# space-systems/ecss/e2008-pva-data-documentation-package.
+tasks:
+  - id: dp1
+    query: "check the documentation package supplied with each photovoltaic assembly coupon holds every record family it owes, including the nonconformance and waiver records"
+    intent: "space systems ECSS; completeness of the coupon data package at delivery"
+    expected_skill: "space-systems/ecss/e2008-pva-data-documentation-package"
+  - id: dp2
+    query: "confirm each qualification approval record travelling with the coupon is at the applicable revision and approved rather than draft, and was not approved after the coupon was delivered"
+    intent: "space systems ECSS; revision and approval state of coupon qualification records"
+    expected_skill: "space-systems/ecss/e2008-pva-data-documentation-package"

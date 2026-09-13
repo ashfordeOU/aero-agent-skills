@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-pva-hardware-delivery (space-systems/ecss)
+# Two tasks for the new leaf. hd1 routes on the delivery lot leaving with its
+# documentation package; hd2 routes on the release decision for a short
+# shipment whose certificate of conformity is not yet issued. Both must
+# deterministically hit
+# space-systems/ecss/e2008-pva-hardware-delivery.
+tasks:
+  - id: hd1
+    query: "release the photovoltaic assembly delivery lot and confirm the as built configuration record certificate of conformity and acceptance test report shipping with the ordered hardware cite the lot that is leaving"
+    intent: "ECSS-E-ST-20-08C clause 5.8; PVA hardware delivery with its documentation package"
+    expected_skill: "space-systems/ecss/e2008-pva-hardware-delivery"
+  - id: hd2
+    query: "three of the four ordered solar array serials are shippable and the certificate of conformity is still a draft, decide whether the delivery lot can be dispatched"
+    intent: "ECSS-E-ST-20-08C clause 5.8; PVA delivery quantity reconciliation and documentation release"
+    expected_skill: "space-systems/ecss/e2008-pva-hardware-delivery"

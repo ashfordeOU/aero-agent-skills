@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-feed-through-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. ftv1 routes on the bond side - the coverage
+# fraction and the released share of the bond perimeter; ftv2 routes on the
+# position side - the radial offset of a feed-through from its drawing
+# centre. Both must deterministically hit
+# space-systems/ecss/e2008-feed-through-visual-inspection.
+tasks:
+  - id: ftv1
+    query: "decide whether the panel feed through is firmly bonded from its bonded footprint coverage fraction and the share of the bond perimeter that has released"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.17; feed-through bond coverage and debond perimeter"
+    expected_skill: "space-systems/ecss/e2008-feed-through-visual-inspection"
+  - id: ftv2
+    query: "disposition the radial offset of a panel feed through from the drawing centre against the zone scaled position tolerance and list the loose ones apart"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.17; feed-through position tolerance disposition"
+    expected_skill: "space-systems/ecss/e2008-feed-through-visual-inspection"

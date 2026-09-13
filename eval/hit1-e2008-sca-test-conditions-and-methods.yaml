@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-test-conditions-and-methods (space-systems/ecss,
+# E-ST-20-08C 6.1.2). sct1 routes on the drawing that governs the cell assembly
+# test method, sct2 on the measurement uncertainty that eats the condition
+# window. Both must deterministically hit
+# space-systems/ecss/e2008-sca-test-conditions-and-methods, and neither may
+# fall through to the photovoltaic-assembly clause 5.2 leaf.
+tasks:
+  - id: sct1
+    query: "check sca-test-condition-alignment and sca-test-method-admissibility for every test called by the cell-assembly-source-control-drawing"
+    intent: "ecss solar cell assemblies; test methods a cell assembly source control drawing allows"
+    expected_skill: "space-systems/ecss/e2008-sca-test-conditions-and-methods"
+  - id: sct2
+    query: "apply the sca-measurement-uncertainty-guard-band, rank the sca-test-window-margin and close the solar-cell-assembly-test-matrix-coverage"
+    intent: "ecss solar cell assemblies; guard-banding declared test conditions and drawing test coverage"
+    expected_skill: "space-systems/ecss/e2008-sca-test-conditions-and-methods"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-power-measurement-purpose (space-systems/ecss, E-ST-20-08C 5.5.3.4.1)
+# Two tasks per leaf; pmp1 routes on why output power is measured either side
+# of an exposure, pmp2 on whether the pair can resolve the allowable loss.
+# Both must deterministically hit
+# space-systems/ecss/e2008-power-measurement-purpose.
+tasks:
+  - id: pmp1
+    query: "write the rationale for the before-and-after-output-power-measurement bracketing the exposure and say which photovoltaic-assembly-power-degradation it exposes"
+    intent: "ecss photovoltaic assemblies; purpose of the power measurement taken either side of a test"
+    expected_skill: "space-systems/ecss/e2008-power-measurement-purpose"
+  - id: pmp2
+    query: "combine the degradation-detection-uncertainty of the bracketing-power-measurement-pair and check the solar-array-power-loss-resolution reaches the allowable degradation"
+    intent: "ecss photovoltaic assemblies; can the bracketing power pair actually detect the allowed loss"
+    expected_skill: "space-systems/ecss/e2008-power-measurement-purpose"

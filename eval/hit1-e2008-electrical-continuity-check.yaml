@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-electrical-continuity-check (space-systems/ecss, E-ST-20-08C 5.5.3.3.2)
+# Two tasks per leaf; ecc1 routes on grading the circuits the control
+# drawing lists, ecc2 on the probe technique and the temperature referral
+# the reading needs before it can be compared. Both must deterministically
+# hit space-systems/ecss/e2008-electrical-continuity-check.
+tasks:
+  - id: ecc1
+    query: "run the photovoltaic-assembly-continuity-check over every circuit the control-drawing-circuit-limit lists and account for the ones nobody probed"
+    intent: "ecss photovoltaic assemblies; continuity of each assembly circuit against the control drawing"
+    expected_skill: "space-systems/ecss/e2008-electrical-continuity-check"
+  - id: ecc2
+    query: "audit the four-wire-continuity-measurement and apply the continuity-temperature-correction before separating an open-circuit-versus-degraded-joint verdict"
+    intent: "ecss photovoltaic assemblies; conditions a continuity reading has to be taken under"
+    expected_skill: "space-systems/ecss/e2008-electrical-continuity-check"

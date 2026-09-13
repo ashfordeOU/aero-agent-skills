@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-hardware-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. hwv1 routes on the placement pair - the true
+# position offset and the wrapped rotation of a terminal board; hwv2 routes
+# on retention completeness and the stay-out clearance margin. Both must
+# deterministically hit
+# space-systems/ecss/e2008-hardware-visual-inspection.
+tasks:
+  - id: hwv1
+    query: "disposition a terminal board against the coupon assembly drawing using its true position offset and its rotation wrapped the shorter way round the circle"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.19; terminal board placement and angular deviation"
+    expected_skill: "space-systems/ecss/e2008-hardware-visual-inspection"
+  - id: hwv2
+    query: "grade fitted coupon hardware on the fraction of drawing fasteners actually installed and on the margin left to the nearest stay out boundary"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.19; hardware retention completeness and clearance margin"
+    expected_skill: "space-systems/ecss/e2008-hardware-visual-inspection"

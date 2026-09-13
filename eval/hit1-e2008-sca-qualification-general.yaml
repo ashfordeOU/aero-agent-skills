@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-qualification-general (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the per-procurement-lot
+# qualification obligation; to2 routes on coupon provenance and the heritage
+# claim one lot makes on another. Both must deterministically hit
+# space-systems/ecss/e2008-sca-qualification-general.
+tasks:
+  - id: to1
+    query: "the supplier qualified the first procurement lot of cell assemblies and wants the next three delivered against it, work out which of the delivered lots actually carry a qualification of their own"
+    intent: "ECSS-E-ST-20-08C clause 6.4.1; every procurement lot of solar cell assemblies undergoes qualification"
+    expected_skill: "space-systems/ecss/e2008-sca-qualification-general"
+  - id: to2
+    query: "check whether the qualification coupons were drawn from the lot they are meant to qualify and whether a heritage claim on an earlier lot holds when the process baseline changed"
+    intent: "ECSS-E-ST-20-08C clause 6.4.1; SCA lot qualification coupon provenance and heritage claim admissibility"
+    expected_skill: "space-systems/ecss/e2008-sca-qualification-general"
