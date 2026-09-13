@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-thermal-cycling-general-provisions (space-systems/ecss)
+# Two tasks for the leaf; tg1 routes on cell-string continuity monitoring and
+# resistance drift, tg2 on intermittent-open detection and checkpoint coverage
+# across the cycle count. Both must deterministically hit
+# space-systems/ecss/e2008-thermal-cycling-general-provisions.
+tasks:
+  - id: tg1
+    query: "judge the cell-string continuity monitoring evidence of a solar-array thermal-cycling run and the interconnect resistance drift from baseline"
+    intent: "space systems ECSS; continuity evidence across a solar-array thermal-cycling run"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-general-provisions"
+  - id: tg2
+    query: "an intermittent open appeared at one cycling checkpoint and closed again; is the continuity of the cells and wiring maintained across the cycle count"
+    intent: "space systems ECSS; intermittent-open detection and continuity checkpoint coverage"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-general-provisions"

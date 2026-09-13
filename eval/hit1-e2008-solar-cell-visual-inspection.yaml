@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-solar-cell-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. scv1 routes on the defect quantity limits across
+# the cells of an inspected coupon; scv2 routes on the split between
+# occurrences on one cell and the fraction of cells affected. Both must
+# deterministically hit space-systems/ecss/e2008-solar-cell-visual-inspection.
+tasks:
+  - id: scv1
+    query: "grade the inspected coupon against the defect quantity limits allowed across its solar cells rather than on how large any one mark is"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.8; solar cell defect quantity limits"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-visual-inspection"
+  - id: scv2
+    query: "decide whether three chips on one solar cell or one chip on each of three cells uses up the per cell allowance or the coupon affected cell fraction"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.8; per-cell allowance against coupon affected fraction"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-visual-inspection"

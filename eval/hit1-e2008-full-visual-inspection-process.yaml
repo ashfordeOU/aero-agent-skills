@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-full-visual-inspection-process (space-systems/ecss)
+# Two tasks for the new leaf. fvip1 routes on grading the examination as it was
+# carried out against each detailed inspection requirement; fvip2 routes on the
+# magnification a requirement demands and the build stage it is written against.
+# Both must deterministically hit
+# space-systems/ecss/e2008-full-visual-inspection-process.
+tasks:
+  - id: fvip1
+    query: "verify the visual examination of a photovoltaic assembly coupon was carried out against each detailed inspection requirement"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.2; examination adequacy per detailed requirement"
+    expected_skill: "space-systems/ecss/e2008-full-visual-inspection-process"
+  - id: fvip2
+    query: "derive the magnification a requirement demands from its smallest detectable feature and confirm the build stage it is written against was performed"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.2; demanded magnification and inspection stage coverage"
+    expected_skill: "space-systems/ecss/e2008-full-visual-inspection-process"

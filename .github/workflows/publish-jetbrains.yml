@@ -15,6 +15,8 @@ jobs:
         working-directory: packages/jetbrains-plugin
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # need tags for the version sync below
       - uses: actions/setup-java@v4
         with:
           java-version: 21
@@ -22,6 +24,21 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           cache-disabled: true
+      - name: Sync plugin version to latest release tag
+        run: |
+          # FIX 2026-09-13: build.gradle.kts carries the IN-PROGRESS band
+          # number (release-law bumps it the moment a band opens), so the
+          # marketplace was being handed versions that never shipped as a
+          # release - 1.9.0 published while releases topped out at 1.8.0,
+          # and 1.13.0 was next in line with npm still at 1.12.0. Derive
+          # the version from the newest v*.*.0 tag, exactly as
+          # publish-npm.yml does, so all three channels agree.
+          TAG=$(git tag --list 'v[0-9]*.[0-9]*.0' --sort=-v:refname | head -1)
+          VER=${TAG#v}
+          if [ -z "$VER" ]; then echo '::error::no release tag found'; exit 1; fi
+          perl -pi -e 's/^version = ".*"/version = "'"$VER"'"/' build.gradle.kts
+          echo "Publishing plugin version $VER (from tag $TAG)"
+          grep -n '^version' build.gradle.kts
       - name: Generate catalog from live tree
         run: python3 ../../scripts/gen_jetbrains_catalog.py
       - name: Build plugin

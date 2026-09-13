@@ -288,3 +288,24 @@ contract), gate 4 (no-verbatim), gate 5 (Hit@1 corpus).
 
 `make validate` exits 0 on a clean checkout with no network access, on skill 1
 (avionics/do178c/planning) and every subsequent skill.
+
+
+## P7 (2026-09-13) — gate 9, corpus fragment naming
+
+`leaf-create-gate.sh` resolves corpus coverage with
+`ls eval/hit1-*"$LEAF_NAME"*.yaml` — a glob wildcarded on both sides. Every
+invented prefix satisfies it, so 14 concurrent builders filed the same corpus
+under `hit1-e2008-*`, `hit1-w0913-e2008-*` and `hit1-wave-e2008-*` and no gate
+went red. The root cause was upstream: the builders were told to use "your own
+scratch dir" without being given one, so each invented paths and filenames to
+avoid colliding with the others.
+
+Gate 9 (`scripts/corpus_naming_check.py`) does NOT mandate a filename —
+that would break the legacy `hit1-wave1-*` / `hit1-wave2-*` fragments whose
+names predate the slug convention. It fails when a SINGLE leaf is covered by
+fragments under MORE THAN ONE spelling, which is the defect itself and cannot
+be produced by legacy naming. A fragment maps to the LONGEST leaf slug
+contained in its filename, so a shorter slug that is a substring of a longer
+one does not steal the mapping.
+
+Canonical name for anything new: `eval/hit1-<slug>.yaml`.

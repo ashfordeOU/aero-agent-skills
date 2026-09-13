@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-pva-defect-acceptability (space-systems/ecss, E-ST-20-08C 5.4.2)
+# Two tasks per leaf; pda1 routes on agreeing and documenting the allowable
+# defect level, pda2 on confirming that level by qualification and comparing
+# the observed population against the allowance. Both must deterministically
+# hit space-systems/ecss/e2008-pva-defect-acceptability.
+tasks:
+  - id: pda1
+    query: "settle the allowable-defect-level-agreement for the photovoltaic assembly and turn each defect-catalogue-acceptance-rule fraction into a whole allowable count"
+    intent: "ecss photovoltaic assemblies; agreeing and documenting allowable defect levels at assembly level"
+    expected_skill: "space-systems/ecss/e2008-pva-defect-acceptability"
+  - id: pda2
+    query: "check the qualification-confirmed-defect-level against the assembly-level-defect-allowance and size the pva-workmanship-defect-budget"
+    intent: "ecss photovoltaic assemblies; qualification confirmation of an agreed defect level"
+    expected_skill: "space-systems/ecss/e2008-pva-defect-acceptability"

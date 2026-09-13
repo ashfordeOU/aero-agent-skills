@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-thermal-cycling-test-purpose (space-systems/ecss)
+# Two tasks for the leaf; tc1 routes on deriving the test-cycle count that
+# demonstrates the in-orbit eclipse cycles, tc2 on the cycling temperature
+# extremes and the transition ramp bound. Both must deterministically hit
+# space-systems/ecss/e2008-thermal-cycling-test-purpose.
+tasks:
+  - id: tc1
+    query: "how many solar-array thermal-cycling test cycles demonstrate the in-orbit eclipse cycle count of the photovoltaic assembly with a cycle-equivalence exponent"
+    intent: "space systems ECSS; fatigue-endurance cycle count for a solar-array thermal-cycling run"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-test-purpose"
+  - id: tc2
+    query: "check the solar-array cycling temperature extremes envelope the predicted extremes with margin and bound the cycling ramp rate and dwell"
+    intent: "space systems ECSS; cycling extremes, ramp-rate bound and dwell for the fatigue-endurance demonstration"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-test-purpose"

@@ -17,8 +17,8 @@
         attest snapshot-live number-snapshot-offline brief-audit content-policy-sweep \
         packs visuals visuals-check
 
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability
-	@echo "Aero Agent Skills validate: PASS (8/8 REAL gates green - docs/harness-contract.md)"
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming
+	@echo "Aero Agent Skills validate: PASS (9/9 REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
 # must have SKILL.md + scripts/ + contract test + no broken refs, with
@@ -50,6 +50,13 @@ pytest-contract:
 # libm result lands on. See scripts/portability_check.py for the incident.
 portability:
 	@python3 scripts/portability_check.py
+
+# Gate 9 (2026-09-13): one corpus fragment per leaf. leaf-create-gate.sh
+# resolves coverage with a glob wildcarded on BOTH sides, so every invented
+# prefix satisfied it - 14 concurrent builders filed one corpus under three
+# different names and no gate went red.
+corpus-naming:
+	@python3 scripts/corpus_naming_check.py
 
 no-verbatim:
 	@scripts/gate-no-verbatim.sh
@@ -98,7 +105,7 @@ about:
 	@bash ops/automation/update-about.sh
 
 # Sync the dev/test tree to the public release repo, github.com/ashfordeOU/
-# aero-agent-skills (founder 2026-09-02: arjun-0077 stays test-only, the
+# aero-agent-skills (founder 2026-09-02: the private dev repo stays test-only, the
 # public repo is where releases ship). Exports the allowlist, runs the
 # FULL gate battery inside that export before touching git, then pushes
 # through a persistent local mirror (fast-forward only, never force). A

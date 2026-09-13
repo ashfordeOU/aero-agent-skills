@@ -177,12 +177,26 @@ log "exporting the full tree to ${EXPORT}…"
 # ECSS-100 (founder 2026-09-09): scope docs + ECSS planning stay PRIVATE.
 # ops/ecss-program excluded (above); wave state notes are the internal ops
 # record — they document ECSS-standard builds + program status, so they are
-# NOT public content. Automation scripts + briefs stay public (release tooling).
+# NOT public content. Automation SCRIPTS stay public (release tooling);
+# wave briefs do not - see the internal-only list below.
+# INTERNAL-ONLY, added 2026-09-13 after a public audit found them shipped:
+#   ops/automation/*-brief.md      wave work orders - name the private dev
+#                                  remote and the push-token env var
+#   docs/MAINTENANCE_AND_HANDOVER  content-policy-sweep.sh's own header
+#                                  calls it "never shipped to buyers"; it
+#                                  lists PAT FILE PATHS and ~/company-ops
+#   context/                       internal release runbook (token choice)
+# None of these is referenced by a gate, a Makefile target or a workflow -
+# checked before excluding. The mirror sync is a full replace (step 5), so
+# the next publish DELETES them from the public repo.
 git archive --format=tar HEAD -- . \
   ':(exclude)ops/automation/test' \
   ':(exclude)ops/ecss-program' \
   ':(exclude)ops/automation/*-state.md' \
-  ':(exclude)ops/automation/state' | tar -x -C "$EXPORT"
+  ':(exclude)ops/automation/state' \
+  ':(exclude)ops/automation/*-brief.md' \
+  ':(exclude)docs/MAINTENANCE_AND_HANDOVER.md' \
+  ':(exclude)context' | tar -x -C "$EXPORT"
 # NOTE: About is refreshed post-push from the MIRROR (has .git), see step 7 —
 # the export has no .git so update-about.sh cannot resolve slug/token there.
 printf 'make validate\nmake brief-audit\nmake content-policy-sweep\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
@@ -374,7 +388,7 @@ log "refreshing GitHub About from the mirror (post-push, non-fatal)…"
   || log "WARN: About refresh failed (non-fatal — see /tmp/publish-public-about.log)"
 
 # --- 7b. PRIVATE repo About refresh (dev repo, post-push, non-fatal) ---
-# The private About (arjun-0077) went stale after waves (567 vs 581)
+# The private About (dev repo) went stale after waves (567 vs 581)
 # because nothing refreshed it on wave close. update-about.sh resolves
 # slug/token from the dev repo's origin (= private). Run it from DEV.
 log "refreshing PRIVATE GitHub About from dev repo (post-push, non-fatal)…"

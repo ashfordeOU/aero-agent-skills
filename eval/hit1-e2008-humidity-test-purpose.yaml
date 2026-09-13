@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-humidity-test-purpose (space-systems/ecss, E-ST-20-08C 5.5.1.4.1)
+# Two tasks per leaf; htp1 routes on why the exposure is applied at all,
+# htp2 on whether the planned chamber conditions bound the ground life.
+# Both must deterministically hit
+# space-systems/ecss/e2008-humidity-test-purpose.
+tasks:
+  - id: htp1
+    query: "write the rationale for the photovoltaic-assembly-humidity-exposure and say which objectives such as bondline-adhesion-retention it demonstrates"
+    intent: "ecss photovoltaic assemblies; purpose and objectives of the humidity exposure"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-purpose"
+  - id: htp2
+    query: "accumulate the ground-environment-moisture-dose over the pre-launch-storage-environment and check the solar-array-coupon-humidity-test bounds it"
+    intent: "ecss photovoltaic assemblies; does the planned humidity run bound the ground life"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-purpose"

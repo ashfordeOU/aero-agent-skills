@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-humidity-test-execution (space-systems/ecss, E-ST-20-08C 5.5.1.4.4)
+# Two tasks per leaf; hte1 routes on the conditioned dwell the chamber log
+# actually delivered, hte2 on the ambient-pressure hold and the excursion
+# limits. Both must deterministically hit
+# space-systems/ecss/e2008-humidity-test-execution.
+tasks:
+  - id: hte1
+    query: "run the humidity-chamber-dwell-accounting over the damp-heat-chamber-log and compare the conditioned-dwell-duration with the duration the test specification defines"
+    intent: "ecss photovoltaic assemblies; conditioned dwell delivered by a humidity chamber run"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-execution"
+  - id: hte2
+    query: "audit the ambient-pressure-hold of the chamber and grade each control-excursion-limit over the photovoltaic-assembly-humidity-run"
+    intent: "ecss photovoltaic assemblies; ambient pressure and control excursions during the humidity run"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-execution"

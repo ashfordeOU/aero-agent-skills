@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-manufacturing-process-variable-recording
+# (space-systems/ecss, E-ST-20-08C 5.4.5). mpv1 routes on naming the
+# influencing variables before production, mpv2 on sizing each one and fixing
+# its logging. Both must deterministically hit
+# space-systems/ecss/e2008-manufacturing-process-variable-recording.
+tasks:
+  - id: mpv1
+    query: "run the manufacturing-process-variable-identification and fix the process-parameter-logging-plan before the first production unit is built"
+    intent: "ecss photovoltaic assemblies; identifying influencing process variables ahead of production"
+    expected_skill: "space-systems/ecss/e2008-manufacturing-process-variable-recording"
+  - id: mpv2
+    query: "rank the control-band-performance-swing of each variable and size the unlogged-process-influence on the production-readiness-variable-list"
+    intent: "ecss photovoltaic assemblies; logging plan sized from process variable influence"
+    expected_skill: "space-systems/ecss/e2008-manufacturing-process-variable-recording"

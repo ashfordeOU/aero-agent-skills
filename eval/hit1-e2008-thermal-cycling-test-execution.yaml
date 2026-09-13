@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-thermal-cycling-test-execution (space-systems/ecss, E-ST-20-08C 5.5.1.3.4)
+# Two tasks per leaf; tce1 routes on deriving the cycle count and the
+# qualification extremes before the run, tce2 on grading the cycles the
+# chamber actually delivered. Both must deterministically hit
+# space-systems/ecss/e2008-thermal-cycling-test-execution.
+tasks:
+  - id: tce1
+    query: "set the solar-array-coupon-cycle-count by eclipse-cycle-derivation for the mission and fix the qualification-temperature-extremes for the photovoltaic-assembly-thermal-cycling profile"
+    intent: "ecss photovoltaic assemblies; cycle count and temperature range for a coupon cycling run"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-test-execution"
+  - id: tce2
+    query: "audit the cycling-profile-execution log and do the coupon-dwell-verification so cycles that never reached the cold extreme stop counting toward the requirement"
+    intent: "ecss photovoltaic assemblies; grading recorded thermal cycles against the profile"
+    expected_skill: "space-systems/ecss/e2008-thermal-cycling-test-execution"

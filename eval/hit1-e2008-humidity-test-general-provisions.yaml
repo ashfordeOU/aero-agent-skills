@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-humidity-test-general-provisions (space-systems/ecss, E-ST-20-08C 5.5.1.4.2)
+# Two tasks per leaf; hgp1 routes on capturing the mission-specific humidity
+# conditions in the assembly control drawing before the run, hgp2 on
+# enveloping the ground phases into the declared, margined condition. Both
+# must deterministically hit
+# space-systems/ecss/e2008-humidity-test-general-provisions.
+tasks:
+  - id: hgp1
+    query: "check the assembly-control-drawing carries the mission-environmental-envelope for the photovoltaic-assembly-humidity-test and that the pre-test-capture happened before the run started"
+    intent: "ecss photovoltaic assemblies; mission-specific humidity conditions captured on the drawing before testing"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-general-provisions"
+  - id: hgp2
+    query: "envelope the ground-phase-exposure-duration of a solar panel and turn it into the margined humidity-exposure-declaration written on the drawing"
+    intent: "ecss photovoltaic assemblies; enveloping ground phases into the declared humidity condition"
+    expected_skill: "space-systems/ecss/e2008-humidity-test-general-provisions"

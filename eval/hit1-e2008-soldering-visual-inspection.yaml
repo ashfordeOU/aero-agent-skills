@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-soldering-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. svi1 routes on grading string termination solder
+# joints against the customer agreed workmanship standard; svi2 routes on the
+# fillet coverage and void fraction measurements. Both must deterministically
+# hit space-systems/ecss/e2008-soldering-visual-inspection.
+tasks:
+  - id: svi1
+    query: "examine the solder joints at the solar array string terminations against the workmanship standard agreed with the customer and check the issue was in force"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.13; string termination joints against an agreed workmanship standard"
+    expected_skill: "space-systems/ecss/e2008-soldering-visual-inspection"
+  - id: svi2
+    query: "grade the string termination solder fillet coverage wetting angle and void area fraction and refuse the cold and dewetted joints"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.13; solder joint geometry and attribute refusals"
+    expected_skill: "space-systems/ecss/e2008-soldering-visual-inspection"

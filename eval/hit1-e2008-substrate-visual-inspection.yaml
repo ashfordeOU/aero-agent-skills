@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-substrate-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. sub1 routes on dispositioning induced damage
+# in the panel facesheet and honeycomb core; sub2 routes on attributing the
+# damage to the assembly, handling or test operation that caused it. Both
+# must deterministically hit space-systems/ecss/e2008-substrate-visual-inspection.
+tasks:
+  - id: sub1
+    query: "disposition the facesheet dent and honeycomb core crush found on the solar array substrate against the damaged area fraction of the panel"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.5; solar-array substrate damage disposition"
+    expected_skill: "space-systems/ecss/e2008-substrate-visual-inspection"
+  - id: sub2
+    query: "attribute the substrate facesheet damage under the cell bonding footprint to the assembly handling or test operation that produced it"
+    intent: "ECSS-E-ST-20-08C clause 5.5.3.2.5; induced substrate damage attribution"
+    expected_skill: "space-systems/ecss/e2008-substrate-visual-inspection"

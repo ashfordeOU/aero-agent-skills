@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-test-tolerance-and-accuracy-rules (space-systems/ecss)
+# Two tasks for the new leaf. tta1 routes on the instrument uncertainty a
+# declared tolerance half-band will carry and the accuracy ratio it achieves;
+# tta2 routes on the reading resolution, the set-point drift and the
+# guard-banded acceptance limits. Both must deterministically hit
+# space-systems/ecss/e2008-test-tolerance-and-accuracy-rules.
+tasks:
+  - id: tta1
+    query: "work out the largest instrument uncertainty the governing tolerance half-band of each controlled solar array test parameter will carry and the test accuracy ratio the chosen instrument achieves"
+    intent: "ECSS-E-ST-20-08C clause 4.3.2; instrument precision relative to a photovoltaic-assembly test parameter tolerance"
+    expected_skill: "space-systems/ecss/e2008-test-tolerance-and-accuracy-rules"
+  - id: tta2
+    query: "check the reading resolution and the set-point drift of the photovoltaic assembly test instrumentation and guard-band the acceptance limits where the accuracy ratio is only marginal"
+    intent: "ECSS-E-ST-20-08C clause 4.3.2; reading resolution, set-point drift and guard-banded acceptance limits"
+    expected_skill: "space-systems/ecss/e2008-test-tolerance-and-accuracy-rules"
