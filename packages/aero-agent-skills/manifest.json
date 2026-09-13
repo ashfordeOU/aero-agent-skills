@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1439,
+  "leaves": 1481,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -19820,6 +19820,118 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-assembly-capacitance-measurement-process",
+   "name": "e2008-assembly-capacitance-measurement-process",
+   "description": "Determine which single accepted method, frequency domain or time domain, a photovoltaic string capacitance measurement runs under per ECSS-E-ST-20-08C clause 5.5.3.5.2, and show the nominated one holds: size the reactance at the test frequency against the instrument band, derive the dissipation factor the string leakage produces, compute the decay constant a discharge resistor sets and the samples the recorder places inside it, size the fixture stray against the article, and close an uncertainty budget against the requirement. Use when a string capacitance figure is about to be quoted from a method nobody established as accepted. Trigger: ecss, e-st-20-08c-clause-5-5-3-5-2, solar-array-string-capacitance-measurement, frequency-domain-capacitance-method, time-domain-capacitance-method, string-capacitance-uncertainty-budget, fixture-stray-capacitance-fraction, capacitance-bridge-dissipation-limit.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-assembly-capacitance-measurement-process",
+    "solar-array-string-capacitance-measurement",
+    "frequency-domain-capacitance-method",
+    "time-domain-capacitance-method",
+    "string-capacitance-uncertainty-budget",
+    "fixture-stray-capacitance-fraction",
+    "capacitance-bridge-dissipation-limit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-assembly-capacitance-test-purpose",
+   "name": "e2008-assembly-capacitance-test-purpose",
+   "description": "Determine what a capacitance measurement on the strings of a photovoltaic assembly must deliver to characterise the dynamic electrical behaviour ECSS-E-ST-20-08C clause 5.5.3.5.1 is concerned with: combine the per-cell capacitance through the series string and the parallel strings into one assembly value, derive the displacement current, stored charge and switching time constant it drives, then check the planned bridge frequency lands inside the meter range and the measurement bias stands in for the working point. Use when scoping or reviewing a solar-array string capacitance characterisation. Trigger: ecss, e-st-20-08c, clause-5-5-3-5-1, solar-array-string-capacitance, photovoltaic-assembly-dynamic-behaviour, assembly-displacement-current-transient, capacitance-bridge-frequency-range, array-switching-time-constant.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-assembly-capacitance-test-purpose",
+    "solar-array-string-capacitance",
+    "photovoltaic-assembly-dynamic-behaviour",
+    "assembly-displacement-current-transient",
+    "capacitance-bridge-frequency-range",
+    "array-switching-time-constant"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-attachment-material-visual-inspection",
+   "name": "e2008-attachment-material-visual-inspection",
+   "description": "Assess bonded attachments on a photovoltaic assembly for full cure and for any adhesive tackiness left, under ECSS-E-ST-20-08C clause 5.5.3.2.16: reduce each recorded thermal profile to equivalent minutes at the adhesive's reference temperature, crediting nothing to time below the temperature at which it advances, take the ratio against the reference dwell, let a tack observation override a profile that says cured, flag a peak past the damage ceiling, grade fillet coverage and voids, and roll the assembly up with the attachments carrying no tack test named. Use when bonded attachments have been examined and each needs a disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-16, bonded-attachment-cure-inspection, adhesive-remaining-tackiness-check, equivalent-cure-minutes-accumulation, adhesive-cure-ratio-against-dwell, attachment-fillet-coverage-screen.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-attachment-material-visual-inspection",
+    "bonded-attachment-cure-inspection",
+    "adhesive-remaining-tackiness-check",
+    "equivalent-cure-minutes-accumulation",
+    "adhesive-cure-ratio-against-dwell",
+    "attachment-fillet-coverage-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bleed-resistor-test",
+   "name": "e2008-bleed-resistor-test",
+   "description": "Verify the bleed resistor fitted to a photovoltaic assembly under ECSS-E-ST-20-08C clause 5.5.3.3.5: resolve the acceptance band from the drawing nominal and its tolerance, refer the reading back to the reference temperature through the element coefficient, de-embed an in-circuit reading against the declared parallel path and refuse to sentence one without it, grade both band edges separately, then work out whether the measured part drains the assembly capacitance to a safe voltage in the time the safety case assumes. Use when a bleed resistor measurement has to be accepted, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, bleed-resistor-resistance-measurement, photovoltaic-assembly-bleed-path, in-circuit-parallel-deembedding, bleed-resistor-tolerance-band, assembly-discharge-time-constant, safe-voltage-bleed-time.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-bleed-resistor-test",
+    "bleed-resistor-resistance-measurement",
+    "photovoltaic-assembly-bleed-path",
+    "in-circuit-parallel-deembedding",
+    "bleed-resistor-tolerance-band",
+    "assembly-discharge-time-constant",
+    "safe-voltage-bleed-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-test",
+   "name": "e2008-blocking-diode-test",
+   "description": "Compute the reverse current a solar array blocking diode passes at the highest open-circuit voltage its string can reach in flight, under ECSS-E-ST-20-08C clause 5.5.3.3.6: build that worst-case bias from the cold-case cell open-circuit voltage, the series count and a beginning-of-life margin; refuse a bench whose applied reverse bias falls short of it, because an under-stressed diode proves nothing; refer every measured leakage to the reference junction temperature; group each diode as within limit, above limit or reverse-conducting; and total the parasitic loss the array then carries. Use when a blocking diode reverse-current test has to be set up, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, blocking-diode-reverse-current, worst-case-open-circuit-voltage, blocking-diode-leakage-limit, reverse-bias-adequacy-check, solar-array-blocking-diode-screening.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-blocking-diode-test",
+    "blocking-diode-reverse-current",
+    "worst-case-open-circuit-voltage",
+    "blocking-diode-leakage-limit",
+    "reverse-bias-adequacy-check",
+    "solar-array-blocking-diode-screening",
+    "solar-array-parasitic-reverse-loss"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bonding-integrity-visual-inspection",
+   "name": "e2008-bonding-integrity-visual-inspection",
+   "description": "Verify that every solar cell bond on a photovoltaic coupon meets the bond integrity criteria of ECSS-E-ST-20-08C clause 5.5.3.2.20: derive the bond footprint, weight each adhesive void, edge disbond and corner disbond by where it sits rather than by its area alone, disposition missing fillets, adhesive bridges and lifted cells, roll the disbonded area up into a bonded-area fraction per cell, and hold the coupon open until the record count matches the declared cell population. Use when a bonded coupon has been examined and every cell needs a disposition the full population supports. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-20, solar-cell-bond-integrity, coupon-bond-population-completeness, adhesive-void-area-fraction, corner-disbond-peel-initiation, bonded-area-fraction-limit.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bonding-integrity-visual-inspection",
+    "solar-cell-bond-integrity",
+    "coupon-bond-population-completeness",
+    "adhesive-void-area-fraction",
+    "corner-disbond-peel-initiation",
+    "bonded-area-fraction-limit",
+    "solar-cell-substrate-bond-inspection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-bus-bar-visual-inspection",
    "name": "e2008-bus-bar-visual-inspection",
    "description": "Screen a solar-array bus bar for the conditions that carry no allowance under ECSS-E-ST-20-08C clause 5.5.3.2.11: separate the not-tolerated findings - solder bridged across a design gap, a cracked bar, a lifted run, an opening filled solid - from the graded ones, turn a bridging call into a residual isolation gap and a blocked opening into the fraction of the opening still clear, scale splash, void, thin-fillet and contamination limits by the zone they sit in, and return accept, rework or reject with the not-tolerated identifiers named separately. Use when a bus bar has been examined and the record needs a disposition that a rework or a scrap decision can rest on. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-11, solar-array-bus-bar-inspection, bus-bar-solder-bridging-screen, bus-bar-blocked-opening-check, bus-bar-conductor-isolation-gap, not-tolerated-bus-bar-defects.",
@@ -19851,6 +19963,25 @@
     "bypass-diode-examination-magnification",
     "bypass-diode-string-protection-rollup",
     "bypass-diode-record-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cleanliness-visual-inspection",
+   "name": "e2008-cleanliness-visual-inspection",
+   "description": "Assess whether the surfaces of a photovoltaic coupon appear clean to the unaided eye under ECSS-E-ST-20-08C clause 5.5.3.2.21: derive the detection floor from the working distance and eye acuity, flag a record made through a magnifier as a different and more sensitive instrument, check illuminance and viewing distance, disposition particulate, films, fingerprints, adhesive residue, staining and fibres, add small deposits into a coverage fraction, and report the verdict together with the feature size it is bounded at. Use when a coupon has been looked at and the cleanliness result needs a bound the examination can support. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-21, coupon-surface-cleanliness, unaided-visual-detection-floor, particulate-deposit-disposition, cleanliness-inspection-illuminance-floor, magnification-aid-out-of-scope.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-cleanliness-visual-inspection",
+    "coupon-surface-cleanliness",
+    "unaided-visual-detection-floor",
+    "particulate-deposit-disposition",
+    "cleanliness-inspection-illuminance-floor",
+    "magnification-aid-out-of-scope",
+    "solar-coupon-contamination-screen"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -19915,6 +20046,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-crimping-visual-inspection",
+   "name": "e2008-crimping-visual-inspection",
+   "description": "Evaluate crimped wire terminations against the crimping workmanship standard the customer has accepted, under ECSS-E-ST-20-08C clause 5.5.3.2.15: refuse a standard with no recorded acceptance and a gauge it does not tabulate, compare each measured crimp height with the band for its own gauge, count the strands that reached the barrel against those nicked inside it or brushed outside it, read bell mouth, insulation support, trapped insulation and the inspection window, check pull-out against the gauge minimum, and roll the harness up with its pull-test sample coverage. Use when crimped terminations have been examined and each one needs a disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-15, crimped-wire-termination-inspection, crimping-workmanship-standard-acceptance, crimp-height-gauge-band, crimp-strand-loss-count, crimp-pull-out-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-crimping-visual-inspection",
+    "crimped-wire-termination-inspection",
+    "crimping-workmanship-standard-acceptance",
+    "crimp-height-gauge-band",
+    "crimp-strand-loss-count",
+    "crimp-pull-out-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-critical-materials-interface-listing",
    "name": "e2008-critical-materials-interface-listing",
    "description": "Audit the parts, materials and processes list of a solar array for the critical interface data it owes, anchored at ECSS-E-ST-20-08C clause 4.4. Use when an array declared-materials list is submitted for review: derive from each entry whether it sits at a critical array interface rather than reading a hand-set criticality flag, list the identification data its kind owes and the interface data its criticality adds, screen a bonded non-metallic item against its total-mass-loss and collected-volatile limits, measure the anodic-index separation of a metal-to-metal couple, and accept or reject the list entry by entry. Trigger: ecss, e-st-20-08c, solar-array-pmp-list, photovoltaic-declared-materials-list, critical-interface-data, solar-array-material-outgassing, solar-array-galvanic-couple, array-interface-qualification-reference, cell-to-coverglass-interface, interconnect-to-substrate-interface.",
@@ -19948,6 +20097,44 @@
     "keep-out-area-intrusion",
     "standoff-feature-height-check",
     "coupon-edge-margin-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-electrical-continuity-check",
+   "name": "e2008-electrical-continuity-check",
+   "description": "Verify that every circuit on a photovoltaic assembly control drawing actually conducts, under ECSS-E-ST-20-08C clause 5.5.3.3.2: check each reading against the test current, temperature and probe technique the drawing imposes, strip the probe leads from a two-wire reading or refuse to grade it, refer the resistance back to the reference temperature before comparing it with the circuit limit, separate a degraded joint from a true open circuit, and account for every drawing circuit nobody probed. Use when a continuity run has to be accepted, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, photovoltaic-assembly-continuity-check, control-drawing-circuit-limit, four-wire-continuity-measurement, continuity-temperature-correction, open-circuit-versus-degraded-joint, continuity-coverage-accounting.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-electrical-continuity-check",
+    "photovoltaic-assembly-continuity-check",
+    "control-drawing-circuit-limit",
+    "four-wire-continuity-measurement",
+    "continuity-temperature-correction",
+    "open-circuit-versus-degraded-joint",
+    "continuity-coverage-accounting"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-electrical-health-check-purpose",
+   "name": "e2008-electrical-health-check-purpose",
+   "description": "Evaluate whether a set of continuity, insulation, polarity, bypass diode and bonding checks amounts to the electrical health assessment ECSS-E-ST-20-08C clause 5.5.3.3.1 asks for: cover every declared current-carrying path and isolation barrier, derive each instrument's discrimination against the band it has to judge, return indeterminate where a reading inside the band says more about the instrument than about the assembly, and keep an unmeasured path apart from a healthy one. Use when an assembly has been checked electrically and the health statement needs its coverage and its resolution made explicit. Trigger: ecss, e-st-20-08c, clause-5-5-3-3-1, photovoltaic-assembly-electrical-health, continuity-path-coverage, insulation-barrier-proof-voltage, measurement-discrimination-ratio, indeterminate-electrical-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-electrical-health-check-purpose",
+    "photovoltaic-assembly-electrical-health",
+    "continuity-path-coverage",
+    "insulation-barrier-proof-voltage",
+    "measurement-discrimination-ratio",
+    "indeterminate-electrical-check",
+    "solar-array-bypass-diode-function-check"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -19992,6 +20179,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-failed-qualification-coupons",
+   "name": "e2008-failed-qualification-coupons",
+   "description": "Determine how a qualification coupon that showed one or more failure modes is treated under ECSS-E-ST-20-08C clause 5.6.2. Use when a failed solar-array coupon needs a disposition rather than an opinion: withdraw the coupon as qualification evidence whatever the cause, hold the disposition open while any mode is still unattributed, map each attributed cause onto the retest scope it forces, let the widest scope govern when several modes are present, and keep the retest inadmissible until corrective action is implemented and verified. Trigger: ecss, e-st-20-08c, clause-5-6-2, failed-qualification-coupon-disposition, solar-array-coupon-retest-scope, coupon-root-cause-attribution, qualification-evidence-withdrawal, coupon-corrective-action-verification, photovoltaic-requalification-trigger.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-failed-qualification-coupons",
+    "e-st-20-08c",
+    "clause-5-6-2",
+    "failed-qualification-coupon-disposition",
+    "solar-array-coupon-retest-scope",
+    "coupon-root-cause-attribution",
+    "qualification-evidence-withdrawal",
+    "photovoltaic-requalification-trigger"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-feed-through-visual-inspection",
+   "name": "e2008-feed-through-visual-inspection",
+   "description": "Verify the panel feed-throughs of ECSS-E-ST-20-08C clause 5.5.3.2.17: take each measured centre against its drawing centre as a radial offset, turn the bonded footprint into a coverage fraction and the released run into a share of the bond perimeter, scale the offset and area allowances by the zone the feed-through sits in while leaving the coverage minimum unscaled, and return accept, rework or reject per feed-through with a panel verdict, the loose ones named apart and any drawing feed-through that carries no record held open. Use when panel feed-throughs have been examined and bond and position have to be dispositioned together. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-17, panel-feed-through-bond-verification, feed-through-position-tolerance-check, feed-through-debond-perimeter-fraction, unbonded-feed-through-screen.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-feed-through-visual-inspection",
+    "panel-feed-through-bond-verification",
+    "feed-through-position-tolerance-check",
+    "feed-through-debond-perimeter-fraction",
+    "unbonded-feed-through-screen",
+    "feed-through-bond-coverage-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-full-visual-inspection-process",
    "name": "e2008-full-visual-inspection-process",
    "description": "Verify that the visual examination of a photovoltaic assembly coupon was carried out against each detailed inspection requirement of ECSS-E-ST-20-08C clause 5.5.3.2.2: derive the magnification a requirement demands from its smallest detectable feature and a declared resolution-element count, compare that with the magnification applied, place the working illuminance inside or outside the band the requirement sets, list the viewing aspects the examination never took, and confirm the build stage the requirement is written against was actually performed. Use when an inspection record has to be graded for examination adequacy rather than for the defects it happened to find. Trigger: ecss, e-st-20-08c, photovoltaic-assembly-visual-inspection, inspection-magnification-adequacy, coupon-viewing-aspect-coverage, inspection-illumination-band, inspection-stage-coverage, resolvable-feature-size.",
@@ -20023,6 +20248,62 @@
     "visual-inspection-zone-coverage",
     "inspection-magnification-resolvable-feature",
     "imperfection-severity-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-grounding-resistance-test",
+   "name": "e2008-grounding-resistance-test",
+   "description": "Evaluate the resistance measured at every grounding point of a photovoltaic assembly under ECSS-E-ST-20-08C clause 5.5.3.3.4: resolve the window each point is allowed to sit in, reject a reading taken to a neighbour fitting instead of the declared structural reference, screen the repeat readings for a contact moving under the probe and the test current for enough drive to break the film on a bolted joint, compensate a two-wire fixture, then separate a resistive bond from a path more conductive than the plan allows. Use when a grounding run has to be accepted, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, grounding-point-bond-resistance, photovoltaic-assembly-grounding-plan, four-wire-bond-measurement, bond-reading-repeatability, dissipative-path-resistance-window, grounding-point-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-grounding-resistance-test",
+    "grounding-point-bond-resistance",
+    "photovoltaic-assembly-grounding-plan",
+    "four-wire-bond-measurement",
+    "bond-reading-repeatability",
+    "dissipative-path-resistance-window",
+    "grounding-point-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-hardware-visual-inspection",
+   "name": "e2008-hardware-visual-inspection",
+   "description": "Evaluate the terminal boards and other hardware of ECSS-E-ST-20-08C clause 5.5.3.2.19: reconcile the items the coupon assembly drawing requires against those fitted, take each measured centre as a true-position offset and each measured rotation wrapped the shorter way round, turn the installed fasteners into a retention completeness fraction, take the gap to the nearest stay-out boundary as a margin where zero or less is interference, and return accept, rework or reject per item with a coupon verdict and the missing, undrawn and interfering hardware named apart. Use when fitted coupon hardware has been surveyed and its placement needs a disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-19, terminal-board-placement-check, coupon-hardware-angular-deviation, hardware-retention-completeness, hardware-stay-out-clearance-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-hardware-visual-inspection",
+    "terminal-board-placement-check",
+    "coupon-hardware-angular-deviation",
+    "hardware-retention-completeness",
+    "hardware-stay-out-clearance-margin",
+    "undrawn-coupon-hardware-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-harness-resistance-measurement",
+   "name": "e2008-harness-resistance-measurement",
+   "description": "Derive the resistance of one solar array harness run at the interface connector from a series loop read across redundant conductors joined at the far end, under ECSS-E-ST-20-08C clause 5.5.3.3.9: refuse a pair whose legs differ in material, gauge, routed length or section, since only matched legs may be halved; subtract the declared far-end joint, halve the remainder and refer it to the reference temperature; compare it against what the declared geometry predicts; and convert it through the flight configuration into the voltage lost at maximum array current. Use when a harness resistance measurement has to be set up, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, harness-resistance-measurement, redundant-wiring-series-loop, interface-connector-voltage-drop, four-wire-harness-measurement, solar-array-harness-screening.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-harness-resistance-measurement",
+    "harness-resistance-measurement",
+    "redundant-wiring-series-loop",
+    "interface-connector-voltage-drop",
+    "four-wire-harness-measurement",
+    "solar-array-harness-screening",
+    "harness-conductor-temperature-referral"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20158,6 +20439,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-marking-visual-inspection",
+   "name": "e2008-marking-visual-inspection",
+   "description": "Assess the identification markings of ECSS-E-ST-20-08C clause 5.5.3.2.18: settle presence first by reconciling the markings the assembly drawing calls out against those observed, turn the lifted footprint and the lifted edge into two adhesion fractions, take the larger axis error as the governing deviation inside the rectangular placement box, check the face against the drawing and character height against the legibility minimum, and return accept, rework or reject per marking with a coupon verdict and the missing or unlisted ones named apart. Use when a coupon's markings have been examined and presence, adhesion and location need dispositioning together. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-18, coupon-identification-marking-check, marking-adhesion-lifted-area-fraction, marking-location-tolerance-box, missing-identification-marking.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-marking-visual-inspection",
+    "coupon-identification-marking-check",
+    "marking-adhesion-lifted-area-fraction",
+    "marking-location-tolerance-box",
+    "missing-identification-marking",
+    "marking-legibility-character-height"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-photovoltaic-assembly-purpose-and-objective",
    "name": "e2008-photovoltaic-assembly-purpose-and-objective",
    "description": "Compute the design-limit margins and the responsibility split that clause 5.1.2 of ECSS-E-ST-20-08C expects a photovoltaic-assembly work scope to establish: normalize each declared limit into a not-to-exceed or not-to-fall-below margin fraction of the limit, compare it with the margin the project policy demands for its thermal, electrical, mechanical or optical category, name the required category that carries no declared limit at all, and check that every design, manufacturing and verification work item has one accountable party with an agreement reference wherever the work is shared. Use when a PVA statement of work, procurement specification or design-limit list has to be shown complete before build starts. Trigger: ecss, e-st-20-08c, photovoltaic-assembly-design-limit, photovoltaic-assembly-margin-policy, photovoltaic-assembly-work-responsibility, pva-customer-supplier-split, pva-design-limit-margin-shortfall, pva-work-scope-completeness.",
@@ -20198,6 +20497,62 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-power-measurement-process",
+   "name": "e2008-power-measurement-process",
+   "description": "Verify that a string-level electrical performance measurement on a photovoltaic assembly was taken where ECSS-E-ST-20-08C clause 5.5.3.4.2 puts it: at the interface connector and referred to a declared reference temperature. Confirm the probing plane keeps the harness the string delivers through inside the loop, quantify the power a shorter plane overstates, refer the measured open-circuit voltage, short-circuit current and maximum power to the reference with the declared coefficients, and reject a correction reaching too far from it to be credible. Use when reviewing a solar-array string current-voltage measurement record. Trigger: ecss, e-st-20-08c, clause-5-5-3-4-2, solar-array-string-iv-measurement, interface-connector-measurement-plane, string-reference-temperature-correction, harness-voltage-drop-allocation, string-maximum-power-referral.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-power-measurement-process",
+    "solar-array-string-iv-measurement",
+    "interface-connector-measurement-plane",
+    "string-reference-temperature-correction",
+    "harness-voltage-drop-allocation",
+    "string-maximum-power-referral"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-power-measurement-purpose",
+   "name": "e2008-power-measurement-purpose",
+   "description": "Evaluate whether the output-power measurements bracketing an environmental test on a photovoltaic assembly can actually reveal the degradation they exist to detect, under ECSS-E-ST-20-08C clause 5.5.3.4.1: compute the relative power loss between the before and after measurements, combine their uncertainties into the smallest loss the pair can tell apart from noise, check that resolution against the allowable degradation, and map each bracketed exposure to the mechanism the pair is meant to expose. Use when scoping or reviewing the before-and-after power measurements around a solar-array assembly test. Trigger: ecss, e-st-20-08c, clause-5-5-3-4-1, photovoltaic-assembly-power-degradation, before-and-after-output-power-measurement, solar-array-power-loss-resolution, degradation-detection-uncertainty, bracketing-power-measurement-pair.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-power-measurement-purpose",
+    "photovoltaic-assembly-power-degradation",
+    "before-and-after-output-power-measurement",
+    "solar-array-power-loss-resolution",
+    "degradation-detection-uncertainty",
+    "bracketing-power-measurement-pair"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-pva-data-documentation-package",
+   "name": "e2008-pva-data-documentation-package",
+   "description": "Verify the documentation package delivered with each photovoltaic-assembly coupon under ECSS-E-ST-20-08C clause 5.7. Use when a coupon data package has to be accepted or sent back: resolve which record families this coupon owes, including the ones owed only because a nonconformance was raised or a waiver granted, take the governing revision of each submitted record, check every owed family is present at or above the revision its configuration calls for and carries an approval rather than a draft, flag an approval dated after the coupon left, and report what blocks acceptance. Trigger: ecss, e-st-20-08c, clause-5-7, coupon-data-package-completeness, pva-qualification-approval-records, coupon-documentation-revision-control, nonconformance-record-inclusion, waiver-record-inclusion, record-approval-date-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-pva-data-documentation-package",
+    "e-st-20-08c",
+    "clause-5-7",
+    "coupon-data-package-completeness",
+    "pva-qualification-approval-records",
+    "coupon-documentation-revision-control",
+    "nonconformance-record-inclusion",
+    "record-approval-date-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-pva-defect-acceptability",
    "name": "e2008-pva-defect-acceptability",
    "description": "Agree and confirm the allowable defect levels of a photovoltaic assembly under ECSS-E-ST-20-08C clause 5.4.2. Use when a defect catalogue has to become an acceptance rule set before assembly hardware is presented: convert each agreed defect fraction into a whole allowable count over the declared population, categorize the agreement basis as customer-agreed, supplier-proposed or undocumented, check that a qualification article actually carried the level being claimed, compare the observed defect population against its allowance, and name the defect type that governs the assembly verdict. Trigger: ecss, e-st-20-08c, photovoltaic-assembly-defect-acceptability, allowable-defect-level-agreement, defect-catalogue-acceptance-rule, qualification-confirmed-defect-level, pva-workmanship-defect-budget, agreement-record-citation, assembly-level-defect-allowance.",
@@ -20218,6 +20573,46 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-pva-failure-criteria",
+   "name": "e2008-pva-failure-criteria",
+   "description": "Determine which conditions observed during subgroup testing of a photovoltaic assembly count as a failure under ECSS-E-ST-20-08C clause 5.6.1. Use when a subgroup test record has to become a verdict rather than a list of observations: validate every observation, separate the conditions that are a failure on occurrence alone from those governed by a declared limit, compare each measured value against its limit in the direction of merit that condition carries, check that every declared sample carries a record for every required condition, and name the samples that failed. Trigger: ecss, e-st-20-08c, clause-5-6-1, photovoltaic-assembly-failure-criteria, subgroup-test-failure-condition, solar-array-coupon-continuity-loss, pva-power-degradation-limit, subgroup-sample-record-coverage, failure-on-occurrence-condition.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-pva-failure-criteria",
+    "e-st-20-08c",
+    "clause-5-6-1",
+    "photovoltaic-assembly-failure-criteria",
+    "subgroup-test-failure-condition",
+    "solar-array-coupon-continuity-loss",
+    "pva-power-degradation-limit",
+    "subgroup-sample-record-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-pva-hardware-delivery",
+   "name": "e2008-pva-hardware-delivery",
+   "description": "Audit a photovoltaic assembly delivery against clause 5.8 of ECSS-E-ST-20-08C: reconcile the ordered quantity against the serials actually shippable, hold every delivery document to issued status and to the lot that is physically leaving, disposition each serial from its conformance state and its build standard, measure the released share of the documentation package, and return one lot verdict. Use when a PVA shipment, delivery lot, dispatch note or documentation package has to be released together. Trigger: ecss, e-st-20-08c, pva-hardware-delivery, pva-delivery-documentation-package, pva-delivery-quantity-reconciliation, pva-certificate-of-conformity-release, pva-as-built-configuration-record, pva-delivery-lot-release-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-pva-hardware-delivery",
+    "e-st-20-08c",
+    "pva-hardware-delivery",
+    "pva-delivery-documentation-package",
+    "pva-delivery-quantity-reconciliation",
+    "pva-certificate-of-conformity-release",
+    "pva-as-built-configuration-record",
+    "pva-delivery-lot-release-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-pva-identification-and-traceability",
    "name": "e2008-pva-identification-and-traceability",
    "description": "Trace the non-cell components of a photovoltaic assembly under ECSS-E-ST-20-08C clause 5.4.4. Use when identification and record keeping have to be shown before build records are accepted: match each component form to an identification carrier that can physically survive its processing, walk the production route to the step where identity stops being transcribed, verify a lot identifier exists for the chain to point back to, resolve the assemblies a suspect lot reached, and name the component whose records are weakest. Trigger: ecss, e-st-20-08c, non-cell-component-traceability, photovoltaic-assembly-identification-marking, lot-identifier-record-keeping, production-route-identity-chain, suspect-lot-recall-scope, travelling-record-transcription, bulk-consumable-batch-identity.",
@@ -20232,6 +20627,26 @@
     "production-route-identity-chain",
     "suspect-lot-recall-scope",
     "bulk-consumable-batch-identity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-pva-packaging-and-storage",
+   "name": "e2008-pva-packaging-and-storage",
+   "description": "Determine which product assurance rule set governs the packing, dispatch, handling and storage of a photovoltaic assembly under clause 5.9 of ECSS-E-ST-20-08C: resolve the reference each activity declares, hold a project deviation to an approved tailoring record, measure declared storage temperature and humidity against the governing envelope, work out the storage life still unspent, and return one rule-resolution verdict. Use when a PVA packing, dispatch, handling or storage instruction has to be traced to its governing rules. Trigger: ecss, e-st-20-08c, pva-packaging-and-storage, pva-packing-dispatch-handling-storage-rules, pva-product-assurance-reference-resolution, pva-storage-environment-envelope, pva-storage-duration-margin, pva-packaging-tailoring-record.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-pva-packaging-and-storage",
+    "e-st-20-08c",
+    "pva-packaging-and-storage",
+    "pva-packing-dispatch-handling-storage-rules",
+    "pva-product-assurance-reference-resolution",
+    "pva-storage-environment-envelope",
+    "pva-storage-duration-margin",
+    "pva-packaging-tailoring-record"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20309,6 +20724,222 @@
     "coupon-sample-size",
     "interconnect-peel-strength",
     "workmanship-imperfection-grades"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-acceptance-methods-and-conditions",
+   "name": "e2008-sca-acceptance-methods-and-conditions",
+   "description": "Verify that solar cell assembly acceptance activities reuse the qualification methods and conditions clause 6.3.2 of ECSS-E-ST-20-08C points back to: trace each acceptance activity to its baseline entry, refuse a substituted measurement method, compare every condition against the baseline under its own sense and tolerance, report a relaxation that leaves acceptance weaker than the qualification it inherits, report an escalation that over-tests delivered hardware, name a condition the procedure omitted or invented, and return one reuse verdict. Use when an SCA acceptance procedure, test condition table or method reuse justification has to be reviewed. Trigger: ecss, e-st-20-08c, sca-acceptance-methods-and-conditions, sca-qualification-method-reuse, sca-acceptance-condition-deviation, sca-acceptance-method-substitution, sca-acceptance-over-test, sca-test-condition-baseline.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-acceptance-methods-and-conditions",
+    "e-st-20-08c",
+    "sca-acceptance-methods-and-conditions",
+    "sca-qualification-method-reuse",
+    "sca-acceptance-condition-deviation",
+    "sca-acceptance-method-substitution",
+    "sca-acceptance-over-test",
+    "sca-test-condition-baseline"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-acceptance-testing-general",
+   "name": "e2008-sca-acceptance-testing-general",
+   "description": "Evaluate whether the solar cell assembly acceptance activity set of clause 6.3.1 of ECSS-E-ST-20-08C reaches both populations it owes: the assemblies being delivered and the assemblies consumed by the qualification campaign. Expand the owed activities over every article, list what each article has no record for, separate an unrun activity from a recorded failure, measure coverage per population, catch a population exempted from acceptance testing wholesale, and return one lot verdict with ranked findings. Use when an SCA acceptance matrix, lot traveller set or coupon allocation has to be assessed. Trigger: ecss, e-st-20-08c, sca-acceptance-testing-general, sca-delivery-article-acceptance, sca-qualification-article-acceptance, sca-acceptance-population-coverage, sca-lot-acceptance-verdict, sca-article-acceptance-record.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-acceptance-testing-general",
+    "e-st-20-08c",
+    "sca-acceptance-testing-general",
+    "sca-delivery-article-acceptance",
+    "sca-qualification-article-acceptance",
+    "sca-acceptance-population-coverage",
+    "sca-lot-acceptance-verdict",
+    "sca-article-acceptance-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-deliverable-components",
+   "name": "e2008-sca-deliverable-components",
+   "description": "Evaluate whether the cell assemblies in a delivery lot were produced and inspected under the approved process identification document, as ECSS-E-ST-20-08C clause 6.1.3 requires. Use when a lot is presented for release and the build paperwork has to carry it: confirm the cited process document is approved rather than draft or withdrawn, compare the revision each unit was built to against the revision approved for delivery, check every mandatory inspection was performed and passed rather than merely listed, disposition each unit as deliverable, deliverable under concession or withheld, and size the release share against the lot. Trigger: ecss, e-st-20-08c, sca-deliverable-component-release, process-identification-document-approval, cell-assembly-delivery-lot-disposition, sca-inspection-record-completeness, pid-revision-build-alignment, sca-concession-disposition.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-sca-deliverable-components",
+    "sca-deliverable-component-release",
+    "process-identification-document-approval",
+    "cell-assembly-delivery-lot-disposition",
+    "sca-inspection-record-completeness",
+    "pid-revision-build-alignment",
+    "sca-concession-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-electrical-performance-acceptance",
+   "name": "e2008-sca-electrical-performance-acceptance",
+   "description": "Evaluate the electrical performance measurement of clause 6.3.3 of ECSS-E-ST-20-08C applied to cell assemblies in the acceptance sequence: hold the bench conditions to the window a correction is valid in, translate current, voltage and maximum power back to reference irradiance and temperature, test the corrected point for internal consistency, hold it against the declared minimum, then roll the lot up on sample size and reject share. Use when an SCA acceptance data sheet, flash-test record or lot power summary has to be assessed. Trigger: ecss, e-st-20-08c, sca-electrical-performance-acceptance, sca-acceptance-electrical-measurement, solar-cell-assembly-maximum-power-acceptance, sca-reference-condition-correction, sca-acceptance-lot-reject-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-electrical-performance-acceptance",
+    "e-st-20-08c",
+    "sca-electrical-performance-acceptance",
+    "sca-acceptance-electrical-measurement",
+    "solar-cell-assembly-maximum-power-acceptance",
+    "sca-reference-condition-correction",
+    "sca-acceptance-lot-reject-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-identification-and-traceability",
+   "name": "e2008-sca-identification-and-traceability",
+   "description": "Audit the permanent coding of delivered cell assemblies against the traceability depth the process document sets, under ECSS-E-ST-20-08C clause 6.1.4. Use when a delivery register has to show each assembly stays identifiable after it is bonded into a panel: judge whether the marking survives the processing the assembly will see, read the depth the code fields and the register actually reach, compare it with the depth the process document demands, detect a code repeated across the delivered set, and name the weakest assembly. Trigger: ecss, e-st-20-08c, sca-permanent-coding-scheme, delivered-cell-assembly-traceability-depth, cell-assembly-marking-permanence, sca-code-uniqueness-register, process-document-traceability-depth, sca-delivery-lot-coding-audit.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-sca-identification-and-traceability",
+    "sca-permanent-coding-scheme",
+    "delivered-cell-assembly-traceability-depth",
+    "cell-assembly-marking-permanence",
+    "sca-code-uniqueness-register",
+    "process-document-traceability-depth",
+    "sca-delivery-lot-coding-audit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-process-identification-document",
+   "name": "e2008-sca-process-identification-document",
+   "description": "Assess the supplier process identification document that clause 6.2 of ECSS-E-ST-20-08C asks for before a solar cell assembly is qualified: hold the processes the assembly is actually built with against the set the document declares, check each declared process names the production document that controls it, confirm every control parameter carries a tolerance band that brackets its nominal and is drawn tightly enough to control anything, flag a process the assembly depends on that cites no qualification evidence, and check the issue date precedes the campaign. Use when an SCA process identification document, production control baseline or process qualification list has to be reviewed. Trigger: ecss, e-st-20-08c, sca-process-identification-document, sca-production-control-document, sca-process-step-coverage, sca-control-parameter-tolerance-band, sca-process-qualification-evidence, sca-process-document-issue-date.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-process-identification-document",
+    "e-st-20-08c",
+    "sca-process-identification-document",
+    "sca-production-control-document",
+    "sca-process-step-coverage",
+    "sca-control-parameter-tolerance-band",
+    "sca-process-qualification-evidence",
+    "sca-process-document-issue-date"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-qualification-general",
+   "name": "e2008-sca-qualification-general",
+   "description": "Verify the clause 6.4.1 requirement of ECSS-E-ST-20-08C that every procurement lot of cell assemblies is qualified in its own right: resolve the evidence each lot declares, hold a campaign to coupons drawn from that same lot, close the required activity set on enough of them, test any heritage claim against the configuration it leans on, and roll the procurement up into one verdict naming the lots that would ship unqualified. Use when a lot qualification status list, supplier procurement record or heritage justification has to be assessed. Trigger: ecss, e-st-20-08c, sca-qualification-general, procurement-lot-qualification-coverage, sca-qualification-coupon-provenance, sca-lot-heritage-claim-admissibility, solar-cell-assembly-lot-qualification.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-qualification-general",
+    "e-st-20-08c",
+    "sca-qualification-general",
+    "procurement-lot-qualification-coverage",
+    "sca-qualification-coupon-provenance",
+    "sca-lot-heritage-claim-admissibility",
+    "solar-cell-assembly-lot-qualification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-qualification-schedule",
+   "name": "e2008-sca-qualification-schedule",
+   "description": "Validate the production and test schedule of clause 6.4.2 of ECSS-E-ST-20-08C followed when qualifying a cell assembly design: confirm every production, test and documentation step is declared, hold each step behind the steps it depends on rather than merely present somewhere in the list, walk the coupon batch through the declared order to the step that empties it, and rank the findings into one schedule verdict. Use when a qualification flow chart, coupon batch sizing or test sequence plan has to be assessed. Trigger: ecss, e-st-20-08c, sca-qualification-schedule, solar-cell-assembly-qualification-sequence, sca-qualification-step-precedence, sca-qualification-coupon-batch-sizing, sca-baseline-and-final-measurement-order.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-qualification-schedule",
+    "e-st-20-08c",
+    "sca-qualification-schedule",
+    "solar-cell-assembly-qualification-sequence",
+    "sca-qualification-step-precedence",
+    "sca-qualification-coupon-batch-sizing",
+    "sca-baseline-and-final-measurement-order"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-test-conditions-and-methods",
+   "name": "e2008-sca-test-conditions-and-methods",
+   "description": "Verify that every test declared for a solar cell assembly is aligned with its cell assembly source control drawing under ECSS-E-ST-20-08C clause 6.1.2. Use when a cell assembly test matrix, acceptance procedure or laboratory report has to stand as drawing-traceable evidence: resolve whether the method is drawing-named, drawing-invoked, an approved equivalent or a house procedure; guard-band each declared condition by the uncertainty of the instrument that recorded it; rank the conditions by the window they consume; and name the drawing-required test the matrix never declared. Trigger: ecss, e-st-20-08c, sca-test-condition-alignment, cell-assembly-source-control-drawing, sca-test-method-admissibility, sca-measurement-uncertainty-guard-band, sca-test-window-margin, solar-cell-assembly-test-matrix-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-sca-test-conditions-and-methods",
+    "sca-test-condition-alignment",
+    "cell-assembly-source-control-drawing",
+    "sca-test-method-admissibility",
+    "sca-measurement-uncertainty-guard-band",
+    "sca-test-window-margin",
+    "solar-cell-assembly-test-matrix-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-testing-overview",
+   "name": "e2008-sca-testing-overview",
+   "description": "Plan the solar cell assembly test programme of clause 6.1.1 of ECSS-E-ST-20-08C, where acceptance and qualification activities run as one campaign: hold each declared activity to the category it owes, check the specimen it runs on against that category, size the sample against the policy minimum, measure programme coverage and the qualification share, and return one programme verdict. Use when an SCA test matrix, campaign plan or coupon allocation has to be assessed. Trigger: ecss, e-st-20-08c, sca-testing-overview, solar-cell-assembly-test-programme, sca-acceptance-and-qualification-coverage, sca-qualification-coupon-allocation, sca-test-activity-categorization, sca-programme-sample-size.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-testing-overview",
+    "e-st-20-08c",
+    "sca-testing-overview",
+    "solar-cell-assembly-test-programme",
+    "sca-acceptance-and-qualification-coverage",
+    "sca-qualification-coupon-allocation",
+    "sca-test-activity-categorization",
+    "sca-programme-sample-size"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-shunt-diode-test",
+   "name": "e2008-shunt-diode-test",
+   "description": "Determine the forward voltage each shunt diode drops while the string it protects is driven backwards, under ECSS-E-ST-20-08C clause 5.5.3.3.7: check the forced drive reaches the worst-case string current the diode exists to carry, refer every measured drop to the reference junction temperature with the declared coefficient, group each part as conducting, suspect-shorted, suspect-degraded or open-circuit from where its referred drop falls, compute the dissipation the drive imposes, and charge any string drop the diode inventory cannot explain to a resisting joint. Use when a shunt diode forward-voltage test has to be set up, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, shunt-diode-forward-voltage, reverse-mode-string-drive, shunt-diode-conduction-window, open-shunt-diode-detection, solar-array-shunt-diode-screening.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-shunt-diode-test",
+    "shunt-diode-forward-voltage",
+    "reverse-mode-string-drive",
+    "shunt-diode-conduction-window",
+    "open-shunt-diode-detection",
+    "solar-array-shunt-diode-screening",
+    "shunt-diode-dissipation-budget"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20449,6 +21080,42 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-substrate-integrity-inspection-process",
+   "name": "e2008-substrate-integrity-inspection-process",
+   "description": "Assess the structural integrity of a photovoltaic-assembly coupon substrate once its thermal cycling is credited, under ECSS-E-ST-20-08C clause 5.5.3.10.1: refuse a survey run before the cycling completes or inside the post-chamber stabilisation period, flag one left past the recording window, test every substrate zone against the methods that can actually see its failure modes and the corroboration a subsurface zone owes, capture each indication with its kind, zone, method and size, reject a size the method used cannot resolve, and hand a complete set on to the drawing-sourced disposition step. Use when a cycled coupon substrate has been surveyed and the record has to stand up. Trigger: ecss, e-st-20-08c, clause-5-5-3-10-1, post-cycling-substrate-integrity-inspection, cycled-coupon-substrate-survey, substrate-inspection-zone-coverage, substrate-inspection-method-admissibility, substrate-disbond-indication-capture.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-substrate-integrity-inspection-process",
+    "post-cycling-substrate-integrity-inspection",
+    "cycled-coupon-substrate-survey",
+    "substrate-inspection-zone-coverage",
+    "substrate-inspection-method-admissibility",
+    "substrate-disbond-indication-capture"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-substrate-integrity-pass-fail-criteria",
+   "name": "e2008-substrate-integrity-pass-fail-criteria",
+   "description": "Determine whether a thermally cycled coupon substrate meets the integrity thresholds the assembly control drawing declares, under ECSS-E-ST-20-08C clause 5.5.3.10.2: refuse a drawing carrying no revision and a coupon graded on a revision it was not measured to, read each limit with its units and its direction of merit so a floor failure cannot pass as a ceiling, express every result as a margin fraction, report an indication landing exactly on its limit as having none left, total the kinds the drawing caps cumulatively, and leave a kind the drawing never declared undetermined rather than accepted. Use when dispositioning a cycled coupon substrate. Trigger: ecss, e-st-20-08c, clause-5-5-3-10-2, substrate-integrity-acceptance-thresholds, assembly-control-drawing-threshold-source, cycled-substrate-indication-disposition, undeclared-criteria-refusal, substrate-integrity-margin-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-substrate-integrity-pass-fail-criteria",
+    "substrate-integrity-acceptance-thresholds",
+    "assembly-control-drawing-threshold-source",
+    "cycled-substrate-indication-disposition",
+    "undeclared-criteria-refusal",
+    "substrate-integrity-margin-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-substrate-visual-inspection",
    "name": "e2008-substrate-visual-inspection",
    "description": "Evaluate a solar-array substrate for damage left by assembly, handling or test operations under ECSS-E-ST-20-08C clause 5.5.3.2.5: categorize each indication as a facesheet scratch, dent or puncture, honeycomb core crush, facesheet-core disbond, insulation-layer tear, edge close-out damage or insert damage, measure its depth against the facesheet thickness and its damaged area, tighten every limit where the damage sits under the cell bonding footprint or an insert, disposition it accept, repair or reject, roll the damaged-area fraction up into a panel verdict, and attribute the indications to the operation that produced them. Use when a panel substrate has been examined and the record needs a defensible disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-5, solar-array-substrate-damage-inspection, facesheet-damage-disposition, honeycomb-core-crush-assessment, substrate-handling-damage-attribution, cell-bonding-footprint-severity, panel-damaged-area-fraction.",
@@ -20482,6 +21149,62 @@
     "tolerance-half-band-derivation",
     "solar-array-reading-resolution",
     "photovoltaic-test-instrumentation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-thermal-cycle-acceptance-general",
+   "name": "e2008-thermal-cycle-acceptance-general",
+   "description": "Assess whether an acceptance thermal cycling run on a photovoltaic assembly holds to the vacuum environment ECSS-E-ST-20-08C clause 5.5.3.7.2 prefers, and size what a gas fill changes when it does not: name the environment from the chamber pressure, derive the molecular mean free path and the Knudsen number against the gap the heat crosses, group the conduction regime, measure the cold dwell against the frost point of the fill, and judge oxidation of exposed metallisation at the hot dwell, all against a recorded justification. Use when a campaign is about to be cycled in atmosphere because the vacuum chamber was busy. Trigger: ecss, e-st-20-08c-clause-5-5-3-7-2, solar-array-vacuum-cycling-preference, ambient-atmosphere-cycling-justification, chamber-knudsen-conduction-regime, cold-dwell-frost-point-margin, interconnect-oxidation-exposure, thermal-vacuum-chamber-pressure-band.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-thermal-cycle-acceptance-general",
+    "solar-array-vacuum-cycling-preference",
+    "ambient-atmosphere-cycling-justification",
+    "chamber-knudsen-conduction-regime",
+    "cold-dwell-frost-point-margin",
+    "interconnect-oxidation-exposure",
+    "thermal-vacuum-chamber-pressure-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-thermal-cycle-acceptance-process",
+   "name": "e2008-thermal-cycle-acceptance-process",
+   "description": "Perform the acceptance thermal-cycle exposure of solar-array coupons under ECSS-E-ST-20-08C clause 5.5.3.7.3: resolve the acceptance cycle count from the referenced testing standard and the coupon category instead of deriving one locally, refuse a declared count that falls below that reference, record an overtest that runs past it, credit each coupon only with the cycles that survived its interruptions, invalidate a coupon whose run was broken more often than the allowance permits, and close the set only when enough coupons have each reached the count. Use when planning or auditing an acceptance cycling run on photovoltaic-assembly coupons. Trigger: ecss, e-st-20-08c, clause-5-5-3-7-3, pva-acceptance-thermal-cycle-exposure, referenced-testing-standard-cycle-count, solar-array-coupon-acceptance-cycling, coupon-cycle-exposure-credit, cycling-interruption-invalidation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-thermal-cycle-acceptance-process",
+    "pva-acceptance-thermal-cycle-exposure",
+    "referenced-testing-standard-cycle-count",
+    "solar-array-coupon-acceptance-cycling",
+    "coupon-cycle-exposure-credit",
+    "cycling-interruption-invalidation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-thermal-cycle-acceptance-purpose",
+   "name": "e2008-thermal-cycle-acceptance-purpose",
+   "description": "Evaluate whether an acceptance thermal cycling run on a photovoltaic assembly serves the two purposes ECSS-E-ST-20-08C clause 5.5.3.7.1 gives it, revealing infant mortality and confirming supplier workmanship: hold the cycle count, the range and the dwell soak above the depth a screen needs, convert the run into qualification-equivalent damage and cap the demonstrated fatigue life it may spend, group every failure by onset so an early escape is charged to workmanship while a late one is escalated, and report the lot escape rate. Use when an acceptance campaign is about to be signed off as a screen it may be too shallow or too long to be. Trigger: ecss, e-st-20-08c-clause-5-5-3-7-1, solar-array-acceptance-thermal-cycling, infant-mortality-screen-adequacy, supplier-workmanship-confirmation, coffin-manson-life-consumption, cycle-dwell-soak-adequacy, failure-onset-grouping.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-thermal-cycle-acceptance-purpose",
+    "solar-array-acceptance-thermal-cycling",
+    "infant-mortality-screen-adequacy",
+    "supplier-workmanship-confirmation",
+    "coffin-manson-life-consumption",
+    "cycle-dwell-soak-adequacy",
+    "failure-onset-grouping"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20583,6 +21306,63 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-vacuum-thermal-cycling-criteria",
+   "name": "e2008-vacuum-thermal-cycling-criteria",
+   "description": "Evaluate how far a photovoltaic coupon may degrade after vacuum thermal cycling under ECSS-E-ST-20-08C clause 5.5.3.11.3: report the pre-cycling and post-cycling illuminated readings back to reference irradiance and cell temperature, form the loss fraction of maximum power, short-circuit current and open-circuit voltage against their own allowances, then judge the post-cycling insulation resistance against its floor, against the decades it lost relative to the pre-cycling value and against the leakage current it implies at the declared test voltage. Use when accepting or rejecting a vacuum-cycled coupon. Trigger: ecss, e-st-20-08c, clause-5-5-3-11-3, vacuum-cycling-acceptance-criteria, coupon-performance-degradation, post-cycling-insulation-resistance, insulation-decade-loss, coupon-leakage-current, dielectric-breakdown-after-cycling.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-vacuum-thermal-cycling-criteria",
+    "vacuum-cycling-acceptance-criteria",
+    "coupon-performance-degradation",
+    "post-cycling-insulation-resistance",
+    "insulation-decade-loss",
+    "coupon-leakage-current"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-vacuum-thermal-cycling-process",
+   "name": "e2008-vacuum-thermal-cycling-process",
+   "description": "Identify which components of a photovoltaic article are watched for electrical continuity throughout a vacuum thermal-cycling run, per ECSS-E-ST-20-08C clause 5.5.3.11.2: separate the declared items that carry a current path from the ones no continuity monitor can watch, give each of the first group its own monitor channel and compare the demand with the channels available, size the sampling interval so the shortest credible discontinuity is still resolved, then account for every second of the run the monitor was not watching. Use when planning or auditing the in-situ monitoring of a vacuum cycling campaign. Trigger: ecss, e-st-20-08c, clause-5-5-3-11-2, vacuum-cycling-continuity-monitoring, in-situ-discontinuity-detection, monitor-channel-assignment, continuity-sampling-interval, unmonitored-run-time, cycled-article-current-path.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-vacuum-thermal-cycling-process",
+    "vacuum-cycling-continuity-monitoring",
+    "in-situ-discontinuity-detection",
+    "monitor-channel-assignment",
+    "continuity-sampling-interval",
+    "unmonitored-run-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-vacuum-thermal-cycling-purpose",
+   "name": "e2008-vacuum-thermal-cycling-purpose",
+   "description": "Determine why a photovoltaic assembly is cycled in vacuum rather than in air under ECSS-E-ST-20-08C clause 5.5.3.11.1, and whether the planned run serves that purpose: group every declared component, assembly and interface into the survival objective the run makes it demonstrate, mark the items whose failure mode only exists once the air is gone, confirm the cycled article actually carries each declared item, then check the chamber pressure, the hot and cold extremes and the cycle count bound the flight environment with their margins. Use when scoping or reviewing a solar-array vacuum cycling campaign. Trigger: ecss, e-st-20-08c, clause-5-5-3-11-1, vacuum-thermal-cycling-purpose, solar-array-vacuum-cycling, vacuum-specific-failure-mode, cold-welding-interface-survival, chamber-vacuum-level-bound, cycled-article-item-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-vacuum-thermal-cycling-purpose",
+    "vacuum-thermal-cycling-purpose",
+    "solar-array-vacuum-cycling",
+    "vacuum-specific-failure-mode",
+    "cold-welding-interface-survival",
+    "cycled-article-item-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-visual-inspection-general-criteria",
    "name": "e2008-visual-inspection-general-criteria",
    "description": "Validate the supplier-defined visual acceptance criteria for every component of a photovoltaic assembly under ECSS-E-ST-20-08C clause 5.5.3.2.3, then screen a coupon against them: check each criterion carries a positive limit, a unit consistent with its kind, an inspection method, a customer-agreement state and the document it was agreed in; report components left with no criteria at all; reduce the observed features to a largest single dimension, a cumulative area fraction and a count; and disposition each result as accepted, referred to the customer, or rejected. Use when an inspection outcome has to be defended against an agreed and documented criteria set. Trigger: ecss, e-st-20-08c, supplier-defined-acceptance-criteria, customer-agreed-inspection-criteria, photovoltaic-assembly-component-criteria, coverglass-edge-chip-limit, cumulative-defect-area-fraction, visual-criteria-document-reference.",
@@ -20596,6 +21376,24 @@
     "photovoltaic-assembly-component-criteria",
     "coverglass-edge-chip-limit",
     "cumulative-defect-area-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-welding-visual-inspection",
+   "name": "e2008-welding-visual-inspection",
+   "description": "Verify the welds at solar-array string terminations and terminals against the assembly control drawing under ECSS-E-ST-20-08C clause 5.5.3.2.14: match every inspected location to its drawing entry, compare the welds present with the count the drawing calls for, resolve each weld's offset from its drawn position and its nugget diameter against the drawing band, grade cracked, expelled and discoloured nuggets, count the sound welds a location has left, and return accept, rework or reject with undeclared locations refused and unrecorded ones named. Use when a welded assembly has been examined and the drawing is the authority the record has to answer to. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-14, solar-array-termination-weld-inspection, weld-against-assembly-control-drawing, weld-nugget-diameter-band, weld-position-tolerance-check, undeclared-weld-location.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-welding-visual-inspection",
+    "solar-array-termination-weld-inspection",
+    "weld-against-assembly-control-drawing",
+    "weld-nugget-diameter-band",
+    "weld-position-tolerance-check",
+    "undeclared-weld-location"
    ],
    "family": "space-systems",
    "pack": "ecss",

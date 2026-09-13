@@ -41,6 +41,17 @@ jobs:
           grep -n '^version' build.gradle.kts
       - name: Generate catalog from live tree
         run: python3 ../../scripts/gen_jetbrains_catalog.py
+      - name: Sync storefront description to the shipped catalog
+        run: |
+          # FIX 2026-09-13: the Marketplace page description is overwritten
+          # from build.gradle.kts on every publish, so the hardcoded "330+
+          # verified skills" was being faithfully republished while the
+          # catalog in the same plugin held 1439, and it named 8 of the 12
+          # families. Derive both from the catalog.json generated one step
+          # above so the storefront and the in-IDE browser cannot disagree.
+          python3 ../../scripts/test_sync_jetbrains_description.py 2>&1 | tail -3
+          python3 ../../scripts/sync_jetbrains_description.py
+          grep -n 'verified skills' build.gradle.kts
       - name: Build plugin
         run: ./gradlew buildPlugin --no-build-cache
       - name: Upload plugin artifact
