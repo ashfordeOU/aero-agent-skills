@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-thermo-optical-measurement-process (space-systems/ecss)
+# Two tasks for the new leaf. tom1 routes on measuring solar absorptance and
+# hemispherical emittance on the designated subgroup; tom2 routes on the
+# reflectance-band reduction, repeat-scan spread and instrument spectral range.
+# Both must deterministically hit
+# space-systems/ecss/e2008-sca-thermo-optical-measurement-process.
+tasks:
+  - id: tom1
+    query: "measure solar absorptance and hemispherical emittance on the designated subgroup of cell assemblies and check every designated sample was covered"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.6.2; thermo optical measurement on the designated SCA subgroup"
+    expected_skill: "space-systems/ecss/e2008-sca-thermo-optical-measurement-process"
+  - id: tom2
+    query: "reduce the weighted reflectance bands into absorptance and emittance and hold the repeat scans inside the instrument repeatability limit"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.6.2; reflectance band reduction and integrating sphere repeatability"
+    expected_skill: "space-systems/ecss/e2008-sca-thermo-optical-measurement-process"

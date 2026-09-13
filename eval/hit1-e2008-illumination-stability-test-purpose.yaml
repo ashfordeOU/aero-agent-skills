@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-illumination-stability-test-purpose (space-systems/ecss)
+# Two tasks for the new leaf. is1 routes on why an assembly is soaked under
+# sustained illumination at all; is2 routes on whether the planned soak can
+# resolve the drift at the reference temperature. Both must deterministically
+# hit space-systems/ecss/e2008-illumination-stability-test-purpose.
+tasks:
+  - id: is1
+    query: "state which light driven mechanisms the sustained illumination soak has to bound and whether the mission illuminated hours earn the test"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.12.1; illumination stability test purpose"
+    expected_skill: "space-systems/ecss/e2008-illumination-stability-test-purpose"
+  - id: is2
+    query: "decide whether the planned illuminated soak resolves the expected output drift against the measurement uncertainty at the reference temperature"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.12.1; stability characterisation adequacy"
+    expected_skill: "space-systems/ecss/e2008-illumination-stability-test-purpose"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-interconnector-pull-test-process (space-systems/ecss)
+# Two tasks for the new leaf. ipr1 routes on the defined crosshead speed and
+# the force ramp it produces; ipr2 routes on the recorded trace having to rise
+# steadily on every tab. Both must deterministically hit
+# space-systems/ecss/e2008-interconnector-pull-test-process.
+tasks:
+  - id: ipr1
+    query: "check each interconnector tab was pulled at a crosshead speed inside the declared window and derive the force ramp rate and pull duration it produces"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.10.2; interconnector pull-test process speed"
+    expected_skill: "space-systems/ecss/e2008-interconnector-pull-test-process"
+  - id: ipr2
+    query: "reject an interconnector pull trace that starts pre-loaded or dips on the way up and confirm the recorder resolves the rising ramp to the parting force"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.10.2; rising pull force trace conformance"
+    expected_skill: "space-systems/ecss/e2008-interconnector-pull-test-process"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-humidity-exposure-process (space-systems/ecss, E-ST-20-08C 6.4.3.8.2)
+# Two tasks per leaf; shep1 routes on the per-sample exposure credit the
+# chamber record supports, shep2 on the ambient-pressure hold and the
+# interruptions charged against it. Both must deterministically hit
+# space-systems/ecss/e2008-sca-humidity-exposure-process.
+tasks:
+  - id: shep1
+    query: "work out the subgroup-sample-exposure-credit of each cell assembly from the chamber record and do the humidity-exposure-period-accounting against the period the specification defines"
+    intent: "ecss solar cell assemblies; per-sample humidity exposure credit inside a subgroup"
+    expected_skill: "space-systems/ecss/e2008-sca-humidity-exposure-process"
+  - id: shep2
+    query: "audit the ambient-pressure-chamber-hold of an sca-subgroup-humidity-exposure and charge every chamber-pressure-interruption-charging event against the samples that were inside"
+    intent: "ecss solar cell assemblies; ambient pressure hold and interruptions during a subgroup humidity exposure"
+    expected_skill: "space-systems/ecss/e2008-sca-humidity-exposure-process"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-front-contact-defects (space-systems/ecss)
+# Two tasks for the new leaf. fcd1 routes on the front contact metallisation
+# being free of interruptions and delamination; fcd2 routes on the gridline
+# against busbar feed topology that decides what a break actually costs. Both
+# must deterministically hit
+# space-systems/ecss/e2008-sca-front-contact-defects.
+tasks:
+  - id: fcd1
+    query: "decide whether the front contact metallisation on this solar cell assembly is free of interruptions and delamination or whether the inspection was too coarse to say"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.7; front contact metallisation continuity"
+    expected_skill: "space-systems/ecss/e2008-sca-front-contact-defects"
+  - id: fcd2
+    query: "work out how much current collection a break in the front busbar costs compared with the same break on one gridline of the cell"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.7; gridline and busbar feed topology after an interruption"
+    expected_skill: "space-systems/ecss/e2008-sca-front-contact-defects"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-thermo-optical-criteria (space-systems/ecss)
+# Two tasks for the new leaf. toc1 routes on the acceptance limits and where the
+# cell assembly control drawing put them; toc2 routes on the guard band that
+# separates a marginal thermo optical result from a pass. Both must
+# deterministically hit space-systems/ecss/e2008-sca-thermo-optical-criteria.
+tasks:
+  - id: toc1
+    query: "check the thermo optical acceptance limits against the cell assembly control drawing and find the limit that is only a house default"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.6.3; drawing provenance of thermo optical acceptance limits"
+    expected_skill: "space-systems/ecss/e2008-sca-thermo-optical-criteria"
+  - id: toc2
+    query: "guard band the measured absorptance emittance and ratio by their measurement uncertainty and separate a marginal lot disposition from a pass"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.6.3; guard-banded thermo optical acceptance disposition"
+    expected_skill: "space-systems/ecss/e2008-sca-thermo-optical-criteria"

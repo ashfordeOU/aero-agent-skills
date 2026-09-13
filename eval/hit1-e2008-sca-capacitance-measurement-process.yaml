@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-sca-capacitance-measurement-process (space-systems/ecss)
+# Two tasks for the new leaf. scmp1 routes on nominating one accepted technique
+# out of the frequency and time domains for a solar cell assembly; scmp2 routes
+# on the recorder and fixture checks that technique then has to pass, in the
+# assembly's own vocabulary so it cannot land on the string-level leaf. Both must
+# deterministically hit
+# space-systems/ecss/e2008-sca-capacitance-measurement-process.
+tasks:
+  - id: scmp1
+    query: "pick one accepted technique out of the frequency domain and the time domain for measuring solar cell assembly capacitance and show the test plan does not leave both open"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.16.2; accepted capacitance measurement technique"
+    expected_skill: "space-systems/ecss/e2008-sca-capacitance-measurement-process"
+  - id: scmp2
+    query: "check the ramp slope and the observation window place enough recorder samples to fit a solar cell assembly capacitance, and that the sca-fixture-stray-capacitance-fraction and the sca-capacitance-uncertainty-budget both close against the requirement"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.16.2; capacitance measurement setup adequacy"
+    expected_skill: "space-systems/ecss/e2008-sca-capacitance-measurement-process"

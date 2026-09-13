@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reverse-bias-test-process (space-systems/ecss)
+# Two tasks for the new leaf. rbx1 routes on the illuminated reverse
+# current-voltage sweep itself; rbx2 routes on the cell-coupled protection
+# diode exemption that decides who owes a record. Both must deterministically
+# hit space-systems/ecss/e2008-reverse-bias-test-process.
+tasks:
+  - id: rbx1
+    query: "judge whether the reverse current voltage sweep of the solar cell assembly was taken under illumination and stepped finely enough to resolve the knee"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.14.2; reverse current-voltage record process"
+    expected_skill: "space-systems/ecss/e2008-reverse-bias-test-process"
+  - id: rbx2
+    query: "work out which assemblies owe a reverse bias record when the protection diode sits at string level rather than coupled to the cell"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.14.2; cell-coupled protection diode exemption and record reconciliation"
+    expected_skill: "space-systems/ecss/e2008-reverse-bias-test-process"

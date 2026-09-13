@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-solar-cell-defects (space-systems/ecss)
+# Two tasks for the new leaf. scd1 routes on the permitted position of a chip
+# against the inactive border; scd2 routes on a corner break measured on the
+# diagonal and on the cumulative area a cell is allowed to lose. Both must
+# deterministically hit space-systems/ecss/e2008-sca-solar-cell-defects.
+tasks:
+  - id: scd1
+    query: "decide whether the chip broken out of the cell edge stays inside the inactive border or has reached the active area"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.4; permitted position of chips and nicks on the cell body"
+    expected_skill: "space-systems/ecss/e2008-sca-solar-cell-defects"
+  - id: scd2
+    query: "grade the corner chip and the nicks on this solar cell body for size against the single defect and cumulative area allowances"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.4; permitted size of cell body chips, corner diagonal reach"
+    expected_skill: "space-systems/ecss/e2008-sca-solar-cell-defects"

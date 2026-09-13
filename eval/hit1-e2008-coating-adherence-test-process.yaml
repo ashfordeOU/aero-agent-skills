@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coating-adherence-test-process (space-systems/ecss, E-ST-20-08C 6.4.3.9.2)
+# Two tasks per leaf; catx1 routes on the geometry of the applied zones over
+# the coverglass face, catx2 on sentencing the subgroup from what came away.
+# Both must deterministically hit
+# space-systems/ecss/e2008-coating-adherence-test-process.
+tasks:
+  - id: catx1
+    query: "compute the tested-zone-union-area of the applied zones and grade the coverglass-face-adherence-coverage against the full-face-coverage-allowance"
+    intent: "ecss solar cell assemblies; full-face coverage of a coverglass coating adherence check"
+    expected_skill: "space-systems/ecss/e2008-coating-adherence-test-process"
+  - id: catx2
+    query: "run the subgroup-sample-adherence-check over every coverglass and sentence each sample on its coating-removal-area-fraction"
+    intent: "ecss solar cell assemblies; sentencing a subgroup from the coating area that came away"
+    expected_skill: "space-systems/ecss/e2008-coating-adherence-test-process"

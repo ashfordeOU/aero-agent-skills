@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-illumination-stability-test-process (space-systems/ecss)
+# Two tasks for the new leaf. ip1 routes on the two day continuous simulated
+# sunlight soak and its interruptions; ip2 routes on the solar simulator plane
+# uniformity, temporal stability and temperature control of the soak. Both must
+# deterministically hit space-systems/ecss/e2008-illumination-stability-test-process.
+tasks:
+  - id: ip1
+    query: "confirm the samples were held under continuous simulated sunlight for two days and that no dark interruption broke the soak"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.12.2; continuous illumination soak run"
+    expected_skill: "space-systems/ecss/e2008-illumination-stability-test-process"
+  - id: ip2
+    query: "check the solar simulator plane uniformity temporal stability and the controlled soak temperature across every illuminated segment"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.12.2; simulated sunlight soak conditions"
+    expected_skill: "space-systems/ecss/e2008-illumination-stability-test-process"

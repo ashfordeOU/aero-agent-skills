@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-sca-electrical-parameter-test-process (space-systems/ecss)
+# Two tasks for the new leaf. sca-ep1 routes on the recording conditions of a
+# solar cell assembly parameter run -- standard illumination held at the
+# reference irradiance with the cell temperature inside its control band.
+# sca-ep2 routes on the point density of the recorded current-voltage sweep
+# around the maximum power knee. Both must deterministically hit
+# space-systems/ecss/e2008-sca-electrical-parameter-test-process.
+tasks:
+  - id: sca-ep1
+    query: "check the solar cell assembly parameter run recorded current under standard illumination at the reference irradiance with the cell temperature inside its control band"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.3.2; solar cell assembly electrical parameter test conditions"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-parameter-test-process"
+  - id: sca-ep2
+    query: "size the voltage step and the point density of the recorded current-voltage sweep around the maximum power knee before deriving fill factor for the solar cell assembly"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.3.2; recorded sweep point density and derived parameters"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-parameter-test-process"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-coverglass-defects (space-systems/ecss)
+# Two tasks for the new leaf. cgd1 routes on confirming the coverglass leaves
+# no bare cell surface uncovered; cgd2 routes on the placement overhang and on
+# telling an undersized glass from a misplaced one. Both must deterministically
+# hit space-systems/ecss/e2008-sca-coverglass-defects.
+tasks:
+  - id: cgd1
+    query: "confirm the coverglass completely covers the bare cell surface and report any uncovered strip"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.5; complete coverage of the bare cell surface"
+    expected_skill: "space-systems/ecss/e2008-sca-coverglass-defects"
+  - id: cgd2
+    query: "work out the coverglass overhang on each cell edge from the placement offset and say whether the glass is undersized or just laid off centre"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.5; coverglass placement overhang and bare cell exposure"
+    expected_skill: "space-systems/ecss/e2008-sca-coverglass-defects"

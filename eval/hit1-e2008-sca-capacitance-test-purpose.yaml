@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-capacitance-test-purpose (space-systems/ecss)
+# Two tasks for the new leaf. sctp1 routes on the assembly-to-panel
+# extrapolation framing (specific capacitance per active area and the sample
+# precision the panel figure inherits); sctp2 routes on the panel stored charge
+# and arc energy the extrapolated value feeds. Both must deterministically hit
+# space-systems/ecss/e2008-sca-capacitance-test-purpose.
+tasks:
+  - id: sctp1
+    query: "justify measuring capacitance on a handful of solar cell assemblies so the result can be extrapolated to a panel, including the specific capacitance per active area and the standard error the panel figure inherits"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.16.1; assembly capacitance data extrapolated to panel level"
+    expected_skill: "space-systems/ecss/e2008-sca-capacitance-test-purpose"
+  - id: sctp2
+    query: "state what the solar cell assembly capacitance number is wanted for at panel level, the stored charge an arc can draw and the displacement current a bus step pushes, and whether the panel value is large enough to matter"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.16.1; purpose of the assembly capacitance test"
+    expected_skill: "space-systems/ecss/e2008-sca-capacitance-test-purpose"

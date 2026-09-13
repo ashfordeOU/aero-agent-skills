@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-ultraviolet-exposure-test-criteria (space-systems/ecss)
+# Two tasks for the leaf. uvc1 routes on the accepted short circuit current loss
+# after the exposure sequence; uvc2 routes on the reference correction that has
+# to precede the comparison. Both must deterministically hit
+# space-systems/ecss/e2008-ultraviolet-exposure-test-criteria.
+tasks:
+  - id: uvc1
+    query: "judge whether the photovoltaic specimens stayed inside the accepted short circuit current loss once the ultraviolet exposure sequence had run its full dose"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.15.3; accepted short circuit current loss after ultraviolet exposure"
+    expected_skill: "space-systems/ecss/e2008-ultraviolet-exposure-test-criteria"
+  - id: uvc2
+    query: "correct the pre-exposure and post-exposure illuminated short circuit current readings of the exposed coupon to reference irradiance and cell temperature before forming the loss fraction"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.15.3; reference correction behind the post-ultraviolet loss fraction"
+    expected_skill: "space-systems/ecss/e2008-ultraviolet-exposure-test-criteria"
