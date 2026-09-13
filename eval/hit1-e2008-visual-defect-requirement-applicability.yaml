@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-visual-defect-requirement-applicability (space-systems/ecss)
+# Two tasks for the new leaf. vda1 routes on the applicability envelope itself -
+# which cell assemblies the visible defect rules reach when an approval is
+# granted; vda2 routes on the build-standard branch that points at a
+# qualification extension rather than a pass or a fail. Both must
+# deterministically hit
+# space-systems/ecss/e2008-visual-defect-requirement-applicability.
+tasks:
+  - id: vda1
+    query: "work out which solar cell assemblies in the qualification submission the visible defect requirements actually govern before any defect is dispositioned"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.1; visible defect requirement applicability at qualification approval"
+    expected_skill: "space-systems/ecss/e2008-visual-defect-requirement-applicability"
+  - id: vda2
+    query: "decide whether a cell assembly built to an unqualified build standard sits inside the approved population or points at a qualification extension, and name the assembly categories no governed item covers"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.1; approval population scope and category coverage"
+    expected_skill: "space-systems/ecss/e2008-visual-defect-requirement-applicability"

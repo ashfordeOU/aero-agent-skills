@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-electrical-parameter-test-purpose (space-systems/ecss)
+# Two tasks for the new leaf. epp1 routes on establishing the assembly
+# electrical parameters solar generator design consumes; epp2 routes on the
+# temperature coefficient whose span decides whether it supports a margin at
+# all. Both must deterministically hit
+# space-systems/ecss/e2008-sca-electrical-parameter-test-purpose.
+tasks:
+  - id: epp1
+    query: "say whether this solar cell assembly electrical parameter test establishes the parameters solar generator design reads, and which design activities a missing one blocks"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.3.1; assembly electrical parameters as generator design input"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-parameter-test-purpose"
+  - id: epp2
+    query: "decide whether the open circuit voltage temperature coefficient fitted across this measured span is known closely enough for the cold case voltage margin"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.3.1; temperature coefficient span and uncertainty adequacy"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-parameter-test-purpose"

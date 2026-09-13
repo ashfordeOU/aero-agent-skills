@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-conductivity-measurement-process
+# (space-systems/ecss). Two tasks for the leaf. ccm1 routes on restricting the
+# measurement to the designated qualification subgroup; ccm2 routes on the
+# four-point and concentric-ring conversion with its current and ambient
+# bands. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-conductivity-measurement-process.
+tasks:
+  - id: ccm1
+    query: "measure surface conductivity only on the coverglasses belonging to the designated qualification subgroup and keep the articles that merely shared the bench out of the population"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.13.2; subgroup population for the coverglass conductivity run"
+    expected_skill: "space-systems/ecss/e2008-coverglass-conductivity-measurement-process"
+  - id: ccm2
+    query: "turn four-point collinear probe and concentric ring electrode readings into coverglass sheet resistance and check the drive current and the humidity the readings were taken at"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.13.2; established method and conditions for a coverglass conductivity measurement"
+    expected_skill: "space-systems/ecss/e2008-coverglass-conductivity-measurement-process"

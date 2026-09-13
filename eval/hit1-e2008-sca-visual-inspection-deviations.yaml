@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-visual-inspection-deviations (space-systems/ecss)
+# Two tasks for the new leaf. svd1 routes on the use-as-is departure request
+# and the customer agreement gate; svd2 routes on the cumulative performance
+# debit that individually compliant departures sum into. Both must
+# deterministically hit
+# space-systems/ecss/e2008-sca-visual-inspection-deviations.
+tasks:
+  - id: svd1
+    query: "decide whether a solar cell assembly that departs from a visible defect rule can be used as is, given the performance case behind it and whether the customer has actually agreed"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.3; visible defect departure and customer agreement gate"
+    expected_skill: "space-systems/ecss/e2008-sca-visual-inspection-deviations"
+  - id: svd2
+    query: "add up the performance debits of the departures carried on the cell assembly and find whether individually compliant ones exceed the package allowance together"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.3; cumulative performance debit across departures"
+    expected_skill: "space-systems/ecss/e2008-sca-visual-inspection-deviations"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-conductivity-criteria (space-systems/ecss)
+# Two tasks for the leaf. ccc1 routes on the average against the cell assembly
+# control drawing value; ccc2 routes on the weighting and the dead-patch
+# advisory an average would hide. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-conductivity-criteria.
+tasks:
+  - id: ccc1
+    query: "decide whether the average surface conductivity of the measured coverglasses reaches the value fixed in the cell assembly control drawing and report the margin either way"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.13.3; coverglass conductivity acceptance against the drawing value"
+    expected_skill: "space-systems/ecss/e2008-coverglass-conductivity-criteria"
+  - id: ccc2
+    query: "average the coverglass conductivity sites with equal weight per article and flag a site so far below the drawing value that the passing average is hiding a patch that is not bleeding charge"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.13.3; weighting and dead-patch advisory behind the conductivity verdict"
+    expected_skill: "space-systems/ecss/e2008-coverglass-conductivity-criteria"

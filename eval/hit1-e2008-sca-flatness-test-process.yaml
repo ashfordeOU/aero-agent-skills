@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-flatness-test-process (space-systems/ecss, E-ST-20-08C 6.4.3.17.2)
+# Two tasks per leaf; sfr1 routes on the deflection run itself, sfr2 on whether
+# the probe pattern reached enough of the footprint for the number to mean
+# anything. Both must deterministically hit
+# space-systems/ecss/e2008-sca-flatness-test-process.
+tasks:
+  - id: sfr1
+    query: "work out the sca-maximum-deflection-standoff of an assembly in optical-flat-reference-seating and apply the sca-deflection-uncertainty-guard-band to it"
+    intent: "ecss solar cell assemblies; measuring maximum deflection on an optically flat reference surface"
+    expected_skill: "space-systems/ecss/e2008-sca-flatness-test-process"
+  - id: sfr2
+    query: "audit a sca-flatness-measurement-run for sca-flatness-probe-pattern-coverage across the footprint cells and the edge bands before the deflection is quoted"
+    intent: "ecss solar cell assemblies; validity of the probe pattern behind a flatness deflection figure"
+    expected_skill: "space-systems/ecss/e2008-sca-flatness-test-process"

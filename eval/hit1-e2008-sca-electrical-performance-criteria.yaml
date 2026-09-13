@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-electrical-performance-criteria (space-systems/ecss)
+# Two tasks for the new leaf. sca-pc1 routes on the source of the minimum
+# current values -- the solar cell assembly control drawing. sca-pc2 routes on
+# the before and after electron irradiation pair and the retained current.
+# Both must deterministically hit
+# space-systems/ecss/e2008-sca-electrical-performance-criteria.
+tasks:
+  - id: sca-pc1
+    query: "confirm the minimum current values for the solar cell assembly come from the control drawing rather than a supplier datasheet before recording a pass"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.3.3; control-drawing minimum current source"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-performance-criteria"
+  - id: sca-pc2
+    query: "compare the measured solar cell current before and after electron irradiation against the drawing minima and report the retained current fraction at the qualified fluence"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.3.3; pre and post electron irradiation acceptance"
+    expected_skill: "space-systems/ecss/e2008-sca-electrical-performance-criteria"

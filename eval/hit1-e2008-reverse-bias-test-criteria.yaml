@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reverse-bias-test-criteria (space-systems/ecss)
+# Two tasks for the new leaf. rbc1 routes on the drawing-set hold temperature,
+# hold time and current limit; rbc2 routes on the direction each is compared
+# in. Both must deterministically hit
+# space-systems/ecss/e2008-reverse-bias-test-criteria.
+tasks:
+  - id: rbc1
+    query: "check the reverse bias run used the hold temperature hold time and current limit the assembly drawing sets"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.14.3; drawing-set reverse-bias measurement settings"
+    expected_skill: "space-systems/ecss/e2008-reverse-bias-test-criteria"
+  - id: rbc2
+    query: "decide whether a longer hold and a lower current limit than drawn still satisfy the reverse bias measurement criteria"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.14.3; band, floor and ceiling comparison of reverse-bias settings"
+    expected_skill: "space-systems/ecss/e2008-reverse-bias-test-criteria"

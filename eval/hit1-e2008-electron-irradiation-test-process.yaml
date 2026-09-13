@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-electron-irradiation-test-process (space-systems/ecss)
+# Two tasks for the new leaf. ei1 routes on the delivered one megaelectronvolt
+# electron fluence and the planned fluence point; ei2 routes on the beam plane
+# flux uniformity and the rate window of the referenced methodology. Both must
+# deterministically hit space-systems/ecss/e2008-electron-irradiation-test-process.
+tasks:
+  - id: ei1
+    query: "reconcile the one mev electron fluence delivered to the cell assemblies against the planned fluence point and project the remaining power factor"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.11.2; solar cell assembly electron irradiation run"
+    expected_skill: "space-systems/ecss/e2008-electron-irradiation-test-process"
+  - id: ei2
+    query: "check the electron beam plane flux uniformity and the delivery rate window for the solar cell assembly irradiation run"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.11.2; irradiation beam and exposure conditions"
+    expected_skill: "space-systems/ecss/e2008-electron-irradiation-test-process"

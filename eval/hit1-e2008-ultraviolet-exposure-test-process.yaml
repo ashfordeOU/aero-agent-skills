@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-ultraviolet-exposure-test-process (space-systems/ecss)
+# Two tasks for the leaf. uvm1 routes on the integrated ultraviolet photon
+# intensity measured at the test item position; uvm2 routes on the band
+# integration and the referral of a sensor reading to the item plane. Both must
+# deterministically hit
+# space-systems/ecss/e2008-ultraviolet-exposure-test-process.
+tasks:
+  - id: uvm1
+    query: "check the integrated ultraviolet photon intensity was measured at the position the test item occupies throughout the exposure, with the beam uniformity and the sensor calibration behind it"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.15.2; ultraviolet intensity dosimetry at the test item position"
+    expected_skill: "space-systems/ecss/e2008-ultraviolet-exposure-test-process"
+  - id: uvm2
+    query: "integrate the recorded spectral irradiance over the reported ultraviolet band and refer the radiometer reading to the item plane through the inverse square distance ratio and the plane tilt"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.15.2; ultraviolet spectral band integration and item-plane referral"
+    expected_skill: "space-systems/ecss/e2008-ultraviolet-exposure-test-process"

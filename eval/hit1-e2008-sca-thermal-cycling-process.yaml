@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-thermal-cycling-process (space-systems/ecss,
+# E-ST-20-08C 6.4.3.7.2). Two tasks per leaf; stcx1 routes on taking the
+# parameters from the control drawing, stcx2 on crediting the recorded
+# cycles. Both must deterministically hit
+# space-systems/ecss/e2008-sca-thermal-cycling-process.
+tasks:
+  - id: stcx1
+    query: "take the sca-control-drawing-cycle-count and the sca-cycling-temperature-extremes from the assembly control drawing and audit the run against them"
+    intent: "ecss solar cell assemblies; cycling parameters taken from the assembly control drawing"
+    expected_skill: "space-systems/ecss/e2008-sca-thermal-cycling-process"
+  - id: stcx2
+    query: "do the sca-thermal-cycle-crediting with a sca-cycling-dwell-audit and flag any sca-cycling-overstress-excursion in the chamber record"
+    intent: "ecss solar cell assemblies; which recorded cycles count against the drawing"
+    expected_skill: "space-systems/ecss/e2008-sca-thermal-cycling-process"

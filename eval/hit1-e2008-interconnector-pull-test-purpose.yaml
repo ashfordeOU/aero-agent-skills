@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-interconnector-pull-test-purpose (space-systems/ecss)
+# Two tasks for the new leaf. ipp1 routes on the bond-strength side of the
+# purpose (the floor and what the pulled sample says about the joints that
+# were not pulled); ipp2 routes on the electrical-stability side that follows
+# the pull. Both must deterministically hit
+# space-systems/ecss/e2008-interconnector-pull-test-purpose.
+tasks:
+  - id: ipp1
+    query: "grade the interconnector pull forces against the bond strength floor and work out what the lower tolerance bound says about the tabs that were never pulled"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.10.1; interconnector bond strength monitoring"
+    expected_skill: "space-systems/ecss/e2008-interconnector-pull-test-purpose"
+  - id: ipp2
+    query: "confirm the solar cell circuit is still electrically stable after the interconnector pull test by comparing pre-test and post-test resistance against the drift allowance"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.10.1; post-pull electrical stability"
+    expected_skill: "space-systems/ecss/e2008-interconnector-pull-test-purpose"

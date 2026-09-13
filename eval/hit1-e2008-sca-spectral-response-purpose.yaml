@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-spectral-response-purpose (space-systems/ecss)
+# Two tasks for the new leaf. sca-sr1 routes on using spectral response data to
+# check a sun simulator through the spectral mismatch factor. sca-sr2 routes on
+# feeding the same departure from unity into the current measurement error
+# calculation. Both must deterministically hit
+# space-systems/ecss/e2008-sca-spectral-response-purpose.
+tasks:
+  - id: sca-sr1
+    query: "use the solar cell spectral response curves to work out the spectral mismatch factor and decide whether the sun simulator suits this article and reference cell"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.5.1; sun simulator check from spectral response data"
+    expected_skill: "space-systems/ecss/e2008-sca-spectral-response-purpose"
+  - id: sca-sr2
+    query: "carry the spectral mismatch departure from unity into the short-circuit current error calculation and combine it with the other uncertainty terms"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.5.1; spectral mismatch term in the measurement error budget"
+    expected_skill: "space-systems/ecss/e2008-sca-spectral-response-purpose"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-rear-contact-defects (space-systems/ecss)
+# Two tasks for the new leaf. rcd1 routes on the size limit applied to weld
+# drops and spatter outside the rear welding area; rcd2 routes on a deposit
+# whose footprint reaches across the welding boundary. Both must
+# deterministically hit space-systems/ecss/e2008-sca-rear-contact-defects.
+tasks:
+  - id: rcd1
+    query: "grade the weld drops and spatter found outside the rear welding area of this solar cell assembly against the diameter and standoff height allowed for them"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.8; deposit size limits outside the rear welding area"
+    expected_skill: "space-systems/ecss/e2008-sca-rear-contact-defects"
+  - id: rcd2
+    query: "decide whether a drop centred just inside the rear welding boundary but wide enough to reach across it counts as an outside deposit"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.8; footprint placement against the rear welding boundary"
+    expected_skill: "space-systems/ecss/e2008-sca-rear-contact-defects"
