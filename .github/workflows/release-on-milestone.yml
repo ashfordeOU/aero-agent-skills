@@ -127,10 +127,27 @@ jobs:
           else
             echo "Tag $TAG already exists — (re)cutting the missing Release only"
           fi
-          # gh release create publishes the Release; publish-npm.yml has a
-          # `release: [published]` trigger, so npm fires from this alone. The
-          # old explicit `gh workflow run publish-npm.yml` dispatch 403'd
-          # ("Resource not accessible by integration") because the workflow
-          # GITHUB_TOKEN cannot dispatch workflows — dropped as redundant.
+          # gh release create publishes the Release.
+          #
+          # CORRECTION 2026-09-13: the note that used to sit here said npm
+          # "fires from this alone" off publish-npm.yml's `release: [published]`
+          # trigger. It does not. GitHub deliberately suppresses workflow
+          # triggers for events raised with GITHUB_TOKEN, so a Release created
+          # by THIS job starts nothing. Measured at both v1.13.0 and v1.14.0:
+          # release-on-milestone succeeded, and zero publish-npm /
+          # publish-jetbrains runs existed until a human dispatched them.
+          #
+          # So after this job cuts a tag, npm and JetBrains must be dispatched
+          # by hand, as the ashfordeOU account (the arjun-0077 PAT can read the
+          # public repo but 403s on workflow dispatch there):
+          #   gh auth switch -u ashfordeOU
+          #   gh workflow run publish-npm.yml       -R ashfordeOU/aero-agent-skills
+          #   gh workflow run publish-jetbrains.yml -R ashfordeOU/aero-agent-skills
+          #   gh auth switch -u arjun-0077
+          #
+          # Re-adding a `gh workflow run` step here will NOT work: the workflow
+          # GITHUB_TOKEN cannot dispatch workflows ("Resource not accessible by
+          # integration"), which is why that step was removed in the first
+          # place. A PAT with the workflow scope in secrets would fix it.
           gh release create "$TAG" --title "Aero Agent Skills $TAG" --notes "$BODY" --latest
           echo "Released $TAG at $LEAVES leaves"
