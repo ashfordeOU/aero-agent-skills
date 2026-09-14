@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-fuse-procurement-test-table (space-systems/ecss)
+# Two tasks for the leaf. fp1 routes on the destructive sample budget a fuse
+# matrix forces onto the purchase quantity; fp2 routes on the two-sided
+# time-current window and the rated-current no-open rule that no accept number
+# covers. Both must deterministically hit
+# space-systems/ecss/q6013-fuse-procurement-test-table.
+tasks:
+  - id: fp1
+    query: "how many fuses do we actually have to buy when the procurement test matrix takes twelve units to their fusing point and six to breaking capacity and we still need forty for flight"
+    intent: "ECSS-Q-ST-60-13C Table 8-4; destructive sample budget of the fuse procurement test matrix against the flight quantity"
+    expected_skill: "space-systems/ecss/q6013-fuse-procurement-test-table"
+  - id: fp2
+    query: "judge the sampled fuses against their voltage-drop limit and the time-current window at twice rated current, and say what an element that opened during the rated-current endurance run does to the lot"
+    intent: "ECSS-Q-ST-60-13C Table 8-4; voltage-drop limit, two-sided fusing-time window and the rated-current no-open rule for a fuse lot"
+    expected_skill: "space-systems/ecss/q6013-fuse-procurement-test-table"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-discrete-semiconductor-test-table (space-systems/ecss)
+# Two tasks for the leaf. ds1 routes on the per-family required test groups
+# for diodes, transistors and optocouplers; ds2 routes on the directional
+# parameter drift that rejects a device whose end points still pass. Both
+# must deterministically hit
+# space-systems/ecss/q6013-discrete-semiconductor-test-table.
+tasks:
+  - id: ds1
+    query: "check that a discrete semiconductor test matrix declares the right test groups for its device family, with the isolation group an optocoupler needs and the reverse bias group a diode needs"
+    intent: "ECSS-Q-ST-60-13C Table 8-3; per-family test matrix coverage for diodes, transistors and optocouplers"
+    expected_skill: "space-systems/ecss/q6013-discrete-semiconductor-test-table"
+  - id: ds2
+    query: "count the devices whose parameter drift left its acceptance limit after burn-in, taking a reverse leakage rise and an optocoupler current transfer ratio fall in the direction each degrades in"
+    intent: "ECSS-Q-ST-60-13C Table 8-3; directional parameter drift limits and the drift reject count"
+    expected_skill: "space-systems/ecss/q6013-discrete-semiconductor-test-table"

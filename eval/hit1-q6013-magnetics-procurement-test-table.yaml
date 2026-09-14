@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-magnetics-procurement-test-table (space-systems/ecss)
+# Two tasks for the leaf. mp1 routes on correcting a winding resistance back to
+# the temperature its limit is quoted at; mp2 routes on the three limit shapes
+# the table carries and the dielectric run that was never performed at the
+# declared voltage. Both must deterministically hit
+# space-systems/ecss/q6013-magnetics-procurement-test-table.
+tasks:
+  - id: mp1
+    query: "the transformer windings were measured on a warm bench at sixty degrees and now read over the resistance limit, correct them to the reference temperature before deciding whether the lot fails"
+    intent: "ECSS-Q-ST-60-13C Table 8-5; winding-resistance temperature correction before the procurement acceptance limit is applied"
+    expected_skill: "space-systems/ecss/q6013-magnetics-procurement-test-table"
+  - id: mp2
+    query: "judge an inductor lot where insulation resistance carries a floor, turns ratio carries a two-sided band and the dielectric withstanding run was done below the declared test voltage"
+    intent: "ECSS-Q-ST-60-13C Table 8-5; minimum, band and maximum limit shapes and the refusal of an under-voltage dielectric run"
+    expected_skill: "space-systems/ecss/q6013-magnetics-procurement-test-table"

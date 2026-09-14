@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-alert-handling (space-systems/ecss)
+# Two tasks for the leaf. alh3a routes on grading the alert watch itself
+# (source coverage and review interval) at the lowest class; alh3b routes on
+# the presumed-affected rule for a holding that cannot be excluded on
+# evidence. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-alert-handling.
+tasks:
+  - id: alh3a
+    query: "grade our commercial parts alert watch at the lowest assurance class: are the mandatory alert sources subscribed, is the source coverage above its floor, and was the watch reviewed inside its interval"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.3; class 3 commercial EEE alert watch, alert source coverage floor and watch review interval"
+    expected_skill: "space-systems/ecss/q6013-class-3-alert-handling"
+  - id: alh3b
+    query: "screen an errata notice against class 3 parts lots that carry no readable date code, decide which are presumed affected rather than cleared, and time the corrective response"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.3; traceability screening resolution, presumed-affected holding rule and the alert corrective response window"
+    expected_skill: "space-systems/ecss/q6013-class-3-alert-handling"

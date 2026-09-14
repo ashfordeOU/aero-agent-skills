@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-screening-requirements (space-systems/ecss,
+# Q-ST-60-13C 6.3.3 at the lowest assurance class). Two tasks for the leaf;
+# sc3a routes on the trigger-driven element derivation and the every-unit
+# versus sampled basis, sc3b on the Arrhenius burn-in equivalence and the
+# rating ceiling. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-screening-requirements.
+tasks:
+  - id: sc3a
+    query: "a commercial lot is going into a criticality-bearing function and came from an unverified source; run the screening-element-derivation from the class-three-lot-screening-trigger set and settle the every-unit-versus-sampled-screen basis for each element"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.3; which screening elements a class 3 lot owes and on what basis they have to be applied"
+    expected_skill: "space-systems/ecss/q6013-class-3-screening-requirements"
+  - id: sc3b
+    query: "the vendor ran 48 hours of burn-in at 150 C instead of the reference flow; give me the burn-in-arrhenius-equivalent-hours against the reference duration and check it against the screening-temperature-rating-limit for the part"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.3; reference-equivalent burn-in hours and the rated-maximum ceiling on a class 3 screen"
+    expected_skill: "space-systems/ecss/q6013-class-3-screening-requirements"

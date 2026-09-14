@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-lot-homogeneity (space-systems/ecss)
+# Two tasks for the leaf. c3h1 routes on the decisive supply attributes and the
+# weighted uniformity score that decide whether a commercial delivery is one
+# batch; c3h2 routes on the supplier batch declaration relief and the reduced
+# sample spanning the date-code window. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-lot-homogeneity.
+tasks:
+  - id: c3h1
+    query: "decide whether a commercial delivery with no wafer lot behind it is one uniform batch by weighting manufacturer, origin, marking style and distributor reference"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.5; decisive supply attributes and the weighted uniformity score at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-lot-homogeneity"
+  - id: c3h2
+    query: "size the reduced sample from a delivery by integer square root and check the drawn units reach both the oldest and the newest date code in the window"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.5; integer-root reduced sample, date-code window endpoints and supplier batch declaration relief"
+    expected_skill: "space-systems/ecss/q6013-class-3-lot-homogeneity"

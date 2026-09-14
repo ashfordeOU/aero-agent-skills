@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-nonconformance-handling (space-systems/ecss)
+# Two tasks for the leaf. ncr3a routes on the failure-analysis-owed threshold
+# that makes the lowest class different from the higher ones; ncr3b routes on
+# the use-as-is refusal rule and the lot containment. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-3-nonconformance-handling.
+tasks:
+  - id: ncr3a
+    query: "decide whether this commercial part failure at the lowest assurance class owes a failure analysis at all and how deep it has to go, and which reporting route the nonconformance earns"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.2; class 3 commercial EEE nonconformance categorization, failure analysis owed threshold and nonconformance reporting route"
+    expected_skill: "space-systems/ecss/q6013-class-3-nonconformance-handling"
+  - id: ncr3b
+    query: "check whether a use-as-is disposition is defensible on a class 3 commercial part with an unbounded mechanism and size the containment over the uninspected remainder and the sister lot"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.2; use-as-is refusal rule, lot-related mechanism containment and the observed sample failure fraction"
+    expected_skill: "space-systems/ecss/q6013-class-3-nonconformance-handling"

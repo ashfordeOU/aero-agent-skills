@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-tantalum-capacitor-chip-test-table (space-systems/ecss)
+# Two tasks for the leaf. tc1 routes on the banded sampling plan and the DC
+# leakage allowance derived from the capacitance-voltage product; tc2 routes
+# on the surge-current cycle count and the tantalum voltage derating ceiling.
+# Both must deterministically hit
+# space-systems/ecss/q6013-tantalum-capacitor-chip-test-table.
+tasks:
+  - id: tc1
+    query: "pick the sample size and accept number for a solid electrolyte tantalum chip lot from its banded plan and derive the DC leakage allowance from the capacitance-voltage product of the part"
+    intent: "ECSS-Q-ST-60-13C Table 8-2; banded sampling plan and C*V leakage allowance for a tantalum chip lot"
+    expected_skill: "space-systems/ecss/q6013-tantalum-capacitor-chip-test-table"
+  - id: tc2
+    query: "confirm a tantalum chip test table ran the required surge current cycles and that the application voltage sits under the derated ceiling, then accept or hold the lot"
+    intent: "ECSS-Q-ST-60-13C Table 8-2; surge-cycle count, voltage derating ceiling and the accept-or-hold disposition"
+    expected_skill: "space-systems/ecss/q6013-tantalum-capacitor-chip-test-table"

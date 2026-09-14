@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-high-voltage-parts (space-systems/ecss,
+# Q-ST-60-13C 6.6.7 at the lowest assurance class). Two tasks for the leaf.
+# hv3a routes on the voltage axis, its creepage field limit and the discharge
+# inception margin; hv3b routes on the power axis, the case temperature
+# derating run and the junction margin. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-high-voltage-parts.
+tasks:
+  - id: hv3a
+    query: "our commercial part sits at four hundred volts on a six hundred volt rating; settle the class-three-high-voltage-part-application, the high-voltage-creepage-field-limit the layout has to give and the partial-discharge-inception-margin against the peak working voltage"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.7; high voltage usage, insulation spacing and discharge margin for a commercial part at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-high-voltage-parts"
+  - id: hv3b
+    query: "the part dissipates eight watts on a thirty watt rating with a sixty-five degree case; work the high-power-case-temperature-derating along the package curve and the high-power-junction-temperature-margin, then give me the class-three-high-voltage-verdict"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.7; high power usage, package derating curve and junction temperature at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-high-voltage-parts"

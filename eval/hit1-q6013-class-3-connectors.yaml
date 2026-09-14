@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-connectors (space-systems/ecss,
+# Q-ST-60-13C 6.6.6 at the lowest assurance class). Two tasks for the leaf.
+# c3a routes on the candidate family ranking and the loading-derated contact
+# current; c3b routes on contact sourcing credit and the interchangeability
+# record behind an alternative lot. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-connectors.
+tasks:
+  - id: c3a
+    query: "settle the class-three-connector-family-selection for this wire list: take the connector-contact-current-derating for each candidate against the share of positions loaded, check the connector-spare-position-share and rank what is left"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.6; connector family selection and contact current derating for commercial parts at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-connectors"
+  - id: c3b
+    query: "half our contacts came from a distributor rather than the connector manufacturer and one lot names no source at all; settle the connector-contact-sourcing-credit, the contact-interchangeability-record and the class-three-connector-selection-verdict"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.6; contact sourcing, interchangeability records and selection evidence at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-connectors"

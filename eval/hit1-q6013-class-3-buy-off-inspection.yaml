@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-buy-off-inspection (space-systems/ecss)
+# Two tasks for the leaf. bof3a routes on the release route and the short
+# document pack; bof3b routes on the quantity reconciliation, the moisture
+# barrier decision and the use-as-is closure. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-buy-off-inspection.
+tasks:
+  - id: bof3a
+    query: "we released this lowest-class commercial parts delivery on a desk review of the paperwork with no review record number, and the pack has everything except the certificate of conformity; decide whether that buy-off releases the lot to the project"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.6; class 3 buy-off release route admissibility and the item-by-item required document pack"
+    expected_skill: "space-systems/ecss/q6013-class-3-buy-off-inspection"
+  - id: bof3b
+    query: "five hundred were ordered, five hundred and sixty arrived, twenty were rejected at goods-in, the moisture barrier bag was split and the only major finding is marked use-as-is with no authority named; decide whether this commercial lot is released, released in part or held"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.6; delivery quantity reconciliation and ceiling, moisture barrier bake decision and use-as-is closure authority"
+    expected_skill: "space-systems/ecss/q6013-class-3-buy-off-inspection"
