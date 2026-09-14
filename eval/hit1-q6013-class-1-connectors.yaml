@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-connectors (space-systems/ecss)
+# Two tasks for the new leaf. cn1 routes on the gold-over-nickel contact finish
+# against the declared mating life; cn2 routes on the bundle current derating
+# and the contact sourcing route. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-connectors.
+tasks:
+  - id: cn1
+    query: "check the gold thickness over the nickel barrier on these connector contacts against the number of mating cycles the harness is specified for"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.6; Class 1 contact gold-plating durability and nickel underplate minimum"
+    expected_skill: "space-systems/ecss/q6013-class-1-connectors"
+  - id: cn2
+    query: "work out how much current one contact may carry when most of the shell is energised and whether contacts bought through a distributor can be accepted"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.6; Class 1 contact bundle current derating, millivolt drop and contact-lot sourcing route"
+    expected_skill: "space-systems/ecss/q6013-class-1-connectors"

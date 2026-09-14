@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-declared-component-list (space-systems/ecss,
+# Q-ST-60-13C 4.1.4). Two tasks per leaf; dcl1 routes on the per-equipment
+# scoping and the approval route a procurement category obliges, dcl2 on the
+# transferability of a granted approval and the quantity-weighted coverage.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-1-declared-component-list.
+tasks:
+  - id: dcl1
+    query: "check the declared-component-list-per-equipment for orphan lines and give the commercial-component-approval-route of each line"
+    intent: "ecss commercial eee; declared component list raised per equipment and the authority that approves each line"
+    expected_skill: "space-systems/ecss/q6013-class-1-declared-component-list"
+  - id: dcl2
+    query: "grade dcl-line-attribute-completeness, decide whether a granted approval transfers, then return the dcl-approval-coverage-fraction and the dcl-release-verdict"
+    intent: "ecss commercial eee; approval scope transfer and quantity-weighted release coverage of a declared component list"
+    expected_skill: "space-systems/ecss/q6013-class-1-declared-component-list"

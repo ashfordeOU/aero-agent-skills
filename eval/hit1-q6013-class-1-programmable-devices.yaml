@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-programmable-devices (space-systems/ecss)
+# Two tasks for the new leaf. pd1 routes on the programming site and the
+# post-programming readback rule; pd2 routes on deriving the retention-bake
+# duration and the sampled screen plan. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-programmable-devices.
+tasks:
+  - id: pd1
+    query: "decide whether the antifuse parts programmed at that facility can be accepted when the readback came back with one mismatched bit and the programmer was past its calibration interval"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.4; Class 1 programming-site control, programming-equipment calibration and zero-mismatch post-programming readback"
+    expected_skill: "space-systems/ecss/q6013-class-1-programmable-devices"
+  - id: pd2
+    query: "work out the retention bake hours at the bake temperature for the required data retention and size the post-programming screens for the delivered flash lot"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.4; Arrhenius retention-bake duration and sampled post-programming screen plan for a Class 1 programmable device"
+    expected_skill: "space-systems/ecss/q6013-class-1-programmable-devices"

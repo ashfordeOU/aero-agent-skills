@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-humidity-purpose (space-systems/ecss,
+# E-ST-20-08C 12.6.4.1.1). Two tasks per leaf; bdhp1 routes on stating what the
+# damp storage has to bring forward across the three mechanism families, bdhp2 on
+# the acceleration, the equivalent months and the monitoring bias adequacy. Both
+# must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-humidity-purpose.
+tasks:
+  - id: bdhp1
+    query: "state the blocking-diode-damp-storage-purpose across blocking-diode-reverse-leakage-moisture-path, blocking-diode-terminal-metallisation-corrosion and blocking-diode-protective-coating-crazing"
+    intent: "ecss photovoltaic assemblies; why blocking diodes are put through a damp storage exposure"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-humidity-purpose"
+  - id: bdhp2
+    query: "size the blocking-diode-damp-storage-equivalent-months from the chamber conditions and check blocking-diode-monitoring-bias-adequacy against the bus voltage the part stands off"
+    intent: "ecss photovoltaic assemblies; scoping and defending a blocking diode damp storage before the chamber is booked"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-humidity-purpose"

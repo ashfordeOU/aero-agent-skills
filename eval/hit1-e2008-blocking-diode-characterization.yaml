@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-characterization (space-systems/ecss,
+# E-ST-20-08C 12.6.3). Two tasks per leaf; bdch1 routes on the inter-test visit
+# sequence and the reference conditions that make it comparable, bdch2 on the
+# step-versus-cumulative split and attributing the costly step to its test. Both
+# must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-characterization.
+tasks:
+  - id: bdch1
+    query: "audit a blocking-diode-inter-test-characterization visit set for the full parameter list, the declared device count and the blocking-diode-reference-condition-match against the baseline"
+    intent: "ecss photovoltaic assemblies; electrical measurements placed between qualification tests of a blocking diode"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-characterization"
+  - id: bdch2
+    query: "read a blocking-diode-degradation-trajectory, split the blocking-diode-step-versus-cumulative-budget and do the blocking-diode-degradation-attribution to the test that cost the most"
+    intent: "ecss photovoltaic assemblies; following blocking diode degradation through a qualification sequence"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-characterization"

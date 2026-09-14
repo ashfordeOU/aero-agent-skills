@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-qualification-plan (space-systems/ecss)
+# Two tasks for the new leaf. bdqp1 routes on assembling the qualification
+# programme from the owed test table; bdqp2 routes on the specimen counts and
+# the test sequence the assembled plan commits to. Both must deterministically
+# hit space-systems/ecss/e2008-blocking-diode-qualification-plan.
+tasks:
+  - id: bdqp1
+    query: "assemble the blocking diode qualification programme from the owed test table and tell me which listed tests my plan books nowhere"
+    intent: "ECSS-E-ST-20-08C clause 12.5.2; the blocking diode qualification programme is assembled from the tests the applicable table lists"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-plan"
+  - id: bdqp2
+    query: "review this blocking diode qualification plan for tests planned on too few specimens, a test sequenced ahead of the one it depends on, and a similarity claim with no heritage part behind it"
+    intent: "ECSS-E-ST-20-08C clause 12.5.2; specimen counts, test sequence prerequisites and similarity justification inside an assembled qualification plan"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-plan"

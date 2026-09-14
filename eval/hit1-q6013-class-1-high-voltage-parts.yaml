@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-high-voltage-parts (space-systems/ecss)
+# Two tasks for the new leaf. hvp1 routes on voltage derating and the low
+# pressure discharge band; hvp2 routes on the microwave power margin in
+# decibels and the extra screening the service adds. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-1-high-voltage-parts.
+tasks:
+  - id: hvp1
+    query: "this commercial part runs at high voltage and stays live all the way through ascent, check the applied against rated derating and whether anything stops a discharge starting in the low pressure band"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.7; high voltage derating ceiling and a declared mitigation for the pressures the part is energized at"
+    expected_skill: "space-systems/ecss/q6013-class-1-high-voltage-parts"
+  - id: hvp2
+    query: "does our high power microwave part carry enough margin in dB between applied peak power and the multipaction threshold, and has it had the conditioning screening that service needs"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.7; microwave power margin in decibels against the required floor and the category screening steps"
+    expected_skill: "space-systems/ecss/q6013-class-1-high-voltage-parts"

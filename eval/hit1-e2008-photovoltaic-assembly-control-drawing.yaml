@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-photovoltaic-assembly-control-drawing
+# (space-systems/ecss, E-ST-20-08C Annex A)
+# Two tasks per leaf; pacd1 routes on the content blocks and the constituent
+# drawings the top drawing cites, pacd2 on tolerance control and the weighted
+# completeness share. Both must deterministically hit
+# space-systems/ecss/e2008-photovoltaic-assembly-control-drawing.
+tasks:
+  - id: pacd1
+    query: "run the photovoltaic-assembly-source-control-drawing-audit on this package: resolve each photovoltaic-assembly-drawing-content-block-state and the photovoltaic-assembly-constituent-drawing-issue-standing behind every cited item"
+    intent: "ecss photovoltaic assemblies; content required in the source control drawing for a complete photovoltaic assembly"
+    expected_skill: "space-systems/ecss/e2008-photovoltaic-assembly-control-drawing"
+  - id: pacd2
+    query: "grade photovoltaic-assembly-dimension-tolerance-control across the drawn dimensions and report the photovoltaic-assembly-drawing-completeness-share before the photovoltaic-assembly-drawing-release-verdict"
+    intent: "ecss photovoltaic assemblies; which characteristics the assembly drawing actually controls before release"
+    expected_skill: "space-systems/ecss/e2008-photovoltaic-assembly-control-drawing"

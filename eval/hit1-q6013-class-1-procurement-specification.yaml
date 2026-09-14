@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-procurement-specification (space-systems/ecss)
+# Two tasks for the new leaf. cps1 routes on a purchase specification whose
+# ordered limits are wider than the published ones and whose document carries
+# no issue; cps2 routes on part coverage, test conditions and the declared
+# acceptance route. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-procurement-specification.
+tasks:
+  - id: cps1
+    query: "check this purchase specification before we order against it, some parameter windows look wider than what the maker publishes and the document has no issue number on it"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.2; controlled purchase specification identity and ordered limits no wider than the published ones"
+    expected_skill: "space-systems/ecss/q6013-class-1-procurement-specification"
+  - id: cps2
+    query: "does our purchase specification cover every part number on the order, give each parameter a test condition and acceptance pair, and declare whether parts are fully screened or lot sampled"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.2; part coverage, per-parameter test condition and limit pair, and the declared screening or lot acceptance route"
+    expected_skill: "space-systems/ecss/q6013-class-1-procurement-specification"

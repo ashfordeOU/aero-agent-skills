@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-life-test (space-systems/ecss,
+# E-ST-20-08C 12.6.8). Two tasks per leaf; bdlt1 routes on the extreme
+# conditions and the mission coverage they buy, bdlt2 on parameter drift and
+# its end-of-life projection. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-life-test.
+tasks:
+  - id: bdlt1
+    query: "check the blocking-diode-life-test-extreme-conditions the run was held at and the blocking-diode-life-test-mission-coverage its blocking-diode-life-test-acceleration-factor buys"
+    intent: "ecss photovoltaic assemblies; long duration blocking diode operation at extreme conditions converted into mission equivalent hours"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-life-test"
+  - id: bdlt2
+    query: "judge every reading against its blocking-diode-life-test-parameter-drift-limit and run the blocking-diode-life-test-end-of-life-projection on the same drift rate"
+    intent: "ecss photovoltaic assemblies; blocking diode parameter stability over time and projected end of mission drift"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-life-test"

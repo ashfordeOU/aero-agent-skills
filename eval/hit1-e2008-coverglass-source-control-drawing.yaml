@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-source-control-drawing (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the content a coated coverglass
+# source control drawing has to carry before the part is ordered; to2 routes on
+# the dimension tolerance band and the optical window the drawing states. Both
+# must deterministically hit
+# space-systems/ecss/e2008-coverglass-source-control-drawing.
+tasks:
+  - id: to1
+    query: "a coated coverglass is about to be ordered against a source control drawing, work out which headings the drawing leaves silent and whether the coating stack it states is the one the part exists to provide"
+    intent: "ECSS-E-ST-20-08C Annex D; content required in the source control drawing for a coated coverglass component"
+    expected_skill: "space-systems/ecss/e2008-coverglass-source-control-drawing"
+  - id: to2
+    query: "the coverglass drawing gives a thickness nominal with no limits and a transmission window whose cut-on sits above its cut-off, decide whether the drawing can be released to the coating house"
+    intent: "ECSS-E-ST-20-08C Annex D; coverglass dimension tolerance band and optical window content on the procurement drawing"
+    expected_skill: "space-systems/ecss/e2008-coverglass-source-control-drawing"

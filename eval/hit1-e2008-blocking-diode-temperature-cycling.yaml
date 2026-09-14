@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-temperature-cycling (space-systems/ecss,
+# E-ST-20-08C 12.6.5). Two tasks per leaf; bdtc1 routes on sizing the
+# mission-equivalent cycle count, bdtc2 on the profile and post-cycling drift.
+# Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-temperature-cycling.
+tasks:
+  - id: bdtc1
+    query: "do the blocking-diode-cycle-count-sizing for a solar-array-eclipse-cycle-equivalence run before the chamber starts"
+    intent: "ecss blocking diodes; how many eclipse-equivalent cycles the mission owes the test samples"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-cycling"
+  - id: bdtc2
+    query: "check the blocking-diode-thermal-plateau-dwell and grade the blocking-diode-post-cycling-drift after a blocking-diode-temperature-cycling run"
+    intent: "ecss blocking diodes; plateau, dwell and ramp profile plus forward voltage and reverse leakage movement"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-cycling"

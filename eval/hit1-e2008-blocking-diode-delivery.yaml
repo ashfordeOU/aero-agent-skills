@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-delivery (space-systems/ecss)
+# Two tasks for the new leaf. bdd1 routes on a blocking diode dispatch whose
+# count is met from batches with no released data package and serials absent
+# from the batch delivered list; bdd2 routes on the blocking voltage class
+# allocation, the upgrade rule and a batch past its storage life. Both must
+# deterministically hit space-systems/ecss/e2008-blocking-diode-delivery.
+tasks:
+  - id: bdd1
+    query: "decide whether this shipment of ordered blocking diodes may leave, the counts match the order but the serials are not on the delivered list of the batch they claim and that batch package was never released"
+    intent: "ECSS-E-ST-20-08C clause 12.9; blocking diode dispatch released only when the hardware, its serial traceability and its delivery documentation close together"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-delivery"
+  - id: bdd2
+    query: "can a blocking diode order line asking for the lower blocking voltage class be filled from a higher class batch that is already past its storage life expiry, and does the short line still clear the declared partial delivery floor"
+    intent: "ECSS-E-ST-20-08C clause 12.9; voltage class allocation, upgrade substitution, storage life revalidation and the partial-delivery floor on a blocking diode dispatch"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-delivery"

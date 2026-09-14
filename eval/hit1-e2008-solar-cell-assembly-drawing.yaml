@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-solar-cell-assembly-drawing
+# (space-systems/ecss, E-ST-20-08C Annex B)
+# Two tasks per leaf; scad1 routes on the stack and the bonded joints between
+# its layers, scad2 on terminal polarity and the drawings the assembly cites.
+# Both must deterministically hit
+# space-systems/ecss/e2008-solar-cell-assembly-drawing.
+tasks:
+  - id: scad1
+    query: "run the solar-cell-assembly-drawing-content-audit: check solar-cell-assembly-layer-stack-continuity outer face inward and the solar-cell-assembly-bonded-interface-control on every adjacent pair"
+    intent: "ecss photovoltaic assemblies; content required in the source control drawing covering a solar cell assembly"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-assembly-drawing"
+  - id: scad2
+    query: "confirm solar-cell-assembly-terminal-polarity-identification and resolve the solar-cell-assembly-cited-drawing-standing before the solar-cell-assembly-drawing-release-verdict"
+    intent: "ecss photovoltaic assemblies; whether the joints and terminals of a solar cell assembly drawing are controlled or only drawn"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-assembly-drawing"

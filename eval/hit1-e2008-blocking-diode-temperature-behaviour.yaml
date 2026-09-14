@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-temperature-behaviour (space-systems/ecss,
+# E-ST-20-08C 12.6.9). Two tasks per leaf; bdtb1 routes on grading the sweep that
+# maps a planar blocking diode against temperature, bdtb2 on settling the
+# self-heated junction the string current drives it to. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-temperature-behaviour.
+tasks:
+  - id: bdtb1
+    query: "grade the planar-blocking-diode-temperature-map on its span, its endpoint gaps against the service range and its widest step, and check forward drop falls while reverse leakage rises across it"
+    intent: "ecss photovoltaic assemblies; electrical parameters of a planar blocking diode as a function of operating temperature"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-behaviour"
+  - id: bdtb2
+    query: "settle the blocking-diode-self-heated-junction-temperature the string current drives the part to, hold it against the junction rating and take the blocking-diode-string-forward-loss-fraction at the cold end"
+    intent: "ecss photovoltaic assemblies; self-heated hot-case operating point read from a blocking diode temperature map"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-behaviour"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-evaluation-overview (space-systems/ecss,
+# Q-ST-60-13C 4.2.3.1). Two tasks per leaf; ceo1 routes on the campaign
+# element set and its coverage, ceo2 on heritage admissibility and the
+# campaign verdict. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-evaluation-overview.
+tasks:
+  - id: ceo1
+    query: "grade the commercial-part-evaluation-campaign element by element and return the evaluation-element-coverage with the outstanding elements ranked"
+    intent: "ecss commercial eee parts; the evaluation a commercial part needs before highest assurance use"
+    expected_skill: "space-systems/ecss/q6013-class-1-evaluation-overview"
+  - id: ceo2
+    query: "test evaluation-heritage-admissibility on the manufacturer, part number, assembly site and process change then return the commercial-part-evaluation-verdict"
+    intent: "ecss commercial eee parts; heritage claims standing in for evaluation elements and the campaign outcome"
+    expected_skill: "space-systems/ecss/q6013-class-1-evaluation-overview"

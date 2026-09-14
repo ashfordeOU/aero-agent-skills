@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-esd-sensitivity (space-systems/ecss)
+# Two tasks for the new leaf. bdes1 routes on the handling route where every
+# bench is compliant but the transfer between them was not shielded; bdes2
+# routes on the dry-store humidity floor and the residual charge turned into
+# volts across the package capacitance. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-esd-sensitivity.
+tasks:
+  - id: bdes1
+    query: "every bench a blocking diode passed is a designated protected area with verified wrist straps, but the part was carried between them in an antistatic bag rather than a shielded one, is the handling route still acceptable for an ESD sensitive part"
+    intent: "ECSS-E-ST-20-08C clause 12.10.2; station-by-station handling route for an ESD-sensitive blocking diode, including the packaging it arrived in"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-esd-sensitivity"
+  - id: bdes2
+    query: "blocking diode store is sitting at twelve percent relative humidity and the part carries a residual charge, work out the voltage that delivers across the package capacitance against the withstand voltage with the declared margin"
+    intent: "ECSS-E-ST-20-08C clause 12.10.2; storage humidity floor and residual-charge-to-voltage margin check for an ESD-sensitive blocking diode"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-esd-sensitivity"

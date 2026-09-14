@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-evaluation-testing (space-systems/ecss)
+# Two tasks for the new leaf. cet1 routes on an evaluation campaign whose
+# radiation block was never executed and whose samples came from one date
+# code; cet2 routes on the endurance device-hour accumulation and the
+# per-block sample floor. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-evaluation-testing.
+tasks:
+  - id: cet1
+    query: "decide whether this evaluation of a commercial microcircuit qualifies the part type for flight, one of the planned blocks was never run and every sample came from a single date code"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.3.4; evaluation block coverage and sample lot diversity behind a part-type qualification verdict"
+    expected_skill: "space-systems/ecss/q6013-class-1-evaluation-testing"
+  - id: cet2
+    query: "work out whether the endurance run on these commercial parts accumulated enough device hours and whether each test block met its own sample size floor and failure allowance"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.3.4; endurance device-hours floor, per-block sample floor and admissible failure count in an evaluation campaign"
+    expected_skill: "space-systems/ecss/q6013-class-1-evaluation-testing"

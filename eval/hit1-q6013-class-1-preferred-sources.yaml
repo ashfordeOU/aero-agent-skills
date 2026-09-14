@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-preferred-sources (space-systems/ecss)
+# Two tasks for the new leaf. cps1 routes on grading where a commercial part was
+# bought from against the preferred tiers a Class 1 build allows; cps2 routes on
+# a broken traceability chain capping the disposition. Both must deterministically
+# hit space-systems/ecss/q6013-class-1-preferred-sources.
+tasks:
+  - id: cps1
+    query: "decide whether this commercial part bought through a franchised distributor is a preferred enough source for a Class 1 build and what extra evaluation it buys"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.2.3; preferred manufacturer and preferred parts listing sourcing tiers for Class 1"
+    expected_skill: "space-systems/ecss/q6013-class-1-preferred-sources"
+  - id: cps2
+    query: "the distribution chain record is missing for this lot date code, work out the sourcing assurance index and the disposition it caps us at"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.2.3; commercial part traceability chain completeness and sourcing disposition"
+    expected_skill: "space-systems/ecss/q6013-class-1-preferred-sources"

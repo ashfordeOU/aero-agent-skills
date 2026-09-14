@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-qualification-samples
+# (space-systems/ecss, E-ST-20-08C 12.5.4). Two tasks per leaf; bqs1 routes on
+# the submitted samples against the process identification document, bqs2 on
+# the issue in force, the build chronology and the declared parameter bands.
+# Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-qualification-samples.
+tasks:
+  - id: bqs1
+    query: "settle the blocking-diode-qualification-sample-conformance of the parts submitted to qualification against the blocking-diode-process-identification-document"
+    intent: "ecss photovoltaic assemblies; samples entering blocking diode qualification match the declared process"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-samples"
+  - id: bqs2
+    query: "check blocking-diode-sample-issue-match and blocking-diode-sample-build-chronology and take each blocking-diode-sample-build-parameter-band on the submitted qualification parts"
+    intent: "ecss photovoltaic assemblies; issue in force, build date and declared parameter bands for qualification samples"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-samples"

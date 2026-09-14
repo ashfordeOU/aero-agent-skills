@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-solar-cell-drawing
+# (space-systems/ecss, E-ST-20-08C Annex C)
+# Two tasks per leaf; bscd1 routes on limit form and degenerate bands, bscd2 on
+# the conditions an electrical number was measured at and the weighted share.
+# Both must deterministically hit
+# space-systems/ecss/e2008-bare-solar-cell-drawing.
+tasks:
+  - id: bscd1
+    query: "run the bare-solar-cell-drawing-content-audit: resolve the bare-solar-cell-characteristic-limit-form on each stated number and apply bare-solar-cell-degenerate-band-detection to the bands"
+    intent: "ecss photovoltaic assemblies; content required in the source control drawing describing a bare solar cell"
+    expected_skill: "space-systems/ecss/e2008-bare-solar-cell-drawing"
+  - id: bscd2
+    query: "check bare-solar-cell-measurement-condition-attachment on every electrical output and report the bare-solar-cell-controlled-characteristic-share with the bare-solar-cell-drawing-release-verdict"
+    intent: "ecss photovoltaic assemblies; which numbers on a bare cell drawing are limits anybody could reject a cell against"
+    expected_skill: "space-systems/ecss/e2008-bare-solar-cell-drawing"

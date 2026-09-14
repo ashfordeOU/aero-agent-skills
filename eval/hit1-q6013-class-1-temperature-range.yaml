@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-temperature-range (space-systems/ecss,
+# Q-ST-60-13C 4.2.2.6). Two tasks per leaf; ctr1 routes on the corrected
+# requirement (self-heating rise plus uncertainty margin), ctr2 on the
+# per-end headroom and the critical part. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-temperature-range.
+tasks:
+  - id: ctr1
+    query: "derive the commercial-part-rated-temperature-range needed once the part-self-heating-rise and the thermal-uncertainty-margin are added to the equipment-thermal-operating-envelope"
+    intent: "ecss commercial eee parts; matching rated temperature limits to the equipment operating envelope at the highest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-1-temperature-range"
+  - id: ctr2
+    query: "report hot-end and cold-end headroom per part and return the temperature-range-coverage-verdict with the critical part of the population"
+    intent: "ecss commercial eee parts; grading a declared component list against an equipment thermal envelope"
+    expected_skill: "space-systems/ecss/q6013-class-1-temperature-range"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-production-schedule (space-systems/ecss)
+# Two tasks for the new leaf. bdps1 routes on the schedule having been compiled
+# before the qualification lot started; bdps2 routes on the dated production and
+# test activities inside it. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-production-schedule.
+tasks:
+  - id: bdps1
+    query: "our blocking diode qualification lot schedule was issued two weeks after the lot had already started, and two activities were added later still, is that acceptable"
+    intent: "ECSS-E-ST-20-08C clause 12.5.3; the dated production and test schedule is compiled before the qualification lot is started"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-production-schedule"
+  - id: bdps2
+    query: "check the dated production and testing schedule for this blocking diode qualification lot for a test booked before production ends and work the float out to the delivery date"
+    intent: "ECSS-E-ST-20-08C clause 12.5.3; dated activity phase order, campaign window and milestone float for a blocking diode qualification lot"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-production-schedule"

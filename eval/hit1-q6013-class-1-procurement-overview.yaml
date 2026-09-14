@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-procurement-overview (space-systems/ecss)
+# Two tasks for the new leaf. cpo1 routes on the extra duties an open-market
+# supply channel pulls into the purchasing duty register; cpo2 routes on duty
+# ownership, evidence and the coverage floor. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-procurement-overview.
+tasks:
+  - id: cpo1
+    query: "these commercial parts are being bought off the open market rather than from the maker, which purchasing duties does that route add and are they all owned"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.1; supply channel sizing the purchasing duty register, manufacturer traceability and counterfeit avoidance duties"
+    expected_skill: "space-systems/ecss/q6013-class-1-procurement-overview"
+  - id: cpo2
+    query: "review our purchasing arrangement for the highest assurance parts, several duties name an owner but cite no evidence, does the arrangement still clear the declared coverage floor"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.1; duty ownership by permitted role, evidence citation and the discharged share against a declared coverage floor"
+    expected_skill: "space-systems/ecss/q6013-class-1-procurement-overview"

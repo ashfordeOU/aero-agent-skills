@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.ashforde.aeroskills"
-version = "1.16.0"
+version = "1.17.0"
 
 repositories {
     mavenCentral()
@@ -47,7 +47,7 @@ intellijPlatform {
             AI assistant the certification process — not just the acronyms. Every skill is a
             verified workflow: the steps, the pitfalls, the gates, and the human sign-off.</p>
             <ul>
-                <li><b>1,691 verified skills</b> across aerodynamics, avionics, cross-cutting, flight mechanics, flight test operations, GNC/autonomy, manufacturing quality, propulsion, space systems, structures, systems engineering and safety, and vehicle design</li>
+                <li><b>1,733 verified skills</b> across aerodynamics, avionics, cross-cutting, flight mechanics, flight test operations, GNC/autonomy, manufacturing quality, propulsion, space systems, structures, systems engineering and safety, and vehicle design</li>
                 <li><b>Skill catalog browser</b> — search and inspect any skill in the IDE</li>
                 <li><b>One-click MCP registration</b> — connect JetBrains AI Assistant / Junie to
                     the deterministic skill router (<code>npx -y aero-agent-skills mcp</code>)</li>

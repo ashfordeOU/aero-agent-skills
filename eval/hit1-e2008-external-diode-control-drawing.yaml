@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-external-diode-control-drawing (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the content an external protection
+# diode source control drawing has to carry; to2 routes on the reverse blocking
+# margin, the forward current derating and the junction temperature the drawing
+# implies. Both must deterministically hit
+# space-systems/ecss/e2008-external-diode-control-drawing.
+tasks:
+  - id: to1
+    query: "external protection diode hardware is being procured against a source control drawing, work out which headings the drawing leaves silent and whether the part it buys has stated limits at all"
+    intent: "ECSS-E-ST-20-08C Annex E; content required in the source control drawing for external protection diode hardware"
+    expected_skill: "space-systems/ecss/e2008-external-diode-control-drawing"
+  - id: to2
+    query: "the diode drawing states a reverse breakdown barely above the working voltage and a forward current that ignores the declared derating factor, work out the junction temperature that follows and whether the drawing can be released"
+    intent: "ECSS-E-ST-20-08C Annex E; external diode reverse blocking margin, forward current derating and junction temperature margin on the procurement drawing"
+    expected_skill: "space-systems/ecss/e2008-external-diode-control-drawing"

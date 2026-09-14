@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-lot-acceptance (space-systems/ecss)
+# Two tasks for the leaf. la1 routes on the per-subgroup judgement of a single
+# date code against its accept number and allowable percent defective; la2
+# routes on the parameter-drift reject path and the marginal-lot advisory that
+# a bare pass hides. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-lot-acceptance.
+tasks:
+  - id: la1
+    query: "decide whether one date code of a commercial part passes lot acceptance testing by taking each test subgroup's failures against its accept number and allowable percent defective, and name every subgroup that rejects"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.5; per-subgroup lot acceptance verdict for a single date-code lot"
+    expected_skill: "space-systems/ecss/q6013-class-1-lot-acceptance"
+  - id: la2
+    query: "count the units of a date-code lot that drifted past their delta limit during burn-in and report whether the lot is released for flight or held, with the margin left against the allowance"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.5; parameter-drift rejects, hold-or-release disposition and the marginal-lot advisory"
+    expected_skill: "space-systems/ecss/q6013-class-1-lot-acceptance"

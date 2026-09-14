@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-visual-inspection
+# (space-systems/ecss, E-ST-20-08C 12.6.1). Two tasks per leaf; bvi1 routes on
+# sizing a workmanship or surface defect against the planar die, bvi2 on the
+# magnification asymmetry and the diodes left without a record. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-visual-inspection.
+tasks:
+  - id: bvi1
+    query: "run planar-blocking-diode-surface-defect-screening on examined parts and take each planar-blocking-diode-defect-extent-ratio for the planar-blocking-diode-workmanship-examination record"
+    intent: "ecss photovoltaic assemblies; visually examining planar blocking diodes for workmanship and surface defects"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-visual-inspection"
+  - id: bvi2
+    query: "decide what a look at planar-blocking-diode-examination-magnification below the requirement can settle and close planar-blocking-diode-inspection-record-completeness for the lot"
+    intent: "ecss photovoltaic assemblies; magnification asymmetry and diodes carrying no final visual disposition"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-visual-inspection"

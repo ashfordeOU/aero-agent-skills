@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-buy-off-inspection (space-systems/ecss)
+# Two tasks for the leaf. bo1 routes on the mandatory evidence pack and the
+# independence of the witness at the manufacturer's premises; bo2 routes on the
+# nonconformance grouping, the waiver reference and the ship-or-hold-at-source
+# disposition. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-buy-off-inspection.
+tasks:
+  - id: bo1
+    query: "check at the manufacturer's premises whether the final source inspection of a commercial parts lot has its mandatory evidence pack and an independent inspector whose qualification is still current before the lot ships"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.6; source buy-off evidence pack and inspector independence"
+    expected_skill: "space-systems/ecss/q6013-class-1-buy-off-inspection"
+  - id: bo2
+    query: "decide whether to authorize shipment or hold a lot at source when open major and minor nonconformances remain and one major is claimed closed by a waiver"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.6; nonconformance grouping, waiver reference closure and the ship-or-hold disposition"
+    expected_skill: "space-systems/ecss/q6013-class-1-buy-off-inspection"

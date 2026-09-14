@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-qualification-authority (space-systems/ecss)
+# Two tasks for the new leaf. bdqa1 routes on the customer grant that has to
+# exist before a planar blocking diode lot is treated as qualified; bdqa2
+# routes on the grant being held by the company that ran the process rather
+# than by the part number. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-qualification-authority.
+tasks:
+  - id: bdqa1
+    query: "decide whether this planar blocking diode lot may be treated as qualified, or whether the customer never granted qualification for the diode type at all"
+    intent: "ECSS-E-ST-20-08C clause 12.5.1; the customer grants blocking diode qualification before the lot may be treated as qualified"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-authority"
+  - id: bdqa2
+    query: "the blocking diode type is qualified but this lot was built by a second company and one process step went to an unnamed subcontractor, is the lot covered"
+    intent: "ECSS-E-ST-20-08C clause 12.5.1; the qualification grant is held by the company running the process, and a subcontracted step leaves it"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-authority"
