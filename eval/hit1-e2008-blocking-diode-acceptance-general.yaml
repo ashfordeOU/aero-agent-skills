@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-acceptance-general
+# (space-systems/ecss, E-ST-20-08C 12.4.1). Two tasks per leaf; bag1 routes on
+# the two populations acceptance owes, bag2 on the sampled activity share and
+# the record states. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-acceptance-general.
+tasks:
+  - id: bag1
+    query: "grade blocking-diode-delivery-population-acceptance and blocking-diode-qualification-population-acceptance across one lot traveller set"
+    intent: "ecss photovoltaic assemblies; blocking diode acceptance reaching delivered parts and qualification hardware alike"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-acceptance-general"
+  - id: bag2
+    query: "score blocking-diode-sampled-activity-share and blocking-diode-acceptance-record-state to reach a blocking-diode-lot-acceptance-verdict"
+    intent: "ecss photovoltaic assemblies; blocking-diode-acceptance-testing-general sampling plan and record review"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-acceptance-general"

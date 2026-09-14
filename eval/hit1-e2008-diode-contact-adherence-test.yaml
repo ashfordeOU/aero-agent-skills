@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-diode-contact-adherence-test (space-systems/ecss)
+# Two tasks for the new leaf. dcat1 routes on the adherence force of an
+# external protection diode contact turned into a stress and the device
+# sentenced by its weakest site; dcat2 routes on the equivalent route an
+# integral unit takes instead and the coverage that route has to reach. Both
+# must deterministically hit
+# space-systems/ecss/e2008-diode-contact-adherence-test.
+tasks:
+  - id: dcat1
+    query: "turn the anode and cathode adherence forces on an external protection diode into stresses over their bonded areas and sentence each device by its weakest contact site"
+    intent: "ECSS-E-ST-20-08C clause 9.6.10; external protection diode contact durability"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-adherence-test"
+  - id: dcat2
+    query: "an integral protection diode has no terminal to pull, so check the declared equivalent adherence route is admissible and covers the same contact sites"
+    intent: "ECSS-E-ST-20-08C clause 9.6.10; equivalent route for an integral diode unit"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-adherence-test"

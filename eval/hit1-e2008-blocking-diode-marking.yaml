@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-marking (space-systems/ecss,
+# E-ST-20-08C 12.2.3). Two tasks per leaf; bdm1 routes on the marking approach
+# settled with the customer, bdm2 on the code face fit, carrier retention and
+# identity granularity. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-marking.
+tasks:
+  - id: bdm1
+    query: "review the planar-blocking-diode-marking-approach and the blocking-diode-marking-customer-agreement behind the planar-blocking-diode-delivery-identity it claims"
+    intent: "ecss planar blocking diodes; marking approaches for delivered parts settled with the customer"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-marking"
+  - id: bdm2
+    query: "size the blocking-diode-code-face-fit, weigh blocking-diode-mark-carrier-retention and blocking-diode-identity-granularity for planar-blocking-diode-delivery-identity"
+    intent: "ecss planar blocking diodes; whether the agreed mark fits, survives handling and resolves a part"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-marking"

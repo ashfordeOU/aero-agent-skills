@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-data-documentation (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on grading the diode delivery data
+# package; to2 routes on the two-way batch reconciliation and per-part row
+# coverage. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-data-documentation.
+tasks:
+  - id: to1
+    query: "a protection diode shipment is about to leave, check the qualification records and the batch data files that travel with it are good enough to release"
+    intent: "ECSS-E-ST-20-08C clause 9.8; data package supporting protection diode qualification records and each delivered component batch"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-data-documentation"
+  - id: to2
+    query: "one delivered diode batch has no data file, another file cites a superseded source control drawing issue, and a third leaves two shipped parts with no characterisation row, work out what stops the release"
+    intent: "ECSS-E-ST-20-08C clause 9.8; protection diode batch data file reconciliation, governing issue citation and per-part row coverage"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-data-documentation"

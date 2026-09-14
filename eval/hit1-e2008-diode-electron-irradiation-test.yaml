@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-diode-electron-irradiation-test (space-systems/ecss)
+# Two tasks for the new leaf. deit1 routes on the forward drop and reverse
+# leakage of an external protection diode read as ratios against an
+# unirradiated reference across a rising electron fluence staircase; deit2
+# routes on the power-law leakage fit and the end-of-life projection. Both
+# must deterministically hit
+# space-systems/ecss/e2008-diode-electron-irradiation-test.
+tasks:
+  - id: deit1
+    query: "turn each electron fluence step's protection diode forward drop and reverse leakage into ratios against the unirradiated reference and refuse a ratio that falls back"
+    intent: "ECSS-E-ST-20-08C clause 9.6.12; protection diode electron irradiation damage ratios"
+    expected_skill: "space-systems/ecss/e2008-diode-electron-irradiation-test"
+  - id: deit2
+    query: "fit protection diode forward drift against the logarithm of electron fluence, fit reverse leakage growth as a power law, and project both to the mission end-of-life fluence"
+    intent: "ECSS-E-ST-20-08C clause 9.6.12; logarithmic degradation fit and end-of-life projection"
+    expected_skill: "space-systems/ecss/e2008-diode-electron-irradiation-test"

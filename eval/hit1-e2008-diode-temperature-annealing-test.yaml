@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-temperature-annealing-test (space-systems/ecss,
+# E-ST-20-08C 9.6.13). Two tasks per leaf; dtat1 routes on the soak profile and
+# the Arrhenius dose, dtat2 on the pre/post drift read at a matched reading
+# temperature. Both must deterministically hit
+# space-systems/ecss/e2008-diode-temperature-annealing-test.
+tasks:
+  - id: dtat1
+    query: "size a protection-diode-annealing-soak against the package rating and turn it into equivalent hours with the diode-annealing-arrhenius-factor"
+    intent: "ecss protection diodes; the hot storage soak profile and the dose it is worth at the reference temperature"
+    expected_skill: "space-systems/ecss/e2008-diode-temperature-annealing-test"
+  - id: dtat2
+    query: "take the diode-forward-voltage-annealing-drift and the diode-reverse-leakage-growth-ratio across the soak with a diode-annealing-reading-temperature-match"
+    intent: "ecss protection diodes; parameter stability either side of an annealing hold, read at the same temperature"
+    expected_skill: "space-systems/ecss/e2008-diode-temperature-annealing-test"

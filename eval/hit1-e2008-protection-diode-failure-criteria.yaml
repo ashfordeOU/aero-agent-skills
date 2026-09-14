@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-failure-criteria (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on turning a tested protection diode
+# subgroup into per-part failure calls; to2 routes on the absolute-limit arm and
+# the missing after reading. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-failure-criteria.
+tasks:
+  - id: to1
+    query: "a protection diode subgroup was characterised, thermal cycled and characterised again, work out which parts the test and the inspection closing it leave failed"
+    intent: "ECSS-E-ST-20-08C clause 9.7.1; conditions that mark a protection diode failed within its subgroup test programme"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-failure-criteria"
+  - id: to2
+    query: "one bypass diode drifted only a little but its forward drop is now above the drawing ceiling, another reads no reverse breakdown at all, and a third is missing its after reading, decide what each one is"
+    intent: "ECSS-E-ST-20-08C clause 9.7.1; absolute limit breach, lost reverse blocking and an incomplete reading pair in a protection diode subgroup"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-failure-criteria"

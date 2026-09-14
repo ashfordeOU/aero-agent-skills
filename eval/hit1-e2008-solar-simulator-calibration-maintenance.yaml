@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-solar-simulator-calibration-maintenance
+# (space-systems/ecss, E-ST-20-08C 10.2.6). Two tasks per leaf; sscm1 routes on
+# the routine upkeep counters that keep a simulator fit, sscm2 on grading the
+# three beam qualities and taking the worst. Both must deterministically hit
+# space-systems/ecss/e2008-solar-simulator-calibration-maintenance.
+tasks:
+  - id: sscm1
+    query: "report the solar-simulator-calibration-maintenance state from the simulator-lamp-service-hours and the simulator-reference-cell-interval before the array measurement is accepted"
+    intent: "ecss photovoltaic assemblies; routine calibration and upkeep keeping a solar simulator fit for measurement"
+    expected_skill: "space-systems/ecss/e2008-solar-simulator-calibration-maintenance"
+  - id: sscm2
+    query: "grade the simulator-spatial-non-uniformity-grade, the simulator-temporal-instability-grade and each simulator-spectral-match-band, then take the worst against the grade the measurement demands"
+    intent: "ecss photovoltaic assemblies; beam quality grading of a solar simulator for array measurement"
+    expected_skill: "space-systems/ecss/e2008-solar-simulator-calibration-maintenance"

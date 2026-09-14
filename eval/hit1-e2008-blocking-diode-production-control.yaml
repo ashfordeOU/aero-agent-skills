@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-production-control
+# (space-systems/ecss, E-ST-20-08C 12.3). Two tasks per leaf; bpc1 routes on the
+# written process document and the construction it covers, bpc2 on drift away
+# from the qualified baseline and the requalification behind it. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-production-control.
+tasks:
+  - id: bpc1
+    query: "review the blocking-diode-process-document submitted for blocking-diode-production-control and settle its blocking-diode-process-step-coverage"
+    intent: "ecss photovoltaic assemblies; supplier process document for how qualified blocking diodes are produced"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-production-control"
+  - id: bpc2
+    query: "assess blocking-diode-qualified-baseline-drift and blocking-diode-requalification-linkage against the blocking-diode-document-issue-chronology"
+    intent: "ecss photovoltaic assemblies; process steps still produced as they were qualified for a blocking diode lot"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-production-control"

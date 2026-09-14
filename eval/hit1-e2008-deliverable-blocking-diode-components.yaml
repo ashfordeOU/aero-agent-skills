@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-deliverable-blocking-diode-components (space-systems/
+# ecss, E-ST-20-08C 12.2.2). Two tasks per leaf; bdd1 routes on the process
+# identification document and the issue in force, bdd2 on the unauthorised
+# step and the inspection coverage. Both must deterministically hit
+# space-systems/ecss/e2008-deliverable-blocking-diode-components.
+tasks:
+  - id: bdd1
+    query: "check the deliverable-planar-blocking-diode-components against the blocking-diode-process-identification-document and the blocking-diode-document-issue-in-force"
+    intent: "ecss planar blocking diodes; delivered parts processed and inspected per their process identification document"
+    expected_skill: "space-systems/ecss/e2008-deliverable-blocking-diode-components"
+  - id: bdd2
+    query: "name each blocking-diode-unauthorised-process-step, grade blocking-diode-inspection-step-coverage and return the blocking-diode-lot-delivery-verdict"
+    intent: "ecss planar blocking diodes; traveller steps against the declared document issue and the lot delivery verdict"
+    expected_skill: "space-systems/ecss/e2008-deliverable-blocking-diode-components"

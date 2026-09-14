@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-standard-cell-maintenance (space-systems/ecss,
+# E-ST-20-08C 10.2.4). Two tasks per leaf; scm1 routes on the fifty-degree
+# custody ceiling that holds in operation and in storage, scm2 on sizing an
+# excursion in degree-minutes and on the zero budget a primary standard
+# carries. Both must deterministically hit
+# space-systems/ecss/e2008-standard-cell-maintenance.
+tasks:
+  - id: scm1
+    query: "check the primary-standard-cell-temperature-ceiling was held in storage as well as operation and report the solar-array-standard-cell-maintenance verdict"
+    intent: "ecss photovoltaic assemblies; keeping primary and working standard cells below fifty degrees in operation and storage"
+    expected_skill: "space-systems/ecss/e2008-standard-cell-maintenance"
+  - id: scm2
+    query: "size the standard-cell-degree-minute-exposure from the log, charge the standard-cell-sensor-uncertainty-band readings, and apply the working-standard-cell-excursion-budget"
+    intent: "ecss photovoltaic assemblies; grading a standard cell thermal excursion against the budget its role carries"
+    expected_skill: "space-systems/ecss/e2008-standard-cell-maintenance"

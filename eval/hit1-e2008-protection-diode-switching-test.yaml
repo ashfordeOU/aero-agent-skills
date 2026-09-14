@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-switching-test (space-systems/ecss,
+# E-ST-20-08C 9.6.17). Two tasks per leaf; pdst1 routes on the overshoot
+# against the derated standoff, pdst2 on the absorbed energy and the per
+# category pulse counts. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-switching-test.
+tasks:
+  - id: pdst1
+    query: "take the diode-stray-inductance-overshoot a broken string throws up and hold the peak against the diode-derated-reverse-standoff for a protection-diode-switching-transient"
+    intent: "ecss protection diodes; switching overshoot against the derated reverse standoff"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-switching-test"
+  - id: pdst2
+    query: "convert the diode-absorbed-pulse-energy into a diode-switching-junction-excursion and check the protection-diode-event-pulse-count for ground handling and in-orbit switching"
+    intent: "ecss protection diodes; clamp energy, junction excursion and per category switching pulse counts"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-switching-test"

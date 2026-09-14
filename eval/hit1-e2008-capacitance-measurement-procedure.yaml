@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-capacitance-measurement-procedure (space-systems/ecss)
+# Two tasks for the new leaf. prep1 routes on getting the bench into a state a
+# cell capacitance reading can be taken from; prep2 routes on the individual
+# preparation terms that decide readiness. Both must deterministically hit
+# space-systems/ecss/e2008-capacitance-measurement-procedure.
+tasks:
+  - id: prep1
+    query: "what has to be established on the bench before we take the first solar cell capacitance reading, and in what order"
+    intent: "ECSS-E-ST-20-08C clause 11.1.3; equipment preparation before capacitance data is gathered"
+    expected_skill: "space-systems/ecss/e2008-capacitance-measurement-procedure"
+  - id: prep2
+    query: "check the open short and load compensation was taken at the test frequency, the instrument warm up and bias settling, and the reference capacitor deviation in ppm before the capacitance run"
+    intent: "ECSS-E-ST-20-08C clause 11.1.3; capacitance measurement equipment readiness terms"
+    expected_skill: "space-systems/ecss/e2008-capacitance-measurement-procedure"

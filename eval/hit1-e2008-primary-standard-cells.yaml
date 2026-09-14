@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-primary-standard-cells (space-systems/ecss)
+# Two tasks for the leaf. psc1 routes on the traceable calibration and
+# junction matching of the reference cells; psc2 routes on the temperature
+# correction of the certificate current and the residual illumination level
+# error. Both must deterministically hit
+# space-systems/ecss/e2008-primary-standard-cells.
+tasks:
+  - id: psc1
+    query: "confirm the calibrated single junction and component reference cells setting a simulator illumination level cite a traceable primary calibration route still valid on the test day and cover every junction of the article"
+    intent: "ECSS-E-ST-20-08C clause 10.2.1; primary standard cell traceability, certificate validity and junction coverage"
+    expected_skill: "space-systems/ecss/e2008-primary-standard-cells"
+  - id: psc2
+    query: "carry a reference cell certificate short-circuit current across to the temperature the standard is actually at and report the signed residual illumination level error the setting left"
+    intent: "ECSS-E-ST-20-08C clause 10.2.1; temperature correction of a standard cell target and residual simulator level error"
+    expected_skill: "space-systems/ecss/e2008-primary-standard-cells"

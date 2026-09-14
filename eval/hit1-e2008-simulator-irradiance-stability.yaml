@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-simulator-irradiance-stability (space-systems/ecss)
+# Two tasks for the leaf. sis1 routes on the per-acquisition-interval
+# temporal instability; sis2 routes on monitor sampling cadence inside a
+# window and the separate run drift between window means. Both must
+# deterministically hit
+# space-systems/ecss/e2008-simulator-irradiance-stability.
+tasks:
+  - id: sis1
+    query: "judge simulator irradiance steadiness inside every data acquisition interval separately rather than quoting one run-wide figure that averages a bad window away"
+    intent: "ECSS-E-ST-20-08C clause 10.1.3; per-acquisition-interval temporal instability of the simulator"
+    expected_skill: "space-systems/ecss/e2008-simulator-irradiance-stability"
+  - id: sis2
+    query: "size the unwatched stretch a monitor left inside an acquisition window and report the slow drift between window means as a separate quantity from the per interval instability"
+    intent: "ECSS-E-ST-20-08C clause 10.1.3; monitor sampling cadence per window and run drift between intervals"
+    expected_skill: "space-systems/ecss/e2008-simulator-irradiance-stability"

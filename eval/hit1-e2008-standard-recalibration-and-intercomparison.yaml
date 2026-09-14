@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-standard-recalibration-and-intercomparison
+# (space-systems/ecss, E-ST-20-08C 10.2.5). Two tasks per leaf; sri1 routes on
+# the customer-agreed interval for recalibration and cross comparison, sri2 on
+# the deviation of a working standard against the primary and the drift that
+# projects it onto the band edge. Both must deterministically hit
+# space-systems/ecss/e2008-standard-recalibration-and-intercomparison.
+tasks:
+  - id: sri1
+    query: "place the standard against its customer-agreed-calibration-interval and report whether the solar-array-standard-recalibration-interval or the cross comparison has lapsed"
+    intent: "ecss photovoltaic assemblies; periodic recalibration and cross comparison of standards at customer-agreed intervals"
+    expected_skill: "space-systems/ecss/e2008-standard-recalibration-and-intercomparison"
+  - id: sri2
+    query: "size the standard-cell-intercomparison-deviation against the primary, fit the primary-to-working-standard-drift-rate and run the standard-cell-band-edge-projection"
+    intent: "ecss photovoltaic assemblies; cross comparison deviation and drift of a working standard against the primary"
+    expected_skill: "space-systems/ecss/e2008-standard-recalibration-and-intercomparison"

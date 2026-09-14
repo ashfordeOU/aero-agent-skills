@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-human-body-esd (space-systems/ecss,
+# E-ST-20-08C 9.6.16). Two tasks per leaf; dhbe1 routes on the discharge
+# network and the derived pulse quantities, dhbe2 on the step ladder and the
+# drift that decides survival. Both must deterministically hit
+# space-systems/ecss/e2008-diode-human-body-esd.
+tasks:
+  - id: dhbe1
+    query: "hold a diode-hbm-discharge-network in band and derive the diode-hbm-peak-current and diode-hbm-stored-energy a protection-diode-human-body-esd step delivers"
+    intent: "ecss protection diodes; the discharge network that makes an ESD pulse representative of a charged person"
+    expected_skill: "space-systems/ecss/e2008-diode-human-body-esd"
+  - id: dhbe2
+    query: "walk a diode-esd-step-stress-ladder in both polarities, take the diode-esd-leakage-drift across it and group the survivor into a diode-hbm-withstand-band"
+    intent: "ecss protection diodes; step stress ladder, pulse count and post-stress drift after a human body discharge"
+    expected_skill: "space-systems/ecss/e2008-diode-human-body-esd"

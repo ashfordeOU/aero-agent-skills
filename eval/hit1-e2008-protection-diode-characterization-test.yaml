@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-characterization-test
+# (space-systems/ecss, E-ST-20-08C 9.6.15). Two tasks per leaf; pdct1 routes on
+# the completeness and condition match of the bracket, pdct2 on the directional
+# drifts read across it. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-characterization-test.
+tasks:
+  - id: pdct1
+    query: "audit a protection-diode-pre-post-bracket for a complete diode-baseline-followup-parameter-set and a diode-reference-condition-match"
+    intent: "ecss protection diodes; whether the two characterizations either side of an environmental test are comparable at all"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-characterization-test"
+  - id: pdct2
+    query: "take the diode-breakdown-voltage-drop-fraction and the diode-series-resistance-growth-fraction to reach a protection-diode-degradation-verdict"
+    intent: "ecss protection diodes; directional drift limits between a baseline and a follow-up characterization"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-characterization-test"

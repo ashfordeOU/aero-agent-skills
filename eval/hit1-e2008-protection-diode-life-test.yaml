@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-life-test (space-systems/ecss,
+# E-ST-20-08C 9.6.18). Two tasks per leaf; pdlt1 routes on the junction and
+# the Arrhenius conversion, pdlt2 on the endurance drift and the surviving
+# sample. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-life-test.
+tasks:
+  - id: pdlt1
+    query: "derive the diode-junction-temperature-rise at worst case bias and take the diode-arrhenius-acceleration-factor into diode-equivalent-mission-hours for a protection-diode-life-test"
+    intent: "ecss protection diodes; junction temperature and Arrhenius conversion of endurance hours into mission hours"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-life-test"
+  - id: pdlt2
+    query: "hold the diode-endurance-parameter-drift and its rate per thousand hours against limits and count the protection-diode-endurance-sample that finished the run"
+    intent: "ecss protection diodes; long term stability drift, drift rate and surviving endurance sample"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-life-test"

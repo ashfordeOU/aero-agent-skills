@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-working-standard-sensitivity-stability (space-systems/ecss)
+# Two tasks for the new leaf. wsss1 routes on judging drift by comparing short
+# circuit current from five working standards over repeated sessions; wsss2
+# routes on separating a shift the whole group shares from one device walking
+# away from its peers. Both must deterministically hit
+# space-systems/ecss/e2008-working-standard-sensitivity-stability.
+tasks:
+  - id: wsss1
+    query: "judge whether the working standards have drifted in sensitivity by comparing the short circuit current of five of them measured over time"
+    intent: "ECSS-E-ST-20-08C clause 10.2.2.3.2; sensitivity drift of secondary working standards from repeated intercomparison"
+    expected_skill: "space-systems/ecss/e2008-working-standard-sensitivity-stability"
+  - id: wsss2
+    query: "ratio each standard against the session median across measurement sessions and tell a common mode source shift apart from one device drifting"
+    intent: "ECSS-E-ST-20-08C clause 10.2.2.3.2; session ratio tracking and common mode shift of a working standard group"
+    expected_skill: "space-systems/ecss/e2008-working-standard-sensitivity-stability"

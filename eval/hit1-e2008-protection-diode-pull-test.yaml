@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-protection-diode-pull-test (space-systems/ecss)
+# Two tasks for the new leaf. pdpt1 routes on the bond strength of the
+# positive and negative contacts read out of a pull over their bonded areas;
+# pdpt2 routes on the environmental block preceding the pull and the grip
+# dragged off the contact normal. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-pull-test.
+tasks:
+  - id: pdpt1
+    query: "turn the positive and negative contact pull forces on a protection diode into bond strengths over their bonded areas and sentence each device by whichever contact releases first"
+    intent: "ECSS-E-ST-20-08C clause 9.6.11; protection diode contact bond strength under mechanical loading"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-pull-test"
+  - id: pdpt2
+    query: "confirm the thermal cycles and humidity soak were completed before any protection diode contact was pulled and reject a grip dragged off the contact normal"
+    intent: "ECSS-E-ST-20-08C clause 9.6.11; diode pull after environmental conditioning, off-normal allowance"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-pull-test"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-failed-protection-diode-components (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the designation a diode showing a
+# listed failure mode takes; to2 routes on segregation evidence and the
+# deliverable count that survives. Both must deterministically hit
+# space-systems/ecss/e2008-failed-protection-diode-components.
+tasks:
+  - id: to1
+    query: "several protection diodes in the lot show a failure mode from the criteria list, work out what designation each part takes and how many are still deliverable"
+    intent: "ECSS-E-ST-20-08C clause 9.7.2; a protection diode showing any listed failure mode is a failed component"
+    expected_skill: "space-systems/ecss/e2008-failed-protection-diode-components"
+  - id: to2
+    query: "a cracked bypass diode was recorded as failed but carries no segregation record or non-conformance reference, and another part has not finished inspection, decide what each may be counted as at delivery"
+    intent: "ECSS-E-ST-20-08C clause 9.7.2; failed protection diode segregation evidence and undetermined inspection status"
+    expected_skill: "space-systems/ecss/e2008-failed-protection-diode-components"
