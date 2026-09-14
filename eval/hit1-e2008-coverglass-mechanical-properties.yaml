@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-mechanical-properties (space-systems/ecss,
+# E-ST-20-08C 8.7.4). Two tasks per leaf; cgmp1 routes on the outline,
+# thickness and mass bands recorded per coverglass configuration, cgmp2 on the
+# bulk-density cross-check and the matrix record completeness. Both must
+# deterministically hit
+# space-systems/ecss/e2008-coverglass-mechanical-properties.
+tasks:
+  - id: cgmp1
+    query: "judge the coverglass-dimensional-record for each configuration on test against its outline, coverglass-thickness-band and mass bands and name which property is out of band"
+    intent: "ecss photovoltaic; dimensional and mass properties recorded per coverglass configuration under test"
+    expected_skill: "space-systems/ecss/e2008-coverglass-mechanical-properties"
+  - id: cgmp2
+    query: "run the coverglass-bulk-density-crosscheck against the declared glass material, derive the coverglass-areal-density-budget and prove coverglass-configuration-record-completeness across the test matrix"
+    intent: "ecss photovoltaic; coverglass mass and geometry cross-check and per-configuration record coverage"
+    expected_skill: "space-systems/ecss/e2008-coverglass-mechanical-properties"

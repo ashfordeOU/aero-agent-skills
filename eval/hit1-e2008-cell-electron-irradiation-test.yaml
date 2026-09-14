@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-cell-electron-irradiation-test (space-systems/ecss)
+# Two tasks for the new leaf. ecei1 routes on bare-cell remaining factors read
+# against an unirradiated reference across a rising electron fluence
+# staircase; ecei2 routes on the logarithmic degradation fit and the
+# end-of-life projection. Both must deterministically hit
+# space-systems/ecss/e2008-cell-electron-irradiation-test.
+tasks:
+  - id: ecei1
+    query: "turn each electron fluence step's bare cell current, voltage and maximum power into remaining factors against the unirradiated reference and refuse a factor that climbs"
+    intent: "ECSS-E-ST-20-08C clause 7.5.13; bare-cell electron irradiation remaining factors"
+    expected_skill: "space-systems/ecss/e2008-cell-electron-irradiation-test"
+  - id: ecei2
+    query: "fit bare solar cell retention against the logarithm of electron fluence, report the retention lost per decade and project the end-of-life remaining power"
+    intent: "ECSS-E-ST-20-08C clause 7.5.13; logarithmic degradation fit and end-of-life retention"
+    expected_skill: "space-systems/ecss/e2008-cell-electron-irradiation-test"

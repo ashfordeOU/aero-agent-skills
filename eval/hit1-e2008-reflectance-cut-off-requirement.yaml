@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-reflectance-cut-off-requirement (space-systems/ecss)
+# Two tasks for the new leaf. rco1 routes on the acceptance comparison of a
+# measured cut-off wavelength against the coverglass source control drawing;
+# rco2 routes on deriving that cut-off from the measured reflectance scan.
+# Both must deterministically hit
+# space-systems/ecss/e2008-reflectance-cut-off-requirement.
+tasks:
+  - id: rco1
+    query: "does the measured coverglass reflectance cut-off wavelength agree with the value on the source control drawing"
+    intent: "ECSS-E-ST-20-08C clause 8.7.5.3.3; cut-off wavelength acceptance against the drawing figure"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-off-requirement"
+  - id: rco2
+    query: "interpolate the coverglass cut-off from the reflectance scan at half the reflecting plateau and report the deviation from the drawing tolerance band"
+    intent: "ECSS-E-ST-20-08C clause 8.7.5.3.3; plateau, crossing level and flank interpolation for the cut-off edge"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-off-requirement"

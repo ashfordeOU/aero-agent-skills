@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-acceptance-test-sequence (space-systems/ecss,
+# E-ST-20-08C 8.5.2). Two tasks per leaf; cgq1 routes on the acceptance order
+# carried by both populations, cgq2 on the inversion count and the precedence
+# pairs. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-acceptance-test-sequence.
+tasks:
+  - id: cgq1
+    query: "verify the coverglass-acceptance-test-order holds for the coverglass-delivery-population-sequence and the coverglass-qualification-population-sequence alike"
+    intent: "ecss coverglasses; the acceptance test order applied to delivered pieces and to qualification pieces"
+    expected_skill: "space-systems/ecss/e2008-coverglass-acceptance-test-sequence"
+  - id: cgq2
+    query: "reduce the run to a coverglass-sequence-inversion-count, check every coverglass-test-precedence-pair and return the coverglass-acceptance-order-verdict"
+    intent: "ecss coverglasses; how far a declared acceptance run departs from the fixed test order"
+    expected_skill: "space-systems/ecss/e2008-coverglass-acceptance-test-sequence"

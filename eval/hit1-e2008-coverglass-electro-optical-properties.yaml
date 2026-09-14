@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-electro-optical-properties (space-systems/ecss)
+# Two tasks for the leaf. ceop1 routes on the bulk-and-surface resistivity pair
+# a coated coverglass component must carry; ceop2 routes on the guarded-electrode
+# and geometry-factor reduction and the coating charge-bleed ceiling. Both must
+# deterministically hit space-systems/ecss/e2008-coverglass-electro-optical-properties.
+tasks:
+  - id: ceop1
+    query: "characterize the bulk volume resistivity and the surface resistivity of a coated coverglass component together and judge each against the drawing-fixed band"
+    intent: "ECSS-E-ST-20-08C clause 8.7.3; coverglass electro-optical bulk and surface resistivity behaviour"
+    expected_skill: "space-systems/ecss/e2008-coverglass-electro-optical-properties"
+  - id: ceop2
+    query: "reduce coverglass bulk resistivity from a guarded-electrode reading and surface resistivity from the concentric-ring geometry factor, then hold the conductive coating to its charge-bleed sheet resistivity ceiling"
+    intent: "ECSS-E-ST-20-08C clause 8.7.3; guarded-electrode and ring-geometry reduction against the coating ceiling"
+    expected_skill: "space-systems/ecss/e2008-coverglass-electro-optical-properties"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-corner-chips (space-systems/ecss)
+# Two tasks for the new leaf. cgk1 routes on the chord across a corner bite
+# against the three quarter millimetre ceiling; cgk2 routes on reconciling the
+# two measured legs with a directly measured chord. Both must deterministically
+# hit space-systems/ecss/e2008-coverglass-corner-chips.
+tasks:
+  - id: cgk1
+    query: "check the hypotenuse across the corner chip on this coverglass against the three quarter millimetre limit"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.5; coverglass corner chip hypotenuse ceiling"
+    expected_skill: "space-systems/ecss/e2008-coverglass-corner-chips"
+  - id: cgk2
+    query: "reconcile the two measured legs of the corner bite on the coverglass with the chord that was measured across it and say how far the bite reaches toward the cell"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.5; coverglass corner chip leg and chord reconciliation and corner reach"
+    expected_skill: "space-systems/ecss/e2008-coverglass-corner-chips"

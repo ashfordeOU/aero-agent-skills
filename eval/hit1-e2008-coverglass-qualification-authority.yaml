@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-qualification-authority (space-systems/ecss)
+# Two tasks for the new leaf. cgqa1 routes on the customer grant that has to
+# exist before a coverglass type is supplied; cgqa2 routes on who issued the
+# grant and whether it was in force on the supply date. Both must
+# deterministically hit
+# space-systems/ecss/e2008-coverglass-qualification-authority.
+tasks:
+  - id: cgqa1
+    query: "check whether this coverglass type may be shipped as qualified, or whether the customer has never actually granted it qualification status"
+    intent: "ECSS-E-ST-20-08C clause 8.6.1; the customer grants coverglass qualification status before the type may be supplied"
+    expected_skill: "space-systems/ecss/e2008-coverglass-qualification-authority"
+  - id: cgqa2
+    query: "the coverglass qualification grant was signed by the supplier itself and dated two months after the shipment left, decide whether the supply was authorised"
+    intent: "ECSS-E-ST-20-08C clause 8.6.1; coverglass grant issuing authority and the validity window against the supply date"
+    expected_skill: "space-systems/ecss/e2008-coverglass-qualification-authority"

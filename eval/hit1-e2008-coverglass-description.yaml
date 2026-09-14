@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-description (space-systems/ecss, E-ST-20-08C 8.1.2)
+# Two tasks per leaf; ccd1 routes on the substrate family a declared coverglass
+# rests on and the shielding its thickness buys, ccd2 on holding a declared
+# transmittance against the ceiling the substrate index allows. Both must
+# deterministically hit space-systems/ecss/e2008-coverglass-description.
+tasks:
+  - id: ccd1
+    query: "check the coverglass-transparent-shield-description for fused-silica-substrate-admissibility and derive the coverglass-areal-shielding-mass its declared thickness buys"
+    intent: "ecss coverglass; what the description has to say about substrate and thickness"
+    expected_skill: "space-systems/ecss/e2008-coverglass-description"
+  - id: ccd2
+    query: "test a declared transmittance against the coverglass-fresnel-transmittance-ceiling the coverglass-substrate-refractive-index allows with no coating declared"
+    intent: "ecss coverglass; an optical claim the bare substrate cannot deliver"
+    expected_skill: "space-systems/ecss/e2008-coverglass-description"

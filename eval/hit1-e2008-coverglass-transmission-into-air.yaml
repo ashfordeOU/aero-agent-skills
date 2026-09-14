@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-transmission-into-air (space-systems/ecss)
+# Two tasks for the leaf. ctia1 routes on the spectrophotometer scan reduced to
+# an into-air band figure; ctia2 routes on the trapezoidal integral, the
+# sampling interval and the cut-on edge. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-transmission-into-air.
+tasks:
+  - id: ctia1
+    query: "reduce a coverglass spectrophotometer scan to the band average transmission into air across the specified wavelengths and judge it against the required minimum"
+    intent: "ECSS-E-ST-20-08C clause 8.7.2; coverglass transmission into air by spectrophotometer"
+    expected_skill: "space-systems/ecss/e2008-coverglass-transmission-into-air"
+  - id: ctia2
+    query: "integrate the coverglass band average transmittance by trapezoid with interpolated band edges, check the widest sample gap against the specified spectral interval and interpolate the cut-on wavelength"
+    intent: "ECSS-E-ST-20-08C clause 8.7.2; band integral, sampling interval and cut-on wavelength of a coverglass scan"
+    expected_skill: "space-systems/ecss/e2008-coverglass-transmission-into-air"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-acceptance-documentation (space-systems/ecss)
+# Two tasks for the new leaf. cgad1 routes on the acceptance records a coverglass
+# batch is delivered against; cgad2 routes on the coverglass documentation rule
+# edition a record was written to and on record traceability to the batch. Both
+# must deterministically hit
+# space-systems/ecss/e2008-coverglass-acceptance-documentation.
+tasks:
+  - id: cgad1
+    query: "the coverglass supplier sent the acceptance records with the batch, work out whether every coverglass acceptance activity is written up completely enough to release the batch against"
+    intent: "ECSS-E-ST-20-08C clause 8.5.4; coverglass acceptance test results are recorded under the coverglass documentation rules"
+    expected_skill: "space-systems/ecss/e2008-coverglass-acceptance-documentation"
+  - id: cgad2
+    query: "one coverglass acceptance record was written to the previous edition of the documentation rules and another names pieces that are not in the delivered batch, decide whether the package can still go out"
+    intent: "ECSS-E-ST-20-08C clause 8.5.4; coverglass record conformance to the governing documentation rule edition and traceability to the batch"
+    expected_skill: "space-systems/ecss/e2008-coverglass-acceptance-documentation"

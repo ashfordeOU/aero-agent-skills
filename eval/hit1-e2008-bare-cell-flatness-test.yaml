@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-flatness-test (space-systems/ecss)
+# Two tasks for the new leaf. bcft1 routes on the full-face height grid and the
+# fitted reference plane that takes fixture tilt out before any deviation is
+# read; bcft2 routes on the peak-to-valley deviation against the flatness
+# allowance and the bow the residuals describe. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-flatness-test.
+tasks:
+  - id: bcft1
+    query: "decide whether the unmounted bare solar cell surface stays flat across its whole face once fixture tilt is removed by fitting a least-squares reference plane through the measured height grid"
+    intent: "ECSS-E-ST-20-08C clause 7.5.19; unmounted bare cell flatness over the full area, fitted datum and grid coverage"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-flatness-test"
+  - id: bcft2
+    query: "take the peak-to-valley deviation of a bare cell from its fitted reference plane against the flatness allowance and name the bow convex or concave"
+    intent: "ECSS-E-ST-20-08C clause 7.5.19; peak-to-valley and RMS residuals, bow direction and the governing flatness allowance"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-flatness-test"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-scratch-and-dig (space-systems/ecss)
+# Two tasks for the new leaf. csd1 routes on the largest scratch and dig a coverglass
+# may carry being taken from its source control drawing; csd2 routes on the aggregate
+# case, where every feature is inside its own grade and the summed scratch length is
+# not. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-scratch-and-dig.
+tasks:
+  - id: csd1
+    query: "grade the scratches and digs on these coverglasses against the largest sizes the source control drawing fixes"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.2; coverglass scratch and dig limits from the source control drawing"
+    expected_skill: "space-systems/ecss/e2008-coverglass-scratch-and-dig"
+  - id: csd2
+    query: "every scratch on the coverglass is inside the drawing scratch grade but there are six of them, does the summed length still take the part out"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.2; grade-weighted scratch length and dig concentration against the drawing"
+    expected_skill: "space-systems/ecss/e2008-coverglass-scratch-and-dig"

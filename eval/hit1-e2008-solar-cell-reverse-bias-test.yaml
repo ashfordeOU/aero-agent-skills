@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-solar-cell-reverse-bias-test (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the forward output a bare cell gives
+# back after being driven into reverse polarity; to2 routes on whether the
+# reverse stress was delivered at all and what the reversed cell dissipated.
+# Both must deterministically hit
+# space-systems/ecss/e2008-solar-cell-reverse-bias-test.
+tasks:
+  - id: to1
+    query: "a bare cell was back-driven the way a shadowed cell in a string would be, decide whether its maximum power, short-circuit current and open-circuit voltage came back inside the allowances afterwards"
+    intent: "ECSS-E-ST-20-08C clause 7.5.16; output degradation of a bare solar cell measured after a reverse polarity stress"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-reverse-bias-test"
+  - id: to2
+    query: "the reverse bias supply sat at its compliance voltage and never reached the declared reverse current, work out whether that run counts and how much heat the reversed cell had to carry"
+    intent: "ECSS-E-ST-20-08C clause 7.5.16; reverse bias stress delivery, supply compliance clamp and the dissipated hot-spot power"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-reverse-bias-test"

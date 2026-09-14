@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-pull-test (space-systems/ecss)
+# Two tasks for the new leaf. bcpt1 routes on the bond strength of the front
+# and rear contacts read out of a pull after environmental loading; bcpt2
+# routes on the ordering rule and the off-normal pull. Both must
+# deterministically hit space-systems/ecss/e2008-bare-cell-pull-test.
+tasks:
+  - id: bcpt1
+    query: "turn the front and rear contact pull forces on a bare solar cell into bond strengths over their bonded areas and sentence each cell by its weaker contact"
+    intent: "ECSS-E-ST-20-08C clause 7.5.12; bare-cell contact bond strength under mechanical loading"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-pull-test"
+  - id: bcpt2
+    query: "confirm the thermal cycles and humidity soak were completed before any bare cell contact was pulled and reject a pull dragged off the contact normal"
+    intent: "ECSS-E-ST-20-08C clause 7.5.12; pull after environmental conditioning, off-normal pull allowance"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-pull-test"

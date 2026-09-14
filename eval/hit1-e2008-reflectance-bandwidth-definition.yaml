@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reflectance-bandwidth-definition (space-systems/ecss)
+# Two tasks for the new leaf. rbd1 routes on the definition of the quantity
+# itself; rbd2 routes on the unit and centre-convention conversions and on
+# inverting a stated bandwidth back to an edge pair. Both must deterministically
+# hit space-systems/ecss/e2008-reflectance-bandwidth-definition.
+tasks:
+  - id: rbd1
+    query: "how is the reflectance bandwidth of a coverglass filter defined from its cut-on and cut-off wavelengths"
+    intent: "ECSS-E-ST-20-08C clause 8.7.5.4.1; cut-on to cut-off span divided by the band centre wavelength"
+    expected_skill: "space-systems/ecss/e2008-reflectance-bandwidth-definition"
+  - id: rbd2
+    query: "convert a percent coverglass bandwidth and a band centre back into cut-on and cut-off edges under the geometric centre convention"
+    intent: "ECSS-E-ST-20-08C clause 8.7.5.4.1; unit normalisation, centre convention and closed-form inversion of the bandwidth"
+    expected_skill: "space-systems/ecss/e2008-reflectance-bandwidth-definition"

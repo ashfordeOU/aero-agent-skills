@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-photon-irradiation-and-annealing (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on splitting an ultraviolet exposure
+# loss into the part a thermal soak gave back and the residual the mission
+# carries; to2 routes on the exposure and soak profile itself and the step order
+# the run was recorded in. Both must deterministically hit
+# space-systems/ecss/e2008-photon-irradiation-and-annealing.
+tasks:
+  - id: to1
+    query: "bare cells came out of the ultraviolet chamber down on power and most of it came back after the bake, work out how much of the loss anneals out and how much of it the mission actually carries"
+    intent: "ECSS-E-ST-20-08C clause 7.5.15; combined ultraviolet exposure and thermal anneal on bare cells, recovered share against residual degradation"
+    expected_skill: "space-systems/ecss/e2008-photon-irradiation-and-annealing"
+  - id: to2
+    query: "check the photon irradiation run really delivered its equivalent sun hours at the right cell temperature and vacuum, and that the anneal soak was recorded after the exposure rather than before it"
+    intent: "ECSS-E-ST-20-08C clause 7.5.15; ultraviolet exposure dose, temperature and pressure profile and the exposure-then-anneal step order"
+    expected_skill: "space-systems/ecss/e2008-photon-irradiation-and-annealing"

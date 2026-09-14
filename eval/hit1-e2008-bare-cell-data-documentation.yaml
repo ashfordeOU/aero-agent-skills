@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-data-documentation (space-systems/ecss)
+# Two tasks for the new leaf. bcdd1 routes on the two-tier supplier package
+# where most delivered lots have no data file; bcdd2 routes on a measured
+# electrical data table that is present, approved and covers a fraction of the
+# cells the lot delivered. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-data-documentation.
+tasks:
+  - id: bcdd1
+    query: "grade the supplier data package for a bare solar cell delivery, the qualification records are all in but only one of the four delivered cell lots has a lot data file"
+    intent: "ECSS-E-ST-20-08C clause 7.7; bare-cell supplier data package covering qualification records and every delivered lot"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-data-documentation"
+  - id: bcdd2
+    query: "a delivered bare cell lot has an approved measured electrical data table at the governing issue with rows for forty of its four hundred cells, and it cites a superseded qualification approval"
+    intent: "ECSS-E-ST-20-08C clause 7.7; per-cell measured-data coverage and governing approval citation on a bare-cell lot data file"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-data-documentation"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-deliverable-coverglass-components (space-systems/ecss,
+# E-ST-20-08C 8.3.2). Two tasks per leaf; dcc1 routes on the standing of the
+# process document and the route the batch was actually taken through, dcc2 on
+# the screen-versus-sample reading and the deliverable count bracket. Both must
+# deterministically hit
+# space-systems/ecss/e2008-deliverable-coverglass-components.
+tasks:
+  - id: dcc1
+    query: "settle the coverglass-delivery-batch-disposition from the coverglass-process-document-standing and name any coverglass-undeclared-route-step or coverglass-route-sequence-violation"
+    intent: "ecss coverglass delivery; the processing route the process document fixes"
+    expected_skill: "space-systems/ecss/e2008-deliverable-coverglass-components"
+  - id: dcc2
+    query: "grade the coverglass-screen-versus-sample-mode of each inspection record and work out the coverglass-deliverable-count-bracket for the batch"
+    intent: "ecss coverglass delivery; how many pieces the inspection records actually release"
+    expected_skill: "space-systems/ecss/e2008-deliverable-coverglass-components"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-qualification-schedule (space-systems/ecss)
+# Two tasks for the new leaf. cgqs1 routes on the dated production and test
+# schedule a coverglass qualification campaign runs on; cgqs2 routes on dwell
+# duration and the float left against the need date. Both must deterministically
+# hit space-systems/ecss/e2008-coverglass-qualification-schedule.
+tasks:
+  - id: cgqs1
+    query: "review the dated production and test plan for the coverglass qualification campaign and find the steps planned to start before the step they depend on has finished"
+    intent: "ECSS-E-ST-20-08C clause 8.6.2; dated coverglass qualification schedule and step precedence by date"
+    expected_skill: "space-systems/ecss/e2008-coverglass-qualification-schedule"
+  - id: cgqs2
+    query: "the ultraviolet exposure in the coverglass qualification campaign has been shortened to two weeks, work out when the campaign now finishes and how much float is left before the coverglasses are needed"
+    intent: "ECSS-E-ST-20-08C clause 8.6.2; coverglass environmental dwell duration, campaign window and milestone float"
+    expected_skill: "space-systems/ecss/e2008-coverglass-qualification-schedule"

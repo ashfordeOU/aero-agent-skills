@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reflectance-cut-on-purpose (space-systems/ecss,
+# E-ST-20-08C 8.7.5.2.2). Two tasks per leaf; rcop1 routes on why the band edge
+# is recorded and which budgets want it, rcop2 on whether the scan can place
+# the edge and where the edge landed. Both must deterministically hit
+# space-systems/ecss/e2008-reflectance-cut-on-purpose.
+tasks:
+  - id: rcop1
+    query: "state the reflectance-cut-on-purpose for a coating high reflectance band and map each declared driver to the coverglass-coating-band-budget it feeds"
+    intent: "ecss photovoltaic; why the cut-on point is recorded when a high reflectance band is characterised"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-on-purpose"
+  - id: rcop2
+    query: "check the cut-on-scan-bracket-coverage against the coating-plateau-reflectance-trigger and judge the high-reflectance-band-edge-placement against the edge the thermal and power budgets assume"
+    intent: "ecss photovoltaic; does the measured cut-on serve the band edge budgets it was recorded for"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-on-purpose"

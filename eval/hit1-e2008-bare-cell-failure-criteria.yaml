@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-failure-criteria (space-systems/ecss)
+# Two tasks for the new leaf. bcfc1 routes on deciding which cells a subgroup
+# test and inspection leave failed with every mode named; bcfc2 routes on the
+# electrical loss allowance, the open-circuit cell and the cell nobody finished
+# measuring. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-failure-criteria.
+tasks:
+  - id: bcfc1
+    query: "decide which bare cells a subgroup test and inspection leave failed, naming every failure mode each cell shows rather than only the first one found"
+    intent: "ECSS-E-ST-20-08C clause 7.6.1; per-cell failure conditions in subgroup testing and inspection"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-failure-criteria"
+  - id: bcfc2
+    query: "one bare cell lost more maximum power than its declared allowance between the before and after readings, one has stopped conducting, and one has no after reading at all"
+    intent: "ECSS-E-ST-20-08C clause 7.6.1; electrical degradation allowances, the open-circuit mode and the not-evaluated cell"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-failure-criteria"
