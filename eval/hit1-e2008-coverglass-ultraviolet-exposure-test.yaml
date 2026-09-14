@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-ultraviolet-exposure-test (space-systems/ecss)
+# Two tasks for the new leaf. cguv1 routes on the equivalent-sun-hour dose and
+# the reciprocity cap that bounds how hard the lamp may be driven; cguv2 routes
+# on the solarisation transmittance loss read against a dark control and inside
+# the bleaching window. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-ultraviolet-exposure-test.
+tasks:
+  - id: cguv1
+    query: "turn the ultraviolet lamp intensity and exposure hours into equivalent sun hours for a coverglass ageing run and refuse an acceleration factor past the reciprocity cap"
+    intent: "ECSS-E-ST-20-08C clause 8.7.12; coverglass ultraviolet exposure dose and acceleration limit"
+    expected_skill: "space-systems/ecss/e2008-coverglass-ultraviolet-exposure-test"
+  - id: cguv2
+    query: "judge coverglass coating solarisation from the transmittance lost across an ultraviolet vacuum exposure, against the dark control drift and inside the bleaching window"
+    intent: "ECSS-E-ST-20-08C clause 8.7.12; coverglass solarisation loss, dark control and measurement delay"
+    expected_skill: "space-systems/ecss/e2008-coverglass-ultraviolet-exposure-test"

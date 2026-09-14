@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-external-and-integral-diodes (space-systems/ecss,
+# E-ST-20-08C 9.4.4). Two tasks per leaf; eid1 routes on the generic
+# specification agreed between customer and supplier beforehand, eid2 on issue
+# currency and coverage of both diode kinds. Both must deterministically hit
+# space-systems/ecss/e2008-external-and-integral-diodes.
+tasks:
+  - id: eid1
+    query: "check diode-generic-specification-agreement for external-and-integral-diodes against the diode-customer-supplier-agreement-date"
+    intent: "ecss external and integral diodes; generic specification settled between customer and supplier before acceptance testing"
+    expected_skill: "space-systems/ecss/e2008-external-and-integral-diodes"
+  - id: eid2
+    query: "grade diode-specification-issue-currency and every diode-specification-coverage-gap then return the diode-acceptance-baseline-verdict"
+    intent: "ecss external and integral diodes; specification issue currency and coverage of both diode kinds"
+    expected_skill: "space-systems/ecss/e2008-external-and-integral-diodes"

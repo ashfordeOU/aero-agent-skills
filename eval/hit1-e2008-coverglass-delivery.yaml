@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-delivery (space-systems/ecss)
+# Two tasks for the new leaf. cgd1 routes on a coverglass dispatch whose counts
+# reconcile but whose batches lack the documentation set the order agreed; cgd2
+# routes on the type-substitution permission and the declared partial-delivery
+# floor. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-delivery.
+tasks:
+  - id: cgd1
+    query: "decide whether this shipment of ordered coverglasses may leave, the piece counts match the order but one batch has no signed certificate of conformity covering it"
+    intent: "ECSS-E-ST-20-08C clause 8.10; coverglass dispatch released only when the hardware and the documentation set the order agreed close together"
+    expected_skill: "space-systems/ecss/e2008-coverglass-delivery"
+  - id: cgd2
+    query: "can a coverglass order line be filled from a different coverglass type, and does the short line still clear the declared partial delivery floor"
+    intent: "ECSS-E-ST-20-08C clause 8.10; coverglass order line allocation, permitted type substitution and the partial-delivery floor on a dispatch"
+    expected_skill: "space-systems/ecss/e2008-coverglass-delivery"

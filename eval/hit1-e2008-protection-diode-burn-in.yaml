@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-burn-in (space-systems/ecss,
+# E-ST-20-08C 9.6.5). Two tasks per leaf; pdbi1 routes on sizing the
+# operational loading and the hours it is worth, pdbi2 on what the run removed
+# and whether the lot survived it. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-burn-in.
+tasks:
+  - id: pdbi1
+    query: "size the protection-diode-burn-in-loading against the protection-diode-junction-temperature-limit and derive the protection-diode-burn-in-equivalent-hours the soak is worth"
+    intent: "ecss photovoltaic assemblies; operational loading applied to a protection diode qualification batch"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-burn-in"
+  - id: pdbi2
+    query: "assess whether the protection-diode-infant-mortality-screen removed the early life population and whether the batch passed the protection-diode-lot-reject-limit"
+    intent: "ecss photovoltaic assemblies; early life failure screening inside a protection diode qualification batch"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-burn-in"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-external-protection-diode-testing (space-systems/ecss)
+# Two tasks for the new leaf. epd1 routes on a diode test taken from a house
+# specification rather than the part's own source control drawing; epd2 routes
+# on the drawing issue and the condition comparison under its own sense. Both
+# must deterministically hit
+# space-systems/ecss/e2008-external-protection-diode-testing.
+tasks:
+  - id: epd1
+    query: "our external protection diode tests were run to an in-house test specification instead of the part's source control drawing, is that acceptable"
+    intent: "ECSS-E-ST-20-08C clause 9.2.1.2.2; external protection diode test conditions and methods are the ones the part's own dedicated source control drawing defines"
+    expected_skill: "space-systems/ecss/e2008-external-protection-diode-testing"
+  - id: epd2
+    query: "the protection diode test used a lower reverse bias and a longer dwell than the source control drawing, and the drawing has since gone to a new issue"
+    intent: "ECSS-E-ST-20-08C clause 9.2.1.2.2; drawing issue standing, method substitution and per-sense comparison of external protection diode test conditions"
+    expected_skill: "space-systems/ecss/e2008-external-protection-diode-testing"

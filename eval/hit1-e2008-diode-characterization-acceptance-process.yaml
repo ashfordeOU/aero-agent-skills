@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-diode-characterization-acceptance-process
+# (space-systems/ecss, E-ST-20-08C 9.4.5.2.2). Two tasks per leaf; dcapr1
+# routes on setting up the dark forward and reverse current-voltage
+# recording, dcapr2 on judging an as-run sweep for supply-limited points
+# and step-rule coverage. Both must deterministically hit
+# space-systems/ecss/e2008-diode-characterization-acceptance-process.
+tasks:
+  - id: dcapr1
+    query: "set up a protection-diode-dark-iv-recording: hold the dark-condition-stray-irradiance-floor and do the diode-supply-compliance-limit-sizing from both sides"
+    intent: "ecss photovoltaic assemblies; recording forward and reverse diode curves in darkness from a limited supply"
+    expected_skill: "space-systems/ecss/e2008-diode-characterization-acceptance-process"
+  - id: dcapr2
+    query: "judge an as-run diode sweep against the diode-sweep-schedule-step-rule and run supply-limited-point-detection on the recorded forward branch"
+    intent: "ecss photovoltaic assemblies; is the recorded diode current-voltage curve a diode measurement or the source"
+    expected_skill: "space-systems/ecss/e2008-diode-characterization-acceptance-process"

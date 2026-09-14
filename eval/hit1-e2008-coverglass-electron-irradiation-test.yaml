@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-electron-irradiation-test (space-systems/ecss)
+# Two tasks for the new leaf. cgei1 routes on the beam energy that has to cross
+# the coverglass and on the absorbed dose behind a fluence; cgei2 routes on the
+# optical density power-law fit and the end-of-life transmittance projection.
+# Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-electron-irradiation-test.
+tasks:
+  - id: cgei1
+    query: "check an electron beam energy crosses the whole coverglass rather than front-loading the damage, and convert each fluence step into the dose the glass absorbed"
+    intent: "ECSS-E-ST-20-08C clause 8.7.13; coverglass electron traversal ratio and absorbed dose"
+    expected_skill: "space-systems/ecss/e2008-coverglass-electron-irradiation-test"
+  - id: cgei2
+    query: "fit coverglass darkening as an optical density power law in electron fluence and project the end-of-life band transmittance against the power budget floor"
+    intent: "ECSS-E-ST-20-08C clause 8.7.13; coverglass optical density fit and end-of-life projection"
+    expected_skill: "space-systems/ecss/e2008-coverglass-electron-irradiation-test"

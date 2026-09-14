@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1607,
+  "leaves": 1649,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -20843,6 +20843,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-abrasion-resistance",
+   "name": "e2008-coverglass-abrasion-resistance",
+   "description": "Assess an eraser abrasion run on the coated face of a coverglass per ECSS-E-ST-20-08C clause 8.7.17: hold the delivered stroke count at the twenty the procedure fixes, in both directions, hold the applied load inside its band, turn load and tip diameter into a contact pressure so a worn-flat eraser cannot stand in for the specified dose, size the rubbed track the optical change has to belong to, and read transmittance loss, haze rise and coating removal against their ceilings. Use when an abrasion result is about to be recorded from a run whose dose nobody pinned down. Trigger: ecss, e-st-20-08c-clause-8-7-17, coverglass-eraser-abrasion-resistance, coated-face-abrasion-stroke-count, eraser-contact-pressure-band, coverglass-abrasion-transmittance-loss, coverglass-coating-removal-fraction, abrasion-run-void-criteria.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-abrasion-resistance",
+    "coverglass-eraser-abrasion-resistance",
+    "coated-face-abrasion-stroke-count",
+    "eraser-contact-pressure-band",
+    "coverglass-abrasion-transmittance-loss",
+    "coverglass-coating-removal-fraction",
+    "abrasion-run-void-criteria"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-acceptance-documentation",
    "name": "e2008-coverglass-acceptance-documentation",
    "description": "Use when a coverglass acceptance data package is about to be released with a batch. Audit the acceptance records a coverglass batch is delivered against, the documentation rule set ECSS-E-ST-20-08C clause 8.5.4 sends coverglass acceptance results into: name the acceptance activity nobody wrote up, hold a record written to a rule edition the governing set has superseded, test each record for the fields those rules demand including measurement uncertainty and calibration, refuse a record reporting on coverglasses outside the delivered batch, find the delivered coverglass no activity reached, catch a retention period shorter than the rules require, and rank the arms into one release verdict. Trigger: ecss, e-st-20-08c-clause-8-5-4, coverglass-acceptance-record-conformance, coverglass-documentation-rule-edition, coverglass-acceptance-data-package-release, coverglass-record-traceability-to-batch, coverglass-acceptance-activity-coverage.",
@@ -20921,6 +20940,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-boiling-water-test",
+   "name": "e2008-coverglass-boiling-water-test",
+   "description": "Evaluate a boiling deionised water immersion of single-coated coverglasses against ECSS-E-ST-20-08C clause 8.7.10: confirm every sample carries a coating on exactly one face, gate the bath on its conductivity, derive the boiling point at the declared ambient pressure rather than assuming a hundred degrees, integrate the bath log to find how long the samples were truly held at or above it instead of ramping towards it, and judge the post-immersion coating loss area against the acceptance fraction. Use when an immersion run on coated coverglasses must be dispositioned. Trigger: ecss, e-st-20-08c-clause-8-7-10, coverglass-boiling-water-immersion, single-coated-coverglass-sample, deionised-bath-water-conductivity, water-boiling-point-at-ambient-pressure, coverglass-coating-loss-area-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-boiling-water-test",
+    "coverglass-boiling-water-immersion",
+    "single-coated-coverglass-sample",
+    "deionised-bath-water-conductivity",
+    "water-boiling-point-at-ambient-pressure",
+    "coverglass-coating-loss-area-fraction",
+    "coverglass-coating-adhesion-screening"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-breaking-strength",
+   "name": "e2008-coverglass-breaking-strength",
+   "description": "Determine whether a coverglass lot holds the mechanical strength its control drawing fixes per ECSS-E-ST-20-08C clause 8.7.15: convert every recorded break load into a stress for the bend fixture that produced it, fit a Weibull modulus and characteristic strength over the broken set, derive the low-probability design allowable, hold that allowable rather than the arithmetic mean against the drawing value, keep the fitted modulus above its scatter floor, and record any single article that broke under the drawing limit even when the fit clears. Use when a lot is about to be accepted on an average break load that hides a weak tail. Trigger: ecss, e-st-20-08c-clause-8-7-15, coverglass-breaking-strength-acceptance, coverglass-flexural-stress-conversion, coverglass-weibull-modulus-fit, coverglass-design-allowable-stress, coverglass-control-drawing-strength-limit, ring-on-ring-coverglass-fixture.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-breaking-strength",
+    "coverglass-breaking-strength-acceptance",
+    "coverglass-flexural-stress-conversion",
+    "coverglass-weibull-modulus-fit",
+    "coverglass-design-allowable-stress",
+    "coverglass-control-drawing-strength-limit",
+    "ring-on-ring-coverglass-fixture"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-bubbles-and-inclusions",
    "name": "e2008-coverglass-bubbles-and-inclusions",
    "description": "Use when coverglasses have been examined and each needs a disposition. Verify that no bubble or inclusion in a solar-cell coverglass projects more than two hundredths of a square millimetre, under ECSS-E-ST-20-08C clause 8.7.1.3.3: reduce a feature measured as an area, a diameter or two axes to one projected area, refuse a figure finer than the method resolves, group features close enough to cast one shadow and cap the group rather than its members, hold back what sits in the edge exclusion band, sum the area over the aperture, and roll the lot up. Trigger: ecss, e-st-20-08c, clause-8-7-1-3-3, coverglass-bubble-and-inclusion-cap, projected-area-per-inclusion, adjacent-inclusion-grouping, coverglass-aperture-area-budget.",
@@ -20951,6 +21008,60 @@
     "coverglass-qualification-evidence-demand",
     "coverglass-coating-stack-obligations",
     "coverglass-scope-coverage-index"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-coating-adherence-process",
+   "name": "e2008-coverglass-coating-adherence-process",
+   "description": "Plan the loading of every coverglass in the lot into the ambient pressure chamber ahead of an adherence check, under ECSS-E-ST-20-08C clause 8.7.11.2.2: measure the load against the declared roster rather than against whatever reached the bench, split a lot larger than the chamber into whole runs, give each article one recorded rack, slot and batch so an exposure can be attributed to it, keep coated faces turned out and unstacked, and confirm the chamber is vented to the room. Use when a whole-lot conditioning load is being built or reviewed. Trigger: ecss, e-st-20-08c-clause-8-7-11-2-2, coverglass-lot-chamber-loading, ambient-pressure-chamber-load-completeness, coverglass-rack-batch-split, coverglass-slot-position-map, pre-adherence-conditioning-load.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-coating-adherence-process",
+    "coverglass-lot-chamber-loading",
+    "ambient-pressure-chamber-load-completeness",
+    "coverglass-rack-batch-split",
+    "coverglass-slot-position-map",
+    "pre-adherence-conditioning-load"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-coating-adherence-purpose",
+   "name": "e2008-coverglass-coating-adherence-purpose",
+   "description": "Determine what a coverglass coating adherence verification must establish once environmental conditioning is over, under ECSS-E-ST-20-08C clause 8.7.11.2.1: separate the bond a coater delivers from the bond an interface retains after moisture and temperature have worked on it, derive the mismatch shear and the margin it leaves against the declared strength, price what a detached area costs in transmission and in charge bleed, and confirm the check is scheduled after the conditioning rather than before it. Use when a coated lot needs its post-conditioning bond defended. Trigger: ecss, e-st-20-08c-clause-8-7-11-2-1, coverglass-coating-adherence-purpose, post-conditioning-coating-attachment, coating-interface-mismatch-shear-margin, coverglass-coating-detachment-optical-loss, adherence-check-sequence-after-conditioning.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-coating-adherence-purpose",
+    "post-conditioning-coating-attachment",
+    "coating-interface-mismatch-shear-margin",
+    "coverglass-coating-detachment-optical-loss",
+    "adherence-check-sequence-after-conditioning"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-coating-adhesion-test",
+   "name": "e2008-coverglass-coating-adhesion-test",
+   "description": "Verify that coverglass coating adhesion is shown against a test standard the customer has accepted, per ECSS-E-ST-20-08C clause 8.7.18: reduce the nomination to one standard on that accepted list and refuse anything off it, then read the run by the family the standard prescribes -- tape peel strength, dwell and removal angle behind a removed-area share; lattice spacing, detached squares and an adhesion grade; or a stud pull-off stress that counts only when the glue was not the weakest link. Use when an adhesion result is about to be filed from a method nobody agreed to in advance. Trigger: ecss, e-st-20-08c-clause-8-7-18, coverglass-coating-adhesion-acceptance, customer-accepted-adhesion-standard, coating-tape-peel-removal-share, cross-cut-lattice-adhesion-grade, coating-pull-off-stud-stress, adhesion-failure-mode-conclusiveness.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-coating-adhesion-test",
+    "coverglass-coating-adhesion-acceptance",
+    "customer-accepted-adhesion-standard",
+    "coating-tape-peel-removal-share",
+    "cross-cut-lattice-adhesion-grade",
+    "coating-pull-off-stud-stress",
+    "adhesion-failure-mode-conclusiveness"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21070,6 +21181,45 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-data-documentation",
+   "name": "e2008-coverglass-data-documentation",
+   "description": "Audit the data package a coverglass delivery is released against under ECSS-E-ST-20-08C clause 8.9: name the qualification family nobody wrote up, catch a record citing an issue that no longer governs, hold anything still in draft at delivery, reconcile the delivered batches against the batch data files in both directions, check every file carries a measured row for each piece its batch delivered, and refuse a row reporting on a piece that batch never shipped. Use when a coverglass data package is about to go out with the glass. Trigger: ecss, coverglass-data-package-release, coverglass-qualification-record-set, coverglass-production-batch-data-file, coverglass-batch-file-reconciliation, coverglass-per-piece-measured-row-coverage, coverglass-governing-issue-citation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e2008-coverglass-data-documentation",
+    "e-st-20-08c-clause-8-9",
+    "coverglass-data-package-release",
+    "coverglass-qualification-record-set",
+    "coverglass-production-batch-data-file",
+    "coverglass-batch-file-reconciliation",
+    "coverglass-per-piece-measured-row-coverage",
+    "coverglass-governing-issue-citation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-delivery",
+   "name": "e2008-coverglass-delivery",
+   "description": "Evaluate whether an offered coverglass shipment may leave under ECSS-E-ST-20-08C clause 8.10. Use when a dispatch of ordered coverglasses is presented for release with the documentation set the order agreed: hold every batch whose agreed documents are absent, written to a superseded issue, unsigned or issued against another batch; fill each ordered line from its own coverglass type before any alternative the order named, and never from one it did not; reconcile every line short and every surplus piece; and apply the declared partial-delivery floor under a named tolerance. Trigger: ecss, e-st-20-08c-clause-8-10, coverglass-dispatch-release, coverglass-agreed-documentation-set, coverglass-batch-document-coverage, coverglass-type-substitution-permission, coverglass-partial-delivery-floor.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e-st-20-08c-clause-8-10",
+    "e2008-coverglass-delivery",
+    "coverglass-dispatch-release",
+    "coverglass-agreed-documentation-set",
+    "coverglass-batch-document-coverage",
+    "coverglass-type-substitution-permission",
+    "coverglass-partial-delivery-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-description",
    "name": "e2008-coverglass-description",
    "description": "Use when a coverglass datasheet, drawing callout or procurement description has to be shown complete and self-consistent. Validate a coverglass description against ECSS-E-ST-20-08C clause 8.1.2: confirm the declared substrate is fused silica or a glass of that family rather than a transparent film, derive the areal mass and the shielding areal density the declared thickness actually buys, compute the Fresnel transmittance ceiling the substrate refractive index allows, and hold the declared transmittance against it so an impossible optical claim or an undeclared antireflective coating is caught instead of recorded. Trigger: ecss, e-st-20-08c-clause-8-1-2, coverglass-transparent-shield-description, fused-silica-substrate-admissibility, coverglass-fresnel-transmittance-ceiling, coverglass-areal-shielding-mass, coverglass-substrate-refractive-index.",
@@ -21127,6 +21277,102 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-electron-irradiation-test",
+   "name": "e2008-coverglass-electron-irradiation-test",
+   "description": "Evaluate how far electron bombardment darkens a coverglass and its coatings under ECSS-E-ST-20-08C clause 8.7.13. Use when a coverglass electron irradiation run is scoped or its readings audited: confirm the beam energy doses the whole thickness rather than a front layer, turn each fluence into the absorbed dose the glass took, hold the flux under the charging cap, require a conductive coating to be grounded, reduce each step's band transmittance to an optical density against the unirradiated scan, refuse a density that falls as fluence rises, fit the density as a power law, and project the end-of-life transmittance. Trigger: ecss, e-st-20-08c, clause-8-7-13, coverglass-electron-irradiation-test, coverglass-electron-optical-density, coverglass-darkening-power-law-fit, coverglass-electron-flux-cap, coverglass-coating-grounding-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-electron-irradiation-test",
+    "coverglass-electron-optical-density",
+    "coverglass-darkening-power-law-fit",
+    "coverglass-electron-flux-cap",
+    "coverglass-coating-grounding-check",
+    "coverglass-electron-traversal-ratio",
+    "solar-cell-assembly-optical-measurement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-failure-criteria",
+   "name": "e2008-coverglass-failure-criteria",
+   "description": "Assess which coverglasses a subgroup test and the inspection after it leave failed under ECSS-E-ST-20-08C clause 8.8.1: refuse a criteria set carrying no specification reference, take each measured property's decay between its before and after reading against its own allowance with a tie admissible, catch a coating that has stopped bleeding charge, fail a measured-clean piece on any observed condition the specification lists, name every mode a piece shows rather than the first, hold a piece whose after reading is missing as not evaluated instead of passed, and weigh the failed share of the subgroup against its allowance. Use when subgroup coverglass results have to become per-piece failure calls. Trigger: ecss, coverglass-failure-modes, coverglass-subgroup-test-failure, coverglass-transmittance-decay-allowance, coverglass-coating-conduction-loss, coverglass-disqualifying-condition, coverglass-subgroup-failure-allowance.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e2008-coverglass-failure-criteria",
+    "e-st-20-08c-clause-8-8-1",
+    "coverglass-failure-modes",
+    "coverglass-subgroup-test-failure",
+    "coverglass-transmittance-decay-allowance",
+    "coverglass-coating-conduction-loss",
+    "coverglass-disqualifying-condition",
+    "coverglass-subgroup-failure-allowance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-flatness-or-bow",
+   "name": "e2008-coverglass-flatness-or-bow",
+   "description": "Derive the maximum deflection of a coverglass resting unclamped on an optically flat reference per ECSS-E-ST-20-08C clause 8.7.8 and disposition it: turn an interference fringe count into a gap height, fit and remove the setup tilt from the probe grid, separate a bow from alternating waviness by the radial profile of what is left, normalise the departure over the measured span, and refuse a run whose grid never reached the rim or whose datum and probe cannot resolve what they report. Use when a coverglass bow figure is quoted from a grid nobody checked for reach or resolution. Trigger: ecss, e-st-20-08c-clause-8-7-8, coverglass-flatness-and-bow-measurement, coverglass-optical-flat-datum, coverglass-interferometric-fringe-deflection, coverglass-bow-span-ratio, coverglass-departure-grid-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-flatness-or-bow",
+    "coverglass-flatness-and-bow-measurement",
+    "coverglass-optical-flat-datum",
+    "coverglass-interferometric-fringe-deflection",
+    "coverglass-bow-span-ratio",
+    "coverglass-departure-grid-coverage",
+    "coverglass-bonding-conformance-risk"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-humidity-test-process",
+   "name": "e2008-coverglass-humidity-test-process",
+   "description": "Configure the way subgroup O coverglasses are held inside an ambient pressure chamber under ECSS-E-ST-20-08C clause 8.7.11.1.2: restrict the load to recorded subgroup members, stand every article on edge supports so both faces meet the vapour, size the rack pitch and the clearance the rack really leaves, bound the face area a holder masks, keep the glass above the chamber dew point so a soak never becomes condensation, and count only settled time toward the dwell. Use when a humidity soak fixture is being laid out, or an as-run holding arrangement has to be judged. Trigger: ecss, e-st-20-08c-clause-8-7-11-1-2, coverglass-subgroup-o-humidity-holding, ambient-pressure-humidity-chamber-fixture, coverglass-rack-slot-clearance, coverglass-face-masking-fraction, humidity-chamber-dew-point-margin, humidity-soak-dwell-accounting.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-humidity-test-process",
+    "coverglass-subgroup-o-humidity-holding",
+    "ambient-pressure-humidity-chamber-fixture",
+    "coverglass-rack-slot-clearance",
+    "coverglass-face-masking-fraction",
+    "humidity-chamber-dew-point-margin",
+    "humidity-soak-dwell-accounting"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-humidity-test-purpose",
+   "name": "e2008-coverglass-humidity-test-purpose",
+   "description": "Determine what accelerated damp storage of a coated coverglass has to deliver under ECSS-E-ST-20-08C clause 8.7.11.1.1: map the declared coating degradation mechanisms onto what the exposure reveals, derive the humidity and Arrhenius acceleration of the planned chamber over the declared store, turn it into the field interval the run stands in for, and check the sample surface sits far enough above the chamber dew point that the exposure is damp heat and not liquid water. Use when scoping or reviewing a coated-coverglass humidity exposure. Trigger: ecss, e-st-20-08c-clause-8-7-11-1-1, coated-coverglass-damp-storage, coverglass-coating-stability-exposure, damp-heat-acceleration-factor, chamber-dew-point-condensation-margin, coverglass-equivalent-field-storage-hours.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-humidity-test-purpose",
+    "coated-coverglass-damp-storage",
+    "coverglass-coating-stability-exposure",
+    "damp-heat-acceleration-factor",
+    "chamber-dew-point-condensation-margin",
+    "coverglass-equivalent-field-storage-hours",
+    "coverglass-coating-degradation-mechanism"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-mechanical-properties",
    "name": "e2008-coverglass-mechanical-properties",
    "description": "Use when a coverglass test matrix needs its mechanical record judged before the optical results are trusted. Document the dimensional and mass properties of every coverglass configuration on test under ECSS-E-ST-20-08C clause 8.7.4: place outline, thickness and mass inside their declared bands and name the state, derive the areal density the array mass budget consumes, cross-check the bulk density the four measurements imply against the declared glass material before any single band is believed, and refuse a configuration the test matrix declares but the record sheet omits. Trigger: ecss, e-st-20-08c-clause-8-7-4, coverglass-dimensional-record, coverglass-thickness-band, coverglass-areal-density-budget, coverglass-bulk-density-crosscheck, coverglass-configuration-record-completeness.",
@@ -21139,6 +21385,44 @@
     "coverglass-areal-density-budget",
     "coverglass-bulk-density-crosscheck",
     "coverglass-configuration-record-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-normal-emittance",
+   "name": "e2008-coverglass-normal-emittance",
+   "description": "Compute the normal emittance of a solar-cell coverglass per ECSS-E-ST-20-08C clause 8.7.6 by the method the referenced thermal control standard fixes: hold the nominated instrument and the specimen temperature inside that standard's calibrated band, weight every measured spectral band by the blackbody exitance share it spans rather than by its width, close the unmeasured spectral coverage before any average is quoted, reduce an opaque reflectometer reading through Kirchhoff, and judge the figure against the drawing band and its uncertainty. Use when a coverglass emittance number is about to be quoted from a scan nobody checked for spectral coverage. Trigger: ecss, e-st-20-08c-clause-8-7-6, coverglass-normal-emittance-measurement, coverglass-thermal-control-reference-method, blackbody-band-weighted-emittance, coverglass-emittance-spectral-coverage, coverglass-emittance-drawing-band.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-normal-emittance",
+    "coverglass-normal-emittance-measurement",
+    "coverglass-thermal-control-reference-method",
+    "blackbody-band-weighted-emittance",
+    "coverglass-emittance-spectral-coverage",
+    "coverglass-emittance-drawing-band",
+    "solar-cell-assembly-radiative-balance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-packing-and-storage",
+   "name": "e2008-coverglass-packing-and-storage",
+   "description": "Determine which rule set governs coverglass packing, dispatch, handling and storage under ECSS-E-ST-20-08C clause 8.11. Use when one of those four activities has to be traced to the referenced product assurance standard: resolve the reference each activity declares, demote an unapproved project tailoring, hold a product assurance reference cited at a superseded issue, ask packing and handling for the measure keeping one coated face off the next, and measure declared storage temperature, humidity and unspent storage life only once storage itself is governed. Trigger: ecss, e-st-20-08c-clause-8-11, coverglass-packing-and-storage-rules, coverglass-product-assurance-reference-resolution, coverglass-storage-environment-envelope, coverglass-storage-life-margin, coverglass-coated-surface-protection.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e-st-20-08c-clause-8-11",
+    "e2008-coverglass-packing-and-storage",
+    "coverglass-packing-and-storage-rules",
+    "coverglass-product-assurance-reference-resolution",
+    "coverglass-storage-environment-envelope",
+    "coverglass-storage-life-margin",
+    "coverglass-coated-surface-protection"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21158,6 +21442,25 @@
     "coverglass-measurement-uncertainty-ratio",
     "coverglass-qualification-evidence-date",
     "coverglass-process-identification-document"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-proton-irradiation-test",
+   "name": "e2008-coverglass-proton-irradiation-test",
+   "description": "Verify that a proton irradiation matrix ages both the coverglass substrate and the coatings on it per ECSS-E-ST-20-08C clause 8.7.14. Use when a coverglass proton exposure matrix is built or its results dispositioned: convert each energy line into a stopping depth, group the lines by whether their protons rest in the coating, in the glass or clean through it, refuse a matrix that leaves either layer unexposed, hold every line under the flux cap, reduce each line's band transmittance to an optical density, add those densities into one darkening figure, and judge the transmittance left against the array power budget. Trigger: ecss, e-st-20-08c, clause-8-7-14, coverglass-proton-irradiation-test, coverglass-proton-stopping-depth, coverglass-energy-line-coverage, coverglass-additive-optical-density, coverglass-proton-flux-cap.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-proton-irradiation-test",
+    "coverglass-proton-stopping-depth",
+    "coverglass-energy-line-coverage",
+    "coverglass-additive-optical-density",
+    "coverglass-proton-flux-cap",
+    "coverglass-coating-and-substrate-exposure",
+    "solar-cell-assembly-optical-measurement"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21239,6 +21542,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-surface-resistivity",
+   "name": "e2008-coverglass-surface-resistivity",
+   "description": "Determine whether a coverglass build obliges the resistivity measurement of ECSS-E-ST-20-08C clause 8.7.7 and whether its record discharges that obligation: decide from the declared coating stack whether a conductive layer forms part of the glass, refuse a layer whose conductivity nobody characterised rather than reading it as insulating, reduce each concentric-ring or four-point site through its geometry factor into ohms per square, hold the drive current and the bench ambient inside their bands, and judge the worst site against the drawing ceiling. Use when a coated coverglass lot is offered with no surface resistivity record. Trigger: ecss, e-st-20-08c-clause-8-7-7, coverglass-conductive-coating-applicability, coverglass-surface-resistivity-ohms-per-square, coverglass-concentric-ring-geometry-factor, coverglass-four-point-collinear-reduction, coverglass-resistivity-drawing-ceiling.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-surface-resistivity",
+    "coverglass-conductive-coating-applicability",
+    "coverglass-surface-resistivity-ohms-per-square",
+    "coverglass-concentric-ring-geometry-factor",
+    "coverglass-four-point-collinear-reduction",
+    "coverglass-resistivity-drawing-ceiling",
+    "coverglass-coating-charge-bleed-path"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-test-methods-conditions",
    "name": "e2008-coverglass-test-methods-conditions",
    "description": "Use when a coverglass acceptance procedure, test condition table or method reuse justification has to be reviewed. Audit a coverglass acceptance procedure against the method and condition definitions clause 8.5.3 of ECSS-E-ST-20-08C points forward to: follow each activity pointer and report one that resolves to nothing, settle a substituted method before any condition is compared, judge every condition under its own sense so a relaxation and an over-test are told apart, name a condition the procedure omitted or invented, flag a referenced definition nobody picks up, and return one reuse verdict with ranked findings. Trigger: ecss, e-st-20-08c, coverglass-acceptance-methods-and-conditions, coverglass-definition-pointer-resolution, coverglass-acceptance-method-substitution, coverglass-acceptance-condition-relaxation, coverglass-acceptance-over-test, coverglass-condition-sense-comparison.",
@@ -21278,6 +21600,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-transmission-into-adhesive",
+   "name": "e2008-coverglass-transmission-into-adhesive",
+   "description": "Compute the into-adhesive spectral transmission of a coverglass from a scan taken through a fused-silica or uncoated backing piece bonded behind the sample per ECSS-E-ST-20-08C clause 8.7.9: qualify the backing piece and its bond, check the scan covers the specified band with ascending, closely spaced points and a referenced baseline, divide the backing reference scan out, integrate the band average by trapezoid, and test the gain over the into-air figure against the Fresnel loss the removed rear air interface accounts for. Use when a bonded-stack coverglass transmission scan must be reduced and dispositioned. Trigger: ecss, e-st-20-08c-clause-8-7-9, coverglass-transmission-into-adhesive, coverglass-backing-piece-bond, coverglass-bonded-stack-scan, coverglass-band-average-transmittance, coverglass-rear-interface-fresnel-loss.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-transmission-into-adhesive",
+    "coverglass-backing-piece-bond",
+    "coverglass-bonded-stack-scan",
+    "coverglass-band-average-transmittance",
+    "coverglass-rear-interface-fresnel-loss",
+    "coverglass-backing-reference-scan",
+    "solar-cell-assembly-optical-measurement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-transmission-into-air",
    "name": "e2008-coverglass-transmission-into-air",
    "description": "Use when a coverglass transmission scan has been taken into air and the band figure must be derived and dispositioned. Compute the into-air spectral transmission of a coverglass from a spectrophotometer scan per ECSS-E-ST-20-08C clause 8.7.2: check the scan covers the specified wavelength band with strictly ascending, closely enough spaced sample points and a referenced baseline calibration, integrate the band-average transmittance by trapezoid, weight it with a supplied spectral irradiance when one is given, locate the cut-on wavelength by interpolation, and judge the average against the required minimum. Trigger: ecss, e-st-20-08c, clause-8-7-2, coverglass-transmission-into-air, coverglass-spectrophotometer-scan, coverglass-band-average-transmittance, coverglass-cut-on-wavelength, coverglass-spectral-sampling-interval.",
@@ -21290,6 +21631,25 @@
     "coverglass-cut-on-wavelength",
     "coverglass-spectral-sampling-interval",
     "coverglass-solar-weighted-transmission",
+    "solar-cell-assembly-optical-measurement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-ultraviolet-exposure-test",
+   "name": "e2008-coverglass-ultraviolet-exposure-test",
+   "description": "Assess whether a coverglass coating stays optically stable through accelerated ultraviolet ageing per ECSS-E-ST-20-08C clause 8.7.12. Use when a coverglass ultraviolet exposure run is planned or its data dispositioned: turn lamp setting and exposure hours into equivalent sun hours, refuse an acceleration factor past the reciprocity cap, confirm the chamber held vacuum and the specimen held temperature, check the dark control drifted less than the bench allowance, reduce each band transmittance to a retention factor and an absolute loss, flag solarisation past the allowed loss, weight the bands into one figure, and bound the delay before the scan so bleaching cannot flatter the result. Trigger: ecss, e-st-20-08c, clause-8-7-12, coverglass-ultraviolet-exposure-test, coverglass-equivalent-sun-hours, coverglass-solarisation-transmittance-loss, coverglass-ultraviolet-reciprocity-cap, coverglass-dark-control-witness.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-ultraviolet-exposure-test",
+    "coverglass-equivalent-sun-hours",
+    "coverglass-solarisation-transmittance-loss",
+    "coverglass-ultraviolet-reciprocity-cap",
+    "coverglass-dark-control-witness",
+    "coverglass-ultraviolet-vacuum-ageing",
     "solar-cell-assembly-optical-measurement"
    ],
    "family": "space-systems",
@@ -21374,6 +21734,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-deliverable-protection-diode-components",
+   "name": "e2008-deliverable-protection-diode-components",
+   "description": "Evaluate whether the integral protection diodes built into a photovoltaic assembly are carried as deliverable items under ECSS-E-ST-20-08C clause 9.2.2: decide from the mounting whether a diode belongs on the assembly item list or on a delivery line of its own, catch the two ways an item is misfiled between them, hold the protection each string architecture requires against the diodes actually fitted and the fitted count against the count the paperwork declares, bracket what the string really delivers, and weight the release by diodes. Use when a PVA delivery item list, protection diode item reconciliation or string protection count has to be reviewed. Trigger: ecss, e-st-20-08c, pva-deliverable-protection-diode-items, protection-diode-mounting-category, pva-diode-item-line-placement, string-bypass-diode-count, pva-diode-inventory-reconciliation, pva-diode-release-bracket.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-deliverable-protection-diode-components",
+    "pva-deliverable-protection-diode-items",
+    "protection-diode-mounting-category",
+    "pva-diode-item-line-placement",
+    "string-bypass-diode-count",
+    "pva-diode-inventory-reconciliation",
+    "pva-diode-release-bracket"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-dimensions-and-stay-out-zones",
    "name": "e2008-dimensions-and-stay-out-zones",
    "description": "Compute the dimensional, keep-out and standoff checks that ECSS-E-ST-20-08C clause 5.5.3.2.4 folds into the visual inspection of a photovoltaic assembly coupon: place every measured dimension inside its plus and minus drawing band and name the one that governs, build the border bands a reserved edge margin creates, test each placed feature against every stay-out zone for shared area, intrusion depth and shortest clearance, then check each standoff feature reaches its called-out height and keeps its footprint clear of the zones. Use when a coupon layout has to be judged against the drawing rather than against a defect list. Trigger: ecss, e-st-20-08c, coupon-dimensional-tolerance-check, solar-array-stay-out-zone, keep-out-area-intrusion, standoff-feature-height-check, coupon-edge-margin-band, feature-zone-clearance.",
@@ -21387,6 +21767,194 @@
     "keep-out-area-intrusion",
     "standoff-feature-height-check",
     "coupon-edge-margin-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-acceptance-testing-general",
+   "name": "e2008-diode-acceptance-testing-general",
+   "description": "Evaluate a protection diode acceptance record against clause 9.4.1 of ECSS-E-ST-20-08C, where two diode populations owe acceptance at once: the parts being delivered and the parts the qualification campaign consumes. Split the per-diode activities from the lot-sampled ones, score each sampled activity on the share of its population actually drawn, hold missing records, unrun work and recorded failures apart, flag a population carrying no acceptance work at all, and roll the lot into one verdict with ranked findings. Use when a diode acceptance matrix, lot traveller set or diode sampling plan is under review. Trigger: ecss, e-st-20-08c, diode-acceptance-testing-general, diode-delivery-population-acceptance, diode-qualification-population-acceptance, diode-sampled-activity-share, diode-acceptance-record-state, diode-lot-acceptance-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-diode-acceptance-testing-general",
+    "diode-acceptance-testing-general",
+    "diode-delivery-population-acceptance",
+    "diode-qualification-population-acceptance",
+    "diode-sampled-activity-share",
+    "diode-acceptance-record-state",
+    "diode-lot-acceptance-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-characterization-acceptance-process",
+   "name": "e2008-diode-characterization-acceptance-process",
+   "description": "Design the dark forward and reverse current-voltage recording a protection diode acceptance characterisation runs under ECSS-E-ST-20-08C clause 9.4.5.2.2: refuse a bench whose stray irradiance leaves the diode still photo-responsive, size the supply compliance limit so it clears the highest forward test current yet stays under what the part survives, build the forward and reverse sweep schedules against their step rules, flag every recorded point the source held at its own limit rather than the diode setting, and confirm the forward curve rises across the swept range. Use when a diode current-voltage recording is being set up or an as-run one judged. Trigger: ecss, e-st-20-08c-clause-9-4-5-2-2, protection-diode-dark-iv-recording, diode-supply-compliance-limit-sizing, dark-condition-stray-irradiance-floor, supply-limited-point-detection, diode-sweep-schedule-step-rule.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-characterization-acceptance-process",
+    "protection-diode-dark-iv-recording",
+    "diode-supply-compliance-limit-sizing",
+    "dark-condition-stray-irradiance-floor",
+    "supply-limited-point-detection",
+    "diode-sweep-schedule-step-rule"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-characterization-acceptance-purpose",
+   "name": "e2008-diode-characterization-acceptance-purpose",
+   "description": "Determine why a photovoltaic assembly protection diode has its electrical performance characterised during acceptance under ECSS-E-ST-20-08C clause 9.4.5.2.1: map each declared protection role to the quantity the characterisation feeds, derive the forward dissipation the worst-case section current puts into the substrate and the parasitic leakage loss the whole fitted population carries for the mission, take the sample coverage the acceptance lot actually reaches against the declared floor, and separate a characterisation nobody planned from one planned too thin to sentence a lot. Use when an acceptance programme has to justify, size or defend protection diode characterisation. Trigger: ecss, e-st-20-08c-clause-9-4-5-2-1, protection-diode-acceptance-characterisation-purpose, protection-diode-forward-dissipation-budget, protection-diode-parasitic-leakage-loss, acceptance-lot-diode-sample-coverage, protection-diode-role-objective-map.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-characterization-acceptance-purpose",
+    "protection-diode-acceptance-characterisation-purpose",
+    "protection-diode-forward-dissipation-budget",
+    "protection-diode-parasitic-leakage-loss",
+    "acceptance-lot-diode-sample-coverage",
+    "protection-diode-role-objective-map"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-characterization-pass-criteria",
+   "name": "e2008-diode-characterization-pass-criteria",
+   "description": "Assess whether each characterised protection diode meets the limits its source control drawing fixes under ECSS-E-ST-20-08C clause 9.4.5.2.3: refuse a limit set carrying no drawing reference or issue, refer every measured forward voltage to the reference junction temperature with the declared coefficient, judge the referred drop and the reverse leakage against their own drawing limits with a tie admissible, report each margin and name every breach rather than the first, take the rejected share of the lot against the declared allowance, and flag an accepted part with almost nothing left for degradation. Use when characterised diode data has to become an acceptance verdict. Trigger: ecss, e-st-20-08c-clause-9-4-5-2-3, protection-diode-acceptance-sentencing, source-control-drawing-diode-limits, diode-forward-voltage-margin, diode-reverse-leakage-margin, acceptance-lot-diode-reject-allowance, marginal-diode-degradation-advisory.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-characterization-pass-criteria",
+    "protection-diode-acceptance-sentencing",
+    "source-control-drawing-diode-limits",
+    "diode-forward-voltage-margin",
+    "diode-reverse-leakage-margin",
+    "acceptance-lot-diode-reject-allowance",
+    "marginal-diode-degradation-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-contact-adherence-process",
+   "name": "e2008-diode-contact-adherence-process",
+   "description": "Execute the ambient pressure chamber loading every protection diode of a lot passes through before its contacts are pulled under ECSS-E-ST-20-08C clause 9.6.6.2.2: confirm the whole population went in rather than a convenient subset, hold the tray packing cap and terminal clearance that keep the soak reaching each package, check the pressure band and the declared dwell, refuse to sentence a lot from a partial load, then group each anode terminal, cathode terminal and die attach reading and sentence every device by its weakest site. Use when running or auditing a protection diode contact adherence run. Trigger: ecss, e-st-20-08c-clause-9-6-6-2-2, protection-diode-chamber-loading, diode-lot-loading-completeness, diode-terminal-pull-grouping, diode-die-attach-pull-site, diode-tray-packing-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-contact-adherence-process",
+    "protection-diode-chamber-loading",
+    "diode-lot-loading-completeness",
+    "diode-terminal-pull-grouping",
+    "diode-die-attach-pull-site",
+    "diode-tray-packing-fraction",
+    "protection-diode-terminal-clearance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-contact-adherence-purpose",
+   "name": "e2008-diode-contact-adherence-purpose",
+   "description": "Determine what an attachment strength check on protection diode contacts has to demonstrate under ECSS-E-ST-20-08C clause 9.6.6.2.1: settle first whether the device carries attached contacts at all, because one that carries none is outside the check entirely, fold the downstream welding, cure, handling, launch and cycling stressors into one demand index, map each onto the evidence parameter it is watched through, derive the pull load the service peak and its declared margin ask for, and size the sample that lets a destructive result speak for the lot. Use when scoping or defending a protection diode contact adherence campaign. Trigger: ecss, e-st-20-08c-clause-9-6-6-2-1, protection-diode-contact-adherence-purpose, diode-attached-contact-presence, diode-terminal-attachment-demand-index, diode-contact-pull-load-margin, diode-adherence-sample-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-contact-adherence-purpose",
+    "protection-diode-contact-adherence-purpose",
+    "diode-attached-contact-presence",
+    "diode-terminal-attachment-demand-index",
+    "diode-contact-pull-load-margin",
+    "diode-adherence-sample-coverage",
+    "protection-diode-attachment-evidence-map"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-contact-area-inspection",
+   "name": "e2008-diode-contact-area-inspection",
+   "description": "Assess the contact areas of a protection diode for digs, scratches and probe marks under ECSS-E-ST-20-08C clause 9.6.2.5.1: place every recorded mark against the anode and cathode geometry before dispositioning it, charge a straddling mark only the part that overlaps, reject a mark that has bared the semiconductor under a weld land, send thinned metal to review, track the probe witnesses and the clear weld-land fraction left on each contact, and hold a diode unsentenced while either polarity carries no record. Use when a protection diode mark list has to become a contact area verdict. Trigger: ecss, e-st-20-08-photovoltaic-assembly-scope, protection-diode-contact-area-marks, diode-weld-land-clear-fraction, diode-probe-witness-count, diode-contact-polarity-completeness, diode-contact-metallisation-state.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-contact-area-inspection",
+    "protection-diode-contact-area-marks",
+    "diode-weld-land-clear-fraction",
+    "diode-probe-witness-count",
+    "diode-contact-polarity-completeness",
+    "diode-contact-metallisation-state",
+    "diode-contact-mark-containment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-contact-void-limits",
+   "name": "e2008-diode-contact-void-limits",
+   "description": "Evaluate the voids and bubbles recorded on either polarity contact of a protection diode against the quarter-millimetre ceiling of ECSS-E-ST-20-08C clause 9.6.2.5.2: govern each cavity by its maximum extent rather than an area-equivalent diameter that hides an elongated bubble, merge cavities whose edges have closed to within the coalescence gap and re-measure the span across the pair, keep a cavity landing exactly on the ceiling inside it, total the voided fraction of each land, and refuse a diode whose anode or cathode was never surveyed. Use when a protection diode void survey has to be sentenced. Trigger: ecss, e-st-20-08-photovoltaic-assembly-scope, protection-diode-contact-voids, diode-void-maximum-extent, diode-void-coalescence-merge, diode-contact-voided-fraction, diode-quarter-millimetre-void-ceiling.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-contact-void-limits",
+    "protection-diode-contact-voids",
+    "diode-void-maximum-extent",
+    "diode-void-coalescence-merge",
+    "diode-contact-voided-fraction",
+    "diode-quarter-millimetre-void-ceiling",
+    "diode-void-equivalent-diameter-trap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-humidity-test-process",
+   "name": "e2008-diode-humidity-test-process",
+   "description": "Verify how a subgroup O protection diode load is arranged inside an ambient pressure chamber under ECSS-E-ST-20-08C clause 9.6.6.1.2: confirm the device count actually drawn from subgroup O, hold the chamber inside its ambient pressure band, derive the dew point the air temperature and humidity produce and keep the coldest package case above it, check the free flow left on the tray and the gap between packages, and hold the stabilisation dwell and the exposure duration. Use when a damp exposure loading for protection diodes is written or audited before the soak starts. Trigger: ecss, e-st-20-08c-clause-9-6-6-1-2, subgroup-o-protection-diode-sample, protection-diode-damp-chamber-loading, diode-case-dew-point-margin, diode-tray-free-flow-fraction, protection-diode-package-spacing, protection-diode-exposure-duration.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-humidity-test-process",
+    "subgroup-o-protection-diode-sample",
+    "protection-diode-damp-chamber-loading",
+    "diode-case-dew-point-margin",
+    "diode-tray-free-flow-fraction",
+    "protection-diode-package-spacing",
+    "protection-diode-exposure-duration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-humidity-test-purpose",
+   "name": "e2008-diode-humidity-test-purpose",
+   "description": "Determine what a damp storage of protection diodes under ECSS-E-ST-20-08C clause 9.6.6.1.1 has to expose: group the moisture mechanisms that attack diode function, contact metallisation and protective coating onto the parameter each is read through, size the acceleration the chamber humidity and temperature buy over the declared store, convert the soak into the storage months it stands for, refuse conditions outside the range the model was fitted over, and decide whether the planned monitoring can see a mechanism move at all. Use when scoping or defending a protection diode damp storage before the chamber is booked. Trigger: ecss, e-st-20-08c-clause-9-6-6-1-1, protection-diode-damp-storage-purpose, diode-reverse-leakage-moisture-drift, diode-contact-metallisation-corrosion, diode-protective-coating-crazing, diode-damp-storage-equivalent-months.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-humidity-test-purpose",
+    "protection-diode-damp-storage-purpose",
+    "diode-reverse-leakage-moisture-drift",
+    "diode-contact-metallisation-corrosion",
+    "diode-protective-coating-crazing",
+    "diode-damp-storage-equivalent-months"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21506,6 +22074,84 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-external-and-integral-diodes",
+   "name": "e2008-external-and-integral-diodes",
+   "description": "Determine whether the generic specification governing acceptance of external and integral diodes was settled between customer and supplier before the work began, as clause 9.4.4 of ECSS-E-ST-20-08C asks. Confirm a specification is identified by issue, that both parties recorded agreement on that issue, that the later of the two agreement dates precedes the earliest acceptance activity, that external and integral diodes are each covered, and that no activity cites a superseded issue. Return an agreement verdict naming late, one-sided, uncovered and superseded cases. Use when a diode generic specification, agreement record or acceptance baseline is under review. Trigger: ecss, e-st-20-08c, external-and-integral-diodes, diode-generic-specification-agreement, diode-specification-issue-currency, diode-customer-supplier-agreement-date, diode-specification-coverage-gap, diode-acceptance-baseline-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-external-and-integral-diodes",
+    "external-and-integral-diodes",
+    "diode-generic-specification-agreement",
+    "diode-specification-issue-currency",
+    "diode-customer-supplier-agreement-date",
+    "diode-specification-coverage-gap",
+    "diode-acceptance-baseline-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-external-diode-acceptance-tests",
+   "name": "e2008-external-diode-acceptance-tests",
+   "description": "Verify that an acceptance programme for external protection diodes is drawn from the tabulated test list of clause 9.4.3 of ECSS-E-ST-20-08C. Resolve the table against the configuration declared for the build, confirm every mandatory row is present, admit an optional row only where it is declared, refuse a test the table does not hold, reject a duplicate entry, grade the running order against the tabulated order, and return the programme with gaps, untabulated extras and ordering breaks ranked. Use when an external diode acceptance programme, test matrix or sequence sheet has to be built or reviewed. Trigger: ecss, e-st-20-08c, external-diode-acceptance-tests, external-protection-diode-test-table, external-diode-mandatory-test-coverage, external-diode-conditional-test-resolution, external-diode-test-sequence-order, external-diode-acceptance-programme-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-external-diode-acceptance-tests",
+    "external-diode-acceptance-tests",
+    "external-protection-diode-test-table",
+    "external-diode-mandatory-test-coverage",
+    "external-diode-conditional-test-resolution",
+    "external-diode-test-sequence-order",
+    "external-diode-acceptance-programme-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-external-diode-qualification-plan",
+   "name": "e2008-external-diode-qualification-plan",
+   "description": "Evaluate the qualification programme ECSS-E-ST-20-08C clause 9.5.3 asks of external protection diodes, which runs at two levels at once, the bare diodes and the complete diode assemblies built from them: close each level against its own activity set, find the level that was planned while the other was quietly assumed, size every campaign against the specimen minimum for its level, hold assemblies built from diode lots the programme never named, and catch assembly work scheduled before the bare-diode level closes. Use when a protection diode qualification plan is being drafted or reviewed. Trigger: ecss, e-st-20-08c-clause-9-5-3, protection-diode-qualification-programme-coverage, bare-diode-and-assembly-level-split, diode-qualification-specimen-count, diode-assembly-specimen-lot-provenance, diode-qualification-level-sequencing.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-protection-diode-scope",
+    "e2008-external-diode-qualification-plan",
+    "e-st-20-08c-clause-9-5-3",
+    "protection-diode-qualification-programme-coverage",
+    "bare-diode-and-assembly-level-split",
+    "diode-qualification-specimen-count",
+    "diode-assembly-specimen-lot-provenance",
+    "diode-qualification-level-sequencing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-external-protection-diode-testing",
+   "name": "e2008-external-protection-diode-testing",
+   "description": "Audit a declared external protection diode test programme against clause 9.2.1.2.2 of ECSS-E-ST-20-08C. Use when diode test conditions or methods have to be traced to the part's own dedicated source control drawing: refuse a test taken from a house specification or a datasheet, catch a drawing raised for another part number, hold a citation at a superseded issue, settle a substituted method before any condition, judge each condition under its own sense so a relaxation and an over-test are told apart, and name the drawing test nobody ran. Trigger: ecss, e-st-20-08c-clause-9-2-1-2-2, external-protection-diode-test-conditions, external-protection-diode-source-control-drawing, external-protection-diode-drawing-issue-standing, external-protection-diode-method-substitution, external-protection-diode-test-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c-clause-9-2-1-2-2",
+    "e2008-external-protection-diode-testing",
+    "external-protection-diode-test-conditions",
+    "external-protection-diode-source-control-drawing",
+    "external-protection-diode-drawing-issue-standing",
+    "external-protection-diode-method-substitution",
+    "external-protection-diode-test-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-failed-bare-cell-components",
    "name": "e2008-failed-bare-cell-components",
    "description": "Use when failed bare cells have to be dispositioned and counted. Determine the treatment a bare solar cell component receives once it exhibits any mode the failure criteria list, under ECSS-E-ST-20-08C clause 7.6.2: refuse a policy that fixes no treatment for a listed mode, withdraw the component on one mode rather than on severity, scrap it for a mode no repair reverses, open rework only while cycles remain, retain a failed test article for the evidence it carries, raise segregation and a non-conformance entry, and report the shortfall the withdrawals leave against the ordered quantity. Trigger: ecss, failed-bare-cell-treatment, failed-bare-cell-segregation, failed-bare-cell-nonconformance-record, failed-bare-cell-rework-admissibility, failed-bare-cell-scrap-disposition, bare-cell-lot-quantity-shortfall.",
@@ -21540,6 +22186,26 @@
     "any-listed-mode-condemns-rule",
     "unexamined-failure-mode-handling",
     "sca-inspection-lot-failure-tally"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-failed-coverglass-components",
+   "name": "e2008-failed-coverglass-components",
+   "description": "Determine the status ECSS-E-ST-20-08C clause 8.8.2 gives a coverglass showing any mode the preceding failure criteria list: treat one standing mode as enough, hold the status on the individual piece rather than on its batch or its sample group, keep a piece whose inspection is unfinished undetermined instead of deliverable, refuse a retest clearance the policy does not admit or that names no authority, demand a segregation record and a non-conformance reference before a failed piece counts as handled, and take the failed pieces out of the deliverable count. Use when inspection findings have to become delivery status. Trigger: ecss, coverglass-failed-component-status, coverglass-failure-mode-disposition, coverglass-segregation-record, coverglass-nonconformance-reference, coverglass-deliverable-population-exclusion, coverglass-undetermined-inspection-status.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e2008-failed-coverglass-components",
+    "e-st-20-08c-clause-8-8-2",
+    "coverglass-failed-component-status",
+    "coverglass-failure-mode-disposition",
+    "coverglass-segregation-record",
+    "coverglass-nonconformance-reference",
+    "coverglass-deliverable-population-exclusion",
+    "coverglass-undetermined-inspection-status"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22061,6 +22727,138 @@
     "solar-array-power-loss-resolution",
     "degradation-detection-uncertainty",
     "bracketing-power-measurement-pair"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-acceptance-documentation",
+   "name": "e2008-protection-diode-acceptance-documentation",
+   "description": "Audit the acceptance data package a protection diode lot is delivered against, the records ECSS-E-ST-20-08C clause 9.4.6 sends diode acceptance results into under the documentation rules the diode clause already sets: resolve which rule set actually governs, hold a package that quietly writes a thinner one of its own, name the acceptance activity nobody wrote up, test each record for the bias and junction temperature fields that make it re-readable, refuse a record reporting on diodes outside the delivered lot, and find the delivered diode no activity reached. Use when a protection diode acceptance data package is about to be released with a lot. Trigger: ecss, e-st-20-08c-clause-9-4-6, protection-diode-acceptance-record-completeness, protection-diode-documentation-rule-delegation, protection-diode-record-traceability-to-lot, protection-diode-acceptance-activity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-protection-diode-scope",
+    "e2008-protection-diode-acceptance-documentation",
+    "e-st-20-08c-clause-9-4-6",
+    "protection-diode-acceptance-record-completeness",
+    "protection-diode-documentation-rule-delegation",
+    "protection-diode-record-traceability-to-lot",
+    "protection-diode-acceptance-activity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-burn-in",
+   "name": "e2008-protection-diode-burn-in",
+   "description": "Evaluate whether the burn-in applied to a protection diode qualification batch under ECSS-E-ST-20-08C clause 9.6.5 removes its early-life population or merely occupies an oven: derive the junction temperature the forward loading and the thermal path produce, size the Arrhenius acceleration that junction buys, convert the soak into equivalent operating hours, estimate the share of the infant-mortality population the run removes, confirm every declared early-life mechanism has a parameter watching it, and separate a cleaned batch from a lot whose failure count condemns the build. Use when planning or reviewing a protection diode burn-in before the qualification batch is accepted. Trigger: ecss, e-st-20-08c-clause-9-6-5, protection-diode-burn-in-loading, protection-diode-infant-mortality-screen, protection-diode-junction-temperature-limit, protection-diode-burn-in-equivalent-hours, protection-diode-lot-reject-limit.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-protection-diode-burn-in",
+    "protection-diode-burn-in-loading",
+    "protection-diode-infant-mortality-screen",
+    "protection-diode-junction-temperature-limit",
+    "protection-diode-burn-in-equivalent-hours",
+    "protection-diode-lot-reject-limit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-dimensions-weight",
+   "name": "e2008-protection-diode-dimensions-weight",
+   "description": "Verify a protection diode against the lateral outline, thickness, contact geometry and interconnector placement requirements of ECSS-E-ST-20-08C clause 9.6.3: put each measured feature inside its own plus and minus band and name the state, combine the two axis offsets of every attachment point into one diametrical true-position value, judge the contact pad against the footprint it must cover and the string current it must carry, and cross-check the weighed mass against the mass the outline and material density already imply before any band is believed. Use when a protection diode measurement sheet has to be judged against the procurement drawing. Trigger: ecss, e-st-20-08c-clause-9-6-3, protection-diode-outline-tolerance-band, protection-diode-thickness-band, protection-diode-contact-pad-geometry, protection-diode-interconnector-true-position, protection-diode-mass-density-crosscheck.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-protection-diode-dimensions-weight",
+    "protection-diode-outline-tolerance-band",
+    "protection-diode-thickness-band",
+    "protection-diode-contact-pad-geometry",
+    "protection-diode-interconnector-true-position",
+    "protection-diode-mass-density-crosscheck"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-marking",
+   "name": "e2008-protection-diode-marking",
+   "description": "Audit the marking approach chosen for delivered external protection diodes under ECSS-E-ST-20-08C clause 9.2.3: establish that the customer actually agreed the approach and that the agreement is recorded and still in force, catch a carrier the delivery changed without asking, work out how far down the handling chain a mark on that carrier survives against the stage identity is owed to, check the code physically fits the face it is put on, and size what a package or lot level scheme really resolves a part to. Use when a protection diode marking agreement, part marking scheme or diode delivery traceability claim has to be reviewed. Trigger: ecss, e-st-20-08c, external-protection-diode-marking, diode-marking-customer-agreement, diode-mark-carrier-retention, diode-code-face-fit, diode-identity-granularity, protection-diode-delivery-traceability.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-protection-diode-marking",
+    "external-protection-diode-marking",
+    "diode-marking-customer-agreement",
+    "diode-mark-carrier-retention",
+    "diode-code-face-fit",
+    "diode-identity-granularity",
+    "protection-diode-delivery-traceability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-production-control",
+   "name": "e2008-protection-diode-production-control",
+   "description": "Assess the supplier written process identification document that ECSS-E-ST-20-08C clause 9.3.2 asks for before external protection diodes enter qualification: establish that what was submitted is a written document in force rather than a draft or a slide pack, hold the part inside the document scope, compare the processes the diode is genuinely made by against the set declared, confirm each declaration names the production document controlling it and the qualification lot behind it, and date the document against the lot it covers. Use when a protection diode process identification document, diode production control baseline or qualification evidence list has to be reviewed. Trigger: ecss, e-st-20-08c, external-protection-diode-process-identification, diode-production-control-document, diode-process-step-coverage, diode-qualification-lot-linkage, diode-document-issue-chronology, diode-qualification-entry-scope.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-protection-diode-production-control",
+    "external-protection-diode-process-identification",
+    "diode-production-control-document",
+    "diode-process-step-coverage",
+    "diode-qualification-lot-linkage",
+    "diode-document-issue-chronology",
+    "diode-qualification-entry-scope"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-qualification-authority",
+   "name": "e2008-protection-diode-qualification-authority",
+   "description": "Determine whether protection diodes may be supplied as qualified under ECSS-E-ST-20-08C clause 9.5.1, where the customer grants qualification to the external and integral diodes of one named producer and the supplier only produces the evidence: find the shipment with no grant on record, refuse a grant the supplier issued about its own product, hold an external grant being read onto integral diodes, catch a second source shipping under the first source's grant, reject a grant dated after the supply it authorises, and retire one withdrawn or past its validity date. Use when a protection diode supply is about to leave as qualified. Trigger: ecss, e-st-20-08c-clause-9-5-1, protection-diode-qualification-grant, protection-diode-grant-issuing-authority, external-and-integral-diode-grant-scope, protection-diode-grant-validity-window, protection-diode-producer-identity-match.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-protection-diode-scope",
+    "e2008-protection-diode-qualification-authority",
+    "e-st-20-08c-clause-9-5-1",
+    "protection-diode-qualification-grant",
+    "protection-diode-grant-issuing-authority",
+    "external-and-integral-diode-grant-scope",
+    "protection-diode-grant-validity-window",
+    "protection-diode-producer-identity-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-test-general",
+   "name": "e2008-protection-diode-test-general",
+   "description": "Verify the electrical spike levels a protection diode has to withstand were accepted by both parties and then captured on the control drawing, under ECSS-E-ST-20-08C clause 9.6.1: refuse a level only one side signed up to, treat a drawing that records no level or that predates the agreement as an allowance never captured, reject a drawing figure contradicting the agreed one, carry the amplitude-duration product rather than volts alone, and refuse a bench that under-stressed or over-stressed the part. Use when a protection diode spike allowance has to be established, captured or tested against. Trigger: ecss, e-st-20-08-photovoltaic-assembly-scope, protection-diode-spike-allowance, spike-level-drawing-capture, diode-spike-agreement-state, applied-spike-adequacy, protection-diode-spike-stress-integral.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-protection-diode-test-general",
+    "protection-diode-spike-allowance",
+    "spike-level-drawing-capture",
+    "diode-spike-agreement-state",
+    "applied-spike-adequacy",
+    "protection-diode-spike-stress-integral",
+    "protection-diode-spike-overstress-disposition"
    ],
    "family": "space-systems",
    "pack": "ecss",

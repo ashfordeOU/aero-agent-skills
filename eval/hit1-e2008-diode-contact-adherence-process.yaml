@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-contact-adherence-process (space-systems/ecss,
+# E-ST-20-08C 9.6.6.2.2). Two tasks per leaf; dcadpr1 routes on the whole
+# population entering the chamber, dcadpr2 on the per-site pull grouping. Both
+# must deterministically hit
+# space-systems/ecss/e2008-diode-contact-adherence-process.
+tasks:
+  - id: dcadpr1
+    query: "confirm diode-lot-loading-completeness and the diode-tray-packing-fraction for a protection-diode-chamber-loading before any contact is pulled"
+    intent: "ecss protection diodes; all devices into the ambient pressure chamber ahead of the adherence check"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-adherence-process"
+  - id: dcadpr2
+    query: "run the diode-terminal-pull-grouping across the diode-die-attach-pull-site and sentence each device by its weakest attachment"
+    intent: "ecss protection diodes; grouping anode, cathode and die attach pull readings after the soak"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-adherence-process"

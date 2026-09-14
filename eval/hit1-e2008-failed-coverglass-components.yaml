@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-failed-coverglass-components (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the status a coverglass showing a
+# listed failure mode takes; to2 routes on segregation evidence and the
+# deliverable count that survives. Both must deterministically hit
+# space-systems/ecss/e2008-failed-coverglass-components.
+tasks:
+  - id: to1
+    query: "several coverglasses in the batch show a failure mode from the criteria list, work out what status each piece takes and how many are still deliverable"
+    intent: "ECSS-E-ST-20-08C clause 8.8.2; a coverglass showing any listed failure mode is a failed component"
+    expected_skill: "space-systems/ecss/e2008-failed-coverglass-components"
+  - id: to2
+    query: "a cracked coverglass was recorded as failed but carries no segregation record, and another piece has not finished inspection, decide what each may be counted as at delivery"
+    intent: "ECSS-E-ST-20-08C clause 8.8.2; failed coverglass segregation evidence and undetermined inspection status"
+    expected_skill: "space-systems/ecss/e2008-failed-coverglass-components"

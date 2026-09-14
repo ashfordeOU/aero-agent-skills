@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-failure-criteria (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on turning a tested coverglass subgroup
+# into per-piece failure calls; to2 routes on the observed-condition arm and the
+# missing after reading. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-failure-criteria.
+tasks:
+  - id: to1
+    query: "a coverglass subgroup was measured, thermal cycled and measured again, work out which pieces the test and the inspection after it leave failed"
+    intent: "ECSS-E-ST-20-08C clause 8.8.1; conditions that mark a coverglass failed during subgroup testing and inspection"
+    expected_skill: "space-systems/ecss/e2008-coverglass-failure-criteria"
+  - id: to2
+    query: "one coverglass is inside every transmittance allowance but the inspection found coating delamination, and another is missing its after reading, decide what each one is"
+    intent: "ECSS-E-ST-20-08C clause 8.8.1; disqualifying observed conditions and an incomplete reading pair in a coverglass subgroup"
+    expected_skill: "space-systems/ecss/e2008-coverglass-failure-criteria"

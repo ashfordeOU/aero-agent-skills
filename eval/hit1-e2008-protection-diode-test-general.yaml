@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-protection-diode-test-general
+# (space-systems/ecss, E-ST-20-08C 9.6.1)
+# Two tasks per leaf; pdg1 routes on the provenance half -- who agreed the
+# spike level and whether the control drawing ever captured it; pdg2 on the
+# bench half -- the amplitude-duration stress a run has to reach. Both must
+# deterministically hit
+# space-systems/ecss/e2008-protection-diode-test-general.
+tasks:
+  - id: pdg1
+    query: "settle the diode-spike-agreement-state and the spike-level-drawing-capture for this protection-diode-spike-allowance before anybody sentences a part"
+    intent: "ecss photovoltaic assemblies; protection diode spike levels negotiated between customer and supplier and captured on the control drawing"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-test-general"
+  - id: pdg2
+    query: "check applied-spike-adequacy against the captured level using the protection-diode-spike-stress-integral, not volts alone"
+    intent: "ecss photovoltaic assemblies; a protection diode spike bench that may have under-stressed or over-stressed the part against the agreed allowance"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-test-general"

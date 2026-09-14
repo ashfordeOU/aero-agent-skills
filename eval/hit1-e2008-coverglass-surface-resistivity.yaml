@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-surface-resistivity (space-systems/ecss)
+# Two tasks for the new leaf. sr1 routes on whether the coverglass build
+# state obliges the resistivity measurement at all; sr2 routes on reducing
+# and dispositioning the record once it does. Both must deterministically
+# hit space-systems/ecss/e2008-coverglass-surface-resistivity.
+tasks:
+  - id: sr1
+    query: "this coverglass stack now carries a transparent conducting oxide layer, does that oblige a surface resistivity measurement and does the lot record discharge the obligation"
+    intent: "ECSS-E-ST-20-08C clause 8.7.7; conductive coating triggers the resistivity measurement"
+    expected_skill: "space-systems/ecss/e2008-coverglass-surface-resistivity"
+  - id: sr2
+    query: "reduce the concentric ring and four point coverglass readings into ohms per square through the geometry factor and judge the worst site against the drawing ceiling"
+    intent: "ECSS-E-ST-20-08C clause 8.7.7; coverglass surface resistivity reduction and ceiling disposition"
+    expected_skill: "space-systems/ecss/e2008-coverglass-surface-resistivity"

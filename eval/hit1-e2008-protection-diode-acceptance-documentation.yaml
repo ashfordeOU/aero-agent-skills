@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-protection-diode-acceptance-documentation (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the acceptance data package a
+# protection diode lot is delivered against; to2 routes on the documentation
+# rule set the diode clause delegates to and on record traceability to the
+# delivered lot. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-acceptance-documentation.
+tasks:
+  - id: to1
+    query: "the supplier sent the acceptance data package for a protection diode lot, work out whether every acceptance activity has a record complete enough to release the lot against"
+    intent: "ECSS-E-ST-20-08C clause 9.4.6; protection diode acceptance test results are recorded under the documentation rules the diode clause sets"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-acceptance-documentation"
+  - id: to2
+    query: "the diode acceptance records were written under a supplier-local documentation regime with no bias conditions or junction temperature, and one record names diodes outside the delivered lot, decide whether the package can still be released"
+    intent: "ECSS-E-ST-20-08C clause 9.4.6; documentation rule delegation for protection diode acceptance records and record traceability to the delivered lot"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-acceptance-documentation"

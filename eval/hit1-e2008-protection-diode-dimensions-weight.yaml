@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-dimensions-weight (space-systems/ecss,
+# E-ST-20-08C 9.6.3). Two tasks per leaf; pddw1 routes on judging the measured
+# outline and thickness against the drawn bands, pddw2 on the attachment
+# geometry and the mass crosscheck. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-dimensions-weight.
+tasks:
+  - id: pddw1
+    query: "judge a protection diode measurement sheet against the protection-diode-outline-tolerance-band and the protection-diode-thickness-band and name the state of every feature"
+    intent: "ecss photovoltaic assemblies; protection diode lateral size and thickness against the procurement drawing"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-dimensions-weight"
+  - id: pddw2
+    query: "check the protection-diode-contact-pad-geometry carries the string current, combine the protection-diode-interconnector-true-position offsets and run the protection-diode-mass-density-crosscheck"
+    intent: "ecss photovoltaic assemblies; protection diode contact geometry, attachment placement and weight verification"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-dimensions-weight"
