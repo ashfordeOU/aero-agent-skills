@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-procurement-specification (space-systems/ecss)
+# Two tasks for the leaf. ps2a routes on a parameter deferring to published
+# data and the citation that makes the deferral count; ps2b routes on the
+# ordered temperature range and the manufacturer standard flow route. Both
+# must deterministically hit
+# space-systems/ecss/q6013-class-2-procurement-specification.
+tasks:
+  - id: ps2a
+    query: "half the parameters in this purchase specification just point at the manufacturer data sheet instead of stating their own limits; decide whether that basis is acceptable at the intermediate assurance class and what the citation has to name"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.2; class 2 purchase specification parameter acceptance basis and the published-data citation naming a document and an issue"
+    expected_skill: "space-systems/ecss/q6013-class-2-procurement-specification"
+  - id: ps2b
+    query: "check the ordered temperature range on our purchase specification against what the maker publishes, and say whether declaring the manufacturer standard production flow is enough as the acceptance route or whether the flow has to be named"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.2; ordered temperature range containment inside the published range and the named manufacturer standard flow acceptance route"
+    expected_skill: "space-systems/ecss/q6013-class-2-procurement-specification"

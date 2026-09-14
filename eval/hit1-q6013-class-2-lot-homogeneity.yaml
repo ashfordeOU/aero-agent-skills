@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-lot-homogeneity (space-systems/ecss)
+# Two tasks for the leaf. pf2hom1 routes on admitting several sub-lots as one
+# inspection lot under a cap with a proportional sample; pf2hom2 routes on the
+# equivalence basis standing in for an absent wafer lot and the date-code span.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-2-lot-homogeneity.
+tasks:
+  - id: pf2hom1
+    query: "decide whether a delivered commercial EEE population can be sampled as one inspection lot at class 2, count the sub-lots against the cap the class admits, spread the required specimens across them by largest remainder, and name every sub-lot drawn short of its proportional target"
+    intent: "ECSS-Q-ST-60-13C clause 5.5.5; admitting several sub-lots as one inspection lot under a cap with proportional allocation"
+    expected_skill: "space-systems/ecss/q6013-class-2-lot-homogeneity"
+  - id: pf2hom2
+    query: "place each delivered unit on its wafer lot, assembly lot and manufacturing site, fall back to a declared equivalence basis where the commercial manufacturer publishes no wafer lot, refuse a unit with neither, and compare the date-code span in whole weeks with the limit for one inspection lot"
+    intent: "ECSS-Q-ST-60-13C clause 5.5.5; equivalence basis for an absent wafer lot and the date-code span axis"
+    expected_skill: "space-systems/ecss/q6013-class-2-lot-homogeneity"

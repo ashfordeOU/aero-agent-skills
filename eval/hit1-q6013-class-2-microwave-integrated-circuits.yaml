@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-microwave-integrated-circuits (space-systems/ecss)
+# Two tasks for the leaf. mmic2a routes on the channel temperature and the
+# RF drive derating of an MMIC applied at the intermediate class; mmic2b
+# routes on the non-hermetic package and the wafer lot evidence behind the
+# die. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-microwave-integrated-circuits.
+tasks:
+  - id: mmic2a
+    query: "work out the channel temperature of a commercial MMIC from the baseplate, the dissipation and the thermal resistance, take the margin against the intermediate class ceiling, and decide whether the applied RF drive stays inside the derating the class allows"
+    intent: "ECSS-Q-ST-60-13C clause 5.6.5; class 2 MMIC channel temperature margin, RF drive derating and Arrhenius median life"
+    expected_skill: "space-systems/ecss/q6013-class-2-microwave-integrated-circuits"
+  - id: mmic2b
+    query: "our microwave monolithic integrated circuit comes in a non-hermetic plastic package and half its evaluation is carried by similarity to a sibling part; decide whether a moisture barrier is needed and score the wafer lot process monitor evidence behind the die"
+    intent: "ECSS-Q-ST-60-13C clause 5.6.5; non-hermetic MMIC moisture barrier and similarity-credited evaluation evidence"
+    expected_skill: "space-systems/ecss/q6013-class-2-microwave-integrated-circuits"

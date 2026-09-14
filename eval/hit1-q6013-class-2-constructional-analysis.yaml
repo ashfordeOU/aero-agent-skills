@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-constructional-analysis (space-systems/ecss)
+# Two tasks for the leaf. ca2a routes on the internal inspection step set and
+# the construction risk index; ca2b routes on lot representativeness of the
+# analysis sample and the structural steps no analysis may skip. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-2-constructional-analysis.
+tasks:
+  - id: ca2a
+    query: "we decapsulated a commercial part and the die metallisation inspection came back with a construction weakness; score what the internal inspection found by severity and tell me whether the part type is acceptable, acceptable once mitigated, or rejected at class 2"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.3.3; internal construction inspection severity scoring, construction risk index, class 2 disposition"
+    expected_skill: "space-systems/ecss/q6013-class-2-constructional-analysis"
+  - id: ca2b
+    query: "the constructional analysis was run on parts from an earlier date code than the lot we are buying and the wire bond integrity test was skipped; decide whether that analysis still says anything about the parts on order"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.3.3; analysis sample lot representativeness, structural inspection step completeness"
+    expected_skill: "space-systems/ecss/q6013-class-2-constructional-analysis"

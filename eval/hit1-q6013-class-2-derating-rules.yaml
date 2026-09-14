@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-derating-rules (space-systems/ecss)
+# Two tasks for the new leaf. cdr1 routes on the looser intermediate-class table
+# and the bounded relaxation band; cdr2 routes on deriving a junction
+# temperature from a measured case temperature and grading it against the
+# derated ceiling. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-derating-rules.
+tasks:
+  - id: cdr1
+    query: "the working voltage on this ceramic capacitor sits just past the Class 2 derating factor and we have an approved relaxation record for that stress; is it still inside the band and what applied value would clear the table limit outright"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.5; intermediate assurance derating limits and the approved relaxation band"
+    expected_skill: "space-systems/ecss/q6013-class-2-derating-rules"
+  - id: cdr2
+    query: "no junction temperature was predicted for this part, only a measured case temperature, the junction-to-case thermal resistance and the dissipation; work out the junction and grade it against the derated ceiling"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.5; junction temperature step-down and junction derived from case temperature"
+    expected_skill: "space-systems/ecss/q6013-class-2-derating-rules"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-connectors (space-systems/ecss)
+# Two tasks for the leaf. conn2a routes on removable-contact insertion
+# limits and the loading-derated contact current; conn2b routes on the
+# mating-cycle durability and the spare contact provision of the insert.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-2-connectors.
+tasks:
+  - id: conn2a
+    query: "decide how much current each contact of a removable-contact connector may carry once the intermediate class derating and the share of positions energised at once are applied, and name every position that has been taken out and put back too many times"
+    intent: "ECSS-Q-ST-60-13C clause 5.6.6; class 2 removable contact insertion limit and insert-loading contact current derating"
+    expected_skill: "space-systems/ecss/q6013-class-2-connectors"
+  - id: conn2b
+    query: "our harness connector will be mated and demated through integration and test; work out how much of its rated mating durability that spends, whether the insert keeps enough spare positions for a contact repair, and score the retention and crimp qualification evidence"
+    intent: "ECSS-Q-ST-60-13C clause 5.6.6; connector mating cycle durability, spare contact provision and build evidence"
+    expected_skill: "space-systems/ecss/q6013-class-2-connectors"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-manufacturer-data-deliveries (space-systems/ecss)
+# Two tasks for the leaf. mdd2a routes on matching delivered data items to the
+# lot identity and the required item set; mdd2b routes on the summary credit a
+# retained-data pointer earns at this class. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-manufacturer-data-deliveries.
+tasks:
+  - id: mdd2a
+    query: "check whether the folder the manufacturer sent with our commercial lot holds the data items the intermediate assurance class requires, that each one carries a reference and issue and matches the lot identifier and date code, and that none of it arrived after lot acceptance"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.11; owed data item set, lot identity matching and delivery timing at the intermediate assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-2-manufacturer-data-deliveries"
+  - id: mdd2b
+    query: "the manufacturer gave us a summary pointing at electrical data they retain instead of the data itself, decide whether that counts, credit it, and give the delivered share and the weighted completeness of the package"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.11; retained-data summary credit, the retention period behind a pointer, delivered share and weighted completeness"
+    expected_skill: "space-systems/ecss/q6013-class-2-manufacturer-data-deliveries"

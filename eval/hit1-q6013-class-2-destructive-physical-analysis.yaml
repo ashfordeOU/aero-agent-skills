@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-destructive-physical-analysis (space-systems/ecss)
+# Two tasks for the leaf. dpa2a routes on the class 2 credit a manufacturer
+# teardown report earns against a date-code group; dpa2b routes on the second
+# sample a single major construction defect calls for. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-2-destructive-physical-analysis.
+tasks:
+  - id: dpa2a
+    query: "the manufacturer sent a signed teardown report for the same date code as our commercial lot, decide whether it credits against our own destructive sampling and how many units we still have to tear down"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.9; credited manufacturer teardown report and the confirmation sample a credited date-code group still owes at the intermediate assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-2-destructive-physical-analysis"
+  - id: dpa2b
+    query: "our intermediate class teardown found one cracked die and die attach voiding over the largest single void limit, decide whether that group gets a second sample or is rejected outright"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.9; die-attach void and bond pull criteria, defect categorization and the second-sample disposition of a date-code group"
+    expected_skill: "space-systems/ecss/q6013-class-2-destructive-physical-analysis"

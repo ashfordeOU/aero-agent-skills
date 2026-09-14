@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-procurement-overview (space-systems/ecss)
+# Two tasks for the leaf. po2a routes on the control register the declared
+# supply channel demands; po2b routes on a control delegated to the supplier
+# and the weighted coverage. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-procurement-overview.
+tasks:
+  - id: po2a
+    query: "we are buying commercial parts through an open market broker at the intermediate assurance class, work out which purchasing controls that route adds on top of the ones every order carries and who has to own each of them"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.1; class 2 purchasing control register sized by the declared supply channel"
+    expected_skill: "space-systems/ecss/q6013-class-2-procurement-overview"
+  - id: po2b
+    query: "our supplier holds the counterfeit screening under an order clause and sent back a certificate; decide whether that delegation counts, credit it below a control we did ourselves, and give me the weighted purchasing coverage against the floor"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.1; supplier-delegated purchasing control, flow-down clause and certificate, delegation credit and weighted coverage"
+    expected_skill: "space-systems/ecss/q6013-class-2-procurement-overview"

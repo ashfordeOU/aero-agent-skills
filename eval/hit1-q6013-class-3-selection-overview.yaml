@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-selection-overview (space-systems/ecss,
+# Q-ST-60-13C 6.2.1 at the lowest assurance class). Two tasks for the leaf;
+# s3a routes on the duty register and the coverage floor, s3b on evidence
+# crediting and a not-applicable claim on a mandatory duty. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-3-selection-overview.
+tasks:
+  - id: s3a
+    query: "grade the class-three-selection-duty-register behind each commercial part and take the selection-coverage-floor before the design is frozen"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.1; general selection duties for commercial components at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-selection-overview"
+  - id: s3b
+    query: "the manufacturer identification duty is only asserted and obsolescence is claimed not applicable; settle the selection-duty-evidence-credit, the selection-duty-applicability-claim and the class-three-selection-verdict"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.1; evidence crediting, applicability claims and the outstanding selection duties at the lowest class"
+    expected_skill: "space-systems/ecss/q6013-class-3-selection-overview"

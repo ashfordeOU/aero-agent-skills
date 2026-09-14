@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-selection-overview (space-systems/ecss,
+# Q-ST-60-13C 5.2.1). Two tasks per leaf; c2sov1 routes on the conditional
+# scoping of the owed duty set at the intermediate class, c2sov2 on the
+# per-programme single instance, the owner-role disposition and the coverage
+# share. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-selection-overview.
+tasks:
+  - id: c2sov1
+    query: "work out class-two-commercial-component-selection-duties by selection-duty-conditional-scoping, refusing a condition that was never declared instead of reading unknown as false"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.1; which commercial component selection duties are owed at all on an intermediate assurance programme"
+    expected_skill: "space-systems/ecss/q6013-class-2-selection-overview"
+  - id: c2sov2
+    query: "instantiate each per-programme-selection-duty-single-instance, flag every selection-duty-owner-role-mismatch and selection-duty-waiver-authority gap, and return the class-two-selection-duty-coverage-share"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.1; duty instantiation by scope, disposition against the named owner, waiver handling and the readiness verdict"
+    expected_skill: "space-systems/ecss/q6013-class-2-selection-overview"

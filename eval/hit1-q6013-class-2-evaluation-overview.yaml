@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-evaluation-overview (space-systems/ecss)
+# Two tasks for the leaf. evo2a routes on the campaign coverage fraction and
+# the class threshold; evo2b routes on element applicability driven by the
+# mission profile and on a heritage claim that only moves assembly site. Both
+# must deterministically hit
+# space-systems/ecss/q6013-class-2-evaluation-overview.
+tasks:
+  - id: evo2a
+    query: "take the evaluation campaign behind a commercial part as one body of evidence, weight what each element covers, and tell me whether it reaches the coverage the intermediate assurance class closes on and which elements are still outstanding"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.3.1; class 2 evaluation campaign coverage fraction, threshold and outstanding elements"
+    expected_skill: "space-systems/ecss/q6013-class-2-evaluation-overview"
+  - id: evo2b
+    query: "our mission has no radiation requirement so that evaluation element should not count against us, and our heritage evidence is the same part number from a different assembly site; grade the campaign at class 2 and give me one verdict"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.3.1; evaluation element applicability from the mission profile, class 2 heritage downgrade on assembly site"
+    expected_skill: "space-systems/ecss/q6013-class-2-evaluation-overview"
