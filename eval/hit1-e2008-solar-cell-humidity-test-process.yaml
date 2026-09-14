@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-solar-cell-humidity-test-process (space-systems/ecss,
+# E-ST-20-08C 7.5.7.1.2). Two tasks per leaf; schr1 routes on the chamber
+# profile, schr2 on the dew point margin at the cell surface. Both must
+# deterministically hit
+# space-systems/ecss/e2008-solar-cell-humidity-test-process.
+tasks:
+  - id: schr1
+    query: "check a subgroup-o-cell-sample-plan and an ambient-pressure-damp-chamber-profile for humidity-chamber-ramp-rate-limit and damp-soak-duration-compliance"
+    intent: "ecss solar cells; how the damp chamber is driven during the exposure"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-humidity-test-process"
+  - id: schr2
+    query: "derive the damp-storage-dew-point-margin at the coldest cell face and rule out cell-surface-condensation-risk during the soak"
+    intent: "ecss solar cells; dew point margin inside an ambient pressure damp chamber"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-humidity-test-process"

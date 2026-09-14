@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-cell-surface-finish-test (space-systems/ecss).
+# Task 1 routes on the finish a bare cell contact surface presents, task 2 on
+# the roughness trace and the weighted anomaly population behind that grade.
+# Both must deterministically hit
+# space-systems/ecss/e2008-cell-surface-finish-test.
+tasks:
+  - id: w0914-e2008-cell-surface-finish-test-1
+    query: "bare-cell-contact-surface-finish and bare-cell-metallisation-finish-grade under ecss-e-st- e-st-20-08c clause 7.5.11"
+    intent: "Route to e2008-cell-surface-finish-test"
+    expected_skill: "space-systems/ecss/e2008-cell-surface-finish-test"
+  - id: w0914-e2008-cell-surface-finish-test-2
+    query: "solar-cell-contact-roughness-trace with cell-contact-anomaly-demerit-score and contact-surface-anomaly-area-fraction under ecss-e-st- e-st-20-08c"
+    intent: "Route to e2008-cell-surface-finish-test"
+    expected_skill: "space-systems/ecss/e2008-cell-surface-finish-test"

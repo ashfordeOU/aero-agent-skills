@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-cell-coating-adherence-test (space-systems/ecss)
+# Two tasks for the new leaf. ccad1 routes on the antireflection coating plus
+# cell and diode contact surfaces under one adherence method; ccad2 routes on
+# the current a stripped coating patch gives up. Both must deterministically hit
+# space-systems/ecss/e2008-cell-coating-adherence-test rather than the
+# coverglass conductive coating adherence leaves, which are a different surface.
+tasks:
+  - id: e2008ccad1
+    query: "judge the adherence method applied to a bare cell antireflection coating and to the cell and bypass diode contact metallisation, each against its own removed-area allowance"
+    intent: "ECSS-E-ST-20-08C clause 7.5.8; durability of the antireflection coating and the cell and diode contacts under the adherence method"
+    expected_skill: "space-systems/ecss/e2008-cell-coating-adherence-test"
+  - id: e2008ccad2
+    query: "how much current does a solar cell give up where the antireflection coating came away during the adherence check, and does lifted contact metallisation fail the lot on its own"
+    intent: "ECSS-E-ST-20-08C clause 7.5.8; stripped-coating current loss and the metallisation lift rule for a cell adherence run"
+    expected_skill: "space-systems/ecss/e2008-cell-coating-adherence-test"

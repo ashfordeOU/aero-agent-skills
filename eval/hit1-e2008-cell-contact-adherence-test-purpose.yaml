@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-cell-contact-adherence-test-purpose (space-systems/ecss)
+# Two tasks for the new leaf. ccap1 routes on why a bare cell's contacts and
+# diode attachment are pulled only after conditioning; ccap2 routes on scoping
+# the pull load and the sample from the downstream attachment demand. Both must
+# deterministically hit
+# space-systems/ecss/e2008-cell-contact-adherence-test-purpose rather than the
+# coverglass coating leaves or the substrate bondline coupon leaf.
+tasks:
+  - id: e2008ccap1
+    query: "explain why the bare cell contact and bypass diode attachment strength is pulled only after conditioning, not on the cell as delivered"
+    intent: "ECSS-E-ST-20-08C clause 7.5.7.2.1; purpose of the post-conditioning bare-cell contact adherence check"
+    expected_skill: "space-systems/ecss/e2008-cell-contact-adherence-test-purpose"
+  - id: e2008ccap2
+    query: "scope a bare cell contact adherence campaign: which downstream welding and cycling stressors justify it, what pull load the service peak demands and how many cells to sample"
+    intent: "ECSS-E-ST-20-08C clause 7.5.7.2.1; attachment demand index, pull-load margin and sample floors for a contact adherence check"
+    expected_skill: "space-systems/ecss/e2008-cell-contact-adherence-test-purpose"

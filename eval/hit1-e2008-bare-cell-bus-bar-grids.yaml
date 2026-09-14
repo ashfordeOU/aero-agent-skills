@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-bus-bar-grids (space-systems/ecss)
+# Two tasks for the new leaf. bcg1 routes on the continuity requirement the
+# clause puts on the front bus bars and grid lines and the collection strip a
+# break orphans; bcg2 routes on the residual width fraction and the current
+# density left in the metal a narrowing did not take. Both must
+# deterministically hit space-systems/ecss/e2008-bare-cell-bus-bar-grids.
+tasks:
+  - id: bcg1
+    query: "decide whether the interrupted grid line on a bare solar cell can be accepted when the front bus bars and fingers are required to run through unbroken, and size the collection strip the break orphans"
+    intent: "ECSS-E-ST-20-08C clause 7.5.1.5.3; bare cell front bus bar and grid line continuity"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-bus-bar-grids"
+  - id: bcg2
+    query: "grade the narrowing in a bare cell front bus bar on the residual width fraction and the current density carried by the surviving metal cross section"
+    intent: "ECSS-E-ST-20-08C clause 7.5.1.5.3; grid line constriction width and current density screen"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-bus-bar-grids"

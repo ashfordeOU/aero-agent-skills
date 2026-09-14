@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-sca-electrostatic-sensitivity-handling
+# (space-systems/ecss, E-ST-20-08C 6.8.2)
+# Two tasks per leaf; esh1 routes on the protected-area control set the
+# sensitivity band obliges, esh2 on the packaging and storage side plus the
+# residual charge the assembly is left holding. Both must deterministically
+# hit space-systems/ecss/e2008-sca-electrostatic-sensitivity-handling.
+tasks:
+  - id: esh1
+    query: "grade the photovoltaic-assembly-protected-area-controls against the esd-ground-path-resistance-band before this esd-sensitive-assembly-handling operation"
+    intent: "ecss photovoltaic assemblies; handling controls for an assembly sensitive to electrostatic discharge"
+    expected_skill: "space-systems/ecss/e2008-sca-electrostatic-sensitivity-handling"
+  - id: esh2
+    query: "check the esd-shielding-packaging-category and the esd-sensitive-storage-envelope, then convert the residual charge to a voltage against the esd-withstand-voltage-categorization"
+    intent: "ecss photovoltaic assemblies; packing and storing an ESD-sensitive assembly and the voltage it is left holding"
+    expected_skill: "space-systems/ecss/e2008-sca-electrostatic-sensitivity-handling"

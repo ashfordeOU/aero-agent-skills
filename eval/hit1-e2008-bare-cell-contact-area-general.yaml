@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-contact-area-general
+# (space-systems/ecss, E-ST-20-08C 7.5.1.5.1)
+# Two tasks per leaf; bca1 routes on placing marks against the contact
+# geometry and the bared metallisation rule, bca2 on the area-level
+# accumulations. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-contact-area-general.
+tasks:
+  - id: bca1
+    query: "run the contact-area-dig-and-scratch-placement test on these marks and reject the ones showing contact-metallisation-absence inside the pad"
+    intent: "ecss photovoltaic assemblies; digs and scratches on a bare cell placed against the contact areas and dispositioned on the metallisation under them"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-contact-area-general"
+  - id: bca2
+    query: "total the cell-probe-mark-witness-count and the weldable-surface-disturbed-fraction for this bare-cell-contact-area-condition record"
+    intent: "ecss photovoltaic assemblies; probe witnesses and worked footprint accumulating on a contact area whose individual marks all passed"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-contact-area-general"

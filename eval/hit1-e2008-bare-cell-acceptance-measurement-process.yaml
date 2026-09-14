@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-acceptance-measurement-process (space-systems/ecss)
+# Two tasks for the leaf. bcamr1 routes on recording the two bare-cell currents
+# under standard illumination; bcamr2 routes on correcting them back to the
+# reference irradiance and temperature and on the load setpoint. Both must
+# deterministically hit
+# space-systems/ecss/e2008-bare-cell-acceptance-measurement-process.
+tasks:
+  - id: bcamr1
+    query: "record the bare-cell current at short circuit and at the on-load test voltage the drawing states, under standard illumination, with the conditions travelling with the numbers"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.2; bare-cell current recording run under standard illumination"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-measurement-process"
+  - id: bcamr2
+    query: "correct each measured bare-cell current back to the reference irradiance and reference cell temperature and check the load actually sat at the stated test voltage"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.2; irradiance and temperature correction and load setpoint tolerance"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-measurement-process"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-failed-cell-assemblies (space-systems/ecss)
+# Two tasks for the new leaf. fca1 routes on the any-listed-mode-condemns
+# disposition of one inspected cell assembly; fca2 routes on the refusal to
+# read an unexamined mode as a clean result across an inspection lot. Both
+# must deterministically hit
+# space-systems/ecss/e2008-failed-cell-assemblies.
+tasks:
+  - id: fca1
+    query: "one solar cell assembly came out of inspection with a cracked coverglass and every other listed failure mode clean, decide whether that single mode makes the unit failed"
+    intent: "ECSS-E-ST-20-08C clause 6.5.2; cell assembly treated as failed when any listed failure mode is present"
+    expected_skill: "space-systems/ecss/e2008-failed-cell-assemblies"
+  - id: fca2
+    query: "the inspection lot of cell assemblies shows no failure mode present but the insulation resistance of two units was never measured, work out the failed tally and whether those units count as sound"
+    intent: "ECSS-E-ST-20-08C clause 6.5.2; unexamined failure mode handling and the inspection lot failure tally"
+    expected_skill: "space-systems/ecss/e2008-failed-cell-assemblies"

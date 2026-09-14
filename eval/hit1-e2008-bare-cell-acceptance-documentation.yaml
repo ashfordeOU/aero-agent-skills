@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-acceptance-documentation (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the acceptance data package a bare
+# cell lot is delivered against; to2 routes on record traceability to the
+# delivered lot and per-cell activity coverage. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-acceptance-documentation.
+tasks:
+  - id: to1
+    query: "the supplier sent the acceptance data package for a bare solar cell lot, work out whether every acceptance activity has a record that is complete enough to release the lot against"
+    intent: "ECSS-E-ST-20-08C clause 7.3.3; bare-cell acceptance test results are recorded in the delivery documentation"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-documentation"
+  - id: to2
+    query: "one acceptance record names cells that are not in the delivered lot and another leaves a delivered cell with no result of its own, decide whether the data package can still be released"
+    intent: "ECSS-E-ST-20-08C clause 7.3.3; bare-cell acceptance record traceability to the lot and per-cell activity coverage"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-documentation"

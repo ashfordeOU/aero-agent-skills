@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-electrical-grading (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on sorting accepted bare cells into
+# performance grades by measured test current; to2 routes on the grade band
+# ladder itself and the cell sitting on a band edge. Both must deterministically
+# hit space-systems/ecss/e2008-bare-cell-electrical-grading.
+tasks:
+  - id: to1
+    query: "the acceptance run is finished and I have a measured current for every accepted bare cell, work out which performance grade each one is delivered in and what the yield per grade is"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.4; accepted bare solar cells are grouped into performance grades on measured test current"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-electrical-grading"
+  - id: to2
+    query: "check the bare cell grade band ladder leaves no gap or overlap and decide what to do with a cell whose current sits within the measurement uncertainty of a band edge"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.4; bare-cell grading band ladder validity and boundary guard band"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-electrical-grading"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-rear-contact-limits (space-systems/ecss)
+# Two tasks for the new leaf. brc1 routes on the diameter ceiling a drop or a
+# particle of spatter is held to once it has landed outside the rear welding
+# zone; brc2 routes on the edge exclusion band and the protrusion height that
+# stops the cell seating. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-rear-contact-limits.
+tasks:
+  - id: brc1
+    query: "check the size of the solder drops and weld spatter that landed outside the rear welding zone of a bare solar cell against the permitted diameter ceiling"
+    intent: "ECSS-E-ST-20-08C clause 7.5.1.5.4; rear contact deposit size ceilings outside the welding zone"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-rear-contact-limits"
+  - id: brc2
+    query: "disposition a bead of resolidified metal sitting near the bare cell perimeter on the rear contact that stands proud of the declared bond line"
+    intent: "ECSS-E-ST-20-08C clause 7.5.1.5.4; rear contact edge exclusion band and protrusion height"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-rear-contact-limits"

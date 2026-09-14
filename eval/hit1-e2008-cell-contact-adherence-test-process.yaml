@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-cell-contact-adherence-test-process (space-systems/ecss)
+# Two tasks for the new leaf. ccpr1 routes on loading every cell of the lot into
+# the ambient pressure chamber before the pull; ccpr2 routes on grouping the
+# front contact, rear contact and diode attachment readings that follow. Both
+# must deterministically hit
+# space-systems/ecss/e2008-cell-contact-adherence-test-process.
+tasks:
+  - id: e2008ccpr1
+    query: "how is every bare cell of the lot loaded into the ambient pressure chamber, with what edge clearance, shelf packing and soak dwell, before contact adherence is judged"
+    intent: "ECSS-E-ST-20-08C clause 7.5.7.2.2; chamber loading and soak conditions preceding the bare-cell contact adherence pull"
+    expected_skill: "space-systems/ecss/e2008-cell-contact-adherence-test-process"
+  - id: e2008ccpr2
+    query: "sentence a bare cell contact adherence run: front contact, rear contact and bypass diode attachment pull loads per cell, weakest site, and the rejected share of the lot"
+    intent: "ECSS-E-ST-20-08C clause 7.5.7.2.2; per-site pull-load grouping and lot roll-up after the ambient pressure soak"
+    expected_skill: "space-systems/ecss/e2008-cell-contact-adherence-test-process"

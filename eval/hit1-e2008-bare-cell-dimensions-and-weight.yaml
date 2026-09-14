@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-dimensions-and-weight (space-systems/ecss)
+# Two tasks for the new leaf. bcd1 routes on the outline, thickness and mass
+# bands a bare cell is bought to; bcd2 routes on the radial true-position check
+# of the interconnector attachment points and the areal density cross-check.
+# Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-dimensions-and-weight.
+tasks:
+  - id: bcd1
+    query: "judge a bare solar cell measurement sheet against the purchase drawing outline, thickness and mass bands and say which feature is out of band"
+    intent: "ECSS-E-ST-20-08C clause 7.5.2; bare cell outline, thickness and mass conformity"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-dimensions-and-weight"
+  - id: bcd2
+    query: "check the interconnector attachment positions on a bare cell as a radial true position deviation and cross check the measured areal density against the mass and outline"
+    intent: "ECSS-E-ST-20-08C clause 7.5.2; interconnector pad true position and areal density cross-check"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-dimensions-and-weight"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-data-documentation-package (space-systems/ecss)
+# Two tasks for the new leaf. sdp1 routes on the two-tier package with a file
+# owed by every delivery lot; sdp2 routes on a lot citing a superseded
+# qualification approval. Both must deterministically hit
+# space-systems/ecss/e2008-sca-data-documentation-package.
+tasks:
+  - id: sdp1
+    query: "accept or send back the cell assembly data documentation package, the qualification approval records are in and only one of the four delivered lots has a lot file"
+    intent: "ECSS-E-ST-20-08C clause 6.6; SCA documentation package covering qualification approval records and every delivery lot"
+    expected_skill: "space-systems/ecss/e2008-sca-data-documentation-package"
+  - id: sdp2
+    query: "a delivery lot of solar cell assemblies cites a qualification approval statement that has since been superseded and closed manufacture before the approval was signed, grade its documentation file"
+    intent: "ECSS-E-ST-20-08C clause 6.6; governing approval citation and build-before-approval checks on a lot file"
+    expected_skill: "space-systems/ecss/e2008-sca-data-documentation-package"

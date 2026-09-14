@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-welding-area-limits
+# (space-systems/ecss, E-ST-20-08C 7.5.1.5.2)
+# Two tasks per leaf; bwa1 routes on the drawing-fixed diameter comparison,
+# bwa2 on the governing chord and the crowded-zone accumulations. Both must
+# deterministically hit
+# space-systems/ecss/e2008-bare-cell-welding-area-limits.
+tasks:
+  - id: bwa1
+    query: "measure the weld-zone-bubble-diameter on this cell and grade it against the drawing-fixed-void-diameter that sets the contact-welding-area-void-limit"
+    intent: "ecss photovoltaic assemblies; voids and bubbles inside a contact welding area against the maximum diameter fixed for the part"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-welding-area-limits"
+  - id: bwa2
+    query: "take the void-major-axis-governing-chord rather than the area equivalent, then check the weld-zone-void-area-fraction on this crowded weld zone"
+    intent: "ecss photovoltaic assemblies; elongated voids in a weld zone and the population that passes on diameter yet leaves no metal to weld"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-welding-area-limits"
