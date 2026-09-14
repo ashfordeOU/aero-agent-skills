@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-measurement-equipment-set-up (space-systems/ecss)
+# Two tasks for the new leaf. mes1 routes on arranging the bench before the
+# second cell measurement method of clause 11 is run; mes2 routes on the
+# station-by-station adequacy and the assembly order that arrangement carries.
+# Both must deterministically hit
+# space-systems/ecss/e2008-measurement-equipment-set-up.
+tasks:
+  - id: mes1
+    query: "set up the measurement equipment before running the second cell measurement method, bias supply, excitation source, guarded fixture, transient recorder, single point ground and temperature stage"
+    intent: "ECSS-E-ST-20-08C clause 11.2.2; equipment arrangement ahead of the second cell measurement method"
+    expected_skill: "space-systems/ecss/e2008-measurement-equipment-set-up"
+  - id: mes2
+    query: "size the bias supply range and resolution, the recorder samples and bit against the cell response, the guarded fixture stray share, and bond ground first before energising the supply"
+    intent: "ECSS-E-ST-20-08C clause 11.2.2; station adequacy and assembly order of the cell measurement bench"
+    expected_skill: "space-systems/ecss/e2008-measurement-equipment-set-up"

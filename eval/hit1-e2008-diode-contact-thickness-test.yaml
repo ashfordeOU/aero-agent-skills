@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-diode-contact-thickness-test
+# (space-systems/ecss, E-ST-20-08C 9.6.8)
+# Two tasks per leaf; dct1 routes on the gauge resolution and calibration
+# gates that run before any figure is sentenced, dct2 on the replicate
+# repeatability spread and the acceptance lot record coverage. Both must
+# deterministically hit
+# space-systems/ecss/e2008-diode-contact-thickness-test.
+tasks:
+  - id: dct1
+    query: "check the diode-thickness-gauge-resolution against the band and the diode-gauge-calibration-validity before recording this diode-contact-metallisation-thickness"
+    intent: "ecss photovoltaic assemblies; acceptance measurement of the metallisation thickness present on a protection diode contact and the record it produces"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-thickness-test"
+  - id: dct2
+    query: "the replicates disagree past the diode-replicate-repeatability-spread limit; sentence the contact and close the diode-acceptance-lot-record-coverage"
+    intent: "ecss photovoltaic assemblies; protection diode contact thickness replicates averaged into an acceptance figure and a lot sentenced against its declared sample"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-thickness-test"

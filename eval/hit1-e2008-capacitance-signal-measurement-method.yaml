@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-capacitance-signal-measurement-method (space-systems/ecss)
+# Two tasks for the new leaf. sig1 routes on the preference itself -- whether a
+# non-shunt pickup may stand in a cell capacitance run; sig2 routes on the
+# numbers that decide whether the shunt in place is good enough. Both must
+# deterministically hit
+# space-systems/ecss/e2008-capacitance-signal-measurement-method.
+tasks:
+  - id: sig1
+    query: "the cell capacitance rig picks the signal up with a current transformer instead of a shunt, what has to be recorded and sized before that stands"
+    intent: "ECSS-E-ST-20-08C clause 11.1.2; shunt technique preference for capacitance signal acquisition"
+    expected_skill: "space-systems/ecss/e2008-capacitance-signal-measurement-method"
+  - id: sig2
+    query: "size the shunt burden against the solar cell reactance, the sense node corner and the shunt self-inductance corner, and the signal to noise margin for a capacitance measurement"
+    intent: "ECSS-E-ST-20-08C clause 11.1.2; sizing the preferred shunt signal acquisition path"
+    expected_skill: "space-systems/ecss/e2008-capacitance-signal-measurement-method"

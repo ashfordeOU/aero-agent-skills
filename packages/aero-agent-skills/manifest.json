@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1649,
+  "leaves": 1691,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -20521,6 +20521,65 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-blocking-diode-acceptance-general",
+   "name": "e2008-blocking-diode-acceptance-general",
+   "description": "Evaluate a blocking diode lot record against clause 12.4.1 of ECSS-E-ST-20-08C, where two populations owe acceptance at once: the diodes being delivered and the diodes the qualification work consumes. Split the per-unit activities from the lot-sampled ones, score each sampled activity on the share of its population actually drawn, hold absent records, unrun work and recorded failures apart, flag a population carrying no acceptance at all, and roll the lot into one verdict with ranked findings. Use when a blocking diode acceptance matrix, lot traveller set or sampling plan is under review. Trigger: ecss, e-st-20-08c, blocking-diode-acceptance-testing-general, blocking-diode-delivery-population-acceptance, blocking-diode-qualification-population-acceptance, blocking-diode-sampled-activity-share, blocking-diode-acceptance-record-state, blocking-diode-lot-acceptance-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-acceptance-general",
+    "blocking-diode-acceptance-testing-general",
+    "blocking-diode-delivery-population-acceptance",
+    "blocking-diode-qualification-population-acceptance",
+    "blocking-diode-sampled-activity-share",
+    "blocking-diode-acceptance-record-state",
+    "blocking-diode-lot-acceptance-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-marking",
+   "name": "e2008-blocking-diode-marking",
+   "description": "Assess the marking approach settled with the customer for delivered planar blocking diodes under ECSS-E-ST-20-08C clause 12.2.3: read the standing of the agreement before reading the mark, refuse a scheme the supplier chose alone or one whose agreement was superseded, size the identity code against the carrier face it is written on at the height it stays legible at, weigh how far down handling a mark on that carrier survives, count the diodes one mark really resolves a delivered part to, and name the approach to settle instead. Use when a planar blocking diode marking approach, customer marking agreement or delivery identity claim has to be reviewed. Trigger: ecss, e-st-20-08c, planar-blocking-diode-marking-approach, blocking-diode-marking-customer-agreement, blocking-diode-code-face-fit, blocking-diode-mark-carrier-retention, blocking-diode-identity-granularity, planar-blocking-diode-delivery-identity.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-marking",
+    "planar-blocking-diode-marking-approach",
+    "blocking-diode-marking-customer-agreement",
+    "blocking-diode-code-face-fit",
+    "blocking-diode-mark-carrier-retention",
+    "blocking-diode-identity-granularity",
+    "planar-blocking-diode-delivery-identity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-production-control",
+   "name": "e2008-blocking-diode-production-control",
+   "description": "Assess the supplier process document that ECSS-E-ST-20-08C clause 12.3 asks for before qualified blocking diodes are produced: establish the document is issued and in force, hold the planar or mesa construction inside its scope, compare the steps the diode is genuinely built by against the steps declared, catch a step whose revision has moved away from the qualified baseline with no requalification behind it, score the share of critical steps still standing as qualified, and date the document against the lot it covers. Use when a blocking diode process document, production baseline or process change record has to be reviewed. Trigger: ecss, e-st-20-08c, blocking-diode-production-control, blocking-diode-process-document, blocking-diode-qualified-baseline-drift, blocking-diode-requalification-linkage, blocking-diode-process-step-coverage, blocking-diode-document-issue-chronology.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-production-control",
+    "blocking-diode-process-document",
+    "blocking-diode-qualified-baseline-drift",
+    "blocking-diode-requalification-linkage",
+    "blocking-diode-process-step-coverage",
+    "blocking-diode-document-issue-chronology"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-blocking-diode-test",
    "name": "e2008-blocking-diode-test",
    "description": "Compute the reverse current a solar array blocking diode passes at the highest open-circuit voltage its string can reach in flight, under ECSS-E-ST-20-08C clause 5.5.3.3.6: build that worst-case bias from the cold-case cell open-circuit voltage, the series count and a beginning-of-life margin; refuse a bench whose applied reverse bias falls short of it, because an under-stressed diode proves nothing; refer every measured leakage to the reference junction temperature; group each diode as within limit, above limit or reverse-conducting; and total the parasitic loss the array then carries. Use when a blocking diode reverse-current test has to be set up, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, blocking-diode-reverse-current, worst-case-open-circuit-voltage, blocking-diode-leakage-limit, reverse-bias-adequacy-check, solar-array-blocking-diode-screening.",
@@ -20534,6 +20593,26 @@
     "reverse-bias-adequacy-check",
     "solar-array-blocking-diode-screening",
     "solar-array-parasitic-reverse-loss"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-testing-overview",
+   "name": "e2008-blocking-diode-testing-overview",
+   "description": "Map the qualification and procurement test sets a planar blocking diode owes under ECSS-E-ST-20-08C clause 12.2.1: split every recorded test into the set that owns it and refuse one booked to a set that never owed it, stop a test the two sets share from being discharged twice by a single campaign run, grade each set on the owed tests it actually passed, hold a similarity claim to the heritage part and delta justification it rests on, keep an absent record apart from one recorded as not run and from a failure, and roll the design campaign and every delivered lot into one programme verdict. Use when a planar blocking diode test matrix, qualification campaign or lot procurement plan has to be reviewed. Trigger: ecss, e-st-20-08c, planar-blocking-diode-test-sets, blocking-diode-qualification-test-set, blocking-diode-procurement-test-set, blocking-diode-shared-test-double-count, blocking-diode-test-set-coverage, blocking-diode-programme-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-testing-overview",
+    "planar-blocking-diode-test-sets",
+    "blocking-diode-qualification-test-set",
+    "blocking-diode-procurement-test-set",
+    "blocking-diode-shared-test-double-count",
+    "blocking-diode-test-set-coverage",
+    "blocking-diode-programme-verdict"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20590,6 +20669,62 @@
     "bypass-diode-examination-magnification",
     "bypass-diode-string-protection-rollup",
     "bypass-diode-record-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-capacitance-measurement-procedure",
+   "name": "e2008-capacitance-measurement-procedure",
+   "description": "Prepare the equipment of a solar cell capacitance measurement before any data is gathered, per ECSS-E-ST-20-08C clause 11.1.3: hold the preparation steps in their order, count the calibration validity left on the test date, confirm the open, short and load compensation was taken at the test frequency, hold the instrument warm-up and the bias source settling, place the ambient inside its declared band, and close the whole chain against a reference capacitor in parts per million. Use when a capacitance campaign is about to start on a bench nobody proved ready. Trigger: ecss, e-st-20-08c-clause-11-1-3, solar-cell-capacitance-equipment-preparation, capacitance-fixture-compensation, capacitance-calibration-currency, capacitance-warm-up-and-settling, reference-capacitor-ppm-gate.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-capacitance-measurement-procedure",
+    "solar-cell-capacitance-equipment-preparation",
+    "capacitance-fixture-compensation",
+    "capacitance-calibration-currency",
+    "capacitance-warm-up-and-settling",
+    "reference-capacitor-ppm-gate"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-capacitance-model-determination",
+   "name": "e2008-capacitance-model-determination",
+   "description": "Derive the junction model of a solar cell from capacitance read at several bias voltages per ECSS-E-ST-20-08C clause 11.1.4.2.2: fit one over capacitance squared against bias, take the built-in voltage from the voltage intercept and the doping of the lighter side from the slope, fit the graded power law for the grading coefficient and the zero-bias capacitance, then hold the sweep to its point count, bias span and fit quality and drop points pushed far enough forward that diffusion capacitance joins the depletion term. Use when a junction model is about to be quoted from capacitance read at a single bias point. Trigger: ecss, e-st-20-08c-clause-11-1-4-2-2, solar-cell-capacitance-model-determination, mott-schottky-bias-sweep-fit, junction-built-in-voltage-extraction, depletion-doping-from-capacitance-slope, junction-grading-coefficient-fit, forward-bias-diffusion-capacitance-exclusion.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-capacitance-model-determination",
+    "solar-cell-capacitance-model-determination",
+    "mott-schottky-bias-sweep-fit",
+    "junction-built-in-voltage-extraction",
+    "depletion-doping-from-capacitance-slope",
+    "junction-grading-coefficient-fit",
+    "forward-bias-diffusion-capacitance-exclusion"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-capacitance-signal-measurement-method",
+   "name": "e2008-capacitance-signal-measurement-method",
+   "description": "Evaluate the signal acquisition path of a solar cell capacitance measurement against ECSS-E-ST-20-08C clause 11.1.2, which prefers the shunt: size the sensing burden against the cell reactance at the test frequency, place the sense-node corner and the shunt self-inductance corner a decade above the band, convert the sensed current into a margin over the amplifier noise floor, and hold a non-shunt pickup to a recorded justification and to the same numbers. Use when a cell capacitance run reaches for a current transformer or a probe, or nobody sized the shunt it already has. Trigger: ecss, e-st-20-08c-clause-11-1-2, solar-cell-capacitance-signal-acquisition, shunt-technique-preference, sense-burden-fraction, acquisition-corner-headroom, shunt-self-inductance-corner, capacitance-signal-to-noise-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-capacitance-signal-measurement-method",
+    "solar-cell-capacitance-signal-acquisition",
+    "shunt-technique-preference",
+    "sense-burden-fraction",
+    "acquisition-corner-headroom",
+    "shunt-self-inductance-corner",
+    "capacitance-signal-to-noise-margin"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21714,6 +21849,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-deliverable-blocking-diode-components",
+   "name": "e2008-deliverable-blocking-diode-components",
+   "description": "Evaluate whether delivered planar blocking diodes were processed and inspected against the process identification document that governs them, under ECSS-E-ST-20-08C clause 12.2.2: resolve which issue was released and in force on the day a lot ran, refuse a lot built to a superseded or still-unreleased issue, grade declared processing and inspection steps separately so a built-but-unverified lot cannot hide, name a step performed that the issue never declared, keep an unrecorded step apart from one not performed and from a failure, and return a verdict per lot. Use when a planar blocking diode delivery lot, process identification document or traveller set has to be reviewed. Trigger: ecss, e-st-20-08c, deliverable-planar-blocking-diode-components, blocking-diode-process-identification-document, blocking-diode-document-issue-in-force, blocking-diode-unauthorised-process-step, blocking-diode-inspection-step-coverage, blocking-diode-lot-delivery-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-deliverable-blocking-diode-components",
+    "deliverable-planar-blocking-diode-components",
+    "blocking-diode-process-identification-document",
+    "blocking-diode-document-issue-in-force",
+    "blocking-diode-unauthorised-process-step",
+    "blocking-diode-inspection-step-coverage",
+    "blocking-diode-lot-delivery-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-deliverable-coverglass-components",
    "name": "e2008-deliverable-coverglass-components",
    "description": "Use when a coverglass delivery lot, route record or inspection dossier has to be released. Audit a coverglass delivery batch by batch against the processing and inspection route clause 8.3.2 of ECSS-E-ST-20-08C fixes in the process document: resolve whether the cited document governs at the issue the glass was built to, name a step run that the document never declares, catch a declared step run out of the declared sequence, separate a per-coverglass screen from a sampled inspection and hold each sample against its floor, bracket how many pieces passed every screen rather than quoting one number, and weight the release share by pieces. Trigger: ecss, e-st-20-08c, coverglass-delivery-batch-disposition, coverglass-process-document-standing, coverglass-undeclared-route-step, coverglass-route-sequence-violation, coverglass-screen-versus-sample-mode, coverglass-deliverable-count-bracket.",
@@ -21886,6 +22041,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-diode-contact-adherence-test",
+   "name": "e2008-diode-contact-adherence-test",
+   "description": "Assess whether the contacts of an external protection diode still hold after the contact adherence test of ECSS-E-ST-20-08C clause 9.6.10, and whether an integral unit with no terminal to grip was covered by a declared equivalent route rather than quietly skipped: validate the adherence policy, read every required contact site, turn each recorded force into a stress over the bonded area it acted on, sentence each device by its weakest site rather than its mean, refuse a lot presented with sites unpulled, and hold an integral unit to an admissible substitute reaching the same sites. Use when a protection diode contact adherence run is planned or its records are reviewed. Trigger: ecss, e-st-20-08c-clause-9-6-10, protection-diode-contact-adherence-test, external-protection-diode-contact-durability, integral-diode-equivalent-adherence-route, protection-diode-contact-adherence-stress, protection-diode-weakest-contact-site, protection-diode-adherence-site-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-contact-adherence-test",
+    "protection-diode-contact-adherence-test",
+    "external-protection-diode-contact-durability",
+    "integral-diode-equivalent-adherence-route",
+    "protection-diode-contact-adherence-stress",
+    "protection-diode-weakest-contact-site",
+    "protection-diode-adherence-site-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-diode-contact-area-inspection",
    "name": "e2008-diode-contact-area-inspection",
    "description": "Assess the contact areas of a protection diode for digs, scratches and probe marks under ECSS-E-ST-20-08C clause 9.6.2.5.1: place every recorded mark against the anode and cathode geometry before dispositioning it, charge a straddling mark only the part that overlaps, reject a mark that has bared the semiconductor under a weld land, send thinned metal to review, track the probe witnesses and the clear weld-land fraction left on each contact, and hold a diode unsentenced while either polarity carries no record. Use when a protection diode mark list has to become a contact area verdict. Trigger: ecss, e-st-20-08-photovoltaic-assembly-scope, protection-diode-contact-area-marks, diode-weld-land-clear-fraction, diode-probe-witness-count, diode-contact-polarity-completeness, diode-contact-metallisation-state.",
@@ -21905,6 +22079,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-diode-contact-thickness-test",
+   "name": "e2008-diode-contact-thickness-test",
+   "description": "Document the metallisation thickness present on each protection diode contact at acceptance under ECSS-E-ST-20-08C clause 9.6.8: refuse a gauge whose resolution cannot split the specified band, refuse a reading whose calibration had lapsed on the measurement day, require the declared replicates and hold their spread inside the repeatability limit, take their mean as the contact figure, sentence it against the thickness band, and treat a polarity or a device with no record as unsentenced rather than passed. Use when protection diode contact thickness readings have to become an acceptance record and a lot verdict. Trigger: ecss, e-st-20-08c-clause-9-6-8, diode-contact-metallisation-thickness, diode-thickness-gauge-resolution, diode-gauge-calibration-validity, diode-replicate-repeatability-spread, diode-acceptance-lot-record-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-contact-thickness-test",
+    "diode-contact-metallisation-thickness",
+    "diode-thickness-gauge-resolution",
+    "diode-gauge-calibration-validity",
+    "diode-replicate-repeatability-spread",
+    "diode-acceptance-lot-record-coverage",
+    "diode-thickness-record-quantisation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-contact-uniformity-test",
+   "name": "e2008-diode-contact-uniformity-test",
+   "description": "Evaluate whether the contact metallisation of a protection diode holds an even thickness right across its land under ECSS-E-ST-20-08C clause 9.6.7: confirm the map reached every zone before a spread is quoted, hold the qualification run against its declared sample, take the spread and the variation against each contact's own mean, apply the local floor that an evenly thin deposit still fails, grade every site as uniform, thin, thick or bare, and leave a diode unsentenced while either polarity carries no map. Use when a protection diode contact thickness map has to become a qualification uniformity verdict. Trigger: ecss, e-st-20-08c-clause-9-6-7, diode-contact-thickness-uniformity, diode-metallisation-zone-coverage, diode-thickness-spread-fraction, diode-local-thickness-floor, diode-uniformity-qualification-sample.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-contact-uniformity-test",
+    "diode-contact-thickness-uniformity",
+    "diode-metallisation-zone-coverage",
+    "diode-thickness-spread-fraction",
+    "diode-local-thickness-floor",
+    "diode-uniformity-qualification-sample",
+    "diode-contact-thickness-site-map"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-diode-contact-void-limits",
    "name": "e2008-diode-contact-void-limits",
    "description": "Evaluate the voids and bubbles recorded on either polarity contact of a protection diode against the quarter-millimetre ceiling of ECSS-E-ST-20-08C clause 9.6.2.5.2: govern each cavity by its maximum extent rather than an area-equivalent diameter that hides an elongated bubble, merge cavities whose edges have closed to within the coalescence gap and re-measure the span across the pair, keep a cavity landing exactly on the ceiling inside it, total the voided fraction of each land, and refuse a diode whose anode or cathode was never surveyed. Use when a protection diode void survey has to be sentenced. Trigger: ecss, e-st-20-08-photovoltaic-assembly-scope, protection-diode-contact-voids, diode-void-maximum-extent, diode-void-coalescence-merge, diode-contact-voided-fraction, diode-quarter-millimetre-void-ceiling.",
@@ -21918,6 +22130,45 @@
     "diode-contact-voided-fraction",
     "diode-quarter-millimetre-void-ceiling",
     "diode-void-equivalent-diameter-trap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-electron-irradiation-test",
+   "name": "e2008-diode-electron-irradiation-test",
+   "description": "Analyze how far an external protection diode drifts as electron fluence accumulates in the accelerated life exposure of ECSS-E-ST-20-08C clause 9.6.12: check the fluence staircase rises and carries an unirradiated reference, confirm every step was measured at the reference temperature, turn each step's forward drop and reverse leakage into ratios against that reference, refuse a ratio that falls back, fit the forward drift against the logarithm of fluence and the leakage growth as a power law, flag a step off its own curve, and project both to the mission end-of-life fluence. Use when a protection diode electron irradiation run is scoped or its data is audited. Trigger: ecss, e-st-20-08c-clause-9-6-12, protection-diode-electron-irradiation-test, diode-electron-fluence-staircase, diode-forward-voltage-drift-with-fluence, diode-reverse-leakage-growth-with-fluence, diode-degradation-log-fit, diode-electron-eol-projection.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-electron-irradiation-test",
+    "protection-diode-electron-irradiation-test",
+    "diode-electron-fluence-staircase",
+    "diode-forward-voltage-drift-with-fluence",
+    "diode-reverse-leakage-growth-with-fluence",
+    "diode-degradation-log-fit",
+    "diode-electron-eol-projection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-human-body-esd",
+   "name": "e2008-diode-human-body-esd",
+   "description": "Assess whether a protection diode survives an electrostatic discharge representative of a charged person reaching its terminals, under ECSS-E-ST-20-08C clause 9.6.16: hold the discharge network capacitance and series resistance inside their bands, derive the peak current, decay constant, transferred charge and stored energy the step voltage produces, walk the geometric step ladder with its pulse count and both polarities, take the reverse leakage and forward voltage drift across the series, and group the surviving level into a withstand band. Use when a human body ESD step stress for protection diodes is planned or audited. Trigger: ecss, e-st-20-08c-clause-9-6-16, protection-diode-human-body-esd, diode-hbm-discharge-network, diode-hbm-peak-current, diode-hbm-stored-energy, diode-hbm-withstand-band, diode-esd-leakage-drift, diode-esd-step-stress-ladder.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-human-body-esd",
+    "protection-diode-human-body-esd",
+    "diode-hbm-discharge-network",
+    "diode-hbm-peak-current",
+    "diode-hbm-stored-energy",
+    "diode-hbm-withstand-band",
+    "diode-esd-leakage-drift",
+    "diode-esd-step-stress-ladder"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21955,6 +22206,62 @@
     "diode-contact-metallisation-corrosion",
     "diode-protective-coating-crazing",
     "diode-damp-storage-equivalent-months"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-surface-finish-test",
+   "name": "e2008-diode-surface-finish-test",
+   "description": "Assess the finish quality shown by the contact surfaces of a protection diode under ECSS-E-ST-20-08C clause 9.6.9: refuse an examination carried out below the declared magnification, take the measured roughness against both the working ceiling and the unweldable ceiling, disposition every finish anomaly on its kind, depth and coverage rather than on how it looks, reject a blister outright, send oxidation and residue past their coverage allowances to review, and leave a diode unsentenced while either polarity carries no examination. Use when a protection diode contact surface finish record has to become a verdict. Trigger: ecss, e-st-20-08c-clause-9-6-9, diode-contact-surface-finish, diode-contact-roughness-ceiling, diode-finish-anomaly-coverage, diode-examination-magnification-floor, diode-contact-blister-rejection.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-diode-surface-finish-test",
+    "diode-contact-surface-finish",
+    "diode-contact-roughness-ceiling",
+    "diode-finish-anomaly-coverage",
+    "diode-examination-magnification-floor",
+    "diode-contact-blister-rejection",
+    "diode-finish-accumulated-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-temperature-annealing-test",
+   "name": "e2008-diode-temperature-annealing-test",
+   "description": "Verify that an external protection diode holds its electrical parameters through a high temperature annealing soak under ECSS-E-ST-20-08C clause 9.6.13: hold the soak profile against its floors and against the package rating, turn temperature and time into equivalent hours at the reference temperature through an Arrhenius factor, count the devices the plan actually draws from the annealing subgroup, match the two reading temperatures, and take the forward voltage drift, the reverse leakage growth ratio and the blocking voltage drift across the soak. Use when an annealing stability result for protection diodes is written or audited. Trigger: ecss, e-st-20-08c-clause-9-6-13, protection-diode-annealing-soak, diode-annealing-arrhenius-factor, diode-forward-voltage-annealing-drift, diode-reverse-leakage-growth-ratio, protection-diode-annealing-subgroup, diode-annealing-reading-temperature-match.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-temperature-annealing-test",
+    "protection-diode-annealing-soak",
+    "diode-annealing-arrhenius-factor",
+    "diode-forward-voltage-annealing-drift",
+    "diode-reverse-leakage-growth-ratio",
+    "protection-diode-annealing-subgroup",
+    "diode-annealing-reading-temperature-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-diode-temperature-behaviour-test",
+   "name": "e2008-diode-temperature-behaviour-test",
+   "description": "Map the electrical parameters of a protection diode across its whole declared operating temperature range under ECSS-E-ST-20-08C clause 9.6.14: order the sweep and refuse a repeated temperature, take the endpoint gaps against the cold and hot ends of the range, take the widest gap between neighbouring points, fit the forward voltage temperature coefficient by least squares, derive the interval over which the reverse leakage doubles, and hold both against their bands. Use when a temperature behaviour map for protection diodes is planned or audited. Trigger: ecss, e-st-20-08c-clause-9-6-14, protection-diode-temperature-sweep, diode-forward-voltage-temperature-coefficient, diode-reverse-leakage-doubling-interval, diode-operating-range-endpoint-gap, protection-diode-sweep-step-resolution.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-diode-temperature-behaviour-test",
+    "protection-diode-temperature-sweep",
+    "diode-forward-voltage-temperature-coefficient",
+    "diode-reverse-leakage-doubling-interval",
+    "diode-operating-range-endpoint-gap",
+    "protection-diode-sweep-step-resolution"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22030,6 +22337,25 @@
     "irradiation-acceleration-factor-bound",
     "solar-cell-degradation-fit",
     "end-of-life-power-retention"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-equivalent-network-calculation",
+   "name": "e2008-equivalent-network-calculation",
+   "description": "Derive the equivalent circuit elements of a solar cell from one measured impedance per ECSS-E-ST-20-08C clause 11.1.4.2.1: split magnitude and phase into the series resistance and reactance, form the series capacitance, the loss tangent and the quality factor, transform that pair into the parallel capacitance and loss resistance, report the spread between the two forms, remove the declared contact and lead resistance, then close by rebuilding the measurement from the derived network. Use when a cell capacitance figure is quoted without saying which equivalent network it belongs to. Trigger: ecss, e-st-20-08c-clause-11-1-4-2-1, solar-cell-equivalent-network, series-to-parallel-impedance-conversion, cell-loss-tangent, cell-quality-factor, contact-series-resistance-correction, impedance-closure-residual.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-equivalent-network-calculation",
+    "solar-cell-equivalent-network",
+    "series-to-parallel-impedance-conversion",
+    "cell-loss-tangent",
+    "cell-quality-factor",
+    "contact-series-resistance-correction",
+    "impedance-closure-residual"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22206,6 +22532,26 @@
     "coverglass-nonconformance-reference",
     "coverglass-deliverable-population-exclusion",
     "coverglass-undetermined-inspection-status"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-failed-protection-diode-components",
+   "name": "e2008-failed-protection-diode-components",
+   "description": "Determine the designation ECSS-E-ST-20-08C clause 9.7.2 gives a protection diode showing any mode the preceding failure criteria list: treat one standing mode as enough, hold the designation on the individual part rather than on its lot or its subgroup, keep a part whose inspection is unfinished undetermined instead of deliverable, refuse a retest clearance the policy does not admit or that names no authority, demand a segregation record and a non-conformance reference before a failed part counts as handled, reconcile the offered parts against the records both ways, and derive the deliverable count. Use when diode inspection findings have to become delivery status. Trigger: ecss, e-st-20-08c-clause-9-7-2, failed-protection-diode-designation, protection-diode-failure-mode-disposition, protection-diode-segregation-record, protection-diode-nonconformance-reference, protection-diode-deliverable-population-exclusion, protection-diode-undetermined-inspection-status.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-failed-protection-diode-components",
+    "e-st-20-08c-clause-9-7-2",
+    "failed-protection-diode-designation",
+    "protection-diode-failure-mode-disposition",
+    "protection-diode-segregation-record",
+    "protection-diode-nonconformance-reference",
+    "protection-diode-deliverable-population-exclusion",
+    "protection-diode-undetermined-inspection-status"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22619,6 +22965,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-measurement-equipment-set-up",
+   "name": "e2008-measurement-equipment-set-up",
+   "description": "Prepare the equipment arrangement the second cell measurement method of ECSS-E-ST-20-08C clause 11 is run from, per clause 11.2.2: confirm the bias supply, excitation source, guarded four-terminal fixture, transient recorder, single-point ground and temperature stage are present, size the supply range and resolution against the sweep, the sample count and one recorder bit against the response, the fixture stray against the cell and the stage against the reference temperature, then hold every instrument inside its calibration interval and assemble the chain ground first, power last. Use when a cell measurement is about to start on a bench nobody characterised. Trigger: ecss, e-st-20-08c-clause-11-2-2, cell-measurement-equipment-set-up, guarded-cell-fixture-stray-share, transient-recorder-sampling-adequacy, single-point-ground-bonding-order, bias-supply-range-and-resolution, instrument-calibration-interval-validity.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-measurement-equipment-set-up",
+    "cell-measurement-equipment-set-up",
+    "guarded-cell-fixture-stray-share",
+    "transient-recorder-sampling-adequacy",
+    "single-point-ground-bonding-order",
+    "bias-supply-range-and-resolution",
+    "instrument-calibration-interval-validity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-mission-specific-ultraviolet-tests",
    "name": "e2008-mission-specific-ultraviolet-tests",
    "description": "Determine whether a solar cell assembly earns ultraviolet testing beyond the standard qualification exposure under ECSS-E-ST-20-08C clause 6.4.3.15.4: scale solar intensity by the inverse square of heliocentric distance across every declared mission phase, accumulate the equivalent sun hours a science or planetary profile actually collects, compare that budget with the exposure the standard qualification already covers, then check the planned lamp intensity, the acceleration over the mission mean and the sample temperature keep the accelerated run representative. Use when a near-sun science or planetary profile may outrun the baseline ultraviolet qualification. Trigger: ecss, e-st-20-08c-clause-6-4-3-15-4, mission-specific-ultraviolet-test, solar-cell-assembly-ultraviolet-exposure, equivalent-sun-hours-budget, near-sun-solar-intensity-multiplier, ultraviolet-acceleration-factor-bound, coverglass-ultraviolet-darkening.",
@@ -22632,6 +22997,24 @@
     "near-sun-solar-intensity-multiplier",
     "ultraviolet-acceleration-factor-bound",
     "coverglass-ultraviolet-darkening"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-multijunction-cell-capacitance-measurement",
+   "name": "e2008-multijunction-cell-capacitance-measurement",
+   "description": "Determine what the single-junction capacitance method has to change before it is run on a multijunction cell per ECSS-E-ST-20-08C clause 11.1.5: sum the sub-cell capacitances as reciprocals into the terminal reading, partition the applied bias by those same shares, name the sub-cell that dominates both, size the bias a one-junction extraction misattributes, hold the test frequency under the corner the tunnel-junction series resistance sets, and refuse a stack too dominated by one junction to resolve at the terminals. Use when a triple-junction cell is about to be measured by a method written for one junction. Trigger: ecss, e-st-20-08c-clause-11-1-5, multijunction-cell-capacitance-measurement, subcell-series-capacitance-summation, subcell-bias-partition-share, tunnel-junction-corner-frequency-margin, dominant-subcell-identification, single-junction-method-adaptation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-multijunction-cell-capacitance-measurement",
+    "subcell-series-capacitance-summation",
+    "subcell-bias-partition-share",
+    "tunnel-junction-corner-frequency-margin",
+    "dominant-subcell-identification",
+    "single-junction-method-adaptation"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22697,6 +23080,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-planar-blocking-diode-acceptance",
+   "name": "e2008-planar-blocking-diode-acceptance",
+   "description": "Audit a proposed planar blocking diode acceptance programme against the tabulated test list of ECSS-E-ST-20-08C clause 12.4.2: hold a mesa or integrated part outside the table, name every tabulated test the programme omits and every test it adds, order the programme against the tabulated sequence and report each inversion, catch a stress with no electrical readout after it, check each test runs at its tabulated basis and sample size, and return one programme verdict. Use when a planar blocking diode acceptance programme, test flow or sampling schedule is drafted or reviewed. Trigger: ecss, e-st-20-08c, planar-blocking-diode-acceptance-programme, planar-blocking-diode-tabulated-test-list, planar-blocking-diode-test-sequence-order, planar-blocking-diode-post-stress-readout, planar-blocking-diode-acceptance-basis.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-planar-blocking-diode-acceptance",
+    "planar-blocking-diode-acceptance-programme",
+    "planar-blocking-diode-tabulated-test-list",
+    "planar-blocking-diode-test-sequence-order",
+    "planar-blocking-diode-post-stress-readout",
+    "planar-blocking-diode-acceptance-basis"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-power-measurement-process",
    "name": "e2008-power-measurement-process",
    "description": "Verify that a string-level electrical performance measurement on a photovoltaic assembly was taken where ECSS-E-ST-20-08C clause 5.5.3.4.2 puts it: at the interface connector and referred to a declared reference temperature. Confirm the probing plane keeps the harness the string delivers through inside the loop, quantify the power a shorter plane overstates, refer the measured open-circuit voltage, short-circuit current and maximum power to the reference with the declared coefficients, and reject a correction reaching too far from it to be credible. Use when reviewing a solar-array string current-voltage measurement record. Trigger: ecss, e-st-20-08c, clause-5-5-3-4-2, solar-array-string-iv-measurement, interface-connector-measurement-plane, string-reference-temperature-correction, harness-voltage-drop-allocation, string-maximum-power-referral.",
@@ -22727,6 +23129,24 @@
     "solar-array-power-loss-resolution",
     "degradation-detection-uncertainty",
     "bracketing-power-measurement-pair"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-primary-standard-cells",
+   "name": "e2008-primary-standard-cells",
+   "description": "Verify that the calibrated reference cells setting a simulator's illumination level satisfy ECSS-E-ST-20-08C clause 10.2.1: confirm each primary standard cites a recognised traceable calibration route and a certificate still valid on the test day, match the single-junction or component standard to the junction it sets, cover every junction of a multijunction article, carry the certificate current across to the temperature the standard is actually at, and hold the residual level error inside tolerance with its sign. Use when a simulator level is being set from primary standards, or an as-run setting has to be defended. Trigger: ecss, e-st-20-08c-clause-10-2-1, primary-standard-reference-cell, component-cell-junction-coverage, reference-cell-calibration-validity, simulator-illumination-level-setting, reference-cell-temperature-correction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-primary-standard-cells",
+    "primary-standard-reference-cell",
+    "component-cell-junction-coverage",
+    "reference-cell-calibration-validity",
+    "simulator-illumination-level-setting",
+    "reference-cell-temperature-correction"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22769,6 +23189,64 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-protection-diode-characterization-test",
+   "name": "e2008-protection-diode-characterization-test",
+   "description": "Determine whether an environmental test degraded a protection diode by reading the baseline and follow-up characterizations that bracket it, under ECSS-E-ST-20-08C clause 9.6.15: confirm both visits carry the whole required parameter set and the declared device count, take the junction temperature and test current gaps between them before any drift is judged, then take the forward voltage drift, the reverse leakage growth ratio, the breakdown voltage drop and the series resistance growth. Use when a pre and post environmental diode data pair is written or audited. Trigger: ecss, e-st-20-08c-clause-9-6-15, protection-diode-pre-post-bracket, diode-baseline-followup-parameter-set, diode-reference-condition-match, diode-breakdown-voltage-drop-fraction, diode-series-resistance-growth-fraction, protection-diode-degradation-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-protection-diode-characterization-test",
+    "protection-diode-pre-post-bracket",
+    "diode-baseline-followup-parameter-set",
+    "diode-reference-condition-match",
+    "diode-breakdown-voltage-drop-fraction",
+    "diode-series-resistance-growth-fraction",
+    "protection-diode-degradation-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-data-documentation",
+   "name": "e2008-protection-diode-data-documentation",
+   "description": "Audit the data package a protection diode delivery is released against under ECSS-E-ST-20-08C clause 9.8: name the qualification family nobody wrote up, catch a record citing an issue that no longer governs, hold anything still in draft at delivery, reconcile the delivered component batches against the batch data files in both directions, check every file carries a characterisation row for each part its batch delivered, and refuse a row reporting on a part that batch never shipped. Use when a protection diode data package is about to go out with the parts. Trigger: ecss, e-st-20-08c-clause-9-8, protection-diode-data-package-release, protection-diode-qualification-record-set, protection-diode-batch-data-file, protection-diode-batch-file-reconciliation, protection-diode-per-part-row-coverage, protection-diode-governing-issue-citation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-protection-diode-data-documentation",
+    "e-st-20-08c-clause-9-8",
+    "protection-diode-data-package-release",
+    "protection-diode-qualification-record-set",
+    "protection-diode-batch-data-file",
+    "protection-diode-batch-file-reconciliation",
+    "protection-diode-per-part-row-coverage",
+    "protection-diode-governing-issue-citation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-delivery",
+   "name": "e2008-protection-diode-delivery",
+   "description": "Evaluate whether a dispatch of ordered protection diodes may leave under ECSS-E-ST-20-08C clause 9.9, where the hardware and the document set travelling with it must close together: hold every diode from a lot short one released document, read each document for its release state rather than its presence, refuse a bypass-for-blocking swap outright because diode function is categorical, fill each line from its own reverse-voltage band before any upgrade the order permits, reconcile short and surplus lines, and apply the declared partial-delivery floor. Use when a protection diode shipment is offered and its release has to be decided. Trigger: ecss, e-st-20-08c, clause-9-9, protection-diode-dispatch-release, protection-diode-lot-document-set, protection-diode-function-substitution-rule, protection-diode-rating-band-allocation, protection-diode-partial-delivery-floor.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-protection-diode-scope",
+    "e2008-protection-diode-delivery",
+    "e-st-20-08c-clause-9-9",
+    "protection-diode-dispatch-release",
+    "protection-diode-lot-document-set",
+    "protection-diode-function-substitution-rule",
+    "protection-diode-rating-band-allocation",
+    "protection-diode-partial-delivery-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-protection-diode-dimensions-weight",
    "name": "e2008-protection-diode-dimensions-weight",
    "description": "Verify a protection diode against the lateral outline, thickness, contact geometry and interconnector placement requirements of ECSS-E-ST-20-08C clause 9.6.3: put each measured feature inside its own plus and minus band and name the state, combine the two axis offsets of every attachment point into one diametrical true-position value, judge the contact pad against the footprint it must cover and the string current it must carry, and cross-check the weighed mass against the mass the outline and material density already imply before any band is believed. Use when a protection diode measurement sheet has to be judged against the procurement drawing. Trigger: ecss, e-st-20-08c-clause-9-6-3, protection-diode-outline-tolerance-band, protection-diode-thickness-band, protection-diode-contact-pad-geometry, protection-diode-interconnector-true-position, protection-diode-mass-density-crosscheck.",
@@ -22781,6 +23259,64 @@
     "protection-diode-contact-pad-geometry",
     "protection-diode-interconnector-true-position",
     "protection-diode-mass-density-crosscheck"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-esd-sensitivity",
+   "name": "e2008-protection-diode-esd-sensitivity",
+   "description": "Assess whether the handling and storage regime applied to an electrostatic-discharge-sensitive protection diode keeps it under the voltage it survives, per ECSS-E-ST-20-08C clause 9.10.2: derive the sensitivity band from the withstand voltage and the discharge model it was measured with, grade every obliged control on its own band and on how stale its last verification is, refuse a merely dissipative bag where shielding is owed, measure the store against a two-sided humidity band whose floor is the ESD limit, and turn residual charge into the volts it delivers with the declared margin applied. Use when an ESD-sensitive diode is handled, packed or stored. Trigger: ecss, e-st-20-08c, clause-9-10-2, protection-diode-esd-sensitivity-band, protection-diode-esd-control-verification-age, protection-diode-terminal-shorting-control, protection-diode-esd-shielding-packaging, protection-diode-esd-storage-humidity-floor.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-protection-diode-scope",
+    "e2008-protection-diode-esd-sensitivity",
+    "e-st-20-08c-clause-9-10-2",
+    "protection-diode-esd-sensitivity-band",
+    "protection-diode-esd-control-verification-age",
+    "protection-diode-terminal-shorting-control",
+    "protection-diode-esd-shielding-packaging",
+    "protection-diode-esd-storage-humidity-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-failure-criteria",
+   "name": "e2008-protection-diode-failure-criteria",
+   "description": "Assess which protection diodes a subgroup test programme and the inspection closing it leave failed under ECSS-E-ST-20-08C clause 9.7.1: refuse a criteria set carrying no specification reference, take each parameter's drift in the sense that parameter degrades in with a tie admissible, test the after reading against its own absolute limit as a separate arm, raise a junction that no longer blocks in reverse as its own mode, fail a numerically clean part on any listed observed condition, hold a part missing an after reading as not evaluated rather than passed, and weigh the failed share against its allowance. Use when subgroup diode results have to become per-part failure calls. Trigger: ecss, e-st-20-08c-clause-9-7-1, protection-diode-subgroup-test-failure, protection-diode-failure-modes, protection-diode-parameter-drift-allowance, protection-diode-absolute-limit-breach, protection-diode-blocking-function-loss, protection-diode-subgroup-failure-allowance.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-protection-diode-failure-criteria",
+    "e-st-20-08c-clause-9-7-1",
+    "protection-diode-subgroup-test-failure",
+    "protection-diode-failure-modes",
+    "protection-diode-parameter-drift-allowance",
+    "protection-diode-absolute-limit-breach",
+    "protection-diode-blocking-function-loss",
+    "protection-diode-subgroup-failure-allowance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-life-test",
+   "name": "e2008-protection-diode-life-test",
+   "description": "Evaluate an extended protection diode life test run at worst case conditions under ECSS-E-ST-20-08C clause 9.6.18: derive the junction temperature the forward bias and thermal resistance produce, confirm the stress current and case sit at or above what the mission imposes and below the qualified ceiling, take the Arrhenius acceleration the stress junction holds over the mission junction, convert the run into equivalent mission hours, and hold the forward voltage and reverse leakage drift, the drift rate per thousand hours and the surviving sample against their limits. Use when a long duration protection diode endurance run is planned or audited. Trigger: ecss, e-st-20-08c-clause-9-6-18, protection-diode-life-test, diode-junction-temperature-rise, diode-arrhenius-acceleration-factor, diode-equivalent-mission-hours, diode-endurance-parameter-drift, protection-diode-endurance-sample.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-protection-diode-life-test",
+    "protection-diode-life-test",
+    "diode-junction-temperature-rise",
+    "diode-arrhenius-acceleration-factor",
+    "diode-equivalent-mission-hours",
+    "diode-endurance-parameter-drift",
+    "protection-diode-endurance-sample"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22827,6 +23363,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-protection-diode-pull-test",
+   "name": "e2008-protection-diode-pull-test",
+   "description": "Evaluate whether the positive and negative contacts of a protection diode were shown to carry load under the pull of ECSS-E-ST-20-08C clause 9.6.11, after environmental loading rather than before it: confirm the thermal cycles and the humidity soak the lot owed were completed first, resolve each recorded pull onto the contact normal and reject a grip dragged too far off it, divide the normal force by the bonded area that carried it, sentence every device by whichever contact releases first, and refuse to sentence a lot from a sample too thin to represent it. Use when a protection diode pull run is planned or its records are reviewed. Trigger: ecss, e-st-20-08c-clause-9-6-11, protection-diode-pull-test, protection-diode-positive-contact-bond-strength, protection-diode-negative-contact-bond-strength, diode-pull-after-environmental-conditioning, protection-diode-pull-off-normal-angle, protection-diode-pull-lot-sentencing.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-protection-diode-pull-test",
+    "protection-diode-positive-contact-bond-strength",
+    "protection-diode-negative-contact-bond-strength",
+    "diode-pull-after-environmental-conditioning",
+    "protection-diode-pull-off-normal-angle",
+    "protection-diode-pull-lot-sentencing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-protection-diode-qualification-authority",
    "name": "e2008-protection-diode-qualification-authority",
    "description": "Determine whether protection diodes may be supplied as qualified under ECSS-E-ST-20-08C clause 9.5.1, where the customer grants qualification to the external and integral diodes of one named producer and the supplier only produces the evidence: find the shipment with no grant on record, refuse a grant the supplier issued about its own product, hold an external grant being read onto integral diodes, catch a second source shipping under the first source's grant, reject a grant dated after the supply it authorises, and retire one withdrawn or past its validity date. Use when a protection diode supply is about to leave as qualified. Trigger: ecss, e-st-20-08c-clause-9-5-1, protection-diode-qualification-grant, protection-diode-grant-issuing-authority, external-and-integral-diode-grant-scope, protection-diode-grant-validity-window, protection-diode-producer-identity-match.",
@@ -22840,6 +23394,25 @@
     "external-and-integral-diode-grant-scope",
     "protection-diode-grant-validity-window",
     "protection-diode-producer-identity-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-protection-diode-switching-test",
+   "name": "e2008-protection-diode-switching-test",
+   "description": "Evaluate whether a protection diode survives the switching transients of ground handling and in-orbit string switching under ECSS-E-ST-20-08C clause 9.6.17: derive the overshoot the stray inductance throws up as the current is interrupted, add it to the standing rail, hold that peak against the derated reverse standoff, take the field energy the switched string dumps into the junction with the clamp power and duration it empties at, step the junction through the transient thermal impedance, and hold each event category to its own pulse count. Use when a protection diode switching transient campaign is written or audited. Trigger: ecss, e-st-20-08c-clause-9-6-17, protection-diode-switching-transient, diode-stray-inductance-overshoot, diode-derated-reverse-standoff, diode-absorbed-pulse-energy, diode-switching-junction-excursion, protection-diode-event-pulse-count.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-protection-diode-switching-test",
+    "protection-diode-switching-transient",
+    "diode-stray-inductance-overshoot",
+    "diode-derated-reverse-standoff",
+    "diode-absorbed-pulse-energy",
+    "diode-switching-junction-excursion",
+    "protection-diode-event-pulse-count"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -23986,6 +24559,60 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-simulator-irradiance-stability",
+   "name": "e2008-simulator-irradiance-stability",
+   "description": "Evaluate how steadily a solar simulator holds irradiance across each data acquisition interval under ECSS-E-ST-20-08C clause 10.1.3: validate the run and its declared windows, refuse a window the monitor never watched densely enough to describe, take the temporal instability inside every window separately from the extreme readings, hold each one under the declared limit, and report the slow drift between window means as the separate quantity it is. Use when acquisition-interval steadiness has to be shown before a current-voltage measurement is trusted, or an as-run monitor trace has to be judged. Trigger: ecss, e-st-20-08c-clause-10-1-3, solar-simulator-irradiance-stability, acquisition-interval-instability, temporal-instability-percent, simulator-monitor-sampling-cadence, simulator-run-drift-between-intervals.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-simulator-irradiance-stability",
+    "solar-simulator-irradiance-stability",
+    "acquisition-interval-instability",
+    "temporal-instability-percent",
+    "simulator-monitor-sampling-cadence",
+    "simulator-run-drift-between-intervals"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-simulator-irradiance-uniformity",
+   "name": "e2008-simulator-irradiance-uniformity",
+   "description": "Evaluate how evenly a solar simulator spreads irradiance over the nominated test plane under ECSS-E-ST-20-08C clause 10.1.2: validate the declared plane and the sampling policy, refuse a grid too sparse or one bunched over part of the plane only, take the spatial non-uniformity between the extreme readings rather than as a scatter about the mean, name the brightest and dimmest points, categorize the plane against the declared bands, and hold the spread under the limit the measurement was quoted at. Use when a simulator test plane is being mapped, or an existing map has to be judged before a performance measurement is trusted. Trigger: ecss, e-st-20-08c-clause-10-1-2, solar-simulator-irradiance-uniformity, test-plane-irradiance-mapping, spatial-non-uniformity-percent, simulator-uniformity-sampling-grid, test-plane-coverage-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-simulator-irradiance-uniformity",
+    "solar-simulator-irradiance-uniformity",
+    "test-plane-irradiance-mapping",
+    "spatial-non-uniformity-percent",
+    "simulator-uniformity-sampling-grid",
+    "test-plane-coverage-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-simulator-spectral-distribution",
+   "name": "e2008-simulator-spectral-distribution",
+   "description": "Verify that a solar simulator's output follows the air mass zero reference spectrum closely enough to credit a measurement made under it, per ECSS-E-ST-20-08C clause 10.1.1: integrate both curves band by band with the edges interpolated onto the samples, compare each band's share of its own total rather than raw irradiance, grade every band inside a nested limit table and take the worst band as the result rather than an average, check the delivered level separately because a share comparison cancels it, and confirm the band set spans the reference. Use when a simulator spectrum record has to be graded before test data is credited. Trigger: ecss, e-st-20-08c, clause-10-1-1, solar-simulator-am0-spectral-match, solar-simulator-spectral-band-share-ratio, solar-simulator-irradiance-level-check, solar-simulator-reference-band-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-simulator-scope",
+    "e2008-simulator-spectral-distribution",
+    "e-st-20-08c-clause-10-1-1",
+    "solar-simulator-am0-spectral-match",
+    "solar-simulator-spectral-band-share-ratio",
+    "solar-simulator-irradiance-level-check",
+    "solar-simulator-reference-band-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-solar-array-esd-test-purpose",
    "name": "e2008-solar-array-esd-test-purpose",
    "description": "Determine whether a planned electrostatic-discharge test on a solar-array coupon can show what ECSS-E-ST-20-08C clause 5.5.1.5.1 asks of it: that the design rules applied to the array hold the discharge risk down. Use when a coupon campaign is scoped or reviewed before it runs: derive from the declared environment which discharge mechanisms the coupon can really be driven into, group design-rule provisions by the mechanism each limits, keeping only those embodied on the coupon, check the planned conditions drive every mechanism with a bias and string current bounding the worst case, check the discharge population against the campaign minimum, then report covered and uncovered mechanisms with the coverage fraction. Trigger: ecss, e-st-20-08c, solar-array-coupon-esd-test-purpose, array-design-rule-effectiveness, triple-junction-inception-driver, differential-surface-charging-driver, string-to-string-arc-propagation, coupon-representativeness-screening, esd-test-bias-envelope, discharge-population-adequacy.",
@@ -24139,6 +24766,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-solar-simulator-calibration-maintenance",
+   "name": "e2008-solar-simulator-calibration-maintenance",
+   "description": "Assess whether a solar simulator is still fit for measurement under ECSS-E-ST-20-08C clause 10.2.6, where routine calibration and upkeep keep the beam usable: grade the spatial non-uniformity, the temporal instability and the spectral match band by band, take the worst of the three as the beam grade, weigh lamp hours run against the rated life and days elapsed since the reference-cell setting, then settle one verdict - fit, conditional, recalibrate or service - against the grade the planned measurement demands. Use when a simulator's upkeep record must be shown before an array measurement is accepted. Trigger: ecss, e-st-20-electrical-scope, e-st-20-08c, solar-simulator-calibration-maintenance, simulator-spatial-non-uniformity-grade, simulator-temporal-instability-grade, simulator-spectral-match-band, simulator-lamp-service-hours, simulator-reference-cell-interval.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-solar-simulator-calibration-maintenance",
+    "simulator-spatial-non-uniformity-grade",
+    "simulator-temporal-instability-grade",
+    "simulator-spectral-match-band",
+    "simulator-lamp-service-hours",
+    "simulator-reference-cell-interval"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-soldering-visual-inspection",
    "name": "e2008-soldering-visual-inspection",
    "description": "Assess the solder joints at a solar-array string termination against the workmanship standard agreed with the customer under ECSS-E-ST-20-08C clause 5.5.3.2.13: refuse to disposition anything until the agreement is named, issued, customer-approved and already in force on the inspection date, then take each joint's wetting angle, fillet coverage fraction and void area fraction against the figures that agreement carries, refuse a cracked, disturbed, cold or dewetted joint on the attribute alone, spend the rework-cycle budget before another heat cycle is promised, and return a string verdict naming the standard it was graded against. Use when string terminations have been examined and the solder record needs a defensible disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-13, string-termination-solder-joint-inspection, customer-agreed-workmanship-standard, solder-fillet-coverage-assessment, solder-wetting-angle-screen, solder-joint-void-fraction-limit.",
@@ -24152,6 +24798,63 @@
     "solder-wetting-angle-screen",
     "solder-joint-void-fraction-limit",
     "solder-rework-cycle-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-standard-cell-documentation",
+   "name": "e2008-standard-cell-documentation",
+   "description": "Assess the data sheet a standard solar cell is delivered with under ECSS-E-ST-20-08C clause 10.2.3, grading identification, calibration and uncertainty budget as three blocks rather than one list: name every required field the sheet leaves unreported, keep a reported zero apart from an empty box, reduce each budget component by its distribution and sensitivity, recompute the combined and expanded uncertainty from those components and compare them with the figures printed, then report a dominant term or a budget with no type A evidence as observations rather than failures. Use when a standard cell record must be shown fit to support another calibration. Trigger: ecss, e-st-20-08c, standard-solar-cell-data-sheet, standard-cell-calibration-conditions, standard-cell-uncertainty-budget-recomputation, reference-cell-identification-record, calibration-coverage-factor-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-standard-cell-documentation",
+    "standard-solar-cell-data-sheet",
+    "standard-cell-calibration-conditions",
+    "standard-cell-uncertainty-budget-recomputation",
+    "reference-cell-identification-record",
+    "calibration-coverage-factor-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-standard-cell-maintenance",
+   "name": "e2008-standard-cell-maintenance",
+   "description": "Audit the thermal custody record of a primary or working solar-array standard cell under ECSS-E-ST-20-08C clause 10.2.4, where the cell stays below fifty degrees Celsius in operation and in storage alike: take every logged reading with its sensor uncertainty, treat a reading whose uncertainty band reaches past the ceiling as indeterminate rather than compliant, size each excursion in degree-minutes above the ceiling instead of by peak alone, and settle one verdict - within limit, excursion tolerated, recalibration required or standard withdrawn - with a primary standard given no excursion budget at all. Use when a standard cell must be shown fit before it calibrates anything. Trigger: ecss, e-st-20-electrical-scope, e-st-20-08c, solar-array-standard-cell-maintenance, primary-standard-cell-temperature-ceiling, working-standard-cell-excursion-budget, standard-cell-degree-minute-exposure, standard-cell-sensor-uncertainty-band.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-standard-cell-maintenance",
+    "solar-array-standard-cell-maintenance",
+    "primary-standard-cell-temperature-ceiling",
+    "working-standard-cell-excursion-budget",
+    "standard-cell-degree-minute-exposure",
+    "standard-cell-sensor-uncertainty-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-standard-recalibration-and-intercomparison",
+   "name": "e2008-standard-recalibration-and-intercomparison",
+   "description": "Determine whether a solar-array reference standard is still fit under ECSS-E-ST-20-08C clause 10.2.5, where recalibration and cross comparison run at intervals agreed with the customer: count the days elapsed against each agreed interval, size the deviation a working standard shows against the primary, fit a drift rate across past cross comparisons, project the day that drift carries the deviation onto the agreed band edge, and rank the verdicts so a deviation outside the band outranks any amount of calendar validity. Use when a standard's recalibration or cross-comparison status gates an array measurement. Trigger: ecss, e-st-20-electrical-scope, e-st-20-08c, solar-array-standard-recalibration-interval, standard-cell-intercomparison-deviation, primary-to-working-standard-drift-rate, customer-agreed-calibration-interval, standard-cell-band-edge-projection.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-standard-recalibration-and-intercomparison",
+    "solar-array-standard-recalibration-interval",
+    "standard-cell-intercomparison-deviation",
+    "primary-to-working-standard-drift-rate",
+    "customer-agreed-calibration-interval",
+    "standard-cell-band-edge-projection"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -24583,6 +25286,104 @@
     "harness-twist-and-crease-exclusion",
     "wiring-jacket-chafe-assessment",
     "harness-tie-down-span-limits"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-working-standard-linearity",
+   "name": "e2008-working-standard-linearity",
+   "description": "Assess the linearity of a secondary working standard by the method the referenced photovoltaic standard sets out, for ECSS-E-ST-20-08C clause 10.2.2.3.3: turn each short-circuit-current reading into a responsivity per unit irradiance, anchor a reference responsivity on the points taken at the reference irradiance, express every other point as a deviation from it, fit current against irradiance by least squares so a non-zero intercept shows as an offset instead of hiding inside the slope, check the irradiance range the points actually span, and name the irradiance carrying the worst deviation. Use when an irradiance sweep must become a linearity verdict. Trigger: ecss, e-st-20-08c, clause-10-2-2-3-3, working-standard-linearity, responsivity-deviation-band, irradiance-range-coverage, least-squares-offset-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-working-standard-linearity",
+    "e-st-20-08c",
+    "clause-10-2-2-3-3",
+    "working-standard-linearity",
+    "responsivity-deviation-band",
+    "irradiance-range-coverage",
+    "least-squares-offset-check",
+    "photovoltaic-working-standard-irradiance-sweep"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-working-standard-sensitivity-stability",
+   "name": "e2008-working-standard-sensitivity-stability",
+   "description": "Determine whether a group of secondary working standards has drifted in sensitivity under ECSS-E-ST-20-08C clause 10.2.2.3.2: normalise every short-circuit-current reading to the reference temperature, require at least five standards read in each session, ratio each device against the session median so an unknown source level cancels out, track that ratio across sessions, derive total and per-year drift by least squares, and separate a common-mode shift of the whole group, which belongs to the source, from one device walking away from its peers. Use when repeat intercomparison readings must become a per-standard stability verdict. Trigger: ecss, e-st-20-08c, clause-10-2-2-3-2, working-standard-sensitivity-drift, five-standard-intercomparison, short-circuit-current-session-ratio, common-mode-source-shift.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-working-standard-sensitivity-stability",
+    "e-st-20-08c",
+    "clause-10-2-2-3-2",
+    "working-standard-sensitivity-drift",
+    "five-standard-intercomparison",
+    "short-circuit-current-session-ratio",
+    "common-mode-source-shift",
+    "photovoltaic-working-standard-drift-tracking"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-working-standard-verification",
+   "name": "e2008-working-standard-verification",
+   "description": "Audit the periodic correlation that keeps a daily-use solar-array working standard tied to a primary reference, per ECSS-E-ST-20-08C clause 10.2.2.3.5: count the days since the last correlation against the agreed interval and separate approaching from passed, read each correlation as a ratio of working reading to reference reading, size the drift from the baseline and between consecutive ones, combine the budget into an expanded uncertainty and ask whether the movement is larger than the method can see, then count same-sign steps so a slow creep is caught before any single one reaches the limit. Use when traceability of a working standard to a primary reference must be shown current. Trigger: ecss, e-st-20-08c, solar-array-working-standard-correlation, working-standard-recalibration-interval, primary-reference-cell-traceability, working-standard-drift-trend, correlation-expanded-uncertainty.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-working-standard-verification",
+    "solar-array-working-standard-correlation",
+    "working-standard-recalibration-interval",
+    "primary-reference-cell-traceability",
+    "working-standard-drift-trend",
+    "correlation-expanded-uncertainty"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-working-standard-visual-requirements",
+   "name": "e2008-working-standard-visual-requirements",
+   "description": "Evaluate a secondary working standard against the visible defect rules written for solar cells and cell assemblies under ECSS-E-ST-20-08C clause 10.2.2.3.1: resolve the construction of the device, derive which cell-level and assembly-level rule families actually reach it, disposition each observed defect against an allowance derived from the device's own active area rather than a typed-in figure, refer an observation no applicable family governs instead of passing it silently, accumulate obscured active area into the short-circuit-current bias every transfer made with the device inherits, and name any applicable family left uninspected. Use when a working standard needs a fitness-for-transfer visual disposition. Trigger: ecss, e-st-20-08c, clause-10-2-2-3-1, working-standard-visual-defect-rules, secondary-working-standard-fitness, working-standard-active-area-obscuration, working-standard-inspection-coverage-gap.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-working-standard-visual-requirements",
+    "e-st-20-08c",
+    "clause-10-2-2-3-1",
+    "working-standard-visual-defect-rules",
+    "secondary-working-standard-fitness",
+    "working-standard-active-area-obscuration",
+    "working-standard-inspection-coverage-gap",
+    "photovoltaic-working-standard-visual-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-working-standards-with-pulsed-simulators",
+   "name": "e2008-working-standards-with-pulsed-simulators",
+   "description": "Verify that a solar-array working standard answers fast enough in short-circuit mode to be read under a pulsed simulator, per ECSS-E-ST-20-08C clause 10.2.2.3.4: form the short-circuit time constant from the cell capacitance and the loop resistance, size the settling the declared tolerance demands, place the sampling window inside the flash plateau and after that settling, hold the shunt voltage down to a true short circuit, and grade plateau ripple and flash-to-flash repeatability before the reading is kept. Use when a reference cell must be read on a flash simulator rather than a steady-state source. Trigger: ecss, e-st-20-08c, solar-array-working-standard-pulsed-response, pulsed-simulator-short-circuit-settling, reference-cell-flash-time-constant, flash-plateau-sampling-window, working-standard-flash-repeatability.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-working-standards-with-pulsed-simulators",
+    "solar-array-working-standard-pulsed-response",
+    "pulsed-simulator-short-circuit-settling",
+    "reference-cell-flash-time-constant",
+    "flash-plateau-sampling-window",
+    "working-standard-flash-repeatability"
    ],
    "family": "space-systems",
    "pack": "ecss",

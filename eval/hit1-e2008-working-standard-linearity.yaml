@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-working-standard-linearity (space-systems/ecss)
+# Two tasks for the new leaf. wsl1 routes on assessing the linearity of a
+# working standard by the method of the referenced photovoltaic standard; wsl2
+# routes on the responsivity deviation band and the offset a least squares
+# intercept exposes. Both must deterministically hit
+# space-systems/ecss/e2008-working-standard-linearity.
+tasks:
+  - id: wsl1
+    query: "assess the linearity of the secondary working standard using the method the referenced photovoltaic standard lays down"
+    intent: "ECSS-E-ST-20-08C clause 10.2.2.3.3; linearity of working standards by the referenced photovoltaic method"
+    expected_skill: "space-systems/ecss/e2008-working-standard-linearity"
+  - id: wsl2
+    query: "turn the irradiance sweep into responsivity deviations from the reference level and check whether the fit reports a current at zero irradiance"
+    intent: "ECSS-E-ST-20-08C clause 10.2.2.3.3; responsivity deviation band, irradiance range coverage and offset of a working standard"
+    expected_skill: "space-systems/ecss/e2008-working-standard-linearity"

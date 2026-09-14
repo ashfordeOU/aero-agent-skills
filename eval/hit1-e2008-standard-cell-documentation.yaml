@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-standard-cell-documentation (space-systems/ecss)
+# Two tasks per leaf; task 1 routes on the reported identification and
+# calibration conditions, task 2 on recomputing the uncertainty budget.
+# Both must deterministically hit
+# space-systems/ecss/e2008-standard-cell-documentation.
+tasks:
+  - id: w0914-e2008-standard-cell-documentation-1
+    query: "standard-solar-cell-data-sheet with standard-cell-calibration-conditions and reference-cell-identification-record under ecss-e-st- e-st-20-08c"
+    intent: "Route to e2008-standard-cell-documentation"
+    expected_skill: "space-systems/ecss/e2008-standard-cell-documentation"
+  - id: w0914-e2008-standard-cell-documentation-2
+    query: "standard-cell-uncertainty-budget-recomputation and calibration-coverage-factor-check under ecss-e-st- e-st-20-08c for a delivered standard cell"
+    intent: "Route to e2008-standard-cell-documentation"
+    expected_skill: "space-systems/ecss/e2008-standard-cell-documentation"

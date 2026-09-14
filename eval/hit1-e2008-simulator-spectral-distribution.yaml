@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-simulator-spectral-distribution (space-systems/ecss)
+# Two tasks for the new leaf. ssd1 routes on grading a simulator's per-band share
+# ratio against the air mass zero reference and taking the worst band; ssd2 routes
+# on the separate irradiance level arm and the band-set coverage of the reference.
+# Both must deterministically hit
+# space-systems/ecss/e2008-simulator-spectral-distribution.
+tasks:
+  - id: ssd1
+    query: "grade how well this solar simulator output matches the air mass zero reference spectrum band by band, five bands are fine and one is badly off so what is the spectral match of the simulator"
+    intent: "ECSS-E-ST-20-08C clause 10.1.1; per-band share ratio against the AM0 reference with the worst band setting the simulator grade, never an average"
+    expected_skill: "space-systems/ecss/e2008-simulator-spectral-distribution"
+  - id: ssd2
+    query: "the simulator spectral distribution ratios all come out at unity but the lamp is running at half the intended irradiance and the band set only covers part of the reference curve, is that simulator acceptable"
+    intent: "ECSS-E-ST-20-08C clause 10.1.1; the separate total irradiance level arm a share comparison cancels, plus the band-set coverage of the reference spectrum"
+    expected_skill: "space-systems/ecss/e2008-simulator-spectral-distribution"

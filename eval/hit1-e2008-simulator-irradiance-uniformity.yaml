@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-simulator-irradiance-uniformity (space-systems/ecss)
+# Two tasks for the leaf. siu1 routes on the extreme-to-extreme spatial
+# non-uniformity figure over the nominated test plane; siu2 routes on the
+# sampling grid and plane coverage that have to hold before a figure is
+# quoted. Both must deterministically hit
+# space-systems/ecss/e2008-simulator-irradiance-uniformity.
+tasks:
+  - id: siu1
+    query: "take the spatial non-uniformity of a solar simulator test plane between its brightest and dimmest mapped readings and name both extreme points instead of a scatter about the mean"
+    intent: "ECSS-E-ST-20-08C clause 10.1.2; spatial irradiance uniformity over the nominated test plane"
+    expected_skill: "space-systems/ecss/e2008-simulator-irradiance-uniformity"
+  - id: siu2
+    query: "refuse a simulator uniformity map whose grid is too sparse or bunched over part of the nominated test plane before any uniformity per cent is quoted"
+    intent: "ECSS-E-ST-20-08C clause 10.1.2; sampling point count and test plane coverage behind a uniformity figure"
+    expected_skill: "space-systems/ecss/e2008-simulator-irradiance-uniformity"

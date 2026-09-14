@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-diode-contact-uniformity-test
+# (space-systems/ecss, E-ST-20-08C 9.6.7)
+# Two tasks per leaf; dcu1 routes on the zone coverage of the thickness map
+# and the local floor an evenly thin deposit still fails, dcu2 on the spread
+# against the variation coefficient and the declared qualification sample.
+# Both must deterministically hit
+# space-systems/ecss/e2008-diode-contact-uniformity-test.
+tasks:
+  - id: dcu1
+    query: "check the diode-metallisation-zone-coverage of this thickness map before quoting a diode-thickness-spread-fraction, and apply the diode-local-thickness-floor per site"
+    intent: "ecss photovoltaic assemblies; protection diode contact metallisation mapped site by site and checked for an even thickness across the whole land"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-uniformity-test"
+  - id: dcu2
+    query: "the diode-contact-thickness-uniformity map passes its spread and fails its variation coefficient; sentence it and close the diode-uniformity-qualification-sample"
+    intent: "ecss photovoltaic assemblies; a protection diode contact land sloping gently across its width in a qualification run short of its declared devices"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-uniformity-test"

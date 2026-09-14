@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-protection-diode-esd-sensitivity (space-systems/ecss)
+# Two tasks for the new leaf. pde1 routes on grading the obliged control set for
+# an ESD-sensitive protection diode, including the verification age of each
+# measurement; pde2 routes on the packaging and two-sided storage envelope with
+# the residual charge turned into volts. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-esd-sensitivity.
+tasks:
+  - id: pde1
+    query: "grade the handling controls for a protection diode that survives only a couple of hundred volts on the human body model, the wrist strap measured in band but was last verified three weeks ago and the terminals were not shorted"
+    intent: "ECSS-E-ST-20-08C clause 9.10.2; sensitivity band derived from withstand voltage and discharge model, every obliged control graded on its own band and on verification age"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-esd-sensitivity"
+  - id: pde2
+    query: "is a dissipative bag and a very dry stores rack an acceptable storage regime for ESD sensitive protection diodes, and how much voltage does the residual charge on the package actually deliver"
+    intent: "ECSS-E-ST-20-08C clause 9.10.2; shielding versus dissipative packaging, the two-sided humidity band whose floor is the ESD limit, and residual charge converted to volts against the withstand voltage with margin"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-esd-sensitivity"

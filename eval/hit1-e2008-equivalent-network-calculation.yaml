@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-equivalent-network-calculation (space-systems/ecss)
+# Two tasks for the new leaf. net1 routes on turning a measured cell impedance
+# into element values; net2 routes on the ambiguity between the series and
+# parallel forms that the derivation has to resolve. Both must deterministically
+# hit space-systems/ecss/e2008-equivalent-network-calculation.
+tasks:
+  - id: net1
+    query: "turn the measured impedance magnitude and phase of the solar cell into equivalent circuit element values at the test frequency"
+    intent: "ECSS-E-ST-20-08C clause 11.1.4.2.1; equivalent network elements from measured cell impedance"
+    expected_skill: "space-systems/ecss/e2008-equivalent-network-calculation"
+  - id: net2
+    query: "the bridge gives one capacitance in series form and another in parallel form for the same cell, work out the loss tangent, the quality factor and how much of the series resistance is contact and lead"
+    intent: "ECSS-E-ST-20-08C clause 11.1.4.2.1; series to parallel equivalent network conversion for a cell"
+    expected_skill: "space-systems/ecss/e2008-equivalent-network-calculation"

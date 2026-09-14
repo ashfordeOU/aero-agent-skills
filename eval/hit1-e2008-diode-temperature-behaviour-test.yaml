@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-temperature-behaviour-test (space-systems/ecss,
+# E-ST-20-08C 9.6.14). Two tasks per leaf; dtbt1 routes on the sweep reaching
+# the ends of the operating range, dtbt2 on the two derived numbers the map
+# carries. Both must deterministically hit
+# space-systems/ecss/e2008-diode-temperature-behaviour-test.
+tasks:
+  - id: dtbt1
+    query: "plan a protection-diode-temperature-sweep whose diode-operating-range-endpoint-gap and protection-diode-sweep-step-resolution both hold"
+    intent: "ecss protection diodes; a sweep that actually reaches both ends of the declared operating range"
+    expected_skill: "space-systems/ecss/e2008-diode-temperature-behaviour-test"
+  - id: dtbt2
+    query: "fit the diode-forward-voltage-temperature-coefficient and derive the diode-reverse-leakage-doubling-interval across the operating range"
+    intent: "ecss protection diodes; the temperature coefficient and leakage doubling that the behaviour map reports"
+    expected_skill: "space-systems/ecss/e2008-diode-temperature-behaviour-test"

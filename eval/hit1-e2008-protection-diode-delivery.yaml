@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-protection-diode-delivery (space-systems/ecss)
+# Two tasks for the new leaf. pdd1 routes on a diode dispatch whose counts match
+# but whose lot is short one released document of the set; pdd2 routes on the two
+# different substitution questions a diode line asks - categorical function and
+# the reverse-voltage rating ladder - under a partial-delivery floor. Both must
+# deterministically hit space-systems/ecss/e2008-protection-diode-delivery.
+tasks:
+  - id: pdd1
+    query: "decide whether this shipment of ordered protection diodes may leave, the counts match the order but the lot released its data package and never released the screening test data"
+    intent: "ECSS-E-ST-20-08C clause 9.9; protection diode dispatch released only when the hardware and the lot's whole required document set close together"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-delivery"
+  - id: pdd2
+    query: "can a protection diode order line asking for bypass diodes be filled from blocking diodes, and can a lower reverse voltage rating band substitute for a higher one on a short line above the partial delivery floor"
+    intent: "ECSS-E-ST-20-08C clause 9.9; categorical function substitution refused, rating band upgrade allocation and the partial-delivery floor on a protection diode dispatch"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-delivery"

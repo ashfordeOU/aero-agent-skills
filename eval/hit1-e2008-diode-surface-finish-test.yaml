@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-diode-surface-finish-test
+# (space-systems/ecss, E-ST-20-08C 9.6.9)
+# Two tasks per leaf; dsf1 routes on the magnification floor and the two
+# roughness ceilings, dsf2 on the per-kind anomaly dispositioning and the
+# accumulated coverage rule. Both must deterministically hit
+# space-systems/ecss/e2008-diode-surface-finish-test.
+tasks:
+  - id: dsf1
+    query: "this diode-contact-surface-finish record was taken under the diode-examination-magnification-floor; take the roughness against the diode-contact-roughness-ceiling pair"
+    intent: "ecss photovoltaic assemblies; the finish quality shown by the contact surfaces of a protection diode and whether the examination can support a verdict"
+    expected_skill: "space-systems/ecss/e2008-diode-surface-finish-test"
+  - id: dsf2
+    query: "disposition these pits, nodules and oxidation on diode-finish-anomaly-coverage, apply diode-contact-blister-rejection and total the diode-finish-accumulated-coverage"
+    intent: "ecss photovoltaic assemblies; protection diode contact surface anomalies dispositioned on kind, depth and coverage before the land is welded to"
+    expected_skill: "space-systems/ecss/e2008-diode-surface-finish-test"

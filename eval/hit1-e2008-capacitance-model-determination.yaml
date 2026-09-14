@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-capacitance-model-determination (space-systems/ecss)
+# Two tasks for the new leaf. cmd1 routes on extracting junction model
+# parameters from capacitance taken at several bias voltages; cmd2 routes on
+# the sweep adequacy and forward-bias exclusion that extraction depends on.
+# Both must deterministically hit
+# space-systems/ecss/e2008-capacitance-model-determination.
+tasks:
+  - id: cmd1
+    query: "extract the junction model from solar cell capacitance measured at several bias voltages, built-in voltage from the intercept and doping from the Mott-Schottky slope"
+    intent: "ECSS-E-ST-20-08C clause 11.1.4.2.2; cell capacitance model determination from a multi-bias sweep"
+    expected_skill: "space-systems/ecss/e2008-capacitance-model-determination"
+  - id: cmd2
+    query: "check the bias sweep point count, span and fit quality before quoting a grading coefficient, and drop the forward bias points where diffusion capacitance joins the depletion term"
+    intent: "ECSS-E-ST-20-08C clause 11.1.4.2.2; bias sweep adequacy for a junction capacitance model"
+    expected_skill: "space-systems/ecss/e2008-capacitance-model-determination"
