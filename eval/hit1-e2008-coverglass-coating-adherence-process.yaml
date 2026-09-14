@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-coating-adherence-process (space-systems/ecss,
+# E-ST-20-08C 8.7.11.2.2). Two tasks for the leaf. cad1 routes on loading the
+# whole declared lot against its roster; cad2 routes on the rack, slot and batch
+# map that makes an exposure attributable. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-coating-adherence-process.
+tasks:
+  - id: cad1
+    query: "load every coverglass on the declared lot roster into the ambient pressure chamber before the adherence check and split a lot larger than the chamber into whole runs"
+    intent: "ECSS-E-ST-20-08C clause 8.7.11.2.2; whole-lot completeness of the chamber load ahead of a coating adherence check"
+    expected_skill: "space-systems/ecss/e2008-coverglass-coating-adherence-process"
+  - id: cad2
+    query: "record one rack slot and one batch per coverglass in the chamber load and keep the coated faces turned out and unstacked so each exposure can be attributed"
+    intent: "ECSS-E-ST-20-08C clause 8.7.11.2.2; position map and facing for a pre-adherence conditioning load"
+    expected_skill: "space-systems/ecss/e2008-coverglass-coating-adherence-process"

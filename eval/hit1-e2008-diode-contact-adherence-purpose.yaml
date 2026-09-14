@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-contact-adherence-purpose (space-systems/ecss,
+# E-ST-20-08C 9.6.6.2.1). Two tasks per leaf; dcadpu1 routes on the contact
+# presence condition, dcadpu2 on the demand index and pull load margin. Both
+# must deterministically hit
+# space-systems/ecss/e2008-diode-contact-adherence-purpose.
+tasks:
+  - id: dcadpu1
+    query: "settle diode-attached-contact-presence before scoping a protection-diode-contact-adherence-purpose case for a device that may carry no terminals"
+    intent: "ecss protection diodes; whether an attachment strength check applies to this device at all"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-adherence-purpose"
+  - id: dcadpu2
+    query: "size the diode-terminal-attachment-demand-index, the diode-contact-pull-load-margin and the diode-adherence-sample-coverage before booking a destructive pull"
+    intent: "ecss protection diodes; justifying and sizing a contact adherence campaign"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-adherence-purpose"

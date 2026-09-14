@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-packing-and-storage (space-systems/ecss)
+# Two tasks for the new leaf. cgp1 routes on the pointer clause itself -- which
+# rule set governs coverglass packing, dispatch, handling and storage, and at
+# which issue; cgp2 routes on the coverglass storage envelope and the unspent
+# storage life. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-packing-and-storage.
+tasks:
+  - id: cgp1
+    query: "which rules govern how we pack, dispatch, handle and store coverglasses, the packing instruction only cites a supplier note and the storage one cites an old issue of the product assurance standard"
+    intent: "ECSS-E-ST-20-08C clause 8.11; per-activity resolution of coverglass packing, dispatch, handling and storage to the referenced product assurance standard at its governing issue"
+    expected_skill: "space-systems/ecss/e2008-coverglass-packing-and-storage"
+  - id: cgp2
+    query: "are these coverglass storage conditions inside the permitted envelope and how much of the permitted storage life is left before the stock has to be rescreened"
+    intent: "ECSS-E-ST-20-08C clause 8.11; coverglass storage temperature and humidity envelope, coated-face protection and unspent storage-life margin"
+    expected_skill: "space-systems/ecss/e2008-coverglass-packing-and-storage"

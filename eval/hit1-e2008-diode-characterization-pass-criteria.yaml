@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-diode-characterization-pass-criteria
+# (space-systems/ecss, E-ST-20-08C 9.4.5.2.3). Two tasks per leaf; dcpc1
+# routes on sentencing one characterised diode against its drawing
+# limits, dcpc2 on the lot-level reject allowance and the marginal
+# advisory. Both must deterministically hit
+# space-systems/ecss/e2008-diode-characterization-pass-criteria.
+tasks:
+  - id: dcpc1
+    query: "run the protection-diode-acceptance-sentencing against the source-control-drawing-diode-limits and report the diode-forward-voltage-margin and diode-reverse-leakage-margin"
+    intent: "ecss photovoltaic assemblies; comparing measured diode characteristics with source control drawing limits"
+    expected_skill: "space-systems/ecss/e2008-diode-characterization-pass-criteria"
+  - id: dcpc2
+    query: "take the acceptance-lot-diode-reject-allowance for a characterised diode lot and raise the marginal-diode-degradation-advisory on parts accepted on the line"
+    intent: "ecss photovoltaic assemblies; lot verdict from characterised protection diode data"
+    expected_skill: "space-systems/ecss/e2008-diode-characterization-pass-criteria"

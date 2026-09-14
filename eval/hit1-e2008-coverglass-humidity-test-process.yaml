@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-humidity-test-process (space-systems/ecss,
+# E-ST-20-08C 8.7.11.1.2). Two tasks for the leaf. chp1 routes on the holding
+# geometry inside the ambient pressure chamber; chp2 routes on the dew point
+# margin and the settled dwell the soak is actually credited with. Both must
+# deterministically hit
+# space-systems/ecss/e2008-coverglass-humidity-test-process.
+tasks:
+  - id: chp1
+    query: "stand the subgroup coverglasses on edge supports in the humidity chamber rack, size the slot pitch and clearance and bound the face area the holders mask"
+    intent: "ECSS-E-ST-20-08C clause 8.7.11.1.2; how the coverglasses are held while the humid air is on them"
+    expected_skill: "space-systems/ecss/e2008-coverglass-humidity-test-process"
+  - id: chp2
+    query: "keep the coverglass surface above the chamber dew point during the ambient pressure soak and take the ramp back out of the dwell before crediting the exposure"
+    intent: "ECSS-E-ST-20-08C clause 8.7.11.1.2; condensation margin and settled dwell for a coverglass humidity exposure"
+    expected_skill: "space-systems/ecss/e2008-coverglass-humidity-test-process"

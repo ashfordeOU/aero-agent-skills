@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-diode-contact-area-inspection
+# (space-systems/ecss, E-ST-20-08C 9.6.2.5.1)
+# Two tasks per leaf; dca1 routes on placing marks against the anode and
+# cathode weld lands and the bared-metallisation rule, dca2 on the
+# contact-level accumulations and the two-polarity completeness rule. Both
+# must deterministically hit
+# space-systems/ecss/e2008-diode-contact-area-inspection.
+tasks:
+  - id: dca1
+    query: "run the diode-contact-mark-containment placement on these protection-diode-contact-area-marks and disposition each one on its diode-contact-metallisation-state"
+    intent: "ecss photovoltaic assemblies; digs, scratches and probe marks on a protection diode placed against the anode and cathode contact geometry"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-area-inspection"
+  - id: dca2
+    query: "total the diode-probe-witness-count and the diode-weld-land-clear-fraction and apply diode-contact-polarity-completeness before sentencing this diode"
+    intent: "ecss photovoltaic assemblies; probe witnesses and used-up weld land accumulating on a protection diode contact whose individual marks all passed"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-area-inspection"

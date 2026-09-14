@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-protection-diode-marking (space-systems/ecss,
+# E-ST-20-08C 9.2.3). Two tasks per leaf; pdm1 routes on the customer
+# agreement that picks the marking approach, pdm2 on how far identity
+# survives and what it resolves to. Both must deterministically hit
+# space-systems/ecss/e2008-protection-diode-marking.
+tasks:
+  - id: pdm1
+    query: "audit the external-protection-diode-marking scheme and the diode-marking-customer-agreement standing behind it"
+    intent: "ecss photovoltaic assemblies; marking of delivered external protection diodes agreed with the customer"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-marking"
+  - id: pdm2
+    query: "check the diode-mark-carrier-retention and diode-code-face-fit against the diode-identity-granularity claimed for protection-diode-delivery-traceability"
+    intent: "ecss photovoltaic assemblies; how long a protection diode mark lasts and what it identifies"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-marking"

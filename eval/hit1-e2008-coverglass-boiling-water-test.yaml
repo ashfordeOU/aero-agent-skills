@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-boiling-water-test (space-systems/ecss)
+# Two tasks for the leaf. cbw1 routes on the immersion of single-coated
+# coverglasses in boiling deionised water for a minimum duration; cbw2 routes on
+# the pressure-corrected boil threshold and the hold time integrated out of the
+# bath log. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-boiling-water-test.
+tasks:
+  - id: cbw1
+    query: "judge an immersion of single coated coverglasses in boiling deionised water against the minimum duration and the coating loss seen afterwards"
+    intent: "ECSS-E-ST-20-08C clause 8.7.10; boiling deionised water immersion of single-coated coverglasses"
+    expected_skill: "space-systems/ecss/e2008-coverglass-boiling-water-test"
+  - id: cbw2
+    query: "derive the boiling point of the bath at the declared ambient pressure and integrate the bath log for the hold time the coverglasses actually spent at or above it"
+    intent: "ECSS-E-ST-20-08C clause 8.7.10; pressure-corrected boil threshold and hold time of a coverglass immersion run"
+    expected_skill: "space-systems/ecss/e2008-coverglass-boiling-water-test"

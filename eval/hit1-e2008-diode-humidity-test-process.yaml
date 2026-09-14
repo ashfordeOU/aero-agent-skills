@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-humidity-test-process (space-systems/ecss,
+# E-ST-20-08C 9.6.6.1.2). Two tasks per leaf; dhtp1 routes on the subgroup O
+# tray loading, dhtp2 on the dew point margin at the diode case. Both must
+# deterministically hit
+# space-systems/ecss/e2008-diode-humidity-test-process.
+tasks:
+  - id: dhtp1
+    query: "check a subgroup-o-protection-diode-sample against the protection-diode-damp-chamber-loading rules for diode-tray-free-flow-fraction and protection-diode-package-spacing"
+    intent: "ecss protection diodes; how the subgroup O devices sit on the tray during the damp exposure"
+    expected_skill: "space-systems/ecss/e2008-diode-humidity-test-process"
+  - id: dhtp2
+    query: "derive the diode-case-dew-point-margin at the coldest package and hold the protection-diode-exposure-duration inside the ambient pressure band"
+    intent: "ecss protection diodes; dew point margin and exposure clock inside an ambient pressure chamber"
+    expected_skill: "space-systems/ecss/e2008-diode-humidity-test-process"

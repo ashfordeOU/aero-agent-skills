@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-humidity-test-purpose (space-systems/ecss,
+# E-ST-20-08C 9.6.6.1.1). Two tasks per leaf; dhtp1 routes on why protection
+# diodes are put through damp storage at all, dhtp2 on what the soak is worth
+# and whether the monitoring can see it. Both must deterministically hit
+# space-systems/ecss/e2008-diode-humidity-test-purpose.
+tasks:
+  - id: dhtp1
+    query: "state the protection-diode-damp-storage-purpose covering diode-reverse-leakage-moisture-drift, diode-contact-metallisation-corrosion and diode-protective-coating-crazing"
+    intent: "ecss photovoltaic assemblies; why protection diodes undergo damp storage to expose weaknesses in function, contacts and coatings"
+    expected_skill: "space-systems/ecss/e2008-diode-humidity-test-purpose"
+  - id: dhtp2
+    query: "convert a protection diode damp soak into diode-damp-storage-equivalent-months and check the monitoring can see each declared moisture mechanism move"
+    intent: "ecss photovoltaic assemblies; damp storage acceleration and monitoring coverage for protection diodes"
+    expected_skill: "space-systems/ecss/e2008-diode-humidity-test-purpose"

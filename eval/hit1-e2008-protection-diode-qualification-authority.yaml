@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-protection-diode-qualification-authority (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the customer grant that lets a
+# producer's protection diodes be supplied as qualified; to2 routes on the
+# external versus integral scope split and the grant validity window. Both must
+# deterministically hit
+# space-systems/ecss/e2008-protection-diode-qualification-authority.
+tasks:
+  - id: to1
+    query: "a batch of external protection diodes is about to ship as qualified, check whether the customer actually granted qualification to that producer's diodes or whether the supplier is relying on its own test dossier"
+    intent: "ECSS-E-ST-20-08C clause 9.5.1; the customer grants qualification to external and integral protection diodes of a given producer"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-qualification-authority"
+  - id: to2
+    query: "the grant register holds one entry for this producer's external diodes and the shipment is integral diodes from a second source, with the grant signed after the delivery date, decide whether the supply was authorised"
+    intent: "ECSS-E-ST-20-08C clause 9.5.1; protection diode grant scope across producer and diode kind, and the grant validity window against the supply date"
+    expected_skill: "space-systems/ecss/e2008-protection-diode-qualification-authority"

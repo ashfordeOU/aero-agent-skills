@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-data-documentation (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the coverglass qualification record
+# set plus one data file per delivered production batch; to2 routes on the
+# two-way batch reconciliation and per-piece row coverage. Both must
+# deterministically hit space-systems/ecss/e2008-coverglass-data-documentation.
+tasks:
+  - id: to1
+    query: "check the data package going out with a coverglass delivery carries the qualification records for the type and a data file for every production batch being shipped"
+    intent: "ECSS-E-ST-20-08C clause 8.9; coverglass qualification records and delivered production batch data"
+    expected_skill: "space-systems/ecss/e2008-coverglass-data-documentation"
+  - id: to2
+    query: "one coverglass batch data file cites a superseded process document issue and another leaves a delivered piece with no measured row, decide whether the package can be released"
+    intent: "ECSS-E-ST-20-08C clause 8.9; governing issue citation, batch file reconciliation and per-piece measured data coverage"
+    expected_skill: "space-systems/ecss/e2008-coverglass-data-documentation"

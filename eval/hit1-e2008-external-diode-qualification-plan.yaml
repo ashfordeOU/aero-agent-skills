@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-external-diode-qualification-plan (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the two-level qualification
+# programme for bare protection diodes and complete diode assemblies; to2
+# routes on specimen counts, specimen lot provenance and level sequencing.
+# Both must deterministically hit
+# space-systems/ecss/e2008-external-diode-qualification-plan.
+tasks:
+  - id: to1
+    query: "review the qualification programme for our external protection diodes and say whether it covers both the bare diodes and the complete diode assemblies or only one of them"
+    intent: "ECSS-E-ST-20-08C clause 9.5.3; the qualification programme covers bare protection diodes and complete protection diode assemblies"
+    expected_skill: "space-systems/ecss/e2008-external-diode-qualification-plan"
+  - id: to2
+    query: "the plan runs the diode assembly thermal cycling on four units built from a lot the programme never names, and schedules it before the bare diode campaign finishes, work out what the programme still owes"
+    intent: "ECSS-E-ST-20-08C clause 9.5.3; protection diode qualification specimen counts, specimen lot provenance and bare-before-assembly level sequencing"
+    expected_skill: "space-systems/ecss/e2008-external-diode-qualification-plan"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-deliverable-protection-diode-components
+# (space-systems/ecss, E-ST-20-08C 9.2.2). Two tasks per leaf; dpc1 routes on
+# which delivery line a protection diode belongs on, dpc2 on the three counts
+# a string has to reconcile. Both must deterministically hit
+# space-systems/ecss/e2008-deliverable-protection-diode-components.
+tasks:
+  - id: dpc1
+    query: "review the pva-deliverable-protection-diode-items and settle the pva-diode-item-line-placement from the protection-diode-mounting-category"
+    intent: "ecss photovoltaic assemblies; integral protection diodes as deliverable items of the assembly"
+    expected_skill: "space-systems/ecss/e2008-deliverable-protection-diode-components"
+  - id: dpc2
+    query: "run the pva-diode-inventory-reconciliation against the string-bypass-diode-count and report the pva-diode-release-bracket"
+    intent: "ecss photovoltaic assemblies; diodes required, fitted and declared per string at delivery"
+    expected_skill: "space-systems/ecss/e2008-deliverable-protection-diode-components"

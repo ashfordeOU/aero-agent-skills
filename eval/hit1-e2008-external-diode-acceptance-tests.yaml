@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-external-diode-acceptance-tests (space-systems/ecss,
+# E-ST-20-08C 9.4.3). Two tasks per leaf; edt1 routes on drawing the programme
+# from the tabulated test list, edt2 on conditional resolution and the running
+# order. Both must deterministically hit
+# space-systems/ecss/e2008-external-diode-acceptance-tests.
+tasks:
+  - id: edt1
+    query: "draw the external-diode-acceptance-tests programme from the external-protection-diode-test-table and check external-diode-mandatory-test-coverage"
+    intent: "ecss external protection diodes; acceptance programme drawn from the tabulated test list"
+    expected_skill: "space-systems/ecss/e2008-external-diode-acceptance-tests"
+  - id: edt2
+    query: "resolve external-diode-conditional-test-resolution against the build then grade external-diode-test-sequence-order for the external-diode-acceptance-programme-verdict"
+    intent: "ecss external protection diodes; conditional rows and tabulated running order of the acceptance programme"
+    expected_skill: "space-systems/ecss/e2008-external-diode-acceptance-tests"

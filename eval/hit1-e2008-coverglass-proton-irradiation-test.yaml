@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-proton-irradiation-test (space-systems/ecss)
+# Two tasks for the new leaf. cgpi1 routes on proton stopping depths deciding
+# which energy line ages the coating and which ages the glass under it; cgpi2
+# routes on adding the per-line optical densities into one darkening figure.
+# Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-proton-irradiation-test.
+tasks:
+  - id: cgpi1
+    query: "turn each proton energy line into a stopping depth in the coverglass and refuse an exposure matrix that leaves either the coating or the glass substrate unaged"
+    intent: "ECSS-E-ST-20-08C clause 8.7.14; coverglass proton stopping depth and layer coverage"
+    expected_skill: "space-systems/ecss/e2008-coverglass-proton-irradiation-test"
+  - id: cgpi2
+    query: "add the per-energy-line optical densities of a coverglass proton exposure into one darkening figure and judge the transmittance left against the array budget"
+    intent: "ECSS-E-ST-20-08C clause 8.7.14; coverglass additive optical density and transmittance floor"
+    expected_skill: "space-systems/ecss/e2008-coverglass-proton-irradiation-test"

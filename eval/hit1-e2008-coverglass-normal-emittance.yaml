@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-normal-emittance (space-systems/ecss)
+# Two tasks for the new leaf. em1 routes on taking the coverglass normal
+# emittance by the method the referenced thermal control standard fixes;
+# em2 routes on the spectral coverage and the exitance weighting that the
+# quoted average depends on. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-normal-emittance.
+tasks:
+  - id: em1
+    query: "we need the coverglass normal emittance taken the way the referenced thermal control standard fixes, with the instrument and the specimen temperature inside the band that method covers"
+    intent: "ECSS-E-ST-20-08C clause 8.7.6; coverglass normal emittance by the referenced thermal method"
+    expected_skill: "space-systems/ecss/e2008-coverglass-normal-emittance"
+  - id: em2
+    query: "the coverglass emittance scan stops at 15 microns, check the blackbody exitance coverage and weight the band emittances properly before quoting the average against the drawing band"
+    intent: "ECSS-E-ST-20-08C clause 8.7.6; spectral coverage and exitance-weighted emittance average"
+    expected_skill: "space-systems/ecss/e2008-coverglass-normal-emittance"

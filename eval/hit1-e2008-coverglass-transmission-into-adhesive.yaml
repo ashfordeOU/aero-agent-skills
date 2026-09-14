@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-transmission-into-adhesive (space-systems/ecss)
+# Two tasks for the leaf. ctid1 routes on the scan taken through a backing piece
+# bonded behind the sample; ctid2 routes on dividing the backing reference out
+# and checking the gain against the Fresnel loss of the removed rear air
+# interface. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-transmission-into-adhesive.
+tasks:
+  - id: ctid1
+    query: "reduce a coverglass transmission scan taken with a fused silica backing piece bonded behind the sample to the band average transmission into the adhesive"
+    intent: "ECSS-E-ST-20-08C clause 8.7.9; coverglass transmission measured into an adhesive through a bonded backing piece"
+    expected_skill: "space-systems/ecss/e2008-coverglass-transmission-into-adhesive"
+  - id: ctid2
+    query: "divide the backing reference scan out of a bonded stack coverglass measurement and check the gain over the into-air figure against the Fresnel loss of the removed rear air interface"
+    intent: "ECSS-E-ST-20-08C clause 8.7.9; backing piece correction and interface gain plausibility on a bonded coverglass stack"
+    expected_skill: "space-systems/ecss/e2008-coverglass-transmission-into-adhesive"

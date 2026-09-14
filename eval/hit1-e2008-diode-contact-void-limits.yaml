@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-diode-contact-void-limits
+# (space-systems/ecss, E-ST-20-08C 9.6.2.5.2)
+# Two tasks per leaf; dcv1 routes on the governing extent and the
+# equivalent-diameter trap, dcv2 on coalescence and the per-land voided
+# fraction. Both must deterministically hit
+# space-systems/ecss/e2008-diode-contact-void-limits.
+tasks:
+  - id: dcv1
+    query: "sentence these protection-diode-contact-voids on diode-void-maximum-extent against the diode-quarter-millimetre-void-ceiling, not the diode-void-equivalent-diameter-trap"
+    intent: "ecss photovoltaic assemblies; voids and bubbles on a protection diode contact where an elongated cavity passes on an area-equivalent diameter"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-void-limits"
+  - id: dcv2
+    query: "apply diode-void-coalescence-merge to these closed bubbles and total the diode-contact-voided-fraction on each polarity land"
+    intent: "ecss photovoltaic assemblies; bubbles that have closed on one another under a weld pulse and a contact used up by many small cavities"
+    expected_skill: "space-systems/ecss/e2008-diode-contact-void-limits"

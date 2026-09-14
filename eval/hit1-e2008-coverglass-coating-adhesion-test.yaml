@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-coating-adhesion-test (space-systems/ecss)
+# Two tasks for the leaf. cca1 routes on the customer-accepted test standard
+# gate; cca2 routes on the per-family reading and the glue-failure lower bound.
+# Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-coating-adhesion-test.
+tasks:
+  - id: cca1
+    query: "check that the coverglass coating adhesion result was produced under a test standard the customer had already accepted and refuse a nomination that is not on that list"
+    intent: "ECSS-E-ST-20-08C clause 8.7.18; coating adhesion against a customer-accepted test standard"
+    expected_skill: "space-systems/ecss/e2008-coverglass-coating-adhesion-test"
+  - id: cca2
+    query: "read the coating adhesion run by the family its accepted standard prescribes, the tape removed-area share, the cross-cut lattice detached squares and grade, or a stud pull-off stress that only counts when the glue was not the weakest link"
+    intent: "ECSS-E-ST-20-08C clause 8.7.18; per-family adhesion reading and failure-mode conclusiveness"
+    expected_skill: "space-systems/ecss/e2008-coverglass-coating-adhesion-test"

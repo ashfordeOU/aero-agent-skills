@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-diode-acceptance-testing-general (space-systems/ecss,
+# E-ST-20-08C 9.4.1). Two tasks per leaf; dat1 routes on the two diode
+# populations the clause owes, dat2 on the sampled activity share and the lot
+# verdict. Both must deterministically hit
+# space-systems/ecss/e2008-diode-acceptance-testing-general.
+tasks:
+  - id: dat1
+    query: "evaluate diode-delivery-population-acceptance together with diode-qualification-population-acceptance across the lot"
+    intent: "ecss diodes; acceptance testing applied to delivered diodes and to qualification hardware"
+    expected_skill: "space-systems/ecss/e2008-diode-acceptance-testing-general"
+  - id: dat2
+    query: "grade the diode-sampled-activity-share and each diode-acceptance-record-state then return the diode-lot-acceptance-verdict"
+    intent: "ecss diodes; sampled acceptance activities and the diode lot acceptance verdict"
+    expected_skill: "space-systems/ecss/e2008-diode-acceptance-testing-general"
