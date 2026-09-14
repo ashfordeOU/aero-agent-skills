@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-procurement-overview (space-systems/ecss,
+# Q-ST-60-13C 6.3.1 at the lowest assurance class). Two tasks for the leaf;
+# po3a routes on the channel-sized register and the rigour minima, po3b on the
+# no-evidence demotion and the purchasing assurance index. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-3-procurement-overview.
+tasks:
+  - id: po3a
+    query: "we are buying commercial parts on an ordinary order from an independent distributor at the lowest assurance class; size the commercial-order-supply-channel-register and tell me the class-three-purchasing-control-rigour each control has to reach before the order goes out"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.1; class 3 purchasing control register and rigour minima sized by the declared supply channel"
+    expected_skill: "space-systems/ecss/q6013-class-3-procurement-overview"
+  - id: po3b
+    query: "the buyer says the date code band and the receipt record were both handled but cites no paperwork for either; settle the purchasing-claim-evidence-demotion, credit the short controls by the rigour ratio and give me the purchasing-assurance-index-floor comparison and the class-three-procurement-verdict"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.1; unevidenced purchasing claims demoted, rigour-ratio credit, assurance index against the declared floor"
+    expected_skill: "space-systems/ecss/q6013-class-3-procurement-overview"

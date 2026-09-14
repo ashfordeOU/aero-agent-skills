@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-traceability (space-systems/ecss)
+# Two tasks for the leaf. c3t1 routes on resolving a fitted part back to its
+# goods-in entry and taking the weakest link as the depth reached; c3t2 routes
+# on the pooled-batch depth cap and the integer coverage floor. Both must
+# deterministically hit space-systems/ecss/q6013-class-3-traceability.
+tasks:
+  - id: c3t1
+    query: "follow a commercial part fitted to an assembly back through its kitting records to the goods-in entry and say what traceability depth it actually reaches"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.4; installation-to-goods-in chain resolution and weakest-link trace depth at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-traceability"
+  - id: c3t2
+    query: "work out whether pooling several deliveries into one working batch caps the traceability depth and whether enough fitted parts still reach the declared floor"
+    intent: "ECSS-Q-ST-60-13C clause 6.5.4; pooled-batch depth cap and integer record coverage against the floor"
+    expected_skill: "space-systems/ecss/q6013-class-3-traceability"

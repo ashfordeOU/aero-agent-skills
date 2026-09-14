@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-lot-acceptance (space-systems/ecss)
+# Two tasks for the leaf. lac3a routes on the route escalation triggers; lac3b
+# routes on the manufacturer conformance data credit and the per-subgroup
+# accept number and rate. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-lot-acceptance.
+tasks:
+  - id: lac3a
+    query: "this batch of lowest-class commercial parts came from an independent broker, has an open process change notice against the build and has been on a shelf for thirty months; work out which lot acceptance route it is actually on and what still has to be tested"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.5; class 3 lot acceptance route escalation from supply channel, change notice and shelf age"
+    expected_skill: "space-systems/ecss/q6013-class-3-lot-acceptance"
+  - id: lac3b
+    query: "the manufacturer's conformance report names no issue and covers the month before our build, and our own end-point test found one failure in a sample of twenty against an accept number of two; decide whether this commercial batch can be accepted at the lowest class"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.5; manufacturer data credit and purchaser subgroup accept number against the allowable percent defective"
+    expected_skill: "space-systems/ecss/q6013-class-3-lot-acceptance"

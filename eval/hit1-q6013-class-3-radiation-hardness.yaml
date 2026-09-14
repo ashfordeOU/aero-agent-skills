@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-radiation-hardness (space-systems/ecss,
+# Q-ST-60-13C 6.2.2.4). Two tasks per leaf; c3rh1 routes on sizing the
+# margined total-dose requirement from the evidence basis, c3rh2 on the
+# bare destructive-rate route this class opens for a non-critical function.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-3-radiation-hardness.
+tasks:
+  - id: c3rh1
+    query: "size the commercial-part-total-ionising-dose requirement from the radiation-design-margin-by-evidence-basis at class three and say whether a lot-radiation-screening-trigger fires on the dose headroom left"
+    intent: "ecss commercial eee components; radiation hardness criteria when selecting a commercial part at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-radiation-hardness"
+  - id: c3rh2
+    query: "decide whether the unprotected-destructive-rate-allowance may carry a latch-up susceptible commercial part past the function-criticality-radiation-gate under class-three-radiation-hardness-assurance"
+    intent: "ecss commercial eee components; destructive single-event route open at the lowest assurance class and the restriction it leaves"
+    expected_skill: "space-systems/ecss/q6013-class-3-radiation-hardness"

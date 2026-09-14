@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-selection-rules (space-systems/ecss)
+# Two tasks for the new leaf. c3sr1 routes on the two-ended temperature coverage
+# and the baseline admissibility of a commercial candidate; c3sr2 routes on the
+# qualified-alternative and production-status rules and the binding rule. Both
+# must deterministically hit
+# space-systems/ecss/q6013-class-3-selection-rules.
+tasks:
+  - id: c3sr1
+    query: "decide whether this commercial part may take a Class 3 slot when its rated temperature range only just covers the mission at the cold end and the delivery is a single lot with a date code"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.2.1; baseline Class 3 part selection, temperature range coverage and lot traceability"
+    expected_skill: "space-systems/ecss/q6013-class-3-selection-rules"
+  - id: c3sr2
+    query: "the maker has announced end of production and a qualified higher-assurance part fits the same slot; tell me which baseline selection rule binds this Class 3 commercial choice and what it demands"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.2.1; production status with a lifetime buy, qualified alternative test and the binding selection rule"
+    expected_skill: "space-systems/ecss/q6013-class-3-selection-rules"

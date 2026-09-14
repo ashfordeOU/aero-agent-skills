@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-procurement-test-table-selection (space-systems/ecss)
+# Two tasks for the new leaf. ptt1 routes on resolving the part family and
+# picking the matching procurement test matrix; ptt2 routes on which rows of
+# that matrix the declared class calls for and on a waiver that changes
+# nothing. Both must deterministically hit
+# space-systems/ecss/q6013-procurement-test-table-selection.
+tasks:
+  - id: ptt1
+    query: "which procurement test matrix do we buy this part against, it is a film part but the buyer wrote the technology down without the component type and a film capacitor and a film resistor are not the same table"
+    intent: "ECSS-Q-ST-60-13C clause 8.2; resolving the commercial part family from component type and technology together and mapping it to its procurement test table"
+    expected_skill: "space-systems/ecss/q6013-procurement-test-table-selection"
+  - id: ptt2
+    query: "the table has seven test groups but we are procuring to the lowest assurance class, which rows actually apply and is the burn-in waiver in the purchase order relaxing anything at all"
+    intent: "ECSS-Q-ST-60-13C clause 8.2; class-dependent applicability of the procurement test table and reconciliation of proposed test waivers"
+    expected_skill: "space-systems/ecss/q6013-procurement-test-table-selection"

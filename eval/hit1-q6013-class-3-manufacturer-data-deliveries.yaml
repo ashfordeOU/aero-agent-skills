@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-manufacturer-data-deliveries (space-systems/ecss)
+# Two tasks for the leaf. mdd3a routes on the provenance credit each delivered
+# item earns and the core credit floor a certificate owes; mdd3b routes on the
+# supporting-item waiver record and the unfranchised-source authenticity hold.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-3-manufacturer-data-deliveries.
+tasks:
+  - id: mdd3a
+    query: "the folder that arrived with our commercial parts holds a distributor certificate and a datasheet we pulled off the manufacturer website, score the delivered documentation at the lowest assurance class and say whether a published page can carry a core item"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.11; data item provenance credit, the archived published datasheet and the core credit floor"
+    expected_skill: "space-systems/ecss/q6013-class-3-manufacturer-data-deliveries"
+  - id: mdd3b
+    query: "we accepted dropping the material declaration for this commercial lot and one certificate came from a broker outside the franchised chain, decide whether the delivered data package can still be received at the lightest class"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.11; the supporting-item waiver record, the unfranchised source hold and the provenance-weighted completeness floor"
+    expected_skill: "space-systems/ecss/q6013-class-3-manufacturer-data-deliveries"

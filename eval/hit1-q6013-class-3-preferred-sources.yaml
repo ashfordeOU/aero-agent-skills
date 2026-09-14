@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-preferred-sources (space-systems/ecss)
+# Two tasks for the new leaf. c3ps1 routes on ordering offered commercial sources
+# by the preference order; c3ps2 routes on the open-market broker floor and the
+# conditions a non-preferred offer carries. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-preferred-sources.
+tasks:
+  - id: c3ps1
+    query: "three houses have quoted this commercial part for a Class 3 buy, one franchised and two independent; work out which source the preference order points at and by how much it wins"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.2.3; preferred commercial source order, franchised distributor preference and supply chain traceability"
+    expected_skill: "space-systems/ecss/q6013-class-3-preferred-sources"
+  - id: c3ps2
+    query: "an open market broker has the only stock left and offers no counterfeit screening; say whether that offer is usable for a Class 3 procurement and what conditions a lesser source would have to meet"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.2.3; open-market broker as last resort, counterfeit screening floor and date-code age limit"
+    expected_skill: "space-systems/ecss/q6013-class-3-preferred-sources"

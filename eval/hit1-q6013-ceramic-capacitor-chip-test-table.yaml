@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-ceramic-capacitor-chip-test-table (space-systems/ecss)
+# Two tasks for the leaf. cc1 routes on the completeness of the declared test
+# matrix and the sampling rule that turns a percentage of the lot into whole
+# devices; cc2 routes on the directional parameter limits that reject a row
+# whose failure count is clean. Both must deterministically hit
+# space-systems/ecss/q6013-ceramic-capacitor-chip-test-table.
+tasks:
+  - id: cc1
+    query: "check that a ceramic capacitor chip lot's declared test matrix covers every required test group once and resolve each row's sample size from its percent-of-lot rule without gaining a device to rounding"
+    intent: "ECSS-Q-ST-60-13C Table 8-1; ceramic chip test matrix coverage and sampling-rule resolution"
+    expected_skill: "space-systems/ecss/q6013-ceramic-capacitor-chip-test-table"
+  - id: cc2
+    query: "judge measured capacitance drift, dissipation factor and insulation resistance on a ceramic chip test row against their limits in the right direction and say whether the lot is accepted or held"
+    intent: "ECSS-Q-ST-60-13C Table 8-1; directional parameter limits and the accept-or-hold disposition for a ceramic chip lot"
+    expected_skill: "space-systems/ecss/q6013-ceramic-capacitor-chip-test-table"

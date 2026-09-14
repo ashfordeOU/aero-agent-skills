@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6013-class-3-incoming-inspection (space-systems/ecss,
+# Q-ST-60-13C 6.3.7 at the lowest assurance category). Two tasks for the leaf;
+# ci3a routes on the supplier-premises-source-inspection claim and the
+# surveillance-audit-currency behind it, ci3b on source-report-criteria-coverage,
+# the residual-dock-verification duties and the receipt disposition. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-3-incoming-inspection.
+tasks:
+  - id: ci3a
+    query: "decide whether a supplier-premises-source-inspection can stand in for our own receiving inspection of a lowest assurance commercial parts delivery, and take the surveillance-audit-currency behind that supplier"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.7; class three delegation of receiving inspection to the supplier premises"
+    expected_skill: "space-systems/ecss/q6013-class-3-incoming-inspection"
+  - id: ci3b
+    query: "the source report never looked at lead condition and the crate arrived damaged; settle the source-report-criteria-coverage, the residual-dock-verification duties and the class-three-receipt-disposition"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.7; source report coverage, residual dock duties and the receipt disposition at the lowest class"
+    expected_skill: "space-systems/ecss/q6013-class-3-incoming-inspection"

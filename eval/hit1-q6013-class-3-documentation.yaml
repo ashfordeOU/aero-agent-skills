@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-documentation (space-systems/ecss)
+# Two tasks for the new leaf. cl3doc1 routes on the short class 3 minimum kept
+# set and on documents kept above it; cl3doc2 routes on supplier custody and
+# whether the project can actually produce a document it does not hold. Both
+# must deterministically hit space-systems/ecss/q6013-class-3-documentation and
+# not the class 1 record-package leaf.
+tasks:
+  - id: cl3doc1
+    query: "we buy this part off a catalogue at the lowest assurance level, what is the short set of documents we actually have to keep and does a voluntary evaluation report make up for the as-built list we never produced"
+    intent: "ECSS-Q-ST-60-13C clause 6.7; the class 3 minimum kept document set and the treatment of documents kept above that minimum"
+    expected_skill: "space-systems/ecss/q6013-class-3-documentation"
+  - id: cl3doc2
+    query: "half the paperwork for this commercial part sits with the distributor and we have nothing in the purchase order giving us access, is our file complete or only nominally complete"
+    intent: "ECSS-Q-ST-60-13C clause 6.7; custody of class 3 kept documents and held versus reachable completeness of the file"
+    expected_skill: "space-systems/ecss/q6013-class-3-documentation"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-procurement-specification (space-systems/ecss,
+# Q-ST-60-13C 6.3.2 at the lowest assurance class). Two tasks for the leaf;
+# ps3a routes on the carrier assignment and the items barred from the data
+# sheet, ps3b on the citation issue lock and the completeness floor. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-3-procurement-specification.
+tasks:
+  - id: ps3a
+    query: "our thin purchase specification leaves the ordered temperature range and the acceptance route to the maker's data sheet; run the order-content-carrier-assignment for the class-three-purchase-specification-content and tell me which items may not rest there"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.2; permitted carriers per required content item at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-procurement-specification"
+  - id: ps3b
+    query: "the parameter limits point at a data sheet with no issue number and the specification itself has no approving authority; settle the data-sheet-citation-issue-lock, the specification-header-required rule and the procurement-content-completeness-floor before we place the order"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.2; data-sheet citation lock, specification header identification and content completeness against the floor"
+    expected_skill: "space-systems/ecss/q6013-class-3-procurement-specification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-material-restrictions (space-systems/ecss)
+# Two tasks for the new leaf. c3mr1 routes on grading a declared finish and
+# plating against the prohibited/restricted construction table; c3mr2 routes on
+# the plastic-encapsulation moisture floor life. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-material-restrictions.
+tasks:
+  - id: c3mr1
+    query: "this commercial part comes with a bare tin finish and a cadmium plated lead frame; say which construction bars it from a Class 3 build and whether a hot solder dip clears the other one"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.2.2; prohibited and restricted constructions in commercial parts, tin whisker mitigation"
+    expected_skill: "space-systems/ecss/q6013-class-3-material-restrictions"
+  - id: c3mr2
+    query: "the plastic encapsulated part sat out of its dry pack longer than the moisture sensitivity level allows; grade the construction and tell me what the exposure now demands"
+    intent: "ECSS-Q-ST-60-13C clause 6.2.2.2; non-hermetic plastic encapsulation moisture floor life and bake action"
+    expected_skill: "space-systems/ecss/q6013-class-3-material-restrictions"

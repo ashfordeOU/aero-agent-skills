@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-self-made-magnetics (space-systems/ecss,
+# Q-ST-60-13C 6.6.8 at the lowest assurance class). Two tasks for the leaf.
+# m3a routes on the in-house build basis and the copper-loss heat balance;
+# m3b routes on batch sample sizing, per-unit screening coverage and the
+# measured turns ratio band. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-self-made-magnetics.
+tasks:
+  - id: m3a
+    query: "we wound this transformer ourselves against a drawing with no issue recorded; grade the in-house-wound-magnetic-build-basis, then solve the winding-copper-loss-heat-balance for the hot spot and take the winding-thermal-stability-margin"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.8; in-house magnetic build basis and solved winding hot spot at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-self-made-magnetics"
+  - id: m3b
+    query: "twenty-four units came off the bench and only two saw the withstand test; work the magnetic-batch-sample-sizing, the magnetic-per-unit-screening-coverage and the measured-turns-ratio-tolerance unit by unit"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.8; sample sizing, per-unit screening coverage and turns ratio acceptance for an in-house magnetic batch at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-self-made-magnetics"

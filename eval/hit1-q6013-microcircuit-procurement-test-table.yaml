@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-microcircuit-procurement-test-table (space-systems/ecss)
+# Two tasks for the leaf. up1 routes on the burn-in percent defective allowable
+# taken on the entered population and the bounded handling-damage exclusion;
+# up2 routes on drift, temperature-point coverage and a life test that stopped
+# early. Both must deterministically hit
+# space-systems/ecss/q6013-microcircuit-procurement-test-table.
+tasks:
+  - id: up1
+    query: "work out the burn-in percent defective allowable for this microcircuit lot when the supplier wants six of the eight failures written off as handling damage and quotes the rate on the surviving devices"
+    intent: "ECSS-Q-ST-60-13C Table 8-6; burn-in PDA on the entered population with a bounded exclusion of non-device failures"
+    expected_skill: "space-systems/ecss/q6013-microcircuit-procurement-test-table"
+  - id: up2
+    query: "the microcircuit electrical readings were taken at room temperature only, two devices moved more than their delta limit and the life test was pulled at five hundred of a thousand hours, is the lot releasable"
+    intent: "ECSS-Q-ST-60-13C Table 8-6; parameter-drift rejects, cold/room/hot coverage and a life-test duration shortfall"
+    expected_skill: "space-systems/ecss/q6013-microcircuit-procurement-test-table"

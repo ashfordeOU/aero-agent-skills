@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-derating-rules (space-systems/ecss,
+# Q-ST-60-13C 6.2.2.5). Two tasks per leaf; c3dr1 routes on turning a maker
+# rating into the allowable applied value at this class, c3dr2 on the
+# nominal-analysis uplift and the bounded relaxation band. Both must
+# deterministically hit space-systems/ecss/q6013-class-3-derating-rules.
+tasks:
+  - id: c3dr1
+    query: "apply the class-three-eee-derating-limits to a commercial-part-voltage-derating case and give the allowable applied value plus the junction-temperature-step-down ceiling the part may run to"
+    intent: "ecss commercial eee components; derating limits on stress applied to a commercial part at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-derating-rules"
+  - id: c3dr2
+    query: "grade a commercial-part-power-dissipation-derating stress after the nominal-analysis-stress-uplift and decide whether the approved-derating-relaxation-band still covers the overshoot"
+    intent: "ecss commercial eee components; uplifting a nominal applied value and grading it against the derated envelope"
+    expected_skill: "space-systems/ecss/q6013-class-3-derating-rules"

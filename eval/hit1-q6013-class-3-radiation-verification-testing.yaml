@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-radiation-verification-testing
+# (space-systems/ecss, Q-ST-60-13C 6.3.8 at the lowest assurance category).
+# Two tasks for the leaf; rv3a routes on radiation-sensitivity-triage and the
+# evidence-tier-dose-penalty, rv3b on the total-dose-capability-margin and the
+# destructive-single-event-refusal. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-radiation-verification-testing.
+tasks:
+  - id: rv3a
+    query: "run the radiation-sensitivity-triage on a commercial part at the lowest assurance category and apply the evidence-tier-dose-penalty to a capability taken off the manufacturer datasheet"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.8; class three radiation sensitivity triage and evidence tier penalties"
+    expected_skill: "space-systems/ecss/q6013-class-3-radiation-verification-testing"
+  - id: rv3b
+    query: "the declared dose number clears the mission but nobody has latch-up data for the part; settle the total-dose-capability-margin, the destructive-single-event-refusal and the class-three-radiation-verdict"
+    intent: "ECSS-Q-ST-60-13C clause 6.3.8; total dose margin, destructive single-event data and the verification verdict at the lowest class"
+    expected_skill: "space-systems/ecss/q6013-class-3-radiation-verification-testing"

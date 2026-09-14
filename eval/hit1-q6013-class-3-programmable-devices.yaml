@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-programmable-devices (space-systems/ecss,
+# Q-ST-60-13C 6.6.4 at the lowest assurance class). Two tasks for the leaf;
+# p3a routes on the category control set and the open-control listing, p3b on
+# the readback verification, batch coverage and derated endurance budget.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-3-programmable-devices.
+tasks:
+  - id: p3a
+    query: "derive the class-three-programming-controls a one time or reprogrammable part owes and produce the open-programming-control-record for the operation"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.4; which programming controls a commercial programmable device owes at the lowest assurance class and which the record leaves open"
+    expected_skill: "space-systems/ecss/q6013-class-3-programmable-devices"
+  - id: p3b
+    query: "check the programming-pattern-readback-verification, the programming-batch-verification-coverage and the programming-endurance-derating-budget of a programmed batch"
+    intent: "ECSS-Q-ST-60-13C clause 6.6.4; pattern identity, readback agreement, device-by-device verification share and spent programming cycles at the lowest class"
+    expected_skill: "space-systems/ecss/q6013-class-3-programmable-devices"

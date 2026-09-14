@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-manufacturer-assessment (space-systems/ecss,
+# Q-ST-60-13C 6.2.3.2). Two tasks per leaf; c3ma1 routes on the capability
+# level and the evidence ceiling, c3ma2 on the class-3 floor and the
+# surveillance interval. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-manufacturer-assessment.
+tasks:
+  - id: c3ma1
+    query: "credit each quality control at its control-evidence-ceiling and take the weakest core control as the manufacturer-capability-level"
+    intent: "ecss commercial eee parts; assessing a commercial manufacturer and its quality controls for lowest assurance use"
+    expected_skill: "space-systems/ecss/q6013-class-3-manufacturer-assessment"
+  - id: c3ma2
+    query: "test a commercial manufacturer against the class-3-capability-floor and derive the manufacturer-surveillance-interval with the actions owed"
+    intent: "ecss commercial eee parts; whether a commercial manufacturer may be used at the lowest assurance class and when it is revisited"
+    expected_skill: "space-systems/ecss/q6013-class-3-manufacturer-assessment"

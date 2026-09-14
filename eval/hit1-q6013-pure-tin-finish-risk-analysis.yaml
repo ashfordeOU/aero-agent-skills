@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-pure-tin-finish-risk-analysis (space-systems/ecss)
+# Two tasks for the new leaf. tin1 routes on whether a finish counts as pure
+# tin and on bounding whisker growth against conductor spacing; tin2 routes on
+# arc-sustaining circuits and on which mitigations the outcome demands. Both
+# must deterministically hit
+# space-systems/ecss/q6013-pure-tin-finish-risk-analysis.
+tasks:
+  - id: tin1
+    query: "these connectors are plated bright tin straight onto brass with about a micron of plating, work out how long a whisker could get over an eight year mission and whether it reaches the next pin"
+    intent: "ECSS-Q-ST-60-13C clause 9.2; pure tin composition decision and bounding whisker length against minimum conductor spacing for a bridging margin"
+    expected_skill: "space-systems/ecss/q6013-pure-tin-finish-risk-analysis"
+  - id: tin2
+    query: "the bus rail behind this tin plated terminal is 28 volts and can push amps, so a bridge would hold an arc rather than blow clear, how much more clearance do we need and is a conformal coat enough or do we have to re-tin with a lead bearing alloy"
+    intent: "ECSS-Q-ST-60-13C clause 9.2; arc-sustaining uplift to the required bridging margin and selection of whisker mitigation controls"
+    expected_skill: "space-systems/ecss/q6013-pure-tin-finish-risk-analysis"

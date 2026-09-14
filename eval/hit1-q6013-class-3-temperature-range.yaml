@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-3-temperature-range (space-systems/ecss,
+# Q-ST-60-13C 6.2.2.6). Two tasks per leaf; c3tr1 routes on widening the
+# application case and grading the two ends, c3tr2 on the credits that may
+# move an end at this class. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-temperature-range.
+tasks:
+  - id: c3tr1
+    query: "widen the application case by the analysis uncertainty, take the thermal-model-correlation-credit where the model was correlated by test, and grade the cold-end-hot-end-thermal-margin against class-three-rated-temperature-range"
+    intent: "ecss commercial eee components; rated temperature limits against the application conditions at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-temperature-range"
+  - id: c3tr2
+    query: "decide whether a hot-end-mounting-repair-credit or commercial-part-uprating-admissibility can close a short end of a commercial-part-temperature-grade-band"
+    intent: "ecss commercial eee components; bounded credits that may move a rated end or pull a hot extreme in"
+    expected_skill: "space-systems/ecss/q6013-class-3-temperature-range"
