@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-blocking-diode-data-documentation (space-systems/ecss)
+# Two tasks for the new leaf. bddd1 routes on the two-tier supplier package
+# where most delivered diode batches have no data file; bddd2 routes on a
+# screening record that is present, approved and covers a fraction of the
+# serials the batch delivered while citing a superseded approval. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-data-documentation.
+tasks:
+  - id: bddd1
+    query: "grade the supplier data package for a blocking diode delivery, the type qualification records are all in but only one of the four delivered diode batches has a batch data file"
+    intent: "ECSS-E-ST-20-08C clause 12.8; blocking diode data package covering type qualification records and every delivered batch"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-data-documentation"
+  - id: bddd2
+    query: "a delivered blocking diode batch has an approved electrical screening record at the governing issue with rows for forty of its four hundred serials, and it cites a superseded type qualification approval"
+    intent: "ECSS-E-ST-20-08C clause 12.8; per-serial screening coverage and governing approval citation on a blocking diode batch data file"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-data-documentation"

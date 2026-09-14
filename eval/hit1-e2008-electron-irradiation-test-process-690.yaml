@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-electron-irradiation-test-process-690 (space-systems/ecss)
+# Two tasks for the new leaf. eb1 routes on the planar blocking diode fluence
+# ladder and its bias condition; eb2 routes on the one megaelectronvolt beam
+# energy tolerance and the per step forward drop and leakage readouts. Both must
+# deterministically hit
+# space-systems/ecss/e2008-electron-irradiation-test-process-690.
+tasks:
+  - id: eb1
+    query: "check the planar blocking diode fluence step ladder rises and that the bias condition was held the same across every exposure step"
+    intent: "ECSS-E-ST-20-08C clause 12.6.11.2.2; planar blocking diode electron irradiation run"
+    expected_skill: "space-systems/ecss/e2008-electron-irradiation-test-process-690"
+  - id: eb2
+    query: "audit the one mev electron beam energy tolerance and the forward drop and reverse leakage readouts either side of each blocking diode irradiation step"
+    intent: "ECSS-E-ST-20-08C clause 12.6.11.2.2; stated irradiation method for planar blocking diodes"
+    expected_skill: "space-systems/ecss/e2008-electron-irradiation-test-process-690"

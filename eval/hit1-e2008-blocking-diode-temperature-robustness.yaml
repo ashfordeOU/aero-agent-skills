@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-temperature-robustness (space-systems/ecss,
+# E-ST-20-08C 12.6.10). Two tasks per leaf; bdtr1 routes on the exposure plan at
+# the two service extremes, bdtr2 on reading the exposed devices back. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-temperature-robustness.
+tasks:
+  - id: bdtr1
+    query: "hold each blocking-diode-soak-margin-beyond-service-extreme past the predicted extreme and short of the package storage rating, and check the blocking-diode-exposure-dwell-and-ramp against their limits"
+    intent: "ecss photovoltaic assemblies; planning a blocking diode exposure at the temperature extremes of service"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-robustness"
+  - id: bdtr2
+    query: "read the exposed devices back on blocking-diode-post-exposure-parameter-drift, grade leakage growth as a ratio and take the blocking-diode-exposure-survivor-fraction against the sample floor"
+    intent: "ecss photovoltaic assemblies; deciding whether blocking diodes came through exposure at the service temperature extremes"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-robustness"

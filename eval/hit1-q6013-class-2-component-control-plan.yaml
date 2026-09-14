@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-component-control-plan (space-systems/ecss)
+# Two tasks for the leaf. ccp2a routes on the required subject content of a
+# class 2 plan; ccp2b routes on a subject carried by a referenced document
+# and the credited completeness. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-component-control-plan.
+tasks:
+  - id: ccp2a
+    query: "check whether a drafted component control plan holds the subjects the intermediate assurance class requires for the commercial EEE parts we intend to buy, and whether it was issued before the first procurement commitment"
+    intent: "ECSS-Q-ST-60-13C clause 5.1.2.2; class 2 component control plan subject coverage and issue timing"
+    expected_skill: "space-systems/ecss/q6013-class-2-component-control-plan"
+  - id: ccp2b
+    query: "our component control plan carries traceability by pointing at the product assurance plan instead of writing the rule; decide whether that reference counts, credit it, and give the covered share and the depth-weighted completeness"
+    intent: "ECSS-Q-ST-60-13C clause 5.1.2.2; subject carried by a referenced document, reference credit, covered share and weighted completeness"
+    expected_skill: "space-systems/ecss/q6013-class-2-component-control-plan"

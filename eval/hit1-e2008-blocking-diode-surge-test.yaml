@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-surge-test (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on specifying a short high-peak pulse
+# train for a blocking diode; to2 routes on the action integral against the
+# device withstand and the inter-pulse recovery. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-surge-test.
+tasks:
+  - id: to1
+    query: "we need to drive short pulses at twenty times the rated average current through a planar blocking diode, work out whether the pulse train is a valid surge and what each device became afterwards"
+    intent: "ECSS-E-ST-20-08C clause 12.6.17; short high peak current pulses well above the rated average current applied to blocking diodes"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-surge-test"
+  - id: to2
+    query: "the surge rig fires three half-sine pulses ten milliseconds apart and the parts all survive, check the action integral against the device withstand and whether the junction ever cooled between pulses"
+    intent: "ECSS-E-ST-20-08C clause 12.6.17; blocking diode surge pulse action integral, under-stress and inter-pulse recovery"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-surge-test"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-power-burn-in-process (space-systems/ecss,
+# E-ST-20-08C 12.6.7.2.2). Two tasks per leaf; pbip1 routes on the forward
+# current band and the ninety-six hour floor, pbip2 on the interruption
+# restart and what the soak was watched through. Both must deterministically
+# hit space-systems/ecss/e2008-power-burn-in-process.
+tasks:
+  - id: pbip1
+    query: "check the power-burn-in-forward-current-band the lot was driven at and whether the log meets the power-burn-in-ninety-six-hour-floor"
+    intent: "ecss photovoltaic assemblies; specified forward current held on a device lot for the minimum burn-in duration"
+    expected_skill: "space-systems/ecss/e2008-power-burn-in-process"
+  - id: pbip2
+    query: "apply the power-burn-in-interruption-restart to the soak log and confirm the power-burn-in-monitored-parameters cover every declared build defect"
+    intent: "ecss photovoltaic assemblies; continuous in-band soak hours and monitoring coverage for a device power burn-in"
+    expected_skill: "space-systems/ecss/e2008-power-burn-in-process"

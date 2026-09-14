@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-contact-uniformity
+# (space-systems/ecss, E-ST-20-08C 12.6.13)
+# Two tasks per leaf; bdcu1 routes on the weldable band held per reading over a
+# weld footprint, bdcu2 on the disagreement between footprint means that one
+# weld schedule has to serve. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-contact-uniformity.
+tasks:
+  - id: bdcu1
+    query: "confirm the blocking-diode-contact-map-coverage of each weld site before quoting a blocking-diode-footprint-spread-fraction, and hold every reading inside the blocking-diode-weldable-thickness-band"
+    intent: "ecss photovoltaic assemblies; a blocking diode contact mapped for thickness over the sites an interconnector will later be welded onto"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-contact-uniformity"
+  - id: bdcu2
+    query: "every blocking-diode-weld-footprint-thickness passes its own band yet the means disagree; sentence the blocking-diode-weld-schedule-reproducibility and close the blocking-diode-interconnector-weld-readiness"
+    intent: "ecss photovoltaic assemblies; a blocking diode contact whose weld footprints each pass individually while their means sit too far apart for one schedule"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-contact-uniformity"

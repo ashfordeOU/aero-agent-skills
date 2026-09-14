@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-failed-blocking-diodes (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the designation a blocking diode
+# showing a listed failure mode takes; to2 routes on segregation evidence, the
+# string allocation and the deliverable count that survives. Both must
+# deterministically hit space-systems/ecss/e2008-failed-blocking-diodes.
+tasks:
+  - id: to1
+    query: "several planar blocking diodes in the offered lot show a failure mode from the criteria list, work out what designation each part takes and how many are still deliverable"
+    intent: "ECSS-E-ST-20-08C clause 12.7.2; a blocking diode showing any listed failure mode is a failed component"
+    expected_skill: "space-systems/ecss/e2008-failed-blocking-diodes"
+  - id: to2
+    query: "a cracked blocking diode was recorded as failed but carries no segregation record and is still allocated to a string, and another part has not finished inspection, decide what each may be counted as at delivery"
+    intent: "ECSS-E-ST-20-08C clause 12.7.2; failed blocking diode segregation evidence, string allocation withdrawal and undetermined inspection status"
+    expected_skill: "space-systems/ecss/e2008-failed-blocking-diodes"

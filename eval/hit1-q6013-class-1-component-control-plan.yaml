@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-component-control-plan (space-systems/ecss)
+# Two tasks for the leaf. ccp1 routes on the required-subject coverage of a
+# drafted plan; ccp2 routes on the depth weighting and the approval and issue
+# timing conditions. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-component-control-plan.
+tasks:
+  - id: ccp1
+    query: "check whether a drafted component control plan for commercial parts treats every subject the highest assurance class requires, counting a heading with no procedure behind it as missing"
+    intent: "ECSS-Q-ST-60-13C clause 4.1.2.2; required plan subject coverage for class 1 commercial EEE parts"
+    expected_skill: "space-systems/ecss/q6013-class-1-component-control-plan"
+  - id: ccp2
+    query: "score the depth-weighted completeness of a component control plan and say whether it was approved by the customer and issued before the first procurement commitment"
+    intent: "ECSS-Q-ST-60-13C clause 4.1.2.2; plan depth weighting, customer approval and issue-before-procurement conditions"
+    expected_skill: "space-systems/ecss/q6013-class-1-component-control-plan"

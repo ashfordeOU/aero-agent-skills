@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-alert-handling (space-systems/ecss)
+# Two tasks for the new leaf. ah1 routes on screening a supplier errata notice
+# against held lots by date-code window; ah2 routes on the acknowledgement and
+# disposition working-day clocks plus the lot whose date code is unreadable.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-1-alert-handling.
+tasks:
+  - id: ah1
+    query: "a manufacturer errata notice names a date code window for a commercial FPGA, which of our stored, kitted and already assembled lots does it actually touch"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.3; part-number match plus inclusive date-code range test, quarantine and retrofit actions per holding state"
+    expected_skill: "space-systems/ecss/q6013-class-1-alert-handling"
+  - id: ah2
+    query: "we received a supplier alert two weeks ago, acknowledged it but never dispositioned it, and one lot has no readable date code on the stores record"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.3; acknowledgement and disposition working-day deadlines, unscreenable lot escalated rather than cleared"
+    expected_skill: "space-systems/ecss/q6013-class-1-alert-handling"

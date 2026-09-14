@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-radiation-verification-testing (space-systems/ecss)
+# Two tasks for the new leaf. rvt1 routes on a commercial flight lot whose only
+# dose evidence belongs to another date code; rvt2 routes on reducing an
+# irradiation ladder that recovers above a failed step. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-1-radiation-verification-testing.
+tasks:
+  - id: rvt1
+    query: "we bought a commercial bipolar linear part for a class 1 build and the only total dose number we have came off a different date code, decide whether this flight lot has to be irradiated and what margin it must show"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.8; radiation verification test necessity and required capability for a purchased commercial lot"
+    expected_skill: "space-systems/ecss/q6013-class-1-radiation-verification-testing"
+  - id: rvt2
+    query: "our commercial lot irradiation ladder shows units out of limits at 30 krad and back inside limits at 50 krad, work out the lot capability and whether the radiation design margin is met"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.8; reducing a dose ladder to a demonstrated lot capability and comparing the achieved radiation design margin"
+    expected_skill: "space-systems/ecss/q6013-class-1-radiation-verification-testing"

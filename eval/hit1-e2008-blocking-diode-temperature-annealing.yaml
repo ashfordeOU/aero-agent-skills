@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-temperature-annealing
+# (space-systems/ecss, E-ST-20-08C 12.6.12)
+# Two tasks per leaf; bdta1 routes on the position of the soak between the two
+# post-irradiation readings, bdta2 on the soak bounds and the comparability of
+# the reading temperatures either side of it. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-temperature-annealing.
+tasks:
+  - id: bdta1
+    query: "check the blocking-diode-anneal-insertion-order of this timeline so the soak really sits inside the blocking-diode-post-irradiation-reading-pair"
+    intent: "ecss photovoltaic assemblies; a thermal anneal placed between the first and the second post-irradiation electrical measurement of a blocking diode"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-annealing"
+  - id: bdta2
+    query: "the soak clears its blocking-diode-soak-dwell-floor but runs past the blocking-diode-package-rating-ceiling, and the blocking-diode-reading-temperature-gap is too wide to subtract across; close the blocking-diode-recovered-shift-share"
+    intent: "ecss photovoltaic assemblies; an annealing soak run too hot for the package with its two bracketing readings taken at different temperatures"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-temperature-annealing"

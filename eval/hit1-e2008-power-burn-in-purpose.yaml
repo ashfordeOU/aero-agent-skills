@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2008-power-burn-in-purpose (space-systems/ecss,
+# E-ST-20-08C 12.6.7.2.1). Two tasks per leaf; pbip1 routes on why the stage
+# exists at all, pbip2 on the acceleration it buys and its ceiling. Both must
+# deterministically hit space-systems/ecss/e2008-power-burn-in-purpose.
+tasks:
+  - id: pbip1
+    query: "justify the blocking-diode-power-burn-purpose by showing the power-burn-operation-simulation covers both duty points"
+    intent: "ecss blocking diodes; why device operation is simulated at all during the power burn stage"
+    expected_skill: "space-systems/ecss/e2008-power-burn-in-purpose"
+  - id: pbip2
+    query: "size the power-burn-duty-acceleration into power-burn-simulated-field-hours without crossing the power-burn-regime-ceiling"
+    intent: "ecss blocking diodes; accelerated conditions, what they buy and where they stop being representative"
+    expected_skill: "space-systems/ecss/e2008-power-burn-in-purpose"

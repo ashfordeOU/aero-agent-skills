@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-contact-adherence (space-systems/ecss,
+# E-ST-20-08C 12.6.6). Two tasks per leaf; bdca1 routes on the pad pull stress
+# and sample size, bdca2 on the weakest-pad sentence and lift-off. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-contact-adherence.
+tasks:
+  - id: bdca1
+    query: "size the blocking-diode-adherence-sample-size and convert each reading into a blocking-diode-pad-pull-stress for a planar-blocking-diode-contact-adherence test"
+    intent: "ecss planar blocking diodes; how many devices the lot owes and what the pull load is divided by"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-contact-adherence"
+  - id: bdca2
+    query: "apply the blocking-diode-weakest-pad-sentence and treat a blocking-diode-contact-lift-off under a conforming blocking-diode-pull-fixture-conformance check"
+    intent: "ecss planar blocking diodes; anode and cathode pad grouping, weakest pad decides, lift-off rejects the lot"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-contact-adherence"

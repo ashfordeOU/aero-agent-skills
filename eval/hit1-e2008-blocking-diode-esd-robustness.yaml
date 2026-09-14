@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-esd-robustness (space-systems/ecss)
+# Two tasks for the new leaf. bdesd1 routes on the human-contact discharge step
+# stress for blocking diodes; bdesd2 routes on reading the post-pulse leakage
+# drift against the device's own baseline and crediting a withstand level. Both
+# must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-esd-robustness.
+tasks:
+  - id: bdesd1
+    query: "plan the step stress that fires a charged-operator discharge into our blocking diodes and tells us what level they still survive"
+    intent: "ECSS-E-ST-20-08C clause 12.6.15; blocking diode human contact ESD robustness"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-esd-robustness"
+  - id: bdesd2
+    query: "the blocking diode reverse leakage doubled after the discharge but it still blocks, what withstand level do we credit and does it clear the handling environment"
+    intent: "ECSS-E-ST-20-08C clause 12.6.15; ESD leakage drift and withstand level for a blocking diode"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-esd-robustness"

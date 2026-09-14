@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-traceability (space-systems/ecss)
+# Two tasks for the new leaf. tr1 routes on following one received commercial
+# lot through stores into the board serials it was built onto; tr2 routes on a
+# quantity balance that does not close and a re-marked lot code with no
+# cross-reference. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-traceability.
+tasks:
+  - id: tr1
+    query: "show that this commercial part lot keeps one identity from goods-in through stores and kitting to the board serial numbers it was installed on"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.4; single-receipt custody chain, identity fields per event, forward and backward board-serial trace"
+    expected_skill: "space-systems/ecss/q6013-class-1-traceability"
+  - id: tr2
+    query: "our stores record issued more parts than the lot received and one kitting line carries a different lot code with no cross reference back to the receipt"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.4; quantity reconciliation over received, installed, scrapped and returned, re-marked lot code treated as an identity break"
+    expected_skill: "space-systems/ecss/q6013-class-1-traceability"

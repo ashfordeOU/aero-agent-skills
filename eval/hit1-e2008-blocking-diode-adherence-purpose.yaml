@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-adherence-purpose (space-systems/ecss,
+# E-ST-20-08C 12.6.4.2.1). Two tasks per leaf; bdap1 routes on the build-state
+# condition that gates the check, bdap2 on the consequence half of the
+# argument. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-adherence-purpose.
+tasks:
+  - id: bdap1
+    query: "settle planar-blocking-diode-contact-presence before planning a pull and decide planar-blocking-diode-adherence-applicability for a mesa part"
+    intent: "ecss blocking diodes; whether a planar device even has an attachment a pull can describe"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-adherence-purpose"
+  - id: bdap2
+    query: "weigh planar-blocking-diode-attachment-criticality from the blocking-diode-string-loss-fraction and check blocking-diode-attachment-evidence-coverage"
+    intent: "ecss blocking diodes; what an opened series attachment costs the array and what is recorded against it"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-adherence-purpose"

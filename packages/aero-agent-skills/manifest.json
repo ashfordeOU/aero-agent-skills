@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1691,
+  "leaves": 1775,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -20502,6 +20502,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-bare-solar-cell-drawing",
+   "name": "e2008-bare-solar-cell-drawing",
+   "description": "Verify the source control drawing describing a bare solar cell carries the content Annex C of ECSS-E-ST-20-08C calls for: every stated characteristic needs a unit, a limit rather than a bare nominal, and for an electrical one the spectrum, intensity and temperature it was measured at; a band whose ends coincide is a point, not a limit; and the annex names a floor, so a weak characteristic beyond the required set is an open item and not a stoppage. Use when a bare cell drawing is offered for release and its numbers have to be limits. Trigger: ecss, e-st-20-08c, bare-solar-cell-drawing-content-audit, bare-solar-cell-characteristic-limit-form, bare-solar-cell-measurement-condition-attachment, bare-solar-cell-degenerate-band-detection, bare-solar-cell-controlled-characteristic-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-bare-solar-cell-drawing",
+    "bare-solar-cell-drawing-content-audit",
+    "bare-solar-cell-characteristic-limit-form",
+    "bare-solar-cell-measurement-condition-attachment",
+    "bare-solar-cell-degenerate-band-detection",
+    "bare-solar-cell-controlled-characteristic-share",
+    "bare-solar-cell-drawing-release-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-bleed-resistor-test",
    "name": "e2008-bleed-resistor-test",
    "description": "Verify the bleed resistor fitted to a photovoltaic assembly under ECSS-E-ST-20-08C clause 5.5.3.3.5: resolve the acceptance band from the drawing nominal and its tolerance, refer the reading back to the reference temperature through the element coefficient, de-embed an in-circuit reading against the declared parallel path and refuse to sentence one without it, grade both band edges separately, then work out whether the measured part drains the assembly capacitance to a safe voltage in the time the safety case assumes. Use when a bleed resistor measurement has to be accepted, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, bleed-resistor-resistance-measurement, photovoltaic-assembly-bleed-path, in-circuit-parallel-deembedding, bleed-resistor-tolerance-band, assembly-discharge-time-constant, safe-voltage-bleed-time.",
@@ -20535,6 +20555,273 @@
     "blocking-diode-sampled-activity-share",
     "blocking-diode-acceptance-record-state",
     "blocking-diode-lot-acceptance-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-adherence-process",
+   "name": "e2008-blocking-diode-adherence-process",
+   "description": "Execute the ambient pressure chamber entry every blocking diode of a lot passes through before its contact adherence is examined, under ECSS-E-ST-20-08C clause 12.6.4.2.2: reconcile the loaded serials against the lot roster so a missing, repeated or foreign device is named rather than lost in a total, hold entry completeness at the whole lot instead of a convenient subset, check the residence dwell every batch holds in its own right, cap the batch count and the changeover between them, and hold the ambient pressure band. Use when a blocking diode adherence run is loaded or audited. Trigger: ecss, e-st-20-electrical-scope, e-st-20-08c-clause-12-6-4-2-2, blocking-diode-chamber-entry-manifest, blocking-diode-lot-entry-completeness, blocking-diode-chamber-residence-dwell, blocking-diode-foreign-device-detection, blocking-diode-adherence-batch-sequence.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c-clause-12-6-4-2-2",
+    "e2008-blocking-diode-adherence-process",
+    "blocking-diode-chamber-entry-manifest",
+    "blocking-diode-lot-entry-completeness",
+    "blocking-diode-chamber-residence-dwell",
+    "blocking-diode-foreign-device-detection",
+    "blocking-diode-adherence-batch-sequence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-adherence-purpose",
+   "name": "e2008-blocking-diode-adherence-purpose",
+   "description": "Determine why contact attachment on a planar blocking diode is verified only where contacts exist, under ECSS-E-ST-20-08C clause 12.6.4.2.1: settle the build state first, holding a mesa or integrated part outside the clause and a bare metallisation outside the check, take the share of array power one opened series attachment costs, weight the service exposures the joint has to outlast into one index, relieve the consequence where a parallel diode carries the string, map each exposure onto the parameter recording it, and close on one applicability verdict. Use when a planar blocking diode adherence campaign is scoped or defended. Trigger: ecss, e-st-20-electrical-scope, e-st-20-08c-clause-12-6-4-2-1, planar-blocking-diode-contact-presence, planar-blocking-diode-attachment-criticality, blocking-diode-string-loss-fraction, blocking-diode-attachment-evidence-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c-clause-12-6-4-2-1",
+    "e2008-blocking-diode-adherence-purpose",
+    "planar-blocking-diode-contact-presence",
+    "planar-blocking-diode-attachment-criticality",
+    "blocking-diode-string-loss-fraction",
+    "blocking-diode-attachment-evidence-coverage",
+    "planar-blocking-diode-adherence-applicability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-characterization",
+   "name": "e2008-blocking-diode-characterization",
+   "description": "Assess whether a qualification programme is degrading a blocking diode by reading the electrical characterizations placed between its tests under ECSS-E-ST-20-08C clause 12.6.3: confirm every visit carries the whole parameter set, the declared device count and the baseline reference conditions, convert each reading into a degradation fraction that is positive whichever way the number moved, separate the step one test added from the cumulative the programme has spent, rank the steps by the share of their own limit they used, and name the test that cost the most. Use when a blocking diode degradation trajectory is written or audited. Trigger: ecss, e-st-20-08c-clause-12-6-3, blocking-diode-degradation-trajectory, blocking-diode-inter-test-characterization, blocking-diode-step-versus-cumulative-budget, blocking-diode-reference-condition-match, blocking-diode-degradation-attribution.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-blocking-diode-characterization",
+    "blocking-diode-degradation-trajectory",
+    "blocking-diode-inter-test-characterization",
+    "blocking-diode-step-versus-cumulative-budget",
+    "blocking-diode-reference-condition-match",
+    "blocking-diode-degradation-attribution"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-contact-adherence",
+   "name": "e2008-blocking-diode-contact-adherence",
+   "description": "Evaluate the contact adherence of planar blocking diodes and sentence the lot from it: size the sample the lot owes against its population, convert every pull reading into a stress over the bonded pad area so pads of different size are comparable, hold the pull angle and crosshead rate that make a reading a pull test, group each anode and cathode pad as adherent, below limit or lifted, sentence a device by its weakest pad, and refuse a verdict drawn from an undersized sample. Use when running or auditing a planar blocking diode contact adherence test. Trigger: ecss, e-st-20-08c-clause-12-6-6, planar-blocking-diode-contact-adherence, blocking-diode-pad-pull-stress, blocking-diode-adherence-sample-size, blocking-diode-contact-lift-off, blocking-diode-weakest-pad-sentence.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-blocking-diode-contact-adherence",
+    "planar-blocking-diode-contact-adherence",
+    "blocking-diode-pad-pull-stress",
+    "blocking-diode-adherence-sample-size",
+    "blocking-diode-contact-lift-off",
+    "blocking-diode-weakest-pad-sentence",
+    "blocking-diode-pull-fixture-conformance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-contact-uniformity",
+   "name": "e2008-blocking-diode-contact-uniformity",
+   "description": "Evaluate whether the contact metallisation of a blocking diode is even enough that the interconnector weld made on it later comes out reproducible and adequate, under ECSS-E-ST-20-08C clause 12.6.13: refuse a contact with no declared weld footprint, leave a footprint the map never reached unjudged rather than averaging it into the contact, hold every reading inside the weldable band and each spread against the mean of its own footprint, and compare the footprint means against one another because a single weld schedule runs on all of them. Use when a blocking diode contact thickness map has to become a weld readiness verdict. Trigger: ecss, e-st-20-08c-clause-12-6-13, blocking-diode-weld-footprint-thickness, blocking-diode-interconnector-weld-readiness, blocking-diode-weldable-thickness-band, blocking-diode-footprint-spread-fraction, blocking-diode-weld-schedule-reproducibility, blocking-diode-contact-map-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-blocking-diode-contact-uniformity",
+    "blocking-diode-weld-footprint-thickness",
+    "blocking-diode-interconnector-weld-readiness",
+    "blocking-diode-weldable-thickness-band",
+    "blocking-diode-footprint-spread-fraction",
+    "blocking-diode-weld-schedule-reproducibility",
+    "blocking-diode-contact-map-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-data-documentation",
+   "name": "e2008-blocking-diode-data-documentation",
+   "description": "Audit the supplier data package a blocking diode delivery is released against, per ECSS-E-ST-20-08C clause 12.8: resolve the type qualification tier and the one data file every delivered batch owes, take the governing issue of each family, hold anything still in draft, reconcile screening serials against the diodes each batch delivered in both directions, order the manufacture, screening and delivery dates, and reconcile submitted batch files against the declared batches. Use when a blocking diode data package is offered before release. Trigger: ecss, e-st-20-08c, clause-12-8, blocking-diode-supplier-data-package, blocking-diode-batch-data-file-reconciliation, blocking-diode-screening-serial-coverage, blocking-diode-governing-issue-rule, blocking-diode-qualification-approval-citation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-blocking-diode-scope",
+    "e2008-blocking-diode-data-documentation",
+    "e-st-20-08c-clause-12-8",
+    "blocking-diode-supplier-data-package",
+    "blocking-diode-batch-data-file-reconciliation",
+    "blocking-diode-screening-serial-coverage",
+    "blocking-diode-governing-issue-rule",
+    "blocking-diode-qualification-approval-citation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-delivery",
+   "name": "e2008-blocking-diode-delivery",
+   "description": "Evaluate whether a dispatch of ordered blocking diodes may leave, per ECSS-E-ST-20-08C clause 12.9: hold every diode from a batch whose data package is not released, hold a serial missing from its batch delivered list, hold a batch past its storage life with no revalidation, fill each ordered line from its own blocking voltage class before any permitted upgrade and never from a lower class or another part number, and apply the declared partial-delivery floor. Use when blocking diode hardware is offered for dispatch with its delivery documentation. Trigger: ecss, e-st-20-08c, clause-12-9, blocking-diode-dispatch-release, blocking-diode-batch-documentation-coverage, blocking-diode-serial-traceability, blocking-diode-voltage-class-upgrade, blocking-diode-storage-life-revalidation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-blocking-diode-scope",
+    "e2008-blocking-diode-delivery",
+    "e-st-20-08c-clause-12-9",
+    "blocking-diode-dispatch-release",
+    "blocking-diode-batch-documentation-coverage",
+    "blocking-diode-serial-traceability",
+    "blocking-diode-voltage-class-upgrade",
+    "blocking-diode-storage-life-revalidation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-dimensions-weight",
+   "name": "e2008-blocking-diode-dimensions-weight",
+   "description": "Verify a blocking diode against the lateral outline, thickness, terminal geometry and interconnector placement of ECSS-E-ST-20-08C clause 12.6.2: put each measured feature inside its own plus and minus band and name the state, judge the anode and cathode pads one at a time for bonding coverage and string-current density, combine the two axis offsets of every attachment point into one diametrical true-position value, grow the measured outline by that value into the keep-out envelope the layout must reserve, and cross-check the weighed mass against the mass the outline and density already imply. Use when a blocking diode measurement sheet is judged against its control drawing. Trigger: ecss, e-st-20-08c-clause-12-6-2, blocking-diode-outline-tolerance-band, blocking-diode-thickness-band, blocking-diode-terminal-pad-geometry, blocking-diode-interconnector-true-position, blocking-diode-keep-out-envelope, blocking-diode-mass-density-crosscheck.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-blocking-diode-dimensions-weight",
+    "blocking-diode-outline-tolerance-band",
+    "blocking-diode-thickness-band",
+    "blocking-diode-terminal-pad-geometry",
+    "blocking-diode-interconnector-true-position",
+    "blocking-diode-keep-out-envelope",
+    "blocking-diode-mass-density-crosscheck"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-esd-robustness",
+   "name": "e2008-blocking-diode-esd-robustness",
+   "description": "Evaluate whether a blocking diode survives the discharge a charged operator delivers on touching its terminals, under ECSS-E-ST-20-08C clause 12.6.15: hold the discharge capacitance and series resistance inside their bands, derive the peak current, decay constant, transferred charge and stored energy each step voltage produces, walk the ladder from the bottom with both polarities and every planned pulse, read reverse leakage and forward drop against the device's own pre-stress baseline, credit only the highest unbroken run of cleared levels, group it into a withstand band, and take that against the handling environment with margin. Use when a blocking diode human-contact ESD robustness stress is planned or its records reviewed. Trigger: ecss, e-st-20-08c-clause-12-6-15, blocking-diode-human-contact-esd, blocking-diode-esd-withstand-band, blocking-diode-esd-leakage-drift, blocking-diode-discharge-network-band, blocking-diode-esd-step-ladder.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-esd-robustness",
+    "blocking-diode-human-contact-esd",
+    "blocking-diode-esd-withstand-band",
+    "blocking-diode-esd-leakage-drift",
+    "blocking-diode-discharge-network-band",
+    "blocking-diode-esd-step-ladder",
+    "blocking-diode-post-esd-parasitic-loss"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-esd-sensitivity",
+   "name": "e2008-blocking-diode-esd-sensitivity",
+   "description": "Assess whether the handling route and store carrying an electrostatic-discharge-sensitive blocking diode keep it under the voltage it survives, per ECSS-E-ST-20-08C clause 12.10.2: derive the sensitivity band from the withstand voltage and its discharge model, grade every station on protected-area status, obliged controls and arrival packaging, name the station of first exposure, measure the store against a two-sided humidity band whose floor is the ESD limit, and turn residual charge into delivered volts with the margin applied. Use when an ESD-sensitive blocking diode is handled, transferred or stored. Trigger: ecss, e-st-20-08c, clause-12-10-2, blocking-diode-esd-sensitivity-band, blocking-diode-esd-station-route-grading, blocking-diode-esd-transfer-packaging, blocking-diode-esd-storage-humidity-floor, blocking-diode-esd-residual-charge-voltage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-blocking-diode-scope",
+    "e2008-blocking-diode-esd-sensitivity",
+    "e-st-20-08c-clause-12-10-2",
+    "blocking-diode-esd-sensitivity-band",
+    "blocking-diode-esd-station-route-grading",
+    "blocking-diode-esd-transfer-packaging",
+    "blocking-diode-esd-storage-humidity-floor",
+    "blocking-diode-esd-residual-charge-voltage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-failure-criteria",
+   "name": "e2008-blocking-diode-failure-criteria",
+   "description": "Determine which planar blocking diodes a subgroup test and the inspection closing it leave failed under ECSS-E-ST-20-08C clause 12.7.1: refuse a criteria set carrying no specification reference, take each parameter's drift in the sense that parameter degrades in with a tie admissible, test the after reading against its own absolute limit as a separate arm, raise a junction that no longer blocks and one that no longer conducts forward as two distinct modes, hold a reverse reading taken below the reference bias as unread, and weigh the failed share against its allowance. Use when blocking diode subgroup results have to become per-part failure calls. Trigger: ecss, e-st-20-08c-clause-12-7-1, blocking-diode-subgroup-test-failure, blocking-diode-failure-modes, blocking-diode-parameter-drift-allowance, blocking-diode-absolute-limit-breach, blocking-diode-reverse-blocking-loss, blocking-diode-reverse-bias-reference.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-failure-criteria",
+    "e-st-20-08c-clause-12-7-1",
+    "blocking-diode-subgroup-test-failure",
+    "blocking-diode-failure-modes",
+    "blocking-diode-parameter-drift-allowance",
+    "blocking-diode-absolute-limit-breach",
+    "blocking-diode-reverse-blocking-loss",
+    "blocking-diode-reverse-bias-reference"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-humidity-process",
+   "name": "e2008-blocking-diode-humidity-process",
+   "description": "Verify how a lot of solar array blocking diodes is sealed into an ambient pressure chamber for its humidity exposure under ECSS-E-ST-20-08C clause 12.6.4.1.2: derive the closure leak rate from a pressure decay hold and read it again as chamber volumes exchanged per day, hold the closed volume inside its ambient pressure band, reconcile the devices actually sealed in against the declared lot, check the free volume left around the fixture, and hold the seal proof dwell and the exposure duration. Use when a blocking diode humidity chamber closure is prepared or audited before the soak starts. Trigger: ecss, e-st-20-electrical-scope, e-st-20-08c-clause-12-6-4-1-2, blocking-diode-humidity-chamber-sealing, blocking-diode-chamber-seal-leak-rate, blocking-diode-lot-sealed-population, blocking-diode-chamber-free-volume, blocking-diode-humidity-exposure-duration.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c-clause-12-6-4-1-2",
+    "e2008-blocking-diode-humidity-process",
+    "blocking-diode-humidity-chamber-sealing",
+    "blocking-diode-chamber-seal-leak-rate",
+    "blocking-diode-lot-sealed-population",
+    "blocking-diode-chamber-free-volume",
+    "blocking-diode-humidity-exposure-duration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-humidity-purpose",
+   "name": "e2008-blocking-diode-humidity-purpose",
+   "description": "Determine what a damp storage of blocking diodes under ECSS-E-ST-20-08C clause 12.6.4.1.1 has to expose: group the moisture mechanisms that attack junction function, terminal contacts and protective coating onto the parameter each is read through and the duty each threatens, size the acceleration the chamber humidity and temperature buy over the declared store, convert the soak into the storage months it stands for, refuse a factor outside the range the model was fitted over, and judge the leakage monitoring bias against the bus voltage the part has to stand off. Use when scoping or defending a blocking diode damp storage before the chamber is booked. Trigger: ecss, e-st-20-08c-clause-12-6-4-1-1, blocking-diode-damp-storage-purpose, blocking-diode-reverse-leakage-moisture-path, blocking-diode-terminal-metallisation-corrosion, blocking-diode-protective-coating-crazing, blocking-diode-monitoring-bias-adequacy.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-blocking-diode-humidity-purpose",
+    "blocking-diode-damp-storage-purpose",
+    "blocking-diode-reverse-leakage-moisture-path",
+    "blocking-diode-terminal-metallisation-corrosion",
+    "blocking-diode-protective-coating-crazing",
+    "blocking-diode-monitoring-bias-adequacy",
+    "blocking-diode-damp-storage-equivalent-months"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-life-test",
+   "name": "e2008-blocking-diode-life-test",
+   "description": "Verify that a blocking diode life test under ECSS-E-ST-20-08C clause 12.6.8 establishes stability over the mission rather than over the part of it the bench reached: confirm the run is both hot enough and loaded hard enough to accelerate, convert its hours into mission-equivalent hours through the Arrhenius factor those conditions buy, measure the signed drift of every watched parameter against its limit, and project the same drift rate to end of mission so a parameter that passes the run but not the mission is caught. Use when planning or reviewing a long duration blocking diode life test before qualification closes. Trigger: ecss, e-st-20-08c-clause-12-6-8, blocking-diode-life-test-extreme-conditions, blocking-diode-life-test-mission-coverage, blocking-diode-life-test-parameter-drift-limit, blocking-diode-life-test-end-of-life-projection, blocking-diode-life-test-acceleration-factor.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-blocking-diode-life-test",
+    "blocking-diode-life-test-extreme-conditions",
+    "blocking-diode-life-test-mission-coverage",
+    "blocking-diode-life-test-parameter-drift-limit",
+    "blocking-diode-life-test-end-of-life-projection",
+    "blocking-diode-life-test-acceleration-factor"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20580,6 +20867,238 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-blocking-diode-production-schedule",
+   "name": "e2008-blocking-diode-production-schedule",
+   "description": "Validate the dated production and test schedule ECSS-E-ST-20-08C clause 12.5.3 asks to be compiled before a blocking diode qualification lot starts: establish the schedule was issued ahead of the lot rather than written up afterwards, refuse an activity added once the lot was already running, date every production and test activity and refuse one that ends before it begins, hold a test activity booked ahead of the production it reports on, walk the campaign out to its finish date, and report the float left against the day the qualified diodes are owed. Use when a blocking diode qualification lot schedule, campaign window or late schedule revision is reviewed. Trigger: ecss, e-st-20-08c, blocking-diode-production-schedule, blocking-diode-schedule-issue-chronology, blocking-diode-lot-start-date, blocking-diode-activity-phase-order, blocking-diode-campaign-window-float.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-production-schedule",
+    "blocking-diode-production-schedule",
+    "blocking-diode-schedule-issue-chronology",
+    "blocking-diode-lot-start-date",
+    "blocking-diode-activity-phase-order",
+    "blocking-diode-campaign-window-float"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-pull-test",
+   "name": "e2008-blocking-diode-pull-test",
+   "description": "Evaluate the interconnector adherence and bond strength the contacts of a blocking diode show when pulled, under ECSS-E-ST-20-08C clause 12.6.16: refuse a grip dragged past the off-normal cap, resolve each pull onto the contact normal and divide it by the bonded area that carried it, derive the ribbon's own tensile capacity and the share of it the pull reached, separate a bond release from a ribbon fracture, a metallisation lift and a die fracture, credit a ribbon break above the requirement as a lower bound but repeat one below it, sentence each device by its weaker contact, and hold a lot sampled too thin. Use when a blocking diode interconnector pull run is planned or its records reviewed. Trigger: ecss, e-st-20-08c-clause-12-6-16, blocking-diode-interconnector-pull, blocking-diode-contact-bond-strength, blocking-diode-pull-failure-mode, blocking-diode-ribbon-tensile-utilisation, blocking-diode-pull-off-normal-angle.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-pull-test",
+    "blocking-diode-interconnector-pull",
+    "blocking-diode-contact-bond-strength",
+    "blocking-diode-pull-failure-mode",
+    "blocking-diode-ribbon-tensile-utilisation",
+    "blocking-diode-pull-off-normal-angle",
+    "blocking-diode-pull-lot-sentencing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-qualification-authority",
+   "name": "e2008-blocking-diode-qualification-authority",
+   "description": "Determine whether a planar blocking diode lot may be treated as qualified under ECSS-E-ST-20-08C clause 12.5.1, where the customer grants qualification to the company that actually runs the production process and not to a part number: catch a mesa lot the clause never reached, find a diode type nobody granted, separate that from a type granted to a different company than the one that built the lot, refuse a grant the supplier issued about its own product, hold the granted site and process baseline against the lot as built, name a step handed to a subcontractor the grant never covered, and roll the lots into one programme verdict. Use when a blocking diode lot, process-owner change or subcontracted step is treated as qualified. Trigger: ecss, e-st-20-08c, blocking-diode-qualification-authority, blocking-diode-grant-holder-identity, blocking-diode-process-owner-change, blocking-diode-subcontracted-step-coverage, blocking-diode-grant-issuing-authority.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-qualification-authority",
+    "blocking-diode-qualification-authority",
+    "blocking-diode-grant-holder-identity",
+    "blocking-diode-process-owner-change",
+    "blocking-diode-subcontracted-step-coverage",
+    "blocking-diode-grant-issuing-authority"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-qualification-plan",
+   "name": "e2008-blocking-diode-qualification-plan",
+   "description": "Build and grade the qualification programme a planar blocking diode owes under ECSS-E-ST-20-08C clause 12.5.2, where the plan is assembled from the tests the applicable table lists: name an owed test the plan books nowhere, catch a test booked that the table never listed, size each test against the specimen count the table asks for, hold a test planned ahead of the test it rests on, refuse a similarity claim carrying no heritage part and no delta justification, total the specimen demand per group and overall, and return one plan verdict with ranked findings. Use when a blocking diode qualification plan, test matrix or specimen budget is assembled or reviewed. Trigger: ecss, e-st-20-08c, blocking-diode-qualification-plan, blocking-diode-test-table-coverage, blocking-diode-specimen-count-shortfall, blocking-diode-test-sequence-prerequisite, blocking-diode-similarity-claim-justification.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-qualification-plan",
+    "blocking-diode-qualification-plan",
+    "blocking-diode-test-table-coverage",
+    "blocking-diode-specimen-count-shortfall",
+    "blocking-diode-test-sequence-prerequisite",
+    "blocking-diode-similarity-claim-justification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-qualification-samples",
+   "name": "e2008-blocking-diode-qualification-samples",
+   "description": "Verify that every sample entering blocking diode qualification was built by the process identification document ECSS-E-ST-20-08C clause 12.5.4 declares: refuse a description carrying no reference, no issue or no parameter band, hold each sample to the issue that was in force, catch one whose build predates that issue, take every declared build parameter against its own band with a value on the limit admissible, keep a parameter nobody recorded apart from one that drifted, and name each sample rather than the first. Use when the samples submitted to a blocking diode qualification campaign have to be shown to match the declared process. Trigger: ecss, e-st-20-08c, blocking-diode-qualification-sample-conformance, blocking-diode-process-identification-document, blocking-diode-sample-build-parameter-band, blocking-diode-sample-issue-match, blocking-diode-sample-build-chronology.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-qualification-samples",
+    "blocking-diode-qualification-sample-conformance",
+    "blocking-diode-process-identification-document",
+    "blocking-diode-sample-build-parameter-band",
+    "blocking-diode-sample-issue-match",
+    "blocking-diode-sample-build-chronology"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-qualification-testing",
+   "name": "e2008-blocking-diode-qualification-testing",
+   "description": "Determine whether a blocking diode qualification campaign carries the minimum sample quantities ECSS-E-ST-20-08C clause 12.5.5 sets for each test: refuse a plan declaring no minimum, compare booked against owed per test with an allocation exactly on the minimum admissible, hold an owed test nobody booked apart from one merely underfed, name samples booked to a test the qualification never owed, add the destructive draws while carrying only the largest surviving draw once, and size the lot against that plus its reserve. Use when a blocking diode qualification test matrix, sample allocation or lot size is drafted or reviewed. Trigger: ecss, e-st-20-08c, blocking-diode-qualification-minimum-sample-quantity, blocking-diode-qualification-test-allocation, blocking-diode-destructive-sample-consumption, blocking-diode-qualification-lot-sizing, blocking-diode-qualification-test-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-qualification-testing",
+    "blocking-diode-qualification-minimum-sample-quantity",
+    "blocking-diode-qualification-test-allocation",
+    "blocking-diode-destructive-sample-consumption",
+    "blocking-diode-qualification-lot-sizing",
+    "blocking-diode-qualification-test-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-surface-finish",
+   "name": "e2008-blocking-diode-surface-finish",
+   "description": "Assess the finish the contact surfaces of a blocking diode carry at the surface finish check of ECSS-E-ST-20-08C clause 12.6.14: hold the roughness against both the ceiling the contact works at and the ceiling past which no joint onto it can be relied on, turn every anomaly into the fraction of the metallisation it eats through instead of sentencing it on appearance, accumulate coverage by kind and in total, reject a blister and a pit through to the substrate, return oxidation and residue past their allowances, and leave a device open on an under-magnified look or one polarity. Use when a blocking diode contact surface finish record has to become a verdict. Trigger: ecss, e-st-20-08c-clause-12-6-14, blocking-diode-contact-surface-finish, blocking-diode-contact-roughness-ceiling, blocking-diode-metallisation-penetration-fraction, blocking-diode-finish-anomaly-coverage, blocking-diode-finish-examination-magnification.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-surface-finish",
+    "blocking-diode-contact-surface-finish",
+    "blocking-diode-contact-roughness-ceiling",
+    "blocking-diode-metallisation-penetration-fraction",
+    "blocking-diode-finish-anomaly-coverage",
+    "blocking-diode-finish-examination-magnification",
+    "blocking-diode-contact-blister-rejection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-surge-test",
+   "name": "e2008-blocking-diode-surge-test",
+   "description": "Evaluate a planar blocking diode surge test under ECSS-E-ST-20-08C clause 12.6.17, where short pulses whose peak current sits far above the rated average are driven through the device: refuse a peak that never clears the rated average by the demanded multiple, refuse a pulse long enough to be an overload rather than a surge, take the action integral from the waveform shape and weigh it against the device withstand from both sides, keep junction headroom to the ceiling, demand a recovery interval between pulses and an electrical readout after the last one, then sentence each device and the lot. Use when a blocking diode surge pulse train has to be specified, sentenced or repeated. Trigger: ecss, e-st-20-08c-clause-12-6-17, blocking-diode-surge-pulse-train, blocking-diode-peak-to-rated-current-ratio, blocking-diode-pulse-action-integral, blocking-diode-surge-under-stress, blocking-diode-inter-pulse-recovery, blocking-diode-post-surge-readout.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-surge-test",
+    "e-st-20-08c-clause-12-6-17",
+    "blocking-diode-surge-pulse-train",
+    "blocking-diode-peak-to-rated-current-ratio",
+    "blocking-diode-pulse-action-integral",
+    "blocking-diode-surge-under-stress",
+    "blocking-diode-inter-pulse-recovery",
+    "blocking-diode-post-surge-readout"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-temperature-annealing",
+   "name": "e2008-blocking-diode-temperature-annealing",
+   "description": "Verify that the thermal anneal of a blocking diode really sits between the first and the second post-irradiation electrical measurement under ECSS-E-ST-20-08C clause 12.6.12: hold the four events in order so the soak cannot merge with either reading, bound the wait between the exposure ending and the first reading so the part has not already recovered at ambient, check the dwell against its floor and the soak temperature against both its floor and the package rating, confirm the two readings share a temperature closely enough to subtract, and take the share of the shift the soak gave back. Use when an anneal between two post-irradiation readings is planned or audited. Trigger: ecss, e-st-20-08c-clause-12-6-12, blocking-diode-anneal-insertion-order, blocking-diode-post-irradiation-reading-pair, blocking-diode-soak-dwell-floor, blocking-diode-package-rating-ceiling, blocking-diode-reading-temperature-gap, blocking-diode-recovered-shift-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-blocking-diode-temperature-annealing",
+    "blocking-diode-anneal-insertion-order",
+    "blocking-diode-post-irradiation-reading-pair",
+    "blocking-diode-soak-dwell-floor",
+    "blocking-diode-package-rating-ceiling",
+    "blocking-diode-reading-temperature-gap",
+    "blocking-diode-recovered-shift-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-temperature-behaviour",
+   "name": "e2008-blocking-diode-temperature-behaviour",
+   "description": "Map the electrical parameters of a planar blocking diode against operating temperature under ECSS-E-ST-20-08C clause 12.6.9: read the sweep in order and refuse a repeated point, hold its span and its endpoint gaps against the declared service range, hold the widest step against the resolution ceiling, check that forward voltage falls and reverse leakage rises across it, interpolate both between mapped points, and settle the self-heated junction the string current drives the diode to against its rating. Use when a blocking diode temperature map is planned, read back or audited. Trigger: ecss, e-st-20-08c-clause-12-6-9, planar-blocking-diode-temperature-map, blocking-diode-forward-voltage-versus-temperature, blocking-diode-self-heated-junction-temperature, blocking-diode-string-forward-loss-fraction, blocking-diode-reverse-leakage-versus-temperature.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-temperature-behaviour",
+    "planar-blocking-diode-temperature-map",
+    "blocking-diode-forward-voltage-versus-temperature",
+    "blocking-diode-self-heated-junction-temperature",
+    "blocking-diode-string-forward-loss-fraction",
+    "blocking-diode-reverse-leakage-versus-temperature"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-temperature-cycling",
+   "name": "e2008-blocking-diode-temperature-cycling",
+   "description": "Determine the eclipse-cycle count a blocking diode temperature cycling run must deliver, then judge the run against it: size the required cycles from the mission eclipse rate, the design life and the declared test margin, check the hot and cold plateaus, the dwell that lets the stack reach them and the transition that keeps a cycle from becoming a shock, refuse a sentence drawn from fewer cycles than the mission owes, and group every sample by its forward-voltage and reverse-leakage drift and by any crack the run opened. Use when planning, running or auditing a blocking diode temperature cycling campaign. Trigger: ecss, e-st-20-08c-clause-12-6-5, blocking-diode-temperature-cycling, solar-array-eclipse-cycle-equivalence, blocking-diode-cycle-count-sizing, blocking-diode-thermal-plateau-dwell, blocking-diode-post-cycling-drift.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-blocking-diode-temperature-cycling",
+    "blocking-diode-temperature-cycling",
+    "solar-array-eclipse-cycle-equivalence",
+    "blocking-diode-cycle-count-sizing",
+    "blocking-diode-thermal-plateau-dwell",
+    "blocking-diode-post-cycling-drift",
+    "blocking-diode-cycling-reject-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-temperature-robustness",
+   "name": "e2008-blocking-diode-temperature-robustness",
+   "description": "Verify that blocking diode devices come through exposure at the temperature extremes of service under ECSS-E-ST-20-08C clause 12.6.10: hold each soak past the service extreme by the declared margin and short of the package storage rating, hold the dwell and the transition rate against their limits, refuse a programme that covers only one end, grade each device on forward drop drift and reverse leakage growth, and take the share that came through. Use when a temperature extreme exposure of blocking diodes is planned or read back. Trigger: ecss, e-st-20-08c-clause-12-6-10, blocking-diode-temperature-extreme-exposure, blocking-diode-soak-margin-beyond-service-extreme, blocking-diode-post-exposure-parameter-drift, blocking-diode-exposure-dwell-and-ramp, blocking-diode-exposure-survivor-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-temperature-robustness",
+    "blocking-diode-temperature-extreme-exposure",
+    "blocking-diode-soak-margin-beyond-service-extreme",
+    "blocking-diode-post-exposure-parameter-drift",
+    "blocking-diode-exposure-dwell-and-ramp",
+    "blocking-diode-exposure-survivor-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-blocking-diode-test",
    "name": "e2008-blocking-diode-test",
    "description": "Compute the reverse current a solar array blocking diode passes at the highest open-circuit voltage its string can reach in flight, under ECSS-E-ST-20-08C clause 5.5.3.3.6: build that worst-case bias from the cold-case cell open-circuit voltage, the series count and a beginning-of-life margin; refuse a bench whose applied reverse bias falls short of it, because an under-stressed diode proves nothing; refer every measured leakage to the reference junction temperature; group each diode as within limit, above limit or reverse-conducting; and total the parasitic loss the array then carries. Use when a blocking diode reverse-current test has to be set up, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, blocking-diode-reverse-current, worst-case-open-circuit-voltage, blocking-diode-leakage-limit, reverse-bias-adequacy-check, solar-array-blocking-diode-screening.",
@@ -20613,6 +21132,25 @@
     "blocking-diode-shared-test-double-count",
     "blocking-diode-test-set-coverage",
     "blocking-diode-programme-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-blocking-diode-visual-inspection",
+   "name": "e2008-blocking-diode-visual-inspection",
+   "description": "Assess every planar blocking diode examined for workmanship and surface defects under ECSS-E-ST-20-08C clause 12.6.1: refer each observed extent to the smallest die dimension, judge it against the limit its own defect type and location carry, treat a defect nobody declared a limit for as a referral rather than a pass, let a defect seen below the required magnification stand while a clean look below it accepts nothing, sentence each diode accept, refer-for-review, examination-invalid or reject, and hold the lot open until every declared diode carries a final one. Use when planar blocking diodes have been examined and each needs a disposition. Trigger: ecss, e-st-20-08c, planar-blocking-diode-surface-defect-screening, planar-blocking-diode-workmanship-examination, planar-blocking-diode-defect-extent-ratio, planar-blocking-diode-examination-magnification, planar-blocking-diode-inspection-record-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-blocking-diode-visual-inspection",
+    "planar-blocking-diode-surface-defect-screening",
+    "planar-blocking-diode-workmanship-examination",
+    "planar-blocking-diode-defect-extent-ratio",
+    "planar-blocking-diode-examination-magnification",
+    "planar-blocking-diode-inspection-record-completeness"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21658,6 +22196,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-source-control-drawing",
+   "name": "e2008-coverglass-source-control-drawing",
+   "description": "Audit the source control drawing a coated coverglass is bought against, the content set ECSS-E-ST-20-08C Annex D expects fixed before order: name the heading the drawing leaves silent, test every dimension for a band that brackets its nominal and is drawn tightly enough to control the part, check the transmission window runs cut-on to cut-off and is wide enough to be a window, confirm the coating stack names a face and a function per layer and carries the antireflection and ultraviolet-reject layers, and rank an absent heading above one written down wrong. Use when a coverglass source control drawing or coating procurement content review is on the table. Trigger: ecss, e-st-20-08c-annex-d, coverglass-source-control-drawing, coverglass-coating-stack-content, coverglass-optical-window-limits, coverglass-dimension-tolerance-band, coverglass-procurement-drawing-content.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-coverglass-source-control-drawing",
+    "e-st-20-08c-annex-d",
+    "coverglass-source-control-drawing",
+    "coverglass-coating-stack-content",
+    "coverglass-optical-window-limits",
+    "coverglass-dimension-tolerance-band",
+    "coverglass-procurement-drawing-content"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-surface-cleanliness",
    "name": "e2008-coverglass-surface-cleanliness",
    "description": "Use when a coverglass delivery has been examined for soiling and each item needs a dispositioned cleanliness verdict. Assess every delivered coverglass against the surface cleanliness requirement of ECSS-E-ST-20-08C clause 8.7.1.3.7: screen both optical surfaces for particulate, film, fingerprint and staining deposits, compute the permanent obscured-area fraction and the oversize particle count per surface, separate removable soiling from contamination that survives a clean, disposition each surface as accept, clean-and-reinspect, refer-for-review or reject, and hold the delivery lot open until both surfaces of every coverglass carry a record. Trigger: ecss, e-st-20-08c, clause-8-7-1-3-7, coverglass-optical-surface-cleanliness, coverglass-particulate-obscuration, coverglass-removable-soiling-screen, coverglass-post-clean-reinspection, coverglass-delivery-lot-completeness.",
@@ -22268,6 +22826,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-displacement-damage-test-purpose",
+   "name": "e2008-displacement-damage-test-purpose",
+   "description": "Determine whether a technology owes the non-ionising exposure ECSS-E-ST-20-08C clause 12.6.11.2.1 reserves for displacement-sensitive parts, and size it: exempt a majority-carrier part, take lifetime down the Messenger-Spratt law, compare the surviving diffusion length with the base width, convert fluence into damage dose through non-ionising energy loss, restate it in the mission equivalence, and refuse a plan short of the end-of-life point or of parts. Use when such a campaign is scoped. Trigger: ecss, e-st-20-08c-clause-12-6-11-2-1, blocking-diode-displacement-damage-sensitivity, non-ionising-energy-loss-equivalence, displacement-damage-dose-budget, messenger-spratt-lifetime-damage-constant, base-transport-diffusion-length-margin, non-ionising-exposure-plan-adequacy.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-displacement-damage-test-purpose",
+    "blocking-diode-displacement-damage-sensitivity",
+    "non-ionising-energy-loss-equivalence",
+    "displacement-damage-dose-budget",
+    "messenger-spratt-lifetime-damage-constant",
+    "base-transport-diffusion-length-margin",
+    "non-ionising-exposure-plan-adequacy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-electrical-continuity-check",
    "name": "e2008-electrical-continuity-check",
    "description": "Verify that every circuit on a photovoltaic assembly control drawing actually conducts, under ECSS-E-ST-20-08C clause 5.5.3.3.2: check each reading against the test current, temperature and probe technique the drawing imposes, strip the probe leads from a two-wire reading or refuse to grade it, refer the resistance back to the reference temperature before comparing it with the circuit limit, separate a degraded joint from a true open circuit, and account for every drawing circuit nobody probed. Use when a continuity run has to be accepted, sentenced or repeated. Trigger: ecss, e-st-20-electrical-scope, photovoltaic-assembly-continuity-check, control-drawing-circuit-limit, four-wire-continuity-measurement, continuity-temperature-correction, open-circuit-versus-degraded-joint, continuity-coverage-accounting.",
@@ -22306,6 +22884,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-electron-irradiation-pass-criteria",
+   "name": "e2008-electron-irradiation-pass-criteria",
+   "description": "Assess whether a blocking diode still sits inside its source control drawing limits once electron exposure and the anneal that follows are both behind it, under ECSS-E-ST-20-08C clause 12.6.11.2.3: refuse a limit set carrying no drawing reference, sentence only on the post-anneal reading and leave a device unsentenced while that reading is missing, judge forward drop and reverse leakage against their ceilings and blocking voltage against its floor with a tie admissible, name every breach rather than the first, record how much of the exposure shift the anneal gave back, and take the rejected share against the declared allowance. Use when post-exposure blocking diode data has to become a drawing verdict. Trigger: ecss, e-st-20-08c-clause-12-6-11-2-3, blocking-diode-post-anneal-sentencing, blocking-diode-post-exposure-drawing-limits, blocking-diode-forward-drop-ceiling, blocking-diode-reverse-leakage-ceiling, blocking-diode-voltage-floor-margin, blocking-diode-anneal-recovery-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-electron-irradiation-pass-criteria",
+    "blocking-diode-post-anneal-sentencing",
+    "blocking-diode-post-exposure-drawing-limits",
+    "blocking-diode-forward-drop-ceiling",
+    "blocking-diode-reverse-leakage-ceiling",
+    "blocking-diode-voltage-floor-margin",
+    "blocking-diode-anneal-recovery-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-electron-irradiation-test-process",
    "name": "e2008-electron-irradiation-test-process",
    "description": "Verify that a one megaelectronvolt electron irradiation of photovoltaic cell assemblies was run the way the referenced methodology of ECSS-E-ST-20-08C clause 6.4.3.11.2 requires: check the beam energy against the equivalent electron, the delivery rate against the allowed window and the sample-plane flux spread against its allowance, integrate flux over every irradiated segment into a cumulative fluence and reconcile it with the planned point, project the remaining power factor from the logarithmic degradation law, and refuse a run that skipped the before or after electrical characterisation. Use when auditing or planning a solar-cell electron irradiation run. Trigger: ecss, e-st-20-08c, clause-6-4-3-11-2, one-mev-electron-irradiation-run, solar-cell-assembly-fluence-accumulation, electron-beam-plane-flux-uniformity, irradiation-remaining-power-factor, irradiation-step-characterisation.",
@@ -22318,6 +22915,26 @@
     "electron-beam-plane-flux-uniformity",
     "irradiation-remaining-power-factor",
     "irradiation-step-characterisation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-electron-irradiation-test-process-690",
+   "name": "e2008-electron-irradiation-test-process-690",
+   "description": "Verify that a one megaelectronvolt electron irradiation of planar blocking diodes followed the method ECSS-E-ST-20-08C clause 12.6.11.2.2 states: hold the beam energy inside its tolerance, keep every segment inside the rate window, integrate flux over time into cumulative fluence and reconcile each planned point, refuse a ladder that does not rise or changed bias part way, and refuse a run missing a step readout or a control part. Use when such a run is planned or audited. Trigger: ecss, e-st-20-08c-clause-12-6-11-2-2, planar-blocking-diode-electron-irradiation-run, one-mev-electron-beam-energy-tolerance, blocking-diode-fluence-step-ladder, irradiation-bias-condition-consistency, blocking-diode-post-step-characterisation, unirradiated-control-part-drift.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-electron-irradiation-test-process-690",
+    "planar-blocking-diode-electron-irradiation-run",
+    "one-mev-electron-beam-energy-tolerance",
+    "blocking-diode-fluence-step-ladder",
+    "irradiation-bias-condition-consistency",
+    "blocking-diode-post-step-characterisation",
+    "unirradiated-control-part-drift"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22440,6 +23057,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-external-diode-control-drawing",
+   "name": "e2008-external-diode-control-drawing",
+   "description": "Evaluate the source control drawing an external protection diode is bought against, the content ECSS-E-ST-20-08C Annex E expects fixed before order: name the heading the drawing leaves silent, check the stated reverse breakdown stands far enough above the applied reverse working voltage, hold the applied forward current against the rating once the declared derating is taken off, compute the junction temperature from the dissipation and the stated thermal path and test it against the rated maximum, and rank an absent heading above a stated limit that is not met. Use when an external diode source control drawing or procurement content review is on the table. Trigger: ecss, e-st-20-08c-annex-e, external-diode-source-control-drawing, external-diode-reverse-blocking-margin, external-diode-forward-current-derating, external-diode-junction-temperature-margin, external-diode-procurement-drawing-content.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-external-diode-control-drawing",
+    "e-st-20-08c-annex-e",
+    "external-diode-source-control-drawing",
+    "external-diode-reverse-blocking-margin",
+    "external-diode-forward-current-derating",
+    "external-diode-junction-temperature-margin",
+    "external-diode-procurement-drawing-content"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-external-diode-qualification-plan",
    "name": "e2008-external-diode-qualification-plan",
    "description": "Evaluate the qualification programme ECSS-E-ST-20-08C clause 9.5.3 asks of external protection diodes, which runs at two levels at once, the bare diodes and the complete diode assemblies built from them: close each level against its own activity set, find the level that was planned while the other was quietly assumed, size every campaign against the specimen minimum for its level, hold assemblies built from diode lots the programme never named, and catch assembly work scheduled before the bare-diode level closes. Use when a protection diode qualification plan is being drafted or reviewed. Trigger: ecss, e-st-20-08c-clause-9-5-3, protection-diode-qualification-programme-coverage, bare-diode-and-assembly-level-split, diode-qualification-specimen-count, diode-assembly-specimen-lot-provenance, diode-qualification-level-sequencing.",
@@ -22492,6 +23129,27 @@
     "failed-bare-cell-rework-admissibility",
     "failed-bare-cell-scrap-disposition",
     "bare-cell-lot-quantity-shortfall"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-failed-blocking-diodes",
+   "name": "e2008-failed-blocking-diodes",
+   "description": "Derive the designation ECSS-E-ST-20-08C clause 12.7.2 gives a planar blocking diode showing any mode the preceding failure criteria list: treat one standing mode as enough, hold the designation on the individual part rather than on its lot, keep a part whose inspection is unfinished undetermined instead of deliverable, refuse a retest clearance the policy does not admit or that names no authority, demand a segregation record, a non-conformance reference and withdrawal from any string it was allocated to before a failed part counts as handled, reconcile offered parts against records both ways, and derive the deliverable count. Use when blocking diode inspection findings have to become delivery status. Trigger: ecss, e-st-20-08c-clause-12-7-2, failed-blocking-diode-designation, blocking-diode-failure-mode-disposition, blocking-diode-segregation-record, blocking-diode-string-allocation-withdrawal, blocking-diode-deliverable-exclusion, blocking-diode-undetermined-inspection-status.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-failed-blocking-diodes",
+    "e-st-20-08c-clause-12-7-2",
+    "failed-blocking-diode-designation",
+    "blocking-diode-failure-mode-disposition",
+    "blocking-diode-segregation-record",
+    "blocking-diode-string-allocation-withdrawal",
+    "blocking-diode-deliverable-exclusion",
+    "blocking-diode-undetermined-inspection-status"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22870,6 +23528,45 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-ionising-irradiation-pass-criteria",
+   "name": "e2008-ionising-irradiation-pass-criteria",
+   "description": "Assess a blocking diode's post-irradiation and post-anneal behaviour against its control drawing limits under ECSS-E-ST-20-08C clause 12.6.11.1.2: refuse an untraceable limit set, judge both readings against the same bound with a tie admissible, split the total-dose shift into what the soak gave back and the residual the mission carries, catch a part the anneal left worse than the exposure, and take the lot reject share against its allowance. Use when irradiated and annealed diode data must become a verdict. Trigger: ecss, e-st-20-08c-clause-12-6-11-1-2, blocking-diode-total-ionising-dose-sentencing, control-drawing-post-irradiation-limits, post-anneal-recovery-fraction, reverse-annealing-advisory, irradiated-diode-residual-shift, irradiated-lot-reject-allowance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-ionising-irradiation-pass-criteria",
+    "blocking-diode-total-ionising-dose-sentencing",
+    "control-drawing-post-irradiation-limits",
+    "post-anneal-recovery-fraction",
+    "reverse-annealing-advisory",
+    "irradiated-diode-residual-shift",
+    "irradiated-lot-reject-allowance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-ionising-irradiation-test-process",
+   "name": "e2008-ionising-irradiation-test-process",
+   "description": "Validate an ionising irradiation exposure of diodes run in a cobalt gamma field or, alternatively, an accelerator electron beam under ECSS-E-ST-20-08C clause 12.6.11.1.1: hold a third facility outside the process, refuse a run whose bias condition is unrecorded, check each segment rate against the window for the chosen facility and an accelerator beam energy against its own, accumulate dose segment by segment rather than off the wall clock, take the sample plane spread across its monitors, and hold the total against the target. Use when such an exposure is planned or read back. Trigger: ecss, e-st-20-08c-clause-12-6-11-1-1, diode-ionising-dose-exposure-run, cobalt-gamma-irradiation-facility, accelerator-electron-beam-irradiation, sample-plane-dose-uniformity-spread, accumulated-ionising-dose-against-target.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-ionising-irradiation-test-process",
+    "diode-ionising-dose-exposure-run",
+    "cobalt-gamma-irradiation-facility",
+    "accelerator-electron-beam-irradiation",
+    "sample-plane-dose-uniformity-spread",
+    "accumulated-ionising-dose-against-target"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-long-duration-life-test-criteria",
    "name": "e2008-long-duration-life-test-criteria",
    "description": "Assess whether the maximum power of a photovoltaic assembly stayed inside the two per cent degradation the ECSS-E-ST-20-08C clause 6.4.3.18.3 criterion allows across a whole long duration life test: translate every reading to the declared reference irradiance and cell temperature before differencing it, measure the fall against the initial reading of that same test, take the worst value anywhere in the series rather than the final one, admit a reading landing exactly on the limit, and report an excursion the end of the test recovered from. Use when sentencing or auditing a long duration life test result. Trigger: ecss, e-st-20-08c, clause-6-4-3-18-3, long-duration-life-test-criteria, maximum-power-degradation-limit, life-test-initial-reference-reading, reference-condition-power-correction, recovered-degradation-excursion.",
@@ -23040,6 +23737,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-photovoltaic-assembly-control-drawing",
+   "name": "e2008-photovoltaic-assembly-control-drawing",
+   "description": "Audit the source control drawing for a complete photovoltaic assembly against the content Annex A of ECSS-E-ST-20-08C calls for: resolve every content block as specified, open or absent rather than as present or missing; refuse a nominal carried without a tolerance band as a control; check each constituent item cites a drawing that exists at the issue cited; and weight completeness by how much of the assembly each block governs instead of counting blocks. Use when a photovoltaic assembly drawing package is offered for release and its content has to carry the assembly. Trigger: ecss, e-st-20-08c, photovoltaic-assembly-source-control-drawing-audit, photovoltaic-assembly-drawing-content-block-state, photovoltaic-assembly-constituent-drawing-issue-standing, photovoltaic-assembly-dimension-tolerance-control, photovoltaic-assembly-drawing-completeness-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-photovoltaic-assembly-control-drawing",
+    "photovoltaic-assembly-source-control-drawing-audit",
+    "photovoltaic-assembly-drawing-content-block-state",
+    "photovoltaic-assembly-constituent-drawing-issue-standing",
+    "photovoltaic-assembly-dimension-tolerance-control",
+    "photovoltaic-assembly-drawing-completeness-share",
+    "photovoltaic-assembly-drawing-release-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-photovoltaic-assembly-purpose-and-objective",
    "name": "e2008-photovoltaic-assembly-purpose-and-objective",
    "description": "Compute the design-limit margins and the responsibility split that clause 5.1.2 of ECSS-E-ST-20-08C expects a photovoltaic-assembly work scope to establish: normalize each declared limit into a not-to-exceed or not-to-fall-below margin fraction of the limit, compare it with the margin the project policy demands for its thermal, electrical, mechanical or optical category, name the required category that carries no declared limit at all, and check that every design, manufacturing and verification work item has one accountable party with an agreement reference wherever the work is shared. Use when a PVA statement of work, procurement specification or design-limit list has to be shown complete before build starts. Trigger: ecss, e-st-20-08c, photovoltaic-assembly-design-limit, photovoltaic-assembly-margin-policy, photovoltaic-assembly-work-responsibility, pva-customer-supplier-split, pva-design-limit-margin-shortfall, pva-work-scope-completeness.",
@@ -23099,6 +23816,43 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-power-burn-in-process",
+   "name": "e2008-power-burn-in-process",
+   "description": "Evaluate whether a power burn-in under ECSS-E-ST-20-08C clause 12.6.7.2.2 held the specified forward current for the ninety-six hour minimum or merely logged oven time: group each logged segment as soak, interruption or overdrive against the current tolerance band, count only continuous in-band hours, restart the clock when an interruption runs past its allowance, derive the junction temperature the forward loading produces, confirm every declared build defect has a parameter watching it, and separate a completed soak from one short, overdriven, overheated or blind. Use when planning or reviewing a device power burn-in before the qualification lot is released. Trigger: ecss, e-st-20-08c-clause-12-6-7-2-2, power-burn-in-forward-current-band, power-burn-in-ninety-six-hour-floor, power-burn-in-interruption-restart, power-burn-in-junction-temperature-limit, power-burn-in-monitored-parameters.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-power-burn-in-process",
+    "power-burn-in-forward-current-band",
+    "power-burn-in-ninety-six-hour-floor",
+    "power-burn-in-interruption-restart",
+    "power-burn-in-junction-temperature-limit",
+    "power-burn-in-monitored-parameters"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-power-burn-in-purpose",
+   "name": "e2008-power-burn-in-purpose",
+   "description": "Assess whether a blocking diode power burn stage actually simulates device operation under accelerated conditions, which is the only reason the stage exists: take the applied forward current and duty against the in-service operating point, raise them to the declared power-law exponent to size the acceleration the stage buys, convert the burn duration into simulated field hours, refuse a stress that sits under the operating point or past the regime ceiling where a new mechanism takes over, and report whether the screening purpose was met. Use when justifying, sizing or auditing a power burn stage. Trigger: ecss, e-st-20-08c-clause-12-6-7-2-1, blocking-diode-power-burn-purpose, power-burn-operation-simulation, power-burn-duty-acceleration, power-burn-simulated-field-hours, power-burn-regime-ceiling.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-power-burn-in-purpose",
+    "blocking-diode-power-burn-purpose",
+    "power-burn-operation-simulation",
+    "power-burn-duty-acceleration",
+    "power-burn-simulated-field-hours",
+    "power-burn-regime-ceiling",
+    "power-burn-stress-representativeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-power-measurement-process",
    "name": "e2008-power-measurement-process",
    "description": "Verify that a string-level electrical performance measurement on a photovoltaic assembly was taken where ECSS-E-ST-20-08C clause 5.5.3.4.2 puts it: at the interface connector and referred to a declared reference temperature. Confirm the probing plane keeps the harness the string delivers through inside the loop, quantify the power a shorter plane overstates, refer the measured open-circuit voltage, short-circuit current and maximum power to the reference with the declared coefficients, and reject a correction reaching too far from it to be credible. Use when reviewing a solar-array string current-voltage measurement record. Trigger: ecss, e-st-20-08c, clause-5-5-3-4-2, solar-array-string-iv-measurement, interface-connector-measurement-plane, string-reference-temperature-correction, harness-voltage-drop-allocation, string-maximum-power-referral.",
@@ -23147,6 +23901,26 @@
     "reference-cell-calibration-validity",
     "simulator-illumination-level-setting",
     "reference-cell-temperature-correction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-process-identification-document-requirements",
+   "name": "e2008-process-identification-document-requirements",
+   "description": "Assess the content a process identification document carries when it describes the production processes an assembly is built by, the structure ECSS-E-ST-20-08C Annex F expects: name the document section nobody wrote, test each process record for the fields that make a step re-runnable by somebody else, check every control parameter carries a band that brackets its nominal and is neither zero wide nor too wide to control anything, confirm the stated flow numbers run first to last with none repeated or skipped, and hold the described processes against the list the document itself declares. Use when a process identification document is reviewed for content rather than for coverage. Trigger: ecss, e-st-20-08c-annex-f, process-identification-document-content, assembly-process-record-fields, assembly-process-control-parameter-band, assembly-process-flow-sequence, process-identification-document-section-audit.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-process-identification-document-requirements",
+    "e-st-20-08c-annex-f",
+    "process-identification-document-content",
+    "assembly-process-record-fields",
+    "assembly-process-control-parameter-band",
+    "assembly-process-flow-sequence",
+    "process-identification-document-section-audit"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -23776,6 +24550,24 @@
     "cut-on-tolerance-band-deviation",
     "reflectance-half-of-absolute-crossing",
     "coverglass-coating-band-edge-acceptance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reverse-bias-burn-in",
+   "name": "e2008-reverse-bias-burn-in",
+   "description": "Assess whether a reverse bias burn-in under ECSS-E-ST-20-08C clause 12.6.7.3.1 is the high temperature blocking soak the clause describes or a differently stressed run wearing its name: confirm the cathode is held positive with respect to the anode, size the applied blocking voltage against the rating, derive the junction temperature the leakage self-heating produces, hold the soak inside its window up to the forty-eight hour ceiling, and separate devices whose leakage drifted past the drift limit from a lot whose drift share condemns the build. Use when planning or reviewing a diode reverse bias soak before the lot is accepted. Trigger: ecss, e-st-20-08c-clause-12-6-7-3-1, reverse-bias-burn-in-cathode-positive, reverse-bias-burn-in-forty-eight-hour-ceiling, reverse-bias-burn-in-voltage-ratio, reverse-bias-burn-in-leakage-drift, reverse-bias-burn-in-junction-temperature.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reverse-bias-burn-in",
+    "reverse-bias-burn-in-cathode-positive",
+    "reverse-bias-burn-in-forty-eight-hour-ceiling",
+    "reverse-bias-burn-in-voltage-ratio",
+    "reverse-bias-burn-in-leakage-drift",
+    "reverse-bias-burn-in-junction-temperature"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -24666,6 +25458,26 @@
     "cell-to-substrate-bond-strength",
     "adherence-lower-tolerance-bound",
     "coupon-representativeness-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-solar-cell-assembly-drawing",
+   "name": "e2008-solar-cell-assembly-drawing",
+   "description": "Assess the source control drawing covering a solar cell assembly against the content Annex B of ECSS-E-ST-20-08C calls for: read the stack outer face inward, derive the bonded joint between each adjacent pair, and require exactly one bond control per joint naming agent, thickness and area coverage; identify each terminal polarity once and marked; and resolve every cited constituent drawing at the issue cited. Use when an assembly drawing package is offered for release and the joints between its layers have to be controlled, not merely drawn. Trigger: ecss, e-st-20-08c, solar-cell-assembly-drawing-content-audit, solar-cell-assembly-layer-stack-continuity, solar-cell-assembly-bonded-interface-control, solar-cell-assembly-terminal-polarity-identification, solar-cell-assembly-cited-drawing-standing.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-solar-cell-assembly-drawing",
+    "solar-cell-assembly-drawing-content-audit",
+    "solar-cell-assembly-layer-stack-continuity",
+    "solar-cell-assembly-bonded-interface-control",
+    "solar-cell-assembly-terminal-polarity-identification",
+    "solar-cell-assembly-cited-drawing-standing",
+    "solar-cell-assembly-drawing-release-verdict"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26669,6 +27481,799 @@
     "assembly-procedures",
     "cleanliness-control",
     "health-and-safety"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-alert-handling",
+   "name": "q6013-class-1-alert-handling",
+   "description": "Assess a manufacturer alert or errata notice against the highest-assurance (class 1) commercial EEE parts a project holds, under ECSS-Q-ST-60-13C clause 4.5.3: match the named part numbers, resolve each holding date code into an ordinal and test it against the inclusive affected range, escalate a lot whose date code is unreadable instead of reading it as unaffected, derive the quarantine, retrofit or in-service action each holding state earns, and count acknowledgement and disposition working days against the deadlines the category sets. Use when a supplier alert, errata sheet, change notice or discontinuance notice arrives and the project must show which lots it touches. Trigger: ecss, q-st-60-13c, manufacturer-alert-handling, commercial-eee-errata, affected-date-code-range, alert-acknowledgement-deadline, lot-quarantine-action, class-1-commercial-part.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-alert-handling",
+    "class-1-commercial-eee-part",
+    "manufacturer-alert-screening",
+    "commercial-eee-errata-notice",
+    "affected-date-code-range",
+    "alert-response-working-days"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-asic-components",
+   "name": "q6013-class-1-asic-components",
+   "description": "Determine which assurance route a class 1 application-specific device follows under ECSS-Q-ST-60-13C clause 4.6.2: recognise a full-custom, standard-cell, gate-array or structured part and point it at the dedicated microelectronics assurance standard rather than the generic component flow, then weigh any heritage claim by comparing foundry, process node, package, design revision, temperature envelope and qualified total dose with the new application, re-opening one named development activity per difference and applying the dose margin factor before comparing. Reports the reuse credit and every re-opened activity. Use when a device is offered as heritage rather than new development. Trigger: ecss, q-st-60-13c-clause-4-6-2, class-1-asic-routing, microelectronics-assurance-referral, asic-heritage-reuse-delta, asic-foundry-and-node-change, asic-total-dose-margin-factor, reopened-development-activity.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-asic-components",
+    "class-1-asic-routing",
+    "microelectronics-assurance-referral",
+    "asic-heritage-reuse-delta",
+    "asic-foundry-and-node-change",
+    "asic-total-dose-margin-factor",
+    "reopened-development-activity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-buy-off-inspection",
+   "name": "q6013-class-1-buy-off-inspection",
+   "description": "Evaluate whether a highest-assurance commercial parts lot may leave the manufacturer at the source buy-off of ECSS-Q-ST-60-13C clause 4.3.6: confirm an independent inspector whose qualification is still current, check the mandatory evidence pack item by item instead of scoring it as a percentage, refuse a buy-off dated before lot acceptance testing finished, group the nonconformances so an open major holds the lot and a waiver closes one only with its reference, and authorize shipment only when every gate holds. Use when a source inspection has to become a ship-or-hold decision. Trigger: ecss, q-st-60-13c-clause-4-3-6, commercial-eee-source-buy-off, buy-off-evidence-pack, inspector-independence-check, open-major-nonconformance-hold, waiver-reference-closure, ship-or-hold-at-source.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-buy-off-inspection",
+    "commercial-eee-source-buy-off",
+    "buy-off-evidence-pack",
+    "inspector-independence-check",
+    "open-major-nonconformance-hold",
+    "waiver-reference-closure",
+    "ship-or-hold-at-source"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-component-control-plan",
+   "name": "q6013-class-1-component-control-plan",
+   "description": "Assess whether a component control plan covers the scope the highest assurance class demands for commercial EEE parts under ECSS-Q-ST-60-13C clause 4.1.2.2: refuse a plan carrying no reference or issue, take each required subject in turn, treat a subject named without a procedure behind it as absent, compute the covered share and the depth-weighted completeness, name every missing and every shallow subject rather than the first, check customer approval and issue before the first procurement commitment, and flag a subject sitting just above the depth floor. Use when a drafted plan has to become a coverage verdict. Trigger: ecss, q-st-60-13c-clause-4-1-2-2, class-one-component-control-plan, component-control-plan-subject-coverage, commercial-part-plan-depth-weighting, component-control-plan-customer-approval, plan-issue-before-procurement-commitment, shallow-plan-subject-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-1-component-control-plan",
+    "class-one-component-control-plan",
+    "component-control-plan-subject-coverage",
+    "commercial-part-plan-depth-weighting",
+    "component-control-plan-customer-approval",
+    "plan-issue-before-procurement-commitment",
+    "shallow-plan-subject-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-connectors",
+   "name": "q6013-class-1-connectors",
+   "description": "Verify the connector contacts of a Class 1 commercial procurement against ECSS-Q-ST-60-13C clause 4.6.6: group the contact source as qualified contact manufacturer, integrated connector manufacturer, traced distributor or open market, read the minimum gold thickness the finish needs for the declared mating cycles off a durability table, grade the measured gold and nickel barrier against it, derate the contact current rating for contact size and for the fraction of contacts energised together, convert the contact resistance into a millivolt drop, then return an accept, accept-with-deviation or reject disposition. Use when connector contacts and their sourcing must be judged before a Class 1 lot is accepted. Trigger: ecss, q-st-60-13c, class-1-connector-contacts, contact-gold-plating-durability, contact-bundle-current-derating, contact-millivolt-drop, contact-lot-traceability, connector-contact-sourcing.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-connectors",
+    "class-1-connector-contacts",
+    "contact-gold-plating-durability",
+    "contact-bundle-current-derating",
+    "contact-millivolt-drop",
+    "connector-contact-sourcing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-declared-component-list",
+   "name": "q6013-class-1-declared-component-list",
+   "description": "Evaluate the declared component list raised for one equipment under clause 4.1.4 of ECSS-Q-ST-60-13C: confirm the list is scoped to that equipment and carries no orphan line, grade every line on the attributes an approval decision cannot be taken without, route each line to the authority its procurement category obliges, and keep apart an approval never requested, one still open, one refused, and one granted against another equipment or application and therefore not transferable. Weight the released lines by installed quantity, compare that coverage with the release threshold, and return one verdict with ranked findings. Use when a declared component list, part approval package or equipment parts baseline is reviewed. Trigger: ecss, q-st-60-13c, declared-component-list-per-equipment, commercial-component-approval-route, dcl-line-attribute-completeness, dcl-approval-coverage-fraction, dcl-release-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q-st-60-13c",
+    "q6013-class-1-declared-component-list",
+    "declared-component-list-per-equipment",
+    "commercial-component-approval-route",
+    "dcl-line-attribute-completeness",
+    "dcl-approval-coverage-fraction",
+    "dcl-release-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-derating-rules",
+   "name": "q6013-class-1-derating-rules",
+   "description": "Verify that every electrical and thermal stress on a selected commercial EEE part sits inside the Class 1 derating limits of ECSS-Q-ST-60-13C clause 4.2.2.5: look up the part family's voltage, current and power ratios and its junction step-down, turn each maker rating into the largest applied value the rule leaves, grade the applied stresses and the predicted junction temperature against those limits, name the tightest margin, and state the drop a breach needs. Use when a Class 1 build has to show a commercial part runs inside its derated envelope. Trigger: ecss, q-st-60-13-commercial-eee-scope, class-1-eee-derating-limits, commercial-part-voltage-derating, commercial-part-current-derating, commercial-part-power-dissipation-derating, junction-temperature-step-down, derated-stress-ratio-margin.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-derating-rules",
+    "class-1-eee-derating-limits",
+    "commercial-part-voltage-derating",
+    "commercial-part-current-derating",
+    "commercial-part-power-dissipation-derating",
+    "junction-temperature-step-down",
+    "derated-stress-ratio-margin",
+    "commercial-part-family-derating-table"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-destructive-physical-analysis",
+   "name": "q6013-class-1-destructive-physical-analysis",
+   "description": "Evaluate a purchased commercial EEE lot through destructive physical analysis under ECSS-Q-ST-60-13C clause 4.3.9. Use when sizing a teardown sample per date-code group of a commercial shipment, sorting observed construction defects into major and minor categories from a named register, judging die-attach voiding and wire bond pull strength against declared limits, and turning the combined record into a lot disposition. Refuses an unregistered defect code, a largest void exceeding the total voided area, and a sample that would consume its own date-code group. Trigger: ecss, q-st-60-13c, commercial-lot-destructive-physical-analysis, date-code-group-sampling, die-attach-void-fraction, wire-bond-pull-strength, commercial-eee-construction-defect-register, purchased-lot-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-destructive-physical-analysis",
+    "commercial-lot-destructive-physical-analysis",
+    "date-code-group-sampling",
+    "die-attach-void-fraction",
+    "wire-bond-pull-strength",
+    "purchased-lot-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-documentation",
+   "name": "q6013-class-1-documentation",
+   "description": "Audit whether the record package retained for a class 1 commercial part activity is complete and durable under ECSS-Q-ST-60-13C clause 4.7: refuse a record with no recognized type, identifier, issue, date or approving authority, name every mandatory report the package never produced, derive each retention end from the record date and its whole-year retention and compare it with the horizon the project has to reach, reconcile record coverage against the as-built parts list in both directions, and report completeness as a fraction judged at unity under a named tolerance. Use when a parts record package has to be judged fit to retain. Trigger: ecss, q-st-60-13c-clause-4-7, class-1-parts-record-package, mandatory-parts-report-coverage, parts-record-retention-horizon, as-built-parts-list-traceability, parts-package-completeness-fraction.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-documentation",
+    "q-st-60-13c-clause-4-7",
+    "class-1-parts-record-package",
+    "mandatory-parts-report-coverage",
+    "parts-record-retention-horizon",
+    "as-built-parts-list-traceability",
+    "parts-package-completeness-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-eqm-components",
+   "name": "q6013-class-1-eqm-components",
+   "description": "Evaluate whether commercial components fitted to an engineering qualification model represent the flight build under clause 4.1.6 of ECSS-Q-ST-60-13C: compare each fitted part with its flight-intended counterpart attribute by attribute, weight the deviations into a representativeness index, and map every deviation onto the qualification domains whose results stop transferring, so a package substitution invalidates a mechanical result while a die-lot substitution invalidates a lifetime one. Treat a different manufacturer or part number as a different part rather than a deduction. Return a per-part category, the retest set, and one transfer verdict. Use when an EQM parts list, build-standard delta or qualification transfer argument is reviewed. Trigger: ecss, q-st-60-13c, eqm-commercial-component-representativeness, eqm-to-flight-build-standard-delta, eqm-qualification-transfer-domain, eqm-representativeness-index, eqm-retest-set.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q-st-60-13c",
+    "q6013-class-1-eqm-components",
+    "eqm-commercial-component-representativeness",
+    "eqm-to-flight-build-standard-delta",
+    "eqm-qualification-transfer-domain",
+    "eqm-representativeness-index",
+    "eqm-retest-set"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-evaluation-overview",
+   "name": "q6013-class-1-evaluation-overview",
+   "description": "Evaluate whether the evaluation campaign behind a commercial part meets clause 4.2.3.1 of ECSS-Q-ST-60-13C at Class 1: grade the state of every campaign element the clause owes, from manufacturer assessment and construction analysis through radiation, endurance, environmental and electrical characterisation to assembly compatibility, test each heritage claim against manufacturer, part number, assembly site, process-change and validity rules, weight the credit into a coverage fraction, and return the outstanding elements with one campaign verdict. Use when an evaluation plan, heritage justification or evaluation report decides whether a part may enter a design. Trigger: ecss, q-st-60-13c, q6013-class-1-evaluation-overview, commercial-part-evaluation-campaign, evaluation-element-coverage, evaluation-heritage-admissibility, commercial-part-evaluation-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q-st-60-13c",
+    "q6013-class-1-evaluation-overview",
+    "commercial-part-evaluation-campaign",
+    "evaluation-element-coverage",
+    "evaluation-heritage-admissibility",
+    "commercial-part-evaluation-verdict",
+    "mandatory-evaluation-element"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-evaluation-testing",
+   "name": "q6013-class-1-evaluation-testing",
+   "description": "Evaluate whether an evaluation test campaign qualifies a commercial part type for flight under ECSS-Q-ST-60-13C clause 4.2.3.4: refuse a campaign whose part type carries no manufacturer, part number and date-code identity, treat an unexecuted mandatory block as a coverage shortfall rather than a clean block, hold every block to its sample-size floor and its admissible failure count, require the declared lot diversity, and accumulate endurance device-hours against the required floor under a named tolerance. Use when evaluation results have to become a part-type qualification verdict. Trigger: ecss, q-st-60-13c-clause-4-2-3-4, commercial-part-evaluation-campaign, part-type-flight-qualification, evaluation-block-coverage, evaluation-sample-size-floor, evaluation-lot-diversity, endurance-device-hours-floor.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-evaluation-testing",
+    "q-st-60-13c-clause-4-2-3-4",
+    "commercial-part-evaluation-campaign",
+    "part-type-flight-qualification",
+    "evaluation-block-coverage",
+    "evaluation-sample-size-floor",
+    "evaluation-lot-diversity",
+    "endurance-device-hours-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-gse-components",
+   "name": "q6013-class-1-gse-components",
+   "description": "Assess commercial components fitted inside ground support equipment that connects to flight hardware under clause 4.1.5 of ECSS-Q-ST-60-13C: trace each part to the interface it sits behind, form the worst-case power it can drive into the flight side from its own supply voltage and current limit, credit a protection barrier only when the barrier is itself qualified, compare what survives with the susceptibility limit declared for that interface, and return the control category each part earns instead of exempting a whole rack because it stays on the ground. Report the governing part and ranked findings. Use when a GSE parts list, umbilical interface or bench protection scheme is reviewed. Trigger: ecss, q-st-60-13c, gse-commercial-component-control, gse-to-flight-interface-margin, gse-protection-barrier-credit, gse-worst-case-injection-power, gse-part-control-category.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q-st-60-13c",
+    "q6013-class-1-gse-components",
+    "gse-commercial-component-control",
+    "gse-to-flight-interface-margin",
+    "gse-protection-barrier-credit",
+    "gse-worst-case-injection-power",
+    "gse-part-control-category"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-handling-and-storage",
+   "name": "q6013-class-1-handling-and-storage",
+   "description": "Evaluate the handling and storage regime protecting a highest-assurance commercial EEE lot under ECSS-Q-ST-60-13C clause 4.4: place the part in a human-body-model sensitivity band, derive the electrostatic controls that band owes and name the ones the store does not operate, measure the temperature and humidity excursions against the declared limits, count the moisture floor life consumed since the dry pack was opened, and return the shelf-life margin with one release, release-with-actions or quarantine verdict. Use when a bonded store, incoming quarantine or shelf-life review is graded before parts are issued. Trigger: ecss, q-st-60-13c, class-1-electrostatic-handling-controls, class-1-storage-environment-limits, class-1-shelf-life-margin, moisture-sensitivity-floor-life, solderability-retest-interval, stored-lot-release-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-1-handling-and-storage",
+    "class-1-electrostatic-handling-controls",
+    "class-1-storage-environment-limits",
+    "class-1-shelf-life-margin",
+    "moisture-sensitivity-floor-life",
+    "solderability-retest-interval",
+    "stored-lot-release-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-high-voltage-parts",
+   "name": "q6013-class-1-high-voltage-parts",
+   "description": "Evaluate whether a commercial part serving a high voltage or high power microwave function is fit for class 1 use under ECSS-Q-ST-60-13C clause 4.6.7: refuse an application with no manufacturer, part number or declared service category, hold applied voltage to its category derating ceiling with equality admissible under a named tolerance, judge the microwave power margin in decibels against a required floor, require a declared mitigation where an unsealed part stays energized through the low pressure discharge band, and name every absent category screening step. Use when a high voltage or microwave commercial part has to be dispositioned. Trigger: ecss, q-st-60-13c-clause-4-6-7, class-1-high-voltage-part-application, high-voltage-derating-ceiling, microwave-multipaction-margin-db, corona-discharge-band-mitigation, high-voltage-conditioning-screening.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-high-voltage-parts",
+    "q-st-60-13c-clause-4-6-7",
+    "class-1-high-voltage-part-application",
+    "high-voltage-derating-ceiling",
+    "microwave-multipaction-margin-db",
+    "corona-discharge-band-mitigation",
+    "high-voltage-conditioning-screening"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-hybrid-components",
+   "name": "q6013-class-1-hybrid-components",
+   "description": "Evaluate the specification chain a class 1 hybrid microcircuit is procured against under ECSS-Q-ST-60-13C clause 4.6.3: confirm a dedicated generic specification governs the type, confirm the detail specification cites that generic as its parent, then rank every constituent element -- die, chip resistor, chip capacitor, substrate, interconnect, package -- by the procurement class it was itself bought at, and take the weakest element as the effective class the assembled hybrid can claim. Refuses an element carrying no specification reference of its own and names each element short of the declared class. Use when a hybrid is offered without a complete generic-plus-detail chain. Trigger: ecss, q-st-60-13c-clause-4-6-3, class-1-hybrid-procurement, hybrid-generic-specification, hybrid-detail-specification-parent, hybrid-element-procurement-class, weakest-element-effective-class, hybrid-element-class-shortfall.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-hybrid-components",
+    "class-1-hybrid-procurement",
+    "hybrid-generic-specification",
+    "hybrid-detail-specification-parent",
+    "hybrid-element-procurement-class",
+    "weakest-element-effective-class",
+    "hybrid-element-class-shortfall"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-incoming-inspection",
+   "name": "q6013-class-1-incoming-inspection",
+   "description": "Determine whether a received delivery of a highest-assurance commercial part goes into bonded store or into quarantine under ECSS-Q-ST-60-13C clause 4.3.7: reconcile part number, date code and quantity against the purchase order, size the external visual sample from the received quantity by an exact integer square-root plan, judge the defects against the accept number, read the bag seal, the humidity indicator card and the elapsed floor-life exposure of the declared moisture sensitivity level, then name every reason a delivery is held. Use when a delivery has to become a receipt disposition. Trigger: ecss, q-st-60-13c-clause-4-3-7, commercial-eee-incoming-inspection, purchase-order-reconciliation, incoming-visual-sample-size, dry-pack-humidity-indicator, msl-floor-life-exposure, receipt-quarantine-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-incoming-inspection",
+    "commercial-eee-incoming-inspection",
+    "purchase-order-reconciliation",
+    "incoming-visual-sample-size",
+    "dry-pack-humidity-indicator",
+    "msl-floor-life-exposure",
+    "receipt-quarantine-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-lot-acceptance",
+   "name": "q6013-class-1-lot-acceptance",
+   "description": "Assess whether one date-code lot of a highest-assurance commercial part passes lot acceptance testing under ECSS-Q-ST-60-13C clause 4.3.5: refuse a malformed date code and a delivery mixing several, check every sample against the lot it was drawn from, take each subgroup's failures against its accept number, convert them into a percent defective and compare that with the declared allowance, count the units that drifted past their delta limit, and hold the lot when any single subgroup rejects rather than averaging the subgroups together. Use when lot acceptance results have to become a flight-release verdict for one date code. Trigger: ecss, q-st-60-13c-clause-4-3-5, commercial-eee-lot-acceptance, date-code-lot-verdict, lat-subgroup-accept-number, lot-percent-defective-allowance, parameter-drift-reject-count, marginal-lot-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-lot-acceptance",
+    "commercial-eee-lot-acceptance",
+    "date-code-lot-verdict",
+    "lat-subgroup-accept-number",
+    "lot-percent-defective-allowance",
+    "parameter-drift-reject-count",
+    "marginal-lot-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-lot-homogeneity",
+   "name": "q6013-class-1-lot-homogeneity",
+   "description": "Assess whether a delivered class 1 component population is one genuinely uniform production lot before test specimens are drawn from it under ECSS-Q-ST-60-13C clause 4.5.5: group the units by wafer lot, assembly lot and manufacturing site, count the traceability groups, compare the date-code span in whole weeks with the declared limit, size the sample from the lot in exact integer arithmetic, and confirm the drawn specimens reach every sub-lot instead of clustering in the largest one. Refuses a unit carrying no traceability and names each sub-lot the sample never touched. Use when sampling has to be justified as representative of the whole lot. Trigger: ecss, q-st-60-13c-clause-4-5-5, class-1-lot-homogeneity, wafer-lot-traceability-grouping, date-code-span-weeks, lot-sample-size-derivation, sub-lot-sampling-coverage, unsampled-sub-lot-finding.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-lot-homogeneity",
+    "class-1-lot-homogeneity",
+    "wafer-lot-traceability-grouping",
+    "date-code-span-weeks",
+    "lot-sample-size-derivation",
+    "sub-lot-sampling-coverage",
+    "unsampled-sub-lot-finding"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-manufacturer-assessment",
+   "name": "q6013-class-1-manufacturer-assessment",
+   "description": "Assess the quality system of a commercial part manufacturer before a Class 1 acceptance under clause 4.2.3.2 of ECSS-Q-ST-60-13C: rate each dimension, from quality management, process-change notification and wafer-to-assembly lot traceability through reliability monitoring, failure analysis, discontinuance notice and subcontracted assembly control, discount every rating by the confidence its evidence basis earns, apply the veto rules that sink an assessment whatever it scored, check the evidence age, and return a weighted score with the actions owed. Use when an audit report, questionnaire return or certificate pack has to decide a manufacturer. Trigger: ecss, q-st-60-13c, q6013-class-1-manufacturer-assessment, manufacturer-quality-system-dimension, assessment-evidence-basis-tier, manufacturer-assessment-verdict, process-change-notification-commitment.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q-st-60-13c",
+    "q6013-class-1-manufacturer-assessment",
+    "manufacturer-quality-system-dimension",
+    "assessment-evidence-basis-tier",
+    "manufacturer-assessment-verdict",
+    "process-change-notification-commitment",
+    "wafer-and-assembly-lot-traceability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-manufacturer-data-deliveries",
+   "name": "q6013-class-1-manufacturer-data-deliveries",
+   "description": "Assess whether the conformance certificates and production data delivered with a highest-assurance commercial EEE lot under ECSS-Q-ST-60-13C clause 4.3.11 actually cover that lot: match every record to the lot code and the purchased date-code window, keep an absent record apart from one standing on an approved deviation, grade an attributes-only summary against the measured values a lot owes, and return one delivery verdict with ranked findings. Use when a lot data package, certificate of conformance or production data delivery is reviewed at receiving inspection. Trigger: ecss, q-st-60-13c, class-1-manufacturer-data-delivery, lot-conformance-certificate, lot-date-code-coverage, production-variables-data, lot-data-package-verdict, receiving-inspection-data-review.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-1-manufacturer-data-deliveries",
+    "class-1-manufacturer-data-delivery",
+    "lot-conformance-certificate",
+    "lot-date-code-coverage",
+    "production-variables-data",
+    "lot-data-package-verdict",
+    "receiving-inspection-data-review"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-material-restrictions",
+   "name": "q6013-class-1-material-restrictions",
+   "description": "Determine which declared materials and constructions bar a commercial EEE part from Class 1 space use. Use when ECSS-Q-ST-60-13C clause 4.2.2.2 is applied to a part's finishes, plating, encapsulation and vacuum outgassing data: cadmium and zinc barred outright, a pure-tin finish cleared only by a lead mass fraction reaching the declared whisker threshold, silver by a barrier underplate, plastic encapsulation by moisture level, bake record and dose environment, and mass loss and condensable material against their limits. Returns accepted, mitigation-required or prohibited per axis and rolls the worst into one construction verdict. Trigger: ecss, q-st-60-13c, class-1-restricted-part-materials, pure-tin-whisker-mitigation, cadmium-and-zinc-finish-bar, plastic-encapsulated-package-moisture, part-vacuum-outgassing-limits, lead-mass-fraction-threshold.",
+   "tags": [
+    "ecss",
+    "q-st-60-commercial-eee-scope",
+    "q6013-class-1-material-restrictions",
+    "class-1-restricted-part-materials",
+    "pure-tin-whisker-mitigation",
+    "plastic-encapsulated-package-moisture",
+    "part-vacuum-outgassing-limits",
+    "lead-mass-fraction-threshold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-microwave-integrated-circuits",
+   "name": "q6013-class-1-microwave-integrated-circuits",
+   "description": "Evaluate a microwave monolithic integrated circuit selected and bought under the highest assurance class of ECSS-Q-ST-60-13C clause 4.6.5: group the supplier line by its space-evaluation standing, compute the die channel temperature from base-plate temperature, dissipated power and thermal resistance, compare it with the ceiling of the die technology, convert it into an Arrhenius median life against the required mission hours, grade the wafer-lot process-control-monitor readings and the RF parameter drift, then return a buy-as-is, buy-with-upscreening or reject disposition. Use when a Class 1 procurement needs a GaAs, GaN, InP or SiGe monolithic die judged before purchase. Trigger: ecss, q-st-60-13c, class-1-mmic-procurement, mmic-channel-temperature-derating, wafer-lot-process-control-monitor, mmic-median-life-arrhenius, gaas-phemt-die-selection, mmic-upscreening-route.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-microwave-integrated-circuits",
+    "class-1-mmic-procurement",
+    "mmic-channel-temperature-derating",
+    "wafer-lot-process-control-monitor",
+    "mmic-median-life-arrhenius",
+    "mmic-upscreening-route"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-nonconformance-handling",
+   "name": "q6013-class-1-nonconformance-handling",
+   "description": "Evaluate and disposition a nonconformance raised against a highest-assurance (class 1) commercial EEE part lot under ECSS-Q-ST-60-13C clause 4.5.2: categorize the finding major or minor from its effect on safety, interchangeability and specified limits, time the written report against the deadline that category earns, derive the authorities that must concur, refuse a use-as-is or repair disposition while the root cause is open or the mechanism is lot-related, and size containment across the whole receiving lot. Use when a class 1 commercial part fails incoming inspection, lot acceptance, board test or system test and the report, disposition and lot containment must be defended. Trigger: ecss, q-st-60-13c, commercial-eee-nonconformance, class-1-commercial-part, nonconformance-disposition, use-as-is-concurrence, lot-related-containment, nonconformance-reporting-deadline.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-nonconformance-handling",
+    "class-1-commercial-eee-part",
+    "commercial-eee-nonconformance-disposition",
+    "use-as-is-concurrence",
+    "lot-related-failure-containment",
+    "nonconformance-reporting-deadline"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-parts-control-board",
+   "name": "q6013-class-1-parts-control-board",
+   "description": "Evaluate the board that approves commercial EEE part selection and usage at the highest assurance class under ECSS-Q-ST-60-13C clause 4.1.3: refuse a board missing a required voting role, take each part decision in turn, compute the attendance share against the declared quorum and the approval share against its floor, refuse a vote cast by members who were not present, require a submitted data package, customer concurrence and a record raised before the procurement commitment, name every incomplete decision rather than the first, and flag an approval carried on a bare quorum. Use when board minutes have to become an approval verdict. Trigger: ecss, q-st-60-13c-clause-4-1-3, class-one-parts-control-board, parts-control-board-quorum-share, commercial-part-usage-approval-vote, parts-board-customer-concurrence, part-approval-data-package-record, bare-quorum-approval-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-1-parts-control-board",
+    "class-one-parts-control-board",
+    "parts-control-board-quorum-share",
+    "commercial-part-usage-approval-vote",
+    "parts-board-customer-concurrence",
+    "part-approval-data-package-record",
+    "bare-quorum-approval-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-parts-organization",
+   "name": "q6013-class-1-parts-organization",
+   "description": "Identify the single unit accountable for commercial EEE part control at the highest assurance class under ECSS-Q-ST-60-13C clause 4.1.2.1: refuse an organization carrying no contractual mandate, name the unit holding part-selection approval, check that every required accountability sits with exactly one unit, report unassigned and split duties rather than the first found, confirm independence from the design authority and a declared customer escalation route, and flag a thinly staffed accountable unit. Use when a declared parts organization has to become an accountability verdict. Trigger: ecss, q-st-60-13c-clause-4-1-2-1, class-one-commercial-eee-parts-organization, parts-control-accountability-assignment, part-selection-approval-authority, parts-organization-design-authority-independence, commercial-parts-customer-escalation-route, parts-organization-competence-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-1-parts-organization",
+    "class-one-commercial-eee-parts-organization",
+    "parts-control-accountability-assignment",
+    "part-selection-approval-authority",
+    "parts-organization-design-authority-independence",
+    "commercial-parts-customer-escalation-route",
+    "parts-organization-competence-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-preferred-sources",
+   "name": "q6013-class-1-preferred-sources",
+   "description": "Assess where a commercial EEE part is sourced from against the preferred-manufacturer and preferred-parts-listing tiers a Class 1 highest-assurance build demands under ECSS-Q-ST-60-13C clause 4.2.2.3: grade the declared source tier, test the traceability chain from maker through authorised distributor to project receipt, weigh process-change-notice cover, line changes since the evidence was taken and lot date-code age against the shelf policy, then build a sourcing assurance index, pick a disposition, and list the added evaluation each step away from the preferred end buys. Use when a Class 1 build has to justify where a commercial part came from. Trigger: ecss, q-st-60-13-commercial-eee-scope, class-1-preferred-sources, preferred-manufacturer-tier, preferred-parts-listing-sourcing, commercial-part-traceability-chain, lot-date-code-age, sourcing-assurance-index, broker-sourced-part-rejection.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-preferred-sources",
+    "class-1-commercial-part-sourcing",
+    "preferred-manufacturer-tier",
+    "preferred-parts-listing-sourcing",
+    "commercial-part-traceability-chain",
+    "lot-date-code-age",
+    "sourcing-assurance-index",
+    "broker-sourced-part-rejection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-procurement-overview",
+   "name": "q6013-class-1-procurement-overview",
+   "description": "Assess whether a purchasing arrangement for class 1 commercial parts discharges every duty behind ECSS-Q-ST-60-13C clause 4.3.1: refuse an undeclared or unrecognized supply channel, raise the manufacturer-traceability and counterfeit-avoidance duties an open-market or independent route adds to the base register, require each duty to name a party from the permitted roles and cite evidence, hold an assigned but unevidenced duty open, report an assignment the register does not carry, and take the discharged share against the declared floor. Use when a purchasing route for the highest assurance parts has to be judged. Trigger: ecss, q-st-60-13c-clause-4-3-1, class-1-procurement-duty-register, commercial-part-supply-channel, open-market-source-extra-duties, procurement-duty-evidence, procurement-duty-coverage-floor.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-procurement-overview",
+    "q-st-60-13c-clause-4-3-1",
+    "class-1-procurement-duty-register",
+    "commercial-part-supply-channel",
+    "open-market-source-extra-duties",
+    "procurement-duty-evidence",
+    "procurement-duty-coverage-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-procurement-specification",
+   "name": "q6013-class-1-procurement-specification",
+   "description": "Verify that a controlled purchase specification defines the tests and acceptance each class 1 commercial part is bought against under ECSS-Q-ST-60-13C clause 4.3.2: refuse a document with no identifier, issue or approving authority, require every ordered part number to be covered and flag an entry the order does not carry, hold each parameter to a test condition and an ordered limit pair, confirm the ordered limits are no wider than the published ones under a named tolerance, and require a declared screening or lot acceptance route. Use when a purchase specification has to be judged fit to order against. Trigger: ecss, q-st-60-13c-clause-4-3-2, class-1-purchase-specification-control, purchase-specification-part-coverage, purchase-acceptance-limit-pair, purchase-limit-tightening-check, lot-acceptance-sampling-route.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-procurement-specification",
+    "q-st-60-13c-clause-4-3-2",
+    "class-1-purchase-specification-control",
+    "purchase-specification-part-coverage",
+    "purchase-acceptance-limit-pair",
+    "purchase-limit-tightening-check",
+    "lot-acceptance-sampling-route"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-programmable-devices",
+   "name": "q6013-class-1-programmable-devices",
+   "description": "Assess the programming and post-programming control of a programmable device procured to the highest assurance class under ECSS-Q-ST-60-13C clause 4.6.4: categorize the programming site as component-manufacturer, approved programming-centre or uncontrolled, test the programmer against its calibration interval, grade the post-programming readback against the zero-mismatch rule, build the screen plan for the storage technology, size the destructive-sample screens, and convert the data-retention requirement into a bake duration through an Arrhenius acceleration factor before returning an accept, accept-with-deviation or reject disposition. Use when a Class 1 lot of antifuse, one-time-programmable, EEPROM or flash parts needs its programming evidence judged. Trigger: ecss, q-st-60-13c, class-1-programmable-device, programming-site-control, post-programming-readback, retention-bake-duration, antifuse-fpga-programming, otp-prom-pattern-verification, programming-equipment-calibration.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-programmable-devices",
+    "class-1-programmable-device",
+    "programming-site-control",
+    "post-programming-readback",
+    "retention-bake-duration",
+    "programming-equipment-calibration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-quality-assurance-overview",
+   "name": "q6013-class-1-quality-assurance-overview",
+   "description": "Assess how the quality assurance duties of a highest-assurance commercial EEE part programme are allocated under ECSS-Q-ST-60-13C clause 4.5.1: confirm every mandatory duty carries a named owner, test that owner for independence from the activity being assured, keep an absent duty apart from one deferred on an approved authorisation, weight the covered duties into a programme coverage score, and return ranked findings with one assurance readiness verdict. Use when a parts control plan, quality assurance duty matrix or supplier assurance allocation is reviewed. Trigger: ecss, q-st-60-13c, class-1-quality-assurance-duties, parts-control-plan-ownership, assurance-owner-independence, quality-duty-coverage-score, programme-assurance-readiness-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-1-quality-assurance-overview",
+    "class-1-quality-assurance-duties",
+    "parts-control-plan-ownership",
+    "assurance-owner-independence",
+    "quality-duty-coverage-score",
+    "programme-assurance-readiness-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-radiation-hardness",
+   "name": "q6013-class-1-radiation-hardness",
+   "description": "Evaluate a commercial EEE part against the mission radiation environment for a Class 1 build under ECSS-Q-ST-60-13C clause 4.2.2.4: set the radiation design margin from the evidence basis, size the total-dose requirement the part has to cover, test destructive single-event immunity above the environment ion energy with no rate credit, check the mitigated upset rate against the mission budget, decide whether the delivered lot has to be irradiated, and report the dose relief lot testing would buy back. Use when a Class 1 build has to tie a commercial part choice to hardness assurance. Trigger: ecss, q-st-60-13-commercial-eee-scope, class-1-radiation-hardness-assurance, commercial-part-total-ionising-dose, radiation-design-margin, destructive-single-event-immunity, lot-radiation-acceptance-test, single-event-upset-rate-budget.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-radiation-hardness",
+    "class-1-radiation-hardness-assurance",
+    "commercial-part-total-ionising-dose",
+    "radiation-design-margin",
+    "destructive-single-event-immunity",
+    "lot-radiation-acceptance-test",
+    "single-event-upset-rate-budget",
+    "commercial-part-radiation-evidence-basis"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-radiation-verification-testing",
+   "name": "q6013-class-1-radiation-verification-testing",
+   "description": "Verify a purchased flight lot of radiation-sensitive commercial EEE parts against its mission dose requirement under ECSS-Q-ST-60-13C clause 4.3.8. Use when deciding whether a commercial lot needs a radiation verification test, sizing the irradiation sample, reducing a dose ladder into a demonstrated lot capability, and comparing the achieved radiation design margin and threshold linear energy transfer with the required values. Refuses an unordered dose ladder, credits no recovery above a failed step, and separates invalid sampling evidence from a genuine capability shortfall. Trigger: ecss, q-st-60-13c, commercial-eee-radiation-verification-test, flight-lot-irradiation-sample, total-ionising-dose-capability, radiation-design-margin, single-event-threshold-let, commercial-lot-radiation-traceability.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-radiation-verification-testing",
+    "commercial-eee-radiation-verification-test",
+    "flight-lot-irradiation-sample",
+    "total-ionising-dose-capability",
+    "radiation-design-margin",
+    "single-event-threshold-let"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-relifing",
+   "name": "q6013-class-1-relifing",
+   "description": "Determine whether a stored lot of commercial EEE parts has outrun its permitted storage period and what relifing it needs under ECSS-Q-ST-60-13C clause 4.3.10. Use when computing a storage expiry date from the package family and storage environment, testing it against the assessment date, sizing the relifing sample, judging visual, solderability, hermeticity and electrical re-verification results, and extending or refusing the storage period. Refuses an unknown storage condition, an exhausted extension count, and cumulative storage beyond the declared ceiling. Trigger: ecss, q-st-60-13c, commercial-part-storage-expiry, commercial-lot-relifing, storage-period-extension, relifing-sample-solderability, stored-eee-re-verification, cumulative-storage-ceiling.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-relifing",
+    "commercial-part-storage-expiry",
+    "commercial-lot-relifing",
+    "storage-period-extension",
+    "stored-eee-re-verification",
+    "cumulative-storage-ceiling"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-selection-overview",
+   "name": "q6013-class-1-selection-overview",
+   "description": "Assess the selection duties a Class 1 commercial EEE component choice carries under ECSS-Q-ST-60-13C clause 4.2.1. Use when a project must show, per candidate part and once per programme, that the usage justification, franchised procurement route, radiation suitability, lifetime assessment, evaluation plan, obsolescence continuity and customer agreement are each owed to a named role and evidenced rather than assumed. Keeps a duty with no record apart from one open or rejected, stops a programme duty being re-owed by every part, and returns a selection-readiness verdict with the duty-coverage share against the declared minimum. Trigger: ecss, q-st-60-13c, class-1-commercial-component-selection, commercial-eee-usage-justification, franchised-procurement-route, component-radiation-suitability, component-evaluation-plan, customer-agreement-record, selection-duty-coverage.",
+   "tags": [
+    "ecss",
+    "q-st-60-commercial-eee-scope",
+    "q6013-class-1-selection-overview",
+    "class-1-commercial-component-selection",
+    "commercial-eee-usage-justification",
+    "franchised-procurement-route",
+    "component-evaluation-plan",
+    "selection-duty-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-selection-rules",
+   "name": "q6013-class-1-selection-rules",
+   "description": "Evaluate whether a candidate commercial EEE part may enter a Class 1 design under ECSS-Q-ST-60-13C clause 4.2.2.1. Use when the baseline rule set has to be applied to a real part: a certified manufacturer quality system, a franchised distribution path with no open-market broker, one wafer and one assembly lot for the flight build, a rated temperature range enveloping the mission range with declared margin, a change-notification agreement, and either qualification heritage or the evaluation plan replacing it. Returns admissible, admissible-with-evaluation or not-admissible, naming every failed rule and the temperature shortfall in kelvin. Trigger: ecss, q-st-60-13c, class-1-commercial-part-admissibility, franchised-distribution-path, flight-lot-homogeneity, part-temperature-range-envelope, part-change-notification-agreement, commercial-part-evaluation-plan, manufacturer-quality-system.",
+   "tags": [
+    "ecss",
+    "q-st-60-commercial-eee-scope",
+    "q6013-class-1-selection-rules",
+    "class-1-commercial-part-admissibility",
+    "franchised-distribution-path",
+    "flight-lot-homogeneity",
+    "part-temperature-range-envelope",
+    "part-change-notification-agreement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-self-made-magnetics",
+   "name": "q6013-class-1-self-made-magnetics",
+   "description": "Assess whether an in-house wound magnetic part carries the design basis and screening a class 1 commercial part activity needs under ECSS-Q-ST-60-13C clause 4.6.8: refuse a part with no designation, core reference or released winding process, treat an unqualified winding operator as a finding, hold conductor current density and hot-case saturation utilization to their ceilings with equality admissible under a named tolerance, compare winding hot spot with the insulation system rating and demonstrated withstand with the required multiple of working voltage, and name every absent screening step. Use when a self made magnetic has to be judged flight worthy. Trigger: ecss, q-st-60-13c-clause-4-6-8, self-made-magnetic-design-basis, magnetic-saturation-utilization-ceiling, winding-current-density-limit, magnetic-insulation-temperature-rating, magnetic-dielectric-withstand-check, in-house-winding-process-qualification.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-self-made-magnetics",
+    "q-st-60-13c-clause-4-6-8",
+    "self-made-magnetic-design-basis",
+    "magnetic-saturation-utilization-ceiling",
+    "winding-current-density-limit",
+    "magnetic-insulation-temperature-rating",
+    "magnetic-dielectric-withstand-check",
+    "in-house-winding-process-qualification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-temperature-range",
+   "name": "q6013-class-1-temperature-range",
+   "description": "Verify that the rated temperature limits of a commercial part cover the equipment operating envelope under clause 4.2.2.6 of ECSS-Q-ST-60-13C at Class 1: correct the hot end by the self-heating rise the part dissipation drives across its mounting thermal resistance, widen both ends by the margin the thermal knowledge state earns, compare against the rated or grade-implied limits, and report hot-end and cold-end headroom with a per-part verdict and the critical part. Use when a declared component list, thermal analysis or part grade has to be reconciled with an equipment thermal envelope. Trigger: ecss, q-st-60-13c, q6013-class-1-temperature-range, commercial-part-rated-temperature-range, equipment-thermal-operating-envelope, part-self-heating-rise, thermal-uncertainty-margin, temperature-range-coverage-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q-st-60-13c",
+    "q6013-class-1-temperature-range",
+    "commercial-part-rated-temperature-range",
+    "equipment-thermal-operating-envelope",
+    "part-self-heating-rise",
+    "thermal-uncertainty-margin",
+    "temperature-range-coverage-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-1-traceability",
+   "name": "q6013-class-1-traceability",
+   "description": "Verify that the lot identity of a highest-assurance (class 1) commercial EEE procurement survives its whole custody chain under ECSS-Q-ST-60-13C clause 4.5.4: order the receipt, inspection, storage, kitting, installation and scrap events on one clock, find the events that drop the lot code or contradict the received date code, reconcile installed, scrapped and returned quantities against the quantity received, build the board-serial trace in both directions, and score identity completeness against the required level. Use when a class 1 lot must be followed from goods-in through stores into an assembly, or a board serial traced back to its lot. Trigger: ecss, q-st-60-13c, commercial-eee-lot-traceability, class-1-commercial-part, receipt-to-assembly-chain, lot-quantity-reconciliation, board-serial-forward-trace, date-code-continuity.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-1-traceability",
+    "class-1-commercial-eee-part",
+    "commercial-eee-lot-traceability",
+    "receipt-to-assembly-chain",
+    "lot-quantity-reconciliation",
+    "board-serial-forward-trace"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-component-control-plan",
+   "name": "q6013-class-2-component-control-plan",
+   "description": "Evaluate whether a component control plan holds the content the intermediate assurance class demands for commercial EEE parts bought under ECSS-Q-ST-60-13C clause 5.1.2.2: refuse a plan carrying no reference or issue, take each required subject in turn, treat a heading with no procedure behind it as absent, accept a subject carried by a higher-level document only where that pointer names a document and an issue, credit a referenced subject below one, compute the covered share and the depth-weighted completeness, name every absent, shallow and heading-only subject, and check customer notification and issue before the first procurement commitment. Use when a drafted plan has to become a coverage verdict. Trigger: ecss, q-st-60-13c-clause-5-1-2-2, class-two-component-control-plan, plan-subject-carried-by-reference, referenced-subject-depth-credit, component-control-plan-customer-notification, plan-issue-before-procurement-commitment, shallow-plan-subject-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-component-control-plan",
+    "class-two-component-control-plan",
+    "plan-subject-carried-by-reference",
+    "referenced-subject-depth-credit",
+    "component-control-plan-customer-notification",
+    "plan-issue-before-procurement-commitment",
+    "shallow-plan-subject-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-parts-control-board",
+   "name": "q6013-class-2-parts-control-board",
+   "description": "Assess the board reviewing and approving commercial EEE part choices at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.1.3: refuse a board missing a required voting role, take each decision in turn, apply the session quorum or the written-procedure response floor according to how it was taken, refuse a response from a member the circulation never reached, refuse votes cast beyond the members who took part, compute the approval share against its floor, require a data package, a part in a named usage and a record raised before the procurement commitment, and inform the customer above a declared usage criticality. Use when board minutes have to become an approval verdict. Trigger: ecss, q-st-60-13c-clause-5-1-3, class-two-parts-control-board, written-procedure-part-approval, parts-board-circulation-completeness, commercial-part-usage-criticality-notification, part-approval-data-package-record, bare-quorum-approval-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-parts-control-board",
+    "class-two-parts-control-board",
+    "written-procedure-part-approval",
+    "parts-board-circulation-completeness",
+    "commercial-part-usage-criticality-notification",
+    "part-approval-data-package-record",
+    "bare-quorum-approval-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-parts-organization",
+   "name": "q6013-class-2-parts-organization",
+   "description": "Determine which organizational function controls commercial EEE parts at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.1.2.1: refuse a function carrying no contractual mandate, name the unit holding part-selection approval directly, treat that duty as one that cannot be lent, accept a supporting unit only where its delegation is recorded, report every unassigned, contested and unrecorded duty rather than the first found, weigh a delegated duty at a declared credit below one, and require a product assurance escalation route where the function sits inside the design authority. Use when a declared parts function has to become a coverage verdict. Trigger: ecss, q-st-60-13c-clause-5-1-2-1, class-two-commercial-eee-parts-function, parts-duty-delegation-record, part-selection-approval-non-delegable, parts-function-design-authority-embedding, product-assurance-escalation-route-declaration, delegated-duty-coverage-credit.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-parts-organization",
+    "class-two-commercial-eee-parts-function",
+    "parts-duty-delegation-record",
+    "part-selection-approval-non-delegable",
+    "parts-function-design-authority-embedding",
+    "product-assurance-escalation-route-declaration",
+    "delegated-duty-coverage-credit"
    ],
    "family": "space-systems",
    "pack": "ecss",

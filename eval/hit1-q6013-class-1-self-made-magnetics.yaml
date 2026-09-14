@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-self-made-magnetics (space-systems/ecss)
+# Two tasks for the new leaf. smm1 routes on the design basis of a transformer
+# wound in house; smm2 routes on the winding process, operator qualification
+# and the screening such a part receives. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-self-made-magnetics.
+tasks:
+  - id: smm1
+    query: "we wound this transformer ourselves, check the design basis: conductor current density per winding and how far the core works into saturation at the hot case"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.8; winding current density limit and hot-case saturation utilization ceiling for an in-house wound magnetic"
+    expected_skill: "space-systems/ecss/q6013-class-1-self-made-magnetics"
+  - id: smm2
+    query: "our in-house wound inductor has no maker behind it, is the winding process document and operator qualification in place and has it had its dielectric withstand and insulation resistance screening"
+    intent: "ECSS-Q-ST-60-13C clause 4.6.8; released winding process, operator qualification and the mandatory screening of a self made magnetic"
+    expected_skill: "space-systems/ecss/q6013-class-1-self-made-magnetics"

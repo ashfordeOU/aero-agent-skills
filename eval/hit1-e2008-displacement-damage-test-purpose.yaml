@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-displacement-damage-test-purpose (space-systems/ecss)
+# Two tasks for the new leaf. dd1 routes on which technologies owe a
+# non-ionising exposure at all; dd2 routes on sizing that exposure through
+# non-ionising energy loss equivalence. Both must deterministically hit
+# space-systems/ecss/e2008-displacement-damage-test-purpose.
+tasks:
+  - id: dd1
+    query: "decide whether this diode technology is sensitive to displacement damage and owes a non ionising exposure at all"
+    intent: "ECSS-E-ST-20-08C clause 12.6.11.2.1; displacement damage test purpose"
+    expected_skill: "space-systems/ecss/e2008-displacement-damage-test-purpose"
+  - id: dd2
+    query: "size the non ionising exposure from the end of life fluence using the niel equivalence and the messenger spratt lifetime damage constant"
+    intent: "ECSS-E-ST-20-08C clause 12.6.11.2.1; displacement damage dose budget"
+    expected_skill: "space-systems/ecss/e2008-displacement-damage-test-purpose"

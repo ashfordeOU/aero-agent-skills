@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-material-restrictions (space-systems/ecss,
+# Q-ST-60-13C 4.2.2.2). Two tasks per leaf; cmr1 routes on the finish
+# table split, cmr2 on the package conditions and the outgassing limits.
+# Both must deterministically hit
+# space-systems/ecss/q6013-class-1-material-restrictions.
+tasks:
+  - id: cmr1
+    query: "determine whether a cadmium-and-zinc-finish-bar applies or a pure-tin-whisker-mitigation clears the part on its lead-mass-fraction-threshold"
+    intent: "ecss class 1 restricted part materials; finishes barred outright against finishes cleared by a declared mitigation"
+    expected_skill: "space-systems/ecss/q6013-class-1-material-restrictions"
+  - id: cmr2
+    query: "grade plastic-encapsulated-package-moisture level, bake and dry pack record and part-vacuum-outgassing-limits into one construction verdict"
+    intent: "ecss class 1 restricted part materials; conditional plastic encapsulation and the mass loss and condensable material limits"
+    expected_skill: "space-systems/ecss/q6013-class-1-material-restrictions"

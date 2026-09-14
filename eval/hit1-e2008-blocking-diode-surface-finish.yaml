@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-surface-finish (space-systems/ecss)
+# Two tasks for the new leaf. bdsf1 routes on turning a blocking diode contact
+# surface finish examination into a verdict; bdsf2 routes on the penetration
+# discriminator that separates a film from a pit through the metallisation.
+# Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-surface-finish.
+tasks:
+  - id: bdsf1
+    query: "sentence the surface finish on the contact surfaces of these blocking diodes from the roughness readings and the anomalies logged on each polarity"
+    intent: "ECSS-E-ST-20-08C clause 12.6.14; blocking diode contact surface finish check"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-surface-finish"
+  - id: bdsf2
+    query: "is the discoloured patch on the blocking diode contact a cleaning job or has it eaten through the metallisation, and does the coverage still leave sound area for the weld"
+    intent: "ECSS-E-ST-20-08C clause 12.6.14; anomaly penetration and coverage on a blocking diode contact"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-surface-finish"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-1-destructive-physical-analysis (space-systems/ecss)
+# Two tasks for the new leaf. dpa1 routes on sizing a teardown sample across a
+# commercial shipment that spans two date codes; dpa2 routes on the die-attach
+# voiding and bond pull criteria that decide the lot. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-1-destructive-physical-analysis.
+tasks:
+  - id: dpa1
+    query: "a distributor filled our commercial part order from two date codes, how many units do we tear down and against which population does the teardown result count"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.9; destructive sample sizing per date-code group of a purchased commercial shipment"
+    expected_skill: "space-systems/ecss/q6013-class-1-destructive-physical-analysis"
+  - id: dpa2
+    query: "our commercial lot teardown found die attach voiding under the total limit but one big void, plus a low average wire bond pull, decide whether the lot is accepted or rejected"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.9; die-attach void and bond pull criteria and the resulting lot disposition"
+    expected_skill: "space-systems/ecss/q6013-class-1-destructive-physical-analysis"

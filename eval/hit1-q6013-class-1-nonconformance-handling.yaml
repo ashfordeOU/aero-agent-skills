@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6013-class-1-nonconformance-handling (space-systems/ecss)
+# Two tasks for the new leaf. nch1 routes on a failure found on a class 1
+# commercial lot where the reporting clock and the major/minor category are
+# the question; nch2 routes on a use-as-is disposition proposed while the
+# root cause is still open and the mechanism looks lot-related. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-1-nonconformance-handling.
+tasks:
+  - id: nch1
+    query: "a class 1 commercial EEE part failed lot acceptance test three days ago and nobody has written the nonconformance report yet, is it late and who has to concur"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.2; major/minor categorization, reporting deadline from detection, concurrence set for a commercial class 1 lot"
+    expected_skill: "space-systems/ecss/q6013-class-1-nonconformance-handling"
+  - id: nch2
+    query: "can we disposition these commercial parts use-as-is when the root cause is still open and the same defect turned up on two boards from the same date code lot"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.2; use-as-is refused on an open root cause and a lot-related mechanism, containment sized over the whole receiving lot"
+    expected_skill: "space-systems/ecss/q6013-class-1-nonconformance-handling"

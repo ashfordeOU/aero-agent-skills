@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-manufacturer-data-deliveries (space-systems/ecss,
+# Q-ST-60-13C 4.3.11). Two tasks per leaf; mdd1 routes on the record kinds and
+# the lot identity the clause ties them to, mdd2 on the coverage fraction and
+# the delivery verdict. Both must deterministically hit
+# space-systems/ecss/q6013-class-1-manufacturer-data-deliveries.
+tasks:
+  - id: mdd1
+    query: "review the lot-conformance-certificate and the production-variables-data against the lot-date-code-coverage of the delivered class 1 lot"
+    intent: "ecss commercial eee class 1; certificates and production data delivered with the lot"
+    expected_skill: "space-systems/ecss/q6013-class-1-manufacturer-data-deliveries"
+  - id: mdd2
+    query: "grade the class-1-manufacturer-data-delivery at receiving-inspection-data-review and return the lot-data-package-verdict"
+    intent: "ecss commercial eee class 1; data package coverage of the delivered lot and its verdict"
+    expected_skill: "space-systems/ecss/q6013-class-1-manufacturer-data-deliveries"

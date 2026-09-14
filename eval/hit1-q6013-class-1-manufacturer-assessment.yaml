@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-manufacturer-assessment (space-systems/ecss,
+# Q-ST-60-13C 4.2.3.2). Two tasks per leaf; cma1 routes on the dimension set
+# and the evidence discount, cma2 on the veto rules and the outcome. Both
+# must deterministically hit
+# space-systems/ecss/q6013-class-1-manufacturer-assessment.
+tasks:
+  - id: cma1
+    query: "score each manufacturer-quality-system-dimension and discount it by the assessment-evidence-basis-tier behind the rating"
+    intent: "ecss commercial eee parts; assessing the manufacturer quality system before accepting a commercial part at the highest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-1-manufacturer-assessment"
+  - id: cma2
+    query: "apply the veto rules on process-change-notification-commitment and wafer-and-assembly-lot-traceability then return the manufacturer-assessment-verdict with the actions owed"
+    intent: "ecss commercial eee parts; veto dimensions, evidence validity and the manufacturer acceptance outcome"
+    expected_skill: "space-systems/ecss/q6013-class-1-manufacturer-assessment"

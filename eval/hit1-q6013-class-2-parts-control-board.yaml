@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-parts-control-board (space-systems/ecss)
+# Two tasks for the leaf. pcb2a routes on the constitution and the session
+# quorum; pcb2b routes on a decision taken by written procedure and the
+# circulation completeness. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-parts-control-board.
+tasks:
+  - id: pcb2a
+    query: "review the parts control board minutes for a class 2 programme, check every required voting role is present, compute the participation and approval shares for each commercial part decision, and say which approvals would not survive one absence"
+    intent: "ECSS-Q-ST-60-13C clause 5.1.3; class 2 board constitution, session quorum, approval share against its floor"
+    expected_skill: "space-systems/ecss/q6013-class-2-parts-control-board"
+  - id: pcb2b
+    query: "a commercial part was approved by written procedure rather than in session; decide whether the circulation reached every voting member, whether enough responded against the written floor, and whether the customer had to be informed for that usage criticality"
+    intent: "ECSS-Q-ST-60-13C clause 5.1.3; written-procedure part approval, circulation completeness, usage criticality notification"
+    expected_skill: "space-systems/ecss/q6013-class-2-parts-control-board"

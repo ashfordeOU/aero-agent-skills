@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-dimensions-weight (space-systems/ecss,
+# E-ST-20-08C 12.6.2). Two tasks per leaf; bddw1 routes on judging the measured
+# outline and thickness against the drawn bands, bddw2 on the two terminal pads,
+# the grown keep-out envelope and the mass crosscheck. Both must deterministically
+# hit space-systems/ecss/e2008-blocking-diode-dimensions-weight.
+tasks:
+  - id: bddw1
+    query: "judge a blocking diode measurement sheet against the blocking-diode-outline-tolerance-band and the blocking-diode-thickness-band and name the state of every feature"
+    intent: "ecss photovoltaic assemblies; blocking diode lateral size and thickness against the control drawing"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-dimensions-weight"
+  - id: bddw2
+    query: "grade the blocking-diode-terminal-pad-geometry on both terminals, combine the blocking-diode-interconnector-true-position offsets into the blocking-diode-keep-out-envelope and run the blocking-diode-mass-density-crosscheck"
+    intent: "ecss photovoltaic assemblies; blocking diode terminal geometry, attachment placement, keep-out reservation and weight verification"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-dimensions-weight"

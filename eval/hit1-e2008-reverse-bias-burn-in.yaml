@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reverse-bias-burn-in (space-systems/ecss,
+# E-ST-20-08C 12.6.7.3.1). Two tasks per leaf; rbbi1 routes on the blocking
+# polarity and the forty-eight hour ceiling, rbbi2 on the leakage drift screen
+# the soak produces. Both must deterministically hit
+# space-systems/ecss/e2008-reverse-bias-burn-in.
+tasks:
+  - id: rbbi1
+    query: "confirm the reverse-bias-burn-in-cathode-positive connection and hold the hot soak inside the reverse-bias-burn-in-forty-eight-hour-ceiling"
+    intent: "ecss photovoltaic assemblies; high temperature reverse bias soak on a blocking junction with the cathode held positive"
+    expected_skill: "space-systems/ecss/e2008-reverse-bias-burn-in"
+  - id: rbbi2
+    query: "size the reverse-bias-burn-in-voltage-ratio against the rating and screen the lot on reverse-bias-burn-in-leakage-drift after the soak"
+    intent: "ecss photovoltaic assemblies; blocking voltage share and post-soak leakage drift screening of a diode lot"
+    expected_skill: "space-systems/ecss/e2008-reverse-bias-burn-in"

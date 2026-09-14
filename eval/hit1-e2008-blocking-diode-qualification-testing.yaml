@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-blocking-diode-qualification-testing
+# (space-systems/ecss, E-ST-20-08C 12.5.5). Two tasks per leaf; bqt1 routes on
+# the minimum sample quantity each qualification test owes, bqt2 on the
+# destructive consumption and the lot that has to feed it. Both must
+# deterministically hit
+# space-systems/ecss/e2008-blocking-diode-qualification-testing.
+tasks:
+  - id: bqt1
+    query: "grade the blocking-diode-qualification-minimum-sample-quantity each test owes against the blocking-diode-qualification-test-allocation actually booked"
+    intent: "ecss photovoltaic assemblies; minimum sample quantities and the testing carried out during blocking diode qualification"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-testing"
+  - id: bqt2
+    query: "total the blocking-diode-destructive-sample-consumption and settle blocking-diode-qualification-lot-sizing against blocking-diode-qualification-test-coverage"
+    intent: "ecss photovoltaic assemblies; destructive draws, shared draws and the qualification lot that feeds the campaign"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-qualification-testing"

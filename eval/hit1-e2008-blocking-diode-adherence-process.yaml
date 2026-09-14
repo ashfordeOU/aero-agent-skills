@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-adherence-process (space-systems/ecss,
+# E-ST-20-08C 12.6.4.2.2). Two tasks per leaf; bdapr1 routes on the serial
+# reconciliation at the tray, bdapr2 on the per-batch residence dwell. Both
+# must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-adherence-process.
+tasks:
+  - id: bdapr1
+    query: "reconcile a blocking-diode-chamber-entry-manifest against the lot roster for blocking-diode-foreign-device-detection and blocking-diode-lot-entry-completeness"
+    intent: "ecss blocking diodes; naming the missing, foreign and repeated serials at chamber entry rather than counting trays"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-adherence-process"
+  - id: bdapr2
+    query: "hold the blocking-diode-chamber-residence-dwell across every batch of a blocking-diode-adherence-batch-sequence before contacts are examined"
+    intent: "ecss blocking diodes; a split lot where each batch has to hold the dwell in its own right"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-adherence-process"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2008-electron-irradiation-pass-criteria
+# (space-systems/ecss, E-ST-20-08C 12.6.11.2.3)
+# Two tasks per leaf; eipc1 routes on sentencing from the post-anneal reading
+# rather than the post-irradiation one, eipc2 on the two ceilings against the
+# blocking voltage floor and the recovered share of the exposure shift.
+# Both must deterministically hit
+# space-systems/ecss/e2008-electron-irradiation-pass-criteria.
+tasks:
+  - id: eipc1
+    query: "sentence this lot on blocking-diode-post-anneal-sentencing, not on the pre-anneal numbers, and hold it against the blocking-diode-post-exposure-drawing-limits"
+    intent: "ecss photovoltaic assemblies; blocking diodes measured after an electron exposure and again after the anneal that followed it, judged against the source control drawing"
+    expected_skill: "space-systems/ecss/e2008-electron-irradiation-pass-criteria"
+  - id: eipc2
+    query: "the part clears its blocking-diode-forward-drop-ceiling and its blocking-diode-reverse-leakage-ceiling but grazes the blocking-diode-voltage-floor-margin; report the blocking-diode-anneal-recovery-fraction with the verdict"
+    intent: "ecss photovoltaic assemblies; a post-exposure blocking diode sitting just inside two drawing ceilings and on its blocking voltage floor after annealing"
+    expected_skill: "space-systems/ecss/e2008-electron-irradiation-pass-criteria"

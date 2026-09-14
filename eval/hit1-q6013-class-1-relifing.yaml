@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-relifing (space-systems/ecss)
+# Two tasks for the new leaf. rlf1 routes on a stored commercial lot whose
+# permitted period has run out and which has already been extended once; rlf2
+# routes on the re-verification set and the new expiry date. Both must
+# deterministically hit space-systems/ecss/q6013-class-1-relifing.
+tasks:
+  - id: rlf1
+    query: "a commercial part lot has sat in controlled ambient past the storage period it was accepted under and has been extended once already, decide whether it can be extended again or has to go for re-screening"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.10; storage expiry, extension count and cumulative storage ceiling for a stored commercial lot"
+    expected_skill: "space-systems/ecss/q6013-class-1-relifing"
+  - id: rlf2
+    query: "which re-verification tests does an out-of-date hermetic commercial lot need before we can use it, and what new expiry date does a clean solderability result buy us"
+    intent: "ECSS-Q-ST-60-13C clause 4.3.10; relifing sample, required re-verification set and the extended storage period"
+    expected_skill: "space-systems/ecss/q6013-class-1-relifing"

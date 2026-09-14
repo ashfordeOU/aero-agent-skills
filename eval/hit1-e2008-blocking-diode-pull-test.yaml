@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-pull-test (space-systems/ecss)
+# Two tasks for the new leaf. bdpt1 routes on assessing interconnector adherence
+# on blocking diode contacts by pulling; bdpt2 routes on the failure-mode
+# question that decides whether a pull measured the bond at all. Both must
+# deterministically hit space-systems/ecss/e2008-blocking-diode-pull-test.
+tasks:
+  - id: bdpt1
+    query: "work out whether the interconnectors on these blocking diode contacts carry the load, from the pull forces and the angles they were pulled at"
+    intent: "ECSS-E-ST-20-08C clause 12.6.16; blocking diode interconnector adherence by pulling"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-pull-test"
+  - id: bdpt2
+    query: "the ribbon snapped before the weld let go on the blocking diode pull, can we still record that force as the bond strength"
+    intent: "ECSS-E-ST-20-08C clause 12.6.16; pull failure mode and bond strength lower bound"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-pull-test"

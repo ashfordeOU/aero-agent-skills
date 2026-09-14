@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-blocking-diode-humidity-process (space-systems/ecss,
+# E-ST-20-08C 12.6.4.1.2). Two tasks per leaf; bdhp1 routes on the decay hold
+# and its daily exchange form, bdhp2 on the sealed lot population and the free
+# volume around the fixture. Both must deterministically hit
+# space-systems/ecss/e2008-blocking-diode-humidity-process.
+tasks:
+  - id: bdhp1
+    query: "derive the blocking-diode-chamber-seal-leak-rate from a decay hold and read it as daily exchanges before the blocking-diode-humidity-chamber-sealing is accepted"
+    intent: "ecss blocking diodes; the pressure decay hold that evidences the chamber closure before the damp soak"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-humidity-process"
+  - id: bdhp2
+    query: "reconcile the blocking-diode-lot-sealed-population against the declared lot and check blocking-diode-chamber-free-volume and blocking-diode-humidity-exposure-duration"
+    intent: "ecss blocking diodes; which devices are actually sealed in and how much volume is left around them"
+    expected_skill: "space-systems/ecss/e2008-blocking-diode-humidity-process"

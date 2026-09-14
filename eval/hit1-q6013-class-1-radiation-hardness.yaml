@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-radiation-hardness (space-systems/ecss)
+# Two tasks for the new leaf. crh1 routes on sizing the total dose a commercial
+# part must cover once the evidence basis sets the design margin; crh2 routes on
+# destructive single-event immunity and the lot irradiation it forces. Both must
+# deterministically hit space-systems/ecss/q6013-class-1-radiation-hardness.
+tasks:
+  - id: crh1
+    query: "work out the total ionising dose this commercial part has to cover for the mission once the heritage evidence basis sets the radiation design margin"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.2.4; commercial part total dose requirement and radiation design margin by evidence basis"
+    expected_skill: "space-systems/ecss/q6013-class-1-radiation-hardness"
+  - id: crh2
+    query: "the datasheet says nothing about latch-up, decide whether this commercial part is usable on a Class 1 build and whether the delivered lot has to be irradiated"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.2.4; destructive single-event immunity and lot radiation acceptance testing"
+    expected_skill: "space-systems/ecss/q6013-class-1-radiation-hardness"

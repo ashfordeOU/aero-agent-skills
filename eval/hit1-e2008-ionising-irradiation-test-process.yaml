@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-ionising-irradiation-test-process (space-systems/ecss,
+# E-ST-20-08C 12.6.11.1.1). Two tasks per leaf; iitp1 routes on the choice of
+# facility and its rate and energy windows, iitp2 on accumulating the dose and
+# grading the sample plane. Both must deterministically hit
+# space-systems/ecss/e2008-ionising-irradiation-test-process.
+tasks:
+  - id: iitp1
+    query: "run the diode-ionising-dose-exposure-run in a cobalt-gamma-irradiation-facility or alternatively an accelerator-electron-beam-irradiation, and hold each segment rate and the beam energy against the window for that facility"
+    intent: "ecss photovoltaic assemblies; exposing diodes in a gamma field or an electron accelerator"
+    expected_skill: "space-systems/ecss/e2008-ionising-irradiation-test-process"
+  - id: iitp2
+    query: "accumulate the accumulated-ionising-dose-against-target segment by segment instead of off the wall clock and take the sample-plane-dose-uniformity-spread across the tray monitors"
+    intent: "ecss photovoltaic assemblies; dose accumulation and sample plane uniformity for a diode ionising exposure"
+    expected_skill: "space-systems/ecss/e2008-ionising-irradiation-test-process"

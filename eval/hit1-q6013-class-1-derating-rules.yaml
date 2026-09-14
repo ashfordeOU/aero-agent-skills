@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-derating-rules (space-systems/ecss)
+# Two tasks for the new leaf. cdr1 routes on turning a maker rating into the
+# largest applied stress a Class 1 derating rule leaves; cdr2 routes on grading a
+# predicted junction temperature against the derated ceiling. Both must
+# deterministically hit space-systems/ecss/q6013-class-1-derating-rules.
+tasks:
+  - id: cdr1
+    query: "work out the largest working voltage this ceramic capacitor may see on a Class 1 build once the derating factor is applied to the rated voltage"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.2.5; commercial part voltage derating limit and allowable applied stress"
+    expected_skill: "space-systems/ecss/q6013-class-1-derating-rules"
+  - id: cdr2
+    query: "grade the predicted junction temperature and the power dissipation on this selected commercial part against the derated limits and tell me which stress is tightest"
+    intent: "ECSS-Q-ST-60-13C clause 4.2.2.5; junction temperature step-down and derated stress ratio margin"
+    expected_skill: "space-systems/ecss/q6013-class-1-derating-rules"

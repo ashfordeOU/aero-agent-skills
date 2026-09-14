@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-eqm-components (space-systems/ecss,
+# Q-ST-60-13C 4.1.6). Two tasks per leaf; eqm1 routes on the build-standard
+# delta between fitted and flight-intended parts, eqm2 on which qualification
+# domains stop transferring and the retest set they create. Both must
+# deterministically hit space-systems/ecss/q6013-class-1-eqm-components.
+tasks:
+  - id: eqm1
+    query: "measure eqm-commercial-component-representativeness across the eqm-to-flight-build-standard-delta of the fitted parts"
+    intent: "ecss commercial eee; commercial parts fitted to an engineering qualification model and their representativeness"
+    expected_skill: "space-systems/ecss/q6013-class-1-eqm-components"
+  - id: eqm2
+    query: "compute the eqm-representativeness-index, name each eqm-qualification-transfer-domain lost and return the eqm-retest-set"
+    intent: "ecss commercial eee; which qualification results transfer from the engineering model to the flight build"
+    expected_skill: "space-systems/ecss/q6013-class-1-eqm-components"

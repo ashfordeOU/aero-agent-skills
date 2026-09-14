@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-1-lot-homogeneity (space-systems/ecss)
+# Two tasks for the leaf. clh1 routes on the traceability grouping and the
+# date-code span that decide whether one delivery is one lot; clh2 routes on
+# sizing the sample and proving it reached every sub-lot. Both must
+# deterministically hit space-systems/ecss/q6013-class-1-lot-homogeneity.
+tasks:
+  - id: clh1
+    query: "group a delivered class 1 component population by wafer lot, assembly lot and manufacturing site and say whether the date-code span is narrow enough for it to count as one production lot"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.5; traceability grouping and date-code span before specimens are drawn"
+    expected_skill: "space-systems/ecss/q6013-class-1-lot-homogeneity"
+  - id: clh2
+    query: "size the test specimen sample from the lot size and check the drawn units reached every sub-lot instead of clustering in the largest one"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.5; sample size derivation and sub-lot sampling coverage"
+    expected_skill: "space-systems/ecss/q6013-class-1-lot-homogeneity"
