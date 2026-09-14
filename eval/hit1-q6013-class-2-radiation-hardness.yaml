@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-radiation-hardness (space-systems/ecss)
+# Two tasks for the new leaf. crh1 routes on sizing the margined total-dose
+# requirement from the evidence basis at the intermediate assurance class; crh2
+# routes on the protected destructive-rate argument this class allows. Both must
+# deterministically hit space-systems/ecss/q6013-class-2-radiation-hardness.
+tasks:
+  - id: crh1
+    query: "our Class 2 mission dose is 20 krad and the only radiation evidence is heritage from a different lot; size the dose this commercial part actually has to cover and say whether the delivered lot needs irradiating"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.4; radiation design margin by evidence basis and lot radiation acceptance test trigger"
+    expected_skill: "space-systems/ecss/q6013-class-2-radiation-hardness"
+  - id: crh2
+    query: "this part latches up below the environment ion energy but we have current limiting and a declared destructive event allowance; can we still select it at the intermediate assurance class and what does the upset rate budget say"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.4; destructive single-event rate allowance behind protection and single-event upset rate budget"
+    expected_skill: "space-systems/ecss/q6013-class-2-radiation-hardness"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-high-voltage-parts (space-systems/ecss)
+# Two tasks for the leaf. hv2a routes on the voltage derating plus the
+# creepage and clearance the applied voltage demands; hv2b routes on the
+# Paschen minimum governing a powered depressurisation. Both must
+# deterministically hit
+# space-systems/ecss/q6013-class-2-high-voltage-parts.
+tasks:
+  - id: hv2a
+    query: "take the applied voltage as a fraction of the part rating for a commercial part used at high voltage at the intermediate class, derive the creepage and clearance the field limits demand, and compare them with what the layout actually provides"
+    intent: "ECSS-Q-ST-60-13C clause 5.6.7; class 2 high voltage part derating and creepage and clearance requirement"
+    expected_skill: "space-systems/ecss/q6013-class-2-high-voltage-parts"
+  - id: hv2b
+    query: "our high voltage assembly is energised while the launcher fairing depressurises; work out the gas breakdown voltage that governs, whether the Paschen minimum applies instead of the operating pressure, and whether potting the path can stand in for that check"
+    intent: "ECSS-Q-ST-60-13C clause 5.6.7; Paschen minimum governing a powered depressurisation and the encapsulation waiver"
+    expected_skill: "space-systems/ecss/q6013-class-2-high-voltage-parts"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-3-gse-components (space-systems/ecss,
+# Q-ST-60-13C 6.1.5 at the lowest assurance class). Two tasks for the leaf;
+# g3a routes on the exposure-triggered control set and the coverage floor,
+# g3b on evidence crediting, waiver justification and the tier a bench part
+# earns. Both must deterministically hit
+# space-systems/ecss/q6013-class-3-gse-components.
+tasks:
+  - id: g3a
+    query: "build the gse-exposure-triggered-control-set for each bench part at the lowest class and take the gse-control-coverage-floor across the rack"
+    intent: "ECSS-Q-ST-60-13C clause 6.1.5; control of commercial parts in ground support equipment at the lowest assurance class"
+    expected_skill: "space-systems/ecss/q6013-class-3-gse-components"
+  - id: g3b
+    query: "an isolation control is only asserted and a safety barrier is waived without a written reason; decide the gse-control-waiver-justification, the class-three-gse-part-control-tier and the class-three-ground-rack-verdict"
+    intent: "ECSS-Q-ST-60-13C clause 6.1.5; evidence crediting, waiver justification and the control tier a ground part earns at the lowest class"
+    expected_skill: "space-systems/ecss/q6013-class-3-gse-components"

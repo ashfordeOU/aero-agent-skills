@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-traceability (space-systems/ecss)
+# Two tasks for the leaf. pf2trc1 routes on handling-step record coverage with
+# externally held records credited below in-house ones; pf2trc2 routes on the
+# cross-reference bridge, the retention floor and the step-order reading. Both
+# must deterministically hit
+# space-systems/ecss/q6013-class-2-traceability.
+tasks:
+  - id: pf2trc1
+    query: "verify that a class 2 commercial EEE lot carries a traceability record at receipt, incoming inspection, storage, kitting, assembly and delivery, discount any record held by another party until an access undertaking is recorded, and give the plain and credited step coverage"
+    intent: "ECSS-Q-ST-60-13C clause 5.5.4; handling-step record coverage at the intermediate assurance class with externally held records credited below in-house ones"
+    expected_skill: "space-systems/ecss/q6013-class-2-traceability"
+  - id: pf2trc2
+    query: "follow one commercial lot through its handling records, bridge a re-lotted record only where it cross-references the lot under investigation, name each record kept for fewer years than the retention floor, and flag a record dated before a record from an earlier handling step"
+    intent: "ECSS-Q-ST-60-13C clause 5.5.4; lot identity bridging, record retention floor and handling-step order"
+    expected_skill: "space-systems/ecss/q6013-class-2-traceability"

@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1775,
+  "leaves": 1817,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -28223,6 +28223,63 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/q6013-class-2-alert-handling",
+   "name": "q6013-class-2-alert-handling",
+   "description": "Assess whether a programme flying commercial EEE parts at the intermediate assurance class is really watching the alert channels and answering what arrives, under ECSS-Q-ST-60-13C clause 5.5.3: discount a source whose last confirmed sweep is older than the monitoring interval, admit a delegated subscription only where the delegation is recorded and its forwarding lag is bounded, report plain and credited source coverage against separate floors, refuse a not-applicable disposition carrying no rationale, and run the acknowledgement and disposition clocks in working days from receipt so an unanswered alert keeps accruing. Use when a declared alert-monitoring arrangement has to become a coverage and response verdict. Trigger: ecss, q-st-60-13c-clause-5-5-3, class-two-commercial-eee-alert-monitoring, delegated-alert-subscription-record, alert-source-sweep-staleness, credited-alert-source-coverage, not-applicable-disposition-rationale, alert-response-working-days.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-alert-handling",
+    "class-two-commercial-eee-alert-monitoring",
+    "delegated-alert-subscription-record",
+    "alert-source-sweep-staleness",
+    "credited-alert-source-coverage",
+    "not-applicable-disposition-rationale",
+    "alert-response-working-days"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-asic-components",
+   "name": "q6013-class-2-asic-components",
+   "description": "Evaluate a proposed tailoring of the dedicated ASIC assurance activities against what the intermediate assurance class of ECSS-Q-ST-60-13C clause 5.6.2 admits: route the declared device kind, refuse any reduction aimed at an activity the class holds mandatory, admit an approval-bearing reduction only where the named customer approval is on record and retain the activity otherwise, then compute the residual assurance coverage from the weights still standing and compare it with the declared floor, treating an exact equality as met. Reports every refused reduction and every outstanding approval. Use when a class 2 programme offers a reduced ASIC assurance scope. Trigger: ecss, q-st-60-13c-clause-5-6-2, class-two-asic-assurance-tailoring, mandatory-asic-activity-reduction-refusal, asic-reduction-customer-approval, residual-asic-assurance-coverage, asic-activity-assurance-weighting, catalogue-device-route-exclusion.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-asic-components",
+    "class-two-asic-assurance-tailoring",
+    "mandatory-asic-activity-reduction-refusal",
+    "asic-reduction-customer-approval",
+    "residual-asic-assurance-coverage",
+    "asic-activity-assurance-weighting",
+    "catalogue-device-route-exclusion"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-buy-off-inspection",
+   "name": "q6013-class-2-buy-off-inspection",
+   "description": "Determine whether an intermediate assurance commercial EEE lot is released for delivery at the ECSS-Q-ST-60-13C clause 5.3.6 source buy-off: validate the delegation record against the buy-off date and refuse a producer that delegated the witness of its own lot to itself, take the evidence set the declared attendance mode demands, credit an item carried by a named data pack reference below one seen directly, scale the open-minor allowance to the lot in integer arithmetic, refuse a buy-off dated before the lot conformance review closed, and return release, hold or escalate. Use when a delegated source inspection has to become a release decision. Trigger: ecss, q-st-60-13c-clause-5-3-6, class-two-source-buy-off, buy-off-delegation-validity, documentary-buy-off-attendance-mode, evidence-carried-by-data-pack-reference, lot-scaled-minor-allowance, release-hold-or-escalate-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-buy-off-inspection",
+    "class-two-source-buy-off",
+    "buy-off-delegation-validity",
+    "documentary-buy-off-attendance-mode",
+    "evidence-carried-by-data-pack-reference",
+    "lot-scaled-minor-allowance",
+    "release-hold-or-escalate-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/q6013-class-2-component-control-plan",
    "name": "q6013-class-2-component-control-plan",
    "description": "Evaluate whether a component control plan holds the content the intermediate assurance class demands for commercial EEE parts bought under ECSS-Q-ST-60-13C clause 5.1.2.2: refuse a plan carrying no reference or issue, take each required subject in turn, treat a heading with no procedure behind it as absent, accept a subject carried by a higher-level document only where that pointer names a document and an issue, credit a referenced subject below one, compute the covered share and the depth-weighted completeness, name every absent, shallow and heading-only subject, and check customer notification and issue before the first procurement commitment. Use when a drafted plan has to become a coverage verdict. Trigger: ecss, q-st-60-13c-clause-5-1-2-2, class-two-component-control-plan, plan-subject-carried-by-reference, referenced-subject-depth-credit, component-control-plan-customer-notification, plan-issue-before-procurement-commitment, shallow-plan-subject-advisory.",
@@ -28236,6 +28293,331 @@
     "component-control-plan-customer-notification",
     "plan-issue-before-procurement-commitment",
     "shallow-plan-subject-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-connectors",
+   "name": "q6013-class-2-connectors",
+   "description": "Assess whether a connector with removable contacts may be applied at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.6.6: refuse a connector naming no insert arrangement or removal tool, name every contact worked past the insertion limit, derate the rated contact current for the class and again for the share of positions energised at once, name every position over that allowance, take the planned matings as a share of the rated durability, check the spare provision, and score the build evidence, crediting a heritage claim below a direct record. Use when a harness connector has to become an application verdict. Trigger: ecss, q-st-60-13c-clause-5-6-6, class-two-removable-contact-connector, removable-contact-insertion-limit, connector-contact-current-derating, connector-insert-loading-factor, connector-mating-cycle-durability, connector-spare-contact-provision.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-connectors",
+    "class-two-removable-contact-connector",
+    "removable-contact-insertion-limit",
+    "connector-contact-current-derating",
+    "connector-insert-loading-factor",
+    "connector-mating-cycle-durability",
+    "connector-spare-contact-provision"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-constructional-analysis",
+   "name": "q6013-class-2-constructional-analysis",
+   "description": "Assess the constructional analysis of a commercial EEE part at the intermediate assurance class of ECSS-Q-ST-60-13C clause 5.2.3.3: confirm the sample was drawn from the lot being bought, drop the steps the package gives nothing to measure, grade every applicable inspection step for sample size and for what it found, score each observation by severity against the weight of the step that found it, hold the structural steps no analysis may skip, sum a construction risk index, and return the weaknesses that drive a mitigation or a rejection with one verdict. Use when an internal-construction report decides whether a commercial part type may be baselined. Trigger: ecss, q-st-60-13c-clause-5-2-3-3, class-two-constructional-analysis, commercial-part-internal-construction, constructional-analysis-lot-representativeness, construction-weakness-severity-index, structural-inspection-step-coverage.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-2-constructional-analysis",
+    "class-two-constructional-analysis",
+    "commercial-part-internal-construction",
+    "constructional-analysis-lot-representativeness",
+    "construction-weakness-severity-index",
+    "structural-inspection-step-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-derating-rules",
+   "name": "q6013-class-2-derating-rules",
+   "description": "Verify that every electrical and thermal stress on a selected commercial EEE part sits inside the intermediate assurance derating limits of ECSS-Q-ST-60-13C clause 5.2.2.5: look up the part family's voltage, current and power ratios and its junction step-down, turn each maker rating into the largest applied value the rule leaves, derive a junction temperature from a measured case temperature where none was predicted, grade each applied stress, carry a stress past its limit only inside the approved relaxation band, and name the tightest margin. Use when a Class 2 build has to show a commercial part runs inside its derated envelope. Trigger: ecss, q-st-60-13c-clause-5-2-2-5, class-two-eee-derating-limits, commercial-part-voltage-derating, commercial-part-power-dissipation-derating, junction-temperature-step-down, approved-derating-relaxation-band, junction-from-case-temperature.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-derating-rules",
+    "class-two-eee-derating-limits",
+    "commercial-part-voltage-derating",
+    "commercial-part-current-derating",
+    "commercial-part-power-dissipation-derating",
+    "junction-temperature-step-down",
+    "approved-derating-relaxation-band",
+    "junction-from-case-temperature"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-destructive-physical-analysis",
+   "name": "q6013-class-2-destructive-physical-analysis",
+   "description": "Evaluate the destructive physical sampling owed by a delivered commercial EEE lot at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.3.9: size the teardown sample per date-code group, decide whether a signed manufacturer teardown report covers that group and credits it down to a confirmation sample, categorize observed construction defects against a named register, judge die-attach voiding and wire bond pull strength against declared limits, and separate a single major defect calling for a second sample from a group that is rejected outright. Use when a teardown record has to become a lot disposition. Trigger: ecss, q-st-60-13c-clause-5-3-9, class-two-destructive-physical-sampling, date-code-group-teardown-sizing, credited-manufacturer-teardown-report, die-attach-void-criteria, wire-bond-pull-criteria, second-sample-construction-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-destructive-physical-analysis",
+    "class-two-destructive-physical-sampling",
+    "date-code-group-teardown-sizing",
+    "credited-manufacturer-teardown-report",
+    "die-attach-void-criteria",
+    "wire-bond-pull-criteria",
+    "second-sample-construction-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-documentation",
+   "name": "q6013-class-2-documentation",
+   "description": "Assess whether the record package retained for an intermediate assurance commercial part activity is complete, controlled and durable under ECSS-Q-ST-60-13C clause 5.7: refuse a record with no recognized type, identifier, issue, date or approving authority, credit a project-held record in full and a supplier-held one only at a declared fraction and only where a right of access is recorded, name every mandatory report the package never produced, derive each retention end from the record date in whole calendar years, compare it with the horizon the project has to reach, and judge credited completeness against its floor under a named tolerance. Use when a parts record package has to be judged fit to retain. Trigger: ecss, q-st-60-13c-clause-5-7, class-2-parts-record-package, supplier-held-record-access-undertaking, mandatory-parts-report-coverage, parts-record-retention-horizon, credited-package-completeness-fraction, parts-record-control-fields.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-documentation",
+    "q-st-60-13c-clause-5-7",
+    "class-2-parts-record-package",
+    "supplier-held-record-access-undertaking",
+    "mandatory-parts-report-coverage",
+    "parts-record-retention-horizon",
+    "credited-package-completeness-fraction",
+    "parts-record-control-fields"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-eqm-components",
+   "name": "q6013-class-2-eqm-components",
+   "description": "Assess whether commercial parts fitted to an engineering qualification model still carry the flight build at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.1.6: turn every build-standard deviation into a per-domain transfer-credit loss, restore credit only where a deviation acceptance record names a justification and a delta test covering that domain, and refuse restoration on a manufacturer or part-number change because the model then carries a different part. Reports an undocumented deviation even where credit clears the floor, and returns per-domain credit, the delta-test retest set and one transfer verdict. Use when an intermediate-class model parts list or build-standard delta is reviewed. Trigger: ecss, q-st-60-13c-clause-5-1-6, class-two-eqm-commercial-part-representativeness, eqm-flight-build-standard-delta-class-two, eqm-delta-qualification-credit, eqm-deviation-acceptance-record, eqm-domain-transfer-credit-floor, eqm-delta-test-retest-set.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-eqm-components",
+    "class-two-eqm-commercial-part-representativeness",
+    "eqm-flight-build-standard-delta-class-two",
+    "eqm-delta-qualification-credit",
+    "eqm-deviation-acceptance-record",
+    "eqm-domain-transfer-credit-floor",
+    "eqm-delta-test-retest-set"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-evaluation-overview",
+   "name": "q6013-class-2-evaluation-overview",
+   "description": "Evaluate the evaluation activity standing behind a commercial EEE part at the intermediate assurance class of ECSS-Q-ST-60-13C clause 5.2.3.1: take the campaign as one body of evidence, drop the elements the mission profile does not owe out of the denominator, grade each remaining element from its state, downgrade rather than break a heritage claim that only moves assembly site, weight the credit into a coverage fraction, hold the two elements no waiver and no similarity argument may buy, and return the outstanding elements with one campaign verdict. Use when an evaluation plan or evaluation report decides whether a part may enter a Class 2 design. Trigger: ecss, q-st-60-13c-clause-5-2-3-1, class-two-evaluation-campaign, evaluation-element-applicability, class-two-heritage-downgrade, class-two-campaign-coverage-threshold, class-two-evaluation-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-2-evaluation-overview",
+    "class-two-evaluation-campaign",
+    "evaluation-element-applicability",
+    "class-two-heritage-downgrade",
+    "class-two-campaign-coverage-threshold",
+    "class-two-evaluation-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-handling-and-storage",
+   "name": "q6013-class-2-handling-and-storage",
+   "description": "Evaluate the protected handling and controlled storage regime around a commercial EEE lot bought at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.4: band the part by its declared electrostatic withstand, derive the protection measures that band owes, credit only a substitution that is recorded and approved, report the store temperature and humidity as an excursion and as a margin to the nearest limit, count the dry-pack floor life consumed net of a dry-cabinet pause, read the shelf-life and re-inspection clocks, and name every handler whose qualification has lapsed. Use when a bonded store, an issue to the line or a shelf-life review must become one release, release-with-actions or quarantine verdict. Trigger: ecss, q-st-60-13c-clause-5-4, class-two-commercial-eee-handling, recorded-equivalent-esd-substitution, dry-cabinet-floor-life-credit, storage-environment-margin-fraction, handler-esd-qualification-lapse, stored-lot-release-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-handling-and-storage",
+    "class-two-commercial-eee-handling",
+    "recorded-equivalent-esd-substitution",
+    "dry-cabinet-floor-life-credit",
+    "storage-environment-margin-fraction",
+    "handler-esd-qualification-lapse",
+    "stored-lot-release-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-high-voltage-parts",
+   "name": "q6013-class-2-high-voltage-parts",
+   "description": "Determine whether a commercial part may be used in a high voltage application at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.6.7: leave the clause below the declared threshold, take the applied voltage as a fraction of the part rating, derive the creepage and clearance the field limits demand and compare them with the layout, compute the gas breakdown voltage from a Townsend relation at the operating pressure, govern a powered depressurisation by the Paschen minimum instead, and score the evidence, crediting an analysis below a measurement. Use when a high voltage use has to become an application verdict. Trigger: ecss, q-st-60-13c-clause-5-6-7, class-two-high-voltage-part-application, high-voltage-part-voltage-derating, high-voltage-creepage-and-clearance, paschen-minimum-powered-depressurisation, high-voltage-partial-discharge-inception, high-voltage-venting-and-depressurisation-analysis.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-high-voltage-parts",
+    "class-two-high-voltage-part-application",
+    "high-voltage-part-voltage-derating",
+    "high-voltage-creepage-and-clearance",
+    "paschen-minimum-powered-depressurisation",
+    "high-voltage-partial-discharge-inception",
+    "high-voltage-venting-and-depressurisation-analysis"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-hybrid-components",
+   "name": "q6013-class-2-hybrid-components",
+   "description": "Determine whether a hybrid microcircuit can be bought at the intermediate assurance class of ECSS-Q-ST-60-13C clause 5.6.3: refuse a hybrid carrying no procurement specification reference of its own, grade every constituent element by the class it was itself bought at, admit an element one class short only where an upscreening specification and lot traceability are declared behind it, refuse an element further short than that, cap how much of the assembly may lean on upscreening with an exact equality treated as within the cap, and take the weakest admissible element as the effective class. Use when a class 2 hybrid is offered with mixed-class elements. Trigger: ecss, q-st-60-13c-clause-5-6-3, class-two-hybrid-procurement, hybrid-element-procurement-class, hybrid-element-upscreening-recovery, upscreened-element-share-cap, weakest-admissible-element-class, hybrid-procurement-specification-reference.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-hybrid-components",
+    "class-two-hybrid-procurement",
+    "hybrid-element-procurement-class",
+    "hybrid-element-upscreening-recovery",
+    "upscreened-element-share-cap",
+    "weakest-admissible-element-class",
+    "hybrid-procurement-specification-reference"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-incoming-inspection",
+   "name": "q6013-class-2-incoming-inspection",
+   "description": "Evaluate an arriving delivery of intermediate assurance commercial EEE parts under ECSS-Q-ST-60-13C clause 5.3.7: set the inspection level from the supplier's delivery history, let an unfranchised source raise that level whatever the history says, size the sample for the level in integer arithmetic and clamp it to the quantity received, withdraw a declared defect allowance under a tightened level, reconcile part number, date code and quantity as three separate comparisons, check the documents that travel with the parts, and return the dock disposition with the level the next delivery earns. Use when a receipt has to become a store-or-quarantine decision. Trigger: ecss, q-st-60-13c-clause-5-3-7, class-two-incoming-inspection, skip-lot-inspection-level, unfranchised-source-tightening, level-scaled-incoming-sample, incoming-accept-number-allowance, next-delivery-inspection-level.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-incoming-inspection",
+    "class-two-incoming-inspection",
+    "skip-lot-inspection-level",
+    "unfranchised-source-tightening",
+    "level-scaled-incoming-sample",
+    "incoming-accept-number-allowance",
+    "next-delivery-inspection-level"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-lot-acceptance",
+   "name": "q6013-class-2-lot-acceptance",
+   "description": "Determine whether each purchased date code in a commercial EEE delivery passes lot acceptance at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.3.5: split a multi-code delivery into one verdict per code instead of merging them, credit manufacturer data only where it names a document and an issue and says which subgroups it covers, credit a prior acceptance only inside its validity window and only for the same manufacturing site and assembly location, judge purchaser testing on the accept number and the allowance together, and hold a code whose evidence leaves a required subgroup uncovered. Use when a delivery has to become per-date-code verdicts. Trigger: ecss, q-st-60-13c-clause-5-3-5, class-two-date-code-lot-acceptance, per-date-code-verdict-split, manufacturer-data-issue-credit, prior-acceptance-validity-window, lat-subgroup-evidence-coverage, purchaser-lat-accept-number-and-allowance.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-lot-acceptance",
+    "class-two-date-code-lot-acceptance",
+    "per-date-code-verdict-split",
+    "manufacturer-data-issue-credit",
+    "prior-acceptance-validity-window",
+    "lat-subgroup-evidence-coverage",
+    "purchaser-lat-accept-number-and-allowance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-lot-homogeneity",
+   "name": "q6013-class-2-lot-homogeneity",
+   "description": "Determine whether a delivered commercial EEE population may be sampled as one inspection lot at the intermediate assurance class, under ECSS-Q-ST-60-13C clause 5.5.5: place each unit on its wafer lot, assembly lot and site, fall back to a declared equivalence basis where a commercial manufacturer publishes no wafer lot, refuse a unit with neither, compare the date-code span in whole weeks with the limit, count the sub-lots against the cap this class admits, size the sample in exact integer arithmetic and spread it across the sub-lots by largest remainder, then name every sub-lot drawn short of its proportional target. Use when sampling has to be justified as representative. Trigger: ecss, q-st-60-13c-clause-5-5-5, class-two-lot-uniformity, wafer-lot-equivalence-basis, admitted-sub-lot-cap, proportional-sub-lot-allocation, date-code-span-weeks, under-drawn-sub-lot-finding.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-lot-homogeneity",
+    "class-two-lot-uniformity",
+    "wafer-lot-equivalence-basis",
+    "admitted-sub-lot-cap",
+    "proportional-sub-lot-allocation",
+    "date-code-span-weeks",
+    "under-drawn-sub-lot-finding"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-manufacturer-data-deliveries",
+   "name": "q6013-class-2-manufacturer-data-deliveries",
+   "description": "Assess whether the documentation package a manufacturer delivered with a commercial EEE lot holds what the intermediate assurance class requires under ECSS-Q-ST-60-13C clause 5.3.11: fix the lot identity every item is matched against, assemble the owed item set including any on-request item the procurement specification called off, dispose each item as delivered in full, delivered as a supported summary, unidentified, matched to another lot, late or absent, credit a summary below the data it points at, and take the delivered share and the weighted completeness. Use when a delivered data folder has to become a receiving verdict. Trigger: ecss, q-st-60-13c-clause-5-3-11, class-two-manufacturer-data-package, lot-identity-item-matching, retained-data-summary-credit, data-item-retention-period, on-request-data-item-call-off, data-package-delivery-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-manufacturer-data-deliveries",
+    "class-two-manufacturer-data-package",
+    "lot-identity-item-matching",
+    "retained-data-summary-credit",
+    "data-item-retention-period",
+    "on-request-data-item-call-off",
+    "data-package-delivery-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-microwave-integrated-circuits",
+   "name": "q6013-class-2-microwave-integrated-circuits",
+   "description": "Evaluate whether a microwave monolithic integrated circuit may be applied at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.6.5: refuse a part naming no technology or package form, compute the channel temperature from the baseplate, the dissipation and the thermal path, take the margin against the lower of the class ceiling and the part rating, derive an Arrhenius median life against the mission duration, compare the RF drive with the derating cap, demand a moisture barrier behind a non-hermetic package, and score the evaluation evidence, crediting a similarity claim below a direct record. Use when an MMIC has to become an application verdict. Trigger: ecss, q-st-60-13c-clause-5-6-5, class-two-microwave-monolithic-integrated-circuit, mmic-channel-temperature-margin, mmic-arrhenius-median-life, non-hermetic-mmic-moisture-barrier, mmic-rf-drive-derating, mmic-wafer-lot-process-monitor-evidence.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-microwave-integrated-circuits",
+    "class-two-microwave-monolithic-integrated-circuit",
+    "mmic-channel-temperature-margin",
+    "mmic-arrhenius-median-life",
+    "non-hermetic-mmic-moisture-barrier",
+    "mmic-rf-drive-derating",
+    "mmic-wafer-lot-process-monitor-evidence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-nonconformance-handling",
+   "name": "q6013-class-2-nonconformance-handling",
+   "description": "Determine the control and failure analysis a commercial EEE nonconformance owes at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.5.2: categorize the finding from its effects, its mechanism and the stage it escaped to, decide whether an analysis is owed and at what depth, grade the analysis performed against an identified mechanism, a corrective action, a stated effectivity and a verification, refuse a disposition that leaves an unbounded part in the build, size containment across the lot, its uninspected remainder and any sister lot, and time the response. Use when a part fails inspection, board test or system test and the disposition must be defended. Trigger: ecss, q-st-60-13c-clause-5-5-2, class-two-commercial-eee-nonconformance, commercial-eee-failure-analysis-depth, use-as-is-refusal-rule, lot-related-mechanism-containment, nonconformance-response-window, observed-sample-failure-fraction.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-nonconformance-handling",
+    "class-two-commercial-eee-nonconformance",
+    "commercial-eee-failure-analysis-depth",
+    "use-as-is-refusal-rule",
+    "lot-related-mechanism-containment",
+    "nonconformance-response-window",
+    "observed-sample-failure-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-parts-approval",
+   "name": "q6013-class-2-parts-approval",
+   "description": "Determine which approval route a commercial EEE part needs at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.2.4 and grade the justification standing behind it: raise the route every declared escalation driver demands, refuse a record with no reference, issue or permitted approver, credit an element carried by an identified referenced document below one, treat a heading with no rationale as untreated, take the covered share and the weighted completeness against their floors, and close on route below the required level, approval lapsed, or approval recorded after the first procurement commitment. Use when a part-approval file has to become a verdict. Trigger: ecss, q-st-60-13c-clause-5-2-4, class-two-parts-approval-route, parts-approval-escalation-driver, parts-approval-justification-record, parts-approval-validity-lapse, approval-before-procurement-commitment.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-parts-approval",
+    "q-st-60-13c-clause-5-2-4",
+    "class-two-parts-approval-route",
+    "parts-approval-escalation-driver",
+    "parts-approval-justification-record",
+    "parts-approval-validity-lapse",
+    "approval-before-procurement-commitment"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -28274,6 +28656,429 @@
     "parts-function-design-authority-embedding",
     "product-assurance-escalation-route-declaration",
     "delegated-duty-coverage-credit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-precap-inspection",
+   "name": "q6013-class-2-precap-inspection",
+   "description": "Assess whether the pre-seal inspection of a cavity-package commercial EEE lot meets the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.3.4: answer not-applicable rather than waived where the family has no cavity, void an inspection dated on or after the seal instead of booking it as late, measure the notice the customer had against the agreed lead time, admit the delegation this class allows only where it names an approved procedure and its issue, accept critical internal defects on zero, and hold the lot in front of the seal naming every failing grade. Use when a pre-seal record has to become a seal-release verdict. Trigger: ecss, q-st-60-13c-clause-5-3-4, class-two-pre-seal-inspection, cavity-package-precap-applicability, seal-day-inspection-void, precap-notice-lead-time, precap-delegation-approval-reference, critical-internal-defect-accept-on-zero.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-precap-inspection",
+    "class-two-pre-seal-inspection",
+    "cavity-package-precap-applicability",
+    "seal-day-inspection-void",
+    "precap-notice-lead-time",
+    "precap-delegation-approval-reference",
+    "critical-internal-defect-accept-on-zero"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-preferred-sources",
+   "name": "q6013-class-2-preferred-sources",
+   "description": "Evaluate where a commercial EEE part is sourced from against the preferred-manufacturer and qualified-listing direction the intermediate assurance class gives under ECSS-Q-ST-60-13C clause 5.2.2.3: grade the declared source tier, test the traceability chain and let a declared incoming counterfeit-detection inspection cover one gap but never two, weigh change-notice cover, line changes since the evidence was taken and date-code age against the shelf policy, build a sourcing assurance index, pick a disposition, and list the added evaluation each step away from the preferred end buys. Use when a Class 2 build has to justify where a commercial part came from. Trigger: ecss, q-st-60-13c-clause-5-2-2-3, class-two-preferred-sources, qualified-parts-listing-sourcing, commercial-part-traceability-chain, counterfeit-inspection-chain-substitution, lot-date-code-shelf-policy, sourcing-assurance-index, open-market-broker-refusal.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-preferred-sources",
+    "class-two-preferred-sources",
+    "qualified-parts-listing-sourcing",
+    "commercial-part-traceability-chain",
+    "counterfeit-inspection-chain-substitution",
+    "lot-date-code-shelf-policy",
+    "sourcing-assurance-index",
+    "open-market-broker-refusal"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-procurement-overview",
+   "name": "q6013-class-2-procurement-overview",
+   "description": "Assess whether the purchasing controls around a commercial EEE buy deliver parts matching intermediate assurance expectations under ECSS-Q-ST-60-13C clause 5.3.1: refuse an undeclared or unrecognized supply channel, size the control register from that channel, credit a control delegated to the supplier only where a flow-down clause and a returned certificate are both cited, hold an assigned but unevidenced control open with its reason, report an assignment the register does not carry, and take the weighted coverage against the declared floor. Use when a purchasing route has to be graded before parts are ordered. Trigger: ecss, q-st-60-13c-clause-5-3-1, class-two-purchasing-control-register, commercial-part-supply-channel-register, supplier-delegated-control-credit, purchasing-control-evidence, purchasing-coverage-floor.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-procurement-overview",
+    "q-st-60-13c-clause-5-3-1",
+    "class-two-purchasing-control-register",
+    "commercial-part-supply-channel-register",
+    "supplier-delegated-control-credit",
+    "purchasing-control-evidence",
+    "purchasing-coverage-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-procurement-specification",
+   "name": "q6013-class-2-procurement-specification",
+   "description": "Evaluate whether a controlled purchase specification holds the content the intermediate assurance class requires under ECSS-Q-ST-60-13C clause 5.3.2: refuse a document with no identifier, issue or approving authority, hold each parameter to a declared acceptance basis, accept a published-data basis only where the citation names a document and an issue, require a test condition and an ordered limit pair on an own-limit parameter, confirm the ordered limits and the ordered temperature range sit inside the published ones under a named tolerance, and allow a manufacturer standard flow only where the flow is named. Use when a purchase specification must be judged fit to order against. Trigger: ecss, q-st-60-13c-clause-5-3-2, class-two-purchase-specification-content, parameter-acceptance-basis, published-data-citation-issue, ordered-temperature-range-containment, manufacturer-standard-flow-route.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-procurement-specification",
+    "q-st-60-13c-clause-5-3-2",
+    "class-two-purchase-specification-content",
+    "parameter-acceptance-basis",
+    "published-data-citation-issue",
+    "ordered-temperature-range-containment",
+    "manufacturer-standard-flow-route"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-programmable-devices",
+   "name": "q6013-class-2-programmable-devices",
+   "description": "Assess whether the programming and handling record of a programmable device meets what the intermediate assurance class of ECSS-Q-ST-60-13C clause 5.6.4 asks: sort the declared family into one time, reprogrammable non-volatile or reprogrammable volatile, derive the control set that category carries, name every required control the record leaves open, compare the programming cycles already spent against the rated endurance derated by its declared fraction, compare declared configuration retention against the mission duration scaled by its margin factor, and treat an exact equality as met in both. Use when a class 2 parts list carries a one time or reprogrammable part. Trigger: ecss, q-st-60-13c-clause-5-6-4, class-two-programmable-device-handling, one-time-programmable-controls, reprogramming-endurance-derating, configuration-retention-margin, volatile-configuration-load-integrity, open-programming-record-control.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-programmable-devices",
+    "class-two-programmable-device-handling",
+    "one-time-programmable-controls",
+    "reprogramming-endurance-derating",
+    "configuration-retention-margin",
+    "volatile-configuration-load-integrity",
+    "open-programming-record-control"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-quality-assurance-overview",
+   "name": "q6013-class-2-quality-assurance-overview",
+   "description": "Assess the quality assurance duties a programme owes for commercial EEE parts at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.5.1: dispose every catalogue duty as established, waived or short of an owner, a procedure or an evidence record, refuse a waiver against a duty the class makes mandatory, accept a discretionary waiver only against a recorded rationale and approval, carry a plain coverage beside an evidenced coverage, read the quality plan against its revalidation interval, and price a quality function reporting inside a function it grades. Use when a declared assurance arrangement must become one verdict before parts are bought. Trigger: ecss, q-st-60-13c-clause-5-5-1, class-two-commercial-eee-quality-assurance, mandatory-quality-duty-waiver-refusal, evidenced-duty-coverage-floor, quality-plan-revalidation-interval, quality-function-escalation-route, commercial-eee-assurance-duty-catalogue.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-quality-assurance-overview",
+    "class-two-commercial-eee-quality-assurance",
+    "mandatory-quality-duty-waiver-refusal",
+    "evidenced-duty-coverage-floor",
+    "quality-plan-revalidation-interval",
+    "quality-function-escalation-route",
+    "commercial-eee-assurance-duty-catalogue"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-radiation-hardness",
+   "name": "q6013-class-2-radiation-hardness",
+   "description": "Assess a commercial EEE part against the mission radiation environment at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.2.2.4: set the radiation design margin from the evidence basis, size the total-dose requirement the part has to cover, test destructive single-event immunity above the environment ion energy and, where the part is not immune, allow a protected rate argument only inside the declared mission allowance, check the mitigated upset rate against its budget, decide whether the delivered lot has to be irradiated, and report the dose relief lot testing would buy back. Use when a Class 2 build has to tie a commercial part choice to hardness assurance. Trigger: ecss, q-st-60-13c-clause-5-2-2-4, class-two-radiation-hardness-assurance, commercial-part-total-ionising-dose, radiation-design-margin-by-evidence-basis, destructive-single-event-rate-allowance, single-event-upset-rate-budget, lot-radiation-acceptance-test.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-radiation-hardness",
+    "class-two-radiation-hardness-assurance",
+    "commercial-part-total-ionising-dose",
+    "radiation-design-margin-by-evidence-basis",
+    "destructive-single-event-rate-allowance",
+    "single-event-upset-rate-budget",
+    "lot-radiation-acceptance-test",
+    "commercial-part-radiation-evidence-basis"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-radiation-verification-testing",
+   "name": "q6013-class-2-radiation-verification-testing",
+   "description": "Verify a sensitive intermediate assurance commercial EEE lot against its mission dose requirement under ECSS-Q-ST-60-13C clause 5.3.8: multiply the part-level mission dose by the class radiation design margin and again by the penalty that credited heritage data carries, test the similarity claim on manufacturer, wafer process and date-code proximity before reading a dose figure, refuse the heritage credit for a dose-rate-sensitive family flown slowly with no low dose rate data behind it, reduce several heritage lots to their worst case, compare the single-event threshold in the same pass, and return verified, lot test required, evidence invalid or rejected. Use when heritage data has to become a dose verdict. Trigger: ecss, q-st-60-13c-clause-5-3-8, class-two-radiation-verification, heritage-similarity-credit, radiation-design-margin-penalty, low-dose-rate-heritage-refusal, worst-case-heritage-lot-capability, single-event-threshold-let-check.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-radiation-verification-testing",
+    "class-two-radiation-verification",
+    "heritage-similarity-credit",
+    "radiation-design-margin-penalty",
+    "low-dose-rate-heritage-refusal",
+    "worst-case-heritage-lot-capability",
+    "single-event-threshold-let-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-relifing",
+   "name": "q6013-class-2-relifing",
+   "description": "Determine whether a stored lot of commercial EEE parts may have its usable life extended at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.3.10: grade the store the parts actually sat in, scale the package family baseline period by it, test the elapsed storage against that period, check the relifing cycle ceiling before any test is considered, assemble the test set the lot owes, apply the single re-tinning allowance this class grants a lone solderability failure, and compute the decaying extension each further cycle earns. Use when an expired storage period has to become a disposition. Trigger: ecss, q-st-60-13c-clause-5-3-10, class-two-relifing, stored-part-storage-period-grading, relifing-cycle-ceiling, solderability-retinning-allowance, decaying-storage-extension, stored-lot-re-screening-referral.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-relifing",
+    "class-two-relifing",
+    "stored-part-storage-period-grading",
+    "relifing-cycle-ceiling",
+    "solderability-retinning-allowance",
+    "decaying-storage-extension",
+    "stored-lot-re-screening-referral"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-screening-requirements",
+   "name": "q6013-class-2-screening-requirements",
+   "description": "Evaluate whether a purchased date-code lot of a commercial EEE part was screened as the intermediate assurance class requires under ECSS-Q-ST-60-13C clause 5.3.3: refuse a screen run on a sample instead of on every unit, take the screen set the package family demands, name each screen absent from the performed sequence, report an inverted order even when every screen is present, accumulate the removed units into a percent defective, hold burn-in to its own subtotal, and reject the whole lot rather than only its removed units once the allowance is passed. Use when screening results have to become a lot verdict. Trigger: ecss, q-st-60-13c-clause-5-3-3, class-two-commercial-eee-screening, hundred-percent-screen-coverage, package-family-screen-set, screening-sequence-order-check, cumulative-screening-percent-defective, burn-in-removal-subtotal, screened-lot-marginal-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-screening-requirements",
+    "class-two-commercial-eee-screening",
+    "hundred-percent-screen-coverage",
+    "package-family-screen-set",
+    "screening-sequence-order-check",
+    "cumulative-screening-percent-defective",
+    "burn-in-removal-subtotal",
+    "screened-lot-marginal-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-selection-overview",
+   "name": "q6013-class-2-selection-overview",
+   "description": "Scope the selection duties a commercial EEE component choice owes at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.2.1: refuse a condition never declared instead of reading unknown as false, drop a conditional duty only where its condition fails, instantiate a per-programme duty exactly once so no part re-owes it, give each instance a disposition against its named owner role, and refuse a waiver on a duty that cannot be waived. Returns the duty-coverage share against the declared minimum, the outstanding set and a readiness verdict. Use when a candidate parts list must become an owed-duty picture. Trigger: ecss, q-st-60-13c-clause-5-2-1, class-two-commercial-component-selection-duties, selection-duty-conditional-scoping, per-programme-selection-duty-single-instance, selection-duty-owner-role-mismatch, selection-duty-waiver-authority, class-two-selection-duty-coverage-share.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-selection-overview",
+    "class-two-commercial-component-selection-duties",
+    "selection-duty-conditional-scoping",
+    "per-programme-selection-duty-single-instance",
+    "selection-duty-owner-role-mismatch",
+    "selection-duty-waiver-authority",
+    "class-two-selection-duty-coverage-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-selection-rules",
+   "name": "q6013-class-2-selection-rules",
+   "description": "Determine whether a candidate commercial EEE part may enter a design at the intermediate assurance class under ECSS-Q-ST-60-13C clause 5.2.2.1: run the baseline rules for provenance, manufacturer quality system, procurement route, flight lot homogeneity, temperature envelope with margin, change notification and declared radiation capability; bar the part outright on provenance; carry any other failure only on the measure recognised for that rule, an uprating assessment holding to a kelvin cap; then refuse a part whose stacked residual risk passes the ceiling. Returns the shortfall in kelvin and one verdict. Use when a real part meets the rule set. Trigger: ecss, q-st-60-13c-clause-5-2-2-1, class-two-commercial-part-admissibility, baseline-rule-mitigation-measure, part-uprating-assessment-kelvin-cap, open-market-procurement-mitigation, class-two-stacked-residual-risk-ceiling, authentic-provenance-hard-bar.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-selection-rules",
+    "class-two-commercial-part-admissibility",
+    "baseline-rule-mitigation-measure",
+    "part-uprating-assessment-kelvin-cap",
+    "open-market-procurement-mitigation",
+    "class-two-stacked-residual-risk-ceiling",
+    "authentic-provenance-hard-bar"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-self-made-magnetics",
+   "name": "q6013-class-2-self-made-magnetics",
+   "description": "Evaluate whether a supplier-built magnetic component and its delivery lot carry the build basis and screening the intermediate assurance class needs under ECSS-Q-ST-60-13C clause 5.6.8: refuse a build standard with no issue, an unreleased supplier process or undelivered acceptance data, hold winding current density and hot-case flux utilization to their ceilings with equality admissible under a named tolerance, compare winding hot spot with the insulation rating and demonstrated withstand with the required multiple of working voltage, size the sample-drawn screening from the lot and name every per-unit and sample step never run. Use when a wound magnetic delivery has to be judged acceptable. Trigger: ecss, q-st-60-13c-clause-5-6-8, supplier-built-magnetic-build-basis, wound-magnetic-lot-sample-sizing, magnetic-per-unit-screening-coverage, winding-current-density-ceiling, hot-case-flux-utilization-ceiling, magnetic-insulation-withstand-ratio.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-scope",
+    "q6013-class-2-self-made-magnetics",
+    "q-st-60-13c-clause-5-6-8",
+    "supplier-built-magnetic-build-basis",
+    "wound-magnetic-lot-sample-sizing",
+    "magnetic-per-unit-screening-coverage",
+    "winding-current-density-ceiling",
+    "hot-case-flux-utilization-ceiling",
+    "magnetic-insulation-withstand-ratio"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-temperature-range",
+   "name": "q6013-class-2-temperature-range",
+   "description": "Verify that the rated temperature limits of a commercial EEE part cover the mission operating case at the intermediate assurance class of ECSS-Q-ST-60-13C clause 5.2.2.6: resolve the rated band from the temperature grade or the declared limits, widen the predicted mission extremes by the thermal analysis uncertainty, take the cold end and the hot end separately, grade each against the margin the class owes, credit an uprating extension only where it is bounded and evidenced, and return one range verdict with the repair each short end needs. Use when a datasheet band has to be reconciled with a thermal case before a part is baselined. Trigger: ecss, q-st-60-13c-clause-5-2-2-6, class-two-rated-temperature-range, commercial-part-temperature-grade-band, thermal-analysis-uncertainty-widening, cold-end-hot-end-thermal-margin, commercial-part-uprating-admissibility.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-2-temperature-range",
+    "class-two-rated-temperature-range",
+    "commercial-part-temperature-grade-band",
+    "thermal-analysis-uncertainty-widening",
+    "cold-end-hot-end-thermal-margin",
+    "commercial-part-uprating-admissibility"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-2-traceability",
+   "name": "q6013-class-2-traceability",
+   "description": "Verify that a commercial EEE lot keeps a traceability record across every handling step it passes through at the intermediate assurance class, under ECSS-Q-ST-60-13C clause 5.5.4: bridge a re-lotted record only on a cross-reference back to the lot under investigation, discount a record held by another party until an access undertaking is recorded, report plain and credited step coverage against separate floors, name each record kept for fewer years than the retention floor, and catch a record dated against the order its handling step occurs in. Use when a lot's handling records have to become a coverage verdict rather than a folder. Trigger: ecss, q-st-60-13c-clause-5-5-4, class-two-commercial-eee-lot-traceability, handling-step-record-coverage, externally-held-traceability-record, traceability-record-retention-floor, lot-cross-reference-bridge, handling-step-record-order.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-2-traceability",
+    "class-two-commercial-eee-lot-traceability",
+    "handling-step-record-coverage",
+    "externally-held-traceability-record",
+    "traceability-record-retention-floor",
+    "lot-cross-reference-bridge",
+    "handling-step-record-order"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-component-control-plan",
+   "name": "q6013-class-3-component-control-plan",
+   "description": "Assess whether a component control plan carries what the lowest assurance class still demands for commercial EEE parts under ECSS-Q-ST-60-13C clause 6.1.2.2: accept a plan issued as a section of a wider product-assurance document, refuse one naming neither carrier nor issue, treat a core subject named without a procedure behind it as untreated, compute core coverage and depth-weighted completeness, separate a tailorable subject dropped with a recorded reason from one dropped in silence, require customer agreement past a declared tailoring count, and check issue before the first procurement commitment. Use when a light plan has to become a coverage verdict. Trigger: ecss, q-st-60-13c-clause-6-1-2-2, class-three-component-control-plan, core-plan-subject-coverage, plan-tailoring-justification-record, unagreed-tailoring-cap, embedded-plan-host-document, shallow-core-subject-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-3-component-control-plan",
+    "class-three-component-control-plan",
+    "core-plan-subject-coverage",
+    "plan-tailoring-justification-record",
+    "unagreed-tailoring-cap",
+    "embedded-plan-host-document",
+    "shallow-core-subject-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-declared-component-list",
+   "name": "q6013-class-3-declared-component-list",
+   "description": "Evaluate whether a declared component list was issued in time and has been kept true at the lowest assurance class under ECSS-Q-ST-60-13C clause 6.1.4: refuse a list carrying no reference, issue label or first issue milestone, compare that milestone with the review the list was meant to inform, age the document against its re-issue interval, separate a superseded line still carrying installed quantity from a line nobody re-confirmed and from a part under an open alert, and weight currency by installed quantity rather than by line count. Use when a parts baseline has to become an upkeep verdict. Trigger: ecss, q-st-60-13c-clause-6-1-4, class-three-declared-component-list, dcl-first-issue-milestone, dcl-reissue-interval-age, quantity-weighted-line-currency, retired-line-still-installed, dcl-open-alert-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-3-declared-component-list",
+    "class-three-declared-component-list",
+    "dcl-first-issue-milestone",
+    "dcl-reissue-interval-age",
+    "quantity-weighted-line-currency",
+    "retired-line-still-installed",
+    "dcl-open-alert-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-eqm-components",
+   "name": "q6013-class-3-eqm-components",
+   "description": "Evaluate the candidate parts offered for an engineering qualification model slot at the lowest assurance class of ECSS-Q-ST-60-13C clause 6.1.6: rule out a candidate whose function or pinout differs, because the model would then exercise a different design, rule out one that cannot arrive inside the build window, weight the remaining build-standard differences into a match fraction, take the best with a reproducible tie-break on lead time and reference, and name the deltas the flight build must carry on the record. Use when a model parts list or a substitution request is decided at the lowest class. Trigger: ecss, q-st-60-13c-clause-6-1-6, class-three-eqm-part-choice, eqm-candidate-admissibility, eqm-build-window-feasibility, eqm-build-standard-match-fraction, eqm-flight-build-delta-record.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-3-eqm-components",
+    "class-three-eqm-part-choice",
+    "eqm-candidate-admissibility",
+    "eqm-build-window-feasibility",
+    "eqm-build-standard-match-fraction",
+    "eqm-flight-build-delta-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-gse-components",
+   "name": "q6013-class-3-gse-components",
+   "description": "Determine which controls a commercial part inside ground support equipment still earns at the lowest assurance class of ECSS-Q-ST-60-13C clause 6.1.5: treat identification as owed by every part, add an isolation, calibration, verification, operator-safety or spares control only where a declared exposure triggers it, credit an asserted control at nothing and a waiver only where the element may be waived at all and the justification is on record, weight the credited elements into a per-part coverage, and return the control tier, the governing part and one rack verdict. Use when a ground rack parts list is graded at the lowest class. Trigger: ecss, q-st-60-13c-clause-6-1-5, class-three-gse-part-control-tier, gse-exposure-triggered-control-set, gse-control-waiver-justification, gse-control-coverage-floor, class-three-ground-rack-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-3-gse-components",
+    "class-three-gse-part-control-tier",
+    "gse-exposure-triggered-control-set",
+    "gse-control-waiver-justification",
+    "gse-control-coverage-floor",
+    "class-three-ground-rack-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-parts-control-board",
+   "name": "q6013-class-3-parts-control-board",
+   "description": "Determine which approval route a commercial EEE part usage was entitled to at the lowest assurance class under ECSS-Q-ST-60-13C clause 6.1.3: test the usage against every board referral condition -- outside the approved catalogue, at or above the criticality floor, a single point of failure, needing a derating waiver, carrying an open alert, an untraceable lot, or past the delegation quantity threshold -- then weigh the route taken, the board quorum, the evidence behind the decision, the record raised before the commitment, and the cadence a delegated approval owes the board. Use when a part approval record has to become a route verdict. Trigger: ecss, q-st-60-13c-clause-6-1-3, class-three-parts-control-board, board-referral-condition-set, delegated-part-approval-authority, parts-board-quorum-share, delegated-approval-notification-cadence, bare-quorum-session-advisory.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-3-parts-control-board",
+    "class-three-parts-control-board",
+    "board-referral-condition-set",
+    "delegated-part-approval-authority",
+    "parts-board-quorum-share",
+    "delegated-approval-notification-cadence",
+    "bare-quorum-session-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-parts-organization",
+   "name": "q6013-class-3-parts-organization",
+   "description": "Allocate organizational responsibility for commercial EEE part control at the lowest assurance class under ECSS-Q-ST-60-13C clause 6.1.2.1: refuse an organization the project plan records nowhere, accept combined duties because this class lets one role hold several, require at least one holder for part-selection approval, take coverage as the share of duties carried by at least one role and judge it against a floor below unity under a named tolerance, name every duty nobody carries, flag a role past the concentration ceiling with no deputy named, total the declared effort against its floor, and require a stated location for the parts decision record. Use when a thin parts function has to become a responsibility verdict. Trigger: ecss, q-st-60-13c-clause-6-1-2-1, class-three-commercial-eee-parts-responsibility, combined-parts-duty-assignment, parts-role-deputy-continuity, parts-responsibility-coverage-floor, declared-parts-effort-fte-floor, parts-decision-record-location.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q6013-class-3-parts-organization",
+    "q-st-60-13c-clause-6-1-2-1",
+    "class-three-commercial-eee-parts-responsibility",
+    "combined-parts-duty-assignment",
+    "parts-role-deputy-continuity",
+    "parts-responsibility-coverage-floor",
+    "declared-parts-effort-fte-floor",
+    "parts-decision-record-location"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6013-class-3-selection-overview",
+   "name": "q6013-class-3-selection-overview",
+   "description": "Assess whether the general selection duties behind a commercial component are discharged at the lowest assurance class of ECSS-Q-ST-60-13C clause 6.2.1: credit a duty only where an evidence reference is cited, leave an asserted duty open, drop a duty from the denominator only where it is discretionary at this class and the not-applicable claim carries a recorded justification, refuse that claim on a duty the class keeps mandatory, weight the credited duties into a coverage fraction against the declared floor, and return the outstanding duties, the governing component and one verdict. Use when a parts selection list is reviewed at the lowest class. Trigger: ecss, q-st-60-13c-clause-6-2-1, class-three-selection-duty-register, selection-duty-evidence-credit, selection-duty-applicability-claim, selection-coverage-floor, class-three-selection-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-13-commercial-eee-component-scope",
+    "q-st-60-13c",
+    "q6013-class-3-selection-overview",
+    "class-three-selection-duty-register",
+    "selection-duty-evidence-credit",
+    "selection-duty-applicability-claim",
+    "selection-coverage-floor",
+    "class-three-selection-verdict"
    ],
    "family": "space-systems",
    "pack": "ecss",

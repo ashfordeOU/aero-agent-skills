@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-screening-requirements (space-systems/ecss)
+# Two tasks for the leaf. scr2a routes on the hundred-percent screen coverage
+# and the package-family screen set; scr2b routes on the cumulative screening
+# percent defective and the separate burn-in subtotal. Both must
+# deterministically hit space-systems/ecss/q6013-class-2-screening-requirements.
+tasks:
+  - id: scr2a
+    query: "our supplier screened a sample of the date code instead of every unit and skipped the moisture precondition on a plastic part; decide whether that sequence screened the lot at the intermediate assurance class"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.3; class 2 screening coverage, package-family screen set and sequence order"
+    expected_skill: "space-systems/ecss/q6013-class-2-screening-requirements"
+  - id: scr2b
+    query: "screening removed 6 of 100 units of a commercial EEE lot with 4 of those taken out at burn-in; work out the cumulative percent defective against the allowable, keep burn-in on its own subtotal and say whether the survivors ship"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.3; cumulative screening percent defective, burn-in removal subtotal and the reject-the-whole-lot disposition"
+    expected_skill: "space-systems/ecss/q6013-class-2-screening-requirements"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-preferred-sources (space-systems/ecss)
+# Two tasks for the new leaf. cps1 routes on grading a source tier against the
+# preferred-manufacturer and qualified-listing direction at the intermediate
+# assurance class; cps2 routes on the single chain-gap substitution this class
+# allows. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-preferred-sources.
+tasks:
+  - id: cps1
+    query: "this commercial part comes from a franchised distributor rather than the qualified parts listing on our Class 2 build; score the sourcing and tell me what added evaluation that step down the tier ladder buys"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.3; intermediate assurance source tier grading and sourcing assurance index"
+    expected_skill: "space-systems/ecss/q6013-class-2-preferred-sources"
+  - id: cps2
+    query: "we hold the maker lot record and the project receipt record but no distribution chain record, and we run incoming counterfeit-detection inspection; can that cover the gap and what disposition does the source earn"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.3; traceability chain completeness and the single permitted incoming-inspection substitution"
+    expected_skill: "space-systems/ecss/q6013-class-2-preferred-sources"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-lot-acceptance (space-systems/ecss)
+# Two tasks for the leaf. la2a routes on splitting a multi-date-code delivery
+# into per-code verdicts and on subgroup evidence coverage; la2b routes on the
+# manufacturer data issue credit and the prior acceptance validity window. Both
+# must deterministically hit space-systems/ecss/q6013-class-2-lot-acceptance.
+tasks:
+  - id: la2a
+    query: "a delivery of commercial EEE parts arrived carrying three purchased date codes and only one of them was tested for endurance; give a verdict per date code at the intermediate assurance class rather than one verdict for the delivery"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.5; class 2 per-date-code lot acceptance verdicts and required subgroup evidence coverage"
+    expected_skill: "space-systems/ecss/q6013-class-2-lot-acceptance"
+  - id: la2b
+    query: "the vendor offers a lot acceptance report with no issue number and an acceptance the same date code earned three years ago at another assembly plant; decide what either of those may be credited for before we run our own testing"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.5; manufacturer data reference and issue credit, prior acceptance validity window, manufacturing site and assembly location"
+    expected_skill: "space-systems/ecss/q6013-class-2-lot-acceptance"

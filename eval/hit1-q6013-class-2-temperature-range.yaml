@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-temperature-range (space-systems/ecss)
+# Two tasks for the leaf. trng2a routes on the rated band versus the widened
+# mission case and the per-end margin; trng2b routes on an uprating claim and
+# the bound it is credited against. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-temperature-range.
+tasks:
+  - id: trng2a
+    query: "our commercial part is an industrial-grade temperature band and the thermal case has an analysis uncertainty on top of the predicted extremes; work out whether the cold end and the hot end each hold the margin the intermediate assurance class owes"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.6; class 2 rated temperature band against the widened mission case, per-end thermal margin"
+    expected_skill: "space-systems/ecss/q6013-class-2-temperature-range"
+  - id: trng2b
+    query: "the supplier says the part can be uprated fifteen kelvin past its rated maximum; decide whether that extension is admissible at class 2, how much of it we may credit, and what the hot end verdict becomes once it is applied"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.2.6; uprating extension admissibility, bounded credit, hot-end range verdict"
+    expected_skill: "space-systems/ecss/q6013-class-2-temperature-range"

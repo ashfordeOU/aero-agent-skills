@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-class-2-eqm-components (space-systems/ecss,
+# Q-ST-60-13C 5.1.6). Two tasks per leaf; c2eqm1 routes on the graded
+# per-domain transfer credit left by a build-standard delta at the
+# intermediate class, c2eqm2 on the deviation acceptance record that restores
+# credit and the delta-test retest set it leaves. Both must deterministically
+# hit space-systems/ecss/q6013-class-2-eqm-components.
+tasks:
+  - id: c2eqm1
+    query: "grade class-two-eqm-commercial-part-representativeness across the eqm-flight-build-standard-delta-class-two and report the eqm-domain-transfer-credit-floor each domain sits against"
+    intent: "ECSS-Q-ST-60-13C clause 5.1.6; commercial parts on an engineering qualification model at the intermediate assurance class and the graded per-domain transfer credit they leave"
+    expected_skill: "space-systems/ecss/q6013-class-2-eqm-components"
+  - id: c2eqm2
+    query: "apply the eqm-deviation-acceptance-record to restore eqm-delta-qualification-credit only where its delta test reached, then return the eqm-delta-test-retest-set and the model transfer verdict"
+    intent: "ECSS-Q-ST-60-13C clause 5.1.6; recorded deviation acceptance, credit restoration bounded by the delta test, and the retest set for the flight build"
+    expected_skill: "space-systems/ecss/q6013-class-2-eqm-components"

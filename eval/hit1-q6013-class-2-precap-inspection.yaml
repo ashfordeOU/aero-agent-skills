@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-precap-inspection (space-systems/ecss)
+# Two tasks for the leaf. pci2a routes on the pre-seal timing and the notice
+# lead time; pci2b routes on the delegation this class allows and the graded
+# internal defect gate. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-precap-inspection.
+tasks:
+  - id: pci2a
+    query: "the customer inspection of our hermetic commercial parts at the manufacturer is dated the same day the lids went on and notice arrived two days ahead of an agreed ten day lead; decide whether that record lets the seal operation stand"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.4; class 2 pre-seal inspection timing against the seal day and the notice lead time"
+    expected_skill: "space-systems/ecss/q6013-class-2-precap-inspection"
+  - id: pci2b
+    query: "our manufacturer's own quality organisation carried out the pre-cap inspection and found one loose bond wire and two minor findings in a sample of twenty; work out whether the delegation counts at the intermediate assurance class and whether the lot may be sealed"
+    intent: "ECSS-Q-ST-60-13C clause 5.3.4; delegated pre-seal inspection approval reference and issue, critical accept-on-zero and the graded defect verdict"
+    expected_skill: "space-systems/ecss/q6013-class-2-precap-inspection"

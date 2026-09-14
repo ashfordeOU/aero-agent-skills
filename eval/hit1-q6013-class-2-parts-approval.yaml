@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-class-2-parts-approval (space-systems/ecss)
+# Two tasks for the leaf. pa2a routes on the approval route the escalation
+# drivers demand; pa2b routes on the justification record behind the approval
+# and its validity. Both must deterministically hit
+# space-systems/ecss/q6013-class-2-parts-approval.
+tasks:
+  - id: pa2a
+    query: "this commercial part has no approved equivalent on the project and sits in a single-point-failure function, so decide whether our component engineer can sign it off at the intermediate assurance class or whether it has to go to the board and the customer"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.4; class 2 parts approval route raised by the declared escalation drivers"
+    expected_skill: "space-systems/ecss/q6013-class-2-parts-approval"
+  - id: pa2b
+    query: "grade the justification file behind a part approval, the residual risk section is just a heading and the compensating measures point at the screening flow document, and tell me whether the approval is still inside its validity and was recorded before the first procurement commitment"
+    intent: "ECSS-Q-ST-60-13C clause 5.2.4; justification element disposition, reference credit, approval validity lapse and approval timing against the first commitment"
+    expected_skill: "space-systems/ecss/q6013-class-2-parts-approval"
