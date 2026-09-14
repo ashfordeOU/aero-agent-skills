@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reflectance-bandwidth-requirement (space-systems/ecss)
+# Two tasks for the new leaf. rbr1 routes on the acceptance comparison of a
+# measured bandwidth against the coverglass source control drawing declaration;
+# rbr2 routes on the drift a bandwidth ratio cancels. Both must deterministically
+# hit space-systems/ecss/e2008-reflectance-bandwidth-requirement.
+tasks:
+  - id: rbr1
+    query: "does the measured coverglass reflectance bandwidth match the figure declared on the source control drawing within its tolerance"
+    intent: "ECSS-E-ST-20-08C clause 8.7.5.4.2; bandwidth acceptance against the declared drawing figure"
+    expected_skill: "space-systems/ecss/e2008-reflectance-bandwidth-requirement"
+  - id: rbr2
+    query: "the coverglass bandwidth is inside tolerance but both band edges moved together, how do I report that drift against the declared band centre"
+    intent: "ECSS-E-ST-20-08C clause 8.7.5.4.2; band-edge drift that the bandwidth ratio cancels, plus centre convention sensitivity"
+    expected_skill: "space-systems/ecss/e2008-reflectance-bandwidth-requirement"

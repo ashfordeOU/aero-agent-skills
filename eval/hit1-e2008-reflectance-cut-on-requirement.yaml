@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-reflectance-cut-on-requirement (space-systems/ecss,
+# E-ST-20-08C 8.7.5.2.3). Two tasks per leaf; rcon1 routes on holding the
+# measured band edge against the drawing figure, rcon2 on which half level
+# the cut-on is taken at. Both must deterministically hit
+# space-systems/ecss/e2008-reflectance-cut-on-requirement.
+tasks:
+  - id: rcon1
+    query: "assess the coverglass-source-control-drawing-match for a lot and report the cut-on-tolerance-band-deviation of its coverglass-reflectance-cut-on"
+    intent: "ecss photovoltaic assemblies; does the coating cut-on sit on the drawing figure"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-on-requirement"
+  - id: rcon2
+    query: "take the coverglass-coating-band-edge-acceptance decision from the reflectance-half-of-absolute-crossing on the rising side and compare it with the drawing"
+    intent: "ecss photovoltaic assemblies; cut-on acceptance against the source control drawing"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-on-requirement"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-surface-cleanliness (space-systems/ecss)
+# Two tasks for the leaf. csc1 routes on the two-surface soiling screen of a
+# delivered coverglass; csc2 routes on the removable-versus-permanent split and
+# the post-clean re-inspection that closes an item. Both must deterministically
+# hit space-systems/ecss/e2008-coverglass-surface-cleanliness.
+tasks:
+  - id: csc1
+    query: "screen both optical surfaces of every delivered coverglass for soiling and contamination and hold the delivery lot open until each item carries a record on both sides"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.7; coverglass optical surface cleanliness at delivery"
+    expected_skill: "space-systems/ecss/e2008-coverglass-surface-cleanliness"
+  - id: csc2
+    query: "separate removable coverglass soiling from contamination that survives a clean, sum the permanent obscured area fraction per optical surface and require the post-clean re-inspection result before closing the item"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.7; removable soiling, cumulative obscuration and post-clean re-inspection"
+    expected_skill: "space-systems/ecss/e2008-coverglass-surface-cleanliness"

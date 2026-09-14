@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-edge-chips (space-systems/ecss)
+# Two tasks for the new leaf. cge1 routes on how far an edge chip may project
+# inward across the coverglass face; cge2 routes on whether that projection has
+# taken the chip past the overhang and over the illuminated aperture. Both must
+# deterministically hit space-systems/ecss/e2008-coverglass-edge-chips.
+tasks:
+  - id: cge1
+    query: "decide whether the chip on the edge of the coverglass projects further in across the glass face than the quarter millimetre allowed"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.4; coverglass edge chip inward face projection limit"
+    expected_skill: "space-systems/ecss/e2008-coverglass-edge-chips"
+  - id: cge2
+    query: "work out whether an edge chip on this coverglass has eaten past the overhang and is now standing over the illuminated aperture of the cell"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.4; coverglass edge chip projection against the declared overhang"
+    expected_skill: "space-systems/ecss/e2008-coverglass-edge-chips"

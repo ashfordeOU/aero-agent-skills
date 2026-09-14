@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coverglass-testing-overview (space-systems/ecss,
+# E-ST-20-08C 8.3.1). Two tasks per leaf; cto1 routes on splitting a declared
+# test matrix into qualification and lot procurement roles, cto2 on the lot
+# draw and the over-build a destructive procurement test forces. Both must
+# deterministically hit
+# space-systems/ecss/e2008-coverglass-testing-overview.
+tasks:
+  - id: cto1
+    query: "run the coverglass-test-role-partition over this matrix and report coverglass-test-misassignment alongside coverglass-qualification-test-coverage"
+    intent: "ecss coverglass; which tests support qualification and which support routine procurement"
+    expected_skill: "space-systems/ecss/e2008-coverglass-testing-overview"
+  - id: cto2
+    query: "size the coverglass-lot-procurement-sampling draw for this lot and total the coverglass-destructive-specimen-demand the consuming lot tests force"
+    intent: "ecss coverglass; per-lot sample size and the over-build a destructive lot test costs"
+    expected_skill: "space-systems/ecss/e2008-coverglass-testing-overview"

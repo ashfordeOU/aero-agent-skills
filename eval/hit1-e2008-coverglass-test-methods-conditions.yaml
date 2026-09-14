@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-test-methods-conditions (space-systems/ecss,
+# E-ST-20-08C 8.5.3). Two tasks per leaf; cgm1 routes on the forward pointer to
+# the clause-8 definitions, cgm2 on the condition senses that tell a relaxation
+# from an over-test. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-test-methods-conditions.
+tasks:
+  - id: cgm1
+    query: "resolve the coverglass-definition-pointer-resolution behind the coverglass-acceptance-methods-and-conditions and catch a coverglass-acceptance-method-substitution"
+    intent: "ecss coverglasses; acceptance testing run at the methods and conditions defined further down clause eight"
+    expected_skill: "space-systems/ecss/e2008-coverglass-test-methods-conditions"
+  - id: cgm2
+    query: "run the coverglass-condition-sense-comparison to tell a coverglass-acceptance-condition-relaxation from a coverglass-acceptance-over-test"
+    intent: "ecss coverglasses; declared acceptance conditions graded against the referenced definitions under each condition sense"
+    expected_skill: "space-systems/ecss/e2008-coverglass-test-methods-conditions"

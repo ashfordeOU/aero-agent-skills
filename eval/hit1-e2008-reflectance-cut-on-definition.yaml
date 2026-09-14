@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-reflectance-cut-on-definition (space-systems/ecss,
+# E-ST-20-08C 8.7.5.2.1). Two tasks per leaf; rcod1 routes on the half of the
+# absolute measured reflectance that fixes the crossing level, rcod2 on
+# interpolating the short-wavelength crossing and its resolution. Both must
+# deterministically hit
+# space-systems/ecss/e2008-reflectance-cut-on-definition.
+tasks:
+  - id: rcod1
+    query: "fix the absolute-measured-reflectance-half-level for a coating band and place the reflectance-cut-on-wavelength where the curve first reaches it"
+    intent: "ecss photovoltaic; cut-on defined as the short wavelength point reaching half the absolute measured reflectance"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-on-definition"
+  - id: rcod2
+    query: "walk the coating-short-wavelength-edge of a measured scan, do the reflectance-crossing-interpolation between the bracketing samples and report the resolution after coverglass-reflectance-scan-validation"
+    intent: "ecss photovoltaic; interpolating the cut-on crossing and the bracket width it is known to"
+    expected_skill: "space-systems/ecss/e2008-reflectance-cut-on-definition"

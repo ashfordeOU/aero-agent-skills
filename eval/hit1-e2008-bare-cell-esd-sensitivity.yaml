@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-esd-sensitivity (space-systems/ecss)
+# Two tasks for the new leaf. bces1 routes on grading the handling and storage
+# controls for ESD-sensitive bare cells; bces2 routes on the withstand-voltage
+# banding against a named discharge model and the residual-charge voltage. Both
+# must deterministically hit
+# space-systems/ecss/e2008-bare-cell-esd-sensitivity.
+tasks:
+  - id: bces1
+    query: "grade the handling and storage regime for bare solar cells that are sensitive to electrostatic discharge, the wrist strap ground path reads ten ohms and the cells travel in dissipative bags"
+    intent: "ECSS-E-ST-20-08C clause 7.9.2; protected-area control bands and shielding packaging for ESD-sensitive bare cells"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-esd-sensitivity"
+  - id: bces2
+    query: "which esd sensitivity band does a bare solar cell with a 200 volt charged device model withstand fall into, and does the residual charge left by handling exceed what it survives"
+    intent: "ECSS-E-ST-20-08C clause 7.9.2; discharge-model banding and residual-charge voltage margin for a bare solar cell"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-esd-sensitivity"

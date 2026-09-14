@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-crack-exclusion (space-systems/ecss)
+# Two tasks for the new leaf. cgx1 routes on the prohibition itself, cracking
+# anywhere on a delivered coverglass at any length; cgx2 routes on whether an
+# empty inspection record covered enough to certify absence. Both must
+# deterministically hit space-systems/ecss/e2008-coverglass-crack-exclusion.
+tasks:
+  - id: cgx1
+    query: "a hairline crack was found on the face of a delivered coverglass, decide whether any length of cracking is tolerated on the surface edge or corner"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.6; no surface edge or corner cracking permitted on a delivered coverglass"
+    expected_skill: "space-systems/ecss/e2008-coverglass-crack-exclusion"
+  - id: cgx2
+    query: "the coverglass inspection record lists no findings but only two zones were examined, decide whether that certifies the glass as free of cracking"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.6; coverglass crack screen evidence coverage and magnification adequacy"
+    expected_skill: "space-systems/ecss/e2008-coverglass-crack-exclusion"

@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1565,
+  "leaves": 1607,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -19820,6 +19820,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-active-passive-interface-evaluation",
+   "name": "e2008-active-passive-interface-evaluation",
+   "description": "Use when a single junction cell has to be evaluated for interface activity. Determine whether a single junction gallium arsenide on germanium solar cell carries an active interface layer under ECSS-E-ST-20-08C clause 7.5.18: read the open-circuit voltage sitting above the single junction reference, the share of spectral response beyond the gallium arsenide absorption edge, and the current left under a long-pass filter, hold each against its own pair of thresholds so a reading between them decides nothing, weigh the three independent lines together rather than letting one carry the call, and report an undecided interface as its own outcome instead of defaulting to passive. Trigger: ecss, e-st-20-08c-clause-7-5-18, gallium-arsenide-germanium-active-interface, germanium-sub-bandgap-response-share, single-junction-open-circuit-voltage-excess, long-pass-filtered-current-ratio.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-active-passive-interface-evaluation",
+    "e-st-20-08c-clause-7-5-18",
+    "gallium-arsenide-germanium-active-interface",
+    "germanium-sub-bandgap-response-share",
+    "single-junction-open-circuit-voltage-excess",
+    "long-pass-filtered-current-ratio",
+    "bare-cell-interface-layer-evaluation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-angular-performance-test-process",
    "name": "e2008-angular-performance-test-process",
    "description": "Design the incidence-angle sweep a photovoltaic assembly angular performance measurement runs under ECSS-E-ST-20-08C clause 6.4.3.19.2: build the angle schedule, hold a coarse step up to sixty degrees and a further-refined step beyond it where the response leaves the cosine fastest, size the widest gap each region actually leaves, bound the straight-line error a gap admits between measured points, and confirm the sweep reaches the declared maximum angle. Use when an angular sweep is being planned, or an as-run one has to be judged against the step rule. Trigger: ecss, e-st-20-08c-clause-6-4-3-19-2, solar-array-angular-sweep-schedule, incidence-angle-step-refinement, sixty-degree-step-breakpoint, angular-interpolation-error-bound, angular-sweep-truncation-check.",
@@ -20102,6 +20121,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-bare-cell-data-documentation",
+   "name": "e2008-bare-cell-data-documentation",
+   "description": "Use when a package is offered before release: resolve the families each tier owes, take the governing issue of every record, hold anything still in draft, reconcile the lot files against the declared lots in both directions, and check each lot's measured data table carries a row for every cell that lot delivered. Audit the supplier data package a bare solar cell delivery travels with under ECSS-E-ST-20-08C clause 7.7, where one qualification tier and one data file per delivered lot are graded together. Trigger: ecss, e-st-20-08c, clause-7-7, bare-cell-supplier-data-package, bare-cell-lot-data-file-reconciliation, bare-cell-per-cell-measured-data-coverage, bare-cell-governing-issue-rule, bare-cell-qualification-approval-citation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-data-documentation",
+    "e-st-20-08c-clause-7-7",
+    "bare-cell-supplier-data-package",
+    "bare-cell-lot-data-file-reconciliation",
+    "bare-cell-per-cell-measured-data-coverage",
+    "bare-cell-governing-issue-rule",
+    "bare-cell-qualification-approval-citation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-bare-cell-deliverable-components",
    "name": "e2008-bare-cell-deliverable-components",
    "description": "Audit a bare solar cell delivery sub-lot by sub-lot against the process identification document clause 7.1.2 of ECSS-E-ST-20-08C requires, confirming the cells were processed and inspected under it: resolve whether the cited document is approved and at the issue built to, refuse a build carrying a step the document never declares, separate a per-cell screen from a sampled inspection, bracket how many cells passed every screen rather than quoting one number, and weight the release share by cells. Use when a bare-cell delivery batch is presented and the build and inspection records have to carry it. Trigger: ecss, e-st-20-08c, bare-cell-delivery-sub-lot-disposition, bare-cell-process-identification-document-standing, bare-cell-undeclared-process-step, bare-cell-screen-versus-sample-mode, bare-cell-deliverable-count-bracket, bare-cell-weighted-release-share.",
@@ -20116,6 +20154,25 @@
     "bare-cell-screen-versus-sample-mode",
     "bare-cell-deliverable-count-bracket",
     "bare-cell-weighted-release-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-delivery",
+   "name": "e2008-bare-cell-delivery",
+   "description": "Use when a shipment is offered: hold every cell drawn from a lot whose data package is not released, disposition each cell as shippable, shippable on an accepted concession or held, fill each ordered grade line from that grade before any upgrade the order permits, reconcile every line short and over, and apply the declared partial-delivery floor. Evaluate whether a dispatch of ordered bare solar cells may leave under ECSS-E-ST-20-08C clause 7.8, where the hardware and its matching documentation set have to close together. Trigger: ecss, e-st-20-08c, clause-7-8, bare-cell-dispatch-release, bare-cell-lot-documentation-coverage, bare-cell-grade-line-allocation, bare-cell-upgrade-substitution-rule, bare-cell-partial-delivery-floor.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-delivery",
+    "e-st-20-08c-clause-7-8",
+    "bare-cell-dispatch-release",
+    "bare-cell-lot-documentation-coverage",
+    "bare-cell-grade-line-allocation",
+    "bare-cell-upgrade-substitution-rule",
+    "bare-cell-partial-delivery-floor"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20177,6 +20234,65 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-bare-cell-esd-sensitivity",
+   "name": "e2008-bare-cell-esd-sensitivity",
+   "description": "Use when sensitive cells are handled, packed or stored and the control set needs grading: group the cells by withstand voltage against the stated discharge model, grade every obliged control inside its own resistance band rather than merely present, check the packing shields rather than only dissipates, measure the storage envelope and the shelf life already spent, and turn residual charge into the voltage it delivers. Assess whether the handling and storage regime applied to electrostatic-discharge-sensitive bare solar cells keeps them under the voltage they survive, per ECSS-E-ST-20-08C clause 7.9.2. Trigger: ecss, e-st-20-08c, clause-7-9-2, bare-cell-esd-sensitivity-band, bare-cell-esd-protected-area-controls, bare-cell-esd-ground-path-resistance-band, bare-cell-esd-shielding-packaging, bare-cell-esd-storage-envelope.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-esd-sensitivity",
+    "e-st-20-08c-clause-7-9-2",
+    "bare-cell-esd-sensitivity-band",
+    "bare-cell-esd-protected-area-controls",
+    "bare-cell-esd-ground-path-resistance-band",
+    "bare-cell-esd-shielding-packaging",
+    "bare-cell-esd-storage-envelope"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-failure-criteria",
+   "name": "e2008-bare-cell-failure-criteria",
+   "description": "Use when subgroup bare-cell results have to become per-cell failure calls. Assess which bare solar cells a subgroup test and inspection leave failed under ECSS-E-ST-20-08C clause 7.6.1: refuse a criteria set carrying no specification reference, take each electrical parameter's loss between its before and after readings against its own allowance with a tie admissible, catch a cell that has stopped conducting, fail a measured-clean cell on any observed condition the specification lists, name every mode a cell shows rather than the first, and hold a cell whose after reading is missing as not evaluated instead of passed. Trigger: ecss, bare-cell-failure-modes, bare-cell-subgroup-test-failure, bare-cell-electrical-degradation-allowance, bare-cell-open-circuit-failure, bare-cell-disqualifying-condition, bare-cell-subgroup-failure-allowance.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-failure-criteria",
+    "e-st-20-08c-clause-7-6-1",
+    "bare-cell-failure-modes",
+    "bare-cell-subgroup-test-failure",
+    "bare-cell-electrical-degradation-allowance",
+    "bare-cell-open-circuit-failure",
+    "bare-cell-disqualifying-condition",
+    "bare-cell-subgroup-failure-allowance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-flatness-test",
+   "name": "e2008-bare-cell-flatness-test",
+   "description": "Use when bare-cell surface height readings have to become a flatness verdict. Evaluate how flat an unmounted bare solar cell stays across its whole face under ECSS-E-ST-20-08C clause 7.5.19: refuse a height grid that only reached part of the cell, fit a least-squares reference plane so fixture tilt leaves the number before any deviation is read, take peak-to-valley and RMS residuals against that datum, name the bow convex, concave or irregular, and report the margin left against the tighter of the absolute and diagonal-share allowances. Trigger: ecss, bare-cell-flatness-limit, bare-cell-surface-height-grid, bare-cell-best-fit-reference-plane, bare-cell-peak-to-valley-deviation, bare-cell-bow-direction, bare-cell-flatness-grid-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-flatness-test",
+    "e-st-20-08c-clause-7-5-19",
+    "bare-cell-flatness-limit",
+    "bare-cell-surface-height-grid",
+    "bare-cell-best-fit-reference-plane",
+    "bare-cell-peak-to-valley-deviation",
+    "bare-cell-bow-direction",
+    "bare-cell-flatness-grid-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-bare-cell-marking",
    "name": "e2008-bare-cell-marking",
    "description": "Audit the permanent traceability code marked on delivered bare solar cells under ECSS-E-ST-20-08C clause 7.1.3: decide whether the marking method and the place it is put are admissible on a brittle cell at all, whether the mark stays readable through the welding, bonding, cure and cycling the cell will see, how much illuminated area the mark costs against the policy cap, what depth the coded fields and the delivery register actually reach against the depth the process document sets, and whether a code repeats across the delivered set. Use when a bare cell delivery register, cell marking scheme or wafer-lot traceability claim has to be reviewed. Trigger: ecss, e-st-20-08c, bare-cell-permanent-marking, bare-cell-traceability-depth, bare-cell-mark-placement-admissibility, bare-cell-active-area-mark-loss, bare-cell-code-uniqueness-register, wafer-lot-traceability-claim.",
@@ -20230,6 +20346,24 @@
     "bare-cell-control-parameter-band",
     "bare-cell-qualified-line-binding",
     "bare-cell-design-baseline-identifier"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-pull-test",
+   "name": "e2008-bare-cell-pull-test",
+   "description": "Use when a bare-cell contact pull run is planned or its records are reviewed. Assess whether the front and rear contact bonds of a bare solar cell hold under the mechanical pull ECSS-E-ST-20-08C clause 7.5.12 applies on top of environmental loading: confirm the thermal cycles and the humidity soak the lot owes were completed before any contact was pulled, resolve each recorded pull onto the contact normal and reject one dragged too far off it, turn normal force and bonded area into a bond strength, sentence every cell by its weaker site, and refuse to sentence a lot from a partial sample. Trigger: ecss, e-st-20-08c-clause-7-5-12, bare-cell-pull-test, bare-cell-contact-bond-strength, pull-after-environmental-conditioning, front-and-rear-contact-pull-sites, bare-cell-pull-off-normal-angle, bare-cell-pull-lot-sentencing.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-bare-cell-pull-test",
+    "bare-cell-contact-bond-strength",
+    "pull-after-environmental-conditioning",
+    "front-and-rear-contact-pull-sites",
+    "bare-cell-pull-off-normal-angle",
+    "bare-cell-pull-lot-sentencing"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20559,6 +20693,42 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-cell-electron-irradiation-test",
+   "name": "e2008-cell-electron-irradiation-test",
+   "description": "Use when a bare-cell electron irradiation run is scoped or its data is audited. Analyze how much electrical output a bare solar cell loses as electron fluence accumulates in the accelerated life exposure of ECSS-E-ST-20-08C clause 7.5.13: check the fluence staircase rises and carries an unirradiated reference, confirm every step was measured at the reference temperature and illumination, turn each step's current, voltage and maximum power into remaining factors, refuse a factor that climbs as fluence rises, fit each against the logarithm of fluence, flag a step off its own curve, and project the end-of-life retention. Trigger: ecss, e-st-20-08c-clause-7-5-13, bare-cell-electron-irradiation-test, bare-cell-electron-fluence-staircase, bare-cell-remaining-factor-monotonicity, bare-cell-degradation-log-fit, bare-cell-electron-eol-retention.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-cell-electron-irradiation-test",
+    "bare-cell-electron-irradiation-test",
+    "bare-cell-electron-fluence-staircase",
+    "bare-cell-remaining-factor-monotonicity",
+    "bare-cell-degradation-log-fit",
+    "bare-cell-electron-eol-retention"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-proton-irradiation-test",
+   "name": "e2008-cell-proton-irradiation-test",
+   "description": "Use when a bare-cell proton irradiation run is planned or reviewed. Monitor the performance a bare solar cell loses to energetic proton fluence under ECSS-E-ST-20-08C clause 7.5.14: weight every energy's delivered fluence by its relative damage coefficient and its beam path factor into one reference-energy equivalent fluence, confirm the coefficient table is normalised, check each energy's projected range reaches past the junction instead of stopping ahead of it, hold the beam near normal incidence, track the maximum power lost after each exposure and refuse a loss that shrinks, then compare the end loss with its allowance. Trigger: ecss, e-st-20-08c-clause-7-5-14, bare-cell-proton-irradiation-test, ten-mev-equivalent-proton-fluence, proton-relative-damage-coefficient, proton-range-junction-depth-coverage, bare-cell-proton-power-loss-track.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-cell-proton-irradiation-test",
+    "bare-cell-proton-irradiation-test",
+    "ten-mev-equivalent-proton-fluence",
+    "proton-relative-damage-coefficient",
+    "proton-range-junction-depth-coverage",
+    "bare-cell-proton-power-loss-track"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-cell-surface-finish-test",
    "name": "e2008-cell-surface-finish-test",
    "description": "Evaluate the finish a bare solar cell contact surface presents for qualification under ECSS-E-ST-20-08C clause 7.5.11: confirm the profile trace is long enough and self-consistent before any roughness figure is believed, validate the examined anomaly population, and judge the surface on mean deviation, peak-to-valley height, the largest single anomaly, the contact area anomalies occupy and a severity-weighted demerit score, returning a compliant, marginal or non-compliant grade alongside how much of each limit was used up. Use when a profile trace and an anomaly list are about to qualify a cell contact surface. Trigger: ecss, e-st-20-08c-clause-7-5-11, bare-cell-contact-surface-finish, solar-cell-contact-roughness-trace, cell-contact-anomaly-demerit-score, contact-surface-anomaly-area-fraction, bare-cell-metallisation-finish-grade.",
@@ -20591,6 +20761,24 @@
     "cleanliness-inspection-illuminance-floor",
     "magnification-aid-out-of-scope",
     "solar-coupon-contamination-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coated-coverglass-visual-appearance",
+   "name": "e2008-coated-coverglass-visual-appearance",
+   "description": "Use when coated coverglasses have been examined and each needs a disposition. Assess the coated face of a solar-cell coverglass for an even coating and for pinholes, voids and spatter, under ECSS-E-ST-20-08C clause 8.7.1.3.1: reduce the sampled appearance readings to a non-uniformity spread, size and place every point defect, hold back what falls in the declared edge exclusion band, take the defect density and the obscured area over the active aperture rather than the whole face, and roll the lot up with unread faces left open. Trigger: ecss, e-st-20-08c, clause-8-7-1-3-1, coverglass-coating-visual-appearance, coating-pinhole-and-void-screen, coating-spatter-defect-count, coated-area-evenness-spread, coverglass-obscured-aperture-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coated-coverglass-visual-appearance",
+    "coverglass-coating-visual-appearance",
+    "coating-pinhole-and-void-screen",
+    "coating-spatter-defect-count",
+    "coated-area-evenness-spread",
+    "coverglass-obscured-aperture-fraction"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20655,6 +20843,65 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-acceptance-documentation",
+   "name": "e2008-coverglass-acceptance-documentation",
+   "description": "Use when a coverglass acceptance data package is about to be released with a batch. Audit the acceptance records a coverglass batch is delivered against, the documentation rule set ECSS-E-ST-20-08C clause 8.5.4 sends coverglass acceptance results into: name the acceptance activity nobody wrote up, hold a record written to a rule edition the governing set has superseded, test each record for the fields those rules demand including measurement uncertainty and calibration, refuse a record reporting on coverglasses outside the delivered batch, find the delivered coverglass no activity reached, catch a retention period shorter than the rules require, and rank the arms into one release verdict. Trigger: ecss, e-st-20-08c-clause-8-5-4, coverglass-acceptance-record-conformance, coverglass-documentation-rule-edition, coverglass-acceptance-data-package-release, coverglass-record-traceability-to-batch, coverglass-acceptance-activity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e2008-coverglass-acceptance-documentation",
+    "e-st-20-08c-clause-8-5-4",
+    "coverglass-acceptance-record-conformance",
+    "coverglass-documentation-rule-edition",
+    "coverglass-acceptance-data-package-release",
+    "coverglass-record-traceability-to-batch",
+    "coverglass-acceptance-activity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-acceptance-test-samples",
+   "name": "e2008-coverglass-acceptance-test-samples",
+   "description": "Use when a coverglass lot sampling plan, draw record or shipment acceptance traveller has to be reviewed. Evaluate whether the coverglass acceptance sample drawn from each shipment lot under clause 8.5.1 of ECSS-E-ST-20-08C is both large enough and genuinely random: grade the draw against the declared floor of forty pieces, refuse a sample pooled across lots or carrying more pieces than the lot held, measure each stratum's share of the draw against that stratum's share of the lot, catch a convenience draw taken off one carrier, handle a lot smaller than the floor, and return one shipment verdict with ranked findings. Trigger: ecss, e-st-20-08c, coverglass-acceptance-sample-draw, coverglass-lot-sample-floor, coverglass-random-draw-evidence, coverglass-stratum-proportional-spread, coverglass-convenience-sample-draw, coverglass-shipment-lot-sampling-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c",
+    "e2008-coverglass-acceptance-test-samples",
+    "coverglass-acceptance-sample-draw",
+    "coverglass-lot-sample-floor",
+    "coverglass-random-draw-evidence",
+    "coverglass-stratum-proportional-spread",
+    "coverglass-convenience-sample-draw",
+    "coverglass-shipment-lot-sampling-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-acceptance-test-sequence",
+   "name": "e2008-coverglass-acceptance-test-sequence",
+   "description": "Use when a coverglass acceptance flow chart, test order table or run traveller has to be reviewed. Verify that the coverglass acceptance activities of clause 8.5.2 of ECSS-E-ST-20-08C run in their fixed order on both populations the clause reaches: the pieces being delivered and the pieces qualification consumes. Reduce a declared order to an inversion count and a conformance fraction, keep a missing activity apart from a reordered one, refuse an invented step, report a precedence pair broken whatever else moved, name a population left with no declared order at all, and return one campaign verdict with ranked findings. Trigger: ecss, e-st-20-08c, coverglass-acceptance-test-order, coverglass-delivery-population-sequence, coverglass-qualification-population-sequence, coverglass-sequence-inversion-count, coverglass-test-precedence-pair, coverglass-acceptance-order-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c",
+    "e2008-coverglass-acceptance-test-sequence",
+    "coverglass-acceptance-test-order",
+    "coverglass-delivery-population-sequence",
+    "coverglass-qualification-population-sequence",
+    "coverglass-sequence-inversion-count",
+    "coverglass-test-precedence-pair",
+    "coverglass-acceptance-order-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-adhesive-visual-inspection",
    "name": "e2008-coverglass-adhesive-visual-inspection",
    "description": "Audit the coverglass adhesive of a solar cell assembly for delamination and discolouration under ECSS-E-ST-20-08C clause 5.5.3.2.7: place each indication in the active cell area, the edge margin or the bond line over the rear weld footprint, spend the weld-area allowance on the delamination the welding heat is expected to cause, count everything beyond it against the bonded area, weight each discoloured patch by its grade into a transmission loss for the cell, and return accept, rework or reject with the allowance accounting attached. Use when a coverglassed cell has been examined and the adhesive record needs a disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-7, coverglass-adhesive-delamination-inspection, adhesive-discolouration-grading, rear-weld-area-delamination-allowance, bond-line-void-limits, adhesive-transmission-loss-estimate.",
@@ -20668,6 +20915,61 @@
     "bond-line-void-limits",
     "adhesive-transmission-loss-estimate",
     "solar-cell-assembly-bond-line"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-bubbles-and-inclusions",
+   "name": "e2008-coverglass-bubbles-and-inclusions",
+   "description": "Use when coverglasses have been examined and each needs a disposition. Verify that no bubble or inclusion in a solar-cell coverglass projects more than two hundredths of a square millimetre, under ECSS-E-ST-20-08C clause 8.7.1.3.3: reduce a feature measured as an area, a diameter or two axes to one projected area, refuse a figure finer than the method resolves, group features close enough to cast one shadow and cap the group rather than its members, hold back what sits in the edge exclusion band, sum the area over the aperture, and roll the lot up. Trigger: ecss, e-st-20-08c, clause-8-7-1-3-3, coverglass-bubble-and-inclusion-cap, projected-area-per-inclusion, adjacent-inclusion-grouping, coverglass-aperture-area-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-bubbles-and-inclusions",
+    "coverglass-bubble-and-inclusion-cap",
+    "projected-area-per-inclusion",
+    "adjacent-inclusion-grouping",
+    "coverglass-aperture-area-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-clause-purpose",
+   "name": "e2008-coverglass-clause-purpose",
+   "description": "Use when a coverglass procurement or qualification plan has to be held against the generic rules this clause opens. Scope the generic coverglass rules of ECSS-E-ST-20-08C clause 8.1.1 onto one coated coverglass item: decide first whether a space photovoltaic destination puts the item inside the clause at all, then which of the manufacture-control, test-programme and qualification-evidence families its heritage state, coating stack and declared changes pull in, derive the obligations each family owes, grade what is declared family by family, and weight those fractions into one scope coverage index with the uncovered obligations named. Trigger: ecss, e-st-20-08c-clause-8-1-1, coverglass-generic-rule-scope, coverglass-manufacture-control-coverage, coverglass-qualification-evidence-demand, coverglass-coating-stack-obligations, coverglass-scope-coverage-index.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c-clause-8-1-1",
+    "e2008-coverglass-clause-purpose",
+    "coverglass-generic-rule-scope",
+    "coverglass-manufacture-control-coverage",
+    "coverglass-qualification-evidence-demand",
+    "coverglass-coating-stack-obligations",
+    "coverglass-scope-coverage-index"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-coating-orientation-marking",
+   "name": "e2008-coverglass-coating-orientation-marking",
+   "description": "Use when a coverglass orientation scheme, coating-side marking or lot packaging convention has to be reviewed. Verify that the face of a delivered coverglass carrying the optical coating is identifiable under clause 8.3.3 of ECSS-E-ST-20-08C, so orientation survives the trip from tray to bond: decide whether an indicator may sit where it is declared at all, whether it still names a face once the piece is turned over, whether it survives the clean before bonding, what it costs inside the clear aperture against a declared cap, how many cues stay usable at the point of use, and whether one convention holds across the lot. Trigger: ecss, e-st-20-08c, coverglass-coated-face-identification, coverglass-orientation-indicator-admissibility, coverglass-flip-ambiguity, coverglass-clear-aperture-indicator-loss, coverglass-lot-orientation-convention.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-coverglass-coating-orientation-marking",
+    "coverglass-coated-face-identification",
+    "coverglass-orientation-indicator-admissibility",
+    "coverglass-flip-ambiguity",
+    "coverglass-clear-aperture-indicator-loss",
+    "coverglass-lot-orientation-convention"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20730,6 +21032,271 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-coverglass-corner-chips",
+   "name": "e2008-coverglass-corner-chips",
+   "description": "Use when a coverglass corner inspection needs a per-chip disposition. Evaluate a corner chip on a solar cell coverglass against clause 8.7.1.3.5 of ECSS-E-ST-20-08C: derive the chord across the corner from the two measured legs, reconcile it with any directly measured chord and refuse one that breaks the triangle inequality, grade the chord against the three quarter millimetre ceiling, derive the perpendicular reach the bite makes toward the cell and bound it with the overhang diagonal, route a lopsided bite to the edge clause, and roll the four corners up against area and count allowances. Trigger: ecss, e-st-20-08c, coverglass-corner-chip-hypotenuse, coverglass-corner-chip-limits, coverglass-corner-chip-legs, coverglass-corner-reach-to-aperture, solar-cell-coverglass-corner-inspection.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-corner-chips",
+    "e-st-20-08c",
+    "coverglass-corner-chip-hypotenuse",
+    "coverglass-corner-chip-limits",
+    "coverglass-corner-chip-legs",
+    "coverglass-corner-reach-to-aperture",
+    "solar-cell-coverglass-corner-inspection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-crack-exclusion",
+   "name": "e2008-coverglass-crack-exclusion",
+   "description": "Use when a coverglass visual record has to support a delivery decision. Assess a coverglass inspection record against clause 8.7.1.3.6 of ECSS-E-ST-20-08C, which permits no cracking at all: sort every recorded indication into a crack family, a non-crack family or neither, reject the glass on any crack of the surface, an edge or a corner whatever its length, route a non-crack mark to the clause that does bound it, refer one nobody has named, and certify absence only where the record shows all three zones were examined at or above the declared magnification and light. Trigger: ecss, e-st-20-08c, coverglass-crack-exclusion, coverglass-zero-crack-tolerance, coverglass-inspection-coverage, coverglass-surface-edge-corner-cracking, solar-cell-coverglass-crack-screen.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-crack-exclusion",
+    "e-st-20-08c",
+    "coverglass-crack-exclusion",
+    "coverglass-zero-crack-tolerance",
+    "coverglass-inspection-coverage",
+    "coverglass-surface-edge-corner-cracking",
+    "solar-cell-coverglass-crack-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-description",
+   "name": "e2008-coverglass-description",
+   "description": "Use when a coverglass datasheet, drawing callout or procurement description has to be shown complete and self-consistent. Validate a coverglass description against ECSS-E-ST-20-08C clause 8.1.2: confirm the declared substrate is fused silica or a glass of that family rather than a transparent film, derive the areal mass and the shielding areal density the declared thickness actually buys, compute the Fresnel transmittance ceiling the substrate refractive index allows, and hold the declared transmittance against it so an impossible optical claim or an undeclared antireflective coating is caught instead of recorded. Trigger: ecss, e-st-20-08c-clause-8-1-2, coverglass-transparent-shield-description, fused-silica-substrate-admissibility, coverglass-fresnel-transmittance-ceiling, coverglass-areal-shielding-mass, coverglass-substrate-refractive-index.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c-clause-8-1-2",
+    "e2008-coverglass-description",
+    "coverglass-transparent-shield-description",
+    "fused-silica-substrate-admissibility",
+    "coverglass-fresnel-transmittance-ceiling",
+    "coverglass-areal-shielding-mass",
+    "coverglass-substrate-refractive-index"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-edge-chips",
+   "name": "e2008-coverglass-edge-chips",
+   "description": "Use when a coverglass edge inspection needs a per-chip disposition and a glass verdict. Evaluate an edge chip on a solar cell coverglass against clause 8.7.1.3.4 of ECSS-E-ST-20-08C: place the chip on its edge, confirm from the span that it is an edge chip and not a corner chip, grade how far it projects inward across the glass face against the quarter millimetre ceiling, test that projection against the overhang the glass is laid over the cell with rather than a typed-in absolute, bound the run along the edge separately, and roll the accepted chips up against cumulative face area, perimeter, count and separation allowances. Trigger: ecss, e-st-20-08c, coverglass-edge-chip-projection, coverglass-edge-chip-limits, coverglass-chip-face-ingress, coverglass-aperture-encroachment, solar-cell-coverglass-edge-inspection.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-edge-chips",
+    "e-st-20-08c",
+    "coverglass-edge-chip-projection",
+    "coverglass-edge-chip-limits",
+    "coverglass-chip-face-ingress",
+    "coverglass-aperture-encroachment",
+    "solar-cell-coverglass-edge-inspection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-electro-optical-properties",
+   "name": "e2008-coverglass-electro-optical-properties",
+   "description": "Use when a coated coverglass has been probed and its electro-optical resistivity must be reduced and dispositioned. Derive the bulk and surface resistivity behaviour of a coated coverglass per ECSS-E-ST-20-08C clause 8.7.3: reduce bulk volume resistivity from guarded-electrode resistance, electrode area and specimen thickness, reduce surface resistivity from the concentric-ring or rectangular-bar geometry factor, confirm both properties are present before a component counts as characterized, judge a conductive coating against its surface resistivity ceiling and the bulk figure against its declared band, and report the spread across the measured articles. Trigger: ecss, e-st-20-08c, clause-8-7-3, coverglass-bulk-volume-resistivity, coverglass-surface-resistivity-ceiling, coverglass-guarded-electrode-reduction, coverglass-coating-electro-optical-characterization, coverglass-resistivity-declared-band.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-electro-optical-properties",
+    "coverglass-bulk-volume-resistivity",
+    "coverglass-surface-resistivity-ceiling",
+    "coverglass-guarded-electrode-reduction",
+    "coverglass-coating-electro-optical-characterization",
+    "coverglass-resistivity-declared-band",
+    "solar-cell-assembly-charge-bleed"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-mechanical-properties",
+   "name": "e2008-coverglass-mechanical-properties",
+   "description": "Use when a coverglass test matrix needs its mechanical record judged before the optical results are trusted. Document the dimensional and mass properties of every coverglass configuration on test under ECSS-E-ST-20-08C clause 8.7.4: place outline, thickness and mass inside their declared bands and name the state, derive the areal density the array mass budget consumes, cross-check the bulk density the four measurements imply against the declared glass material before any single band is believed, and refuse a configuration the test matrix declares but the record sheet omits. Trigger: ecss, e-st-20-08c-clause-8-7-4, coverglass-dimensional-record, coverglass-thickness-band, coverglass-areal-density-budget, coverglass-bulk-density-crosscheck, coverglass-configuration-record-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-mechanical-properties",
+    "coverglass-dimensional-record",
+    "coverglass-thickness-band",
+    "coverglass-areal-density-budget",
+    "coverglass-bulk-density-crosscheck",
+    "coverglass-configuration-record-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-production-control-document",
+   "name": "e2008-coverglass-production-control-document",
+   "description": "Use when a coverglass production control document, deposition process baseline or qualification evidence list has to be reviewed. Review the supplier process identification document that clause 8.4 of ECSS-E-ST-20-08C asks for before coverglass production is qualified: hold the processes the glass is genuinely made by against the set the document declares, check each declared process names the production document controlling it, confirm every control parameter carries a band that brackets its nominal, is tight enough to control anything and is still wider than the measurement uncertainty behind it can resolve, and refuse qualification evidence dated before the document that committed to it. Trigger: ecss, e-st-20-08c, coverglass-production-control-document, coverglass-process-step-coverage, coverglass-control-parameter-band, coverglass-measurement-uncertainty-ratio, coverglass-qualification-evidence-date.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-coverglass-production-control-document",
+    "coverglass-process-step-coverage",
+    "coverglass-control-parameter-band",
+    "coverglass-measurement-uncertainty-ratio",
+    "coverglass-qualification-evidence-date",
+    "coverglass-process-identification-document"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-qualification-authority",
+   "name": "e2008-coverglass-qualification-authority",
+   "description": "Use when a coverglass type is about to be supplied as qualified. Determine whether a coverglass type may be supplied at all under ECSS-E-ST-20-08C clause 8.6.1, where the customer grants qualification status and the supplier only produces the evidence for it: find the shipment leaving with no grant on record, refuse a grant the supplier issued about its own product, match the granted scope to the material, coating and thickness actually being shipped, reject a grant dated after the supply it is meant to authorise, retire one already withdrawn or past its validity date, and roll the shipments up into one supply verdict. Trigger: ecss, e-st-20-08c-clause-8-6-1, coverglass-qualification-grant, coverglass-grant-issuing-authority, coverglass-supply-authorisation, coverglass-grant-validity-window, coverglass-qualification-scope-match.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e2008-coverglass-qualification-authority",
+    "e-st-20-08c-clause-8-6-1",
+    "coverglass-qualification-grant",
+    "coverglass-grant-issuing-authority",
+    "coverglass-supply-authorisation",
+    "coverglass-grant-validity-window",
+    "coverglass-qualification-scope-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-qualification-schedule",
+   "name": "e2008-coverglass-qualification-schedule",
+   "description": "Use when a coverglass qualification plan, campaign window or dated test sequence has to be assessed. Validate the dated production and test schedule a coverglass qualification campaign runs on under ECSS-E-ST-20-08C clause 8.6.2: refuse an undated, repeated or unknown step, name the required step nobody declared, hold a step whose planned start falls before the end of the step it depends on rather than merely later in the list, catch an exposure compressed below its minimum dwell, walk the campaign window out to its finish date, and report the float left against the day the qualified coverglass is owed. Trigger: ecss, e-st-20-08c-clause-8-6-2, coverglass-qualification-schedule, coverglass-dated-step-precedence, coverglass-campaign-window, coverglass-environmental-dwell-duration, coverglass-qualification-milestone-float.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-coverglass-scope",
+    "e2008-coverglass-qualification-schedule",
+    "e-st-20-08c-clause-8-6-2",
+    "coverglass-qualification-schedule",
+    "coverglass-dated-step-precedence",
+    "coverglass-campaign-window",
+    "coverglass-environmental-dwell-duration",
+    "coverglass-qualification-milestone-float"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-scratch-and-dig",
+   "name": "e2008-coverglass-scratch-and-dig",
+   "description": "Use when coverglass surfaces have been examined and each needs a disposition. Evaluate the scratches and digs on a solar-cell coverglass against the largest sizes its source control drawing fixes, under ECSS-E-ST-20-08C clause 8.7.1.3.2: read the drawing designation into a scratch grade and a dig grade, refuse to grade a part with no drawing or a superseded revision, convert each measured width and diameter into a grade through the declared units, hold back features in the edge exclusion band, sum the grade-weighted scratch length and the dig concentration, and roll the lot up. Trigger: ecss, e-st-20-08c, clause-8-7-1-3-2, coverglass-scratch-and-dig-limits, source-control-drawing-surface-quality, scratch-grade-conversion, dig-grade-concentration-sum, coverglass-surface-defect-disposition.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-scratch-and-dig",
+    "coverglass-scratch-and-dig-limits",
+    "source-control-drawing-surface-quality",
+    "scratch-grade-conversion",
+    "dig-grade-concentration-sum",
+    "coverglass-surface-defect-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-surface-cleanliness",
+   "name": "e2008-coverglass-surface-cleanliness",
+   "description": "Use when a coverglass delivery has been examined for soiling and each item needs a dispositioned cleanliness verdict. Assess every delivered coverglass against the surface cleanliness requirement of ECSS-E-ST-20-08C clause 8.7.1.3.7: screen both optical surfaces for particulate, film, fingerprint and staining deposits, compute the permanent obscured-area fraction and the oversize particle count per surface, separate removable soiling from contamination that survives a clean, disposition each surface as accept, clean-and-reinspect, refer-for-review or reject, and hold the delivery lot open until both surfaces of every coverglass carry a record. Trigger: ecss, e-st-20-08c, clause-8-7-1-3-7, coverglass-optical-surface-cleanliness, coverglass-particulate-obscuration, coverglass-removable-soiling-screen, coverglass-post-clean-reinspection, coverglass-delivery-lot-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-surface-cleanliness",
+    "coverglass-optical-surface-cleanliness",
+    "coverglass-particulate-obscuration",
+    "coverglass-removable-soiling-screen",
+    "coverglass-post-clean-reinspection",
+    "coverglass-delivery-lot-completeness",
+    "solar-cell-assembly-optical-defects"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-test-methods-conditions",
+   "name": "e2008-coverglass-test-methods-conditions",
+   "description": "Use when a coverglass acceptance procedure, test condition table or method reuse justification has to be reviewed. Audit a coverglass acceptance procedure against the method and condition definitions clause 8.5.3 of ECSS-E-ST-20-08C points forward to: follow each activity pointer and report one that resolves to nothing, settle a substituted method before any condition is compared, judge every condition under its own sense so a relaxation and an over-test are told apart, name a condition the procedure omitted or invented, flag a referenced definition nobody picks up, and return one reuse verdict with ranked findings. Trigger: ecss, e-st-20-08c, coverglass-acceptance-methods-and-conditions, coverglass-definition-pointer-resolution, coverglass-acceptance-method-substitution, coverglass-acceptance-condition-relaxation, coverglass-acceptance-over-test, coverglass-condition-sense-comparison.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c",
+    "e2008-coverglass-test-methods-conditions",
+    "coverglass-acceptance-methods-and-conditions",
+    "coverglass-definition-pointer-resolution",
+    "coverglass-acceptance-method-substitution",
+    "coverglass-acceptance-condition-relaxation",
+    "coverglass-acceptance-over-test",
+    "coverglass-condition-sense-comparison"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-testing-overview",
+   "name": "e2008-coverglass-testing-overview",
+   "description": "Use when a coverglass test matrix or lot sampling plan needs its qualification and procurement halves separated. Map a declared coverglass test matrix onto the two roles ECSS-E-ST-20-08C clause 8.3.1 keeps apart: the tests that carry qualification evidence for a design and a process, and the tests that run as routine lot procurement. Group the declared set against the catalogue, catch a test booked under a role it cannot serve, grade each mandatory set on the fraction actually booked, size the per-lot specimen draw and the over-build a destructive lot test forces, and return one programme verdict with the missing tests named. Trigger: ecss, e-st-20-08c-clause-8-3-1, coverglass-test-role-partition, coverglass-qualification-test-coverage, coverglass-lot-procurement-sampling, coverglass-test-misassignment, coverglass-destructive-specimen-demand.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e-st-20-08c-clause-8-3-1",
+    "e2008-coverglass-testing-overview",
+    "coverglass-test-role-partition",
+    "coverglass-qualification-test-coverage",
+    "coverglass-lot-procurement-sampling",
+    "coverglass-test-misassignment",
+    "coverglass-destructive-specimen-demand"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-coverglass-transmission-into-air",
+   "name": "e2008-coverglass-transmission-into-air",
+   "description": "Use when a coverglass transmission scan has been taken into air and the band figure must be derived and dispositioned. Compute the into-air spectral transmission of a coverglass from a spectrophotometer scan per ECSS-E-ST-20-08C clause 8.7.2: check the scan covers the specified wavelength band with strictly ascending, closely enough spaced sample points and a referenced baseline calibration, integrate the band-average transmittance by trapezoid, weight it with a supplied spectral irradiance when one is given, locate the cut-on wavelength by interpolation, and judge the average against the required minimum. Trigger: ecss, e-st-20-08c, clause-8-7-2, coverglass-transmission-into-air, coverglass-spectrophotometer-scan, coverglass-band-average-transmittance, coverglass-cut-on-wavelength, coverglass-spectral-sampling-interval.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-coverglass-transmission-into-air",
+    "coverglass-spectrophotometer-scan",
+    "coverglass-band-average-transmittance",
+    "coverglass-cut-on-wavelength",
+    "coverglass-spectral-sampling-interval",
+    "coverglass-solar-weighted-transmission",
+    "solar-cell-assembly-optical-measurement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-coverglass-visual-inspection",
    "name": "e2008-coverglass-visual-inspection",
    "description": "Verify every coverglass fitted to a photovoltaic assembly against the assembly defect criteria of ECSS-E-ST-20-08C clause 5.5.3.2.6: compute how much of the active cell area the glass still covers and how much overhang an edge chip has left to work through, then disposition each edge chip, surface scratch, cavity or inclusion, coating blemish, crack and surface deposit as accept, clean-and-reinspect, refer-for-review or reject, add the accepted defects up against the cumulative area and count allowances, and hold the assembly open until every coverglass carries a record. Use when a coverglassed assembly has been examined and each item needs a screened disposition. Trigger: ecss, e-st-20-08c, clause-5-5-3-2-6, coverglass-defect-criteria-screening, coverglass-edge-chip-allowance, coverglass-active-area-coverage, coverglass-inclusion-limits, per-coverglass-inspection-completeness.",
@@ -20781,6 +21348,26 @@
     "solar-array-material-outgassing",
     "solar-array-galvanic-couple",
     "array-interface-qualification-reference"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-deliverable-coverglass-components",
+   "name": "e2008-deliverable-coverglass-components",
+   "description": "Use when a coverglass delivery lot, route record or inspection dossier has to be released. Audit a coverglass delivery batch by batch against the processing and inspection route clause 8.3.2 of ECSS-E-ST-20-08C fixes in the process document: resolve whether the cited document governs at the issue the glass was built to, name a step run that the document never declares, catch a declared step run out of the declared sequence, separate a per-coverglass screen from a sampled inspection and hold each sample against its floor, bracket how many pieces passed every screen rather than quoting one number, and weight the release share by pieces. Trigger: ecss, e-st-20-08c, coverglass-delivery-batch-disposition, coverglass-process-document-standing, coverglass-undeclared-route-step, coverglass-route-sequence-violation, coverglass-screen-versus-sample-mode, coverglass-deliverable-count-bracket.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-deliverable-coverglass-components",
+    "coverglass-delivery-batch-disposition",
+    "coverglass-process-document-standing",
+    "coverglass-undeclared-route-step",
+    "coverglass-route-sequence-violation",
+    "coverglass-screen-versus-sample-mode",
+    "coverglass-deliverable-count-bracket"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20913,6 +21500,26 @@
     "arc-transient-recorder-resolution",
     "peak-arc-current-probe-range",
     "sustained-arc-rejection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-failed-bare-cell-components",
+   "name": "e2008-failed-bare-cell-components",
+   "description": "Use when failed bare cells have to be dispositioned and counted. Determine the treatment a bare solar cell component receives once it exhibits any mode the failure criteria list, under ECSS-E-ST-20-08C clause 7.6.2: refuse a policy that fixes no treatment for a listed mode, withdraw the component on one mode rather than on severity, scrap it for a mode no repair reverses, open rework only while cycles remain, retain a failed test article for the evidence it carries, raise segregation and a non-conformance entry, and report the shortfall the withdrawals leave against the ordered quantity. Trigger: ecss, failed-bare-cell-treatment, failed-bare-cell-segregation, failed-bare-cell-nonconformance-record, failed-bare-cell-rework-admissibility, failed-bare-cell-scrap-disposition, bare-cell-lot-quantity-shortfall.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-failed-bare-cell-components",
+    "e-st-20-08c-clause-7-6-2",
+    "failed-bare-cell-treatment",
+    "failed-bare-cell-segregation",
+    "failed-bare-cell-nonconformance-record",
+    "failed-bare-cell-rework-admissibility",
+    "failed-bare-cell-scrap-disposition",
+    "bare-cell-lot-quantity-shortfall"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21365,6 +21972,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-photon-irradiation-and-annealing",
+   "name": "e2008-photon-irradiation-and-annealing",
+   "description": "Use when a photon irradiation and annealing qualification run has to be sentenced. Evaluate a combined ultraviolet exposure and thermal anneal sequence run on bare solar cells under ECSS-E-ST-20-08C clause 7.5.15: stop a run whose accumulated equivalent sun hours, cell temperature, chamber pressure or soak fell short of the declared profile, stop one whose soak was recorded before the exposure it is meant to recover, split the ultraviolet loss into the share the soak gave back and the residual the mission carries, and read a post-soak reading above the pre-exposure baseline as instrument drift rather than a gain. Trigger: ecss, e-st-20-08c-clause-7-5-15, bare-cell-ultraviolet-photon-irradiation, bare-cell-thermal-anneal-recovery, ultraviolet-equivalent-sun-hours-dose, bare-cell-residual-ultraviolet-degradation, ultraviolet-exposure-anneal-sequence-order.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-photon-irradiation-and-annealing",
+    "e-st-20-08c-clause-7-5-15",
+    "bare-cell-ultraviolet-photon-irradiation",
+    "bare-cell-thermal-anneal-recovery",
+    "ultraviolet-equivalent-sun-hours-dose",
+    "bare-cell-residual-ultraviolet-degradation",
+    "ultraviolet-exposure-anneal-sequence-order"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-photovoltaic-assembly-purpose-and-objective",
    "name": "e2008-photovoltaic-assembly-purpose-and-objective",
    "description": "Compute the design-limit margins and the responsibility split that clause 5.1.2 of ECSS-E-ST-20-08C expects a photovoltaic-assembly work scope to establish: normalize each declared limit into a not-to-exceed or not-to-fall-below margin fraction of the limit, compare it with the margin the project policy demands for its thermal, electrical, mechanical or optical category, name the required category that carries no declared limit at all, and check that every design, manufacturing and verification work item has one accountable party with an agreement reference wherever the work is shared. Use when a PVA statement of work, procurement specification or design-limit list has to be shown complete before build starts. Trigger: ecss, e-st-20-08c, photovoltaic-assembly-design-limit, photovoltaic-assembly-margin-policy, photovoltaic-assembly-work-responsibility, pva-customer-supplier-split, pva-design-limit-margin-shortfall, pva-work-scope-completeness.",
@@ -21632,6 +22258,153 @@
     "coupon-sample-size",
     "interconnect-peel-strength",
     "workmanship-imperfection-grades"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-bandwidth-definition",
+   "name": "e2008-reflectance-bandwidth-definition",
+   "description": "Derive the fractional reflectance bandwidth of a coverglass filter from its cut-on and cut-off wavelengths per ECSS-E-ST-20-08C clause 8.7.5.4.1: validate the edge pair, take the span between them, divide it by the band centre under a declared arithmetic or geometric convention, report the figure as a fraction and as a percentage, invert it back to the edge pair so a declared bandwidth and centre can be checked, and quantify how far the two centre conventions separate before a figure changes meaning. Use when a coverglass bandwidth figure has to be computed, converted or reconciled. Trigger: ecss, e-st-20-08c-clause-8-7-5-4-1, coverglass-reflectance-fractional-bandwidth, coverglass-cut-on-cut-off-span, band-centre-wavelength-convention, geometric-band-centre-inversion, coverglass-bandwidth-percent-conversion.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-bandwidth-definition",
+    "e-st-20-08c",
+    "coverglass-reflectance-fractional-bandwidth",
+    "coverglass-cut-on-cut-off-span",
+    "band-centre-wavelength-convention",
+    "geometric-band-centre-inversion",
+    "coverglass-bandwidth-percent-conversion"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-bandwidth-requirement",
+   "name": "e2008-reflectance-bandwidth-requirement",
+   "description": "Evaluate whether the reflectance bandwidth measured on a coverglass matches the figure declared in the coverglass source control drawing per ECSS-E-ST-20-08C clause 8.7.5.4.2: refuse a requirement carrying no drawing reference, recompute each article bandwidth from its cut-on and cut-off under the drawing centre convention, normalise a percentage declaration against a fractional one, compare against the drawing value and its tolerance with a tie admissible, report deviation and tolerance consumed, and flag band-edge drift that cancels inside the ratio. Use when a measured coverglass bandwidth has to become an acceptance verdict. Trigger: ecss, e-st-20-08c-clause-8-7-5-4-2, coverglass-reflectance-bandwidth-acceptance, coverglass-source-control-drawing-bandwidth, bandwidth-declaration-unit-normalisation, coverglass-bandwidth-tolerance-band, coverglass-band-edge-drift-advisory.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-bandwidth-requirement",
+    "e-st-20-08c",
+    "coverglass-reflectance-bandwidth-acceptance",
+    "coverglass-source-control-drawing-bandwidth",
+    "bandwidth-declaration-unit-normalisation",
+    "coverglass-bandwidth-tolerance-band",
+    "coverglass-band-edge-drift-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-cut-off-definition",
+   "name": "e2008-reflectance-cut-off-definition",
+   "description": "Define the cut-off point of a coverglass reflectance coating. Use when a measured reflectance trace has to yield a defensible cut-off two laboratories would agree on under ECSS-E-ST-20-08C clause 8.7.5.3.1: take the absolute measured peak of the band, halve it, and interpolate the long-wavelength point at which the falling edge reaches that level, refusing a half level taken from a normalised trace, a band too weak to carry one, and a scan that ends before the edge arrives. Trigger: ecss, e-st-20-08c-clause-8-7-5-3-1, coverglass-reflectance-cut-off, half-of-absolute-measured-reflectance, long-wavelength-band-edge-interpolation, reflectance-band-half-level-basis, coating-band-width-between-half-levels.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-cut-off-definition",
+    "coverglass-reflectance-cut-off",
+    "half-of-absolute-measured-reflectance",
+    "long-wavelength-band-edge-interpolation",
+    "reflectance-band-half-level-basis",
+    "coating-band-width-between-half-levels"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-cut-off-purpose",
+   "name": "e2008-reflectance-cut-off-purpose",
+   "description": "Assess why a cut-off point is kept beside the peak of a high reflectance band. Use when a reflectance band is being documented and the peak alone is offered as the description, under ECSS-E-ST-20-08C clause 8.7.5.3.2: map the declared coating functions to what the edge feeds, derive the band width and centre from the two half-level edges, and separate a coating needing no edge from one whose edge was never kept or was taken off a scan that stopped inside the band. Trigger: ecss, e-st-20-08c-clause-8-7-5-3-2, coverglass-reflectance-cut-off-purpose, high-reflectance-band-description, coating-band-edge-drift-monitoring, solar-absorptance-integral-bounds, reflectance-scan-edge-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-cut-off-purpose",
+    "coverglass-reflectance-cut-off-purpose",
+    "high-reflectance-band-description",
+    "coating-band-edge-drift-monitoring",
+    "solar-absorptance-integral-bounds",
+    "reflectance-scan-edge-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-cut-off-requirement",
+   "name": "e2008-reflectance-cut-off-requirement",
+   "description": "Verify that the reflectance cut-off wavelength measured on a coverglass agrees with the figure fixed in the coverglass source control drawing per ECSS-E-ST-20-08C clause 8.7.5.3.3: refuse a requirement carrying no drawing reference, locate the reflecting plateau in each measured spectrum, interpolate the long-wavelength crossing that defines the cut-off, compare every article against the drawing value and its tolerance band with a tie admissible, report the deviation and the share of tolerance consumed, and raise spread and one-sided-bias advisories a pass would otherwise hide. Use when a measured coverglass cut-off has to become an acceptance verdict. Trigger: ecss, e-st-20-08c-clause-8-7-5-3-3, coverglass-reflectance-cut-off-wavelength, coverglass-source-control-drawing-value, cut-off-crossing-interpolation, coverglass-cut-off-tolerance-band, coverglass-cut-off-bias-advisory.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-cut-off-requirement",
+    "e-st-20-08c",
+    "coverglass-reflectance-cut-off-wavelength",
+    "coverglass-source-control-drawing-value",
+    "cut-off-crossing-interpolation",
+    "coverglass-cut-off-tolerance-band",
+    "coverglass-cut-off-bias-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-cut-on-definition",
+   "name": "e2008-reflectance-cut-on-definition",
+   "description": "Use when a measured reflectance curve has to yield one defensible cut-on wavelength. Define the reflectance cut-on wavelength of a coverglass coating under ECSS-E-ST-20-08C clause 8.7.5.2.1: take the absolute measured reflectance of the band the scan actually recorded, halve it to fix the crossing level, walk the short-wavelength edge to the first sample pair that straddles that level and interpolate the crossing, report the bracket width as the honest resolution of the answer, and refuse a scan whose shortest wavelength already sits above half. Trigger: ecss, e-st-20-08c-clause-8-7-5-2-1, reflectance-cut-on-wavelength, absolute-measured-reflectance-half-level, coating-short-wavelength-edge, reflectance-crossing-interpolation, coverglass-reflectance-scan-validation.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-cut-on-definition",
+    "reflectance-cut-on-wavelength",
+    "absolute-measured-reflectance-half-level",
+    "coating-short-wavelength-edge",
+    "reflectance-crossing-interpolation",
+    "coverglass-reflectance-scan-validation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-cut-on-purpose",
+   "name": "e2008-reflectance-cut-on-purpose",
+   "description": "Use when a coating reflectance report has to justify the cut-on figure it quotes. Determine why the cut-on wavelength is recorded when a high reflectance band of a coverglass coating is characterised under ECSS-E-ST-20-08C clause 8.7.5.2.2: group the declared drivers that want the band edge and map each to the budget it feeds, test whether the plateau is tall enough for a band to exist at all, check the scan brackets the edge it claims to place, and hold the cut-on against the edge the thermal and power budgets assume, naming which way an out-of-tolerance edge moved. Trigger: ecss, e-st-20-08c-clause-8-7-5-2-2, reflectance-cut-on-purpose, high-reflectance-band-edge-placement, coating-plateau-reflectance-trigger, cut-on-scan-bracket-coverage, coverglass-coating-band-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-cut-on-purpose",
+    "reflectance-cut-on-purpose",
+    "high-reflectance-band-edge-placement",
+    "coating-plateau-reflectance-trigger",
+    "cut-on-scan-bracket-coverage",
+    "coverglass-coating-band-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-reflectance-cut-on-requirement",
+   "name": "e2008-reflectance-cut-on-requirement",
+   "description": "Determine whether a coverglass coating's cut-on sits on its source control drawing figure. Use when a coverglass lot is offered for acceptance and its band edge has to be reconciled with the drawing under ECSS-E-ST-20-08C clause 8.7.5.2.3: take the cut-on from the rising edge at half of absolute measured reflectance, compare it against the drawing nominal and tolerance, report the signed deviation, and keep a drawing carrying no cut-on entry apart from a lot nobody measured. Trigger: ecss, e-st-20-08c-clause-8-7-5-2-3, coverglass-reflectance-cut-on, coverglass-source-control-drawing-match, cut-on-tolerance-band-deviation, reflectance-half-of-absolute-crossing, coverglass-coating-band-edge-acceptance.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-reflectance-cut-on-requirement",
+    "coverglass-reflectance-cut-on",
+    "coverglass-source-control-drawing-match",
+    "cut-on-tolerance-band-deviation",
+    "reflectance-half-of-absolute-crossing",
+    "coverglass-coating-band-edge-acceptance"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -22525,6 +23298,25 @@
     "antireflective-coating-humidity-stability",
     "bypass-diode-reverse-leakage-drift",
     "equivalent-ambient-storage-hours"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-solar-cell-reverse-bias-test",
+   "name": "e2008-solar-cell-reverse-bias-test",
+   "description": "Use when a reverse bias run on bare cells has to be sentenced. Assess a bare solar cell for output degradation after it has been driven into reverse polarity under ECSS-E-ST-20-08C clause 7.5.16: confirm the declared reverse current was really forced and held for its dwell, separate a run the supply clamped at its compliance voltage from one the cell itself carried, compute the heat the reversed cell dissipated against the hot-spot cap, take the fall in maximum power, short-circuit current and open-circuit voltage against the allowance each one carries, and refuse a comparison whose two measurements sit at different reference conditions. Trigger: ecss, e-st-20-08c-clause-7-5-16, bare-cell-reverse-bias-stress, reverse-bias-dwell-dissipated-power, reverse-bias-supply-compliance-clamp, post-reverse-bias-output-degradation, bare-cell-reverse-polarity-recovery.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-solar-cell-reverse-bias-test",
+    "e-st-20-08c-clause-7-5-16",
+    "bare-cell-reverse-bias-stress",
+    "reverse-bias-dwell-dissipated-power",
+    "reverse-bias-supply-compliance-clamp",
+    "post-reverse-bias-output-degradation",
+    "bare-cell-reverse-polarity-recovery"
    ],
    "family": "space-systems",
    "pack": "ecss",

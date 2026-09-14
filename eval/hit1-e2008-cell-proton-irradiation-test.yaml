@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-cell-proton-irradiation-test (space-systems/ecss)
+# Two tasks for the new leaf. ecpi1 routes on weighting several proton
+# energies into one reference-energy equivalent fluence; ecpi2 routes on the
+# projected range against junction depth and the power loss track. Both must
+# deterministically hit space-systems/ecss/e2008-cell-proton-irradiation-test.
+tasks:
+  - id: ecpi1
+    query: "weight each proton energy's delivered fluence by its relative damage coefficient into one ten megaelectronvolt equivalent fluence for a bare solar cell run"
+    intent: "ECSS-E-ST-20-08C clause 7.5.14; equivalent proton fluence from a multi-energy exposure"
+    expected_skill: "space-systems/ecss/e2008-cell-proton-irradiation-test"
+  - id: ecpi2
+    query: "check each proton energy's projected range reaches past the cell junction depth and track the maximum power loss after every exposure without letting it shrink"
+    intent: "ECSS-E-ST-20-08C clause 7.5.14; proton range coverage and bare-cell power loss tracking"
+    expected_skill: "space-systems/ecss/e2008-cell-proton-irradiation-test"

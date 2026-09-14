@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-bubbles-and-inclusions (space-systems/ecss)
+# Two tasks for the new leaf. cbi1 routes on the projected-area cap on any one bubble
+# or inclusion; cbi2 routes on the cluster case, where two adjacent inclusions each
+# under the cap sit under one shadow. Both must deterministically hit
+# space-systems/ecss/e2008-coverglass-bubbles-and-inclusions.
+tasks:
+  - id: cbi1
+    query: "check the bubbles and inclusions in these coverglasses against the two hundredths of a square millimetre projected area cap"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.3; projected area cap on a bubble or inclusion in coverglass"
+    expected_skill: "space-systems/ecss/e2008-coverglass-bubbles-and-inclusions"
+  - id: cbi2
+    query: "two inclusions in the coverglass are each under the projected area cap but sit a few hundredths of a millimetre apart, are they graded as one feature"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.3; adjacent inclusions grouped under one shadow before the cap is applied"
+    expected_skill: "space-systems/ecss/e2008-coverglass-bubbles-and-inclusions"

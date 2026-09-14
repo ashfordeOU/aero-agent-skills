@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-delivery (space-systems/ecss)
+# Two tasks for the new leaf. bcd1 routes on a bare-cell dispatch whose count
+# is met entirely from lots with no released data package; bcd2 routes on the
+# grade-line allocation and upgrade-substitution rule under a partial-delivery
+# floor. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-delivery.
+tasks:
+  - id: bcd1
+    query: "decide whether this shipment of ordered bare solar cells may leave, the counts match the order but most cells come from a lot whose data package was never released"
+    intent: "ECSS-E-ST-20-08C clause 7.8; bare-cell dispatch released only when hardware and its documentation set close together"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-delivery"
+  - id: bcd2
+    query: "can a bare cell order line asking for the lower electrical grade be filled from higher grade cells, and does the short line still clear the declared partial delivery floor"
+    intent: "ECSS-E-ST-20-08C clause 7.8; grade-line allocation, upgrade substitution and the partial-delivery floor on a bare-cell dispatch"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-delivery"

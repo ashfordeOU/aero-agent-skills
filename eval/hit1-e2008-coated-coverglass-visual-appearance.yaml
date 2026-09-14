@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-coated-coverglass-visual-appearance (space-systems/ecss)
+# Two tasks for the new leaf. ccva1 routes on the coated face examined for an even
+# look and for pinholes, voids and spatter; ccva2 routes on the field-versus-point
+# split, where the coating reads unevenly across the face while no single defect is
+# oversize. Both must deterministically hit
+# space-systems/ecss/e2008-coated-coverglass-visual-appearance.
+tasks:
+  - id: ccva1
+    query: "examine the coated coverglass faces for an even coating and for pinholes, voids or spatter and disposition each one"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.1; coated coverglass even appearance and point defects"
+    expected_skill: "space-systems/ecss/e2008-coated-coverglass-visual-appearance"
+  - id: ccva2
+    query: "the anti-reflective coating reads unevenly across the coverglass but no single pinhole is oversize, how is the coated area dispositioned"
+    intent: "ECSS-E-ST-20-08C clause 8.7.1.3.1; coating non-uniformity spread against the point defect screen"
+    expected_skill: "space-systems/ecss/e2008-coated-coverglass-visual-appearance"

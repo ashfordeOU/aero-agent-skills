@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-coverglass-acceptance-test-samples (space-systems/ecss,
+# E-ST-20-08C 8.5.1). Two tasks per leaf; cgs1 routes on the sample floor and
+# the random-draw evidence the clause asks for, cgs2 on the proportional spread
+# over the lot's strata and the shipment verdict. Both must deterministically
+# hit space-systems/ecss/e2008-coverglass-acceptance-test-samples.
+tasks:
+  - id: cgs1
+    query: "check the coverglass-lot-sample-floor and the coverglass-random-draw-evidence behind each coverglass-acceptance-sample-draw"
+    intent: "ecss coverglasses; at least forty pieces drawn at random from every shipment lot for acceptance testing"
+    expected_skill: "space-systems/ecss/e2008-coverglass-acceptance-test-samples"
+  - id: cgs2
+    query: "grade the coverglass-stratum-proportional-spread, catch a coverglass-convenience-sample-draw and return the coverglass-shipment-lot-sampling-verdict"
+    intent: "ecss coverglasses; whether a lot sample is spread over the lot rather than taken off one carrier"
+    expected_skill: "space-systems/ecss/e2008-coverglass-acceptance-test-samples"
