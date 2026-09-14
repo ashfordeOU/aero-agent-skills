@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-electrical-performance (space-systems/ecss)
+# Two tasks for the new leaf. bcep1 routes on the bare cell parameters a solar
+# generator is designed around; bcep2 routes on the derived fill factor and
+# efficiency and the lot bound a sizing case rests on. Both must
+# deterministically hit
+# space-systems/ecss/e2008-bare-cell-electrical-performance.
+tasks:
+  - id: bcep1
+    query: "assess the measured bare solar cell electrical parameters so the solar generator can be sized on them"
+    intent: "ECSS-E-ST-20-08C clause 7.5.3; bare solar cell electrical performance supporting a solar generator design decision"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-electrical-performance"
+  - id: bcep2
+    query: "derive fill factor and conversion efficiency for each bare cell and report the lot spread and design power bound"
+    intent: "ECSS-E-ST-20-08C clause 7.5.3; bare cell fill factor derivation, conversion efficiency and lot design power bound"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-electrical-performance"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-acceptance-criteria (space-systems/ecss)
+# Two tasks for the leaf. bcac1 routes on the per-cell judgement against the
+# source control drawing thresholds; bcac2 routes on the lot reject allowance
+# and the margin a bare pass hides. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-acceptance-criteria.
+tasks:
+  - id: bcac1
+    query: "decide whether each measured bare cell reaches the short-circuit and on-load current thresholds fixed in its source control drawing and name every threshold a cell missed"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.3; per-cell acceptance against the source control drawing thresholds"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-criteria"
+  - id: bcac2
+    query: "take the rejected share of a bare-cell lot against the declared allowance and report the weakest cell and its margin instead of a bare pass"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.3; lot reject allowance, margins and the marginal-cell advisory"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-criteria"

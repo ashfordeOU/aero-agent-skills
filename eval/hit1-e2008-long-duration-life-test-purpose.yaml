@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-long-duration-life-test-purpose (space-systems/ecss)
+# Two tasks for the leaf. ldp1 routes on the accelerated evidence a long
+# duration life test is meant to produce; ldp2 routes on the Arrhenius factor
+# and the mechanism ceiling that makes or breaks it. Both must deterministically
+# hit space-systems/ecss/e2008-long-duration-life-test-purpose.
+tasks:
+  - id: ldp1
+    query: "justify why a long duration life test is run on a photovoltaic assembly and whether the accelerated evidence really stands for the worst case operating conditions over the whole service life"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.18.1; purpose of the accelerated long duration life test"
+    expected_skill: "space-systems/ecss/e2008-long-duration-life-test-purpose"
+  - id: ldp2
+    query: "turn an elevated life test temperature into an arrhenius acceleration factor from the activation energy, convert the planned hours into equivalent service hours, and refuse a temperature above the ceiling where the degradation mechanism changes"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.18.1; acceleration factor and mechanism ceiling behind the life test purpose"
+    expected_skill: "space-systems/ecss/e2008-long-duration-life-test-purpose"

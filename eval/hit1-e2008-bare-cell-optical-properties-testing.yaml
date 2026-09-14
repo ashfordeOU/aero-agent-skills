@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2008-bare-cell-optical-properties-testing (space-systems/ecss,
+# E-ST-20-08C 7.5.6). Two tasks per leaf; bcop1 routes on the reflectance scan
+# and its band average, bcop2 on the coverglass gain. Both must deterministically
+# hit space-systems/ecss/e2008-bare-cell-optical-properties-testing.
+tasks:
+  - id: bcop1
+    query: "weight a bare-solar-cell-reflectance-scan into a band-averaged-cell-reflectance and derive the cell-optical-absorptance-fraction it implies"
+    intent: "ecss solar cells; optical property measurement of a bare cell front surface"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-optical-properties-testing"
+  - id: bcop2
+    query: "judge the coverglass-current-gain-factor from covered against bare short-circuit current and check the reflectance-scan-wavelength-coverage behind it"
+    intent: "ecss solar cells; coverglass gain and scan adequacy for bare cell optical performance"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-optical-properties-testing"

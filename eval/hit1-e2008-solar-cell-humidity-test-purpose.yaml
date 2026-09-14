@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-solar-cell-humidity-test-purpose (space-systems/ecss,
+# E-ST-20-08C 7.5.7.1.1). Two tasks per leaf; schp1 routes on why the damp
+# storage is run, schp2 on the acceleration that turns the soak into shelf life.
+# Both must deterministically hit
+# space-systems/ecss/e2008-solar-cell-humidity-test-purpose.
+tasks:
+  - id: schp1
+    query: "state what the solar-cell-damp-heat-storage-purpose is for cell-contact-adhesion-degradation, antireflective-coating-humidity-stability and bypass-diode-reverse-leakage-drift"
+    intent: "ecss solar cells; why cells are put through an accelerated damp storage"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-humidity-test-purpose"
+  - id: schp2
+    query: "size the humidity-acceleration-factor-peck for a damp soak and convert it into equivalent-ambient-storage-hours"
+    intent: "ecss solar cells; acceleration and equivalent shelf life bought by damp storage"
+    expected_skill: "space-systems/ecss/e2008-solar-cell-humidity-test-purpose"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-ar-coating-limits (space-systems/ecss)
+# Two tasks for the new leaf. bcar1 routes on the ceiling for uncoated area on a
+# bare cell face; bcar2 routes on voids and spatter in the antireflective
+# coating. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-ar-coating-limits.
+tasks:
+  - id: bcar1
+    query: "how much of the bare solar cell face is allowed to be left without antireflective coating"
+    intent: "ECSS-E-ST-20-08C clause 7.5.1.4.2; uncoated area ceiling on the coatable face"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-ar-coating-limits"
+  - id: bcar2
+    query: "disposition the voids and the coating spatter on the bare cell including a spot sitting on an interconnect attachment pad"
+    intent: "ECSS-E-ST-20-08C clause 7.5.1.4.2; antireflective coating void and spatter limits"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-ar-coating-limits"

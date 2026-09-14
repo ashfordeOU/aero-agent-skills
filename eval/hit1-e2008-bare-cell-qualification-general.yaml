@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-qualification-general (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the customer grant that makes a bare
+# cell qualified; to2 routes on the evidence set behind the grant and the scope
+# the grant covers. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-qualification-general.
+tasks:
+  - id: to1
+    query: "the cell supplier says its bare solar cell is qualified because it finished the whole test programme, work out whether the customer has actually granted the qualification"
+    intent: "ECSS-E-ST-20-08C clause 7.4.1; qualification of a bare solar cell is granted by the customer once the evidence is complete"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-qualification-general"
+  - id: to2
+    query: "check the bare cell qualification dossier is complete with a report behind every activity, that no non-conformance is still open, and that the grant scope covers the process baseline being delivered"
+    intent: "ECSS-E-ST-20-08C clause 7.4.1; bare-cell qualification evidence completeness, granting authority and grant scope"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-qualification-general"

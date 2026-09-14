@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1523,
+  "leaves": 1565,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -19820,6 +19820,42 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-angular-performance-test-process",
+   "name": "e2008-angular-performance-test-process",
+   "description": "Design the incidence-angle sweep a photovoltaic assembly angular performance measurement runs under ECSS-E-ST-20-08C clause 6.4.3.19.2: build the angle schedule, hold a coarse step up to sixty degrees and a further-refined step beyond it where the response leaves the cosine fastest, size the widest gap each region actually leaves, bound the straight-line error a gap admits between measured points, and confirm the sweep reaches the declared maximum angle. Use when an angular sweep is being planned, or an as-run one has to be judged against the step rule. Trigger: ecss, e-st-20-08c-clause-6-4-3-19-2, solar-array-angular-sweep-schedule, incidence-angle-step-refinement, sixty-degree-step-breakpoint, angular-interpolation-error-bound, angular-sweep-truncation-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-angular-performance-test-process",
+    "solar-array-angular-sweep-schedule",
+    "incidence-angle-step-refinement",
+    "sixty-degree-step-breakpoint",
+    "angular-interpolation-error-bound",
+    "angular-sweep-truncation-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-angular-performance-test-purpose",
+   "name": "e2008-angular-performance-test-purpose",
+   "description": "Determine what an angular performance test on a photovoltaic assembly must deliver under ECSS-E-ST-20-08C clause 6.4.3.19.1: project the normal-incidence output onto the sun incidence angle an off-pointing mission actually flies, separate the free cosine term from the angular response factor coverglass reflection erodes, derive the worst-case off-pointing power and its margin, and hold the planned angle envelope against the attitude the declared drivers impose. Use when a slewing or sun-offset mission needs array power at an incidence angle nobody has measured. Trigger: ecss, e-st-20-08c-clause-6-4-3-19-1, solar-array-angular-performance-purpose, sun-incidence-angle-response, off-pointing-array-power-margin, assembly-cosine-departure-factor, angular-test-envelope-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-angular-performance-test-purpose",
+    "solar-array-angular-performance-purpose",
+    "sun-incidence-angle-response",
+    "off-pointing-array-power-margin",
+    "assembly-cosine-departure-factor",
+    "angular-test-envelope-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-assembly-capacitance-measurement-process",
    "name": "e2008-assembly-capacitance-measurement-process",
    "description": "Determine which single accepted method, frequency domain or time domain, a photovoltaic string capacitance measurement runs under per ECSS-E-ST-20-08C clause 5.5.3.5.2, and show the nominated one holds: size the reactance at the test frequency against the instrument band, derive the dissipation factor the string leakage produces, compute the decay constant a discharge resistor sets and the samples the recorder places inside it, size the fixture stray against the article, and close an uncertainty budget against the requirement. Use when a string capacitance figure is about to be quoted from a method nobody established as accepted. Trigger: ecss, e-st-20-08c-clause-5-5-3-5-2, solar-array-string-capacitance-measurement, frequency-domain-capacitance-method, time-domain-capacitance-method, string-capacitance-uncertainty-budget, fixture-stray-capacitance-fraction, capacitance-bridge-dissipation-limit.",
@@ -19869,6 +19905,463 @@
     "equivalent-cure-minutes-accumulation",
     "adhesive-cure-ratio-against-dwell",
     "attachment-fillet-coverage-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-acceptance-criteria",
+   "name": "e2008-bare-cell-acceptance-criteria",
+   "description": "Assess whether each measured bare cell reaches the current thresholds its source control drawing fixes under ECSS-E-ST-20-08C clause 7.3.2.2.3: refuse a threshold set carrying no drawing reference, judge every cell against both the short-circuit and the on-load minimum with a tie admissible, report each margin and name every shortfall rather than the first, take the rejected share of the lot against the declared allowance, and flag an accepted cell with almost nothing left for degradation. Use when measured bare-cell currents have to become an acceptance verdict. Trigger: ecss, e-st-20-08c-clause-7-3-2-2-3, bare-cell-acceptance-thresholds, source-control-drawing-current-minimum, bare-cell-short-circuit-current-margin, bare-cell-on-load-current-margin, bare-cell-lot-reject-allowance, marginal-bare-cell-advisory.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-acceptance-criteria",
+    "bare-cell-acceptance-thresholds",
+    "source-control-drawing-current-minimum",
+    "bare-cell-short-circuit-current-margin",
+    "bare-cell-on-load-current-margin",
+    "bare-cell-lot-reject-allowance",
+    "marginal-bare-cell-advisory"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-acceptance-documentation",
+   "name": "e2008-bare-cell-acceptance-documentation",
+   "description": "Audit the acceptance data package a bare solar cell lot is delivered against, the record set ECSS-E-ST-20-08C clause 7.3.3 sends acceptance results into: name the acceptance activity nobody wrote up, test each record for the fields that make it re-readable, refuse a record reporting on cells outside the delivered lot, find the delivered cell no activity reached, hold anything still sitting in draft at delivery, and rank the arms so a missing record outranks a thin one. Use when an acceptance data package is about to be released with a cell lot. Trigger: ecss, e-st-20-08c-clause-7-3-3, bare-cell-acceptance-record-completeness, bare-cell-acceptance-data-package-release, bare-cell-record-traceability-to-lot, bare-cell-acceptance-activity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-acceptance-documentation",
+    "e-st-20-08c-clause-7-3-3",
+    "bare-cell-acceptance-record-completeness",
+    "bare-cell-acceptance-data-package-release",
+    "bare-cell-record-traceability-to-lot",
+    "bare-cell-acceptance-activity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-acceptance-general",
+   "name": "e2008-bare-cell-acceptance-general",
+   "description": "Assess whether the bare solar cell acceptance activity set of clause 7.3.1 of ECSS-E-ST-20-08C reaches both populations it owes: the cells being delivered and the cells the qualification campaign consumes. Separate the activities every cell carries from the ones drawn on a sample, grade each sampled activity on the fraction of its population actually reached, keep absence, non-execution and failure apart, catch a population left wholly untested, and return one lot verdict with ranked findings. Use when a bare cell acceptance matrix, lot traveller set or sampling plan has to be reviewed. Trigger: ecss, e-st-20-08c, bare-cell-acceptance-testing-general, bare-cell-delivery-population-acceptance, bare-cell-qualification-population-acceptance, bare-cell-sampled-activity-fraction, bare-cell-lot-acceptance-verdict, bare-cell-acceptance-record-state.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-bare-cell-acceptance-general",
+    "bare-cell-acceptance-testing-general",
+    "bare-cell-delivery-population-acceptance",
+    "bare-cell-qualification-population-acceptance",
+    "bare-cell-sampled-activity-fraction",
+    "bare-cell-lot-acceptance-verdict",
+    "bare-cell-acceptance-record-state"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-acceptance-measurement-process",
+   "name": "e2008-bare-cell-acceptance-measurement-process",
+   "description": "Perform the bare-cell current recording of ECSS-E-ST-20-08C clause 7.3.2.2.2 so the two numbers survive the bench: read the irradiance and cell temperature the run sat at, check both against the standard illumination bands, confirm the load was held at the test voltage the drawing states, correct each short-circuit and on-load current back to reference irradiance and reference temperature, convert to current density, and catch a cell reporting more current on load than at short circuit. Use when a bare-cell acceptance run has to be made under a stated illumination. Trigger: ecss, e-st-20-08c-clause-7-3-2-2-2, bare-cell-short-circuit-current-recording, bare-cell-current-at-stated-test-voltage, standard-illumination-irradiance-correction, bare-cell-temperature-coefficient-correction, bare-cell-current-density, bare-cell-load-setpoint-tolerance.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-acceptance-measurement-process",
+    "bare-cell-short-circuit-current-recording",
+    "bare-cell-current-at-stated-test-voltage",
+    "standard-illumination-irradiance-correction",
+    "bare-cell-temperature-coefficient-correction",
+    "bare-cell-current-density",
+    "bare-cell-load-setpoint-tolerance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-acceptance-measurement-purpose",
+   "name": "e2008-bare-cell-acceptance-measurement-purpose",
+   "description": "Determine what the bare-cell electrical measurement of ECSS-E-ST-20-08C clause 7.3.2.2.1 has to deliver before the bench is switched on: map each declared acceptance decision onto the parameter that feeds it, derive the operating-point power and the fill-factor proxy from the short-circuit and on-load currents, combine the irradiance, temperature, area and instrument uncertainties in quadrature, then judge whether the result is narrow enough against the source control drawing band to separate a conforming cell from a rejected one. Use when scoping or reviewing a bare-cell acceptance measurement. Trigger: ecss, e-st-20-08c-clause-7-3-2-2-1, bare-cell-acceptance-measurement-purpose, bare-cell-short-circuit-current, bare-cell-current-at-test-voltage, bare-cell-measurement-uncertainty-budget, source-control-drawing-acceptance-band, bare-cell-acceptance-discrimination-ratio.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-acceptance-measurement-purpose",
+    "bare-cell-acceptance-measurement-purpose",
+    "bare-cell-short-circuit-current",
+    "bare-cell-current-at-test-voltage",
+    "bare-cell-measurement-uncertainty-budget",
+    "source-control-drawing-acceptance-band",
+    "bare-cell-acceptance-discrimination-ratio"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-ar-coating-limits",
+   "name": "e2008-bare-cell-ar-coating-limits",
+   "description": "Assess the antireflective coating of a bare solar cell against clause 7.5.1.4.2 of ECSS-E-ST-20-08C: compute the coatable face left once the contact footprint is taken out, disposition each uncoated patch, coating void and spatter spot on its own limit and on where it sits, total the missing coating against the area ceiling and convert the same share into the reflectance penalty it costs, bound spatter obscuration and the defect counts, and return one cell verdict naming the defects that are not accepted. Use when a coated bare cell has been inspected and each coating defect needs a disposition. Trigger: ecss, e-st-20-08c, bare-cell-ar-coating-limits, bare-cell-uncoated-area-ceiling, bare-cell-coating-void-limits, bare-cell-coating-spatter-on-pad, bare-cell-coating-optical-penalty.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-ar-coating-limits",
+    "e-st-20-08c",
+    "bare-cell-ar-coating-limits",
+    "bare-cell-uncoated-area-ceiling",
+    "bare-cell-coating-void-limits",
+    "bare-cell-coating-spatter-on-pad",
+    "bare-cell-coating-optical-penalty",
+    "bare-solar-cell-antireflective-coating-inspection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-bus-bar-grids",
+   "name": "e2008-bare-cell-bus-bar-grids",
+   "description": "Verify that the front bus bars and grid lines of a bare solar cell run through unbroken under ECSS-E-ST-20-08C clause 7.5.1.5.3: separate a full interruption, which the continuity requirement refuses on presence alone, from a narrowing that still conducts, turn each narrowing into the width fraction that survived and the current density the surviving metal now carries, size each break by the share of the collection strip it orphans from a bus bar, and return accept, review or reject with the broken lines named apart. Use when a bare cell front metallization survey needs a disposition a scrap decision can rest on. Trigger: ecss, e-st-20-08c, clause-7-5-1-5-3, bare-cell-front-bus-bar-continuity, solar-cell-grid-line-break-screen, grid-finger-constriction-width-check, orphaned-cell-collection-area, front-metallization-current-density.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-bus-bar-grids",
+    "bare-cell-front-bus-bar-continuity",
+    "solar-cell-grid-line-break-screen",
+    "grid-finger-constriction-width-check",
+    "orphaned-cell-collection-area",
+    "front-metallization-current-density"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-chip-and-nick-limits",
+   "name": "e2008-bare-cell-chip-and-nick-limits",
+   "description": "Evaluate chips and surface nicks on a bare solar cell against clause 7.5.1.4.1 of ECSS-E-ST-20-08C: place each chip on the outline to decide whether it takes a corner or sits along an edge, derive the reach it has left from the declared inactive border rather than from a typed-in absolute, bound its run against the edge it sits on, grade each face nick on depth against the wafer thickness and on clearance from the contacts, and add the accepted defects up against the cumulative perimeter, area, count and separation allowances. Use when a bare cell edge and face inspection needs a per-defect disposition. Trigger: ecss, e-st-20-08c, bare-cell-chip-limits, bare-cell-corner-chip-allowance, bare-cell-edge-chip-reach, bare-cell-surface-nick-depth, bare-cell-cumulative-chip-allowance.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-chip-and-nick-limits",
+    "e-st-20-08c",
+    "bare-cell-chip-limits",
+    "bare-cell-corner-chip-allowance",
+    "bare-cell-edge-chip-reach",
+    "bare-cell-surface-nick-depth",
+    "bare-cell-cumulative-chip-allowance",
+    "bare-solar-cell-edge-inspection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-contact-area-general",
+   "name": "e2008-bare-cell-contact-area-general",
+   "description": "Evaluate the general condition of the contact areas of a bare solar cell under ECSS-E-ST-20-08C clause 7.5.1.5.1, which wants them clear of digs, scratches and probe marks where the metallisation is absent: place every mark against the contact geometry so an inside, straddling or outside call is made before any disposition, count only the straddling part that overlaps, reject a mark that bares the semiconductor, send metal thinned past its working fraction to review, and track probe witnesses and the disturbed footprint. Use when a bare-cell mark list has to become a contact area verdict. Trigger: ecss, e-st-20-08c-clause-7-5-1-5-1, bare-cell-contact-area-condition, contact-metallisation-absence, cell-probe-mark-witness-count, contact-area-dig-and-scratch-placement, weldable-surface-disturbed-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-contact-area-general",
+    "bare-cell-contact-area-condition",
+    "contact-metallisation-absence",
+    "cell-probe-mark-witness-count",
+    "contact-area-dig-and-scratch-placement",
+    "weldable-surface-disturbed-fraction",
+    "solar-cell-contact-geometry-containment"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-cracks-and-fingerprints",
+   "name": "e2008-bare-cell-cracks-and-fingerprints",
+   "description": "Assess whether a bare solar cell may be accepted under ECSS-E-ST-20-08C clause 7.5.1.4.3, which admits no crack and no fingerprint: derive the crack detection floor from the working distance and any magnification, withhold an acceptance the illuminance cannot support, reject a confirmed crack at any length, send an indication recorded below the floor back for its provenance, clean a removable print but reject one on a contact area or on a cell out of cleaning cycles, and roll the lot up with its yield. Use when a bare-cell visual record has to become an acceptance verdict. Trigger: ecss, e-st-20-08c-clause-7-5-1-4-3, bare-solar-cell-acceptance, cell-crack-indication-disposition, cell-fingerprint-contamination, crack-detection-floor, bare-cell-lot-yield-rollup.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-cracks-and-fingerprints",
+    "bare-solar-cell-acceptance",
+    "cell-crack-indication-disposition",
+    "cell-fingerprint-contamination",
+    "crack-detection-floor",
+    "bare-cell-lot-yield-rollup",
+    "solar-cell-handling-contamination"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-deliverable-components",
+   "name": "e2008-bare-cell-deliverable-components",
+   "description": "Audit a bare solar cell delivery sub-lot by sub-lot against the process identification document clause 7.1.2 of ECSS-E-ST-20-08C requires, confirming the cells were processed and inspected under it: resolve whether the cited document is approved and at the issue built to, refuse a build carrying a step the document never declares, separate a per-cell screen from a sampled inspection, bracket how many cells passed every screen rather than quoting one number, and weight the release share by cells. Use when a bare-cell delivery batch is presented and the build and inspection records have to carry it. Trigger: ecss, e-st-20-08c, bare-cell-delivery-sub-lot-disposition, bare-cell-process-identification-document-standing, bare-cell-undeclared-process-step, bare-cell-screen-versus-sample-mode, bare-cell-deliverable-count-bracket, bare-cell-weighted-release-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-bare-cell-deliverable-components",
+    "bare-cell-delivery-sub-lot-disposition",
+    "bare-cell-process-identification-document-standing",
+    "bare-cell-undeclared-process-step",
+    "bare-cell-screen-versus-sample-mode",
+    "bare-cell-deliverable-count-bracket",
+    "bare-cell-weighted-release-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-dimensions-and-weight",
+   "name": "e2008-bare-cell-dimensions-and-weight",
+   "description": "Verify a bare solar cell against the outline, thickness, mass, contact geometry and interconnector position requirements of ECSS-E-ST-20-08C clause 7.5.2: place each measurement inside its plus and minus band and name the state, combine the two axis offsets of every attachment point into one radial true-position deviation, raise an out-of-band feature into a review band before refusing it because a bare cell cannot be machined back, and cross-check the measured areal density against the density the drawing implies before any band is believed. Use when a bare cell measurement sheet has to be judged against the purchase drawing. Trigger: ecss, e-st-20-08c, clause-7-5-2, bare-cell-outline-tolerance-check, bare-cell-thickness-band, bare-cell-mass-budget, interconnector-pad-true-position, bare-cell-areal-density-crosscheck.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-dimensions-and-weight",
+    "bare-cell-outline-tolerance-check",
+    "bare-cell-thickness-band",
+    "bare-cell-mass-budget",
+    "interconnector-pad-true-position",
+    "bare-cell-areal-density-crosscheck"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-electrical-grading",
+   "name": "e2008-bare-cell-electrical-grading",
+   "description": "Allocate accepted bare solar cells to delivery grades from the test current ECSS-E-ST-20-08C clause 7.3.2.2.4 sorts on: check the band ladder rises, closes and leaves no gap before any cell is placed on it, put each measured current in its band, hold a cell sitting inside the measurement guard band of an edge instead of inventing the side it fell on, separate a cell below the lowest band from one above the highest, and report the grade populations and yields a string build consumes. Use when measured bare-cell currents are about to become delivery grades. Trigger: ecss, e-st-20-08c-clause-7-3-2-2-4, bare-solar-cell-performance-grading, bare-cell-test-current-band-ladder, bare-cell-grading-boundary-guard-band, bare-cell-grade-population-yield.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-electrical-grading",
+    "e-st-20-08c-clause-7-3-2-2-4",
+    "bare-solar-cell-performance-grading",
+    "bare-cell-test-current-band-ladder",
+    "bare-cell-grading-boundary-guard-band",
+    "bare-cell-grade-population-yield"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-electrical-performance",
+   "name": "e2008-bare-cell-electrical-performance",
+   "description": "Assess the bare solar cell electrical parameters that clause 7.5.3 of ECSS-E-ST-20-08C puts behind a solar generator design decision: hold each measurement to the reference illumination and the cell temperature window, derive maximum power, fill factor and conversion efficiency from the recorded current and voltage pairs, refuse a point set whose peak power pair sits outside its own short circuit current or open circuit voltage, then reduce the measured lot to the mean, spread and lower bound a generator sizing case can be built on. Use when a bare cell parameter sheet or lot summary has to support array sizing. Trigger: ecss, e-st-20-08c-clause-7-5-3, bare-solar-cell-electrical-performance, bare-cell-fill-factor-derivation, bare-cell-conversion-efficiency, bare-cell-lot-design-power-bound, bare-cell-measurement-condition-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-electrical-performance",
+    "e-st-20-08c-clause-7-5-3",
+    "bare-solar-cell-electrical-performance",
+    "bare-cell-fill-factor-derivation",
+    "bare-cell-conversion-efficiency",
+    "bare-cell-lot-design-power-bound",
+    "bare-cell-measurement-condition-window"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-marking",
+   "name": "e2008-bare-cell-marking",
+   "description": "Audit the permanent traceability code marked on delivered bare solar cells under ECSS-E-ST-20-08C clause 7.1.3: decide whether the marking method and the place it is put are admissible on a brittle cell at all, whether the mark stays readable through the welding, bonding, cure and cycling the cell will see, how much illuminated area the mark costs against the policy cap, what depth the coded fields and the delivery register actually reach against the depth the process document sets, and whether a code repeats across the delivered set. Use when a bare cell delivery register, cell marking scheme or wafer-lot traceability claim has to be reviewed. Trigger: ecss, e-st-20-08c, bare-cell-permanent-marking, bare-cell-traceability-depth, bare-cell-mark-placement-admissibility, bare-cell-active-area-mark-loss, bare-cell-code-uniqueness-register, wafer-lot-traceability-claim.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-bare-cell-marking",
+    "bare-cell-permanent-marking",
+    "bare-cell-traceability-depth",
+    "bare-cell-mark-placement-admissibility",
+    "bare-cell-active-area-mark-loss",
+    "bare-cell-code-uniqueness-register",
+    "wafer-lot-traceability-claim"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-optical-properties-testing",
+   "name": "e2008-bare-cell-optical-properties-testing",
+   "description": "Evaluate whether a bare solar cell's measured optical properties satisfy ECSS-E-ST-20-08C clause 7.5.6: weight a reflectance scan across the declared wavelength band into one band-averaged figure, derive the absorbed fraction it implies, confirm the scan reaches both band edges at a fine enough step before any average is trusted, and turn the covered against bare short-circuit current into a coverglass gain judged against its floor. Use when a bare cell reflectance scan or a coverglass gain figure is about to be accepted as optical performance evidence for a solar cell lot. Trigger: ecss, e-st-20-08c-clause-7-5-6, bare-solar-cell-reflectance-scan, coverglass-current-gain-factor, band-averaged-cell-reflectance, cell-optical-absorptance-fraction, reflectance-scan-wavelength-coverage, solar-cell-spectral-reflectance-average.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-bare-cell-optical-properties-testing",
+    "bare-solar-cell-reflectance-scan",
+    "coverglass-current-gain-factor",
+    "band-averaged-cell-reflectance",
+    "cell-optical-absorptance-fraction",
+    "reflectance-scan-wavelength-coverage",
+    "solar-cell-spectral-reflectance-average"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-process-identification-document",
+   "name": "e2008-bare-cell-process-identification-document",
+   "description": "Evaluate the supplier production control document that clause 7.2 of ECSS-E-ST-20-08C asks for before a bare solar cell design is qualified: hold the declared steps against the steps a cell is genuinely built with, check each step cites the floor instruction that controls it, confirm every control parameter carries a band that brackets its nominal and is drawn tightly enough to control anything, catch a step declared on a line other than the one being qualified, and check the document names the design under qualification and was issued before the campaign. Use when a bare cell production control document, process baseline or cell line qualification list has to be reviewed. Trigger: ecss, e-st-20-08c, bare-cell-process-identification-document, bare-cell-production-control-document, bare-cell-process-step-coverage, bare-cell-control-parameter-band, bare-cell-qualified-line-binding, bare-cell-design-baseline-identifier.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-bare-cell-process-identification-document",
+    "bare-cell-process-identification-document",
+    "bare-cell-production-control-document",
+    "bare-cell-process-step-coverage",
+    "bare-cell-control-parameter-band",
+    "bare-cell-qualified-line-binding",
+    "bare-cell-design-baseline-identifier"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-qualification-general",
+   "name": "e2008-bare-cell-qualification-general",
+   "description": "Determine whether a bare solar cell has actually been qualified under ECSS-E-ST-20-08C clause 7.4.1, where the customer makes the grant and the supplier only produces the evidence: test the evidence set for an activity nobody ran and one claimed without a report, find the non-conformance still open against the article, check a grant exists and came from the customer rather than from the supplier about itself, match its scope to the delivered configuration, then roll the programme up over the articles it delivers. Use when a bare cell is being treated as qualified. Trigger: ecss, e-st-20-08c-clause-7-4-1, bare-solar-cell-qualification-grant, bare-cell-qualification-evidence-completeness, bare-cell-grant-issuing-authority, bare-cell-qualification-scope-match.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-qualification-general",
+    "e-st-20-08c-clause-7-4-1",
+    "bare-solar-cell-qualification-grant",
+    "bare-cell-qualification-evidence-completeness",
+    "bare-cell-grant-issuing-authority",
+    "bare-cell-qualification-scope-match"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-qualification-schedule",
+   "name": "e2008-bare-cell-qualification-schedule",
+   "description": "Validate the production and test schedule of clause 7.4.2 of ECSS-E-ST-20-08C followed while qualifying a bare solar cell: confirm every required production, measurement, environmental and documentation step is declared, hold each step behind the steps it depends on rather than merely present in the list, walk the cell lot through the declared order so each step is checked against the cells still in the pool after the destructive steps ahead of it retired theirs, size the lot against a retest reserve, and rank the findings into one schedule verdict. Use when a bare cell qualification flow, cell lot sizing or test sequence has to be assessed. Trigger: ecss, e-st-20-08c, bare-cell-qualification-schedule, bare-solar-cell-qualification-sequence, bare-cell-schedule-step-precedence, bare-cell-lot-sizing, bare-cell-destructive-test-placement.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-bare-cell-qualification-schedule",
+    "e-st-20-08c",
+    "bare-cell-qualification-schedule",
+    "bare-solar-cell-qualification-sequence",
+    "bare-cell-schedule-step-precedence",
+    "bare-cell-lot-sizing",
+    "bare-cell-destructive-test-placement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-rear-contact-limits",
+   "name": "e2008-bare-cell-rear-contact-limits",
+   "description": "Evaluate the drops and spatter found outside the rear welding zone of a bare solar cell against the size ceilings of ECSS-E-ST-20-08C clause 7.5.1.5.4: place each deposit inside or outside the welding rectangle, measure how far it sits from the zone and from the cell perimeter, tighten its diameter ceiling inside the edge exclusion band, refuse anything standing proud of the declared bond line whatever its width, and add the surviving footprints into a whole-face area and count budget before returning accept, rework or reject. Use when a rear contact survey needs a disposition rather than a defect list. Trigger: ecss, e-st-20-08c, clause-7-5-1-5-4, bare-cell-rear-contact-deposit-limits, rear-welding-zone-spatter-ceiling, solder-drop-diameter-screen, cell-edge-exclusion-band, rear-contact-protrusion-height.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-rear-contact-limits",
+    "bare-cell-rear-contact-deposit-limits",
+    "rear-welding-zone-spatter-ceiling",
+    "solder-drop-diameter-screen",
+    "cell-edge-exclusion-band",
+    "rear-contact-protrusion-height"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-spectral-response",
+   "name": "e2008-bare-cell-spectral-response",
+   "description": "Compute the spectral response quantities that clause 7.5.5 of ECSS-E-ST-20-08C puts behind sun simulator verification and measurement error assessment: validate the curve rises through strictly increasing wavelengths at a fine enough step and covers the band the cell responds in, convert absolute response into external quantum efficiency and refuse a point above unity, integrate test and reference responses against the simulator and reference spectra, then form the spectral mismatch factor and express it as the measurement error it contributes. Use when a simulator verification record or spectral response data set has to be assessed. Trigger: ecss, e-st-20-08c-clause-7-5-5, bare-solar-cell-spectral-response, sun-simulator-spectral-mismatch-factor, bare-cell-quantum-efficiency-conversion, spectral-measurement-error-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-spectral-response",
+    "e-st-20-08c-clause-7-5-5",
+    "bare-solar-cell-spectral-response",
+    "sun-simulator-spectral-mismatch-factor",
+    "bare-cell-quantum-efficiency-conversion",
+    "spectral-measurement-error-budget",
+    "bare-cell-response-band-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-temperature-coefficients",
+   "name": "e2008-bare-cell-temperature-coefficients",
+   "description": "Derive the bare solar cell temperature coefficients that clause 7.5.4 of ECSS-E-ST-20-08C asks for on the irradiated samples of the qualification subgroup: confirm each sample really carries its irradiation and belongs to the subgroup, hold the measurement set to enough distinct temperatures over a wide enough span, fit short circuit current, open circuit voltage and peak power against temperature by least squares, report absolute and relative coefficients with the fit quality behind them, and name the subgroup member nobody measured. Use when a coefficient data sheet or qualification subgroup record has to be evaluated. Trigger: ecss, e-st-20-08c-clause-7-5-4, bare-solar-cell-temperature-coefficients, irradiated-qualification-subgroup-sampling, temperature-coefficient-least-squares-fit, bare-cell-coefficient-sign-convention.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-bare-solar-cell-scope",
+    "e2008-bare-cell-temperature-coefficients",
+    "e-st-20-08c-clause-7-5-4",
+    "bare-solar-cell-temperature-coefficients",
+    "irradiated-qualification-subgroup-sampling",
+    "temperature-coefficient-least-squares-fit",
+    "bare-cell-coefficient-sign-convention",
+    "bare-cell-coefficient-fit-quality"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-testing-overview",
+   "name": "e2008-bare-cell-testing-overview",
+   "description": "Evaluate a bare solar cell test programme against the two errands clause 7.1.1 of ECSS-E-ST-20-08C puts on it, qualification of the cell design and procurement of a delivery batch: hold each declared activity to the errand it serves, check the specimen kind that errand allows and refuse a destructive run on a cell meant for delivery, size each sample against a floor that grows with the batch for procurement and stays fixed for qualification, measure coverage per errand, and return one programme verdict. Use when a bare-cell test matrix, qualification schedule or batch sampling plan has to be graded. Trigger: ecss, e-st-20-08c, bare-solar-cell-test-programme, bare-cell-qualification-and-procurement-errands, bare-cell-batch-sampling-floor, bare-cell-test-specimen-eligibility, bare-cell-destructive-test-allocation, bare-cell-programme-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-bare-cell-testing-overview",
+    "bare-solar-cell-test-programme",
+    "bare-cell-qualification-and-procurement-errands",
+    "bare-cell-batch-sampling-floor",
+    "bare-cell-test-specimen-eligibility",
+    "bare-cell-destructive-test-allocation",
+    "bare-cell-programme-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-bare-cell-welding-area-limits",
+   "name": "e2008-bare-cell-welding-area-limits",
+   "description": "Verify that voids and bubbles inside the contact welding areas of a bare cell stay within the maximum diameter fixed for the part under ECSS-E-ST-20-08C clause 7.5.1.5.2: close the assessment when no drawing fixes the limit, govern on the major axis and fall back to an area-equivalent diameter only as the weaker figure it is, place each void against the weld zone, reject past the limit, review an acceptance held by less than the measurement uncertainty, and catch a crowded zone on void area fraction and count. Use when a weld-zone void list has to become a verdict. Trigger: ecss, e-st-20-08c-clause-7-5-1-5-2, contact-welding-area-void-limit, weld-zone-bubble-diameter, void-major-axis-governing-chord, weld-zone-void-area-fraction, drawing-fixed-void-diameter.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-bare-cell-welding-area-limits",
+    "contact-welding-area-void-limit",
+    "weld-zone-bubble-diameter",
+    "void-major-axis-governing-chord",
+    "weld-zone-void-area-fraction",
+    "drawing-fixed-void-diameter",
+    "solar-cell-weld-nugget-seat"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -19963,6 +20456,122 @@
     "bypass-diode-examination-magnification",
     "bypass-diode-string-protection-rollup",
     "bypass-diode-record-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-coating-adherence-test",
+   "name": "e2008-cell-coating-adherence-test",
+   "description": "Assess the durability of a bare solar cell's antireflection coating together with its cell and diode contact metallisation under the adherence method of ECSS-E-ST-20-08C clause 7.5.8: refuse a run that reached only one of the surfaces the specimen carries, take the removed area of each against the allowance that belongs to it, turn the stripped coating share into the current the cell gives up where bare semiconductor now reflects, group every surface as intact, inside its allowance or past it, and fail a lot on lifted metallisation however small the share. Use when a coating and contact adherence run has to be sentenced. Trigger: ecss, e-st-20-08c-clause-7-5-8, bare-cell-antireflection-coating-adherence, cell-contact-metallisation-lift, diode-contact-adherence-surface, coating-removed-area-allowance, stripped-coating-current-loss.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-cell-coating-adherence-test",
+    "bare-cell-antireflection-coating-adherence",
+    "cell-contact-metallisation-lift",
+    "diode-contact-adherence-surface",
+    "coating-removed-area-allowance",
+    "stripped-coating-current-loss",
+    "bare-cell-adherence-surface-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-contact-adherence-test-process",
+   "name": "e2008-cell-contact-adherence-test-process",
+   "description": "Execute the ambient pressure chamber loading every bare solar cell of a lot passes through before its contacts and bypass diode attachment are pulled under ECSS-E-ST-20-08C clause 7.5.7.2.2: fold each cell's edge clearance into its shelf footprint, hold the load under the packing cap that keeps the soak reaching every cell, confirm the pressure band and the declared dwell, refuse to sentence a lot from a partial load, then group each front contact, rear contact and diode attachment reading and sentence every cell by its weakest site. Use when running or auditing a bare-cell contact adherence run. Trigger: ecss, e-st-20-08c-clause-7-5-7-2-2, bare-cell-chamber-loading, ambient-pressure-soak-dwell, cell-contact-pull-load-grouping, diode-attachment-pull-site, bare-cell-shelf-packing-fraction.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-cell-contact-adherence-test-process",
+    "bare-cell-chamber-loading",
+    "ambient-pressure-soak-dwell",
+    "cell-contact-pull-load-grouping",
+    "diode-attachment-pull-site",
+    "bare-cell-shelf-packing-fraction",
+    "bare-cell-lot-loading-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-contact-adherence-test-purpose",
+   "name": "e2008-cell-contact-adherence-test-purpose",
+   "description": "Determine what an adherence check on a bare solar cell's contacts and bypass diode attachment has to demonstrate under ECSS-E-ST-20-08C clause 7.5.7.2.1: add the downstream welding, curing, handling, launch and cycling stressors into one demand index, decide from it whether pulling contacts is worth doing at all, derive the pull load the service peak and its margin ask for, size the sample that lets the result speak for the lot, and refuse a plan whose pull lands before any conditioning, because that number describes the as-built joint rather than the one the mission leaves behind. Use when scoping or reviewing a bare-cell contact adherence campaign. Trigger: ecss, e-st-20-08c-clause-7-5-7-2-1, bare-cell-contact-adherence-purpose, cell-diode-attachment-strength, post-conditioning-contact-pull, contact-attachment-demand-index, bare-cell-pull-load-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-cell-contact-adherence-test-purpose",
+    "bare-cell-contact-adherence-purpose",
+    "cell-diode-attachment-strength",
+    "post-conditioning-contact-pull",
+    "contact-attachment-demand-index",
+    "bare-cell-pull-load-margin",
+    "bare-cell-adherence-sample-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-contact-thickness-test",
+   "name": "e2008-cell-contact-thickness-test",
+   "description": "Determine whether a bare solar cell lot may be released on the depth of its contact metallisation under ECSS-E-ST-20-08C clause 7.5.10: size the acceptance sample against the lot, validate each measured cell, categorize every reading against the thickness floor and ceiling, hold as indeterminate any reading nearer a limit than the gauge uncertainty rather than counting it a pass, and compute the capability the sample leaves against each limit so a lot that clears on count but not on margin is caught. Use when measured contact thickness readings are about to release a bare cell lot. Trigger: ecss, e-st-20-08c-clause-7-5-10, bare-cell-contact-thickness-acceptance, solar-cell-metallisation-depth-measurement, contact-thickness-lot-release, cell-contact-thickness-guard-band, bare-cell-acceptance-sample-size, contact-thickness-process-capability.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e-st-20-08c-clause-7-5-10",
+    "e2008-cell-contact-thickness-test",
+    "bare-cell-contact-thickness-acceptance",
+    "solar-cell-metallisation-depth-measurement",
+    "contact-thickness-lot-release",
+    "cell-contact-thickness-guard-band",
+    "bare-cell-acceptance-sample-size",
+    "contact-thickness-process-capability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-contact-uniformity-test",
+   "name": "e2008-cell-contact-uniformity-test",
+   "description": "Assess whether the metallisation on a bare solar cell contact is laid to an even depth under ECSS-E-ST-20-08C clause 7.5.9: order a mapped set of thickness readings along one contact feature, refuse a map too sparse or too clustered to speak for the feature, reduce it to mean, range, coefficient of variation and a thinnest-to-thickest uniformity ratio, fit a slope along the feature to separate a plating gradient from random scatter or one thin spot, and roll the mapped features into a cell verdict. Use when bare cell contact thickness maps are about to be accepted as qualification evidence of metallisation evenness. Trigger: ecss, e-st-20-08c-clause-7-5-9, bare-cell-contact-metallisation-uniformity, solar-cell-contact-thickness-map, contact-plating-thickness-gradient, cell-metallisation-uniformity-ratio, contact-thickness-coefficient-of-variation, bare-cell-grid-finger-thickness-spread.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e-st-20-08c-clause-7-5-9",
+    "e2008-cell-contact-uniformity-test",
+    "bare-cell-contact-metallisation-uniformity",
+    "solar-cell-contact-thickness-map",
+    "contact-plating-thickness-gradient",
+    "cell-metallisation-uniformity-ratio",
+    "contact-thickness-coefficient-of-variation",
+    "bare-cell-grid-finger-thickness-spread"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-cell-surface-finish-test",
+   "name": "e2008-cell-surface-finish-test",
+   "description": "Evaluate the finish a bare solar cell contact surface presents for qualification under ECSS-E-ST-20-08C clause 7.5.11: confirm the profile trace is long enough and self-consistent before any roughness figure is believed, validate the examined anomaly population, and judge the surface on mean deviation, peak-to-valley height, the largest single anomaly, the contact area anomalies occupy and a severity-weighted demerit score, returning a compliant, marginal or non-compliant grade alongside how much of each limit was used up. Use when a profile trace and an anomaly list are about to qualify a cell contact surface. Trigger: ecss, e-st-20-08c-clause-7-5-11, bare-cell-contact-surface-finish, solar-cell-contact-roughness-trace, cell-contact-anomaly-demerit-score, contact-surface-anomaly-area-fraction, bare-cell-metallisation-finish-grade.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e-st-20-08c-clause-7-5-11",
+    "e2008-cell-surface-finish-test",
+    "bare-cell-contact-surface-finish",
+    "solar-cell-contact-roughness-trace",
+    "cell-contact-anomaly-demerit-score",
+    "contact-surface-anomaly-area-fraction",
+    "bare-cell-metallisation-finish-grade"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -20310,6 +20919,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-failed-cell-assemblies",
+   "name": "e2008-failed-cell-assemblies",
+   "description": "Determine whether an inspected solar cell assembly is treated as failed under ECSS-E-ST-20-08C clause 6.5.2, where any single listed mode condemns the unit. Use when an assembly or a whole inspection lot needs a disposition rather than a score: resolve the mode catalogue and the limits its measured modes are graded against, read each observation as present, absent or never examined, refuse a boolean where a measurement belongs and the reverse, let one present mode settle the unit whatever the rest showed, hold a clean-looking unit unevaluated while any mode stays unexamined, and tally the units into the lot. Trigger: ecss, e-st-20-08c, clause-6-5-2, failed-cell-assembly-disposition, sca-failure-mode-catalogue, any-listed-mode-condemns-rule, unexamined-failure-mode-handling, sca-inspection-lot-failure-tally.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-failed-cell-assemblies",
+    "e-st-20-08c",
+    "clause-6-5-2",
+    "failed-cell-assembly-disposition",
+    "sca-failure-mode-catalogue",
+    "any-listed-mode-condemns-rule",
+    "unexamined-failure-mode-handling",
+    "sca-inspection-lot-failure-tally"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-failed-qualification-coupons",
    "name": "e2008-failed-qualification-coupons",
    "description": "Determine how a qualification coupon that showed one or more failure modes is treated under ECSS-E-ST-20-08C clause 5.6.2. Use when a failed solar-array coupon needs a disposition rather than an opinion: withdraw the coupon as qualification evidence whatever the cause, hold the disposition open while any mode is still unattributed, map each attributed cause onto the retest scope it forces, let the widest scope govern when several modes are present, and keep the retest inadmissible until corrective action is implemented and verified. Trigger: ecss, e-st-20-08c, clause-5-6-2, failed-qualification-coupon-disposition, solar-array-coupon-retest-scope, coupon-root-cause-attribution, qualification-evidence-withdrawal, coupon-corrective-action-verification, photovoltaic-requalification-trigger.",
@@ -20616,6 +21245,63 @@
     "interconnector-test-induced-damage",
     "interconnector-remaining-defect-budget",
     "coupon-interconnector-population-screen"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-long-duration-life-test-criteria",
+   "name": "e2008-long-duration-life-test-criteria",
+   "description": "Assess whether the maximum power of a photovoltaic assembly stayed inside the two per cent degradation the ECSS-E-ST-20-08C clause 6.4.3.18.3 criterion allows across a whole long duration life test: translate every reading to the declared reference irradiance and cell temperature before differencing it, measure the fall against the initial reading of that same test, take the worst value anywhere in the series rather than the final one, admit a reading landing exactly on the limit, and report an excursion the end of the test recovered from. Use when sentencing or auditing a long duration life test result. Trigger: ecss, e-st-20-08c, clause-6-4-3-18-3, long-duration-life-test-criteria, maximum-power-degradation-limit, life-test-initial-reference-reading, reference-condition-power-correction, recovered-degradation-excursion.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-long-duration-life-test-criteria",
+    "long-duration-life-test-criteria",
+    "maximum-power-degradation-limit",
+    "life-test-initial-reference-reading",
+    "reference-condition-power-correction",
+    "recovered-degradation-excursion"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-long-duration-life-test-process",
+   "name": "e2008-long-duration-life-test-process",
+   "description": "Determine which of the four long duration life test approaches ECSS-E-ST-20-08C clause 6.4.3.18.2 accepts the supplier has chosen, and whether that choice is documented: refuse a name off the closed menu and a subgroup declared two ways at once, hold each approach to its own evidence set so an accelerated run carries the activation energy a real time run does not, convert the approach into the laboratory hours it costs, and weigh those against the window the programme has left. Use when selecting or auditing a long duration life test approach. Trigger: ecss, e-st-20-08c, clause-6-4-3-18-2, long-duration-life-test-approach-selection, accepted-life-test-approach-menu, life-test-approach-documentation-record, laboratory-hours-feasibility-window, qualified-heritage-equivalence-argument.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-long-duration-life-test-process",
+    "long-duration-life-test-approach-selection",
+    "accepted-life-test-approach-menu",
+    "life-test-approach-documentation-record",
+    "laboratory-hours-feasibility-window",
+    "qualified-heritage-equivalence-argument"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-long-duration-life-test-purpose",
+   "name": "e2008-long-duration-life-test-purpose",
+   "description": "Evaluate whether an accelerated long duration life test on a photovoltaic assembly delivers what ECSS-E-ST-20-08C clause 6.4.3.18.1 asks of it, evidence that the assembly stays stable under its worst case operating conditions over the whole service life: convert the elevated test temperature into an Arrhenius acceleration factor from a declared activation energy, turn the planned hours into equivalent service hours, weigh them against the mission demand, refuse a temperature past the ceiling where the degradation mechanism changes, and name every declared operating condition the plan never reproduces. Use when justifying or reviewing the purpose of a long duration life test. Trigger: ecss, e-st-20-08c, clause-6-4-3-18-1, long-duration-life-test-purpose, arrhenius-acceleration-factor, equivalent-service-hours, worst-case-operating-condition-coverage, degradation-mechanism-ceiling.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-long-duration-life-test-purpose",
+    "long-duration-life-test-purpose",
+    "arrhenius-acceleration-factor",
+    "equivalent-service-hours",
+    "worst-case-operating-condition-coverage",
+    "degradation-mechanism-ceiling"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21122,6 +21808,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-sca-data-documentation-package",
+   "name": "e2008-sca-data-documentation-package",
+   "description": "Verify the documentation package covering a delivery of solar cell assemblies under ECSS-E-ST-20-08C clause 6.6, where a shared qualification tier and one file per delivery lot are graded together. Use when a package is presented for acceptance: resolve the families each tier owes, take the governing revision of every submitted record, reconcile the lot files against the lots the delivery declares in both directions, hold every lot to the governing qualification approval it cites, flag a lot whose manufacture closed before that approval was signed, and name what blocks acceptance. Trigger: ecss, e-st-20-08c, clause-6-6, sca-data-documentation-package, qualification-approval-record-tier, delivery-lot-file-reconciliation, governing-approval-citation-check, lot-built-before-approval-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-data-documentation-package",
+    "e-st-20-08c",
+    "clause-6-6",
+    "sca-data-documentation-package-acceptance",
+    "qualification-approval-record-tier",
+    "delivery-lot-file-reconciliation",
+    "governing-approval-citation-check",
+    "lot-built-before-approval-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-sca-deliverable-components",
    "name": "e2008-sca-deliverable-components",
    "description": "Evaluate whether the cell assemblies in a delivery lot were produced and inspected under the approved process identification document, as ECSS-E-ST-20-08C clause 6.1.3 requires. Use when a lot is presented for release and the build paperwork has to carry it: confirm the cited process document is approved rather than draft or withdrawn, compare the revision each unit was built to against the revision approved for delivery, check every mandatory inspection was performed and passed rather than merely listed, disposition each unit as deliverable, deliverable under concession or withheld, and size the release share against the lot. Trigger: ecss, e-st-20-08c, sca-deliverable-component-release, process-identification-document-approval, cell-assembly-delivery-lot-disposition, sca-inspection-record-completeness, pid-revision-build-alignment, sca-concession-disposition.",
@@ -21216,6 +21922,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2008-sca-electrostatic-sensitivity-handling",
+   "name": "e2008-sca-electrostatic-sensitivity-handling",
+   "description": "Assess whether the handling and storage applied to an electrostatic-discharge-sensitive photovoltaic assembly keep it under the voltage it survives, per ECSS-E-ST-20-08C clause 6.8.2: categorize the assembly from its withstand voltage and discharge model, grade every obliged protected-area control inside its own band rather than merely present, check the packaging shields rather than only dissipates, measure the storage envelope and the shelf life already spent, and turn residual charge into the voltage it leaves. Use when an ESD-sensitive assembly is handled, packed or stored and the control set needs grading. Trigger: ecss, e-st-20-08c, esd-sensitive-assembly-handling, photovoltaic-assembly-protected-area-controls, esd-ground-path-resistance-band, esd-shielding-packaging-category, esd-sensitive-storage-envelope, esd-withstand-voltage-categorization.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-08c",
+    "e2008-sca-electrostatic-sensitivity-handling",
+    "esd-sensitive-assembly-handling",
+    "photovoltaic-assembly-protected-area-controls",
+    "esd-ground-path-resistance-band",
+    "esd-shielding-packaging-category",
+    "esd-sensitive-storage-envelope",
+    "esd-withstand-voltage-categorization"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-failure-criteria",
+   "name": "e2008-sca-failure-criteria",
+   "description": "Evaluate whether a solar cell assembly counts as failed during subgroup testing under ECSS-E-ST-20-08C clause 6.5.1: take each degradation against its own limit for maximum power, short-circuit current and open-circuit voltage rather than one combined figure, hold the insulation resistance above its floor, group the observed defects into disqualifying and acceptable, then count the failed assemblies against the allowance the subgroup carries. Use when a subgroup test record has to become an accept or reject decision. Trigger: ecss, e-st-20-08c-clause-6-5-1, solar-cell-assembly-failure-criteria, sca-subgroup-failure-allowance, assembly-power-degradation-limit, sca-insulation-resistance-floor, disqualifying-assembly-defect.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-photovoltaic-assembly-scope",
+    "e2008-sca-failure-criteria",
+    "solar-cell-assembly-failure-criteria",
+    "sca-subgroup-failure-allowance",
+    "assembly-power-degradation-limit",
+    "sca-insulation-resistance-floor",
+    "disqualifying-assembly-defect"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2008-sca-flatness-criteria",
    "name": "e2008-sca-flatness-criteria",
    "description": "Evaluate a measured solar cell assembly deflection against the limiting value its geometry defines under ECSS-E-ST-20-08C clause 6.4.3.17.3: derive the limit from the assembly span with its floor and ceiling, resolve whether the governing limit is drawing-stated or geometry-derived, report a drawing limit sitting above the derived envelope, compare the guard-banded deflection so a result landing on the limit passes, separate a marginal sample from a clear one, and sentence the lot only when the subgroup is large enough. Use when dispositioning a cell assembly flatness record. Trigger: ecss, e-st-20-08c, clause-6-4-3-17-3, sca-flatness-limit-derivation, sca-deflection-limit-disposition, sca-flatness-drawing-limit-provenance, sca-flatness-marginal-result, sca-flatness-lot-sentencing.",
@@ -21285,6 +22029,26 @@
     "front-contact-metallisation-delamination",
     "gridline-busbar-feed-topology",
     "front-contact-collection-loss-fraction"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-sca-hardware-delivery",
+   "name": "e2008-sca-hardware-delivery",
+   "description": "Evaluate whether a shipment of ordered solar cell assemblies may be released under ECSS-E-ST-20-08C clause 6.7, where the hardware and the clause 6.6 documentation package have to close together. Use when a delivery is presented for dispatch: confirm the package is released and hold any unit drawn from a lot it does not cover, disposition each assembly as shippable, shippable on an accepted concession or held, reconcile each order line short and over against its ordered count, apply the declared partial-delivery floor, and report what holds the shipment. Trigger: ecss, e-st-20-08c, clause-6-7, sca-hardware-delivery-release, cell-assembly-lot-documentation-coverage, sca-order-line-quantity-reconciliation, sca-partial-delivery-floor, cell-assembly-concession-shipment.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2008-sca-hardware-delivery",
+    "e-st-20-08c",
+    "clause-6-7",
+    "sca-hardware-delivery-release",
+    "cell-assembly-lot-documentation-coverage",
+    "sca-order-line-quantity-reconciliation",
+    "sca-partial-delivery-floor",
+    "cell-assembly-concession-shipment"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -21723,6 +22487,44 @@
     "panel-detachment-screening",
     "attachment-life-extrapolation",
     "mission-cycle-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-solar-cell-humidity-test-process",
+   "name": "e2008-solar-cell-humidity-test-process",
+   "description": "Verify a subgroup O damp conditioning profile against ECSS-E-ST-20-08C clause 7.5.7.1.2: confirm the cell count actually drawn from subgroup O, hold the chamber at ambient pressure inside its tolerance, derive the dew point the air temperature and relative humidity produce and keep the coldest cell surface above it, hold the ramp rate and the stabilisation dwell, and confirm the soak reaches its full duration. Use when a damp heat chamber profile for solar cells is written or reviewed before the soak starts. Trigger: ecss, e-st-20-08c-clause-7-5-7-1-2, subgroup-o-cell-sample-plan, ambient-pressure-damp-chamber-profile, damp-storage-dew-point-margin, humidity-chamber-ramp-rate-limit, damp-soak-duration-compliance, cell-surface-condensation-risk.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-solar-cell-humidity-test-process",
+    "subgroup-o-cell-sample-plan",
+    "ambient-pressure-damp-chamber-profile",
+    "damp-storage-dew-point-margin",
+    "humidity-chamber-ramp-rate-limit",
+    "damp-soak-duration-compliance",
+    "cell-surface-condensation-risk"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2008-solar-cell-humidity-test-purpose",
+   "name": "e2008-solar-cell-humidity-test-purpose",
+   "description": "Determine what an accelerated damp storage of solar cells under ECSS-E-ST-20-08C clause 7.5.7.1.1 has to deliver: group the mechanisms damp heat attacks, contact adhesion, antireflective coating, integrated bypass diode leakage and interconnect corrosion, onto the parameter each is watched through, size the humidity and temperature acceleration the chamber buys, convert the soak into the ambient storage it stands for, and decide whether the planned monitoring can see a mechanism move. Use when scoping or defending a solar cell damp heat storage before the chamber is booked. Trigger: ecss, e-st-20-08c-clause-7-5-7-1-1, solar-cell-damp-heat-storage-purpose, humidity-acceleration-factor-peck, cell-contact-adhesion-degradation, antireflective-coating-humidity-stability, bypass-diode-reverse-leakage-drift, equivalent-ambient-storage-hours.",
+   "tags": [
+    "ecss",
+    "e-st-20-08-solar-cell-scope",
+    "e2008-solar-cell-humidity-test-purpose",
+    "solar-cell-damp-heat-storage-purpose",
+    "humidity-acceleration-factor-peck",
+    "cell-contact-adhesion-degradation",
+    "antireflective-coating-humidity-stability",
+    "bypass-diode-reverse-leakage-drift",
+    "equivalent-ambient-storage-hours"
    ],
    "family": "space-systems",
    "pack": "ecss",

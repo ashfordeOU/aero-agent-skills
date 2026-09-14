@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-acceptance-general (space-systems/ecss,
+# E-ST-20-08C 7.3.1). Two tasks per leaf; bca1 routes on the two cell
+# populations the clause owes, bca2 on the sampled activity fraction and the
+# lot verdict. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-acceptance-general.
+tasks:
+  - id: bca1
+    query: "assess bare-cell-delivery-population-acceptance together with bare-cell-qualification-population-acceptance across the lot"
+    intent: "ecss bare solar cells; acceptance testing applied to delivered cells and to qualification cells"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-general"
+  - id: bca2
+    query: "grade the bare-cell-sampled-activity-fraction and each bare-cell-acceptance-record-state then return the bare-cell-lot-acceptance-verdict"
+    intent: "ecss bare solar cells; sampled acceptance activities and the lot acceptance verdict"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-general"

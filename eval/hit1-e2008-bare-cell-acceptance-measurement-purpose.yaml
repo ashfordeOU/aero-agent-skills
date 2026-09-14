@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2008-bare-cell-acceptance-measurement-purpose (space-systems/ecss)
+# Two tasks for the leaf. bcamp1 routes on what the bare-cell acceptance
+# measurement has to deliver and which decision each parameter feeds; bcamp2
+# routes on the uncertainty budget against the source control drawing band.
+# Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-acceptance-measurement-purpose.
+tasks:
+  - id: bcamp1
+    query: "state what the electrical measurement of a bare cell at acceptance has to deliver and which acceptance decision each bare-cell parameter actually feeds"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.1; purpose of the bare-cell acceptance parameter measurement"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-measurement-purpose"
+  - id: bcamp2
+    query: "combine the irradiance, cell temperature, illuminated area and instrument uncertainties and decide whether the planned bare-cell run can resolve the source control drawing acceptance band at all"
+    intent: "ECSS-E-ST-20-08C clause 7.3.2.2.1; measurement uncertainty against the acceptance band before the run"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-acceptance-measurement-purpose"

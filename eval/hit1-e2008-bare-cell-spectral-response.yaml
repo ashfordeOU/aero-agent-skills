@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-spectral-response (space-systems/ecss)
+# Two tasks for the new leaf. bcsr1 routes on the spectral response data behind
+# sun simulator verification; bcsr2 routes on the spectral mismatch factor and
+# the measurement error it contributes. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-spectral-response.
+tasks:
+  - id: bcsr1
+    query: "use the bare solar cell spectral response data to verify the sun simulator and bound the measurement error"
+    intent: "ECSS-E-ST-20-08C clause 7.5.5; bare solar cell spectral response supporting sun simulator verification"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-spectral-response"
+  - id: bcsr2
+    query: "compute the spectral mismatch factor from the test and reference response curves and the simulator and reference spectra"
+    intent: "ECSS-E-ST-20-08C clause 7.5.5; sun simulator spectral mismatch factor and spectral measurement error budget"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-spectral-response"

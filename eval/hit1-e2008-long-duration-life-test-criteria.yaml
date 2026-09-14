@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-long-duration-life-test-criteria (space-systems/ecss)
+# Two tasks for the leaf. ldc1 routes on the two per cent maximum power
+# degradation limit; ldc2 routes on the whole-series scope and the reference
+# condition correction behind it. Both must deterministically hit
+# space-systems/ecss/e2008-long-duration-life-test-criteria.
+tasks:
+  - id: ldc1
+    query: "decide whether the maximum power degradation recorded over a long duration life test stayed inside the two per cent the acceptance criterion allows"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.18.3; maximum power degradation limit across the life test"
+    expected_skill: "space-systems/ecss/e2008-long-duration-life-test-criteria"
+  - id: ldc2
+    query: "correct every life test power reading to reference irradiance and cell temperature, measure the fall against the initial reading, and fail a mid-test excursion even though the final reading recovered"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.18.3; whole-series scope and reference condition correction of the degradation criterion"
+    expected_skill: "space-systems/ecss/e2008-long-duration-life-test-criteria"

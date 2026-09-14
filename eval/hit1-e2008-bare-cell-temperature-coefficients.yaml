@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-bare-cell-temperature-coefficients (space-systems/ecss)
+# Two tasks for the new leaf. bctc1 routes on coefficients measured on the
+# irradiated qualification subgroup; bctc2 routes on the least squares fit and
+# the sign convention behind each coefficient. Both must deterministically hit
+# space-systems/ecss/e2008-bare-cell-temperature-coefficients.
+tasks:
+  - id: bctc1
+    query: "measure the bare solar cell temperature coefficients on the irradiated samples of the qualification subgroup"
+    intent: "ECSS-E-ST-20-08C clause 7.5.4; bare solar cell temperature coefficients on the irradiated qualification subgroup"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-temperature-coefficients"
+  - id: bctc2
+    query: "fit short circuit current open circuit voltage and peak power against temperature and check each coefficient sign"
+    intent: "ECSS-E-ST-20-08C clause 7.5.4; temperature coefficient least squares fit and bare cell coefficient sign convention"
+    expected_skill: "space-systems/ecss/e2008-bare-cell-temperature-coefficients"

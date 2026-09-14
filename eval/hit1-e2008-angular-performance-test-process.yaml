@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-angular-performance-test-process (space-systems/ecss,
+# E-ST-20-08C 6.4.3.19.2). Two tasks per leaf; aptr1 routes on building the
+# angle schedule with its step refinement, aptr2 on judging an as-run sweep.
+# Both must deterministically hit
+# space-systems/ecss/e2008-angular-performance-test-process.
+tasks:
+  - id: aptr1
+    query: "build the solar-array-angular-sweep-schedule with a coarse step to the sixty-degree-step-breakpoint and incidence-angle-step-refinement beyond it"
+    intent: "ecss photovoltaic assemblies; spacing of the incidence angles an angular performance measurement is taken at"
+    expected_skill: "space-systems/ecss/e2008-angular-performance-test-process"
+  - id: aptr2
+    query: "size the gap an as-run sweep left, bound the angular-interpolation-error-bound it admits and run the angular-sweep-truncation-check"
+    intent: "ecss photovoltaic assemblies; is the as-run angular sweep spaced and long enough"
+    expected_skill: "space-systems/ecss/e2008-angular-performance-test-process"

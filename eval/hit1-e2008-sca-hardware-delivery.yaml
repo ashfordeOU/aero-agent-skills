@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-sca-hardware-delivery (space-systems/ecss)
+# Two tasks for the new leaf. shd1 routes on releasing ordered cell assemblies
+# only with the clause 6.6 package that covers their lots; shd2 routes on the
+# order line reconciliation and the partial delivery floor. Both must
+# deterministically hit space-systems/ecss/e2008-sca-hardware-delivery.
+tasks:
+  - id: shd1
+    query: "release the shipment of ordered solar cell assemblies, the data documentation package is issued but six units come from a lot that package does not cover"
+    intent: "ECSS-E-ST-20-08C clause 6.7; SCA hardware delivery with the documentation the preceding clause requires"
+    expected_skill: "space-systems/ecss/e2008-sca-hardware-delivery"
+  - id: shd2
+    query: "the order line bought forty cell assemblies and forty two are shippable while a second line is three short, decide whether the delivery can be dispatched against the partial delivery floor"
+    intent: "ECSS-E-ST-20-08C clause 6.7; SCA order line quantity reconciliation short and over, and the partial delivery floor"
+    expected_skill: "space-systems/ecss/e2008-sca-hardware-delivery"

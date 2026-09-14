@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2008-cell-contact-thickness-test (space-systems/ecss).
+# Task 1 routes on the acceptance measurement that releases a bare cell lot
+# on metallisation depth, task 2 on the guard band and the sample size that
+# decision rests on. Both must deterministically hit
+# space-systems/ecss/e2008-cell-contact-thickness-test.
+tasks:
+  - id: w0914-e2008-cell-contact-thickness-test-1
+    query: "bare-cell-contact-thickness-acceptance and solar-cell-metallisation-depth-measurement for contact-thickness-lot-release under ecss-e-st- e-st-20-08c clause 7.5.10"
+    intent: "Route to e2008-cell-contact-thickness-test"
+    expected_skill: "space-systems/ecss/e2008-cell-contact-thickness-test"
+  - id: w0914-e2008-cell-contact-thickness-test-2
+    query: "cell-contact-thickness-guard-band with bare-cell-acceptance-sample-size and contact-thickness-process-capability under ecss-e-st- e-st-20-08c"
+    intent: "Route to e2008-cell-contact-thickness-test"
+    expected_skill: "space-systems/ecss/e2008-cell-contact-thickness-test"

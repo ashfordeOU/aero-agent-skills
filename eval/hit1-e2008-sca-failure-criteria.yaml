@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2008-sca-failure-criteria (space-systems/ecss,
+# E-ST-20-08C 6.5.1). Two tasks per leaf; scafc1 routes on when one assembly
+# counts as failed, scafc2 on the subgroup count against its allowance. Both
+# must deterministically hit space-systems/ecss/e2008-sca-failure-criteria.
+tasks:
+  - id: scafc1
+    query: "apply the solar-cell-assembly-failure-criteria to one article: assembly-power-degradation-limit, sca-insulation-resistance-floor and any disqualifying-assembly-defect"
+    intent: "ecss photovoltaic assemblies; conditions that make a solar cell assembly count as failed"
+    expected_skill: "space-systems/ecss/e2008-sca-failure-criteria"
+  - id: scafc2
+    query: "count the failed articles in a subgroup test against the sca-subgroup-failure-allowance and decide accept or reject"
+    intent: "ecss photovoltaic assemblies; turning subgroup test records into an accept or reject decision"
+    expected_skill: "space-systems/ecss/e2008-sca-failure-criteria"
