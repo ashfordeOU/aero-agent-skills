@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-self-made-magnetics (space-systems/ecss,
+# Q-ST-60C 4.6.8). Two tasks per leaf; sm1 routes on the design checks a house
+# winding owes, sm2 on the screening sequence and the hot spot derating. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-1-self-made-magnetics.
+tasks:
+  - id: sm1
+    query: "check the self-made-magnetics-current-density and the self-made-magnetics-flux-utilisation on this transformer we wound in house"
+    intent: "ecss eee class 1; designing a self-made wound magnetic part to recognised practice"
+    expected_skill: "space-systems/ecss/q60-class-1-self-made-magnetics"
+  - id: sm2
+    query: "derive the self-made-magnetics-screening-sequence for this house-wound inductor and confirm the self-made-magnetics-hot-spot-margin"
+    intent: "ecss eee class 1; screening a self-made wound magnetic part before class 1 use"
+    expected_skill: "space-systems/ecss/q60-class-1-self-made-magnetics"

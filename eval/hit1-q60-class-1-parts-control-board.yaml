@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-parts-control-board (space-systems/ecss)
+# Two tasks for the leaf. pcb1 routes on the board constitution and the quorum
+# as attendance plus chair; pcb2 routes on the weighted vote, the category
+# concurrence route and the decision record. Both must deterministically hit
+# space-systems/ecss/q60-class-1-parts-control-board.
+tasks:
+  - id: pcb1
+    query: "decide whether a parts control board meeting was quorate, with every required seat filled and the product assurance chair in the room, before it released an electronic part for use"
+    intent: "ECSS-Q-ST-60C clause 4.1.3; parts control board constitution and quorum at reliability class 1"
+    expected_skill: "space-systems/ecss/q60-class-1-parts-control-board"
+  - id: pcb2
+    query: "take the weighted vote of a parts control board where two seats abstained and say whether a non-standard part cleared its customer concurrence and was minuted with the dissent recorded"
+    intent: "ECSS-Q-ST-60C clause 4.1.3; board weighted approval share, category concurrence route and decision record"
+    expected_skill: "space-systems/ecss/q60-class-1-parts-control-board"

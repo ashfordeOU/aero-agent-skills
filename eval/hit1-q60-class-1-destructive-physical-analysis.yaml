@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-destructive-physical-analysis (space-systems/ecss)
+# Two tasks for the new leaf. dpa1 routes on the per-date-code teardown sample
+# and the spare units it has to come out of; dpa2 routes on grading anomalies
+# and the wire diameter bond pull minimum. Both must deterministically hit
+# space-systems/ecss/q60-class-1-destructive-physical-analysis.
+tasks:
+  - id: dpa1
+    query: "a Class 1 delivery arrived spanning two date codes and most of it is already committed to the build, how many units does each date-code group owe to the teardown and can the spares cover it"
+    intent: "ECSS-Q-ST-60C clause 4.3.9; date-code group partition, teardown sample sizing and the spare units the destroyed sample must come from"
+    expected_skill: "space-systems/ecss/q60-class-1-destructive-physical-analysis"
+  - id: dpa2
+    query: "the teardown found two cosmetic anomalies and one bond that pulled at 2.4 grams on 25 micrometre wire, grade them against the defect register and say whether the Class 1 lot is accepted or owes a second sample"
+    intent: "ECSS-Q-ST-60C clause 4.3.9; major and minor anomaly grading, wire diameter bond pull minimum and the lot teardown disposition"
+    expected_skill: "space-systems/ecss/q60-class-1-destructive-physical-analysis"

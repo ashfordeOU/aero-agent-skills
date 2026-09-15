@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-lot-homogeneity-sampling (space-systems/ecss)
+# Two tasks for the leaf. clhs1 routes on stratifying the lot and allocating
+# the sample across the strata; clhs2 routes on the shortfall against that
+# allocation and the acceptance number. Both must deterministically hit
+# space-systems/ecss/q60-class-1-lot-homogeneity-sampling.
+tasks:
+  - id: clhs1
+    query: "stratify a class 1 parts lot on its declared production strata and allocate the required sample across them by largest remainder so the draw is proportional"
+    intent: "ECSS-Q-ST-60C clause 4.5.5; lot stratification and largest-remainder sample allocation before specimens are drawn"
+    expected_skill: "space-systems/ecss/q60-class-1-lot-homogeneity-sampling"
+  - id: clhs2
+    query: "check the units actually drawn against their allocation shortfall, name the strata the draw never reached, and weigh the defectives found against the attribute acceptance number"
+    intent: "ECSS-Q-ST-60C clause 4.5.5; allocation shortfall, unrepresented stratum finding and acceptance-number evaluation"
+    expected_skill: "space-systems/ecss/q60-class-1-lot-homogeneity-sampling"

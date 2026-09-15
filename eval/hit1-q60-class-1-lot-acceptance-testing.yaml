@@ -1,0 +1,17 @@
+# Hit@1 fragment: q60-class-1-lot-acceptance-testing (space-systems/ecss)
+# Two tasks for the leaf. ls1 routes on splitting a delivery into one
+# submission unit per date code and naming the units that still owe a lot
+# acceptance submission; ls2 routes on sizing the draw and on testing an
+# existing acceptance record for currency against the submission day. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-1-lot-acceptance-testing, not the commercial
+# parts lot acceptance verdict leaf.
+tasks:
+  - id: ls1
+    query: "split a Class 1 delivery into one submission unit per part number, date code and manufacturer lot, and name every unit that still owes a lot acceptance submission"
+    intent: "ECSS-Q-ST-60C clause 4.3.5; submission units of a Class 1 delivery and the units still outstanding"
+    expected_skill: "space-systems/ecss/q60-class-1-lot-acceptance-testing"
+  - id: ls2
+    query: "size the pieces a Class 1 lot acceptance submission draws from a percentage rule with a declared floor, and decide whether an acceptance record already on file is still inside its validity window on the submission day"
+    intent: "ECSS-Q-ST-60C clause 4.3.5; submission draw sizing and lot acceptance record currency in whole months"
+    expected_skill: "space-systems/ecss/q60-class-1-lot-acceptance-testing"

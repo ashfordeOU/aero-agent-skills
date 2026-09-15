@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-procurement-specification (space-systems/ecss)
+# Two tasks for the new leaf. ps1 routes on the one-type-one-specification
+# mapping and the issue that was in force on the order date; ps2 routes on the
+# content a Class 1 purchasing specification has to declare. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-1-procurement-specification.
+tasks:
+  - id: ps1
+    query: "two purchasing specifications in our register both cover the same Class 1 part type and one of them only became effective after the purchase order went out, which one did we actually buy against"
+    intent: "ECSS-Q-ST-60C clause 4.3.2; one controlled purchasing specification per Class 1 component type, cited at an issue in force on the order date"
+    expected_skill: "space-systems/ecss/q60-class-1-procurement-specification"
+  - id: ps2
+    query: "check the written purchasing specification we raised for each Class 1 component type declares the quality level, the manufacturing line, the procurement test programme and the lot traceability before we order"
+    intent: "ECSS-Q-ST-60C clause 4.3.2; content a Class 1 purchasing specification declares and the approval reference every deviation carries"
+    expected_skill: "space-systems/ecss/q60-class-1-procurement-specification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-radiation-verification-testing (space-systems/ecss)
+# Two tasks for the new leaf. rvt1 routes on the decision to irradiate a Class 1
+# part at all and on the credit a narrow sample earns; rvt2 routes on the
+# destructive single event veto sitting over a wide dose margin. Both must
+# deterministically hit space-systems/ecss/q60-class-1-radiation-verification-testing.
+tasks:
+  - id: rvt1
+    query: "we irradiated three Class 1 parts from the flight lot against the declared mission dose, work out what capability that narrow sample credits the lot with and whether the radiation design margin is met"
+    intent: "ECSS-Q-ST-60C clause 4.3.8; lot capability from the lowest failure-free dose, sample credit and radiation design margin for a sensitive Class 1 part"
+    expected_skill: "space-systems/ecss/q60-class-1-radiation-verification-testing"
+  - id: rvt2
+    query: "the upset threshold linear energy transfer is well above what the mission needs but single event latch-up starts below it, does the Class 1 part still pass its radiation verification"
+    intent: "ECSS-Q-ST-60C clause 4.3.8; destructive single event onset as a veto over the total dose margin, and the low dose rate obligation on a bipolar family"
+    expected_skill: "space-systems/ecss/q60-class-1-radiation-verification-testing"

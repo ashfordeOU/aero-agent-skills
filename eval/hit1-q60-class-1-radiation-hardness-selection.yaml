@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-1-radiation-hardness-selection (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on accumulating the mission dose over
+# the declared phases and matching a part's tolerance to it over the whole
+# lifetime; to2 routes on a rate-sensitive linear part characterised at a high
+# dose rate and on a destructive single event threshold under the environment.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-1-radiation-hardness-selection.
+tasks:
+  - id: to1
+    query: "the operational phase just went from nine years to nineteen, work out whether this Class 1 part still covers the accumulated dose behind its shielding once the design margin is applied"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.4; accumulating total ionising dose and displacement damage phase by phase over the declared mission lifetime and raising each by the radiation design margin"
+    expected_skill: "space-systems/ecss/q60-class-1-radiation-hardness-selection"
+  - id: to2
+    query: "this bipolar linear part was only characterised at a high dose rate and its latch-up threshold sits under our worst-case heavy ion environment, decide whether scrubbing buys that back"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.4; enhanced low dose rate capability cut, destructive versus recoverable single event consequences, and mitigation credit"
+    expected_skill: "space-systems/ecss/q60-class-1-radiation-hardness-selection"

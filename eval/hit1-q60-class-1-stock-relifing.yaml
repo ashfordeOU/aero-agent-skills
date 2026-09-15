@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-stock-relifing (space-systems/ecss)
+# Two tasks for the new leaf. rel1 routes on the shortened period a second
+# relifing round re-grants; rel2 routes on the moisture floor-life budget and
+# the bake that has to precede the re-verification. Both must deterministically
+# hit space-systems/ecss/q60-class-1-stock-relifing.
+tasks:
+  - id: rel1
+    query: "Class 1 stock has sat past the expiry its last relifing granted and has been relifed once already, what shortened storage period can we re-grant it and when does it run out"
+    intent: "ECSS-Q-ST-60C clause 4.3.10; period in force after a relifing round, expiry arithmetic and the re-screening ceiling on stored Class 1 stock"
+    expected_skill: "space-systems/ecss/q60-class-1-stock-relifing"
+  - id: rel2
+    query: "expired Class 1 parts have been out of their dry pack well past the moisture sensitivity floor life, how long do we bake them for the body thickness and which re-verification tests does the stock then owe"
+    intent: "ECSS-Q-ST-60C clause 4.3.10; floor-life budget over-run, bake duration by package thickness band and the relifing re-verification test set"
+    expected_skill: "space-systems/ecss/q60-class-1-stock-relifing"

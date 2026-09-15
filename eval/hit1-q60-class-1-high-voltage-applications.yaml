@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-high-voltage-applications (space-systems/ecss,
+# Q-ST-60C 4.6.7). Two tasks per leaf; hv1 routes on the high voltage derating
+# and the corona onset window, hv2 on the multipaction frequency-gap product
+# and the provision disposition. Both must deterministically hit
+# space-systems/ecss/q60-class-1-high-voltage-applications.
+tasks:
+  - id: hv1
+    query: "check the class-1-high-voltage-derating on this part and say whether the ascent ambient puts it inside the class-1-corona-onset-window"
+    intent: "ecss eee class 1; additional provisions for high voltage use"
+    expected_skill: "space-systems/ecss/q60-class-1-high-voltage-applications"
+  - id: hv2
+    query: "work out the class-1-multipaction-fd-product for this powered gap and give the class-1-high-voltage-provision-disposition for the application"
+    intent: "ecss eee class 1; additional provisions for high power microwave use"
+    expected_skill: "space-systems/ecss/q60-class-1-high-voltage-applications"

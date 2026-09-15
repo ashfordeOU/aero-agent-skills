@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-alert-handling (space-systems/ecss)
+# Two tasks for the new leaf. ah1 routes on mapping an advisory onto declared
+# components list entries at their procurement stages; ah2 routes on the part
+# approval being invalidated and on passing the advisory to the sister
+# programmes holding the same selection. Both must deterministically hit
+# space-systems/ecss/q60-class-1-alert-handling.
+tasks:
+  - id: ah1
+    query: "a manufacturer advisory arrived on a class 1 part that is already on our declared components list, some of it is still only selected and some is in build, what action does each entry earn"
+    intent: "ECSS-Q-ST-60C clause 4.5.3; match declared-list entries on part number and manufacturer, action per procurement stage from deselection to in-orbit impact statement"
+    expected_skill: "space-systems/ecss/q60-class-1-alert-handling"
+  - id: ah2
+    query: "a part withdrawal notice landed after we had already bought the part, does the part approval have to be re-issued and which of our other programmes need to be told"
+    intent: "ECSS-Q-ST-60C clause 4.5.3; part approval revalidation past the selection stage, cross-programme advisory dissemination, acknowledgement working days by severity"
+    expected_skill: "space-systems/ecss/q60-class-1-alert-handling"

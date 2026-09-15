@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-procurement-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. pg1 routes on the order side — undeclared
+# substitution and baseline requirements never flowed down to the supplier;
+# pg2 routes on the delivery side — temperature range containment, dose
+# capability and lot traceability. Both must deterministically hit
+# space-systems/ecss/q60-class-1-procurement-general-requirements.
+tasks:
+  - id: pg1
+    query: "the purchase order for these class 1 parts names a different part number from the agreed baseline and left two baseline requirements out of the order text, does the purchase still conform"
+    intent: "ECSS-Q-ST-60C clause 4.3.1; undeclared part substitution and baseline requirement flow-down into the purchase order"
+    expected_skill: "space-systems/ecss/q60-class-1-procurement-general-requirements"
+  - id: pg2
+    query: "the lot that arrived is rated minus forty to eighty five degrees and carries less total dose than the baseline asked for, and there is no certificate with it, assess the delivery against what we agreed"
+    intent: "ECSS-Q-ST-60C clause 4.3.1; delivered lot temperature range containment, dose capability and mandatory traceability records against the agreed baseline"
+    expected_skill: "space-systems/ecss/q60-class-1-procurement-general-requirements"

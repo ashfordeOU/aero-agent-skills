@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-quality-control-general (space-systems/ecss,
+# Q-ST-60C 4.5.1). Two tasks per leaf; qc1 routes on opening the receiving
+# control plan and its ordering, qc2 on the sample sizing and the entry
+# disposition. Both must deterministically hit
+# space-systems/ecss/q60-class-1-quality-control-general.
+tasks:
+  - id: qc1
+    query: "open the class-1-receiving-control-plan for the lot just booked in and fix the class-1-control-activity-ordering so nothing destructive runs early"
+    intent: "ecss eee class 1; receiving control measures once parts are received"
+    expected_skill: "space-systems/ecss/q60-class-1-quality-control-general"
+  - id: qc2
+    query: "size the class-1-destructive-analysis-sample-size from the delivered quantity and give the class-1-lot-admissibility-disposition for the received lot"
+    intent: "ecss eee class 1; sample sizing and admissibility at incoming quality control"
+    expected_skill: "space-systems/ecss/q60-class-1-quality-control-general"

@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 1859,
+  "leaves": 1901,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -27481,6 +27481,791 @@
     "assembly-procedures",
     "cleanliness-control",
     "health-and-safety"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-alert-handling",
+   "name": "q60-class-1-alert-handling",
+   "description": "Evaluate an alert, errata sheet or manufacturer advisory against the class 1 EEE parts a programme has already selected, under ECSS-Q-ST-60C clause 4.5.3: match the advisory to declared-list entries, place each entry at its procurement stage, derive the action that stage earns from deselection through to an in-orbit impact statement, decide whether the part approval itself is invalidated and must be re-approved, fan the advisory out to every other programme holding the same selection, and count acknowledgement working days against the severity deadline. Use when an advisory lands on a part already on the declared components list. Trigger: ecss, q-st-60c, class-1-eee-advisory, declared-component-list-impact, part-approval-revalidation, procurement-stage-action, cross-programme-advisory-dissemination, advisory-acknowledgement-deadline.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-components-scope",
+    "q60-class-1-alert-handling",
+    "class-1-eee-part",
+    "declared-component-list-impact",
+    "eee-part-approval-revalidation",
+    "procurement-stage-advisory-action",
+    "cross-programme-advisory-dissemination"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-asic-requirements",
+   "name": "q60-class-1-asic-requirements",
+   "description": "Determine which flow of the dedicated ASIC and FPGA development standard a class 1 application specific integrated circuit enters when ECSS-Q-ST-60C clause 4.6.2 hands it over: compare the candidate build against the qualified heritage on foundry, process node, mask set, design database, functional scope, package and die attach, group the moved axes into silicon, design and assembly, weigh the reuse evidence and the age of the qualification, then route the part to a full development, a delta qualification or a reuse flow and return the activities that route carries. Refuses a reuse claim with no evidence reference. Use when an ASIC is developed, reused or re-targeted. Trigger: ecss, q-st-60c-clause-4-6-2, class-1-asic-development-routing, dedicated-asic-standard-referral, asic-heritage-delta-axes, foundry-process-node-change, asic-qualification-currency, asic-reuse-evidence-gap.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q60-class-1-asic-requirements",
+    "class-1-asic-development-routing",
+    "dedicated-asic-standard-referral",
+    "asic-heritage-delta-axes",
+    "foundry-process-node-change",
+    "asic-qualification-currency",
+    "asic-reuse-evidence-gap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-buy-off-source-inspection",
+   "name": "q60-class-1-buy-off-source-inspection",
+   "description": "Determine whether a witnessed source buy-off releases a Class 1 EEE lot under ECSS-Q-ST-60C clause 4.3.6: count the whole days of advance notice the procuring entity was given, decide from who was actually in the room whether the session was witnessed, waived under a referenced waiver or simply unwitnessed, check that the activities it sits on top of completed no later than the session itself, and cap the release at the pieces actually presented so unseen pieces stay at the manufacturer. Use when a session held at the supplier has to become a ship-or-hold decision with a quantity attached. Trigger: ecss, q-st-60c-clause-4-3-6, class-1-source-buy-off, buy-off-witness-attendance, witnessing-waiver-reference, buy-off-notice-period, presented-quantity-release-cap.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-class-1-scope",
+    "q60-class-1-buy-off-source-inspection",
+    "class-1-source-buy-off",
+    "buy-off-witness-attendance",
+    "witnessing-waiver-reference",
+    "buy-off-notice-period",
+    "presented-quantity-release-cap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-component-control-plan",
+   "name": "q60-class-1-component-control-plan",
+   "description": "Evaluate whether a component control plan is both prepared and still maintained as the highest reliability class demands under ECSS-Q-ST-60C clause 4.1.2.2: refuse a plan carrying no reference or issue, count the required chapters that stand on a procedure rather than a heading, measure the share of the revision interval the current issue has consumed, age every substitution request, supplier change, obsolescence notice, alert and nonconformance disposition against the declared response time, and name the review milestones the plan was never taken through. Use when a drafted plan has to become a maintenance verdict. Trigger: ecss, q-st-60c-clause-4-1-2-2, class-one-component-control-plan-maintenance, component-control-plan-revision-currency, component-control-plan-update-trigger-backlog, component-control-plan-milestone-review, component-control-plan-chapter-coverage.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-component-selection-scope",
+    "q60-class-1-component-control-plan",
+    "class-one-component-control-plan-maintenance",
+    "component-control-plan-revision-currency",
+    "component-control-plan-update-trigger-backlog",
+    "component-control-plan-milestone-review",
+    "component-control-plan-chapter-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-component-derating-rules",
+   "name": "q60-class-1-component-derating-rules",
+   "description": "Evaluate whether every Class 1 part in an equipment design carries its stress reduction margin under ECSS-Q-ST-60C clause 4.2.2.5: reconcile the equipment parts list against the lines the derating analysis actually reached, build each worst-case applied stress from its nominal value, tolerance spread and transient uplift, turn each maker rating into the largest applied value the category margin leaves, grade voltage, current, power and hot-spot temperature, then report the coverage gap, the tightest part and one equipment verdict. Use when a Class 1 equipment has to show its derating analysis reaches every part it contains. Trigger: ecss, q-st-60-eee-selection-scope, class-1-equipment-derating-coverage, worst-case-applied-stress-build-up, derating-analysis-coverage-gap, hot-spot-temperature-step-down, tightest-derating-margin-part, equipment-derating-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-selection-scope",
+    "q60-class-1-component-derating-rules",
+    "class-1-equipment-derating-coverage",
+    "worst-case-applied-stress-build-up",
+    "derating-analysis-coverage-gap",
+    "hot-spot-temperature-step-down",
+    "tightest-derating-margin-part",
+    "equipment-derating-verdict",
+    "parts-list-analysis-reconciliation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-component-manufacturer-assessment",
+   "name": "q60-class-1-component-manufacturer-assessment",
+   "description": "Assess a part manufacturer against the European space component baseline for Class 1 use under ECSS-Q-ST-60C clause 4.2.3.2: weight each assessment criterion, derate its rating by the evidence source behind it, derate a stale audit down to the weakest source, grade the whole baseline so an unmentioned criterion counts as unassessed rather than excused, block approval on any baseline criterion that falls short whatever the rest of the index says, and return the capability index, the blocking items and one verdict. Use when an audit report, a questionnaire or a third-party assessment decides whether a supplier may deliver Class 1 parts. Trigger: ecss, q-st-60c, component-manufacturer-assessment, space-component-baseline-criteria, manufacturer-capability-index, manufacturer-audit-validity, class-1-supplier-approval.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q-st-60c",
+    "q60-class-1-component-manufacturer-assessment",
+    "component-manufacturer-assessment",
+    "space-component-baseline-criteria",
+    "manufacturer-capability-index",
+    "manufacturer-audit-validity",
+    "class-1-supplier-approval"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-component-traceability",
+   "name": "q60-class-1-component-traceability",
+   "description": "Maintain an unbroken identity trail for class 1 EEE parts from goods receipt through storage and kitting into finished assemblies, under ECSS-Q-ST-60C clause 4.5.4: link every issue and every assembly back to the receipt record that owns the lot, reconcile received quantity against issued, scrapped and remaining, reject an assembly that consumed a lot never issued to it, detect a storage bin that mixed two lots into one identity, flag a lot past its storage limit, and trace forward from a lot to the assemblies it reached. Use when a lot must be traced into hardware or an assembly back to its lots. Trigger: ecss, q-st-60c, class-1-eee-traceability, receipt-to-assembly-trail, lot-quantity-reconciliation, mixed-lot-bin-detection, forward-lot-trace, backward-assembly-trace.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-components-scope",
+    "q60-class-1-component-traceability",
+    "class-1-eee-part",
+    "eee-receipt-to-assembly-trail",
+    "eee-lot-quantity-reconciliation",
+    "mixed-lot-bin-detection",
+    "eee-lot-forward-and-backward-trace"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-connector-contacts",
+   "name": "q60-class-1-connector-contacts",
+   "description": "Verify a removable contact may be fitted into a class 1 connector under ECSS-Q-ST-60C clause 4.6.6: fold the contact manufacturer name and test it against the approved source list, check the lot code, date code, conformance certificate and detail specification tie the delivery to that source, demand pair evidence when contact and shell come from different makers, test the wire gauge against the range the contact size accommodates and the applied current against the derated allowance, then return a verdict in precedence order with every finding. Use when a class 1 harness needs crimp contacts. Trigger: ecss, q-st-60c-clause-4-6-6, class-1-removable-contact-sourcing, approved-contact-manufacturer-list, contact-lot-traceability, contact-shell-intermix-qualification, contact-size-wire-gauge-range, contact-current-derating-allowance.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q60-class-1-connector-contacts",
+    "class-1-removable-contact-sourcing",
+    "approved-contact-manufacturer-list",
+    "contact-lot-traceability",
+    "contact-shell-intermix-qualification",
+    "contact-size-wire-gauge-range",
+    "contact-current-derating-allowance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-constructional-analysis",
+   "name": "q60-class-1-constructional-analysis",
+   "description": "Evaluate a constructional analysis carried out on Class 1 evaluation samples under ECSS-Q-ST-60C clause 4.2.3.3: size the sample set from the part family and the declared diffusion and assembly lots, check that the cross-sectioned samples actually span the lots and date codes they claim to speak for, grade every internal inspection step and treat a skipped mandatory one as incomplete rather than merely weaker, group each observed anomaly by what it touches and how widely it appears, and return the conformance index with one verdict. Use when cross-section and internal-inspection results decide whether a part's construction is acceptable. Trigger: ecss, q-st-60c, class-1-constructional-analysis, evaluation-sample-representativeness, evaluation-metallographic-cross-section, class-1-internal-visual-inspection, construction-anomaly-severity, class-1-construction-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q-st-60c",
+    "q60-class-1-constructional-analysis",
+    "evaluation-sample-representativeness",
+    "evaluation-metallographic-cross-section",
+    "class-1-internal-visual-inspection",
+    "construction-anomaly-severity",
+    "class-1-construction-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-declared-components-list",
+   "name": "q60-class-1-declared-components-list",
+   "description": "Assess the declared components list a supplier issues for one Class 1 equipment item under clause 4.1.4 of ECSS-Q-ST-60C: select the items the clause obliges, grade each delivered file on whether it arrives in an editable exchange format a reviewer can revise rather than a flattened print carrying the same words, match the issued revision against the build standard the item is currently at, check the line count against the parts the item installs, weight covered items by declared part count and return the issue verdict with ranked findings. Use when a declared components list delivery, equipment parts data package or list issue review is in front of you. Trigger: ecss, q-st-60c, q60-editable-declared-components-list, q60-dcl-per-equipment-item-issue, q60-dcl-exchange-format-editability, q60-dcl-revision-currency, q60-dcl-item-coverage-fraction, q60-dcl-issue-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-components-scope",
+    "q-st-60c",
+    "q60-class-1-declared-components-list",
+    "q60-editable-declared-components-list",
+    "q60-dcl-per-equipment-item-issue",
+    "q60-dcl-exchange-format-editability",
+    "q60-dcl-revision-currency",
+    "q60-dcl-item-coverage-fraction",
+    "q60-dcl-issue-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-destructive-physical-analysis",
+   "name": "q60-class-1-destructive-physical-analysis",
+   "description": "Evaluate a delivered Class 1 EEE lot by destructive physical analysis under ECSS-Q-ST-60C clause 4.3.9. Use when partitioning a shipment into date-code groups, sizing the teardown sample each group owes, grading observed construction anomalies as major or minor from a project defect register, and testing wire bond pull forces against the minimum the wire diameter carries before turning the record into a lot disposition. Refuses an unregistered defect code, an unlisted wire diameter, a repeated serial, and a date-code group too small to give up its sample without eating the flight units. Trigger: ecss, q-st-60c, class-1-destructive-physical-analysis, date-code-group-teardown-sample, construction-anomaly-grading, wire-bond-pull-strength-minimum, class-1-lot-teardown-disposition, teardown-second-sample-rule.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-components-scope",
+    "q60-class-1-destructive-physical-analysis",
+    "date-code-group-teardown-sample",
+    "construction-anomaly-grading",
+    "wire-bond-pull-strength-minimum",
+    "class-1-lot-teardown-disposition",
+    "teardown-second-sample-rule"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-eqm-component-usage",
+   "name": "q60-class-1-eqm-component-usage",
+   "description": "Evaluate how parts fitted to an engineering qualification model are handled under the Class 1 rules of clause 4.1.6 of ECSS-Q-ST-60C: measure how far each fitted part's quality level sits below the flight-intended level, refuse a relaxation deeper than the programme allows and one left without a recorded substitution note, accumulate the thermal cycles, rework operations and powered hours the model has spent against their declared limits, keep the governing stress, and return each part's post-use disposition with the flight-build position stated. Use when a model parts list, build-standard substitution or post-test part disposition is in front of you. Trigger: ecss, q-st-60c, q60-eqm-fitted-part-usage-permission, q60-eqm-quality-level-relaxation-depth, q60-eqm-consumed-life-fraction, q60-eqm-post-use-disposition, q60-eqm-flight-build-reuse-position.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-components-scope",
+    "q-st-60c",
+    "q60-class-1-eqm-component-usage",
+    "q60-eqm-fitted-part-usage-permission",
+    "q60-eqm-quality-level-relaxation-depth",
+    "q60-eqm-consumed-life-fraction",
+    "q60-eqm-post-use-disposition",
+    "q60-eqm-flight-build-reuse-position"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-evaluation-general-requirements",
+   "name": "q60-class-1-evaluation-general-requirements",
+   "description": "Determine whether a candidate part needs a Class 1 evaluation and how much of one, when no qualification against an approved space specification stands behind it under ECSS-Q-ST-60C clause 4.2.3.1: weigh each prior-evidence claim by kind, test it for the same manufacturing line, the same part variant, no notified process change, validity and environment severity, take the strongest admissible claim rather than the sum of the weak ones, force the full programme for new or programme-specific technology, and return the outstanding programme elements with one decision. Use when heritage, agency or commercial evidence is offered in place of a Class 1 qualification. Trigger: ecss, q-st-60c, class-1-evaluation-need, prior-qualification-gap, evaluation-evidence-transferability, reduced-evaluation-programme, class-1-evaluation-decision.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q-st-60c",
+    "q60-class-1-evaluation-general-requirements",
+    "class-1-evaluation-need",
+    "prior-qualification-gap",
+    "evaluation-evidence-transferability",
+    "reduced-evaluation-programme",
+    "class-1-evaluation-decision"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-evaluation-testing",
+   "name": "q60-class-1-evaluation-testing",
+   "description": "Evaluate whether the test programme run on a candidate class 1 EEE part meets the conditions and pass criteria of ECSS-Q-ST-60C clause 4.2.3.4: refuse a step whose applied severity misses the required value in the sense that step declares, keep an unexecuted mandatory step apart from a step that ran with no drift, turn every end-point reading into a drift fraction against its own drift limit and its absolute limit band, and absorb an exactly-met bound with a named tolerance instead of relaxing it. Use when evaluation measurements have to become a candidate-part verdict. Trigger: ecss, q-st-60c-clause-4-2-3-4, class-1-candidate-part-evaluation, evaluation-test-programme-severity, applied-test-condition-sense, end-point-parameter-drift-limit, evaluation-pass-criteria-verdict, mandatory-evaluation-step-coverage.",
+   "tags": [
+    "ecss",
+    "q-st-60c-class-1-eee-scope",
+    "q60-class-1-evaluation-testing",
+    "q-st-60c-clause-4-2-3-4",
+    "class-1-candidate-part-evaluation",
+    "evaluation-test-programme-severity",
+    "applied-test-condition-sense",
+    "end-point-parameter-drift-limit",
+    "evaluation-pass-criteria-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-ground-support-equipment-parts",
+   "name": "q60-class-1-ground-support-equipment-parts",
+   "description": "Determine which electronic parts inside ground support equipment are directly connected to Class 1 flight hardware under clause 4.1.5 of ECSS-Q-ST-60C: walk each part's downstream chain to the flight connector, refuse a looping bench topology, break the chain only at an isolation stage that is itself qualified, keep a part behind an unqualified stage inside the boundary, then raise on every connected part the parts-control obligations the flight programme carries and return the obligation closure fraction, the governing part and ranked findings. Use when a ground support equipment parts list, umbilical chain or test bench control scope is in front of you. Trigger: ecss, q-st-60c, q60-gse-direct-connection-path, q60-gse-isolation-stage-qualification, q60-gse-part-inherited-obligations, q60-gse-obligation-closure-fraction, q60-gse-control-scope-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-components-scope",
+    "q-st-60c",
+    "q60-class-1-ground-support-equipment-parts",
+    "q60-gse-direct-connection-path",
+    "q60-gse-isolation-stage-qualification",
+    "q60-gse-part-inherited-obligations",
+    "q60-gse-obligation-closure-fraction",
+    "q60-gse-control-scope-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-handling-and-storage",
+   "name": "q60-class-1-handling-and-storage",
+   "description": "Assess the handling, packaging and storage regime protecting a class 1 EEE lot under ECSS-Q-ST-60C clause 4.4: derive the packaging layers the part's fragility and moisture needs owe, test the container as received for seal integrity and a humidity indicator inside its threshold, return the transport shock peak as a fraction of the allowable, accumulate a thermal degradation index over the storage duration, name the handling authorisations the movement lacked, and close with one fit-for-issue, issue-with-actions or hold-for-reconditioning disposition. Use when a class 1 lot is unpacked, moved between bays or reviewed before issue. Trigger: ecss, q-st-60c, class-1-packaging-layer-suitability, class-1-container-seal-integrity, class-1-transport-shock-exposure, class-1-thermal-degradation-index, class-1-handling-issue-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-component-procurement",
+    "q-st-60c",
+    "q60-class-1-handling-and-storage",
+    "class-1-packaging-layer-suitability",
+    "class-1-container-seal-integrity",
+    "class-1-transport-shock-exposure",
+    "class-1-thermal-degradation-index",
+    "class-1-handling-issue-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-high-voltage-applications",
+   "name": "q60-class-1-high-voltage-applications",
+   "description": "Evaluate the additional provisions a class 1 EEE part owes when it runs at high voltage or high microwave power under ECSS-Q-ST-60C clause 4.6.7: stop a part whose working voltage sits above its own rating, test the voltage utilisation against the class 1 limit, flag an ambient inside the corona onset window and a sealed cavity with no vent path, derive the partial discharge, corona, venting, multipaction and power handling provisions the application calls for, and return one provisions-satisfied, provisions-outstanding, provisions-nonconforming or application-not-admissible disposition. Use when a class 1 part is applied above the high voltage threshold or in a high power microwave chain. Trigger: ecss, q-st-60c, class-1-high-voltage-derating, class-1-corona-onset-window, class-1-multipaction-fd-product, class-1-high-voltage-provision-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-component-procurement",
+    "q-st-60c",
+    "q60-class-1-high-voltage-applications",
+    "class-1-high-voltage-derating",
+    "class-1-corona-onset-window",
+    "class-1-multipaction-fd-product",
+    "class-1-high-voltage-provision-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-hybrid-procurement",
+   "name": "q60-class-1-hybrid-procurement",
+   "description": "Evaluate a class 1 hybrid microcircuit purchase against the specifications ECSS-Q-ST-60C clause 4.6.3 lists for it: select the generic specification family from the hybrid's construction, confirm the order cites that family at an issue that has not been superseded with a detail specification behind it, test the supplier against the approval list and the week its approval lapses, and check every die, chip element and substrate inside the hybrid carries a specification of its own. Refuses a construction with no listed family and names each constituent left uncovered. Use when a hybrid is about to be ordered. Trigger: ecss, q-st-60c-clause-4-6-3, class-1-hybrid-procurement, hybrid-generic-specification-family, hybrid-detail-specification-citation, hybrid-supplier-approval-expiry, constituent-element-specification-gap.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q60-class-1-hybrid-procurement",
+    "class-1-hybrid-procurement",
+    "hybrid-generic-specification-family",
+    "hybrid-detail-specification-citation",
+    "hybrid-supplier-approval-expiry",
+    "constituent-element-specification-gap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-incoming-inspection",
+   "name": "q60-class-1-incoming-inspection",
+   "description": "Assess whether a Class 1 EEE delivery may enter the bonded store on arrival at the procuring entity under ECSS-Q-ST-60C clause 4.3.7: name every document the evidence pack travelling with the parts is missing, take transit damage out of the accepted quantity instead of leaving it in, judge the shipping seal and the static-protective bag as findings about the pieces inside rather than about the wrapping, and resolve the date code to its build week so a lot that aged past its threshold before it ever arrived owes a solderability re-test. Use when a goods-in bench has to become a bonded-store or quarantine disposition. Trigger: ecss, q-st-60c-clause-4-3-7, class-1-arrival-inspection, class-1-evidence-pack-on-arrival, transit-damage-accepted-count, static-protective-bag-arrival-check, date-code-solderability-threshold, bonded-store-entry-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-class-1-scope",
+    "q60-class-1-incoming-inspection",
+    "class-1-arrival-inspection",
+    "class-1-evidence-pack-on-arrival",
+    "transit-damage-accepted-count",
+    "static-protective-bag-arrival-check",
+    "date-code-solderability-threshold",
+    "bonded-store-entry-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-inspection-documentation",
+   "name": "q60-class-1-inspection-documentation",
+   "description": "Audit the inspection and control records a class 1 parts programme has produced under ECSS-Q-ST-60C clause 4.7: name every performed activity carrying no record at all, test each record for a traceable lot identity, a stated outcome, an authorised signatory, an evidence reference and a disposition behind every failed outcome, measure the retention shortfall against the programme retention period, and return one documentation-complete, documentation-incomplete or documentation-not-auditable disposition with the completeness fraction. Use when the inspection evidence for a class 1 parts programme is compiled or reviewed. Trigger: ecss, q-st-60c, class-1-inspection-record-defects, class-1-record-retention-shortfall, class-1-documentation-completeness, class-1-documentation-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-component-procurement",
+    "q-st-60c",
+    "q60-class-1-inspection-documentation",
+    "class-1-inspection-record-defects",
+    "class-1-record-retention-shortfall",
+    "class-1-documentation-completeness",
+    "class-1-documentation-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-lot-acceptance-testing",
+   "name": "q60-class-1-lot-acceptance-testing",
+   "description": "Plan which Class 1 EEE units of a delivery still owe a lot acceptance submission under ECSS-Q-ST-60C clause 4.3.5: split the delivery into one submission unit per part number, date code and manufacturer lot, size each draw with exact rational arithmetic that rounds the percentage rule up and clamps it between the declared floor and the unit quantity, and test every acceptance record on file for the same material, a date no later than the submission day and a validity window counted in whole calendar months. Use when a delivery has to become a submission plan rather than a pass-fail verdict. Trigger: ecss, q-st-60c-clause-4-3-5, class-1-lot-acceptance-submission, date-code-submission-unit, lat-record-validity-window, lat-submission-draw-sizing, outstanding-lot-submission.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-class-1-scope",
+    "q60-class-1-lot-acceptance-testing",
+    "class-1-lot-acceptance-submission",
+    "date-code-submission-unit",
+    "lat-record-validity-window",
+    "lat-submission-draw-sizing",
+    "outstanding-lot-submission"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-lot-homogeneity-sampling",
+   "name": "q60-class-1-lot-homogeneity-sampling",
+   "description": "Assess whether the class 1 parts drawn for lot testing genuinely stand for the whole delivered lot under ECSS-Q-ST-60C clause 4.5.5: stratify the lot on its declared production strata, size the required sample by exact integer ratio, allocate that sample across the strata by largest remainder, compare the units actually drawn against the allocation, and weigh the defectives found against the acceptance number. Refuses a part with no stratum label and names every stratum the draw never reached. Use when a sample test result is about to be extended to parts nobody tested. Trigger: ecss, q-st-60c-clause-4-5-5, class-1-sample-representativeness, lot-stratification-sampling, largest-remainder-allocation, allocation-shortfall-finding, attribute-acceptance-number, unrepresented-stratum-finding.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q60-class-1-lot-homogeneity-sampling",
+    "class-1-sample-representativeness",
+    "lot-stratification-sampling",
+    "largest-remainder-allocation",
+    "allocation-shortfall-finding",
+    "attribute-acceptance-number",
+    "unrepresented-stratum-finding"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-manufacturer-data-deliveries",
+   "name": "q60-class-1-manufacturer-data-deliveries",
+   "description": "Verify the manufacturer data package delivered with a class 1 EEE shipment under ECSS-Q-ST-60C clause 4.3.11: derive the record set the lot's radiation duty, delta-qualification status, approved deviations and rework history owe, test every delivered certificate for an authorised signature, lot-code agreement with the box, an issue date at or before dispatch and coverage of the delivered quantity, walk the identity chain the records claim, and return the completeness fraction with one accept, accept-with-actions or hold-shipment disposition. Use when a class 1 delivery is booked in and its paperwork decides whether the parts reach stores. Trigger: ecss, q-st-60c, class-1-certificate-of-conformity, class-1-lot-traceability-chain, class-1-data-package-completeness, manufacturer-record-defect-ranking, class-1-shipment-release-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-component-procurement",
+    "q-st-60c",
+    "q60-class-1-manufacturer-data-deliveries",
+    "class-1-certificate-of-conformity",
+    "class-1-lot-traceability-chain",
+    "class-1-data-package-completeness",
+    "manufacturer-record-defect-ranking",
+    "class-1-shipment-release-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-microwave-monolithic-circuits",
+   "name": "q60-class-1-microwave-monolithic-circuits",
+   "description": "Evaluate a microwave monolithic integrated circuit for class 1 use under ECSS-Q-ST-60C clause 4.6.5: take the foundry process, the source category and the delivery form, check the operating band sits inside the band the part was characterized over, resolve the channel temperature from baseplate, thermal resistance and dissipated power against the derating limit, compare applied against rated drive, group the electrostatic sensitivity, then return the procurement and evaluation activities the source and the bare die oblige with a usability verdict. Use when an amplifier or converter stage needs a class 1 MMIC. Trigger: ecss, q-st-60c-clause-4-6-5, class-1-mmic-selection, mmic-foundry-source-category, mmic-characterized-band-coverage, mmic-channel-temperature-derating, mmic-rf-drive-derating, mmic-bare-die-handling-controls.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q60-class-1-microwave-monolithic-circuits",
+    "class-1-mmic-selection",
+    "mmic-foundry-source-category",
+    "mmic-characterized-band-coverage",
+    "mmic-channel-temperature-derating",
+    "mmic-rf-drive-derating",
+    "mmic-bare-die-handling-controls"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-nonconformance-control",
+   "name": "q60-class-1-nonconformance-control",
+   "description": "Manage the nonconformance and failure control system a programme runs over its highest-assurance (class 1) EEE parts, under ECSS-Q-ST-60C clause 4.5.2: grade each report from its effect, its reach into built hardware and its safety consequence, derive the dispositions that grade allows and the signatures each disposition earns, decide when a failure analysis is owed rather than optional, impound every sibling lot sharing the failing wafer lot or date code, and detect a failure mode that has recurred often enough to be systematic. Use when a class 1 part fails, is found out of specification, or repeats a failure mode across lots. Trigger: ecss, q-st-60c, class-1-eee-nonconformance, failure-review-board-disposition, sibling-lot-impound, systematic-failure-mode-recurrence, nonconformance-closure-working-days, failure-analysis-trigger.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-components-scope",
+    "q60-class-1-nonconformance-control",
+    "class-1-eee-part",
+    "eee-nonconformance-grading",
+    "failure-review-board-disposition",
+    "sibling-lot-impound",
+    "systematic-failure-mode-recurrence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-part-material-restrictions",
+   "name": "q60-class-1-part-material-restrictions",
+   "description": "Evaluate a candidate Class 1 part's packaging and material content against the ECSS-Q-ST-60C clause 4.2.2.2 restrictions: decide whether the case is hermetic, and for a non-hermetic one grade the agreed justification, the moisture sensitivity level and the demonstrated damp life against the humid hours the mission asks for; grade every surface finish against the near-pure-tin whisker threshold; grade each restricted metal against the trace it is allowed at; then list the re-work and deviations the part needs before purchase. Use when a Class 1 build has to show a chosen part's case and finish are allowed. Trigger: ecss, q-st-60c-eee-selection-scope, class-1-non-hermetic-packaging-limit, class-1-pure-tin-whisker-restriction, class-1-restricted-material-check, moisture-sensitivity-level-ceiling, class-1-finish-rework-mitigation.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-selection-scope",
+    "q60-class-1-part-material-restrictions",
+    "class-1-non-hermetic-packaging-limit",
+    "class-1-pure-tin-whisker-restriction",
+    "class-1-restricted-material-check",
+    "moisture-sensitivity-level-ceiling",
+    "class-1-finish-rework-mitigation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-parts-approval",
+   "name": "q60-class-1-parts-approval",
+   "description": "Assess whether every EEE part proposed for class 1 flight use carries the customer review and sign-off of ECSS-Q-ST-60C clause 4.2.4: hold each submission to the mandatory evidence set, test the signatory both against the customer roster and for independence from the submitting organisation, treat an undated or out-of-validity sign-off as unreleased, release nothing on a conditional approval until every condition carries a closure record, and name each proposed part that never reached a review. Use when a proposed parts list has to become a released flight parts list. Trigger: ecss, q-st-60c-clause-4-2-4, class-1-part-customer-approval, parts-approval-evidence-package, approval-signatory-independence, approval-validity-window, conditional-approval-closure-record, unsubmitted-proposed-part.",
+   "tags": [
+    "ecss",
+    "q-st-60c-class-1-eee-scope",
+    "q60-class-1-parts-approval",
+    "q-st-60c-clause-4-2-4",
+    "class-1-part-customer-approval",
+    "parts-approval-evidence-package",
+    "approval-signatory-independence",
+    "approval-validity-window",
+    "conditional-approval-closure-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-parts-control-board",
+   "name": "q60-class-1-parts-control-board",
+   "description": "Determine whether the parts control board has actually approved an electronic part for use at the highest reliability class under ECSS-Q-ST-60C clause 4.1.3: refuse a board missing a seat or a reference, test the quorum as attendance plus the chair rather than a headcount alone, weight the votes cast so an abstention withholds support, route each part category to the concurrences it depends on, require a decision reference and a recorded dissent before the decision stands, and name every absent, dissenting and abstaining seat. Use when a board minute has to become a part use verdict. Trigger: ecss, q-st-60c-clause-4-1-3, class-one-parts-control-board, parts-control-board-quorum, parts-control-board-weighted-vote, parts-control-board-concurrence-route, parts-control-board-decision-record.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-component-selection-scope",
+    "q60-class-1-parts-control-board",
+    "class-one-parts-control-board",
+    "parts-control-board-quorum",
+    "parts-control-board-weighted-vote",
+    "parts-control-board-concurrence-route",
+    "parts-control-board-decision-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-parts-control-organization",
+   "name": "q60-class-1-parts-control-organization",
+   "description": "Assess whether the unit accountable for electronic part control is constituted as the highest reliability class demands under ECSS-Q-ST-60C clause 4.1.2.1: refuse a unit with no name, lead or appointment behind it, take each required control function in turn, treat a function held by an unqualified name or funded below its effort floor as uncovered, compute the covered share and the effort-weighted staffing, name every unassigned and every under-resourced function, test the reporting line and the independence from the design authority, and cap the control one holder may carry alone. Use when a declared parts control organization has to become an adequacy verdict. Trigger: ecss, q-st-60c-clause-4-1-2-1, class-one-parts-control-organization, parts-control-function-coverage, parts-control-holder-concentration, parts-control-reporting-line, parts-control-design-independence, parts-control-effort-floor.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-component-selection-scope",
+    "q60-class-1-parts-control-organization",
+    "class-one-parts-control-organization",
+    "parts-control-function-coverage",
+    "parts-control-holder-concentration",
+    "parts-control-reporting-line",
+    "parts-control-design-independence",
+    "parts-control-effort-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-precap-source-inspection",
+   "name": "q60-class-1-precap-source-inspection",
+   "description": "Audit the witnessed pre-cap source inspection covering the Class 1 production lots of an order. Use when a lot is about to be sealed or its inspection record reviewed: place the witness point before the seal in the manufacturing flow, report an assembly or rework step running between the two, reject a witness who is not independent of the manufacturer, count the notice given in working days against the notice required, size the sample each lot owes, and admit an unwitnessed lot only against a referenced nonconformance. Trigger: ecss, ecss-q-st-60c-clause-4-3-4, class-1-precap-source-inspection, precap-witness-independence, source-inspection-notice-working-days, precap-lot-sample-size, precap-nonconformance-waiver.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-parts-scope",
+    "q60-class-1-precap-source-inspection",
+    "ecss-q-st-60c-clause-4-3-4",
+    "class-1-precap-source-inspection",
+    "precap-witness-independence",
+    "source-inspection-notice-working-days",
+    "precap-lot-sample-size",
+    "precap-nonconformance-waiver"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-preferred-component-sources",
+   "name": "q60-class-1-preferred-component-sources",
+   "description": "Assess where each Class 1 part sits on the European preferred parts list, and what a step away from part one costs, under ECSS-Q-ST-60C clause 4.2.2.3: grade every candidate's listing tier, test whether a part one equivalent was searched for before a lower tier was taken and whether one was known to exist, dock the assurance for a missing procurement specification, then measure the part one share of the declared list against the project floor, pick a selection route per part, and name the justification, board approval or evaluation each departure buys. Use when a Class 1 parts list has to show it was drawn preferentially from part one. Trigger: ecss, q-st-60-eee-selection-scope, class-1-preferred-parts-listing, eppl-part-one-selection, eppl-part-two-justification, parts-control-board-approval-route, preferred-list-share-floor, unlisted-part-evaluation-burden.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-selection-scope",
+    "q60-class-1-preferred-component-sources",
+    "class-1-preferred-parts-listing",
+    "eppl-part-one-selection",
+    "eppl-part-two-justification",
+    "parts-control-board-approval-route",
+    "preferred-list-share-floor",
+    "unlisted-part-evaluation-burden",
+    "part-one-alternative-search"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-procurement-general-requirements",
+   "name": "q60-class-1-procurement-general-requirements",
+   "description": "Verify that a purchase of class 1 EEE parts meets the technical baseline agreed for it under ECSS-Q-ST-60C clause 4.3.1: refuse a part number or manufacturer that is neither the baseline one nor a declared alternate, rank the ordered assurance level against the baseline rank, name every baseline requirement the order never flowed down to the supplier, and hold the delivered lot to the ordered quantity, the baseline temperature range, the baseline dose figure and its traceability records. Use when a delivered lot has to be shown to match what was agreed. Trigger: ecss, q-st-60c-clause-4-3-1, class-1-part-procurement-conformity, purchase-order-requirement-flowdown, undeclared-part-substitution, delivered-lot-temperature-range-coverage, procurement-assurance-level-rank, delivered-lot-traceability-records.",
+   "tags": [
+    "ecss",
+    "q-st-60c-class-1-eee-scope",
+    "q60-class-1-procurement-general-requirements",
+    "q-st-60c-clause-4-3-1",
+    "class-1-part-procurement-conformity",
+    "purchase-order-requirement-flowdown",
+    "undeclared-part-substitution",
+    "delivered-lot-temperature-range-coverage",
+    "procurement-assurance-level-rank"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-procurement-specification",
+   "name": "q60-class-1-procurement-specification",
+   "description": "Verify that every Class 1 part type on an order is bought against one controlled purchasing specification in force. Use when a Class 1 procurement baseline has to be judged orderable: refuse a document with no identifier, issue or approving authority, reject a type carried by two specifications or by none, confirm the issue was effective on the order date, require the declared quality level, the named manufacturer and manufacturing line, an invoked procurement test programme and a lot traceability level, and hold every deviation to an approval reference. Trigger: ecss, ecss-q-st-60c-clause-4-3-2, class-1-purchasing-specification-control, class-1-component-type-coverage, purchasing-specification-issue-currency, class-1-approved-manufacturing-line, class-1-lot-traceability-level.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-parts-scope",
+    "q60-class-1-procurement-specification",
+    "ecss-q-st-60c-clause-4-3-2",
+    "class-1-purchasing-specification-control",
+    "class-1-component-type-coverage",
+    "purchasing-specification-issue-currency",
+    "class-1-approved-manufacturing-line",
+    "class-1-lot-traceability-level"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-programmable-logic-devices",
+   "name": "q60-class-1-programmable-logic-devices",
+   "description": "Determine the development, reuse and maintenance route a programmable logic device design takes in class 1 equipment under ECSS-Q-ST-60C clause 4.6.4: group the configuration technology as antifuse one-time, flash-reprogrammable or volatile, compare a reuse candidate against its baseline on device, logic and implementation axes, score the design-assurance record against what the declared origin demands, test the achieved functional coverage against the class 1 floor, then route the design to full development, delta verification or a reviewed reuse and attach the programming and in-service duties the technology carries. Use when a class 1 board carries an FPGA or CPLD. Trigger: ecss, q-st-60c-clause-4-6-4, class-1-pld-development-routing, pld-configuration-technology-groups, pld-reuse-delta-axes, pld-design-assurance-coverage, pld-programming-facility-controls, pld-in-service-maintenance-duties.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q60-class-1-programmable-logic-devices",
+    "class-1-pld-development-routing",
+    "pld-configuration-technology-groups",
+    "pld-reuse-delta-axes",
+    "pld-design-assurance-coverage",
+    "pld-programming-facility-controls",
+    "pld-in-service-maintenance-duties"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-quality-control-general",
+   "name": "q60-class-1-quality-control-general",
+   "description": "Determine the receiving control plan a class 1 EEE lot owes on arrival under ECSS-Q-ST-60C clause 4.5.1: stop an untraceable, empty or paperwork-rejected lot at the door, derive the control activities the package style, source history, radiation duty and age call for, order them so every non-destructive activity closes before a destructive one consumes parts, size each sample from the delivered quantity, and return the outstanding controls with one controls-complete, controls-outstanding or lot-not-admissible entry disposition. Use when a class 1 lot is booked into incoming quality control. Trigger: ecss, q-st-60c, class-1-receiving-control-plan, class-1-destructive-analysis-sample-size, class-1-control-activity-ordering, class-1-lot-admissibility-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-component-procurement",
+    "q-st-60c",
+    "q60-class-1-quality-control-general",
+    "class-1-receiving-control-plan",
+    "class-1-destructive-analysis-sample-size",
+    "class-1-control-activity-ordering",
+    "class-1-lot-admissibility-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-radiation-hardness-selection",
+   "name": "q60-class-1-radiation-hardness-selection",
+   "description": "Verify that a Class 1 part's radiation tolerance covers the environment it will actually see across the whole declared mission lifetime under ECSS-Q-ST-60C clause 4.2.2.4: accumulate ionising dose and displacement damage phase by phase behind the design shielding, raise each by its radiation design margin, cut a rate-sensitive technology's capability when it was characterised at a high dose rate, grade single event mechanisms separately for destructive and recoverable consequences, then name the binding mechanism, the open evidence and one disposition. Use when a Class 1 design has to show a part survives its radiation environment for the full mission. Trigger: ecss, q-st-60-eee-selection-scope, class-1-radiation-hardness-selection, mission-accumulated-total-ionising-dose, radiation-design-margin-uplift, enhanced-low-dose-rate-sensitivity-cut, destructive-single-event-screening, displacement-damage-fluence-margin.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-selection-scope",
+    "q60-class-1-radiation-hardness-selection",
+    "class-1-radiation-tolerance-matching",
+    "mission-accumulated-total-ionising-dose",
+    "radiation-design-margin-uplift",
+    "enhanced-low-dose-rate-sensitivity-cut",
+    "destructive-single-event-screening",
+    "displacement-damage-fluence-margin",
+    "mission-lifetime-dose-accumulation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-radiation-verification-testing",
+   "name": "q60-class-1-radiation-verification-testing",
+   "description": "Verify that a radiation-sensitive Class 1 EEE part meets its declared mission radiation environment under ECSS-Q-ST-60C clause 4.3.8. Use when deciding whether heritage evidence already carries the required margin or the flight lot owes its own irradiation, crediting the lowest failure-free dose of the sample by how many parts were actually irradiated, comparing the demonstrated radiation design margin with the required one, and judging single event threshold linear energy transfer against the mission requirement. Refuses an unlisted technology family, a sample too narrow to earn lot credit, and a destructive single event onset under the required level however wide the dose margin. Trigger: ecss, q-st-60c, class-1-part-radiation-verification-test, mission-declared-radiation-environment, class-1-radiation-design-margin, irradiated-lot-sample-credit, single-event-latch-up-veto, enhanced-low-dose-rate-sensitivity-test.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-components-scope",
+    "q60-class-1-radiation-verification-testing",
+    "class-1-part-radiation-verification-test",
+    "mission-declared-radiation-environment",
+    "class-1-radiation-design-margin",
+    "irradiated-lot-sample-credit",
+    "single-event-latch-up-veto"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-screening-requirements",
+   "name": "q60-class-1-screening-requirements",
+   "description": "Evaluate the screening regime applied to Class 1 parts before they enter flight standard hardware. Use when a screened lot has to be dispositioned: require every delivered device to be screened for a flight build, check the performed screens against the set the part family carries, reject an unapproved screening facility, convert the burn-in actually run to its equivalent at the reference condition by an Arrhenius acceleration and report a shortfall, count devices whose monitored drift exceeds the delta limit, and disposition the lot on percent defective. Trigger: ecss, ecss-q-st-60c-clause-4-3-3, class-1-flight-lot-screening, burn-in-arrhenius-equivalence, screening-delta-drift-limit, screening-percent-defective-allowable, approved-screening-facility.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-parts-scope",
+    "q60-class-1-screening-requirements",
+    "ecss-q-st-60c-clause-4-3-3",
+    "class-1-flight-lot-screening",
+    "burn-in-arrhenius-equivalence",
+    "screening-delta-drift-limit",
+    "screening-percent-defective-allowable",
+    "approved-screening-facility"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-selection-general-requirements",
+   "name": "q60-class-1-selection-general-requirements",
+   "description": "Assess whether a candidate Class 1 EEE part is ready to be taken to a procurement decision under ECSS-Q-ST-60C clause 4.2.1: declare every selection prerequisite as closed, open or not applicable, refuse a waiver on a blocking one, weight the prerequisites that still apply, compute a readiness index over them, list the blocking items left open, and name the single prerequisite worth closing next. Use when a project has to show the ground a Class 1 part choice stands on before the purchase order goes out. Trigger: ecss, q-st-60c-eee-selection-scope, class-1-part-selection-prerequisites, class-1-selection-readiness-index, component-control-plan-approval, declared-component-list-entry, class-1-procurement-authorization, blocking-selection-prerequisite.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-selection-scope",
+    "q60-class-1-selection-general-requirements",
+    "class-1-part-selection-prerequisites",
+    "class-1-selection-readiness-index",
+    "component-control-plan-approval",
+    "declared-component-list-entry",
+    "class-1-procurement-authorization",
+    "blocking-selection-prerequisite"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-selection-general-rules",
+   "name": "q60-class-1-selection-general-rules",
+   "description": "Audit the baseline Class 1 selection rules and how far they reach down the supply chain under ECSS-Q-ST-60C clause 4.2.2.1: declare each rule as applied, waived against a named approval, or not applied at every tier from in-house outward, refuse a chain with a gap in it, compute coverage tier by tier, take the weakest tier as the chain's reach, separate a rule missing in-house from one lost downstream, and name the rule surviving fewest tiers. Use when a Class 1 build has to show its selection rules bind its subcontractors too. Trigger: ecss, q-st-60c-eee-selection-scope, class-1-baseline-selection-rules, class-1-supply-chain-rule-flow-down, class-1-flow-down-break, supplier-tier-rule-coverage, class-1-selection-rule-waiver-approval.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-selection-scope",
+    "q60-class-1-selection-general-rules",
+    "class-1-baseline-selection-rules",
+    "class-1-supply-chain-rule-flow-down",
+    "class-1-flow-down-break",
+    "supplier-tier-rule-coverage",
+    "class-1-selection-rule-waiver-approval"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-self-made-magnetics",
+   "name": "q60-class-1-self-made-magnetics",
+   "description": "Assess an in-house wound magnetic part built for class 1 equipment under ECSS-Q-ST-60C clause 4.6.8: refuse a part with no wire, core or qualified winding procedure behind it, test the winding current density, core flux utilisation, interwinding dielectric withstanding voltage and hot spot margin against recognised practice, derive the screening sequence the construction, potting state and flight lot call for, and return one practice-satisfied, screening-outstanding, design-nonconforming or magnetics-not-admissible disposition. Use when a magnetic part is wound in house rather than procured to a component specification. Trigger: ecss, q-st-60c, self-made-magnetics-current-density, self-made-magnetics-flux-utilisation, self-made-magnetics-screening-sequence, self-made-magnetics-hot-spot-margin.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-component-procurement",
+    "q-st-60c",
+    "q60-class-1-self-made-magnetics",
+    "self-made-magnetics-current-density",
+    "self-made-magnetics-flux-utilisation",
+    "self-made-magnetics-screening-sequence",
+    "self-made-magnetics-hot-spot-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q60-class-1-stock-relifing",
+   "name": "q60-class-1-stock-relifing",
+   "description": "Determine whether expired Class 1 EEE stock can have its storage validity restored under ECSS-Q-ST-60C clause 4.3.10. Use when testing stored parts against the expiry their last acceptance granted, measuring how much moisture-sensitivity floor life has been consumed to decide whether a bake precedes relifing, sizing the relifing sample, judging external visual, solderability and leak results against their accept numbers, and re-granting a shortened storage period from the relifing date. Refuses an unlisted moisture sensitivity level, a package thicker than the bake register covers, and stock that has used up its permitted relifing rounds. Trigger: ecss, q-st-60c, class-1-stock-storage-expiry, moisture-sensitivity-floor-life-budget, dry-pack-bake-recovery, relifing-solderability-sample, shortened-re-granted-storage-period, stored-stock-re-screening-ceiling.",
+   "tags": [
+    "ecss",
+    "q-st-60c-eee-components-scope",
+    "q60-class-1-stock-relifing",
+    "class-1-stock-storage-expiry",
+    "moisture-sensitivity-floor-life-budget",
+    "dry-pack-bake-recovery",
+    "relifing-solderability-sample",
+    "shortened-re-granted-storage-period"
    ],
    "family": "space-systems",
    "pack": "ecss",

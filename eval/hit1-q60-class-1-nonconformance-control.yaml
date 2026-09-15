@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-nonconformance-control (space-systems/ecss)
+# Two tasks for the new leaf. nc1 routes on grading a report and deriving the
+# disposition and signatures it earns; nc2 routes on impounding the sibling
+# lots that share the failing wafer lot and on a failure mode that has become
+# systematic. Both must deterministically hit
+# space-systems/ecss/q60-class-1-nonconformance-control.
+tasks:
+  - id: nc1
+    query: "a class 1 EEE part came back out of specification after it was already soldered into a flight board, what grade is the nonconformance and who has to sign the disposition"
+    intent: "ECSS-Q-ST-60C clause 4.5.2; grade from effect, reach and safety, allowed dispositions per grade, failure review board and customer signatures, failure analysis owed"
+    expected_skill: "space-systems/ecss/q60-class-1-nonconformance-control"
+  - id: nc2
+    query: "the same threshold shift keeps turning up on one part number across three lots this year, which other lots do we impound and does this stay a project issue"
+    intent: "ECSS-Q-ST-60C clause 4.5.2; sibling lots sharing the wafer lot or date code impounded with the failing lot, rolling-window recurrence making the mode systematic, closure working days"
+    expected_skill: "space-systems/ecss/q60-class-1-nonconformance-control"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-component-traceability (space-systems/ecss)
+# Two tasks for the new leaf. ct1 routes on reconciling lot quantities and
+# catching an assembly that consumed parts never issued to it; ct2 routes on
+# tracing a suspect lot forward into assemblies and on a bin holding two lots
+# of one part number. Both must deterministically hit
+# space-systems/ecss/q60-class-1-component-traceability.
+tasks:
+  - id: ct1
+    query: "our stores count for a class 1 lot does not add up against what was issued and scrapped, and one board consumed parts from a lot that was never kitted to it"
+    intent: "ECSS-Q-ST-60C clause 4.5.4; receipt record owning the lot identity, received against issued, scrapped and remaining, unsourced consumption breaking the chain"
+    expected_skill: "space-systems/ecss/q60-class-1-component-traceability"
+  - id: ct2
+    query: "which finished assemblies did this suspect lot reach, and is any bin holding two lots of the same part number so we cannot tell them apart at issue"
+    intent: "ECSS-Q-ST-60C clause 4.5.4; forward trace from a lot to assemblies, backward trace from an assembly to lots, mixed-lot bin detection, storage limit exceeded"
+    expected_skill: "space-systems/ecss/q60-class-1-component-traceability"

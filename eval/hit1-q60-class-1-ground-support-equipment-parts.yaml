@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-ground-support-equipment-parts (space-systems/ecss,
+# Q-ST-60C 4.1.5). Two tasks per leaf; gsep1 routes on the topology walk and the
+# isolation credit a stage may claim, gsep2 on the obligations a connected part
+# inherits and the closure they are graded by. Both must deterministically hit
+# space-systems/ecss/q60-class-1-ground-support-equipment-parts.
+tasks:
+  - id: gsep1
+    query: "walk the q60-gse-direct-connection-path of each bench part and decide the q60-gse-isolation-stage-qualification credit it may claim"
+    intent: "ecss eee components; which ground equipment parts sit inside the directly connected boundary"
+    expected_skill: "space-systems/ecss/q60-class-1-ground-support-equipment-parts"
+  - id: gsep2
+    query: "raise the q60-gse-part-inherited-obligations on every connected part then return the q60-gse-obligation-closure-fraction and q60-gse-control-scope-verdict"
+    intent: "ecss eee components; parts control a connected ground part inherits from the flight programme"
+    expected_skill: "space-systems/ecss/q60-class-1-ground-support-equipment-parts"

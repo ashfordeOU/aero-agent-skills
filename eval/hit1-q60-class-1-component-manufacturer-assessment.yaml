@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-component-manufacturer-assessment
+# (space-systems/ecss, Q-ST-60C 4.2.3.2). Two tasks per leaf; cma1 routes on
+# the baseline criteria and the capability index, cma2 on audit validity and
+# the supplier approval outcome. Both must deterministically hit
+# space-systems/ecss/q60-class-1-component-manufacturer-assessment.
+tasks:
+  - id: cma1
+    query: "grade a part maker against the space-component-baseline-criteria and return the manufacturer-capability-index with the blocking baseline items"
+    intent: "ecss eee parts; the factory-side assessment inside a class 1 part evaluation"
+    expected_skill: "space-systems/ecss/q60-class-1-component-manufacturer-assessment"
+  - id: cma2
+    query: "derate a questionnaire rating and an out-of-date audit for manufacturer-audit-validity then decide class-1-supplier-approval"
+    intent: "ecss eee parts; audit reports and questionnaires behind a component manufacturer assessment"
+    expected_skill: "space-systems/ecss/q60-class-1-component-manufacturer-assessment"

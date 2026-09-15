@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-1-incoming-inspection (space-systems/ecss)
+# Two tasks for the leaf. ar1 routes on the evidence pack that travels with a
+# Class 1 delivery and on transit damage leaving the accepted count; ar2 routes
+# on resolving the date code to its build week so an already-aged lot owes a
+# solderability re-test before bonded-store entry. Both must deterministically
+# hit space-systems/ecss/q60-class-1-incoming-inspection, not the commercial
+# parts receipt leaf.
+tasks:
+  - id: ar1
+    query: "on arrival of Class 1 parts at our premises, name every document missing from the evidence pack that travelled with them and take the pieces damaged in transit out of the accepted quantity"
+    intent: "ECSS-Q-ST-60C clause 4.3.7; evidence pack completeness and transit damage on the goods-in bench"
+    expected_skill: "space-systems/ecss/q60-class-1-incoming-inspection"
+  - id: ar2
+    query: "work out from the date code how old a Class 1 lot already was when it reached the door, decide whether it owes a solderability re-test, and say whether it enters the bonded store or goes to quarantine"
+    intent: "ECSS-Q-ST-60C clause 4.3.7; build-week age on arrival, solderability threshold and bonded-store entry"
+    expected_skill: "space-systems/ecss/q60-class-1-incoming-inspection"

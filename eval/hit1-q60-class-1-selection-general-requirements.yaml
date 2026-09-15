@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-selection-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. csgr1 routes on the readiness of the ground a Class 1
+# part choice stands on before a purchase order; csgr2 routes on a blocking
+# prerequisite stopping a selection whatever the weighted index reads. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-1-selection-general-requirements.
+tasks:
+  - id: csgr1
+    query: "before we raise the purchase order for this Class 1 part, work out how much of the selection groundwork is actually in place and which prerequisite to close next"
+    intent: "ECSS-Q-ST-60C clause 4.2.1; Class 1 part selection prerequisites and weighted selection readiness index"
+    expected_skill: "space-systems/ecss/q60-class-1-selection-general-requirements"
+  - id: csgr2
+    query: "the component control plan is not approved yet and the declared component list is not open, can this Class 1 selection decision go ahead on the strength of everything else being done"
+    intent: "ECSS-Q-ST-60C clause 4.2.1; blocking selection prerequisite and Class 1 procurement authorization"
+    expected_skill: "space-systems/ecss/q60-class-1-selection-general-requirements"
