@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-part-material-restrictions (space-systems/ecss)
+# Two tasks for the new leaf. cpmr1 routes on the near-pure-tin whisker threshold
+# on a candidate part's finish and the re-work that brings it back; cpmr2 routes
+# on whether a non-hermetic plastic case may be chosen for a Class 1 build. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-1-part-material-restrictions.
+tasks:
+  - id: cpmr1
+    query: "this candidate part comes with a matte tin lead finish at 99.5 percent tin, is that allowed on a Class 1 build and what re-work would bring it back"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.2; Class 1 pure tin whisker restriction and finish re-work mitigation"
+    expected_skill: "space-systems/ecss/q60-class-1-part-material-restrictions"
+  - id: cpmr2
+    query: "can we choose this moulded plastic non-hermetic converter for a Class 1 build, and what moisture sensitivity level and damp life do we have to show for it"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.2; Class 1 non-hermetic packaging limit and moisture sensitivity level ceiling"
+    expected_skill: "space-systems/ecss/q60-class-1-part-material-restrictions"

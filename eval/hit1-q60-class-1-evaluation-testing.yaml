@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-evaluation-testing (space-systems/ecss)
+# Two tasks for the new leaf. et1 routes on the severity a programme step was
+# actually run at and the sense that severity is read in; et2 routes on the
+# end-point drift fraction and the absolute limit band behind a pass verdict.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-1-evaluation-testing.
+tasks:
+  - id: et1
+    query: "check whether this evaluation programme on a candidate class 1 part ran each step hard enough, the cold soak only reached minus forty and one planned step was never run at all"
+    intent: "ECSS-Q-ST-60C clause 4.2.3.4; applied test condition severity read in its declared sense, and mandatory evaluation step coverage"
+    expected_skill: "space-systems/ecss/q60-class-1-evaluation-testing"
+  - id: et2
+    query: "work out whether the end point readings after the life test pass the evaluation criteria, parameters drifted from their initial values and some have an absolute limit band as well"
+    intent: "ECSS-Q-ST-60C clause 4.2.3.4; end-point parameter drift fraction against its drift limit plus the absolute limit band in an evaluation pass verdict"
+    expected_skill: "space-systems/ecss/q60-class-1-evaluation-testing"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-microwave-monolithic-circuits (space-systems/ecss)
+# Two tasks for the leaf. mmic1 routes on the source category and the evaluation
+# and procurement activities a microwave monolithic integrated circuit carries at
+# class 1; mmic2 routes on the application derating - characterized band, channel
+# temperature and drive level. Both must deterministically hit
+# space-systems/ecss/q60-class-1-microwave-monolithic-circuits.
+tasks:
+  - id: mmic1
+    query: "decide which evaluation and procurement activities a microwave monolithic integrated circuit carries at class 1 given its foundry source category and whether it arrives packaged or as bare die"
+    intent: "ECSS-Q-ST-60C clause 4.6.5; class 1 MMIC selection, source category and bare die handling controls"
+    expected_skill: "space-systems/ecss/q60-class-1-microwave-monolithic-circuits"
+  - id: mmic2
+    query: "check a microwave monolithic amplifier is used inside its characterized band, below its channel temperature derating limit and below its rated radio frequency drive"
+    intent: "ECSS-Q-ST-60C clause 4.6.5; MMIC characterized band coverage, channel temperature derating and drive derating"
+    expected_skill: "space-systems/ecss/q60-class-1-microwave-monolithic-circuits"

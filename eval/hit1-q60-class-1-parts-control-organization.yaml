@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-parts-control-organization (space-systems/ecss)
+# Two tasks for the leaf. pco1 routes on the accountable unit and the coverage
+# of the required control functions; pco2 routes on the reporting line, the
+# independence from the design authority and the holder concentration cap.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-1-parts-control-organization.
+tasks:
+  - id: pco1
+    query: "check whether the unit named as accountable for electronic part control has a lead, an appointment behind that lead and a real holder for every required part control function"
+    intent: "ECSS-Q-ST-60C clause 4.1.2.1; parts control organization adequacy and control function coverage at reliability class 1"
+    expected_skill: "space-systems/ecss/q60-class-1-parts-control-organization"
+  - id: pco2
+    query: "score the effort-weighted staffing of a parts control organization and say whether its reporting line, its independence from the design authority and its peak holder concentration are acceptable"
+    intent: "ECSS-Q-ST-60C clause 4.1.2.1; parts control reporting line, design independence and single-holder concentration cap"
+    expected_skill: "space-systems/ecss/q60-class-1-parts-control-organization"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-connector-contacts (space-systems/ecss)
+# Two tasks for the leaf. cc1 routes on the approved-manufacturer rule for
+# removable contacts and the traceability that ties a delivery to that source;
+# cc2 routes on the application side - contact size against wire gauge and the
+# derated current allowance. Both must deterministically hit
+# space-systems/ecss/q60-class-1-connector-contacts.
+tasks:
+  - id: cc1
+    query: "confirm the removable crimp contacts going into a class 1 connector come from an approved manufacturer and that the lot code, date code and certificate of conformance tie the delivery to that source"
+    intent: "ECSS-Q-ST-60C clause 4.6.6; class 1 removable contact sourcing from approved manufacturers and lot traceability"
+    expected_skill: "space-systems/ecss/q60-class-1-connector-contacts"
+  - id: cc2
+    query: "check a size 20 removable contact accommodates the wire gauge it is crimped to, carries the circuit current inside its derated allowance, and has pair evidence when the contact and the connector shell come from different makers"
+    intent: "ECSS-Q-ST-60C clause 4.6.6; contact size wire gauge range, contact current derating allowance and contact shell intermix qualification"
+    expected_skill: "space-systems/ecss/q60-class-1-connector-contacts"

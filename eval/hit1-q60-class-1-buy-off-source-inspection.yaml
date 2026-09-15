@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-buy-off-source-inspection (space-systems/ecss)
+# Two tasks for the leaf. bo1 routes on the witnessing question -- who was in
+# the room and whether a referenced waiver stands in for them; bo2 routes on
+# the notice period and on capping the release at the pieces actually put in
+# front of the witness. Both must deterministically hit
+# space-systems/ecss/q60-class-1-buy-off-source-inspection.
+tasks:
+  - id: bo1
+    query: "decide from the attendance list whether the final acceptance session at the manufacturer was witnessed on behalf of the procuring entity, was waived under a referenced waiver, or was simply unwitnessed"
+    intent: "ECSS-Q-ST-60C clause 4.3.6; witness attendance and waiver admissibility at a Class 1 source buy-off"
+    expected_skill: "space-systems/ecss/q60-class-1-buy-off-source-inspection"
+  - id: bo2
+    query: "count the advance notice given for a buy-off at the supplier and cap how many Class 1 pieces it releases at the quantity actually presented to the witness"
+    intent: "ECSS-Q-ST-60C clause 4.3.6; buy-off notice period and presented-quantity release cap"
+    expected_skill: "space-systems/ecss/q60-class-1-buy-off-source-inspection"

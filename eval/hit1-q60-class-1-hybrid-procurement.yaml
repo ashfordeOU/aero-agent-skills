@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-hybrid-procurement (space-systems/ecss)
+# Two tasks for the leaf. chp1 routes on selecting the generic specification
+# family and the detail specification the order must cite; chp2 routes on the
+# supplier approval expiry and the constituent element specifications. Both
+# must deterministically hit space-systems/ecss/q60-class-1-hybrid-procurement.
+tasks:
+  - id: chp1
+    query: "select the generic specification family a thick film class 1 hybrid microcircuit is bought against and check the purchase order cites it at a current issue with a detail specification behind it"
+    intent: "ECSS-Q-ST-60C clause 4.6.3; hybrid generic specification family and detail specification citation on the purchase order"
+    expected_skill: "space-systems/ecss/q60-class-1-hybrid-procurement"
+  - id: chp2
+    query: "test the hybrid supplier against the approval list and the week its approval lapses, and check every die, chip element and substrate inside the package carries its own specification"
+    intent: "ECSS-Q-ST-60C clause 4.6.3; hybrid supplier approval expiry and constituent element specification gaps"
+    expected_skill: "space-systems/ecss/q60-class-1-hybrid-procurement"

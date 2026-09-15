@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-manufacturer-data-deliveries (space-systems/ecss,
+# Q-ST-60C 4.3.11). Two tasks per leaf; md1 routes on the certificate set and
+# the identity chain, md2 on the per-record defects and the shipment
+# disposition. Both must deterministically hit
+# space-systems/ecss/q60-class-1-manufacturer-data-deliveries.
+tasks:
+  - id: md1
+    query: "work out the class-1-data-package-completeness of the delivery and walk the class-1-lot-traceability-chain the records claim"
+    intent: "ecss eee class 1; manufacturer records delivered with a shipment"
+    expected_skill: "space-systems/ecss/q60-class-1-manufacturer-data-deliveries"
+  - id: md2
+    query: "test the class-1-certificate-of-conformity against the box, rank the manufacturer-record-defect-ranking findings and give the class-1-shipment-release-disposition"
+    intent: "ecss eee class 1; certificate defects and release of a received shipment"
+    expected_skill: "space-systems/ecss/q60-class-1-manufacturer-data-deliveries"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-parts-approval (space-systems/ecss)
+# Two tasks for the new leaf. pa1 routes on the customer sign-off itself —
+# roster authority, independence from the submitter, and the validity of an
+# undated approval; pa2 routes on conditional approvals and on parts proposed
+# for flight that never reached a review. Both must deterministically hit
+# space-systems/ecss/q60-class-1-parts-approval.
+tasks:
+  - id: pa1
+    query: "decide whether these class 1 parts are actually approved for flight, one sign off is undated and another was signed by someone inside the company that proposed the part"
+    intent: "ECSS-Q-ST-60C clause 4.2.4; customer approval signatory roster authority, independence from the submitting organisation and sign-off validity window"
+    expected_skill: "space-systems/ecss/q60-class-1-parts-approval"
+  - id: pa2
+    query: "which parts on the proposed flight list can we release, two came back approved with conditions that are still open and one was never submitted for customer review at all"
+    intent: "ECSS-Q-ST-60C clause 4.2.4; conditional approval closure records and proposed parts that never reached a customer review"
+    expected_skill: "space-systems/ecss/q60-class-1-parts-approval"

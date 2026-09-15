@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-precap-source-inspection (space-systems/ecss)
+# Two tasks for the new leaf. pc1 routes on the witness point sitting before
+# the seal and on who may witness it; pc2 routes on the working-day notice,
+# the lot sample size and the waiver route for a lot sealed unwitnessed. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-1-precap-source-inspection.
+tasks:
+  - id: pc1
+    query: "the manufacturer put our witness point after the lid seal on one Class 1 lot and had their own quality inspector sign the other, does either count as a source inspection"
+    intent: "ECSS-Q-ST-60C clause 4.3.4; the witnessed inspection sits before the seal and is performed by somebody independent of the manufacturer"
+    expected_skill: "space-systems/ecss/q60-class-1-precap-source-inspection"
+  - id: pc2
+    query: "we got three days notice for the pre-cap witness, they showed us six devices out of a 200 piece production lot, and one lot was sealed before we arrived, how do we close this"
+    intent: "ECSS-Q-ST-60C clause 4.3.4; working-day notice, the sample a production lot owes, and the nonconformance route for a lot sealed without a witness"
+    expected_skill: "space-systems/ecss/q60-class-1-precap-source-inspection"

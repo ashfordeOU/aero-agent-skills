@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-component-derating-rules (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on reconciling an equipment parts list
+# against the lines the derating analysis actually reached; to2 routes on
+# building a worst-case applied stress from nominal, tolerance and transient
+# uplift and naming the tightest part. Both must deterministically hit
+# space-systems/ecss/q60-class-1-component-derating-rules.
+tasks:
+  - id: to1
+    query: "the derating analysis for this Class 1 unit grades forty parts and the parts list has forty three lines, work out what the three missing lines do to the equipment level result"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.5; reconciling the equipment parts list against the analysed parts, by line and weighted by quantity, before any per-part verdict is taken"
+    expected_skill: "space-systems/ecss/q60-class-1-component-derating-rules"
+  - id: to2
+    query: "these stresses were graded at their nominal values with no tolerance spread and no inrush allowance, redo them properly and tell me which part in the box is closest to its limit"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.5; building worst-case applied stress from nominal, tolerance spread and transient uplift, stepping the rated hot-spot down, and naming the tightest part by utilisation"
+    expected_skill: "space-systems/ecss/q60-class-1-component-derating-rules"

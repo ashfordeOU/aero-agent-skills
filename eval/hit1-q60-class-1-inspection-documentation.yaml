@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-inspection-documentation (space-systems/ecss,
+# Q-ST-60C 4.7). Two tasks per leaf; id1 routes on the per-record defects and
+# the completeness fraction, id2 on the retention shortfall and the audit
+# disposition. Both must deterministically hit
+# space-systems/ecss/q60-class-1-inspection-documentation.
+tasks:
+  - id: id1
+    query: "go through the class-1-inspection-record-defects in this folder and give me the class-1-documentation-completeness across the activities we actually performed"
+    intent: "ecss eee class 1; recording the outcomes of inspection and control activities"
+    expected_skill: "space-systems/ecss/q60-class-1-inspection-documentation"
+  - id: id2
+    query: "work out the class-1-record-retention-shortfall on this programme and give the class-1-documentation-disposition before the audit"
+    intent: "ecss eee class 1; auditability of the class 1 parts inspection record set"
+    expected_skill: "space-systems/ecss/q60-class-1-inspection-documentation"

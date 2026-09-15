@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-selection-general-rules (space-systems/ecss)
+# Two tasks for the new leaf. csgl1 routes on grading how far the in-house Class 1
+# selection rule set actually reaches down the supplier tiers; csgl2 routes on
+# telling a flow-down break apart from a rule that was never in force in-house.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-1-selection-general-rules.
+tasks:
+  - id: csgl1
+    query: "our Class 1 selection rules are applied in-house but I need to know how far down the subcontractor tiers they really reach and which tier governs the chain"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.1; Class 1 baseline selection rules and supply chain rule flow-down coverage"
+    expected_skill: "space-systems/ecss/q60-class-1-selection-general-rules"
+  - id: csgl2
+    query: "the tier-2 supplier is not keeping lot traceability and the customer deviation rule was never applied here either, which of those is a flow-down break and which waiver counts without an approval reference"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.1; Class 1 flow-down break versus unenforceable rule and selection rule waiver approval"
+    expected_skill: "space-systems/ecss/q60-class-1-selection-general-rules"

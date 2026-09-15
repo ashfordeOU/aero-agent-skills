@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-1-preferred-component-sources (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on drawing a Class 1 parts list from
+# part one of the European preferred parts list and grading the departures;
+# to2 routes on a departure taken while a part one equivalent existed and on
+# the share of the declared list against the project floor. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-1-preferred-component-sources.
+tasks:
+  - id: to1
+    query: "our Class 1 parts list pulls half its capacitors off part one of the European preferred parts list and the rest from a maker catalogue, work out which selections are departures and what each one has to be bought back with"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.3; grading listing tier per candidate and naming the justification, parts control board approval or evaluation programme each departure owes"
+    expected_skill: "space-systems/ecss/q60-class-1-preferred-component-sources"
+  - id: to2
+    query: "the design took a part two item even though an equivalent part one item was on the shelf and nobody recorded a search, tell me what that does to the preferred list share against our floor"
+    intent: "ECSS-Q-ST-60C clause 4.2.2.3; unsearched and passed-over part one equivalents, missing procurement specification, part one share of the declared list against the project floor"
+    expected_skill: "space-systems/ecss/q60-class-1-preferred-component-sources"

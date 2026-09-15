@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-1-handling-and-storage (space-systems/ecss,
+# Q-ST-60C 4.4). Two tasks per leaf; hp1 routes on the packaging layers and
+# the container as received, hp2 on the transport shock and the storage
+# degradation index. Both must deterministically hit
+# space-systems/ecss/q60-class-1-handling-and-storage.
+tasks:
+  - id: hp1
+    query: "grade the class-1-packaging-layer-suitability of the pack and the class-1-container-seal-integrity of the container as it arrived"
+    intent: "ecss eee class 1; packaging layers and container integrity on receipt"
+    expected_skill: "space-systems/ecss/q60-class-1-handling-and-storage"
+  - id: hp2
+    query: "work out the class-1-transport-shock-exposure and the class-1-thermal-degradation-index of the stored lot, then give the class-1-handling-issue-disposition"
+    intent: "ecss eee class 1; transport shock and thermal storage exposure before issue"
+    expected_skill: "space-systems/ecss/q60-class-1-handling-and-storage"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-1-screening-requirements (space-systems/ecss)
+# Two tasks for the new leaf. sr1 routes on hundred-percent screening of a
+# flight lot and the burn-in temperature equivalence; sr2 routes on delta
+# drift removals and the percent defective lot disposition. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-1-screening-requirements.
+tasks:
+  - id: sr1
+    query: "the vendor screened only part of the Class 1 lot going into our flight build and ran burn-in hotter but shorter than the reference, is that regime acceptable"
+    intent: "ECSS-Q-ST-60C clause 4.3.3; every delivered device screened for flight standard hardware, with burn-in converted to its equivalent at the reference condition"
+    expected_skill: "space-systems/ecss/q60-class-1-screening-requirements"
+  - id: sr2
+    query: "some devices drifted more than the delta allowance across burn-in, work out the percent defective over the lot and tell me whether the whole lot is rejected"
+    intent: "ECSS-Q-ST-60C clause 4.3.3; delta drift removals counted with the catastrophic failures and dispositioned against the allowable percent defective"
+    expected_skill: "space-systems/ecss/q60-class-1-screening-requirements"
