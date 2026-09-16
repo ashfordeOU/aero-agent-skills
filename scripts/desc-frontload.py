@@ -76,13 +76,47 @@ def front_load(desc: str) -> str:
     return new
 
 
+def load_only(argv) -> list[str]:
+    """Paths this run is allowed to touch. REQUIRED - see module docstring.
+
+    Returns repo-relative paths that exist and sit at depth 4
+    (skills/<family>/<standard>/<slug>/SKILL.md). Anything else is refused
+    by name rather than skipped quietly, because a caller who listed a
+    family router meant something and should be told it did not happen.
+    """
+    if "--only" not in argv:
+        sys.exit("REFUSING: --only <listfile> is required.\n"
+                 "  This script rewrites shipped leaf descriptions in place. Run with\n"
+                 "  an explicit list of repo-relative SKILL.md paths; there is no\n"
+                 "  repo-wide mode (wave 12 rewrote 155 shipped leaves that way).")
+    listfile = argv[argv.index("--only") + 1]
+    wanted = [l.strip() for l in Path(listfile).read_text().splitlines() if l.strip()]
+    bad = []
+    ok = []
+    for rel in wanted:
+        full = ROOT / rel
+        if not full.is_file():
+            bad.append(f"{rel}: not a file")
+        elif len(Path(rel).parts) != 5 or Path(rel).parts[0] != "skills":
+            # skills / family / standard / slug / SKILL.md == 5 parts
+            bad.append(f"{rel}: not a depth-4 leaf")
+        else:
+            ok.append(rel)
+    if bad:
+        print(f"REFUSING: {len(bad)} listed path(s) are not depth-4 leaves:")
+        for b in bad[:10]:
+            print("  " + b)
+        sys.exit(1)
+    return ok
+
+
 def main() -> int:
     dry = "--dry-run" in sys.argv
+    only = load_only(sys.argv)
+    print(f"scope: {len(only)} leaf/leaves from --only list")
     changed = []
-    for f in sorted(glob.glob(str(ROOT / "skills/**/SKILL.md"), recursive=True)):
-        parts = f.split("/")
-        if len(parts) < 4:  # leaf only (skills/FAMILY/leaf/SKILL.md)
-            continue
+    for rel in only:
+        f = str(ROOT / rel)
         path = Path(f)
         text = path.read_text()
         desc = parse_desc(text)
