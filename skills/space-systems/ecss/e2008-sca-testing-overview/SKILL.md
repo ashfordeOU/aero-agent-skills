@@ -1,6 +1,6 @@
 ---
 name: e2008-sca-testing-overview
-description: "Plan the solar cell assembly test programme of clause 6.1.1 of ECSS-E-ST-20-08C, where acceptance and qualification activities run as one campaign: hold each declared activity to the category it owes, check the specimen it runs on against that category, size the sample against the policy minimum, measure programme coverage and the qualification share, and return one programme verdict. Use when an SCA test matrix, campaign plan or coupon allocation has to be assessed. Trigger: ecss, e-st-20-08c, sca-testing-overview, solar-cell-assembly-test-programme, sca-acceptance-and-qualification-coverage, sca-qualification-coupon-allocation, sca-test-activity-categorization, sca-programme-sample-size."
+description: "Use when an SCA test matrix, campaign plan or coupon allocation has to be assessed. Plan the solar cell assembly test programme of clause 6.1.1 of ECSS-E-ST-20-08C, where acceptance and qualification activities run as one campaign: hold each declared activity to the category it owes, check the specimen it runs on against that category, size the sample against the policy minimum, measure programme coverage and the qualification share, and return one programme verdict. Trigger: ecss, e-st-20-08c, sca-testing-overview, solar-cell-assembly-test-programme, sca-acceptance-and-qualification-coverage, sca-qualification-coupon-allocation, sca-test-activity-categorization, sca-programme-sample-size."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
