@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-part-approval-document-drd (space-systems/ecss,
+# Q-ST-60C Annex D). Two tasks per leaf; paddrd1 routes on the per-sheet fields
+# and the document content blocks, paddrd2 on the decision state, the recorded
+# limitations and the installation-weighted approved share. Both must
+# deterministically hit space-systems/ecss/q60-part-approval-document-drd.
+tasks:
+  - id: paddrd1
+    query: "grade the q60-pad-drd-sheet-fields on every sheet and weight the q60-pad-drd-document-blocks the deliverable carries"
+    intent: "ecss eee components; the part approval document data item, sheet by sheet"
+    expected_skill: "space-systems/ecss/q60-part-approval-document-drd"
+  - id: paddrd2
+    query: "separate the q60-pad-drd-decision-state values, insist on q60-pad-drd-limitations-recorded and return the q60-pad-drd-installed-weighted-approval"
+    intent: "ecss eee components; approval decisions and coverage inside a part approval document deliverable"
+    expected_skill: "space-systems/ecss/q60-part-approval-document-drd"

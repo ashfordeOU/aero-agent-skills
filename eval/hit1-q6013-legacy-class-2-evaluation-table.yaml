@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-legacy-class-2-evaluation-table (space-systems/ecss)
+# Two tasks for the leaf. up1 routes on the evaluation grouping set and the
+# source-lot diversity that makes the result describe a part type; up2 routes
+# on the currency window and the process change that voids an otherwise clean
+# record. Both must deterministically hit
+# space-systems/ecss/q6013-legacy-class-2-evaluation-table.
+tasks:
+  - id: up1
+    query: "the supplier evaluated this legacy commercial transistor with every device taken from one date code and skipped the endurance grouping, is the part type evaluated for our intermediate assurance build"
+    intent: "ECSS-Q-ST-60-13C Table 8-12; evaluation grouping set complete and devices drawn from more than one production lot"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-2-evaluation-table"
+  - id: up2
+    query: "we hold a six year old legacy part evaluation with clean subgroups but the fab moved lines since, can we reuse it or does the evaluation campaign have to be repeated"
+    intent: "ECSS-Q-ST-60-13C Table 8-12; evaluation currency window and the declared process change that voids the record"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-2-evaluation-table"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6003-criticality-applicability-matrix (space-systems/ecss)
+# Two tasks for the new leaf. cam1 routes on deriving the criticality category
+# from the worst credible failure effect and its recoverability; cam2 routes on
+# a tailoring that drops a row the matrix marks applicable outright. Both must
+# deterministically hit
+# space-systems/ecss/q6003-criticality-applicability-matrix.
+tasks:
+  - id: cam1
+    query: "the worst credible failure effect of this device is catastrophic but the system can recover on the ground, which criticality category does it sit in and which assurance requirements does the matrix then make applicable"
+    intent: "ECSS-Q-ST-60-03C clause 9.2; deriving the device criticality category from failure-effect severity and recoverability, then reading the applicability matrix at that category"
+    expected_skill: "space-systems/ecss/q6003-criticality-applicability-matrix"
+  - id: cam2
+    query: "our assurance plan deletes two requirements the matrix marks applicable outright at this category and tailors a third with a written justification, which of those hold and which are findings"
+    intent: "ECSS-Q-ST-60-03C clause 9.2; tailoring declarations against the normative matrix, mandatory-row retention and justification for tailorable rows"
+    expected_skill: "space-systems/ecss/q6003-criticality-applicability-matrix"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-3-incoming-inspection (space-systems/ecss)
+# Two tasks for the new leaf. ii1 routes on the supply chain tier that sets the
+# Class 3 arrival examination depth and the breach that escalates it; ii2 routes
+# on the authenticity evidence and marking permanency an unfranchised source
+# owes before bonded-store entry. Both must deterministically hit
+# space-systems/ecss/q60-class-3-incoming-inspection, not the Class 1 or Class 2
+# incoming inspection leaves.
+tasks:
+  - id: q60c3ii1
+    query: "a Class 3 reel reached our goods-in bench from a franchised distributor with the static-protective bag already torn open, tell me how deep the arrival examination has to go now and how many pieces it draws"
+    intent: "ECSS-Q-ST-60C clause 6.3.7; Class 3 arrival examination depth from the supply chain tier, the one-step escalation a breached seal or bag forces, and the integer draw the depth takes"
+    expected_skill: "space-systems/ecss/q60-class-3-incoming-inspection"
+  - id: q60c3ii2
+    query: "these Class 3 parts came off the open market with a certificate of conformity and nothing else, and the marking survived the permanency wipe, decide whether they enter the bonded store or go to quarantine"
+    intent: "ECSS-Q-ST-60C clause 6.3.7; the traceability and authenticity evidence an unfranchised Class 3 source owes, the zero major acceptance number at extended depth, and the bonded-store, conditional-release or quarantine disposition"
+    expected_skill: "space-systems/ecss/q60-class-3-incoming-inspection"

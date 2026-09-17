@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-alert-handling (space-systems/ecss)
+# Two tasks for the new leaf. ah1 routes on an advisory that cannot be ruled
+# out of a declared-list entry because the records hold no manufacturer or date
+# code; ah2 routes on an advisory hitting a part that can no longer be bought.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-3-alert-handling.
+tasks:
+  - id: ah1
+    query: "an errata sheet names a manufacturer and a date code window but our declared list entry for that class 3 part records neither, do we treat it as affected and what would close it"
+    intent: "ECSS-Q-ST-60C clause 6.5.3; three-valued applicability on part number, manufacturer and date-code range together, an indeterminate entry worked as affected, the goods-in evidence that would decide it, queue ranking below a confirmed match"
+    expected_skill: "space-systems/ecss/q60-class-3-alert-handling"
+  - id: ah2
+    query: "an alert landed on a commercial part we already installed and the part is obsolete, there is no stock to swap to, what does the response actually have to be and by when"
+    intent: "ECSS-Q-ST-60C clause 6.5.3; action from severity and procurement stage jointly, supply route from procurability and an approved equivalent, a design change where the part cannot be bought, acknowledgement working days, fan-out to programmes holding the same selection"
+    expected_skill: "space-systems/ecss/q60-class-3-alert-handling"

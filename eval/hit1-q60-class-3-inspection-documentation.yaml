@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-inspection-documentation (space-systems/ecss,
+# Q-ST-60C 6.7). Two tasks for the leaf. id3a routes on the quantity
+# reconciliation and the countersignature a Class 3 supplier self-declaration
+# owes; id3b routes on the retention window and the outcome coverage floor.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-3-inspection-documentation.
+tasks:
+  - id: id3a
+    query: "run the q60-c3-outcome-record-reconciliation across our Class 3 inspection records and decide whether the q60-c3-self-declaration-countersignature is missing on the ones the supplier wrote up itself"
+    intent: "ECSS-Q-ST-60C clause 6.7; recording Class 3 inspection and control outcomes, quantity reconciliation and recording authority"
+    expected_skill: "space-systems/ecss/q60-class-3-inspection-documentation"
+  - id: id3b
+    query: "check the q60-c3-record-retention-window on these Class 3 parts programme records against a seven year mission and measure outcome coverage against its floor"
+    intent: "ECSS-Q-ST-60C clause 6.7; Class 3 inspection outcome record retention and outcome coverage against its floor"
+    expected_skill: "space-systems/ecss/q60-class-3-inspection-documentation"

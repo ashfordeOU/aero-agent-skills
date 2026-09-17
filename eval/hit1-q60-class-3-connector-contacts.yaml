@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-connector-contacts (space-systems/ecss,
+# Q-ST-60C 6.6.6). Two tasks for the leaf. cc3a routes on the Class 3 approved
+# source route, including the project-approved addition and the records it
+# owes; cc3b routes on the plating pair and the bundle current derating in a
+# populated Class 3 shell. Both must deterministically hit
+# space-systems/ecss/q60-class-3-connector-contacts.
+tasks:
+  - id: cc3a
+    query: "run the q60-c3-contact-approved-source-route on this bag of removable contacts for a Class 3 connector, the maker is only on our own project addition list, and name the q60-c3-contact-traceability-gap the delivery leaves"
+    intent: "ECSS-Q-ST-60C clause 6.6.6; sourcing Class 3 removable contacts from approved manufacturers, including a project-approved addition and its records"
+    expected_skill: "space-systems/ecss/q60-class-3-connector-contacts"
+  - id: cc3b
+    query: "check the q60-c3-contact-plating-pair-compatibility of a gold contact going into a tin plated socket and the q60-c3-contact-bundle-current-derating on this densely populated Class 3 harness connector"
+    intent: "ECSS-Q-ST-60C clause 6.6.6; Class 3 contact plating pair grading and the derated contact current allowance in a populated shell"
+    expected_skill: "space-systems/ecss/q60-class-3-connector-contacts"

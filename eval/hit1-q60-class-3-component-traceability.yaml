@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-component-traceability (space-systems/ecss)
+# Two tasks for the new leaf. ct1 routes on the identity level a class 3
+# receipt record actually reaches against what the application demands; ct2
+# routes on a programme-assigned receipt batch reused across two deliveries and
+# on a batch split with no split record. Both must deterministically hit
+# space-systems/ecss/q60-class-3-component-traceability.
+tasks:
+  - id: ct1
+    query: "our class 3 goods-in record has a part number and a date code but no lot, is that enough traceability for a flight critical board and how far short does it fall"
+    intent: "ECSS-Q-ST-60C clause 6.5.4; identity granularity a receipt record supports, cumulative levels from part number up to serialised, the floor the application demands, shortfall in whole identity steps, weakest link on the custody chain"
+    expected_skill: "space-systems/ecss/q60-class-3-component-traceability"
+  - id: ct2
+    query: "stores reused one receipt batch number for two deliveries and split another batch without writing it down, and one board consumed parts nobody issued to it"
+    intent: "ECSS-Q-ST-60C clause 6.5.4; programme-assigned receipt batch identifier covering one delivery only, unrecorded batch split dropping the chain to the date code, custody chain break at kitting, received against issued scrapped and remaining, records dated after the installation"
+    expected_skill: "space-systems/ecss/q60-class-3-component-traceability"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-lot-homogeneity-sampling (space-systems/ecss)
+# Two tasks for the new leaf. lh1 routes on sizing the sample set when the
+# flight population spans several date codes; lh2 routes on how far a radiation
+# result may be written once only some groups reached the beam. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-3-lot-homogeneity-sampling.
+tasks:
+  - id: lh1
+    query: "our class 3 flight parts came in over four different date codes and are not one diffusion lot, how many specimens do we actually need for a total dose run with two bias conditions"
+    intent: "ECSS-Q-ST-60C clause 6.5.5; flight population grouped on date code, irradiated control and spare counts sized in integer arithmetic from the method, the bias conditions and the group count, per-group irradiated floor, one control per group"
+    expected_skill: "space-systems/ecss/q60-class-3-lot-homogeneity-sampling"
+  - id: lh2
+    query: "we irradiated specimens from two of the three date codes we hold, can the radiation result be written across the whole flight population or only part of it"
+    intent: "ECSS-Q-ST-60C clause 6.5.5; date-code group coverage gaps, oldest and newest window endpoints in the beam, uniformity axes of part number manufacturer and package against the flight reference, the population a result may be written to"
+    expected_skill: "space-systems/ecss/q60-class-3-lot-homogeneity-sampling"

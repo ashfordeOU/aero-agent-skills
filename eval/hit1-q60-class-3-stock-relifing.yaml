@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-3-stock-relifing (space-systems/ecss)
+# Two tasks for the leaf. rel60a routes on the decaying grant a second relife
+# cycle earns and the total-life headroom read off the date code; rel60b routes
+# on spending a limited relife test capacity across a store by build demand.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-3-stock-relifing rather than the commercial-part
+# relifing leaf, which grades the store rather than the stock.
+tasks:
+  - id: rel60a
+    query: "this class 3 lot has already been relifed once and the storage period has run out again, work out the smaller period a second cycle earns and whether the total life left from its date code will even hold that grant"
+    intent: "ECSS-Q-ST-60C clause 6.3.10; cycle-decay relife grant trimmed to the permissible life headroom taken from the manufacture week"
+    expected_skill: "space-systems/ecss/q60-class-3-stock-relifing"
+  - id: rel60b
+    query: "we have nineteen expired class 3 lots on the shelf and only enough relife test slots for a handful, decide which lots to put through and which to write off so the build gets the most parts back"
+    intent: "ECSS-Q-ST-60C clause 6.3.10; ordering an expired-stock relife campaign by build demand released per test slot, with the owed evidence set per lot"
+    expected_skill: "space-systems/ecss/q60-class-3-stock-relifing"

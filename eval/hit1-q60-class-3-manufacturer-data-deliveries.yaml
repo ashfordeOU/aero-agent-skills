@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-manufacturer-data-deliveries (space-systems/ecss)
+# Two tasks for the leaf. mdd60a routes on a certificate certifying the wrong
+# specification revision and on coverage taken by shipped quantity across
+# sub-lots; mdd60b routes on a partial release where the core items reach some
+# sub-lots and not others. Both must deterministically hit
+# space-systems/ecss/q60-class-3-manufacturer-data-deliveries.
+tasks:
+  - id: mdd60a
+    query: "the class 3 delivery arrived as four sub-lots with different date codes and the certificate of conformity quotes revision B while the order called out revision C, work out how many of the parts in the box actually have valid paper behind them"
+    intent: "ECSS-Q-ST-60C clause 6.3.11; certificate revision match against the ordered revision and quantity-weighted document coverage across the sub-lots shipped"
+    expected_skill: "space-systems/ecss/q60-class-3-manufacturer-data-deliveries"
+  - id: mdd60b
+    query: "screening data covers the whole shipment but the signed certificate names only two of the five sub-lots, decide what goes to stores and what stays at the dock and put a number on the quantity released"
+    intent: "ECSS-Q-ST-60C clause 6.3.11; per-sub-lot release where every core data item reaches it, and the partial-acceptance dock disposition"
+    expected_skill: "space-systems/ecss/q60-class-3-manufacturer-data-deliveries"

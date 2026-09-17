@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-retinned-part-acceptance (space-systems/ecss)
+# Two tasks for the new leaf. rpa1 routes on sizing the evaluation sample for
+# a retinned lot and on which attributes accept on zero; rpa2 routes on the
+# thermal exposure bounds of the dipping operation and on the composition the
+# retin left behind. Both must deterministically hit
+# space-systems/ecss/q60-retinned-part-acceptance.
+tasks:
+  - id: rpa1
+    query: "we had a lot of 1200 parts hot solder dipped to get them off pure tin, how many do I pull for the evaluation and how many rejects can I accept on solderability versus on lead coplanarity"
+    intent: "ECSS-Q-ST-60C clause 8; retinned lot sample sizing with its small-lot, floor and ceiling rules and the accept-on-zero versus scaled accept numbers per attribute"
+    expected_skill: "space-systems/ecss/q60-retinned-part-acceptance"
+  - id: rpa2
+    query: "the retinning house did three dips at 265 degrees with four seconds in the bath each time and the finish came back at one percent lead, do I accept this lot, screen it or reject it"
+    intent: "ECSS-Q-ST-60C clause 8; dip temperature, dwell, dip count and total time at temperature bounds plus the residual lead content that takes a part out of pure tin, combined into a lot verdict"
+    expected_skill: "space-systems/ecss/q60-retinned-part-acceptance"

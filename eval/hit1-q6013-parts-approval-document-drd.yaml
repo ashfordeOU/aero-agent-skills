@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-parts-approval-document-drd (space-systems/ecss)
+# Two tasks for the leaf. padd1 routes on the content blocks the Annex D data
+# item fixes for the submission put to the customer. padd2 routes on the
+# risk-scaled evidence bar and the conditional disposition. Both must
+# deterministically hit space-systems/ecss/q6013-parts-approval-document-drd.
+tasks:
+  - id: padd1
+    query: "check that the parts approval document submitted for customer agreement on a commercial part carries the part identity, intended application, operating environment, evaluation and radiation evidence, reliability basis, risk assessment, mitigation and procurement plan its data item fixes"
+    intent: "ECSS-Q-ST-60-13C Annex D; required content blocks of the parts approval document data item"
+    expected_skill: "space-systems/ecss/q6013-parts-approval-document-drd"
+  - id: padd2
+    query: "weigh the evaluation and radiation evidence a commercial part submission actually holds against the risk its criticality and orbit environment carry, and decide whether the mitigation earns a conditional recommendation or the request is unsupported"
+    intent: "ECSS-Q-ST-60-13C Annex D; risk-scaled evidence sufficiency and the conditional disposition of the parts approval submission"
+    expected_skill: "space-systems/ecss/q6013-parts-approval-document-drd"

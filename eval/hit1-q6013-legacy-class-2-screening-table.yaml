@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-legacy-class-2-screening-table (space-systems/ecss)
+# Two tasks for the leaf. up1 routes on the hundred-percent coverage rule and
+# the population chain that carries survivors between steps; up2 routes on the
+# burn-in rate taken on the entered population and cumulative attrition across
+# the sequence. Both must deterministically hit
+# space-systems/ecss/q6013-legacy-class-2-screening-table.
+tasks:
+  - id: up1
+    query: "the vendor ran external visual on forty of the four hundred legacy parts and restarted the count at the full lot size for every screening step, does this lot count as screened at our intermediate assurance class"
+    intent: "ECSS-Q-ST-60-13C Table 8-13; hundred-percent screening coverage and the surviving-population chain through the sequence"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-2-screening-table"
+  - id: up2
+    query: "work out whether this legacy screening run passes when burn-in rejects are quoted against the devices that came out of burn-in and the lot lost a tenth of itself across the whole sequence"
+    intent: "ECSS-Q-ST-60-13C Table 8-13; burn-in percent defective on the entered population and cumulative screening attrition against its cap"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-2-screening-table"

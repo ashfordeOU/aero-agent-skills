@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-legacy-class-1-acceptance-table (space-systems/ecss)
+# Two tasks for the leaf. la1 routes on the sampling band table that gives each
+# acceptance subgroup its sample and accept number; la2 routes on what the
+# destructive subgroups consume and the deliverable quantity left. Both must
+# deterministically hit
+# space-systems/ecss/q6013-legacy-class-1-acceptance-table.
+tasks:
+  - id: la1
+    query: "resolve each lot acceptance subgroup's sample and accept number from the band the screened quantity falls into, refusing a list that draws less than its band, and allow one doubled-sample retest where permitted"
+    intent: "ECSS-Q-ST-60-13C Table 8-11; acceptance sampling band table, declared-sample checks and the single doubled retest"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-1-acceptance-table"
+  - id: la2
+    query: "hold back the parts the destructive lot acceptance subgroups consume and report the deliverable quantity left once a legacy active part lot is accepted or rejected"
+    intent: "ECSS-Q-ST-60-13C Table 8-11; destructive subgroup consumption and the deliverable quantity after acceptance"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-1-acceptance-table"

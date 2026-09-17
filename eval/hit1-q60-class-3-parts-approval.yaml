@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-parts-approval (space-systems/ecss, Q-ST-60C
+# 6.2.4). Two tasks per leaf; c3pa1 routes on which parts invoke a customer
+# review and what the submission owes, c3pa2 on silence past the response
+# window and restriction closure. Both must deterministically hit
+# space-systems/ecss/q60-class-3-parts-approval.
+tasks:
+  - id: c3pa1
+    query: "work out class-3-customer-review-invocation over a proposed parts list and hold each invoked part to its class-3-approval-submission-dossier"
+    intent: "ecss eee parts; which class 3 parts the customer has to review and what the submission owes"
+    expected_skill: "space-systems/ecss/q60-class-3-parts-approval"
+  - id: c3pa2
+    query: "treat silence past the class-3-customer-response-window as pending rather than consent and hold class-3-approval-restriction-closure until each restriction carries an implementation record"
+    intent: "ecss eee parts; customer decisions, response deadlines and restrictions on class 3 part approval"
+    expected_skill: "space-systems/ecss/q60-class-3-parts-approval"

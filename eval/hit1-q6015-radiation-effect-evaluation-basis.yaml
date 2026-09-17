@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6015-radiation-effect-evaluation-basis (space-systems/ecss)
+# Two tasks for the new leaf. eb1 routes on interpolating the exposure level at
+# which a measured parameter leaves its limit; eb2 routes on a run that never
+# left its limit (censored) and on drift that partly recovered between steps.
+# Both must deterministically hit
+# space-systems/ecss/q6015-radiation-effect-evaluation-basis.
+tasks:
+  - id: eb1
+    query: "offset current was inside limit at the 2 krad step and out at the 3 krad step, what level do we credit the part with, and the transfer ratio falls out of limit instead of climbing"
+    intent: "ECSS-Q-ST-60-15C clause 4.3; interpolating the exposure level at which a measured parameter drifts out of its limit, for rising, falling and two-sided parameters"
+    expected_skill: "space-systems/ecss/q6015-radiation-effect-evaluation-basis"
+  - id: eb2
+    query: "two samples never went out of limit at any step and a third drifted back toward where it started between steps, what capability can we honestly report from this drift data"
+    intent: "ECSS-Q-ST-60-15C clause 4.3; reporting a censored capability from a run with no limit crossing and flagging non-monotonic parameter drift recovery"
+    expected_skill: "space-systems/ecss/q6015-radiation-effect-evaluation-basis"

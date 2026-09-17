@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-screening-requirements (space-systems/ecss,
+# Q-ST-60C 6.3.3). Two tasks per leaf; c3sr1 routes on manufacturer flow
+# credit and the owed screen set, c3sr2 on burn-in equivalence and percent
+# defective. Both must deterministically hit
+# space-systems/ecss/q60-class-3-screening-requirements.
+tasks:
+  - id: c3sr1
+    query: "allow class-3-manufacturer-flow-credit only against a cited evidence reference, name the screens still owed and check class-3-screening-sequence-order"
+    intent: "ecss eee parts; which screens a class 3 flight standard lot still owes after manufacturer credit"
+    expected_skill: "space-systems/ecss/q60-class-3-screening-requirements"
+  - id: c3sr2
+    query: "convert a burn-in run into class-3-burn-in-equivalent-hours, compare with class-3-percent-defective-allowable and confirm class-3-non-flight-lot-marking"
+    intent: "ecss eee parts; burn-in equivalence, percent defective and non-flight marking on class 3 lots"
+    expected_skill: "space-systems/ecss/q60-class-3-screening-requirements"

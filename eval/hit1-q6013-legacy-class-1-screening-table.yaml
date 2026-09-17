@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-legacy-class-1-screening-table (space-systems/ecss)
+# Two tasks for the leaf. ls1 routes on the screening sequence itself -- the
+# canonical order and the burn-in bracket; ls2 routes on the per-part drift
+# across that bracket and the percent defective the lot is judged on. Both must
+# deterministically hit
+# space-systems/ecss/q6013-legacy-class-1-screening-table.
+tasks:
+  - id: ls1
+    query: "check that a legacy active part lot's screening list declares every required screen once, keeps the canonical order, and brackets burn-in with an electrical reading either side of it"
+    intent: "ECSS-Q-ST-60-13C Table 8-10; screening sequence coverage, ordering and the burn-in bracket"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-1-screening-table"
+  - id: ls2
+    query: "work out each part's parameter drift across burn-in against its band, walk the whole lot through its screens, and compare the cumulative percent defective with the allowable before the lot goes on"
+    intent: "ECSS-Q-ST-60-13C Table 8-10; burn-in drift bands, cumulative screening walk and the percent-defective allowable"
+    expected_skill: "space-systems/ecss/q6013-legacy-class-1-screening-table"

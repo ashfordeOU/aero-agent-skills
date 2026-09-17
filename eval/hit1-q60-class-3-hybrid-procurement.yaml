@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-hybrid-procurement (space-systems/ecss, Q-ST-60C
+# 6.6.3). Two tasks for the leaf. c3hyb1 routes on the shortfall depth of the
+# order line and the bill of materials against the nominal class 3 tier;
+# c3hyb2 routes on the acceptance work that shortfall buys back and the cap the
+# project set for it. Both must deterministically hit
+# space-systems/ecss/q60-class-3-hybrid-procurement.
+tasks:
+  - id: c3hyb1
+    query: "work out the hybrid-specification-shortfall-depth of this class 3 thick film hybrid order line and of every die, chip capacitor, substrate and bond wire in the package against the tier its kind nominally arrives at"
+    intent: "ECSS-Q-ST-60C clause 6.6.3; class-3-hybrid-purchase specification tiers, per-element shortfall depth and the undocumented rung that cannot be compensated"
+    expected_skill: "space-systems/ecss/q60-class-3-hybrid-procurement"
+  - id: c3hyb2
+    query: "build the hybrid-compensating-acceptance-plan the shortfalls oblige, add the radiation lot verification the active die pulls in, and total it against the hybrid-acceptance-effort-cap"
+    intent: "ECSS-Q-ST-60C clause 6.6.3; class 3 hybrid compensating acceptance steps, effort total against the project cap and the hybrid-supplier-audit-route"
+    expected_skill: "space-systems/ecss/q60-class-3-hybrid-procurement"

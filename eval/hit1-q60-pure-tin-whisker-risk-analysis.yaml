@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-pure-tin-whisker-risk-analysis (space-systems/ecss)
+# Two tasks for the new leaf. wra1 routes on reviewing a submitted whisker
+# risk analysis for required content and for coverage of every declared pure
+# tin item; wra2 routes on crediting a section that declares substantiation
+# while citing nothing, and on the mandatory sections that fail the document
+# outright. Both must deterministically hit
+# space-systems/ecss/q60-pure-tin-whisker-risk-analysis.
+tasks:
+  - id: wra1
+    query: "the supplier sent back their whisker risk assessment for our pure tin parts and I have to review it, does it actually contain what it needs to and have they covered every pure tin item on the declared list or just the connectors"
+    intent: "ECSS-Q-ST-60C clause 9.2; content review of a submitted pure tin whisker risk analysis, including declared item coverage against the required section list"
+    expected_skill: "space-systems/ecss/q60-pure-tin-whisker-risk-analysis"
+  - id: wra2
+    query: "half the sections in this whisker analysis say substantiated in their own summary table but cite no references at all, and there is no residual risk acceptance statement anywhere, how do I grade the document and what do I write back as actions"
+    intent: "ECSS-Q-ST-60C clause 9.2; demoting an uncited substantiation to asserted, failing an absent mandatory section, and grading the weighted content score against its floors"
+    expected_skill: "space-systems/ecss/q60-pure-tin-whisker-risk-analysis"

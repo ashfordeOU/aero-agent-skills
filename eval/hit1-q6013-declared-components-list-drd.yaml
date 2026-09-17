@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-declared-components-list-drd (space-systems/ecss)
+# Two tasks for the leaf. dcld1 routes on the per-line entry structure the
+# Annex B data item fixes. dcld2 routes on the duplicate-identifier walk, the
+# approval-state grouping and the commercial-market findings. Both must
+# deterministically hit space-systems/ecss/q6013-declared-components-list-drd.
+tasks:
+  - id: dcld1
+    query: "check that every line of a declared components list for commercial parts carries a part identifier, manufacturer, quality grade, procurement route, radiation evidence reference and an application reference the way its data item fixes"
+    intent: "ECSS-Q-ST-60-13C Annex B; required entry structure of the declared components list data item"
+    expected_skill: "space-systems/ecss/q6013-declared-components-list-drd"
+  - id: dcld2
+    query: "find the part numbers a declared components list declares twice under a different manufacturer or grade, group the remaining lines by approval state, and name the broker purchases with no justification recorded"
+    intent: "ECSS-Q-ST-60-13C Annex B; duplicate part conflicts, approval-state grouping and broker justification in the declared components list"
+    expected_skill: "space-systems/ecss/q6013-declared-components-list-drd"

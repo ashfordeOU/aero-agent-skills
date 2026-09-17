@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-declared-components-list-drd (space-systems/ecss,
+# Q-ST-60C Annex B). Two tasks per leaf; dcldrd1 routes on the per-line field
+# set and the approval state an entry sits in, dcldrd2 on the state transition,
+# the conditional approval and the quantity-weighted usable share. Both must
+# deterministically hit
+# space-systems/ecss/q60-declared-components-list-drd.
+tasks:
+  - id: dcldrd1
+    query: "grade the q60-dcl-drd-required-fields on every line then resolve the q60-dcl-drd-approval-state each entry sits in"
+    intent: "ecss eee components; the declared components list data item, field by field"
+    expected_skill: "space-systems/ecss/q60-declared-components-list-drd"
+  - id: dcldrd2
+    query: "check the q60-dcl-drd-state-transition and the q60-dcl-drd-conditional-approval then weight the q60-dcl-drd-quantity-weighted-usable-share for the q60-dcl-drd-release-verdict"
+    intent: "ecss eee components; approval states and the release verdict of a declared components list data item"
+    expected_skill: "space-systems/ecss/q60-declared-components-list-drd"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6013-thermistor-procurement-test-table (space-systems/ecss)
+# Two tasks for the leaf. tp1 routes on the completeness of the declared
+# procurement test matrix and the sampling rule that turns a percentage of the
+# lot into whole devices; tp2 routes on the thermistor characteristic itself --
+# the beta constant reduced from a two-point resistance reading and the
+# tolerances it is judged against. Both must deterministically hit
+# space-systems/ecss/q6013-thermistor-procurement-test-table.
+tasks:
+  - id: tp1
+    query: "check that a thermistor lot's declared procurement test matrix covers every required test group once and resolve each row's sample size from its percent-of-lot rule without gaining a device to rounding"
+    intent: "ECSS-Q-ST-60-13C Table 8-8; thermistor procurement test matrix coverage and sampling-rule resolution"
+    expected_skill: "space-systems/ecss/q6013-thermistor-procurement-test-table"
+  - id: tp2
+    query: "derive the beta constant of a thermistor from a two-point resistance reading, judge it and the reference resistance against their procurement tolerances, and say whether the thermistor lot is accepted or held"
+    intent: "ECSS-Q-ST-60-13C Table 8-8; thermistor beta-constant tolerance, resistance drift limits and the accept-or-hold disposition"
+    expected_skill: "space-systems/ecss/q6013-thermistor-procurement-test-table"

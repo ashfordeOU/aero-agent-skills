@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6003-device-configuration-system-implementation
+# (space-systems/ecss, Q-ST-60-03 clause 8.2.1). Two tasks per leaf; cfg1
+# routes on artefact retention and integrity behind a released device
+# baseline, cfg2 on production tool version pinning and the units-built
+# weighting. Both must deterministically hit
+# space-systems/ecss/q6003-device-configuration-system-implementation.
+tasks:
+  - id: cfg1
+    query: "test the q6003-device-baseline-regeneration claim against the q6003-config-artefact-retention and q6003-config-artefact-integrity the archive holds"
+    intent: "ecss space devices; reproducing a released device baseline from what the configuration system still holds"
+    expected_skill: "space-systems/ecss/q6003-device-configuration-system-implementation"
+  - id: cfg2
+    query: "refuse a floating q6003-production-tool-version-pinning and report the q6003-units-built-weighted-coverage of the regenerable baselines"
+    intent: "ecss space devices; tool chain pinning and regeneration exposure across released device baselines"
+    expected_skill: "space-systems/ecss/q6003-device-configuration-system-implementation"

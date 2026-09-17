@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-procurement-general-requirements
+# (space-systems/ecss, Q-ST-60C 6.3.1). Two tasks per leaf; c3pg1 routes on
+# baseline conformance and the quality ladder, c3pg2 on temperature uprating,
+# open-market authenticity and lot age. Both must deterministically hit
+# space-systems/ecss/q60-class-3-procurement-general-requirements.
+tasks:
+  - id: c3pg1
+    query: "reconcile a class-3 order against the baseline both ways and rank the offered grade on the class-3-quality-level-ladder for class-3-technical-baseline-conformance"
+    intent: "ecss eee parts; whether the class 3 parts actually bought meet the agreed technical baseline"
+    expected_skill: "space-systems/ecss/q60-class-3-procurement-general-requirements"
+  - id: c3pg2
+    query: "demand a class-3-temperature-uprating-justification where the mission runs outside the rated envelope, require class-3-open-market-authenticity-evidence and check class-3-lot-date-code-age"
+    intent: "ecss eee parts; uprating, supply route authenticity and lot age on class 3 procurement"
+    expected_skill: "space-systems/ecss/q60-class-3-procurement-general-requirements"
