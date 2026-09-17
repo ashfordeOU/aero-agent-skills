@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-procurement-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. pg1 routes on the agreed technical baseline for
+# purchased Class 2 parts — the grade ladder and the temperature margin held
+# over the mission range; pg2 routes on the supply route evidence and the
+# validity window of a deviation on the order date. Both must deterministically
+# hit space-systems/ecss/q60-class-2-procurement-general-requirements.
+tasks:
+  - id: pg1
+    query: "our Class 2 purchase went out at an industrial grade part where the agreed baseline asked for military, and the operating range only clears the hot mission limit by two degrees, is the order still against the baseline"
+    intent: "ECSS-Q-ST-60C clause 5.3.1; the purchased Class 2 part type must meet the agreed technical baseline, judged on the procurement grade ladder and on the cold and hot temperature margin separately"
+    expected_skill: "space-systems/ecss/q60-class-2-procurement-general-requirements"
+  - id: pg2
+    query: "half the Class 2 line items came through a broker with only a certificate of conformity and one of them leans on a deviation that expired before we raised the order, and a baseline part type turns out never to have been ordered at all"
+    intent: "ECSS-Q-ST-60C clause 5.3.1; supply route traceability and counterfeit-avoidance evidence, deviation validity on the order date, and the two-way reconciliation of ordered part types against baseline entries"
+    expected_skill: "space-systems/ecss/q60-class-2-procurement-general-requirements"

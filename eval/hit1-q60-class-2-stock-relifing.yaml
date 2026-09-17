@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-stock-relifing (space-systems/ecss)
+# relife1 routes on scaling the package baseline period by the store and the
+# relifing round ceiling; relife2 routes on the owed relifing test set and the
+# decayed shortened re-grant. Both must deterministically hit
+# space-systems/ecss/q60-class-2-stock-relifing.
+tasks:
+  - id: q60c2relife1
+    query: "ECSS-Q-ST-60C Class 2 plastic encapsulated stock has sat thirty months in a controlled store and has already been relifed twice, is it still relifable or does it owe full re-screening"
+    intent: "ECSS-Q-ST-60C clause 5.3.10; Class 2 storage period scaled from the package family baseline by the store grade, elapsed storage against that period, and the relifing round ceiling checked before any test is sized"
+    expected_skill: "space-systems/ecss/q60-class-2-stock-relifing"
+  - id: q60c2relife2
+    query: "which tests does an expired Class 2 hermetic ceramic lot with tin-lead leads owe before its storage validity is restored, and how many months does a successful relifing re-grant from the relifing date"
+    intent: "ECSS-Q-ST-60C clause 5.3.10; Class 2 relifing test set from package family, lead finish and part function, accept numbers on the relifing sample, and the decayed shortened re-granted storage period against its usable floor"
+    expected_skill: "space-systems/ecss/q60-class-2-stock-relifing"

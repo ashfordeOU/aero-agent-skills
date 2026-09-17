@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-part-material-restrictions (space-systems/ecss)
+# Two tasks for the new leaf. c3pmr1 routes on the moisture floor-life budget
+# of a plastic-encapsulated part chosen for a Class 3 build; c3pmr2 routes on
+# the near-pure-tin whisker threshold and the outgassing limits on the
+# encapsulant. Both must deterministically hit
+# space-systems/ecss/q60-class-3-part-material-restrictions.
+tasks:
+  - id: c3pmr1
+    query: "this Class 3 plastic QFN sat on the bench for a week at 70 percent humidity after the dry pack was opened, has it used up its floor life and does it need a bake before assembly"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.2; Class 3 non-hermetic packaging limit, moisture floor-life budget and bake evidence"
+    expected_skill: "space-systems/ecss/q60-class-3-part-material-restrictions"
+  - id: c3pmr2
+    query: "the Class 3 part we want has a 99.5 percent tin lead finish and an epoxy mould compound, is the finish allowed and do the outgassing numbers clear the mass loss and condensable limits"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.2; pure tin whisker restriction, finish re-work and organic outgassing limits"
+    expected_skill: "space-systems/ecss/q60-class-3-part-material-restrictions"

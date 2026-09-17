@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-connector-contacts (space-systems/ecss,
+# Q-ST-60C 5.6.6). Two tasks for the leaf. cc2a routes on the approved source
+# fold and the traceability the delivery owes; cc2b routes on the intermix pair
+# evidence and the bundle current derating in a populated class 2 shell. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-2-connector-contacts.
+tasks:
+  - id: cc2a
+    query: "run the class-2-contact-approved-source-fold on this bag of removable contacts and list the class-2-contact-traceability-gap the delivery leaves for a class 2 connector"
+    intent: "ECSS-Q-ST-60C clause 5.6.6; sourcing class 2 removable contacts from approved manufacturers only"
+    expected_skill: "space-systems/ecss/q60-class-2-connector-contacts"
+  - id: cc2b
+    query: "decide whether we owe class-2-contact-shell-intermix-evidence and check the class-2-contact-bundle-current-derating on this densely populated class 2 harness connector"
+    intent: "ECSS-Q-ST-60C clause 5.6.6; class 2 contact and shell intermix evidence plus the derated contact current allowance"
+    expected_skill: "space-systems/ecss/q60-class-2-connector-contacts"

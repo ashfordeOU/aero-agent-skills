@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-component-control-plan (space-systems/ecss,
+# Q-ST-60C 5.1.2.2). Two tasks per leaf; q60c2ccp1 routes on preparing the
+# compliance matrix and its clause row coverage, q60c2ccp2 on the deviation
+# and tailoring evidence each row has to carry. Both must deterministically
+# hit space-systems/ecss/q60-class-2-component-control-plan.
+tasks:
+  - id: q60c2ccp1
+    query: "prepare the component-control-plan-compliance-matrix for a reliability-class-2-component-control-plan and return its compliance-matrix-clause-row-coverage"
+    intent: "ecss eee components; clause-by-clause compliance matrix of the class 2 component control plan"
+    expected_skill: "space-systems/ecss/q60-class-2-component-control-plan"
+  - id: q60c2ccp2
+    query: "grade each matrix row on compliance-matrix-deviation-justification and compliance-matrix-tailoring-approval then give the weighted compliance index"
+    intent: "ecss eee components; deviation justification, tailoring approval and the weighted compliance index"
+    expected_skill: "space-systems/ecss/q60-class-2-component-control-plan"

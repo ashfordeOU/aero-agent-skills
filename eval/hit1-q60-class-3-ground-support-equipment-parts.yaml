@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-ground-support-equipment-parts (space-systems/ecss,
+# Q-ST-60C 6.1.5). Two tasks per leaf; c3gse1 routes on the walked connection
+# chain and the qualification state of each isolation stage, c3gse2 on the
+# obligations the flight programme raises on a connected bench part. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-3-ground-support-equipment-parts.
+tasks:
+  - id: c3gse1
+    query: "walk the q60-c3-gse-direct-connection-chain from each bench part to Class 3 flight hardware and settle q60-c3-gse-isolation-stage-qualification"
+    intent: "ecss eee components; which ground support equipment parts are directly connected to Class 3 flight hardware"
+    expected_skill: "space-systems/ecss/q60-class-3-ground-support-equipment-parts"
+  - id: c3gse2
+    query: "raise q60-c3-gse-inherited-control-obligations on every in-boundary bench part and report q60-c3-gse-obligation-closure-fraction with the q60-c3-gse-governing-part"
+    intent: "ecss eee components; parts-control scope carried by a Class 3 test bench and umbilical chain"
+    expected_skill: "space-systems/ecss/q60-class-3-ground-support-equipment-parts"

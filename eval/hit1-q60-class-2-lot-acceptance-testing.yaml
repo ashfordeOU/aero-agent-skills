@@ -1,0 +1,17 @@
+# Hit@1 fragment: q60-class-2-lot-acceptance-testing (space-systems/ecss)
+# Two tasks for the leaf. la1 routes on splitting a Class 2 delivery into
+# submission units and settling each acceptance test group of a unit
+# separately; la2 routes on the Class 2 evidence rule, where same-family
+# evidence discharges the endurance group and nothing else. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-2-lot-acceptance-testing, not the Class 1
+# clause 4.3.5 submission leaf.
+tasks:
+  - id: la1
+    query: "split a Class 2 delivery into one submission unit per part number, date code and manufacturer lot, and name which acceptance test group of each unit still owes a lot acceptance submission"
+    intent: "ECSS-Q-ST-60C clause 5.3.5; Class 2 submission units and per-group outstanding coverage"
+    expected_skill: "space-systems/ecss/q60-class-2-lot-acceptance-testing"
+  - id: la2
+    query: "decide whether endurance evidence from another lot of the same technology family discharges the endurance group of a Class 2 lot, and size the pieces the groups still open would draw"
+    intent: "ECSS-Q-ST-60C clause 5.3.5; Class 2 family-evidence endurance credit and per-group draw sizing"
+    expected_skill: "space-systems/ecss/q60-class-2-lot-acceptance-testing"

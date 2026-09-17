@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-ground-support-equipment-parts (space-systems/ecss,
+# Q-ST-60C 5.1.5). Two tasks per leaf; c2gse1 routes on placing a bench part inside
+# or outside the Class 2 boundary and grading how directly it connects, c2gse2 on
+# the credit a protective element earns and the obligation closure that follows.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-2-ground-support-equipment-parts.
+tasks:
+  - id: c2gse1
+    query: "walk the bench chain to the umbilical and give me the q60c2-gse-connection-directness of each part plus the q60c2-gse-qualified-isolation-credit that takes any of them out of scope"
+    intent: "ECSS-Q-ST-60C clause 5.1.5; ground support equipment parts directly connected to Class 2 flight hardware"
+    expected_skill: "space-systems/ecss/q60-class-2-ground-support-equipment-parts"
+  - id: c2gse2
+    query: "the fuse in front of this driver was verified and the crowbar was not, so work out the q60c2-gse-protective-element-credit, the q60c2-gse-obligation-tier each part lands on and the q60c2-gse-closure-fraction over the in-scope ones"
+    intent: "ECSS-Q-ST-60C clause 5.1.5; Class 2 bench parts-control obligations and evidence closure"
+    expected_skill: "space-systems/ecss/q60-class-2-ground-support-equipment-parts"

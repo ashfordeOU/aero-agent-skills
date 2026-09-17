@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-2-radiation-verification-testing (space-systems/ecss)
+# Two tasks for the leaf. rv1 routes on crediting heritage irradiation evidence
+# through the knockdown its similarity tier earns; rv2 routes on the
+# destructive single event veto and the narrow latch-up mitigation credit. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-2-radiation-verification-testing, not the
+# Class 1 clause 4.3.8 radiation leaf.
+tasks:
+  - id: rv1
+    query: "credit a heritage irradiation record for a Class 2 part through the knockdown its similarity tier earns and decide whether the margin carries the part or the flight lot owes its own irradiation"
+    intent: "ECSS-Q-ST-60C clause 5.3.8; Class 2 heritage similarity-tier credit and radiation design margin"
+    expected_skill: "space-systems/ecss/q60-class-2-radiation-verification-testing"
+  - id: rv2
+    query: "decide whether a verified box-level mitigation may be credited against a Class 2 part whose destructive single event onset sits below the mission requirement"
+    intent: "ECSS-Q-ST-60C clause 5.3.8; Class 2 destructive single event veto and latch-up mitigation credit"
+    expected_skill: "space-systems/ecss/q60-class-2-radiation-verification-testing"

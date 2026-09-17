@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-evaluation-testing (space-systems/ecss)
+# to1 routes on grading an applied test severity against a mission condition
+# opened out by an over-test factor; to2 routes on the attribute accept-or-
+# reject and on acceptance limits taken from a typical column. Both must
+# deterministically hit space-systems/ecss/q60-class-3-evaluation-testing.
+tasks:
+  - id: to1
+    query: "the life test ran for exactly the mission duration at exactly the mission temperature with no over test factor at all, grade what that campaign actually demonstrated"
+    intent: "ECSS-Q-ST-60C clause 6.2.3.4; opening each mission condition out by an over-test factor and grading the severity the campaign actually applied against it"
+    expected_skill: "space-systems/ecss/q60-class-3-evaluation-testing"
+  - id: to2
+    query: "twenty parts went into this Class 3 campaign and one came back failed, and the acceptance limits were read off the typical column of the datasheet, give me the campaign verdict"
+    intent: "ECSS-Q-ST-60C clause 6.2.3.4; taking the attribute accept-or-reject on sample size and failure count and refusing an acceptance band that is not a guaranteed limit"
+    expected_skill: "space-systems/ecss/q60-class-3-evaluation-testing"

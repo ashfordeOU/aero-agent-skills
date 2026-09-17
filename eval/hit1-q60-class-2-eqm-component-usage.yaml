@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-eqm-component-usage (space-systems/ecss,
+# Q-ST-60C 5.1.6). Two tasks per leaf; c2equ1 routes on the quality-ladder rung a
+# fitted part sits at and the permission it earns on a Class 2 model, c2equ2 on the
+# margin and re-screening a nominated part needs before a flight build may take it.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-2-eqm-component-usage.
+tasks:
+  - id: c2equ1
+    query: "measure the q60c2-eqm-relaxation-depth of each part fitted to the qualification model and tell me which permissions the Class 2 allowance actually covers"
+    intent: "ECSS-Q-ST-60C clause 5.1.6; whether a part may be fitted to a Class 2 engineering qualification model"
+    expected_skill: "space-systems/ecss/q60-class-2-eqm-component-usage"
+  - id: c2equ2
+    query: "we want to carry two model parts into the flight build, so give me the q60c2-eqm-consumed-life-margin, the q60c2-eqm-rescreening-requirement and the q60c2-eqm-flight-reuse-eligibility for each"
+    intent: "ECSS-Q-ST-60C clause 5.1.6; Class 2 carry-over of a model-fitted part into a flight build"
+    expected_skill: "space-systems/ecss/q60-class-2-eqm-component-usage"

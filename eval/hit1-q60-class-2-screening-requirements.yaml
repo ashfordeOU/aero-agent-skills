@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-screening-requirements (space-systems/ecss)
+# Two tasks for the new leaf. sc1 routes on the screen set a Class 2 package
+# family owes for flight standard hardware and on the order the screens ran
+# in; sc2 routes on burn-in equivalent hours across temperatures and on the
+# percent defective allowable. Both must deterministically hit
+# space-systems/ecss/q60-class-2-screening-requirements.
+tasks:
+  - id: sc1
+    query: "our Class 2 cavity packages went to the flight board with no fine and gross leak check, and on another lot the final electrical was taken before burn-in, does that sequence still screen anything"
+    intent: "ECSS-Q-ST-60C clause 5.3.3; the screen set a package family owes for flight standard hardware and the precedence that puts each stress before the measurement judging it"
+    expected_skill: "space-systems/ecss/q60-class-2-screening-requirements"
+  - id: sc2
+    query: "the vendor ran sixty hours of burn-in at 150 C instead of the 168 hours at 125 C we asked for, and the lot rejected thirty of two hundred devices, can we accept it for flight"
+    intent: "ECSS-Q-ST-60C clause 5.3.3; converting a Class 2 burn-in run off its reference temperature to equivalent hours through an Arrhenius factor, and the percent defective allowable for the screened lot"
+    expected_skill: "space-systems/ecss/q60-class-2-screening-requirements"

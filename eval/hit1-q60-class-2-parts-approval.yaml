@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-parts-approval (space-systems/ecss, Q-ST-60C
+# 5.2.4). Two tasks per leaf; c2pa1 routes on the justification record and the
+# approval document set, c2pa2 on gate timing and conditional closure. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-2-parts-approval.
+tasks:
+  - id: c2pa1
+    query: "audit the class-2-part-approval-justification record and the class-2-approval-document-set on a proposed parts list and return the class-2-flight-release-status of each entry"
+    intent: "ecss eee parts; the justification and approval documents a class 2 part carries before flight use"
+    expected_skill: "space-systems/ecss/q60-class-2-parts-approval"
+  - id: c2pa2
+    query: "check class-2-approval-gate-timing against the governing project gate and hold class-2-conditional-approval-closure until every condition carries a closure record"
+    intent: "ecss eee parts; the project gates and conditions controlling class 2 part approval"
+    expected_skill: "space-systems/ecss/q60-class-2-parts-approval"

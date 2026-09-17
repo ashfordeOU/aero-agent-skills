@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-procurement-specification (space-systems/ecss)
+# Two tasks for the new leaf. ps1 routes on the controlled written purchasing
+# specification per Class 2 part type and the mandatory content it owes; ps2
+# routes on the release state and the revision the order cites against the
+# revision released. Both must deterministically hit
+# space-systems/ecss/q60-class-2-procurement-specification.
+tasks:
+  - id: ps1
+    query: "we raised our Class 2 resistor order against the manufacturer datasheet because no written purchasing specification exists for that part type, and the one document we do hold says nothing about screening or lot marking"
+    intent: "ECSS-Q-ST-60C clause 5.3.2; Class 2 parts are bought against a controlled written purchasing specification per part type, and the mandatory content of that specification is scored rather than assumed"
+    expected_skill: "space-systems/ecss/q60-class-2-procurement-specification"
+  - id: ps2
+    query: "the purchase order cites revision B of the purchasing specification but the library released revision C last year, another line cites a draft issue, and one document was only released after the order went out"
+    intent: "ECSS-Q-ST-60C clause 5.3.2; document control of the purchasing specification — release state, release date against the order date, and the cited revision against the released revision"
+    expected_skill: "space-systems/ecss/q60-class-2-procurement-specification"

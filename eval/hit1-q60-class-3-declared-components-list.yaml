@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-declared-components-list (space-systems/ecss,
+# Q-ST-60C 6.1.4). Two tasks per leaf; c3dcl1 routes on the two-part
+# editability decision (container plus declared column schema), c3dcl2 on the
+# per-Class-3-item issue obligation and the part-count-weighted coverage it is
+# read by. Both must deterministically hit
+# space-systems/ecss/q60-class-3-declared-components-list.
+tasks:
+  - id: c3dcl1
+    query: "decide q60-c3-dcl-container-revisability and q60-c3-dcl-column-schema-declaration on each Class 3 list issued for one equipment item"
+    intent: "ecss eee components; an editable declared components list issued for a Class 3 equipment item"
+    expected_skill: "space-systems/ecss/q60-class-3-declared-components-list"
+  - id: c3dcl2
+    query: "weight q60-c3-dcl-part-count-coverage over the Class 3 per-item list obligation, check q60-c3-dcl-build-standard-currency, return the q60-c3-dcl-issue-verdict"
+    intent: "ecss eee components; Class 3 list issue coverage and the build standard each issue describes"
+    expected_skill: "space-systems/ecss/q60-class-3-declared-components-list"

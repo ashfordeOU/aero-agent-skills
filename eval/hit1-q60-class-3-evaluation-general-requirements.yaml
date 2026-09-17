@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-evaluation-general-requirements (space-systems/ecss)
+# to1 routes on deciding that an evaluation is owed at all when no prior
+# qualification stands behind a Class 3 procurement; to2 routes on refusing a
+# waiver raised against a hard trigger and returning the programme elements
+# still owed. Both must deterministically hit
+# space-systems/ecss/q60-class-3-evaluation-general-requirements.
+tasks:
+  - id: to1
+    query: "declare every unknown on this Class 3 procurement as a trigger condition and weigh the ones still open into a necessity index, so I know whether a full or a reduced evaluation is owed"
+    intent: "ECSS-Q-ST-60C clause 6.2.3.1; declaring each unknown as a trigger condition, weighing the open ones into a necessity index and applying the hard-trigger override"
+    expected_skill: "space-systems/ecss/q60-class-3-evaluation-general-requirements"
+  - id: to2
+    query: "the project wants to waive two of the unknowns on this Class 3 procurement, tell me which waivers stand and which programme elements are still owed afterwards"
+    intent: "ECSS-Q-ST-60C clause 6.2.3.1; refusing a waiver against a hard trigger or one with no written justification, then returning the outstanding evaluation elements"
+    expected_skill: "space-systems/ecss/q60-class-3-evaluation-general-requirements"

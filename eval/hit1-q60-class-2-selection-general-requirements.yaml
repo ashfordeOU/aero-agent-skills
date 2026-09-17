@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-selection-general-requirements (space-systems/ecss,
+# Q-ST-60C 5.2.1). Two tasks per leaf; c2sgr1 routes on grading the prerequisite
+# register a Class 2 part choice stands on before a purchase order, c2sgr2 on the
+# partial credit tailoring earns and the blocking items no index can carry.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-2-selection-general-requirements.
+tasks:
+  - id: c2sgr1
+    query: "grade our q60c2-selection-prerequisite-register for this candidate part and give me the q60c2-selection-readiness-index before the purchase order goes out"
+    intent: "ECSS-Q-ST-60C clause 5.2.1; Class 2 selection prerequisites and procurement decision readiness"
+    expected_skill: "space-systems/ecss/q60-class-2-selection-general-requirements"
+  - id: c2sgr2
+    query: "two prerequisites were tailored against an approval and the control plan is still open, so apply the q60c2-selection-tailoring-credit and tell me whether the q60c2-blocking-selection-prerequisite set stops the decision"
+    intent: "ECSS-Q-ST-60C clause 5.2.1; Class 2 selection tailoring credit and blocking prerequisites"
+    expected_skill: "space-systems/ecss/q60-class-2-selection-general-requirements"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-quality-control-general (space-systems/ecss,
+# Q-ST-60C 5.5.1). Two tasks per leaf; qc1 routes on opening the class 2
+# receiving control plan and the manufacturer-evidence credit, qc2 on the
+# upscreening delta and the entry disposition. Both must deterministically hit
+# space-systems/ecss/q60-class-2-quality-control-general.
+tasks:
+  - id: qc1
+    query: "open the class-2-receiving-control-plan for the lot just booked in and take the class-2-manufacturer-evidence-credit off the activities we perform ourselves"
+    intent: "ecss eee class 2; receiving control measures once parts are received"
+    expected_skill: "space-systems/ecss/q60-class-2-quality-control-general"
+  - id: qc2
+    query: "the delivered flow is below what the application needs, add the class-2-upscreening-delta and give the class-2-lot-admissibility-disposition for this received lot"
+    intent: "ecss eee class 2; upscreening and admissibility at incoming quality control"
+    expected_skill: "space-systems/ecss/q60-class-2-quality-control-general"

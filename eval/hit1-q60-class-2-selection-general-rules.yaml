@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-selection-general-rules (space-systems/ecss,
+# Q-ST-60C 5.2.2.1). Two tasks per leaf; c2sgl1 routes on how far the in-house
+# Class 2 selection rule set reaches down the supplier tiers, c2sgl2 on telling an
+# accepted equivalent supplier rule apart from an unapproved waiver and a rule that
+# was never in force at home. Both must deterministically hit
+# space-systems/ecss/q60-class-2-selection-general-rules.
+tasks:
+  - id: c2sgl1
+    query: "our Class 2 selection rules are applied in-house but I need the q60c2-supply-chain-rule-flow-down picture: the q60c2-tier-coverage-fraction at each tier and the q60c2-rule-survival-depth of each rule"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.1; Class 2 baseline selection rules and supply chain rule flow-down coverage"
+    expected_skill: "space-systems/ecss/q60-class-2-selection-general-rules"
+  - id: c2sgl2
+    query: "the broker offers its own process instead of ours and the prime waived a rule with no approval reference, so which is a q60c2-equivalent-supplier-rule-acceptance, which is a q60c2-flow-down-break and which rule was never in force here at all"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.1; Class 2 equivalent supplier rule acceptance versus flow-down break and unapproved waiver"
+    expected_skill: "space-systems/ecss/q60-class-2-selection-general-rules"
