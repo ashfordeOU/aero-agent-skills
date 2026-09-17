@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-procurement-specification (space-systems/ecss,
+# Q-ST-60C 6.3.2). Two tasks per leaf; c3ps1 routes on which documents are
+# admissible as a purchasing specification, c3ps2 on issue status, revision
+# control and coverage. Both must deterministically hit
+# space-systems/ecss/q60-class-3-procurement-specification.
+tasks:
+  - id: c3ps1
+    query: "judge class-3-specification-kind-admissibility over a purchasing specification library and refuse a datasheet with no class-3-controlled-issue-identifier"
+    intent: "ecss eee parts; which written document a class 3 part type may be bought against"
+    expected_skill: "space-systems/ecss/q60-class-3-procurement-specification"
+  - id: c3ps2
+    query: "apply class-3-specification-revision-control to the revision an order cites and reconcile class-3-specification-part-type-coverage against the library both ways"
+    intent: "ecss eee parts; issue status, revision control and coverage of class 3 purchasing specifications"
+    expected_skill: "space-systems/ecss/q60-class-3-procurement-specification"

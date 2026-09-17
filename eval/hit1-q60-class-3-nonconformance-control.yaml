@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-3-nonconformance-control (space-systems/ecss)
+# Two tasks for the new leaf. nc1 routes on splitting ownership between the
+# supplier and the programme and on a critical class 3 finding having no
+# use-as-is route; nc2 routes on widening containment to the coarsest identity
+# the receipt records support and on two occurrences putting the assurance
+# class itself in question. Both must deterministically hit
+# space-systems/ecss/q60-class-3-nonconformance-control.
+tasks:
+  - id: nc1
+    query: "a class 3 part went out of specification in a safety-critical function at unit test, can we accept it as it stands and who owns the report, us or the supplier"
+    intent: "ECSS-Q-ST-60C clause 6.5.2; supplier versus programme ownership from detection point and function, categorization minor major or critical, no use-as-is route on a critical class 3 finding, application justification on a major one"
+    expected_skill: "space-systems/ecss/q60-class-3-nonconformance-control"
+  - id: nc2
+    query: "the commercial part we bought at the lowest assurance class has no lot number, only a date code, how wide do we impound and is a second occurrence still just a lot escape"
+    intent: "ECSS-Q-ST-60C clause 6.5.2; containment scope widened to the coarsest identity the receipt records support, an unknown mechanism contained one step wider, rolling-window recurrence escalating to an assurance class upgrade review, response working days"
+    expected_skill: "space-systems/ecss/q60-class-3-nonconformance-control"

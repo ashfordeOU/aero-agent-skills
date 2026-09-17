@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-internal-supplier-specification-drd (space-systems/ecss)
+# Two tasks for the leaf. issd1 routes on the clause coverage the Annex C data
+# item fixes for a supplier's own specification. issd2 routes on the
+# discretionary clauses, the change-notification lead time and the directional
+# limit comparison against the application. Both must deterministically hit
+# space-systems/ecss/q6013-internal-supplier-specification-drd.
+tasks:
+  - id: issd1
+    query: "judge whether a supplier internal specification offered in place of a space procurement specification fixes the part identification, manufacturing site and process baseline, screening and lot-acceptance operations, marking and traceability the way its data item requires"
+    intent: "ECSS-Q-ST-60-13C Annex C; required clause coverage of the supplier internal specification data item"
+    expected_skill: "space-systems/ecss/q6013-internal-supplier-specification-drd"
+  - id: issd2
+    query: "name the clauses a supplier reserved to its own discretion, decide whether its change-notification duty gives the buyer enough lead time, and test each declared rating against what the application actually asks of the commercial part"
+    intent: "ECSS-Q-ST-60-13C Annex C; discretionary clauses, change-notification lead time and application limit coverage of the supplier specification"
+    expected_skill: "space-systems/ecss/q6013-internal-supplier-specification-drd"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6003-configuration-item-data-lists (space-systems/ecss)
+# Two tasks for the new leaf. cidl1 routes on a delivery whose counts agree but
+# whose as-built record carries a revision the data list never listed; cidl2
+# routes on a serialised unit shipped with no serial and a deviation reference
+# standing on no approved waiver. Both must deterministically hit
+# space-systems/ecss/q6003-configuration-item-data-lists.
+tasks:
+  - id: cidl1
+    query: "the item data list and the as-built record for this device delivery have the same number of lines, but one board was built at a revision the list never carried and one shipped element is on no list at all"
+    intent: "ECSS-Q-ST-60-03C clause 8.2.2; two-way reconciliation of the item data list against the as-built record, revision drift and unlisted delivered elements"
+    expected_skill: "space-systems/ecss/q6003-configuration-item-data-lists"
+  - id: cidl2
+    query: "can this device delivery be cleared when a serialised programmable device has no serial number in the as-built record and one item cites a deviation with no approved waiver behind it"
+    intent: "ECSS-Q-ST-60-03C clause 8.2.2; serialised-unit identification and deviation references in the delivered configuration identification"
+    expected_skill: "space-systems/ecss/q6003-configuration-item-data-lists"

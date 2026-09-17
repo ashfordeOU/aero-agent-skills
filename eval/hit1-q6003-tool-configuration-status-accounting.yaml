@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6003-tool-configuration-status-accounting (space-systems/ecss)
+# Two tasks for the new leaf. tcsa1 routes on a toolchain record that pins a
+# floating version token and leaves one build-flow role unrecorded; tcsa2
+# routes on option-set and patch-level drift between the recorded baseline and
+# the run that actually produced the device. Both must deterministically hit
+# space-systems/ecss/q6003-tool-configuration-status-accounting.
+tasks:
+  - id: tcsa1
+    query: "our device build record lists the synthesis tool as latest and never mentions the place and route step at all, is that enough status accounting to rebuild the part"
+    intent: "ECSS-Q-ST-60-03C clause 8.2.3; floating version tokens and build-flow role coverage in software tool status records"
+    expected_skill: "space-systems/ecss/q6003-tool-configuration-status-accounting"
+  - id: tcsa2
+    query: "the recorded toolchain baseline for this device says patch sp2 with one option set digest but the run that built the delivered part used sp3 and different options, how should that be reported"
+    intent: "ECSS-Q-ST-60-03C clause 8.2.3; per-field drift between the recorded tool baseline and the as-run tool state, and the mitigation obligation on unqualified tools"
+    expected_skill: "space-systems/ecss/q6003-tool-configuration-status-accounting"

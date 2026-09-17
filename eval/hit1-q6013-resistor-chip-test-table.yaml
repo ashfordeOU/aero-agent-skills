@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-resistor-chip-test-table (space-systems/ecss)
+# Two tasks for the leaf. rc1 routes on matrix completeness and the sampling
+# rule that turns a percentage of the lot into whole devices; rc2 routes on
+# the resistor's own reject paths -- the marked tolerance band and the
+# directional parameter limits. Both must deterministically hit
+# space-systems/ecss/q6013-resistor-chip-test-table.
+tasks:
+  - id: rc1
+    query: "check that a resistor chip lot's declared test matrix covers every required test group once and resolve each row's sample size from its percent-of-lot rule without gaining a device to rounding"
+    intent: "ECSS-Q-ST-60-13C Table 8-7; resistor chip test matrix coverage and sampling-rule resolution"
+    expected_skill: "space-systems/ecss/q6013-resistor-chip-test-table"
+  - id: rc2
+    query: "judge a resistor chip test row on its measured resistance against the marked tolerance band and on temperature coefficient, insulation resistance and noise against their limits, then say whether the lot is accepted or held"
+    intent: "ECSS-Q-ST-60-13C Table 8-7; resistance tolerance band, directional parameter limits and the accept-or-hold disposition for a resistor chip lot"
+    expected_skill: "space-systems/ecss/q6013-resistor-chip-test-table"

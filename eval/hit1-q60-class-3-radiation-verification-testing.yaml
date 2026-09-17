@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-3-radiation-verification-testing (space-systems/ecss)
+# Two tasks for the new leaf. rv1 routes on the Class 3 lot capability taken as
+# a lower tolerance bound on an irradiated sample and the tabulated factor its
+# size earns; rv2 routes on the dose-rate derating and the destructive single
+# event that ends the part whatever the dose margin says. Both must
+# deterministically hit space-systems/ecss/q60-class-3-radiation-verification-testing,
+# not the Class 2 radiation leaf or the radiation hardness selection leaf.
+tasks:
+  - id: q60c3rv1
+    query: "five Class 3 parts were irradiated and failed at spread out total doses, turn that sample into the capability the lot can be credited with and compare it against the mission dose requirement"
+    intent: "ECSS-Q-ST-60C clause 6.3.8; Class 3 lot capability as a one-sided lower tolerance bound, the tolerance factor read off the project table for that exact sample size, and the radiation design margin against the mission requirement"
+    expected_skill: "space-systems/ecss/q60-class-3-radiation-verification-testing"
+  - id: q60c3rv2
+    query: "the only irradiation data on this Class 3 bipolar linear part was taken at high dose rate, and its latch up onsets below the mission LET threshold with no mitigation declared, give me the accept, test or reject decision"
+    intent: "ECSS-Q-ST-60C clause 6.3.8; the enhanced low dose rate derating on a dose-rate sensitive Class 3 technology and the destructive single event veto that outranks a good total dose margin"
+    expected_skill: "space-systems/ecss/q60-class-3-radiation-verification-testing"

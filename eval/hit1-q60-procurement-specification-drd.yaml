@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-procurement-specification-drd (space-systems/ecss,
+# Q-ST-60C Annex C). Two tasks per leaf; psdrd1 routes on the required content
+# sections and the screening sequence, psdrd2 on the lot acceptance plan and
+# the acceptance probability it gives. Both must deterministically hit
+# space-systems/ecss/q60-procurement-specification-drd.
+tasks:
+  - id: psdrd1
+    query: "score the q60-ps-drd-required-content then grade the q60-ps-drd-screening-sequence and its q60-ps-drd-screening-family-coverage"
+    intent: "ecss eee components; the content a part purchasing specification data item has to carry"
+    expected_skill: "space-systems/ecss/q60-procurement-specification-drd"
+  - id: psdrd2
+    query: "prove the q60-ps-drd-lot-acceptance-plan can reject a lot and report its q60-ps-drd-acceptance-probability"
+    intent: "ecss eee components; lot acceptance detail inside a purchasing specification data item"
+    expected_skill: "space-systems/ecss/q60-procurement-specification-drd"

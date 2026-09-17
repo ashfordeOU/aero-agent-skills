@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-component-quality-level-tables (space-systems/ecss)
+# Two tasks for the new leaf. cql1 routes on mapping a component family and
+# the project reliability class onto the required quality level and its test
+# coverage; cql2 routes on judging a proposed part's level by stringency and
+# on what an uprating would have to add. Both must deterministically hit
+# space-systems/ecss/q60-component-quality-level-tables.
+tasks:
+  - id: cql1
+    query: "we are a reliability class 2 project, what quality level do the tantalum capacitors and the relays have to reach, and what test coverage does that level carry for each component family once the family tests are added to the baseline"
+    intent: "ECSS-Q-ST-60C clause 7 tables 7-1 to 7-3; family and reliability class mapped onto the required quality level and the cumulative plus family test coverage"
+    expected_skill: "space-systems/ecss/q60-component-quality-level-tables"
+  - id: cql2
+    query: "the vendor offers this microcircuit at quality level 3 where our reliability class needs quality level 1, is that one stringency step or two, and which additional testing would an uprating have to add to close the coverage shortfall"
+    intent: "ECSS-Q-ST-60C clause 7; stringency ordinal comparison of a proposed quality level against the required one, uprating step limit and the missing test list"
+    expected_skill: "space-systems/ecss/q60-component-quality-level-tables"

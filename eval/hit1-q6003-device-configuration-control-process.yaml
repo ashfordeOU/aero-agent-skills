@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6003-device-configuration-control-process (space-systems/ecss)
+# Two tasks for the new leaf. dccp1 routes on categorising a small edit that
+# reaches an external interface and on the board that must disposition it;
+# dccp2 routes on work implemented before the disposition date against a
+# product baseline. Both must deterministically hit
+# space-systems/ecss/q6003-device-configuration-control-process.
+tasks:
+  - id: dccp1
+    query: "this is a one line change to the device but it moves an external interface, which change category is it and does it go to the customer board or stay with our own configuration board"
+    intent: "ECSS-Q-ST-60-03C clause 8.3; change category from the reach of the declared impacts, and the approval authority that follows from it"
+    expected_skill: "space-systems/ecss/q6003-device-configuration-control-process"
+  - id: dccp2
+    query: "the team implemented the device baseline change two weeks before the board dispositioned it and the product baseline already has units built, what does the change package still need and does the baseline version move"
+    intent: "ECSS-Q-ST-60-03C clause 8.3; disposition-before-implementation order, product-stage evidence and the baseline version increment on an approved change"
+    expected_skill: "space-systems/ecss/q6003-device-configuration-control-process"

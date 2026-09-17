@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6003-device-assurance-report-drd (space-systems/ecss)
+# Two tasks for the leaf. dar1 routes on the reporting-period continuity and
+# section coverage of a recurring issue; dar2 routes on reconciling planned
+# activities and ageing open nonconformances against the declared response
+# time. Both must deterministically hit
+# space-systems/ecss/q6003-device-assurance-report-drd.
+tasks:
+  - id: dar1
+    query: "judge whether this issue of a recurring device product assurance report covers its period without leaving development days unreported or reporting the same days twice, and whether every required section has content behind it"
+    intent: "ECSS-Q-ST-60-03C Annex B; recurring device assurance report period continuity and section coverage"
+    expected_skill: "space-systems/ecss/q6003-device-assurance-report-drd"
+  - id: dar2
+    query: "reconcile every planned device assurance activity against the status the report gives it and age each open nonconformance and open action against the declared response time"
+    intent: "ECSS-Q-ST-60-03C Annex B; activity reconciliation and open-item response-time ageing in the recurring report"
+    expected_skill: "space-systems/ecss/q6003-device-assurance-report-drd"

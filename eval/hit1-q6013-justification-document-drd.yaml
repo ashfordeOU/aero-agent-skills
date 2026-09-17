@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6013-justification-document-drd (space-systems/ecss)
+# Two tasks for the new leaf. jd1 routes on whether a commercial-part
+# justification record holds the sections and evidence its decision needs;
+# jd2 routes on the residual-risk-versus-decision rule and on reconciling the
+# justified parts against the declared usage list. Both must deterministically
+# hit space-systems/ecss/q6013-justification-document-drd.
+tasks:
+  - id: jd1
+    query: "we wrote up why each commercial part is acceptable but review says the write-up is thin, work out which sections are missing and whether each decision actually cites the documents it rests on"
+    intent: "ECSS-Q-ST-60-13C Annex F; justification document data-item section coverage and decision-to-evidence demand for commercial part usage"
+    expected_skill: "space-systems/ecss/q6013-justification-document-drd"
+  - id: jd2
+    query: "one entry accepts the part as it stands while recording high residual risk and no mitigation, and two parts we fly have no entry at all - flag both against the usage list"
+    intent: "ECSS-Q-ST-60-13C Annex F; residual risk against an accept-as-is usage decision and two-way reconciliation between justified parts and the declared commercial-part usage list"
+    expected_skill: "space-systems/ecss/q6013-justification-document-drd"

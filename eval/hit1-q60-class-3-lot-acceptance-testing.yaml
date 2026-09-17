@@ -1,0 +1,17 @@
+# Hit@1 fragment: q60-class-3-lot-acceptance-testing (space-systems/ecss)
+# Two tasks for the new leaf. lat1 routes on the per-date-code Class 3
+# submission unit and the manufacturer report credited only inside the
+# production window and its validity; lat2 routes on the reduced draw a
+# preferred source under the quantity ceiling earns and on the spares the
+# consumed pieces come from. Both must deterministically hit
+# space-systems/ecss/q60-class-3-lot-acceptance-testing, not the Class 1 or
+# Class 2 lot acceptance leaves.
+tasks:
+  - id: q60c3lat1
+    query: "an ECSS-Q-ST-60C Class 3 delivery arrived across three date codes and the manufacturer sent one lot acceptance report raised eleven weeks off the middle date code, say which date codes that report discharges and which still owe a submission"
+    intent: "ECSS-Q-ST-60C clause 6.3.5; Class 3 submission unit per part number and date code, and the manufacturer report credited only while it names the part, sits inside the production window and stays inside its validity"
+    expected_skill: "space-systems/ecss/q60-class-3-lot-acceptance-testing"
+  - id: q60c3lat2
+    query: "these Class 3 pieces came from a preferred source and two hundred of them arrived with a hundred and eighty already committed to the build, work out the reduced submission draw and whether the spares can give it up"
+    intent: "ECSS-Q-ST-60C clause 6.3.5; Class 3 reduced submission draw under the quantity ceiling, exact rational draw sizing and the spare-unit feasibility check behind the plan"
+    expected_skill: "space-systems/ecss/q60-class-3-lot-acceptance-testing"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-3-destructive-physical-analysis (space-systems/ecss)
+# Two tasks for the new leaf. dpa1 routes on the delegated Class 3 teardown a
+# manufacturer report for the same date code buys down to a confirmation piece;
+# dpa2 routes on the construction baseline comparison and the revocation that a
+# change forces on every later build week. Both must deterministically hit
+# space-systems/ecss/q60-class-3-destructive-physical-analysis, not the Class 1
+# or Class 2 teardown leaves.
+tasks:
+  - id: q60c3dpa1
+    query: "the manufacturer sent its own teardown report for one of the two date codes in this Class 3 shipment, work out what each date code still has to give up and whether the uncommitted pieces cover it"
+    intent: "ECSS-Q-ST-60C clause 6.3.9; the delegated Class 3 teardown credit for a report naming the same date code inside its validity, the confirmation piece a credited group gives up, and the spares the destroyed sample comes from"
+    expected_skill: "space-systems/ecss/q60-class-3-destructive-physical-analysis"
+  - id: q60c3dpa2
+    query: "the Class 3 teardown found copper wire where the procurement baseline said gold, and the fine leak came back right on the project limit, tell me whether this lot is rejected or goes to the parts control board"
+    intent: "ECSS-Q-ST-60C clause 6.3.9; the attribute by attribute construction baseline comparison, the delegation credit a construction change revokes from that build week onward, the fine leak comparison at its limit and the teardown disposition"
+    expected_skill: "space-systems/ecss/q60-class-3-destructive-physical-analysis"

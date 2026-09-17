@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6013-component-control-plan-drd (space-systems/ecss)
+# Two tasks for the leaf. ccpd1 routes on the section-coverage half of the
+# Annex A data item -- a heading with no procedure behind it. ccpd2 routes on
+# the ownership, issue-currency and customer-agreement half. Both must
+# deterministically hit space-systems/ecss/q6013-component-control-plan-drd.
+tasks:
+  - id: ccpd1
+    query: "check whether the component control plan written for a programme buying commercial parts carries every section its data item fixes with a procedure behind the heading rather than a heading that defers the subject"
+    intent: "ECSS-Q-ST-60-13C Annex A; required section coverage of the commercial-parts component control plan data item"
+    expected_skill: "space-systems/ecss/q6013-component-control-plan-drd"
+  - id: ccpd2
+    query: "work out whether the selection, lot-acceptance, radiation and obsolescence sections of a commercial parts control plan name a responsible function, how much of its revision interval the current issue has used, and which customer-agreement milestones it never reached"
+    intent: "ECSS-Q-ST-60-13C Annex A; section ownership, issue currency and approval milestones of the commercial-parts plan data item"
+    expected_skill: "space-systems/ecss/q6013-component-control-plan-drd"
