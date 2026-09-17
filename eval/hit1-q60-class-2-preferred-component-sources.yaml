@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-preferred-component-sources (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on pricing the qualification and
+# screening work each candidate source leaves for the project; to2 routes on a
+# dearer source being taken over a cheaper one with no recorded reason. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-2-preferred-component-sources.
+tasks:
+  - id: to1
+    query: "three sources are offered for this Class 2 slot and each has run a different set of screens already, work out which one leaves us the least upscreening to do and how many weeks and sample devices it costs"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.3; scoping the applicable qualification and screening steps from the package style, subtracting the evidence each source already holds, and pricing what is left in effort, campaign weeks and samples consumed"
+    expected_skill: "space-systems/ecss/q60-class-2-preferred-component-sources"
+  - id: to2
+    query: "the design took the source that needs a whole qualification campaign when another candidate arrived with everything already run, and nothing was written down about why"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.3; ranking Class 2 candidates by the residual qualification burden they leave and grading the step away from the least-effort source against the reasons the project accepts"
+    expected_skill: "space-systems/ecss/q60-class-2-preferred-component-sources"

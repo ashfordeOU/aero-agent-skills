@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-eqm-component-usage (space-systems/ecss,
+# Q-ST-60C 6.1.6). Two tasks per leaf; c3eqm1 routes on the signed relaxation
+# depth and the substitution note a relaxed fitted part needs, c3eqm2 on the
+# consumed-life fractions, the governing stress and the flight-build position
+# stated separately from the model disposition. Both must deterministically hit
+# space-systems/ecss/q60-class-3-eqm-component-usage.
+tasks:
+  - id: c3eqm1
+    query: "measure q60-c3-eqm-relaxation-depth on each part fitted to the Class 3 engineering qualification model and check its q60-c3-eqm-substitution-note"
+    intent: "ecss eee components; quality-level relaxation on parts fitted to a Class 3 engineering qualification model"
+    expected_skill: "space-systems/ecss/q60-class-3-eqm-component-usage"
+  - id: c3eqm2
+    query: "accumulate q60-c3-eqm-consumed-life-fraction per stress then return the q60-c3-eqm-post-use-disposition with the q60-c3-eqm-flight-build-position"
+    intent: "ecss eee components; post-test handling of Class 3 model parts and what it means for the flight build"
+    expected_skill: "space-systems/ecss/q60-class-3-eqm-component-usage"

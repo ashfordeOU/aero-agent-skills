@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-component-derating-rules (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on walking a printed rating down its
+# derating line to the case temperature the part actually runs at; to2 routes
+# on discounting a rating taken from a typical column before the category
+# margin is applied. Both must deterministically hit
+# space-systems/ecss/q60-class-3-component-derating-rules.
+tasks:
+  - id: to1
+    query: "these Class 3 parts were derated against the numbers printed on the datasheet but half the board runs near 85 C, redo the margins at the case temperature each part actually sits at"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.5; walking each maker rating down its derating line from the reference point toward the zero-rating temperature before any margin is applied"
+    expected_skill: "space-systems/ecss/q60-class-3-component-derating-rules"
+  - id: to2
+    query: "the voltage rating we used came out of the typical column of a commercial datasheet, work out what applied stress that leaves once the discount and the category margin both go on"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.5; discounting a rating by its source, applying the Class 3 category margin to what is left, and naming the tightest part in the equipment"
+    expected_skill: "space-systems/ecss/q60-class-3-component-derating-rules"

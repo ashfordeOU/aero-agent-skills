@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-component-control-plan (space-systems/ecss,
+# Q-ST-60C 6.1.2.2). Two tasks per leaf; c3p1 routes on building the matrix and
+# its clause ordering, c3p2 on the unagreed non-compliances, the completeness
+# floor and the departure ceiling. Both must deterministically hit
+# space-systems/ecss/q60-class-3-component-control-plan.
+tasks:
+  - id: c3p1
+    query: "build the class-3-plan-compliance-matrix for this component control plan with compliance-matrix-clause-ordering applied to the clause column"
+    intent: "ECSS-Q-ST-60C clause 6.1.2.2; preparing the class 3 component control compliance matrix"
+    expected_skill: "space-systems/ecss/q60-class-3-component-control-plan"
+  - id: c3p2
+    query: "flag every unagreed-non-compliance-statement in the matrix and grade it against the matrix-completeness-floor and the plan-departure-share-ceiling"
+    intent: "ECSS-Q-ST-60C clause 6.1.2.2; agreeability and completeness of the class 3 compliance matrix"
+    expected_skill: "space-systems/ecss/q60-class-3-component-control-plan"

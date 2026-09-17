@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-component-traceability (space-systems/ecss,
+# Q-ST-60C 5.5.4). ct1 routes on the trace depth against the demand, ct2 on
+# the quantity reconciliation and the mixed-bin detection. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-2-component-traceability.
+tasks:
+  - id: ct1
+    query: "work out the class-2-trace-depth-shortfall for these receipt records and run the class-2-forward-and-backward-lot-trace from the lot into the assemblies"
+    intent: "ecss eee class 2; identity trail from receipt through storage into assemblies"
+    expected_skill: "space-systems/ecss/q60-class-2-component-traceability"
+  - id: ct2
+    query: "do the class-2-lot-quantity-reconciliation on this lot and run the class-2-mixed-lot-bin-detection over the store before we kit it"
+    intent: "ecss eee class 2; lot reconciliation and storage identity integrity"
+    expected_skill: "space-systems/ecss/q60-class-2-component-traceability"

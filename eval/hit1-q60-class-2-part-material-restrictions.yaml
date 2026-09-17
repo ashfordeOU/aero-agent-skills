@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-part-material-restrictions (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the non-hermetic packaging route and
+# the two numbers that open it; to2 routes on the near-pure-tin whisker
+# restriction and the trace allowance a restricted metal is graded against.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-2-part-material-restrictions.
+tasks:
+  - id: to1
+    query: "this Class 2 candidate comes in a plastic package with a moisture sensitivity level but nobody has produced a damp life figure, tell me whether the case is allowed and what is still open"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.2; grading a non-hermetic Class 2 package on its moisture sensitivity level against the build ceiling and its demonstrated damp life against the mission humid hours with margin, and separating missing evidence from failed evidence"
+    expected_skill: "space-systems/ecss/q60-class-2-part-material-restrictions"
+  - id: to2
+    query: "the lead frame finish on this Class 2 part is almost pure tin and the maker offers to note it in the parts list, plus there is a trace of magnesium in the case, work out what we can actually buy"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.2; grading a tin-bearing finish against the lead mass fraction that leaves the whisker route, deciding whether a declared mitigation removes that route or only records it, and grading a declared metal against its trace allowance"
+    expected_skill: "space-systems/ecss/q60-class-2-part-material-restrictions"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-inspection-documentation (space-systems/ecss,
+# Q-ST-60C 5.7). Two tasks per leaf; c2id1 routes on the per-record quantity
+# reconciliation, c2id2 on the coverage floor and the yield advisory. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-2-inspection-documentation.
+tasks:
+  - id: c2id1
+    query: "run the inspected-quantity-reconciliation across this class-2-inspection-outcome-record set and apply the class-2-recording-authority-check to every row"
+    intent: "ecss eee class 2; recording the outcomes of inspection and control activities"
+    expected_skill: "space-systems/ecss/q60-class-2-inspection-documentation"
+  - id: c2id2
+    query: "give me the class-2-outcome-coverage-floor result and the class-2-acceptance-yield-advisory before the delivery review"
+    intent: "ecss eee class 2; coverage and yield of the class 2 inspection outcome record set"
+    expected_skill: "space-systems/ecss/q60-class-2-inspection-documentation"

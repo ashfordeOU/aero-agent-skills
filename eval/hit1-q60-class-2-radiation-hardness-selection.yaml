@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-2-radiation-hardness-selection (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on accumulating the shielded
+# environment phase by phase and reporting the mission months a capability
+# actually supports; to2 routes on the evidence pedigree setting the margin and
+# on a destructive single event mechanism taking no rate credit. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-2-radiation-hardness-selection.
+tasks:
+  - id: to1
+    query: "the mission has a short transfer phase at a high dose rate and five years on station at a low one, tell me how many months this Class 2 part actually survives behind its shielding and which phase kills it"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.4; accumulating shielded dose and displacement fluence phase by phase across a declared mission and walking the profile again to report the lifetime a declared capability supports at its margin"
+    expected_skill: "space-systems/ecss/q60-class-2-radiation-hardness-selection"
+  - id: to2
+    query: "the only radiation figure we have for this part is off the maker's data sheet and the destructive latch threshold sits right on the environment, tell me whether a lot test or more shielding fixes it"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.4; setting the radiation design margin from the evidence pedigree, refusing a destructive single event mechanism with no rate credit, and deciding whether a lot radiation test or a shielding uplift closes an accumulated shortfall"
+    expected_skill: "space-systems/ecss/q60-class-2-radiation-hardness-selection"

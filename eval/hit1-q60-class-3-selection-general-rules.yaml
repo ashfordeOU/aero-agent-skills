@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-3-selection-general-rules (space-systems/ecss)
+# Two tasks for the new leaf. c3sgr1 routes on whether the baseline Class 3
+# selection rules still bind a subcontractor that buys parts on the project's
+# behalf; c3sgr2 routes on a supplier that declares a rule without evidencing
+# it, and on how far down the chain the rule set actually reaches. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-3-selection-general-rules.
+tasks:
+  - id: c3sgr1
+    query: "our Class 3 selection rules are written and applied in-house but the equipment subcontractor buys its own parts, how do I show the same rule set still binds them"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.1; Class 3 baseline selection rules and their flow-down across the supply chain"
+    expected_skill: "space-systems/ecss/q60-class-3-selection-general-rules"
+  - id: c3sgr2
+    query: "the distributor says it applies our derating and packaging rules but has shown no evidence, how much credit does that declaration earn and which tier sets the reach of the rule set"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.1; supplier declaration against evidenced application, weakest-tier reach and flow-down break"
+    expected_skill: "space-systems/ecss/q60-class-3-selection-general-rules"

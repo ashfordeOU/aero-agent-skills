@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-selection-general-requirements (space-systems/ecss,
+# Q-ST-60C 6.2.1). Two tasks per leaf; c3sel1 routes on the prerequisite ledger
+# and the waiver that a blocking prerequisite refuses, c3sel2 on the weighted
+# readiness index read before a purchase order is released. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-3-selection-general-requirements.
+tasks:
+  - id: c3sel1
+    query: "resolve the q60-c3-selection-prerequisite-ledger for this Class 3 candidate and apply q60-c3-selection-waiver-refusal to each q60-c3-blocking-prerequisite"
+    intent: "ecss eee components; what a Class 3 part selection has to satisfy before a procurement decision"
+    expected_skill: "space-systems/ecss/q60-class-3-selection-general-requirements"
+  - id: c3sel2
+    query: "compute the q60-c3-selection-readiness-index over the applicable prerequisites and decide q60-c3-procurement-release with the next item to close"
+    intent: "ecss eee components; pre-purchase-order readiness of a Class 3 part choice"
+    expected_skill: "space-systems/ecss/q60-class-3-selection-general-requirements"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-manufacturer-data-deliveries (space-systems/ecss)
+# data1 routes on the owed record set and the mandatory certificate gap; data2
+# routes on grading a delivered record against the box and the weighted
+# completeness fraction. Both must deterministically hit
+# space-systems/ecss/q60-class-2-manufacturer-data-deliveries.
+tasks:
+  - id: q60c2data1
+    query: "which manufacturer records should have travelled with this screened and reworked ECSS-Q-ST-60C Class 2 microcircuit shipment, and does the missing certificate of conformity hold it even though the rest of the folder is complete"
+    intent: "ECSS-Q-ST-60C clause 5.3.11; Class 2 owed record set from part category and lot history, and the mandatory certificate of conformity gap that holds a shipment at any completeness"
+    expected_skill: "space-systems/ecss/q60-class-2-manufacturer-data-deliveries"
+  - id: q60c2data2
+    query: "a Class 2 delivery arrived with a certificate issued after dispatch, one record naming another lot code and a summary standing in for the screening data, what is the weighted completeness and does the shipment reach stores"
+    intent: "ECSS-Q-ST-60C clause 5.3.11; Class 2 record status grading on signature, lot code, issue day and quantity covered, the credit a summary earns, and the weighted data package completeness fraction behind the release disposition"
+    expected_skill: "space-systems/ecss/q60-class-2-manufacturer-data-deliveries"

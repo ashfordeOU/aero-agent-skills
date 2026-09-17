@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-asic-requirements (space-systems/ecss)
+# Two tasks for the leaf. c2ar1 routes on the referral of a class 2 ASIC into a
+# flow of the dedicated development standard; c2ar2 routes on which dedicated
+# standard activities the referenced qualification still covers. Both must
+# deterministically hit space-systems/ecss/q60-class-2-asic-requirements.
+tasks:
+  - id: c2ar1
+    query: "decide which flow of the dedicated ASIC development standard a class 2 application specific integrated circuit enters when the foundry and the mask set both moved against the qualified build"
+    intent: "ECSS-Q-ST-60C clause 5.6.2; class 2 ASIC referral, silicon design and assembly movement groups and route selection"
+    expected_skill: "space-systems/ecss/q60-class-2-asic-requirements"
+  - id: c2ar2
+    query: "split the ASIC activity plan into work the referenced qualification still covers and work the package change reopens, and check the reuse evidence and the currency of that qualification"
+    intent: "ECSS-Q-ST-60C clause 5.6.2; ASIC activity inheritance split, reuse evidence references and qualification currency window"
+    expected_skill: "space-systems/ecss/q60-class-2-asic-requirements"

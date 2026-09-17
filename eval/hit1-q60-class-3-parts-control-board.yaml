@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-3-parts-control-board (space-systems/ecss,
+# Q-ST-60C 6.1.3). Two tasks per leaf; c3b1 routes on whether the customer
+# triggered the board and whether each trigger is evidenced, c3b2 on the
+# approval scope, the commitment lead and the docket. Both must
+# deterministically hit space-systems/ecss/q60-class-3-parts-control-board.
+tasks:
+  - id: c3b1
+    query: "decide whether this part usage met the class-3-customer-triggered-board condition and whether every board-trigger-evidence-reference actually holds"
+    intent: "ECSS-Q-ST-60C clause 6.1.3; customer-triggered board approval of class 3 part selection and usage"
+    expected_skill: "space-systems/ecss/q60-class-3-parts-control-board"
+  - id: c3b2
+    query: "check the selection-and-usage-approval-scope and the board-approval-commitment-lead on each record and report class-3-board-docket-readiness"
+    intent: "ECSS-Q-ST-60C clause 6.1.3; validity of the class 3 parts board approval records"
+    expected_skill: "space-systems/ecss/q60-class-3-parts-control-board"

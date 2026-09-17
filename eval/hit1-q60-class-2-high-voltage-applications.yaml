@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-high-voltage-applications (space-systems/ecss,
+# Q-ST-60C 5.6.7). Two tasks for the leaf. hv2a routes on the class 2 voltage
+# utilisation and the gas breakdown margin across the electrode gap; hv2b routes
+# on the creepage and clearance shortfall and the multipaction susceptibility
+# band of a high power microwave stage. Both must deterministically hit
+# space-systems/ecss/q60-class-2-high-voltage-applications.
+tasks:
+  - id: hv2a
+    query: "take the class-2-high-voltage-utilisation and the class-2-paschen-breakdown-margin for this class 2 part energised through ascent"
+    intent: "ECSS-Q-ST-60C clause 5.6.7; additional class 2 provisions at high voltage, derating and gas breakdown margin"
+    expected_skill: "space-systems/ecss/q60-class-2-high-voltage-applications"
+  - id: hv2b
+    query: "find the class-2-creepage-and-clearance-shortfall and group the class-2-multipaction-susceptibility-band for this class 2 high power microwave stage"
+    intent: "ECSS-Q-ST-60C clause 5.6.7; class 2 creepage and clearance provisions and multipaction susceptibility in a high power microwave chain"
+    expected_skill: "space-systems/ecss/q60-class-2-high-voltage-applications"

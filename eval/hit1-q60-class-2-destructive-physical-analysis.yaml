@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-destructive-physical-analysis (space-systems/ecss)
+# Two tasks for the new leaf. dpa1 routes on the per-date-code Class 2 teardown
+# sample and the credit a recent prior teardown earns; dpa2 routes on the void
+# fraction and the bond pull margin behind the Class 2 lot disposition. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-2-destructive-physical-analysis.
+tasks:
+  - id: q60c2dpa1
+    query: "an ECSS-Q-ST-60C Class 2 delivery arrived across two date codes and one of them was torn down five months ago, how many units does each date-code group owe now and can the spares cover the destroyed sample"
+    intent: "ECSS-Q-ST-60C clause 5.3.9; Class 2 date-code group teardown sizing, the prior-teardown credit window down to a confirmation unit, and the spare units the destroyed sample comes from"
+    expected_skill: "space-systems/ecss/q60-class-2-destructive-physical-analysis"
+  - id: q60c2dpa2
+    query: "the Class 2 teardown measured 0.9 square millimetres of die attach voiding on a 4 square millimetre die and one bond that pulled at 1.9 grams on 25 micrometre wire, is the lot rejected or does it buy a second sample"
+    intent: "ECSS-Q-ST-60C clause 5.3.9; Class 2 die-attach void fraction against its limit, bond pull margin on the diameter minimum, and the accept, second-sample, board-referral or reject teardown disposition"
+    expected_skill: "space-systems/ecss/q60-class-2-destructive-physical-analysis"

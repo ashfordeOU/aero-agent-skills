@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-component-derating-rules (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the margin being applied to the
+# rating that survives at the part's own temperature rather than to the
+# headline one; to2 routes on the ambient rise the equipment still absorbs
+# before the first part crosses its limit. Both must deterministically hit
+# space-systems/ecss/q60-class-2-component-derating-rules.
+tasks:
+  - id: to1
+    query: "these Class 2 parts were all graded against the numbers on the front of the data sheet but half of them run well above their knee temperature, redo the check properly and include end of life drift"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.5; cutting each maker rating by the retention left at the part's operating temperature before the category margin is applied, and building the applied stress from nominal, tolerance spread, end-of-life drift and transient uplift"
+    expected_skill: "space-systems/ecss/q60-class-2-component-derating-rules"
+  - id: to2
+    query: "the box passes derating today but the radiator is being resized, tell me how many degrees of ambient rise it can absorb and which part gives out first"
+    intent: "ECSS-Q-ST-60C clause 5.2.2.5; solving for the temperature at which each Class 2 part's applied stress reaches its allowable, reporting the equipment ambient headroom and naming the binding part and stress"
+    expected_skill: "space-systems/ecss/q60-class-2-component-derating-rules"

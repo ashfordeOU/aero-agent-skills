@@ -1,0 +1,16 @@
+# Hit@1 fragment: q60-class-2-incoming-inspection (space-systems/ecss)
+# Two tasks for the leaf. ii1 routes on sizing the arrival draw and its
+# acceptance numbers from the lot; ii2 routes on grouping the defects found by
+# severity and on the critical finding that quarantines a lot outright. Both
+# must deterministically hit
+# space-systems/ecss/q60-class-2-incoming-inspection, not the Class 1
+# clause 4.3.7 arrival leaf.
+tasks:
+  - id: ii1
+    query: "size the draw and the major and minor acceptance numbers for an arrival inspection of a Class 2 delivery once transit damage has come out of the accepted quantity"
+    intent: "ECSS-Q-ST-60C clause 5.3.7; Class 2 arrival attribute sampling plan sized on the lot that remains"
+    expected_skill: "space-systems/ecss/q60-class-2-incoming-inspection"
+  - id: ii2
+    query: "group the defects found in a Class 2 goods-in draw by severity and decide whether the delivery enters the bonded store, is screened piece by piece or is quarantined on a critical finding"
+    intent: "ECSS-Q-ST-60C clause 5.3.7; Class 2 defect severity tally and bonded-store entry disposition"
+    expected_skill: "space-systems/ecss/q60-class-2-incoming-inspection"

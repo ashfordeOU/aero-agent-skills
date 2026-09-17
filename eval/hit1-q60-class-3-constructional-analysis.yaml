@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-constructional-analysis (space-systems/ecss)
+# to1 routes on sizing and reconciling the destructive sample set against the
+# date codes a Class 3 procurement was drawn from; to2 routes on diffing the
+# sections against the declared construction baseline and against each other.
+# Both must deterministically hit
+# space-systems/ecss/q60-class-3-constructional-analysis.
+tasks:
+  - id: to1
+    query: "size the destructive sample set for a Class 3 constructional analysis from the lot populations and the date-code groups, grade the coverage per date code and in total, and give me the weighted conformance index"
+    intent: "ECSS-Q-ST-60C clause 6.2.3.3; sizing the destructive sample set from the lot populations and date codes, then grading coverage per date code and in total"
+    expected_skill: "space-systems/ecss/q60-class-3-constructional-analysis"
+  - id: to2
+    query: "the sections from the two date codes show a different bond wire metal from each other, grade that against the declared construction baseline and tell me whether the build moved"
+    intent: "ECSS-Q-ST-60C clause 6.2.3.3; comparing each section against the declared construction baseline, diffing the date-code groups and weighing the differences by criticality"
+    expected_skill: "space-systems/ecss/q60-class-3-constructional-analysis"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-2-lot-homogeneity-sampling (space-systems/ecss)
+# Two tasks for the leaf. c2rs1 routes on composing the radiation test sample
+# set and sizing the irradiated, control and spare roles; c2rs2 routes on the
+# traceability basis and how far the result may be written. Both must
+# deterministically hit
+# space-systems/ecss/q60-class-2-lot-homogeneity-sampling.
+tasks:
+  - id: c2rs1
+    query: "size the class 2 radiation test sample set for a total ionising dose run with three bias conditions and say how many irradiated, control and spare specimens the method needs"
+    intent: "ECSS-Q-ST-60C clause 5.5.5; radiation test sample set composition, role counts and bias condition specimen consumption"
+    expected_skill: "space-systems/ecss/q60-class-2-lot-homogeneity-sampling"
+  - id: c2rs2
+    query: "check each specimen offered for irradiation against the flight lot on the traceability basis declared, and say whether the result can be written as lot specific or only as generic part type data"
+    intent: "ECSS-Q-ST-60C clause 5.5.5; radiation specimen traceability basis, off-basis specimens and result scope limit"
+    expected_skill: "space-systems/ecss/q60-class-2-lot-homogeneity-sampling"

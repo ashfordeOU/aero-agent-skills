@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-evaluation-testing (space-systems/ecss,
+# Q-ST-60C 5.2.3.4). Two tasks per leaf; c2et1 routes on which inspections and
+# tests the use conditions trigger, c2et2 on prior-test credit and the
+# outstanding programme. Both must deterministically hit
+# space-systems/ecss/q60-class-2-evaluation-testing.
+tasks:
+  - id: c2et1
+    query: "build the class-2-inspection-and-test-matrix from the class-2-use-condition-triggers of mission length, dose, package type and termination finish for class-2-evaluation-test-selection"
+    intent: "ecss eee parts; deciding which inspections and tests an evaluated class 2 part actually requires"
+    expected_skill: "space-systems/ecss/q60-class-2-evaluation-testing"
+  - id: c2et2
+    query: "apply class-2-prior-test-credit on the same procurement lot inside validity and return the class-2-outstanding-test-programme"
+    intent: "ecss eee parts; crediting tests already performed against a class 2 evaluation programme"
+    expected_skill: "space-systems/ecss/q60-class-2-evaluation-testing"

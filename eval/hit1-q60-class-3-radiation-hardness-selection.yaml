@@ -1,0 +1,15 @@
+# Hit@1 fragment: q60-class-3-radiation-hardness-selection (space-systems/ecss)
+# Two tasks for the new leaf. c3rhs1 routes on accumulating mission dose across
+# phases behind the local shielding and setting the margin from the strength of
+# the capability evidence; c3rhs2 routes on the destructive single event bar and
+# which mitigations may be credited. Both must deterministically hit
+# space-systems/ecss/q60-class-3-radiation-hardness-selection.
+tasks:
+  - id: c3rhs1
+    query: "for this Class 3 controller we only have a manufacturer datasheet total dose figure, how much margin do we owe on it and does the mission dose behind the box wall push us to a lot specific test"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.4; mission accumulated dose over the declared lifetime and evidence-weighted radiation design margin"
+    expected_skill: "space-systems/ecss/q60-class-3-radiation-hardness-selection"
+  - id: c3rhs2
+    query: "the Class 3 part latches up below our environment LET but we current limit and cycle the rail, does that close it and what about the burnout threshold nobody measured"
+    intent: "ECSS-Q-ST-60C clause 6.2.2.4; destructive single event bar, creditable application mitigations and undeclared mechanisms"
+    expected_skill: "space-systems/ecss/q60-class-3-radiation-hardness-selection"

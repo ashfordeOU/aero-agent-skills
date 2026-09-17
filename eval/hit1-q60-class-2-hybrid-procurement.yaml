@@ -1,0 +1,14 @@
+# Hit@1 fragment: q60-class-2-hybrid-procurement (space-systems/ecss)
+# Two tasks for the leaf. c2hp1 routes on the generic family and the tier the
+# order line must cite; c2hp2 routes on the constituent element tiers and the
+# tier the assembly can actually claim. Both must deterministically hit
+# space-systems/ecss/q60-class-2-hybrid-procurement.
+tasks:
+  - id: c2hp1
+    query: "check the purchase order for a class 2 thick film hybrid microcircuit cites the right generic specification family at a current issue and at or above the tier that construction demands"
+    intent: "ECSS-Q-ST-60C clause 5.6.3; hybrid generic specification family, cited issue currency and order line specification tier"
+    expected_skill: "space-systems/ecss/q60-class-2-hybrid-procurement"
+  - id: c2hp2
+    query: "grade every die, chip capacitor, substrate and bond wire inside the hybrid against the specification tier its kind demands and say which element governs the tier the assembly can claim"
+    intent: "ECSS-Q-ST-60C clause 5.6.3; hybrid constituent element specification tiers, bill of materials roll-up and supplier qualification window"
+    expected_skill: "space-systems/ecss/q60-class-2-hybrid-procurement"

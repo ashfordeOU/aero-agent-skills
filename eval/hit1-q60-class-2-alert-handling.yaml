@@ -1,0 +1,13 @@
+# Hit@1 fragment: q60-class-2-alert-handling (space-systems/ecss, Q-ST-60C
+# 5.5.3). ah1 routes on the three-axis applicability test, ah2 on the
+# severity-and-stage action and the priority queue. Both must
+# deterministically hit space-systems/ecss/q60-class-2-alert-handling.
+tasks:
+  - id: ah1
+    query: "run the class-2-date-code-window-match for this errata sheet against our declared list and say which class-2-eee-advisory entries it actually reaches"
+    intent: "ecss eee class 2; advisory applicability over parts already selected"
+    expected_skill: "space-systems/ecss/q60-class-2-alert-handling"
+  - id: ah2
+    query: "give the class-2-severity-stage-action for each matched entry and rank them by class-2-advisory-impact-score before the acknowledgement window closes"
+    intent: "ecss eee class 2; stage actions and advisory priority queue"
+    expected_skill: "space-systems/ecss/q60-class-2-alert-handling"
