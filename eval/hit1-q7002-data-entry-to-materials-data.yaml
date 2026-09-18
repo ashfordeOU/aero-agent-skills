@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-data-entry-to-materials-data (space-systems/ecss)
+# de1 routes on the entry key that separates two cure states of one trade name;
+# de2 routes on the reconciliation of a resubmitted result against a record
+# already held. Both must deterministically hit
+# space-systems/ecss/q7002-data-entry-to-materials-data.
+tasks:
+  - id: de1
+    query: "I am folding finished outgassing results into our declared materials list and the same trade name appears with two different cure schedules, work out what the entry should actually be keyed on"
+    intent: "ECSS-Q-ST-70-02C data recording into the ECSS-Q-ST-70-71C declared materials practice; designation, manufacturer, product form and processing state form the entry key"
+    expected_skill: "space-systems/ecss/q7002-data-entry-to-materials-data"
+  - id: de2
+    query: "a new outgassing report gives different numbers for a material the data set already holds and the test date is older than the recorded one, decide whether it supersedes, is stale, or is a conflict someone has to resolve"
+    intent: "ECSS-Q-ST-70-02C data recording; reconciling a submission against a recorded entry by value at the record resolution and then by test date"
+    expected_skill: "space-systems/ecss/q7002-data-entry-to-materials-data"

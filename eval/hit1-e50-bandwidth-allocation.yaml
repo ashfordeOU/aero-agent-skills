@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-bandwidth-allocation (space-systems/ecss)
+# Two tasks for the new leaf. bw1 routes on protocol overhead making a flow cost
+# more than its payload; bw2 routes on a link that fits only by eating its margin.
+# Both must deterministically hit
+# space-systems/ecss/e50-bandwidth-allocation.
+tasks:
+  - id: bw1
+    query: "we sized the downlink from the payload data rates the instruments quote and the link is full already, work out what each flow actually costs once framing and acknowledgements ride on it"
+    intent: "ECSS-E-ST-50C clause 5.3.1; a flow is allocated its own rate times the overhead its protocol stack adds, not the rate the application emits"
+    expected_skill: "space-systems/ecss/e50-bandwidth-allocation"
+  - id: bw2
+    query: "the sum of our spacecraft data flows comes in under the link capacity but only by spending the twenty percent we reserved, decide whether that link budget passes and by how much it is short"
+    intent: "ECSS-E-ST-50C clause 5.3.1; a set that fits the link but consumes the reserved margin is a separate outcome from fitting the usable capacity, and the shortfall is the number to report"
+    expected_skill: "space-systems/ecss/e50-bandwidth-allocation"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-congestion (space-systems/ecss)
+# Two tasks for the new leaf. cng1 routes on backlog and time to overflow;
+# cng2 routes on a contained burst that never drains.
+# Both must deterministically hit space-systems/ecss/e50-congestion.
+tasks:
+  - id: cng1
+    query: "an instrument dumps data at more than the downlink can serve for a couple of seconds at a time, size the buffer that holds the excess and tell me how long we have before it fills"
+    intent: "ECSS-E-ST-50C clause 5.3.2; backlog is the excess rate over the burst duration, and time to overflow is the provided buffer divided by that excess"
+    expected_skill: "space-systems/ecss/e50-congestion"
+  - id: cng2
+    query: "our buffer is big enough for the burst but the steady traffic after it sits right at the service rate, work out whether the backlog ever clears before the next burst arrives"
+    intent: "ECSS-E-ST-50C clause 5.3.2; a contained burst still fails containment when the following load leaves no spare capacity, because the backlog never drains"
+    expected_skill: "space-systems/ecss/e50-congestion"

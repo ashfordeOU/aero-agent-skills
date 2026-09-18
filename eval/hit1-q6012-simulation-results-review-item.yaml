@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-simulation-results-review-item (space-systems/ecss)
+# Two tasks for the new leaf. srri1 routes on the corner matrix being the cross
+# product that has to be covered before margins mean anything; srri2 routes on
+# worst-corner selection being direction-dependent per parameter. Both must
+# deterministically hit
+# space-systems/ecss/q6012-simulation-results-review-item.
+tasks:
+  - id: srri1
+    query: "the MMIC design review pack has simulation runs at some but not all process, temperature and supply combinations, tell me which corners nobody simulated before I look at the margins"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.4; the corner matrix is the cross product of the three declared axes and coverage is established before any number is compared with a target"
+    expected_skill: "space-systems/ecss/q6012-simulation-results-review-item"
+  - id: srri2
+    query: "take the predicted gain and noise figure over corners and give me each one at its own worst corner with the signed margin against the spec, not just the nominal numbers"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.4; a minimum-type target is worst at its lowest sample and a maximum-type target at its highest, so the worst corner is resolved per parameter"
+    expected_skill: "space-systems/ecss/q6012-simulation-results-review-item"

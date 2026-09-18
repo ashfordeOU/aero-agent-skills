@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-test-reports (space-systems/ecss)
+# Two tasks for the new leaf. tr1 routes on data completeness against the
+# parameters the procedure demanded; tr2 routes on the discrepancy record and a
+# pass conclusion the numbers do not support. Both must deterministically hit
+# space-systems/ecss/q20-test-reports.
+tasks:
+  - id: tr1
+    query: "grade a submitted test report for whether every parameter the procedure asked for is actually recorded, in the right unit, or properly declared as not measured"
+    intent: "ECSS-Q-ST-20C clause 5.6.3.2; test report data completeness against the procedure parameter list and the wrong-unit case"
+    expected_skill: "space-systems/ecss/q20-test-reports"
+  - id: tr2
+    query: "the report says the test passed but one chamber pressure reading is outside its limit and an anomaly has no disposition, decide whether I can approve the report"
+    intent: "ECSS-Q-ST-20C clause 5.6.3.2; discrepancy recording and reconciling the stated conclusion with the graded measured values"
+    expected_skill: "space-systems/ecss/q20-test-reports"

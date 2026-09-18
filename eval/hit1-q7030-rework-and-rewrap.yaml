@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-rework-and-rewrap (space-systems/ecss)
+# Two tasks for the new leaf. rwk1 routes on how many removals the post has left
+# and the state of its corners; rwk2 routes on cutting the used length away and
+# whether enough wire remains. Both must deterministically hit
+# space-systems/ecss/q7030-rework-and-rewrap.
+tasks:
+  - id: rwk1
+    query: "this post has been unwrapped twice already and the last one came off with pliers - say whether it may take another wrap or the terminal has to be replaced"
+    intent: "ECSS-Q-ST-70-30C wrapping rework; removal allowance held against the post, removal method, and corner damage ending the post's life"
+    expected_skill: "space-systems/ecss/q7030-rework-and-rewrap"
+  - id: rwk2
+    query: "after cutting off the length that was already wrapped, work out whether there is enough wire left to make the new wrap plus its service loop"
+    intent: "ECSS-Q-ST-70-30C wrapping rework; used length cut away and wire consumed from post perimeter, turn count and service loop"
+    expected_skill: "space-systems/ecss/q7030-rework-and-rewrap"

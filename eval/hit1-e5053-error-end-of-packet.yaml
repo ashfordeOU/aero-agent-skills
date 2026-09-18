@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-error-end-of-packet (space-systems/ecss)
+# Two tasks for the new leaf. eep1 routes on discarding the whole partial packet
+# and reporting it; eep2 routes on clustering of error terminations across a run.
+# Both must deterministically hit
+# space-systems/ecss/e5053-error-end-of-packet.
+tasks:
+  - id: eep1
+    query: "a SpaceWire transfer carrying a CCSDS packet came in with an error terminator at the end and the header at the front parsed fine, decide whether we may hand that part up to the user"
+    intent: "ECSS-E-ST-50-53C clause 5.5.4.4; an error-terminated transfer is discarded whole because its extent is unknown, and the discard is reported rather than absorbed silently"
+    expected_skill: "space-systems/ecss/e5053-error-end-of-packet"
+  - id: eep2
+    query: "our receive side is counting error terminated transfers but telemetry just goes quiet and nobody notices, work out what the count should be telling us and whether the errors are clustered or scattered"
+    intent: "ECSS-E-ST-50-53C clause 5.5.4.4; the discard must be reported, and consecutive error terminations are a fault in progress rather than independent upsets"
+    expected_skill: "space-systems/ecss/e5053-error-end-of-packet"

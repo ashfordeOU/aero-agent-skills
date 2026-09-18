@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-user-application-value (space-systems/ecss)
+# Two tasks for the new leaf. uav1 routes on a delivered value the receiving
+# application cannot interpret though carriage was faithful; uav2 routes on a
+# transfer layer that wants to act on the value. Both must deterministically
+# hit space-systems/ecss/e5053-user-application-value.
+tasks:
+  - id: uav1
+    query: "the user application value arrives intact but our receiving software has no entry for it, is that link corruption or an interface agreement gap"
+    intent: "ECSS-E-ST-50-53C clause 5.1.6; a faithfully carried value with no local meaning is an application agreement fault, distinct from a value the transport altered"
+    expected_skill: "space-systems/ecss/e5053-user-application-value"
+  - id: uav2
+    query: "can our SpaceWire transfer layer prioritise packets by the user application value carried in the transfer unit, or must it stay blind to it"
+    intent: "ECSS-E-ST-50-53C clause 5.1.6; the protocol carries the value transparently and assigns it no meaning, so behaviour conditioned on it inside the transfer layer is out of scope"
+    expected_skill: "space-systems/ecss/e5053-user-application-value"

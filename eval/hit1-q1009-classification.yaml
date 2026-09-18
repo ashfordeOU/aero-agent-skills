@@ -1,0 +1,15 @@
+# Hit@1 fragment: q1009-classification (space-systems/ecss)
+# Two tasks for the new leaf. cl1 routes on the disjunctive severity criteria -
+# one criterion true is major whatever the others say. cl2 routes on the
+# cumulative case: several small departures on one item eating one margin.
+# Both must deterministically hit
+# space-systems/ecss/q1009-classification.
+tasks:
+  - id: cl1
+    query: "this departure is tiny but it moves a connector keying feature, decide whether that makes it a minor or a major nonconformance and which board can dispose of it"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.2; the clause 3.2 severity criteria as a disjunction, interchangeability and interface answered explicitly rather than weighed"
+    expected_skill: "space-systems/ecss/q1009-classification"
+  - id: cl2
+    query: "that bracket has picked up four separate small mass overruns on four separate reports, work out whether the item as a whole still counts as minor"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.2; grouping minor departures by the item that owns the margin and escalating the group when the allocated margin or the permitted count is reached"
+    expected_skill: "space-systems/ecss/q1009-classification"

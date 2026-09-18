@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-gse-production (space-systems/ecss)
+# Two tasks for the leaf. gsp1 routes on procurement assurance for bought-in GSE
+# lots and the surveillance a conditional supplier approval owes; gsp2 routes on
+# the build route replay, qualification validity and mandatory inspection point
+# witnessing. Both must deterministically hit
+# space-systems/ecss/q20-gse-production, not the flight-parts procurement leaf.
+tasks:
+  - id: gsp1
+    query: "these brackets for the test rack came from a supplier we only approved conditionally; say what the lot still owes before it goes into the ground support equipment and whether it can be used at all"
+    intent: "ECSS-Q-ST-20C clause 5.8.3; GSE procurement assurance, conditional supplier surveillance, incoming inspection and lot traceability"
+    expected_skill: "space-systems/ecss/q20-gse-production"
+  - id: gsp2
+    query: "the harness integration was signed off while the welding operation ahead of it was still open and one stamp is missing a customer witness; tell me whether this ground support equipment build can be released"
+    intent: "ECSS-Q-ST-20C clause 5.8.3; GSE build route sequence, process qualification validity and mandatory inspection point witnessing"
+    expected_skill: "space-systems/ecss/q20-gse-production"

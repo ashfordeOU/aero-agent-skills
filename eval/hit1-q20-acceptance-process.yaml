@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-acceptance-process (space-systems/ecss)
+# Two tasks for the new leaf. ac1 routes on the verification register and the
+# concession a shortfall rests on; ac2 routes on the acceptance hold points and
+# the open nonconformance severity. Both must deterministically hit
+# space-systems/ecss/q20-acceptance-process.
+tasks:
+  - id: ac1
+    query: "before we accept this unit, check the verification register for requirements called verified with no evidence reference and for shortfalls sitting on a waiver nobody approved"
+    intent: "ECSS-Q-ST-20C clause 5.7.1; requirement verification evidence before acceptance and the approved, attributed concession a shortfall needs"
+    expected_skill: "space-systems/ecss/q20-acceptance-process"
+  - id: ac2
+    query: "one acceptance hold point was signed by the supplier instead of the customer and a critical nonconformance is still open, say whether this delivery can be accepted or only conditionally"
+    intent: "ECSS-Q-ST-20C clause 5.7.1; acceptance hold point ownership and the severity rule that blocks a delivery outright"
+    expected_skill: "space-systems/ecss/q20-acceptance-process"

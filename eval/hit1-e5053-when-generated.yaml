@@ -1,0 +1,13 @@
+# Hit@1 fragment: e5053-when-generated (space-systems/ecss)
+# Two tasks for the new leaf. wg1 routes on two primitives firing on one state
+# and event; wg2 routes on a primitive no rule can ever issue. Both must
+# deterministically hit space-systems/ecss/e5053-when-generated.
+tasks:
+  - id: wg1
+    query: "two different primitives in this protocol are both described as being issued in the open state when a unit turns up, work out whether anything actually separates them"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.3; generation rules keyed on state and originating event, and guards that only resolve ambiguity when they differ once normalised"
+    expected_skill: "space-systems/ecss/e5053-when-generated"
+  - id: wg2
+    query: "cross check the primitive catalogue against the conditions for issuing each one and tell me which primitives nothing in the state machine can ever raise"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.3; primitives with no generation rule are dead specification, and events no rule consumes usually mean a deleted rule"
+    expected_skill: "space-systems/ecss/e5053-when-generated"

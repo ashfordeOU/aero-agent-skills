@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7036-scc-criticality-identification (space-systems/ecss)
+# Two tasks for the new leaf. sci1 routes on the three conditions having to
+# coexist before anything is critical; sci2 routes on the sustained-versus-
+# transient duration read that clears a high peak stress. Both must
+# deterministically hit
+# space-systems/ecss/q7036-scc-criticality-identification.
+tasks:
+  - id: sci1
+    query: "go through the fitting list and tell me which ones are stress corrosion critical, and where an item is not critical say which single condition is carrying that decision so we notice if it changes later"
+    intent: "ECSS-Q-ST-70-36C framework; a susceptible alloy state, a sustained tensile stress and a promoting environment must coexist, and the absent condition is what gets recorded"
+    expected_skill: "space-systems/ecss/q7036-scc-criticality-identification"
+  - id: sci2
+    query: "this lug sees a very high stress for about ninety seconds at liftoff and a small fit-up stress for the eight months it sits in storage, which of the two is the one the cracking assessment cares about and does the redundant load path change the grade"
+    intent: "ECSS-Q-ST-70-36C framework; sustained duration and stress-ratio floors decide the stress condition, and consequence plus redundancy decide critical against monitored"
+    expected_skill: "space-systems/ecss/q7036-scc-criticality-identification"

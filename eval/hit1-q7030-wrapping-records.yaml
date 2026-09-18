@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-wrapping-records (space-systems/ecss)
+# Two tasks for the new leaf. rec1 routes on tying each wrap to an operator and a
+# tool whose calibration held on the wrap date; rec2 routes on the pull-test
+# reference owed per group. Both must deterministically hit
+# space-systems/ecss/q7030-wrapping-records.
+tasks:
+  - id: rec1
+    query: "before I close this build package, check every wrap names who made it and on which tool, and that the tool calibration had not lapsed on the day the wrap was made"
+    intent: "ECSS-Q-ST-70-30C wrapping records; per-wrap traceability with calibration graded on the wrap date, not the audit date"
+    expected_skill: "space-systems/ecss/q7030-wrapping-records"
+  - id: rec2
+    query: "the setup verification is dated the day after the work and one operator-and-tool group has no pull test referenced anywhere - itemize what this record set is missing"
+    intent: "ECSS-Q-ST-70-30C wrapping records; tool setup verification window, pull-test reference per operator, tool and gauge group, retention"
+    expected_skill: "space-systems/ecss/q7030-wrapping-records"

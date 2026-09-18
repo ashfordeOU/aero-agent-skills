@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-test-item-categories (space-systems/ecss)
+# Two tasks for the new leaf. tic1 routes on sorting a mixed list into material,
+# process, mechanical part and assembly items and the specimen demand that
+# follows; tic2 routes on the reach limit of an assembly result over its
+# constituent materials and operations. Both must deterministically hit
+# space-systems/ecss/q7004-test-item-categories.
+tasks:
+  - id: tic1
+    query: "here is a mixed list going into the thermal chamber, raw laminate stock, a bonded coupon, a machined bracket and a four piece hinge, sort each one into the right kind of test item and tell me how many specimens the set needs"
+    intent: "ECSS-Q-ST-70-04C test item clauses; deriving material, process, mechanical part and assembly categories from declared attributes and summing the per-item specimen demand"
+    expected_skill: "space-systems/ecss/q7004-test-item-categories"
+  - id: tic2
+    query: "we cycled the assembled unit and passed, can we now claim the adhesive and the plating inside it are good for other builds, and is a bonded coupon a process item or a part"
+    intent: "ECSS-Q-ST-70-04C test item clauses; the reach limit of an assembly result over its constituent materials and operations, and the precedence that makes an operation coupon a process item"
+    expected_skill: "space-systems/ecss/q7004-test-item-categories"

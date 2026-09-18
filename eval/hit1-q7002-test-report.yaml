@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-test-report (space-systems/ecss)
+# tr1 routes on the achieved-condition record and the deviation that has to sit
+# beside an out-of-window value; tr2 routes on the uncertainty budget and the
+# coverage factor. Both must deterministically hit
+# space-systems/ecss/q7002-test-report.
+tasks:
+  - id: tr1
+    query: "grade this outgassing screening report: does the identification reach batch and processing state, and does every recorded condition sit within its window or pair with a recorded deviation"
+    intent: "ECSS-Q-ST-70-02C reporting clause; achieved conditions graded as windows, floors and ceilings, and an out-of-window value paired with a recorded deviation"
+    expected_skill: "space-systems/ecss/q7002-test-report"
+  - id: tr2
+    query: "combine the weighing and temperature control uncertainty components for this outgassing run, expand them by the coverage factor the lab declared, and check the result is written at the same resolution as the value it belongs to"
+    intent: "ECSS-Q-ST-70-02C reporting clause; quadrature combination, expanded uncertainty and matching the reporting resolution to the uncertainty"
+    expected_skill: "space-systems/ecss/q7002-test-report"

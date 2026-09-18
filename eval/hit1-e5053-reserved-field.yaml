@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-reserved-field (space-systems/ecss)
+# Two tasks for the new leaf. rsv1 routes on the receiver tolerance policy for a
+# non-reserved octet. rsv2 routes on telling a corrupt octet from a peer that has
+# moved to a later revision. Both must deterministically hit
+# space-systems/ecss/e5053-reserved-field.
+tasks:
+  - id: rsv1
+    query: "our packet transfer receiver accepts the held-back octet whatever it carries and logs nothing: settle what the sender must write and which tolerance policy the receiver should declare"
+    intent: "ECSS-E-ST-50-53C clause 5.3.4; sender duty, strict discard versus record and accept, silent acceptance as a finding"
+    expected_skill: "space-systems/ecss/e5053-reserved-field"
+  - id: rsv2
+    query: "a run of received units carries a non-zero value in the octet held for a later protocol revision: tally the deviations and say whether this reads as corruption or as a peer on a newer revision"
+    intent: "ECSS-E-ST-50-53C clause 5.3.4; reserved octet deviation log, protocol revision boundary, reserved field offset"
+    expected_skill: "space-systems/ecss/e5053-reserved-field"

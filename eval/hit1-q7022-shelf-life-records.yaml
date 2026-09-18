@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7022-shelf-life-records (space-systems/ecss)
+# Two tasks for the new leaf. slr1 routes on the per-lot record and its event
+# chronology; slr2 routes on the deviation entry that has to carry a reference,
+# a disposition and a closure. Both must deterministically hit
+# space-systems/ecss/q7022-shelf-life-records.
+tasks:
+  - id: slr1
+    query: "go through the stores register for this lot and tell me whether the log actually supports the issues taken against it or whether material left without a line"
+    intent: "ECSS-Q-ST-70-22C records; event chronology defects and the quantity account balancing received against issued, returned, scrapped and remaining"
+    expected_skill: "space-systems/ecss/q7022-shelf-life-records"
+  - id: slr2
+    query: "the lot file has a dated line saying something went wrong in the cold store, what does that entry have to carry before an auditor will accept it as closed"
+    intent: "ECSS-Q-ST-70-22C records; deviation entries needing a reference, a disposition and a closure state, and extensions needing a backing re-test event"
+    expected_skill: "space-systems/ecss/q7022-shelf-life-records"

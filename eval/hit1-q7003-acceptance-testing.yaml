@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-acceptance-testing (space-systems/ecss)
+# at1 routes on the per-batch sample size and the defective allowance taken from
+# the sample rather than the lot; at2 routes on the witness coupon set a batch
+# split over several racks owes for the tests that destroy what they touch.
+# Both must deterministically hit space-systems/ecss/q7003-acceptance-testing.
+tasks:
+  - id: at1
+    query: "a lot of 900 anodized parts came off the line, how many do I pull for acceptance and how many defectives can the sample carry before the lot has to be screened or rejected"
+    intent: "ECSS-Q-ST-70-03 verification clause; square-root sampling with a part-category floor and a defective allowance taken from the sample drawn"
+    expected_skill: "space-systems/ecss/q7003-acceptance-testing"
+  - id: at2
+    query: "the adhesion and corrosion checks destroy the part so we run them on witness pieces, the batch filled three racks, tell me how many witness pieces the batch owes and which tests each category actually calls for"
+    intent: "ECSS-Q-ST-70-03 verification clause; a witness coupon set per rack for each destructive test in the part category's required set"
+    expected_skill: "space-systems/ecss/q7003-acceptance-testing"

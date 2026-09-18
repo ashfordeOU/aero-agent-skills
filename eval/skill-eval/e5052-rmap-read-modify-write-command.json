@@ -1,0 +1,9 @@
+{
+  "skill": "e5052-rmap-read-modify-write-command",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 48,
+  "failed": 0,
+  "evidence": "contract test PASS (48 tests); without-baseline 0.30 (sizing the reply from the full command data field instead of the half-width previous content, building the mask from the wanted end value so a bit can never be cleared, treating an all-ones mask as a safe default and losing the atomicity argument, splitting the operation into a read then a write when a target reports it unavailable, and ignoring the previous content the reply returns are all missed without the skill)"
+}

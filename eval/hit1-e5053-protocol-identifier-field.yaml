@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-protocol-identifier-field (space-systems/ecss)
+# Two tasks for the new leaf. pid1 routes on finding and grading the identifier
+# octet when path bytes have moved it. pid2 routes on the disposition of a unit
+# naming another protocol or an unclaimed identifier. Both must deterministically
+# hit space-systems/ecss/e5053-protocol-identifier-field.
+tasks:
+  - id: pid1
+    query: "the receiver reads the protocol identifier at a fixed offset and mis-parses every path-routed unit: work out where the octet really sits and whether it is the expected one"
+    intent: "ECSS-E-ST-50-53C clause 5.3.3; identifier offset from path length, expected identifier comparison"
+    expected_skill: "space-systems/ecss/e5053-protocol-identifier-field"
+  - id: pid2
+    query: "decide what a node does with a spacewire unit whose protocol identifier names a different registered protocol, and with one whose identifier no handler claims"
+    intent: "ECSS-E-ST-50-53C clause 5.3.3; protocol handler demultiplexing, extended identifier escape, unclaimed identifier discard"
+    expected_skill: "space-systems/ecss/e5053-protocol-identifier-field"

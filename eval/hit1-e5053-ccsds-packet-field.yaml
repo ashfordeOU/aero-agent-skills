@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-ccsds-packet-field (space-systems/ecss)
+# Two tasks for the new leaf. cpf1 routes on the declared-length-against-present
+# arithmetic of the space packet primary header; cpf2 routes on the rule that the
+# field carries one packet, so a second packet sharing the transfer is a defect.
+# Both must deterministically hit
+# space-systems/ecss/e5053-ccsds-packet-field.
+tasks:
+  - id: cpf1
+    query: "our SpaceWire receiver keeps mis-framing; work out from the packet data length field alone whether the payload we handed it is a whole space packet or one that has been cut short"
+    intent: "ECSS-E-ST-50-53C clause 5.4.1.7; declared total length from the six-octet primary header against the octets actually present in the CCSDS Packet field"
+    expected_skill: "space-systems/ecss/e5053-ccsds-packet-field"
+  - id: cpf2
+    query: "the sending application is batching two telemetry packets into one SpaceWire transfer to save overhead, tell me whether the payload slot is allowed to hold more than one of them"
+    intent: "ECSS-E-ST-50-53C clause 5.4.1.7; one complete space packet per CCSDS Packet field, a second span or a trailing fragment is a finding"
+    expected_skill: "space-systems/ecss/e5053-ccsds-packet-field"

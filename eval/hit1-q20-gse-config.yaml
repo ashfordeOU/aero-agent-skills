@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-gse-config (space-systems/ecss)
+# Two tasks for the leaf. gsc1 routes on identifying GSE items well enough to
+# hold them individually against a baseline; gsc2 routes on replaying the change
+# log and finding the version sequence break. Both must deterministically hit
+# space-systems/ecss/q20-gse-config, not the flight configuration-control leaf.
+tasks:
+  - id: gsc1
+    query: "two handling dollies built to one drawing have diverged; say what identification each GSE configuration item needs before it can be held against the GSE baseline and controlled as one individually serialised unit"
+    intent: "ECSS-Q-ST-20C clause 5.8.2; GSE configuration item identification and baselining of individually serialised units"
+    expected_skill: "space-systems/ecss/q20-gse-config"
+  - id: gsc2
+    query: "replay the change requests raised against this ground support equipment baseline in order and tell me which ones never applied and what version each item is really at now"
+    intent: "ECSS-Q-ST-20C clause 5.8.2; ordered replay of GSE change control and the as-built versus declared configuration"
+    expected_skill: "space-systems/ecss/q20-gse-config"

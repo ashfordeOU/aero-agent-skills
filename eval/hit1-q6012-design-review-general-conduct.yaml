@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-design-review-general-conduct (space-systems/ecss)
+# Two tasks for the new leaf. drgc1 routes on how the review was convened and
+# who was in the room; drgc2 routes on the finding register state and the
+# response time each severity earns. Both must deterministically hit
+# space-systems/ecss/q6012-design-review-general-conduct.
+tasks:
+  - id: q6012drgc1
+    query: "the microwave design review went out with four days notice, the chair is the RF designer whose circuit is under review and nobody from product assurance turned up, tell me whether that counts as a properly convened review"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.1; convening notice lead time, quorum over the mandatory attendee roles, and a chair who sits inside the design team under review"
+    expected_skill: "space-systems/ecss/q6012-design-review-general-conduct"
+  - id: q6012drgc2
+    query: "half the rows in the review finding register say closed with no disposition written against them and two major ones are still open six weeks on, work out the closure ratio and which entries are past their response time"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.1; finding register open/closed consistency, a closure with no disposition, and ageing open entries against the response time their severity earns"
+    expected_skill: "space-systems/ecss/q6012-design-review-general-conduct"

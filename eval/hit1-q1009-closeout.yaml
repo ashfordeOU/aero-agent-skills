@@ -1,0 +1,13 @@
+# Hit@1 fragment: q1009-closeout (space-systems/ecss)
+# co1 routes on the close-out criteria themselves; co2 routes on the retained
+# record set and the retention period. Both must deterministically hit
+# space-systems/ecss/q1009-closeout.
+tasks:
+  - id: co1
+    query: "the report is proposed for closure; check the granted disposition was carried out and checked, that no condition is still open and that the agreed actions are verified effective"
+    intent: "ECSS-Q-ST-10-09C clause 5.4.2; closure criteria over disposition, conditions and action completion"
+    expected_skill: "space-systems/ecss/q1009-closeout"
+  - id: co2
+    query: "say which records have to be retained when we close this one and for how long, and who has to sign the closure given how severe it was graded"
+    intent: "ECSS-Q-ST-10-09C clause 5.4.2; retained record set, closure signature roles and the retention period"
+    expected_skill: "space-systems/ecss/q1009-closeout"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-reserved-field-zero (space-systems/ecss)
+# Two tasks for the new leaf. rfz1 routes on the receiver ignoring the field
+# rather than rejecting over it; rfz2 routes on the field being an extension point
+# a local use would spend.
+# Both must deterministically hit
+# space-systems/ecss/e5053-reserved-field-zero.
+tasks:
+  - id: rfz1
+    query: "a supplier box is emitting a non zero value in the octet after the protocol identifier and our receiver is dropping every one of its transfers, decide which of the two boxes is out of spec"
+    intent: "ECSS-E-ST-50-53C clause 5.5.4.2; the sender writes zero and the receiver ignores the contents, so a non-zero value is a sender defect and never a reason to discard"
+    expected_skill: "space-systems/ecss/e5053-reserved-field-zero"
+  - id: rfz2
+    query: "we have a spare octet in the SpaceWire transfer header and someone wants to carry a local sequence tag in it, say whether that is safe for the future of the link"
+    intent: "ECSS-E-ST-50-53C clause 5.5.4.2; the reserved field is an extension point kept at zero, local use spends it and collides with a later revision"
+    expected_skill: "space-systems/ecss/e5053-reserved-field-zero"

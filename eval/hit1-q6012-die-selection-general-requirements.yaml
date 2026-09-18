@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-die-selection-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. dsg1 routes on the baseline admissibility question
+# itself - controlled process plus a traceable supply route plus envelope
+# coverage; dsg2 routes on the exclusion-versus-evidence-gap split and the three
+# baseline groupings. Both must deterministically hit
+# space-systems/ecss/q6012-die-selection-general-requirements.
+tasks:
+  - id: dsg1
+    query: "which of these candidate bare microwave dice may enter the design at all - confirm the controlled process and the traceable supply route, then measure the application band coverage, the case-temperature range and the total-dose requirement before any detailed parameter case starts"
+    intent: "ECSS-Q-ST-60-12 clause 5.1; baseline die admissibility on controlled process, traceable supply route and application envelope coverage"
+    expected_skill: "space-systems/ecss/q6012-die-selection-general-requirements"
+  - id: dsg2
+    query: "baseline selection of candidate microwave die: separate the hard exclusion from the recoverable evidence gap and tell me whether this bare die is eligible, eligible-with-actions or not-eligible against the application envelope, given one has no total-dose capability on record"
+    intent: "ECSS-Q-ST-60-12 clause 5.1; separating a hard exclusion from a recoverable evidence gap and grouping the candidate accordingly"
+    expected_skill: "space-systems/ecss/q6012-die-selection-general-requirements"

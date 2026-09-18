@@ -1,0 +1,16 @@
+# Hit@1 fragment: q1009-major-disposition (space-systems/ecss)
+# Two tasks for the new leaf. md1 routes on the impacts that decide which routes
+# the customer board may grant at all; md2 routes on the concession a departure
+# leaves behind and the seats that make the grant binding. Both queries stay off
+# the bare disposition vocabulary that belongs to the AS9100 leaf, and off the
+# board-quorum vocabulary that belongs to the verification control board leaf.
+# Both must deterministically hit space-systems/ecss/q1009-major-disposition.
+tasks:
+  - id: md1
+    query: "under ECSS the customer nonconformance review board has to decide what may be done with the affected units on a major nonconformance, which routes the safety, interface and lifetime impacts leave open, and what conditions the grant carries"
+    intent: "ECSS-Q-ST-10-09C clause 5.2.3.4; admissible routes for a major nonconformance and the conditions attached to the grant"
+    expected_skill: "space-systems/ecss/q1009-major-disposition"
+  - id: md2
+    query: "a departure is being left in delivered hardware on a major nonconformance, so tell me what concession the customer board has to record against it and which seats have to be filled before the grant is binding"
+    intent: "ECSS-Q-ST-10-09C clause 5.2.3.4; concession record for a departure and the customer board composition that makes the grant binding"
+    expected_skill: "space-systems/ecss/q1009-major-disposition"

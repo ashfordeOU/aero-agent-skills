@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-test-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. tm1 routes on surveillance presence across the
+# step windows that demanded it; tm2 routes on the hold point that was walked
+# through and the anomaly witnessing behind it. Both must deterministically hit
+# space-systems/ecss/q20-test-monitoring.
+tasks:
+  - id: tm1
+    query: "from the run log and the attendance sheet, work out which critical and customer-witnessed steps had nobody from quality present for the whole window"
+    intent: "ECSS-Q-ST-20C clause 5.6.4; deriving the surveillance demand per step and counting covered role-step pairs against the attendance intervals"
+    expected_skill: "space-systems/ecss/q20-test-monitoring"
+  - id: tm2
+    query: "the next step started before the hold point release was signed and an anomaly has a witness nobody was in the room for, tell me what that does to the run"
+    intent: "ECSS-Q-ST-20C clause 5.6.4; mandatory hold point release by its owning authority and witnessing of anomalies raised during execution"
+    expected_skill: "space-systems/ecss/q20-test-monitoring"

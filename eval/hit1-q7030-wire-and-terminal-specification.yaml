@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-wire-and-terminal-specification (space-systems/ecss,
+# Q-ST-70-30 materials). Two tasks per leaf; wts1 routes on the gauge-derived
+# diameter, owed turns and post section, wts2 on the post length budget and the
+# finish rules. Both must deterministically hit
+# space-systems/ecss/q7030-wire-and-terminal-specification.
+tasks:
+  - id: wts1
+    query: "from the wire-wrap-conductor-gauge-diameter give me the wire-wrap-required-turn-count for this gauge and check the wire-wrap-post-diagonal-ratio of the post we have"
+    intent: "ecss wire wrapping; conductor gauge, owed bare turns and post section against the wire"
+    expected_skill: "space-systems/ecss/q7030-wire-and-terminal-specification"
+  - id: wts2
+    query: "budget the wire-wrap-post-length-budget for three levels of wire-wrap-level-stacking on this post and tell me whether the wire-wrap-prohibited-tin-finish rule rules out the plating we were quoted"
+    intent: "ecss wire wrapping; post length consumed by stacked levels and the finishes allowed on wire and post"
+    expected_skill: "space-systems/ecss/q7030-wire-and-terminal-specification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-film-thickness-control (space-systems/ecss)
+# Two tasks for the new leaf. fth1 routes on the wet comb target that has to be
+# corrected for thinner added at the gun; fth2 routes on the thin-spot floor a
+# mean-only acceptance hides. Both must deterministically hit
+# space-systems/ecss/q7031-film-thickness-control.
+tasks:
+  - id: fth1
+    query: "the tin says 62 percent volume solids and the sprayer thinned it ten percent, give me the wet comb number that lands the coat in its dry band"
+    intent: "ECSS-Q-ST-70-31C application; wet-to-dry conversion at the thinner-corrected volume solids, not at the tin value"
+    expected_skill: "space-systems/ecss/q7031-film-thickness-control"
+  - id: fth2
+    query: "the dry film gauge readings average mid band but one spot reads very low, decide whether this coat is acceptable and whether the three-coat stack overshoots the system maximum"
+    intent: "ECSS-Q-ST-70-31C application; a per-reading absolute floor and a separate system-total band on top of the per-coat band"
+    expected_skill: "space-systems/ecss/q7031-film-thickness-control"

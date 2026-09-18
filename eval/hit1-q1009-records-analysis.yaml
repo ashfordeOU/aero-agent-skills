@@ -1,0 +1,14 @@
+# Hit@1 fragment: q1009-records-analysis (space-systems/ecss)
+# Two tasks for the leaf. ncra1 routes on the trend side of the periodic
+# analysis. ncra2 routes on the recurring-cause side and the corrective action
+# call it feeds. Both must deterministically hit
+# space-systems/ecss/q1009-records-analysis.
+tasks:
+  - id: ncra1
+    query: "turn the nonconformance records of the last six reporting periods into a trend, normalising each period by the production exposure it carries and taking the slope over the normalised rates rather than reading the first and last month"
+    intent: "ECSS-Q-ST-10-09 clause 5.5.3; periodic trend analysis of nonconformance records on exposure-normalised rates"
+    expected_skill: "space-systems/ecss/q1009-records-analysis"
+  - id: ncra2
+    query: "work out whether one recurring cause group holds enough of the nonconformances, and has come back often enough, to oblige a corrective action proposal rather than another line in the product assurance report"
+    intent: "ECSS-Q-ST-10-09 clause 5.5.3; recurring cause share and the corrective action trigger from nonconformance records"
+    expected_skill: "space-systems/ecss/q1009-records-analysis"

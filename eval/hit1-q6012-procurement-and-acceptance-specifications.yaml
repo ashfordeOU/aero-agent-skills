@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-procurement-and-acceptance-specifications (space-systems/ecss)
+# Two tasks for the leaf. ps1 routes on the content and allocation of the buying document
+# and its companion batch acceptance document; ps2 routes on the lot sampling plan the
+# acceptance document carries. Both must deterministically hit
+# space-systems/ecss/q6012-procurement-and-acceptance-specifications.
+tasks:
+  - id: ps1
+    query: "review the die purchase specification and the batch acceptance specification together, check every required item is actually stated rather than just listed, that each item sits in the document it belongs to, that the die identification agrees in both, and that the buying document really invokes the acceptance document supplied"
+    intent: "ECSS-Q-ST-60-12C clause 9; procurement and acceptance document content, allocation and cross-reference"
+    expected_skill: "space-systems/ecss/q6012-procurement-and-acceptance-specifications"
+  - id: ps2
+    query: "the lot acceptance specification draws eight parts from a lot of two hundred with an accept number of three, work out the sample size the lot actually needs from the floor and the proportional rule and whether that accept number can be allowed"
+    intent: "ECSS-Q-ST-60-12C clause 9; lot sampling plan coherence, required sample size and accept-number ceiling"
+    expected_skill: "space-systems/ecss/q6012-procurement-and-acceptance-specifications"

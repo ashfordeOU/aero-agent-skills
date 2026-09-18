@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-applicability-and-test-objectives (space-systems/ecss)
+# Two tasks for the new leaf. ato1 routes on the applicability decision itself,
+# the predicted span and operating pressure that drive a cycling or a vacuum run;
+# ato2 routes on the screening-versus-qualification objective and the identical
+# item heritage claim that can retire the campaign. Both must deterministically
+# hit space-systems/ecss/q7004-applicability-and-test-objectives.
+tasks:
+  - id: ato1
+    query: "the predicted temperatures on this bracket only span a few kelvin but it sits in vacuum, work out whether we owe a thermal cycling run, a thermal vacuum run, both or neither before anyone books a chamber"
+    intent: "ECSS-Q-ST-70-04C framework; deciding thermal test applicability from the predicted temperature span and the operating pressure, one driver at a time"
+    expected_skill: "space-systems/ecss/q7004-applicability-and-test-objectives"
+  - id: ato2
+    query: "we are still in development and a supplier says an identical thermal cycling qualification was already run over a wider envelope on the same manufacturing process, decide whether this campaign is a screening objective, a qualification objective or no new thermal test at all, and how many specimens and cycles it needs"
+    intent: "ECSS-Q-ST-70-04C framework; separating a screening objective from a qualification objective and testing an identical-item heritage claim against envelope, cycle count and process"
+    expected_skill: "space-systems/ecss/q7004-applicability-and-test-objectives"

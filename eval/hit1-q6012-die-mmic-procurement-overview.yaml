@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-die-mmic-procurement-overview (space-systems/ecss)
+# Two tasks for the new leaf. dmo1 routes on the scoping question itself -- which
+# clauses a given bare-die order actually pulls in; dmo2 routes on the dependency
+# closure and ordering, which no general procurement skill carries. Both must
+# deterministically hit
+# space-systems/ecss/q6012-die-mmic-procurement-overview.
+tasks:
+  - id: dmo1
+    query: "we are buying bare microwave dies rather than packaged parts for an engineering model, work out which parts of the standard that order actually drags in and which it does not"
+    intent: "ECSS-Q-ST-60-12C clause 4.1; die-form procurement scope and the case-driven clause route, an EM order routing fewer areas than a flight order"
+    expected_skill: "space-systems/ecss/q6012-die-mmic-procurement-overview"
+  - id: dmo2
+    query: "put the clause areas for this bare die purchase in the order we have to work them, and tell me which ones only got onto the list because something else needed them first"
+    intent: "ECSS-Q-ST-60-12C clause 4.1; prerequisite closure of the routed clause set and the dependency ordering that marks a pulled-in area"
+    expected_skill: "space-systems/ecss/q6012-die-mmic-procurement-overview"

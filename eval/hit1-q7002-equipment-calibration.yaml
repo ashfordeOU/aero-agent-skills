@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-equipment-calibration (space-systems/ecss)
+# Two tasks for the new leaf. cal1 routes on the calibration due day and the days
+# left on the run day; cal2 routes on the tolerance-to-uncertainty ratio and the
+# balance division against the mass change sought. Both must deterministically
+# hit space-systems/ecss/q7002-equipment-calibration.
+tasks:
+  - id: cal1
+    query: "the microbalance was last calibrated on the 31st of January on a twelve month interval and the outgassing run starts in three weeks, tell me whether it is still in date on the run day"
+    intent: "ECSS-Q-ST-70-02C apparatus; whole-calendar-month calibration due day and the days remaining on the day the run starts"
+    expected_skill: "space-systems/ecss/q7002-equipment-calibration"
+  - id: cal2
+    query: "our specimen thermocouple carries 0.8 K of uncertainty against a one kelvin control band and the balance reads to a hundredth of a milligram, say whether that instrument set can support the screening"
+    intent: "ECSS-Q-ST-70-02C apparatus; tolerance-to-uncertainty ratio of each instrument and the balance division against the mass change being resolved"
+    expected_skill: "space-systems/ecss/q7002-equipment-calibration"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-design-variation-handling (space-systems/ecss)
+# Two tasks for the new leaf. dvh1 routes on the shared mask set and the variant
+# whose baseline is not on it; dvh2 routes on the process options that cannot
+# share one wafer and the die marking that makes a variant identifiable after
+# dicing. Both must deterministically hit
+# space-systems/ecss/q6012-design-variation-handling.
+tasks:
+  - id: dvh1
+    query: "we are putting four alternative versions of the same microwave circuit on one mask set, check that each one traces back to a baseline that is actually on this set and that nothing derives in a circle"
+    intent: "ECSS-Q-ST-60-12 clause 7.2.2; alternative circuit versions on a common mask set, baseline traceability within the set and derivation loop refusal"
+    expected_skill: "space-systems/ecss/q6012-design-variation-handling"
+  - id: dvh2
+    query: "one of the circuit variants on this wafer needs a back-side via and the others do not, and two of them are drawn with the same die marking, tell me whether the reticle can be released"
+    intent: "ECSS-Q-ST-60-12 clause 7.2.2; process options that cannot share one wafer flow, die identification marking after dicing, and the reticle field area budget"
+    expected_skill: "space-systems/ecss/q6012-design-variation-handling"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-packet-field (space-systems/ecss)
+# Two tasks for the new leaf. pkf1 routes on taking the packet length from the
+# packet's own header rather than from the arriving octet count. pkf2 routes on
+# trailing octets and a second packet in one field. Both must deterministically
+# hit space-systems/ecss/e5053-packet-field.
+tasks:
+  - id: pkf1
+    query: "the receiver takes the arriving octet count as the packet length, so a truncated transfer looks complete: derive the declared length from the primary header and report the shortfall"
+    intent: "ECSS-E-ST-50-53C clause 5.3.6; self-delimiting packet length, length count bias, truncation shortfall"
+    expected_skill: "space-systems/ecss/e5053-packet-field"
+  - id: pkf2
+    query: "a packet transfer unit carries more octets than its packet declares: separate the single packet from the trailing octets and say whether a second packet may share the field"
+    intent: "ECSS-E-ST-50-53C clause 5.3.6; packet field overrun, one packet per field, link maximum field size"
+    expected_skill: "space-systems/ecss/e5053-packet-field"

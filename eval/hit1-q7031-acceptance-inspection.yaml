@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7031-acceptance-inspection (space-systems/ecss)
+# Two tasks for the leaf. ai1 routes on sizing the dry-film-thickness draw from
+# the painted area and the floor/ceiling/mean rules that run together; ai2
+# routes on the record and gauge calibration that hold a batch rather than
+# reject it. Both must deterministically hit
+# space-systems/ecss/q7031-acceptance-inspection, not the appearance leaf.
+tasks:
+  - id: ai1
+    query: "how many dry film thickness points does this painted area owe, and does the batch pass when the mean is comfortable but one reading sits below the minimum"
+    intent: "ECSS-Q-ST-70-31C acceptance inspection; sized thickness draw and the floor, ceiling and mean rules per batch"
+    expected_skill: "space-systems/ecss/q7031-acceptance-inspection"
+  - id: ai2
+    query: "the paint batch met every physical check but the inspection record has no instrument id and the thickness gauge calibration had lapsed on the day - is that a reject or a hold"
+    intent: "ECSS-Q-ST-70-31C acceptance inspection; record completeness, gauge calibration currency and batch disposition"
+    expected_skill: "space-systems/ecss/q7031-acceptance-inspection"

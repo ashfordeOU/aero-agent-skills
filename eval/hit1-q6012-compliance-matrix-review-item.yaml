@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-compliance-matrix-review-item (space-systems/ecss)
+# Two tasks for the new leaf. cmr1 routes on confronting the tabulated
+# conformance rows with the applicable requirement list and on the rows that
+# claim conformance against nothing; cmr2 routes on which departures block and
+# which only action. Both must deterministically hit
+# space-systems/ecss/q6012-compliance-matrix-review-item.
+tasks:
+  - id: cmr1
+    query: "the die supplier sent back a table stating conformance line by line, check it actually answers every applicable design requirement and that each conformance statement points at a real piece of evidence rather than at nothing"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.10; coverage of the tabulated statement of conformance against the applicable requirement list, plus the evidence reference each conformance claim owes"
+    expected_skill: "space-systems/ecss/q6012-compliance-matrix-review-item"
+  - id: cmr2
+    query: "two rows in the conformance table say partially compliant and one says non compliant with no waiver attached, and one requirement is marked not applicable with no reason, tell me which of those blocks the review and which is only an action"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.10; a departure with no deviation or waiver reference blocks, an unjustified exclusion and a stale orphan row are actions"
+    expected_skill: "space-systems/ecss/q6012-compliance-matrix-review-item"

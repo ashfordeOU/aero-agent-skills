@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-surface-verification (space-systems/ecss)
+# Two tasks for the new leaf. sv1 routes on the water-break observation and its
+# dwell; sv2 routes on the two-sided roughness window and the dew point margin
+# that separates a surface failure from a room failure. Both must
+# deterministically hit space-systems/ecss/q7031-surface-verification.
+tasks:
+  - id: sv1
+    query: "the operator wet the panel and said the film looked continuous - work out whether that observation counts as evidence of cleanliness and what else has to be measured before the first coat"
+    intent: "ECSS-Q-ST-70-31C surface preparation; water-break dwell as the thing that makes the observation evidence, plus residue and particulate obscuration as independent axes"
+    expected_skill: "space-systems/ecss/q7031-surface-verification"
+  - id: sv2
+    query: "the abraded profile came back much smoother than the last batch and the panel is only a degree or two above the dew point - tell me if we prepare again or just wait"
+    intent: "ECSS-Q-ST-70-31C surface preparation; two-sided roughness window where too smooth also fails, dew-point margin and humidity as an environmental hold rather than a re-preparation"
+    expected_skill: "space-systems/ecss/q7031-surface-verification"

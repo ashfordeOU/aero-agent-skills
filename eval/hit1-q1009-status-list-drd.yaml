@@ -1,0 +1,14 @@
+# Hit@1 fragment: q1009-status-list-drd (space-systems/ecss)
+# Two tasks for the leaf. ncsl1 routes on the reconciliation of the status list
+# against the register. ncsl2 routes on the grouped standing and the open-major
+# ageing the list is read for. Both must deterministically hit
+# space-systems/ecss/q1009-status-list-drd.
+tasks:
+  - id: ncsl1
+    query: "reconcile the NCR status list issued for the progress meeting against the nonconformances the register actually holds, naming the registered reports it left off and any row nobody can trace back to the register"
+    intent: "ECSS-Q-ST-10-09 Annex B; NCR status list reconciliation and entry coverage against the register"
+    expected_skill: "space-systems/ecss/q1009-status-list-drd"
+  - id: ncsl2
+    query: "put the open and closed nonconformance reports out as one register with counts by category and disposition standing, and flag any major report still standing open past its review age at the as-of date"
+    intent: "ECSS-Q-ST-10-09 Annex B; NCR status list grouping by category and disposition and open-major ageing"
+    expected_skill: "space-systems/ecss/q1009-status-list-drd"

@@ -35,7 +35,23 @@ import re
 import subprocess
 import sys
 
-DEFAULT_TIMEOUT = 900
+# Per-step budget for replaying one workflow step against the export.
+#
+# 2026-09-18: raised 900 -> 3600. Every publish from 13:13Z failed with
+# "TIMEOUT after 900s" on attest.yml :: "Harness gates (5/5 REAL)", which
+# is plain 'make validate'. The gates were not failing - they pass - but the
+# budget was a fixed constant while the corpus grows monotonically, so it was
+# always going to be crossed, and it stranded the public mirror at 2223
+# leaves while dev main stood at 2433, blocking two milestone releases.
+#
+# Measured on the build host at 2433 leaves: 966s for the step.
+# The enumerated ECSS ceiling is 6219 leaves; linear extrapolation lands
+# near 2469s, inside this budget with headroom.
+#
+# A generous budget is safe here: an over-running publish cannot collide
+# with the next hourly tick, because the single-writer lock makes that tick
+# exit 75 (SKIPPED, not failed). Override per-run with AERO_CI_PARITY_TIMEOUT.
+DEFAULT_TIMEOUT = int(os.environ.get("AERO_CI_PARITY_TIMEOUT", "3600"))
 
 # A step containing any of these cannot be reproduced on an export: it needs
 # the network, or it mutates external state (releases, tags, registries).

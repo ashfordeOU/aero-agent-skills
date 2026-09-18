@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7036-scc-environment-identification (space-systems/ecss)
+# Two tasks for the new leaf. sei1 routes on the phase-by-phase read that lets a
+# short launch-site exposure govern an otherwise inert life; sei2 routes on
+# humidity setting the severity of an air phase. Both must deterministically hit
+# space-systems/ecss/q7036-scc-environment-identification.
+tasks:
+  - id: sei1
+    query: "walk the whole life of this fitting, cleanroom integration then a road transport then four months at a coastal launch site then five years on orbit, and tell me which exposure governs for stress corrosion and how many hours actually count"
+    intent: "ECSS-Q-ST-70-36C environments; per-phase severity with vacuum and dry purge inert, the worst phase governing, and promoting exposure hours totalled without the inert phases"
+    expected_skill: "space-systems/ecss/q7036-scc-environment-identification"
+  - id: sei2
+    query: "the storage bay is just ambient air but nobody wrote down the humidity, is that phase benign or do I need the reading, and how much does a sealed bag with desiccant buy me against a chloride exposure"
+    intent: "ECSS-Q-ST-70-36C environments; an air phase needs its relative humidity before severity can be set, and a protection buys one severity step floored at inert rather than immunity"
+    expected_skill: "space-systems/ecss/q7036-scc-environment-identification"

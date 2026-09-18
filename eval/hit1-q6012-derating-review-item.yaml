@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-derating-review-item (space-systems/ecss)
+# Two tasks for the leaf. dr1 routes on judging a device stress against the
+# derated limit rather than the absolute maximum rating; dr2 routes on the
+# coverage half of the item - a stress with no rule behind it and a stress the
+# device never declared. Both must deterministically hit
+# space-systems/ecss/q6012-derating-review-item.
+tasks:
+  - id: dr1
+    query: "at the design review work out the derated limit for each part from its permitted fraction or its temperature offset, open the nominal stress up to worst case and say whether it stays inside that reduced limit rather than inside the absolute maximum rating"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.6; derated-limit resolution and worst-case device stress against it"
+    expected_skill: "space-systems/ecss/q6012-derating-review-item"
+  - id: dr2
+    query: "the derating review item lists a stress with no derating rule behind it and a part that never declared its junction temperature at all, decide whether the item can close or has to carry an action"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.6; uncovered and undeclared stresses as open items, not passes"
+    expected_skill: "space-systems/ecss/q6012-derating-review-item"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-delivery (space-systems/ecss)
+# Two tasks for the leaf. dlv1 routes on the shipping document set a consignment
+# owes from its own states; dlv2 routes on reading the transport recorder for
+# excursions and on the coverage gap that leaves part of the journey unknown.
+# Both must deterministically hit space-systems/ecss/q20-delivery, not the
+# preparation-for-delivery packaging leaf.
+tasks:
+  - id: dlv1
+    query: "the consignment crosses a border and one crate is hazardous; name every shipping control document it has to travel with and say which ones are not in the pack, then tell me if the conformity certificate can be signed"
+    intent: "ECSS-Q-ST-20C clause 5.7.5; derived shipping control documentation and certificate of conformity issue"
+    expected_skill: "space-systems/ecss/q20-delivery"
+  - id: dlv2
+    query: "the transport monitoring record for this consignment stopped part way through the journey; count the excursions outside each declared transport limit per parameter and tell me whether the unmonitored stretch blocks the certificate of conformity"
+    intent: "ECSS-Q-ST-20C clause 5.7.5; transport environment excursions per parameter and the unmonitored coverage gap"
+    expected_skill: "space-systems/ecss/q20-delivery"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-layout-review-item (space-systems/ecss)
+# Two tasks for the leaf. ly1 routes on the drawing set standing at the design
+# baseline issue and the terminal pad placement against the interface
+# definition; ly2 routes on the rule-check residual after approved waivers.
+# Both must deterministically hit
+# space-systems/ecss/q6012-layout-review-item.
+tasks:
+  - id: ly1
+    query: "at the layout review confirm every required drawing kind is released at the baseline issue, that each interface pad is placed once inside the outline keep-out, and that the closest pad pair is not tighter than the minimum pitch"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.7; drawing-set baseline issue and terminal pad placement geometry"
+    expected_skill: "space-systems/ecss/q6012-layout-review-item"
+  - id: ly2
+    query: "the layout package reports design rule check errors with some covered by an approved waiver and one waiver still unapproved, and the layout versus schematic check was never run, work out what is left standing at the review"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.7; waiver-adjusted rule-check residual and a required check never run"
+    expected_skill: "space-systems/ecss/q6012-layout-review-item"

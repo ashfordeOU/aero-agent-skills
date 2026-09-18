@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-electrical-design-specification-content (space-systems/ecss)
+# Two tasks for the new leaf. eds1 routes on the mandated performance parameters
+# and the bound stated with no unit or test condition; eds2 routes on the
+# operating-condition envelope and the RF/DC interface definitions. Both must
+# deterministically hit
+# space-systems/ecss/q6012-electrical-design-specification-content.
+tasks:
+  - id: eds1
+    query: "before we start designing this monolithic microwave amplifier, go through the electrical specification and tell me which performance parameters are not bounded at all and which ones have a number with no unit or no test condition behind it"
+    intent: "ECSS-Q-ST-60-12 clause 7.2.1; mandated performance parameters captured before circuit design, a bound that cannot be verified without its unit and condition"
+    expected_skill: "space-systems/ecss/q6012-electrical-design-specification-content"
+  - id: eds2
+    query: "this MMIC specification quotes noise figure at a temperature outside the range the part has to survive and the RF ports have no reference impedance, work out whether the draft can be released to the circuit designer"
+    intent: "ECSS-Q-ST-60-12 clause 7.2.1; stated test conditions graded against the declared temperature and supply envelope, plus RF and DC interface definition completeness"
+    expected_skill: "space-systems/ecss/q6012-electrical-design-specification-content"

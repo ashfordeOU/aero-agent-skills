@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-applicability-and-alloys (space-systems/ecss)
+# Two tasks for the new leaf. app1 routes on the alloy-and-condition question
+# that decides whether black anodizing is open at all; app2 routes on the
+# outward coating growth a tolerance has to absorb. Both must deterministically
+# hit space-systems/ecss/q7003-applicability-and-alloys.
+tasks:
+  - id: app1
+    query: "we want a black anodized finish on these brackets but half of them are a copper bearing alloy and two are castings, work out which ones can actually go through and which need a qualification programme first"
+    intent: "ECSS-Q-ST-70-03C applicability; alloy family, copper and silicon thresholds and cast product form decide whether black anodizing with inorganic dyes is open"
+    expected_skill: "space-systems/ecss/q7003-applicability-and-alloys"
+  - id: app2
+    query: "the drawing gives a plus fifteen micron allowance on that bore and the finish call-out is a twenty micron black anodize, tell me whether the part still makes tolerance after coating"
+    intent: "ECSS-Q-ST-70-03C applicability; the anodic coating grows outward as well as inward, so a bore closes by twice the outward growth"
+    expected_skill: "space-systems/ecss/q7003-applicability-and-alloys"

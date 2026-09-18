@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-curing-conditions (space-systems/ecss)
+# Two tasks for the new leaf. cur1 routes on equivalent hours at the reference
+# temperature and the cold hold that earns none; cur2 routes on the overbake
+# that carries hours but is still a finding. Both must deterministically hit
+# space-systems/ecss/q7031-curing-conditions.
+tasks:
+  - id: cur1
+    query: "here is the cure log, a warm hold then a cold weekend then another hold, work out whether the coat has banked the hours it owes before we put the next coat on"
+    intent: "ECSS-Q-ST-70-31C cure; ten-degree-rule equivalent hours, with no credit below the minimum cure temperature and a separate continuous-dwell requirement"
+    expected_skill: "space-systems/ecss/q7031-curing-conditions"
+  - id: cur2
+    query: "the oven spiked well past the qualified ceiling for an hour during the bake, tell me whether that hour counts toward cure or whether it is a finding on its own"
+    intent: "ECSS-Q-ST-70-31C cure; a hold above the ceiling earns no credit and raises an overbake finding, and the ramp between holds is graded separately"
+    expected_skill: "space-systems/ecss/q7031-curing-conditions"

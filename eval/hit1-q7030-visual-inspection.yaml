@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-visual-inspection (space-systems/ecss)
+# Two tasks for the new leaf. vis1 routes on the overlapping and lifted turns
+# seen at the bench; vis2 routes on spacing graded against the conductor rather
+# than a fixed millimetre. Both must deterministically hit
+# space-systems/ecss/q7030-visual-inspection.
+tasks:
+  - id: vis1
+    query: "one turn is riding on top of the turn under it and two more are standing off the post - tell me whether this wrap is acceptable or goes to rework"
+    intent: "ECSS-Q-ST-70-30C wrapping quality; overlapping and lifted turns as major visual findings against minor ones"
+    expected_skill: "space-systems/ecss/q7030-visual-inspection"
+  - id: vis2
+    query: "the gaps between the turns look open on the fine gauge wraps - grade the spacing and the overhanging cut end against the conductor diameter"
+    intent: "ECSS-Q-ST-70-30C wrapping quality; single and cumulative turn-gap limits and the end tail, all scaled to the conductor"
+    expected_skill: "space-systems/ecss/q7030-visual-inspection"

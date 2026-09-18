@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-acceptance-criteria (space-systems/ecss)
+# acc1 routes on the class cap catching individually compliant members; acc2
+# routes on naming the governing criterion and on an unlimited compound failing
+# open. Both must deterministically hit
+# space-systems/ecss/q7029-acceptance-criteria.
+tasks:
+  - id: acc1
+    query: "every offgassing compound is inside its own concentration limit but the aldehydes together are over the cap for the chemical family - does this article pass or fail"
+    intent: "ECSS-Q-ST-70-29 acceptance; per-compound limits and the chemical-class cap are separate criteria and acceptance is the conjunction of all of them"
+    expected_skill: "space-systems/ecss/q7029-acceptance-criteria"
+  - id: acc2
+    query: "combine the concentration table, the T-value, the odour verdict and the unidentified area into one accept-or-reject call and tell me which criterion is closest to its limit"
+    intent: "ECSS-Q-ST-70-29 acceptance; utilisation of each criterion decides the governing one, and a reported compound with no published limit is an open item"
+    expected_skill: "space-systems/ecss/q7029-acceptance-criteria"

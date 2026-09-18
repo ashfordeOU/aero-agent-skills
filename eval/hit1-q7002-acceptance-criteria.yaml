@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-acceptance-criteria (space-systems/ecss)
+# ac1 routes on the same screening pair being graded against two different
+# destinations; ac2 routes on the deviation package that is the only route for a
+# material over a limit. Both must deterministically hit
+# space-systems/ecss/q7002-acceptance-criteria.
+tasks:
+  - id: ac1
+    query: "this potting compound screened at 0.8 percent mass loss and 0.05 percent condensable, tell me whether it is acceptable for a warm sealed box and whether the same numbers clear the tighter limits that apply next to a cold optic"
+    intent: "ECSS-Q-ST-70-02C acceptance clause; screening limits are a property of the application class, and the water credit is not available at a cold surface"
+    expected_skill: "space-systems/ecss/q7002-acceptance-criteria"
+  - id: ac2
+    query: "this adhesive is over the condensable screening limits for its application class, decide whether an approved deviation with a contamination assessment behind it lets the outgassing result be accepted or whether the material is rejected"
+    intent: "ECSS-Q-ST-70-02C acceptance clause; a failing material is carried only with both a deviation reference and a contamination assessment behind it"
+    expected_skill: "space-systems/ecss/q7002-acceptance-criteria"

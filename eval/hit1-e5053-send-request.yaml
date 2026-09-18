@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-send-request (space-systems/ecss)
+# Two tasks for the new leaf. snd1 routes on the destination parameter and the
+# split between a logical address and a path of output ports; snd2 routes on the
+# refuse-rather-than-truncate rule at the transmit limit.
+# Both must deterministically hit
+# space-systems/ecss/e5053-send-request.
+tasks:
+  - id: snd1
+    query: "check the destination we are passing into the SpaceWire send call, it is a list of numbers and I need to know whether those are router output ports or a node address before we fly it"
+    intent: "ECSS-E-ST-50-53C clause 5.5.2; destination parameter resolving to a logical address or a path of output ports, reserved values rejected"
+    expected_skill: "space-systems/ecss/e5053-send-request"
+  - id: snd2
+    query: "our transmit buffer is smaller than the packet the application wants to send, decide whether the entity should cut it down to fit or turn the request away"
+    intent: "ECSS-E-ST-50-53C clause 5.5.2; encoded transfer against the local transmit limit, refusal at the interface rather than silent truncation on the link"
+    expected_skill: "space-systems/ecss/e5053-send-request"

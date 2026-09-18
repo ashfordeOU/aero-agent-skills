@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7022-expiry-date-control (space-systems/ecss)
+# Two tasks for the new leaf. edc1 routes on clamped calendar-month arithmetic
+# and the charge for time outside controlled storage; edc2 routes on an
+# extension that has no approval behind it and on the quarantine action.
+# Both must deterministically hit space-systems/ecss/q7022-expiry-date-control.
+tasks:
+  - id: edc1
+    query: "this batch was made on the 31st with an 18 month life and spent three weeks out on the shop floor, what date does it actually run out on"
+    intent: "ECSS-Q-ST-70-22 stock control; calendar months added with end-of-month clamping and the excess charged for time outside controlled storage"
+    expected_skill: "space-systems/ecss/q7022-expiry-date-control"
+  - id: edc2
+    query: "someone typed 90 extra days into the expiry field with no approval number, and two tins are past date, what comes off the issuable shelf"
+    intent: "ECSS-Q-ST-70-22 stock control; an unbacked extension is a finding not a date change, and past-date material is quarantined"
+    expected_skill: "space-systems/ecss/q7022-expiry-date-control"

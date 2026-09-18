@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7003-coating-thickness-and-adhesion (space-systems/ecss)
+# Two tasks for the new leaf. cta1 routes on the two-sided thickness band and the
+# rack mean that hides the low corner; cta2 routes on the crazing outcome read
+# against the part form and the masked area removed from the graded surface.
+# Both must deterministically hit
+# space-systems/ecss/q7003-coating-thickness-and-adhesion.
+tasks:
+  - id: cta1
+    query: "the anodize rack averaged 17 microns and passed, but two readings off the bottom end came in under the drawing minimum, work out whether the batch is acceptable and whether being over the maximum anywhere matters too"
+    intent: "ECSS-Q-ST-70-03 quality clause; every anodized thickness reading graded against a two-sided band, not the rack mean"
+    expected_skill: "space-systems/ecss/q7003-coating-thickness-and-adhesion"
+  - id: cta2
+    query: "the bend test on these anodized brackets left the coating crazed but still stuck down, and part of the face was masked off, tell me how to grade the adhesion and the coverage"
+    intent: "ECSS-Q-ST-70-03 quality clause; crazing graded against the part form and bare area taken over the graded surface once masking is removed"
+    expected_skill: "space-systems/ecss/q7003-coating-thickness-and-adhesion"

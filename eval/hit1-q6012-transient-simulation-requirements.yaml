@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-transient-simulation-requirements (space-systems/ecss)
+# Two tasks for the new leaf. tsr1 routes on the timestep-versus-window sizing
+# of a switching run; tsr2 routes on the turn-off coverage and the step budget
+# that decides whether the run is affordable. Both must deterministically hit
+# space-systems/ecss/q6012-transient-simulation-requirements.
+tasks:
+  - id: tsr1
+    query: "set up the time domain run for this switched MMIC bias circuit, how small does the timestep have to be to keep the edge and how far out does the window have to go before I can call it settled"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.4; timestep from the edge knee and points per edge, window from the slowest time constant and the residual error the analysis has to demonstrate"
+    expected_skill: "space-systems/ecss/q6012-transient-simulation-requirements"
+  - id: tsr2
+    query: "my switching simulation only covers the turn on and it is already taking all night, tell me what the run is missing and how to get the step count down without losing the edge"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.4; switch-off is the stressing edge and is a coverage finding, and a step count over budget is answered by local refinement rather than a globally coarser timestep"
+    expected_skill: "space-systems/ecss/q6012-transient-simulation-requirements"

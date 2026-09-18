@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7022-storage-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. smo1 routes on a sampling hole being unmonitored
+# time rather than in-limit time; smo2 routes on attributing out-of-limit hours
+# between samples and separating a cumulative allowance from a peak limit.
+# Both must deterministically hit space-systems/ecss/q7022-storage-monitoring.
+tasks:
+  - id: smo1
+    query: "the storage log has a twelve hour hole in it with good readings either side, can I report that period as within limits or not"
+    intent: "ECSS-Q-ST-70-22 storage monitoring; a sampling gap wider than the required interval is unmonitored time and a record finding, not in-limit time"
+    expected_skill: "space-systems/ecss/q7022-storage-monitoring"
+  - id: smo2
+    query: "work out how many out of limit hours this chiller log actually accumulated between readings and whether the spike breaks the excursion allowance"
+    intent: "ECSS-Q-ST-70-22 storage monitoring; midpoint attribution of excursion time, event grouping, cumulative allowance versus peak deviation limit"
+    expected_skill: "space-systems/ecss/q7022-storage-monitoring"

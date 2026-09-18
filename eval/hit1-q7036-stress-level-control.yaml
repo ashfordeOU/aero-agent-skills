@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7036-stress-level-control (space-systems/ecss)
+# Two tasks for the new leaf. slc1 routes on summing every sustained tensile
+# contribution rather than the applied load alone; slc2 routes on the
+# compressive surface residual that offsets but cannot reverse the total. Both
+# must deterministically hit
+# space-systems/ecss/q7036-stress-level-control.
+tasks:
+  - id: slc1
+    query: "the applied sustained stress in this bolted fitting looks fine on its own, but there is bolt preload, a fit-up stress we shimmed out badly and a forming residual nobody relieved, add up what the cracking threshold actually sees and tell me if we are under it"
+    intent: "ECSS-Q-ST-70-36C selection; total sustained tensile stress from all contributions with the elastic concentration factor applied only to the nominal terms, graded against the threshold allowable"
+    expected_skill: "space-systems/ecss/q7036-stress-level-control"
+  - id: slc2
+    query: "if we shot peen the radius can I subtract that compressive layer from the sustained tensile total, and what fraction of yield am I allowed to sit at for an alloy state rated susceptible"
+    intent: "ECSS-Q-ST-70-36C selection; a compressive residual offsets the tensile total floored at zero, and the rating-based fraction of yield stands in for a measured threshold stress"
+    expected_skill: "space-systems/ecss/q7036-stress-level-control"

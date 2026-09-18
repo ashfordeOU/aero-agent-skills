@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7029-odour-assessment (space-systems/ecss)
+# odr1 routes on the qualification filter and the minimum panel size; odr2
+# routes on the dispersion and veto rules that a bare mean hides. Both must
+# deterministically hit space-systems/ecss/q7029-odour-assessment.
+tasks:
+  - id: odr1
+    query: "half the sensory panel that scored this offgassing sample has lapsed qualification on the reference set - can I still issue an odour verdict from the sheet"
+    intent: "ECSS-Q-ST-70-29 assessment; only currently qualified judges count and a panel under its minimum size returns a repeat-the-test finding, not a weaker verdict"
+    expected_skill: "space-systems/ecss/q7029-odour-assessment"
+  - id: odr2
+    query: "the mean odour rating is comfortably under the acceptance rating but three judges said undetectable and one called it irritating - is this sample acceptable"
+    intent: "ECSS-Q-ST-70-29 assessment; panel dispersion and a top-of-scale veto score both override a comfortable mean intensity"
+    expected_skill: "space-systems/ecss/q7029-odour-assessment"

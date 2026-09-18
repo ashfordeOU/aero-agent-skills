@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-transfer-packet (space-systems/ecss)
+# Two tasks for the new leaf. tp1 routes on the address octets being already
+# consumed by routers on a path-addressed transfer; tp2 routes on another
+# protocol's identifier being ordinary shared-link traffic, not a fault.
+# Both must deterministically hit
+# space-systems/ecss/e5053-transfer-packet.
+tasks:
+  - id: tp1
+    query: "our receive path reads a protocol identifier of two on some transfers and garbage on others, and the difference is whether the node was reached by path or by node address, sort out where the body actually starts"
+    intent: "ECSS-E-ST-50-53C clause 5.5.3; routers consume path address octets one per hop, a logically addressed transfer still carries its address octet before the protocol fields"
+    expected_skill: "space-systems/ecss/e5053-transfer-packet"
+  - id: tp2
+    query: "we share the link with a memory access protocol and the driver is logging every one of its packets as a receive error, work out what the entity should actually do with traffic that is not ours"
+    intent: "ECSS-E-ST-50-53C clause 5.5.3; the protocol identifier demultiplexes to an entity, another protocol's transfer is handed on rather than discarded as an error"
+    expected_skill: "space-systems/ecss/e5053-transfer-packet"

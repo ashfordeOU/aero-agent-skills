@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-target-logical-address (space-systems/ecss)
+# Two tasks for the new leaf. tla1 routes on a node receiving a transfer
+# naming a logical address it does not answer to; tla2 routes on the default
+# encoding being used as a wildcard. Both must deterministically hit
+# space-systems/ecss/e5053-target-logical-address.
+tasks:
+  - id: tla1
+    query: "a CCSDS packet transfer reached our node with target logical address 41 but this node answers to 40 and 45, do we deliver it or is it misrouted"
+    intent: "ECSS-E-ST-50-53C clause 5.1.5; delivery is membership in the set the node answers to, and an assignable address outside that set is misrouted rather than rejected"
+    expected_skill: "space-systems/ecss/e5053-target-logical-address"
+  - id: tla2
+    query: "our senders write the default logical address into every transfer even though the installation does use logical addressing, what check are we throwing away"
+    intent: "ECSS-E-ST-50-53C clause 5.1.5; the default encoding says logical addressing is not in use, it is not a wildcard, and the field is not consumed en route so it is a real delivery check"
+    expected_skill: "space-systems/ecss/e5053-target-logical-address"

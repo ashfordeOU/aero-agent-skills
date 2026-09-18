@@ -1,0 +1,9 @@
+{
+  "skill": "e5053-ccsds-packet-field",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 37,
+  "failed": 0,
+  "evidence": "contract test PASS (37 tests); without-baseline 0.30 (the payload slot is usually eyeballed on the header alone, so reading the packet data length field as a total instead of the data field minus one, accepting a trailing fragment because the leading packet parsed cleanly, reporting a truncation and a second batched packet as the same length mismatch, passing an idle application process identifier through as user data, and taking a field length that happens to be a round multiple as evidence of framing are all missed without the skill)"
+}

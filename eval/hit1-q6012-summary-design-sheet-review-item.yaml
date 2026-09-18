@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-summary-design-sheet-review-item (space-systems/ecss)
+# Two tasks for the new leaf. sds1 routes on reconciling the values on the
+# condensed one page overview against the detail sources they were rounded
+# from; sds2 routes on whether the page still holds every required
+# characteristic inside its single page budget. Both must deterministically
+# hit space-systems/ecss/q6012-summary-design-sheet-review-item.
+tasks:
+  - id: sds1
+    query: "the one page overview of the die quotes four watts of output where the test plan says 4.02 and calls the backside metal tin where the process sheet says gold, say which of those the review can let through as rounding"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.14; a summarised number is reconciled against its detail source on a relative rounding tolerance while a transcribed text is reconciled on the canonical text, and only the second pair contradicts"
+    expected_skill: "space-systems/ecss/q6012-summary-design-sheet-review-item"
+  - id: sds2
+    query: "the condensed die overview has grown past the bottom of the page and the bias voltage is quoted as a bare number, work out whether the sheet still carries every key characteristic it is required to and still fits on one page"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.14; required characteristic coverage on the condensed overview, a numeric entry with no declared unit, and the rendered line count against the single page budget"
+    expected_skill: "space-systems/ecss/q6012-summary-design-sheet-review-item"

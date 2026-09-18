@@ -1,0 +1,13 @@
+# Hit@1 fragment: q1009-action-implementation (space-systems/ecss)
+# ai1 routes on the action register roll-up and overdue count; ai2 routes on the
+# implemented-against-verified distinction holding the report back. Both must
+# deterministically hit space-systems/ecss/q1009-action-implementation.
+tasks:
+  - id: ai1
+    query: "roll up the action register for the board: who owns each action, which ones are past their due date and by how many days, and how many have nobody carrying them"
+    intent: "ECSS-Q-ST-10-09C clause 5.4.1; owners, due dates and the overdue roll-up of the action register"
+    expected_skill: "space-systems/ecss/q1009-action-implementation"
+  - id: ai2
+    query: "the last action is reported done but nobody has shown it works; decide whether the report may move on or whether it waits on evidence of effective implementation"
+    intent: "ECSS-Q-ST-10-09C clause 5.4.1; implemented against verified, and the progression hold until binding actions rest"
+    expected_skill: "space-systems/ecss/q1009-action-implementation"

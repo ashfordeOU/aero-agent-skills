@@ -1,0 +1,13 @@
+# Hit@1 fragment: q1009-waiver-deviation (space-systems/ecss)
+# wd1 routes on the deviation-or-waiver question itself; wd2 routes on the
+# authorised effectivity running out and on items used before approval. Both
+# must deterministically hit space-systems/ecss/q1009-waiver-deviation.
+tasks:
+  - id: wd1
+    query: "we need a departure from an agreed requirement authorised before the part is built; tell me whether this is a deviation or a waiver and what the request package has to contain"
+    intent: "ECSS-Q-ST-10-09C clause 5.2.3.5; deviation before the departure exists, waiver after, and the configuration record each carries"
+    expected_skill: "space-systems/ecss/q1009-waiver-deviation"
+  - id: wd2
+    query: "the approved waiver covered two units and a third has already been fitted; say whether the authorised effectivity still covers it and what the use before approval means"
+    intent: "ECSS-Q-ST-10-09C clause 5.2.3.5; authorised effectivity and expiry, and use of affected items before approval"
+    expected_skill: "space-systems/ecss/q1009-waiver-deviation"

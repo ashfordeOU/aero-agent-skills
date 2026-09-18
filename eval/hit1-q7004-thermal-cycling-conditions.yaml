@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-thermal-cycling-conditions (space-systems/ecss)
+# Two tasks for the new leaf. tcc1 routes on the transition rate and which of the
+# four candidate limits bound it; tcc2 routes on building the dwell from the
+# item's lag plus soak and multiplying out the campaign duration. Both must
+# deterministically hit space-systems/ecss/q7004-thermal-cycling-conditions.
+tasks:
+  - id: tcc1
+    query: "the procedure asks for five kelvin per minute, the chamber can only drive three and the hardware is limited to two, what rate does the profile actually run at and how long does each transition take"
+    intent: "ECSS-Q-ST-70-04C cycling conditions; resolving the transition rate as the slowest of the requested, chamber, item and policy limits and naming the binding one"
+    expected_skill: "space-systems/ecss/q7004-thermal-cycling-conditions"
+  - id: tcc2
+    query: "how long do we hold at each end given the unit lags the chamber with a fifteen minute time constant, and how many hours of chamber time does a hundred cycle qualification profile come to"
+    intent: "ECSS-Q-ST-70-04C cycling conditions; building each dwell from the exponential decay of the item's lag plus the soak, then multiplying the cycle count out into a campaign duration"
+    expected_skill: "space-systems/ecss/q7004-thermal-cycling-conditions"

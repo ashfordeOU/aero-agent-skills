@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-specimen-preparation (space-systems/ecss)
+# Two tasks for the new leaf. osp1 routes on sizing and cutting the test items;
+# osp2 routes on the carrier blank a paste needs and the conditioning the
+# specimens see before the chamber. Both must deterministically hit
+# space-systems/ecss/q7002-specimen-preparation.
+tasks:
+  - id: osp1
+    query: "work out how many pieces of this cured film I have to cut and how many replicates to prepare for the vacuum outgassing run, given the stock density and the boat size"
+    intent: "ECSS-Q-ST-70-02C test item; specimen mass window, pieces per specimen from geometry and density, replicate minimum and the sorted-dimension holder fit"
+    expected_skill: "space-systems/ecss/q7002-specimen-preparation"
+  - id: osp2
+    query: "the material is a paste so it has to go on something, what else do I have to run alongside it and what do I hold the specimens at before they go in"
+    intent: "ECSS-Q-ST-70-02C test item; one carrier blank per specimen, netting the carrier out of the balance reading, and the conditioning duration, temperature and humidity windows"
+    expected_skill: "space-systems/ecss/q7002-specimen-preparation"

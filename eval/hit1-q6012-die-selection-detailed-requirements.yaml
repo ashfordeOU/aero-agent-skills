@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-die-selection-detailed-requirements (space-systems/ecss)
+# Two tasks for the new leaf. dsd1 routes on the derated bias rail and the
+# channel temperature the dissipation produces; dsd2 routes on the Arrhenius
+# life projected at that channel temperature plus the handling criteria and the
+# missing-mandatory-datum rule. Both must deterministically hit
+# space-systems/ecss/q6012-die-selection-detailed-requirements.
+tasks:
+  - id: dsd1
+    query: "this MMIC die is already on the approved list, now grade it criterion by criterion for our design - gain and output power at the worst band edge, the drain rail against the derated rating not the absolute maximum, and the channel temperature the five watts of dissipation puts it at"
+    intent: "ECSS-Q-ST-60-12 clause 5.1.2; detailed die criteria with bias derating and junction-to-case channel temperature"
+    expected_skill: "space-systems/ecss/q6012-die-selection-detailed-requirements"
+  - id: dsd2
+    query: "project the arrhenius life of this candidate microwave die at the reached channel temperature against the mission life, settle its electrostatic-sensitivity category against the line capability and the bond-pad compatibility of the assembly route, and treat any mandatory datum with no value on record as an open finding rather than a pass"
+    intent: "ECSS-Q-ST-60-12 clause 5.1.2; Arrhenius life at the reached channel temperature, handling criteria, and a missing mandatory datum as an open finding"
+    expected_skill: "space-systems/ecss/q6012-die-selection-detailed-requirements"

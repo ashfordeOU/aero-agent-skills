@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-prep-for-delivery (space-systems/ecss)
+# Two tasks for the leaf. pfd1 routes on sizing the cushion from drop height and
+# fragility and on the bearing stress window the pad is rated over; pfd2 routes
+# on the label fields and protection means the item's own sensitivity states
+# make mandatory. Both must deterministically hit
+# space-systems/ecss/q20-prep-for-delivery, not the shipping-documentation leaf.
+tasks:
+  - id: pfd1
+    query: "work out how thick the foam has to be for the declared drop height and the acceleration this unit survives, and tell me whether the unit is heavy enough to load that foam into the range it is rated over"
+    intent: "ECSS-Q-ST-20C clause 5.7.4; cushion thickness from drop height and fragility, and static bearing stress against the cushion window"
+    expected_skill: "space-systems/ecss/q20-prep-for-delivery"
+  - id: pfd2
+    query: "this unit is static sensitive and has to sit in a sealed bag for six months; size the desiccant charge and list the label fields and protection means the prepared package still does not carry"
+    intent: "ECSS-Q-ST-20C clause 5.7.4; desiccant sizing from barrier area, transmission rate and duration, plus derived marking and protection"
+    expected_skill: "space-systems/ecss/q20-prep-for-delivery"

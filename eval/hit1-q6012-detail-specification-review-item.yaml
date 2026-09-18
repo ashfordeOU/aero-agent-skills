@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-detail-specification-review-item (space-systems/ecss)
+# Two tasks for the new leaf. dsr1 routes on what a product level document fails
+# to state and therefore can never be required; dsr2 routes on the internal
+# consistency of the limits against the absolute maximum ratings and on issue
+# control. Both must deterministically hit
+# space-systems/ecss/q6012-detail-specification-review-item.
+tasks:
+  - id: dsr1
+    query: "go through the product level document they issued for this microwave die and tell me what a procurement order could never require from it because the document simply never states it, and which limits are quoted with no temperature or frequency behind them"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.11; expected content blocks of the product level specification, and a guaranteed limit stated without the measurement conditions it holds at"
+    expected_skill: "space-systems/ecss/q6012-detail-specification-review-item"
+  - id: dsr2
+    query: "the gain table gives a minimum typical and maximum but the drain bias maximum sits above the absolute maximum rating and issue C arrived with no record of what changed, grade the document and say whether it can be accepted"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.11; guaranteed limit ordering, a limit outside the absolute maximum rating governing it, and the issue control record a later issue owes"
+    expected_skill: "space-systems/ecss/q6012-detail-specification-review-item"

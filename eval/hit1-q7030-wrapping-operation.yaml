@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-wrapping-operation (space-systems/ecss)
+# Two tasks for the new leaf. wop1 routes on the turn schedule owed by the
+# conductor gauge and the insulated turn a modified wrap carries; wop2 routes on
+# whether another level physically fits on the post. Both must deterministically
+# hit space-systems/ecss/q7030-wrapping-operation.
+tasks:
+  - id: wop1
+    query: "set the turn schedule for this wrap: the bare turns the conductor gauge owes plus the insulated turns the modified wrap configuration carries"
+    intent: "ECSS-Q-ST-70-30C wrapping process; bare-turn schedule per conductor gauge and the insulated turn of a modified wrap"
+    expected_skill: "space-systems/ecss/q7030-wrapping-operation"
+  - id: wop2
+    query: "work out whether a third wrap level still fits on this wrapping post once the base offset and the two wraps already on it are taken off the post length"
+    intent: "ECSS-Q-ST-70-30C wrapping process; wrap height from conductor diameter against the usable post length and the level stacking rule"
+    expected_skill: "space-systems/ecss/q7030-wrapping-operation"

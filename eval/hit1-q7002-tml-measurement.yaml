@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-tml-measurement (space-systems/ecss)
+# Two tasks for the new leaf. tml1 routes on turning the three weighings into a
+# percentage result on the initial-mass basis; tml2 routes on the specimen that
+# came out heavier and on replicate agreement. Both must deterministically hit
+# space-systems/ecss/q7002-tml-measurement.
+tasks:
+  - id: tml1
+    query: "I have the before, after and reconditioned weighings for the outgassing coupons, turn them into the mass loss percentage and the part of it that was only water coming back"
+    intent: "ECSS-Q-ST-70-02C measurement; total mass loss referred to the initial mass, regained water on the same basis and the recovered mass loss left over"
+    expected_skill: "space-systems/ecss/q7002-tml-measurement"
+  - id: tml2
+    query: "one outgassing coupon weighed more after the run than before it and the other two disagree by a whole percentage point, tell me what the screening result for this material actually is"
+    intent: "ECSS-Q-ST-70-02C measurement; a specimen heavier after exposure is a bench error rather than a negative loss, and replicate spread against the scatter allowance"
+    expected_skill: "space-systems/ecss/q7002-tml-measurement"

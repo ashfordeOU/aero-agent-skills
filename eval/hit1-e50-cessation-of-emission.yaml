@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-cessation-of-emission (space-systems/ecss)
+# Two tasks for the new leaf. ce1 routes on a transmitter that will not stop
+# and an inhibit routed through the emitting chain itself; ce2 routes on the
+# end-to-end time budget to carrier-off and what survives one failure. Both
+# must deterministically hit space-systems/ecss/e50-cessation-of-emission.
+tasks:
+  - id: ce1
+    query: "our downlink transmitter is stuck on and the only inhibit we have is decoded inside that same transponder, does that count as being able to stop the emission"
+    intent: "ECSS-E-ST-50C clause 5.3.3; an inhibit routed through the emitting chain shares the failure it is meant to answer, so it is not a credible cessation path"
+    expected_skill: "space-systems/ecss/e50-cessation-of-emission"
+  - id: ce2
+    query: "we must vacate the frequency within two minutes of the request, how do I budget ground reaction, uplink delay and power-down across our two transmitter inhibit paths"
+    intent: "ECSS-E-ST-50C clause 5.3.3; cessation is a whole budget and the time to quote is the one left after the fastest credible inhibit path has failed"
+    expected_skill: "space-systems/ecss/e50-cessation-of-emission"

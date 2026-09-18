@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-target-spacewire-address-field (space-systems/ecss)
+# Two tasks for the new leaf. ta1 routes on assembling the leading address
+# bytes for a route; ta2 routes on the residue a target sees after the hops.
+# Both must deterministically hit
+# space-systems/ecss/e5053-target-spacewire-address-field.
+tasks:
+  - id: ta1
+    query: "turn this list of router output ports plus the destination node address into the leading address bytes of the packet and pad it out so the length comes to a multiple of four"
+    intent: "ECSS-E-ST-50-53 clause 5.3.1; path address bytes, a terminating logical address, and null padding that has to lead the field rather than trail it"
+    expected_skill: "space-systems/ecss/e5053-target-spacewire-address-field"
+  - id: ta2
+    query: "work out what is left of the leading address bytes by the time the packet has crossed three routers, and whether a zero sitting in the middle of them breaks the route"
+    intent: "ECSS-E-ST-50-53 clause 5.3.1; each router consumes the leading significant byte, an interior null terminates the route early, and the reserved top value may not be sent"
+    expected_skill: "space-systems/ecss/e5053-target-spacewire-address-field"

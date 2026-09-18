@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-test-equipment (space-systems/ecss)
+# Two tasks for the leaf. qte1 routes on calibration validity and measurement
+# capability at the day of use. qte2 routes on EGSE configuration control and
+# readiness before a test. Both must deterministically hit
+# space-systems/ecss/q20-test-equipment.
+tasks:
+  - id: qte1
+    query: "confirm the instruments for this acceptance run are still in calibration on the test day itself and that the uncertainty each one carries is small enough against the tolerance the measurement is being judged on"
+    intent: "ECSS-Q-ST-20 clause 5.6.2; test equipment calibration validity at the day of use and measurement accuracy ratio"
+    expected_skill: "space-systems/ecss/q20-test-equipment"
+  - id: qte2
+    query: "check the electrical ground support equipment before the test readiness review: the build standard it is held at, any change made to it without approval, the self-test and how old the last functional check is"
+    intent: "ECSS-Q-ST-20 clause 5.6.2; EGSE configuration control, readiness and suitability before test"
+    expected_skill: "space-systems/ecss/q20-test-equipment"

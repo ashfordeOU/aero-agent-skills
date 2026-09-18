@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-process-qualification (space-systems/ecss)
+# pq1 routes on the number of consecutive runs and the rack positions the
+# coupons were hung at; pq2 routes on the change that puts a standing
+# qualification back in front of the campaign. Both must deterministically hit
+# space-systems/ecss/q7003-process-qualification.
+tasks:
+  - id: pq1
+    query: "we ran one good load through the new anodize tank with coupons hung in the middle of the rack, is that enough to call the line qualified for the parameter window we declared"
+    intent: "ECSS-Q-ST-70-03 quality-assurance clause; consecutive runs plus coupons at the rack extremes, with every recorded parameter inside the qualified window"
+    expected_skill: "space-systems/ecss/q7003-process-qualification"
+  - id: pq2
+    query: "the anodize bath was rebuilt and the rectifier swapped last month, do we have to run the whole coupon campaign again or does the old qualification still stand"
+    intent: "ECSS-Q-ST-70-03 quality-assurance clause; declared requalification triggers and the validity period on a standing line qualification"
+    expected_skill: "space-systems/ecss/q7003-process-qualification"

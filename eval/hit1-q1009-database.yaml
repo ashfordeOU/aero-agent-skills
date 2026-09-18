@@ -1,0 +1,14 @@
+# Hit@1 fragment: q1009-database (space-systems/ecss)
+# Two tasks for the leaf. ncdb1 routes on the registration and status tracking
+# duty of the nonconformance database. ncdb2 routes on the retrieval and
+# reporting functions the same database owes. Both must deterministically hit
+# space-systems/ecss/q1009-database.
+tasks:
+  - id: ncdb1
+    query: "check that the project nonconformance database registers every nonconformance raised with its identifier, raising day, affected item and category, and that no record carries a status behind the one it already reached or a closure with no disposition behind it"
+    intent: "ECSS-Q-ST-10-09 clause 5.5.2; nonconformance database registration coverage and status tracking"
+    expected_skill: "space-systems/ecss/q1009-database"
+  - id: ncdb2
+    query: "decide whether the nonconformance register can still be retrieved on the keys a status report is built from and whether a periodic nonconformance report has been issued inside the reporting interval"
+    intent: "ECSS-Q-ST-10-09 clause 5.5.2; retrieval keys and periodic reporting currency of the nonconformance database"
+    expected_skill: "space-systems/ecss/q1009-database"

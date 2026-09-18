@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7031-painting-records (space-systems/ecss)
+# Two tasks for the leaf. pr1 routes on the per-unit record content and the
+# pot-life window between mixing and end of application; pr2 routes on shelf
+# life at mixing and the traceability chain back to the received-lots register.
+# Both must deterministically hit space-systems/ecss/q7031-painting-records,
+# not the acceptance-inspection leaf that grades the readings themselves.
+tasks:
+  - id: pr1
+    query: "check the painting record for this coated unit: are the primer and topcoat lots, the mix ratio, the cure temperature and the cure duration all stated, and was the mixed material used inside its pot life"
+    intent: "ECSS-Q-ST-70-31C painting records; per-unit record content and the pot-life window between mixing and end of application"
+    expected_skill: "space-systems/ecss/q7031-painting-records"
+  - id: pr2
+    query: "every lot applied to this unit needs to walk back to a receipt - find the traceability gaps, check each paint lot was inside its shelf life on the day it was mixed, and set the record retention date"
+    intent: "ECSS-Q-ST-70-31C painting records; lot shelf life at mixing, traceability chain closure and record retention"
+    expected_skill: "space-systems/ecss/q7031-painting-records"

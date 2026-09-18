@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-fields (space-systems/ecss)
+# Two tasks for the new leaf. fld1 routes on the ordered field set and the
+# offsets it implies. fld2 routes on auditing a documented field sequence and the
+# shortest legal unit. Both must deterministically hit
+# space-systems/ecss/e5053-fields.
+tasks:
+  - id: fld1
+    query: "lay out the fields of a packet transfer protocol data unit in order after the path bytes and give the offset of each one and of the packet that closes it"
+    intent: "ECSS-E-ST-50-53C clause 5.4.1.1; ordered field set, positional layout, field offsets from path length"
+    expected_skill: "space-systems/ecss/e5053-fields"
+  - id: fld2
+    query: "an interface document lists the unit fields with one dropped and two swapped: audit that sequence against the required order and give the shortest unit that can carry the whole set"
+    intent: "ECSS-E-ST-50-53C clause 5.4.1.1; field sequence audit, missing and unexpected fields, minimum unit length"
+    expected_skill: "space-systems/ecss/e5053-fields"

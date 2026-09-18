@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-outputs (space-systems/ecss)
+# Two tasks for the new leaf. out1 routes on completion being a property of the
+# outputs; out2 routes on an output no activity of the step produced.
+# Both must deterministically hit space-systems/ecss/e50-outputs.
+tasks:
+  - id: out1
+    query: "the team wants to close the communication system engineering step because all the activities finished, but two of the deliverables have no document number on them, decide whether the step is done"
+    intent: "ECSS-E-ST-50C clause 5.2.1.3; the step is finished when its outputs exist, and an output with no identifier cannot be called for by the next step"
+    expected_skill: "space-systems/ecss/e50-outputs"
+  - id: out2
+    query: "a link budget with the right title is sitting in our comms folder but no activity of this step wrote it, work out whether we can list it as an output of the step"
+    intent: "ECSS-E-ST-50C clause 5.2.1.3; an output produced by no activity of the step is asserted rather than produced and comes from outside the step's control"
+    expected_skill: "space-systems/ecss/e50-outputs"

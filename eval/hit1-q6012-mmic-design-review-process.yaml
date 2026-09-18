@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-mmic-design-review-process (space-systems/ecss)
+# Two tasks for the new leaf. drp1 routes on the gate sequence itself and the
+# checkpoint that was planned but never held; drp2 routes on the release day
+# landing inside the quiet period after the last gate. Both must
+# deterministically hit
+# space-systems/ecss/q6012-mmic-design-review-process.
+tasks:
+  - id: q6012drp1
+    query: "we have five review checkpoints in the MMIC schedule but the layout one was held before the detailed design one and the pre-release gate only has a planned date, tell me whether this design can go to the mask set"
+    intent: "ECSS-Q-ST-60-12C clause 7.3; the checkpoint gate sequence before fabrication release, a gate planned but never held, and a gate held out of dependency order"
+    expected_skill: "space-systems/ecss/q6012-mmic-design-review-process"
+  - id: q6012drp2
+    query: "every design review gate was held and the actions are all shut but fabrication release is booked two days after the last review, work out whether that clears the quiet period and what the action closure ratio was across the gates"
+    intent: "ECSS-Q-ST-60-12C clause 7.3; the quiet period between the last review checkpoint and the fabrication release day, plus the action-item closure ratio accumulated over the held gates"
+    expected_skill: "space-systems/ecss/q6012-mmic-design-review-process"

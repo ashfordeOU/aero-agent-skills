@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-test-execution (space-systems/ecss)
+# Two tasks for the new leaf. exec1 routes on the qualified-versus-elapsed soak
+# time a run log credits; exec2 routes on grouping failing samples into
+# excursions with their causes and the phase stamp order. Both must
+# deterministically hit space-systems/ecss/q7002-test-execution.
+tasks:
+  - id: exec1
+    query: "the outgassing specimens sat in the chamber for 26 hours but the vacuum came off the limit twice during the soak, work out how many hours actually count towards the exposure"
+    intent: "ECSS-Q-ST-70-02C procedure; soak time credited only where specimen temperature, collector temperature and chamber pressure all qualify at both ends of an interval"
+    expected_skill: "space-systems/ecss/q7002-test-execution"
+  - id: exec2
+    query: "go through the exposure log, gather the stretches where the collectors drifted warm into events with their causes, and check the soak clock did not start before the chamber was stable"
+    intent: "ECSS-Q-ST-70-02C procedure; excursion grouping with merged causes and the pump-down, heating, stabilisation, soak and cool-down stamp order"
+    expected_skill: "space-systems/ecss/q7002-test-execution"

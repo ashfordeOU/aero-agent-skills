@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-thermal-vacuum-conditions (space-systems/ecss)
+# Two tasks for the new leaf. tvc1 routes on proving the chamber pressure is low
+# enough by mean free path against the item; tvc2 routes on the shroud-limited
+# cold end and the dew point guard on repressurization. Both must
+# deterministically hit space-systems/ecss/q7004-thermal-vacuum-conditions.
+tasks:
+  - id: tvc1
+    query: "the gauge reads a hundredth of a pascal and the structure is two metres across, is that actually a vacuum condition or is the residual gas still carrying heat across it"
+    intent: "ECSS-Q-ST-70-04C thermal vacuum conditions; checking the chamber pressure against the declared limit and against the mean free path over the item's characteristic length"
+    expected_skill: "space-systems/ecss/q7004-thermal-vacuum-conditions"
+  - id: tvc2
+    query: "our cold limit is below the shroud temperature and we want to let air back in straight after the cold soak, what goes wrong and what temperature does the item have to be at before the valve opens"
+    intent: "ECSS-Q-ST-70-04C thermal vacuum conditions; a cold limit the shroud cannot reach, and the dew point guard on repressurization that stops moisture condensing on a cold item"
+    expected_skill: "space-systems/ecss/q7004-thermal-vacuum-conditions"

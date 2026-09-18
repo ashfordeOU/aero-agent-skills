@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-maximum-ratings-and-robustness (space-systems/ecss)
+# Two tasks for the new leaf. amr1 routes on the boundary-versus-onset margin
+# that decides whether a proposed rating is a rating at all; amr2 routes on the
+# robustness soak driven below the boundary it is offered as evidence for. Both
+# must deterministically hit
+# space-systems/ecss/q6012-maximum-ratings-and-robustness.
+tasks:
+  - id: amr1
+    query: "the die vendor quotes a drain-source maximum the same as the voltage their step-stress run started degrading at, work out whether that number can be published as an absolute maximum rating"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.9; an absolute maximum rating sits below the measured degradation onset by the required safety factor, not level with it"
+    expected_skill: "space-systems/ecss/q6012-maximum-ratings-and-robustness"
+  - id: amr2
+    query: "our robustness soak ran at ninety per cent of the channel temperature limit and nothing failed, tell me whether that covers the limit we want to declare and what the derated application stress is allowed to reach"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.9; evidence below a boundary supports only the stress applied, and the worst-case application stress is compared against the derated envelope not the boundary"
+    expected_skill: "space-systems/ecss/q6012-maximum-ratings-and-robustness"

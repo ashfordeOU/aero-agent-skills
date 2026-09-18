@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-mmic-thermal-analysis (space-systems/ecss)
+# Two tasks for the new leaf. mta1 routes on the junction temperature built up
+# through the mounting stack; mta2 routes on the attach voiding and the
+# multi-finger peak that the derated limit actually applies to. Both must
+# deterministically hit space-systems/ecss/q6012-mmic-thermal-analysis.
+tasks:
+  - id: mta1
+    query: "work out how hot the channel of this die gets on its carrier at the quoted baseplate temperature and tell me which layer of the mounting is carrying most of the heat"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.5; layer-by-layer conduction resistance with heat spreading, summed to a source-to-reference value, and the dominant layer of the path named"
+    expected_skill: "space-systems/ecss/q6012-mmic-thermal-analysis"
+  - id: mta2
+    query: "the acoustic scan came back with voids in the die attach and this is an eight finger device, does it still make its derated junction temperature limit"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.5; voiding removes attach contact area rather than thinning the layer, and the derated limit applies to the peak finger rather than the mean rise"
+    expected_skill: "space-systems/ecss/q6012-mmic-thermal-analysis"

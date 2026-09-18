@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-mmic-design-task-set (space-systems/ecss)
+# Two tasks for the new leaf. dts1 routes on the mandated activity set and the
+# activity nothing serves; dts2 routes on the effort-weighted completion figure
+# and the single activity holding most of the effort. Both must
+# deterministically hit space-systems/ecss/q6012-mmic-design-task-set.
+tasks:
+  - id: dts1
+    query: "here is the list of engineering tasks our MMIC development is proposing, tell me which of the design activities it has to contain are not served by any task and which ones are extras the project added"
+    intent: "ECSS-Q-ST-60-12 clause 7.2; the collected engineering activities of a microwave circuit development, coverage gap versus a project addition"
+    expected_skill: "space-systems/ecss/q6012-mmic-design-task-set"
+  - id: dts2
+    query: "the MMIC design plan says two thirds of its tasks are finished but one task holds most of the hours, work out how far the effort has actually got and whether the breakdown is trackable at all"
+    intent: "ECSS-Q-ST-60-12 clause 7.2; effort-weighted completion against task count, and a single design activity holding most of the declared effort"
+    expected_skill: "space-systems/ecss/q6012-mmic-design-task-set"

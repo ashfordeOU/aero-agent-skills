@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-adhesion-verification (space-systems/ecss)
+# Two tasks for the new leaf. adh1 routes on the lattice spacing that follows
+# from film thickness and substrate hardness; adh2 routes on the detached-area
+# percentage and rating spread across areas. Both must deterministically hit
+# space-systems/ecss/q7031-adhesion-verification.
+tasks:
+  - id: adh1
+    query: "the coat measures about 45 microns over a hard substrate, tell me what cut spacing the tape test uses and what to do instead when the film is far thicker"
+    intent: "ECSS-Q-ST-70-13C tape method; spacing follows thickness and substrate hardness, and a film above the lattice limit goes to a pull-off method"
+    expected_skill: "space-systems/ecss/q7031-adhesion-verification"
+  - id: adh2
+    query: "one cross-cut area lifted a couple of whole squares and a half square, another lifted nothing, give me the rating for each and say whether the spread is acceptable"
+    intent: "ECSS-Q-ST-70-31C quality; detached area as a fraction of the lattice including partial squares, banded into the six-step rating, then graded for spread across areas"
+    expected_skill: "space-systems/ecss/q7031-adhesion-verification"

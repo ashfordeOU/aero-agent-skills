@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-application-approval-general-requirements (space-systems/ecss)
+# Two tasks for the leaf. aa1 routes on deciding whether a die can be approved for the
+# usage actually intended and which approval route that forces; aa2 routes on the coverage
+# half of the clause - a usage condition no envelope bounds and a mandatory condition the
+# application never declared. Both must deterministically hit
+# space-systems/ecss/q6012-application-approval-general-requirements.
+tasks:
+  - id: aa1
+    query: "decide whether this microwave die can be approved for the usage we actually intend, open each declared condition to its worst case against the bound it is judged on and say whether we reuse the approval already held, run a delta approval for the excursions, or go for a full application approval"
+    intent: "ECSS-Q-ST-60-12C clause 8.1; intended-usage envelope containment and approval route selection"
+    expected_skill: "space-systems/ecss/q6012-application-approval-general-requirements"
+  - id: aa2
+    query: "the intended usage introduces a condition the approved envelope never bounded and the application never declared its rf input power at all, work out whether the die application approval can still be stated or has to carry an open item"
+    intent: "ECSS-Q-ST-60-12C clause 8.1; uncovered and undeclared usage conditions as open items, not approval"
+    expected_skill: "space-systems/ecss/q6012-application-approval-general-requirements"

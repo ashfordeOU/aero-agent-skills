@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-gse-eidp (space-systems/ecss)
+# Two tasks for the leaf. eidp1 routes on deriving the GSE data package sections
+# from the item's own states; eidp2 routes on the approval state of the sections
+# and the open nonconformances the package has to carry. Both must
+# deterministically hit space-systems/ecss/q20-gse-eidp, not the generic
+# eidp-content leaf and not the GSE design assurance leaf.
+tasks:
+  - id: gseidp1
+    query: "this lifting and pressurised ground support rig is being handed over; work out every section its end item data package owes and which ones the binder does not have"
+    intent: "ECSS-Q-ST-20C clause 5.8.4.1; GSE end item data package sections derived from the item's states"
+    expected_skill: "space-systems/ecss/q20-gse-eidp"
+  - id: gseidp2
+    query: "half the GSE data package is still marked draft and two open nonconformances are not listed in it; tell me what fraction of the required package is actually approved and whether it can be released"
+    intent: "ECSS-Q-ST-20C clause 5.8.4.1; GSE data package approval state, open nonconformance carry-over and release"
+    expected_skill: "space-systems/ecss/q20-gse-eidp"

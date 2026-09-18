@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-pretailoring (space-systems/ecss)
+# Two tasks for the leaf. pt1 routes on applying the clause 6 pre-tailoring
+# matrix for a space product type; pt2 routes on reconciling a project's own
+# proposed dispositions against that baseline. Both must deterministically hit
+# space-systems/ecss/q20-pretailoring, not the quality assurance scope leaves and
+# not any per-clause requirement leaf.
+tasks:
+  - id: gsept1
+    query: "work out which of the clause 5 quality requirements actually apply to a commercial off the shelf item using the pre-tailoring matrix, and tell me what share of the set survives"
+    intent: "ECSS-Q-ST-20C clause 6; pre-tailoring matrix applied per space product type and the applicable fraction"
+    expected_skill: "space-systems/ecss/q20-pretailoring"
+  - id: gsept2
+    query: "the project proposes to drop two requirements the pre-tailoring baseline keeps and to apply one the baseline drops; which of those departures need an approved justification"
+    intent: "ECSS-Q-ST-20C clause 6; relaxation versus tightening against the pre-tailoring baseline and justification"
+    expected_skill: "space-systems/ecss/q20-pretailoring"

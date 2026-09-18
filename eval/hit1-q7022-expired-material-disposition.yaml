@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7022-expired-material-disposition (space-systems/ecss)
+# Two tasks for the new leaf. emd1 routes on the re-test-or-scrap eligibility
+# screen for a lot found past its date; emd2 routes on sizing the extension a
+# clean re-validation earns and the budget that shrinks it. Both must
+# deterministically hit
+# space-systems/ecss/q7022-expired-material-disposition.
+tasks:
+  - id: emd1
+    query: "stores turned up a drum three months past its date, work out whether it can be re-tested back into use or whether it just goes in the skip"
+    intent: "ECSS-Q-ST-70-22C use control; overrun as a fraction of the original shelf life, families with no re-validation route, and a storage excursion that removes eligibility outright"
+    expected_skill: "space-systems/ecss/q7022-expired-material-disposition"
+  - id: emd2
+    query: "the re-validation results on this expired epoxy all came back inside their acceptance windows, how much extra life does that buy and what new expiry do I issue"
+    intent: "ECSS-Q-ST-70-22C use control; extension sized as a bounded fraction of the original shelf life, halving with each extension already granted"
+    expected_skill: "space-systems/ecss/q7022-expired-material-disposition"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-gse-delivery (space-systems/ecss)
+# Two tasks for the leaf. del1 routes on the GSE delivery review board itself -
+# who was in the room, who chaired, what the agenda covered; del2 routes on the
+# conformity certificates tested against the delivery day. Both must
+# deterministically hit space-systems/ecss/q20-gse-delivery, not the consignment
+# transport leaf q20-delivery and not the generic delivery review board leaf.
+tasks:
+  - id: gsedel1
+    query: "the ground support equipment delivery review sat yesterday; check who was in the room, whether the chair was independent of the engineering function under review, what the agenda missed and what the open actions mean for the handover"
+    intent: "ECSS-Q-ST-20C clause 5.8.4.3; GSE delivery review board composition, agenda coverage and action disposition"
+    expected_skill: "space-systems/ecss/q20-gse-delivery"
+  - id: gsedel2
+    query: "before this GSE goes to the user, work out which conformity certificates it owes for a calibrated lifting unit and check each one is signed and still valid on the day it moves"
+    intent: "ECSS-Q-ST-20C clause 5.8.4.4; GSE conformity certificate set and validity at the delivery day"
+    expected_skill: "space-systems/ecss/q20-gse-delivery"

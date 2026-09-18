@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-layout-and-electrical-rule-checks (space-systems/ecss)
+# Two tasks for the new leaf. lrc1 routes on the geometry deck run over drawn
+# rectangles and the exactly-on-the-rule case; lrc2 routes on the connectivity
+# and metal-current side that a pure geometry run never reaches. Both must
+# deterministically hit
+# space-systems/ecss/q6012-layout-and-electrical-rule-checks.
+tasks:
+  - id: lrc1
+    query: "the checker is flagging two metal runs that measure exactly the minimum spacing apart and also flagging metal on the same net where it deliberately overlaps, tell me which of those are real violations"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.11; a shape drawn exactly on a foundry rule passes it, and same-net metal contact is drawn connectivity rather than a spacing violation"
+    expected_skill: "space-systems/ecss/q6012-layout-and-electrical-rule-checks"
+  - id: lrc2
+    query: "run the drawn layout against the netlist and the rule deck: I want the nets with nothing drawn on them, the nodes that only reach one connection, and any track too narrow for the current it is meant to carry"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.11; the electrical pass covers undrawn nets, undeclared nets, floating nodes and the narrowest rated metal on each current-carrying net"
+    expected_skill: "space-systems/ecss/q6012-layout-and-electrical-rule-checks"

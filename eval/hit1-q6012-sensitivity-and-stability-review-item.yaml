@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-sensitivity-and-stability-review-item (space-systems/ecss)
+# Two tasks for the new leaf. sasr1 routes on root-sum-square combination of
+# normalised sensitivity contributions; sasr2 routes on the two-part
+# unconditional-stability test plus the swept span itself being evidence. Both
+# must deterministically hit
+# space-systems/ecss/q6012-sensitivity-and-stability-review-item.
+tasks:
+  - id: sasr1
+    query: "I have the output power change this microwave die shows for a process shift, a temperature swing and a supply tolerance, combine them into one spread figure and tell me which source is driving it"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.5; normalised sensitivity coefficients weighted by each source tolerance combine root-sum-square because the sources are independent, and the dominant contributor is the reviewable output"
+    expected_skill: "space-systems/ecss/q6012-sensitivity-and-stability-review-item"
+  - id: sasr2
+    query: "check the swept s-parameters of this amplifier die for unconditional stability and tell me whether the sweep went far enough outside the operating band to prove it will not oscillate"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.5; unconditional stability needs Rollett K above one and the scattering determinant magnitude below one at the same frequency, and a band-limited sweep is a coverage finding"
+    expected_skill: "space-systems/ecss/q6012-sensitivity-and-stability-review-item"

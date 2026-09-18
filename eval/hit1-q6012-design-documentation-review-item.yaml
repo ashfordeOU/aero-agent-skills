@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6012-design-documentation-review-item (space-systems/ecss)
+# Two tasks for the new leaf. ddr1 routes on whether the assembled record holds
+# every required document type and whether the controlling issue of each is
+# released rather than still in draft; ddr2 routes on walking each derivation
+# chain up to its root to expose a dangling reference or an orphan. Both must
+# deterministically hit
+# space-systems/ecss/q6012-design-documentation-review-item.
+tasks:
+  - id: ddr1
+    query: "the die record has fourteen documents at assorted issues and two of them are still marked draft, say whether the record is complete and current enough for the review to close"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.13; completeness counted against the required document types and currency graded on the controlling issue of each identifier, with a draft controlling issue blocking and an issue predating the baseline freeze actioned"
+    expected_skill: "space-systems/ecss/q6012-design-documentation-review-item"
+  - id: ddr2
+    query: "the qualification report on the die points at a test plan number nobody can find and the layout drawing points at nothing at all, check whether every document in the record traces back to the detail specification"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.13; walking each derivation chain to a root separates a reference the record does not contain and a loop, which break the structure, from an orphan document with nothing above it"
+    expected_skill: "space-systems/ecss/q6012-design-documentation-review-item"

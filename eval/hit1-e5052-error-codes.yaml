@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5052-error-codes (space-systems/ecss)
+# Two tasks for the new leaf. ec1 routes on the detection precedence when several
+# faults are present at once; ec2 routes on the command that produces no answer at
+# all plus the consistency of a failure answer. Both must deterministically hit
+# space-systems/ecss/e5052-error-codes.
+tasks:
+  - id: ec1
+    query: "the node saw a bad access key and a payload check mismatch on the same incoming command, work out which single outcome value it reports back"
+    intent: "ECSS-E-ST-50-52C clause 5.6; a single status is reported and detection has a precedence, so the outer fault wins over the payload fault"
+    expected_skill: "space-systems/ecss/e5052-error-codes"
+  - id: ec2
+    query: "our issuer keeps timing out with nothing coming back at all, and one capture shows a failure outcome that still carries payload bytes, tell me what both of those mean"
+    intent: "ECSS-E-ST-50-52C clause 5.6; an untrusted header is dropped without a reply, and a non-zero outcome value carries no returned data"
+    expected_skill: "space-systems/ecss/e5052-error-codes"

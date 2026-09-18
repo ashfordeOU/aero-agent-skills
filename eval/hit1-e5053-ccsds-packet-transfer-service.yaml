@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-ccsds-packet-transfer-service (space-systems/ecss)
+# Two tasks for the new leaf. cpts1 routes on two packets handed in arriving
+# as one delivery with every octet present; cpts2 routes on a transfer ending
+# on the error marker being reported as a service failure. Both must
+# deterministically hit
+# space-systems/ecss/e5053-ccsds-packet-transfer-service.
+tasks:
+  - id: cpts1
+    query: "we gave the packet transfer service two CCSDS packets and the receiving application got one delivery with all the octets, is that acceptable since nothing was lost"
+    intent: "ECSS-E-ST-50-53C clause 5.2.1; the service delivers each packet as a single unit, so a merged delivery destroys the boundary even with every octet present"
+    expected_skill: "space-systems/ecss/e5053-ccsds-packet-transfer-service"
+  - id: cpts2
+    query: "our log counts every transfer that ended on the error end of packet marker as a packet transfer service failure, is the service actually failing there"
+    intent: "ECSS-E-ST-50-53C clause 5.2.1; discarding a transfer that ended on the error marker and raising no indication is the service behaving as specified, not a service failure"
+    expected_skill: "space-systems/ecss/e5053-ccsds-packet-transfer-service"

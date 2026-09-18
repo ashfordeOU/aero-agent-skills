@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-facility-and-analytical-control (space-systems/ecss,
+# Q-ST-70-29 offgassing quality assurance). Two tasks per leaf; fac1 routes on
+# the facility blank and the blank-corrected yield, fac2 on the calibration
+# curve and the chamber carryover. Both must deterministically hit
+# space-systems/ecss/q7029-facility-and-analytical-control.
+tasks:
+  - id: fac1
+    query: "take the offgassing-facility-blank off every reported compound and give me the offgassing-blank-corrected-yield, saying which ones drop under the quantitation limit"
+    intent: "ecss offgassing determination; facility blank subtraction and the quantitation floor on the net"
+    expected_skill: "space-systems/ecss/q7029-facility-and-analytical-control"
+  - id: fac2
+    query: "grade the offgassing-calibration-response-factor-spread and the offgassing-calibration-validity-window on this run, check the offgassing-chamber-carryover, then give me the offgassing-run-validity-disposition"
+    intent: "ecss offgassing determination; analytical calibration and contamination controls deciding whether the run stands"
+    expected_skill: "space-systems/ecss/q7029-facility-and-analytical-control"

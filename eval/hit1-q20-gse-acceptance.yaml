@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-gse-acceptance (space-systems/ecss)
+# Two tasks for the leaf. acc1 routes on grading acceptance results against the
+# agreed GSE requirements with their measured margins; acc2 routes on the
+# release-for-use verdict and the waivered limitation. Both must deterministically
+# hit space-systems/ecss/q20-gse-acceptance, not the general acceptance-process
+# leaf and not the GSE design assurance leaf.
+tasks:
+  - id: gseacc1
+    query: "grade this ground support equipment acceptance campaign: every requirement against the result that answers it, keep the measured margin, and flag any line reported as a pass whose own reading misses the bound"
+    intent: "ECSS-Q-ST-20C clause 5.8.4.2; GSE acceptance result grading with measurement margins"
+    expected_skill: "space-systems/ecss/q20-gse-acceptance"
+  - id: gseacc2
+    query: "one safety-critical GSE requirement was closed by analysis and one failure is carried on an approved waiver; can this equipment be released for use and with what written down"
+    intent: "ECSS-Q-ST-20C clause 5.8.4.2; GSE acceptance method adequacy, waivered limitation and release for use"
+    expected_skill: "space-systems/ecss/q20-gse-acceptance"

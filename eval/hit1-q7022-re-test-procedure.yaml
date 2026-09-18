@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7022-re-test-procedure (space-systems/ecss)
+# Two tasks for the new leaf. rtp1 routes on building the property set and
+# specimen count for a re-test; rtp2 routes on grading results against
+# retention-derived bounds and on incomplete evidence versus a real failure.
+# Both must deterministically hit space-systems/ecss/q7022-re-test-procedure.
+tasks:
+  - id: rtp1
+    query: "what do we actually have to measure on this paste adhesive before we can give it more time, and how many specimens for a lot of forty tins"
+    intent: "ECSS-Q-ST-70-22 life extension; the re-test property set comes from the material family and the specimen count from the lot size bracket"
+    expected_skill: "space-systems/ecss/q7022-re-test-procedure"
+  - id: rtp2
+    query: "the viscosity came back high, one lap shear coupon is below the retained value and nobody ran the gel time, is this lot failed or is the evidence just short"
+    intent: "ECSS-Q-ST-70-22 life extension; direction-aware acceptance from the as-manufactured value, and a failed re-test kept distinct from an incomplete one"
+    expected_skill: "space-systems/ecss/q7022-re-test-procedure"

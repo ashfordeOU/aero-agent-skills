@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5052-rmap-read-command (space-systems/ecss)
+# Two tasks for the new leaf. rc1 routes on the asymmetric sizing of a fetch and
+# the answer it provokes; rc2 routes on the walk-or-stay flag against the kind of
+# location addressed. Both must deterministically hit
+# space-systems/ecss/e5052-rmap-read-command.
+tasks:
+  - id: rc1
+    query: "work out how many bytes a four byte fetch from a remote node actually costs in both directions, and how much of that is the data I asked for"
+    intent: "ECSS-E-ST-50-52C clause 5.8.2.4; the fetch carries no payload while the answer does, so the two halves size differently and overhead dominates a short fetch"
+    expected_skill: "space-systems/ecss/e5052-rmap-read-command"
+  - id: rc2
+    query: "the fetch walks consecutive locations but the thing it is aimed at is a single hardware queue register, say whether that setting is right"
+    intent: "ECSS-E-ST-50-52C clause 5.8.2.4; the increment flag against a port-style register versus a memory region, and the reply-status consistency check"
+    expected_skill: "space-systems/ecss/e5052-rmap-read-command"

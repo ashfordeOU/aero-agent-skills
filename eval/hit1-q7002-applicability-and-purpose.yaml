@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7002-applicability-and-purpose (space-systems/ecss)
+# Two tasks for the new leaf. oap1 routes on whether a usage owes the outgassing
+# screening at all; oap2 routes on reading the two quantities the test returns
+# and the water-regain recovery that only applies to one of them. Both must
+# deterministically hit
+# space-systems/ecss/q7002-applicability-and-purpose.
+tasks:
+  - id: oap1
+    query: "decide which entries on this declared materials list actually owe a thermal vacuum outgassing test and which ones are exempt because of where they sit"
+    intent: "ECSS-Q-ST-70-02C scope; applicability read from material category, environment, exposed mass and the contamination-sensitive surfaces in view"
+    expected_skill: "space-systems/ecss/q7002-applicability-and-purpose"
+  - id: oap2
+    query: "the supplier sheet shows the total mass loss over the limit but the condensable figure is tiny and they quote a water vapour regain, is that material acceptable or not"
+    intent: "ECSS-Q-ST-70-02C scope; recovered mass loss with regained water vapour removed, and the condensable limit that no regain argument rescues"
+    expected_skill: "space-systems/ecss/q7002-applicability-and-purpose"
