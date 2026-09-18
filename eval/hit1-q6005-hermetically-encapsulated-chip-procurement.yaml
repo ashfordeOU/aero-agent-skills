@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-hermetically-encapsulated-chip-procurement (space-systems/ecss)
+# Two tasks for the new leaf. hec1 routes on the cavity-volume-banded fine-leak
+# reject limit for a part bought already sealed; hec2 routes on the gross-leak
+# precedence rule plus the blank-provision rule. Both must deterministically hit
+# space-systems/ecss/q6005-hermetically-encapsulated-chip-procurement.
+tasks:
+  - id: hec1
+    query: "these chips come to us already sealed in their own package, work out what leak rate the purchase spec should demand given how big the sealed cavity is"
+    intent: "ECSS-Q-ST-60-05 clause 8.4; the fine-leak reject limit is earned by the sealed cavity volume through a band schedule, a larger cavity dilutes the same leak"
+    expected_skill: "space-systems/ecss/q6005-hermetically-encapsulated-chip-procurement"
+  - id: hec2
+    query: "the sealed part failed the fluorocarbon immersion but came back with a tiny tracer gas number, and the moisture ceiling was left blank on the purchase spec, tell me whether we can take the delivery"
+    intent: "ECSS-Q-ST-60-05 clause 8.4; a failed gross-leak test voids the fine-leak reading, and a blank purchasing provision is an absence rather than a default"
+    expected_skill: "space-systems/ecss/q6005-hermetically-encapsulated-chip-procurement"

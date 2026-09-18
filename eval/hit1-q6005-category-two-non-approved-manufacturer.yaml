@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-category-two-non-approved-manufacturer (space-systems/ecss)
+# Two tasks for the new leaf. c2a routes on the customer justification and the
+# approved source that was passed over; c2b routes on the compensating conditions
+# and the audit that has aged out of its validity window.
+# Both must deterministically hit
+# space-systems/ecss/q6005-category-two-non-approved-manufacturer.
+tasks:
+  - id: c2a
+    query: "we want to buy the hybrid from a house with no approved line, draft the case for the customer and tell me whether skipping the approved supplier we already have holds up"
+    intent: "ECSS-Q-ST-60-05 clause 5.2.2; the justification element set, and an available approved source passed over with no stated exclusion reason making it inadmissible"
+    expected_skill: "space-systems/ecss/q6005-category-two-non-approved-manufacturer"
+  - id: c2b
+    query: "the non-approved hybrid supplier has an audit from four years back and no lot testing agreed, work out what still has to close before we can use them"
+    intent: "ECSS-Q-ST-60-05 clause 5.2.2; compensating conditions weighted for coverage, audit validity window and open major findings deciding the audit condition"
+    expected_skill: "space-systems/ecss/q6005-category-two-non-approved-manufacturer"

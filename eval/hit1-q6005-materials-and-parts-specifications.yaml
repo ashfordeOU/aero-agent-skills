@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-materials-and-parts-specifications (space-systems/ecss)
+# Two tasks for the new leaf. mps1 routes on the category-driven content set
+# and the placeholder that passes a key count while defining nothing. mps2
+# routes on the approval state and the issue the procurement order cites. Both
+# must deterministically hit
+# space-systems/ecss/q6005-materials-and-parts-specifications.
+tasks:
+  - id: mps1
+    query: "review the purchase specification we wrote for the hybrid die attach adhesive and tell me what it still has to define, half the fields say TBD and someone has graded it against the substrate checklist"
+    intent: "ECSS-Q-ST-60-05C clause 9.3; the content a procured hybrid material specification owes, built from the core items plus the ones its own category adds, with placeholders read as undefined"
+    expected_skill: "space-systems/ecss/q6005-materials-and-parts-specifications"
+  - id: mps2
+    query: "the bonding wire spec is finished but nobody signed it and the purchase order still quotes the previous issue letter, can we put this out to the supplier or not"
+    intent: "ECSS-Q-ST-60-05C clause 9.3; approval state of a hybrid material specification and alignment between the issue it carries and the issue the procurement order cites"
+    expected_skill: "space-systems/ecss/q6005-materials-and-parts-specifications"

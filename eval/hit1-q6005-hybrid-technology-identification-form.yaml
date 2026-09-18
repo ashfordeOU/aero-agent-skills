@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-technology-identification-form (space-systems/ecss)
+# Two tasks for the new leaf. tif1 routes on the declared-construction-to-form-section
+# expansion and the areas a submission leaves with no evidence; tif2 routes on which
+# supplier-assessment activities the submitted form actually releases. Both must
+# deterministically hit
+# space-systems/ecss/q6005-hybrid-technology-identification-form.
+tasks:
+  - id: tif1
+    query: "the hybrid supplier sent back their technology declaration and a partly filled form, work out which sections the declared build actually makes them owe and whether anything is left with no evidence behind it"
+    intent: "ECSS-Q-ST-60-05C clause 6.2; declared construction technologies expand into assessment areas and the form sections carrying them, and coverage is judged per area not per section count"
+    expected_skill: "space-systems/ecss/q6005-hybrid-technology-identification-form"
+  - id: tif2
+    query: "before we book the trip, tell me which parts of the hybrid supplier assessment we can actually run off the identification form we have and which ones have nothing to stand on yet"
+    intent: "ECSS-Q-ST-60-05C clause 6.2; per-activity enablement from relevant-and-covered assessment areas, with an activity whose areas are all irrelevant reported as not applicable rather than enabled"
+    expected_skill: "space-systems/ecss/q6005-hybrid-technology-identification-form"

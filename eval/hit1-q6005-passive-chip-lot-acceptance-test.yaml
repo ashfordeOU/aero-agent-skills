@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-passive-chip-lot-acceptance-test (space-systems/ecss)
+# Two tasks for the new leaf. plat1 routes on the sample-size-versus-acceptance-
+# number pairing that a destructive incoming test drives to zero; plat2 routes on
+# the resubmission of a lot that already failed once. Both must deterministically
+# hit space-systems/ecss/q6005-passive-chip-lot-acceptance-test.
+tasks:
+  - id: plat1
+    query: "a reel of chip capacitors arrived for the hybrid build, work out how many pieces we have to pull and how many duds that sample is allowed to contain before the batch goes back"
+    intent: "ECSS-Q-ST-60-05C clause 8.2.3; attribute sample size banded on lot population, and the zero acceptance number a destructive incoming test carries"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-lot-acceptance-test"
+  - id: plat2
+    query: "the supplier sent back the same batch of chip resistors we turned away last month with fresh paperwork, decide whether we can take it and what fraction of duds the plan was actually passing"
+    intent: "ECSS-Q-ST-60-05C clause 8.2.3; a rejected lot needs an approved rescreen before resubmission, and the lot tolerance percent defective states what the sampling really bought"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-lot-acceptance-test"

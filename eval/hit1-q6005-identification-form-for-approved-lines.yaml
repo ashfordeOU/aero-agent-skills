@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-identification-form-for-approved-lines (space-systems/ecss)
+# Two tasks for the new leaf. al1 routes on the clean-match rule that decides whether
+# entries may be answered by reference to a line approval; al2 routes on the approval
+# window and the early-versus-late distinction. Both must deterministically hit
+# space-systems/ecss/q6005-identification-form-for-approved-lines.
+tasks:
+  - id: al1
+    query: "this supplier says their line is already approved so they only have to point at the approval for most of the form, check that against what we are actually ordering and tell me what they still have to write out"
+    intent: "ECSS-Q-ST-60-05C clause 6.2.2; the reduced entry set is granted only on a live approval whose scope covers every requested technology, and a partial match gives no reduction at all"
+    expected_skill: "space-systems/ecss/q6005-identification-form-for-approved-lines"
+  - id: al2
+    query: "the production line approval certificate they attached has dates on it that do not sit nicely around our order date, work out whether the order is covered and what that does to how they fill the form in"
+    intent: "ECSS-Q-ST-60-05C clause 6.2.2; the order date is placed inside the approval window, with an order raised after expiry and one raised before the approval came into force reported as separate defects"
+    expected_skill: "space-systems/ecss/q6005-identification-form-for-approved-lines"

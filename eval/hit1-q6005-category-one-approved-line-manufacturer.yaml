@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-category-one-approved-line-manufacturer (space-systems/ecss)
+# Two tasks for the new leaf. c1a routes on the line-identity question itself -- an
+# approval held against one line while the build sits on another; c1b routes on the
+# mandated content of the process identification document and the expiry day.
+# Both must deterministically hit
+# space-systems/ecss/q6005-category-one-approved-line-manufacturer.
+tasks:
+  - id: c1a
+    query: "the hybrid house holds an approval but they moved our build to their second line, work out whether we are still in the preferred procurement case or not"
+    intent: "ECSS-Q-ST-60-05 clause 5.2.1; the approval attaches to a production line, so a build moved to an unapproved sister line leaves the preferred case"
+    expected_skill: "space-systems/ecss/q6005-category-one-approved-line-manufacturer"
+  - id: c1b
+    query: "go through the process identification document the hybrid supplier sent and tell me which mandated items are missing and how long their line approval still runs"
+    intent: "ECSS-Q-ST-60-05 clause 5.2.1; mandated PID content audit plus approval currency in days at the procurement date, pending applications admitted only while lodged"
+    expected_skill: "space-systems/ecss/q6005-category-one-approved-line-manufacturer"

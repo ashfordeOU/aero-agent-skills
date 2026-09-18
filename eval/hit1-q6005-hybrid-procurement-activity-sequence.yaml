@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-procurement-activity-sequence (space-systems/ecss)
+# Two tasks for the new leaf. pas1 routes on the entry point an approved-line
+# maker joins the chain at and the two line activities that drop out with it;
+# pas2 routes on grading an executed activity list for a prerequisite recorded
+# after the activity that depends on it. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-procurement-activity-sequence.
+tasks:
+  - id: pas1
+    query: "our hybrid supplier already has an approved production line, work out which procurement activities drop out and which one the buy actually starts at"
+    intent: "ECSS-Q-ST-60-05 clause 4; hybrid procurement entry point per manufacturer category and the line evaluation and line approval activities the shorter route does not run"
+    expected_skill: "space-systems/ecss/q6005-hybrid-procurement-activity-sequence"
+  - id: pas2
+    query: "audit this list of completed hybrid procurement steps and tell me which one was run before the step it depends on and what is still outstanding before we can claim part type qualification"
+    intent: "ECSS-Q-ST-60-05 clause 4; hybrid procurement step prerequisite ordering and the outstanding activities behind a claimed milestone"
+    expected_skill: "space-systems/ecss/q6005-hybrid-procurement-activity-sequence"

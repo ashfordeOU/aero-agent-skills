@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-design-approval-general-provisions (space-systems/ecss)
+# Two tasks for the new leaf. dagp1 routes on the shared conditions that hold
+# whichever approval route was taken; dagp2 routes on the waiver and validity
+# window that decide whether a nominally complete package still stands. Both
+# must deterministically hit
+# space-systems/ecss/q6005-design-approval-general-provisions.
+tasks:
+  - id: dagp1
+    query: "before we pick an approval path for this hybrid, go through the conditions that apply either way and tell me which ones are not in place yet"
+    intent: "ECSS-Q-ST-60-05C clause 7.3.1; the route-independent provisions a hybrid design approval rests on, and which of them are hard gates"
+    expected_skill: "space-systems/ecss/q6005-design-approval-general-provisions"
+  - id: dagp2
+    query: "the customer waived the manufacturing line item and production moved shop anyway, work out whether the hybrid design approval still stands as of the review date"
+    intent: "ECSS-Q-ST-60-05C clause 7.3.1; a waiver against a non-waivable provision does not close it, and a line move voids the approval validity window"
+    expected_skill: "space-systems/ecss/q6005-design-approval-general-provisions"

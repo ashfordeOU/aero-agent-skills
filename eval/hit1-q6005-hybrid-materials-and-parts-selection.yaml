@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6005-hybrid-materials-and-parts-selection (space-systems/ecss)
+# Two tasks for the new leaf. hmps1 routes on the joint-level expansion
+# mismatch that decides a substrate under a particular attachment, not the
+# substrate on its own. hmps2 routes on the wire-to-pad couple and the
+# unqualified-item evaluation that has nowhere to run. Both must
+# deterministically hit
+# space-systems/ecss/q6005-hybrid-materials-and-parts-selection.
+tasks:
+  - id: hmps1
+    query: "we are picking the substrate and die attach for a hybrid that cycles over a hundred kelvin, work out whether the expansion mismatch across that joint lets us select the alumina and whether the adhesive outgassing figures let it fly"
+    intent: "ECSS-Q-ST-60-05C clause 9.2; selecting hybrid constituent items on joint-level expansion mismatch strain and the vacuum outgassing screen for a polymeric die attach"
+    expected_skill: "space-systems/ecss/q6005-hybrid-materials-and-parts-selection"
+  - id: hmps2
+    query: "the bonding wire we want is gold and the pads on this die are aluminium, and the lid material has never been qualified and there is no evaluation programme funded, decide what we can actually select for this build"
+    intent: "ECSS-Q-ST-60-05C clause 9.2; wire-to-pad metallurgical couple and qualification standing of hybrid constituent items, with an owed evaluation that has no programme to close it"
+    expected_skill: "space-systems/ecss/q6005-hybrid-materials-and-parts-selection"

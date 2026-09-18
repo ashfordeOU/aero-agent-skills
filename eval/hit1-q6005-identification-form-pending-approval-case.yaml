@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-identification-form-pending-approval-case (space-systems/ecss)
+# Two tasks for the new leaf. pac1 routes on the half-finished approval milestone
+# record and the provisional-carry decision it drives; pac2 routes on the
+# re-confirmation cadence a form owes while the line stays unapproved, and on the
+# waiver that a milestone count alone would hide. Both must deterministically hit
+# space-systems/ecss/q6005-identification-form-pending-approval-case.
+tasks:
+  - id: pac1
+    query: "the hybrid line has closed four of its capability approval steps but the approval decision is still open, tell me whether i can carry the identification form against it for now and on what terms"
+    intent: "ECSS-Q-ST-60-05 clause 6.2.3; pending-line approval, completion share against the provisional threshold, and the schedule margin to the hardware need date"
+    expected_skill: "space-systems/ecss/q6005-identification-form-pending-approval-case"
+  - id: pac2
+    query: "this identification form was raised eight months ago against a line that still has not got its approval, work out whether it is merely due for re-confirmation or has lapsed, and whether the waived audit changes the picture"
+    intent: "ECSS-Q-ST-60-05 clause 6.2.3; re-confirmation cadence versus lapse date, and a milestone counted closed by waiver rather than by demonstration"
+    expected_skill: "space-systems/ecss/q6005-identification-form-pending-approval-case"
