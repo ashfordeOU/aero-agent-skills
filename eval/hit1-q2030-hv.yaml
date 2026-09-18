@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2030-hv (space-systems/ecss)
+# Two tasks for the new leaf. hv1 routes on the pressure regime and the
+# Paschen minimum band; hv2 routes on clearance versus creepage sizing.
+# Both must deterministically hit space-systems/ecss/q2030-hv.
+tasks:
+  - id: hv1
+    query: "this harness connector runs at three kilovolts and the bay vents down through the paschen minimum band on ascent; size the clearance and creepage or tell me the feature has to be encapsulated"
+    intent: "ECSS-Q-ST-20-30C section 6.20; pressure regime of a high-voltage harness feature and the band where air cannot be used as the insulator"
+    expected_skill: "space-systems/ecss/q2030-hv"
+  - id: hv2
+    query: "work out the surface path and the air gap this high voltage termination needs for its material and how dirty the surface is allowed to get, then grade what was actually built"
+    intent: "ECSS-Q-ST-20-30C section 6.20; clearance and creepage sizing for a harness termination and the proof voltage of its high-voltage test"
+    expected_skill: "space-systems/ecss/q2030-hv"

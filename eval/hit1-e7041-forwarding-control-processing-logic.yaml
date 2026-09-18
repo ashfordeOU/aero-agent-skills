@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-forwarding-control-processing-logic (space-systems/ecss)
+# Two tasks for the new leaf. fcp1 routes on the per-report decision and the
+# reason attached to it; fcp2 routes on the subsampling counter that thins the
+# real-time downlink. Both must deterministically hit
+# space-systems/ecss/e7041-forwarding-control-processing-logic.
+tasks:
+  - id: fcp1
+    query: "run this batch of generated reports past the forwarding configuration and say for each one whether it goes out live or only to the store, and why it went the way it did"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.3; the per-report forwarding decision, its disposition and the reason, with the application process enable state above the definitions"
+    expected_skill: "space-systems/ecss/e7041-forwarding-control-processing-logic"
+  - id: fcp2
+    query: "the live downlink is carrying far fewer of these reports than we configured, work out whether the rate is thinning them and where the count sits after the application process was re-enabled"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.3; per-definition subsampling counter, every nth matching report and a counter left alone while the application process was disabled"
+    expected_skill: "space-systems/ecss/e7041-forwarding-control-processing-logic"

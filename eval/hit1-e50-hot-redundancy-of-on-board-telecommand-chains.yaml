@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-hot-redundancy-of-on-board-telecommand-chains (space-systems/ecss)
+# hr1 routes on the cold-spare trap -- a receiver that has to be commanded on is no
+# use once command authority is lost; hr2 routes on the shared-element intersection
+# that makes two chains one failure deep. Both must deterministically hit
+# space-systems/ecss/e50-hot-redundancy-of-on-board-telecommand-chains.
+tasks:
+  - id: hr1
+    query: "we have two command receivers but the b side is switched on by ground command, is that redundancy for the case where we cannot command the spacecraft at all"
+    intent: "ECSS-E-ST-50C clause 5.4.9; a command-activated chain is not receptive at the moment command authority is lost, so it does not count toward the hot total"
+    expected_skill: "space-systems/ecss/e50-hot-redundancy-of-on-board-telecommand-chains"
+  - id: hr2
+    query: "both receiving paths are powered all the time but they come off the same omni antenna, work out how many box failures it takes before we cannot be commanded"
+    intent: "ECSS-E-ST-50C clause 5.4.9; intersect element identifiers across the hot chains, a common element collapses the severing depth to one"
+    expected_skill: "space-systems/ecss/e50-hot-redundancy-of-on-board-telecommand-chains"

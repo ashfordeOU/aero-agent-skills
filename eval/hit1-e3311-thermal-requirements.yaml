@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-thermal-requirements (space-systems/ecss)
+# Two tasks for the new leaf. etr1 routes on the qualification envelope widened
+# by prediction uncertainty and the clearance to decomposition onset; etr2
+# routes on cumulative time at temperature converted to equivalent dwell.
+# Both must deterministically hit
+# space-systems/ecss/e3311-thermal-requirements.
+tasks:
+  - id: etr1
+    query: "the pyro device was qualified over a temperature range and the thermal model gives a hot and cold case with an uncertainty on top, tell me whether it still clears the range and whether it stays clear of where the composition starts to decompose"
+    intent: "ECSS-E-ST-33-11C clause 4.8.3; predicted extremes widened by uncertainty against the qualification limits and the decomposition-onset margin"
+    expected_skill: "space-systems/ecss/e3311-thermal-requirements"
+  - id: etr2
+    query: "the charge never goes over its hot limit but it sits just under it for most of a ten year mission, work out how much of the qualified dwell that has actually used up"
+    intent: "ECSS-E-ST-33-11C clause 4.8.3; Arrhenius acceleration factor per profile segment summed into equivalent time at the qualification dwell temperature"
+    expected_skill: "space-systems/ecss/e3311-thermal-requirements"

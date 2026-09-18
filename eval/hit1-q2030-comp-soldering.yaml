@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2030-comp-soldering (space-systems/ecss)
+# Two tasks for the new leaf. csol1 routes on the near pure tin alloy and its
+# mitigation plan; csol2 routes on the thermal exposure budget across reheats.
+# Both must deterministically hit space-systems/ecss/q2030-comp-soldering.
+tasks:
+  - id: csol1
+    query: "a flight harness termination was soldered with a lead free alloy; grade the alloy lead content and say what whisker mitigation plan has to be on record before it is acceptable"
+    intent: "ECSS-Q-ST-20-30C section 7.3; lead content floor of a solder alloy and the whisker mitigation plan a near pure tin alloy needs"
+    expected_skill: "space-systems/ecss/q2030-comp-soldering"
+  - id: csol2
+    query: "a soldered harness termination was reheated twice with the iron; work out the thermal exposure budget scaled to the conductor cross-section and check the insulation clearance window at the termination"
+    intent: "ECSS-Q-ST-20-30C section 7.3; thermal exposure budget scaled to conductor cross-section across reheats, and the insulation clearance window"
+    expected_skill: "space-systems/ecss/q2030-comp-soldering"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-directionality (space-systems/ecss)
+# Two tasks for the new leaf. dir1 routes on the declared directions versus the
+# directions the allocated services need; dir2 routes on the alternating link a
+# two-way measurement cannot live on. Both must deterministically hit
+# space-systems/ecss/e50-directionality.
+tasks:
+  - id: dir1
+    query: "this space link is declared forward only yet the services allocated to it need a return direction as well; work out whether the directionality declaration or the service allocation has to change"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.2; directions a space link declares versus the directions its allocated services consume"
+    expected_skill: "space-systems/ecss/e50-directionality"
+  - id: dir2
+    query: "the space link is bidirectional but the two directions alternate on one medium; can two-way ranging and doppler tracking still be allocated to it, and what turnaround does that add to the response time"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.2; alternating versus simultaneous operation of a bidirectional space link and the two-way response time it supports"
+    expected_skill: "space-systems/ecss/e50-directionality"

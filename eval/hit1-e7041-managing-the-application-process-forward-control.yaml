@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-managing-the-application-process-forward-control (space-systems/ecss)
+# Two tasks for the new leaf. apfc1 routes on the wildcard-versus-specific-entry
+# collision inside the three-level forward selection tree; apfc2 routes on the
+# per-item disposition of a multi-item add request against the controlled
+# application-process list. Both must deterministically hit
+# space-systems/ecss/e7041-managing-the-application-process-forward-control.
+tasks:
+  - id: apfc1
+    query: "the real-time forwarding selection already says forward everything from that application process and now somebody wants to add just one message subtype under it, work out what the service should do with that request"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.4; an all-report-types wildcard subsumes the specific subtype, so the add is rejected rather than absorbed, and the wildcard cannot be partially deleted afterwards"
+    expected_skill: "space-systems/ecss/e7041-managing-the-application-process-forward-control"
+  - id: apfc2
+    query: "this add telecommand carries six forwarding selections and two of them name application processes the service does not control, tell me whether the whole thing fails or only those two"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.4; add and delete requests execute per item against the controlled application-process list and return a disposition list, so a rejected item never abandons the ones behind it"
+    expected_skill: "space-systems/ecss/e7041-managing-the-application-process-forward-control"

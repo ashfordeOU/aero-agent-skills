@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-telemetry-source-identification (space-systems/ecss)
+# Two tasks for the new leaf. tsi1 routes on the spacecraft-plus-source tuple
+# being the unit of uniqueness; tsi2 routes on re-issuing a retired identifier
+# while stored data can still arrive. Both must deterministically hit
+# space-systems/ecss/e50-telemetry-source-identification.
+tasks:
+  - id: tsi1
+    query: "two of our satellites use the same application process number for their platform housekeeping, work out whether a receiving station can still tell the packets apart and how wide the identifier fields have to be"
+    intent: "ECSS-E-ST-50C clause 5.5.3; the spacecraft-plus-source identifier tuple is the unit of uniqueness, and field width is set by the largest value issued"
+    expected_skill: "space-systems/ecss/e50-telemetry-source-identification"
+  - id: tsi2
+    query: "we switched off an instrument last month and want to hand its packet identifier to the replacement unit, tell me whether enough time has passed given what the mass memory still holds"
+    intent: "ECSS-E-ST-50C clause 5.5.3; identifier reuse must wait out the ground ambiguity window of storage retention plus playback and archive ingest"
+    expected_skill: "space-systems/ecss/e50-telemetry-source-identification"

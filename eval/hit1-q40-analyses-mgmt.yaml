@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-analyses-mgmt (space-systems/ecss)
+# Two tasks for the leaf. sam1 routes on reading the Annex A applicability matrix
+# for a phase and severity; sam2 routes on grading the declared analysis plan
+# against it. Both must hit space-systems/ecss/q40-analyses-mgmt, not the
+# ARP4761A safety-assessment leaf.
+tasks:
+  - id: sam1
+    query: "which safety analyses are mandatory at phase C for a project whose worst consequence is critical, and which only recommended, using the ECSS applicability matrix"
+    intent: "ECSS-Q-ST-40C Annex A; analyses applicability matrix resolved for a lifecycle phase and worst severity"
+    expected_skill: "space-systems/ecss/q40-analyses-mgmt"
+  - id: sam2
+    query: "grade our safety analysis plan against what the phase owes: what is missing, what is planned for after the closing review, and what the phase has no use for"
+    intent: "ECSS-Q-ST-40C 7.2-7.4; safety analysis plan gap, lateness against the phase review and mandatory-set coverage"
+    expected_skill: "space-systems/ecss/q40-analyses-mgmt"

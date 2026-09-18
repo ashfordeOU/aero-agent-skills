@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-part-acceptance (space-systems/ecss)
+# Two tasks for the new leaf. pacc1 routes on sizing a lot sampling plan from
+# the consumer risk at a limiting quality; pacc2 routes on the class attribute
+# limits and the mandatory screens. Both must deterministically hit
+# space-systems/ecss/q7080-part-acceptance.
+tasks:
+  - id: pacc1
+    query: "part acceptance for a lot of printed brackets: size the sampling plan so a lot at five percent non-conforming is accepted no more than one time in ten, and give the consumer risk at that limiting quality"
+    intent: "ECSS-Q-ST-70-80C acceptance; smallest hypergeometric sample holding the consumer risk at the limiting quality level"
+    expected_skill: "space-systems/ecss/q7080-part-acceptance"
+  - id: pacc2
+    query: "decide whether this build lot of printed parts can be accepted given the density and porosity readings for its part class and the screens the route actually performed"
+    intent: "ECSS-Q-ST-70-80C acceptance; part class attribute limits, mandatory screening gap and the lot acceptance number"
+    expected_skill: "space-systems/ecss/q7080-part-acceptance"

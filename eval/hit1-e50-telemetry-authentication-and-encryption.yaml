@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-telemetry-authentication-and-encryption (space-systems/ecss)
+# Two tasks for the new leaf. tae1 routes on encryption applied with no
+# integrity service; tae2 routes on protection overhead, key length and the
+# frame counter wrapping under one key. Both must deterministically hit
+# space-systems/ecss/e50-telemetry-authentication-and-encryption.
+tasks:
+  - id: tae1
+    query: "the payload downlink is encrypted but carries no tag, tell me whether that is acceptable for a stream at this sensitivity tier or whether integrity has to come with it"
+    intent: "ECSS-E-ST-50C clause 5.5.7; tier-to-service mapping and the rule that confidentiality is never offered without an integrity service"
+    expected_skill: "space-systems/ecss/e50-telemetry-authentication-and-encryption"
+  - id: tae2
+    query: "cost the tag plus initialisation vector plus block padding on each frame, say what payload rate survives it, and check the frame counter does not wrap before we rotate the key"
+    intent: "ECSS-E-ST-50C clause 5.5.7; per-frame protection overhead, protected throughput, key length against the protection period, and counter exhaustion"
+    expected_skill: "space-systems/ecss/e50-telemetry-authentication-and-encryption"

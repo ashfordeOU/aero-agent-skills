@@ -1,0 +1,16 @@
+# Hit@1 fragment: q7080-machine-qualification (space-systems/ecss)
+# Two tasks for the new leaf. mq1 routes on the three strands behind a
+# qualification verdict - calibration, chamber environment and witness build
+# capability; mq2 routes on the envelope the verdict is tied to and what a
+# change to it costs.
+# Both must deterministically hit
+# space-systems/ecss/q7080-machine-qualification.
+tasks:
+  - id: mq1
+    query: "the laser power meter went out of calibration last month and the witness build densities scatter more than usual, decide whether the machine can build flight parts"
+    intent: "ECSS-Q-ST-70-80C machine qualification; calibration interval status, chamber environment limits and a witness build capability index rather than a mean alone"
+    expected_skill: "space-systems/ecss/q7080-machine-qualification"
+  - id: mq2
+    query: "we want to run the same alloy on the same machine at sixty micron layers instead of thirty, work out whether the existing qualification still covers it"
+    intent: "ECSS-Q-ST-70-80C; the machine, material, layer-thickness and parameter-set envelope, and whether a change costs a delta qualification or a requalification"
+    expected_skill: "space-systems/ecss/q7080-machine-qualification"

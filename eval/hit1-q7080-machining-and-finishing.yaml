@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-machining-and-finishing (space-systems/ecss)
+# Two tasks for the new leaf. maf1 routes on sizing the stock from the as-built
+# surface layer, distortion and fixture; maf2 routes on the wall left after both
+# sides are cut and on the finishing process reach. Both must deterministically
+# hit space-systems/ecss/q7080-machining-and-finishing.
+tasks:
+  - id: maf1
+    query: "how much stock do I have to leave on the printed faces before machining if the as-built finish is rough, there is a partly fused layer under it and the part moves when it comes off the plate"
+    intent: "ECSS-Q-ST-70-80 post-process clause; machining stock as the sum of valley depth, subsurface layer, distortion, fixture uncertainty and minimum depth of cut"
+    expected_skill: "space-systems/ecss/q7080-machining-and-finishing"
+  - id: maf2
+    query: "we are machining both sides of a printed web and then running an abrasive flow pass through the ducts, check the wall that is left and whether the bore stays in tolerance"
+    intent: "ECSS-Q-ST-70-80 post-process clause; machining and finishing removal off every machined side, finishing process reach into an internal passage, and bore growth on both sides"
+    expected_skill: "space-systems/ecss/q7080-machining-and-finishing"

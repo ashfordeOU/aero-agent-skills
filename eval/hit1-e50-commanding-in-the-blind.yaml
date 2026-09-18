@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-commanding-in-the-blind (space-systems/ecss)
+# cib1 routes on the repetition count that has to be fixed before a window with no
+# return link opens; cib2 routes on the suitability screen that stops a
+# non-idempotent command being repeated into that window. Both must deterministically
+# hit space-systems/ecss/e50-commanding-in-the-blind.
+tasks:
+  - id: cib1
+    query: "we get a four minute uplink window in early orbit with no downlink yet, work out how many times to repeat the recovery sequence for three nines of confidence and whether it still fits after acquisition guard time"
+    intent: "ECSS-E-ST-50C clause 5.4.7; repetition count from per-copy loss probability, sequence sized against uplink rate and inter-command gaps inside the usable window"
+    expected_skill: "space-systems/ecss/e50-commanding-in-the-blind"
+  - id: cib2
+    query: "which of the commands in this safe mode recovery load are safe to send several times over when nothing is coming back to tell us whether the first copy landed"
+    intent: "ECSS-E-ST-50C clause 5.4.7; idempotent and state-independent commands tolerate repetition, a counter-stepping or state-branching command does not"
+    expected_skill: "space-systems/ecss/e50-commanding-in-the-blind"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2030-comp-labelling (space-systems/ecss)
+# cl1 routes on the field-by-field token format and the duplicate token across
+# a harness; cl2 routes on the character height that follows the read distance.
+# Both must deterministically hit space-systems/ecss/q2030-comp-labelling.
+tasks:
+  - id: cl1
+    query: "go through the wire marking list for this harness and tell me which markers are malformed and whether any two wires are carrying the same identifier"
+    intent: "ECSS-Q-ST-20-30C clause 7.6; a marking token decomposes into prescribed fields graded per position, and the token is unique across the harness"
+    expected_skill: "space-systems/ecss/q2030-comp-labelling"
+  - id: cl2
+    query: "the wire markers were fine on the bench but nobody can read them now the harness is installed half a metre behind a bracket, work out how tall they needed to be"
+    intent: "ECSS-Q-ST-20-30C clause 7.6; minimum marking character height scales with the distance the marking is read from, and placement sits in a window from the termination"
+    expected_skill: "space-systems/ecss/q2030-comp-labelling"

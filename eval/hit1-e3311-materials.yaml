@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-materials (space-systems/ecss)
+# Two tasks for the new leaf. ema1 routes on compatibility measured with the
+# material against the charge; ema2 routes on the contact-pair potential
+# difference read against the assembly environment. Both must deterministically
+# hit space-systems/ecss/e3311-materials.
+tasks:
+  - id: ema1
+    query: "go through the candidate seals and housings for the initiator and tell me which ones can sit against the charge, I have vacuum mass loss figures, condensable volatiles and gas evolution measured in contact with the composition"
+    intent: "ECSS-E-ST-33-11C clause 4.9; outgassing screening plus gas evolution and decomposition-onset depression measured against the explosive"
+    expected_skill: "space-systems/ecss/e3311-materials"
+  - id: ema2
+    query: "the bracket and the housing next to the explosive charge are different alloys and they touch, work out whether that contact pair sits inside the galvanic allowance for the storage environment and whether either material is too susceptible to stress-corrosion to keep"
+    intent: "ECSS-E-ST-33-11C clause 4.9; contact-pair potential difference against the environment allowance plus the susceptibility category"
+    expected_skill: "space-systems/ecss/e3311-materials"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-02-step4-track-accept (space-systems/ecss)
+# Two tasks for the new leaf. ta1 routes on the hazard-log status replay and the
+# open-to-accepted jump; ta2 routes on the acceptance-authority floor set by the
+# residual severity. Both must deterministically hit
+# space-systems/ecss/q40-02-step4-track-accept.
+tasks:
+  - id: ta1
+    query: "half the entries in our hazard log show as accepted - replay how each one got there and tell me which ones skipped the controlled and verified states"
+    intent: "ECSS-Q-ST-40-02C clause 5.2.4 step 4; the status states separate unworked from controlled from signed-for, and only a transition replay exposes a jump"
+    expected_skill: "space-systems/ecss/q40-02-step4-track-accept"
+  - id: ta2
+    query: "who is allowed to sign off a residual catastrophic hazard, and what has to be in the acceptance record and who do we have to tell once it is signed"
+    intent: "ECSS-Q-ST-40-02C clause 5.2.4 step 4; the acceptance authority floor follows residual severity, the record carries rationale evidence signatory and date, and each state owes an audience"
+    expected_skill: "space-systems/ecss/q40-02-step4-track-accept"

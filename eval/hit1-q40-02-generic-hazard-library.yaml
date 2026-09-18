@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-02-generic-hazard-library (space-systems/ecss)
+# Two tasks for the new leaf. gl1 routes on keying a generic library to declared
+# system characteristics rather than browsing it; gl2 routes on the annex register
+# example field set and the seeded candidate that never became a record. Both must
+# deterministically hit space-systems/ecss/q40-02-generic-hazard-library.
+tasks:
+  - id: gl1
+    query: "we are starting hazard identification on a vehicle with a pressurized tank, lithium batteries and a laser payload - give me the generic hazard groups those characteristics call and rank them"
+    intent: "ECSS-Q-ST-40-02C informative annex generic hazard library; the library is keyed on declared system characteristics and candidates rank by call strength"
+    expected_skill: "space-systems/ecss/q40-02-generic-hazard-library"
+  - id: gl2
+    query: "grade our hazard register rows against the annex example fields and tell me which seeded hazard groups never made it into the register at all"
+    intent: "ECSS-Q-ST-40-02C informative annex register example; six fields per record, a blank cause or verification reference is missing, and an unregistered candidate is the seeding gap"
+    expected_skill: "space-systems/ecss/q40-02-generic-hazard-library"

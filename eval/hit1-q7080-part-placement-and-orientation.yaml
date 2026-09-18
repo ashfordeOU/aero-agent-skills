@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7080-part-placement-and-orientation (space-systems/ecss)
+# Two tasks for the new leaf. ppo1 routes on comparing candidate orientations on
+# overhangs, height and residual stress; ppo2 routes on the build-direction
+# anisotropy of the loaded axis and support witness on a critical face. Both
+# must deterministically hit
+# space-systems/ecss/q7080-part-placement-and-orientation.
+tasks:
+  - id: ppo1
+    query: "compare a few ways of standing this bracket on the plate and tell me which one to build it at, given the overhangs and how much the tall option will bow"
+    intent: "ECSS-Q-ST-70-80 part clause; candidate build orientations scored on unsupported down-facing area, build height and a bonded-span residual-stress proxy"
+    expected_skill: "space-systems/ecss/q7080-part-placement-and-orientation"
+  - id: ppo2
+    query: "if we stand the part up the loaded axis runs along the build direction and supports end up on the sealing face, is that orientation allowed at all"
+    intent: "ECSS-Q-ST-70-80 part clause; layer interfaces across the load path, support witness on a design-critical surface as a hard constraint on orientation"
+    expected_skill: "space-systems/ecss/q7080-part-placement-and-orientation"

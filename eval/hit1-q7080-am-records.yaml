@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-am-records (space-systems/ecss)
+# Two tasks for the new leaf. amrec1 routes on the blank-versus-missing field
+# split and unresolved references; amrec2 routes on the powder blend virgin
+# share and reuse generation. Both must deterministically hit
+# space-systems/ecss/q7080-am-records.
+tasks:
+  - id: amrec1
+    query: "go through this build record and say what is absent, what is filled in with nothing, and which inspection and coupon references point at documents nobody can retrieve"
+    intent: "ECSS-Q-ST-70-80C records; required field status, blank against missing, and reference resolution for traceability"
+    expected_skill: "space-systems/ecss/q7080-am-records"
+  - id: amrec2
+    query: "work the powder contributions loaded for this build into a virgin mass fraction and a reuse generation and say whether that blend is allowed for this part class"
+    intent: "ECSS-Q-ST-70-80C records; powder lot traceability, mass-weighted reuse generation and the virgin share limit"
+    expected_skill: "space-systems/ecss/q7080-am-records"

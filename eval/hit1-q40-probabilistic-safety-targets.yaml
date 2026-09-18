@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-probabilistic-safety-targets (space-systems/ecss)
+# Two tasks for the leaf. pst1 routes on setting and allocating the per-severity
+# quantitative limit; pst2 routes on the Annex E acceptance matrix and the union
+# roll-up. Both must hit space-systems/ecss/q40-probabilistic-safety-targets, not
+# the ARP4761A functional-hazard-assessment or ssa-closure leaves.
+tasks:
+  - id: pst1
+    query: "set the per-mission hazard probability limit for each severity category and split the catastrophic limit across the four hazards that contribute to it by weight"
+    intent: "ECSS-Q-ST-40C 6.4.4; probabilistic safety target setting and allocation across contributing hazards"
+    expected_skill: "space-systems/ecss/q40-probabilistic-safety-targets"
+  - id: pst2
+    query: "our predicted probabilities are each inside their budget; aggregate them for the severity group and place every pair on the ECSS Annex E severity-probability acceptance matrix"
+    intent: "ECSS-Q-ST-40C Annex E; probability banding, union aggregation and the acceptance matrix verdict"
+    expected_skill: "space-systems/ecss/q40-probabilistic-safety-targets"

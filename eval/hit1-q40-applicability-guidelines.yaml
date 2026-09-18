@@ -1,0 +1,15 @@
+# Hit@1 fragment: q40-applicability-guidelines (space-systems/ecss)
+# Two tasks for the new leaf. ag1 routes on applicability taking both product
+# type and programme phase and on the four-value answer; ag2 routes on grading
+# a tailoring proposal that deletes a requirement group the guideline has
+# biting. Both must deterministically hit
+# space-systems/ecss/q40-applicability-guidelines.
+tasks:
+  - id: ag1
+    query: "for a hosted payload instrument at phase B, which of the ECSS safety requirement groups actually bite yet and which are out of scope for this product entirely"
+    intent: "ECSS-Q-ST-40C informative applicability guidelines; applicability takes product type and phase, and the answer is applicable, reduced, not yet, or out of scope"
+    expected_skill: "space-systems/ecss/q40-applicability-guidelines"
+  - id: ag2
+    query: "the tailoring matrix deletes the safety verification group with no justification and keeps disposal safety on a ground station, how do I grade that tailoring proposal"
+    intent: "ECSS-Q-ST-40C informative applicability guidelines; an unjustified deletion of a biting group versus retaining an out-of-scope group, which is cost not safety"
+    expected_skill: "space-systems/ecss/q40-applicability-guidelines"

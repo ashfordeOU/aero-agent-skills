@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-surface-condition-control (space-systems/ecss)
+# Two tasks for the new leaf. scc1 routes on the overhang angle deciding what the
+# process can leave; scc2 routes on the Ra against Rz comparison and the per-area
+# adhering particle count. Both must deterministically hit
+# space-systems/ecss/q7080-surface-condition-control.
+tasks:
+  - id: scc1
+    query: "the shallow underside of a printed duct measures far rougher than the vertical walls against the same drawing limit, decide whether that is a bad build or a limit the process was never going to reach at that angle"
+    intent: "ECSS-Q-ST-70-80 quality clause; as-built roughness growth below the threshold overhang angle, and an unachievable limit raised against the requirement rather than the part"
+    expected_skill: "space-systems/ecss/q7080-surface-condition-control"
+  - id: scc2
+    query: "the inspection table has some faces measured one way and the drawing calls a different roughness parameter, and there are partly fused beads stuck to the printed surface, tell me how to grade it"
+    intent: "ECSS-Q-ST-70-80 quality clause; roughness parameter of the reading matched to the parameter of the limit, every reading graded, adhering particles per unit area"
+    expected_skill: "space-systems/ecss/q7080-surface-condition-control"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7080-machine-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. mm1 routes on excursion episodes and the layers
+# they sit under; mm2 routes on the completeness of the record itself - sampling
+# interval, gaps and a required channel that was never logged.
+# Both must deterministically hit
+# space-systems/ecss/q7080-machine-monitoring.
+tasks:
+  - id: mm1
+    query: "the laser power went over its window part way through the build, work out how long for, how far over, and which layers that sits under so inspection knows where to cut"
+    intent: "ECSS-Q-ST-70-80C in-process monitoring; contiguous excursion episodes with duration and worst deviation, attributed to layer indices rather than timestamps"
+    expected_skill: "space-systems/ecss/q7080-machine-monitoring"
+  - id: mm2
+    query: "review this build data log and tell me whether it is complete enough to be evidence, including the sampling rate, the gap in the middle and the channel that never appears in the file"
+    intent: "ECSS-Q-ST-70-80C build data logging; median sampling interval, largest gap, coverage fraction and the required channels missing from the record"
+    expected_skill: "space-systems/ecss/q7080-machine-monitoring"

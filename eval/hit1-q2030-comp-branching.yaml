@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2030-comp-branching (space-systems/ecss)
+# cb1 routes on the braid geometry recomputed for the branch diameter and the
+# two-sided coverage rule; cb2 routes on the three-segment continuity budget
+# and the unbonded junction. Both must deterministically hit
+# space-systems/ecss/q2030-comp-branching.
+tasks:
+  - id: cb1
+    query: "we took a branch off a shielded bundle using a lighter braid than the trunk, work out the coverage that branch actually gets and whether it has downgraded the shield downstream"
+    intent: "ECSS-Q-ST-20-30C clause 7.7; braid angle, filling factor and optical coverage recomputed for the branch diameter, graded against the greater of the trunk coverage and the project floor"
+    expected_skill: "space-systems/ecss/q2030-comp-branching"
+  - id: cb2
+    query: "the shield reads continuous through the breakout on a beep tester but the box still fails radiated, tell me what the takeoff should have been measured and built to"
+    intent: "ECSS-Q-ST-20-30C clause 7.7; breakout shielding continuity as a trunk-plus-junction-plus-branch resistance budget, an unbonded junction as its own defect, and the unshielded takeoff length limited"
+    expected_skill: "space-systems/ecss/q2030-comp-branching"

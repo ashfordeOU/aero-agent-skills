@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-build-lot-qualification (space-systems/ecss)
+# Two tasks for the new leaf. blotq1 routes on the configuration change that
+# decides delta versus full requalification; blotq2 routes on the witness
+# coupon tolerance bound against the design allowable. Both must
+# deterministically hit space-systems/ecss/q7080-build-lot-qualification.
+tasks:
+  - id: blotq1
+    query: "ecss build lot qualification: the machine stayed but the powder lot and the build orientation changed, sort those configuration changes and say whether the lot is qualified, owes a delta with fresh witness coupons, or has to be requalified"
+    intent: "ECSS-Q-ST-70-80C qualification; configuration baseline changes sorted into no impact, delta qualification or requalification"
+    expected_skill: "space-systems/ecss/q7080-build-lot-qualification"
+  - id: blotq2
+    query: "take the witness coupon strengths built alongside this first article and work out the one-sided tolerance bound, then say whether it supports the allowable the stress model used"
+    intent: "ECSS-Q-ST-70-80C qualification; coupon mean and spread turned into a tolerance bound, coupon count against what the part type owes"
+    expected_skill: "space-systems/ecss/q7080-build-lot-qualification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-essential-telemetry-acquisition (space-systems/ecss)
+# Two tasks for the new leaf. eta1 routes on the acquisition path surviving a
+# processor reset; eta2 routes on the emergency-capacity budget for the set.
+# Both must deterministically hit
+# space-systems/ecss/e50-essential-telemetry-acquisition.
+tasks:
+  - id: eta1
+    query: "go through our minimum health telemetry list and tell me which of those parameters would still reach the transmitter if the main application processor resets, and which ones vanish with it"
+    intent: "ECSS-E-ST-50C clause 5.5.2; essential telemetry acquisition independent of the nominal on-board processing chain, across safe and contingency phases"
+    expected_skill: "space-systems/ecss/e50-essential-telemetry-acquisition"
+  - id: eta2
+    query: "add up bits per sample times sample rate for the safe mode parameter set, gross it up for frame and coding overhead, and say whether it fits the guaranteed emergency downlink rate"
+    intent: "ECSS-E-ST-50C clause 5.5.2; aggregate essential-telemetry rate against the guaranteed emergency capacity, not the nominal downlink"
+    expected_skill: "space-systems/ecss/e50-essential-telemetry-acquisition"

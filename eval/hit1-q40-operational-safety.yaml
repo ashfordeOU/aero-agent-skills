@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-operational-safety (space-systems/ecss)
+# Two tasks for the leaf. ops1 routes on ground-operations hazard control and the
+# control precedence; ops2 routes on flight-operations and mission-control
+# reaction margins. Both must hit space-systems/ecss/q40-operational-safety, not
+# the ARP4761A operating-support-hazard-analysis leaf.
+tasks:
+  - id: ops1
+    query: "for transport, handling, integration and launch-site work, check each hazard has a control, rank it against design-elimination before procedure, and refuse a catastrophic hazard held by a procedure alone"
+    intent: "ECSS-Q-ST-40C 6.6; ground operations hazard control and hazard-reduction precedence ranking"
+    expected_skill: "space-systems/ecss/q40-operational-safety"
+  - id: ops2
+    query: "check our mission-control constraints leave the operator more reaction time than each one demands, and list the hazardous operational phases with no operation declared at all"
+    intent: "ECSS-Q-ST-40C 6.6; flight operations and mission-control constraint reaction margin, phase coverage"
+    expected_skill: "space-systems/ecss/q40-operational-safety"

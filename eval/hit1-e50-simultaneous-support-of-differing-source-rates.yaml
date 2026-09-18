@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-simultaneous-support-of-differing-source-rates
+# (space-systems/ecss). Two tasks for the new leaf. sdr1 routes on the slow
+# source apportioned no slot at all; sdr2 routes on service interval, latency
+# and buffer depth from the apportionment. Both must deterministically hit
+# space-systems/ecss/e50-simultaneous-support-of-differing-source-rates.
+tasks:
+  - id: sdr1
+    query: "split the downlink cycle between a fast payload source and a slow housekeeping source in proportion to what each generates, and tell me if the slow one ends up with no slot at all"
+    intent: "ECSS-E-ST-50C clause 5.5.6; largest-remainder slot apportionment across sources of differing rates, and the zero-slot starvation case"
+    expected_skill: "space-systems/ecss/e50-simultaneous-support-of-differing-source-rates"
+  - id: sdr2
+    query: "given how often each source gets served in the cycle, work out how stale its oldest packet gets and how much buffer it needs between two of its slots"
+    intent: "ECSS-E-ST-50C clause 5.5.6; service interval, end-to-end latency and buffer depth per source under mixed-rate multiplexing"
+    expected_skill: "space-systems/ecss/e50-simultaneous-support-of-differing-source-rates"

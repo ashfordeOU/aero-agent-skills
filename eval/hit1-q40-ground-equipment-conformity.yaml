@@ -1,0 +1,15 @@
+# Hit@1 fragment: q40-ground-equipment-conformity (space-systems/ecss)
+# Two tasks for the new leaf. ge1 routes on the pressure-volume product
+# deciding the pressure route and on sound engineering practice carrying no
+# mark; ge2 routes on what a declaration of conformity asserts before it can be
+# signed. Both must deterministically hit
+# space-systems/ecss/q40-ground-equipment-conformity.
+tasks:
+  - id: ge1
+    query: "this ground support trolley has a five litre vessel at five bar, a mains powered drive and an enclosure full of electronics, which EU legislation applies and does it get the CE mark"
+    intent: "ECSS-Q-ST-40C ground equipment; screen by what the item does, the pressure-volume product sets the pressure route, sound engineering practice carries no mark"
+    expected_skill: "space-systems/ecss/q40-ground-equipment-conformity"
+  - id: ge2
+    query: "we are about to sign a declaration of conformity for a GSE lifting frame but the technical file is still in preparation and nobody has named the responsible entity, what blocks it"
+    intent: "ECSS-Q-ST-40C ground equipment declaration of conformity; the assessment route, notified body certificate or listed standards, technical file and responsible entity"
+    expected_skill: "space-systems/ecss/q40-ground-equipment-conformity"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-12-fta-procedure (space-systems/ecss)
+# Two tasks for the new leaf. fp1 routes on the cut set expansion and the
+# order-one cut sets that fall out of it; fp2 routes on the three quantification
+# methods and the importance measures computed from them.
+# Both must deterministically hit space-systems/ecss/q40-12-fta-procedure.
+tasks:
+  - id: fp1
+    query: "expand this tree with its two-of-three voting gate down to minimal cut sets, drop the supersets, and tell me which cut sets are order one"
+    intent: "ECSS-Q-ST-40-12C clause 5.1.2 adopting IEC 61025; minimal cut set expansion including k-out-of-n gates and the single point failures it exposes"
+    expected_skill: "space-systems/ecss/q40-12-fta-procedure"
+  - id: fp2
+    query: "quantify the top event exactly rather than by the rare event sum, then rank the contributors on Birnbaum and Fussell-Vesely and sweep the weakest probability by a factor of ten"
+    intent: "ECSS-Q-ST-40-12C clause 5.1.2; inclusion-exclusion against the rare-event and min-cut-upper-bound estimates, importance measures and the sensitivity sweep"
+    expected_skill: "space-systems/ecss/q40-12-fta-procedure"

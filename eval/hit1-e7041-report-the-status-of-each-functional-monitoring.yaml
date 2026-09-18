@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-report-the-status-of-each-functional-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. rfms1 routes on the whole-store sweep of what each
+# monitoring group is currently doing; rfms2 routes on the derivation rules for a
+# disabled group and for a constituent on an invalid parameter. Both must
+# deterministically hit
+# space-systems/ecss/e7041-report-the-status-of-each-functional-monitoring.
+tasks:
+  - id: rfms1
+    query: "I want a sweep of every functional monitoring group on board saying which are enabled and which are currently failing, not what they are made of"
+    intent: "ECSS-E-ST-70-41C clause 6.12.4.9; whole-store status report with enable state and derived status per definition"
+    expected_skill: "space-systems/ecss/e7041-report-the-status-of-each-functional-monitoring"
+  - id: rfms2
+    query: "one monitoring group is disabled while two of its parameters are out of limits and another has a constituent sitting on an invalid parameter, what status is each group entitled to report"
+    intent: "ECSS-E-ST-70-41C clause 6.12.4.9; disabled groups report unchecked and an invalid constituent cannot reach the failing threshold"
+    expected_skill: "space-systems/ecss/e7041-report-the-status-of-each-functional-monitoring"

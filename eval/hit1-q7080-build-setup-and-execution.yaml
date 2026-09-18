@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-build-setup-and-execution (space-systems/ecss)
+# Two tasks for the new leaf. bse1 routes on the start-up gate and the blank
+# check that blocks it; bse2 routes on the consecutive-layer excursion run and
+# the disposition that follows. Both must deterministically hit
+# space-systems/ecss/q7080-build-setup-and-execution.
+tasks:
+  - id: bse1
+    query: "the operator logged preheat and oxygen before the build but left platform flatness blank, can this job start or does that blank stop it"
+    intent: "ECSS-Q-ST-70-80 process clause; start-up checks gate the first layer and an unrecorded check blocks exactly as an out-of-limit one does"
+    expected_skill: "space-systems/ecss/q7080-build-setup-and-execution"
+  - id: bse2
+    query: "the oxygen trace went over the band for a few layers in the middle of this build, work out whether we abort it or take it with a concession"
+    intent: "ECSS-Q-ST-70-80 process clause; in-process monitoring, run of consecutive layers in excursion versus isolated layers, build disposition"
+    expected_skill: "space-systems/ecss/q7080-build-setup-and-execution"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2030-comp-sleeving (space-systems/ecss)
+# cs1 routes on the two-sided sleeve selection (slides on unshrunk, grips
+# recovered); cs2 routes on the cut-length-versus-installed-length arithmetic
+# that longitudinal shrinkage drives. Both must deterministically hit
+# space-systems/ecss/q2030-comp-sleeving.
+tasks:
+  - id: cs1
+    query: "the shrink sleeve we picked goes over the contact fine but it is still loose on the wire after heating, work out what size should have been chosen"
+    intent: "ECSS-Q-ST-20-30C clause 7.5; a sleeve must clear the largest diameter on its assembly path unshrunk and close onto the smallest gripped diameter recovered, with a grip margin"
+    expected_skill: "space-systems/ecss/q2030-comp-sleeving"
+  - id: cs2
+    query: "our sleeves keep ending up a couple of millimetres short of the overlap once they are shrunk down, give me the length to cut them at"
+    intent: "ECSS-Q-ST-20-30C clause 7.5; the cut length carries the covered span plus an overlap at each end, uprated for the longitudinal shrinkage recovery takes back"
+    expected_skill: "space-systems/ecss/q2030-comp-sleeving"
