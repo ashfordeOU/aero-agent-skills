@@ -1,0 +1,9 @@
+{
+  "skill": "e2020-undervoltage-event-blanking-time",
+  "with_skill": 1.0,
+  "without_estimate": 0.35,
+  "delta": 0.65,
+  "passed": 34,
+  "failed": 0,
+  "evidence": "contract test PASS (34 tests); without-baseline 0.35 (a plain answer treats the blanking time as a free parameter instead of a figure squeezed between the longest permitted bus transient below and the load hold-up above, sizes it against the whole hold-up while the detection chain and the switching element are already spending part of that same budget, never notices that the two bounds can cross so no blanking time exists at all, reads a long shallow sag that never reached the threshold as a successfully blanked event although it never armed the timer, reports a count of mishandled events rather than naming a transient that trips and a genuine undervoltage that is absorbed as opposite failures, and sizes onto a bound exactly although both bounds are estimates carrying their own spread)"
+}

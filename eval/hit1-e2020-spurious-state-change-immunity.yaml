@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-spurious-state-change-immunity (space-systems/ecss)
+# Two tasks for the new leaf. ssci1 routes on a held state resisting an
+# electromagnetic or radiation perturbation; ssci2 routes on the margin per
+# perturbation class and on a refresh that restores rather than prevents. Both
+# must deterministically hit
+# space-systems/ecss/e2020-spurious-state-change-immunity.
+tasks:
+  - id: ssci1
+    query: "how do we demonstrate that the latching switch will not change state on its own from an EMC transient or a heavy ion hit"
+    intent: "ECSS-E-ST-20-20C clause 5.2.16.1.1; a device state resisting electromagnetic disturbance, radiation events and similar perturbations that could change it"
+    expected_skill: "space-systems/ecss/e2020-spurious-state-change-immunity"
+  - id: ssci2
+    query: "we tested the radiated field case only, and for everything else we rely on a one second state refresh to put the relay back after it moves"
+    intent: "ECSS-E-ST-20-20C clause 5.2.16.1.1; per-perturbation-class immunity margins, provisions that prevent a state flip against provisions that only restore state, and the perturbation classes nobody assessed"
+    expected_skill: "space-systems/ecss/e2020-spurious-state-change-immunity"

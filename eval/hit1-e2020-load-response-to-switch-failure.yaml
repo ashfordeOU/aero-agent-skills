@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-load-response-to-switch-failure (space-systems/ecss)
+# Two tasks for the leaf. lrsf1 routes on the series operating point through a
+# switch stuck partly conducting; lrsf2 routes on what the load then does about
+# it - an undervoltage inhibit that may recover far enough to restart and cycle.
+# Both must deterministically hit
+# space-systems/ecss/e2020-load-response-to-switch-failure.
+tasks:
+  - id: lrsf1
+    query: "solve the series operating point of a constant-power unit fed through a protection switch stuck in a partly conducting dissipative state, and say whether the feed collapses or settles above the half-bus stability boundary"
+    intent: "ECSS-E-ST-20-20C clause 5.3.3.1.1; load response to a dissipative switch failure and the constant-power stability boundary"
+    expected_skill: "space-systems/ecss/e2020-load-response-to-switch-failure"
+  - id: lrsf2
+    query: "state whether the load inhibits at its undervoltage threshold when its feeding switch fails dissipatively, whether the input then recovers far enough to restart it and cycle, and how much power is left in the failed device"
+    intent: "ECSS-E-ST-20-20C clause 5.3.3.1.1; load undervoltage inhibit, retrigger cycling and failed switch dissipation"
+    expected_skill: "space-systems/ecss/e2020-load-response-to-switch-failure"

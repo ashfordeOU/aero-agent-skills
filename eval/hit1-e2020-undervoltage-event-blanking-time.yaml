@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-undervoltage-event-blanking-time
+# (space-systems/ecss, E-ST-20-20C 5.4.3.3.1). Two tasks per leaf; ubt1 routes
+# on sizing the blanking window between the transient envelope and the hold-up,
+# ubt2 on the per-event walk. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-event-blanking-time.
+tasks:
+  - id: ubt1
+    query: "size the undervoltage-trip-blanking-window from the bus-transient-ride-through-blanking floor and the undervoltage-blanking-hold-up-bound"
+    intent: "ecss power supply; a dip below the undervoltage threshold shorter than a defined time has to produce no trip"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-event-blanking-time"
+  - id: ubt2
+    query: "run the blanked-undervoltage-event-walk against this dip set and account for the undervoltage-detection-latency-budget"
+    intent: "ecss power supply; decide which bus dips the blanking time absorbs and which of them trip the protection"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-event-blanking-time"

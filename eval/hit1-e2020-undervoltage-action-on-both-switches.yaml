@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-undervoltage-action-on-both-switches
+# (space-systems/ecss, E-ST-20-20C 5.2.13.5.1). Two tasks per leaf; uvb1 routes
+# on the two-switch coverage and the per-switch memory cell, uvb2 on the shared
+# cell and the off-command path. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-action-on-both-switches.
+tasks:
+  - id: uvb1
+    query: "confirm the undervoltage-opens-both-switches requirement with main-and-extra-switch-opening behind an independent-undervoltage-memory-cell each"
+    intent: "ecss power supply; the undervoltage protection of a limiter has to open the main switch and the extra switch, each held by its own memory cell"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-action-on-both-switches"
+  - id: uvb2
+    query: "walk the undervoltage-off-command-path of a limiter-extra-switch-latch and find any shared-undervoltage-memory-cell between the two switches"
+    intent: "ecss power supply; two series switches latched off by one cell are not the independent memories the clause asks for"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-action-on-both-switches"

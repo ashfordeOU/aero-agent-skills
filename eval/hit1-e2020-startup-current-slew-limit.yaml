@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-startup-current-slew-limit (space-systems/ecss)
+# Two tasks for the leaf. scsl1 routes on the peak rising stretch of a turn-on
+# trace against the declared ceiling rather than an averaged ramp; scsl2 routes
+# on the evidence quality -- a time base too coarse to show the peak, and a
+# corner the campaign never reached. Both must deterministically hit
+# space-systems/ecss/e2020-startup-current-slew-limit.
+tasks:
+  - id: scsl1
+    query: "judge whether the output current rises faster than the declared turn-on slew ceiling anywhere in the switch-on trace rather than on the averaged ramp"
+    intent: "ECSS-E-ST-20C clause 5.4.2.1.1; peak rising slew segment against the declared startup ceiling"
+    expected_skill: "space-systems/ecss/e2020-startup-current-slew-limit"
+  - id: scsl2
+    query: "work out whether a turn-on capture is sampled finely enough to show the steepest rising stretch it reports, and whether every declared startup corner was actually traced"
+    intent: "ECSS-E-ST-20C clause 5.4.2.1.1; coarse sampling smoothing the peak rise rate and turn-on corner coverage"
+    expected_skill: "space-systems/ecss/e2020-startup-current-slew-limit"

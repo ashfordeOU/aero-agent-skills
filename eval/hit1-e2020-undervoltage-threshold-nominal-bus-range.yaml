@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-undervoltage-threshold-nominal-bus-range
+# (space-systems/ecss). Two tasks for the leaf. uvtr1 routes on converting a
+# ladder of trip points given as shares of the nominal bus into volts and
+# showing the usable settings cover the required adjustment span; uvtr2
+# routes on the two bounds that decide usability plus the ground-only and
+# step-resolution parts of the same clause. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-threshold-nominal-bus-range.
+tasks:
+  - id: uvtr1
+    query: "convert each undervoltage trip setting given as a percentage of the nominal bus voltage into volts and show the usable settings reach both ends of the required ground adjustment span"
+    intent: "ECSS-E-ST-20-20C clause 5.4.3.1.1; ground adjustable undervoltage threshold expressed against nominal bus, span coverage"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-threshold-nominal-bus-range"
+  - id: uvtr2
+    query: "keep every undervoltage setting band clear of the lowest normal bus voltage and above the equipment operating floor, check the step between settings, and reject a trip point adjustable by telecommand in flight"
+    intent: "ECSS-E-ST-20-20C clause 5.4.3.1.1; nuisance trip clearance, equipment floor, setting resolution and ground-only adjustment"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-threshold-nominal-bus-range"

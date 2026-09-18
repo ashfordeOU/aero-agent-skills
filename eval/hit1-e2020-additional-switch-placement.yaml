@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-additional-switch-placement (space-systems/ecss)
+# Two tasks for the leaf. aswp1 routes on the recommended location itself —
+# the power system side of the line, upstream of the main switch; aswp2 routes
+# on the quantity that decides it, the energised harness stub each candidate
+# node would leave live between the power system output and the switch. Both
+# must deterministically hit
+# space-systems/ecss/e2020-additional-switch-placement.
+tasks:
+  - id: aswp1
+    query: "pick which mountable node on the harness run the extra commandable switch should sit at, keeping it on the power system side of the main switch and far enough from it that one localised event cannot take both"
+    intent: "ECSS-E-ST-20-20C clause 5.2.13.4.1; recommended power-system-side location for the additional switch"
+    expected_skill: "space-systems/ecss/e2020-additional-switch-placement"
+  - id: aswp2
+    query: "measure the live harness stub each candidate switch position would leave between the power system output and itself, and the length of line it would de-energise, then take the shortest stub"
+    intent: "ECSS-E-ST-20-20C clause 5.2.13.4.1; energised stub and de-energised line length per candidate switch node"
+    expected_skill: "space-systems/ecss/e2020-additional-switch-placement"

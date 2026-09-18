@@ -1,0 +1,9 @@
+{
+  "skill": "e2020-undervoltage-noise-immunity-test",
+  "with_skill": 1.0,
+  "without_estimate": 0.32,
+  "delta": 0.68,
+  "passed": 37,
+  "failed": 0,
+  "evidence": "contract test PASS (37 tests); without-baseline 0.32 (a plain answer reads any no-trip result as immunity without checking that the dwell outlasted the detection chain, which is the confound that makes a badly written immunity test pass by construction, sizes the step to just miss the threshold instead of deriving it from the noise and ripple envelope so the test weakens every time the threshold is raised, adds the whole peak-to-peak ripple to a one-sided excursion, places the lower level against the bare threshold rather than the threshold plus sensing uncertainty, misses that a step reaching the trip band is a genuine undervoltage the protection is right to react to, never reports that an envelope exceeding the available headroom is a finding on the threshold placement rather than on the test, and accepts a single application as a demonstration)"
+}

@@ -1,0 +1,17 @@
+# Hit@1 fragment: e2020-undervoltage-hysteresis-width (space-systems/ecss)
+# Two tasks for the leaf. uvhw1 routes on the width left between the trip
+# point and the enable point once both comparator tolerances have eaten into
+# it; uvhw2 routes on the conditional nature of the clause, where a design
+# with the two points coincident falls outside the minimum width rather than
+# failing it. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-hysteresis-width and not the clause
+# 5.2.5.2.1 limiter hysteresis band leaf.
+tasks:
+  - id: uvhw1
+    query: "work out the worst-case width left between the undervoltage trip point and the enable point of a 28 V protection once the setting tolerance of both comparators has eaten into the declared 2 V separation, and compare it with the minimum width the project states"
+    intent: "ECSS-E-ST-20-20C clause 5.4.3.5.1; guaranteed trip-to-enable separation after tolerance erosion against the minimum width"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-hysteresis-width"
+  - id: uvhw2
+    query: "say whether the minimum trip-to-enable separation applies to a protection whose enable point sits on its trip point, and report the separation as a percentage of the nominal bus alongside the volts for a unit that does carry hysteresis"
+    intent: "ECSS-E-ST-20-20C clause 5.4.3.5.1; hysteresis width reported against the nominal bus, and the conditional scope when no hysteresis is declared"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-hysteresis-width"

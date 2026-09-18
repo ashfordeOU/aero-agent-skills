@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-steady-state-load-current-limit (space-systems/ecss)
+# Two tasks for the leaf. sslc1 routes on converting every operating mode to
+# amperes at the bounding bus voltage, where a constant-power load draws
+# hardest at the minimum bus; sslc2 routes on the comparison itself, the
+# stacked steady current against the derated class current once the line has
+# switched on. Both must deterministically hit
+# space-systems/ecss/e2020-steady-state-load-current-limit.
+tasks:
+  - id: sslc1
+    query: "convert each equipment operating mode to a bus current at both ends of the 26 V to 29 V regulation band, remembering a constant-power load draws hardest at the minimum bus, and rank the modes to find the one that binds"
+    intent: "ECSS-E-ST-20-20C clause 5.3.1.1.1; bounding operating mode and constant-power load current at the minimum bus voltage"
+    expected_skill: "space-systems/ecss/e2020-steady-state-load-current-limit"
+  - id: sslc2
+    query: "stack the consumption tolerance, temperature drift and ageing uncertainties on the heaviest mode and show the steady load current stays strictly below the derated class current after the line has switched on, reporting utilisation and margin"
+    intent: "ECSS-E-ST-20-20C clause 5.3.1.1.1; steady-state consumption stack against the derated class current and nuisance limitation headroom"
+    expected_skill: "space-systems/ecss/e2020-steady-state-load-current-limit"

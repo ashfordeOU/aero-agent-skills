@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-minimum-interval-between-on-commands (space-systems/ecss,
+# E-ST-20-20C 5.4.1.4.1). Two tasks per leaf; loc1 routes on the spacing between
+# consecutive on commands, loc2 on the contributor that governs it and the
+# schedule repair. Both must deterministically hit
+# space-systems/ecss/e2020-minimum-interval-between-on-commands.
+tasks:
+  - id: loc1
+    query: "grade the consecutive-turn-on-command-spacing of a limiter against the minimum-interval-between-on-commands it declares"
+    intent: "ecss power supply; the shortest spacing allowed between two consecutive external turn on commands"
+    expected_skill: "space-systems/ecss/e2020-minimum-interval-between-on-commands"
+  - id: loc2
+    query: "work out whether limiter-thermal-recovery-interval overrides the declared lcl-on-command-spacing and produce the on-command-schedule-repair"
+    intent: "ecss power supply; the governing on-command interval and the earliest admissible command schedule"
+    expected_skill: "space-systems/ecss/e2020-minimum-interval-between-on-commands"

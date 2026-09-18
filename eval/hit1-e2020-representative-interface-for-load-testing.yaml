@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-representative-interface-for-load-testing (space-systems/ecss)
+# Two tasks for the new leaf. repint1 routes on whether a rack supply used for a
+# standalone unit test represents the limited branch the unit will fly behind;
+# repint2 routes on the inrush that only fails once a trip-off delay is in the
+# path. Both must deterministically hit
+# space-systems/ecss/e2020-representative-interface-for-load-testing.
+tasks:
+  - id: repint1
+    query: "we are testing this user equipment on its own from a lab bench supply; does that source represent the latching current limiter it will actually sit behind, and does the test evidence transfer"
+    intent: "ECSS-E-ST-20-20C clause 5.3.4.1.1; representative limiter interface for a standalone load test"
+    expected_skill: "space-systems/ecss/e2020-representative-interface-for-load-testing"
+  - id: repint2
+    query: "the unit charges its input capacitance fine on the rack supply but the inrush is well above the branch limit, so compare the bench limit value, trip-off delay, series impedance and latching behaviour against the flight branch"
+    intent: "ECSS-E-ST-20-20C clause 5.3.4.1.1; bench source representativeness against the flight limiter interface"
+    expected_skill: "space-systems/ecss/e2020-representative-interface-for-load-testing"

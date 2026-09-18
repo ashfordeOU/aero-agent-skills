@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 2055,
+  "leaves": 2097,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -26202,6 +26202,62 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-additional-series-switch-provision",
+   "name": "e2020-additional-series-switch-provision",
+   "description": "Evaluate whether a second series switch really lets a power line be opened when the main switch stays on. Use when an ECSS-E-ST-20-20C clause 5.2.13.3.1 line needs its additional commandable switch justified: confirm the extra device sits in series rather than in parallel, that its command path and drive domain are separate from the main switch, that it carries the derated line current, holds off the derated bus voltage and can break the prospective fault current, add the two conduction drops against the allowable line drop, and fold a common-cause factor into the residual stuck-on probability. Refuses an unknown arrangement word, a probability outside zero to one and a derating above unity. Trigger: ecss, e-st-20-20c, additional-series-switch-provision, series-switch-command-independence, switch-stuck-on-residual-probability, switch-breaking-capacity, series-conduction-drop, common-cause-beta-factor.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-additional-series-switch-provision",
+    "series-switch-command-independence",
+    "switch-stuck-on-residual-probability",
+    "switch-breaking-capacity",
+    "series-conduction-drop",
+    "common-cause-beta-factor",
+    "line-opening-capability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-additional-switch-placement",
+   "name": "e2020-additional-switch-placement",
+   "description": "Determine where an additional commandable switch belongs along a power line. Use when an ECSS-E-ST-20-20C clause 5.2.13.4.1 layout has to put the extra switch on the power system side of the main switch: walk the ordered source-to-load node list, keep the mountable nodes upstream of the main switch, measure the live harness stub each candidate would leave between the power system output and itself, measure the length it de-energises, drop any candidate above the stub limit or inside the minimum separation from the main switch, and take the feasible node with the shortest stub. Refuses an unordered node list, a first node away from the source and an unknown node id. Trigger: ecss, e-st-20-20c, additional-switch-placement, power-system-side-placement, energised-harness-stub, de-energised-line-length, switch-separation-distance, switch-mounting-node.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-additional-switch-placement",
+    "power-system-side-placement",
+    "energised-harness-stub",
+    "de-energised-line-length",
+    "switch-separation-distance",
+    "switch-mounting-node",
+    "power-line-node-walk"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-backup-dissipative-failure-protection",
+   "name": "e2020-backup-dissipative-failure-protection",
+   "description": "Determine whether a dissipative switch failure still has protection once both earlier provisions have been ruled out, per clause 5.2.14.3.1 of ECSS-E-ST-20-20C. Use when the derated continuous rating cannot absorb the stuck-on case and no off-command path survives the failure: test each provision on its own terms, demand a backup only where neither holds, match the backup to the mode it genuinely covers, refuse one sharing a part with the switch it protects, and race its action time against the thermal run-up. Trigger: ecss, e-st-20-20c-clause-5-2-14-3-1, dissipative-switch-failure-protection, backup-dissipative-protection-applicability, dissipative-element-thermal-run-up, backup-protection-independence.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-14-3-1",
+    "e2020-backup-dissipative-failure-protection",
+    "dissipative-switch-failure-protection",
+    "backup-dissipative-protection-applicability",
+    "dissipative-element-thermal-run-up",
+    "backup-protection-independence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-centralised-undervoltage-protection-redundancy",
    "name": "e2020-centralised-undervoltage-protection-redundancy",
    "description": "Assess a centralised undervoltage protection that serves several current limiters for single point failure tolerance under clause 5.2.5.3.1 of ECSS-E-ST-20-20C. Use when one sensing and voting chain arms or trips the undervoltage protection of a whole distribution unit. Walk each redundancy stage as a k-of-n vote, remove one unit at a time, and test both directions: whether the surviving units still protect every limiter served, and whether one unit failing active trips the bus on its own. Report each loss path and each spurious path, and flag an architecture that serves a single limiter as outside the shared protection case. Trigger: ecss, e-st-20-20c, centralised-undervoltage-protection, undervoltage-protection-single-point-failure, undervoltage-voting-redundancy, spurious-undervoltage-trip-path, undervoltage-protection-cross-strapping, shared-undervoltage-sensing-chain.",
@@ -26301,6 +26357,65 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-dissipative-failure-component-survival",
+   "name": "e2020-dissipative-failure-component-survival",
+   "description": "Evaluate whether the parts around a current limiter survive a switch that fails dissipatively while nothing else removes it, under clause 5.2.14.1.1 of ECSS-E-ST-20-20C. Use when a limiter switch is stuck in its limitation region and the dissipation runs indefinitely into the board and the neighbouring components. Compute the steady dissipation from the drop and the limited current, raise every named part through its own thermal coupling, compare each against its derated rating, report the surviving and the exceeded parts with margins, and derive the dissipation each part could have taken. Trigger: ecss, e-st-20-20c, dissipative-switch-failure-survival, limiter-dissipative-failure-heating, surrounding-part-thermal-survival, uncleared-limiter-dissipation, dissipative-failure-allowable-power.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-dissipative-failure-component-survival",
+    "dissipative-switch-failure-survival",
+    "limiter-dissipative-failure-heating",
+    "surrounding-part-thermal-survival",
+    "uncleared-limiter-dissipation",
+    "dissipative-failure-allowable-power"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-enable-threshold-maximum-bus-range",
+   "name": "e2020-enable-threshold-maximum-bus-range",
+   "description": "Assess an adjustable turn on threshold that is expressed against the maximum direct current bus voltage, per clause 5.4.4.2.1 of ECSS-E-ST-20-20C. Use when an enable setting is quoted as a fraction and the reference behind that fraction decides the volts it really commands. Refer each settable fraction into volts through the maximum bus value, restate a fraction quoted against the nominal bus onto the maximum reference, report the volts a reader loses by taking the wrong one, and test the resulting ladder against the window between the equipment turn on floor and the lowest steady state bus. Flag a fraction with no stated reference. Trigger: ecss, e-st-20-20c-clause-5-4-4-2-1, enable-threshold-maximum-bus-referral, turn-on-threshold-maximum-dc-bus-voltage, enable-threshold-reference-conversion, enable-setting-ladder-maximum-bus, turn-on-threshold-window-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e-st-20-20c-clause-5-4-4-2-1",
+    "e2020-enable-threshold-maximum-bus-range",
+    "enable-threshold-maximum-bus-referral",
+    "turn-on-threshold-maximum-dc-bus-voltage",
+    "enable-threshold-reference-conversion",
+    "enable-setting-ladder-maximum-bus",
+    "turn-on-threshold-window-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-enable-threshold-nominal-bus-range",
+   "name": "e2020-enable-threshold-nominal-bus-range",
+   "description": "Evaluate an adjustable turn on threshold that is set as a percentage of the nominal main bus voltage, per clause 5.4.4.1.1 of ECSS-E-ST-20-20C. Use when a unit declares an enable setting ladder and the range it spans has to be shown against the percentages the project asks for. Refer every setting back into volts through the nominal main bus, walk the ladder from its lowest step to its highest, and test the coverage of the required band, the volts one step buys, and whether each setting lands inside the bus window the enable point can actually be crossed in. Report the reference the specification used. Trigger: ecss, e-st-20-20c-clause-5-4-4-1-1, enable-threshold-nominal-bus-percentage, turn-on-threshold-adjustment-ladder, nominal-main-bus-voltage-referral, enable-threshold-range-coverage, enable-setting-step-resolution.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e-st-20-20c-clause-5-4-4-1-1",
+    "e2020-enable-threshold-nominal-bus-range",
+    "enable-threshold-nominal-bus-percentage",
+    "turn-on-threshold-adjustment-ladder",
+    "nominal-main-bus-voltage-referral",
+    "enable-threshold-range-coverage",
+    "enable-setting-step-resolution"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-essential-load-retrigger-disabling",
    "name": "e2020-essential-load-retrigger-disabling",
    "description": "Audit which command paths may switch off the retrigger behaviour of a limiter feeding an essential spacecraft load, under ECSS-E-ST-20-20C clause 5.2.6.4.1. Use when a power architecture has to show that this authority stays on the ground: refuse essentiality asserted with no rationale reference, sort each path by where the command originates rather than where it executes so an uplinked time-tagged sequence still counts, name every essential limiter an onboard decision could disable, and count how many of them the widest onboard path reaches. Trigger: ecss, e-st-20-20c-clause-5-2-6-4-1, essential-load-retrigger-disable-authority, ground-originated-retrigger-disable-command, onboard-autonomy-retrigger-disable-exposure, essential-load-limiter-grouping, essential-load-retrigger-exposure-count.",
@@ -26339,6 +26454,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-filter-charge-versus-trip-margin",
+   "name": "e2020-filter-charge-versus-trip-margin",
+   "description": "Verify that a load filter finishes charging well inside the shortest trip time a limiter can produce, per ECSS-E-ST-20C clause 5.4.2.3.1. Use when the separation has to be evaluated at the corner that actually binds rather than at the schematic numbers: raise the filter capacitance by tolerance and end-of-life drift, drop the limitation current to the bottom of its band, take the bus at its upper voltage, form the constant-current charge time, shorten the fastest trip time by its own tolerance, and compare the two against the required factor at inclusive equality. Trigger: ecss, e-st-20-electrical-scope, filter-charge-versus-trip-margin, worst-case-filter-capacitance, limitation-current-derating, constant-current-charge-time, shortest-trip-time-corner, charge-to-trip-separation-factor.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-filter-charge-versus-trip-margin",
+    "worst-case-filter-capacitance",
+    "limitation-current-derating",
+    "constant-current-charge-time",
+    "shortest-trip-time-corner",
+    "charge-to-trip-separation-factor",
+    "switch-on-inrush-nuisance-trip"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-inductive-current-freewheeling-provision",
    "name": "e2020-inductive-current-freewheeling-provision",
    "description": "Verify the inductive-current freewheeling provision of ECSS-E-ST-20-20C clause 5.2.7.7.1. Use when a current limiter feeds an inductive load over a long harness and the branch has to keep conducting the instant the limiter opens: sum the load and harness inductance, size the energy trapped at the limitation current, categorize the declared return path as absent, load-freewheel-diode, switch-clamp or active-clamp, derive the decay time and the peak the switching element then stands off, compare that peak against its rating and the decay against the reclosure dead time, and reject a design whose only path is the switch avalanche. Trigger: ecss, e-st-20-20c, limiter-inductive-freewheeling-path, limiter-opening-transient, harness-stored-energy, freewheel-diode-decay, limiter-switch-standoff-margin, clamp-energy-absorption, limiter-reclosure-dead-time.",
@@ -26352,6 +26486,25 @@
     "freewheel-diode-decay",
     "limiter-switch-standoff-margin",
     "limiter-reclosure-dead-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-input-filter-charge-time",
+   "name": "e2020-input-filter-charge-time",
+   "description": "Compute whether the input filter of a protected load finishes charging inside the charging window it is allowed while its feeding limiter holds the current. Use when an ECSS-E-ST-20-20C clause 5.3.2.3.1 load design has to show the filter energises in time: total the filter stage capacitances the bus actually sees, take the load draw during charging off the held limiting current, charge that total at what is left, and compare against the allowed window with the project margin applied. Refuses a load draw that leaves no net charging current, and reports the largest filter the window would still carry. Trigger: ecss, e-st-20-20c, load-input-filter-charge-time, filter-stage-capacitance, limitation-charging-window, net-charging-current, held-limiting-current, filter-charge-time-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-input-filter-charge-time",
+    "filter-stage-capacitance",
+    "limitation-charging-window",
+    "net-charging-current",
+    "held-limiting-current",
+    "filter-charge-time-margin",
+    "load-input-filter-energisation"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26474,6 +26627,215 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-line-voltage-drop-budget",
+   "name": "e2020-line-voltage-drop-budget",
+   "description": "Calculate the voltage a protected distribution line loses at its class current. Use when an ECSS-E-ST-20-20C clause 5.4.5.1.1 power line has to be shown inside the drop its class allows: take the class current from the class table, raise every resistive contributor to its hot value, sum the limiter switch element, the sense shunt, the harness, the connector contacts and any series blocking device, apply the declared tolerance factor, then compare against the ceiling and report the margin, the split between resistive and fixed loss and the element carrying most of it. Refuses a class declaring two budgets, a duplicated element and a load drawing more than its class. Trigger: ecss, e-st-20-20c, line-voltage-drop-budget, protection-line-drop, lcl-class-current, harness-hot-resistance, connector-contact-drop, load-input-voltage-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-line-voltage-drop-budget",
+    "protection-line-drop",
+    "lcl-class-current",
+    "harness-hot-resistance",
+    "connector-contact-drop",
+    "load-input-voltage-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-load-capacitance-operating-range",
+   "name": "e2020-load-capacitance-operating-range",
+   "description": "Verify a protected line operates normally at every load capacitance up to the tabulated maximum of its class. Use when ECSS-E-ST-20-20C clause 5.2.19.2.1 asks a design to cover the whole capacitance range rather than one declared part value: derate the declared bulk capacitance for initial tolerance, temperature, ageing and DC bias into a worst-case effective maximum, take the smallest class whose tabulated capacitance covers it, sweep from nothing to that tabulated maximum charging at the lower limiting current, confirm every sample completes inside the shortest trip-off delay with margin, and report the largest capacitance the class can actually start. Refuses a non-ascending class table and a derating that consumes the declaration. Trigger: ecss, e-st-20-20c, lcl-load-capacitance-operating-range, tabulated-maximum-load-capacitance, load-capacitance-derating-stack, inrush-charge-at-tabulated-maximum, startable-load-capacitance, shortest-trip-off-delay.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-load-capacitance-operating-range",
+    "tabulated-maximum-load-capacitance",
+    "load-capacitance-derating-stack",
+    "inrush-charge-at-tabulated-maximum",
+    "startable-load-capacitance",
+    "shortest-trip-off-delay"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-load-converter-startup-current",
+   "name": "e2020-load-converter-startup-current",
+   "description": "Verify that the DC/DC converters inside a protected load get themselves started without ever drawing more than the current their protection class allows. Use when an ECSS-E-ST-20-20C clause 5.3.2.2.1 load design has to show the internal converters energise inside the class current: build each converter start-up draw from its input capacitance, soft-start ramp and settled draw, lay the release delays on one timeline, read the true aggregate peak instead of summing peaks, and compare against the class current with the project margin taken out. Reports whether a later release order would repair an exceedance or the converter set itself has to change. Trigger: ecss, e-st-20-20c, load-converter-startup-current, converter-soft-start-ramp, converter-inrush-envelope, staggered-converter-release-order, protection-class-current-allowance, load-startup-current-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-load-converter-startup-current",
+    "converter-soft-start-ramp",
+    "converter-inrush-envelope",
+    "staggered-converter-release-order",
+    "protection-class-current-allowance",
+    "load-startup-current-margin",
+    "unit-input-current-envelope"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-load-inductance-operating-range",
+   "name": "e2020-load-inductance-operating-range",
+   "description": "Verify that a current limiter operates normally across every load inductance up to the specified maximum, under ECSS-E-ST-20-20C clause 5.2.19.1.1. Use when an inductive load has to be shown safe over a whole range rather than at one convenient point: refuse a range whose maximum nobody specified, compute the energy stored at the limitation current and the turn-off transient that inductance drives, weigh both against what the clamp path can absorb and stand off, and audit whether the demonstrated points span the range without leaving a stretch wide enough to hide a resonance. Trigger: ecss, e-st-20-20c-clause-5-2-19-1-1, limiter-load-inductance-operating-range, maximum-load-inductance-turn-off-energy, load-inductance-range-test-coverage, freewheel-clamp-energy-capability, inductive-turn-off-transient-voltage.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-19-1-1",
+    "e2020-load-inductance-operating-range",
+    "limiter-load-inductance-operating-range",
+    "maximum-load-inductance-turn-off-energy",
+    "load-inductance-range-test-coverage",
+    "freewheel-clamp-energy-capability",
+    "inductive-turn-off-transient-voltage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-load-response-to-switch-failure",
+   "name": "e2020-load-response-to-switch-failure",
+   "description": "Assess how a protected load behaves when the switch feeding it fails into a partly conducting, dissipative state. Use when an ECSS-E-ST-20-20C clause 5.3.3.1.1 failure analysis has to state the load response to a degraded feed: solve the series operating point for a constant-power, constant-current or resistive load against the failed switch resistance, categorize the outcome as degraded operation, an undervoltage inhibit or a feed that cannot be sustained at all, test the constant-power point against the stability boundary at half the bus voltage, and compare the power left in the failed switch with what it can dissipate. Trigger: ecss, e-st-20-20c, load-response-to-switch-failure, dissipative-switch-failure-mode, series-operating-point, constant-power-load-stability, load-undervoltage-inhibit, failed-switch-dissipation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-load-response-to-switch-failure",
+    "dissipative-switch-failure-mode",
+    "series-operating-point",
+    "constant-power-load-stability",
+    "load-undervoltage-inhibit",
+    "failed-switch-dissipation",
+    "load-inhibit-retrigger-cycling"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-load-undervoltage-interaction-study",
+   "name": "e2020-load-undervoltage-interaction-study",
+   "description": "Analyze whether a load carrying its own undervoltage protection drives its supplying limiter into a repetitive overload cycle. Use when clause 5.3.5.1.1 of ECSS-E-ST-20-20C is studied: take the branch limit value and trip-off delay, the load inrush and the voltage the branch holds in limitation, decide whether the load-side protection trips and then releases, and accumulate the limiter timer across windows under its declared retention to find whether the branch ever latches off, on which cycle, and what thermal duty the pass element carries meanwhile. Trigger: ecss, e-st-20-20c-clause-5-3-5-1-1, load-side-undervoltage-protection, repetitive-overload-cycle, limiter-trip-off-delay-accumulation, load-restart-oscillation, limitation-window-duty, undervoltage-recovery-hysteresis, pass-element-cycle-energy.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-load-undervoltage-interaction-study",
+    "load-side-undervoltage-protection",
+    "repetitive-overload-cycle",
+    "limiter-trip-off-delay-accumulation",
+    "load-restart-oscillation",
+    "limitation-window-duty",
+    "undervoltage-recovery-hysteresis",
+    "pass-element-cycle-energy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-memory-cell-upset-tolerance",
+   "name": "e2020-memory-cell-upset-tolerance",
+   "description": "Assess whether an upset in a limiter's retrigger or status memory cells can cost the load its power, under ECSS-E-ST-20-20C clause 5.2.18.2.1. Use when a design has to show that a flipped bit stays inside the housekeeping: group each cell by what its flip actually does to the output, refuse a coverage figure claimed for a mechanism that only detects, compute the residual upset rate every load-losing cell still carries after mitigation, project it across the mission duration, and name the cell that dominates the total. Trigger: ecss, e-st-20-20c-clause-5-2-18-2-1, retrigger-memory-cell-upset-tolerance, limiter-status-cell-upset-effect, single-event-upset-load-retention, memory-cell-upset-residual-rate, limiter-memory-cell-mitigation-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-18-2-1",
+    "e2020-memory-cell-upset-tolerance",
+    "retrigger-memory-cell-upset-tolerance",
+    "limiter-status-cell-upset-effect",
+    "single-event-upset-load-retention",
+    "memory-cell-upset-residual-rate",
+    "limiter-memory-cell-mitigation-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-minimum-interval-between-on-commands",
+   "name": "e2020-minimum-interval-between-on-commands",
+   "description": "Determine the shortest spacing a channel allows between two consecutive external turn on commands, per clause 5.4.1.4.1 of ECSS-E-ST-20-20C. Use when a command sequence, a retry policy or an autonomous reconfiguration has to be graded before it reaches the platform timeline. Take the governing interval as the longest of the declared minimum, the thermal recovery and the inrush settling time, say so when the declared figure is not the one that governs, grade every consecutive pair for its shortfall, and return the repaired schedule and the sustained command rate. Trigger: ecss, e-st-20-20c, lcl-on-command-spacing, minimum-interval-between-on-commands, consecutive-turn-on-command-spacing, limiter-thermal-recovery-interval, on-command-schedule-repair.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-minimum-interval-between-on-commands",
+    "minimum-interval-between-on-commands",
+    "lcl-on-command-spacing",
+    "consecutive-turn-on-command-spacing",
+    "limiter-thermal-recovery-interval",
+    "on-command-schedule-repair",
+    "sustained-on-command-rate"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-negligible-load-power-definition",
+   "name": "e2020-negligible-load-power-definition",
+   "description": "Define which load consumptions a power budget may carry as negligible. Use when an ECSS-E-ST-20-20C clause 5.2.13.2.1 budget needs the integrator's negligibility rule written as numbers and shown to hold: apply the tighter of the declared absolute watt figure and the declared share of the reference power, screen every consumer against it, sum what the rule excuses and compare that total against the aggregate cap, and confirm one excused consumer cannot on its own eat the budget uncertainty. Reports the unbudgeted residual and flags consumers sitting just under the threshold. Refuses an undeclared figure, a share at or above unity and a negative consumption. Trigger: ecss, e-st-20-20c, negligible-load-power-definition, power-budget-negligibility-threshold, negligible-load-aggregate-cap, unbudgeted-residual-power, budget-uncertainty-allowance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-negligible-load-power-definition",
+    "power-budget-negligibility-threshold",
+    "negligible-load-aggregate-cap",
+    "unbudgeted-residual-power",
+    "budget-uncertainty-allowance",
+    "negligible-load-screening"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-off-state-leakage-and-voltage",
+   "name": "e2020-off-state-leakage-and-voltage",
+   "description": "Assess the leakage current and residual output voltage a limiter presents while it is commanded off, per clause 5.4.1.3.1 of ECSS-E-ST-20-20C. Use when an off-state data set has to be graded before a switched channel is accepted, or when a load is suspected of never fully de-energising. Cross-check the two declared limits against each other through the off-state load resistance, derive the governing leakage ceiling, grade every temperature corner against both limits, name the worst corner on each, and report a corner set that leaves the parameter unbounded. Trigger: ecss, e-st-20-20c, lcl-off-state-leakage-current, off-state-residual-output-voltage, off-state-leakage-temperature-corners, residual-voltage-off-state-load-coupling, governing-off-state-leakage-ceiling.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-off-state-leakage-and-voltage",
+    "off-state-leakage-and-voltage",
+    "lcl-off-state-leakage-current",
+    "off-state-residual-output-voltage",
+    "off-state-leakage-temperature-corners",
+    "residual-voltage-off-state-load-coupling",
+    "governing-off-state-leakage-ceiling"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-onboard-failure-removal-response",
+   "name": "e2020-onboard-failure-removal-response",
+   "description": "Assess how a distribution unit behaves when onboard software answers a dissipatively failed limiter switch by reducing the load or commanding that switch off, under clause 5.2.14.2.1 of ECSS-E-ST-20-20C. Use when the survival argument for the surrounding parts rests on software rather than on hardware removing the fault. Raise each part through the detection and reaction latency on a first order thermal response, test the temperature reached against its derated rating, test what the action leaves running against the same rating, and report an off command the failed switch cannot answer. Trigger: ecss, e-st-20-20c, onboard-software-failure-removal, dissipative-failure-load-reduction, dissipative-failure-switch-off-command, onboard-response-latency-heating, failed-switch-off-command-effectiveness.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-onboard-failure-removal-response",
+    "onboard-software-failure-removal",
+    "dissipative-failure-load-reduction",
+    "dissipative-failure-switch-off-command",
+    "onboard-response-latency-heating",
+    "failed-switch-off-command-effectiveness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-output-current-limitation-range",
    "name": "e2020-output-current-limitation-range",
    "description": "Verify that a current limiter holds its output inside the defined minimum and maximum protection thresholds. Use when ECSS-E-ST-20-20C clause 5.2.3.1.1 asks a limiter design to prove the limitation current never leaves that window: stack the setpoint contributors — initial setting, temperature, reference drift, ageing, total dose, sense offset — arithmetically or by root-sum-square, build the worst-case limitation range around the nominal setpoint, compare both edges with the thresholds, confirm the lower edge clears the healthy load current and the upper edge stays under the protected harness rating, and report the setpoint that recentres the band. Refuses a negative tolerance, a relative contributor at or beyond unity and an inverted threshold window. Trigger: ecss, e-st-20-20c, limiter-output-current-limitation-range, protection-threshold-window, limitation-setpoint-tolerance-stack, root-sum-square-tolerance-stack, nuisance-limitation-headroom, recentred-limitation-setpoint.",
@@ -26511,6 +26873,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-output-impedance-bias-condition",
+   "name": "e2020-output-impedance-bias-condition",
+   "description": "Verify the device voltage drop at which an output-impedance dataset was measured and reported, under ECSS-E-ST-20-20C clause 5.2.17.2.1. Use when a characterisation has to name its bias point instead of leaving the operating condition implicit: refuse a drop larger than the bus feeding it, take the declared drop against the reference bias point, compare it with the drop the reported load current and series resistance imply, hold it inside the device operating window, take the implied dissipation against the device limit, and refuse a set whose classes each pass yet straddle the tolerance as a group. Trigger: ecss, e-st-20-20c-clause-5-2-17-2, lcl-output-impedance-bias-condition, device-voltage-drop-bias-point, output-impedance-measurement-condition, series-element-voltage-drop, bias-point-commonality, protection-device-dissipation-limit.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-protection-device-scope",
+    "e2020-output-impedance-bias-condition",
+    "lcl-output-impedance-bias-condition",
+    "device-voltage-drop-bias-point",
+    "output-impedance-measurement-condition",
+    "series-element-voltage-drop",
+    "bias-point-commonality",
+    "protection-device-dissipation-limit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-output-impedance-characterisation",
+   "name": "e2020-output-impedance-characterisation",
+   "description": "Evaluate the output-impedance dataset delivered for each protection-device class against the frequency band the project specified, under ECSS-E-ST-20-20C clause 5.2.17.1.1. Use when gain and phase have to arrive as a reviewable characterisation rather than a plot: refuse a descending or repeated frequency, convert between ohms and dB-ohm, require the sweep to reach both band edges, hold a points-per-decade floor and a largest step between adjacent frequencies, bound the reported phase, report the peak magnitude with the frequency carrying it, and name every declared class whose dataset never arrived. Trigger: ecss, e-st-20-20c-clause-5-2-17, lcl-output-impedance-characterisation, output-impedance-gain-and-phase, output-impedance-sweep-band-coverage, impedance-sweep-points-per-decade, peak-output-impedance-magnitude, db-ohm-magnitude-conversion.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-protection-device-scope",
+    "e2020-output-impedance-characterisation",
+    "lcl-output-impedance-characterisation",
+    "output-impedance-gain-and-phase",
+    "output-impedance-sweep-band-coverage",
+    "impedance-sweep-points-per-decade",
+    "peak-output-impedance-magnitude",
+    "db-ohm-magnitude-conversion"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-overcurrent-trip-off-timing",
    "name": "e2020-overcurrent-trip-off-timing",
    "description": "Evaluate whether a limiter switches off inside its tabulated trip-time window, per ECSS-E-ST-20C clause 5.2.4.1.1. Use when measured or simulated switch-off times have to be judged against the whole table rather than one nominal delay: form the overcurrent ratio against the declared limit, bracket it between tabulated rows, interpolate the minimum and maximum permitted times, hold the last row past the end of the table, and categorize every event as too fast to ride a legitimate inrush, inside the window, too slow to protect the harness, or never opened at all. Trigger: ecss, e-st-20-electrical-scope, overcurrent-trip-off-timing, trip-time-band-interpolation, overcurrent-ratio-bracketing, minimum-trip-time-nuisance-trip, maximum-trip-time-harness-protection, limiter-switch-off-window.",
@@ -26524,6 +26924,26 @@
     "minimum-trip-time-nuisance-trip",
     "maximum-trip-time-harness-protection",
     "limiter-switch-off-window"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-overload-current-overshoot-limit",
+   "name": "e2020-overload-current-overshoot-limit",
+   "description": "Compute the current overshoot that appears at the input and the output of a power supply interface when an overload arrives, and bound it. Use when clause 5.4.1.1.1 of ECSS-E-ST-20-20C is assessed: take the limitation value, the overload onset and the sampled waveform of each port, read each peak as a factor on the limitation value, integrate the time the current stays above it with interpolated crossings rather than whole sample intervals, compare both ports against the permitted factor and the settling window, and observe when the input peak exceeds the output one. Trigger: ecss, e-st-20-20c-clause-5-4-1-1-1, overload-current-overshoot, input-port-current-peak, output-port-current-peak, limitation-value-overshoot-factor, overshoot-settling-window, interpolated-limit-crossing, overload-onset-instant.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-overload-current-overshoot-limit",
+    "overload-current-overshoot",
+    "input-port-current-peak",
+    "output-port-current-peak",
+    "limitation-value-overshoot-factor",
+    "overshoot-settling-window",
+    "interpolated-limit-crossing",
+    "overload-onset-instant"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26625,6 +27045,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-perturbation-immunity-verification-levels",
+   "name": "e2020-perturbation-immunity-verification-levels",
+   "description": "Allocate every power-bus perturbation immunity requirement to the verification level that can actually reproduce it, under ECSS-E-ST-20-20C clause 5.2.16.2.1. Use when a protection-device immunity list has to be split between unit-level bench testing and spacecraft-level testing instead of deferred whole: refuse an inverted frequency band or a repeated identifier, send to spacecraft level anything needing the flight harness, the real bus source impedance or cross-user coupling, keep the rest at the earliest representative level, name a stimulus beyond both the bench and the facility, then merge the bands actually verified and report every uncovered slice of the specified band. Trigger: ecss, e-st-20-20c-clause-5-2-16, lcl-perturbation-immunity-allocation, power-bus-unit-level-immunity-test, power-bus-spacecraft-level-immunity-test, bus-source-impedance-representativeness, flight-harness-representativeness, immunity-frequency-band-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-protection-device-scope",
+    "e2020-perturbation-immunity-verification-levels",
+    "lcl-perturbation-immunity-allocation",
+    "power-bus-unit-level-immunity-test",
+    "power-bus-spacecraft-level-immunity-test",
+    "bus-source-impedance-representativeness",
+    "flight-harness-representativeness",
+    "immunity-frequency-band-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-power-distribution-standard-assumptions",
    "name": "e2020-power-distribution-standard-assumptions",
    "description": "Evaluate a protection-device application against the baseline assumptions of ECSS-E-ST-20-20C clause 4.2. Use when a latching current limiter is reused outside the host unit qualification temperature range and the power bus behaviour its requirements were written on: refuse an unstated, inverted or self-contradictory baseline, take the cold, hot, low-voltage and high-voltage margins one by one, admit an application landing exactly on a bound, name the limiting margin, and raise an advisory for an application sitting inside the marginal band. Trigger: ecss, e-st-20-20c-clause-4-2, host-unit-qualification-temperature-baseline, power-bus-voltage-baseline-assumption, protection-device-application-envelope, baseline-envelope-limiting-margin, requirement-applicability-deviation.",
@@ -26656,6 +27095,26 @@
     "protection-device-operating-window",
     "worst-case-instantaneous-bus-voltage",
     "transient-duration-tolerance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-representative-interface-for-load-testing",
+   "name": "e2020-representative-interface-for-load-testing",
+   "description": "Evaluate whether the bench source feeding a load tested on its own really represents the limiter the unit will fly behind. Use when a standalone load test is set up against ECSS-E-ST-20-20C clause 5.3.4.1.1: compare the bench limit value, trip-off delay, series impedance and inductance and undervoltage threshold with the flight branch, match the latching and retrigger character exactly, recognise a hard laboratory supply that can never enter limitation, and state whether the resulting evidence transfers to the integrated system. Trigger: ecss, e-st-20-20c-clause-5-3-4-1-1, standalone-load-test-source, representative-limiter-interface, lcl-current-limit-match, trip-off-delay-match, bench-source-series-impedance, hard-laboratory-supply, load-test-evidence-transfer.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-representative-interface-for-load-testing",
+    "standalone-load-test-source",
+    "representative-limiter-interface",
+    "lcl-current-limit-match",
+    "trip-off-delay-match",
+    "bench-source-series-impedance",
+    "hard-laboratory-supply",
+    "load-test-evidence-transfer"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26700,6 +27159,26 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-reverse-current-peak-tolerance",
+   "name": "e2020-reverse-current-peak-tolerance",
+   "description": "Verify that a latching current limiter tolerates the reverse current peak its channel will actually see, per clause 5.4.1.2.1 of ECSS-E-ST-20-20C. Use when a reverse current capability is called for and a bus transient, a capacitive discharge or a reversed load has to be graded before the rating is frozen. Derive the tolerated peak from the nominal limitation current and the rated peak multiple, derate it for a pulse longer than the rated duration and for repeated events, compare the applied peak against it, and report the margin and the multiple the rating would have to carry. Trigger: ecss, e-st-20-20c, lcl-reverse-current-peak-tolerance, latching-limiter-reverse-current-capability, reverse-current-peak-withstand-rating, reverse-peak-pulse-duration-derating, repetitive-reverse-transient-derating.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-reverse-current-peak-tolerance",
+    "reverse-current-peak-tolerance",
+    "lcl-reverse-current-peak-tolerance",
+    "latching-limiter-reverse-current-capability",
+    "reverse-current-peak-withstand-rating",
+    "reverse-peak-pulse-duration-derating",
+    "repetitive-reverse-transient-derating"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-reverse-current-withstand-capability",
    "name": "e2020-reverse-current-withstand-capability",
    "description": "Verify that a power outlet tolerates the current its load pushes back in both the conducting and the latched-off state, for ECSS-E-ST-20-20C clause 5.2.11.1.1: derive the recommended withstand level per state from the rated output current, convert the reverse pulse shape into charge, absorbed energy and repetitive rms current, raise the output-node excursion the charge drives into the holdup capacitance, then grade each state separately against its declared withstand peak, duration and overvoltage limit. Use when an inductive or regenerative load can drive current back into a distribution outlet. Trigger: ecss, e-st-20-20c, reverse-current-withstand, off-state-reverse-current, on-state-reverse-current, reverse-pulse-charge, output-node-overvoltage, blocking-element-need.",
@@ -26732,6 +27211,24 @@
     "rlcl-attempt-allowance",
     "rlcl-fault-energy-per-attempt",
     "harness-thermal-mean-rating"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-rlcl-enable-threshold-blanking",
+   "name": "e2020-rlcl-enable-threshold-blanking",
+   "description": "Determine whether a retriggerable latching current limiter stays off through a brief bus excursion. Use when an ECSS-E-ST-20-20C clause 5.4.4.3.1 enable design has to be shown sound: validate the enable and release points with their hysteresis, interpolate the crossings of a sampled bus trace to measure how long each excursion really dwells above the enable point, grade every nuisance excursion and every genuine request against the confirmation time, then report the feasible confirmation window and the margin at each end. Refuses an inverted threshold pair, thin hysteresis and an excursion that never settles below the release point. Trigger: ecss, e-st-20-20c, rlcl-enable-threshold, rlcl-enable-confirmation-time, enable-excursion-dwell, enable-release-hysteresis, retriggerable-limiter-turn-on, rlcl-nuisance-enable-blanking.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-rlcl-enable-threshold-blanking",
+    "rlcl-enable-threshold",
+    "rlcl-enable-confirmation-time",
+    "enable-excursion-dwell",
+    "enable-release-hysteresis",
+    "retriggerable-limiter-turn-on"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26795,6 +27292,98 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery",
+   "name": "e2020-rlcl-spurious-switch-off-recovery",
+   "description": "Evaluate whether a retriggerable limiter puts itself back into the conducting state after an unintended switch-off, under ECSS-E-ST-20-20C clause 5.2.18.1.1. Use when a power chain has to show that recovery is automatic and bounded: refuse a return to conduction that waits on a command, count the retrigger cycles a disturbance of a given length forces, build the recovery latency from detection, open interval and turn-on ramp, and weigh it against the hold-up the load actually has. Reach for it when a retrigger budget has to survive a disturbance longer than one open interval, or when a recovery time is quoted with nothing to compare it against. Trigger: ecss, e-st-20-20c-clause-5-2-18-1-1, rlcl-spurious-trip-autonomous-recovery, retrigger-cycle-recovery-latency, load-hold-up-versus-retrigger-latency, rlcl-retrigger-attempt-budget, spurious-switch-off-recovery-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-18-1-1",
+    "e2020-rlcl-spurious-switch-off-recovery",
+    "rlcl-spurious-trip-autonomous-recovery",
+    "retrigger-cycle-recovery-latency",
+    "load-hold-up-versus-retrigger-latency",
+    "rlcl-retrigger-attempt-budget",
+    "spurious-switch-off-recovery-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-rlcl-switch-on-response-verification",
+   "name": "e2020-rlcl-switch-on-response-verification",
+   "description": "Verify the switch-on response of a retriggerable latching current limiter against a stepped input. Use when an ECSS-E-ST-20-20C clause 5.4.4.4.1 test steps the bus from below the enable point up to nominal and has to prove what the output did: check the start point, the landing point, the settled dwell and the sharpness of the edge, time the delay from the interpolated input crossing to the output reaching its declared fraction of the regulated level, grade every run against both ends of the response window, then take the spread across the campaign. Refuses an inverted window, a nominal below the enable point and traces on different time bases. Trigger: ecss, e-st-20-20c, rlcl-switch-on-response, rlcl-turn-on-delay, bus-voltage-step-stimulus, response-window-verification, switch-on-repeatability-spread, retriggerable-limiter-enable-point.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-rlcl-switch-on-response-verification",
+    "rlcl-switch-on-response",
+    "rlcl-turn-on-delay",
+    "bus-voltage-step-stimulus",
+    "response-window-verification",
+    "switch-on-repeatability-spread"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-single-failure-line-containment",
+   "name": "e2020-single-failure-line-containment",
+   "description": "Verify that one failure disables at most one protected distribution line, per clause 5.2.15.1.1 of ECSS-E-ST-20-20C. Use when a single-point-failure argument has to be read failure by failure rather than box by box: enumerate the protected lines, attach every declared failure point to the lines it actually takes down, refuse a line-local point that reaches past its own line, count the fan-out a shared drive, command path, return or source stage produces, and rank a protected line nobody traced above one traced and found exposed. Trigger: ecss, e-st-20-20c-clause-5-2-15-1-1, single-failure-line-containment, distribution-line-fan-out, shared-element-line-exposure, untraced-protected-line.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-15-1-1",
+    "e2020-single-failure-line-containment",
+    "distribution-line-fan-out",
+    "shared-element-line-exposure",
+    "untraced-protected-line",
+    "line-local-failure-point"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-spurious-state-change-immunity",
+   "name": "e2020-spurious-state-change-immunity",
+   "description": "Assess whether a device holds its commanded state through electromagnetic disturbance, radiation events and similar perturbations, per clause 5.2.16.1.1 of ECSS-E-ST-20-20C. Use when an immunity claim has to cover every perturbation that can flip a latch and not only the one that was tested: turn each declared environment and demonstrated immunity into a level margin, separate a provision that prevents a flip from one that merely restores state afterwards, hold a restoring provision against the outage anyone tolerates, and rank an unassessed perturbation above one assessed and found short. Trigger: ecss, e-st-20-20c-clause-5-2-16-1-1, spurious-state-change-immunity, state-holding-perturbation-margin, state-restore-outage-window, single-event-upset-state-flip.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-16-1-1",
+    "e2020-spurious-state-change-immunity",
+    "state-holding-perturbation-margin",
+    "state-restore-outage-window",
+    "single-event-upset-state-flip",
+    "switch-state-immunity-provision"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-startup-current-slew-limit",
+   "name": "e2020-startup-current-slew-limit",
+   "description": "Evaluate whether a unit holds its output-current rise inside the declared turn-on slew ceiling, per ECSS-E-ST-20C clause 5.4.2.1.1. Use when turn-on traces from several worst-case corners have to be judged rather than one nominal switch-on: validate the time base, slope every segment, take the steepest rising stretch rather than the final current over the total rise time, compare it with the ceiling at inclusive equality, carry the relative headroom, and flag a trace sampled too coarsely to show the slope it reports or a corner the campaign never reached. Trigger: ecss, e-st-20-electrical-scope, startup-current-slew-limit, turn-on-current-rise-rate, peak-rising-slew-segment, slew-ceiling-headroom-fraction, coarse-sampling-peak-smoothing, turn-on-corner-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-startup-current-slew-limit",
+    "turn-on-current-rise-rate",
+    "peak-rising-slew-segment",
+    "slew-ceiling-headroom-fraction",
+    "coarse-sampling-peak-smoothing",
+    "turn-on-corner-coverage",
+    "output-current-slew-ceiling"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-startup-into-faulted-output",
    "name": "e2020-startup-into-faulted-output",
    "description": "Evaluate whether a current limiter starts up correctly and stays inside its own ratings when an overload or a short circuit is already sitting on its output, under ECSS-E-ST-20C clause 5.2.7.5.1. Use when a power distribution unit is assessed against a declared downstream fault set: solve the start up operating point at the top of the current limit accuracy band, split the bus between the fault and the pass element, carry the dissipation into a junction temperature and into the energy held over the trip delay, then weigh each against its rating through a named tolerance. Trigger: ecss, e-st-20c-clause-5-2-7-5-1, limiter-start-up-into-fault, downstream-short-circuit-dissipation, pass-element-junction-temperature, current-limit-accuracy-band, trip-delay-pulse-energy.",
@@ -26808,6 +27397,46 @@
     "pass-element-junction-temperature",
     "current-limit-accuracy-band",
     "trip-delay-pulse-energy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-startup-output-pulse-amplitude",
+   "name": "e2020-startup-output-pulse-amplitude",
+   "description": "Evaluate the voltage pulse an output throws while the main bus powers up, against clause 5.4.2.4.1 of ECSS-E-ST-20-20C. Use when a recorded start up capture has to show the excursion stays inside its declared amplitude limit rather than merely settling eventually: average the tail for the settled output, refuse a tail still moving, open the excursion window at the first arrival at that value so the ramp is not read as an undershoot, take the largest departure each way, widen each by the probe and digitiser uncertainty, and report the worst side with its margin. Trigger: ecss, e-st-20-20c, bus-startup-output-pulse-amplitude, output-overshoot-peak-excursion, startup-settled-output-baseline, pulse-amplitude-probe-uncertainty, undershoot-below-settled-output, main-bus-power-up-transient.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-startup-output-pulse-amplitude",
+    "bus-startup-output-pulse-amplitude",
+    "output-overshoot-peak-excursion",
+    "startup-settled-output-baseline",
+    "pulse-amplitude-probe-uncertainty",
+    "undershoot-below-settled-output",
+    "main-bus-power-up-transient"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-startup-output-pulse-duration",
+   "name": "e2020-startup-output-pulse-duration",
+   "description": "Determine how long an output stays away from its settled value while the main bus powers up, against clause 5.4.2.5.1 of ECSS-E-ST-20-20C. Use when a start up capture has to bound the excursion in time and not only in amplitude: centre a permitted band on the settled output, open the window where the ramp finishes, place both band crossings by interpolating across the crossing segment rather than counting whole samples, absorb re-entries shorter than the declared dead time into one event, flag an excursion the sample rate rather than the unit bounded, and compare the longest stay with its limit. Trigger: ecss, e-st-20-20c, bus-startup-output-pulse-duration, excursion-threshold-crossing-interpolation, pulse-duration-sample-rate-resolution, coalesced-pulse-re-entry-glitch, permitted-output-band-crossing, main-bus-power-up-transient-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-startup-output-pulse-duration",
+    "bus-startup-output-pulse-duration",
+    "excursion-threshold-crossing-interpolation",
+    "pulse-duration-sample-rate-resolution",
+    "coalesced-pulse-re-entry-glitch",
+    "permitted-output-band-crossing",
+    "main-bus-power-up-transient-window"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26890,6 +27519,24 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-steady-state-load-current-limit",
+   "name": "e2020-steady-state-load-current-limit",
+   "description": "Verify the steady load current of a switched line stays below the class current once the line is on. Use when ECSS-E-ST-20-20C clause 5.3.1.1.1 asks a load to show its post-switch-on consumption never reaches the limiter class current: convert every operating mode to amperes at both ends of the bus voltage window, remembering a constant-power load draws hardest at the lowest bus, carry the heaviest mode forward, stack the one-sided consumption uncertainties arithmetically or by root-sum-square, derate the class current by the project factor and report utilisation, margin and the mode that binds. Refuses an inverted bus window, an efficiency above unity and a mode with no declared consumption. Trigger: ecss, e-st-20-20c, lcl-steady-state-load-current-limit, derated-class-current-utilisation, constant-power-load-minimum-bus-voltage, steady-state-consumption-stack, bounding-operating-mode, nuisance-limitation-avoidance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-steady-state-load-current-limit",
+    "derated-class-current-utilisation",
+    "constant-power-load-minimum-bus-voltage",
+    "steady-state-consumption-stack",
+    "bounding-operating-mode",
+    "nuisance-limitation-avoidance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-switch-element-bus-placement",
    "name": "e2020-switch-element-bus-placement",
    "description": "Verify that the switching element of a power distribution protection device sits on the energised main bus side. Use when an LCL, HLCL or latching relay branch is reviewed against ECSS-E-ST-20-20C clause 5.2.3.2.1: order the branch from main bus along the energised rail through the load and back to the bus return, confirm the pass element precedes everything it protects, list what stays tied to the bus once it opens, name any reachable connector or harness left live, size the energised stub against its limit, and flag a redundant feed injecting past the element. Trigger: ecss, e-st-20-20c-clause-5-2-3-2-1, lcl-switching-element-placement, energised-main-bus-side-switch, power-branch-isolation-coverage, live-harness-stub-upstream-of-switch, return-side-switch-defect, latching-current-limiter-topology.",
@@ -26928,6 +27575,43 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2020-switch-off-current-slew-limit",
+   "name": "e2020-switch-off-current-slew-limit",
+   "description": "Evaluate whether a unit holds its output-current fall inside the declared switch-off slew ceiling, per ECSS-E-ST-20C clause 5.4.2.2.1. Use when a turn-off trace has to answer two questions at once: the steepest collapse against the declared ceiling, and the transient that same rate drives across the harness inductance against the bus allowance. Validate the time base, rate every segment, take the abrupt let-go rather than the mean decay, convert it into an induced volt, judge both at inclusive equality, and name the limit that actually binds each corner. Trigger: ecss, e-st-20-electrical-scope, switch-off-current-slew-limit, turn-off-current-fall-rate, peak-collapse-segment, harness-inductance-induced-transient, bus-transient-allowance-margin, switch-off-corner-headroom.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-switch-off-current-slew-limit",
+    "turn-off-current-fall-rate",
+    "peak-collapse-segment",
+    "harness-inductance-induced-transient",
+    "bus-transient-allowance-margin",
+    "switch-off-corner-headroom",
+    "output-current-fall-ceiling"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-switch-on-inrush-allowance",
+   "name": "e2020-switch-on-inrush-allowance",
+   "description": "Verify a turn-on current profile exceeds the class current only while the input filter is charging. Use when ECSS-E-ST-20-20C clause 5.3.2.1.1 asks a switch-on transient to be justified rather than merely observed: group every profile segment above the class current by its declared cause, reject an excess not attributable to input-filter charging, charge the filter at the current left over once the steady load is served, confirm the whole excess finishes inside the shortest trip-off delay with margin, check the declared excess matches what the filter needs, and confirm the profile settles below the class current. Refuses an unknown cause and a steady load consuming the limiting current. Trigger: ecss, e-st-20-20c, lcl-switch-on-inrush-allowance, input-filter-charging-excess, turn-on-current-profile-attribution, inrush-duration-against-trip-off-delay, post-inrush-settling-current, leftover-charge-current.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-switch-on-inrush-allowance",
+    "input-filter-charging-excess",
+    "turn-on-current-profile-attribution",
+    "inrush-duration-against-trip-off-delay",
+    "post-inrush-settling-current",
+    "leftover-charge-current"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2020-telemetry-accuracy-verification-points",
    "name": "e2020-telemetry-accuracy-verification-points",
    "description": "Evaluate the load points a current telemetry accuracy verification actually exercises against the ones ECSS-E-ST-20-20C clause 5.2.8.7.1 expects, and name what the test programme would leave unproven. Use when a proposed current telemetry test matrix has to be accepted or sent back: match every proposed point against the required fractions of full scale inside a stated tolerance, carry each declared mission load current as a required point of its own, refuse a point outside the channel range, group proposals that add no coverage, insist on a no-load point and a loaded low-end point where the fixed error governs, and close with the gaps named. Trigger: ecss, e-st-20-20c-clause-5-2-8-7-1, telemetry-accuracy-verification-points, current-telemetry-test-matrix, full-scale-fraction-coverage, low-end-verification-point, mission-load-point-coverage, verification-point-match-tolerance.",
@@ -26941,6 +27625,86 @@
     "mission-load-point-coverage",
     "verification-point-match-tolerance",
     "no-load-verification-point"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-action-on-both-switches",
+   "name": "e2020-undervoltage-action-on-both-switches",
+   "description": "Verify that an undervoltage protection opens both the main switch and the extra switch of a current limiter, each through a memory cell of its own, under clause 5.2.13.5.1 of ECSS-E-ST-20-20C. Use when one detection chain has to latch two series switches off and the two command paths share parts. Walk each path element by element, confirm every switch holds its open state in its own cell, name any memory or drive element the two paths hold in common, and run a single failure walk reporting which switches stay closed. Trigger: ecss, e-st-20-20c, undervoltage-opens-both-switches, main-and-extra-switch-opening, independent-undervoltage-memory-cell, shared-undervoltage-memory-cell, undervoltage-off-command-path, limiter-extra-switch-latch.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-undervoltage-action-on-both-switches",
+    "undervoltage-opens-both-switches",
+    "main-and-extra-switch-opening",
+    "independent-undervoltage-memory-cell",
+    "shared-undervoltage-memory-cell",
+    "undervoltage-off-command-path",
+    "limiter-extra-switch-latch"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-event-blanking-time",
+   "name": "e2020-undervoltage-event-blanking-time",
+   "description": "Evaluate the blanking time that lets an undervoltage protection ignore a short dip below its trip threshold, against clause 5.4.3.3.1 of ECSS-E-ST-20-20C. Use when a unit declares a time below the threshold that has to elapse before a trip is issued and that figure has to be shown to sit in a real window. Build the lower bound from the longest transient the bus is allowed to impose, build the upper bound from the hold-up the load can ride out less the detection and switching latency, and report the margin on each side. Then walk the declared dip events, decide which are absorbed and which trip, and name every transient that trips and every genuine undervoltage the blanking swallows. Trigger: ecss, e-st-20-20c-clause-5-4-3-3-1, undervoltage-event-blanking-time, undervoltage-trip-blanking-window, bus-transient-ride-through-blanking, undervoltage-detection-latency-budget, blanked-undervoltage-event-walk, undervoltage-blanking-hold-up-bound.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e-st-20-20c-clause-5-4-3-3-1",
+    "e2020-undervoltage-event-blanking-time",
+    "undervoltage-trip-blanking-window",
+    "bus-transient-ride-through-blanking",
+    "undervoltage-detection-latency-budget",
+    "blanked-undervoltage-event-walk",
+    "undervoltage-blanking-hold-up-bound"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-hysteresis-width",
+   "name": "e2020-undervoltage-hysteresis-width",
+   "description": "Verify the minimum width between the undervoltage trip point and the enable point of a protection function, per clause 5.4.3.5.1 of ECSS-E-ST-20-20C. Use when a unit declares both thresholds and the separation still standing after setting tolerance has to be shown. Take the declared separation, erode it by the tolerance of each comparator, express it against the nominal bus, and compare that worst case with the minimum the project requires. Report a design carrying no hysteresis at all as outside the clause rather than failing it, and flag an enable point the bus can never reach. Trigger: ecss, e-st-20-20c-clause-5-4-3-5-1, undervoltage-trip-to-enable-separation, undervoltage-hysteresis-width-minimum, undervoltage-enable-point-reachability, undervoltage-threshold-tolerance-erosion, undervoltage-hysteresis-width-against-nominal-bus.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e-st-20-20c-clause-5-4-3-5-1",
+    "e2020-undervoltage-hysteresis-width",
+    "undervoltage-trip-to-enable-separation",
+    "undervoltage-hysteresis-width-minimum",
+    "undervoltage-enable-point-reachability",
+    "undervoltage-threshold-tolerance-erosion",
+    "undervoltage-hysteresis-width-against-nominal-bus"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-noise-immunity-test",
+   "name": "e2020-undervoltage-noise-immunity-test",
+   "description": "Validate a noise immunity test that applies a defined voltage step to show an undervoltage trip does not react to bus noise, per clause 5.4.3.4.1 of ECSS-E-ST-20-20C. Use when a test specification has to be shown to demonstrate immunity rather than merely avoid a trip. Size the step from the declared noise and ripple envelope, check that the level before and after it both stay clear of the trip band so the step is a disturbance and not a genuine undervoltage, require a dwell that outlasts the detection chain so a pass is immunity and not an unfinished measurement, check the edge is as fast as the disturbance it stands for, and grade the recorded runs. Trigger: ecss, e-st-20-20c-clause-5-4-3-4-1, undervoltage-noise-immunity-test, undervoltage-trip-step-stimulus, noise-immunity-step-amplitude-sizing, undervoltage-test-dwell-adequacy, undervoltage-spurious-trip-immunity, undervoltage-step-edge-rate.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e-st-20-20c-clause-5-4-3-4-1",
+    "e2020-undervoltage-noise-immunity-test",
+    "undervoltage-trip-step-stimulus",
+    "noise-immunity-step-amplitude-sizing",
+    "undervoltage-test-dwell-adequacy",
+    "undervoltage-spurious-trip-immunity",
+    "undervoltage-step-edge-rate"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -26980,6 +27744,46 @@
     "bus-dip-ride-through-time",
     "limiter-bus-interface-protection",
     "undervoltage-provision-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-threshold-maximum-bus-range",
+   "name": "e2020-undervoltage-threshold-maximum-bus-range",
+   "description": "Verify that a ground adjustable undervoltage trip point is expressed against the maximum direct current bus voltage, per clause 5.4.3.2.1 of ECSS-E-ST-20-20C. Use when a unit declares its undervoltage threshold as a fraction of a bus voltage and the reference, the adjustment ladder and the resulting window all have to be shown. Refer every settable fraction back into volts through the maximum bus voltage, walk the ladder from its lowest setting to its highest, and test each point against the window between the equipment operating floor and the lowest steady state bus voltage. Report the reference the specification actually used, the usable settings, and the volts one adjustment step buys. Trigger: ecss, e-st-20-20c-clause-5-4-3-2-1, undervoltage-threshold-maximum-bus-range, ground-adjustable-undervoltage-setting, undervoltage-threshold-reference-voltage, undervoltage-setting-ladder-resolution, maximum-bus-voltage-referral, undervoltage-trip-window-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e-st-20-20c-clause-5-4-3-2-1",
+    "e2020-undervoltage-threshold-maximum-bus-range",
+    "ground-adjustable-undervoltage-setting",
+    "undervoltage-threshold-reference-voltage",
+    "undervoltage-setting-ladder-resolution",
+    "maximum-bus-voltage-referral",
+    "undervoltage-trip-window-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-threshold-nominal-bus-range",
+   "name": "e2020-undervoltage-threshold-nominal-bus-range",
+   "description": "Verify that a ground adjustable undervoltage trip point covers its required span when expressed against the nominal bus value, per clause 5.4.3.1.1 of ECSS-E-ST-20-20C. Use when a unit declares a ladder of trip points as shares of nominal and the settable span has to be judged rather than one figure: convert each share to volts at the nominal bus, widen it by reference and sensing tolerance, keep only settings whose band clears the lowest normal bus voltage and stays above the equipment operating floor, show the usable settings reach both ends of the required span, check the step resolution, and refuse an in flight adjustment. Trigger: ecss, e-st-20-20c, ground-adjustable-undervoltage-threshold, undervoltage-threshold-percent-of-nominal-bus, undervoltage-setting-step-resolution, nuisance-undervoltage-trip-clearance, undervoltage-adjustment-range-coverage, equipment-operating-floor-clearance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-undervoltage-threshold-nominal-bus-range",
+    "ground-adjustable-undervoltage-threshold",
+    "undervoltage-threshold-percent-of-nominal-bus",
+    "undervoltage-setting-step-resolution",
+    "nuisance-undervoltage-trip-clearance",
+    "undervoltage-adjustment-range-coverage",
+    "equipment-operating-floor-clearance"
    ],
    "family": "space-systems",
    "pack": "ecss",

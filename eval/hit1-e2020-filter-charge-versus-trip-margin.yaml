@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-filter-charge-versus-trip-margin (space-systems/ecss)
+# Two tasks for the leaf. fctm1 routes on the constant-current filter charge
+# time against the shortest trip time with every allowance applied; fctm2
+# routes on the nominal-only pass, the case that clears the factor on the
+# schematic numbers and trips on switch-on at the corner. Both must
+# deterministically hit
+# space-systems/ecss/e2020-filter-charge-versus-trip-margin.
+tasks:
+  - id: fctm1
+    query: "work out whether a load input filter finishes charging at the limitation current well inside the shortest trip time once capacitance tolerance and end-of-life drift are applied"
+    intent: "ECSS-E-ST-20C clause 5.4.2.3.1; worst-case filter charge time against the shortest trip time"
+    expected_skill: "space-systems/ecss/e2020-filter-charge-versus-trip-margin"
+  - id: fctm2
+    query: "find out whether a switch-on case clears its required separation factor only at nominal and runs into the trip once the limitation current is derated and the fastest trip time shortened"
+    intent: "ECSS-E-ST-20C clause 5.4.2.3.1; nominal-only charge margin and the switch-on nuisance trip at the corner"
+    expected_skill: "space-systems/ecss/e2020-filter-charge-versus-trip-margin"

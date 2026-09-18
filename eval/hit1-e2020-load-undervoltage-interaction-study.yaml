@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-load-undervoltage-interaction-study (space-systems/ecss)
+# Two tasks for the new leaf. luvint1 routes on a load-side undervoltage
+# protection that keeps restarting a branch that never latches off; luvint2
+# routes on the limiter timer accumulation that decides whether the pattern
+# ever ends. Both must deterministically hit
+# space-systems/ecss/e2020-load-undervoltage-interaction-study.
+tasks:
+  - id: luvint1
+    query: "the equipment has its own undervoltage protection, it drops out when the branch droops in current limitation and comes straight back, and the unit now cycles forever without the limiter ever tripping off"
+    intent: "ECSS-E-ST-20-20C clause 5.3.5.1.1; repetitive overload pattern from a load-side undervoltage protection"
+    expected_skill: "space-systems/ecss/e2020-load-undervoltage-interaction-study"
+  - id: luvint2
+    query: "work out whether the limiter timer accumulates across these short limitation windows or resets between them, and on which restart cycle the branch finally latches off, plus the pass element duty meanwhile"
+    intent: "ECSS-E-ST-20-20C clause 5.3.5.1.1; trip-off delay accumulation across repeated load-undervoltage restart cycles"
+    expected_skill: "space-systems/ecss/e2020-load-undervoltage-interaction-study"

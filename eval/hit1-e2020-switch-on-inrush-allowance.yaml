@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-switch-on-inrush-allowance (space-systems/ecss)
+# Two tasks for the leaf. soia1 routes on attributing every turn-on segment
+# above the class current to input-filter charging and rejecting any other
+# cause; soia2 routes on the duration arithmetic, charging the filter at the
+# current left over once the steady load is served and fitting the excess
+# inside the shortest trip-off delay. Both must deterministically hit
+# space-systems/ecss/e2020-switch-on-inrush-allowance.
+tasks:
+  - id: soia1
+    query: "walk a turn-on current profile segment by segment, pick out everything above the class current and reject any excess whose declared cause is not charging the input filter of the load"
+    intent: "ECSS-E-ST-20-20C clause 5.3.2.1.1; turn-on current profile attribution and the permitted input-filter-charging excess"
+    expected_skill: "space-systems/ecss/e2020-switch-on-inrush-allowance"
+  - id: soia2
+    query: "charge the input filter at the current left over once the steady load is served, show the whole switch-on excess finishes inside the shortest trip-off delay with margin and that the profile settles back below the class current"
+    intent: "ECSS-E-ST-20-20C clause 5.3.2.1.1; leftover charge current, inrush duration against the trip-off delay and post-inrush settling"
+    expected_skill: "space-systems/ecss/e2020-switch-on-inrush-allowance"

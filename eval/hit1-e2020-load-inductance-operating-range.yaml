@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-load-inductance-operating-range (space-systems/ecss)
+# Two tasks for the leaf. lior1 routes on normal operation across the whole
+# declared inductance range; lior2 routes on the turn-off energy and transient
+# at the specified maximum. Both must deterministically hit
+# space-systems/ecss/e2020-load-inductance-operating-range.
+tasks:
+  - id: lior1
+    query: "show a current limiter operates normally for every load inductance from a nearly resistive load up to the specified maximum, not only at the maximum itself"
+    intent: "ECSS-E-ST-20-20C clause 5.2.19.1.1; normal operation across the whole declared load inductance range"
+    expected_skill: "space-systems/ecss/e2020-load-inductance-operating-range"
+  - id: lior2
+    query: "compute the energy the maximum load inductance stores at the limitation current and the turn-off transient it drives across the opening switch, then weigh both against the freewheel clamp capability"
+    intent: "ECSS-E-ST-20-20C clause 5.2.19.1.1; stored energy, inductive turn-off transient, clamp path capability"
+    expected_skill: "space-systems/ecss/e2020-load-inductance-operating-range"

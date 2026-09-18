@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-reverse-current-peak-tolerance (space-systems/ecss,
+# E-ST-20-20C 5.4.1.2.1). Two tasks per leaf; loc1 routes on the withstand
+# rating and the capability that makes it apply, loc2 on the duration and
+# repetition derating that moves the tolerated peak. Both must deterministically
+# hit space-systems/ecss/e2020-reverse-current-peak-tolerance.
+tasks:
+  - id: loc1
+    query: "grade the reverse-current-peak-withstand-rating of an lcl-reverse-current-peak-tolerance channel where latching-limiter-reverse-current-capability is called for"
+    intent: "ecss power supply; the reverse current peak a latching current limiter withstands where a reverse capability applies"
+    expected_skill: "space-systems/ecss/e2020-reverse-current-peak-tolerance"
+  - id: loc2
+    query: "apply reverse-peak-pulse-duration-derating and repetitive-reverse-transient-derating to work out the reverse peak the limiter still tolerates"
+    intent: "ecss power supply; derating a reverse peak withstand rating for a longer pulse and for repeated reverse events"
+    expected_skill: "space-systems/ecss/e2020-reverse-current-peak-tolerance"

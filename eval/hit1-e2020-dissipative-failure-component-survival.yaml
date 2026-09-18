@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-dissipative-failure-component-survival
+# (space-systems/ecss, E-ST-20-20C 5.2.14.1.1). Two tasks per leaf; dfs1 routes
+# on the uncleared steady state, dfs2 on the per-part thermal survival and the
+# allowable dissipation. Both must deterministically hit
+# space-systems/ecss/e2020-dissipative-failure-component-survival.
+tasks:
+  - id: dfs1
+    query: "grade the uncleared-limiter-dissipation of a dissipative-switch-failure-survival case where nothing else removes the fault"
+    intent: "ecss power supply; a limiter switch stuck in limitation dissipates indefinitely and the parts around it have to survive it"
+    expected_skill: "space-systems/ecss/e2020-dissipative-failure-component-survival"
+  - id: dfs2
+    query: "size the surrounding-part-thermal-survival and the dissipative-failure-allowable-power against limiter-dissipative-failure-heating"
+    intent: "ecss power supply; each neighbouring part is raised by its own coupling and compared against its derated rating"
+    expected_skill: "space-systems/ecss/e2020-dissipative-failure-component-survival"

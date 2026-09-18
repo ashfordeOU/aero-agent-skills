@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-undervoltage-threshold-maximum-bus-range
+# (space-systems/ecss, E-ST-20-20C 5.4.3.2.1). Two tasks per leaf; utr1 routes
+# on the reference voltage the threshold is carried against, utr2 on the
+# ground adjustable ladder and its resolution. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-threshold-maximum-bus-range.
+tasks:
+  - id: utr1
+    query: "check the undervoltage-threshold-reference-voltage of this unit and redo the maximum-bus-voltage-referral for every setting"
+    intent: "ecss power supply; the undervoltage trip point is expressed as a fraction of the maximum direct current bus voltage"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-threshold-maximum-bus-range"
+  - id: utr2
+    query: "walk the ground-adjustable-undervoltage-setting ladder for undervoltage-trip-window-coverage and grade the undervoltage-setting-ladder-resolution"
+    intent: "ecss power supply; every settable undervoltage trip point has to sit above the equipment floor and below the steady state bus band"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-threshold-maximum-bus-range"
