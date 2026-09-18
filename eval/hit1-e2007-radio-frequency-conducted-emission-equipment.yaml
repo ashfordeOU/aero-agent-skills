@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radio-frequency-conducted-emission-equipment
+# (space-systems/ecss, E-ST-20-07C 5.4.3.2). Two tasks per leaf; rfcee1 routes
+# on the instrument roles the method needs, rfcee2 on the probe factor and the
+# calibration window. Both must deterministically hit
+# space-systems/ecss/e2007-radio-frequency-conducted-emission-equipment.
+tasks:
+  - id: rfcee1
+    query: "check the measurement-receiver-span against the current-probe-transfer-impedance range and the injection-signal-generator before the conducted run is declared ready"
+    intent: "ecss emc higher-band conducted emission; the receiver, probe, generator, recorder and oscilloscope the method is run with"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-equipment"
+  - id: rfcee2
+    query: "convert a reading with the current-probe-transfer-impedance and grade instrument-calibration-validity over the conducted-emission-data-recorder campaign"
+    intent: "ecss emc higher-band conducted emission; probe factor conversion to lead current and calibration valid for the whole campaign"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-equipment"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-low-frequency-conducted-emission-equipment
+# (space-systems/ecss, E-ST-20-07C 5.4.2.2). Two tasks per leaf; lfcee1 routes
+# on the instrument roles and their band coverage, lfcee2 on the probe
+# transfer impedance and the source drive the system check needs. Both must
+# deterministically hit
+# space-systems/ecss/e2007-low-frequency-conducted-emission-equipment.
+tasks:
+  - id: lfcee1
+    query: "list the lf-conducted-emission-equipment roles and intersect the emi-measurement-receiver, current-probe and conducted-emission-calibration-source coverages for the conducted-emission-band-coverage check"
+    intent: "ecss emc; low-frequency conducted-emission instrument set and its uncovered sub-bands"
+    expected_skill: "space-systems/ecss/e2007-low-frequency-conducted-emission-equipment"
+  - id: lfcee2
+    query: "size the current-probe-transfer-impedance against the harness current and derive the conducted-emission-calibration-source drive level with the instrument-calibration-currency review"
+    intent: "ecss emc; probe rating, transfer impedance floor and source ceiling for the system check"
+    expected_skill: "space-systems/ecss/e2007-low-frequency-conducted-emission-equipment"

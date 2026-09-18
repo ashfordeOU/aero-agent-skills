@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-static-charging-verification (space-systems/ecss,
+# E-ST-20-07C 5.3.5). Two tasks per leaf; scv1 routes on the material band and
+# the strap ceiling, scv2 on blanket grounding and the relaxation time. Both
+# must deterministically hit
+# space-systems/ecss/e2007-static-charging-verification.
+tasks:
+  - id: scv1
+    query: "examine the surface-sheet-resistivity-band of the painted skin and check each bonding-strap-dc-resistance against the ceiling of its potential-equalization-bonding category"
+    intent: "ecss static charging; materials and bonding straps provided for potential equalization on the vehicle"
+    expected_skill: "space-systems/ecss/e2007-static-charging-verification"
+  - id: scv2
+    query: "size the thermal-blanket-ground-tabs for the blanket area and compare the static-charge-relaxation-time with the equalization limit"
+    intent: "ecss static charging; blanket layer grounding, ground-tab count and charge bleed-off time"
+    expected_skill: "space-systems/ecss/e2007-static-charging-verification"

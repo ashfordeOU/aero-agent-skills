@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-power-bus-voltage-setting (space-systems/ecss)
+# Two tasks for the leaf. pbvs1 routes on picking the supply extreme that gives
+# the worst conducted emission; pbvs2 routes on two sweeps that cross, where the
+# envelope rather than a single run is the worst result. Both must
+# deterministically hit space-systems/ecss/e2007-power-bus-voltage-setting.
+tasks:
+  - id: pbvs1
+    query: "compare the conducted emission sweeps recorded at the lower and upper bus voltage settings and name the supply extreme whose run governs the measurement"
+    intent: "ECSS-E-ST-20-07C clause 5.2.12; conducted emission performed at the worst supply-voltage extreme"
+    expected_skill: "space-systems/ecss/e2007-power-bus-voltage-setting"
+  - id: pbvs2
+    query: "the low-voltage run is worse below 1 MHz and the high-voltage run is worse above it; decide what spectrum to report against the limit line and whether one setting can be reported alone"
+    intent: "ECSS-E-ST-20-07C clause 5.2.12; crossing supply-extreme sweeps and the emission envelope"
+    expected_skill: "space-systems/ecss/e2007-power-bus-voltage-setting"

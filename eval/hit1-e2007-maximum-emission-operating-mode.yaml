@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-maximum-emission-operating-mode (space-systems/ecss)
+# Two tasks for the leaf. meom1 routes on ranking a mode survey band by band and
+# naming the dominant mode; meom2 routes on the decibel shortfall of a declared
+# mode and the duty-cycle correction that reorders a pulsed emitter. Both must
+# deterministically hit space-systems/ecss/e2007-maximum-emission-operating-mode.
+tasks:
+  - id: meom1
+    query: "rank the surveyed operating modes of the unit band by band and name the mode that emits most so the formal emission sweep is taken in it"
+    intent: "ECSS-E-ST-20-07C clause 5.2.7.1; per-band ranking of an emission mode survey and dominant-mode selection"
+    expected_skill: "space-systems/ecss/e2007-maximum-emission-operating-mode"
+  - id: meom2
+    query: "work out how many decibels the declared test mode sits below the noisiest surveyed mode in each band once the pulsed transmitter is corrected for its duty cycle, and list the bands needing another run"
+    intent: "ECSS-E-ST-20-07C clause 5.2.7.1; duty-cycle correction, per-band shortfall and additional-run listing"
+    expected_skill: "space-systems/ecss/e2007-maximum-emission-operating-mode"

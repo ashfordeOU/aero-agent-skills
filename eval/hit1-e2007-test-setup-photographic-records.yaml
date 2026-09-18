@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-test-setup-photographic-records (space-systems/ecss)
+# Two tasks for the new leaf. tspr1 routes on whether the photographs of a test
+# setup cover the arrangement well enough for the report; tspr2 routes on the
+# calibration-arrangement and test-point frames and their presence in the
+# report itself. Both must deterministically hit
+# space-systems/ecss/e2007-test-setup-photographic-records.
+tasks:
+  - id: tspr1
+    query: "decide whether the emc bench photographs cover every setup arrangement with enough distinct views before the test report is closed"
+    intent: "ECSS-E-ST-20-07C clause 5.2.13; photographic coverage of test setups in the report"
+    expected_skill: "space-systems/ecss/e2007-test-setup-photographic-records"
+  - id: tspr2
+    query: "audit the test point and calibration arrangement photographs for caption, identification label, scale reference and inclusion in the report"
+    intent: "ECSS-E-ST-20-07C clause 5.2.13; test point and calibration photographic evidence quality"
+    expected_skill: "space-systems/ecss/e2007-test-setup-photographic-records"

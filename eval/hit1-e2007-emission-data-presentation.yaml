@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-emission-data-presentation (space-systems/ecss)
+# Two tasks for the new leaf. edp1 routes on a plotting chain that builds
+# amplitude-against-frequency plots automatically but only into the
+# post-run report; edp2 routes on the refresh interval a live display must
+# hold to stay abreast of the receiver sweep. Both must deterministically
+# hit space-systems/ecss/e2007-emission-data-presentation.
+tasks:
+  - id: edp1
+    query: "the EMC bench builds the amplitude versus frequency plots on its own but only once the emission run has finished, is that enough or must the operator see them while the measurement is still going"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.4; automatic plot generation and display during the run are two separate conditions"
+    expected_skill: "space-systems/ecss/e2007-emission-data-presentation"
+  - id: edp2
+    query: "how slow can the emission plot refresh be and still count as showing the sweep, and does it matter that the displayed frequency axis is zoomed inside the declared test band"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.4; refresh interval derived from sweep time and updates per sweep, plus displayed-axis coverage of the test band"
+    expected_skill: "space-systems/ecss/e2007-emission-data-presentation"

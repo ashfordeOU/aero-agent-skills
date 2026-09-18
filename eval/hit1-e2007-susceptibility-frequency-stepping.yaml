@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-susceptibility-frequency-stepping (space-systems/ecss)
+# Two tasks for the new leaf. sfs1 routes on a susceptibility scan run as a
+# continuous sweep where the range must be stepped; sfs2 routes on step
+# increments sized as a fraction of their own lower frequency and on the
+# dwell a slow-responding unit needs. Both must deterministically hit
+# space-systems/ecss/e2007-susceptibility-frequency-stepping.
+tasks:
+  - id: sfs1
+    query: "the radiated susceptibility generator slid continuously from the range start to the range stop instead of holding at points, does that scan cover the range or does it have to be repeated"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.1; a continuously swept susceptibility scan never dwells, so the unit is never held long enough to show a response"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-frequency-stepping"
+  - id: sfs2
+    query: "should susceptibility steps be a fixed number of hertz or a percentage of the current frequency, and how long must each step be held for a unit whose control loop is slow to react"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.1; fractional step sizing across a wide range and the dwell set by the unit response time under a floor"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-frequency-stepping"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-inrush-current-test-procedure (space-systems/ecss)
+# Two tasks for the new leaf. icp1 routes on the order of the stabilisation,
+# arming and switching steps; icp2 routes on how long the unit must stay off
+# between repeats and what the optional chain check changes. Both must
+# deterministically hit
+# space-systems/ecss/e2007-inrush-current-test-procedure.
+tasks:
+  - id: icp1
+    query: "what order do we run the switch on surge steps in, how long does the unit have to sit powered before the first one and where does arming the capture belong relative to the switching command"
+    intent: "ECSS-E-ST-20-07C clause 5.4.4.4; stabilisation first, capture armed before the switching command, repeats with recovery between them"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-test-procedure"
+  - id: icp2
+    query: "how long do we leave the unit off between inrush repeats so the input filter is discharged again, and does skipping the optional measurement chain check fail the run or just get noted"
+    intent: "ECSS-E-ST-20-07C clause 5.4.4.4; off-time derived from the filter time constant, omitted chain check carried as a limitation"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-test-procedure"

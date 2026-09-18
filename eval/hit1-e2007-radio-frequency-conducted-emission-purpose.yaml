@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radio-frequency-conducted-emission-purpose
+# (space-systems/ecss, E-ST-20-07C 5.4.3.1). Two tasks per leaf; rfcep1 routes
+# on the lead pair the aim is stated over, rfcep2 on the limit margin and the
+# band coverage the aim is demonstrated across. Both must deterministically
+# hit space-systems/ecss/e2007-radio-frequency-conducted-emission-purpose.
+tasks:
+  - id: rfcep1
+    query: "state what the power-input-lead-emission and power-return-lead-emission sweeps have to show before the conducted method aim counts as demonstrated"
+    intent: "ecss emc higher-band conducted emission; the aim of the method stated over the power input lead and its return lead"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-purpose"
+  - id: rfcep2
+    query: "grade each conducted-emission-limit-margin and the conducted-method-band-coverage then name the governing-emission-lead"
+    intent: "ecss emc higher-band conducted emission; margin against the applicable limit and worst lead at its worst frequency"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-purpose"

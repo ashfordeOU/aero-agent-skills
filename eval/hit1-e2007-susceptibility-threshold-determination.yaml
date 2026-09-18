@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-susceptibility-threshold-determination (space-systems/ecss)
+# Two tasks for the new leaf. std1 routes on finding and recording the level at
+# which an observed disturbance ceases as the level is stepped down; std2 routes
+# on the bracket the stepped search leaves and the margin the recorded threshold
+# holds over the required immunity level. Both must deterministically hit
+# space-systems/ecss/e2007-susceptibility-threshold-determination.
+tasks:
+  - id: std1
+    query: "the star tracker output went out of band during the radiated susceptibility run, how do I find and write down the level where the disturbance goes away"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.3; the injected level is reduced until the indication ceases and that cessation level is the recorded susceptibility threshold"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-threshold-determination"
+  - id: std2
+    query: "we stepped the injection down in fourteen decibel jumps and the upset stopped, then came back two steps lower, can I still quote a susceptibility threshold and what margin does it leave over the required level"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.3; search bracket as the resolution of the threshold, a returning indication as an inconsistent search, margin of the threshold over the required immunity level"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-threshold-determination"

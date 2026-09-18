@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-wiring-and-shielding-verification (space-systems/ecss)
+# Two tasks for the new leaf. wsv1 routes on the disagreement between the wiring
+# drawing and the built harness; wsv2 routes on the shield termination the run's
+# category needs and the pigtail stub length. Both must deterministically hit
+# space-systems/ecss/e2007-wiring-and-shielding-verification.
+tasks:
+  - id: wsv1
+    query: "the drawing says this run is a sensitive one but the inspector found it in the signal bundle, how do I record that the paper review and the hardware inspection disagree"
+    intent: "ECSS-E-ST-20-07C clause 5.3.11; design review against physical inspection, as-built wire category disagreeing with the documented one"
+    expected_skill: "space-systems/ecss/e2007-wiring-and-shielding-verification"
+  - id: wsv2
+    query: "decide whether a pigtail shield termination is acceptable on this harness run or whether the category needs the braid taken all the way round the backshell, and how long a stub is too long"
+    intent: "ECSS-E-ST-20-07C clause 5.3.11; shield treatment graded against the run category, pigtail stub length limit"
+    expected_skill: "space-systems/ecss/e2007-wiring-and-shielding-verification"

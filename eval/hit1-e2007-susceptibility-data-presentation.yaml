@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-susceptibility-data-presentation (space-systems/ecss)
+# Two tasks for the new leaf. sdp1 routes on restating the agreed pass criteria
+# beside the susceptibility results in the report; sdp2 routes on the two-way
+# coverage between the agreed criteria register and the presented results. Both
+# must deterministically hit
+# space-systems/ecss/e2007-susceptibility-data-presentation.
+tasks:
+  - id: sdp1
+    query: "the susceptibility section of our emc report lists observed speed errors and link margins but the pass criteria live in a different document, what has to be restated next to the results"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.4; the agreed pass criteria are restated in the report beside the susceptibility results with their agreement reference"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-data-presentation"
+  - id: sdp2
+    query: "one presented susceptibility result cites a criterion id nobody recognises and two agreed criteria have no result against them, how do I audit the report package before it goes to review"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.4; two-way coverage between the agreed criteria register and the presented results, direction-aware grading of each observed value against its own limit"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-data-presentation"

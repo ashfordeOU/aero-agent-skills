@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-interface-loads-and-terminations (space-systems/ecss)
+# Two tasks for the leaf. ilt1 routes on the open-interface and equivalent-load
+# impedance judgement; ilt2 routes on the simulated power load, its current
+# fidelity and the rating margin of the load bank. Both must deterministically
+# hit space-systems/ecss/e2007-interface-loads-and-terminations.
+tasks:
+  - id: ilt1
+    query: "check that no interface of the unit on the emc bench is left open and that every dummy load matches the impedance magnitude and phase of the flight hardware it replaces"
+    intent: "ECSS-E-ST-20-07C clause 5.2.6.7; termination categorization and equivalent-load impedance fidelity before an electromagnetic run"
+    expected_skill: "space-systems/ecss/e2007-interface-loads-and-terminations"
+  - id: ilt2
+    query: "confirm the resistive load bank on the primary power interface draws the flight load current and is rated above the power it dissipates before the conducted emission sweep starts"
+    intent: "ECSS-E-ST-20-07C clause 5.2.6.7; simulated power-interface load current and load-bank rating margin"
+    expected_skill: "space-systems/ecss/e2007-interface-loads-and-terminations"

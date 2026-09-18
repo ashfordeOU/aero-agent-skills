@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-spacecraft-magnetic-emission-verification (space-systems/ecss)
+# Two tasks for the new leaf. smev1 routes on a unit dipole budget that has to
+# be reconciled with a measured system residual moment; smev2 routes on the
+# far-field projection of that moment to the vehicle steady limit at a stated
+# radius and orientation. Both must deterministically hit
+# space-systems/ecss/e2007-spacecraft-magnetic-emission-verification.
+tasks:
+  - id: smev1
+    query: "our unit dipole budget sums to a smaller residual moment than the system magnetic test measured, how do I reconcile the analysis worst case with the measured moment before signing off the steady magnetic emission"
+    intent: "ECSS-E-ST-20-07C clause 5.3.6; steady magnetic emission verified by analysis and test together, with the two legs reconciled"
+    expected_skill: "space-systems/ecss/e2007-spacecraft-magnetic-emission-verification"
+  - id: smev2
+    query: "convert the spacecraft residual dipole plus its covered uncertainty into the flux density seen at the magnetometer radius on axis, and tell me whether that clears the vehicle steady magnetic limit in nanotesla"
+    intent: "ECSS-E-ST-20-07C clause 5.3.6; dipole far-field projection of the governing moment against the vehicle steady magnetic emission limit"
+    expected_skill: "space-systems/ecss/e2007-spacecraft-magnetic-emission-verification"

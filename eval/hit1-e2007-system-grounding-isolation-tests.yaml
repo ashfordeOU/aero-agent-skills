@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-system-grounding-isolation-tests (space-systems/ecss)
+# Two tasks for the new leaf. sgit1 routes on reconciling assembly isolation and
+# continuity readings with the declared grounding architecture; sgit2 routes on
+# the bond category limit, the two-wire resolution refusal and the single-point
+# structure reference. Both must deterministically hit
+# space-systems/ecss/e2007-system-grounding-isolation-tests.
+tasks:
+  - id: sgit1
+    query: "we took isolation and continuity readings during integration, one pair we declared isolated reads a few tens of milliohms, how do I reconcile these assembly measurements with the grounding architecture we drew"
+    intent: "ECSS-E-ST-20-07C clause 5.3.9; assembly isolation and continuity measurements reconciled with the declared grounding architecture"
+    expected_skill: "space-systems/ecss/e2007-system-grounding-isolation-tests"
+  - id: sgit2
+    query: "is a two wire bonding meter reading acceptable evidence for a structure bond in the milliohms, and how many structure references may one secondary power domain have"
+    intent: "ECSS-E-ST-20-07C clause 5.3.9; bond category limits, four-wire measurement of a milliohm bond and the single-point structure reference"
+    expected_skill: "space-systems/ecss/e2007-system-grounding-isolation-tests"

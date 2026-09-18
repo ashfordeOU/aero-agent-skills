@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-spread-spectrum-frequency-selection (space-systems/ecss,
+# E-ST-20-07C 5.2.7.3). Two tasks per leaf; ssfs1 routes on the tune-point
+# placement against the occupied bandwidth, ssfs2 on the hop revisit period and
+# the receiver dwell it forces. Both must deterministically hit
+# space-systems/ecss/e2007-spread-spectrum-frequency-selection.
+tasks:
+  - id: ssfs1
+    query: "place the occupied-bandwidth-tune-point set for a direct-sequence-chip-rate emitter and check spread-spectrum-tune-point-separation across the tunable band"
+    intent: "ecss emc; operating frequencies chosen for a spread-spectrum unit under test"
+    expected_skill: "space-systems/ecss/e2007-spread-spectrum-frequency-selection"
+  - id: ssfs2
+    query: "size emc-receiver-dwell-sizing against the frequency-hopping-revisit-period and reduce the declared hop set to representative channels"
+    intent: "ecss emc; hopping emitter measured over a receiver dwell covering every declared channel"
+    expected_skill: "space-systems/ecss/e2007-spread-spectrum-frequency-selection"

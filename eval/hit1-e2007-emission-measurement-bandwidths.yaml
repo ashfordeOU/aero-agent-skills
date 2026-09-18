@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-emission-measurement-bandwidths (space-systems/ecss)
+# Two tasks for the new leaf. emb1 routes on the receiver bandwidth an emission
+# test frequency range prescribes and the step and dwell it forces. emb2 routes
+# on costing a span that crosses a range boundary in points and seconds. Both
+# must deterministically hit
+# space-systems/ecss/e2007-emission-measurement-bandwidths.
+tasks:
+  - id: emb1
+    query: "which receiver bandwidth does this emission test frequency range prescribe, and what step and dwell does that bandwidth force on the sweep"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.1; prescribed emission measurement bandwidth per frequency range, sweep step and dwell"
+    expected_skill: "space-systems/ecss/e2007-emission-measurement-bandwidths"
+  - id: emb2
+    query: "cost an emission sweep whose span crosses a bandwidth range boundary: split it into segments and give the point count and sweep time for each"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.1; emission sweep segmentation, point count and sweep time from the prescribed bandwidths"
+    expected_skill: "space-systems/ecss/e2007-emission-measurement-bandwidths"

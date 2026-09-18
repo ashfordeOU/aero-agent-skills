@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-inrush-current-data-presentation (space-systems/ecss)
+# Two tasks for the new leaf. icd1 routes on presenting the surge as a
+# current against time trace rather than a single peak figure; icd2 routes on
+# the scale, sampling and stated conditions the trace has to carry. Both must
+# deterministically hit
+# space-systems/ecss/e2007-inrush-current-data-presentation.
+tasks:
+  - id: icd1
+    query: "can we report the switch on surge as a single worst case ampere figure in the test report table or does it have to be drawn as current against time, and where must that trace start and stop"
+    intent: "ECSS-E-ST-20-07C clause 5.4.4.5; a current against time graph spanning from before the switching instant to the settled draw"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-data-presentation"
+  - id: icd2
+    query: "the inrush trace peak runs off the top of the vertical scale and the rising edge only has two samples on it, and the conditions are only written in the surrounding text, what has to change on the graph"
+    intent: "ECSS-E-ST-20-07C clause 5.4.4.5; clipped peak, unresolved rising edge and unstated test conditions on the presented trace"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-data-presentation"

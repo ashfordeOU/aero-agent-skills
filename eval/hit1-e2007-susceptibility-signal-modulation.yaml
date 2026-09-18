@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-susceptibility-signal-modulation (space-systems/ecss)
+# Two tasks for the new leaf. ssm1 routes on the default modulation of the
+# injected carrier either side of the hundred-kilohertz band edge; ssm2 routes
+# on the pulse rate and duty cycle declared for the injection and the peak the
+# unit sees behind an averaged reading. Both must deterministically hit
+# space-systems/ecss/e2007-susceptibility-signal-modulation.
+tasks:
+  - id: ssm1
+    query: "our susceptibility sweep injected an unmodulated carrier from ten kilohertz to four hundred megahertz, is that the default the standard expects and where does the modulation have to change"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.2; default pulse modulation of the injected signal above the hundred-kilohertz band edge, continuous-wave below it"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-signal-modulation"
+  - id: ssm2
+    query: "the susceptibility schedule declares a two hundred hertz pulse rate at fifteen percent duty and quotes an averaged injected level, is that the default modulation and what peak did the box actually see"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.2; declared pulse rate and duty cycle graded against the default, averaged reading converted to the peak injected level, agreed deviation separated from an undeclared one"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-signal-modulation"

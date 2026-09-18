@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-measurement-chain-integrity-check (space-systems/ecss)
+# Two tasks for the leaf. mcic1 routes on the end-to-end reference injection
+# predicted from the chain gain at the start of an emission run; mcic2 routes on
+# an injection that bypassed the front end and on a check reused across runs.
+# Both must deterministically hit
+# space-systems/ecss/e2007-measurement-chain-integrity-check.
+tasks:
+  - id: mcic1
+    query: "predict what an injected reference signal should indicate at the receiver from the antenna factor, cable losses and preamplifier gain, and decide whether the chain check taken before the emission run is inside its decibel allowance"
+    intent: "ECSS-E-ST-20-07C clause 5.2.11.2; end-to-end receiving-chain check opening an emission measurement"
+    expected_skill: "space-systems/ecss/e2007-measurement-chain-integrity-check"
+  - id: mcic2
+    query: "the reference was injected at the preamplifier input and the same check record covers three emission runs; report what the chain check left unverified and whether each run is covered"
+    intent: "ECSS-E-ST-20-07C clause 5.2.11.2; partial injection coverage and a check record reused across emission runs"
+    expected_skill: "space-systems/ecss/e2007-measurement-chain-integrity-check"

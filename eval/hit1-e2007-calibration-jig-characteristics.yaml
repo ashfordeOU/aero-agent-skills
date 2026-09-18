@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-calibration-jig-characteristics (space-systems/ecss)
+# Two tasks for the new leaf. cjc1 routes on qualifying the coaxial fixture a
+# current probe is calibrated in, from its bore and conductor geometry. cjc2
+# routes on turning the applied power into an injected current and the probe
+# output into a transfer impedance. Both must deterministically hit
+# space-systems/ecss/e2007-calibration-jig-characteristics.
+tasks:
+  - id: cjc1
+    query: "qualify the coaxial calibration fixture for a current probe: derive its impedance from the bore and conductor diameters and check the standing-wave ratio, clearance and screening"
+    intent: "ECSS-E-ST-20-07C clause 5.2.8.3; calibration jig characteristic impedance, mismatch, clearance and screening limits"
+    expected_skill: "space-systems/ecss/e2007-calibration-jig-characteristics"
+  - id: cjc2
+    query: "work out the injected calibration current the applied power drives through the jig and the probe transfer impedance in decibel-ohms it implies"
+    intent: "ECSS-E-ST-20-07C clause 5.2.8.3; injected calibration current and current-probe transfer impedance from the fixture"
+    expected_skill: "space-systems/ecss/e2007-calibration-jig-characteristics"
