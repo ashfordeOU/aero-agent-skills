@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-indirect-discharge-test-setup (space-systems/ecss)
+# Two tasks for the new leaf. ids1 routes on deriving the coupling plane
+# bench from the standard configuration and the deltas declared against it;
+# ids2 routes on the bleeder chain and how long the plane takes to come back
+# to the ground reference between events. Both must deterministically hit
+# space-systems/ecss/e2007-indirect-discharge-test-setup.
+tasks:
+  - id: ids1
+    query: "we are setting up the coupling plane for the indirect discharge run off the standard EMC configuration, how big does the plane have to be for a 400 mm box and how far from the unit face should it sit"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.3; the indirect bench is the standard configuration plus declared deltas, and the plane covers the footprint with overhang on both sides"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-test-setup"
+  - id: ids2
+    query: "the coupling plane goes to the ground reference through two 470 kilohm bleeders, how long do we have to wait between discharges and how much charge is still on the plane when the next one fires"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.3; the bleeder chain and the plane capacitance set the interval, and a few time constants still leave residual charge"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-test-setup"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-radiated-electric-emission-procedure (space-systems/ecss)
+# Two tasks for the new leaf. rep1 routes on levels recorded before the
+# measuring receiver had finished its warm-up period; rep2 routes on a
+# scanning increment wider than the measurement bandwidth, and on band
+# coverage that holds in one antenna polarization but not the other. Both
+# must deterministically hit
+# space-systems/ecss/e2007-radiated-electric-emission-procedure.
+tasks:
+  - id: rep1
+    query: "the radiated emission scan started twenty minutes after the receiver was switched on and the chain wants half an hour, are those recorded field levels usable or does the run start again"
+    intent: "ECSS-E-ST-20-07C clause 5.4.6.4; warm-up shortfall against the required period, and scanning steps whose offset from power-on falls inside the warm-up window"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-procedure"
+  - id: rep2
+    query: "our radiated field scan steps in 200 kHz increments on a 120 kHz measurement bandwidth and we only swept the top band horizontally, what does that do to the recorded emission levels"
+    intent: "ECSS-E-ST-20-07C clause 5.4.6.4; scanning increment against measurement bandwidth, and per-polarization band coverage of the declared span"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-procedure"

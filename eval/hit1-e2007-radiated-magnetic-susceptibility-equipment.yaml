@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radiated-magnetic-susceptibility-equipment
+# (space-systems/ecss, E-ST-20-07C 5.4.10.2). Two tasks per leaf; rmse1 routes
+# on the source, amplifier and loop roles and their exposure-band coverage,
+# rmse2 on the loop turns-area geometry and the drive the wanted field needs.
+# Both must deterministically hit
+# space-systems/ecss/e2007-radiated-magnetic-susceptibility-equipment.
+tasks:
+  - id: rmse1
+    query: "list the radiated-magnetic-susceptibility-equipment roles and intersect the magnetic-susceptibility-power-amplifier and magnetic-field-radiating-loop coverages for the exposure-band-instrument-coverage check"
+    intent: "ecss emc; radiated magnetic susceptibility field-generating chain and its uncovered sub-bands"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-equipment"
+  - id: rmse2
+    query: "size the loop-turns-area-product from the loop diameter and turns, derive the magnetic-loop-drive-current for the wanted flux density and grade the magnetic-susceptibility-power-amplifier gain against it"
+    intent: "ecss emc; loop geometry, drive level and amplifier gain for a magnetic exposure bench"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-equipment"

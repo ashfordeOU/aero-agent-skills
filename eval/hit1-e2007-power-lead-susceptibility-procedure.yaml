@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-power-lead-susceptibility-procedure (space-systems/ecss)
+# Two tasks for the new leaf. plsp1 routes on a run whose level went on in
+# one jump so the threshold was never searched for. plsp2 routes on a record
+# in which the unit responds and then recovers at a higher injected level.
+# Both must deterministically hit
+# space-systems/ecss/e2007-power-lead-susceptibility-procedure.
+tasks:
+  - id: plsp1
+    query: "the operator put the full required injection level onto the supply lead in one go at every frequency and logged no upset, can we report a susceptibility threshold and a margin from a run like that"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.4; the level is ramped in steps no coarser than the allowance and the threshold is the lowest responding level, so an unramped run searched for no threshold at all"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-procedure"
+  - id: plsp2
+    query: "our stepped injection log shows the unit upsetting at one level and then running clean again two steps higher up the ramp, which of those two levels is the threshold"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.4; a record that recovers above a response contradicts itself and is refused rather than resolved, and the dwell has to reach a multiple of the slowest response the unit can show"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-procedure"

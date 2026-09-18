@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-power-lead-susceptibility-setup (space-systems/ecss)
+# Two tasks for the new leaf. plss1 routes on an arrangement where only the
+# high lead is terminated in its own stabilization network. plss2 routes on
+# a bench where the injection element and the current monitor sit at
+# different places along the lead. Both must deterministically hit
+# space-systems/ecss/e2007-power-lead-susceptibility-setup.
+tasks:
+  - id: plss1
+    query: "on our supply lead injection bench only the positive lead goes through a stabilization network and the return runs straight back to the supply, does that arrangement still define the impedance the injected disturbance works into"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.3; every supply lead including the return is terminated in its own network, with the exposed run and its height above the ground plane held to their allowances"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-setup"
+  - id: plss2
+    query: "the injection element went in near the unit connector but the current probe is clamped most of a metre down the lead, is the current we are recording the current entering the box"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.3; the injection element sits inside a window measured from the unit connector and the monitor is clamped beside it, with one lead injected at a time and the return not injected"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-setup"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-radiated-electric-emission-reporting (space-systems/ecss)
+# Two tasks for the new leaf. rer1 routes on emission data delivered without
+# an antenna electrical continuity statement to support it; rer2 routes on a
+# continuity statement that exists but was taken outside the run, and on an
+# antenna swap that leaves half the data uncovered. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radiated-electric-emission-reporting.
+tasks:
+  - id: rer1
+    query: "the emission report hands over the amplitude tables and nothing else, does the measuring antenna continuity have to be stated alongside the recorded levels or can it be filed as its own test record"
+    intent: "ECSS-E-ST-20-07C clause 5.4.6.5; the recorded radiated emission data must be delivered with a statement of measuring-antenna electrical continuity"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-reporting"
+  - id: rer2
+    query: "we swapped from a biconical to a horn halfway up the band and the only continuity reading we have was taken at incoming inspection, is that package complete"
+    intent: "ECSS-E-ST-20-07C clause 5.4.6.5; continuity coverage is per measuring antenna, and a statement outside the run window does not support the levels"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-reporting"

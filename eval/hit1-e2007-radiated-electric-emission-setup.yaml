@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radiated-electric-emission-setup
+# (space-systems/ecss, E-ST-20-07C 5.4.6.3). Two tasks per leaf; rees1 routes on
+# the bench geometry derived from the chosen separation, rees2 on the face and
+# polarization presentation coverage. Both must deterministically hit
+# space-systems/ecss/e2007-radiated-electric-emission-setup.
+tasks:
+  - id: rees1
+    query: "derive the antenna-to-unit-separation and radiated-bench-boresight-height bands then grade the bench with radiated-setup-deviation-categorization"
+    intent: "ecss emc radiated electric field emission; bench layout derived from the chosen separation and graded against it"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-setup"
+  - id: rees2
+    query: "audit unit-face-presentation-coverage in both polarizations and check near-field-boundary-clearance at the lowest frequency"
+    intent: "ecss emc radiated electric field emission; orientation of the unit toward the measuring antennas and the separation regime"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-setup"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-discharge-injection-probe-equipment (space-systems/ecss)
+# Two tasks for the new leaf. dipe1 routes on sizing the dedicated pulse generator
+# from the pulse edge and the probe insertion impedance; dipe2 routes on the coaxial
+# run between them. Both must deterministically hit
+# space-systems/ecss/e2007-discharge-injection-probe-equipment.
+tasks:
+  - id: dipe1
+    query: "work out how big the pulse generator has to be to push the required discharge current into the harness through the injection probe, given the edge the pulse has to keep"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.2; chain bandwidth from the required rise time and the drive voltage set by the probe insertion impedance plus the cable losses"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-probe-equipment"
+  - id: dipe2
+    query: "someone put a 75 ohm coax on the injection probe bench and a long run of it, tell me whether the cabling and connectors on this bench can carry the discharge pulse"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.2; coaxial impedance mismatch budget, frequency-scaled attenuation over the run length and the connector rating against the generator drive"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-probe-equipment"

@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 2139,
+  "leaves": 2181,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -19293,6 +19293,78 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2007-cable-injection-susceptibility-equipment",
+   "name": "e2007-cable-injection-susceptibility-equipment",
+   "description": "Size the bench ECSS-E-ST-20-07C clause 5.4.8.2 calls for before a harness injection run is built: derive the forward power the amplifier owes from the target current, the loop impedance and the coupling loss, the probe current rating from that current and its headroom, the monitor transfer impedance from the receiver noise floor, and the pulse generator edge from the band ceiling; normalize the declared inventory, refuse an unknown or repeated item, compare each quantity as a floor or a ceiling, categorize it adequate, marginal or inadequate, and name the governing shortfall. Use when assembling or reviewing a cable injection susceptibility bench. Trigger: ecss, e-st-20-07c, cable-injection-susceptibility-equipment, injection-amplifier-forward-power, injection-probe-current-rating, current-monitor-transfer-impedance, injection-pulse-generator-edge, injection-bench-governing-shortfall.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-cable-injection-susceptibility-equipment",
+    "injection-amplifier-forward-power",
+    "injection-probe-current-rating",
+    "current-monitor-transfer-impedance",
+    "injection-pulse-generator-edge",
+    "injection-bench-governing-shortfall"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-cable-injection-susceptibility-procedure",
+   "name": "e2007-cable-injection-susceptibility-procedure",
+   "description": "Plan the warm-up and frequency-stepping steps of the bulk cable-injection susceptibility run of ECSS-E-ST-20-07C clause 5.4.8.4. Use when a harness current-injection procedure is written or graded: confirm the unit settled before any current was driven, build the stepped injection frequency list so no sub-band is stepped over, size each dwell from the response time and the monitor sampling, convert the required injection current into the forward power the calibration demands, cap the drive at the amplifier limit and say so when a step never reached that level, categorize each step as immune, on the level or susceptible, and total the run. Trigger: ecss, e-st-20-07c, cable-injection-susceptibility-procedure, bulk-current-injection-step-dwell, cable-injection-frequency-list, cable-injection-forward-power-limit, cable-injection-warm-up-dwell, cable-injection-step-grading.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-cable-injection-susceptibility-procedure",
+    "bulk-current-injection-step-dwell",
+    "cable-injection-frequency-list",
+    "cable-injection-forward-power-limit",
+    "cable-injection-warm-up-dwell",
+    "cable-injection-step-grading"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-cable-injection-susceptibility-purpose",
+   "name": "e2007-cable-injection-susceptibility-purpose",
+   "description": "Verify that the aim of ECSS-E-ST-20-07C clause 5.4.8.1 is actually demonstrated: confirm every required harness bundle was swept across the band with no step wider than the grid allows, take the current the bench drove against the level required at each frequency, form the drive margin in decibels, categorize each point as meeting, sitting on or short of that level, grade where a performance deviation first appeared against it, reduce every bundle to its worst frequency and name the governing bundle, and refuse a sweep whose frequencies do not advance. Use when grading a sine-wave cable injection susceptibility run. Trigger: ecss, e-st-20-07c, cable-injection-susceptibility-purpose, bulk-current-injection-sweep, injection-drive-margin-db, injection-frequency-grid-coverage, injection-susceptibility-threshold, governing-injection-bundle.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-cable-injection-susceptibility-purpose",
+    "bulk-current-injection-sweep",
+    "injection-drive-margin-db",
+    "injection-frequency-grid-coverage",
+    "injection-susceptibility-threshold",
+    "governing-injection-bundle"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-cable-injection-susceptibility-setup",
+   "name": "e2007-cable-injection-susceptibility-setup",
+   "description": "Derive the coupling arrangement ECSS-E-ST-20-07C clause 5.4.8.3 asks for from the standard bench layout: apply each declared delta to the baseline bands, refuse an unknown delta or one that closes a band, grade harness length, harness height, both probe distances and bond resistance against those bands, confirm the monitor probe sits between the injection probe and the unit, bound their separation by the probe aperture below and a fraction of a wavelength above, compare the band ceiling with the exposed harness resonance, and turn a jig-to-bench impedance mismatch into a drive error. Use when a harness injection setup is built or reviewed. Trigger: ecss, e-st-20-07c, cable-injection-susceptibility-setup, harness-injection-bench-layout, injection-monitor-probe-separation, exposed-harness-resonance-ceiling, injection-jig-calibration-error, injection-bench-governing-parameter.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-cable-injection-susceptibility-setup",
+    "harness-injection-bench-layout",
+    "injection-monitor-probe-separation",
+    "exposed-harness-resonance-ceiling",
+    "injection-jig-calibration-error",
+    "injection-bench-governing-parameter"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2007-cable-shield-current-restriction",
    "name": "e2007-cable-shield-current-restriction",
    "description": "Use when verify that no cable shield carries intended circuit current under ECSS-E-ST-20-07C clause 4.2.13.2: test each shielded run against the narrow exemption for a coaxial radiofrequency-feed and a coaxial high-speed-data link at or above the exemption data rate, flag a barred run whose shield is declared the return or whose dedicated-return-conductor is missing, bound the incidental current a both-end-bonded shield picks up from the parallel division between shield-resistance and return-resistance, and check an exempt coaxial run for declared characteristic-impedance, both-end outer-conductor bonding and outer-conductor resistance. Trigger: ecss, e-st-20-07c, shield-return-current, coaxial-outer-conductor, high-speed-data-link, incidental-shield-current, dedicated-return-conductor, characteristic-impedance, shield-bonding.",
@@ -19349,6 +19421,78 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2007-contact-discharge-data-presentation",
+   "name": "e2007-contact-discharge-data-presentation",
+   "description": "Evaluate the report a direct contact discharge result reaches the reader as, under ECSS-E-ST-20-07C clause 5.4.14.5, where the generator settings, the calibration oscilloscope records and a compliance table all have to be on the page. Use when contact discharge results are drawn up or reviewed: check every settings field is filled, require an oscilloscope record for each applied level and polarity, derive the bandwidth a sub-nanosecond edge needs and de-embed the scope rise time from the trace, grade each row response against its performance criterion, catch a verdict contradicting its own response cell, and test the table for point, polarity and count coverage. Trigger: ecss, e-st-20-07c, contact-discharge-data-presentation, esd-generator-settings-record, contact-discharge-calibration-oscilloscope-trace, esd-scope-bandwidth-adequacy, contact-discharge-compliance-table, esd-performance-criterion-verdict.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-contact-discharge-data-presentation",
+    "esd-generator-settings-record",
+    "contact-discharge-calibration-oscilloscope-trace",
+    "esd-scope-bandwidth-adequacy",
+    "contact-discharge-compliance-table",
+    "esd-performance-criterion-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-contact-discharge-test-equipment",
+   "name": "e2007-contact-discharge-test-equipment",
+   "description": "Verify the discharge generator a contact-discharge test names for direct application under ECSS-E-ST-20-07C clause 5.4.14.2: compare the declared storage capacitance and discharge resistance with their nominal values and tolerances, form the time constant they produce and grade it separately because two in-band parts can still miss it, walk the exponential tail through the required waveform points, confirm the charge-voltage range reaches every required level, and bound the charging resistance and the discharge return cable. Use when a contact-discharge bench is specified or reviewed. Trigger: ecss, e-st-20-07c, contact-discharge-test-equipment, contact-discharge-generator-capacitance, contact-discharge-resistance-tolerance, contact-discharge-time-constant, contact-discharge-tail-waveform, contact-discharge-tip-and-return.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-contact-discharge-test-equipment",
+    "contact-discharge-generator-capacitance",
+    "contact-discharge-resistance-tolerance",
+    "contact-discharge-time-constant",
+    "contact-discharge-tail-waveform",
+    "contact-discharge-tip-and-return"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-contact-discharge-test-procedure",
+   "name": "e2007-contact-discharge-test-procedure",
+   "description": "Plan the waveform calibration and the application steps a direct contact discharge run follows, under ECSS-E-ST-20-07C clause 5.4.14.4. Use when the run is written or reviewed: derive the nominal first peak, the thirty and sixty nanosecond currents and the rise time from each charge level, group the calibration as passed, out of tolerance or omitted, reject one older than its validity window, stretch a short interval to the one the generator recharge imposes, require enough discharges at each point, order stabilise, calibrate, apply and recover over ascending levels and both polarities, total the discharges and the bench time, and return the plan with its findings. Trigger: ecss, e-st-20-07c, contact-discharge-test-procedure, contact-discharge-waveform-calibration, esd-current-target-first-peak, contact-discharge-application-sequence, esd-generator-recharge-interval, contact-discharge-polarity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-contact-discharge-test-procedure",
+    "contact-discharge-waveform-calibration",
+    "esd-current-target-first-peak",
+    "contact-discharge-application-sequence",
+    "esd-generator-recharge-interval",
+    "contact-discharge-polarity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-contact-discharge-test-setup",
+   "name": "e2007-contact-discharge-test-setup",
+   "description": "Derive the bench a direct contact discharge run stands on from the standard unit configuration, under ECSS-E-ST-20-07C clause 5.4.14.3. Use when a contact discharge arrangement is built or reviewed: confirm the generator carries the contact tip and not the air tip, apply each declared delta to the baseline bands, refuse a delta that closes one, grade discharge resistance, storage capacitance, return cable length and separation, support thickness, bond resistance and tip approach angle, derive the nominal peak current, the network decay constant, the stored energy and the delivered charge, group every declared point as contact capable or air only, and return the governing parameter with the setup verdict. Trigger: ecss, e-st-20-07c, contact-discharge-test-setup, esd-generator-contact-tip, contact-discharge-network-peak-current, esd-return-cable-dressing, contact-discharge-point-surface-finish, esd-unit-insulating-support.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-contact-discharge-test-setup",
+    "esd-generator-contact-tip",
+    "contact-discharge-network-peak-current",
+    "esd-return-cable-dressing",
+    "contact-discharge-point-surface-finish",
+    "esd-unit-insulating-support"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2007-critical-circuit-safety-margin",
    "name": "e2007-critical-circuit-safety-margin",
    "description": "Evaluate the safety margin demonstrated for critical circuits and electro-explosive device firing lines under ECSS-E-ST-20-07C clause 5.3.2. Use when induced levels have been measured on a firing line or a safety-critical circuit: convert threshold and induced level into decibels with the amplitude or power multiplier, derate the no-fire level before the comparison, apply the margin required for the circuit category, report the shortfall and the worst-case line, and hold the verification while any line falls short. Trigger: ecss, e-st-20-electrical-scope, eed-firing-line-margin, no-fire-current-derating, critical-circuit-safety-margin-db, induced-level-margin-check, worst-case-circuit-margin, firing-line-verification-hold.",
@@ -19361,6 +19505,79 @@
     "critical-circuit-safety-margin-db",
     "induced-level-margin-check",
     "worst-case-circuit-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-discharge-injection-data-presentation",
+   "name": "e2007-discharge-injection-data-presentation",
+   "description": "Audit the data package a discharge-injection test hands over under ECSS-E-ST-20-07C clause 5.4.13.5: confirm every generator setting that defines the applied pulse is present, build the planned point, level and polarity matrix, check each cell carries one oscilloscope record and one compliance row, catch reused capture identifiers and ambiguous duplicated cells, and confirm a calibration brackets the run inside its validity window with the amplitude holding from one end to the other. Use when a discharge-injection report is assembled or reviewed. Trigger: ecss, e-st-20-07c, discharge-injection-data-presentation, discharge-generator-settings-record, discharge-compliance-table-coverage, discharge-oscilloscope-record-set, discharge-calibration-bracketing, discharge-injection-package-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-discharge-injection-data-presentation",
+    "discharge-generator-settings-record",
+    "discharge-compliance-table-coverage",
+    "discharge-oscilloscope-record-set",
+    "discharge-calibration-bracketing",
+    "discharge-injection-package-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-discharge-injection-probe-calibration",
+   "name": "e2007-discharge-injection-probe-calibration",
+   "description": "Verify the calibration arrangement an injection probe must be set up in before discharge pulses are driven into a harness, per ECSS-E-ST-20-07C clause 5.4.13.3: compare both fixture terminations against the reflection a reference conductor tolerates, reduce the recorded calibration pulses to a mean current and a repeatability spread, derive the probe injection loss from the drive applied and the current the fixture carried, invert it into the generator setting the target calibration current needs, and confirm that setting, the monitor bandwidth and the fixture validity window all still hold. Use when a probe injection bench is calibrated or its records reviewed. Trigger: ecss, e-st-20-07c, discharge-injection-probe-calibration, injection-probe-calibration-fixture, probe-injection-loss, calibration-pulse-repeatability, calibration-fixture-termination-match, injection-drive-setting.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-discharge-injection-probe-calibration",
+    "injection-probe-calibration-fixture",
+    "probe-injection-loss",
+    "calibration-pulse-repeatability",
+    "calibration-fixture-termination-match",
+    "injection-drive-setting"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-discharge-injection-probe-equipment",
+   "name": "e2007-discharge-injection-probe-equipment",
+   "description": "Determine whether the dedicated pulse generator and coaxial cabling listed for an ECSS-E-ST-20-07C clause 5.4.13.2 injection-probe discharge test can actually deliver the pulse: derive the chain bandwidth from the required rise time, convert the cable mismatch and the skin-effect attenuation into delivered amplitude, size the generator open-circuit voltage and the connector rating from the current the probe must push through its insertion impedance, then categorize every declared item as adequate, marginal or inadequate and name the one that governs. Use when assembling or reviewing an injection-probe discharge bench. Trigger: ecss, e-st-20-07c, discharge-injection-probe-equipment, discharge-pulse-generator-sizing, injection-probe-coaxial-cabling, probe-insertion-impedance-drive, injection-chain-bandwidth, coaxial-mismatch-loss-budget.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-discharge-injection-probe-equipment",
+    "discharge-pulse-generator-sizing",
+    "injection-probe-coaxial-cabling",
+    "probe-insertion-impedance-drive",
+    "injection-chain-bandwidth",
+    "coaxial-mismatch-loss-budget"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-discharge-injection-probe-testing",
+   "name": "e2007-discharge-injection-probe-testing",
+   "description": "Evaluate the arrangement that applies injected discharge pulses to a powered, operating unit under ECSS-E-ST-20-07C clause 5.4.13.4: place each injection clamp inside the distance window that drives the conductors rather than the connector shell, confirm the bundle can carry the clamp there, walk the amplitude ladder to the required level without overtesting past it, size the pulse budget over points, levels and both polarities, derive the shortest interval the generator recharge and unit settling allow, and bound the monitor interval that still catches the shortest upset. Use when a discharge-injection bench is built or reviewed. Trigger: ecss, e-st-20-07c, discharge-injection-arrangement, discharge-injection-clamp-placement, discharge-pulse-amplitude-ladder, discharge-pulse-repetition-interval, discharge-injection-pulse-budget, injected-discharge-upset-monitoring.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-discharge-injection-probe-testing",
+    "discharge-injection-arrangement",
+    "discharge-injection-clamp-placement",
+    "discharge-pulse-amplitude-ladder",
+    "discharge-pulse-repetition-interval",
+    "discharge-injection-pulse-budget",
+    "injected-discharge-upset-monitoring"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -19668,6 +19885,78 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2007-indirect-discharge-data-presentation",
+   "name": "e2007-indirect-discharge-data-presentation",
+   "description": "Evaluate the compliance table an indirect-discharge test result must be presented as under ECSS-E-ST-20-07C clause 5.4.12.5, where each row carries the induced current level observed during the discharges and not the verdict alone. Use when indirect-discharge results are drawn up or reviewed: compute every row margin between the observed induced current and its susceptibility limit, catch a verdict contradicting its own numbers, catch a level cell left empty, and test the table for coverage of every declared application point, both polarities and every monitored circuit. Trigger: ecss, e-st-20-07c, indirect-discharge-data-presentation, induced-current-level-table, discharge-compliance-table, discharge-polarity-coverage, induced-current-susceptibility-margin, unreported-discharge-level.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-indirect-discharge-data-presentation",
+    "induced-current-level-table",
+    "discharge-compliance-table",
+    "discharge-polarity-coverage",
+    "induced-current-susceptibility-margin",
+    "unreported-discharge-level"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-indirect-discharge-test-equipment",
+   "name": "e2007-indirect-discharge-test-equipment",
+   "description": "Determine whether the high-voltage supply and discharge generator primary circuit declared for an ECSS-E-ST-20-07C clause 5.4.12.2 indirect discharge run can deliver the exposure: derive the stored energy, the first peak current, the network decay constant, the recharge time the charging resistor imposes and the repetition rate that leaves, size the supply ceiling and the electrode holdoff from the severity level, bound the regulation error and the network tolerance, compare each declared item with its requirement, categorize every one as adequate, marginal or inadequate, and name the governing shortfall. Use when an indirect discharge generator bench is assembled or reviewed. Trigger: ecss, e-st-20-07c, indirect-discharge-test-equipment, esd-generator-primary-circuit, indirect-discharge-storage-capacitor, indirect-discharge-first-peak-current, indirect-discharge-recharge-interval, esd-supply-regulation-tolerance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-indirect-discharge-test-equipment",
+    "esd-generator-primary-circuit",
+    "indirect-discharge-storage-capacitor",
+    "indirect-discharge-first-peak-current",
+    "indirect-discharge-recharge-interval",
+    "esd-supply-regulation-tolerance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-indirect-discharge-test-procedure",
+   "name": "e2007-indirect-discharge-test-procedure",
+   "description": "Plan the stabilisation, fixture calibration and discharge application steps an indirect discharge exposure follows, under ECSS-E-ST-20-07C clause 5.4.12.4. Use when the run is written or reviewed: confirm the generator dwelled long enough to settle, group the fixture calibration as passed, out of tolerance or omitted from the first peak and the rise time, derive the interval the coupling plane bleed imposes and stretch a short one to it, require enough repeats at each point, order the stabilise, calibrate, expose and recover steps over ascending levels and both polarities, total the discharges and the bench time, and return the plan with its findings. Trigger: ecss, e-st-20-07c, indirect-discharge-test-procedure, esd-generator-stabilisation-dwell, indirect-discharge-fixture-calibration, indirect-discharge-application-sequence, esd-discharge-repetition-interval, indirect-discharge-polarity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-indirect-discharge-test-procedure",
+    "esd-generator-stabilisation-dwell",
+    "indirect-discharge-fixture-calibration",
+    "indirect-discharge-application-sequence",
+    "esd-discharge-repetition-interval",
+    "indirect-discharge-polarity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-indirect-discharge-test-setup",
+   "name": "e2007-indirect-discharge-test-setup",
+   "description": "Derive the bench an indirect discharge exposure runs on from the standard equipment configuration, under ECSS-E-ST-20-07C clause 5.4.12.3. Use when a coupling plane arrangement is built or reviewed: apply each declared delta to the baseline geometry, refuse an unknown delta or one that collapses a band, grade coupling plane distance, overhang, bleeder resistance, cable separation, insulating support and bond resistance against their bands, size the plane span from the unit footprint, derive the bleeder chain time constant, the bleed time the interval has to allow and the charge still on the plane at the next event, and return the governing parameter with the setup verdict. Trigger: ecss, e-st-20-07c, indirect-discharge-test-setup, esd-coupling-plane-geometry, indirect-discharge-bleeder-chain, coupling-plane-to-unit-distance, indirect-discharge-residual-plane-charge, esd-ground-reference-plane-bonding.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-indirect-discharge-test-setup",
+    "esd-coupling-plane-geometry",
+    "indirect-discharge-bleeder-chain",
+    "coupling-plane-to-unit-distance",
+    "indirect-discharge-residual-plane-charge",
+    "esd-ground-reference-plane-bonding"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2007-inrush-current-data-presentation",
    "name": "e2007-inrush-current-data-presentation",
    "description": "Evaluate the current-against-time graph a switch-on surge result must be presented as, under ECSS-E-ST-20-07C clause 5.4.4.5. Use when inrush-current results are drawn up or reviewed: confirm the axes really carry current against time in units belonging to those quantities, require the plotted span to open before the switching instant and close after the draw has settled, detect a peak running past full scale or sitting too low in it to read, count the samples landing on the rising edge, compare the peak with the settled draw, list the stated conditions the trace is missing, and return the presentation verdict. Trigger: ecss, e-st-20-07c, inrush-current-data-presentation, current-against-time-graph, switch-on-surge-trace, inrush-peak-full-scale-clipping, inrush-rising-edge-sampling, inrush-stated-test-conditions.",
@@ -19946,6 +20235,60 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2007-magnetic-moment-data-presentation",
+   "name": "e2007-magnetic-moment-data-presentation",
+   "description": "Assess a steady magnetic emission report against ECSS-E-ST-20-07C clause 5.4.5.4, which replaces the general presentation rules for a field that has no spectrum. Use when magnetic moment results are tabulated or reviewed: require a value at every declared distance and on every axis rather than a plot or one summary figure, rebuild the resultant from its axis components and compare it with the stated one, derive the moment each distance implies so a row filed against the wrong distance shows up, and keep absent uncertainty as a limitation. Trigger: ecss, e-st-20-07c, magnetic-moment-data-presentation, steady-field-per-distance-table, per-axis-magnetic-result, magnetic-resultant-recomputation, dipole-moment-distance-consistency.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-magnetic-moment-data-presentation",
+    "steady-field-per-distance-table",
+    "per-axis-magnetic-result",
+    "magnetic-resultant-recomputation",
+    "dipole-moment-distance-consistency",
+    "steady-magnetic-emission-report"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-magnetic-moment-test-sequence",
+   "name": "e2007-magnetic-moment-test-sequence",
+   "description": "Determine whether a magnetic moment test runs in the order ECSS-E-ST-20-07C clause 5.4.5.3 sets. Use when a moment-test procedure is written or reviewed for a unit measured about six semi-axes across successive conditioning states: confirm every state carries all six semi-axes once, that as-received readings precede any conditioning, that each block follows the deperming or magnetising step which creates it, that deperming precedes magnetising, that no block is split across another state, and size the run from dwell and conditioning times. Trigger: ecss, e-st-20-07c, magnetic-moment-test-sequence, six-semi-axis-measurement-order, deperming-step-placement, magnetising-exposure-step, conditioning-state-block-contiguity, moment-run-duration.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-magnetic-moment-test-sequence",
+    "six-semi-axis-measurement-order",
+    "deperming-step-placement",
+    "magnetising-exposure-step",
+    "conditioning-state-block-contiguity",
+    "moment-run-duration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-magnetic-moment-test-setup",
+   "name": "e2007-magnetic-moment-test-setup",
+   "description": "Evaluate the field-compensated setup an intrinsic magnetic moment determination needs, under ECSS-E-ST-20-07C clause 5.4.5.2. Use when a moment-test area is prepared or reviewed: check the residual field left after compensation against the stated tolerance, derive from the unit's largest dimension the separation at which it still reads as one dipole, compute the axial field that separation delivers from the expected moment, compare it with the magnetometer noise floor for usable margin, and separate ferromagnetic hardware in the area from a fixture merely undeclared. Trigger: ecss, e-st-20-07c, magnetic-moment-test-setup, field-compensated-facility, compensation-residual-field, dipole-far-field-separation, magnetometer-noise-floor-margin, non-magnetic-test-fixture.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-magnetic-moment-test-setup",
+    "field-compensated-facility",
+    "compensation-residual-field",
+    "dipole-far-field-separation",
+    "magnetometer-noise-floor-margin",
+    "non-magnetic-test-fixture"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2007-maximum-emission-operating-mode",
    "name": "e2007-maximum-emission-operating-mode",
    "description": "Determine which operating mode of a tested unit emits most in each measurement band, and assess whether the mode declared for an ECSS-E-ST-20-07C clause 5.2.7.1 emission run is that worst case: rank the surveyed mode levels band by band, correct a pulsed emitter to an effective average level before ranking, name the dominant mode, compute the decibel shortfall of the declared mode, and list every band that needs a run of its own. Use when a unit offers several operating modes, load states or duty cycles. Trigger: ecss, e-st-20-electrical-scope, maximum-emission-operating-mode, worst-case-mode-selection, emission-survey-ranking, duty-cycle-emission-correction, per-band-mode-shortfall, emission-run-mode-gate.",
@@ -20078,6 +20421,155 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e2007-power-lead-susceptibility-equipment",
+   "name": "e2007-power-lead-susceptibility-equipment",
+   "description": "Verify the injection chain for a power-lead conducted susceptibility test. Use when the task is ECSS-E-ST-20-07C clause 5.4.7.2 and a bench inventory of generator, power amplifier and low-inductance series resistor must be judged fit to drive a disturbance onto the supply leads: confirm the generator and the amplifier span the required band, derive the drive power the amplifier has to deliver into the lead impedance once path loss and headroom are added as decibels, hold that against its rated output, and keep the series resistor inside its reactance-to-resistance ratio at the top frequency and inside its derated dissipation at the lead current. Refuses a duplicated role, an unknown item key and a band declared backwards. Trigger: ecss, e-st-20-07c, power-lead-susceptibility-equipment, conducted-susceptibility-injection-chain, low-inductance-series-resistor, amplifier-drive-power, generator-band-coverage, resistor-reactance-ratio, injection-resistor-derating.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-07c",
+    "e2007-power-lead-susceptibility-equipment",
+    "conducted-susceptibility-injection-chain",
+    "low-inductance-series-resistor",
+    "amplifier-drive-power",
+    "generator-band-coverage",
+    "resistor-reactance-ratio"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-susceptibility-procedure",
+   "name": "e2007-power-lead-susceptibility-procedure",
+   "description": "Execute the stepped injection run of a power-lead susceptibility test. Use when the task is ECSS-E-ST-20-07C clause 5.4.7.4 and a supply-lead disturbance has to be applied while the unit is watched for a response: hold the warm up against the longer of a floor and the declared stabilization time, walk the geometric frequency ladder across the band, derive the dwell each step needs from the slowest response the unit can show, ramp the level no more coarsely than the allowance until the required level or the drive limit is reached, and take the lowest responding level as the threshold to margin against the requirement. Refuses a record that recovers above its threshold and a response outside the ramp applied. Trigger: ecss, e-st-20-07c, power-lead-susceptibility-procedure, stepped-injection-ladder, injection-warm-up, injection-step-dwell, susceptibility-threshold-margin, drive-limited-step, level-ramp-coarseness.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-07c",
+    "e2007-power-lead-susceptibility-procedure",
+    "stepped-injection-ladder",
+    "injection-step-dwell",
+    "susceptibility-threshold-margin",
+    "drive-limited-step",
+    "level-ramp-coarseness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-susceptibility-purpose",
+   "name": "e2007-power-lead-susceptibility-purpose",
+   "description": "Scope a power-lead conducted susceptibility test against the aim of ECSS-E-ST-20-07C clause 5.4.7.1: proving the unit goes on working while disturbance signals are injected onto the leads that feed it. Use when such a test is planned or its purpose is challenged: separate supply leads from signal leads, name supply leads nothing is injected onto, expose sub-bands never disturbed on a lead, flag injections planned under the level the unit must tolerate, catch functions monitored only on undisturbed leads, and group each response as tolerant, degraded or malfunction. Trigger: ecss, e-st-20-07c, power-lead-susceptibility-purpose, supply-lead-disturbance-injection, power-lead-injection-band-coverage, power-lead-immunity-criterion, conducted-susceptibility-supply-lead-scope.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-power-lead-susceptibility-purpose",
+    "supply-lead-disturbance-injection",
+    "power-lead-injection-band-coverage",
+    "power-lead-immunity-criterion",
+    "conducted-susceptibility-supply-lead-scope",
+    "power-lead-response-grouping"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-susceptibility-setup",
+   "name": "e2007-power-lead-susceptibility-setup",
+   "description": "Validate the bench arrangement a power-lead susceptibility injection is built on. Use when the task is ECSS-E-ST-20-07C clause 5.4.7.3 and a supply-lead injection has to be set up on the standard bench configuration: confirm every supply lead is terminated in its own stabilization network, hold the exposed run and its height above the ground plane to their allowances, place the series injection element inside the window measured from the unit connector, keep the current monitor clamped beside it, and check the bond to the plane and the separation from any signal lead. Refuses a supply pair carrying one lead, an unknown polarity and an offset declared on a lead nothing is injected into. Trigger: ecss, e-st-20-07c, power-lead-susceptibility-setup, supply-lead-injection-arrangement, lead-stabilization-network, injection-element-position, current-monitor-offset, ground-plane-bond-resistance, signal-lead-separation.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-07c",
+    "e2007-power-lead-susceptibility-setup",
+    "supply-lead-injection-arrangement",
+    "lead-stabilization-network",
+    "injection-element-position",
+    "current-monitor-offset",
+    "ground-plane-bond-resistance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-transient-equipment",
+   "name": "e2007-power-lead-transient-equipment",
+   "description": "Determine whether the generator and instruments declared for a power-lead transient injection under ECSS-E-ST-20-07C clause 5.4.9.2 can deliver and record the specified pulse. Use when a supply-transient bench is assembled or reviewed: raise the required terminal amplitude to the open-circuit output the source and load impedances demand, bound the generator edge and its repetition interval, derive the recording chain bandwidth, sample rate and memory depth from the pulse edge and window, set the decoupling impedance floor that keeps the pulse out of the power source, size the probe rating, categorize every declared item as adequate, marginal or inadequate, and name the governing shortfall. Trigger: ecss, e-st-20-07c, power-lead-transient-equipment, transient-generator-open-circuit-amplitude, transient-source-impedance-divider, transient-decoupling-impedance-floor, transient-chain-rise-time, transient-record-depth, transient-pulse-repetition-interval.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-power-lead-transient-equipment",
+    "transient-generator-open-circuit-amplitude",
+    "transient-source-impedance-divider",
+    "transient-decoupling-impedance-floor",
+    "transient-chain-rise-time",
+    "transient-record-depth",
+    "transient-pulse-repetition-interval"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-transient-procedure",
+   "name": "e2007-power-lead-transient-procedure",
+   "description": "Verify a power-lead transient application run against ECSS-E-ST-20-07C clause 5.4.9.4: sequence the mandatory steps, confirm the instrument stabilisation check brackets the pulses rather than trailing them, grade the differential-mode and common-mode applications for both polarities, pulse count, pulse width and the recovery interval between pulses, compute the elapsed application time and the read-back drift the bracketing checks leave, and separate a genuine susceptibility from an instrument that simply moved, carrying a polarity driven short of its required count as a limitation rather than as a finding. Use when running or auditing a power-lead transient susceptibility run. Trigger: ecss, e-st-20-07c, power-lead-transient-procedure, differential-mode-pulse-application, common-mode-pulse-application, transient-instrument-stabilisation-check, transient-pulse-recovery-interval, transient-polarity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-power-lead-transient-procedure",
+    "differential-mode-pulse-application",
+    "common-mode-pulse-application",
+    "transient-instrument-stabilisation-check",
+    "transient-pulse-recovery-interval",
+    "transient-polarity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-transient-purpose",
+   "name": "e2007-power-lead-transient-purpose",
+   "description": "Verify that the aim of ECSS-E-ST-20-07C clause 5.4.9.1 is actually demonstrated: that a unit keeps performing while the brief transients its supply carries are applied to its power leads. Use when injected supply-transient records are judged: validate each pulse, take its signed peak and its half-amplitude width by interpolating the crossings, integrate the volt-second area it delivers, compare the applied stress with the level the interface specifies and refuse an under-driven pulse as proof of anything, categorize the observed behaviour against the allowed performance category, reduce every lead to its worst event and name the governing one, and report the polarity and repeat coverage. Trigger: ecss, e-st-20-07c, power-lead-transient-purpose, supply-transient-immunity, transient-half-amplitude-width, transient-volt-second-area, transient-applied-stress-margin, transient-performance-category, transient-polarity-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-power-lead-transient-purpose",
+    "supply-transient-immunity",
+    "transient-half-amplitude-width",
+    "transient-volt-second-area",
+    "transient-applied-stress-margin",
+    "transient-performance-category",
+    "transient-polarity-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-power-lead-transient-setup",
+   "name": "e2007-power-lead-transient-setup",
+   "description": "Verify the differential-mode injection arrangement a power-lead transient test is built on under ECSS-E-ST-20-07C clause 5.4.9.3: confirm the standard bench underneath it still holds its bond and its supply isolation, then grade each injected lead for its injection device, the offset of the injection point from the unit connector, the separation between injector and monitoring probe, the harness height above the plane and the series isolation that keeps the bus supply from swallowing the pulse, and compute the amplitude the generator truly delivers into the loaded lead. Use when building or auditing a power-lead transient bench before any pulse is applied. Trigger: ecss, e-st-20-07c, power-lead-transient-setup, differential-mode-pulse-injection, transient-injection-offset-window, injection-monitor-probe-separation, transient-source-isolation-inductance, pulse-generator-delivered-amplitude.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-power-lead-transient-setup",
+    "differential-mode-pulse-injection",
+    "transient-injection-offset-window",
+    "injection-monitor-probe-separation",
+    "transient-source-isolation-inductance",
+    "pulse-generator-delivered-amplitude"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e2007-power-source-impedance-control",
    "name": "e2007-power-source-impedance-control",
    "description": "Use when verify the supply-impedance control demanded by ECSS-E-ST-20-07C clause 5.2.4 across an electromagnetic measurement campaign: confirm every energized supply conductor and its dedicated return carries a line-impedance-stabilization-network, model each network impedance magnitude from its damping-resistance and series-inductance at every swept measurement frequency, compare the measured magnitude against that model inside the declared tolerance band, and re-examine the calibration checkpoints recorded through the campaign so drift from the opening baseline impedance stays inside the permitted fraction. An unstabilized supply conductor, an out-of-band sweep point and a drifted checkpoint are reported as separate findings. Trigger: ecss, e-st-20-electrical-scope, e-st-20-07c-clause-5-2-4, line-impedance-stabilization-network, supply-impedance-envelope, conducted-emission-bench-setup, impedance-drift-checkpoint, stabilization-network-coverage, campaign-impedance-stability.",
@@ -20090,6 +20582,279 @@
     "conducted-emission-bench-setup",
     "impedance-drift-checkpoint",
     "stabilization-network-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-emission-equipment",
+   "name": "e2007-radiated-electric-emission-equipment",
+   "description": "Evaluate the instrument set an ECSS-E-ST-20-07C clause 5.4.6.2 radiated electric-emission run depends on: confirm a measurement receiver, a data recorder and the polarized receive antennas are each declared, tile the antenna spans across the method band in vertical and horizontal polarization separately, name every uncovered segment and the antenna holding each edge, turn a receiver reading into a field strength through the antenna factor and cable loss, and reject an item whose calibration lapses inside the campaign. Use when a radiated-emission bench is assembled or its readiness reviewed. Trigger: ecss, e-st-20-07c, radiated-electric-emission-equipment, radiated-emission-measurement-receiver, polarized-receive-antenna-set, antenna-factor-field-conversion, antenna-band-tiling-gap, radiated-instrument-calibration-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-emission-equipment",
+    "radiated-electric-emission-equipment",
+    "radiated-emission-measurement-receiver",
+    "polarized-receive-antenna-set",
+    "antenna-factor-field-conversion",
+    "antenna-band-tiling-gap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-emission-procedure",
+   "name": "e2007-radiated-electric-emission-procedure",
+   "description": "Assess the radiated electric field emission measurement procedure of ECSS-E-ST-20-07C clause 5.4.6.4. Use when a radiated emission run is planned or graded: confirm the receiver completed its warm-up and settled before any level was believed, group that record as settled, under-warmed or drifting, compare each scanning increment against its measurement bandwidth so no frequency falls between cells, merge the steps per antenna polarization to expose sub-bands never recorded, flag steps begun before warm-up ended, and derive the point count and scan time the run needed. Trigger: ecss, e-st-20-07c, radiated-electric-emission-procedure, emission-receiver-warmup-period, radiated-emission-scan-step-size, radiated-emission-polarization-coverage, radiated-emission-scan-dwell.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-emission-procedure",
+    "emission-receiver-warmup-period",
+    "radiated-emission-scan-step-size",
+    "radiated-emission-polarization-coverage",
+    "radiated-emission-scan-dwell",
+    "radiated-emission-unrecorded-sub-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-emission-purpose",
+   "name": "e2007-radiated-electric-emission-purpose",
+   "description": "Assess whether the radiated electric-field aim of ECSS-E-ST-20-07C clause 5.4.6.1 is demonstrated: confirm the unit enclosure and the interconnecting cabling are both scanned in vertical and horizontal polarization, confirm every scan reaches both edges of the declared method band, compute the margin between each recorded field strength and the applicable radiated limit, categorize every frequency as within-limit, at-limit or an exceedance, reduce each scan to its worst-case frequency, and name the governing emitter. Use when a record has to show that what the unit and its harness radiate stays inside the applicable limit. Trigger: ecss, e-st-20-07c, radiated-electric-emission-purpose, unit-enclosure-field-emission, interconnecting-cabling-field-emission, radiated-emission-limit-margin, antenna-polarization-scan-pair, governing-radiated-emitter.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-emission-purpose",
+    "radiated-electric-emission-purpose",
+    "unit-enclosure-field-emission",
+    "interconnecting-cabling-field-emission",
+    "radiated-emission-limit-margin",
+    "antenna-polarization-scan-pair"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-emission-reporting",
+   "name": "e2007-radiated-electric-emission-reporting",
+   "description": "Audit the radiated electric emission report package of ECSS-E-ST-20-07C clause 5.4.6.5, where the recorded levels must travel with a statement of measuring-antenna electrical continuity. Use when an emission report is assembled or reviewed: name every antenna the data was taken through, find the ones no statement covers, group each statement as continuous, marginal or open against its resistance allowance, reject statements taken outside the run window they are offered as support for, resolve duplicate statements to the worst case, and compute the margin of every recorded level against its limit. Trigger: ecss, e-st-20-07c, radiated-electric-emission-reporting, antenna-electrical-continuity-statement, emission-report-package-completeness, radiated-emission-margin-record, emission-antenna-continuity-resistance.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-emission-reporting",
+    "antenna-electrical-continuity-statement",
+    "emission-report-package-completeness",
+    "radiated-emission-margin-record",
+    "emission-antenna-continuity-resistance",
+    "emission-statement-run-window"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-emission-setup",
+   "name": "e2007-radiated-electric-emission-setup",
+   "description": "Derive the bench layout for an ECSS-E-ST-20-07C clause 5.4.6.3 radiated electric-emission run and audit the realized bench against it: apply each declared method delta to the baseline geometry, compare the antenna-to-unit separation, boresight height, cabling run length and ground-plane bond resistance against their bands, confirm the separation clears the near-field boundary at the lowest frequency, check every radiating face of the unit was presented to the antenna in both polarizations, and return the governing parameter with the setup verdict. Use when a radiated-emission bench layout is being built or graded. Trigger: ecss, e-st-20-07c, radiated-electric-emission-setup, antenna-to-unit-separation, unit-face-presentation-coverage, radiated-bench-boresight-height, near-field-boundary-clearance, radiated-setup-deviation-categorization.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-emission-setup",
+    "radiated-electric-emission-setup",
+    "antenna-to-unit-separation",
+    "unit-face-presentation-coverage",
+    "radiated-bench-boresight-height",
+    "near-field-boundary-clearance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-susceptibility-equipment",
+   "name": "e2007-radiated-electric-susceptibility-equipment",
+   "description": "Assess the instrument chain an ECSS-E-ST-20-07C clause 5.4.11.2 radiated electric susceptibility exposure is made with. Use when the exposure bench is specified or reviewed: confirm a signal generator, a power amplifier, a transmit antenna and an isotropic field probe are each declared once, intersect their usable spans and name the item bounding the method band, derive the forward power the required field strength needs from antenna gain and separation, compare it with what the generator and amplifier deliver once the rating caps the drive, confirm the probe is isotropic and reads the required field, and reject an item whose calibration lapses mid-campaign. Trigger: ecss, e-st-20-07c, radiated-electric-susceptibility-equipment, field-exposure-power-amplifier, transmit-antenna-gain, isotropic-field-probe-range, forward-power-for-field-strength, exposure-instrument-calibration.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-susceptibility-equipment",
+    "field-exposure-power-amplifier",
+    "transmit-antenna-gain",
+    "isotropic-field-probe-range",
+    "forward-power-for-field-strength",
+    "exposure-instrument-calibration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-susceptibility-overview",
+   "name": "e2007-radiated-electric-susceptibility-overview",
+   "description": "Verify that a radiated electric field susceptibility run demonstrates the aim ECSS-E-ST-20-07C clause 5.4.11.1 introduces: the unit and its interconnecting cabling both keep working under a strong field across a wide band. Use when the method is introduced, planned or its record reviewed: confirm both exposure objects are swept, check each sweep reaches both edges of the declared band, compute the margin between the field applied and the field required at every frequency, group each point as at level, under level or overtested, mark a monitored degradation with the frequency it begins at, and name the governing object. Trigger: ecss, e-st-20-07c, radiated-electric-susceptibility-overview, electric-field-exposure-band-coverage, harness-field-exposure, applied-field-margin, susceptibility-degradation-threshold, radiated-electric-aim-demonstration.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-susceptibility-overview",
+    "electric-field-exposure-band-coverage",
+    "harness-field-exposure",
+    "applied-field-margin",
+    "susceptibility-degradation-threshold",
+    "radiated-electric-aim-demonstration"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-susceptibility-procedure",
+   "name": "e2007-radiated-electric-susceptibility-procedure",
+   "description": "Execute and audit one ECSS-E-ST-20-07C clause 5.4.11.4 radiated electric susceptibility run: confirm every radiation-safety provision is in place before the amplifier is keyed, compute the hazard clearance distance the forward power and antenna gain demand against the permissible exposure density, build the geometric step ladder across the declared test frequency range, compare the recorded exposure steps against it to expose skipped stretches and oversized jumps, grade each step dwell against the response time of the unit under test, and separate findings that stop the run from margins worth carrying. Use when running or reviewing a stepped radiated susceptibility exposure. Trigger: ecss, e-st-20-07c, radiated-electric-susceptibility-procedure, rf-hazard-clearance-distance, stepped-exposure-frequency-ladder, susceptibility-step-dwell-adequacy, radiated-exposure-step-coverage, radiation-safety-provision-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-susceptibility-procedure",
+    "rf-hazard-clearance-distance",
+    "stepped-exposure-frequency-ladder",
+    "susceptibility-step-dwell-adequacy",
+    "radiated-exposure-step-coverage",
+    "radiation-safety-provision-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-susceptibility-reporting",
+   "name": "e2007-radiated-electric-susceptibility-reporting",
+   "description": "Assess what an ECSS-E-ST-20-07C clause 5.4.11.5 radiated electric susceptibility report has to put in front of a reader: validate every frequency point for generator setting, forward and reflected power and achieved field level, compute the net power delivered and the field the chamber calibration factor predicts from it, grade the decibel discrepancy against the level written into the report, confirm each point reaches the reader through a table or a graph with named axes and a logarithmic frequency axis once the span passes a decade, categorize points as reportable, unpresented or irreconcilable, and return the presentation verdict. Use when compiling or reviewing a radiated susceptibility test report. Trigger: ecss, e-st-20-07c, radiated-electric-susceptibility-reporting, susceptibility-generator-setting-record, forward-power-reporting, achieved-field-level-table, susceptibility-report-graph-axes, achieved-field-consistency-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-susceptibility-reporting",
+    "susceptibility-generator-setting-record",
+    "forward-power-reporting",
+    "achieved-field-level-table",
+    "susceptibility-report-graph-axes",
+    "achieved-field-consistency-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-electric-susceptibility-setup",
+   "name": "e2007-radiated-electric-susceptibility-setup",
+   "description": "Derive and grade the chamber arrangement for an ECSS-E-ST-20-07C clause 5.4.11.3 radiated electric susceptibility exposure: apply each declared method delta to the baseline geometry, refuse a delta that collapses an allowed band, compute the footprint the antenna projects at the unit plane from its separation and beamwidth, confirm the unit face and the exposed harness both stand inside it, grade separation, boresight height, harness height, probe offset, absorber clearance and bond resistance against their bands, categorize each as conforming, a declared deviation or nonconforming, and return the governing parameter with the verdict. Use when building or reviewing a radiated susceptibility chamber setup. Trigger: ecss, e-st-20-07c, radiated-electric-susceptibility-setup, radiated-susceptibility-chamber-arrangement, uniform-field-footprint-coverage, exposed-harness-illumination, susceptibility-antenna-separation, radiated-field-probe-placement.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-electric-susceptibility-setup",
+    "radiated-susceptibility-chamber-arrangement",
+    "uniform-field-footprint-coverage",
+    "exposed-harness-illumination",
+    "susceptibility-antenna-separation",
+    "radiated-field-probe-placement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-magnetic-susceptibility-equipment",
+   "name": "e2007-radiated-magnetic-susceptibility-equipment",
+   "description": "Assess the field-generating chain a radiated magnetic susceptibility run is built from under ECSS-E-ST-20-07C clause 5.4.10.2: confirm a signal source, a power amplifier and a radiating loop are all present and in date, intersect their frequency coverage with the required exposure band and report every uncovered sub-band, size the loop from its diameter and turn count, derive the loop current that reaches the wanted flux density at the stated standoff, convert it to a drive level through the loop impedance at the worst-case tune frequency, and compare the gain and the output ceiling the amplifier must supply with the ones it has. Use when assembling or auditing a magnetic susceptibility bench before the loop is placed. Trigger: ecss, e-st-20-07c, radiated-magnetic-susceptibility-equipment, magnetic-field-radiating-loop, loop-turns-area-product, magnetic-susceptibility-power-amplifier, magnetic-loop-drive-current, exposure-band-instrument-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-magnetic-susceptibility-equipment",
+    "radiated-magnetic-susceptibility-equipment",
+    "magnetic-field-radiating-loop",
+    "loop-turns-area-product",
+    "magnetic-susceptibility-power-amplifier",
+    "magnetic-loop-drive-current",
+    "exposure-band-instrument-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-magnetic-susceptibility-procedure",
+   "name": "e2007-radiated-magnetic-susceptibility-procedure",
+   "description": "Audit one radiated magnetic susceptibility run under ECSS-E-ST-20-07C clause 5.4.10.4: confirm the mandatory steps were all carried out and in their proper order, compare the instrument soak against the required warm-up, judge the system verification read-back error against its decibel tolerance, size the tuned point count from the proportional frequency step, derive the dwell floor at the bottom of the band and the sweep time the run occupies, then take the threshold search down to the level the unit reacts at and report the margin it leaves. Use when running or reviewing a stepped magnetic exposure sweep on a built bench. Trigger: ecss, e-st-20-07c, radiated-magnetic-susceptibility-procedure, magnetic-exposure-instrument-warm-up, magnetic-field-system-verification-error, magnetic-exposure-frequency-stepping, magnetic-exposure-dwell-floor, magnetic-susceptibility-threshold-search.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-magnetic-susceptibility-procedure",
+    "radiated-magnetic-susceptibility-procedure",
+    "magnetic-exposure-instrument-warm-up",
+    "magnetic-field-system-verification-error",
+    "magnetic-exposure-frequency-stepping",
+    "magnetic-exposure-dwell-floor",
+    "magnetic-susceptibility-threshold-search"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-magnetic-susceptibility-purpose",
+   "name": "e2007-radiated-magnetic-susceptibility-purpose",
+   "description": "Evaluate whether a radiated magnetic susceptibility test plan serves the aim of ECSS-E-ST-20-07C clause 5.4.10.1. Use when the task is judging a plan against the purpose rather than a limit: confirming a current-carrying loop stands at the declared standoff from the unit face, that the swept band spans the low-frequency magnetic region, that a required field strength and something watching the unit are both on record, and quantifying the swept share of the aim band across decades together with the axial field the loop truly produces at that standoff. Trigger: ecss, e-st-20-07c, radiated-magnetic-susceptibility-purpose, magnetic-radiating-loop-standoff, magnetic-field-strength-requirement, magnetic-susceptibility-band-coverage, loop-axial-field-computation, susceptibility-performance-monitoring.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-magnetic-susceptibility-purpose",
+    "radiated-magnetic-susceptibility",
+    "magnetic-radiating-loop-standoff",
+    "magnetic-field-strength-requirement",
+    "magnetic-susceptibility-band-coverage",
+    "loop-axial-field-computation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-magnetic-susceptibility-reporting",
+   "name": "e2007-radiated-magnetic-susceptibility-reporting",
+   "description": "Evaluate the reporting pack a radiated magnetic susceptibility run must leave behind under ECSS-E-ST-20-07C clause 5.4.10.5. Use when a test record is assembled or reviewed: confirm the exposure-level table, the setup diagram and the loop verification record are all carried, recompute the axial flux density the radiating loop produces from its current, turns, radius and separation, compare that prediction against the verification reading, grade every recorded frequency by the margin between the exposure level reached and the level required, group each as reached, short or above, and report a required frequency the table never records. Trigger: ecss, e-st-20-07c, radiated-magnetic-susceptibility-reporting, radiating-loop-verification, magnetic-exposure-level-table, magnetic-susceptibility-setup-diagram, loop-axial-field-prediction, magnetic-exposure-frequency-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-magnetic-susceptibility-reporting",
+    "radiating-loop-verification",
+    "magnetic-exposure-level-table",
+    "magnetic-susceptibility-setup-diagram",
+    "loop-axial-field-prediction",
+    "magnetic-exposure-frequency-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2007-radiated-magnetic-susceptibility-setup",
+   "name": "e2007-radiated-magnetic-susceptibility-setup",
+   "description": "Verify the bench arrangement a radiated magnetic susceptibility run is exposed on under ECSS-E-ST-20-07C clause 5.4.10.3: grade the loop standoff at every exposure surface against its window, cap the scan-grid spacing at the loop diameter so no lane of the surface goes unswept, confirm each position receives all three orthogonal loop presentations, derive the exposure count the arrangement implies, and prove the system verification sense loop reads back a voltage the monitor can resolve, separating outright deviations from dimensions merely sitting at a window edge. Use when building or auditing a magnetic exposure bench before the sweep starts. Trigger: ecss, e-st-20-07c, radiated-magnetic-susceptibility-setup, magnetic-loop-standoff-window, magnetic-exposure-scan-grid, orthogonal-loop-orientations, magnetic-field-sense-loop-verification, magnetic-exposure-surface-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2007-radiated-magnetic-susceptibility-setup",
+    "radiated-magnetic-susceptibility-setup",
+    "magnetic-loop-standoff-window",
+    "magnetic-exposure-scan-grid",
+    "orthogonal-loop-orientations",
+    "magnetic-field-sense-loop-verification",
+    "magnetic-exposure-surface-coverage"
    ],
    "family": "space-systems",
    "pack": "ecss",

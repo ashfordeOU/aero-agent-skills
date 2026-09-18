@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-power-lead-susceptibility-equipment (space-systems/ecss)
+# Two tasks for the new leaf. plse1 routes on an amplifier sized from the
+# wanted injected voltage alone, with the injection-path loss and the test
+# headroom never added as decibels. plse2 routes on a series resistor that
+# looks ideal low in the band but whose residual inductance dominates at the
+# top of it. Both must deterministically hit
+# space-systems/ecss/e2007-power-lead-susceptibility-equipment.
+tasks:
+  - id: plse1
+    query: "we sized the amplifier for the power-lead injection straight from the volts we want across the lead impedance, but the cable run and the headroom are decibels not watts, so how many watts does that chain actually have to deliver"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.2; the drive power is the delivered power raised by the sum of the injection-path loss and the headroom in decibels, then held against the rated output"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-equipment"
+  - id: plse2
+    query: "the series resistor we inject the supply lead through measures dead flat at a kilohertz but its residual inductance is a tenth of a microhenry, is that part still a resistor at the top of the susceptibility band"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.2; the reactance of the residual inductance is judged at the top frequency as a ratio to the resistance, alongside the derated dissipation at the lead current"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-equipment"

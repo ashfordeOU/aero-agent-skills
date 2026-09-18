@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-power-lead-transient-equipment
+# (space-systems/ecss, E-ST-20-07C 5.4.9.2). Two tasks per leaf; plte1 routes
+# on the generator amplitude and the impedance divider, plte2 on the
+# decoupling floor and the recording chain. Both must deterministically hit
+# space-systems/ecss/e2007-power-lead-transient-equipment.
+tasks:
+  - id: plte1
+    query: "size the transient-generator-open-circuit-amplitude through the transient-source-impedance-divider and bound the transient-pulse-repetition-interval for a supply transient bench"
+    intent: "ecss emc; transient generator amplitude, divider and duty for pulse injection onto supplies"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-equipment"
+  - id: plte2
+    query: "set the transient-decoupling-impedance-floor and derive the transient-chain-rise-time and transient-record-depth for recording the injected supply pulse"
+    intent: "ecss emc; decoupling isolation and the recording chain for power-lead transients"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-equipment"

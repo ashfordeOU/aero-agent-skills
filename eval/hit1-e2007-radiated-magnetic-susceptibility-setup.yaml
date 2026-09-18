@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radiated-magnetic-susceptibility-setup
+# (space-systems/ecss, E-ST-20-07C 5.4.10.3). Two tasks per leaf; rmss1 routes
+# on the loop standoff window and the scan grid, rmss2 on the orthogonal loop
+# presentations and the sense-loop verification read-back. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radiated-magnetic-susceptibility-setup.
+tasks:
+  - id: rmss1
+    query: "grade the magnetic-loop-standoff-window at each exposure face and cap the magnetic-exposure-scan-grid spacing for the radiated-magnetic-susceptibility-setup arrangement"
+    intent: "ecss emc; loop standoff window and scan grid spacing on a magnetic exposure bench"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-setup"
+  - id: rmss2
+    query: "confirm the orthogonal-loop-orientations at every position and size the magnetic-field-sense-loop-verification read-back for the magnetic-exposure-surface-coverage audit"
+    intent: "ecss emc; loop presentations and system verification arrangement before a magnetic sweep"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-setup"

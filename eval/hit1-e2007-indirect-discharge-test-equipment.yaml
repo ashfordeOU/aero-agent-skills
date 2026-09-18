@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-indirect-discharge-test-equipment (space-systems/ecss)
+# Two tasks for the new leaf. ide1 routes on whether the declared high
+# voltage supply and its ceiling and regulation can hold the severity level;
+# ide2 routes on the primary circuit itself -- storage capacitor, discharge
+# resistor and the charging resistor that sets how fast the generator can be
+# fired again. Both must deterministically hit
+# space-systems/ecss/e2007-indirect-discharge-test-equipment.
+tasks:
+  - id: ide1
+    query: "our esd generator is specced to 5 kV and we want to run indirect discharges at 4 kV, is that supply ceiling and its regulation enough and what hold off does the discharge electrode need"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.2; the supply is sized from the severity level plus headroom, and regulation is a separate requirement from ceiling"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-test-equipment"
+  - id: ide2
+    query: "the discharge generator primary circuit has a 150 pF storage capacitor and a 330 ohm discharge resistor, what first peak current and decay does that give and how large can the charging resistor be if we fire once a second"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.2; stored energy and first peak follow from the primary circuit, and the charging resistor bounds the repetition the run can sustain"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-test-equipment"

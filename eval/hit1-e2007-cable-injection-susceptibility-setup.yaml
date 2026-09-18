@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-cable-injection-susceptibility-setup (space-systems/ecss)
+# Two tasks for the new leaf. ciss1 routes on where the injection and monitor
+# probes sit on the bundle once the standard layout is the starting point;
+# ciss2 routes on the jig-to-bench impedance mismatch and the exposed harness
+# length as a ceiling on the band. Both must deterministically hit
+# space-systems/ecss/e2007-cable-injection-susceptibility-setup.
+tasks:
+  - id: ciss1
+    query: "how do we place the injection probe and the current monitor probe along the harness for a cable injection run built off the standard bench configuration, and how far apart are they allowed to be"
+    intent: "ECSS-E-ST-20-07C clause 5.4.8.3; the monitor sits between the injection point and the unit, separated by more than the aperture and less than a wavelength fraction"
+    expected_skill: "space-systems/ecss/e2007-cable-injection-susceptibility-setup"
+  - id: ciss2
+    query: "our injection probe was calibrated in a hundred ohm jig but the bench harness is nothing like that, and the exposed run is nearly two metres, does either of those cap the top of the band we can inject over"
+    intent: "ECSS-E-ST-20-07C clause 5.4.8.3; the jig-to-bench mismatch is a drive error and the quarter-wave resonance of the exposed harness is the layout's ceiling"
+    expected_skill: "space-systems/ecss/e2007-cable-injection-susceptibility-setup"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-contact-discharge-test-equipment
+# (space-systems/ecss, E-ST-20-07C 5.4.14.2). Two tasks per leaf; cdte1 routes
+# on the generator capacitance and resistance tolerances and the time constant
+# they produce, cdte2 on the tail waveform points and the tip and return path
+# for direct application. Both must deterministically hit
+# space-systems/ecss/e2007-contact-discharge-test-equipment.
+tasks:
+  - id: cdte1
+    query: "both the contact-discharge-generator-capacitance and the contact-discharge-resistance-tolerance are inside their bands but the contact-discharge-time-constant looks wrong, does the pulse still conform"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.2; the RC product carries its own tolerance and two in-band parts can miss it"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-test-equipment"
+  - id: cdte2
+    query: "what fraction of the contact-discharge-tail-waveform should still be flowing at the named delays, and does contact-discharge-tip-and-return matter when the generator is applied directly to the unit"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.2; exponential tail checkpoints, fitted tip and return cable for direct application"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-test-equipment"

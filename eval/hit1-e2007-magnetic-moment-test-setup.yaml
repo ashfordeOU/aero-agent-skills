@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-magnetic-moment-test-setup (space-systems/ecss)
+# Two tasks for the new leaf. mmts1 routes on the residual field left in a
+# compensated area and whether it is small enough to read an intrinsic
+# moment; mmts2 routes on the pull between the separation a point-dipole
+# reading needs and the signal that separation leaves above the magnetometer
+# noise floor. Both must deterministically hit
+# space-systems/ecss/e2007-magnetic-moment-test-setup.
+tasks:
+  - id: mmts1
+    query: "our helmholtz compensation is energised but the residual field in the moment test volume still reads a few tens of nanotesla on each axis, is that a compensated area for an intrinsic moment measurement"
+    intent: "ECSS-E-ST-20-07C clause 5.4.5.2; residual field after compensation as a vector magnitude against the declared tolerance, not a per-axis pass"
+    expected_skill: "space-systems/ecss/e2007-magnetic-moment-test-setup"
+  - id: mmts2
+    query: "how far from the unit do the magnetometers have to sit before the reading is a single dipole rather than the individual magnets, and will the field still clear the sensor noise floor at that distance"
+    intent: "ECSS-E-ST-20-07C clause 5.4.5.2; minimum separation from the largest unit dimension versus the inverse-cube fall-off against the noise floor"
+    expected_skill: "space-systems/ecss/e2007-magnetic-moment-test-setup"

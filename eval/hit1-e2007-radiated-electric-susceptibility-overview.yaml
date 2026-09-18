@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radiated-electric-susceptibility-overview (space-systems/ecss)
+# Two tasks for the new leaf. reso1 routes on the aim of the method covering the
+# unit and its harness as two exposure objects across the whole band; reso2
+# routes on the field margin per frequency and the frequency a degradation
+# begins at. Both must deterministically hit
+# space-systems/ecss/e2007-radiated-electric-susceptibility-overview.
+tasks:
+  - id: reso1
+    query: "we exposed the box to the radiated electric field over the whole sweep but the harness was behind the turntable the whole time, has the radiated electric susceptibility objective been demonstrated"
+    intent: "ECSS-E-ST-20-07C clause 5.4.11.1; the unit enclosure and the interconnecting cabling are separate exposure objects, and band-edge coverage is checked per object"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-overview"
+  - id: reso2
+    query: "the amplifier only reached 12 V/m against a 20 V/m requirement at two points and the telemetry glitched at 400 MHz, how should that be written up as a susceptibility result"
+    intent: "ECSS-E-ST-20-07C clause 5.4.11.1; applied-versus-required field margin per frequency, an under-level point as a run finding, and the lowest degraded frequency as the susceptibility threshold"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-overview"

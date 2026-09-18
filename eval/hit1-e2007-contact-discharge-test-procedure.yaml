@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-contact-discharge-test-procedure (space-systems/ecss)
+# Two tasks for the new leaf. cdp1 routes on calibrating the discharge
+# current waveform into the current target before any event is applied;
+# cdp2 routes on the ordered application sequence, the interval between
+# events and how many discharges a point needs. Both must deterministically
+# hit space-systems/ecss/e2007-contact-discharge-test-procedure.
+tasks:
+  - id: cdp1
+    query: "before the contact discharge run we read 15 A first peak and a 2 ns edge into the current target at 4 kV, is that calibration good enough to run on and how old is too old"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.4; the current target is derived from the charge level, the first peak and the decay points carry fractional tolerances, the edge has its own band and the calibration has a validity window"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-test-procedure"
+  - id: cdp2
+    query: "how do we order the contact discharge applications across two points, both polarities and four ascending levels, and how long do we have to wait between individual discharges"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.4; stabilise then calibrate then apply over ascending levels and both polarities, with the interval set by the slowest of the declared value, the generator recharge and the floor"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-test-procedure"

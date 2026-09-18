@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-contact-discharge-test-setup (space-systems/ecss)
+# Two tasks for the new leaf. cds1 routes on deriving the direct contact
+# bench from the standard unit configuration, the tip that has to be
+# fitted and which surfaces the tip can actually contact; cds2 routes on
+# the discharge network turning a charge level into a peak current and an
+# energy, and on the return cable dressing. Both must deterministically
+# hit space-systems/ecss/e2007-contact-discharge-test-setup.
+tasks:
+  - id: cds1
+    query: "we are setting the ESD gun up for contact discharge onto the unit off the standard EMC configuration, which faces can we actually touch the tip to and does the anodised lid count"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.3; the contact bench is the standard configuration plus declared deltas, and only a conductive low-resistance surface takes a contact application at all"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-test-setup"
+  - id: cds2
+    query: "the gun is a 150 pF 330 ohm network charged to 4 kV, what peak current and stored energy does that put into the box and how much return cable slack is safe to leave beside it"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.3; the discharge network and the charge voltage fix the peak current, decay, energy and charge, and the leftover return cable has to be dressed away from the unit"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-test-setup"

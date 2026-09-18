@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radiated-magnetic-susceptibility-procedure
+# (space-systems/ecss, E-ST-20-07C 5.4.10.4). Two tasks per leaf; rmsp1 routes
+# on the instrument soak and the verification read-back error, rmsp2 on the
+# proportional stepping, the dwell floor and the threshold search. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radiated-magnetic-susceptibility-procedure.
+tasks:
+  - id: rmsp1
+    query: "check the magnetic-exposure-instrument-warm-up soak and grade the magnetic-field-system-verification-error for the radiated-magnetic-susceptibility-procedure run"
+    intent: "ecss emc; warm-up and system verification before a stepped magnetic exposure sweep"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-procedure"
+  - id: rmsp2
+    query: "size the magnetic-exposure-frequency-stepping point count, derive the magnetic-exposure-dwell-floor at the band bottom and run the magnetic-susceptibility-threshold-search for the margin"
+    intent: "ecss emc; stepped exposure sweep planning and reaction threshold margin"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-procedure"
