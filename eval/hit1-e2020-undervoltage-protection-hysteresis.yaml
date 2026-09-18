@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-undervoltage-protection-hysteresis (space-systems/ecss,
+# E-ST-20-20C 5.2.5.2.1). Two tasks per leaf; uvh1 routes on the band against
+# the bus disturbance envelope, uvh2 on the obligation the limiter category
+# carries. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-protection-hysteresis.
+tasks:
+  - id: uvh1
+    query: "size the undervoltage-trip-hysteresis-band against the bus-ripple-chatter-margin and the undervoltage-sensing-uncertainty at both comparators"
+    intent: "ecss power supply; hysteresis between the undervoltage drop-out and re-arm thresholds sized on the bus disturbance envelope"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-protection-hysteresis"
+  - id: uvh2
+    query: "evaluate the retriggerable-limiter-hysteresis-obligation and the undervoltage-rearm-threshold placement to rule out undervoltage-protection-chatter"
+    intent: "ecss power supply; hysteresis mandatory on a retriggerable limiter and recommended on the other limiter categories"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-protection-hysteresis"

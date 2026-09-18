@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-switch-failure-power-budget (space-systems/ecss)
+# Two tasks for the new leaf. sfb1 routes on a stuck-on limiter switch that the
+# power budget has to absorb because nothing can open the channel; sfb2 routes on
+# a redundant branch mistaken for a shedding provision and on a budget that only
+# closes by spending its margin. Both must deterministically hit
+# space-systems/ecss/e2020-switch-failure-power-budget.
+tasks:
+  - id: sfb1
+    query: "if the limiter switch on that channel fails closed there is no other switch to open it, how do we show the spacecraft power budget carries the load it leaves on"
+    intent: "ECSS-E-ST-20-20C clause 5.2.13.1.1; covering a limiter switch stuck in the on state inside the spacecraft power budget where the channel has no additional switching"
+    expected_skill: "space-systems/ecss/e2020-switch-failure-power-budget"
+  - id: sfb2
+    query: "we counted the redundant limiter branch as a way to drop the stuck load and the budget only closes if we spend the reserve"
+    intent: "ECSS-E-ST-20-20C clause 5.2.13.1.1; a redundant limiter branch that sheds no stuck-on load, and a power budget closing only by consuming its required margin"
+    expected_skill: "space-systems/ecss/e2020-switch-failure-power-budget"

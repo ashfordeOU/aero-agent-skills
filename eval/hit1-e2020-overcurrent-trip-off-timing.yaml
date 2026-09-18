@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-overcurrent-trip-off-timing (space-systems/ecss)
+# Two tasks for the leaf. octt1 routes on placing a measured switch-off inside
+# the tabulated window; octt2 routes on the early edge, the nuisance trip a
+# late-edge-only campaign never sees. Both must deterministically hit
+# space-systems/ecss/e2020-overcurrent-trip-off-timing.
+tasks:
+  - id: octt1
+    query: "judge whether a current limiter switched off inside the minimum and maximum trip times its table gives for the overcurrent ratio that was measured"
+    intent: "ECSS-E-ST-20C clause 5.2.4.1.1; measured switch-off against the interpolated trip-time window"
+    expected_skill: "space-systems/ecss/e2020-overcurrent-trip-off-timing"
+  - id: octt2
+    query: "find out whether a limiter is opening faster than the tabulated minimum trip time and shedding a healthy load on inrush rather than protecting the harness"
+    intent: "ECSS-E-ST-20C clause 5.2.4.1.1; the early edge of the trip-time band and nuisance trips"
+    expected_skill: "space-systems/ecss/e2020-overcurrent-trip-off-timing"

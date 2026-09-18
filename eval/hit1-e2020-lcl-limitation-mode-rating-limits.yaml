@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-lcl-limitation-mode-rating-limits (space-systems/ecss)
+# Two tasks for the new leaf. lim1 routes on the dissipation and junction
+# rise a limiter holds during current limitation; lim2 routes on the
+# derated and pulse safe-operating-area ceilings that state has to respect.
+# Both must deterministically hit
+# space-systems/ecss/e2020-lcl-limitation-mode-rating-limits.
+tasks:
+  - id: lim1
+    query: "our HLCL holds its limit for the whole trip-off delay with almost the full bus across the pass element; compute the dissipation, the energy and the transient junction temperature rise"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.4.1; pass element duty during current limitation mode"
+    expected_skill: "space-systems/ecss/e2020-lcl-limitation-mode-rating-limits"
+  - id: lim2
+    query: "check the limited current against the derated current rating and the pulse safe operating area boundary at the stood-off voltage while the LCL is in current limitation mode"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.4.1; component rating limits during current limitation"
+    expected_skill: "space-systems/ecss/e2020-lcl-limitation-mode-rating-limits"

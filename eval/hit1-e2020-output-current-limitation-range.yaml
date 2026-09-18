@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-output-current-limitation-range (space-systems/ecss)
+# Two tasks for the leaf. ocrl1 routes on stacking the setpoint contributors
+# into a worst-case limitation range and comparing both edges with the two
+# protection thresholds; ocrl2 routes on the band-versus-window question and
+# the setpoint that recentres a band that does fit. Both must deterministically
+# hit space-systems/ecss/e2020-output-current-limitation-range.
+tasks:
+  - id: ocrl1
+    query: "stack the initial setting, temperature, reference drift, ageing and total dose contributors onto the limiter setpoint and show the worst-case limitation current stays between the minimum and maximum protection thresholds"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.1.1; limitation setpoint tolerance stack against the protection threshold window"
+    expected_skill: "space-systems/ecss/e2020-output-current-limitation-range"
+  - id: ocrl2
+    query: "decide whether the stacked limitation band is wider than the threshold window, and where it fits report the setpoint that leaves equal slack at both protection thresholds without limiting the healthy load"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.1.1; band-versus-window feasibility, recentred setpoint and nuisance-limitation headroom"
+    expected_skill: "space-systems/ecss/e2020-output-current-limitation-range"

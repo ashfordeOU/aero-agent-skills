@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 2013,
+  "leaves": 2055,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -26196,6 +26196,809 @@
     "reference-cell-flash-time-constant",
     "flash-plateau-sampling-window",
     "working-standard-flash-repeatability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-centralised-undervoltage-protection-redundancy",
+   "name": "e2020-centralised-undervoltage-protection-redundancy",
+   "description": "Assess a centralised undervoltage protection that serves several current limiters for single point failure tolerance under clause 5.2.5.3.1 of ECSS-E-ST-20-20C. Use when one sensing and voting chain arms or trips the undervoltage protection of a whole distribution unit. Walk each redundancy stage as a k-of-n vote, remove one unit at a time, and test both directions: whether the surviving units still protect every limiter served, and whether one unit failing active trips the bus on its own. Report each loss path and each spurious path, and flag an architecture that serves a single limiter as outside the shared protection case. Trigger: ecss, e-st-20-20c, centralised-undervoltage-protection, undervoltage-protection-single-point-failure, undervoltage-voting-redundancy, spurious-undervoltage-trip-path, undervoltage-protection-cross-strapping, shared-undervoltage-sensing-chain.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-centralised-undervoltage-protection-redundancy",
+    "centralised-undervoltage-protection",
+    "undervoltage-protection-single-point-failure",
+    "undervoltage-voting-redundancy",
+    "spurious-undervoltage-trip-path",
+    "undervoltage-protection-cross-strapping",
+    "shared-undervoltage-sensing-chain"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-current-sensor-bus-placement",
+   "name": "e2020-current-sensor-bus-placement",
+   "description": "Verify that the current sensing element of a power protection device sits on the energised main bus side. Use when an LCL, HLCL or fold-back limiter is reviewed against ECSS-E-ST-20-20C clause 5.2.3.3.1: enumerate every current the branch draws with its origin and its return route, work out which ones actually cross the sensing element in its declared position, name the fault currents that bypass it, convert the sensed share into the real branch current needed to reach the trip threshold, and compare that against the harness rating and the nominal load band. Trigger: ecss, e-st-20-20c-clause-5-2-3-3-1, lcl-current-sense-placement, energised-main-bus-side-shunt, structure-return-fault-bypass, unsensed-fault-current-path, effective-trip-current-inflation, latching-current-limiter-threshold.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-current-sensor-bus-placement",
+    "lcl-current-sense-placement",
+    "energised-main-bus-side-shunt",
+    "structure-return-fault-bypass",
+    "unsensed-fault-current-path",
+    "effective-trip-current-inflation",
+    "latching-current-limiter-threshold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-current-telemetry-full-scale",
+   "name": "e2020-current-telemetry-full-scale",
+   "description": "Verify that the current telemetry of a protected power output still reads at the point its protection device limits, against clause 5.2.8.3.1 of ECSS-E-ST-20-20C. Use when a latching or fold-back limiter output carries a shunt, amplifier and converter chain and the question is whether the reported current reaches the worst-case maximum limitation current: build that limit from the class current, the limiting ratio and the arithmetic sum of tolerance, temperature, ageing, radiation and supply spreads, refer the converter span back through gain and shunt, name whichever of amplifier or converter clips first, then report headroom and the current one code represents. Trigger: ecss, e-st-20-20c-clause-5-2-8-3-1, current-telemetry-full-scale, protection-device-limitation-current, telemetry-chain-clipping, protection-limit-current-telemetry-coverage, telemetry-range-versus-limitation-current, shunt-and-gain-referral.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e-st-20-20c-clause-5-2-8-3-1",
+    "e2020-current-telemetry-full-scale",
+    "e-st-20-20c",
+    "current-telemetry-full-scale",
+    "protection-device-limitation-current",
+    "telemetry-chain-clipping",
+    "protection-limit-current-telemetry-coverage",
+    "telemetry-range-versus-limitation-current"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-current-telemetry-linearity",
+   "name": "e2020-current-telemetry-linearity",
+   "description": "Evaluate whether an output current telemetry reports linearly and holds its absolute accuracy against the class current of the device over its whole range, per clause 5.2.8.4.1 of ECSS-E-ST-20-20C. Use when a calibration set of applied against reported currents has to become a verdict rather than a plot: divide every signed error by the class current instead of by the reading or by full scale, take the worst point rather than a mean, split the departure into gain error, zero offset and residual bow around a least-squares line, and flag a set that never reached the ends of the range or that folds back. Trigger: ecss, e-st-20-20c-clause-5-2-8-4-1, current-telemetry-linearity, class-referenced-accuracy, telemetry-gain-error, telemetry-non-linearity, calibration-range-coverage, reported-current-fold-back.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e-st-20-20c-clause-5-2-8-4-1",
+    "e2020-current-telemetry-linearity",
+    "e-st-20-20c",
+    "current-telemetry-linearity",
+    "class-referenced-accuracy",
+    "telemetry-gain-error",
+    "telemetry-non-linearity",
+    "calibration-range-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-current-telemetry-offset-reference",
+   "name": "e2020-current-telemetry-offset-reference",
+   "description": "Determine whether the offset of a reported output current is expressed against the class current of the device, as clause 5.2.8.5.1 of ECSS-E-ST-20-20C fixes it, and whether it stays inside its allowance. Use when a datasheet or a test report states a telemetry zero offset on some other basis and the number has to be made comparable: normalise the declared basis, refuse a percentage of reading outright because an offset lives at zero applied current, restate a full-scale or absolute figure against the class current, report the factor a full-scale basis hid, settle the measured offset from zero-current readings and compare the two. Trigger: ecss, e-st-20-20c-clause-5-2-8-5-1, current-telemetry-offset, class-current-reference-basis, telemetry-zero-offset-basis, full-scale-referenced-offset, offset-basis-restatement, zero-current-reading-spread.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e-st-20-20c-clause-5-2-8-5-1",
+    "e2020-current-telemetry-offset-reference",
+    "e-st-20-20c",
+    "current-telemetry-offset",
+    "class-current-reference-basis",
+    "telemetry-zero-offset-basis",
+    "full-scale-referenced-offset",
+    "offset-basis-restatement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-essential-load-retrigger-disabling",
+   "name": "e2020-essential-load-retrigger-disabling",
+   "description": "Audit which command paths may switch off the retrigger behaviour of a limiter feeding an essential spacecraft load, under ECSS-E-ST-20-20C clause 5.2.6.4.1. Use when a power architecture has to show that this authority stays on the ground: refuse essentiality asserted with no rationale reference, sort each path by where the command originates rather than where it executes so an uplinked time-tagged sequence still counts, name every essential limiter an onboard decision could disable, and count how many of them the widest onboard path reaches. Trigger: ecss, e-st-20-20c-clause-5-2-6-4-1, essential-load-retrigger-disable-authority, ground-originated-retrigger-disable-command, onboard-autonomy-retrigger-disable-exposure, essential-load-limiter-grouping, essential-load-retrigger-exposure-count.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-6-4-1",
+    "e2020-essential-load-retrigger-disabling",
+    "essential-load-retrigger-disable-authority",
+    "ground-originated-retrigger-disable-command",
+    "onboard-autonomy-retrigger-disable-exposure",
+    "essential-load-limiter-grouping",
+    "essential-load-retrigger-exposure-count"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-failure-propagation-containment",
+   "name": "e2020-failure-propagation-containment",
+   "description": "Verify that a failed current limiter puts no fault effect onto the distribution bus or a neighbouring output line, per clause 5.2.7.3.1 of ECSS-E-ST-20-20C. Use when a containment argument has to hold for every way a limiter fails and not just the convenient one: trace failing conducting, failing open, losing the limiting function and oscillating apart, keep a barrier to the modes it genuinely covers, turn the uncontained fault current into a bus droop across the source impedance, and refuse a backup device that clears after the bus has gone. Trigger: ecss, e-st-20-20c-clause-5-2-7-3-1, limiter-failure-containment, limiter-fault-propagation-to-bus, limiter-barrier-mode-coverage, limiter-fault-bus-droop, limiter-backup-clearing-time.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-7-3-1",
+    "e2020-failure-propagation-containment",
+    "limiter-failure-containment",
+    "limiter-fault-propagation-to-bus",
+    "limiter-barrier-mode-coverage",
+    "limiter-fault-bus-droop",
+    "limiter-backup-clearing-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-inductive-current-freewheeling-provision",
+   "name": "e2020-inductive-current-freewheeling-provision",
+   "description": "Verify the inductive-current freewheeling provision of ECSS-E-ST-20-20C clause 5.2.7.7.1. Use when a current limiter feeds an inductive load over a long harness and the branch has to keep conducting the instant the limiter opens: sum the load and harness inductance, size the energy trapped at the limitation current, categorize the declared return path as absent, load-freewheel-diode, switch-clamp or active-clamp, derive the decay time and the peak the switching element then stands off, compare that peak against its rating and the decay against the reclosure dead time, and reject a design whose only path is the switch avalanche. Trigger: ecss, e-st-20-20c, limiter-inductive-freewheeling-path, limiter-opening-transient, harness-stored-energy, freewheel-diode-decay, limiter-switch-standoff-margin, clamp-energy-absorption, limiter-reclosure-dead-time.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-inductive-current-freewheeling-provision",
+    "limiter-inductive-freewheeling-path",
+    "limiter-opening-transient",
+    "harness-stored-energy",
+    "freewheel-diode-decay",
+    "limiter-switch-standoff-margin",
+    "limiter-reclosure-dead-time"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-lcl-class-selection",
+   "name": "e2020-lcl-class-selection",
+   "description": "Determine which latching current limiter class a protected load belongs on. Use when an ECSS-E-ST-20-20C clause 5.2.1.1.1 power-distribution design has to take an LCL class from the project class table and show the associated performance figures are met: derate each class continuous rating, keep the classes that carry the steady load, charge the load capacitance at the worst-case lower limiting current and check the charge completes inside the shortest trip-off delay, confirm the upper limiting current sits under the protected harness rating, then take the smallest passing class and report its utilisation, start-up and harness margins. Refuses a non-ascending class table, an inverted limiting band and a limiting band that would trip at its own continuous rating. Trigger: ecss, e-st-20-20c, lcl-class-selection, latching-current-limiter, lcl-limiting-current-band, lcl-trip-off-time, lcl-inrush-charge-time, lcl-derated-capability, protected-harness-rating.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-lcl-class-selection",
+    "latching-current-limiter",
+    "lcl-limiting-current-band",
+    "lcl-trip-off-time",
+    "lcl-inrush-charge-time",
+    "lcl-derated-capability",
+    "protected-harness-rating"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-lcl-limitation-mode-rating-limits",
+   "name": "e2020-lcl-limitation-mode-rating-limits",
+   "description": "Evaluate whether an LCL or HLCL pass element stays inside its component ratings while it holds current limitation. Use when a limiter branch is assessed against ECSS-E-ST-20-20C clause 5.2.3.4.1: confirm the demand really drives limitation, take the voltage the element stands off and the limited current it carries, compute the dissipation and the energy over the trip-off delay, raise the junction through the transient thermal path, and compare current, voltage and junction against derated ratings and the pulse safe operating area boundary. Trigger: ecss, e-st-20-20c-clause-5-2-3-4-1, lcl-current-limitation-mode, pass-element-dissipation, trip-off-delay-energy, transient-junction-temperature-rise, pulse-safe-operating-area, power-component-derating-limits.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-lcl-limitation-mode-rating-limits",
+    "lcl-current-limitation-mode",
+    "pass-element-dissipation",
+    "trip-off-delay-energy",
+    "transient-junction-temperature-rise",
+    "pulse-safe-operating-area",
+    "power-component-derating-limits"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-lcl-on-off-commandability",
+   "name": "e2020-lcl-on-off-commandability",
+   "description": "Verify that a latching or high power current limiter accepts external commands to switch its output on and off, per clause 5.2.6.1.1 of ECSS-E-ST-20-20C. Use when an LCL or HPC channel definition has to be graded before its command interface is frozen. Confirm that both an on command and an off command exist, that each reaches the channel from an external source rather than internal logic alone, and that the declared pulse width clears the minimum the channel accepts. Then run command sequences through an off, on and latched-off state machine, including commands issued while the channel sits latched after an overcurrent, and report every command the channel would ignore. Trigger: ecss, e-st-20-20c, lcl-on-off-commandability, latching-current-limiter-command-interface, high-power-limiter-command, lcl-command-pulse-width, lcl-latched-state-command-authority, external-limiter-command-source.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-lcl-on-off-commandability",
+    "lcl-on-off-commandability",
+    "latching-current-limiter-command-interface",
+    "high-power-limiter-command",
+    "lcl-command-pulse-width",
+    "lcl-latched-state-command-authority",
+    "external-limiter-command-source"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-lcl-power-up-state",
+   "name": "e2020-lcl-power-up-state",
+   "description": "Evaluate whether latching and high power limiters come up with their output off, and whether any channel that does not has argued its way there, per clause 5.2.7.2.1 of ECSS-E-ST-20-20C. Use when a recommendation rather than a hard requirement governs the power-up state: tell an off default from an accidental one with no positive enable, separate a departure carrying a rationale, an assessed criticality and compensating provisions from a bare declaration, and add up the inrush every defaulting channel asks of the source at the same instant. Trigger: ecss, e-st-20-20c-clause-5-2-7-2-1, lcl-power-up-output-off, high-power-limiter-default-state, limiter-departure-justification, limiter-positive-enable-command, default-on-aggregate-inrush.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-7-2-1",
+    "e2020-lcl-power-up-state",
+    "lcl-power-up-output-off",
+    "high-power-limiter-default-state",
+    "limiter-departure-justification",
+    "limiter-positive-enable-command",
+    "default-on-aggregate-inrush"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-lcl-repetitive-overload-endurance",
+   "name": "e2020-lcl-repetitive-overload-endurance",
+   "description": "Evaluate whether a latching current limiter rides out repeated overload cycles inside its rating and derating limits, for ECSS-E-ST-20-20C clause 5.2.10.1.1: confirm the faulted load really drives the limiter into current limitation, resolve the pass-element dissipation and per-trip energy at the regulated output voltage, propagate a single-pole junction model through the commanded re-closure train to its settled peak, then grade settled junction temperature, limiting-current derating, average dissipation and applied trip count against the rated repetitive-trip capability. Use when a distribution outlet has to survive a repeated short or a stalled load. Trigger: ecss, e-st-20-20c, latching-current-limiter, lcl-repetitive-overload, lcl-trip-energy, pass-element-junction-temperature, lcl-reclosure-train, limiter-derating-policy, repetitive-trip-capability.",
+   "tags": [
+    "ecss",
+    "e-st-20-20c",
+    "e2020-lcl-repetitive-overload-endurance",
+    "latching-current-limiter",
+    "lcl-repetitive-overload",
+    "lcl-trip-energy",
+    "pass-element-junction-temperature",
+    "lcl-reclosure-train",
+    "limiter-derating-policy",
+    "repetitive-trip-capability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-lcl-requirements-verification-overview",
+   "name": "e2020-lcl-requirements-verification-overview",
+   "description": "Determine which compliance method discharges each protection-device requirement under ECSS-E-ST-20-20C clause 4.1. Use when a requirement list has to become an auditable verification matrix rather than a statement of intent: refuse a method token outside the declared vocabulary, refuse a requirement carrying none at all, reject a duplicate identifier, insist that a requirement fixing a number is discharged by test or analysis and not by design review alone, take the covered and evidence-bearing shares against their policy floors, and name every requirement nobody has planned to demonstrate. Trigger: ecss, e-st-20-20c-clause-4-1, lcl-verification-method-matrix, protection-device-requirement-coverage, verification-method-vocabulary, quantitative-limit-verification-evidence, uncovered-protection-requirement, verification-matrix-coverage-floor.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-protection-device-scope",
+    "e2020-lcl-requirements-verification-overview",
+    "lcl-verification-method-matrix",
+    "protection-device-requirement-coverage",
+    "verification-method-vocabulary",
+    "quantitative-limit-verification-evidence",
+    "uncovered-protection-requirement",
+    "verification-matrix-coverage-floor"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-output-current-limitation-range",
+   "name": "e2020-output-current-limitation-range",
+   "description": "Verify that a current limiter holds its output inside the defined minimum and maximum protection thresholds. Use when ECSS-E-ST-20-20C clause 5.2.3.1.1 asks a limiter design to prove the limitation current never leaves that window: stack the setpoint contributors — initial setting, temperature, reference drift, ageing, total dose, sense offset — arithmetically or by root-sum-square, build the worst-case limitation range around the nominal setpoint, compare both edges with the thresholds, confirm the lower edge clears the healthy load current and the upper edge stays under the protected harness rating, and report the setpoint that recentres the band. Refuses a negative tolerance, a relative contributor at or beyond unity and an inverted threshold window. Trigger: ecss, e-st-20-20c, limiter-output-current-limitation-range, protection-threshold-window, limitation-setpoint-tolerance-stack, root-sum-square-tolerance-stack, nuisance-limitation-headroom, recentred-limitation-setpoint.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-output-current-limitation-range",
+    "protection-threshold-window",
+    "limitation-setpoint-tolerance-stack",
+    "root-sum-square-tolerance-stack",
+    "nuisance-limitation-headroom",
+    "recentred-limitation-setpoint"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-output-current-telemetry-provision",
+   "name": "e2020-output-current-telemetry-provision",
+   "description": "Audit the output-current telemetry provision of ECSS-E-ST-20-20C clause 5.2.8.2.1. Use when every limiter in a distribution unit has to put the current it delivers into the housekeeping stream and that provision must be shown complete and worth reading: confirm one dedicated channel per limiter, reject a channel that sums several outputs, check the full scale spans the limitation current with headroom, check the quantisation step resolves the load change the mission needs to see, sum the offset, gain and quantisation terms at the operating point against the declared accuracy, and name the limiter whose channel governs the verdict. Trigger: ecss, e-st-20-20c, limiter-output-current-telemetry, housekeeping-current-channel, telemetry-full-scale-headroom, current-channel-quantisation-step, current-telemetry-error-budget, shared-current-channel-defect.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-output-current-telemetry-provision",
+    "limiter-output-current-telemetry",
+    "housekeeping-current-channel",
+    "telemetry-full-scale-headroom",
+    "current-channel-quantisation-step",
+    "current-telemetry-error-budget",
+    "shared-current-channel-defect"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-overcurrent-trip-off-timing",
+   "name": "e2020-overcurrent-trip-off-timing",
+   "description": "Evaluate whether a limiter switches off inside its tabulated trip-time window, per ECSS-E-ST-20C clause 5.2.4.1.1. Use when measured or simulated switch-off times have to be judged against the whole table rather than one nominal delay: form the overcurrent ratio against the declared limit, bracket it between tabulated rows, interpolate the minimum and maximum permitted times, hold the last row past the end of the table, and categorize every event as too fast to ride a legitimate inrush, inside the window, too slow to protect the harness, or never opened at all. Trigger: ecss, e-st-20-electrical-scope, overcurrent-trip-off-timing, trip-time-band-interpolation, overcurrent-ratio-bracketing, minimum-trip-time-nuisance-trip, maximum-trip-time-harness-protection, limiter-switch-off-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-overcurrent-trip-off-timing",
+    "overcurrent-trip-off-timing",
+    "trip-time-band-interpolation",
+    "overcurrent-ratio-bracketing",
+    "minimum-trip-time-nuisance-trip",
+    "maximum-trip-time-harness-protection",
+    "limiter-switch-off-window"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-parallel-command-commonality",
+   "name": "e2020-parallel-command-commonality",
+   "description": "Verify that every latching current limiter in a parallel group takes its on command and its off command from one shared line, per clause 5.2.12.4.1 of ECSS-E-ST-20-20C. Use when a paralleled group has to switch as one device rather than as neighbours: resolve the on-command and off-command source each member is bound to, refuse a member left naming no source at all, grade the two lines apart so a shared turn-on with a split turn-off is caught, and measure the spread of arrival delays across the group against a skew budget. Trigger: ecss, e-st-20-20c-clause-5-2-12-4-1, paralleled-limiter-command-commonality, shared-on-off-command-line, limiter-group-command-skew, split-limiter-command-path, unbound-limiter-command-source.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-12-4-1",
+    "e2020-parallel-command-commonality",
+    "paralleled-limiter-command-commonality",
+    "shared-on-off-command-line",
+    "limiter-group-command-skew",
+    "split-limiter-command-path",
+    "unbound-limiter-command-source"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-parallel-current-sharing-accuracy",
+   "name": "e2020-parallel-current-sharing-accuracy",
+   "description": "Evaluate how paralleled latching and high power limiters divide a load current between them, and whether the branch taking the largest share keeps enough headroom to its own threshold, per clause 5.2.12.2.1 of ECSS-E-ST-20-20C. Use when a group carries a load together and no branch may trip off unexpectedly: turn measured branch currents into share fractions, measure the worst branch above the equal share, flag a starved branch the redundancy was sized on, and find the load at which the first branch reaches its threshold after margin. Trigger: ecss, e-st-20-20c-clause-5-2-12-2-1, paralleled-limiter-current-sharing, parallel-branch-share-imbalance, parallel-branch-trip-headroom, parallel-group-sharing-capability, parallel-branch-starved-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-12-2-1",
+    "e2020-parallel-current-sharing-accuracy",
+    "paralleled-limiter-current-sharing",
+    "parallel-branch-share-imbalance",
+    "parallel-branch-trip-headroom",
+    "parallel-group-sharing-capability",
+    "parallel-branch-starved-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-parallel-current-telemetry-aggregation",
+   "name": "e2020-parallel-current-telemetry-aggregation",
+   "description": "Verify that the current telemetry of a paralleled limiter group reports the total current the group is passing, per clause 5.2.12.5.1 of ECSS-E-ST-20-20C. Use when one reading has to stand for several limiters at once: sum every member into the group total, name a member the aggregation was never told about, decide whether a full scale sized for a single member now saturates on the group, combine the member sensing errors into the error on the reported total, and keep a saturated range apart from an accuracy shortfall because the two are different design decisions. Trigger: ecss, e-st-20-20c-clause-5-2-12-5-1, paralleled-limiter-current-telemetry, group-total-current-reporting, telemetry-full-scale-saturation, limiter-group-telemetry-accuracy, omitted-member-current-contribution.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-12-5-1",
+    "e2020-parallel-current-telemetry-aggregation",
+    "paralleled-limiter-current-telemetry",
+    "group-total-current-reporting",
+    "telemetry-full-scale-saturation",
+    "limiter-group-telemetry-accuracy",
+    "omitted-member-current-contribution"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-parallel-limiter-operation-allowance",
+   "name": "e2020-parallel-limiter-operation-allowance",
+   "description": "Assess whether a proposed parallel group of latching and high power limiters sits inside the allowance to wire such limiters in parallel, per clause 5.2.12.1.1 of ECSS-E-ST-20-20C. Use when several limiters feed one load together: hold the group to one limiter family and one part reference, measure how far the member limiting thresholds spread apart, check the members are switched as one and read back individually, refuse a retriggerable or foldback device this allowance never covered, and compare the summed group limit after margin against the declared demand. Trigger: ecss, e-st-20-20c-clause-5-2-12-1-1, parallel-limiter-operation-allowance, paralleled-limiter-group-homogeneity, parallel-limiter-threshold-spread, parallel-group-common-command, parallel-group-limit-margin.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-12-1-1",
+    "e2020-parallel-limiter-operation-allowance",
+    "paralleled-limiter-group-homogeneity",
+    "parallel-limiter-threshold-spread",
+    "parallel-group-common-command",
+    "parallel-group-limit-margin",
+    "parallel-limiter-departure-justification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-parallel-trip-off-timing",
+   "name": "e2020-parallel-trip-off-timing",
+   "description": "Determine when a group of paralleled latching and high power limiters trips off as a whole, and whether the current the first member sheds is what carried the rest over their own thresholds, per clause 5.2.12.3.1 of ECSS-E-ST-20-20C. Use when the combined trip time of a parallel group decides an unintended disconnection: take each member trip time from its own branch current, redistribute the shed current across the members still conducting, walk the cascade event by event, and test the group trip time and the gap between consecutive trips against the declared limits. Trigger: ecss, e-st-20-20c-clause-5-2-12-3-1, paralleled-limiter-trip-off-timing, parallel-group-trip-cascade, parallel-trip-current-redistribution, parallel-trip-cascade-margin, parallel-group-trip-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-12-3-1",
+    "e2020-parallel-trip-off-timing",
+    "paralleled-limiter-trip-off-timing",
+    "parallel-group-trip-cascade",
+    "parallel-trip-current-redistribution",
+    "parallel-trip-cascade-margin",
+    "parallel-group-trip-window"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-power-distribution-standard-assumptions",
+   "name": "e2020-power-distribution-standard-assumptions",
+   "description": "Evaluate a protection-device application against the baseline assumptions of ECSS-E-ST-20-20C clause 4.2. Use when a latching current limiter is reused outside the host unit qualification temperature range and the power bus behaviour its requirements were written on: refuse an unstated, inverted or self-contradictory baseline, take the cold, hot, low-voltage and high-voltage margins one by one, admit an application landing exactly on a bound, name the limiting margin, and raise an advisory for an application sitting inside the marginal band. Trigger: ecss, e-st-20-20c-clause-4-2, host-unit-qualification-temperature-baseline, power-bus-voltage-baseline-assumption, protection-device-application-envelope, baseline-envelope-limiting-margin, requirement-applicability-deviation.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-protection-device-scope",
+    "e2020-power-distribution-standard-assumptions",
+    "host-unit-qualification-temperature-baseline",
+    "power-bus-voltage-baseline-assumption",
+    "protection-device-application-envelope",
+    "baseline-envelope-limiting-margin",
+    "requirement-applicability-deviation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-reference-power-bus-specifications",
+   "name": "e2020-reference-power-bus-specifications",
+   "description": "Determine whether a protection device operates correctly across the reference power bus of ECSS-E-ST-20-20C clause 5.1. Use when a latching current limiter has to be shown compatible with the bus it will sit on: refuse a specification whose transient envelope is narrower than its steady band, build the worst-case high and low instantaneous voltages from the steady limits, the ripple and the transient excursions, compare every device operating window against them, check the transient duration each device tolerates, and report the limiting margin per device. Trigger: ecss, e-st-20-20c-clause-5-1, reference-power-bus-voltage-range, power-bus-ripple-envelope, power-bus-transient-excursion, protection-device-operating-window, worst-case-instantaneous-bus-voltage, transient-duration-tolerance.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-protection-device-scope",
+    "e2020-reference-power-bus-specifications",
+    "reference-power-bus-voltage-range",
+    "power-bus-ripple-envelope",
+    "power-bus-transient-excursion",
+    "protection-device-operating-window",
+    "worst-case-instantaneous-bus-voltage",
+    "transient-duration-tolerance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-retrigger-default-enabled-state",
+   "name": "e2020-retrigger-default-enabled-state",
+   "description": "Determine whether a retriggerable limiter comes up with its retrigger behaviour already active, under ECSS-E-ST-20-20C clause 5.2.6.3.1. Use when a power design declares a power-up default and that declaration has to be checked against evidence: refuse an undeclared default, require every restarting event the project names rather than cold power-up alone, fail a restart that carries the pre-event state across instead of defaulting, and compare the time each restart needs to put the default in force against the moment a load can first be enabled. Trigger: ecss, e-st-20-20c-clause-5-2-6-3-1, retrigger-function-power-up-default-enabled, retrigger-enabled-after-reset, retrigger-default-state-volatility, retrigger-default-establishment-time, retrigger-default-restart-event-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-6-3-1",
+    "e2020-retrigger-default-enabled-state",
+    "retrigger-function-power-up-default-enabled",
+    "retrigger-enabled-after-reset",
+    "retrigger-default-state-volatility",
+    "retrigger-default-establishment-time",
+    "retrigger-default-restart-event-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-retrigger-function-enable-control",
+   "name": "e2020-retrigger-function-enable-control",
+   "description": "Evaluate whether a retriggerable limiter really lets its automatic retrigger behaviour be switched off and switched back on, under ECSS-E-ST-20-20C clause 5.2.6.2.1. Use when a power design claims retrigger is commandable and that claim has to become a verdict: refuse a design declaring no control, reject a one-way inhibit that can never be put back, name every required command path that cannot reach the control, require a state read-back, and compute the worst-case settling time between a disable command and the last re-energisation the load can still see, including one racing dead-time cycle. Trigger: ecss, e-st-20-20c-clause-5-2-6-2-1, retriggerable-limiter-retrigger-enable-control, retrigger-function-two-way-commandability, retrigger-control-state-telemetry, retrigger-disable-settling-time, retrigger-control-command-path-reach.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-6-2-1",
+    "e2020-retrigger-function-enable-control",
+    "retriggerable-limiter-retrigger-enable-control",
+    "retrigger-function-two-way-commandability",
+    "retrigger-control-state-telemetry",
+    "retrigger-disable-settling-time",
+    "retrigger-control-command-path-reach"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-reverse-current-withstand-capability",
+   "name": "e2020-reverse-current-withstand-capability",
+   "description": "Verify that a power outlet tolerates the current its load pushes back in both the conducting and the latched-off state, for ECSS-E-ST-20-20C clause 5.2.11.1.1: derive the recommended withstand level per state from the rated output current, convert the reverse pulse shape into charge, absorbed energy and repetitive rms current, raise the output-node excursion the charge drives into the holdup capacitance, then grade each state separately against its declared withstand peak, duration and overvoltage limit. Use when an inductive or regenerative load can drive current back into a distribution outlet. Trigger: ecss, e-st-20-20c, reverse-current-withstand, off-state-reverse-current, on-state-reverse-current, reverse-pulse-charge, output-node-overvoltage, blocking-element-need.",
+   "tags": [
+    "ecss",
+    "e-st-20-20c",
+    "e2020-reverse-current-withstand-capability",
+    "reverse-current-withstand",
+    "off-state-reverse-current",
+    "on-state-reverse-current",
+    "reverse-pulse-charge",
+    "output-node-overvoltage",
+    "blocking-element-need"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-rlcl-class-selection",
+   "name": "e2020-rlcl-class-selection",
+   "description": "Evaluate which retriggerable current limiter class a protected load belongs on. Use when an ECSS-E-ST-20-20C clause 5.2.2.1.1 power design has to take an RLCL class from the project class table and show its performance figures hold under repeated retriggering: derate the continuous rating, form the worst-case retrigger duty from the longest trip-off delay against the shortest hold-off, compare the resulting mean fault current with the harness thermal rating and the per-attempt fault energy with its allowance, count the retrigger attempts a capacitive load needs to finish charging against the class attempt allowance, then take the smallest passing class. Refuses a non-ascending table, an inverted hold-off window and a lower limiting current that leaves nothing to charge the load. Trigger: ecss, e-st-20-20c, rlcl-class-selection, retriggerable-current-limiter, rlcl-retrigger-duty-cycle, rlcl-hold-off-time, rlcl-attempt-allowance, rlcl-fault-energy-per-attempt, harness-thermal-mean-rating.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-rlcl-class-selection",
+    "retriggerable-current-limiter",
+    "rlcl-retrigger-duty-cycle",
+    "rlcl-hold-off-time",
+    "rlcl-attempt-allowance",
+    "rlcl-fault-energy-per-attempt",
+    "harness-thermal-mean-rating"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-rlcl-limitation-mode-derating",
+   "name": "e2020-rlcl-limitation-mode-derating",
+   "description": "Verify component derating in a retriggerable limiter holding current limitation, per ECSS-E-ST-20C clause 5.2.3.5.1. Use when a latching current limiter must be shown safe through a sustained limitation event and not only in steady conduction: take the upper bus voltage with the upper edge of the limitation band, collapse the output onto the faulted load, divide the differential across the series parts, choose peak or duty-averaged power per part from its thermal time constant, raise junction temperature through the mounting path, then compare voltage, current, power and temperature against each derated rating and name the limiting part. Trigger: ecss, e-st-20-electrical-scope, rlcl-limitation-mode-derating, rlcl-pass-device-limitation-dissipation, rlcl-limitation-mode-junction-temperature, retrigger-duty-cycle-averaging, rlcl-limitation-derating-margin, limiter-differential-voltage-share.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-rlcl-limitation-mode-derating",
+    "rlcl-limitation-mode-derating",
+    "rlcl-pass-device-limitation-dissipation",
+    "rlcl-limitation-mode-junction-temperature",
+    "retrigger-duty-cycle-averaging",
+    "rlcl-limitation-derating-margin",
+    "limiter-differential-voltage-share"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-rlcl-power-up-state",
+   "name": "e2020-rlcl-power-up-state",
+   "description": "Assess whether a retriggerable current limiter comes up conducting on every occasion bus power becomes available, per clause 5.2.7.1.1 of ECSS-E-ST-20-20C. Use when a channel's power-up state has to hold for a cold start, a brown-out recovery, an undervoltage recovery, a bus reset and a commanded power cycle alike: refuse a turn-on that waits on an enable telecommand, catch an occasion nobody declared, time the output against its turn-on budget, and bound the retrigger cycle so a still-faulted line is retried rather than oscillated. Trigger: ecss, e-st-20-20c-clause-5-2-7-1-1, rlcl-power-up-conducting, retriggerable-limiter-default-state, limiter-enable-command-dependency, limiter-turn-on-latency-budget, rlcl-retrigger-cycle-bounds.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-7-1-1",
+    "e2020-rlcl-power-up-state",
+    "rlcl-power-up-conducting",
+    "retriggerable-limiter-default-state",
+    "limiter-enable-command-dependency",
+    "limiter-turn-on-latency-budget",
+    "rlcl-retrigger-cycle-bounds"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-rlcl-repetitive-overload-endurance",
+   "name": "e2020-rlcl-repetitive-overload-endurance",
+   "description": "Assess whether a retriggerable latching current limiter holds its derating limits through an autonomous retrigger train, for ECSS-E-ST-20-20C clause 5.2.10.2.1: form the retrigger duty cycle from the limitation and off intervals, settle a single-pole junction model over the repeating train, count the retriggers a persistent fault produces inside the declared window, then solve the shortest off time and the highest duty cycle that still hold the junction limit and grade average dissipation and retrigger count against the rating. Use when a fault persists and the limiter re-arms itself unattended. Trigger: ecss, e-st-20-20c, retriggerable-latching-current-limiter, rlcl-retrigger-duty-cycle, rlcl-repetitive-overload, retrigger-off-time-solve, rlcl-junction-temperature, rlcl-derating-limits.",
+   "tags": [
+    "ecss",
+    "e-st-20-20c",
+    "e2020-rlcl-repetitive-overload-endurance",
+    "retriggerable-latching-current-limiter",
+    "rlcl-retrigger-duty-cycle",
+    "rlcl-repetitive-overload",
+    "retrigger-off-time-solve",
+    "rlcl-junction-temperature",
+    "rlcl-derating-limits"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-startup-into-faulted-output",
+   "name": "e2020-startup-into-faulted-output",
+   "description": "Evaluate whether a current limiter starts up correctly and stays inside its own ratings when an overload or a short circuit is already sitting on its output, under ECSS-E-ST-20C clause 5.2.7.5.1. Use when a power distribution unit is assessed against a declared downstream fault set: solve the start up operating point at the top of the current limit accuracy band, split the bus between the fault and the pass element, carry the dissipation into a junction temperature and into the energy held over the trip delay, then weigh each against its rating through a named tolerance. Trigger: ecss, e-st-20c-clause-5-2-7-5-1, limiter-start-up-into-fault, downstream-short-circuit-dissipation, pass-element-junction-temperature, current-limit-accuracy-band, trip-delay-pulse-energy.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-startup-into-faulted-output",
+    "e-st-20c-clause-5-2-7-5-1",
+    "limiter-start-up-into-fault",
+    "downstream-short-circuit-dissipation",
+    "pass-element-junction-temperature",
+    "current-limit-accuracy-band",
+    "trip-delay-pulse-energy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-startup-trigger-cases-coverage",
+   "name": "e2020-startup-trigger-cases-coverage",
+   "description": "Audit whether the faulted start up evidence for a current limiter reaches both of the ways a start up is triggered, a commanded turn on and a rise of the main bus voltage, under ECSS-E-ST-20C clause 5.2.7.6.1. Use when a verification case set is assessed for completeness: fold each declared trigger onto one of the two routes, build the matrix of declared fault conditions against both, credit a cell only to a case that ran and passed, and name a condition evidenced on one route alone as the gap the clause exists to close. Trigger: ecss, e-st-20c-clause-5-2-7-6-1, faulted-start-up-trigger-coverage, commanded-turn-on-route, rising-bus-voltage-route, limiter-verification-case-matrix, one-route-evidence-gap.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-startup-trigger-cases-coverage",
+    "e-st-20c-clause-5-2-7-6-1",
+    "faulted-start-up-trigger-coverage",
+    "commanded-turn-on-route",
+    "rising-bus-voltage-route",
+    "limiter-verification-case-matrix",
+    "one-route-evidence-gap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-status-integrity-during-bus-startup",
+   "name": "e2020-status-integrity-during-bus-startup",
+   "description": "Verify that a current limiter's actual state and its reported status both track the intended state through main bus start up and through recovery from zero volts, under ECSS-E-ST-20C clause 5.2.7.4.1. Use when a power distribution unit is assessed against a recorded start up profile: establish the window in which the limiter control logic has a guaranteed supply, hold samples below that floor as indeterminate rather than as agreement, find every zero volt excursion and require the declared default state once the supply returns, then weigh intended state, actual state and reported status at each valid sample. Trigger: ecss, e-st-20c-clause-5-2-7-4-1, limiter-state-integrity, main-bus-start-up-profile, zero-volt-recovery-default-state, limiter-status-telemetry-agreement, control-logic-supply-window.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-status-integrity-during-bus-startup",
+    "e-st-20c-clause-5-2-7-4-1",
+    "limiter-state-integrity",
+    "main-bus-start-up-profile",
+    "zero-volt-recovery-default-state",
+    "limiter-status-telemetry-agreement",
+    "control-logic-supply-window"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-status-reading-failure-independence",
+   "name": "e2020-status-reading-failure-independence",
+   "description": "Assess whether the true state of a device stays readable once its command interface has failed, the independence requirement of ECSS-E-ST-20-20C clause 5.2.9.1.1. Use when a status acquisition architecture has to be judged rather than assumed: separate the paths that sense the achieved device state from the ones that only replay the ordered state, intersect each sensing path with the command chain and the command power domain, categorize every path as independent, shared or command-derived, compute the elements whose single failure blinds all sensing at once, and close with the duty that would restore an independent reading. Trigger: ecss, e-st-20-20c-clause-5-2-9-1-1, status-readout-command-independence, device-state-sensing-path, command-echo-status-limitation, status-path-common-cause-element, command-power-domain-dependency, status-blinding-element.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-status-reading-failure-independence",
+    "status-readout-command-independence",
+    "device-state-sensing-path",
+    "command-echo-status-limitation",
+    "status-path-common-cause-element",
+    "command-power-domain-dependency",
+    "status-blinding-element"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-status-telemetry-voltage-confirmation",
+   "name": "e2020-status-telemetry-voltage-confirmation",
+   "description": "Assess whether a limiter's reported state confirms its output voltage, per ECSS-E-ST-20-20C clause 5.2.8.1.1. Use when a housekeeping bit has to mean the rail is inside its nominal band rather than that a command was accepted: build the band from the nominal and its tolerances, check the sense thresholds sit inside that band with workable hysteresis, derive the state the sense chain would report for the measured output, group the reported bit as on-confirmed, on-unconfirmed-under, on-unconfirmed-over, off-confirmed or off-contradicted, and reject a threshold placed under the band floor, which lets the bit read on over a collapsed rail. Trigger: ecss, e-st-20-20c, limiter-status-telemetry-bit, output-voltage-nominal-band, status-sense-threshold-placement, status-bit-hysteresis, false-on-confirmation, limiter-output-isolation-check.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-status-telemetry-voltage-confirmation",
+    "limiter-status-telemetry-bit",
+    "output-voltage-nominal-band",
+    "status-sense-threshold-placement",
+    "status-bit-hysteresis",
+    "false-on-confirmation",
+    "limiter-output-isolation-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-switch-element-bus-placement",
+   "name": "e2020-switch-element-bus-placement",
+   "description": "Verify that the switching element of a power distribution protection device sits on the energised main bus side. Use when an LCL, HLCL or latching relay branch is reviewed against ECSS-E-ST-20-20C clause 5.2.3.2.1: order the branch from main bus along the energised rail through the load and back to the bus return, confirm the pass element precedes everything it protects, list what stays tied to the bus once it opens, name any reachable connector or harness left live, size the energised stub against its limit, and flag a redundant feed injecting past the element. Trigger: ecss, e-st-20-20c-clause-5-2-3-2-1, lcl-switching-element-placement, energised-main-bus-side-switch, power-branch-isolation-coverage, live-harness-stub-upstream-of-switch, return-side-switch-defect, latching-current-limiter-topology.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-switch-element-bus-placement",
+    "lcl-switching-element-placement",
+    "energised-main-bus-side-switch",
+    "power-branch-isolation-coverage",
+    "live-harness-stub-upstream-of-switch",
+    "return-side-switch-defect",
+    "latching-current-limiter-topology"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-switch-failure-power-budget",
+   "name": "e2020-switch-failure-power-budget",
+   "description": "Evaluate whether a limiter switch stuck in the on state is paid for by the spacecraft power budget where no further switching can open the channel, per clause 5.2.13.1.1 of ECSS-E-ST-20-20C. Use when a channel has no second means of isolation: decide which provisions genuinely shed a stuck-on load and which only add a second path into it, turn the stuck-on current into continuous power at bus voltage, charge only what the failure adds over the draw already budgeted, take the worst single channel rather than the sum, and keep the required margin instead of spending it. Trigger: ecss, e-st-20-20c-clause-5-2-13-1-1, limiter-switch-stuck-on, spacecraft-power-budget-coverage, no-additional-switching-provision, stuck-on-continuous-power, power-budget-margin-shortfall.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-distribution-scope",
+    "e-st-20-20c-clause-5-2-13-1-1",
+    "e2020-switch-failure-power-budget",
+    "limiter-switch-stuck-on",
+    "spacecraft-power-budget-coverage",
+    "no-additional-switching-provision",
+    "stuck-on-continuous-power",
+    "power-budget-margin-shortfall"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-telemetry-accuracy-verification-points",
+   "name": "e2020-telemetry-accuracy-verification-points",
+   "description": "Evaluate the load points a current telemetry accuracy verification actually exercises against the ones ECSS-E-ST-20-20C clause 5.2.8.7.1 expects, and name what the test programme would leave unproven. Use when a proposed current telemetry test matrix has to be accepted or sent back: match every proposed point against the required fractions of full scale inside a stated tolerance, carry each declared mission load current as a required point of its own, refuse a point outside the channel range, group proposals that add no coverage, insist on a no-load point and a loaded low-end point where the fixed error governs, and close with the gaps named. Trigger: ecss, e-st-20-20c-clause-5-2-8-7-1, telemetry-accuracy-verification-points, current-telemetry-test-matrix, full-scale-fraction-coverage, low-end-verification-point, mission-load-point-coverage, verification-point-match-tolerance.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-telemetry-accuracy-verification-points",
+    "current-telemetry-test-matrix",
+    "full-scale-fraction-coverage",
+    "low-end-verification-point",
+    "mission-load-point-coverage",
+    "verification-point-match-tolerance",
+    "no-load-verification-point"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-protection-hysteresis",
+   "name": "e2020-undervoltage-protection-hysteresis",
+   "description": "Evaluate the hysteresis designed into an undervoltage protection trip against clause 5.2.5.2.1 of ECSS-E-ST-20-20C. Use when a power distribution unit declares an undervoltage drop-out threshold and a re-arm threshold and the band between them has to be judged. Derive the hysteresis band and its fraction of the trip point, build the disturbance envelope from bus ripple, sensing uncertainty and transient droop, and decide whether the band clears it. Treat the band as mandatory for a retriggerable limiter, whose auto re-arm chatters without one, and as recommended elsewhere, so a shortfall returns an advisory rather than a failure. Trigger: ecss, e-st-20-20c, undervoltage-trip-hysteresis-band, undervoltage-rearm-threshold, retriggerable-limiter-hysteresis-obligation, bus-ripple-chatter-margin, undervoltage-sensing-uncertainty, undervoltage-protection-chatter.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e-st-20-20c",
+    "e2020-undervoltage-protection-hysteresis",
+    "undervoltage-trip-hysteresis-band",
+    "undervoltage-rearm-threshold",
+    "retriggerable-limiter-hysteresis-obligation",
+    "bus-ripple-chatter-margin",
+    "undervoltage-sensing-uncertainty",
+    "undervoltage-protection-chatter"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-undervoltage-protection-provision",
+   "name": "e2020-undervoltage-protection-provision",
+   "description": "Audit a power bus for the input undervoltage protection each limiter carries, per ECSS-E-ST-20C clause 5.2.5.1.1. Use when the provision has to be shown to hold over every limiter and each function shown to be placed usefully rather than merely present: count the population first, then check the trip threshold sits below the steady-state band yet above the limiter's own operating floor, that threshold plus hysteresis gives a recovery level the bus can still reach, that the hysteresis clears the chatter floor, and that the response time lets a survivable dip pass. Trigger: ecss, e-st-20-electrical-scope, limiter-undervoltage-protection-provision, input-undervoltage-threshold-window, undervoltage-recovery-level-reachability, bus-dip-ride-through-time, limiter-bus-interface-protection, undervoltage-provision-coverage.",
+   "tags": [
+    "ecss",
+    "e-st-20-electrical-scope",
+    "e2020-undervoltage-protection-provision",
+    "limiter-undervoltage-protection-provision",
+    "input-undervoltage-threshold-window",
+    "undervoltage-recovery-level-reachability",
+    "bus-dip-ride-through-time",
+    "limiter-bus-interface-protection",
+    "undervoltage-provision-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e2020-zero-current-telemetry-readout",
+   "name": "e2020-zero-current-telemetry-readout",
+   "description": "Determine whether a current telemetry channel still reports inside its accuracy budget all the way down to zero load, the recommendation of ECSS-E-ST-20-20C clause 5.2.8.6.1. Use when a power-supply current channel carries an offset, a quantisation step and a noise floor that do not shrink as the load falls: build the error at zero from those fixed terms, set it against the part of the budget that survives at zero, solve for the lowest current the channel actually reports inside budget, name the fixed term dominating any shortfall, and treat a declared blanking deadband as an unreportable band rather than a measured zero. Trigger: ecss, e-st-20-20c-clause-5-2-8-6-1, zero-current-telemetry-readout, current-telemetry-accuracy-budget, telemetry-offset-error-floor, telemetry-quantisation-step, telemetry-blanking-deadband, lowest-reportable-current.",
+   "tags": [
+    "ecss",
+    "e-st-20-20-power-supply-interface-scope",
+    "e2020-zero-current-telemetry-readout",
+    "current-telemetry-accuracy-budget",
+    "telemetry-offset-error-floor",
+    "telemetry-quantisation-step",
+    "telemetry-blanking-deadband",
+    "lowest-reportable-current",
+    "zero-load-telemetry-margin"
    ],
    "family": "space-systems",
    "pack": "ecss",

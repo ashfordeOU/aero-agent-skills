@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-lcl-class-selection (space-systems/ecss)
+# Two tasks for the leaf. lclcs1 routes on taking a class out of the class
+# table against the derated continuous rating and the harness the upper
+# limiting current has to spare; lclcs2 routes on the start-up question, where
+# the load capacitance has to finish charging at the LOWER limiting current
+# inside the SHORTEST trip-off delay. Both must deterministically hit
+# space-systems/ecss/e2020-lcl-class-selection.
+tasks:
+  - id: lclcs1
+    query: "take a latching current limiter class out of the class table for a 1.5 A load, derate each class continuous rating and reject any class whose upper limiting current the protected harness cannot carry"
+    intent: "ECSS-E-ST-20-20C clause 5.2.1.1.1; LCL class choice against the derated continuous rating and the harness rating"
+    expected_skill: "space-systems/ecss/e2020-lcl-class-selection"
+  - id: lclcs2
+    query: "show the load capacitance finishes charging at the lower limiting current before the shortest trip-off delay expires, and report the start-up slack of the smallest LCL class that still carries the steady load"
+    intent: "ECSS-E-ST-20-20C clause 5.2.1.1.1; LCL inrush charge time against the trip-off window and smallest-adequate class selection"
+    expected_skill: "space-systems/ecss/e2020-lcl-class-selection"

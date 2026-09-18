@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-current-telemetry-full-scale (space-systems/ecss)
+# Two tasks for the new leaf. ctfs1 routes on whether the telemetry range still
+# reads where the protection device limits; ctfs2 routes on referring a
+# converter span back through gain and shunt and naming what clips first. Both
+# must deterministically hit
+# space-systems/ecss/e2020-current-telemetry-full-scale.
+tasks:
+  - id: ctfs1
+    query: "work out whether the current telemetry on this limiter output still reads at the worst-case maximum limitation current of the protection device"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.3.1; telemetry range against the maximum limitation current of the protection device"
+    expected_skill: "space-systems/ecss/e2020-current-telemetry-full-scale"
+  - id: ctfs2
+    query: "refer the converter span back through the amplifier gain and shunt to get the full-scale reported current and say whether the amplifier or the converter clips first"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.3.1; current telemetry full-scale referral, clipping element and headroom"
+    expected_skill: "space-systems/ecss/e2020-current-telemetry-full-scale"

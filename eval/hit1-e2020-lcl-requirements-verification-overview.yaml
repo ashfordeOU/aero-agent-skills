@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-lcl-requirements-verification-overview (space-systems/ecss)
+# Two tasks for the leaf. lrvo1 routes on identifying the compliance method for
+# every protection-device requirement and grading the matrix coverage; lrvo2
+# routes on the quantitative-limit rule that a trip threshold cannot be
+# discharged by design review alone. Both must deterministically hit
+# space-systems/ecss/e2020-lcl-requirements-verification-overview.
+tasks:
+  - id: lrvo1
+    query: "identify the compliance method behind every latching current limiter requirement and report the covered share of the verification matrix with the requirements nobody planned to demonstrate named"
+    intent: "ECSS-E-ST-20-20C clause 4.1; verification method identification and matrix coverage across the protection device requirement set"
+    expected_skill: "space-systems/ecss/e2020-lcl-requirements-verification-overview"
+  - id: lrvo2
+    query: "check that each protection device requirement fixing a trip current or trip time carries test or analysis evidence rather than review of design alone, and refuse any method token outside the declared vocabulary"
+    intent: "ECSS-E-ST-20-20C clause 4.1; quantitative-limit verification evidence and the verification method vocabulary"
+    expected_skill: "space-systems/ecss/e2020-lcl-requirements-verification-overview"

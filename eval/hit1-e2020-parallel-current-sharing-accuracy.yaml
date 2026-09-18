@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-parallel-current-sharing-accuracy (space-systems/ecss)
+# Two tasks for the new leaf. pcs1 routes on how accurately paralleled limiters
+# divide the load current; pcs2 routes on the branch that reaches its threshold
+# first and on the load the group can actually carry. Both must deterministically
+# hit space-systems/ecss/e2020-parallel-current-sharing-accuracy.
+tasks:
+  - id: pcs1
+    query: "how accurately do our paralleled latching current limiters share the load current between them and how do we measure the imbalance"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.2.1; share fractions of a paralleled limiter group measured against the equal share, including a starved branch that contributes almost nothing"
+    expected_skill: "space-systems/ecss/e2020-parallel-current-sharing-accuracy"
+  - id: pcs2
+    query: "one of three paralleled limiters carries much more current than the others and we need to know whether it will trip off before the group reaches its rated load"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.2.1; per-branch headroom to its own trip threshold and the group capability set by the smallest threshold-over-share ratio after margin"
+    expected_skill: "space-systems/ecss/e2020-parallel-current-sharing-accuracy"

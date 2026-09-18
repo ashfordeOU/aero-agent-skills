@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-current-sensor-bus-placement (space-systems/ecss)
+# Two tasks for the new leaf. csp1 routes on which rail the current sensing
+# element of a limiter belongs to; csp2 routes on the trip-current
+# consequence of a sensing element that reads only part of the branch.
+# Both must deterministically hit
+# space-systems/ecss/e2020-current-sensor-bus-placement.
+tasks:
+  - id: csp1
+    query: "the LCL shunt is in the return leg so the sense amplifier sits near ground; does the current sensing element have to be on the energised main bus side of the device"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.3.1; current sensing element on the energised main bus side"
+    expected_skill: "space-systems/ecss/e2020-current-sensor-bus-placement"
+  - id: csp2
+    query: "a load short returning through the structure bond never crosses our current sense element, so work out the real branch current needed to reach the trip threshold and compare it against the harness rating"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.3.1; unsensed fault path and effective trip current"
+    expected_skill: "space-systems/ecss/e2020-current-sensor-bus-placement"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-failure-propagation-containment (space-systems/ecss)
+# Two tasks for the new leaf. fpc1 routes on a limiter failure whose effect
+# reaches the bus or a neighbouring line; fpc2 routes on barrier coverage per
+# failure mode and on backup clearing time. Both must deterministically hit
+# space-systems/ecss/e2020-failure-propagation-containment.
+tasks:
+  - id: fpc1
+    query: "if one of our current limiters fails short, how do we show the fault effect does not reach the main bus or the neighbouring output lines"
+    intent: "ECSS-E-ST-20-20C clause 5.2.7.3.1; containing a limiter failure so no fault effect propagates to the distribution bus or an adjacent output line"
+    expected_skill: "space-systems/ecss/e2020-failure-propagation-containment"
+  - id: fpc2
+    query: "we have a blocking diode and a backup fuse on the limiter output, but nobody analysed the oscillating failure mode and the fuse clearing time is longer than the bus ride-through"
+    intent: "ECSS-E-ST-20-20C clause 5.2.7.3.1; matching containment barriers to the limiter failure modes they actually cover and checking backup clearing against the bus ride-through"
+    expected_skill: "space-systems/ecss/e2020-failure-propagation-containment"

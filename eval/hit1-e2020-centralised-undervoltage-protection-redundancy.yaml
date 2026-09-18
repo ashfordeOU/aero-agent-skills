@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-centralised-undervoltage-protection-redundancy
+# (space-systems/ecss, E-ST-20-20C 5.2.5.3.1). Two tasks per leaf; cuv1 routes
+# on the loss walk through the voting redundancy, cuv2 on the spurious-trip
+# direction and the cross-strapped units. Both must deterministically hit
+# space-systems/ecss/e2020-centralised-undervoltage-protection-redundancy.
+tasks:
+  - id: cuv1
+    query: "walk the undervoltage-protection-single-point-failure set across the shared-undervoltage-sensing-chain and its undervoltage-voting-redundancy"
+    intent: "ecss power supply; one undervoltage protection serving several current limiters has to survive any single failure"
+    expected_skill: "space-systems/ecss/e2020-centralised-undervoltage-protection-redundancy"
+  - id: cuv2
+    query: "find every spurious-undervoltage-trip-path in a centralised-undervoltage-protection and account for undervoltage-protection-cross-strapping"
+    intent: "ecss power supply; a unit failing active in the shared protection chain trips the served limiters on its own"
+    expected_skill: "space-systems/ecss/e2020-centralised-undervoltage-protection-redundancy"

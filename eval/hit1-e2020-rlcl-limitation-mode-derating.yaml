@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-rlcl-limitation-mode-derating (space-systems/ecss)
+# Two tasks for the leaf. rlcd1 routes on the limitation-mode stress corner and
+# the derated comparison it feeds; rlcd2 routes on the retrigger duty deciding
+# whether a part runs at the peak or the average. Both must deterministically
+# hit space-systems/ecss/e2020-rlcl-limitation-mode-derating.
+tasks:
+  - id: rlcd1
+    query: "show the parts of a retriggerable latching current limiter stay inside their derated voltage, current, power and junction-temperature ratings while it holds its output at the limitation current"
+    intent: "ECSS-E-ST-20C clause 5.2.3.5.1; derating at the limitation-mode stress corner"
+    expected_skill: "space-systems/ecss/e2020-rlcl-limitation-mode-derating"
+  - id: rlcd2
+    query: "work out whether the limiter pass device runs at the peak limitation dissipation or the retrigger duty-averaged value, and which series part ends up limiting the design"
+    intent: "ECSS-E-ST-20C clause 5.2.3.5.1; retrigger duty averaging and the limiting component"
+    expected_skill: "space-systems/ecss/e2020-rlcl-limitation-mode-derating"

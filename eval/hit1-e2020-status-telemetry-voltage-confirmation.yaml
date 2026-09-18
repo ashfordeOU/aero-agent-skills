@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-status-telemetry-voltage-confirmation
+# (space-systems/ecss, E-ST-20-20C 5.2.8.1.1). Two tasks per leaf; stvc1
+# routes on what the on report has to assert about the output band, stvc2
+# on where the sense thresholds sit. Both must deterministically hit
+# space-systems/ecss/e2020-status-telemetry-voltage-confirmation.
+tasks:
+  - id: stvc1
+    query: "show the limiter-status-telemetry-bit asserts the rail is inside its output-voltage-nominal-band and is not a command echo"
+    intent: "ecss power distribution; the reported on or off state confirms output voltage in its nominal band"
+    expected_skill: "space-systems/ecss/e2020-status-telemetry-voltage-confirmation"
+  - id: stvc2
+    query: "assess the status-sense-threshold-placement and status-bit-hysteresis for a false-on-confirmation over a collapsed rail"
+    intent: "ecss power distribution; can the sense chain assert on for an out-of-tolerance output"
+    expected_skill: "space-systems/ecss/e2020-status-telemetry-voltage-confirmation"

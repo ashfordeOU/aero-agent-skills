@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-rlcl-power-up-state (space-systems/ecss)
+# Two tasks for the new leaf. rlcl1 routes on the default conducting state of a
+# retriggerable limiter when bus power returns; rlcl2 routes on the enable-command
+# dependency and the retrigger cycle bounds. Both must deterministically hit
+# space-systems/ecss/e2020-rlcl-power-up-state.
+tasks:
+  - id: rlcl1
+    query: "our retriggerable current limiters were only shown conducting at cold start, do they have to come up on after a brown-out recovery too"
+    intent: "ECSS-E-ST-20-20C clause 5.2.7.1.1; a retriggerable current limiter is conducting whenever bus power becomes available, on every occasion power arrives"
+    expected_skill: "space-systems/ecss/e2020-rlcl-power-up-state"
+  - id: rlcl2
+    query: "the RLCL needs an enable telecommand before it conducts and it re-arms every millisecond into a shorted line, is that an acceptable power-up state"
+    intent: "ECSS-E-ST-20-20C clause 5.2.7.1.1; enable-command dependency at power-up plus retrigger rest, duty and rate bounds on a retriggerable limiter"
+    expected_skill: "space-systems/ecss/e2020-rlcl-power-up-state"

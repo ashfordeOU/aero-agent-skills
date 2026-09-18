@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-power-distribution-standard-assumptions (space-systems/ecss)
+# Two tasks for the leaf. pdsa1 routes on the host unit qualification temperature
+# baseline the protection-device requirements were written on; pdsa2 routes on
+# the power bus voltage assumption and the deviation a breach produces. Both must
+# deterministically hit
+# space-systems/ecss/e2020-power-distribution-standard-assumptions.
+tasks:
+  - id: pdsa1
+    query: "decide whether a latching current limiter reused in a hotter mounting still sits inside the host unit qualification temperature baseline the protection device requirements were written on"
+    intent: "ECSS-E-ST-20-20C clause 4.2; host unit qualification temperature baseline and application envelope"
+    expected_skill: "space-systems/ecss/e2020-power-distribution-standard-assumptions"
+  - id: pdsa2
+    query: "take the cold, hot, low-voltage and high-voltage margins of a protection device application against the stated power bus voltage baseline assumption and raise a deviation for every assumption it steps outside"
+    intent: "ECSS-E-ST-20-20C clause 4.2; power bus voltage baseline assumption, limiting margin and requirement applicability deviation"
+    expected_skill: "space-systems/ecss/e2020-power-distribution-standard-assumptions"

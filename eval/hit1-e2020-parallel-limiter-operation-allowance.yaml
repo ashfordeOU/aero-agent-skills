@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-parallel-limiter-operation-allowance (space-systems/ecss)
+# Two tasks for the new leaf. pla1 routes on the permission to wire latching and
+# high power limiters in parallel at all; pla2 routes on the conditions that
+# permission assumes -- one part reference, matched thresholds, one command.
+# Both must deterministically hit
+# space-systems/ecss/e2020-parallel-limiter-operation-allowance.
+tasks:
+  - id: pla1
+    query: "are we allowed to wire two latching current limiters in parallel to feed one load, and what does that allowance assume about the two devices"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.1.1; latching current limiters and high power limiters may be operated in parallel, provided the group behaves as one device"
+    expected_skill: "space-systems/ecss/e2020-parallel-limiter-operation-allowance"
+  - id: pla2
+    query: "our paralleled high power limiters come from two different part references and their limiting thresholds are eight percent apart, is the group still inside the parallel allowance"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.1.1; group homogeneity, limiting threshold spread, common command and individual status for a parallel limiter group, and the departure argument when one is missed"
+    expected_skill: "space-systems/ecss/e2020-parallel-limiter-operation-allowance"

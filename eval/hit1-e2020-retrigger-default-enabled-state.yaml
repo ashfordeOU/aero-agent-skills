@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-retrigger-default-enabled-state (space-systems/ecss)
+# Two tasks for the leaf. rdes1 routes on the power-up default state and the
+# restart events that default has to be shown for; rdes2 routes on retained
+# configuration surviving a reset and on the window before the default is in
+# force. Both must deterministically hit
+# space-systems/ecss/e2020-retrigger-default-enabled-state.
+tasks:
+  - id: rdes1
+    query: "check that a retriggerable limiter comes up with retrigger already active after a cold power-up, a warm reset, a watchdog reset and an undervoltage recovery rather than after cold power-up alone"
+    intent: "ECSS-E-ST-20-20C clause 5.2.6.3.1; power-up default state and restart-event coverage"
+    expected_skill: "space-systems/ecss/e2020-retrigger-default-enabled-state"
+  - id: rdes2
+    query: "judge a limiter design whose retrigger disable survives a reset as retained configuration, and work out whether the default is in force before a load can first be enabled"
+    intent: "ECSS-E-ST-20-20C clause 5.2.6.3.1; default-state volatility and the establishment window"
+    expected_skill: "space-systems/ecss/e2020-retrigger-default-enabled-state"

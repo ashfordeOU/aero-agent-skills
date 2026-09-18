@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-lcl-repetitive-overload-endurance (space-systems/ecss)
+# Two tasks for the new leaf. lclro1 routes on the settled junction temperature of
+# a commanded re-closure train against the pass-element derating; lclro2 routes on
+# spending the rated repetitive-trip capability of a latching outlet. Both must
+# deterministically hit
+# space-systems/ecss/e2020-lcl-repetitive-overload-endurance.
+tasks:
+  - id: lclro1
+    query: "work out whether the latching current limiter survives fifty commanded re-closures onto the stalled load without the pass-element junction passing its derated limit"
+    intent: "ECSS-E-ST-20-20C clause 5.2.10.1.1; LCL repetitive-overload endurance, settled junction temperature over a re-closure train"
+    expected_skill: "space-systems/ecss/e2020-lcl-repetitive-overload-endurance"
+  - id: lclro2
+    query: "check the trip energy and the accumulated trip count of the latching outlet against its rated repetitive-trip capability and its average dissipation derating"
+    intent: "ECSS-E-ST-20-20C clause 5.2.10.1.1; LCL trip energy, repetitive-trip capability and derating limits"
+    expected_skill: "space-systems/ecss/e2020-lcl-repetitive-overload-endurance"

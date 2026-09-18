@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-lcl-power-up-state (space-systems/ecss)
+# Two tasks for the new leaf. lcl1 routes on the recommended output-off power-up
+# state of a latching or high power limiter; lcl2 routes on a departure that has
+# to be argued and on the aggregate inrush of the channels defaulting on. Both
+# must deterministically hit space-systems/ecss/e2020-lcl-power-up-state.
+tasks:
+  - id: lcl1
+    query: "should our latching current limiters and high power limiters come up with the output off at power-up, and is that a requirement or a recommendation"
+    intent: "ECSS-E-ST-20-20C clause 5.2.7.2.1; latching and high power limiters are recommended to come up with output off, with a positive enable command to turn them on"
+    expected_skill: "space-systems/ecss/e2020-lcl-power-up-state"
+  - id: lcl2
+    query: "two high power limiters default to on at power-up with no rationale recorded, and together their inrush is more than the source can deliver"
+    intent: "ECSS-E-ST-20-20C clause 5.2.7.2.1; justifying a departure from the recommended output-off power-up state and summing the inrush of every channel that defaults on"
+    expected_skill: "space-systems/ecss/e2020-lcl-power-up-state"

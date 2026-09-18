@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-startup-trigger-cases-coverage (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on a verification matrix whose faulted
+# start up cases were all run from a command. to2 routes on whether a turn on
+# produced by the bus voltage rising is a separate route that needs its own
+# evidence. Both must deterministically hit
+# space-systems/ecss/e2020-startup-trigger-cases-coverage.
+tasks:
+  - id: to1
+    query: "every faulted turn on case in our limiter verification matrix was run by sending the on command from the bench, and the reviewer says the matrix is only half done, work out which cells are actually missing"
+    intent: "ECSS-E-ST-20C clause 5.2.7.6.1; declared fault conditions against both start up trigger routes, crediting a cell only to a case that ran and passed, and naming a condition evidenced on the commanded route alone"
+    expected_skill: "space-systems/ecss/e2020-startup-trigger-cases-coverage"
+  - id: to2
+    query: "does bringing the main bus up with the channel already enabled count as a separate turn on case from commanding the channel on, or can we reuse the command evidence for both in the limiter fault campaign"
+    intent: "ECSS-E-ST-20C clause 5.2.7.6.1; the commanded turn on route and the rising bus voltage route as distinct evidence, trigger folding, and the coverage fraction across the condition by route matrix"
+    expected_skill: "space-systems/ecss/e2020-startup-trigger-cases-coverage"

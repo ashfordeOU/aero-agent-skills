@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-parallel-trip-off-timing (space-systems/ecss)
+# Two tasks for the new leaf. ptt1 routes on the combined trip time of a parallel
+# limiter group; ptt2 routes on the cascade in which the first trip redistributes
+# its current and takes the survivors with it. Both must deterministically hit
+# space-systems/ecss/e2020-parallel-trip-off-timing.
+tasks:
+  - id: ptt1
+    query: "what is the combined trip off time of four high power limiters wired in parallel, and how do we show the group will not disconnect the load unintentionally"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.3.1; combined trip-off time of a paralleled limiter group and the gap between consecutive member trips"
+    expected_skill: "space-systems/ecss/e2020-parallel-trip-off-timing"
+  - id: ptt2
+    query: "when the first of our paralleled limiters opens its current moves to the other two and they trip a few milliseconds later, how do we assess that cascade"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.3.1; redistribution of a tripped member's current across the surviving limiters and the full group trip it can cause"
+    expected_skill: "space-systems/ecss/e2020-parallel-trip-off-timing"

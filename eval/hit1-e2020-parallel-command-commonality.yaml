@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-parallel-command-commonality (space-systems/ecss)
+# Two tasks for the new leaf. pcc1 routes on paralleled latching limiters sharing
+# one on and one off command line; pcc2 routes on a split off-command path and on
+# the skew across a shared line. Both must deterministically hit
+# space-systems/ecss/e2020-parallel-command-commonality.
+tasks:
+  - id: pcc1
+    query: "we paralleled four latching current limiters for the big heater string, how do we show they are all commanded on and off from one shared line rather than individually"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.4.1; paralleled latching limiters taking their on command and their off command from one shared command line each"
+    expected_skill: "space-systems/ecss/e2020-parallel-command-commonality"
+  - id: pcc2
+    query: "the paralleled limiter group turns on together but one member is wired to its own off discrete and nobody budgeted the arrival skew between the drivers"
+    intent: "ECSS-E-ST-20-20C clause 5.2.12.4.1; a split off-command path in a paralleled limiter group and the command skew across the members of a shared line"
+    expected_skill: "space-systems/ecss/e2020-parallel-command-commonality"

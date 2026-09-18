@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-startup-into-faulted-output (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on turning a limiter on into a harness
+# that is already shorted and asking whether the pass element survives the trip
+# delay. to2 routes on the partial overload case and the junction temperature it
+# reaches on a warm baseplate. Both must deterministically hit
+# space-systems/ecss/e2020-startup-into-faulted-output.
+tasks:
+  - id: to1
+    query: "the harness downstream of our five amp latching limiter is already shorted when we command the channel on, work out whether the pass element survives the ten millisecond trip delay on a twenty eight volt bus"
+    intent: "ECSS-E-ST-20C clause 5.2.7.5.1; start up into a short already present on the output, pass element dissipation at the top of the current limit accuracy band, junction temperature and the energy carried over the trip delay"
+    expected_skill: "space-systems/ecss/e2020-startup-into-faulted-output"
+  - id: to2
+    query: "with a two ohm partial overload sitting on the output at turn on the limiter holds in limiting instead of tripping, and the baseplate is at forty degrees, decide whether that case stays inside the device ratings"
+    intent: "ECSS-E-ST-20C clause 5.2.7.5.1; bus split between the downstream fault and the pass element, junction temperature through the declared thermal resistance, and a fault set that has to carry both a hard short and a partial overload"
+    expected_skill: "space-systems/ecss/e2020-startup-into-faulted-output"
