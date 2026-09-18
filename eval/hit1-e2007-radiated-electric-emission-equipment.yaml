@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radiated-electric-emission-equipment
+# (space-systems/ecss, E-ST-20-07C 5.4.6.2). Two tasks per leaf; reee1 routes on
+# the polarized antenna set and the band it has to tile, reee2 on the antenna
+# factor conversion and the calibration window. Both must deterministically hit
+# space-systems/ecss/e2007-radiated-electric-emission-equipment.
+tasks:
+  - id: reee1
+    query: "check the polarized-receive-antenna-set tiles the method band in both planes and report every antenna-band-tiling-gap left open"
+    intent: "ecss emc radiated electric field emission; receiver, recorder and the polarized antennas a radiated run is made with"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-equipment"
+  - id: reee2
+    query: "turn a radiated-emission-measurement-receiver reading into a field strength by antenna-factor-field-conversion and grade the radiated-instrument-calibration-window"
+    intent: "ecss emc radiated electric field emission; antenna factor plus cable loss, and calibration validity across the campaign"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-emission-equipment"

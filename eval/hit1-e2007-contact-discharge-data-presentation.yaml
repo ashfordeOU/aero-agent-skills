@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-contact-discharge-data-presentation (space-systems/ecss)
+# Two tasks for the new leaf. cdd1 routes on what the contact discharge
+# report has to carry - generator settings, calibration scope traces and a
+# compliance table; cdd2 routes on whether the instrument that took those
+# traces was fast enough for the edge and on a verdict that contradicts its
+# own response cell. Both must deterministically hit
+# space-systems/ecss/e2007-contact-discharge-data-presentation.
+tasks:
+  - id: cdd1
+    query: "writing up the contact discharge results, what has to be on the page besides the pass fail column and does every level and polarity need its own scope trace"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.5; the generator settings block, a calibration oscilloscope record per applied level and polarity, and a compliance table covering every declared application point"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-data-presentation"
+  - id: cdd2
+    query: "the calibration traces were taken on a 100 MHz scope and one row is marked pass although the unit needed a power cycle, how do we grade that report"
+    intent: "ECSS-E-ST-20-07C clause 5.4.14.5; the front end has to resolve the specified sub-nanosecond edge and be de-embedded from it, and an entered verdict has to agree with the response its own row reports against the performance criterion"
+    expected_skill: "space-systems/ecss/e2007-contact-discharge-data-presentation"

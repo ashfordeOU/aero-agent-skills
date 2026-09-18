@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radiated-electric-susceptibility-procedure
+# (space-systems/ecss, E-ST-20-07C 5.4.11.4). Two tasks per leaf; rep1 routes on
+# the radiation-safety state before the amplifier is keyed, rep2 on the stepped
+# walk across the declared range. Both must deterministically hit
+# space-systems/ecss/e2007-radiated-electric-susceptibility-procedure.
+tasks:
+  - id: rep1
+    query: "run the radiation-safety-provision-check and compute the rf-hazard-clearance-distance the forward power and antenna gain demand before keying the amplifier"
+    intent: "ecss emc radiated electric susceptibility; chamber safety state and the hazard clearance the drive sets"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-procedure"
+  - id: rep2
+    query: "build the stepped-exposure-frequency-ladder across the test range then grade radiated-exposure-step-coverage and susceptibility-step-dwell-adequacy against the recorded steps"
+    intent: "ecss emc radiated electric susceptibility; geometric step walk, skipped stretches and short dwells"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-procedure"

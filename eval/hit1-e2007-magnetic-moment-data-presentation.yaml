@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-magnetic-moment-data-presentation (space-systems/ecss)
+# Two tasks for the new leaf. mmdp1 routes on the clause replacing the general
+# emission-presentation rules for a field that has no spectrum; mmdp2 routes
+# on the cross-distance consistency check that catches a row filed against the
+# wrong distance. Both must deterministically hit
+# space-systems/ecss/e2007-magnetic-moment-data-presentation.
+tasks:
+  - id: mmdp1
+    query: "the DC magnetic results are going into the test report as an amplitude versus frequency plot like the other emission data, but a steady field has no spectrum, how should the moment results actually be tabulated"
+    intent: "ECSS-E-ST-20-07C clause 5.4.5.4; the steady-field clause replaces the general presentation rules with a value per measurement distance and per axis"
+    expected_skill: "space-systems/ecss/e2007-magnetic-moment-data-presentation"
+  - id: mmdp2
+    query: "the steady field table gives values at three separations but the moment they each imply is not the same number, is one row filed at the wrong distance or is the near point inside the multipole region"
+    intent: "ECSS-E-ST-20-07C clause 5.4.5.4; implied dipole moment per distance and its agreement across the reported distances, plus the stated resultant against its axis components"
+    expected_skill: "space-systems/ecss/e2007-magnetic-moment-data-presentation"

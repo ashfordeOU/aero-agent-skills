@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-power-lead-transient-setup
+# (space-systems/ecss, E-ST-20-07C 5.4.9.3). Two tasks per leaf; plts1 routes on
+# the differential injection path and the offset/separation windows, plts2 on the
+# supply isolation and the amplitude the generator actually delivers. Both must
+# deterministically hit
+# space-systems/ecss/e2007-power-lead-transient-setup.
+tasks:
+  - id: plts1
+    query: "audit the differential-mode-pulse-injection path on our power leads against the transient-injection-offset-window and the injection-monitor-probe-separation before we fire a pulse"
+    intent: "ecss emc; differential injection arrangement and per-lead dimension windows for a power-lead transient bench"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-setup"
+  - id: plts2
+    query: "our power-lead-transient-setup has no transient-source-isolation-inductance in the bus feed, work out the pulse-generator-delivered-amplitude the unit really sees"
+    intent: "ecss emc; supply isolation and generator source-impedance division on a transient injection bench"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-setup"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-radiated-magnetic-susceptibility-reporting (space-systems/ecss)
+# Two tasks for the new leaf. rmsr1 routes on the artefacts a magnetic
+# susceptibility record must carry and on verifying the radiating loop against
+# the field its geometry predicts; rmsr2 routes on grading the exposure levels
+# reached against the levels required, frequency by frequency. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radiated-magnetic-susceptibility-reporting.
+tasks:
+  - id: rmsr1
+    query: "our magnetic susceptibility report has the loop drive current logged but no setup diagram and no loop verification entry, and the probe reading was taken as the field, is that record acceptable"
+    intent: "ECSS-E-ST-20-07C clause 5.4.10.5; the exposure-level table, the setup diagram and the loop verification record are three separate artefacts, and the loop field is predicted from geometry before the reading is graded against it"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-reporting"
+  - id: rmsr2
+    query: "how do I show in the radiated magnetic susceptibility table which frequencies actually reached the required dBpT level and which the radiating loop fell short at, and does an overdriven frequency count against us"
+    intent: "ECSS-E-ST-20-07C clause 5.4.10.5; per-frequency margin between the exposure level reached and the level required, grouped as reached, short or above, with required frequencies absent from the table reported"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-reporting"

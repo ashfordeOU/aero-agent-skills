@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-indirect-discharge-test-procedure (space-systems/ecss)
+# Two tasks for the new leaf. idp1 routes on the order of the run -- settling
+# the generator, checking it into the calibration fixture and then applying
+# the discharges; idp2 routes on the application matrix itself, levels,
+# polarities, points and repeats. Both must deterministically hit
+# space-systems/ecss/e2007-indirect-discharge-test-procedure.
+tasks:
+  - id: idp1
+    query: "how long do we let the esd generator settle before an indirect discharge run and what do we do with the calibration fixture reading if the first peak comes back eight percent off target"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.4; the generator settles first, and the fixture reading is grouped as passed, out of tolerance or omitted"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-test-procedure"
+  - id: idp2
+    query: "write the discharge application sequence for four points on the coupling plane at three levels both polarities, how many events is that, how long between them and how long will the run take"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.4; levels ascend, both polarities are exercised, and the interval comes from the plane bleed rather than from the operator"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-test-procedure"

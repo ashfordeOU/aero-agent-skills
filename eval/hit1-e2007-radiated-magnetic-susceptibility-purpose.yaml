@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radiated-magnetic-susceptibility-purpose
+# (space-systems/ecss, E-ST-20-07C 5.4.10.1). Two tasks per leaf; rmsp1 routes on
+# the aim and the loop standoff, rmsp2 on the band coverage across decades and
+# the field the loop actually produces. Both must deterministically hit
+# space-systems/ecss/e2007-radiated-magnetic-susceptibility-purpose.
+tasks:
+  - id: rmsp1
+    query: "does our plan serve the radiated-magnetic-susceptibility-purpose when the magnetic-radiating-loop-standoff is left to the operator and nobody is doing susceptibility-performance-monitoring during the run"
+    intent: "ECSS-E-ST-20-07C clause 5.4.10.1; aim of the radiated magnetic susceptibility test, loop standoff and performance monitoring"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-purpose"
+  - id: rmsp2
+    query: "work out the magnetic-susceptibility-band-coverage in decades for a sweep that starts a decade late and do the loop-axial-field-computation to check the magnetic-field-strength-requirement is reachable"
+    intent: "ECSS-E-ST-20-07C clause 5.4.10.1; swept share of the aim band across decades and the axial field a loop produces at its standoff"
+    expected_skill: "space-systems/ecss/e2007-radiated-magnetic-susceptibility-purpose"

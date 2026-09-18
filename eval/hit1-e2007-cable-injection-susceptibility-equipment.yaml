@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-cable-injection-susceptibility-equipment (space-systems/ecss)
+# Two tasks for the new leaf. cise1 routes on sizing the amplifier, injection
+# probe and monitor probe from the injection target; cise2 routes on which
+# source and pulse generator belong on the bench and whether the probe's
+# coupling loss undersizes the amplifier. Both must deterministically hit
+# space-systems/ecss/e2007-cable-injection-susceptibility-equipment.
+tasks:
+  - id: cise1
+    query: "what amplifier forward power, injection probe current rating and current monitor transfer impedance do we need to put a hundred milliamps of common mode current onto a harness bundle up to a hundred megahertz"
+    intent: "ECSS-E-ST-20-07C clause 5.4.8.2; the bench is sized from the target current, the loop impedance, the probe coupling loss and the band ceiling"
+    expected_skill: "space-systems/ecss/e2007-cable-injection-susceptibility-equipment"
+  - id: cise2
+    query: "which modulated signal source and pulse generator belong on a cable injection susceptibility bench, and how do we tell whether our probe insertion loss leaves the amplifier too small"
+    intent: "ECSS-E-ST-20-07C clause 5.4.8.2; coupling loss multiplies the forward power, and each declared item is graded as a floor or a ceiling"
+    expected_skill: "space-systems/ecss/e2007-cable-injection-susceptibility-equipment"

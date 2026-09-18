@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-power-lead-transient-purpose
+# (space-systems/ecss, E-ST-20-07C 5.4.9.1). Two tasks per leaf; pltp1 routes
+# on the applied stress margin and the pulse measurements, pltp2 on the
+# performance category and the polarity coverage. Both must deterministically
+# hit space-systems/ecss/e2007-power-lead-transient-purpose.
+tasks:
+  - id: pltp1
+    query: "take the transient-half-amplitude-width and the transient-volt-second-area off an injected supply pulse and form the transient-applied-stress-margin against the specified level"
+    intent: "ecss emc; power-lead transient aim, pulse measurements against the specified stress"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-purpose"
+  - id: pltp2
+    query: "grade supply-transient-immunity against the transient-performance-category allowed and report transient-polarity-coverage across both power leads"
+    intent: "ecss emc; observed behaviour category and polarity and repeat coverage"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-purpose"

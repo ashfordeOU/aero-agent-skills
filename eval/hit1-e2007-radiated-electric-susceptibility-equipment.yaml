@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radiated-electric-susceptibility-equipment (space-systems/ecss)
+# Two tasks for the new leaf. rese1 routes on the roles the exposure chain must
+# fill and the item bounding the usable band; rese2 routes on sizing the forward
+# power a required field needs and on the field probe. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radiated-electric-susceptibility-equipment.
+tasks:
+  - id: rese1
+    query: "which instruments does a radiated electric field susceptibility bench have to declare, and how do I work out whether the horn or the amplifier is the thing stopping us reaching the top of the test band"
+    intent: "ECSS-E-ST-20-07C clause 5.4.11.2; signal generator, power amplifier, transmit antenna and isotropic field probe as roles, with the usable band the intersection of the declared spans and one item bounding each edge"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-equipment"
+  - id: rese2
+    query: "how much forward power does a 6 dBi horn need at one metre to raise 20 V/m, does our 50 dB amplifier reach it once the rating caps the drive, and can a single-axis probe witness that field"
+    intent: "ECSS-E-ST-20-07C clause 5.4.11.2; forward power derived from field strength, separation and antenna gain, compared against generator plus amplifier gain capped at the rating, with an isotropic probe whose range covers the required field"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-equipment"

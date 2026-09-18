@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-power-lead-transient-procedure
+# (space-systems/ecss, E-ST-20-07C 5.4.9.4). Two tasks per leaf; pltp1 routes on
+# the differential and common mode applications and the polarity coverage, pltp2
+# on the bracketing stabilisation checks and the recovery interval. Both must
+# deterministically hit
+# space-systems/ecss/e2007-power-lead-transient-procedure.
+tasks:
+  - id: pltp1
+    query: "we ran the differential-mode-pulse-application but skipped the common-mode-pulse-application and only drove one polarity, does the transient-polarity-coverage hold up"
+    intent: "ecss emc; mode and polarity coverage required of a power-lead transient application run"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-procedure"
+  - id: pltp2
+    query: "the transient-instrument-stabilisation-check drifted between the pre and post readings and we shortened the transient-pulse-recovery-interval, can we still call the upset a susceptibility"
+    intent: "ecss emc; instrument drift and pulse recovery interval in a power-lead transient procedure"
+    expected_skill: "space-systems/ecss/e2007-power-lead-transient-procedure"

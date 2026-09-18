@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-discharge-injection-data-presentation
+# (space-systems/ecss, E-ST-20-07C 5.4.13.5). Two tasks per leaf; didp1 routes
+# on the generator settings record and the compliance table coverage, didp2 on
+# the calibration records bracketing the run. Both must deterministically hit
+# space-systems/ecss/e2007-discharge-injection-data-presentation.
+tasks:
+  - id: didp1
+    query: "what has to be in the discharge-generator-settings-record for the report, and does discharge-compliance-table-coverage mean every injection point level and polarity cell needs its own row and oscilloscope capture"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.5; generator settings completeness and per-cell coverage of the discharge-oscilloscope-record-set"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-data-presentation"
+  - id: didp2
+    query: "is one calibration before the discharge injection run enough or does discharge-calibration-bracketing need a closing record too, and how much amplitude drift between them is acceptable"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.5; opening and closing calibration within the validity window and the drift allowance for discharge-injection-package-completeness"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-data-presentation"

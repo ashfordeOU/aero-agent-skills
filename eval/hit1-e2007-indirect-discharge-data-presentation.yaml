@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-indirect-discharge-data-presentation (space-systems/ecss)
+# Two tasks for the new leaf. iddp1 routes on the compliance table that carries a
+# verdict with no induced current level beside it; iddp2 routes on the coverage of
+# application points and polarities the same table has to evidence. Both must
+# deterministically hit
+# space-systems/ecss/e2007-indirect-discharge-data-presentation.
+tasks:
+  - id: iddp1
+    query: "our indirect discharge results table has a pass or fail column and nothing else, work out what has to go next to each verdict before this can be reviewed"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.5; the induced current level observed on the monitored circuit belongs in the compliance table beside the verdict it was decided on"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-data-presentation"
+  - id: iddp2
+    query: "check the discharge results write-up covers every application point at both polarities and that no row is marked compliant with a current above its susceptibility limit"
+    intent: "ECSS-E-ST-20-07C clause 5.4.12.5; coverage of declared application points, polarities and monitored circuits, and a verdict that disagrees with the induced current level in its own row"
+    expected_skill: "space-systems/ecss/e2007-indirect-discharge-data-presentation"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-cable-injection-susceptibility-purpose (space-systems/ecss)
+# Two tasks for the new leaf. cisp1 routes on whether a completed sine wave
+# injection sweep actually demonstrates tolerance at the specified level;
+# cisp2 routes on grading a sweep where the drive fell short at some points
+# and the unit deviated at one. Both must deterministically hit
+# space-systems/ecss/e2007-cable-injection-susceptibility-purpose.
+tasks:
+  - id: cisp1
+    query: "we finished the bulk current injection sweep on every harness bundle, how do we tell whether the run actually proves the unit tolerates the specified injected current right across the band"
+    intent: "ECSS-E-ST-20-07C clause 5.4.8.1; the aim is demonstrated only when the specified current was reached at every graded frequency on every bundle"
+    expected_skill: "space-systems/ecss/e2007-cable-injection-susceptibility-purpose"
+  - id: cisp2
+    query: "the amplifier could not reach the required injection current at a few frequencies and the unit glitched at one of them, how do we grade that susceptibility sweep and which bundle governs the result"
+    intent: "ECSS-E-ST-20-07C clause 5.4.8.1; a drive shortfall is an untested frequency, and the deviation onset against the required level is the threshold margin"
+    expected_skill: "space-systems/ecss/e2007-cable-injection-susceptibility-purpose"

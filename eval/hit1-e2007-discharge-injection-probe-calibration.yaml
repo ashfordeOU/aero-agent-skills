@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-discharge-injection-probe-calibration (space-systems/ecss)
+# Two tasks for the new leaf. dipc1 routes on the terminated fixture the probe is
+# characterized on before it goes near a harness; dipc2 routes on turning the
+# calibration shots into the drive setting the injection will use. Both must
+# deterministically hit
+# space-systems/ecss/e2007-discharge-injection-probe-calibration.
+tasks:
+  - id: dipc1
+    query: "before we clamp the injection probe on the flight harness, what has to be set up and terminated so the drive we dial in is known to give the right discharge current"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.3; the terminated calibration fixture of known characteristic impedance and the reflection budget on each of its ends"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-probe-calibration"
+  - id: dipc2
+    query: "we shot four calibration pulses through the jig and measured the conductor current, turn that into the generator setting for the target injection current and say whether the run is repeatable enough"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.3; probe injection loss from drive and fixture current, inverted into a drive setting, with pulse repeatability spread and calibration validity"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-probe-calibration"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radiated-electric-susceptibility-reporting
+# (space-systems/ecss, E-ST-20-07C 5.4.11.5). Two tasks per leaf; rer1 routes on
+# the per-frequency record the report carries, rer2 on the exhibits and the
+# reconciliation of the achieved level. Both must deterministically hit
+# space-systems/ecss/e2007-radiated-electric-susceptibility-reporting.
+tasks:
+  - id: rer1
+    query: "assemble the susceptibility-generator-setting-record with forward-power-reporting per frequency and run the achieved-field-consistency-check against the power actually delivered"
+    intent: "ecss emc radiated electric susceptibility; generator setting, forward and reflected power and achieved level per point"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-reporting"
+  - id: rer2
+    query: "lay out the achieved-field-level-table and check the susceptibility-report-graph-axes carry named axes and a logarithmic frequency scale across a multi-decade span"
+    intent: "ecss emc radiated electric susceptibility; presenting achieved levels as tables or graphs a reader can use"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-reporting"

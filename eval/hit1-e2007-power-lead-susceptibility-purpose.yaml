@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-power-lead-susceptibility-purpose (space-systems/ecss)
+# Two tasks for the new leaf. pls1 routes on what the conducted
+# susceptibility test on power leads is actually for and which leads that
+# aim covers; pls2 routes on an injection plan that skips the return lead
+# and drives below the level the unit must tolerate. Both must
+# deterministically hit
+# space-systems/ecss/e2007-power-lead-susceptibility-purpose.
+tasks:
+  - id: pls1
+    query: "what is the conducted susceptibility test on the power leads actually meant to prove, and does that aim cover the telemetry lines or only the conductors feeding the unit"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.1; the aim is tolerance of disturbance signals injected onto the supply leads, so supply feeds and their returns are in scope and signal lines are not"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-purpose"
+  - id: pls2
+    query: "our injection plan drives the 28 V feed across the band but never the return, and the generator tops out below the level in the spec, can that test still demonstrate the unit tolerates the disturbance"
+    intent: "ECSS-E-ST-20-07C clause 5.4.7.1; supply leads with no injection, undisturbed sub-bands per lead, and injections under the level the unit must tolerate"
+    expected_skill: "space-systems/ecss/e2007-power-lead-susceptibility-purpose"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-discharge-injection-probe-testing
+# (space-systems/ecss, E-ST-20-07C 5.4.13.4). Two tasks per leaf; dipt1 routes
+# on the clamp placement window and the amplitude ladder, dipt2 on the
+# repetition interval and the monitoring rate while the unit is powered. Both
+# must deterministically hit
+# space-systems/ecss/e2007-discharge-injection-probe-testing.
+tasks:
+  - id: dipt1
+    query: "where on the harness does the discharge-injection-clamp-placement go relative to the connector, and does the discharge-pulse-amplitude-ladder have to step up to the level or can we apply it in one hit"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.4; clamp distance window and a stepped amplitude walk-up for the discharge-injection-arrangement"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-probe-testing"
+  - id: dipt2
+    query: "how long must the discharge-pulse-repetition-interval be for the generator to recharge and the unit to settle, and how fast does injected-discharge-upset-monitoring have to sample to catch a self-clearing upset"
+    intent: "ECSS-E-ST-20-07C clause 5.4.13.4; repetition interval bound and monitor sampling rate for a powered-unit-discharge-injection run"
+    expected_skill: "space-systems/ecss/e2007-discharge-injection-probe-testing"

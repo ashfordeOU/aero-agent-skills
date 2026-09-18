@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radiated-electric-susceptibility-setup
+# (space-systems/ecss, E-ST-20-07C 5.4.11.3). Two tasks per leaf; res1 routes on
+# the derivation of the chamber arrangement from the baseline, res2 on the
+# illuminated footprint that has to reach the unit and its harness. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radiated-electric-susceptibility-setup.
+tasks:
+  - id: res1
+    query: "derive the radiated-susceptibility-chamber-arrangement by applying the declared method deltas to the baseline chamber geometry, then grade the susceptibility-antenna-separation and radiated-field-probe-placement actually set"
+    intent: "ecss emc radiated electric susceptibility; chamber setup derived from the baseline arrangement rather than drawn from nothing"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-setup"
+  - id: res2
+    query: "compute the uniform-field-footprint-coverage from antenna separation and beamwidth and confirm the exposed-harness-illumination reaches the harness beside the unit"
+    intent: "ecss emc radiated electric susceptibility; illuminated span at the unit plane against the span the unit face and harness occupy"
+    expected_skill: "space-systems/ecss/e2007-radiated-electric-susceptibility-setup"

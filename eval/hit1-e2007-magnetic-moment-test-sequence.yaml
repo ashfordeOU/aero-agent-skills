@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-magnetic-moment-test-sequence (space-systems/ecss)
+# Two tasks for the new leaf. mmtq1 routes on where the deperming and
+# magnetising steps sit relative to the six-semi-axis measurement blocks;
+# mmtq2 routes on a block that was split across the session and whether the
+# six readings still describe one conditioning state. Both must
+# deterministically hit
+# space-systems/ecss/e2007-magnetic-moment-test-sequence.
+tasks:
+  - id: mmtq1
+    query: "what order do the moment measurements go in around the six semi axes, and does the deperming step come before or after the magnetising exposure"
+    intent: "ECSS-E-ST-20-07C clause 5.4.5.3; six semi-axis blocks per conditioning state with deperming ahead of magnetising"
+    expected_skill: "space-systems/ecss/e2007-magnetic-moment-test-sequence"
+  - id: mmtq2
+    query: "we ran three of the depermed readings, went on to the magnetised block because the coil was free, then came back and finished the other three semi axes, is that still a valid depermed block"
+    intent: "ECSS-E-ST-20-07C clause 5.4.5.3; a conditioning-state block must stay contiguous, and conditioning is destructive so a block moved has to be recollected"
+    expected_skill: "space-systems/ecss/e2007-magnetic-moment-test-sequence"
