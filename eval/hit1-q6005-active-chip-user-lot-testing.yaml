@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-active-chip-user-lot-testing (space-systems/ecss)
+# Two tasks for the new leaf. ult1 routes on sizing the buyer's own sample and
+# acceptance number from the delivered quantity; ult2 routes on the receiving-log
+# reconciliation that catches one lot identifier stretched over two deliveries.
+# Both must deterministically hit
+# space-systems/ecss/q6005-active-chip-user-lot-testing.
+tasks:
+  - id: ult1
+    query: "a batch of bare dice just arrived, work out how many we as the buyer have to sample on receipt and how many nonconforming parts the plan still lets us accept"
+    intent: "ECSS-Q-ST-60-05 clause 8.3.3; the buyer's sample size and acceptance number come from a lot-size schedule and collapse to full inspection on a small batch"
+    expected_skill: "space-systems/ecss/q6005-active-chip-user-lot-testing"
+  - id: ult2
+    query: "go through the goods-in log and tell me which die deliveries were received without us running our own acceptance test and whether any lot code was reused across two shipments"
+    intent: "ECSS-Q-ST-60-05 clause 8.3.3; every delivery owes its own user-lot record and a reused lot identifier stretches one batch's evidence over an untested batch"
+    expected_skill: "space-systems/ecss/q6005-active-chip-user-lot-testing"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-hybrid-manufacturing-control (space-systems/ecss,
+# Q-ST-60-05 10.1). Two tasks per leaf; mc1 routes on the assembly environment
+# and the operations worked in it, mc2 on the pre-seal bakeout, the sealing
+# atmosphere and the bond-pull monitoring. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-manufacturing-control.
+tasks:
+  - id: mc1
+    query: "grade the hybrid-assembly-process-control of a line and test each operation against the hybrid-assembly-environment-grade it may be worked in for the manufacturing-control-index"
+    intent: "ecss hybrids; the in-process controls kept over a hybrid assembly area"
+    expected_skill: "space-systems/ecss/q6005-hybrid-manufacturing-control"
+  - id: mc2
+    query: "size the pre-seal-bakeout-dwell, check the hybrid-sealing-atmosphere-moisture and read hybrid-bond-pull-monitoring for the hybrid-line-control-verdict"
+    intent: "ecss hybrids; controlling what is sealed inside a hybrid package"
+    expected_skill: "space-systems/ecss/q6005-hybrid-manufacturing-control"

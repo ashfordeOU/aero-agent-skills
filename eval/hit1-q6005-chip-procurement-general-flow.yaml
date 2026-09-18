@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-chip-procurement-general-flow (space-systems/ecss)
+# Two tasks for the new leaf. cpf1 routes on the overall bare-die procurement
+# arrangement as an activity flow; cpf2 routes on grading and scheduling a
+# proposed flow. Both must deterministically hit
+# space-systems/ecss/q6005-chip-procurement-general-flow.
+tasks:
+  - id: cpf1
+    query: "draw out the whole arrangement for buying bare dice for our hybrids, from the procurement spec to releasing them to assembly, as an activity flow"
+    intent: "ECSS-Q-ST-60-05C clause 8.1; the general chip procurement arrangement shown as an ordered activity flow"
+    expected_skill: "space-systems/ecss/q6005-chip-procurement-general-flow"
+  - id: cpf2
+    query: "here is the die buying flow the programme proposed, check nothing mandatory is missing and that visual inspection really does sit after the probe, then tell me the critical path"
+    intent: "ECSS-Q-ST-60-05C clause 8.1; grading a proposed bare-die procurement flow for missing activities and forgotten prerequisite links, then scheduling it"
+    expected_skill: "space-systems/ecss/q6005-chip-procurement-general-flow"

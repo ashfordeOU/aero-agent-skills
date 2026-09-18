@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-identification-form-general-provisions (space-systems/ecss)
+# Two tasks for the new leaf. gp1 routes on the issue-versus-revision decision a
+# pending change forces; gp2 routes on the periodic review window and the state a
+# form that was never accepted sits in. Both must deterministically hit
+# space-systems/ecss/q6005-identification-form-general-provisions.
+tasks:
+  - id: gp1
+    query: "the supplier moved a bonding step to a different machine and also fixed two typos on the same form, tell me whether that comes back as a new issue or just a revision and what the identification should read"
+    intent: "ECSS-Q-ST-60-05C clause 6.2.1; a declaration-changing event opens a new issue and resets the revision while an editorial correction advances the revision, and the most demanding pending change sets the outcome"
+    expected_skill: "space-systems/ecss/q6005-identification-form-general-provisions"
+  - id: gp2
+    query: "go through the hybrid form we hold and say whether it is still good, when its next periodic review falls due, and who owes the next move if nobody on our side ever signed it off"
+    intent: "ECSS-Q-ST-60-05C clause 6.2.1; calendar-month review dating from the acceptance date with a lead window separating due from overdue, and a never-accepted form as its own state rather than an overdue one"
+    expected_skill: "space-systems/ecss/q6005-identification-form-general-provisions"

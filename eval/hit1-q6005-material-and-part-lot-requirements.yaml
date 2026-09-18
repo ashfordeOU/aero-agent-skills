@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-material-and-part-lot-requirements (space-systems/ecss)
+# Two tasks for the new leaf. mplr1 routes on the two separate shelf-life
+# questions at goods-in and the reserve left at receipt. mplr2 routes on the
+# cold-chain excursion and the two manufacturing lots against one certificate.
+# Both must deterministically hit
+# space-systems/ecss/q6005-material-and-part-lot-requirements.
+tasks:
+  - id: mplr1
+    query: "a tub of hybrid die attach adhesive just arrived with most of its shelf life already gone and the build it is for starts in two months, decide whether goods-in can book it into stores"
+    intent: "ECSS-Q-ST-60-05C clause 9.4; shelf life left on a delivered limited-life batch at receipt and against the planned time to use, and the reserve below which a release carries a restriction"
+    expected_skill: "space-systems/ecss/q6005-material-and-part-lot-requirements"
+  - id: mplr2
+    query: "the temperature logger in the shipment shows it sat warm for a day and the delivery holds two manufacturing batches against one certificate of analysis, work out the disposition of this consignment"
+    intent: "ECSS-Q-ST-60-05C clause 9.4; storage regime excursion on a delivered hybrid material batch and the single manufacturing lot condition behind lot acceptance data"
+    expected_skill: "space-systems/ecss/q6005-material-and-part-lot-requirements"

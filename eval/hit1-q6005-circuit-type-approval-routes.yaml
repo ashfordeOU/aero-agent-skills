@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-circuit-type-approval-routes (space-systems/ecss)
+# Two tasks for the new leaf. ctar1 routes on the route choice itself against a
+# predecessor whose approval currency is in doubt; ctar2 routes on the
+# envelope-critical departure that outranks a low departure score. Both must
+# deterministically hit
+# space-systems/ecss/q6005-circuit-type-approval-routes.
+tasks:
+  - id: ctar1
+    query: "we have an approved hybrid and a new build with a different lid seal and a second die source, work out whether this goes in as a delta, an extension of the approved type, or the full new-design approval"
+    intent: "ECSS-Q-ST-60-05C clause 7.3; alternative approval paths for a hybrid circuit type and the predecessor approval currency that decides which one is open"
+    expected_skill: "space-systems/ecss/q6005-circuit-type-approval-routes"
+  - id: ctar2
+    query: "the only change on this hybrid is the die technology and everything else is identical, tell me whether the predecessor approval still covers it or whether we owe the whole approval sequence again"
+    intent: "ECSS-Q-ST-60-05C clause 7.3; an envelope-critical departure forces the new-design route regardless of how small the weighted departure score looks"
+    expected_skill: "space-systems/ecss/q6005-circuit-type-approval-routes"

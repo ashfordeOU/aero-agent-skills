@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-category-two-validation-process (space-systems/ecss)
+# Two tasks for the new leaf. c2v1 routes on the step sequence and the earliest
+# the sequence can finish; c2v2 routes on the ordering defect and on a validation
+# earned for a different programme. Both must deterministically hit
+# space-systems/ecss/q6005-category-two-validation-process.
+tasks:
+  - id: c2v1
+    query: "our hybrid source has no approved production line, walk me through the category two validation steps for this programme in order and tell me the earliest the sequence can finish"
+    intent: "ECSS-Q-ST-60-05 clause 6.3; category-two validation step sequence and the longest remaining chain rather than the sum of outstanding work"
+    expected_skill: "space-systems/ecss/q6005-category-two-validation-process"
+  - id: c2v2
+    query: "they built the validation lot before the element procurement review was finished and a validation earned on another programme is being offered here, tell me where that leaves this category two case"
+    intent: "ECSS-Q-ST-60-05 clause 6.3; prerequisite ordering defect, and a validation held for another programme that does not carry over"
+    expected_skill: "space-systems/ecss/q6005-category-two-validation-process"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-detail-specification-content (space-systems/ecss)
+# Two tasks for the new leaf. hds1 routes on the mandated content set and the
+# empty-heading case; hds2 routes on the template layout order and the
+# applicable-document citation that resolves to nothing. Both must
+# deterministically hit
+# space-systems/ecss/q6005-hybrid-detail-specification-content.
+tasks:
+  - id: hds1
+    query: "go through this draft hybrid detail specification and tell me which of the required sections are missing and which ones are just a heading with nothing written under them"
+    intent: "ECSS-Q-ST-60-05 clause 7.2; mandated content of the detailed product specification, absence versus an empty declared section"
+    expected_skill: "space-systems/ecss/q6005-hybrid-detail-specification-content"
+  - id: hds2
+    query: "the sections of this hybrid product specification are in the wrong order and one requirement cites a document that is not in the applicable documents list, work out the smallest set of sections to move and which citations do not resolve"
+    intent: "ECSS-Q-ST-60-05 clause 7.2; layout template ordering measured by the longest in-order run, plus citation resolution against the specification's own applicable-documents list"
+    expected_skill: "space-systems/ecss/q6005-hybrid-detail-specification-content"

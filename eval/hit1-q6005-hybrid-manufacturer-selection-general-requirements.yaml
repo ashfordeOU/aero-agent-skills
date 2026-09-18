@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6005-hybrid-manufacturer-selection-general-requirements
+# (space-systems/ecss). Two tasks for the new leaf. msg1 routes on the baseline
+# rule that the chosen maker has to carry the validation route its category
+# owes; msg2 routes on a validation pack that is current at selection but
+# lapses before the lot is due, and on heritage offered in its place. Both must
+# deterministically hit
+# space-systems/ecss/q6005-hybrid-manufacturer-selection-general-requirements.
+tasks:
+  - id: msg1
+    query: "before we put this hybrid maker on the order, check it carries the validation route it owes rather than picking it on the strength of the quote"
+    intent: "ECSS-Q-ST-60-05 clause 5.1; baseline hybrid manufacturer selection rule and the validation pack the maker's category is bound to"
+    expected_skill: "space-systems/ecss/q6005-hybrid-manufacturer-selection-general-requirements"
+  - id: msg2
+    query: "the line approval certificate is valid today but expires before our lot is delivered and they are offering flight heritage on the missing audit report, say whether this maker is selectable"
+    intent: "ECSS-Q-ST-60-05 clause 5.1; hybrid line approval evidence expiry against the procurement cover date and heritage offered against an open route element"
+    expected_skill: "space-systems/ecss/q6005-hybrid-manufacturer-selection-general-requirements"

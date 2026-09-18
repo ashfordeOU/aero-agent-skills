@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-validation-process-overview (space-systems/ecss)
+# Two tasks for the new leaf. hv1 routes on the ordering of the path itself and the
+# vehicle build that waits on two prerequisites; hv2 routes on the purpose of the
+# activity and the granted technology scope a validation is tied to.
+# Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-validation-process-overview.
+tasks:
+  - id: hv1
+    query: "the hybrid supplier sent a validation plan that starts building the test vehicle straight after the definition, check the order and tell me which step is actually next"
+    intent: "ECSS-Q-ST-60-05 clause 6.1; the validation path and its prerequisites, the vehicle build waiting on both the audit and the vehicle definition"
+    expected_skill: "space-systems/ecss/q6005-hybrid-validation-process-overview"
+  - id: hv2
+    query: "explain what manufacturer validation is meant to prove for a hybrid house and whether their existing grant covers a thinfilm build we now want"
+    intent: "ECSS-Q-ST-60-05 clause 6.1; purpose objectives each evidenced by one stage, and a validation granted against a technology scope rather than a company"
+    expected_skill: "space-systems/ecss/q6005-hybrid-validation-process-overview"

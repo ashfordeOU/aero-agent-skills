@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-approval-of-new-circuit-designs (space-systems/ecss)
+# Two tasks for the new leaf. ancd1 routes on the full sequence owed by a design
+# with nothing to inherit; ancd2 routes on the prerequisite ordering and the
+# longest remaining chain rather than the sum of what is left. Both must
+# deterministically hit
+# space-systems/ecss/q6005-approval-of-new-circuit-designs.
+tasks:
+  - id: ancd1
+    query: "this hybrid is a clean sheet with no earlier approved part to lean on, lay out every step we owe from the design review to the point the circuit type is approved"
+    intent: "ECSS-Q-ST-60-05C clause 7.3.2; the complete approval sequence when no qualified predecessor exists, through qualification lot manufacture and the test programme"
+    expected_skill: "space-systems/ecss/q6005-approval-of-new-circuit-designs"
+  - id: ancd2
+    query: "technology selection is signed off on the new hybrid, tell me which steps we can start now and how long is really left before the type approval can be issued"
+    intent: "ECSS-Q-ST-60-05C clause 7.3.2; stages whose prerequisites are met, the branch that drives the remaining chain, and holding the grant while any stage is open"
+    expected_skill: "space-systems/ecss/q6005-approval-of-new-circuit-designs"

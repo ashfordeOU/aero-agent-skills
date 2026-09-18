@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-design-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. hdg1 routes on the pre-manufacture release
+# decision itself - evidence completeness plus the per-family derating screen.
+# hdg2 routes on the junction-temperature stack a hybrid builds on a shared
+# substrate. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-design-general-requirements.
+tasks:
+  - id: hdg1
+    query: "the hybrid design package is up for release to build, work out whether the design evidence is all there and whether any part is sitting above the derating ceiling for its family"
+    intent: "ECSS-Q-ST-60-05 clause 7.1; general design expectations before manufacture, evidence set membership and the worst-element applied-to-rated screen"
+    expected_skill: "space-systems/ecss/q6005-hybrid-design-general-requirements"
+  - id: hdg2
+    query: "build the junction temperature for the dissipating die on this hybrid substrate from the die attach and package resistances and tell me whether the conductor spacing and wire bond clearance still meet the design rule minima"
+    intent: "ECSS-Q-ST-60-05 clause 7.1; stacked thermal resistance from the local substrate base plus layout clearance grading in the pre-manufacture design check"
+    expected_skill: "space-systems/ecss/q6005-hybrid-design-general-requirements"

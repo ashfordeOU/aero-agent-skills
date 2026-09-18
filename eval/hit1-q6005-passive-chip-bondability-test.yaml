@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-passive-chip-bondability-test (space-systems/ecss)
+# Two tasks for the new leaf. pcb1 routes on the separation mode of a pulled
+# bond outranking the force reading; pcb2 routes on the minimum pull force that
+# follows the wire diameter and material, and the two sample floors.
+# Both must deterministically hit
+# space-systems/ecss/q6005-passive-chip-bondability-test.
+tasks:
+  - id: pcb1
+    query: "our wire pulls on the chip terminations all read well above the limit but most of them came away at the termination rather than breaking the wire, is that lot usable"
+    intent: "ECSS-Q-ST-60-05C clause 8.2.2; a lift at the termination is an interface failure that a high pull reading does not redeem"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-bondability-test"
+  - id: pcb2
+    query: "we pulled twelve bonds off two chips with 25 micron gold wire before using the lot, work out the minimum force each pull owed and whether that sample was big enough"
+    intent: "ECSS-Q-ST-60-05C clause 8.2.2; minimum pull force interpolated on wire diameter and material, plus the bond-count and distinct-chip floors on the destructive sample"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-bondability-test"

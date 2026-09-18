@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-passive-chip-general-provisions (space-systems/ecss)
+# Two tasks for the new leaf. pcg1 routes on the supply-route and traceability
+# chain condition every passive chip delivery meets; pcg2 routes on the banded
+# visual sample size and the year-week date code age at incoming acceptance.
+# Both must deterministically hit
+# space-systems/ecss/q6005-passive-chip-general-provisions.
+tasks:
+  - id: pcg1
+    query: "a lot of bare chips arrived from a distributor we have approved but the paperwork back to the manufacturer has a gap in it, decide whether incoming acceptance can take the lot"
+    intent: "ECSS-Q-ST-60-05C clause 8.2.1; a distributor's approval does not cover a lot whose traceability chain is broken, and this condition holds whatever the element type"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-general-provisions"
+  - id: pcg2
+    query: "four hundred bare chips came in marked 2401 and it is now week one of 2025, how many do we have to examine visually and is the lot too old to take"
+    intent: "ECSS-Q-ST-60-05C clause 8.2.1; banded visual sample size from lot size with a zero accept number, and a year-week date code converted to an age in months"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-general-provisions"

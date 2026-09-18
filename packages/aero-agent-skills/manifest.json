@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 2181,
+  "leaves": 2223,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -33195,6 +33195,778 @@
     "tool-option-set-digest",
     "build-flow-role-coverage",
     "tool-qualification-state"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-active-chip-bondability-test",
+   "name": "q6005-active-chip-bondability-test",
+   "description": "Verify wire-attachment strength on the bond pads of active dies before they are released into assembly. Use when a die lot's bondability evidence has to be graded: interpolate the minimum pull force the wire diameter earns from the strength schedule, hold every individual reading against that floor at the exact boundary, hold the lot mean against its own higher floor, disposition each recorded separation mode so a pad-lift or cratering event fails the lot whatever force it took, confirm the tested bond count meets the sampling floor, and call the lot bondable only when no finding remains. Trigger: ecss, q-st-60-05, active-chip-bondability, active-die-wire-bond-pull-force, bond-pad-lift, die-cratering, pull-strength-schedule, active-chip-bondability-sample-size, pre-assembly-die-acceptance.",
+   "tags": [
+    "ecss",
+    "q-st-60-electronic-components-scope",
+    "q6005-active-chip-bondability-test",
+    "active-chip-bondability",
+    "active-die-wire-bond-pull-force",
+    "bond-pad-lift",
+    "die-cratering",
+    "pull-strength-schedule",
+    "active-chip-bondability-sample-size",
+    "pre-assembly-die-acceptance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-active-chip-general-provisions",
+   "name": "q6005-active-chip-general-provisions",
+   "description": "Assess whether an active die purchase declaration covers the baseline provisions every such purchase carries under ECSS-Q-ST-60-05C clause 8.3.1, irrespective of device function or technology. Use when the task is separating the provisions that hold for all active dice from the ones a technology or a device function conditions in, computing the baseline coverage of a declaration, testing each waiver for an entitled authority and an unexpired validity date, and refusing a device-specific provision offered in place of a baseline one. Trigger: ecss, q-st-60-05c, active-die-baseline-provisions, hybrid-die-purchase-declaration, die-provision-applicability, die-provision-waiver-validity, die-baseline-coverage, die-provision-substitution.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-scope",
+    "q6005-active-chip-general-provisions",
+    "active-die-baseline-provisions",
+    "hybrid-die-purchase-declaration",
+    "die-provision-applicability",
+    "die-provision-waiver-validity",
+    "die-baseline-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-active-chip-procurement",
+   "name": "q6005-active-chip-procurement",
+   "description": "Determine whether a purchase of bare semiconductor dice for assembly inside a hybrid package is ready to place under ECSS-Q-ST-60-05C clause 8.3. Use when the task is reading the procurement route a die was bought through, deriving the evidence set that route owes on top of the universal one, checking the traceability chain reaches the wafer lot, grading die-bank age against the limit its storage atmosphere defends, and sizing the order from the good dice needed, the destructive sample consumed and the assembly yield. Trigger: ecss, q-st-60-05c, bare-die-procurement, hybrid-active-chip-purchase, die-procurement-route, wafer-lot-traceability, die-bank-age-limit, die-order-quantity-sizing.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-scope",
+    "q6005-active-chip-procurement",
+    "bare-die-procurement",
+    "hybrid-active-chip-purchase",
+    "die-procurement-route",
+    "wafer-lot-traceability",
+    "die-order-quantity-sizing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-active-chip-user-lot-testing",
+   "name": "q6005-active-chip-user-lot-testing",
+   "description": "Evaluate the sampling and acceptance testing a buyer runs on each delivered batch of active dies. Use when a receiving log has to be dispositioned: size the sample from the lot-size schedule, read the acceptance number it carries, collapse a small batch to full inspection, hold the nonconforming count found against that number, compute the exact hypergeometric probability that a batch carrying a given defect population would still be accepted, confirm every delivery holds its own record, and flag a lot identifier reused across two deliveries. Trigger: ecss, q-st-60-05, user-lot-acceptance-testing, die-delivery-sampling-plan, user-lot-attribute-sample-size, user-lot-acceptance-number, hypergeometric-acceptance-probability, receiving-log-reconciliation, die-lot-identifier-reuse.",
+   "tags": [
+    "ecss",
+    "q-st-60-electronic-components-scope",
+    "q6005-active-chip-user-lot-testing",
+    "user-lot-acceptance-testing",
+    "die-delivery-sampling-plan",
+    "user-lot-attribute-sample-size",
+    "user-lot-acceptance-number",
+    "hypergeometric-acceptance-probability",
+    "receiving-log-reconciliation",
+    "die-lot-identifier-reuse"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-approval-by-design-similarity",
+   "name": "q6005-approval-by-design-similarity",
+   "description": "Determine whether a candidate hybrid microcircuit may take the shortened approval route of ECSS-Q-ST-60-05C clause 7.3.3 on documented likeness to an already approved circuit, and size what still has to be run. Use when a supplier offers a reference part in place of a full approval programme: rate every design and process attribute identical, minor-variant, major-variant or incompatible, refuse the route on an incompatible decisive attribute, on too many decisive major variants, on a lapsed or off-line reference, or on a reference held to a less demanding quality level, then derive the delta test groups and the sample the candidate still owes. Trigger: ecss, q-st-60-05-hybrid-microcircuits, hybrid-approval-by-similarity, reference-circuit-likeness, decisive-attribute-divergence, delta-test-group-derivation, shortened-approval-route.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-microcircuits",
+    "hybrid-approval-by-similarity",
+    "reference-circuit-likeness",
+    "decisive-attribute-divergence",
+    "delta-test-group-derivation",
+    "shortened-approval-route"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-approval-of-new-circuit-designs",
+   "name": "q6005-approval-of-new-circuit-designs",
+   "description": "Plan the whole ECSS-Q-ST-60-05C clause 7.3.2 approval sequence for a hybrid circuit design with no qualified predecessor to build on, from design definition review through technology and parts selection, engineering model build, design verification testing, process identification, qualification lot manufacture, the qualification test programme and results evaluation, to the approval grant. Use when a new hybrid circuit type enters approval and the question is which stage may start now and how far the grant still sits. Compute the stages whose prerequisites are met, report any stage recorded ahead of its prerequisites, and hold the grant while a stage is open or failed. Trigger: ecss, q-st-60-hybrid-scope, new-hybrid-circuit-approval-sequence, hybrid-qualification-lot, hybrid-design-verification-testing, approval-stage-prerequisite, hybrid-approval-critical-path.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q6005-approval-of-new-circuit-designs",
+    "new-hybrid-circuit-approval-sequence",
+    "hybrid-qualification-lot",
+    "hybrid-design-verification-testing",
+    "approval-stage-prerequisite",
+    "hybrid-approval-critical-path"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-approval-of-recurrent-circuits",
+   "name": "q6005-approval-of-recurrent-circuits",
+   "description": "Evaluate whether a repeat order for a hybrid microcircuit may ride on an earlier approval under the reduced procedure of ECSS-Q-ST-60-05C clause 7.3.4, and state what the new lot still owes. Use when the same part is ordered again from the same house: confirm part number, manufacturer and production line have not moved, measure the continuity gap in whole months against the window, check the earlier lot stayed inside its allowable defective percentage and carries no open alert, then rank the declared changes, since paperwork keeps the reduced route, a process change re-opens the groups it touched, and a design change ends it. Trigger: ecss, q-st-60-05-hybrid-microcircuits, recurrent-hybrid-approval, repeat-order-reduced-procedure, production-continuity-window, process-change-requalification, lot-acceptance-carry-forward.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-microcircuits",
+    "recurrent-hybrid-approval",
+    "repeat-order-reduced-procedure",
+    "production-continuity-window",
+    "process-change-requalification",
+    "lot-acceptance-carry-forward"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-category-one-approved-line-manufacturer",
+   "name": "q6005-category-one-approved-line-manufacturer",
+   "description": "Determine whether a hybrid source qualifies for the preferred category one route of ECSS-Q-ST-60-05 clause 5.2.1: confirm the part is built on the very line the approval names, test that approval for currency at the procurement day, admit an approval still in progress only while its application is lodged, and audit the process identification document against every content item the clause mandates. Use when a hybrid source is categorized before an order is placed, when a line move is proposed mid-programme, or when an approval is running out. Reports the category decision, days to lapse, the document gap set and a completeness figure. Trigger: ecss, q-st-60-05c-clause-5-2-1, category-one-hybrid-manufacturer, approved-hybrid-production-line, pending-hybrid-line-approval, hybrid-process-identification-document, hybrid-pid-content-audit, hybrid-line-approval-expiry.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q6005-category-one-approved-line-manufacturer",
+    "category-one-hybrid-manufacturer",
+    "approved-hybrid-production-line",
+    "pending-hybrid-line-approval",
+    "hybrid-process-identification-document",
+    "hybrid-line-approval-expiry"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-category-two-non-approved-manufacturer",
+   "name": "q6005-category-two-non-approved-manufacturer",
+   "description": "Evaluate a non-approved hybrid maker against the less preferred category two route of ECSS-Q-ST-60-05 clause 5.2.2: test the customer justification for the elements that make it admissible, refuse one that steps past an available approved source without a stated reason, and grade the compensating conditions - audit currency, an agreed validation programme, baselined process documentation, current quality certification, added lot testing - that make such a maker acceptable. Use when a hybrid has only a non-approved source, when a justification goes to the customer, or when an audit ages out. Reports admissibility, unmet conditions and weighted coverage. Trigger: ecss, q-st-60-05c-clause-5-2-2, category-two-hybrid-manufacturer, non-approved-hybrid-source, hybrid-customer-justification, hybrid-compensating-conditions, hybrid-manufacturer-audit-validity.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q6005-category-two-non-approved-manufacturer",
+    "category-two-hybrid-manufacturer",
+    "non-approved-hybrid-source",
+    "hybrid-customer-justification",
+    "hybrid-compensating-conditions",
+    "hybrid-manufacturer-audit-validity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-category-two-validation-general-rules",
+   "name": "q6005-category-two-validation-general-rules",
+   "description": "Determine whether a category two validation of a hybrid supplier with no approved production line may proceed, and what range its result covers, under ECSS-Q-ST-60-05 clause 6.3.1. Use when the admissibility, scope and validity of an unapproved line must be decided rather than assumed: grade each entry condition on its own, refuse a line changed inside its stability window, bound the envelope to the families and package types actually examined, require all three validation elements to be planned, and return the readiness index with one verdict. Trigger: ecss, q-st-60-05, category-two-validation, unapproved-production-line, validation-entry-conditions, validation-scope-envelope, line-stability-window, category-two-validation-validity, category-two-validation-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q-st-60-05",
+    "q6005-category-two-validation-general-rules",
+    "category-two-validation",
+    "unapproved-production-line",
+    "validation-entry-conditions",
+    "validation-scope-envelope",
+    "line-stability-window",
+    "category-two-validation-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-category-two-validation-process",
+   "name": "q6005-category-two-validation-process",
+   "description": "Plan the category two validation steps that qualify a hybrid source with no approved production line for use on one programme, and grade how far they have run: order the sequence from applicability review and supplier survey through element procurement review, validation lot build, lot testing and destructive physical analysis to the programme authority agreement, catch a step started before its prerequisite finished, take the longest remaining chain rather than the sum of outstanding work, and report the earliest the sequence can finish against the programme need date. Use when an unapproved hybrid source must be validated in time, or a validation earned on another programme is offered here. Trigger: ecss, q-st-60-05, category-two-hybrid-validation, unapproved-hybrid-supplier, hybrid-validation-lot-build, hybrid-validation-critical-chain, programme-authority-agreement, hybrid-validation-step-ordering.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-procurement-scope",
+    "q6005-category-two-validation-process",
+    "category-two-hybrid-validation",
+    "unapproved-hybrid-supplier",
+    "hybrid-validation-lot-build",
+    "hybrid-validation-critical-chain",
+    "programme-authority-agreement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-chip-lot-acceptance-conditions",
+   "name": "q6005-chip-lot-acceptance-conditions",
+   "description": "Determine whether a delivered batch of bare semiconductor or passive chips meets the traceability, homogeneity and documentation conditions of ECSS-Q-ST-60-05C clause 8.1.4: reconcile the sublot quantities against the delivery note and the order, measure the fraction of dice carrying both a wafer-lot and a diffusion-lot identity, compute the homogeneity ratio as the largest wafer-lot aggregate over the whole delivery, check the delivery documentation set, and return accept, accept-with-reservation or reject with every failing condition named. Use when receiving or dispositioning a bare-die lot. Trigger: ecss, q-st-60-05c, bare-die-lot-acceptance, wafer-lot-homogeneity-ratio, diffusion-lot-traceability, die-delivery-documentation, sublot-quantity-reconciliation, chip-lot-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-procurement",
+    "q6005-chip-lot-acceptance-conditions",
+    "bare-die-lot-acceptance",
+    "wafer-lot-homogeneity-ratio",
+    "diffusion-lot-traceability",
+    "sublot-quantity-reconciliation",
+    "chip-lot-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-chip-procurement-general-flow",
+   "name": "q6005-chip-procurement-general-flow",
+   "description": "Map the overall arrangement for buying bare chips used inside hybrid circuits onto an activity flow under ECSS-Q-ST-60-05C clause 8.1, then grade and schedule it. Use when a programme has to show how dice reach assembly: lay out specification issue, source selection, order placement, wafer lot acceptance, electrical probe, visual inspection, traceability, inert-cover packing, receipt inspection and release, confirm every mandatory activity appears and every prerequisite is genuinely reachable through the declared links, reject a cycle, then compute earliest start and finish in working days, the total duration and the critical path. Trigger: ecss, q-st-60-05-hybrid-microcircuits, bare-die-procurement-flow, wafer-lot-acceptance-sequencing, die-receipt-inspection-ordering, procurement-activity-critical-path, inert-cover-die-storage.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-microcircuits",
+    "bare-die-procurement-flow",
+    "wafer-lot-acceptance-sequencing",
+    "die-receipt-inspection-ordering",
+    "procurement-activity-critical-path",
+    "inert-cover-die-storage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-chip-procurement-specification-requirements",
+   "name": "q6005-chip-procurement-specification-requirements",
+   "description": "Assess whether the purchasing documents for bare semiconductor and passive chips define everything an order needs under ECSS-Q-ST-60-05C clause 8.1.3: separate the always-mandatory content from the conditional content that applies only when the project declares a radiation, screening, single-wafer-lot or serialization context, treat a placeholder such as TBD as undefined rather than declared, compute the completeness ratio over the applicable set alone so a surplus item cannot inflate it, and refuse release-to-order while any applicable item stays undefined. Use when drafting or reviewing a bare-die purchase specification. Trigger: ecss, q-st-60-05c, bare-die-purchase-specification, chip-procurement-mandatory-content, die-revision-identification, bond-pad-metallization-definition, conditional-procurement-item, chip-release-to-order.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-procurement",
+    "q6005-chip-procurement-specification-requirements",
+    "bare-die-purchase-specification",
+    "chip-procurement-mandatory-content",
+    "die-revision-identification",
+    "conditional-procurement-item",
+    "chip-release-to-order"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-chip-supplier-selection-criteria",
+   "name": "q6005-chip-supplier-selection-criteria",
+   "description": "Evaluate whether a proposed source of bare semiconductor or passive chips is acceptable under ECSS-Q-ST-60-05C clause 8.1.2: categorize the route as the original die manufacturer, a franchised distributor or an independent reseller, count the intermediaries between the wafer line and the buyer, then test the quality-system approval, the audit currency, the wafer-lot traceability chain and the process-change-notification commitment against veto criteria that no merit score can outrank, returning acceptable, acceptable-with-conditions or refused with every failing criterion named. Use when judging a chip source, a reseller offer or an untraceable die stock. Trigger: ecss, q-st-60-05c, bare-die-source-acceptability, chip-supplier-audit-currency, wafer-lot-traceability-chain, independent-reseller-die-stock, chip-process-change-notification, chip-source-veto-criteria.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-procurement",
+    "q6005-chip-supplier-selection-criteria",
+    "bare-die-source-acceptability",
+    "chip-supplier-audit-currency",
+    "wafer-lot-traceability-chain",
+    "independent-reseller-die-stock",
+    "chip-source-veto-criteria"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-circuit-type-approval-routes",
+   "name": "q6005-circuit-type-approval-routes",
+   "description": "Determine which ECSS-Q-ST-60-05C clause 7.3 approval route a hybrid circuit type has to travel: a full new-design approval, an extension of an already approved type, a bounded delta approval, or an administrative change record. Use when a candidate hybrid design is set against a predecessor and the question is how much of that predecessor's approval still carries. Weigh each declared departure by category, force the new-design sequence on any envelope-critical departure or a predecessor approval that is lapsed or superseded, name the departure that escalated the route, and attach the evidence that route owes. Trigger: ecss, q-st-60-hybrid-scope, hybrid-circuit-type-approval-route, approved-type-extension, hybrid-delta-approval, envelope-critical-departure, predecessor-approval-currency, hybrid-departure-score.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q6005-circuit-type-approval-routes",
+    "hybrid-circuit-type-approval-route",
+    "approved-type-extension",
+    "hybrid-delta-approval",
+    "envelope-critical-departure",
+    "predecessor-approval-currency",
+    "hybrid-departure-score"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-construction-analysis-of-sample-units",
+   "name": "q6005-construction-analysis-of-sample-units",
+   "description": "Evaluate the destructive teardown of sample units drawn from a supplier's production run and decide whether the delivered build matches what was declared, under ECSS-Q-ST-60-05 clause 6.3.2. Use when a category two validation needs its construction evidence graded: size the unit set from the product family, lots and variants, reject a unit built on an engineering bench, test whether the set spans the lots and build standards it claims for, grade each teardown step, group every deviation by what it touches and how widely it appears, and return the build-conformity index with one verdict. Trigger: ecss, q-st-60-05, category-two-construction-analysis, sample-unit-teardown, sample-unit-representativeness, internal-construction-examination, build-standard-deviation, teardown-step-coverage, construction-analysis-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q-st-60-05",
+    "q6005-construction-analysis-of-sample-units",
+    "category-two-construction-analysis",
+    "sample-unit-teardown",
+    "sample-unit-representativeness",
+    "internal-construction-examination",
+    "build-standard-deviation",
+    "construction-analysis-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-design-approval-general-provisions",
+   "name": "q6005-design-approval-general-provisions",
+   "description": "Assess the ECSS-Q-ST-60-05C clause 7.3.1 general provisions a hybrid circuit design approval owes whichever route it takes: an agreed procurement specification, an approved design baseline, a manufacturer capability approval, a named manufacturing line, approved materials and parts, and a documented process identification. Use when an approval package is being readied or re-checked and the question is whether the shared conditions hold before route-specific work starts. Grade every provision, refuse a waiver raised against a non-waivable provision or one missing its authority, reference or expiry, and test the approval validity window against the as-of date and any line move. Trigger: ecss, q-st-60-hybrid-scope, hybrid-design-approval-provisions, manufacturer-capability-approval, named-manufacturing-line, hybrid-approval-validity-window, non-waivable-provision, hybrid-provision-waiver.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q6005-design-approval-general-provisions",
+    "hybrid-design-approval-provisions",
+    "manufacturer-capability-approval",
+    "named-manufacturing-line",
+    "hybrid-approval-validity-window",
+    "non-waivable-provision",
+    "hybrid-provision-waiver"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hermetically-encapsulated-chip-procurement",
+   "name": "q6005-hermetically-encapsulated-chip-procurement",
+   "description": "Assess the purchasing provisions for active chips delivered already sealed inside their own hermetic enclosure. Use when a pre-sealed chip specification and its delivery evidence have to be graded together: confirm each mandatory provision is declared rather than blank or written as a placeholder, derive the fine-leak reject limit the sealed cavity volume earns from the band schedule, hold the measured equivalent standard leak rate against it at the exact boundary, refuse a fine-leak reading behind a failed gross-leak test, hold internal moisture against its ceiling, and clear the purchase only when no finding remains. Trigger: ecss, q-st-60-05, hermetically-encapsulated-chip-procurement, sealed-cavity-volume-band, fine-leak-reject-limit, equivalent-standard-leak-rate, gross-leak-outcome, internal-moisture-ppmv, hermetic-provision-completeness.",
+   "tags": [
+    "ecss",
+    "q-st-60-electronic-components-scope",
+    "q6005-hermetically-encapsulated-chip-procurement",
+    "sealed-cavity-volume-band",
+    "fine-leak-reject-limit",
+    "equivalent-standard-leak-rate",
+    "gross-leak-outcome",
+    "internal-moisture-ppmv",
+    "hermetic-provision-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-design-activity-flow",
+   "name": "q6005-hybrid-design-activity-flow",
+   "description": "Determine the order in which the engineering tasks of a hybrid microcircuit design must run, and how far the design has actually progressed, under ECSS-Q-ST-60-05 clause 7.1.2. Use when a hybrid design programme declares its activities, predecessors, durations and states and the question is whether the flow reaches an approved design solution: refuse a dependency cycle or a predecessor that was never declared, sequence the activities topologically, name the mandated stages the plan omits, list what may start now, expose a task signed off ahead of an open predecessor, and derive the earliest finish and the critical path. Trigger: ecss, q-st-60-05, hybrid-design-activity-flow, hybrid-design-predecessor-cycle, hybrid-design-stage-coverage, hybrid-design-critical-path, hybrid-design-out-of-order-signoff.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-microcircuit-scope",
+    "q6005-hybrid-design-activity-flow",
+    "hybrid-design-predecessor-cycle",
+    "hybrid-design-stage-coverage",
+    "hybrid-design-critical-path",
+    "hybrid-design-out-of-order-signoff",
+    "hybrid-design-solution-approval"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-design-general-requirements",
+   "name": "q6005-hybrid-design-general-requirements",
+   "description": "Evaluate whether a hybrid microcircuit design is ready to leave the drawing office and enter manufacture under ECSS-Q-ST-60-05 clause 7.1. Use when a hybrid design package is offered for release and someone must say whether the general design expectations are met: confirm the mandated design evidence is present and complete, take every element's applied-to-rated stress ratio against its family derating limit, build the junction temperature from the dissipation and the stacked die-attach, substrate and package thermal resistances, grade conductor spacing, wire-bond and die-to-die clearance against the declared minima, and return a release-or-hold verdict naming each shortfall. Trigger: ecss, q-st-60-05, hybrid-microcircuit-design-release, hybrid-element-derating-ratio, hybrid-junction-temperature-margin, hybrid-substrate-layout-clearance, hybrid-design-evidence-completeness.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-microcircuit-scope",
+    "q6005-hybrid-design-general-requirements",
+    "hybrid-microcircuit-design-release",
+    "hybrid-element-derating-ratio",
+    "hybrid-junction-temperature-margin",
+    "hybrid-substrate-layout-clearance",
+    "hybrid-design-evidence-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-detail-specification-content",
+   "name": "q6005-hybrid-detail-specification-content",
+   "description": "Assess whether the detailed product specification of a hybrid microcircuit states what it must state and follows the mandated layout, under ECSS-Q-ST-60-05 clause 7.2. Use when a draft hybrid detail specification is submitted and someone must accept or hold it: name the template sections it omits, flag a heading declared with no content behind it, place a section that sits outside the template, measure how far the written order departs from the template through the longest run already in order, resolve every applicable-document citation against the documents the draft itself lists, and return a completeness ratio with a verdict. Trigger: ecss, q-st-60-05, hybrid-detail-specification-content, hybrid-specification-template-order, hybrid-specification-section-completeness, hybrid-specification-applicable-documents, hybrid-specification-citation-resolution.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-microcircuit-scope",
+    "q6005-hybrid-detail-specification-content",
+    "hybrid-specification-template-order",
+    "hybrid-specification-section-completeness",
+    "hybrid-specification-applicable-documents",
+    "hybrid-specification-citation-resolution",
+    "hybrid-specification-accept-or-hold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-manufacturer-category-definitions",
+   "name": "q6005-hybrid-manufacturer-category-definitions",
+   "description": "Identify which of the two hybrid microcircuit procurement categories a maker falls in for a given build, and say what decided it. Use when a hybrid buy has to be routed under ECSS-Q-ST-60-05 clause 5.2: test every production-line approval the maker offers against the site, the line and the process technology the part will actually be built on, and against the standing and dates the approval carries, put the maker in the approved-line category only when one approval covers all of them at once, and name the near misses that would otherwise promote it. Trigger: ecss, q-st-60-05-clause-5-2, hybrid-microcircuit-procurement-category, hybrid-category-split-per-build, hybrid-line-approval-scope-match, hybrid-manufacturer-category-boundary, sister-line-approval-near-miss.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q6005-hybrid-manufacturer-category-definitions",
+    "hybrid-microcircuit-procurement-category",
+    "hybrid-category-split-per-build",
+    "hybrid-line-approval-scope-match",
+    "hybrid-manufacturer-category-boundary",
+    "sister-line-approval-near-miss"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-manufacturer-selection-general-requirements",
+   "name": "q6005-hybrid-manufacturer-selection-general-requirements",
+   "description": "Assess whether a candidate hybrid microcircuit manufacturer may be selected at all, by grading it against the validation route its category is bound to. Use when a maker is being chosen for a hybrid buy under ECSS-Q-ST-60-05 clause 5.1: derive the route from the category, confirm every required element of the validation pack is held, in date, and neither suspended nor withdrawn at the selection date, confirm the cover reaches the date the procurement still needs it, and refuse flight heritage, a sister-site approval or a long supply relationship as a stand-in for an open element. Trigger: ecss, q-st-60-05-clause-5-1, hybrid-microcircuit-manufacturer-selection, hybrid-manufacturer-validation-route, hybrid-line-approval-evidence-expiry, hybrid-validation-pack-gap, hybrid-manufacturer-heritage-claim.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q6005-hybrid-manufacturer-selection-general-requirements",
+    "hybrid-microcircuit-manufacturer-selection",
+    "hybrid-manufacturer-validation-route",
+    "hybrid-line-approval-evidence-expiry",
+    "hybrid-validation-pack-gap",
+    "hybrid-manufacturer-heritage-claim"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-manufacturing-control",
+   "name": "q6005-hybrid-manufacturing-control",
+   "description": "Audit the in-process controls a hybrid microcircuit line runs while it assembles and seals units, under ECSS-Q-ST-60-05 clause 10.1. Use when an assembly flow needs its production controls graded: test each operation against the cleanliness grade it may be worked in, size the pre-seal bakeout dwell from its plateau, judge the sealing atmosphere moisture and the stand time before the seal, read bond-strength monitoring from the pull sample spread, grade every control element, and return the manufacturing-control index with one verdict. Trigger: ecss, q-st-60-05, hybrid-assembly-process-control, hybrid-assembly-environment-grade, pre-seal-bakeout-dwell, hybrid-sealing-atmosphere-moisture, hybrid-bond-pull-monitoring, manufacturing-control-index, hybrid-line-control-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q-st-60-05",
+    "q6005-hybrid-manufacturing-control",
+    "hybrid-assembly-process-control",
+    "hybrid-assembly-environment-grade",
+    "pre-seal-bakeout-dwell",
+    "hybrid-sealing-atmosphere-moisture",
+    "hybrid-bond-pull-monitoring",
+    "hybrid-line-control-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-marking-provisions",
+   "name": "q6005-hybrid-marking-provisions",
+   "description": "Evaluate the marking scheme a hybrid microcircuit programme proposes for its finished units and decide whether the identification it puts on them is permanent, legible and traceable, under ECSS-Q-ST-60-05 clause 10.2. Use when a marking approach needs grading before it is frozen: test the method against the surface it goes on and the processing the unit still faces, size the mark against the free area of the package body, judge where the mark is placed, check that it binds the unit to its lot record and serial register, and return the marking-provision index with one verdict. Trigger: ecss, q-st-60-05, hybrid-marking-provisions, hybrid-marking-permanence-grade, hybrid-package-body-marking-area, hybrid-marking-placement, hybrid-marking-traceability-link, alternative-hybrid-identification, hybrid-marking-scheme-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q-st-60-05",
+    "q6005-hybrid-marking-provisions",
+    "hybrid-marking-permanence-grade",
+    "hybrid-package-body-marking-area",
+    "hybrid-marking-placement",
+    "hybrid-marking-traceability-link",
+    "alternative-hybrid-identification",
+    "hybrid-marking-scheme-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-materials-and-parts-selection",
+   "name": "q6005-hybrid-materials-and-parts-selection",
+   "description": "Evaluate whether each constituent item proposed for a hybrid assembly — substrate, die-attach adhesive, bonding wire, preform, lid — may be selected under ECSS-Q-ST-60-05C clause 9.2: take each candidate's qualification standing, compute the thermomechanical strain an expansion mismatch imposes across the joint over the declared temperature excursion, screen polymeric items for total mass loss and condensable volatiles, take the wire-to-pad couple for an intermetallic-prone or tin-bearing pairing, and return selectable, selectable-with-evaluation or not-selectable per item with every failing condition named. Use when choosing or reviewing the constituent materials of a hybrid. Trigger: ecss, q-st-60-05c, hybrid-constituent-material-selection, die-attach-expansion-mismatch-strain, hybrid-polymer-outgassing-screen, wire-to-pad-bond-couple, hybrid-item-selectability, hybrid-material-qualification-standing.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-materials-and-parts",
+    "q6005-hybrid-materials-and-parts-selection",
+    "hybrid-constituent-material-selection",
+    "die-attach-expansion-mismatch-strain",
+    "hybrid-polymer-outgassing-screen",
+    "wire-to-pad-bond-couple",
+    "hybrid-item-selectability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-procurement-activity-sequence",
+   "name": "q6005-hybrid-procurement-activity-sequence",
+   "description": "Determine the order the procurement activities for a hybrid microcircuit run in and where the chosen manufacturer joins that order. Use when a hybrid buy is being planned, or an executed step list is being audited, against ECSS-Q-ST-60-05 clause 4: fix the entry point from the manufacturer category, drop the line evaluation and line approval activities for a maker whose production line already carries an approval, keep them for a maker whose line does not, report an activity run before its prerequisite or run at all on a route that does not own it, and name the outstanding activities and the next one due. Refuses an unknown or repeated activity name. Trigger: ecss, q-st-60-05-clause-4, hybrid-microcircuit-procurement-sequence, hybrid-procurement-entry-point, approved-line-manufacturer-entry, hybrid-line-evaluation-step-order, hybrid-procurement-step-prerequisite, outstanding-hybrid-procurement-activity.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q6005-hybrid-procurement-activity-sequence",
+    "hybrid-microcircuit-procurement-sequence",
+    "hybrid-procurement-entry-point",
+    "approved-line-manufacturer-entry",
+    "hybrid-line-evaluation-step-order",
+    "hybrid-procurement-step-prerequisite"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-technology-identification-form",
+   "name": "q6005-hybrid-technology-identification-form",
+   "description": "Determine whether a hybrid procurement case has the technology identification form it needs and what that form must cover before supplier assessment can begin, under ECSS-Q-ST-60-05C clause 6.2. Use when a hybrid is being procured, the supplier has declared its construction technologies, and the assessment team needs to know which form sections are owed, which assessment activities the form unlocks, and which stay blocked. Maps each declared technology onto the assessment areas it feeds, reports the areas left uncovered, derives the sealing category, refuses an unknown technology or an empty declaration, and returns a readiness verdict. Trigger: ecss, q-st-60-05, hybrid-technology-identification-form, hybrid-supplier-assessment-readiness, declared-construction-technology, identification-form-section-coverage, assessment-activity-enablement, hybrid-sealing-category.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-procurement-scope",
+    "q6005-hybrid-technology-identification-form",
+    "hybrid-technology-identification-form",
+    "hybrid-supplier-assessment-readiness",
+    "declared-construction-technology",
+    "identification-form-section-coverage",
+    "assessment-activity-enablement"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-hybrid-validation-process-overview",
+   "name": "q6005-hybrid-validation-process-overview",
+   "description": "Map a hybrid manufacturer validation programme onto the path ECSS-Q-ST-60-05 clause 6.1 lays out: hold its purpose - demonstrated, repeatable capability inside a declared technology scope - and order the stages from request and documentation review through audit, validation vehicle build, evaluation testing and validation review to the surveillance that keeps a granted validation alive. Use when a validation plan is drafted or reviewed, when a supplier asks what the path costs in stages, or when a programme stalls and the next executable stage has to be named. Reports ordering violations, unmet prerequisites, completion and planned duration. Trigger: ecss, q-st-60-05c-clause-6-1, hybrid-manufacturer-validation-path, hybrid-validation-purpose, hybrid-validation-stage-ordering, hybrid-validation-prerequisites, hybrid-validation-surveillance.",
+   "tags": [
+    "ecss",
+    "q-st-60-eee-scope",
+    "q6005-hybrid-validation-process-overview",
+    "hybrid-manufacturer-validation-path",
+    "hybrid-validation-purpose",
+    "hybrid-validation-stage-ordering",
+    "hybrid-validation-prerequisites",
+    "hybrid-validation-surveillance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-identification-form-for-approved-lines",
+   "name": "q6005-identification-form-for-approved-lines",
+   "description": "Determine how a hybrid technology identification form is completed when the supplier already holds approved production line status, under ECSS-Q-ST-60-05C clause 6.2.2. Use when an approved line is offered against a hybrid order and the buyer needs to know whether the approval really covers the technologies requested, which entries may be answered by reference to it, and which must still be written out in full. Matches every requested technology against the approval scope, places the order date inside the approval window, grants the reduced entry set only on a clean match, and otherwise falls back to the full form. Trigger: ecss, q-st-60-05, identification-form-for-approved-lines, approved-production-line-status, hybrid-approval-scope-match, reduced-form-entry-set, hybrid-approval-validity-window, hybrid-full-form-fallback.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-procurement-scope",
+    "q6005-identification-form-for-approved-lines",
+    "approved-production-line-status",
+    "hybrid-approval-scope-match",
+    "reduced-form-entry-set",
+    "hybrid-approval-validity-window",
+    "hybrid-full-form-fallback"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-identification-form-for-unapproved-lines",
+   "name": "q6005-identification-form-for-unapproved-lines",
+   "description": "Evaluate the identification form content a supplier owes when its hybrid production line holds no approval at all: derive the blocks the case owes, including the three that stand in for the missing approval, validate the submission against the registry, grade each block complete, partial or absent, read every blank cell as absent rather than supplied, split the absent fields into the deciding ones and the merely supporting ones, and decide admissibility on the deciding fields alone. Use when a form arrives from an unapproved line and a reviewer must name what is missing before it can be accepted. Trigger: ecss, q-st-60-05, hybrid-identification-form, unapproved-hybrid-production-line, hybrid-form-content-completeness, hybrid-compensating-controls, comparable-build-evidence, hybrid-delta-screening-plan.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-procurement-scope",
+    "q6005-identification-form-for-unapproved-lines",
+    "hybrid-identification-form",
+    "unapproved-hybrid-production-line",
+    "hybrid-form-content-completeness",
+    "hybrid-compensating-controls",
+    "comparable-build-evidence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-identification-form-general-provisions",
+   "name": "q6005-identification-form-general-provisions",
+   "description": "Evaluate a hybrid technology identification form against the preparation and upkeep rules that apply to every supplier case under ECSS-Q-ST-60-05C clause 6.2.1. Use when a form has been issued, amended or is approaching its periodic review and the procurement authority needs to know whether it is still valid, who owes the next action, and what the next issue number is. Assesses the mandatory entries, the preparing and accepting roles, the issue identification, the change-driven reissue trigger and the review window, then returns a validity state, the next review date and an ordered findings list. Trigger: ecss, q-st-60-05, identification-form-general-provisions, hybrid-form-issue-numbering, hybrid-form-reissue-trigger, hybrid-form-periodic-review-window, hybrid-form-preparer-and-approver-roles, hybrid-form-validity-state.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-procurement-scope",
+    "q6005-identification-form-general-provisions",
+    "hybrid-form-issue-numbering",
+    "hybrid-form-reissue-trigger",
+    "hybrid-form-periodic-review-window",
+    "hybrid-form-preparer-and-approver-roles",
+    "hybrid-form-validity-state"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-identification-form-pending-approval-case",
+   "name": "q6005-identification-form-pending-approval-case",
+   "description": "Determine how a hybrid identification form is handled while the named production line is still working toward its capability approval: validate the milestone record, count the steps closed and the ones closed only by waiver, score the completion share against the provisional threshold, date the re-confirmation the form owes and the day it lapses, compare the approval target with the hardware need date, and return an accept-provisionally, hold or reject disposition with its findings. Use when a form arrives against a line whose approval is in progress and a procurement or product-assurance engineer must decide whether it can be carried. Trigger: ecss, q-st-60-05, hybrid-identification-form, pending-line-capability-approval, provisional-form-acceptance, hybrid-form-revalidation, approval-milestone-waiver, hybrid-procurement-schedule-margin.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-procurement-scope",
+    "q6005-identification-form-pending-approval-case",
+    "hybrid-identification-form",
+    "pending-line-capability-approval",
+    "provisional-form-acceptance",
+    "hybrid-form-revalidation",
+    "approval-milestone-waiver"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-material-and-part-lot-requirements",
+   "name": "q6005-material-and-part-lot-requirements",
+   "description": "Determine whether a delivered batch of material or piece parts may enter hybrid manufacture under ECSS-Q-ST-60-05C clause 9.4: compute the batch age at receipt and the shelf life left against the planned time to use, test the observed storage temperatures against the declared storage regime, confirm the lot carries one manufacturing identity, check the lot documentation owed by that item category, and return release, conditional-release or quarantine with every failing condition named. Use when receiving or dispositioning a hybrid material or piece-part batch. Trigger: ecss, q-st-60-05c, hybrid-material-lot-acceptance, limited-life-shelf-life-remaining, hybrid-storage-temperature-excursion, piece-part-lot-identity, hybrid-lot-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-materials-and-parts",
+    "q6005-material-and-part-lot-requirements",
+    "hybrid-material-lot-acceptance",
+    "limited-life-shelf-life-remaining",
+    "hybrid-storage-temperature-excursion",
+    "piece-part-lot-identity",
+    "hybrid-lot-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-materials-and-parts-specifications",
+   "name": "q6005-materials-and-parts-specifications",
+   "description": "Audit whether the specification defining a material or piece part procured for hybrid microcircuit construction settles everything an order needs under ECSS-Q-ST-60-05C clause 9.3: build the content set from the core items plus the ones the item's own category adds, read a placeholder such as TBD as undefined rather than declared, compute the completeness ratio over the applicable set alone, confirm the document is approved and dated, and compare the specification issue with the issue the order cites. Use when drafting or reviewing a hybrid material specification. Trigger: ecss, q-st-60-05c, hybrid-material-specification-content, piece-part-specification-completeness, hybrid-specification-approval-state, procurement-issue-alignment, hybrid-specification-release-hold.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-materials-and-parts",
+    "q6005-materials-and-parts-specifications",
+    "hybrid-material-specification-content",
+    "piece-part-specification-completeness",
+    "hybrid-specification-approval-state",
+    "procurement-issue-alignment",
+    "hybrid-specification-release-hold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-passive-chip-bondability-test",
+   "name": "q6005-passive-chip-bondability-test",
+   "description": "Determine whether a lot of bare passive chips is bondable from the destructive wire pull sample ECSS-Q-ST-60-05C clause 8.2.2 calls for before the lot is used: read the minimum pull force for the wire material and diameter actually used from an interpolated table, size the sample as a floor on bonds pulled and on the chips they spread over, categorize where each bond separated, fail a lift at the termination or a termination off the chip body whatever force was read, and reduce the forces to a mean, a sample deviation and a minimum. Use when chip termination bondability evidence is graded. Trigger: ecss, q-st-60-05c, passive-chip-termination-bondability, chip-termination-bond-pull-strength, bond-lift-at-termination-mode, passive-chip-bondability-sample-plan, wire-diameter-minimum-pull-force.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-procurement-scope",
+    "q6005-passive-chip-bondability-test",
+    "passive-chip-termination-bondability",
+    "chip-termination-bond-pull-strength",
+    "bond-lift-at-termination-mode",
+    "passive-chip-bondability-sample-plan",
+    "wire-diameter-minimum-pull-force"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-passive-chip-general-provisions",
+   "name": "q6005-passive-chip-general-provisions",
+   "description": "Assess a delivery of bare passive chips against the baseline conditions ECSS-Q-ST-60-05C clause 8.2.1 holds for every purchase, whatever the element type: judge the supply route as an approved manufacturer, an approved distributor with an unbroken traceability chain, or open market; size the visual examination from the lot size through a banded sample plan with a zero accept number; convert the date code and the delivery week into an age against the limit; grade carriage, static protection and the dry pack moisture sensitive parts owe; and confirm the delivery documents arrived. Use when a passive chip lot reaches incoming acceptance. Trigger: ecss, q-st-60-05c, passive-chip-lot-baseline-conditions, passive-chip-visual-sample-size, passive-chip-date-code-age, passive-chip-dry-pack-handling, approved-distributor-traceability-chain.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-procurement-scope",
+    "q6005-passive-chip-general-provisions",
+    "passive-chip-lot-baseline-conditions",
+    "passive-chip-visual-sample-size",
+    "passive-chip-date-code-age",
+    "passive-chip-dry-pack-handling",
+    "approved-distributor-traceability-chain"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-passive-chip-lot-acceptance-test",
+   "name": "q6005-passive-chip-lot-acceptance-test",
+   "description": "Evaluate the lot acceptance evidence behind an incoming batch of passive chips for hybrid assembly under ECSS-Q-ST-60-05C clause 8.2.3. Use when the task is sizing the attribute sample a lot owes from its population, setting the acceptance number a destructive test drives to zero, computing the observed defective fraction and the lot tolerance the plan actually buys, grading that fraction against the percent-defective-allowable its chip family carries, and refusing a rejected lot resubmitted without an approved rescreen. Trigger: ecss, q-st-60-05c, hybrid-passive-chip-lot-acceptance, passive-chip-sampling-plan, passive-chip-acceptance-number, passive-chip-defective-fraction, passive-chip-lot-tolerance, passive-chip-rescreen-resubmission.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-scope",
+    "q6005-passive-chip-lot-acceptance-test",
+    "hybrid-passive-chip-lot-acceptance",
+    "passive-chip-sampling-plan",
+    "passive-chip-acceptance-number",
+    "passive-chip-defective-fraction",
+    "passive-chip-lot-tolerance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-passive-chip-procurement",
+   "name": "q6005-passive-chip-procurement",
+   "description": "Evaluate the purchase of a bare passive chip element under ECSS-Q-ST-60-05C clause 8.2: resolve the order line to a chip resistor, capacitor or inductor, merge the type-specific ordering data set with the baseline every bare chip carries, name what the line failed to declare, check the termination metallization against the attachment method the assembly will use, form the applied-to-rated stress ratio against the derating limit that type carries, confirm one production lot per delivery, and return release, hold or reject with the governing reason. Use when an order line for bare chip resistors, capacitors or inductors is graded before release. Trigger: ecss, q-st-60-05c, passive-chip-element-procurement, chip-element-ordering-data-items, chip-termination-attach-compatibility, passive-chip-derating-ratio, single-lot-delivery-traceability.",
+   "tags": [
+    "ecss",
+    "q-st-60-05-hybrid-procurement-scope",
+    "q6005-passive-chip-procurement",
+    "passive-chip-element-procurement",
+    "chip-element-ordering-data-items",
+    "chip-termination-attach-compatibility",
+    "passive-chip-derating-ratio",
+    "single-lot-delivery-traceability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-standard-marking-requirements",
+   "name": "q6005-standard-marking-requirements",
+   "description": "Verify the information a delivered hybrid microcircuit carries on its package body and the durability its lettering has to keep, under ECSS-Q-ST-60-05 clause 10.2.1. Use when a body mark is graded against the standard content set: test every mandatory field for presence and for form, validate the lot date code and the serial number, size the character height against the body area, compute the mark-to-body contrast, weigh the solvent-resistance evidence and the legibility left after it, and return the marking-completeness index with one verdict. Trigger: ecss, q-st-60-05, hybrid-body-marking-fields, hybrid-lot-date-code-format, hybrid-marking-character-height, hybrid-marking-contrast-ratio, hybrid-marking-solvent-resistance, post-test-marking-legibility, hybrid-body-marking-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q-st-60-05",
+    "q6005-standard-marking-requirements",
+    "hybrid-body-marking-fields",
+    "hybrid-lot-date-code-format",
+    "hybrid-marking-character-height",
+    "hybrid-marking-contrast-ratio",
+    "hybrid-marking-solvent-resistance",
+    "hybrid-body-marking-verdict"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q6005-supplier-quality-and-technical-audit",
+   "name": "q6005-supplier-quality-and-technical-audit",
+   "description": "Assess an on-site quality and technical audit of a hybrid supplier's production line and decide whether that line supports a category two validation, under ECSS-Q-ST-60-05 clause 6.3.3. Use when the audit evidence has to be graded rather than summarised: require an audit team carrying both a quality auditor and a technology specialist, treat a desk review of a mandatory area as uncovered, score quality-system maturity and technical capability on separate axes so a strong one cannot mask a weak one, count open findings by severity, and return both indices with one verdict and a validity term. Trigger: ecss, q-st-60-05, supplier-quality-and-technical-audit, production-line-audit, quality-system-maturity, technical-capability-score, audit-nonconformity-severity, audit-team-composition, supplier-audit-verdict.",
+   "tags": [
+    "ecss",
+    "q-st-60-hybrid-scope",
+    "q-st-60-05",
+    "q6005-supplier-quality-and-technical-audit",
+    "production-line-audit",
+    "quality-system-maturity",
+    "technical-capability-score",
+    "audit-nonconformity-severity",
+    "audit-team-composition",
+    "supplier-audit-verdict"
    ],
    "family": "space-systems",
    "pack": "ecss",

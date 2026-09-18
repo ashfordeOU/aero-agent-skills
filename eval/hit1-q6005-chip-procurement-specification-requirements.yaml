@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-chip-procurement-specification-requirements (space-systems/ecss)
+# Two tasks for the new leaf. cpsr1 routes on the always-mandatory content a
+# bare-die purchase document settles before the order; cpsr2 routes on the
+# placeholder-versus-declared distinction and the conditional items a declared
+# project context switches on. Both must deterministically hit
+# space-systems/ecss/q6005-chip-procurement-specification-requirements.
+tasks:
+  - id: cpsr1
+    query: "check my purchase document for bare die before it goes out and tell me what it still has to define about the pad metal, the backside and the die revision"
+    intent: "ECSS-Q-ST-60-05C clause 8.1.3; the always-mandatory content set of a bare-chip purchase specification and release-to-order readiness"
+    expected_skill: "space-systems/ecss/q6005-chip-procurement-specification-requirements"
+  - id: cpsr2
+    query: "half the fields in this die procurement spec say TBD and there is a radiation requirement on the project, work out what is actually still open before we can order"
+    intent: "ECSS-Q-ST-60-05C clause 8.1.3; a placeholder value defines nothing, and a declared project context makes the conditional items applicable rather than optional"
+    expected_skill: "space-systems/ecss/q6005-chip-procurement-specification-requirements"

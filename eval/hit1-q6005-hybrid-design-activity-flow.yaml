@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-hybrid-design-activity-flow (space-systems/ecss)
+# Two tasks for the new leaf. haf1 routes on the dependency graph and the
+# critical path to an approved design solution; haf2 routes on the sign-off
+# that ran ahead of its own predecessor. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-design-activity-flow.
+tasks:
+  - id: haf1
+    query: "here is the hybrid design task list with predecessors and durations, put it in a runnable order, tell me which mandated design stages the plan never covers and which chain drives the approval date"
+    intent: "ECSS-Q-ST-60-05 clause 7.1.2; topological sequencing, stage coverage and the critical path from concept to approved design solution"
+    expected_skill: "space-systems/ecss/q6005-hybrid-design-activity-flow"
+  - id: haf2
+    query: "someone signed off the detailed design task while the parts selection it depends on is still open, work out what can actually start now and which sign offs ran ahead of their inputs"
+    intent: "ECSS-Q-ST-60-05 clause 7.1.2; readiness from complete predecessors and out-of-order sign-off detection in the hybrid design flow"
+    expected_skill: "space-systems/ecss/q6005-hybrid-design-activity-flow"

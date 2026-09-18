@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-manufacturer-category-definitions
+# (space-systems/ecss). Two tasks for the new leaf. mcd1 routes on placing a
+# maker in one of the two procurement categories for a named site, line and
+# technology; mcd2 routes on the near miss — a sister-line or wrong-technology
+# approval that looks like cover and is not. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-manufacturer-category-definitions.
+tasks:
+  - id: mcd1
+    query: "which of the two hybrid procurement categories does this maker sit in for a thick film part built on line 2 at their Toulouse plant, and what decided the split"
+    intent: "ECSS-Q-ST-60-05 clause 5.2; hybrid microcircuit procurement category decided per site, production line and process technology"
+    expected_skill: "space-systems/ecss/q6005-hybrid-manufacturer-category-definitions"
+  - id: mcd2
+    query: "place this maker on one side of the two-category boundary: their line approval covers a different process technology on a sister line, so say which category that leaves them in"
+    intent: "ECSS-Q-ST-60-05 clause 5.2; hybrid line approval scope match and the sister-line near miss that does not move the category boundary"
+    expected_skill: "space-systems/ecss/q6005-hybrid-manufacturer-category-definitions"

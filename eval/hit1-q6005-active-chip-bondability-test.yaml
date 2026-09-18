@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-active-chip-bondability-test (space-systems/ecss)
+# Two tasks for the new leaf. acb1 routes on the diameter-indexed pull-force
+# floor that a single shared threshold cannot serve; acb2 routes on the
+# separation-mode disposition that fails a high-force pad-lift. Both must
+# deterministically hit
+# space-systems/ecss/q6005-active-chip-bondability-test.
+tasks:
+  - id: acb1
+    query: "we pulled bonds on sample active dice from the incoming lot, on their bond pads, and the wires are two different gauges, work out what minimum pull force each reading owes before the lot is released to assembly"
+    intent: "ECSS-Q-ST-60-05 clause 8.3.2; the pull-force floor is indexed by nominal wire diameter and interpolated between tabulated anchors, not one shared number"
+    expected_skill: "space-systems/ecss/q6005-active-chip-bondability-test"
+  - id: acb2
+    query: "one of the bond pulls came off at forty grams but it took the pad metallization with it, decide whether that reading counts as a pass for the die lot"
+    intent: "ECSS-Q-ST-60-05 clause 8.3.2; a separation at the pad interface is non-conforming whatever force it reached, unlike a break in the wire heel or neck"
+    expected_skill: "space-systems/ecss/q6005-active-chip-bondability-test"

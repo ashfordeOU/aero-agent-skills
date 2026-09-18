@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-passive-chip-procurement (space-systems/ecss)
+# Two tasks for the new leaf. pcp1 routes on the element-type-specific ordering
+# data a bare chip order line owes on top of the baseline; pcp2 routes on the
+# termination-metallization / attachment pair that neither half decides alone.
+# Both must deterministically hit
+# space-systems/ecss/q6005-passive-chip-procurement.
+tasks:
+  - id: pcp1
+    query: "the purchase order for bare chip capacitors lists a part number and a lot, work out what else that line has to state before it can be released and whether a chip resistor line would owe the same things"
+    intent: "ECSS-Q-ST-60-05C clause 8.2; the ordering data items a bare passive chip owes are a baseline layer plus an element-type layer, so resistor, capacitor and inductor lines differ"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-procurement"
+  - id: pcp2
+    query: "these chips came with gold terminations and we plan to solder them onto the substrate, plus the applied power is half the rating, say whether that order line releases"
+    intent: "ECSS-Q-ST-60-05C clause 8.2; termination metallization is judged against the attachment method as a pair, and the derating fraction belongs to the element type"
+    expected_skill: "space-systems/ecss/q6005-passive-chip-procurement"

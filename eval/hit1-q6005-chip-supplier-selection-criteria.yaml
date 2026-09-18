@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-chip-supplier-selection-criteria (space-systems/ecss)
+# Two tasks for the new leaf. css1 routes on the veto structure itself - a
+# commercially attractive source that cannot trace a die back to its wafer lot.
+# css2 routes on the supply-route category and the chain depth a buyer can
+# audit through. Both must deterministically hit
+# space-systems/ecss/q6005-chip-supplier-selection-criteria.
+tasks:
+  - id: css1
+    query: "a stockist is offering the bare die at a good price and a short lead time but cannot tell me which wafer lot it came from, work out whether that source is usable at all"
+    intent: "ECSS-Q-ST-60-05C clause 8.1.2; wafer-lot traceability is a veto criterion on a bare-chip source, not a weight that price and lead time trade against"
+    expected_skill: "space-systems/ecss/q6005-chip-supplier-selection-criteria"
+  - id: css2
+    query: "the die is coming to us through two resellers rather than from the wafer line, decide whether that route is acceptable and what the audit age and change notification evidence has to show"
+    intent: "ECSS-Q-ST-60-05C clause 8.1.2; supply-route category, chain depth against the auditable limit, audit currency window and process-change-notification commitment"
+    expected_skill: "space-systems/ecss/q6005-chip-supplier-selection-criteria"

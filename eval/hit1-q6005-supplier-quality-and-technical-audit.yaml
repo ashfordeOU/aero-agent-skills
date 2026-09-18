@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-supplier-quality-and-technical-audit (space-systems/ecss,
+# Q-ST-60-05 6.3.3). Two tasks per leaf; sa1 routes on the on-site production-line
+# audit and its team, sa2 on the two scoring axes and the nonconformity severities.
+# Both must deterministically hit
+# space-systems/ecss/q6005-supplier-quality-and-technical-audit.
+tasks:
+  - id: sa1
+    query: "run a supplier-quality-and-technical-audit as an on-site production-line-audit and check audit-team-composition before any area is scored"
+    intent: "ecss hybrids; the on-site audit element of a category two validation"
+    expected_skill: "space-systems/ecss/q6005-supplier-quality-and-technical-audit"
+  - id: sa2
+    query: "score quality-system-maturity and technical-capability-score on separate axes and count audit-nonconformity-severity for the supplier-audit-verdict"
+    intent: "ecss hybrids; grading a production line audit without letting one axis mask the other"
+    expected_skill: "space-systems/ecss/q6005-supplier-quality-and-technical-audit"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-identification-form-for-unapproved-lines (space-systems/ecss)
+# Two tasks for the new leaf. ual1 routes on the content an unapproved line owes
+# over and above the usual blocks; ual2 routes on the blank-cell grading and the
+# deciding-versus-supporting split that decides admissibility. Both must
+# deterministically hit
+# space-systems/ecss/q6005-identification-form-for-unapproved-lines.
+tasks:
+  - id: ual1
+    query: "the supplier production line has no approval at all and they have sent an identification form, tell me what content that form owes beyond the usual blocks before i can accept it"
+    intent: "ECSS-Q-ST-60-05 clause 6.2.4; the stand-in content an unapproved line owes - approval standing, compensating controls, comparable build evidence"
+    expected_skill: "space-systems/ecss/q6005-identification-form-for-unapproved-lines"
+  - id: ual2
+    query: "review this hybrid identification form from an unapproved line, say which absent fields are the deciding ones and which are only supporting, and read every blank cell as absent rather than supplied"
+    intent: "ECSS-Q-ST-60-05 clause 6.2.4; deciding versus supporting fields, blank cell read as absent, gaps returned as one set in registry order"
+    expected_skill: "space-systems/ecss/q6005-identification-form-for-unapproved-lines"
