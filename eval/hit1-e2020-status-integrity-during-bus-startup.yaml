@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-status-integrity-during-bus-startup (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on a recorded main bus start up where
+# the status a limiter reported does not describe the state it was in. to2
+# routes on a fall to zero volts and the state the unit came back in. Both must
+# deterministically hit
+# space-systems/ecss/e2020-status-integrity-during-bus-startup.
+tasks:
+  - id: to1
+    query: "we have the main bus start up recording for the distribution unit and on two samples the limiter status word says off while the output was clearly conducting, work out whether that is a real finding or just the unit still waking up"
+    intent: "ECSS-E-ST-20C clause 5.2.7.4.1; limiter state against intended state and reported status against actual state across a main bus start up profile, with samples below the control logic supply floor held as indeterminate"
+    expected_skill: "space-systems/ecss/e2020-status-integrity-during-bus-startup"
+  - id: to2
+    query: "the main bus collapsed to zero volts for forty milliseconds and when it came back up the limiter output was still on rather than in its cold start default, decide what the start up record has to show for that to be acceptable"
+    intent: "ECSS-E-ST-20C clause 5.2.7.4.1; zero volt excursion detection, the declared default state after recovery, and the settling time before the recovered state is read"
+    expected_skill: "space-systems/ecss/e2020-status-integrity-during-bus-startup"

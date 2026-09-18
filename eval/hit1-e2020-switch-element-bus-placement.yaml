@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-switch-element-bus-placement (space-systems/ecss)
+# Two tasks for the new leaf. swp1 routes on which rail the series pass
+# element of a protection device belongs to; swp2 routes on what is left
+# energised once that element opens. Both must deterministically hit
+# space-systems/ecss/e2020-switch-element-bus-placement.
+tasks:
+  - id: swp1
+    query: "our LCL puts the pass FET in the return leg of the branch; does the switching element have to sit on the energised main bus side of the protection device"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.2.1; switching element on the energised main bus side"
+    expected_skill: "space-systems/ecss/e2020-switch-element-bus-placement"
+  - id: swp2
+    query: "work out which connectors and harness stub stay live behind the open latching current limiter and whether a cross-strapped feed lands downstream of the switching element"
+    intent: "ECSS-E-ST-20-20C clause 5.2.3.2.1; branch isolation coverage behind an open switching element"
+    expected_skill: "space-systems/ecss/e2020-switch-element-bus-placement"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-zero-current-telemetry-readout (space-systems/ecss)
+# Two tasks for the leaf. zctr1 routes on the fixed error at zero load against
+# the surviving part of the accuracy budget; zctr2 routes on the blanking
+# deadband as a reportability limit. Both must deterministically hit
+# space-systems/ecss/e2020-zero-current-telemetry-readout.
+tasks:
+  - id: zctr1
+    query: "work out whether this current telemetry channel still meets its accuracy budget at zero load given its offset, half a quantisation step and its readout noise, and give me the lowest current it reports inside budget"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.6.1; fixed error at zero against the full-scale part of the accuracy budget and the resulting accuracy floor"
+    expected_skill: "space-systems/ecss/e2020-zero-current-telemetry-readout"
+  - id: zctr2
+    query: "the current monitor forces a zero reading below a blanking deadband, so tell me the lowest reportable current, which fixed term dominates the shortfall and how much of it each term would retire"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.6.1; blanking deadband as a reportability limit, dominant fixed term and retirement options"
+    expected_skill: "space-systems/ecss/e2020-zero-current-telemetry-readout"

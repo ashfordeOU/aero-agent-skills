@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-reverse-current-withstand-capability (space-systems/ecss)
+# Two tasks for the new leaf. rcw1 routes on the latched-off state taking current
+# the load pushes back; rcw2 routes on converting the reverse pulse into charge
+# and the output-node excursion it drives. Both must deterministically hit
+# space-systems/ecss/e2020-reverse-current-withstand-capability.
+tasks:
+  - id: rcw1
+    query: "decide whether the outlet tolerates the current the de-energising winding pushes back once it has latched off, and whether a blocking element is needed"
+    intent: "ECSS-E-ST-20-20C clause 5.2.11.1.1; off-state reverse-current withstand and the blocking-element decision"
+    expected_skill: "space-systems/ecss/e2020-reverse-current-withstand-capability"
+  - id: rcw2
+    query: "turn the reverse pulse the regenerating load delivers into charge and work out the output-node excursion against the recommended withstand level while the outlet is still conducting"
+    intent: "ECSS-E-ST-20-20C clause 5.2.11.1.1; on-state reverse-current pulse charge and output-node excursion"
+    expected_skill: "space-systems/ecss/e2020-reverse-current-withstand-capability"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-rlcl-repetitive-overload-endurance (space-systems/ecss)
+# Two tasks for the new leaf. rlclro1 routes on the duty cycle and settled
+# junction temperature of an unattended retrigger train; rlclro2 routes on
+# solving the shortest retrigger off time the junction limit allows. Both must
+# deterministically hit
+# space-systems/ecss/e2020-rlcl-repetitive-overload-endurance.
+tasks:
+  - id: rlclro1
+    query: "the retriggerable limiter keeps re-arming into a fault that will not clear, so find the retrigger duty cycle and the settled junction temperature it reaches"
+    intent: "ECSS-E-ST-20-20C clause 5.2.10.2.1; RLCL repetitive-overload endurance, retrigger duty cycle and settled junction temperature"
+    expected_skill: "space-systems/ecss/e2020-rlcl-repetitive-overload-endurance"
+  - id: rlclro2
+    query: "solve the shortest retrigger off time and the highest duty cycle that still keep the retriggerable outlet inside its derating limits"
+    intent: "ECSS-E-ST-20-20C clause 5.2.10.2.1; RLCL retrigger off-time solve against the junction derating headroom"
+    expected_skill: "space-systems/ecss/e2020-rlcl-repetitive-overload-endurance"

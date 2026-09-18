@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-lcl-on-off-commandability (space-systems/ecss,
+# E-ST-20-20C 5.2.6.1.1). Two tasks per leaf; loc1 routes on the presence and
+# source of the two commands, loc2 on the pulse width and the authority a
+# latched channel still grants. Both must deterministically hit
+# space-systems/ecss/e2020-lcl-on-off-commandability.
+tasks:
+  - id: loc1
+    query: "review the latching-current-limiter-command-interface for lcl-on-off-commandability and confirm the external-limiter-command-source of each command"
+    intent: "ecss power supply; latching and high power limiters accept external commands to switch their output on and off"
+    expected_skill: "space-systems/ecss/e2020-lcl-on-off-commandability"
+  - id: loc2
+    query: "check the lcl-command-pulse-width and the lcl-latched-state-command-authority of a high-power-limiter-command after an overcurrent trip"
+    intent: "ecss power supply; command pulse width and the authority an on or off command holds while the channel sits latched"
+    expected_skill: "space-systems/ecss/e2020-lcl-on-off-commandability"

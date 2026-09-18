@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-output-current-telemetry-provision
+# (space-systems/ecss, E-ST-20-20C 5.2.8.2.1). Two tasks per leaf; octp1
+# routes on per-limiter coverage, octp2 on whether one channel is worth
+# reading. Both must deterministically hit
+# space-systems/ecss/e2020-output-current-telemetry-provision.
+tasks:
+  - id: octp1
+    query: "audit the limiter-output-current-telemetry coverage of a distribution unit and find the shared-current-channel-defect where one housekeeping-current-channel sums several outputs"
+    intent: "ecss power distribution; each limiter reports the current it delivers to its own load"
+    expected_skill: "space-systems/ecss/e2020-output-current-telemetry-provision"
+  - id: octp2
+    query: "check the telemetry-full-scale-headroom and current-channel-quantisation-step of a housekeeping channel and build its current-telemetry-error-budget at the operating point"
+    intent: "ecss power distribution; is the current telemetry channel adequate in range, resolution and accuracy"
+    expected_skill: "space-systems/ecss/e2020-output-current-telemetry-provision"

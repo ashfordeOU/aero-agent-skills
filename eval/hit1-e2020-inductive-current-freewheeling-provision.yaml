@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-inductive-current-freewheeling-provision
+# (space-systems/ecss, E-ST-20-20C 5.2.7.7.1). Two tasks per leaf; icfp1
+# routes on where the harness-stored energy circulates when the limiter
+# opens, icfp2 on the standoff-versus-dead-time trade the clamp voltage
+# sets. Both must deterministically hit
+# space-systems/ecss/e2020-inductive-current-freewheeling-provision.
+tasks:
+  - id: icfp1
+    query: "size the harness-stored-energy on an inductive branch and show the limiter-inductive-freewheeling-path that circulates it when the limiter opens"
+    intent: "ecss power distribution; a declared return path for load and harness inductive current at limiter opening"
+    expected_skill: "space-systems/ecss/e2020-inductive-current-freewheeling-provision"
+  - id: icfp2
+    query: "derive the limiter-switch-standoff-margin and the freewheel-diode-decay for a clamp choice and check the limiter-opening-transient settles inside the limiter-reclosure-dead-time"
+    intent: "ecss power distribution; does the clamp choice satisfy switch standoff and reclosure dead time together"
+    expected_skill: "space-systems/ecss/e2020-inductive-current-freewheeling-provision"

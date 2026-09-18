@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-undervoltage-protection-provision (space-systems/ecss)
+# Two tasks for the leaf. uvpp1 routes on the population count the provision is
+# stated over; uvpp2 routes on threshold and hysteresis placement against the
+# bus envelope. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-protection-provision.
+tasks:
+  - id: uvpp1
+    query: "check that every limiter on the power bus declares an input undervoltage protection function on its bus interface and name the ones that do not"
+    intent: "ECSS-E-ST-20C clause 5.2.5.1.1; provision coverage over the limiter population"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-protection-provision"
+  - id: uvpp2
+    query: "place a limiter undervoltage trip threshold and its hysteresis so the recovery level is still reachable on the bus and a survivable dip does not shed the load"
+    intent: "ECSS-E-ST-20C clause 5.2.5.1.1; threshold window, recovery level and dip ride-through"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-protection-provision"

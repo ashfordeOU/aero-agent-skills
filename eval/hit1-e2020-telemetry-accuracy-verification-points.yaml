@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-telemetry-accuracy-verification-points (space-systems/ecss)
+# Two tasks for the leaf. tavp1 routes on grading a proposed current telemetry
+# test matrix against the required fractions of full scale; tavp2 routes on the
+# mission load points and the low-end rule. Both must deterministically hit
+# space-systems/ecss/e2020-telemetry-accuracy-verification-points.
+tasks:
+  - id: tavp1
+    query: "grade this proposed current telemetry test matrix against the load points the reporting accuracy has to be demonstrated at and name every required point it misses"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.7.1; coverage of the required full-scale fractions within the match tolerance"
+    expected_skill: "space-systems/ecss/e2020-telemetry-accuracy-verification-points"
+  - id: tavp2
+    query: "check the accuracy verification points include the declared mission load currents plus a no-load point and a loaded low-end point, and drop the repeated points that add no coverage"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.7.1; mission load points, the no-load and low-end rules and duplicate points inside the match tolerance"
+    expected_skill: "space-systems/ecss/e2020-telemetry-accuracy-verification-points"

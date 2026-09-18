@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-retrigger-function-enable-control (space-systems/ecss)
+# Two tasks for the leaf. rfec1 routes on the two-way commandability of the
+# retrigger function and the command paths that must reach it; rfec2 routes on
+# the worst-case settling time between a disable command and the last
+# re-energisation. Both must deterministically hit
+# space-systems/ecss/e2020-retrigger-function-enable-control.
+tasks:
+  - id: rfec1
+    query: "decide whether a retriggerable limiter's automatic retrigger behaviour can really be commanded off and back on from every required command path, with the control state readable in telemetry"
+    intent: "ECSS-E-ST-20-20C clause 5.2.6.2.1; two-way retrigger enable control, command-path reach and state read-back"
+    expected_skill: "space-systems/ecss/e2020-retrigger-function-enable-control"
+  - id: rfec2
+    query: "work out the worst-case time between sending a retrigger disable command to a current limiter and the last re-energisation the load can still see when the command races the dead time already in flight"
+    intent: "ECSS-E-ST-20-20C clause 5.2.6.2.1; retrigger disable settling time against the declared budget"
+    expected_skill: "space-systems/ecss/e2020-retrigger-function-enable-control"

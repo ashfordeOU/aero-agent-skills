@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-current-telemetry-linearity (space-systems/ecss)
+# Two tasks for the new leaf. ctlin1 routes on judging a calibration set on the
+# worst class-referenced error over the whole range; ctlin2 routes on splitting
+# the departure into gain error, zero offset and residual bow. Both must
+# deterministically hit space-systems/ecss/e2020-current-telemetry-linearity.
+tasks:
+  - id: ctlin1
+    query: "judge this current telemetry calibration on its worst absolute error referenced to the class current rather than to the reading, across the whole range"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.4.1; class-referenced absolute accuracy of the reported current over the whole range"
+    expected_skill: "space-systems/ecss/e2020-current-telemetry-linearity"
+  - id: ctlin2
+    query: "split the reported current departure into gain error, zero offset and residual bow around the fitted line and flag a calibration that never reached the ends of the range"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.4.1; linear current reporting, non-linearity residual and calibration range coverage"
+    expected_skill: "space-systems/ecss/e2020-current-telemetry-linearity"

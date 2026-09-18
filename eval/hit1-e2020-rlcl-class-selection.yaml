@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-rlcl-class-selection (space-systems/ecss)
+# Two tasks for the leaf. rlclcs1 routes on the repetitive side a latching
+# limiter never raises: the worst-case retrigger duty, the mean fault current
+# the harness heats to, and the per-attempt fault energy. rlclcs2 routes on
+# retriggering used as a start-up mechanism, counting attempts against the
+# class attempt allowance. Both must deterministically hit
+# space-systems/ecss/e2020-rlcl-class-selection.
+tasks:
+  - id: rlclcs1
+    query: "form the worst-case retrigger duty cycle from the longest trip-off delay and the shortest hold-off, and check the mean fault current and the per-attempt fault energy a retriggerable limiter class delivers into a sustained short"
+    intent: "ECSS-E-ST-20-20C clause 5.2.2.1.1; RLCL retrigger duty, harness thermal mean current and per-attempt fault energy"
+    expected_skill: "space-systems/ecss/e2020-rlcl-class-selection"
+  - id: rlclcs2
+    query: "count how many retrigger attempts a capacitive load needs to finish charging at the lower limiting current net of its own draw, and compare that against the attempt allowance of the retriggerable limiter class"
+    intent: "ECSS-E-ST-20-20C clause 5.2.2.1.1; RLCL start-up attempt count against the class attempt allowance"
+    expected_skill: "space-systems/ecss/e2020-rlcl-class-selection"

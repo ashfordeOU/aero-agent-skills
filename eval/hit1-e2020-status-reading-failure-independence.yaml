@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-status-reading-failure-independence (space-systems/ecss)
+# Two tasks for the leaf. srfi1 routes on whether any status path survives a
+# command interface failure; srfi2 routes on command-echo paths that replay the
+# ordered state. Both must deterministically hit
+# space-systems/ecss/e2020-status-reading-failure-independence.
+tasks:
+  - id: srfi1
+    query: "judge whether the real state of this device can still be read after its command interface fails, given which elements and which power domain each status path shares with the command chain"
+    intent: "ECSS-E-ST-20-20C clause 5.2.9.1.1; sensing paths against the command chain and command power domain, and the blinding elements"
+    expected_skill: "space-systems/ecss/e2020-status-reading-failure-independence"
+  - id: srfi2
+    query: "our status telemetry is a command echo and a driver register readback, so tell me whether that counts as reading the achieved device state and what path would have to be added"
+    intent: "ECSS-E-ST-20-20C clause 5.2.9.1.1; command-derived paths replay the ordered state and are not an independent status reading"
+    expected_skill: "space-systems/ecss/e2020-status-reading-failure-independence"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-reference-power-bus-specifications (space-systems/ecss)
+# Two tasks for the leaf. rpbs1 routes on building the worst-case instantaneous
+# bus voltage from the steady range, the ripple and the transient excursions;
+# rpbs2 routes on the transient duration a device tolerates against the duration
+# the bus may hold. Both must deterministically hit
+# space-systems/ecss/e2020-reference-power-bus-specifications.
+tasks:
+  - id: rpbs1
+    query: "build the worst-case high and low instantaneous bus voltage from the reference power bus steady range, its ripple envelope and its transient excursions, then compare each protection device operating window against them"
+    intent: "ECSS-E-ST-20-20C clause 5.1; reference power bus voltage range, ripple envelope and worst-case instantaneous bus voltage"
+    expected_skill: "space-systems/ecss/e2020-reference-power-bus-specifications"
+  - id: rpbs2
+    query: "confirm a latching current limiter tolerates the reference bus transient excursion for as long as the bus may hold it and report the limiting voltage margin of the weakest device"
+    intent: "ECSS-E-ST-20-20C clause 5.1; power bus transient excursion, transient duration tolerance and protection device operating window"
+    expected_skill: "space-systems/ecss/e2020-reference-power-bus-specifications"

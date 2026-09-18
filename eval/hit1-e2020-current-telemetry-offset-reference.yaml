@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-current-telemetry-offset-reference (space-systems/ecss)
+# Two tasks for the new leaf. ctofs1 routes on restating a telemetry zero offset
+# declared against full scale onto the class current; ctofs2 routes on settling
+# the offset from zero-current readings and comparing it with the declaration.
+# Both must deterministically hit
+# space-systems/ecss/e2020-current-telemetry-offset-reference.
+tasks:
+  - id: ctofs1
+    query: "this telemetry zero offset is quoted as a percentage of full scale; restate it against the class current of the device and say by what factor the full-scale basis understated it"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.5.1; reported current offset expressed relative to the class current, not full scale or reading"
+    expected_skill: "space-systems/ecss/e2020-current-telemetry-offset-reference"
+  - id: ctofs2
+    query: "settle the reported current offset from the zero-applied-current readings, check their spread, and compare it with the declared offset on the class-current basis"
+    intent: "ECSS-E-ST-20-20C clause 5.2.8.5.1; measured telemetry zero offset against its class-referenced declaration"
+    expected_skill: "space-systems/ecss/e2020-current-telemetry-offset-reference"

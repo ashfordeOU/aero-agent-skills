@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-essential-load-retrigger-disabling (space-systems/ecss)
+# Two tasks for the leaf. elrd1 routes on ground-only authority to disable
+# retrigger on essential loads; elrd2 routes on the origin-versus-execution
+# distinction and the reach of one onboard path. Both must deterministically
+# hit space-systems/ecss/e2020-essential-load-retrigger-disabling.
+tasks:
+  - id: elrd1
+    query: "find every limiter feeding an essential spacecraft load whose retrigger could be switched off by onboard fault management rather than by a ground originated command"
+    intent: "ECSS-E-ST-20-20C clause 5.2.6.4.1; ground-only retrigger disable authority on essential loads"
+    expected_skill: "space-systems/ecss/e2020-essential-load-retrigger-disabling"
+  - id: elrd2
+    query: "decide whether an uplinked time-tagged sequence counts as a ground originated retrigger disable even though it executes onboard, and count how many essential limiters the widest onboard path reaches"
+    intent: "ECSS-E-ST-20-20C clause 5.2.6.4.1; command origin versus execution, essential-load exposure count"
+    expected_skill: "space-systems/ecss/e2020-essential-load-retrigger-disabling"
