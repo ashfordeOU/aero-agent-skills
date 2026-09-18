@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-02-requirements (space-systems/ecss)
+# Two tasks for the new leaf. har1 routes on the derived phase reach and the
+# operation that sits outside it; har2 routes on hazard-log custody and the
+# written re-analysis triggers. Both must deterministically hit
+# space-systems/ecss/q40-02-requirements.
+tasks:
+  - id: har1
+    query: "our safety plan lists the flight phases only - work out which mission phases and ground operations the hazard analysis still owes for a crewed orbital vehicle that comes back"
+    intent: "ECSS-Q-ST-40-02C clause 5.1; the analysis reach is derived from the project profile, and an operation in an uncovered phase is a hole a phase percentage hides"
+    expected_skill: "space-systems/ecss/q40-02-requirements"
+  - id: har2
+    query: "nobody is named as owner of the hazard log and we never wrote down what forces us to redo the analysis - tell me what the standard expects on custody and reopening"
+    intent: "ECSS-Q-ST-40-02C clause 5.1; hazard-log custodian, agreed update interval, hazard-report severity floor and the declared re-analysis trigger list"
+    expected_skill: "space-systems/ecss/q40-02-requirements"

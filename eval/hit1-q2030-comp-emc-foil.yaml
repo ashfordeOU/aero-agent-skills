@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2030-comp-emc-foil (space-systems/ecss)
+# ce1 routes on skin-depth sizing at the low-frequency end and the wrap overlap
+# that fixes the layer count; ce2 routes on the drain-wire pigtail cost. Both
+# must deterministically hit space-systems/ecss/q2030-comp-emc-foil.
+tasks:
+  - id: ce1
+    query: "we are wrapping a bundle in metal foil tape, work out how thick the foil has to be for the bottom of the band and how much each turn should overlap the last"
+    intent: "ECSS-Q-ST-20-30C clause 7.8; foil thickness sized against the skin depth of its metal at the lowest frequency of concern, and the helical overlap fixing pitch and layers over every point"
+    expected_skill: "space-systems/ecss/q2030-comp-emc-foil"
+  - id: ce2
+    query: "the foil shield is terminated with a drain wire about ten centimetres long into the backshell, tell me what that is costing us at the top of the band"
+    intent: "ECSS-Q-ST-20-30C clause 7.8; foil is not self-terminating, and the drain-wire pigtail reactance against a circumferential termination is the decibel penalty to grade"
+    expected_skill: "space-systems/ecss/q2030-comp-emc-foil"

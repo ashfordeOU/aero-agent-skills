@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-status-check (space-systems/ecss)
+# Two tasks for the new leaf. esc1 routes on resolving a displayed safe/arm
+# state from disagreeing sensing channels; esc2 routes on the monitoring
+# current that reads status without arming anything. Both must deterministically
+# hit space-systems/ecss/e3311-status-check.
+tasks:
+  - id: esc1
+    query: "the safe and arm panel has two position sensors and they are telling me different things, work out what the indication is allowed to display and whether that squares with where the barrier is reported to be"
+    intent: "ECSS-E-ST-33-11C clause 4.8.4; unanimity resolution to an indeterminate state and reconciliation with the barrier position"
+    expected_skill: "space-systems/ecss/e3311-status-check"
+  - id: esc2
+    query: "how much current is my arm status sense loop allowed to push through the device before reading the state is itself a hazard, and does it matter that one channel senses through the firing loop"
+    intent: "ECSS-E-ST-33-11C clause 4.8.4; monitoring current graded against the no-fire current and sensing routed through the initiation circuit"
+    expected_skill: "space-systems/ecss/e3311-status-check"

@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-packet-store",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 35,
+  "failed": 0,
+  "evidence": "contract test PASS (35 tests); without-baseline 0.30 (a circular store is usually treated as the lossless choice, so recognising that both types lose the same amount once full and differ only in which end of the record goes, keeping discard and overwrite counts apart because they mean different gaps, refusing an overwrite that an open retrieval has not yet handed over, restoring the retrieval position after a successful overwrite, reading a disabled store as full rather than empty, and separating an oversized packet from a fullness loss are all missed without the skill)"
+}

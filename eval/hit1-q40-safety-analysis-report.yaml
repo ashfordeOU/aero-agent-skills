@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-safety-analysis-report (space-systems/ecss)
+# Two tasks for the leaf. sar1 routes on the Annex D report and hazard report
+# content rules; sar2 routes on integrating the hazard analysis, FMEA/FMECA and
+# fault tree outputs. Both must hit
+# space-systems/ecss/q40-safety-analysis-report.
+tasks:
+  - id: sar1
+    query: "compile the safety analysis report to the ECSS data requirement and check each hazard report has a severity, causes, controls and a verification behind every control"
+    intent: "ECSS-Q-ST-40C 7.5 Annex D; safety analysis report sections and hazard report content validation"
+    expected_skill: "space-systems/ecss/q40-safety-analysis-report"
+  - id: sar2
+    query: "trace every hazard cause back to a FMECA failure mode or a fault-tree basic event, list the critical items no hazard report covers, and say whether the report can be closed"
+    intent: "ECSS-Q-ST-40C 7.5; hazard report integration of hazard analysis, FMEA/FMECA and fault tree outputs, closure roll-up"
+    expected_skill: "space-systems/ecss/q40-safety-analysis-report"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-telemetry-data-time-stamping (space-systems/ecss)
+# Two tasks for the new leaf. tdt1 routes on the error budget between sampling
+# instant and downlinked stamp; tdt2 routes on field sizing and a backward step
+# in a stamp sequence. Both must deterministically hit
+# space-systems/ecss/e50-telemetry-data-time-stamping.
+tasks:
+  - id: tdt1
+    query: "we correlate the on-board clock once a week, add up the drift since then plus the acquisition latency and the half-bit of the time field and say whether we still meet the stated stamp accuracy"
+    intent: "ECSS-E-ST-50C clause 5.5.5; time-stamp error budget of drift, latency, correlation residual and field quantisation, combined worst-case or root-sum-square"
+    expected_skill: "space-systems/ecss/e50-telemetry-data-time-stamping"
+  - id: tdt2
+    query: "the archive has packets whose times go backwards mid pass, and I need to know how many bits the time field needs to cover the whole mission at this resolution"
+    intent: "ECSS-E-ST-50C clause 5.5.5; stamp monotonicity breaks and time-field width from mission span and least significant bit"
+    expected_skill: "space-systems/ecss/e50-telemetry-data-time-stamping"

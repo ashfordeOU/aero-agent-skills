@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-12-fta-tools (space-systems/ecss)
+# Two tasks for the new leaf. ft1 routes on the benchmark and repeatability
+# evidence a tool has to produce; ft2 routes on the export/re-import round trip
+# and the qualification effort the result consequence demands.
+# Both must deterministically hit space-systems/ecss/q40-12-fta-tools.
+tasks:
+  - id: ft1
+    query: "the vendor upgraded the fault tree package, work out what evidence we need before we trust its numbers again and whether two runs of the same model giving slightly different digits is acceptable"
+    intent: "ECSS-Q-ST-40-12C clause 5.1.3; benchmark grading against reference values inside a tolerance plus run-to-run repeatability after a version change"
+    expected_skill: "space-systems/ecss/q40-12-fta-tools"
+  - id: ft2
+    query: "check that our tree survives being written out to the neutral exchange file and read back in, and say how much tool qualification a catastrophic result rests on"
+    intent: "ECSS-Q-ST-40-12C clause 5.1.3; model exchange round-trip fidelity and the qualification level set by the consequence of the result"
+    expected_skill: "space-systems/ecss/q40-12-fta-tools"

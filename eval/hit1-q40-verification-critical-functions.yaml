@@ -1,0 +1,15 @@
+# Hit@1 fragment: q40-verification-critical-functions (space-systems/ecss)
+# Two tasks for the new leaf. cf1 routes on the activity set a criticality
+# category owes and on the waiver ceiling; cf2 routes on grading failure
+# testing by declared-failure-mode coverage rather than by its existence.
+# Both must deterministically hit
+# space-systems/ecss/q40-verification-critical-functions.
+tasks:
+  - id: cf1
+    query: "the team waived qualification on a catastrophic safety-critical function and closed validation with no evidence reference, can that function be called verified"
+    intent: "ECSS-Q-ST-40C verification of safety-critical functions; the owed activity set by criticality, no waiver at the top category, evidence reference per passed activity"
+    expected_skill: "space-systems/ecss/q40-verification-critical-functions"
+  - id: cf2
+    query: "we ran one failure test against one of five declared failure modes and the report says failure testing complete, how should that be graded"
+    intent: "ECSS-Q-ST-40C verification of safety-critical functions; failure testing is graded by coverage of declared failure modes against the fraction the criticality owes"
+    expected_skill: "space-systems/ecss/q40-verification-critical-functions"

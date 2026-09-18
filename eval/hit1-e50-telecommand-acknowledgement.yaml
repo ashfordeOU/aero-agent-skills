@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-telecommand-acknowledgement (space-systems/ecss)
+# ta1 routes on separating an unacknowledged command from a rejected one; ta2 routes
+# on the deadline construction that carries two-way light time. Both must
+# deterministically hit space-systems/ecss/e50-telecommand-acknowledgement.
+tasks:
+  - id: ta1
+    query: "reconcile last pass: for each command we sent say whether we actually heard back at every stage it subscribed to, and keep the ones the spacecraft refused separate from the ones we simply never heard about"
+    intent: "ECSS-E-ST-50C clause 5.4.8; per-stage verification coverage, with a rejection report and an absent report kept as different outcomes"
+    expected_skill: "space-systems/ecss/e50-telecommand-acknowledgement"
+  - id: ta2
+    query: "our acceptance report timeouts were set for a near earth mission and now everything reads late, work out what the deadline should be once the two way light time is in it"
+    intent: "ECSS-E-ST-50C clause 5.4.8; stage deadline is uplink epoch plus round-trip light time plus the stage timeout, not the timeout alone"
+    expected_skill: "space-systems/ecss/e50-telecommand-acknowledgement"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-build-file-and-job-control (space-systems/ecss)
+# Two tasks for the new leaf. bfc1 routes on the release of a nested job and the
+# version/revision binding behind it; bfc2 routes on the rotated-footprint
+# clearance check and the orientation record. Both must deterministically hit
+# space-systems/ecss/q7080-build-file-and-job-control.
+tasks:
+  - id: bfc1
+    query: "before we commit this platform, check the build file version and that every part in the nest came from the released drawing revision and an approved parameter set"
+    intent: "ECSS-Q-ST-70-80 process clause; build-file version and digest, per-part design revision binding, approved parameter set for the job"
+    expected_skill: "space-systems/ecss/q7080-build-file-and-job-control"
+  - id: bfc2
+    query: "two parts got turned on the plate to make them fit and one of them has no orientation logged, work out whether the nest still clears and whether the job can go"
+    intent: "ECSS-Q-ST-70-80 process clause; in-plane rotation changes the footprint, part-to-part clearance and edge margin, an unrecorded build orientation is a break"
+    expected_skill: "space-systems/ecss/q7080-build-file-and-job-control"

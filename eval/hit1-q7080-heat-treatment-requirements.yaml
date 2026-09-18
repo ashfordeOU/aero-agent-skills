@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-heat-treatment-requirements (space-systems/ecss)
+# Two tasks for the new leaf. htr1 routes on the load-thermocouple soak dwell and
+# the overshoot that breaks it; htr2 routes on the route order, where the part
+# left the build plate and where the quench sits. Both must deterministically hit
+# space-systems/ecss/q7080-heat-treatment-requirements.
+tasks:
+  - id: htr1
+    query: "the furnace chart for our printed titanium brackets says two hours at temperature but the couples wired to the parts lagged and one run spiked over the band, work out whether that soak counts"
+    intent: "ECSS-Q-ST-70-80 post-process clause; soak dwell taken from the coldest load thermocouple and broken by an overshoot as well as a shortfall"
+    expected_skill: "space-systems/ecss/q7080-heat-treatment-requirements"
+  - id: htr2
+    query: "the shop wire cut the printed parts off the plate first and then ran the stress relief, and the ageing went in before the solution soak, tell me what that does to the route"
+    intent: "ECSS-Q-ST-70-80 post-process clause; stress relief before plate removal, quench directly after solution, ageing after solution"
+    expected_skill: "space-systems/ecss/q7080-heat-treatment-requirements"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-telecommand-destination-identification (space-systems/ecss)
+# di1 routes on the separation-versus-uniqueness distinction in a co-visible fleet;
+# di2 routes on the beam-wide destination that no command declared. Both must
+# deterministically hit space-systems/ecss/e50-telecommand-destination-identification.
+tasks:
+  - id: di1
+    query: "our twelve satellites are numbered one through twelve in a ten bit spacecraft id field and they are all in the same station beam, is that numbering safe against a bit flip in the uplink"
+    intent: "ECSS-E-ST-50C clause 5.4.10; unique is not separated, minimum pairwise Hamming distance across the co-visible set fixes detectable and correctable bit errors"
+    expected_skill: "space-systems/ecss/e50-telecommand-destination-identification"
+  - id: di2
+    query: "check this command dictionary for anything addressed to everything in the beam or left with no destination application set, and say which ones are legitimately meant to go to everybody"
+    intent: "ECSS-E-ST-50C clause 5.4.10; an unset or beam-wide destination is a finding unless the command itself declares it is safe to broadcast"
+    expected_skill: "space-systems/ecss/e50-telecommand-destination-identification"

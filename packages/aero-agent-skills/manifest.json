@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 2433,
+  "leaves": 2517,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -29347,6 +29347,100 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e3311-electrical-requirements",
+   "name": "e3311-electrical-requirements",
+   "description": "Verify the electrical design of an explosive initiation circuit against ECSS-E-ST-33-11C clause 4.8.2. Use when the task is screening every path that can put energy into a bridgewire: grading the worst-case stray current against the no-fire current, converting a radio-frequency field into pickup voltage and delivered power and comparing it with the no-fire power, sizing an electrostatic discharge as stored energy and grading it pin-to-pin and pin-to-case, checking that coupled nuclear-pulse energy leaves the required margin and that an immunity demonstration exists, and confirming the firing-line wiring carries every declared control. Trigger: ecss, e-st-33-11-explosive-subsystem-scope, electro-explosive-no-fire-margin, stray-current-no-fire-screen, eed-rf-immunity-margin, eed-esd-withstand-energy, nemp-initiation-immunity, firing-line-wiring-integrity.",
+   "tags": [
+    "ecss",
+    "e-st-33-11-explosive-subsystem-scope",
+    "e3311-electrical-requirements",
+    "electro-explosive-no-fire-margin",
+    "stray-current-no-fire-screen",
+    "eed-rf-immunity-margin",
+    "eed-esd-withstand-energy",
+    "nemp-initiation-immunity",
+    "firing-line-wiring-integrity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e3311-materials",
+   "name": "e3311-materials",
+   "description": "Evaluate a material list for an explosive device against ECSS-E-ST-33-11C clause 4.9. Use when the task is deciding which candidates may sit next to a charge and which are out: grading vacuum mass loss and condensable volatiles, grading gas evolution and decomposition-onset depression measured in contact with the explosive, holding stress-corrosion susceptibility to the allowed category unless a justification is on record, checking each temperature rating against the hot case plus margin, and computing the potential difference across every declared contact pair against the allowance its environment carries. Trigger: ecss, e-st-33-11-explosive-subsystem-scope, explosive-material-compatibility, explosive-gas-evolution-limit, explosive-outgassing-screening, explosive-galvanic-couple, stress-corrosion-susceptibility-explosive, decomposition-onset-depression.",
+   "tags": [
+    "ecss",
+    "e-st-33-11-explosive-subsystem-scope",
+    "e3311-materials",
+    "explosive-material-compatibility",
+    "explosive-gas-evolution-limit",
+    "explosive-outgassing-screening",
+    "explosive-galvanic-couple",
+    "stress-corrosion-susceptibility-explosive",
+    "decomposition-onset-depression"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e3311-mechanical-requirements-colour-coding",
+   "name": "e3311-mechanical-requirements-colour-coding",
+   "description": "Verify the two obligations ECSS-E-ST-33-11C clause 4.8.1 puts on the same explosive component: a pressure-bearing body that holds up, and a marking that cannot be misread. Use when an initiator, detonator or pyrotechnic device is designed or reviewed: build proof and burst pressures from the operating pressure, take the hoop stress and the margins against yield and ultimate, confirm the thin-wall form is even applicable, then check the project colour-code scheme for duplicated, reserved or readily confused colours and confirm each unit carries a text identifier beside its colour. Trigger: ecss, e-st-33-11-explosive-subsystem-scope, explosive-component-mechanical-design, explosive-colour-code-scheme, pyrotechnic-marking-verification, proof-and-burst-pressure, explosive-body-hoop-stress, live-versus-inert-marking.",
+   "tags": [
+    "ecss",
+    "e-st-33-11-explosive-subsystem-scope",
+    "e3311-mechanical-requirements-colour-coding",
+    "explosive-component-mechanical-design",
+    "explosive-colour-code-scheme",
+    "pyrotechnic-marking-verification",
+    "proof-and-burst-pressure",
+    "explosive-body-hoop-stress",
+    "live-versus-inert-marking"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e3311-status-check",
+   "name": "e3311-status-check",
+   "description": "Verify the safe/arm status indication of an explosive subsystem against ECSS-E-ST-33-11C clause 4.8.4. Use when the task is proving an operator can tell which state the hardware is actually in: resolving the displayed state from the sensing channels and falling to indeterminate whenever they disagree or one falls silent, checking the channels share neither a sensing principle nor a power source, grading every monitoring current against the no-fire current and rejecting a channel that senses through the initiation circuit, reconciling the displayed state with the reported barrier position, and confirming the indication exists through each arming phase. Trigger: ecss, e-st-33-11-explosive-subsystem-scope, safe-arm-status-indication, safe-arm-barrier-position-sensing, initiation-monitor-current-margin, status-indication-independence, indeterminate-arm-state.",
+   "tags": [
+    "ecss",
+    "e-st-33-11-explosive-subsystem-scope",
+    "e3311-status-check",
+    "safe-arm-status-indication",
+    "safe-arm-barrier-position-sensing",
+    "initiation-monitor-current-margin",
+    "status-indication-independence",
+    "indeterminate-arm-state"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e3311-thermal-requirements",
+   "name": "e3311-thermal-requirements",
+   "description": "Evaluate the thermal environment and thermal stability of an explosive device against ECSS-E-ST-33-11C clause 4.8.3. Use when the task is showing that a charge survives its mission thermally: widening the predicted hot and cold extremes by the declared uncertainty and grading both against the qualification limits, holding the hottest prediction clear of the decomposition-onset temperature by the required margin, and converting the mission thermal profile into equivalent time at the qualification dwell temperature through an Arrhenius acceleration factor so cumulative time at temperature is compared with the dwell the device was qualified over. Trigger: ecss, e-st-33-11-explosive-subsystem-scope, explosive-thermal-stability, arrhenius-decomposition-life, explosive-temperature-envelope, decomposition-onset-margin, cumulative-thermal-damage-explosive, pyrotechnic-qualification-dwell.",
+   "tags": [
+    "ecss",
+    "e-st-33-11-explosive-subsystem-scope",
+    "e3311-thermal-requirements",
+    "explosive-thermal-stability",
+    "arrhenius-decomposition-life",
+    "explosive-temperature-envelope",
+    "decomposition-onset-margin",
+    "cumulative-thermal-damage-explosive",
+    "pyrotechnic-qualification-dwell"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e50-activities",
    "name": "e50-activities",
    "description": "Assess the activity set a communication system engineering step actually declares against ECSS-E-ST-50C clause 5.2.1.2, which fixes the activities of the step rather than leaving them to whatever the schedule allowed. Grade a plan on three properties at once: every required activity is declared by somebody, every declared activity both consumes an input and produces an output, and every input consumed is either available to the step or produced by a peer activity. Report coverage as a fraction with the orphans and the unsatisfiable inputs named. Use when planning or reviewing a communication system engineering process. Trigger: ecss, e-st-50-communications, communication-system-engineering-activities, communication-process-activity-coverage, activity-input-traceability, orphan-process-activity, communication-design-process-audit.",
@@ -29419,6 +29513,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e50-command-encryption",
+   "name": "e50-command-encryption",
+   "description": "Evaluate whether a spacecraft telecommand uplink carries the command protection of ECSS-E-ST-50C clause 5.4.6: group the uplink dictionary by hazard category into the commands owing authentication alone and the ones owing authentication with encryption, reduce the declared algorithm, key length and block size to an effective strength in bits, hold that against the floor the strictest protected category sets, and budget the key schedule by counting commands between rotations against the per-key usage limit. Use when a command link, a key plan or a security unit is assessed before flight. Trigger: ecss, e-st-50c-clause-5-4-6, telecommand-command-encryption, telecommand-authentication-duty, effective-key-strength-bits, telecommand-key-rotation-budget, hazardous-command-protection.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-command-encryption",
+    "e-st-50c-clause-5-4-6",
+    "telecommand-command-encryption",
+    "telecommand-authentication-duty",
+    "effective-key-strength-bits",
+    "telecommand-key-rotation-budget",
+    "hazardous-command-protection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e50-commandability-at-all-attitudes-and-rates",
    "name": "e50-commandability-at-all-attitudes-and-rates",
    "description": "Assess whether a spacecraft stays commandable in every attitude and at every body rate under ECSS-E-ST-50C clause 5.4.1: work the uplink margin across a sampled sphere of receive-antenna gain, weight the result by solid angle so a pattern null is not hidden by dense sampling near a pole, then size the dwell a tumbling body gives the receiver against the time it needs to acquire and take one command frame. Use when an uplink must hold through a tumble, a safe mode or a lost attitude. Trigger: ecss, e-st-50c-communications-scope, telecommand-omnidirectional-coverage, uplink-antenna-pattern-null, spherical-command-coverage, tumbling-spacecraft-uplink, receiver-acquisition-dwell, body-rate-command-limit.",
@@ -29437,6 +29550,25 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e50-commanding-in-the-blind",
+   "name": "e50-commanding-in-the-blind",
+   "description": "Plan a telecommand session that must be uplinked with no return link under ECSS-E-ST-50C clause 5.4.7: group the command set by whether repetition is safe, so a non-idempotent or on-board-state-dependent command is caught before it goes up blind, derive the repetition count from the per-copy loss probability and the confidence the session must reach, size the repeated sequence against the uplink rate and the inter-command gap, and confirm it fits the window with the guard time held back. Use when early orbit, a safe mode, an occultation or a lost-attitude recovery leaves the ground commanding without telemetry. Trigger: ecss, e-st-50c-clause-5-4-7, commanding-in-the-blind, blind-uplink-repetition-count, telecommand-idempotency-grouping, blind-window-guard-time, no-return-link-commanding.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-commanding-in-the-blind",
+    "e-st-50c-clause-5-4-7",
+    "commanding-in-the-blind",
+    "blind-uplink-repetition-count",
+    "telecommand-idempotency-grouping",
+    "blind-window-guard-time",
+    "no-return-link-commanding"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e50-congestion",
    "name": "e50-congestion",
    "description": "Model congestion on a space communication link under ECSS-E-ST-50C clause 5.3.2, which asks that offered load running above the service rate be held and drained rather than resolved by loss. Compute the backlog a burst leaves, whether the provided buffer contains it, how long an overload runs before that buffer fills, and how long the backlog takes to clear once the burst ends. Where it does not fit, report both ways out: the buffer this burst needs, and the service rate that would hold it inside the buffer already there. Use when sizing buffers or reviewing flow control on a spacecraft link. Trigger: ecss, e-st-50-communications, communication-link-congestion, link-buffer-overflow-time, offered-load-versus-service-rate, burst-backlog-sizing, link-flow-control-margin.",
@@ -29449,6 +29581,24 @@
     "offered-load-versus-service-rate",
     "burst-backlog-sizing",
     "link-flow-control-margin"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-directionality",
+   "name": "e50-directionality",
+   "description": "Verify the declared directionality of a space link under ECSS-E-ST-50C Rev.2 clause 5.6.2. Use when the task is deciding whether a link declared forward-only, return-only or bidirectional carries every direction its allocated services need, whether a bidirectional link has stated simultaneous or alternating operation, whether a two-way service that needs both directions open at once has been placed on an alternating link, and whether the turnaround and propagation terms leave the two-way response time inside its allowance. Trigger: ecss, e-st-50c, space-link-directionality, forward-link-direction, return-link-direction, bidirectional-space-link, alternating-link-turnaround, two-way-response-time, service-direction-allocation.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-directionality",
+    "space-link-directionality",
+    "bidirectional-space-link",
+    "alternating-link-turnaround",
+    "two-way-response-time",
+    "service-direction-allocation"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -29491,6 +29641,44 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e50-essential-telemetry-acquisition",
+   "name": "e50-essential-telemetry-acquisition",
+   "description": "Evaluate an essential-telemetry set against ECSS-E-ST-50C clause 5.5.2: confirm the set is designated and covers every mandated health category, that each parameter stays acquirable in all declared mission phases including safe and contingency modes, that its acquisition path is independent of the nominal on-board processing chain so a processor reset cannot silence it, and that the aggregate encoded rate fits the guaranteed emergency downlink capacity. Use when scoping, reviewing or verifying an essential telemetry list, a safe-mode telemetry budget, or an emergency-link rate allocation. Trigger: ecss, e-st-50-communications-scope, essential-telemetry-acquisition, safe-mode-telemetry-availability, processor-independent-acquisition-path, emergency-downlink-rate-budget, health-category-coverage, contingency-phase-telemetry.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-essential-telemetry-acquisition",
+    "essential-telemetry-set",
+    "safe-mode-telemetry-availability",
+    "processor-independent-acquisition-path",
+    "emergency-downlink-rate-budget",
+    "health-category-coverage",
+    "contingency-phase-telemetry"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-hot-redundancy-of-on-board-telecommand-chains",
+   "name": "e50-hot-redundancy-of-on-board-telecommand-chains",
+   "description": "Assess whether a spacecraft's on-board telecommand receiving chains hold the hot redundancy of ECSS-E-ST-50C clause 5.4.9: validate each chain end to end across the antenna, receiver, demodulator and decoder roles, decide which chains are receptive right now rather than after a command, intersect the element sets of those hot chains to expose anything common to all of them, and report how many element failures would sever command authority. Use when a receiving architecture, a cross-strap map or a safe-mode recovery path is reviewed. Trigger: ecss, e-st-50c-clause-5-4-9, telecommand-chain-hot-redundancy, on-board-receiving-chain-completeness, command-authority-severing-depth, telecommand-chain-common-element, commanded-activation-receiver-finding.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-hot-redundancy-of-on-board-telecommand-chains",
+    "e-st-50c-clause-5-4-9",
+    "telecommand-chain-hot-redundancy",
+    "on-board-receiving-chain-completeness",
+    "command-authority-severing-depth",
+    "telecommand-chain-common-element",
+    "commanded-activation-receiver-finding"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e50-outputs",
    "name": "e50-outputs",
    "description": "Verify the outputs a communication system engineering step is required to produce under ECSS-E-ST-50C clause 5.2.1.3, where the step is finished when its outputs exist rather than when its activities stop. Evaluate a declared output set for the three ways a claimed output turns out not to be one: absent entirely, present but carrying no identifier anyone can call for, and present but produced by no activity of the step. Grade duplicated names separately, and report completion as a fraction rather than a yes. Use when closing or reviewing a communication system engineering step. Trigger: ecss, e-st-50-communications, communication-system-engineering-outputs, communication-process-output-completeness, output-producer-traceability, unidentified-process-output, communication-design-deliverables.",
@@ -29509,6 +29697,62 @@
    "router_doc": false
   },
   {
+   "path": "space-systems/ecss/e50-short-contact-periods",
+   "name": "e50-short-contact-periods",
+   "description": "Size a space link against the contact periods a mission actually gets, under ECSS-E-ST-50C Rev.2 clause 5.6.3. Use when the task is deciding whether short contacts can move the data a spacecraft produces: subtracting link acquisition and setup time from each pass, converting the usable time into a deliverable volume through the coding rate and framing efficiency, walking the schedule so the onboard store fills between passes and drains during them, flagging a pass consumed entirely by its own setup, and reporting overflow and whether the backlog is stable. Trigger: ecss, e-st-50c, short-contact-period, link-acquisition-setup-overhead, pass-data-volume-budget, onboard-storage-backlog, contact-schedule-drain, required-channel-rate.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-short-contact-periods",
+    "short-contact-period",
+    "link-acquisition-setup-overhead",
+    "pass-data-volume-budget",
+    "onboard-storage-backlog",
+    "required-channel-rate"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-simultaneous-support-of-differing-source-rates",
+   "name": "e50-simultaneous-support-of-differing-source-rates",
+   "description": "Allocate downlink capacity across telemetry sources that generate at different rates, as ECSS-E-ST-50C clause 5.5.6 requires: total the offered load with transport overhead against the link capacity, apportion virtual-channel slots by largest-remainder so every source keeps a share of at least one slot, derive each source's service interval and end-to-end latency from that apportionment, size the on-board buffer the interval implies, and flag any source squeezed onto a common rate instead of its own. Use when planning a virtual-channel bandwidth split, sizing telemetry buffers, or diagnosing packet loss on a slow source. Trigger: ecss, e-st-50-communications-scope, simultaneous-differing-source-rates, virtual-channel-slot-apportionment, telemetry-service-interval, source-buffer-depth-sizing, downlink-capacity-overbooking, mixed-rate-telemetry-multiplexing.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-simultaneous-support-of-differing-source-rates",
+    "mixed-rate-telemetry-multiplexing",
+    "virtual-channel-slot-apportionment",
+    "telemetry-service-interval",
+    "source-buffer-depth-sizing",
+    "downlink-capacity-overbooking",
+    "largest-remainder-slot-allocation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telecommand-acknowledgement",
+   "name": "e50-telecommand-acknowledgement",
+   "description": "Audit the acknowledgement trail of an uplinked telecommand batch against ECSS-E-ST-50C clause 5.4.8: validate the verification-stage ladder each command subscribed to, set a per-stage deadline from the uplink epoch plus the round-trip light time plus that stage's timeout, match the returned reports to their command and stage while refusing strays and duplicates, and decide whether each command is covered, missing a stage, late, rejected or reported out of order. Use when a pass is reconciled, a verification-report timeout is set, or an unacknowledged command has to be separated from a failed one. Trigger: ecss, e-st-50c-clause-5-4-8, telecommand-acknowledgement-coverage, telecommand-verification-stage-ladder, round-trip-light-time-deadline, telecommand-acceptance-report, telecommand-completion-report.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telecommand-acknowledgement",
+    "e-st-50c-clause-5-4-8",
+    "telecommand-acknowledgement-coverage",
+    "telecommand-verification-stage-ladder",
+    "round-trip-light-time-deadline",
+    "telecommand-acceptance-report",
+    "telecommand-completion-report"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
    "path": "space-systems/ecss/e50-telecommand-delivery-service",
    "name": "e50-telecommand-delivery-service",
    "description": "Validate the telecommand delivery service of ECSS-E-ST-50C clause 5.4.2 against a real received frame stream: run each sequence number through a sliding acceptance window, separate the frame that is expected from one already delivered, one that arrived too early to be taken in turn, and one whose sender has lost track of the receiver entirely, then judge the whole stream on the promise that matters — delivered once, delivered in order, and nothing quietly dropped. Use when an uplink shows gaps, repeats or frames refused in flight. Trigger: ecss, e-st-50c-communications-scope, telecommand-delivery-service, telecommand-frame-sequence-window, out-of-sequence-telecommand, duplicate-telecommand-frame, telecommand-retransmission-request, uplink-sequence-counter-wrap.",
@@ -29521,6 +29765,120 @@
     "out-of-sequence-telecommand",
     "duplicate-telecommand-frame",
     "telecommand-retransmission-request"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telecommand-destination-identification",
+   "name": "e50-telecommand-destination-identification",
+   "description": "Verify that every telecommand on a shared uplink names its recipient unambiguously under ECSS-E-ST-50C clause 5.4.10: check the spacecraft-identifier field width against the address space it provides, measure the minimum pairwise Hamming separation of the assigned identifiers and derive the bit errors that separation detects and corrects, confirm each command names a declared on-board application, and refuse an unset or beam-wide destination on a command never declared broadcast-safe. Use when a constellation identifier plan, a rideshare uplink or a command dictionary is reviewed. Trigger: ecss, e-st-50c-clause-5-4-10, telecommand-destination-identification, spacecraft-identifier-hamming-separation, telecommand-application-identifier, co-visible-constellation-addressing, broadcast-telecommand-safety.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telecommand-destination-identification",
+    "e-st-50c-clause-5-4-10",
+    "telecommand-destination-identification",
+    "spacecraft-identifier-hamming-separation",
+    "telecommand-application-identifier",
+    "co-visible-constellation-addressing",
+    "broadcast-telecommand-safety"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telemetry-at-all-attitudes-and-rates",
+   "name": "e50-telemetry-at-all-attitudes-and-rates",
+   "description": "Determine whether essential telemetry reaches the ground at every spacecraft attitude and body rate under ECSS-E-ST-50C clause 5.5.1: close the downlink at each sampled point of the antenna pattern from transmit power, circuit loss, sampled gain, path loss, station figure of merit and data rate, weight the closing samples by angular width into a coverage fraction, then turn the width of any hole into an outage duration at the slowest declared body rate and hold it against how long the receiver keeps lock. Use when a low-gain pattern, a tumbling or safe-mode case or an omnidirectional link budget is reviewed. Trigger: ecss, e-st-50c-clause-5-5-1, telemetry-at-all-attitudes, low-gain-antenna-pattern-coverage, body-rate-fade-outage-duration, receiver-hold-through-fade, safe-mode-telemetry-availability.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telemetry-at-all-attitudes-and-rates",
+    "e-st-50c-clause-5-5-1",
+    "telemetry-at-all-attitudes",
+    "low-gain-antenna-pattern-coverage",
+    "body-rate-fade-outage-duration",
+    "receiver-hold-through-fade",
+    "safe-mode-telemetry-availability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telemetry-authentication-and-encryption",
+   "name": "e50-telemetry-authentication-and-encryption",
+   "description": "Assess the protection applied to a telemetry stream under ECSS-E-ST-50C clause 5.5.7: map each stream's declared sensitivity tier onto the authentication and confidentiality services it owes, refuse confidentiality offered without integrity, compute the per-frame overhead of tag, initialisation vector and block padding, check the remaining useful throughput still carries the source demand, size the key against the years it must stand, and find the frame counter that exhausts inside one key period. Use when specifying telemetry security services, reviewing a key and counter plan, or costing protection overhead. Trigger: ecss, e-st-50-communications-scope, telemetry-authentication-and-encryption, telemetry-sensitivity-tier-mapping, frame-authentication-tag-overhead, telemetry-key-strength-lifetime, frame-counter-exhaustion, protected-telemetry-throughput.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telemetry-authentication-and-encryption",
+    "telemetry-protection-services",
+    "telemetry-sensitivity-tier-mapping",
+    "frame-authentication-tag-overhead",
+    "telemetry-key-strength-lifetime",
+    "frame-counter-exhaustion",
+    "protected-telemetry-throughput"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telemetry-data-time-stamping",
+   "name": "e50-telemetry-data-time-stamping",
+   "description": "Compute the time-stamp error budget of a telemetry stream against ECSS-E-ST-50C clause 5.5.5: gather the contributors that separate the sampling instant from the stamp actually downlinked, namely on-board clock drift since the last time correlation, acquisition-to-stamp latency, correlation residual and field quantisation, combine them worst-case or root-sum-square, size the time field from the mission span and the least significant bit, and screen the stamp sequence for a non-monotonic step. Use when specifying a time-stamp field, verifying a time-correlation procedure, or explaining a mis-ordered telemetry archive. Trigger: ecss, e-st-50-communications-scope, telemetry-data-time-stamping, on-board-clock-drift-budget, time-correlation-residual, stamp-field-quantisation, sampling-to-stamp-latency, telemetry-stamp-monotonicity.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telemetry-data-time-stamping",
+    "telemetry-time-stamp-budget",
+    "on-board-clock-drift-budget",
+    "time-correlation-residual",
+    "stamp-field-quantisation",
+    "sampling-to-stamp-latency",
+    "telemetry-stamp-monotonicity"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telemetry-in-the-blind",
+   "name": "e50-telemetry-in-the-blind",
+   "description": "Determine whether a spacecraft can transmit telemetry in the blind under ECSS-E-ST-50C clause 5.5.4: check the blind mode arms itself within the required time after the uplink is lost, that its carrier, modulation, coding and rate are a default the ground can acquire without first sending a command, and close the worst-case link budget at maximum range on the low-gain antenna to show the blind rate is actually receivable. Use when sizing a launch-and-early-orbit or safe-mode downlink, reviewing a no-uplink recovery path, or verifying an emergency beacon configuration. Trigger: ecss, e-st-50-communications-scope, telemetry-in-the-blind, uplink-loss-timeout-arming, default-blind-downlink-configuration, blind-mode-low-gain-link-margin, blind-downlink-station-acquisition, emergency-downlink-rate.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telemetry-in-the-blind",
+    "blind-telemetry-transmission",
+    "uplink-loss-timeout-arming",
+    "default-blind-downlink-configuration",
+    "blind-mode-low-gain-link-margin",
+    "blind-downlink-station-acquisition",
+    "emergency-downlink-rate"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e50-telemetry-source-identification",
+   "name": "e50-telemetry-source-identification",
+   "description": "Verify that every telemetry data unit carries an unambiguous source identification under ECSS-E-ST-50C clause 5.5.3: build the spacecraft-plus-source identifier tuple for each stream, detect two streams sharing one tuple, size the identifier fields from the number of distinct sources actually flown, reject an identifier value that overflows its declared field, and refuse a retired identifier re-issued before the ground data ambiguity window has passed. Use when defining an application-process identifier plan, reviewing a virtual-channel and source map, or tracing a mis-attributed telemetry packet. Trigger: ecss, e-st-50-communications-scope, telemetry-source-identification, application-process-identifier-plan, spacecraft-identifier-uniqueness, virtual-channel-source-map, identifier-field-width, identifier-reuse-guard-window.",
+   "tags": [
+    "ecss",
+    "e-st-50-communications-scope",
+    "e50-telemetry-source-identification",
+    "telemetry-source-identifier",
+    "application-process-identifier-plan",
+    "spacecraft-identifier-uniqueness",
+    "virtual-channel-source-map",
+    "identifier-field-width",
+    "identifier-reuse-guard-window"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -30103,6 +30461,264 @@
     "originating-event-mapping",
     "generation-nondeterminism",
     "spacewire-service-definition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-configuration",
+   "name": "e7041-configuration",
+   "description": "Compute the downlink configuration of a large packet transfer subservice under ECSS-E-ST-70-41C clause 6.13.3.1: derive the usable part data field from the telemetry packet limit and the part report overhead, count the parts the declared largest message needs, and weigh that count against the part sequence number field width and the transaction identifier namespace. Use when a downlink part size, a part number field width, a transaction identifier pool or a largest supported message size is being fixed or reviewed for a service 13 subservice. Refuses a report overhead that leaves no data room and a part size the packet limit cannot carry. Trigger: ecss, e-st-70-41c, pus-service-13, large-packet-transfer, downlink-part-size, part-sequence-number-width, large-message-transaction-identifier, largest-supported-message-size.",
+   "tags": [
+    "ecss",
+    "e-st-70-41c",
+    "pus-service-13",
+    "e7041-configuration",
+    "large-packet-transfer",
+    "downlink-part-size",
+    "part-sequence-number-width",
+    "large-message-transaction-identifier",
+    "largest-supported-message-size"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-downlink-process",
+   "name": "e7041-downlink-process",
+   "description": "Plan the downlink of one large message under ECSS-E-ST-70-41C clause 6.13.3.3: split it into a first part, the intermediate parts and a last part, number them from one, verify the plan covers the message contiguously with no oversized part, open the transaction identifier against the active set, and produce the truncated part run and abort report when the transfer fails part way. Use when a service 13 downlink part run, its part numbering, its coverage or its abort behaviour is being designed or reviewed. Refuses a message that fits one part and an unnamed abort reason. Trigger: ecss, e-st-70-41c, pus-service-13, large-message-downlink-process, first-intermediate-last-part, part-sequence-numbering, downlink-abort-report, transaction-identifier-reuse.",
+   "tags": [
+    "ecss",
+    "e-st-70-41c",
+    "pus-service-13",
+    "e7041-downlink-process",
+    "large-message-downlink-process",
+    "first-intermediate-last-part",
+    "part-sequence-numbering",
+    "downlink-abort-report",
+    "transaction-identifier-reuse"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-forward-control-definitions",
+   "name": "e7041-forward-control-definitions",
+   "description": "Maintain the real-time forwarding control definition store of a service 14 subservice under ECSS-E-ST-70-41C clause 6.14.3.2: add and delete definitions across the application process, service type and message subtype levels, absorb a narrower definition under a wider one already held, refuse an unknown application process, a delete of an entry that is not there and an add past a declared capacity limit, then answer whether a given report is covered. Use when a forwarding definition list, its capacity or its add and delete behaviour is being designed or reviewed. Trigger: ecss, e-st-70-41c, pus-service-14, real-time-forwarding-control, forward-control-definition-store, apid-service-subtype-hierarchy, forwarding-definition-capacity, definition-absorption.",
+   "tags": [
+    "ecss",
+    "e-st-70-41c",
+    "pus-service-14",
+    "e7041-forward-control-definitions",
+    "real-time-forwarding-control",
+    "forward-control-definition-store",
+    "apid-service-subtype-hierarchy",
+    "forwarding-definition-capacity",
+    "definition-absorption"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-forwarding-control-processing-logic",
+   "name": "e7041-forwarding-control-processing-logic",
+   "description": "Determine what a service 14 subservice forwards to the real-time downlink under ECSS-E-ST-70-41C clause 6.14.3.3: take each generated report against the forward-control store, apply the enable state of its application process, hold a per-definition subsampling counter so only every nth matching report goes out, and give every report a disposition and a named reason whether it is forwarded or left to on-board storage. Use when the forwarding decision of a service 14 subservice, its subsampling or its enable state behaviour is being designed or reviewed. Refuses a subsampling rate below one. Trigger: ecss, e-st-70-41c, pus-service-14, real-time-forward-routing-decision, report-forward-disposition, forward-subsampling-counter, forwarding-enable-state, storage-only-report.",
+   "tags": [
+    "ecss",
+    "e-st-70-41c",
+    "pus-service-14",
+    "e7041-forwarding-control-processing-logic",
+    "real-time-forward-routing-decision",
+    "report-forward-disposition",
+    "forward-subsampling-counter",
+    "forwarding-enable-state",
+    "storage-only-report"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-managing-the-application-process-forward-control",
+   "name": "e7041-managing-the-application-process-forward-control",
+   "description": "Manage the application-process forward-control configuration of the real-time forwarding control service under ECSS-E-ST-70-41C clause 6.14.3.4. Use when the task is deciding which telemetry reports a spacecraft passes to the ground in real time: adding and deleting application-process, report-type and message-subtype selections, resolving a wildcard against the specific entries it subsumes, refusing a partial deletion inside a wildcard, holding requests to the controlled application-process list, and returning a per-item disposition so one rejected item never abandons the rest of the request. Trigger: ecss, e-st-70-41c, pus-packet-utilisation, real-time-forwarding-control, application-process-forward-control, forward-selection-wildcard, message-subtype-selection, controlled-application-process-list, per-item-request-disposition.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilisation-scope",
+    "e7041-managing-the-application-process-forward-control",
+    "real-time-forwarding-control",
+    "application-process-forward-control",
+    "forward-selection-wildcard",
+    "message-subtype-selection",
+    "controlled-application-process-list"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-forward",
+   "name": "e7041-managing-the-diagnostic-parameter-report-forward",
+   "description": "Evaluate the diagnostic parameter report forward-control configuration of the real-time forwarding control service under ECSS-E-ST-70-41C clause 6.14.3.6. Use when the task is choosing which diagnostic parameter reports reach the ground in real time and what they cost: adding and deleting diagnostic structure identifiers per application process, refusing an identifier that application process never defined, holding an all-structures wildcard against the entries it subsumes, summing the reciprocal collection intervals of the selection into a forwarded packet rate, and grading that rate against the real-time downlink budget. Trigger: ecss, e-st-70-41c, pus-packet-utilisation, diagnostic-forward-control, diagnostic-report-structure-selection, forwarded-diagnostic-packet-rate, real-time-downlink-rate-budget, dormant-diagnostic-selection.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilisation-scope",
+    "e7041-managing-the-diagnostic-parameter-report-forward",
+    "diagnostic-forward-control",
+    "diagnostic-report-structure-selection",
+    "forwarded-diagnostic-packet-rate",
+    "real-time-downlink-rate-budget",
+    "dormant-diagnostic-selection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-managing-the-event-report-blocking-forward-control",
+   "name": "e7041-managing-the-event-report-blocking-forward-control",
+   "description": "Determine which on-board event reports are held back from real-time forwarding under ECSS-E-ST-70-41C clause 6.14.3.7, where the configuration lists what is blocked rather than what is passed on. Use when the task is quieting a chattering event definition without losing it from the packet stores: adding and deleting blocked event identifiers per application process, refusing an event the event service marks as not blockable, refusing a block-all wildcard that would cover one, flagging a high-severity event whose real-time visibility is being given up, and censusing the blocked set by severity. Trigger: ecss, e-st-70-41c, pus-packet-utilisation, event-report-blocking-forward-control, blocked-event-definition, not-blockable-event, block-all-events-wildcard, blocked-event-severity-census.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilisation-scope",
+    "e7041-managing-the-event-report-blocking-forward-control",
+    "event-report-blocking-forward-control",
+    "blocked-event-definition",
+    "not-blockable-event",
+    "block-all-events-wildcard",
+    "blocked-event-severity-census"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-managing-the-housekeeping-parameter-report-forward",
+   "name": "e7041-managing-the-housekeeping-parameter-report-forward",
+   "description": "Maintain the housekeeping parameter report forward-control configuration of the real-time forwarding control service under ECSS-E-ST-70-41C clause 6.14.3.5. Use when the task is choosing which housekeeping parameter reports reach the ground in real time, one report structure at a time: adding and deleting structure identifiers per application process, refusing an identifier the housekeeping service never defined under that application process, holding an all-structures wildcard against the specific entries it subsumes, and finding selections left stale by a structure definition that has since been deleted. Trigger: ecss, e-st-70-41c, pus-packet-utilisation, housekeeping-forward-control, housekeeping-report-structure-selection, all-structures-forward-wildcard, stale-structure-selection, per-item-request-disposition.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilisation-scope",
+    "e7041-managing-the-housekeeping-parameter-report-forward",
+    "housekeeping-forward-control",
+    "housekeeping-report-structure-selection",
+    "all-structures-forward-wildcard",
+    "stale-structure-selection",
+    "real-time-forwarding-control"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-packet-store",
+   "name": "e7041-packet-store",
+   "description": "Model what an on-board packet store does with each telemetry packet offered to it under ECSS-E-ST-70-41C clause 6.15.3.1. Use when the task is choosing between a bounded and a circular packet store, or explaining which packets a full one lost: tracking occupancy against capacity in octets, discarding while storage is switched off, holding the oldest record in a bounded store and overwriting it in a circular one, refusing an overwrite that would tear a hole in a retrieval the ground is still reading out, and reporting fill, losses and the oldest and newest packet held. Trigger: ecss, e-st-70-41c, pus-packet-utilisation, on-board-packet-store, circular-packet-store-overwrite, bounded-packet-store-full, packet-store-storage-state, open-retrieval-overwrite-protection.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilisation-scope",
+    "e7041-packet-store",
+    "on-board-packet-store",
+    "circular-packet-store-overwrite",
+    "bounded-packet-store-full",
+    "packet-store-storage-state",
+    "open-retrieval-overwrite-protection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-report-functional-monitoring-definitions",
+   "name": "e7041-report-functional-monitoring-definitions",
+   "description": "Build and grade a functional monitoring definition report under ECSS-E-ST-70-41C clause 6.12.4.8. Use when the task is answering a request for the definitions an on-board application is holding: splitting the requested identifiers into those the store holds and those it does not, failing the request wholly or in part rather than dropping an unresolvable identifier, treating an empty request as every definition held, emitting one entry per accepted identifier in the requested order with its complete constituent list and failing threshold, and carrying definition and constituent totals a receiver can check a transfer against. Trigger: ecss, e-st-70-41-packet-utilization-scope, functional-monitoring-definition-report, on-board-monitoring-service, functional-monitoring-constituent-list, unknown-functional-monitoring-identifier, functional-monitoring-failing-threshold.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilization-scope",
+    "e7041-report-functional-monitoring-definitions",
+    "functional-monitoring-definition-report",
+    "on-board-monitoring-service",
+    "functional-monitoring-constituent-list",
+    "unknown-functional-monitoring-identifier",
+    "functional-monitoring-failing-threshold"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-report-the-status-of-each-functional-monitoring",
+   "name": "e7041-report-the-status-of-each-functional-monitoring",
+   "description": "Produce and grade the status report covering every on-board functional monitoring definition under ECSS-E-ST-70-41C clause 6.12.4.9. Use when the task is answering what the definitions are currently doing rather than what they are: emitting one entry per definition held with no identifier list accepted, carrying each enable state, deriving each functional status from the constituent checking states against the failing threshold, keeping a disabled group unchecked while still surfacing constituents outside their limits, refusing an invalid parameter the power to reach the threshold, and carrying totals a receiver can check a transfer against. Trigger: ecss, e-st-70-41-packet-utilization-scope, functional-monitoring-status-report, functional-monitoring-enable-status, disabled-functional-monitoring-unchecked, invalid-parameter-monitoring-constituent, monitoring-status-report-completeness.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilization-scope",
+    "e7041-report-the-status-of-each-functional-monitoring",
+    "functional-monitoring-status-report",
+    "functional-monitoring-enable-status",
+    "disabled-functional-monitoring-unchecked",
+    "invalid-parameter-monitoring-constituent",
+    "monitoring-status-report-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-resources",
+   "name": "e7041-resources",
+   "description": "Size the on-board resources a large packet transfer downlink subservice reserves under ECSS-E-ST-70-41C clause 6.13.3.2: turn each queued large message into the whole parts it buffers, sweep the transaction timeline for the peak of simultaneous transactions and peak reserved octets, then admit or refuse each arrival against the declared transaction slots and buffer pool. Use when the number of simultaneous large message downlinks, the octets reserved per transaction or the buffer pool of a service 13 subservice has to be justified or reviewed. Refuses an unordered transaction interval and a zero slot count. Trigger: ecss, e-st-70-41c, pus-service-13, large-message-downlink-resources, concurrent-transaction-slots, downlink-buffer-pool, transaction-slot-admission, peak-reserved-octets.",
+   "tags": [
+    "ecss",
+    "e-st-70-41c",
+    "pus-service-13",
+    "e7041-resources",
+    "large-message-downlink-resources",
+    "concurrent-transaction-slots",
+    "downlink-buffer-pool",
+    "transaction-slot-admission",
+    "peak-reserved-octets"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-time-stamping",
+   "name": "e7041-time-stamping",
+   "description": "Derive the storage time stamp a packet store writes beside every packet it holds, under ECSS-E-ST-70-41C clause 6.15.3.2. Use when a time-window retrieval returns the wrong set of packets, or when a stored record has to be placed on the on-board timeline: separating storage time from the generation time carried inside the packet, encoding the stamp as a coarse-seconds and fine-fraction pair truncated downwards so it never reads later than the moment it came from, bounding the quantisation error by the fine-field width, and flagging a stamp that went backwards. Trigger: ecss, e-st-70-41c, pus-packet-utilisation, packet-storage-time-stamp, storage-time-versus-generation-time, coarse-fine-time-encoding, time-window-packet-retrieval, non-monotonic-storage-stamp.",
+   "tags": [
+    "ecss",
+    "e-st-70-41-packet-utilisation-scope",
+    "e7041-time-stamping",
+    "packet-storage-time-stamp",
+    "storage-time-versus-generation-time",
+    "coarse-fine-time-encoding",
+    "time-window-packet-retrieval",
+    "non-monotonic-storage-stamp"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/e7041-uplink-process",
+   "name": "e7041-uplink-process",
+   "description": "Model the on-board reassembly of an uplinked large message under ECSS-E-ST-70-41C clause 6.13.4.3: drive a receiver across a stream of first, intermediate and last uplink parts, hold one reception per transaction, and abort it on an unexpected part role, a duplicate or skipped part number, a short intermediate part, a reception buffer overflow, a silent gap past the inter-part timeout or a stream that ends mid transfer. Use when a service 13 uplink reassembly, its failure detection or its abort reporting is being designed or reviewed. Refuses a part stream whose timestamps move backwards. Trigger: ecss, e-st-70-41c, pus-service-13, large-message-uplink-process, uplink-part-reassembly, part-sequence-gap, inter-part-timeout, uplink-abort-reason.",
+   "tags": [
+    "ecss",
+    "e-st-70-41c",
+    "pus-service-13",
+    "e7041-uplink-process",
+    "large-message-uplink-process",
+    "uplink-part-reassembly",
+    "part-sequence-gap",
+    "inter-part-timeout",
+    "uplink-abort-reason"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -32163,6 +32779,580 @@
     "review-waiver-admissibility",
     "review-blocking-action",
     "trr-ptr-schedule-order"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-applicability-tables",
+   "name": "q2030-applicability-tables",
+   "description": "Determine which harness requirement sets apply to a given cable or harness type at a given product category using the informative applicability tables of ECSS-Q-ST-20-30C Annex A. Use when the task is refusing a table that states one address twice, grouping a pair's requirement sets into applicable, excluded and conditionally open, holding an undecided condition open instead of reading it as a yes or a no, reporting a set the table never addressed as undetermined rather than excluded, and letting a normative clause override an informative exclusion. Trigger: ecss, q-st-20-30c, harness-applicability-tables, requirement-set-applicability, harness-type-and-class-resolution, conditional-applicability-entry, undetermined-requirement-set, informative-annex-precedence, applicability-table-contradiction.",
+   "tags": [
+    "ecss",
+    "q-st-20-electrical-harness-scope",
+    "q-st-20-30c",
+    "q2030-applicability-tables",
+    "harness-applicability-tables",
+    "requirement-set-applicability",
+    "conditional-applicability-entry",
+    "undetermined-requirement-set",
+    "informative-annex-precedence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-branching",
+   "name": "q2030-comp-branching",
+   "description": "Assess a breakout in a metallic braid-shielded bundle against the complementary branching rules of ECSS-Q-ST-20-30C clause 7.7. Use when the task is computing the braid angle, filling factor and optical coverage each branch braid achieves from its construction, holding every branch to the coverage the trunk already carried rather than only to a floor, adding the trunk, junction and branch segments into one shield-continuity resistance and grading it, refusing a takeoff whose junction is not bonded, and limiting the unshielded length a breakout leaves exposed. Trigger: ecss, q-st-20-30c, braid-shielded-bundle-branching, breakout-shielding-continuity, braid-optical-coverage, braid-filling-factor, shield-continuity-resistance-budget, unbonded-breakout-junction, unshielded-takeoff-length.",
+   "tags": [
+    "ecss",
+    "q-st-20-electrical-harness-scope",
+    "q-st-20-30c",
+    "q2030-comp-branching",
+    "braid-shielded-bundle-branching",
+    "breakout-shielding-continuity",
+    "braid-optical-coverage",
+    "shield-continuity-resistance-budget",
+    "unshielded-takeoff-length"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-crimping",
+   "name": "q2030-comp-crimping",
+   "description": "Verify a crimp-termination lot against the complementary crimping requirements of ECSS-Q-ST-20-30C clause 7.4, which take precedence over the delegated workmanship criteria wherever both speak. Use when the task is resolving which limit governs a crimp characteristic, grading a measured crimp height against the window the contact and wire gauge carry, sizing the tensile sample a lot owes and grading every pull against the minimum force its gauge carries, refusing a barrel holding an unqualified second wire or any solder, and confirming the crimping tool's calibration is still current. Trigger: ecss, q-st-20-30c, complementary-crimping-requirements, crimp-height-window, crimp-pull-test-sampling, crimp-barrel-wire-count, complementary-over-delegated-precedence, crimp-tool-calibration-currency, solder-in-crimp-barrel.",
+   "tags": [
+    "ecss",
+    "q-st-20-electrical-harness-scope",
+    "q-st-20-30c",
+    "q2030-comp-crimping",
+    "complementary-crimping-requirements",
+    "crimp-height-window",
+    "crimp-pull-test-sampling",
+    "complementary-over-delegated-precedence",
+    "crimp-barrel-wire-count"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-emc-foil",
+   "name": "q2030-comp-emc-foil",
+   "description": "Validate a conductive metal foil EMC shield against the complementary application and termination criteria of ECSS-Q-ST-20-30C clause 7.8. Use when the task is sizing the foil thickness against the skin depth of its metal at the lowest frequency the shield must work from, turning a helical wrap overlap into a pitch, a layer count over every point and the tape length the run consumes, confirming the conductive face is applied inward against the drain wire, and costing the drain-wire pigtail in decibels against a full circumferential termination. Trigger: ecss, q-st-20-30c, conductive-foil-emc-shield, foil-skin-depth-sizing, helical-foil-wrap-overlap, foil-drain-wire-termination, shield-pigtail-penalty-db, conductive-face-orientation, foil-tape-length-estimate.",
+   "tags": [
+    "ecss",
+    "q-st-20-electrical-harness-scope",
+    "q-st-20-30c",
+    "q2030-comp-emc-foil",
+    "conductive-foil-emc-shield",
+    "foil-skin-depth-sizing",
+    "helical-foil-wrap-overlap",
+    "foil-drain-wire-termination",
+    "shield-pigtail-penalty-db"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-general",
+   "name": "q2030-comp-general",
+   "description": "Determine which requirement governs a harness topic under ECSS-Q-ST-20-30C sections 7.1 and 7.2. Use when the task is reconciling an IPC/WHMA-A-620 acceptance criterion with the space addendum row that modifies it and the complementary requirement that sits above both: filtering each requirement by the harness type and assurance level it applies to, ranking the surviving sources so a complementary requirement outranks an addendum row and an addendum row outranks the external basis, demoting a project deviation carrying no approved waiver, and listing the topics left on the external basis alone. Trigger: ecss, q-st-20-30c, ecss-ipc-precedence, complementary-requirement-resolution, harness-requirement-applicability, harness-deviation-waiver, ipc-whma-a-620-addendum.",
+   "tags": [
+    "ecss",
+    "q-st-20-30-harness-scope",
+    "q2030-comp-general",
+    "ecss-ipc-precedence",
+    "complementary-requirement-resolution",
+    "harness-requirement-applicability",
+    "harness-deviation-waiver",
+    "ipc-whma-a-620-addendum"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-labelling",
+   "name": "q2030-comp-labelling",
+   "description": "Audit harness labelling and marking against the complementary content, format and durability requirements of ECSS-Q-ST-20-30C clause 7.6. Use when the task is decomposing a label token into the fields the project format prescribes, grading each field against the character set its position carries, scaling the minimum character height to the distance the marking is read from, placing the label inside its window from the termination, requiring both ends of a wire routed through a bundle to be marked, grading abrasion and solvent legibility evidence, and catching a token carried by two wires. Trigger: ecss, q-st-20-30c, complementary-harness-labelling, harness-label-token-format, marking-character-height-scaling, label-placement-window, label-durability-cycles, duplicate-harness-label-token, both-end-wire-marking.",
+   "tags": [
+    "ecss",
+    "q-st-20-electrical-harness-scope",
+    "q-st-20-30c",
+    "q2030-comp-labelling",
+    "complementary-harness-labelling",
+    "harness-label-token-format",
+    "marking-character-height-scaling",
+    "label-placement-window",
+    "duplicate-harness-label-token"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-sleeving",
+   "name": "q2030-comp-sleeving",
+   "description": "Evaluate the insulation sleeving applied over terminated contacts against the complementary requirements of ECSS-Q-ST-20-30C clause 7.5. Use when the task is choosing a sleeve size that will pass over the largest diameter on its assembly path and still close onto the diameter it must grip, sizing the cut length from the covered span, the overlap owed at each end and the longitudinal shrinkage, confirming the installed sleeve clears the contact retention and mating features, and deciding whether an opaque sleeve has left a joint without an inspection record. Trigger: ecss, q-st-20-30c, complementary-insulation-sleeving, sleeve-recovery-ratio, sleeve-cut-length-sizing, sleeve-end-overlap, contact-retention-feature-clearance, opaque-sleeve-inspectability, longitudinal-sleeve-shrinkage.",
+   "tags": [
+    "ecss",
+    "q-st-20-electrical-harness-scope",
+    "q-st-20-30c",
+    "q2030-comp-sleeving",
+    "complementary-insulation-sleeving",
+    "sleeve-recovery-ratio",
+    "sleeve-cut-length-sizing",
+    "contact-retention-feature-clearance",
+    "opaque-sleeve-inspectability"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-comp-soldering",
+   "name": "q2030-comp-soldering",
+   "description": "Assess a soldered harness termination against the complementary requirements of ECSS-Q-ST-20-30C section 7.3, which sit on top of the IPC soldered-termination and crimp acceptance criteria. Use when the task is grading the additions a solder joint owes: alloy lead content and the whisker mitigation plan a near pure tin alloy needs, flux activation and the cleaning it obliges, iron tip temperature inside its window, a dwell and reheat budget scaled to conductor cross-section, the insulation clearance window at the termination, wetting angle acceptance, owed inspection magnification and operator certification currency. Trigger: ecss, q-st-20-30c, complementary-soldering-delta, solder-alloy-tin-whisker, solder-thermal-exposure-budget, solder-insulation-clearance-window, solder-wetting-angle, operator-certification-currency.",
+   "tags": [
+    "ecss",
+    "q-st-20-30-harness-scope",
+    "q2030-comp-soldering",
+    "complementary-soldering-delta",
+    "solder-alloy-tin-whisker",
+    "solder-thermal-exposure-budget",
+    "solder-insulation-clearance-window",
+    "solder-wetting-angle"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-demating-logbook",
+   "name": "q2030-demating-logbook",
+   "description": "Maintain the per-connector (de-)mating logbook of the ECSS-Q-ST-20-30 Annex B worked example: hold the entry order, refuse a demate with no mate before it, a connector mated twice or a sheet running backwards in time, count the mating cycles each connector has consumed, subtract them from its declared maximum to give the remaining-cycle countdown, and render the maximum-cycle control table with an approaching-limit band computed in integers. Use when a connector logbook is opened, an integration mate or demate is entered, or a harness is screened before flight for cycle exhaustion. Trigger: ecss, q-st-20-30-annex-b, demating-logbook, connector-mating-cycle-countdown, maximum-mating-cycle-control, mate-demate-event-log, connector-cycle-exhaustion.",
+   "tags": [
+    "ecss",
+    "q-st-20-30-connector-mating-scope",
+    "q2030-demating-logbook",
+    "connector-mating-cycle-countdown",
+    "maximum-mating-cycle-control",
+    "mate-demate-event-log",
+    "connector-cycle-exhaustion",
+    "demating-logbook-control-table"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-hv",
+   "name": "q2030-hv",
+   "description": "Compute the high-voltage provisions an electrical harness owes under ECSS-Q-ST-20-30C section 6.20 and its IPC section 20 basis. Use when the task is sizing clearance and creepage at a harness termination and grading the as-built distances: derating the breakdown gradient of air with operating pressure, refusing air as an insulator inside the Paschen minimum band unless the feature is encapsulated, taking the surface-flashover gradient below that band, scaling creepage with the insulating material group and contamination category, and deriving the proof voltage, dwell and leakage limit of the high-voltage test. Trigger: ecss, q-st-20-30c, harness-high-voltage-clearance, harness-creepage-distance, paschen-minimum-band, vacuum-surface-flashover, harness-proof-voltage-test.",
+   "tags": [
+    "ecss",
+    "q-st-20-30-harness-scope",
+    "q2030-hv",
+    "harness-high-voltage-clearance",
+    "harness-creepage-distance",
+    "paschen-minimum-band",
+    "vacuum-surface-flashover",
+    "harness-proof-voltage-test"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q2030-testing",
+   "name": "q2030-testing",
+   "description": "Audit the test programme of a manufactured electrical harness under ECSS-Q-ST-20-30C section 6.19 and its IPC section 19 acceptance basis. Use when the task is deciding which tests a harness owes and whether the recorded results support acceptance: nondestructive examination, continuity graded against a loop resistance computed from conductor length, cross-section and mated contact count, insulation resistance at its electrification time, a dielectric withstanding voltage derived from the working voltage, pull strength scaled to conductor size, and the reduced-level retest a reworked harness owes. Trigger: ecss, q-st-20-30c, harness-continuity-test, harness-insulation-resistance, harness-dielectric-withstanding-test, harness-pull-test, harness-test-after-rework, ipc-whma-a-620-harness-testing.",
+   "tags": [
+    "ecss",
+    "q-st-20-30-harness-scope",
+    "q2030-testing",
+    "harness-continuity-test",
+    "harness-insulation-resistance",
+    "harness-dielectric-withstanding-test",
+    "harness-pull-test",
+    "harness-test-after-rework"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-generic-hazard-library",
+   "name": "q40-02-generic-hazard-library",
+   "description": "Map a space system onto the generic-hazard library and hazard-register examples of the ECSS-Q-ST-40-02C informative annexes. Use when the task is seeding a hazard identification from declared system characteristics - stored pressure, propellant, pyrotechnics, high voltage, ionizing or laser sources, cryogens, moving mass, crew access, safety-critical command paths - instead of starting from an empty page, ranking each seeded candidate by how strongly those characteristics call it, naming the library groups nothing called, and grading every register record against the example field set so an entry missing its cause, effect, control or verification reference is caught before review. Trigger: ecss, q-st-40-02c, generic-hazard-library-seeding, hazard-register-record-fields, system-characteristic-hazard-mapping, annex-generic-hazard-groups, hazard-register-completeness.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis-scope",
+    "q40-02-generic-hazard-library",
+    "generic-hazard-library-seeding",
+    "hazard-register-record-fields",
+    "system-characteristic-hazard-mapping",
+    "annex-generic-hazard-groups",
+    "hazard-register-completeness"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-process-principles",
+   "name": "q40-02-process-principles",
+   "description": "Define the hazard-analysis process for a space programme under ECSS-Q-40-02 and grade the definition: check the mandatory process elements are declared, that each analysis level carries a technique suited to that level rather than one borrowed from another, that the iterations are tied to the safety reviews so the analysis reaches the decisions it informs, that the documentation set leaves a hazard log traceable to requirements, and that update triggers keep it alive between reviews. Use when a hazard-analysis process is written or audited. Trigger: ecss, q-st-40-02, hazard-analysis-process-definition, hazard-analysis-technique-selection, hazard-analysis-safety-review-integration, hazard-log-traceability, hazard-analysis-update-triggers.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis",
+    "q-st-40-02",
+    "q40-02-process-principles",
+    "hazard-analysis-process-definition",
+    "hazard-analysis-technique-selection",
+    "hazard-analysis-safety-review-integration",
+    "hazard-log-traceability",
+    "hazard-analysis-update-triggers"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-requirements",
+   "name": "q40-02-requirements",
+   "description": "Audit a space-project hazard-analysis programme against the general requirements of ECSS-Q-ST-40-02C clause 5.1. Use when the task is confirming that the analysis reaches every mission phase and every planned operation rather than the flight phases alone, that a hazard log and a hazard report duty exist with a named custodian and an agreed update interval, that the analysis techniques and supporting tools are declared before the work starts, and that the events forcing a re-analysis - design change, operational anomaly, procedure change, milestone review, newly identified hazard - are written down instead of left to judgement. Trigger: ecss, q-st-40-02c, hazard-analysis-programme-coverage, hazard-log-custody, hazard-report-duty, hazard-analysis-review-trigger, mission-phase-hazard-coverage, hazard-analysis-tool-declaration.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis-scope",
+    "q40-02-requirements",
+    "hazard-analysis-programme-coverage",
+    "hazard-log-custody",
+    "hazard-report-duty",
+    "hazard-analysis-review-trigger",
+    "mission-phase-hazard-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-step1-implementation",
+   "name": "q40-02-step1-implementation",
+   "description": "Define the implementation requirements for a space-project hazard analysis under ECSS-Q-ST-40-02C clause 5.2.1, step 1. Use when the task is fixing what the analysis must cover before a single hazard is written down: reading the project type - crewed or uncrewed, ground, launch, orbital or re-entry segment, hardware recovered, third party exposed - into the analysis depth it forces, deriving the scope elements, the technique set and the specialist disciplines the safety team has to hold, then comparing each derived set against the declared plan and reporting every missing item as a planning finding rather than a later surprise. Trigger: ecss, q-st-40-02c, hazard-analysis-implementation-step, crewed-mission-analysis-depth, hazard-analysis-technique-selection, safety-team-discipline-coverage, hazard-analysis-scope-definition, third-party-exposure-depth-driver.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis-scope",
+    "q40-02-step1-implementation",
+    "hazard-analysis-implementation-step",
+    "crewed-mission-analysis-depth",
+    "hazard-analysis-technique-selection",
+    "safety-team-discipline-coverage",
+    "hazard-analysis-scope-definition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-step2-identify-assess",
+   "name": "q40-02-step2-identify-assess",
+   "description": "Identify and assess the hazards of a space system under ECSS-Q-ST-40-02C clause 5.2.2, step 2. Use when the task is working all four identification sources - the generic hazard library, the system functions, the planned operations and the induced or natural environments - into one hazard list, then giving each entry a severity category and a likelihood band drawn from evidence rather than opinion, banding a quantified per-mission probability instead of carrying the number forward, and reading the pair into the project risk index and its acceptability grouping. Reports the sources left unworked and the entries whose severity or likelihood nothing supports. Trigger: ecss, q-st-40-02c, ecss-hazard-identification-sources, ecss-hazard-severity-category, ecss-hazard-likelihood-band, ecss-project-risk-index, space-hazard-acceptability-grouping.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis-scope",
+    "q40-02-step2-identify-assess",
+    "ecss-hazard-identification-sources",
+    "ecss-hazard-severity-category",
+    "ecss-hazard-likelihood-band",
+    "ecss-project-risk-index",
+    "space-hazard-acceptability-grouping"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-step3-decide-act",
+   "name": "q40-02-step3-decide-act",
+   "description": "Evaluate the risk-reduction measures proposed for a space-system hazard under ECSS-Q-ST-40-02C clause 5.2.3, step 3. Use when the task is holding a control set to the hazard-reduction precedence - eliminate or minimize by design first, then a safety device, then a warning device, then a procedure or training - refusing a weaker order that carries no written justification for the orders it skipped, demanding verification evidence before any measure is credited, and recomputing the residual severity, likelihood band and risk index from the measures that survive that test. Trigger: ecss, q-st-40-02c, hazard-reduction-precedence-order, risk-reduction-measure-selection, safety-measure-effectiveness-verification, ecss-residual-risk-index, design-elimination-of-hazard, hazard-control-justification.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis-scope",
+    "q40-02-step3-decide-act",
+    "hazard-reduction-precedence-order",
+    "risk-reduction-measure-selection",
+    "safety-measure-effectiveness-verification",
+    "ecss-residual-risk-index",
+    "design-elimination-of-hazard"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-02-step4-track-accept",
+   "name": "q40-02-step4-track-accept",
+   "description": "Verify the tracking, acceptance and communication of space-system hazards under ECSS-Q-ST-40-02C clause 5.2.4, step 4. Use when the task is driving each hazard report through its hazard-log status states in a legal order, rejecting a jump from open straight to accepted, matching the acceptance authority to the residual severity so a catastrophic residual is never signed at working level, grading the acceptance record for its rationale, evidence reference, named signatory and date, and listing the audiences each status change still owes a notification. Trigger: ecss, q-st-40-02c, hazard-log-status-control, hazard-report-state-transition, residual-risk-acceptance-authority, hazard-acceptance-record, hazard-stakeholder-notification, hazard-report-reopening.",
+   "tags": [
+    "ecss",
+    "q-st-40-02-hazard-analysis-scope",
+    "q40-02-step4-track-accept",
+    "hazard-log-status-control",
+    "hazard-report-state-transition",
+    "residual-risk-acceptance-authority",
+    "hazard-acceptance-record",
+    "hazard-stakeholder-notification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-12-fta-procedure",
+   "name": "q40-12-fta-procedure",
+   "description": "Execute a fault tree analysis to the IEC 61025 procedure adopted by ECSS-Q-ST-40-12C: validate the tree for dangling references, cycles and malformed AND, OR and k-out-of-n gates, expand it to minimal cut sets, evaluate those cut sets qualitatively by order, quantify the top event exactly by inclusion-exclusion and against the rare-event and min-cut-upper-bound estimates, rank contributors by Birnbaum, Fussell-Vesely and criticality importance, sweep the sensitivity of any basic event, and assemble the reporting record. Use when a tree has been drawn and the cut sets, top-event probability, importance ranking or sensitivity numbers are owed. Trigger: ecss, q-st-40-12c, iec-61025-fta-procedure, minimal-cut-set-expansion, fault-tree-top-event-quantification, fault-tree-importance-ranking, fault-tree-sensitivity-sweep.",
+   "tags": [
+    "ecss",
+    "q-st-40-12c-fault-tree-analysis",
+    "q-st-40-12c",
+    "q40-12-fta-procedure",
+    "iec-61025-fta-procedure",
+    "minimal-cut-set-expansion",
+    "fault-tree-top-event-quantification",
+    "fault-tree-importance-ranking",
+    "fault-tree-sensitivity-sweep"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-12-fta-tools",
+   "name": "q40-12-fta-tools",
+   "description": "Evaluate a software tool offered to support fault tree analysis under ECSS-Q-ST-40-12C: match what the tool computes against what the analysis actually needs, grade its results against reference cases inside a declared tolerance, compare two runs of one model for repeatability, verify that the model survives an export and re-import in the required exchange formats, derive the qualification effort the result consequence demands, and close with an acceptance verdict plus the restrictions that ride with it. Use when a tool is being chosen, requalified after a version change, or challenged in review. Trigger: ecss, q-st-40-12c, fta-tool-qualification, fta-tool-benchmark-grading, fta-tool-repeatability-check, fault-tree-model-exchange-round-trip, fta-tool-capability-gap.",
+   "tags": [
+    "ecss",
+    "q-st-40-12c-fault-tree-analysis",
+    "q-st-40-12c",
+    "q40-12-fta-tools",
+    "fta-tool-qualification",
+    "fta-tool-benchmark-grading",
+    "fta-tool-repeatability-check",
+    "fault-tree-model-exchange-round-trip",
+    "fta-tool-capability-gap"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-12-fta-usage",
+   "name": "q40-12-fta-usage",
+   "description": "Scope fault tree analysis inside an ECSS project under the ECSS-Q-ST-40-12C adoption of IEC 61025: categorize the need as top-down consequence reasoning or bottom-up failure-mode enumeration, decide whether a tree, an FMECA or both carry the work, name the analyses the tree feeds — hazard analysis under ECSS-Q-ST-40-02 or the dependability analyses of ECSS-Q-ST-30C — set the depth as qualitative or quantitative, and compute how far the basic events trace back to declared failure modes. Use when a project has to justify that a fault tree is the right technique, or to divide work between a tree and an FMECA. Trigger: ecss, q-st-40-12c, fta-usage-scoping, fta-versus-fmeca-division, iec-61025-adoption, fault-tree-basic-event-traceability, fta-analysis-depth-selection.",
+   "tags": [
+    "ecss",
+    "q-st-40-12c-fault-tree-analysis",
+    "q-st-40-12c",
+    "q40-12-fta-usage",
+    "fta-usage-scoping",
+    "fta-versus-fmeca-division",
+    "iec-61025-adoption",
+    "fault-tree-basic-event-traceability",
+    "fta-analysis-depth-selection"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-analyses-mgmt",
+   "name": "q40-analyses-mgmt",
+   "description": "Determine the safety analysis suite an ECSS-Q-ST-40C clause 7.2 to 7.4 programme owes at a given lifecycle phase, reading the Annex A applicability matrix: resolve which analyses are mandatory and which only recommended, degrade an analysis to recommended where the worst severity carried sits below its floor, compare the resolution with the declared plan to expose missing analyses, analyses the phase has no use for and analyses due after the phase review, and report the coverage achieved. Use when an analysis plan is drafted, tailored for a phase, or audited before a project review. Trigger: ecss, q-st-40c, annex-a-analyses-applicability-matrix, safety-analysis-suite-selection, lifecycle-phase-analysis-set, safety-analysis-plan-gap, mandatory-safety-analysis.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety-assurance-scope",
+    "q40-analyses-mgmt",
+    "annex-a-analyses-applicability-matrix",
+    "safety-analysis-suite-selection",
+    "lifecycle-phase-analysis-set",
+    "safety-analysis-plan-gap",
+    "mandatory-safety-analysis"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-applicability-guidelines",
+   "name": "q40-applicability-guidelines",
+   "description": "Determine which ECSS-Q-ST-40C safety requirement groups bite on a given product type at a given programme phase, using the informative applicability guidelines, and grade a tailoring proposal against that answer: a deletion of a group the guideline has biting needs a justification and customer agreement, a deletion before the group starts should have been a deferral, and retaining a group the guideline puts out of scope is cost rather than safety. Use when safety requirements are tailored onto a project. Trigger: ecss, q-st-40c, safety-requirement-applicability-guidelines, safety-requirement-tailoring, product-type-phase-applicability, tailoring-justification, out-of-scope-requirement-group.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety",
+    "q-st-40c",
+    "q40-applicability-guidelines",
+    "safety-requirement-applicability-guidelines",
+    "safety-requirement-tailoring",
+    "product-type-phase-applicability",
+    "tailoring-justification",
+    "out-of-scope-requirement-group"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-ground-equipment-conformity",
+   "name": "q40-ground-equipment-conformity",
+   "description": "Produce the declaration of conformity for a piece of ground equipment under ECSS-Q-ST-40C: screen the item against the EU instruments its own properties pull in — a powered moving assembly, a vessel above the pressure-volume product, a supply inside the low-voltage band, emitting electronics, an explosive-atmosphere zone, a lifting accessory — then settle the assessment route, say whether the conformity mark is carried at all, and list what is still missing before anyone signs. Use when ground support equipment is being released. Trigger: ecss, q-st-40c, ground-equipment-declaration-of-conformity, ce-marking-applicability, pressure-volume-product-screening, notified-body-route, ground-equipment-technical-file.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety",
+    "q-st-40c",
+    "q40-ground-equipment-conformity",
+    "ground-equipment-declaration-of-conformity",
+    "ce-marking-applicability",
+    "pressure-volume-product-screening",
+    "notified-body-route",
+    "ground-equipment-technical-file"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-hazard-closeout",
+   "name": "q40-hazard-closeout",
+   "description": "Perform hazard reporting, review and close-out under ECSS-Q-ST-40C: hold every hazard control on its own row of the safety verification tracking log, discharge a control only when its row is closed, cites evidence and has that evidence accepted, add the safety review board behind a catastrophic or critical hazard and an acceptance reference behind any declared residual risk, then emit the hazard close-out statement and the log rollup. Use when hazards are taken to a safety review for closure. Trigger: ecss, q-st-40c, ecss-hazard-close-out, safety-verification-tracking-log, svtl-annex-c, hazard-close-out-statement, residual-risk-acceptance-reference.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety",
+    "q-st-40c",
+    "q40-hazard-closeout",
+    "ecss-hazard-close-out",
+    "safety-verification-tracking-log",
+    "svtl-annex-c",
+    "hazard-close-out-statement",
+    "residual-risk-acceptance-reference"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-operational-safety",
+   "name": "q40-operational-safety",
+   "description": "Evaluate the operational safety provisions of an ECSS-Q-ST-40C clause 6.6 programme: rank every declared control against the design-elimination to procedure-and-training precedence, refuse a catastrophic ground hazard resting on procedure alone, require a verification behind each control, compare the reaction time a mission-control constraint needs with the time the operator has, and report the hazardous phases - transport, handling, integration, launch-site work - left with no operation. Use when ground-operations hazards are controlled, a flight-operations constraint is written, or an operations readiness review asks whether the set is covered. Trigger: ecss, q-st-40c, ecss-operational-safety-constraint, ecss-ground-operations-hazard-control, mission-control-reaction-margin, hazard-control-precedence-rank, launch-site-handling-hazard.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety-assurance-scope",
+    "q40-operational-safety",
+    "ecss-operational-safety-constraint",
+    "ecss-ground-operations-hazard-control",
+    "mission-control-reaction-margin",
+    "hazard-control-precedence-rank",
+    "launch-site-handling-hazard"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-probabilistic-safety-targets",
+   "name": "q40-probabilistic-safety-targets",
+   "description": "Allocate probabilistic safety targets across severity categories for an ECSS-Q-ST-40C clause 6.4.4 and Annex E safety case: refuse a target set that is not stricter as severity rises, split each severity's per-mission limit over the hazards contributing to it by declared weight, aggregate a group as a union of independent contributions rather than a naive sum, and place every predicted probability on the Annex E severity-probability acceptance matrix. Use when a quantitative safety target is set, apportioned to subsystems, or re-argued after a probability update. Trigger: ecss, q-st-40c, ecss-probabilistic-safety-target, severity-category-probability-limit, hazard-probability-allocation, annex-e-acceptance-matrix, per-mission-probability-band.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety-assurance-scope",
+    "q40-probabilistic-safety-targets",
+    "ecss-probabilistic-safety-target",
+    "severity-category-probability-limit",
+    "hazard-probability-allocation",
+    "annex-e-acceptance-matrix",
+    "per-mission-probability-band"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-safety-analysis-report",
+   "name": "q40-safety-analysis-report",
+   "description": "Produce the safety analysis report of ECSS-Q-ST-40C clause 7.5 to its Annex D data requirement: hold the section order, validate each hazard report for severity, causes, controls and a verification behind every control, trace each cause back to a FMEA/FMECA failure mode or a fault-tree basic event, expose the critical items no hazard report covers, and derive a status from the content so a hazard declared closed on an unverified control is caught. Use when the report is compiled, updated after an analysis run, or reviewed for closure. Trigger: ecss, q-st-40c-annex-d, ecss-safety-analysis-report, hazard-report-data-requirement, hazard-cause-traceability, fmeca-to-hazard-report-link, fault-tree-basic-event-trace.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety-assurance-scope",
+    "q40-safety-analysis-report",
+    "ecss-safety-analysis-report",
+    "hazard-report-data-requirement",
+    "hazard-cause-traceability",
+    "fmeca-to-hazard-report-link",
+    "fault-tree-basic-event-trace"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-safety-critical-functions",
+   "name": "q40-safety-critical-functions",
+   "description": "Identify and control the safety-critical functions of an ECSS-Q-ST-40C clause 6.5 design: decide criticality from the worst credible consequence, derive the failure tolerance that severity demands and the inhibits it needs, count only independent inhibits toward the tolerance achieved so a shared common-cause group collapses three inhibits into one, and assess the clause's control set - inadvertent-operation prevention, operator status information, safe shutdown, EEE component selection and safety-critical software. Use when a function list is screened for criticality, an inhibit chain is argued, or a design review asks what a critical function still lacks. Trigger: ecss, q-st-40c, ecss-safety-critical-function, inadvertent-operation-prevention, independent-inhibit-count, ecss-safe-shutdown-control, safety-critical-software-function.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety-assurance-scope",
+    "q40-safety-critical-functions",
+    "ecss-safety-critical-function",
+    "inadvertent-operation-prevention",
+    "independent-inhibit-count",
+    "ecss-safe-shutdown-control",
+    "safety-critical-software-function",
+    "ecss-failure-tolerance-derivation"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-verification-critical-functions",
+   "name": "q40-verification-critical-functions",
+   "description": "Verify a safety-critical function against ECSS-Q-ST-40C: read off the activities its criticality category owes — validation, qualification, failure testing, design and operational characteristic verification, safety verification testing — then discharge each one only on a passed record with an evidence reference, refuse a waiver at the top category, and grade failure testing by the fraction of declared failure modes it actually reaches rather than by whether a failure test happened. Use when a safety-critical function is being closed out. Trigger: ecss, q-st-40c, safety-critical-function-verification, safety-verification-testing, safety-failure-mode-test-coverage, safety-activity-waiver, safety-qualification-evidence.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety",
+    "q-st-40c",
+    "q40-verification-critical-functions",
+    "safety-critical-function-verification",
+    "safety-verification-testing",
+    "safety-failure-mode-test-coverage",
+    "safety-activity-waiver",
+    "safety-qualification-evidence"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q40-verification-planning",
+   "name": "q40-verification-planning",
+   "description": "Plan safety verification under ECSS-Q-ST-40C: assign a method to each safety requirement — test, analysis, inspection, review of design, similarity — on the rule that rising severity withdraws the weaker methods, then check the assignment is supportable (analysis of a catastrophic requirement needs correlated test data behind it, similarity needs a named baseline item), that every requirement has a planned verification report, and that closure is planned no later than the review milestone its severity allows. Use when a safety verification plan is drafted or reviewed. Trigger: ecss, q-st-40c, safety-verification-planning, safety-verification-method-assignment, safety-verification-report-planning, safety-closure-milestone, verification-method-admissibility.",
+   "tags": [
+    "ecss",
+    "q-st-40c-safety",
+    "q-st-40c",
+    "q40-verification-planning",
+    "safety-verification-planning",
+    "safety-verification-method-assignment",
+    "safety-verification-report-planning",
+    "safety-closure-milestone",
+    "verification-method-admissibility"
    ],
    "family": "space-systems",
    "pack": "ecss",
@@ -40570,6 +41760,374 @@
     "assembly-fitup-stress",
     "scc-preload-contribution",
     "compressive-residual-relief"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-am-records",
+   "name": "q7080-am-records",
+   "description": "Audit a build record for the evidence an additively manufactured part has to carry years after the machine was re-tooled. Use when a build is closed out under ECSS-Q-ST-70-80C records: check every field the part class owes, separate a field nobody filled in from one filled in with nothing, work the powder blend into a virgin mass share and a reuse generation and hold both against the class limits, resolve each inspection, coupon and post-process reference against a retrievable document, and report retention alongside the verdict. Trigger: ecss, q-st-70-80-additive-manufacturing-scope, am-build-record, powder-lot-traceability, powder-reuse-generation, virgin-powder-fraction, build-parameter-record, am-record-retention.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing-scope",
+    "q7080-am-records",
+    "am-build-record",
+    "powder-lot-traceability",
+    "powder-reuse-generation",
+    "virgin-powder-fraction",
+    "build-parameter-record",
+    "am-record-retention"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-build-file-and-job-control",
+   "name": "q7080-build-file-and-job-control",
+   "description": "Validate a powder-bed build file and its job before the platform is committed. Use when a nested job is released, or re-released after an engineering change, and the configuration has to be proved rather than trusted: check the build-file version, digest and parameter set are the approved ones, bind every nested part to the released design index, project each footprint through its platform rotation to prove the nest sits inside the usable envelope with its edge margin and part-to-part clearance, then compare every recorded build orientation against the approved one, treating an unrecorded orientation as a configuration break. Trigger: ecss, q-st-70-80-additive-manufacturing, am-build-file-control, am-build-job-release, am-platform-nesting-clearance, am-part-revision-binding, am-build-orientation-record.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-build-file-and-job-control",
+    "am-build-file-control",
+    "am-build-job-release",
+    "am-platform-nesting-clearance",
+    "am-part-revision-binding",
+    "am-build-orientation-record"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-build-lot-qualification",
+   "name": "q7080-build-lot-qualification",
+   "description": "Assess whether a build lot or first article still stands on its qualification, and whether the witness coupons support the allowable the design uses. Use when a lot of additively manufactured parts is presented under ECSS-Q-ST-70-80C qualification: sort every declared change against the configuration baseline into no impact, a delta needing fresh evidence, or a break that reruns the qualification, then take the mean, the spread and a one-sided tolerance bound from the coupons built alongside the parts, count them against what the part type owes, and rule on the lot. Trigger: ecss, q-st-70-80-additive-manufacturing-scope, am-build-lot-qualification, first-article-qualification, witness-coupon-statistics, one-sided-tolerance-bound, am-configuration-baseline-change, delta-qualification-trigger.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing-scope",
+    "q7080-build-lot-qualification",
+    "am-build-lot-qualification",
+    "first-article-qualification",
+    "witness-coupon-statistics",
+    "one-sided-tolerance-bound",
+    "am-configuration-baseline-change",
+    "delta-qualification-trigger"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-build-setup-and-execution",
+   "name": "q7080-build-setup-and-execution",
+   "description": "Execute a powder-bed build under control, from platform preparation to the last layer. Use when a job is about to start, or has finished and needs a disposition: grade every start-up check against its declared limit, block the start when one is out of limit or simply never recorded, then walk the monitored channels layer by layer, separate a single layer outside a band from a run of consecutive layers that means the process left control, measure how much of the build was monitored at all, count the recoater interruptions against their allowance, and return blocked, aborted, complete with concession or complete. Trigger: ecss, q-st-70-80-additive-manufacturing, am-build-startup-checks, am-build-platform-preparation, am-in-process-build-monitoring, am-layer-excursion-run, am-build-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-build-setup-and-execution",
+    "am-build-startup-checks",
+    "am-build-platform-preparation",
+    "am-in-process-build-monitoring",
+    "am-layer-excursion-run",
+    "am-build-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-density-and-porosity-control",
+   "name": "q7080-density-and-porosity-control",
+   "description": "Assess the density and porosity of additively manufactured material against its acceptance limits. Use when a build has to be graded on soundness rather than on strength: turn the dry and suspended weighings into a bulk density, express it against the reference alloy density and read the porosity from it, grade the largest pore against whichever of the drawing limit and the wall-fraction limit is smaller, refuse a tomography scan that resolves coarser than the limit it grades, compare buoyancy with the sectioned value, then take the worst and name it. Trigger: ecss, q-st-70-80-additive-manufacturing, am-relative-density-acceptance, am-archimedes-bulk-density, am-lack-of-fusion-pore-size, am-ct-pore-population, am-porosity-wall-fraction-limit.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-density-and-porosity-control",
+    "am-relative-density-acceptance",
+    "am-archimedes-bulk-density",
+    "am-lack-of-fusion-pore-size",
+    "am-ct-pore-population",
+    "am-porosity-wall-fraction-limit"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-dimensional-inspection",
+   "name": "q7080-dimensional-inspection",
+   "description": "Evaluate whether a dimensional inspection can actually decide the features it measures on an additively manufactured part. Use when a first article opens a part number, or a production lot is measured, under ECSS-Q-ST-70-80C inspection: combine repeatability and reproducibility into an expanded uncertainty, take its share of the tolerance band, pull the acceptance limits in by a guard band, sort each reading into conforming, indeterminate or non-conforming, then let demonstrated centred capability decide which features earn a reduced check once the first article has established a mean and a spread. Trigger: ecss, q-st-70-80-additive-manufacturing-scope, am-dimensional-inspection, first-article-dimensional-check, measurement-uncertainty-tolerance-ratio, dimensional-guard-band, am-process-capability-index, reduced-production-check.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing-scope",
+    "q7080-dimensional-inspection",
+    "am-dimensional-inspection",
+    "first-article-dimensional-check",
+    "measurement-uncertainty-tolerance-ratio",
+    "dimensional-guard-band",
+    "am-process-capability-index",
+    "reduced-production-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-heat-treatment-requirements",
+   "name": "q7080-heat-treatment-requirements",
+   "description": "Verify a post-build heat-treatment route against the declared material recipe. Use when a stress-relief, solution, quench or ageing step has to be graded before an additively manufactured part is released: take the dwell from the coldest load thermocouple rather than the set point, break the soak on an overshoot as well as a shortfall, grade the approach ramp and the protective atmosphere, hold the quench transfer inside its window, confirm stress relief ran before the part left the build plate and ageing after solution, check the furnace survey is current, then take the worst step and name it. Trigger: ecss, q-st-70-80-additive-manufacturing, am-post-build-heat-treatment, am-stress-relief-before-plate-removal, am-solution-ageing-sequence, am-load-thermocouple-soak-dwell, am-furnace-survey-currency.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-heat-treatment-requirements",
+    "am-post-build-heat-treatment",
+    "am-stress-relief-before-plate-removal",
+    "am-solution-ageing-sequence",
+    "am-load-thermocouple-soak-dwell",
+    "am-furnace-survey-currency"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-machine-monitoring",
+   "name": "q7080-machine-monitoring",
+   "description": "Monitor the process parameters of a metallic powder bed fusion build and assess the build data log under ECSS-Q-ST-70-80C: find every contiguous excursion outside a control window, compute its duration and worst deviation, attribute it to the layers it sits under, compare the sampling interval, largest gap and coverage against the logging requirement, name the required channels that never reached the record, and close with a per-parameter and a whole-build verdict. Use when a build log is reviewed, an alarm fires mid-build, or a defect has to be traced to a layer. Trigger: ecss, q-st-70-80c, pbf-process-parameter-monitoring, pbf-build-data-logging, pbf-parameter-excursion-episodes, pbf-layer-excursion-attribution, pbf-log-coverage-gaps.",
+   "tags": [
+    "ecss",
+    "q-st-70-80c-powder-bed-fusion",
+    "q-st-70-80c",
+    "q7080-machine-monitoring",
+    "pbf-process-parameter-monitoring",
+    "pbf-build-data-logging",
+    "pbf-parameter-excursion-episodes",
+    "pbf-layer-excursion-attribution",
+    "pbf-log-coverage-gaps"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-machine-qualification",
+   "name": "q7080-machine-qualification",
+   "description": "Determine the qualification status of a metallic powder bed fusion machine under ECSS-Q-ST-70-80C: grade every calibrated item against its own interval and count the days overdue, compare the chamber environment — residual oxygen, dew point and leak rate — against its control limits, compute witness-build capability from the specimen mean, sample spread and a capability index, and close with a verdict tied to the machine, material, layer-thickness and parameter-set envelope it was earned on. Use when a machine enters service, returns from maintenance, or is proposed for work outside its envelope. Trigger: ecss, q-st-70-80c, pbf-machine-qualification, pbf-calibration-interval-status, pbf-chamber-environment-limits, pbf-witness-build-capability-index, pbf-qualification-envelope.",
+   "tags": [
+    "ecss",
+    "q-st-70-80c-powder-bed-fusion",
+    "q-st-70-80c",
+    "q7080-machine-qualification",
+    "pbf-machine-qualification",
+    "pbf-calibration-interval-status",
+    "pbf-chamber-environment-limits",
+    "pbf-witness-build-capability-index",
+    "pbf-qualification-envelope"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-machining-and-finishing",
+   "name": "q7080-machining-and-finishing",
+   "description": "Calculate the machining stock an as-built surface needs and grade the declared allowance against it. Use when a post-process plan for an additively manufactured part has to be sized: add the as-built valley depth, the partly fused near-surface layer, the distortion on release, the fixture datum uncertainty and a real minimum depth of cut, compare that with the stock left on the model, take machining and finishing off every machined side and check the wall that remains, confirm the finishing process reaches the surface, and watch the bore open on an internal passage. Trigger: ecss, q-st-70-80-additive-manufacturing, am-machining-stock-allowance, am-as-built-surface-layer-removal, am-post-machining-wall-thickness, am-internal-passage-finishing-reach, am-finished-bore-growth.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-machining-and-finishing",
+    "am-machining-stock-allowance",
+    "am-as-built-surface-layer-removal",
+    "am-post-machining-wall-thickness",
+    "am-internal-passage-finishing-reach",
+    "am-finished-bore-growth"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-material-property-verification",
+   "name": "q7080-material-property-verification",
+   "description": "Verify the mechanical properties of an additive build or batch from its witness coupons. Use when a coupon population has to carry the batch: keep only coupons from the same build plate and the same furnace lot and name every one excluded, check that the population samples the build direction and not just the in-plane orientations, grade each coupon against the minimum rather than the population mean, report count, mean, extremes and spread per property, form the ratio of the weakest orientation mean to the strongest, then take the worst and name the property that drove it. Trigger: ecss, q-st-70-80-additive-manufacturing, am-witness-coupon-properties, am-build-direction-coupon-orientation, am-coupon-build-lot-provenance, am-build-batch-tensile-acceptance, am-as-built-property-anisotropy.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-material-property-verification",
+    "am-witness-coupon-properties",
+    "am-build-direction-coupon-orientation",
+    "am-coupon-build-lot-provenance",
+    "am-build-batch-tensile-acceptance",
+    "am-as-built-property-anisotropy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-ndt-of-am-parts",
+   "name": "q7080-ndt-of-am-parts",
+   "description": "Determine the non-destructive inspection suite an additively manufactured part needs, and whether the declared setup can actually find the flaw that matters. Use when a build is released against ECSS-Q-ST-70-80C inspection and the ECSS-Q-ST-70-15C method set: size the tomography voxel from the cone-beam geometry, take the ultrasonic resolution from the wavelength, grow the radiographic limit with the flaw tilt, strike out methods a rough as-built surface or an enclosed channel defeats, then compare the smallest detectable flaw against the fracture-control critical flaw on the coverage the criticality category demands. Trigger: ecss, q-st-70-80-additive-manufacturing-scope, am-part-ndt-suite, ct-voxel-detectability, ultrasonic-lack-of-fusion-detection, radiographic-flaw-tilt, am-enclosed-channel-inspectability, am-volumetric-coverage-category.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing-scope",
+    "q7080-ndt-of-am-parts",
+    "am-part-ndt-suite",
+    "ct-voxel-detectability",
+    "ultrasonic-lack-of-fusion-detection",
+    "radiographic-flaw-tilt",
+    "am-enclosed-channel-inspectability",
+    "am-volumetric-coverage-category"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-parameter-development",
+   "name": "q7080-parameter-development",
+   "description": "Develop powder-bed build parameters for one material from a density-optimisation campaign. Use when a trial matrix of coupons has been run and the parameter set to release has to be chosen and defended: form the volumetric energy density of every trial, convert coupon density into relative density and porosity, group each trial as lack-of-fusion, stable or keyhole against the declared energy band, keep the densest stable trial meeting the target and break ties towards the lower energy, then raise a finding when the campaign is too small, explored too few energy points, or landed its optimum on the edge of the span it explored. Trigger: ecss, q-st-70-80-additive-manufacturing, am-parameter-development, am-volumetric-energy-density, am-density-optimisation, am-trial-matrix-bracketing, am-keyhole-lack-of-fusion-regimes.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-parameter-development",
+    "am-parameter-development",
+    "am-volumetric-energy-density",
+    "am-density-optimisation",
+    "am-trial-matrix-bracketing",
+    "am-keyhole-lack-of-fusion-regimes"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-part-acceptance",
+   "name": "q7080-part-acceptance",
+   "description": "Derive the acceptance case for a lot of additively manufactured parts, class by class. Use when a build lot is presented for acceptance under ECSS-Q-ST-70-80C: read the density, porosity and surface limits the part class sets, confirm the mandatory screens that class owes were actually performed, size the sampling plan from the protection demanded rather than a rule of thumb -- the smallest sample whose exact hypergeometric chance of accepting a lot at the limiting quality stays under the tolerated consumer risk -- then rule on the lot against the findings observed. Trigger: ecss, q-st-70-80-additive-manufacturing-scope, am-part-acceptance, part-class-acceptance-limits, am-lot-sampling-plan, hypergeometric-consumer-risk, limiting-quality-level, mandatory-am-screening.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing-scope",
+    "q7080-part-acceptance",
+    "am-part-acceptance",
+    "part-class-acceptance-limits",
+    "am-lot-sampling-plan",
+    "hypergeometric-consumer-risk",
+    "limiting-quality-level",
+    "mandatory-am-screening"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-part-placement-and-orientation",
+   "name": "q7080-part-placement-and-orientation",
+   "description": "Determine the build orientation and plate placement of an additively manufactured part. Use when candidate orientations have to be compared before a job is nested and the choice has to be defended on properties rather than on packing: rotate each candidate's surface normals into the machine frame, measure the down-facing area left below the self-supporting angle, separate support that lands on a surface the design marked critical, measure build height and the bonded span presented to the plate as a residual-stress proxy, check the loaded axis is not aligned with the weak build direction, then score the survivors. Trigger: ecss, q-st-70-80-additive-manufacturing, am-build-orientation-selection, am-part-placement-on-platform, am-overhang-self-supporting-angle, am-residual-stress-orientation, am-build-direction-anisotropy.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-part-placement-and-orientation",
+    "am-build-orientation-selection",
+    "am-part-placement-on-platform",
+    "am-overhang-self-supporting-angle",
+    "am-residual-stress-orientation",
+    "am-build-direction-anisotropy"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-part-removal-and-cleaning",
+   "name": "q7080-part-removal-and-cleaning",
+   "description": "Evaluate the removal, depowdering and cleaning of an additively manufactured part. Use when unfused powder may still be inside it: weigh the part against its nominal solid mass and read the excess as trapped powder, grade every internal passage on bore against powder size, length against bore and the number of open ports it can flush through, size the cut that frees it from the plate against kerf, distortion and datum uncertainty, confirm stress relief came first, grade cleaning residue per unit area, then take the worst and name it. Trigger: ecss, q-st-70-80-additive-manufacturing, am-part-depowdering, am-internal-channel-powder-removal, am-trapped-powder-mass-balance, am-build-plate-part-removal, am-post-build-cleaning-residue.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-part-removal-and-cleaning",
+    "am-part-depowdering",
+    "am-internal-channel-powder-removal",
+    "am-trapped-powder-mass-balance",
+    "am-build-plate-part-removal",
+    "am-post-build-cleaning-residue"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-powder-reuse-and-blending",
+   "name": "q7080-powder-reuse-and-blending",
+   "description": "Manage the reuse and blending of metallic powder feedstock for powder bed fusion under ECSS-Q-ST-70-80C: build a blend from virgin and previously used lots, compute the mass-weighted oxygen content, particle size, fines fraction and virgin fraction alongside the worst-case reuse count, compare each against the declared reuse limits, derive the characterisation the blend owes from its cadence and the triggers that fired, and close with an accept, accept-after-test or reject disposition. Use when powder is recovered from a build, topped up with virgin material, or presented for the next build. Trigger: ecss, q-st-70-80c, powder-reuse-limit-control, powder-blend-composition, powder-oxygen-pickup, powder-recharacterisation-cadence, powder-lot-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-70-80c-powder-bed-fusion",
+    "q-st-70-80c",
+    "q7080-powder-reuse-and-blending",
+    "powder-reuse-limit-control",
+    "powder-blend-composition",
+    "powder-oxygen-pickup",
+    "powder-recharacterisation-cadence",
+    "powder-lot-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-process-window-qualification",
+   "name": "q7080-process-window-qualification",
+   "description": "Evaluate whether a declared additive-manufacturing parameter window is qualified by the coupon campaign actually run. Use when a window is taken into service, or brought back after a machine or feedstock change, and the evidence has to be graded rather than assumed: grade every run's recorded parameters against the window, treat an unrecorded parameter exactly like an excursion, demand a build at each bound and expect one in the interior, check each required characteristic was measured and met its limit, then separate an outright fail from a window that stands with a coverage finding attached. Trigger: ecss, q-st-70-80-additive-manufacturing, am-process-window-qualification, am-qualification-coupon-campaign, am-parameter-excursion-grading, am-window-bound-coverage, am-build-repeatability-runs.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-process-window-qualification",
+    "am-process-window-qualification",
+    "am-qualification-coupon-campaign",
+    "am-parameter-excursion-grading",
+    "am-window-bound-coverage",
+    "am-build-repeatability-runs"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-support-structure-removal",
+   "name": "q7080-support-structure-removal",
+   "description": "Assess whether the support structures on an additively manufactured part can be removed without damaging it, and by which method. Use when a support layout is reviewed before release or a removal route has to be planned: reduce each contact footprint to the area an interface style actually fuses, form the force needed to break it against the load the local section can carry, choose break-off, machining or wire cutting from access and those forces, escalate a break-off that would yield the part, and refuse a region inside a closed volume or on a functional surface. Trigger: ecss, q-st-70-80-additive-manufacturing, am-support-structure-removal, am-support-interface-break-force, am-support-witness-allowance, am-internal-support-access, am-support-removal-method.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-support-structure-removal",
+    "am-support-structure-removal",
+    "am-support-interface-break-force",
+    "am-support-witness-allowance",
+    "am-internal-support-access",
+    "am-support-removal-method"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q7080-surface-condition-control",
+   "name": "q7080-surface-condition-control",
+   "description": "Evaluate the surface condition of an additively manufactured part against its specification. Use when a roughness record has to be graded surface by surface: refuse an Rz reading compared with an Ra limit, grade every reading rather than the mean, work out what the process actually leaves at each overhang angle and separate a surface that failed from a limit no as-built surface at that angle can meet, count adhering partly fused particles per unit area, confirm every declared surface was measured, then take the worst and name the surfaces that drove it. Trigger: ecss, q-st-70-80-additive-manufacturing, am-as-built-surface-roughness, am-downskin-overhang-roughness, am-ra-versus-rz-parameter, am-adhered-partly-fused-particles, am-surface-sampling-coverage.",
+   "tags": [
+    "ecss",
+    "q-st-70-80-additive-manufacturing",
+    "q7080-surface-condition-control",
+    "am-as-built-surface-roughness",
+    "am-downskin-overhang-roughness",
+    "am-ra-versus-rz-parameter",
+    "am-adhered-partly-fused-particles",
+    "am-surface-sampling-coverage"
    ],
    "family": "space-systems",
    "pack": "ecss",

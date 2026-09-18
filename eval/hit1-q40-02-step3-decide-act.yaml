@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-02-step3-decide-act (space-systems/ecss)
+# Two tasks for the new leaf. da1 routes on the hazard-reduction precedence and
+# the per-order justification a procedure owes; da2 routes on crediting only
+# verified measures into a compounded residual index. Both must deterministically
+# hit space-systems/ecss/q40-02-step3-decide-act.
+tasks:
+  - id: da1
+    query: "the team wants to close this hazard with a crew procedure - check whether that is allowed before the design fix and the safety device, and what they have to write down to skip them"
+    intent: "ECSS-Q-ST-40-02C clause 5.2.3 step 3; the hazard-reduction precedence is an order and each skipped stronger order owes its own written justification"
+    expected_skill: "space-systems/ecss/q40-02-step3-decide-act"
+  - id: da2
+    query: "given a hazard at its initial severity and probability and a list of mitigations, half of them unverified, compute what residual risk we are actually left with"
+    intent: "ECSS-Q-ST-40-02C clause 5.2.3 step 3; only verified effective measures are credited, probability reductions compound, and severity steps clamp at the mildest category"
+    expected_skill: "space-systems/ecss/q40-02-step3-decide-act"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-density-and-porosity-control (space-systems/ecss)
+# Two tasks for the new leaf. dpc1 routes on turning the two weighings into a
+# relative density and reading porosity off it; dpc2 routes on the governing pore
+# limit in a thin wall and on what the scan could resolve. Both must
+# deterministically hit space-systems/ecss/q7080-density-and-porosity-control.
+tasks:
+  - id: dpc1
+    query: "I have the dry and suspended weights for a printed coupon and the handbook density for the alloy, turn that into something I can put against an acceptance limit and tell me the porosity"
+    intent: "ECSS-Q-ST-70-80 quality clause; buoyancy bulk density expressed against the reference alloy density, with porosity as one minus that fraction"
+    expected_skill: "space-systems/ecss/q7080-density-and-porosity-control"
+  - id: dpc2
+    query: "the tomography came back clean on a printed part with a thin web, but the scan resolution is coarser than the pore size we are supposed to be catching, decide what that result is worth"
+    intent: "ECSS-Q-ST-70-80 quality clause; governing pore limit as the smaller of drawing and wall fraction, and a scan whose detection limit is coarser than the limit it grades"
+    expected_skill: "space-systems/ecss/q7080-density-and-porosity-control"

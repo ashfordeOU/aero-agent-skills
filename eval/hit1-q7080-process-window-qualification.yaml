@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7080-process-window-qualification (space-systems/ecss)
+# Two tasks for the new leaf. pwq1 routes on grading the coupon campaign that
+# was actually run against the declared window; pwq2 routes on the difference
+# between a missing window bound and a thin interior. Both must deterministically
+# hit space-systems/ecss/q7080-process-window-qualification.
+tasks:
+  - id: pwq1
+    query: "here is the coupon campaign for our declared power and speed window, tell me whether the window is qualified or whether the builds only ever sat at nominal"
+    intent: "ECSS-Q-ST-70-80 process clause; parameter-window qualification by coupons, build count for repeatability, excursions and unrecorded parameters"
+    expected_skill: "space-systems/ecss/q7080-process-window-qualification"
+  - id: pwq2
+    query: "one build for the qualification never logged its layer thickness and nobody ran anything at the top of the speed range, does that fail the window or is it just a coverage note"
+    intent: "ECSS-Q-ST-70-80 process clause; an unrecorded parameter is an excursion, a missing window bound is fatal, thin interior coverage is a standing finding"
+    expected_skill: "space-systems/ecss/q7080-process-window-qualification"

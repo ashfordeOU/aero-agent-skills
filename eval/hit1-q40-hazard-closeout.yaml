@@ -1,0 +1,15 @@
+# Hit@1 fragment: q40-hazard-closeout (space-systems/ecss)
+# Two tasks for the new leaf. hc1 routes on the safety verification tracking
+# log row per control and on the difference between an untracked control and an
+# open one; hc2 routes on the board endorsement and residual-risk acceptance
+# that sit on the hazard rather than on its controls. Both must
+# deterministically hit space-systems/ecss/q40-hazard-closeout.
+tasks:
+  - id: hc1
+    query: "two of the controls on this hazard report have no row in the SVTL at all and one row is marked closed with no evidence reference, can I write the close-out statement"
+    intent: "ECSS-Q-ST-40C hazard close-out; every control held on a safety verification tracking log row, closed plus evidenced plus accepted as three separate conditions"
+    expected_skill: "space-systems/ecss/q40-hazard-closeout"
+  - id: hc2
+    query: "every control on our catastrophic hazard is verified and accepted but the safety review board has not endorsed it and a residual risk is declared with no acceptance reference, does it close"
+    intent: "ECSS-Q-ST-40C hazard close-out; severity adds board endorsement and residual-risk acceptance on top of the controls before the hazard closes"
+    expected_skill: "space-systems/ecss/q40-hazard-closeout"

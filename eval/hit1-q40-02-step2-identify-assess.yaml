@@ -1,0 +1,14 @@
+# Hit@1 fragment: q40-02-step2-identify-assess (space-systems/ecss)
+# Two tasks for the new leaf. ia1 routes on the four ECSS identification sources
+# and the silence of a single-source list; ia2 routes on banding a per-mission
+# probability into the ECSS risk index rather than carrying the number. Both must
+# deterministically hit space-systems/ecss/q40-02-step2-identify-assess.
+tasks:
+  - id: ia1
+    query: "we built the spacecraft hazard list off the generic hazard library - work out which identification sources we still owe and what that silence is costing us"
+    intent: "ECSS-Q-ST-40-02C clause 5.2.2 step 2; the generic library, system functions, planned operations and induced or natural environments each surface different hazards"
+    expected_skill: "space-systems/ecss/q40-02-step2-identify-assess"
+  - id: ia2
+    query: "each hazard has a worst-case consequence and a per-mission probability - turn those into the ecss severity category, likelihood band and risk index and tell me which entries are unsupported"
+    intent: "ECSS-Q-ST-40-02C clause 5.2.2 step 2; probability is banded not carried, the index is an integer matrix read, and an unsupported severity or likelihood is its own finding"
+    expected_skill: "space-systems/ecss/q40-02-step2-identify-assess"

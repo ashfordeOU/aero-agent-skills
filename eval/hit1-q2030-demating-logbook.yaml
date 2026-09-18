@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2030-demating-logbook (space-systems/ecss)
+# Two tasks for the leaf. dml1 routes on the logbook entry rules and the
+# mate/demate alternation; dml2 routes on the per-connector cycle countdown and
+# the maximum-cycle control table. Both must deterministically hit
+# space-systems/ecss/q2030-demating-logbook, not the general logbook leaves.
+tasks:
+  - id: dml1
+    query: "our harness sheet records every mate and demate against the connector; check it for a demate with no mate before it, a connector mated twice and entries dated out of order"
+    intent: "ECSS-Q-ST-20-30 Annex B; (de-)mating logbook entry validation and per-connector mate/demate alternation"
+    expected_skill: "space-systems/ecss/q2030-demating-logbook"
+  - id: dml2
+    query: "work out how many mating cycles each connector has left against its qualified maximum and print the maximum-cycle control table with the ones approaching exhaustion flagged"
+    intent: "ECSS-Q-ST-20-30 Annex B; connector mating-cycle countdown and maximum-cycle control format"
+    expected_skill: "space-systems/ecss/q2030-demating-logbook"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-managing-the-housekeeping-parameter-report-forward (space-systems/ecss)
+# Two tasks for the new leaf. hkfc1 routes on why housekeeping reports need a
+# per-structure selection at all; hkfc2 routes on the selection left stale by a
+# deleted structure definition. Both must deterministically hit
+# space-systems/ecss/e7041-managing-the-housekeeping-parameter-report-forward.
+tasks:
+  - id: hkfc1
+    query: "I only want two of the housekeeping reports from that application process going down live, not all of them, and selecting by service type and subtype gives me every one of them"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.5; housekeeping reports share one report type and subtype per application process, so the real-time forwarding selection is made per report structure identifier instead"
+    expected_skill: "space-systems/ecss/e7041-managing-the-housekeeping-parameter-report-forward"
+  - id: hkfc2
+    query: "somebody deleted a housekeeping report definition but the forwarding configuration still lists that structure number, work out what that entry does now and what happens if the number gets reused"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.5; a selection on a deleted structure definition is stale, forwards nothing, and silently restores forwarding if the identifier is redefined, so it is reported rather than dropped"
+    expected_skill: "space-systems/ecss/e7041-managing-the-housekeeping-parameter-report-forward"

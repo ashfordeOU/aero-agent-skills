@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-electrical-requirements (space-systems/ecss)
+# Two tasks for the new leaf. eer1 routes on the stray-current-versus-no-fire
+# screen of an electro-explosive initiation circuit; eer2 routes on the
+# radio-frequency pickup chain that turns a field into delivered bridgewire
+# power. Both must deterministically hit
+# space-systems/ecss/e3311-electrical-requirements.
+tasks:
+  - id: eer1
+    query: "our initiator has a no-fire current in the datasheet and the circuit analysis gives a worst case stray current into the same pins, work out whether that leaves enough and whether the firing lines are wired the way they have to be"
+    intent: "ECSS-E-ST-33-11C clause 4.8.2; stray current graded as a fraction of the no-fire current plus the firing-line wiring controls"
+    expected_skill: "space-systems/ecss/e3311-electrical-requirements"
+  - id: eer2
+    query: "take the radiated field level for the bay, the length of the twisted pair going to the squib and the bridgewire resistance, and tell me how much power actually lands on the bridgewire against its no-fire power"
+    intent: "ECSS-E-ST-33-11C clause 4.8.2; induced open-circuit voltage then matched delivered power against the no-fire power margin"
+    expected_skill: "space-systems/ecss/e3311-electrical-requirements"

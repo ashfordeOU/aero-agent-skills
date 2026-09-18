@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2030-comp-crimping (space-systems/ecss)
+# Two tasks for the new leaf. cc1 routes on the source-precedence question that
+# only the complementary clause answers; cc2 routes on the sampled destructive
+# pull and the per-pull minimum a mean would hide. Both must deterministically
+# hit space-systems/ecss/q2030-comp-crimping.
+tasks:
+  - id: cc1
+    query: "the harness spec and the workmanship document give two different crimp height tolerances for the same contact, work out which one the lot is graded against and whether we have just loosened anything"
+    intent: "ECSS-Q-ST-20-30C clause 7.4; complementary crimping requirements take precedence over the delegated workmanship criteria by source, and a looser complementary value is a reported relaxation"
+    expected_skill: "space-systems/ecss/q2030-comp-crimping"
+  - id: cc2
+    query: "we pulled three crimps off a lot of eighty and one came apart low, tell me how many pulls that lot actually owed and whether the other two carry it"
+    intent: "ECSS-Q-ST-20-30C clause 7.4; tensile sample sized from the lot, every pull graded against the minimum its wire gauge carries, a sample mean is not the criterion"
+    expected_skill: "space-systems/ecss/q2030-comp-crimping"

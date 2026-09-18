@@ -1,0 +1,13 @@
+# Hit@1 fragment: q40-safety-critical-functions (space-systems/ecss)
+# Two tasks for the leaf. scf1 routes on deciding criticality and deriving the
+# failure tolerance and inhibit count; scf2 routes on the clause's control set.
+# Both must hit space-systems/ecss/q40-safety-critical-functions.
+tasks:
+  - id: scf1
+    query: "decide which of these functions are safety-critical from their worst consequence, then tell me how many independent inhibits each needs and whether a shared power bus collapses the chain"
+    intent: "ECSS-Q-ST-40C 6.5; safety-critical function identification, failure tolerance and independent inhibit counting"
+    expected_skill: "space-systems/ecss/q40-safety-critical-functions"
+  - id: scf2
+    query: "for each critical function check the control set: inadvertent-operation prevention, status information to the operator, a safe shutdown path, EEE part selection and the software safety control"
+    intent: "ECSS-Q-ST-40C 6.5; control areas owed by a safety-critical function and the areas still open"
+    expected_skill: "space-systems/ecss/q40-safety-critical-functions"

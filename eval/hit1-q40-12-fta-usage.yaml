@@ -1,0 +1,15 @@
+# Hit@1 fragment: q40-12-fta-usage (space-systems/ecss)
+# Two tasks for the new leaf. fu1 routes on the technique choice itself - a need
+# stated from a consequence downwards with combinations in it, against an FMECA
+# that enumerates single failure modes. fu2 routes on the receiving analysis and
+# the basic-event-to-failure-mode traceability that ties the two together.
+# Both must deterministically hit space-systems/ecss/q40-12-fta-usage.
+tasks:
+  - id: fu1
+    query: "we have one catastrophic consequence that needs combinations of events behind it and a separate action to list every valve failure mode, decide which of those is a fault tree job and which is a worksheet job"
+    intent: "ECSS-Q-ST-40-12C clause 4 and 5.1.1; the direction and duties of the stated need select the technique, and a two-way need owes both"
+    expected_skill: "space-systems/ecss/q40-12-fta-usage"
+  - id: fu2
+    query: "before we draw the tree, say which analysis it feeds and whether every basic event on it traces back to a failure mode the item analysis already declared"
+    intent: "ECSS-Q-ST-40-12C clause 4; hazard analysis and dependability as the receiving analyses, and the basic event traceability fraction between tree and FMECA"
+    expected_skill: "space-systems/ecss/q40-12-fta-usage"

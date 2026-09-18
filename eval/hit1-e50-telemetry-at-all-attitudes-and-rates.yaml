@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-telemetry-at-all-attitudes-and-rates (space-systems/ecss)
+# tm1 routes on the width-weighted pattern coverage rather than a boresight budget;
+# tm2 routes on the body-rate case, where the slow tumble and not the fast spin is
+# the worst one. Both must deterministically hit
+# space-systems/ecss/e50-telemetry-at-all-attitudes-and-rates.
+tasks:
+  - id: tm1
+    query: "the low gain antenna budget closes at boresight, work out over how much of the sphere the housekeeping downlink actually closes and where the holes are"
+    intent: "ECSS-E-ST-50C clause 5.5.1; close the link at every pattern sample and weight the closing samples by their angular width, not by sample count"
+    expected_skill: "space-systems/ecss/e50-telemetry-at-all-attitudes-and-rates"
+  - id: tm2
+    query: "we have a null in the back lobe and the spacecraft is tumbling slowly after separation, work out how long we lose telemetry for and whether the receiver holds lock through it"
+    intent: "ECSS-E-ST-50C clause 5.5.1; outage width over body rate, the slowest declared rate is the worst case, compared with receiver hold-over"
+    expected_skill: "space-systems/ecss/e50-telemetry-at-all-attitudes-and-rates"

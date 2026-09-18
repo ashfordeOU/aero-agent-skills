@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-command-encryption (space-systems/ecss)
+# Two tasks for the new leaf. ce1 routes on the duty side -- which commands owe
+# protection at all -- and ce2 on the strength side, where a suite is fitted but
+# the delivered key strength is not the advertised one. Both must deterministically
+# hit space-systems/ecss/e50-command-encryption.
+tasks:
+  - id: ce1
+    query: "go through the uplink command dictionary and say which of these commands actually have to be authenticated and which ones also need their content hidden on the way up"
+    intent: "ECSS-E-ST-50C clause 5.4.6; hazard category fixes the protection duty, and authentication and encryption are separate duties rather than two grades of one"
+    expected_skill: "space-systems/ecss/e50-command-encryption"
+  - id: ce2
+    query: "the command link uses a two-key triple construction advertised at 112 bit and rotates keys monthly, work out whether that clears the floor for our pyro commands and whether a key lasts the commissioning command rate"
+    intent: "ECSS-E-ST-50C clause 5.4.6; declared key length reduced to effective strength, then command rate times rotation interval against the per-key usage limit"
+    expected_skill: "space-systems/ecss/e50-command-encryption"

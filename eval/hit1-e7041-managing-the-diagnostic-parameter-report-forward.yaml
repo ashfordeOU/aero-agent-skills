@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-managing-the-diagnostic-parameter-report-forward (space-systems/ecss)
+# Two tasks for the new leaf. dgfc1 routes on the packet rate a diagnostic
+# selection puts on the real-time path; dgfc2 routes on the dormant selection
+# made ahead of the collection being enabled. Both must deterministically hit
+# space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-forward.
+tasks:
+  - id: dgfc1
+    query: "we added four diagnostic structures to the live forwarding while chasing this anomaly and the downlink is saturating, work out how many packets per second that selection is actually generating against what the link was budgeted"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.6; each enabled diagnostic structure contributes the reciprocal of its collection interval, and the summed rate is graded against the real-time forwarding budget"
+    expected_skill: "space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-forward"
+  - id: dgfc2
+    query: "the diagnostic forwarding selection was accepted but nothing is coming down from one of those structures, tell me whether the selection is wrong or whether something else has to be switched on first"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.6; a selection on a structure whose periodic collection is disabled is legitimate and dormant, contributing no traffic and no rate until the collection is enabled"
+    expected_skill: "space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-forward"
