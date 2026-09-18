@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-rlcl-switch-on-response-verification (space-systems/ecss)
+# Two tasks for the leaf. rlclsv1 routes on setting up the step stimulus from
+# below the enable point to nominal; rlclsv2 routes on timing and grading the
+# turn-on delay across a campaign of repeated steps. Both must deterministically
+# hit space-systems/ecss/e2020-rlcl-switch-on-response-verification.
+tasks:
+  - id: rlclsv1
+    query: "set up the turn-on test for a retriggerable latching current limiter by stepping the input from below the enable threshold up to the nominal bus, and say how sharp the step edge has to be"
+    intent: "ECSS-E-ST-20-20C clause 5.4.4.4.1; switch-on response verified with a bus voltage step from below the enable point to nominal"
+    expected_skill: "space-systems/ecss/e2020-rlcl-switch-on-response-verification"
+  - id: rlclsv2
+    query: "time the delay from the input crossing the enable threshold to the output reaching 90 percent of its regulated level, grade each step run against both ends of the response window and check the spread across the runs"
+    intent: "ECSS-E-ST-20-20C clause 5.4.4.4.1; turn-on delay measured from the step traces and graded for repeatability against the declared response window"
+    expected_skill: "space-systems/ecss/e2020-rlcl-switch-on-response-verification"

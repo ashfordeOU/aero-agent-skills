@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-memory-cell-upset-tolerance (space-systems/ecss)
+# Two tasks for the leaf. mcut1 routes on an upset of a retrigger or status cell
+# not costing the powered load; mcut2 routes on the residual rate left after a
+# mitigation and its mission projection. Both must deterministically hit
+# space-systems/ecss/e2020-memory-cell-upset-tolerance.
+tasks:
+  - id: mcut1
+    query: "check that a single event upset in the retrigger enable or status memory cells of a current limiter cannot take power away from the load it is already feeding"
+    intent: "ECSS-E-ST-20-20C clause 5.2.18.2.1; memory cell upset must not cost the powered load"
+    expected_skill: "space-systems/ecss/e2020-memory-cell-upset-tolerance"
+  - id: mcut2
+    query: "work out the residual upset rate each load-losing limiter memory cell still carries after its edac or scrubbing coverage, project it across the mission, and find which cell dominates the total"
+    intent: "ECSS-E-ST-20-20C clause 5.2.18.2.1; residual upset rate, mitigation coverage, dominant cell"
+    expected_skill: "space-systems/ecss/e2020-memory-cell-upset-tolerance"

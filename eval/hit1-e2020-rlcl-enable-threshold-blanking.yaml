@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-rlcl-enable-threshold-blanking (space-systems/ecss)
+# Two tasks for the leaf. rlclb1 routes on the nuisance side, where a brief
+# excursion above the enable point must leave the retriggerable limiter off;
+# rlclb2 routes on the other end of the same window, where too long a
+# confirmation time swallows a genuine enable request. Both must
+# deterministically hit space-systems/ecss/e2020-rlcl-enable-threshold-blanking.
+tasks:
+  - id: rlclb1
+    query: "a 12 ms excursion above the enable point of our retriggerable latching current limiter is turning the output on, how long does the enable condition have to hold before the unit is allowed to come up"
+    intent: "ECSS-E-ST-20-20C clause 5.4.4.3.1; a brief bus excursion above the enable point must not enable a retriggerable limiter, so the confirmation time is sized against the excursion dwell"
+    expected_skill: "space-systems/ecss/e2020-rlcl-enable-threshold-blanking"
+  - id: rlclb2
+    query: "size the enable confirmation window from the longest nuisance excursion and the shortest genuine bus return, and say whether the enable and release thresholds leave enough hysteresis"
+    intent: "ECSS-E-ST-20-20C clause 5.4.4.3.1; feasible confirmation window between the blanked excursions and the enable requests that still have to be honoured"
+    expected_skill: "space-systems/ecss/e2020-rlcl-enable-threshold-blanking"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-undervoltage-noise-immunity-test
+# (space-systems/ecss, E-ST-20-20C 5.4.3.4.1). Two tasks per leaf; uni1 routes
+# on sizing the step stimulus, uni2 on the dwell and edge adequacy that decide
+# whether a no-trip result is evidence. Both must deterministically hit
+# space-systems/ecss/e2020-undervoltage-noise-immunity-test.
+tasks:
+  - id: uni1
+    query: "do the noise-immunity-step-amplitude-sizing for this undervoltage-trip-step-stimulus and check the undervoltage-step-edge-rate"
+    intent: "ecss power supply; a voltage step of defined size is applied to show the undervoltage protection ignores bus noise"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-noise-immunity-test"
+  - id: uni2
+    query: "grade undervoltage-test-dwell-adequacy on this undervoltage-spurious-trip-immunity run set before the no-trip result is believed"
+    intent: "ecss power supply; a step released before the detection chain settles produces a no-trip result that proves nothing"
+    expected_skill: "space-systems/ecss/e2020-undervoltage-noise-immunity-test"

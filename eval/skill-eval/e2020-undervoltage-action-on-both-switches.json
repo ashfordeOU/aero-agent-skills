@@ -1,0 +1,9 @@
+{
+  "skill": "e2020-undervoltage-action-on-both-switches",
+  "with_skill": 1.0,
+  "without_estimate": 0.35,
+  "delta": 0.65,
+  "passed": 34,
+  "failed": 0,
+  "evidence": "contract test PASS (34 tests); without-baseline 0.35 (a plain answer checks that the undervoltage protection trips and stops there, so it accepts a design that opens only the main switch and leaves the extra switch closed, accepts a combinational off path with no memory in it that releases the switch as soon as the bus recovers, calls two cells independent while they reach the switches through one shared driver, misses a memory cell common to both command paths because both switches do open on a healthy unit, treats the shared undervoltage detection as this clause's defect and double-counts what the shared-protection clause already grades, and averages the single failure walk into one pass instead of naming the element and the switch roles it leaves closed)"
+}

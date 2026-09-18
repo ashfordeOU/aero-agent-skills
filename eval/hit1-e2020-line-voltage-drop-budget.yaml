@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-line-voltage-drop-budget (space-systems/ecss)
+# Two tasks for the leaf. lvdb1 routes on the total voltage lost across the
+# protection line at the class current; lvdb2 routes on the breakdown, where the
+# hot harness, the shunt, the connector contacts and a series device are split
+# out and the dominant one is named. Both must deterministically hit
+# space-systems/ecss/e2020-line-voltage-drop-budget.
+tasks:
+  - id: lvdb1
+    query: "how much voltage is our protected power line allowed to lose between the bus and the load at the current its limiter class is rated for, and does the line stay inside it"
+    intent: "ECSS-E-ST-20-20C clause 5.4.5.1.1; maximum voltage drop across the protection line evaluated at the class current"
+    expected_skill: "space-systems/ecss/e2020-line-voltage-drop-budget"
+  - id: lvdb2
+    query: "break the line drop down across the limiter switch element, the current sense shunt, the hot harness and the connector contacts, apply the tolerance factor and tell me which element carries most of the budget"
+    intent: "ECSS-E-ST-20-20C clause 5.4.5.1.1; per-element drop breakdown at hot resistance with the worst-case total against the allowed drop"
+    expected_skill: "space-systems/ecss/e2020-line-voltage-drop-budget"

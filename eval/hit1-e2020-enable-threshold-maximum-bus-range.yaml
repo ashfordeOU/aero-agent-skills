@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-enable-threshold-maximum-bus-range (space-systems/ecss)
+# Two tasks for the leaf. etmbr1 routes on referring a turn on threshold
+# fraction through the MAXIMUM direct current bus value; etmbr2 routes on the
+# restatement of a nominal-referenced fraction onto that maximum reference and
+# the volts the wrong reference would shift it by. Both must deterministically
+# hit space-systems/ecss/e2020-enable-threshold-maximum-bus-range and not the
+# clause 5.4.3.2.1 undervoltage TRIP point leaf.
+tasks:
+  - id: etmbr1
+    query: "refer each settable turn on fraction of a protection function into volts through the maximum direct current bus voltage value and test the resulting enable ladder against the window between the equipment turn on floor and the lowest steady state bus"
+    intent: "ECSS-E-ST-20-20C clause 5.4.4.2.1; adjustable enable threshold referred to the maximum bus value and its usable window"
+    expected_skill: "space-systems/ecss/e2020-enable-threshold-maximum-bus-range"
+  - id: etmbr2
+    query: "restate a turn on threshold quoted as 70 percent of the 28 V nominal bus as a fraction of the 32 V maximum bus, and report the volts a reader would shift the enable point by if the wrong reference were taken"
+    intent: "ECSS-E-ST-20-20C clause 5.4.4.2.1; reference conversion of an enable setting onto the maximum bus and the volts the ambiguity is worth"
+    expected_skill: "space-systems/ecss/e2020-enable-threshold-maximum-bus-range"

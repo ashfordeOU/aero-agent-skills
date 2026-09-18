@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-overload-current-overshoot-limit (space-systems/ecss)
+# Two tasks for the new leaf. ovshoot1 routes on how far the current may run
+# past the limitation value at each port on the arrival of an overload;
+# ovshoot2 routes on the settling window and the interpolated crossings that
+# measure it. Both must deterministically hit
+# space-systems/ecss/e2020-overload-current-overshoot-limit.
+tasks:
+  - id: ovshoot1
+    query: "an overload just appeared on the protected branch and the scope shows the current running past the limitation value at both the input and the output; how much overshoot is each port allowed"
+    intent: "ECSS-E-ST-20-20C clause 5.4.1.1.1; input and output current overshoot bounds on overload onset"
+    expected_skill: "space-systems/ecss/e2020-overload-current-overshoot-limit"
+  - id: ovshoot2
+    query: "measure how long the branch current stays above the limitation value after the fault, interpolating the crossings between samples, and check both ports settle inside the allowed window"
+    intent: "ECSS-E-ST-20-20C clause 5.4.1.1.1; overshoot settling window measured from the overload onset"
+    expected_skill: "space-systems/ecss/e2020-overload-current-overshoot-limit"

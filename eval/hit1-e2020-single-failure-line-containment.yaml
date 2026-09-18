@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-single-failure-line-containment (space-systems/ecss)
+# Two tasks for the new leaf. sflc1 routes on the bound itself -- one failure,
+# one protected line; sflc2 routes on the shared element that produces a
+# fan-out and on the protected line nobody traced. Both must deterministically
+# hit space-systems/ecss/e2020-single-failure-line-containment.
+tasks:
+  - id: sflc1
+    query: "how do we show that no single failure in the distribution unit can take down more than one protected output line"
+    intent: "ECSS-E-ST-20-20C clause 5.2.15.1.1; bounding a single failure so it disables at most one protected distribution line"
+    expected_skill: "space-systems/ecss/e2020-single-failure-line-containment"
+  - id: sflc2
+    query: "two of our switches share a gate drive and a common return, and the analysis never mentions the fourth protected line at all"
+    intent: "ECSS-E-ST-20-20C clause 5.2.15.1.1; counting the fan-out a shared drive, command path or return produces over the protected lines and naming the protected lines no failure point traced"
+    expected_skill: "space-systems/ecss/e2020-single-failure-line-containment"

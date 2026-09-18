@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-startup-output-pulse-amplitude (space-systems/ecss)
+# Two tasks for the leaf. sopa1 routes on reading the peak departure from the
+# settled output of a main bus start up capture and judging it against the
+# declared amplitude limit; sopa2 routes on the two traps that decide the
+# answer - the start up ramp read as an undershoot, and a raw peak compared
+# without the probe uncertainty. Both must deterministically hit
+# space-systems/ecss/e2020-startup-output-pulse-amplitude.
+tasks:
+  - id: sopa1
+    query: "take the settled output from the tail of the main bus start up capture and show the largest voltage departure from it stays inside the declared output pulse amplitude limit"
+    intent: "ECSS-E-ST-20-20C clause 5.4.2.4.1; start up output pulse amplitude against the settled output baseline"
+    expected_skill: "space-systems/ecss/e2020-startup-output-pulse-amplitude"
+  - id: sopa2
+    query: "stop the start up ramp being counted as an undershoot and widen the recorded overshoot peak by the probe and digitiser uncertainty before comparing it with the limit"
+    intent: "ECSS-E-ST-20-20C clause 5.4.2.4.1; excursion window opening at first arrival, measurement uncertainty on the peak"
+    expected_skill: "space-systems/ecss/e2020-startup-output-pulse-amplitude"

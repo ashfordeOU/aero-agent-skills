@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-load-converter-startup-current (space-systems/ecss)
+# Two tasks for the leaf. lcsc1 routes on the class-current obligation itself,
+# where the converters inside a unit have to start without the unit exceeding
+# the current its protection class allows; lcsc2 routes on the timeline, where
+# staggered release delays decide whether ramp currents add at all. Both must
+# deterministically hit
+# space-systems/ecss/e2020-load-converter-startup-current.
+tasks:
+  - id: lcsc1
+    query: "show the DC/DC converters inside a protected unit start up without the unit ever drawing more than the current its protection class allows, building each converter draw from its input capacitance and soft-start ramp"
+    intent: "ECSS-E-ST-20-20C clause 5.3.2.2.1; load converter start-up current against the protection class current allowance"
+    expected_skill: "space-systems/ecss/e2020-load-converter-startup-current"
+  - id: lcsc2
+    query: "lay the converter release delays on one timeline and read the true aggregate start-up peak instead of summing per-converter peaks, then say whether a wider stagger would bring the unit inside the class current"
+    intent: "ECSS-E-ST-20-20C clause 5.3.2.2.1; staggered converter release order and the aggregate unit input current envelope"
+    expected_skill: "space-systems/ecss/e2020-load-converter-startup-current"

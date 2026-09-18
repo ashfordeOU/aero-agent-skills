@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-onboard-failure-removal-response
+# (space-systems/ecss, E-ST-20-20C 5.2.14.2.1). Two tasks per leaf; ofr1 routes
+# on the software action itself, ofr2 on the latency transient and the off
+# command the failed switch may not answer. Both must deterministically hit
+# space-systems/ecss/e2020-onboard-failure-removal-response.
+tasks:
+  - id: ofr1
+    query: "establish the onboard-software-failure-removal behaviour for a dissipative-failure-load-reduction against a dissipative-failure-switch-off-command"
+    intent: "ecss power supply; onboard software answers a dissipatively failed limiter switch by shedding load or commanding it off"
+    expected_skill: "space-systems/ecss/e2020-onboard-failure-removal-response"
+  - id: ofr2
+    query: "budget the onboard-response-latency-heating and test failed-switch-off-command-effectiveness on a dissipatively failed limiter"
+    intent: "ecss power supply; the parts heat while the software decides, and a failed switch may not answer the off command at all"
+    expected_skill: "space-systems/ecss/e2020-onboard-failure-removal-response"

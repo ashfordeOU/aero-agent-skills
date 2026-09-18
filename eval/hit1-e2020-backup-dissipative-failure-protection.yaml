@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-backup-dissipative-failure-protection (space-systems/ecss)
+# Two tasks for the new leaf. bdp1 routes on the conditional third protection
+# owed only where neither earlier provision applies; bdp2 routes on backup
+# coverage, independence and the thermal run-up it has to act inside. Both must
+# deterministically hit
+# space-systems/ecss/e2020-backup-dissipative-failure-protection.
+tasks:
+  - id: bdp1
+    query: "our shunt dissipater cannot take the stuck-on case on its derated rating and the only off command runs through the drive that failed, so what protection do we still owe"
+    intent: "ECSS-E-ST-20-20C clause 5.2.14.3.1; the additional protection covering a dissipative switch failure in the case where neither of the two earlier provisions can apply"
+    expected_skill: "space-systems/ecss/e2020-backup-dissipative-failure-protection"
+  - id: bdp2
+    query: "we added a thermal cutout behind the dissipative switch but it hangs off the same gate drive and opens after the junction passes its limit"
+    intent: "ECSS-E-ST-20-20C clause 5.2.14.3.1; matching a backup dissipative protection to the failure mode it covers, keeping it clear of the switch elements, and racing its action time against the thermal run-up"
+    expected_skill: "space-systems/ecss/e2020-backup-dissipative-failure-protection"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-off-state-leakage-and-voltage (space-systems/ecss,
+# E-ST-20-20C 5.4.1.3.1). Two tasks per leaf; loc1 routes on the two off-state
+# limits themselves, loc2 on the load coupling and the temperature corners that
+# bound them. Both must deterministically hit
+# space-systems/ecss/e2020-off-state-leakage-and-voltage.
+tasks:
+  - id: loc1
+    query: "check the lcl-off-state-leakage-current and the off-state-residual-output-voltage a limiter presents while it is commanded off"
+    intent: "ecss power supply; maximum leakage current and residual output voltage permitted in the off state"
+    expected_skill: "space-systems/ecss/e2020-off-state-leakage-and-voltage"
+  - id: loc2
+    query: "work out the governing-off-state-leakage-ceiling from residual-voltage-off-state-load-coupling and grade the off-state-leakage-temperature-corners"
+    intent: "ecss power supply; the leakage ceiling the residual voltage limit permits across the off-state load, graded over temperature"
+    expected_skill: "space-systems/ecss/e2020-off-state-leakage-and-voltage"

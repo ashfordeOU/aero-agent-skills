@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2020-rlcl-spurious-switch-off-recovery (space-systems/ecss)
+# Two tasks for the leaf. rssr1 routes on autonomous return to conduction after
+# an unintended trip; rssr2 routes on the retrigger cycle count and the hold-up
+# comparison. Both must deterministically hit
+# space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery.
+tasks:
+  - id: rssr1
+    query: "show that a retriggerable limiter puts itself back into the conducting state after an unintended switch-off instead of waiting for a ground command to restore the load"
+    intent: "ECSS-E-ST-20-20C clause 5.2.18.1.1; autonomous recovery of a retriggerable limiter from a spurious trip"
+    expected_skill: "space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery"
+  - id: rssr2
+    query: "count how many retrigger cycles a bus disturbance forces on a limiter, build the recovery latency from detection open interval and turn-on ramp, and compare it against the hold-up of the load behind it"
+    intent: "ECSS-E-ST-20-20C clause 5.2.18.1.1; retrigger cycle count, recovery latency, load hold-up margin"
+    expected_skill: "space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery"

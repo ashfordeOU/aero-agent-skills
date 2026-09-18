@@ -1,0 +1,17 @@
+# Hit@1 fragment: e2020-perturbation-immunity-verification-levels
+# (space-systems/ecss). Two tasks for the leaf. pivl1 routes on the split
+# itself, where a perturbation that needs the flight harness or the real bus
+# source impedance cannot be discharged on a bench and has to go to the
+# spacecraft-level campaign; pivl2 routes on the coverage side, where the
+# union of the allocated requirement bands is compared against the specified
+# band and the uncovered slices are named. Both must deterministically hit
+# space-systems/ecss/e2020-perturbation-immunity-verification-levels.
+tasks:
+  - id: pivl1
+    query: "split the power-bus perturbation immunity requirements between unit-level bench testing and spacecraft-level testing, sending anything that needs the flight harness or the real bus source impedance to the spacecraft-level campaign"
+    intent: "ECSS-E-ST-20-20C clause 5.2.16.2.1; allocating protection-device immunity requirements to the verification level that can reproduce them"
+    expected_skill: "space-systems/ecss/e2020-perturbation-immunity-verification-levels"
+  - id: pivl2
+    query: "merge the frequency bands of every allocated immunity requirement and name the slices of the specified band that neither the unit-level nor the spacecraft-level campaign actually verifies"
+    intent: "ECSS-E-ST-20-20C clause 5.2.16.2.1; immunity frequency band coverage across the two verification levels"
+    expected_skill: "space-systems/ecss/e2020-perturbation-immunity-verification-levels"

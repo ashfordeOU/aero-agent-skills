@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-startup-output-pulse-duration (space-systems/ecss)
+# Two tasks for the leaf. sopd1 routes on timing the stay outside the
+# permitted band during main bus start up by interpolating both band
+# crossings; sopd2 routes on the two things that change that duration - a
+# momentary re-entry absorbed by the dead time, and an excursion the sample
+# rate rather than the unit bounded. Both must deterministically hit
+# space-systems/ecss/e2020-startup-output-pulse-duration.
+tasks:
+  - id: sopd1
+    query: "time how long the output stays outside its permitted band during main bus start up by interpolating the entry and exit band crossings instead of counting whole samples"
+    intent: "ECSS-E-ST-20-20C clause 5.4.2.5.1; start up output pulse duration between interpolated band crossings"
+    expected_skill: "space-systems/ecss/e2020-startup-output-pulse-duration"
+  - id: sopd2
+    query: "absorb the momentary return inside the band into one ringing event using the declared re-entry dead time and flag the excursion whose duration the capture sample rate bounded"
+    intent: "ECSS-E-ST-20-20C clause 5.4.2.5.1; re-entry coalescing and sample-rate resolution limit on a pulse duration"
+    expected_skill: "space-systems/ecss/e2020-startup-output-pulse-duration"

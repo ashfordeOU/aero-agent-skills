@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2020-switch-off-current-slew-limit (space-systems/ecss)
+# Two tasks for the leaf. sosl1 routes on the steepest collapse of a turn-off
+# trace against the declared rate-of-fall ceiling; sosl2 routes on the second
+# question the same trace owes -- the transient that rate drives across the
+# harness inductance. Both must deterministically hit
+# space-systems/ecss/e2020-switch-off-current-slew-limit.
+tasks:
+  - id: sosl1
+    query: "judge whether a switch-off trace collapses faster than the declared rate-of-fall ceiling at its steepest stretch rather than over the whole decay"
+    intent: "ECSS-E-ST-20C clause 5.4.2.2.1; peak falling current rate against the declared turn-off ceiling"
+    expected_skill: "space-systems/ecss/e2020-switch-off-current-slew-limit"
+  - id: sosl2
+    query: "work out whether a turn-off rate that sits inside its slew ceiling still drives more transient across the harness inductance than the bus allowance permits"
+    intent: "ECSS-E-ST-20C clause 5.4.2.2.1; induced harness transient from the switch-off current fall rate"
+    expected_skill: "space-systems/ecss/e2020-switch-off-current-slew-limit"

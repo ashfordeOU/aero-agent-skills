@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-additional-series-switch-provision (space-systems/ecss)
+# Two tasks for the leaf. assp1 routes on justifying the second commandable
+# switch itself — series arrangement, separate command path and drive domain,
+# and the breaking capacity against the prospective fault current; assp2 routes
+# on the residual stuck-on probability once a common-cause factor is folded in.
+# Both must deterministically hit
+# space-systems/ecss/e2020-additional-series-switch-provision.
+tasks:
+  - id: assp1
+    query: "justify a second commandable switch in series so the line can still be opened when the main switch stays on, with a separate command path and drive domain and enough breaking capacity for the prospective fault current"
+    intent: "ECSS-E-ST-20-20C clause 5.2.13.3.1; additional series switch arrangement, command independence and breaking capability"
+    expected_skill: "space-systems/ecss/e2020-additional-series-switch-provision"
+  - id: assp2
+    query: "fold a common-cause factor into the two stuck-on probabilities to get the residual chance the power line cannot be opened, and add the two series conduction drops against the allowable line drop"
+    intent: "ECSS-E-ST-20-20C clause 5.2.13.3.1; residual stuck-on probability with common cause and the summed series conduction drop"
+    expected_skill: "space-systems/ecss/e2020-additional-series-switch-provision"

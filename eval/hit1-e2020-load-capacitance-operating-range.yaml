@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-load-capacitance-operating-range (space-systems/ecss)
+# Two tasks for the leaf. lcor1 routes on derating a declared bulk capacitance
+# to a worst-case effective maximum and taking the smallest class whose
+# tabulated capacitance covers it; lcor2 routes on the range question itself,
+# where every capacitance up to the tabulated maximum has to charge inside the
+# shortest trip-off delay. Both must deterministically hit
+# space-systems/ecss/e2020-load-capacitance-operating-range.
+tasks:
+  - id: lcor1
+    query: "derate a declared 150 uF bulk capacitance for initial tolerance, temperature coefficient, ageing and DC bias, then take the smallest limiter class whose tabulated maximum load capacitance covers the worst-case effective value"
+    intent: "ECSS-E-ST-20-20C clause 5.2.19.2.1; load capacitance derating stack against the tabulated class maximum"
+    expected_skill: "space-systems/ecss/e2020-load-capacitance-operating-range"
+  - id: lcor2
+    query: "show the line operates normally at every load capacitance from nothing up to the tabulated class maximum, charging at the lower limiting current inside the shortest trip-off delay, and report the largest capacitance the class can actually start"
+    intent: "ECSS-E-ST-20-20C clause 5.2.19.2.1; capacitance range sweep, inrush charge at the tabulated maximum and startable capacitance headroom"
+    expected_skill: "space-systems/ecss/e2020-load-capacitance-operating-range"

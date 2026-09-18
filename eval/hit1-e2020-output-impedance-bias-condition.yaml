@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2020-output-impedance-bias-condition (space-systems/ecss).
+# Two tasks for the leaf. ooibc1 routes on naming the device voltage drop the
+# output impedance data was taken at and holding it on the reference bias
+# point; ooibc2 routes on reconciling that declared drop against the drop the
+# reported load current and series resistance imply, and on the spread across
+# the reported classes. Both must deterministically hit
+# space-systems/ecss/e2020-output-impedance-bias-condition.
+tasks:
+  - id: ooibc1
+    query: "state the device voltage drop the output impedance data was measured at and show it sits on the reference bias point and inside the operating drop window for every reported class"
+    intent: "ECSS-E-ST-20-20C clause 5.2.17.2.1; declaring and checking the bias point of an output impedance measurement"
+    expected_skill: "space-systems/ecss/e2020-output-impedance-bias-condition"
+  - id: ooibc2
+    query: "reconcile the declared voltage drop against the drop the reported load current and series resistance imply, take the implied dissipation against the device limit and flag classes that straddle the bias tolerance as a group"
+    intent: "ECSS-E-ST-20-20C clause 5.2.17.2.1; bias point consistency, dissipation and commonality across reported classes"
+    expected_skill: "space-systems/ecss/e2020-output-impedance-bias-condition"
