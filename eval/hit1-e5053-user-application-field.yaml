@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-user-application-field (space-systems/ecss)
+# Two tasks for the new leaf. uaf1 routes on allocating identifiers behind one
+# logical address without a collision. uaf2 routes on the disposition of a unit
+# whose identifier nothing claims. Both must deterministically hit
+# space-systems/ecss/e5053-user-application-field.
+tasks:
+  - id: uaf1
+    query: "four users of the packet transfer protocol share one logical address: allocate their identifiers and say why a duplicate behind that address has no run-time symptom"
+    intent: "ECSS-E-ST-50-53C clause 5.3.5; user application identifier allocation, table collision refusal, one-octet space audit"
+    expected_skill: "space-systems/ecss/e5053-user-application-field"
+  - id: uaf2
+    query: "a spacewire unit arrives naming an application identifier that is not in the node table: decide whether to hand it to the nearest registered user or drop it, and where that octet is read"
+    intent: "ECSS-E-ST-50-53C clause 5.3.5; user application demultiplexing, unregistered identifier discard, field offset from path length"
+    expected_skill: "space-systems/ecss/e5053-user-application-field"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-corrosion-resistance-verification (space-systems/ecss)
+# crv1 routes on the seal admittance that has to be referred to a common coating
+# thickness before it is graded; crv2 routes on the salt fog run that was cut
+# short and cannot be read as a pass. Both must deterministically hit
+# space-systems/ecss/q7003-corrosion-resistance-verification.
+tasks:
+  - id: crv1
+    query: "two sealed anodize coupons came back with the same admittance reading but one coating is twice as thick as the other, work out which one is actually better sealed and whether either is acceptable"
+    intent: "ECSS-Q-ST-70-03 quality clause; seal admittance referred to a reference coating thickness before the sealed, marginal or unsealed grouping"
+    expected_skill: "space-systems/ecss/q7003-corrosion-resistance-verification"
+  - id: crv2
+    query: "the salt fog cabinet tripped and the run stopped at 200 hours against a 336 hour requirement, the coupon looks clean, can I record the corrosion resistance as demonstrated"
+    intent: "ECSS-Q-ST-70-03 quality clause; a short neutral salt fog exposure is inconclusive, not a pass, and attack is graded by density and worst site"
+    expected_skill: "space-systems/ecss/q7003-corrosion-resistance-verification"

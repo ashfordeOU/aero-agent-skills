@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-paint-system-selection (space-systems/ecss)
+# Two tasks for the new leaf. pss1 routes on the primer-to-substrate and
+# topcoat-over-primer chain; pss2 routes on the end-of-life absorptance the
+# thermal role has to be graded against. Both must deterministically hit
+# space-systems/ecss/q7031-paint-system-selection.
+tasks:
+  - id: pss1
+    query: "pick a primer and topcoat pairing for a magnesium fitting - I have four candidate systems and I need to know which ones will not bond and which topcoats are not qualified over the primer"
+    intent: "ECSS-Q-ST-70-31C materials; primer-substrate compatibility and topcoat-over-primer qualification as hard screens, not weighted scores"
+    expected_skill: "space-systems/ecss/q7031-paint-system-selection"
+  - id: pss2
+    query: "this radiator finish looks right on the datasheet but the mission is nine thousand equivalent sun hours - tell me which candidate still holds its absorptance to emittance ratio at the end of life"
+    intent: "ECSS-Q-ST-70-31C materials; ultraviolet-degraded solar absorptance clamped at unity, ratio against the thermal role targets, environment ratings as rejections"
+    expected_skill: "space-systems/ecss/q7031-paint-system-selection"

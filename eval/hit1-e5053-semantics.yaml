@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-semantics (space-systems/ecss)
+# Two tasks for the new leaf. sem1 routes on a conditional parameter with no
+# stated condition; sem2 routes on the request-to-indication alignment that a
+# per-primitive read cannot see. Both must deterministically hit
+# space-systems/ecss/e5053-semantics.
+tasks:
+  - id: sem1
+    query: "this primitive's parameter table marks a field as conditional but never says under what condition it is there, tell me what else in the table has the same gap"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.2; parameter entries need a name, a type and a presence category, and a conditional entry needs its condition with it"
+    expected_skill: "space-systems/ecss/e5053-semantics"
+  - id: sem2
+    query: "compare the parameter lists of the request and the matching indication and say whether anything the sender always supplies has gone missing or turned up stricter at the far end"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.2; a partner primitive may relax a presence category but never tighten it, and may only add a provider-generated parameter"
+    expected_skill: "space-systems/ecss/e5053-semantics"

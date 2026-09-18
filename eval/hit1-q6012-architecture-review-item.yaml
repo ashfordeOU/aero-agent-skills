@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-architecture-review-item (space-systems/ecss)
+# Two tasks for the new leaf. ari1 routes on the cascade of the proposed block
+# chain against the electrical numbers; ari2 routes on the topology having no
+# block for a required function. Both must deterministically hit
+# space-systems/ecss/q6012-architecture-review-item.
+tasks:
+  - id: q6012ari1
+    query: "here is the proposed MMIC block chain, an LNA then a driver then a matched output stage with their gains noise figures and output intercepts, work out whether the cascaded noise figure and output IP3 clear the electrical requirements and how much margin is left"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.2; cascading the proposed block structure with the Friis noise contribution and the output third-order intercept referred to the chain output, then margining against the requirements"
+    expected_skill: "space-systems/ecss/q6012-architecture-review-item"
+  - id: q6012ari2
+    query: "the proposed topology hits every gain and linearity number but I cannot find a block that does the output matching, and the DC draw adds up past the budget, say whether this architecture can be accepted at the review"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.2; block-function coverage of the chosen topology against the required functions, plus the DC power budget as an electrical design requirement"
+    expected_skill: "space-systems/ecss/q6012-architecture-review-item"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-specimen-preparation (space-systems/ecss)
+# Two tasks for the new leaf. qspec1 routes on the three specimen populations and
+# the uncycled reference a destructive measurement needs; qspec2 routes on sensor
+# placement on an instrumented unit and the bake-out duration. Both must
+# deterministically hit space-systems/ecss/q7004-specimen-preparation.
+tasks:
+  - id: qspec1
+    query: "the post test measurement destroys the coupon, so how many do we cut, how many stay out of the chamber as a baseline and how many spares, and in what order do we mark, weigh and clean them"
+    intent: "ECSS-Q-ST-70-04C specimen preparation; allocating cycled, uncycled reference and spare specimens when the post-test measurement is destructive, and ordering the preparation steps"
+    expected_skill: "space-systems/ecss/q7004-specimen-preparation"
+  - id: qspec2
+    query: "this instrumented unit has a heavy baseplate, a light cover and a small bracket, where do the thermal zone sensors go, which zone should the thermal profile be controlled on because it is slowest, and how long does the specimen bake out have to run before a vacuum run"
+    intent: "ECSS-Q-ST-70-04C specimen preparation; sensor placement per thermal zone, choosing the slowest zone as the controlling one, and computing the bake-out duration from a diffusion model"
+    expected_skill: "space-systems/ecss/q7004-specimen-preparation"

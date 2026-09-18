@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-pre-treatment-requirements (space-systems/ecss)
+# pre1 routes on the ordering and rinsing of the chemical steps ahead of the
+# tank; pre2 routes on the etch depth and the transfer hold, the two places
+# where time itself is the process parameter. Both must deterministically hit
+# space-systems/ecss/q7003-pre-treatment-requirements.
+tasks:
+  - id: pre1
+    query: "here is the tank sequence the shop wrote out before the anodize line, tell me whether the cleaning and deoxidizing steps are in the right order and where a rinse is missing between two baths"
+    intent: "ECSS-Q-ST-70-03C process clause, pre-treatment; forced chemical ordering and the rinse required between consecutive aqueous baths"
+    expected_skill: "space-systems/ecss/q7003-pre-treatment-requirements"
+  - id: pre2
+    query: "the etch runs at half a micron a minute for eight minutes and the parts then sit twenty minutes before they reach the tank, is that line still inside what the process allows"
+    intent: "ECSS-Q-ST-70-03C process clause, pre-treatment; etch metal removal against the minimum and the drawing allowance, plus the bounded deoxidize-to-tank transfer"
+    expected_skill: "space-systems/ecss/q7003-pre-treatment-requirements"

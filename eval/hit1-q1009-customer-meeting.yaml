@@ -1,0 +1,15 @@
+# Hit@1 fragment: q1009-customer-meeting (space-systems/ecss)
+# Two tasks for the new leaf. cm1 routes on the split attendance verdict - a
+# constituted board that still cannot confirm anything. cm2 routes on the
+# higher-level impacts only the customer side can assess.
+# Both must deterministically hit
+# space-systems/ecss/q1009-customer-meeting.
+tasks:
+  - id: cm1
+    query: "the customer board sat on our submission but nobody from our side was in the room, can they confirm the causes we put in the package or does it defer"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.3.1 and 5.2.3.3; board constitution separate from supplier presence, per-statement confirmed, disputed or open, and the deferral reason"
+    expected_skill: "space-systems/ecss/q1009-customer-meeting"
+  - id: cm2
+    query: "work out what this departure costs at system level - the allocated mass budget, the parameter on the interface document and the float left on that activity"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.3.2; system budget share at its allocation boundary, interface parameter against its agreed range with the on-bound case, float before critical path"
+    expected_skill: "space-systems/ecss/q1009-customer-meeting"

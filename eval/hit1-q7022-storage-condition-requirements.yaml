@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7022-storage-condition-requirements (space-systems/ecss)
+# Two tasks for the new leaf. scr1 routes on the intersection of a datasheet
+# limit with the house family default; scr2 routes on the control tolerance that
+# puts a chamber's reachable extreme outside the band its setpoint sits in.
+# Both must deterministically hit
+# space-systems/ecss/q7022-storage-condition-requirements.
+tasks:
+  - id: scr1
+    query: "the datasheet lets this sealant sit at 35 C but our own material family rule stops lower, work out what temperature and humidity we actually have to hold it at"
+    intent: "ECSS-Q-ST-70-22 storage clause; the required envelope is the intersection of family default and declared limits, tighter side governing"
+    expected_skill: "space-systems/ecss/q7022-storage-condition-requirements"
+  - id: scr2
+    query: "the cold room is set to the top of the allowed band and holds to plus or minus one degree, is it actually fit to store this batch or do we need added controls"
+    intent: "ECSS-Q-ST-70-22 storage clause; compare the store's reachable extreme not its setpoint, and separate mitigable breaches from ones needing a different store"
+    expected_skill: "space-systems/ecss/q7022-storage-condition-requirements"

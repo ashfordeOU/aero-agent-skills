@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6012-design-principles-general-provisions (space-systems/ecss)
+# Two tasks for the new leaf. gp1 routes on the provision-by-stage coverage of the
+# MMIC design effort and the stage a baseline condition first lapsed at; gp2 routes
+# on the two numeric baseline conditions, the validated model span and the junction
+# derating limit, that the general provisions carry across the whole effort.
+# Both must deterministically hit
+# space-systems/ecss/q6012-design-principles-general-provisions.
+tasks:
+  - id: gp1
+    query: "the mmic design kept its baseline conditions at the architecture review but the process kit was revised twice after that, work out for each provision the first design stage where it stopped holding or was never assessed at all"
+    intent: "ECSS-Q-ST-60-12C clause 7.1.2; provision-by-stage coverage across the specification-to-freeze effort, undeclared distinguished from not-held, first lapse stage reported"
+    expected_skill: "space-systems/ecss/q6012-design-principles-general-provisions"
+  - id: gp2
+    query: "check the microwave circuit against the baseline conditions that apply across the whole design effort - is the operating band still inside the span the process models were validated over, and is the predicted junction temperature inside the derating baseline"
+    intent: "ECSS-Q-ST-60-12C clause 7.1.2; the numeric general provisions, model validity band and junction derating baseline, graded with the boundary equality absorbed rather than the limit moved"
+    expected_skill: "space-systems/ecss/q6012-design-principles-general-provisions"

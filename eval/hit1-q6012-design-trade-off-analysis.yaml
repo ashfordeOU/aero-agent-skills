@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-design-trade-off-analysis (space-systems/ecss)
+# Two tasks for the new leaf. to1 routes on the four-axis weighing of candidate
+# microwave circuit architectures and the elimination of a candidate that misses a
+# requirement threshold; to2 routes on whether the preferred architecture survives a
+# move in the weights at all. Both must deterministically hit
+# space-systems/ecss/q6012-design-trade-off-analysis.
+tasks:
+  - id: to1
+    query: "three candidate mmic architectures, one has the gain but eats die area and dc power, one is compact with better yield - weigh them against the thresholds and goals on all four axes and tell me which one to settle on"
+    intent: "ECSS-Q-ST-60-12C clause 7.1.4; threshold elimination with every missed criterion named, clamped threshold-to-goal utility so over-delivery on one axis cannot buy a shortfall on another, weighted ranking"
+    expected_skill: "space-systems/ecss/q6012-design-trade-off-analysis"
+  - id: to2
+    query: "the architecture trade came out with the cascode ahead by a hair, find out whether that lead survives moving the yield and die area weights a little or whether we just picked a weighting"
+    intent: "ECSS-Q-ST-60-12C clause 7.1.4; scores inside the tie tolerance reported as ties, weight perturbation re-ranking, a lead that flips reported as a finding against the trade"
+    expected_skill: "space-systems/ecss/q6012-design-trade-off-analysis"

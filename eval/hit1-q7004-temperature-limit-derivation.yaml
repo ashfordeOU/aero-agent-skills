@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-temperature-limit-derivation (space-systems/ecss)
+# Two tasks for the new leaf. tld1 routes on the margin build-up from the data
+# basis out to the test limit; tld2 routes on a derived limit that exceeds the
+# hardware capability and the widening a measurement would take back. Both must
+# deterministically hit space-systems/ecss/q7004-temperature-limit-derivation.
+tasks:
+  - id: tld1
+    query: "the thermal analysis predicts minus twenty to plus sixty from a model nobody has correlated yet, turn that into the limits a qualification run should go to and show every increment you added"
+    intent: "ECSS-Q-ST-70-04C temperature limits; building up the uncertainty increment from the data basis plus the acceptance and qualification bands, with the programme ceiling on the total"
+    expected_skill: "space-systems/ecss/q7004-temperature-limit-derivation"
+  - id: tld2
+    query: "the derived hot test limit comes out above what the adhesive can survive, show the margin build up from the predicted thermal environment, and say how much narrower the test envelope gets if we instrument the flight hardware and measure it instead of trusting an uncorrelated model"
+    intent: "ECSS-Q-ST-70-04C temperature limits; checking a derived limit against the hardware capability envelope and reporting the widening a measured data basis would take back"
+    expected_skill: "space-systems/ecss/q7004-temperature-limit-derivation"

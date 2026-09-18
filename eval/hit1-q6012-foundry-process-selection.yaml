@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-foundry-process-selection (space-systems/ecss)
+# Two tasks for the new leaf. fps1 routes on the validated-process-plus-foundry
+# pairing and what a process change since validation does to it; fps2 routes on
+# the process control monitor capability index and the production horizon.
+# Both must deterministically hit
+# space-systems/ecss/q6012-foundry-process-selection.
+tasks:
+  - id: fps1
+    query: "confirm the validation status of this semiconductor process, its reference document and whether it is still current, and treat the process change the foundry made since validation as a re-qualification trigger for the microwave design committing to that process line"
+    intent: "ECSS-Q-ST-60-12 clause 5.2; process validation currency and a post-validation process change as a re-qualification trigger"
+    expected_skill: "space-systems/ecss/q6012-foundry-process-selection"
+  - id: fps2
+    query: "work out from the gate length whether this process reaches 30 GHz at all, then take the process control monitor statistics and tell me which monitored parameter has the weakest capability index and whether the declared production horizon outlasts our programme"
+    intent: "ECSS-Q-ST-60-12 clause 5.2; gate-length frequency screen, weakest process-control capability index and supply continuity horizon"
+    expected_skill: "space-systems/ecss/q6012-foundry-process-selection"

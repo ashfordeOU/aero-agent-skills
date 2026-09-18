@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-erroneous-telecommand-rejection (space-systems/ecss)
+# et1 routes on a check order that blamed a parameter on a corrupted packet;
+# et2 routes on a command that began to act before its checks finished. Both
+# must deterministically hit
+# space-systems/ecss/e50-erroneous-telecommand-rejection.
+tasks:
+  - id: et1
+    query: "the on-board acceptance chain reported an out of range parameter but the packet had failed its check symbol, which reason should have gone to the ground"
+    intent: "ECSS-E-ST-50C clause 5.4.3; once integrity fails every later field is untrustworthy, so the first failing check is the reason and the order is part of the contract"
+    expected_skill: "space-systems/ecss/e50-erroneous-telecommand-rejection"
+  - id: et2
+    query: "a malformed telecommand switched one relay before the parameter check rejected it, what does the standard require instead of that half-done outcome"
+    intent: "ECSS-E-ST-50C clause 5.4.3; a rejected command executes nothing at all and the rejection owes the ground a report rather than silence"
+    expected_skill: "space-systems/ecss/e50-erroneous-telecommand-rejection"

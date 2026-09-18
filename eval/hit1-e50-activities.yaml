@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-activities (space-systems/ecss)
+# Two tasks for the new leaf. act1 routes on the required activity set of the
+# communication system engineering step; act2 routes on an activity whose input
+# no peer produces.
+# Both must deterministically hit space-systems/ecss/e50-activities.
+tasks:
+  - id: act1
+    query: "our communication system engineering plan lists every required activity by name but none of them says what it consumes or produces, judge whether that plan actually covers the step"
+    intent: "ECSS-E-ST-50C clause 5.2.1.2; the clause fixes the activities of the step, and coverage without each activity consuming an input and producing an output is a list of headings"
+    expected_skill: "space-systems/ecss/e50-activities"
+  - id: act2
+    query: "one activity in our comms design process consumes a layer allocation that no other activity in the step produces and that the step was never handed, say what that means for the plan"
+    intent: "ECSS-E-ST-50C clause 5.2.1.2; an input satisfied neither by the step's inputs nor by a peer activity's output is an activity that cannot start"
+    expected_skill: "space-systems/ecss/e50-activities"

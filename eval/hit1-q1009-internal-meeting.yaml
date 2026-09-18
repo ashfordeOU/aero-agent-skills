@@ -1,0 +1,15 @@
+# Hit@1 fragment: q1009-internal-meeting (space-systems/ecss)
+# Two tasks for the new leaf. im1 routes on the sitting itself - who has to be in
+# the room versus who counts toward the voting quorum. im2 routes on agenda
+# admissibility: an item whose review package is short is deferred, not decided.
+# Both must deterministically hit
+# space-systems/ecss/q1009-internal-meeting.
+tasks:
+  - id: im1
+    query: "our nonconformance board met with the configuration manager standing in for design engineering, work out whether that sitting was quorate or whether we have to reconvene"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.1; mandatory board functions sitting versus the attending share of the appointed voting membership, and which shortfall a delegate can repair"
+    expected_skill: "space-systems/ecss/q1009-internal-meeting"
+  - id: im2
+    query: "go through tomorrow's internal review board agenda and tell me which items can actually be heard and which ones get deferred because the package is short"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.1; review-package admissibility per agenda item and the decision record each item heard has to leave behind"
+    expected_skill: "space-systems/ecss/q1009-internal-meeting"

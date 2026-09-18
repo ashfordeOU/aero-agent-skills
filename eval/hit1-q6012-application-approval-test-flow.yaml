@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-application-approval-test-flow (space-systems/ecss)
+# Two tasks for the leaf. tf1 routes on deriving the execution order of the evaluation
+# tests from their dependencies; tf2 routes on the resource half - sample groups closing at
+# a destructive step and the parts each group needs. Both must deterministically hit
+# space-systems/ecss/q6012-application-approval-test-flow.
+tasks:
+  - id: tf1
+    query: "lay out the evaluation tests that have to run before this die gets its application approval, derive one execution order from the declared dependencies rather than the order they were typed, and say which mandatory evaluation is missing or which evidence pair the flow has inverted"
+    intent: "ECSS-Q-ST-60-12C clause 8.2; deterministic evaluation ordering and mandatory step coverage"
+    expected_skill: "space-systems/ecss/q6012-application-approval-test-flow"
+  - id: tf2
+    query: "the construction analysis consumes its samples and something is scheduled downstream of it, cut the approval flow into sample groups that end at the destructive step, work out how many die each group needs and whether the parts we have cover the whole programme"
+    intent: "ECSS-Q-ST-60-12C clause 8.2; destructive-step sample conflicts and per-group sample sizing"
+    expected_skill: "space-systems/ecss/q6012-application-approval-test-flow"

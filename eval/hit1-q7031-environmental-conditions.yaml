@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-environmental-conditions (space-systems/ecss)
+# Two tasks for the new leaf. env1 routes on the substrate dew-point margin that
+# an in-window booth reading cannot answer; env2 routes on the per-size ISO
+# 14644-1 airborne limit for the spray area. Both must deterministically hit
+# space-systems/ecss/q7031-environmental-conditions.
+tasks:
+  - id: env1
+    query: "the booth log says 22 degrees and 45 percent but the panel just came off a cold bench, work out whether we can start spraying or whether the part will carry condensation"
+    intent: "ECSS-Q-ST-70-31C application environment; substrate dew-point margin is a hardware temperature criterion, not a booth relative-humidity one"
+    expected_skill: "space-systems/ecss/q7031-environmental-conditions"
+  - id: env2
+    query: "we have particle counts at half a micron and five microns for the paint area and a declared cleanliness class, tell me whether the area releases for application"
+    intent: "ECSS-Q-ST-70-31C application environment; the airborne class is a per-size concentration limit graded size by size before a coat goes on"
+    expected_skill: "space-systems/ecss/q7031-environmental-conditions"

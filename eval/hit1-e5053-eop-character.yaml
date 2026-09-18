@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-eop-character (space-systems/ecss)
+# Two tasks for the new leaf. eop1 routes on the terminator deciding delivery
+# before any payload is parsed; eop2 routes on the census of terminators across a
+# run, which separates a degraded link from an unlucky packet.
+# Both must deterministically hit
+# space-systems/ecss/e5053-eop-character.
+tasks:
+  - id: eop1
+    query: "the link reported an error end of packet but the header that arrived parses cleanly, decide whether we can hand that payload up to the application or have to throw it away"
+    intent: "ECSS-E-ST-50-53C clause 5.4.1.8; only a normal end-of-packet marker makes the contained CCSDS packet deliverable, an abandoned transfer is a fragment"
+    expected_skill: "space-systems/ecss/e5053-eop-character"
+  - id: eop2
+    query: "go through a night of SpaceWire receive logs and tell me whether the terminator pattern means the link is degraded or we just had a couple of bad packets"
+    intent: "ECSS-E-ST-50-53C clause 5.4.1.8; discard ratio across a received sequence against a budget, with absent terminators counted apart from error terminators"
+    expected_skill: "space-systems/ecss/e5053-eop-character"

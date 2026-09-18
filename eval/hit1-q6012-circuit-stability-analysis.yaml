@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-circuit-stability-analysis (space-systems/ecss)
+# Two tasks for the new leaf. csa1 routes on the unconditional-versus-conditional
+# question and the stability circle that decides which terminations are safe. csa2
+# routes on the analysed frequency span, which is where the out-of-band oscillation
+# actually lives. Both must deterministically hit
+# space-systems/ecss/q6012-circuit-stability-analysis.
+tasks:
+  - id: csa1
+    query: "I have s-parameters for this MMIC gain stage across frequency; work out whether any passive termination could make it oscillate and if so which of the loads our matching network presents are in the dangerous half of the plane"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.8; Rollett factor with the determinant, geometric mu factor, source and load stability circles, and which side of the circle the centre of the plane falls on"
+    expected_skill: "space-systems/ecss/q6012-circuit-stability-analysis"
+  - id: csa2
+    query: "our amplifier simulation is clean across the operating band but the engineering model rang on the bench; tell me how far below and above the band the stability sweep should have gone"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.8; the sweep reaches decades below the band edge where the device has surplus gain and the matching networks no longer control the terminations, and a multiple above it"
+    expected_skill: "space-systems/ecss/q6012-circuit-stability-analysis"

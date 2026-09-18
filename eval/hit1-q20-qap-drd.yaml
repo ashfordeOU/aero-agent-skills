@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-qap-drd (space-systems/ecss)
+# Two tasks for the leaf. qap1 routes on the Annex A section and subject list
+# a quality plan owes; qap2 routes on the level-dependent task provisions and
+# the tailoring rules. Both must deterministically hit
+# space-systems/ecss/q20-qap-drd, not the delivery or data-package leaves.
+tasks:
+  - id: qap1
+    query: "check our draft quality plan against the annex A content list and tell me which sections are headings with nothing under them, especially whether the organisation section actually states the quality function's independence"
+    intent: "ECSS-Q-ST-20C Annex A; quality assurance plan DRD section order and the subjects each section owes"
+    expected_skill: "space-systems/ecss/q20-qap-drd"
+  - id: qap2
+    query: "we reused a supplier quality plan for a prime contract and tailored two sections out with a note; work out which task provisions the plan now owes and whether either tailoring declaration is admissible"
+    intent: "ECSS-Q-ST-20C Annex A; contract-level task provisions and the tailoring justification and approver rules of the quality plan DRD"
+    expected_skill: "space-systems/ecss/q20-qap-drd"

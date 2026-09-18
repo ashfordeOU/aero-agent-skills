@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-repair-and-touch-up (space-systems/ecss)
+# Two tasks for the leaf. rt1 routes on the cumulative repaired-area fraction
+# and the local re-application budget; rt2 routes on projecting local film
+# thickness after the abrade plus the new coat. Both must deterministically hit
+# space-systems/ecss/q7031-repair-and-touch-up, not the stripping leaf.
+tasks:
+  - id: rt1
+    query: "can we touch up this paint defect in place or does the part have to be stripped - the same spot has already been re-coated twice and earlier repairs have taken part of the painted area"
+    intent: "ECSS-Q-ST-70-31C repair and touch-up; cumulative repaired-area fraction and the local re-application limit"
+    expected_skill: "space-systems/ecss/q7031-repair-and-touch-up"
+  - id: rt2
+    query: "work out the local film thickness this touch-up will leave after we abrade the area back and put the new coat on, and price the mass the repair adds against the unit allowance"
+    intent: "ECSS-Q-ST-70-31C repair and touch-up; projected local thickness after abrasion and repair mass against the budget"
+    expected_skill: "space-systems/ecss/q7031-repair-and-touch-up"

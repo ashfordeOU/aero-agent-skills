@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7002-specimen-representativeness (space-systems/ecss)
+# Two tasks for the new leaf. srep1 routes on the coupon geometry itself -- exposed
+# area per unit mass against the flight part, which no other q7002 leaf owns;
+# srep2 routes on the process state and the preconditioning soak that precede the
+# initial weighing. Both must deterministically hit
+# space-systems/ecss/q7002-specimen-representativeness.
+tasks:
+  - id: srep1
+    query: "the coupons cut for the outgassing screening are half the thickness of the flight bracket, work out whether they still stand for that part or whether the exposed area per unit mass has moved too far"
+    intent: "ECSS-Q-ST-70-02C test item; specific surface area of the screening coupon against the flight part, and the per-specimen mass window"
+    expected_skill: "space-systems/ecss/q7002-specimen-representativeness"
+  - id: srep2
+    query: "the technician solvent wiped the outgassing specimens and weighed them in after four hours in the lab, say whether that sample still represents the flight material state"
+    intent: "ECSS-Q-ST-70-02C test item; cleaning process and preconditioning soak hours, temperature and humidity before the initial weighing"
+    expected_skill: "space-systems/ecss/q7002-specimen-representativeness"

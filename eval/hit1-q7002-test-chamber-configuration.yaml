@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7002-test-chamber-configuration (space-systems/ecss)
+# Two tasks for the new leaf. cfg1 routes on the aperture-and-gap geometry that
+# fixes how much effused flux a collector can intercept; cfg2 routes on the
+# one-compartment-to-one-collector pairing and the heated bar zone spread. Both
+# must deterministically hit
+# space-systems/ecss/q7002-test-chamber-configuration.
+tasks:
+  - id: cfg1
+    query: "our outgassing rig has the collector plate 30 mm behind a 4 mm aperture, work out whether that geometry intercepts enough of the effused flux for the method"
+    intent: "ECSS-Q-ST-70-02C apparatus; aperture radius and compartment-to-collector gap combined into the intercepted flux fraction the method band is written against"
+    expected_skill: "space-systems/ecss/q7002-test-chamber-configuration"
+  - id: cfg2
+    query: "we want to run an extra material by putting two specimen compartments onto one collector plate, and the far end of the heater bar reads seven degrees cooler than the near end"
+    intent: "ECSS-Q-ST-70-02C apparatus; collector-to-compartment pairing and the temperature spread inside one heated zone"
+    expected_skill: "space-systems/ecss/q7002-test-chamber-configuration"

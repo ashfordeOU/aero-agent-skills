@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-design-iteration-count (space-systems/ecss)
+# Two tasks for the new leaf. ic1 routes on the number of foundry development
+# cycles the mmic plans before freeze and the novelty floor underneath the
+# analytic closure count; ic2 routes on the schedule capacity for those cycles,
+# which is a separate quantity from the required count. Both must deterministically
+# hit space-systems/ecss/q6012-design-iteration-count.
+tasks:
+  - id: ic1
+    query: "how many development cycles should this mmic plan before the design is frozen - the gain prediction is 4 dB off on a vendor default model and it is a new circuit on a process we have never run"
+    intent: "ECSS-Q-ST-60-12C clause 7.1.3; per-cycle convergence factor from model maturity, gap closure count rounded up to whole foundry runs, raised to the novelty floor for a new design"
+    expected_skill: "space-systems/ecss/q6012-design-iteration-count"
+  - id: ic2
+    query: "we have 80 weeks left and each foundry turnaround is 16 weeks after the front end work, say whether the planned number of microwave circuit design iterations actually fits before the freeze date and what gap the plan reaches"
+    intent: "ECSS-Q-ST-60-12C clause 7.1.3; schedule capacity in whole design cycles reported separately from the required count, plus the residual performance gap the planned cycles reach"
+    expected_skill: "space-systems/ecss/q6012-design-iteration-count"

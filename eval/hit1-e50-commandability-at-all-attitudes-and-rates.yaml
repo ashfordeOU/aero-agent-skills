@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-commandability-at-all-attitudes-and-rates (space-systems/ecss)
+# ca1 routes on a receive-antenna pattern null found only off the principal
+# plane cut; ca2 routes on the body rate above which the receiver cannot
+# finish acquiring. Both must deterministically hit
+# space-systems/ecss/e50-commandability-at-all-attitudes-and-rates.
+tasks:
+  - id: ca1
+    query: "our low-gain uplink pattern has a deep null aft and the coverage number we quote came off a single principal plane cut, how do I work out the real spherical command coverage"
+    intent: "ECSS-E-ST-50C clause 5.4.1; attitude coverage is a solid-angle-weighted question over the whole sphere and a polar grid flatters a design whose nulls sit near the equator"
+    expected_skill: "space-systems/ecss/e50-commandability-at-all-attitudes-and-rates"
+  - id: ca2
+    query: "the spacecraft is tumbling at fifteen degrees per second after the anomaly and the receiver never seems to lock, what body rate can we still command through"
+    intent: "ECSS-E-ST-50C clause 5.4.1; the dwell the tumble leaves has to cover receiver acquisition plus one whole command frame, which sets a body rate ceiling"
+    expected_skill: "space-systems/ecss/e50-commandability-at-all-attitudes-and-rates"

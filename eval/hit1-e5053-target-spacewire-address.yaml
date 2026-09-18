@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-target-spacewire-address (space-systems/ecss)
+# Two tasks for the new leaf. tsa1 routes on a route prefix whose port
+# selectors sit behind a logical octet; tsa2 routes on a target test that
+# compares the prefix the sender wrote with the prefix the target read. Both
+# must deterministically hit
+# space-systems/ecss/e5053-target-spacewire-address.
+tasks:
+  - id: tsa1
+    query: "we prefix 40 then 2 then 5 in front of the packet transfer unit and the route stops one router early, is the octet order wrong"
+    intent: "ECSS-E-ST-50-53C clause 5.1.4; routers delete leading port selectors and stop at the first logical octet, so selectors behind a logical octet are delivered as data"
+    expected_skill: "space-systems/ecss/e5053-target-spacewire-address"
+  - id: tsa2
+    query: "our integration test compares the SpaceWire address prefix the sender emitted against what the target node saw and it fails on every two hop route, is the test wrong"
+    intent: "ECSS-E-ST-50-53C clause 5.1.4; the prefix is consumed hop by hop, so only the surviving octets are comparable and an empty prefix is a valid direct-attachment address"
+    expected_skill: "space-systems/ecss/e5053-target-spacewire-address"

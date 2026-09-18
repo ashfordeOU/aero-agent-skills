@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7031-appearance-and-colour (space-systems/ecss)
+# Two tasks for the leaf. ac1 routes on the CIELAB difference against a
+# reference chip plus the specular gloss band; ac2 routes on the thermal-control
+# case where the panel also owes solar absorptance and infrared emittance. Both
+# must deterministically hit space-systems/ecss/q7031-appearance-and-colour,
+# not the acceptance-inspection leaf that grades film thickness.
+tasks:
+  - id: ac1
+    query: "grade a cured painted panel against its reference colour chip: work out the CIELAB colour difference, put it against the contract tolerance, check the specular gloss band and tally the appearance defects per square metre"
+    intent: "ECSS-Q-ST-70-31C appearance and colour; colour difference, gloss band and appearance defect density on a painted area"
+    expected_skill: "space-systems/ecss/q7031-appearance-and-colour"
+  - id: ac2
+    query: "our thermal control white paint matches the colour chip but I need to know whether the panel passes: check solar absorptance and infrared emittance against their bands and say whether a single blister on the film is acceptable"
+    intent: "ECSS-Q-ST-70-31C appearance and colour; thermo-optical bands on a thermal-control finish and film-integrity defects"
+    expected_skill: "space-systems/ecss/q7031-appearance-and-colour"

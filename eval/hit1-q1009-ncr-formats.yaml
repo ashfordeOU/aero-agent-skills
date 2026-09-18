@@ -1,0 +1,13 @@
+# Hit@1 fragment: q1009-ncr-formats (space-systems/ecss)
+# nf1 routes on the form and its content fields; nf2 routes on the status-code
+# vocabulary and the cross-field contradictions. Both must deterministically hit
+# space-systems/ecss/q1009-ncr-formats.
+tasks:
+  - id: nf1
+    query: "every team raises these reports on a different form; tell me which content fields the format owes and which of them are only owed once the disposition or the status is filled in"
+    intent: "ECSS-Q-ST-10-09C clause 5.5.1; report format sections, field kinds and the conditional field duties"
+    expected_skill: "space-systems/ecss/q1009-ncr-formats"
+  - id: nf2
+    query: "audit this record for contradictions: the status code went backwards, there is a closure date on something still open, and the severity does not agree with the safety field"
+    intent: "ECSS-Q-ST-10-09C clause 5.5.1; status-code vocabulary and cross-field consistency of the report"
+    expected_skill: "space-systems/ecss/q1009-ncr-formats"

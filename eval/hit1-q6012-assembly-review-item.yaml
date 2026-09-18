@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-assembly-review-item (space-systems/ecss)
+# Two tasks for the new leaf. ari1 routes on the die-to-carrier expansion
+# mismatch against what the attach medium absorbs and the bondline heat path
+# behind it; ari2 routes on the bond wire count the derated current forces and
+# the redundancy the layout does or does not carry. Both must deterministically
+# hit space-systems/ecss/q6012-assembly-review-item.
+tasks:
+  - id: ari1
+    query: "the microwave die goes onto a copper-moly carrier with a eutectic joint and the qualification swing is a hundred kelvin, work out whether that joint owes a stress case of its own and whether the bondline still gets the dissipation out to the derated junction limit"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.9; die-to-carrier expansion mismatch against the attach medium allowance, and the bondline junction-to-case path graded on the rating less the programme derating"
+    expected_skill: "space-systems/ecss/q6012-assembly-review-item"
+  - id: ari2
+    query: "the module layout shows three bond wires on the drain pad and the bias draws just over an amp, say whether the mounting and bonding review item can close on that interconnect or whether it only earns an action"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.9; derated per-wire current fixes a minimum bond wire count, and a layout sitting exactly on the count carries no redundant wire"
+    expected_skill: "space-systems/ecss/q6012-assembly-review-item"

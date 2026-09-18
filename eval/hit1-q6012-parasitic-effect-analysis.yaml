@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-parasitic-effect-analysis (space-systems/ecss)
+# Two tasks for the new leaf. pea1 routes on the bond-wire reactance the
+# schematic never carried; pea2 routes on the self-resonance that decides
+# whether a lumped parasitic still represents the element on the die. Both must
+# deterministically hit
+# space-systems/ecss/q6012-parasitic-effect-analysis.
+tasks:
+  - id: pea1
+    query: "the measured response of the die does not match the schematic simulation at the top of the band, work out how much reactance the bond wires and the on-die tracks are adding and whether the layout has to go into the model"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.3; bond-wire and track inductance sized from geometry and graded as a reactance against the reference impedance at the highest operating frequency"
+    expected_skill: "space-systems/ecss/q6012-parasitic-effect-analysis"
+  - id: pea2
+    query: "two nets on this MMIC layout run alongside each other and one of them rings, tell me where each net self-resonates and how much isolation the pair actually gives"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.3; net self-resonance from its own inductance and capacitance to ground, and conductor-pair isolation through the coupling reactance into the terminations"
+    expected_skill: "space-systems/ecss/q6012-parasitic-effect-analysis"

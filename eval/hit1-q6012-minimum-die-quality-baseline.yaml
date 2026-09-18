@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-minimum-die-quality-baseline (space-systems/ecss)
+# Two tasks for the new leaf. mdqb1 routes on deriving the floor from the
+# application rather than reading a level off a part number; mdqb2 routes on the
+# bridgeable-gap rule that separates an upgrade route from a refusal. Both must
+# deterministically hit
+# space-systems/ecss/q6012-minimum-die-quality-baseline.
+tasks:
+  - id: mdqb1
+    query: "this microwave die goes in a box with no redundancy on a twelve year mission, what is the lowest quality level we are allowed to buy it at"
+    intent: "ECSS-Q-ST-60-12C clause 4.3; deriving the minimum die quality rung from criticality, mission duration, dose and single point of failure, then the absolute floor"
+    expected_skill: "space-systems/ecss/q6012-minimum-die-quality-baseline"
+  - id: mdqb2
+    query: "the only die available is a commercial part three rungs under what we need, can we screen our way up to it or do we have to find another part"
+    intent: "ECSS-Q-ST-60-12C clause 4.3; rung-by-rung upgrade actions versus the gap width beyond which screening cannot bridge and the die is refused"
+    expected_skill: "space-systems/ecss/q6012-minimum-die-quality-baseline"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-mmic-programme-responsibilities (space-systems/ecss)
+# Two tasks for the new leaf. mpr1 routes on the duty division itself across the
+# two procurement modes; mpr2 routes on the non-transferable duty and the
+# unrecorded departure from the default owner. Both must deterministically hit
+# space-systems/ecss/q6012-mmic-programme-responsibilities.
+tasks:
+  - id: mpr1
+    query: "we are buying a microwave die off a foundry catalogue rather than having one developed, go through the responsibility matrix and say which duties still apply and who owns each of them"
+    intent: "ECSS-Q-ST-60-12C clause 6; duties that arise in a catalogue selection versus a foundry-led development, and the default owner of each on either side"
+    expected_skill: "space-systems/ecss/q6012-mmic-programme-responsibilities"
+  - id: mpr2
+    query: "the draft matrix puts process qualification on us and moves evaluation testing to the supplier with nothing written down, and nobody has taken mask retention - tell me which of these actually breaks"
+    intent: "ECSS-Q-ST-60-12C clause 6; non-transferable duty moved to the wrong party, movable duty transferred without a recorded deviation, and an applicable duty left unowned"
+    expected_skill: "space-systems/ecss/q6012-mmic-programme-responsibilities"

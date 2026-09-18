@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7002-cvcm-measurement (space-systems/ecss)
+# Two tasks for the new leaf. cvcm1 routes on the collector-plate weighing pair
+# and the mass the percentage is normalised by; cvcm2 routes on the microbalance
+# quantification floor and the replicate spread that decides whether a run mean
+# is reportable at all. Both must deterministically hit
+# space-systems/ecss/q7002-cvcm-measurement.
+tasks:
+  - id: cvcm1
+    query: "I have the collector plate weighed before and after the vacuum bake for three specimens, turn those plate gains into the condensable percentage and tell me which mass I am supposed to divide by"
+    intent: "ECSS-Q-ST-70-02C measurement clause; collector plate mass gain normalised by the initial specimen mass, not by the mass the specimen lost"
+    expected_skill: "space-systems/ecss/q7002-cvcm-measurement"
+  - id: cvcm2
+    query: "one collector plate in this outgassing run came out lighter than its before weighing and another gain sits under the balance quantification floor, work out whether the replicate mean condensable percentage is reportable or just weighing scatter"
+    intent: "ECSS-Q-ST-70-02C measurement clause; quantification floor of the collector weighing, a plate that lost mass, and the replicate spread band"
+    expected_skill: "space-systems/ecss/q7002-cvcm-measurement"

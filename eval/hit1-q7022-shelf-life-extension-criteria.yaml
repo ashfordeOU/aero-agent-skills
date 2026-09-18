@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7022-shelf-life-extension-criteria (space-systems/ecss)
+# Two tasks for the new leaf. sle1 routes on the evidence base that a request
+# can stand on; sle2 routes on caps that shorten a grant rather than refuse it,
+# including the ceiling on total accumulated life.
+# Both must deterministically hit
+# space-systems/ecss/q7022-shelf-life-extension-criteria.
+tasks:
+  - id: sle1
+    query: "we have the original qualification data and a supplier email covering 90 days, but they want six more months on this lot, does that stand up"
+    intent: "ECSS-Q-ST-70-22 life extension; qualification data alone is no basis and a statement shorter than the request does not cover it"
+    expected_skill: "space-systems/ecss/q7022-shelf-life-extension-criteria"
+  - id: sle2
+    query: "this tin has already had two extensions and they are asking for another 300 days, how much can we actually grant before the total life ceiling bites"
+    intent: "ECSS-Q-ST-70-22 life extension; blocking criteria refuse, per-step and total-life caps only shorten, and the extension count has its own ceiling"
+    expected_skill: "space-systems/ecss/q7022-shelf-life-extension-criteria"

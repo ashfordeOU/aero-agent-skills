@@ -1,0 +1,9 @@
+{
+  "skill": "e5052-rmap-write-command",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 46,
+  "failed": 0,
+  "evidence": "contract test PASS (46 tests); without-baseline 0.30 (sizing a write from the payload alone with no header, padded reply path or payload check byte, setting verify without agreeing the target buffer so the declared data length becomes the only limit, collapsing a non-incrementing write into an incrementing one, truncating a short reply path instead of padding it to a whole group, and reusing a transaction identifier because the write was unacknowledged are all missed without the skill)"
+}

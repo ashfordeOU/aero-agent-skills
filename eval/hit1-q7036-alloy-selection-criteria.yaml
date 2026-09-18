@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7036-alloy-selection-criteria (space-systems/ecss)
+# Two tasks for the new leaf. asc1 routes on the acceptance rule the criticality
+# imposes on a candidate field; asc2 routes on the short-transverse rating
+# downgrade that turns an outright acceptance into an evidence obligation. Both
+# must deterministically hit
+# space-systems/ecss/q7036-alloy-selection-criteria.
+tasks:
+  - id: asc1
+    query: "I have four candidate tempers for a critical fitting, rank them on stress corrosion resistance first and tell me which ones I can use outright, which ones need test data behind them and which ones I cannot use without an approval"
+    intent: "ECSS-Q-ST-70-36C selection; acceptance verdicts per criticality grade and a reproducible ranking by effective resistance rating, then strength, then identifier"
+    expected_skill: "space-systems/ecss/q7036-alloy-selection-criteria"
+  - id: asc2
+    query: "the sustained load on this plate runs through the thickness rather than along the rolling direction, does that change the resistance grade I am allowed to claim for the temper we picked"
+    intent: "ECSS-Q-ST-70-36C selection; short-transverse loading costs the published rating one grade, which changes the acceptance verdict at a critical application"
+    expected_skill: "space-systems/ecss/q7036-alloy-selection-criteria"

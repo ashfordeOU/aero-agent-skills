@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-paint-defect-control (space-systems/ecss)
+# Two tasks for the new leaf. pdc1 routes on the surface-scaled allowance that
+# makes one pinhole population acceptable on a panel and not on a radiator;
+# pdc2 routes on the worst-disposition roll-up. Both must deterministically hit
+# space-systems/ecss/q7031-paint-defect-control.
+tasks:
+  - id: pdc1
+    query: "inspection found a scatter of pinholes over two square metres, some on a plain panel and some on a thermo-optical surface, work out what each population earns"
+    intent: "ECSS-Q-ST-70-31C quality; per-family size and density allowances scaled by the surface the imperfection sits on, graded independently"
+    expected_skill: "space-systems/ecss/q7031-paint-defect-control"
+  - id: pdc2
+    query: "we have a run, some orange peel and one patch of silicone contamination on the same coat, give me one disposition for the lot rather than a list"
+    intent: "ECSS-Q-ST-70-31C quality; each family earns its own disposition and the lot carries the worst one, with contamination taking the coat off"
+    expected_skill: "space-systems/ecss/q7031-paint-defect-control"

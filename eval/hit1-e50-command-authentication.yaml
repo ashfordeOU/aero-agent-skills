@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-command-authentication (space-systems/ecss)
+# ca-auth1 routes on a replayed command whose tag verifies; ca-auth2 routes on
+# a retired key and an early-exit tag comparison. Both must deterministically
+# hit space-systems/ecss/e50-command-authentication.
+tasks:
+  - id: ca-auth1
+    query: "someone recorded yesterday's authenticated tank vent command and sent it again, the tag verifies, why is our receiver still acting on it"
+    intent: "ECSS-E-ST-50C clause 5.4.5; the command counter is part of what is authenticated and what is checked, so a counter at or below the last accepted one is a replay"
+    expected_skill: "space-systems/ecss/e50-command-authentication"
+  - id: ca-auth2
+    query: "we retired an uplink authentication key last month but tags made with it still pass, and our tag comparison exits at the first wrong octet"
+    intent: "ECSS-E-ST-50C clause 5.4.5; key validity is tested before the tag, and the comparison has to be constant time or it leaks the tag one octet at a time"
+    expected_skill: "space-systems/ecss/e50-command-authentication"

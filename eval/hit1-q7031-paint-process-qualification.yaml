@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7031-paint-process-qualification (space-systems/ecss)
+# Two tasks for the leaf. pq1 routes on the witness coupon set the coating
+# application owes plus the qualified parameter windows; pq2 routes on the booth
+# envelope and the dew-point margin the substrate holds over the air. Both must
+# deterministically hit space-systems/ecss/q7031-paint-process-qualification,
+# not the per-batch acceptance leaf.
+tasks:
+  - id: pq1
+    query: "what witness coupons does a thermal control paint process owe before we spray flight hardware, and are our spray pressure, gun distance and cure parameters inside the qualified windows"
+    intent: "ECSS-Q-ST-70-31C process qualification; coupon set by coating application and qualified process parameter windows"
+    expected_skill: "space-systems/ecss/q7031-paint-process-qualification"
+  - id: pq2
+    query: "work out the dew point of the booth air from the temperature and humidity, check the margin the substrate holds over it, and say whether the facility and the operator certifications still qualify us to spray"
+    intent: "ECSS-Q-ST-70-31C process qualification; booth environmental envelope, dew-point margin and operator certification currency"
+    expected_skill: "space-systems/ecss/q7031-paint-process-qualification"

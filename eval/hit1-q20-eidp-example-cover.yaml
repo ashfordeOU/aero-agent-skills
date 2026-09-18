@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-eidp-example-cover (space-systems/ecss)
+# Two tasks for the leaf. ecv1 routes on the cover header format and the
+# derived package number; ecv2 routes on the three-signature approval block and
+# the document count against the index. Both must deterministically hit
+# space-systems/ecss/q20-eidp-example-cover, not the Annex B content leaves.
+tasks:
+  - id: ecv1
+    query: "lay out the front sheet of a data package in the standard header order and rebuild its package number from the contract and serial number to check the one printed on the cover"
+    intent: "ECSS-Q-ST-20C Annex F; data package cover header field order and the derived package number pattern"
+    expected_skill: "space-systems/ecss/q20-eidp-example-cover"
+  - id: ecv2
+    query: "the approval block on this package cover has the same name against prepared and approved, one date after the cover issue date, and a document count that does not match the index; tell me which of those stand"
+    intent: "ECSS-Q-ST-20C Annex F; data package cover approval block signing order and distinctness, and the document count to index reconciliation"
+    expected_skill: "space-systems/ecss/q20-eidp-example-cover"

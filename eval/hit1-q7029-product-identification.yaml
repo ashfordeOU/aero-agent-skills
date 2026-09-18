@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7029-product-identification (space-systems/ecss)
+# Two tasks for the new leaf. pid1 routes on the two-evidence grading itself -
+# a library score with no retention-index agreement; pid2 routes on the
+# unaccounted peak area, which is the coverage finding no other leaf owns.
+# Both must deterministically hit
+# space-systems/ecss/q7029-product-identification.
+tasks:
+  - id: pid1
+    query: "the lab handed back a peak list where the top library hit scores well but elutes in the wrong place, work out which of these assignments I can actually call a named product and which stay tentative"
+    intent: "ECSS-Q-ST-70-29 analysis; retention-index window and spectral match score are two independent pieces of evidence and an assignment is graded on both"
+    expected_skill: "space-systems/ecss/q7029-product-identification"
+  - id: pid2
+    query: "two of the offgassing peaks sit almost on top of each other and a chunk of the chromatogram area is not assigned to anything - tell me whether this product inventory is complete enough to carry forward"
+    intent: "ECSS-Q-ST-70-29 analysis; co-eluting peaks are held for a second technique and the unidentified area fraction is graded against its budget"
+    expected_skill: "space-systems/ecss/q7029-product-identification"

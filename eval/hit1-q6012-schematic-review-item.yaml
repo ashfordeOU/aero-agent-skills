@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-schematic-review-item (space-systems/ecss)
+# Two tasks for the new leaf. sri1 routes on the drawn bias feed setting the
+# real drain voltage rather than the supply rail; sri2 routes on the multi-finger
+# gate periphery against the foundry scalable-model window. Both must
+# deterministically hit
+# space-systems/ecss/q6012-schematic-review-item.
+tasks:
+  - id: sri1
+    query: "the MMIC schematic tabled at the review biases the output stage through a series feed resistor, work out the drain voltage each device actually sits at and whether that clears the derated rating"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.3; the schematic review item grades the quiescent point produced by the drawn bias feed, not the intended supply rail"
+    expected_skill: "space-systems/ecss/q6012-schematic-review-item"
+  - id: sri2
+    query: "go through the drawn transistors on this microwave die schematic and say which ones fall outside the foundry model window once unit gate width and finger count are turned into total gate periphery"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.3; device sizing is graded on unit gate width, finger count and total periphery together, and a device outside the window invalidates the simulated evidence behind it"
+    expected_skill: "space-systems/ecss/q6012-schematic-review-item"

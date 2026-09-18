@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-packet-length (space-systems/ecss)
+# Two tasks for the new leaf. pl1 routes on a declared octet count that
+# disagrees with the octets actually received for the carried packet; pl2
+# routes on the reserved encoding that declares no length at all and what a
+# receiver may still conclude. Both must deterministically hit
+# space-systems/ecss/e5053-packet-length.
+tasks:
+  - id: pl1
+    query: "the length field in front of our carried CCSDS packet says 512 octets but 518 arrived before the end of packet marker, which number does the receiving node believe"
+    intent: "ECSS-E-ST-50-53C clause 5.1.2; the declared octet count, the octets received and the packet's own primary header are three statements of one size and a disagreement is the finding"
+    expected_skill: "space-systems/ecss/e5053-packet-length"
+  - id: pl2
+    query: "our sender leaves the packet transfer length field at the not-declared encoding, can the receiver still detect a short delivery or has it lost that check"
+    intent: "ECSS-E-ST-50-53C clause 5.1.2; the reserved not-declared encoding is not a length of zero, and it leaves the end of packet marker as the only delimiter"
+    expected_skill: "space-systems/ecss/e5053-packet-length"

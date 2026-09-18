@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7036-applicability-and-scope (space-systems/ecss)
+# Two tasks for the new leaf. aps1 routes on the scope boundary itself across a
+# mixed metallic and non-metallic parts list; aps2 routes on the coating whose
+# scope has to follow its substrate rather than its own composition. Both must
+# deterministically hit
+# space-systems/ecss/q7036-applicability-and-scope.
+tasks:
+  - id: aps1
+    query: "our parts list mixes aluminium brackets, a magnesium housing, two niobium nozzle inserts and a lot of composite panels, work out which of them the stress corrosion control actually covers and which ones I cannot disposition from published resistance data"
+    intent: "ECSS-Q-ST-70-36C framework; metallic family scope boundary, and the in-scope families that carry no published SCC resistance rating so they owe test or literature evidence"
+    expected_skill: "space-systems/ecss/q7036-applicability-and-scope"
+  - id: aps2
+    query: "the housing is nickel plated over a magnesium casting, tell me which material decides whether it is inside the stress corrosion cracking discipline and how to report the coverage over just the metal in the list"
+    intent: "ECSS-Q-ST-70-36C framework; a surface layer takes the scope of its substrate, and rated coverage is reported over the in-scope parts only"
+    expected_skill: "space-systems/ecss/q7036-applicability-and-scope"

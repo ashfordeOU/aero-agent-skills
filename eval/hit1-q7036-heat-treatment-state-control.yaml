@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7036-heat-treatment-state-control (space-systems/ecss)
+# Two tasks for the new leaf. htc1 routes on the conductivity reading that
+# evidences an overaged temper; htc2 routes on the substitution search that
+# names which temper an out-of-window reading actually is. Both must
+# deterministically hit
+# space-systems/ecss/q7036-heat-treatment-state-control.
+tasks:
+  - id: htc1
+    query: "the drawing calls the overaged temper for stress corrosion reasons but all I have from receiving inspection is an electrical conductivity number, work out whether that number evidences the condition we asked for"
+    intent: "ECSS-Q-ST-70-36C selection; the temper acceptance window in %IACS with both edges inclusive, and the resistance rating that state carries"
+    expected_skill: "space-systems/ecss/q7036-heat-treatment-state-control"
+  - id: htc2
+    query: "this part came back reading well below the window on our conductivity check, do not just tell me it is out of limits, tell me which heat treatment condition that reading actually corresponds to and what resistance grade we would be flying"
+    intent: "ECSS-Q-ST-70-36C selection; searching the same alloy's other registered tempers for the window the reading falls in, so a temper substitution is named with the rating it costs"
+    expected_skill: "space-systems/ecss/q7036-heat-treatment-state-control"

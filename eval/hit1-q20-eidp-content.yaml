@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-eidp-content (space-systems/ecss)
+# Two tasks for the new leaf. ed1 routes on the per-product-type record list of
+# the data package; ed2 routes on the not-applicable rules and the certificate
+# to as-built cross-check. Both must deterministically hit
+# space-systems/ecss/q20-eidp-content.
+tasks:
+  - id: ed1
+    query: "we reused the equipment delivery index for a software item, tell me which records that data package now owes and which of the ones in it were never required"
+    intent: "ECSS-Q-ST-20C clause 5.7.2 Annex B; the end item data package record list per product type and the extras a reused index leaves behind"
+    expected_skill: "space-systems/ecss/q20-eidp-content"
+  - id: ed2
+    query: "the certificate of conformity in this delivery package quotes an older as-built configuration list revision and two records are marked not applicable with no approver, decide whether the package is complete"
+    intent: "ECSS-Q-ST-20C clause 5.7.2 Annex B; not-applicable admissibility on data package records and the certificate to as-built revision cross-check"
+    expected_skill: "space-systems/ecss/q20-eidp-content"

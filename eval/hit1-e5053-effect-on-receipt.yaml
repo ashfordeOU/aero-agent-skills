@@ -1,0 +1,13 @@
+# Hit@1 fragment: e5053-effect-on-receipt (space-systems/ecss)
+# Two tasks for the new leaf. eor1 routes on one state and primitive with two
+# destinations; eor2 routes on replaying an exchange through the table. Both
+# must deterministically hit space-systems/ecss/e5053-effect-on-receipt.
+tasks:
+  - id: eor1
+    query: "the specification says twice what the receiver does with this primitive in the open state and the two say different things about where it ends up, sort out which entries conflict"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.4; receipt transitions keyed on state and primitive, determinism, and discards that must leave the state unchanged"
+    expected_skill: "space-systems/ecss/e5053-effect-on-receipt"
+  - id: eor2
+    query: "walk this sequence of received primitives through the receiver behaviour from the initial state and tell me where it ends up and whether any step has no declared handling"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.4; replay through the receipt transition table, coverage of the primitives that can arrive in each state, and states nothing reaches"
+    expected_skill: "space-systems/ecss/e5053-effect-on-receipt"

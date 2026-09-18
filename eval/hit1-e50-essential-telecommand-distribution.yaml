@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-essential-telecommand-distribution (space-systems/ecss)
+# ed1 routes on a high-priority command route that still needs the processor;
+# ed2 routes on two nominally redundant routes sharing one decoder. Both must
+# deterministically hit
+# space-systems/ecss/e50-essential-telecommand-distribution.
+tasks:
+  - id: ed1
+    query: "our high priority pyro arm command is decoded by the on-board computer software, is that acceptable for a command that exists for the case where the processor is dead"
+    intent: "ECSS-E-ST-50C clause 5.4.4; an essential command route has to be hardware decoded, and duplicating a software route multiplies the dependence rather than removing it"
+    expected_skill: "space-systems/ecss/e50-essential-telecommand-distribution"
+  - id: ed2
+    query: "we have two separate cable runs for the essential command distribution but both pass through the same command pulse driver and neither exists in survival mode"
+    intent: "ECSS-E-ST-50C clause 5.4.4; segregation is broken by any shared item and availability has to hold in every mission configuration the command is needed in"
+    expected_skill: "space-systems/ecss/e50-essential-telecommand-distribution"

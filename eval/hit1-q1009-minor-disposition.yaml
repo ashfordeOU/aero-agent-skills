@@ -1,0 +1,15 @@
+# Hit@1 fragment: q1009-minor-disposition (space-systems/ecss)
+# Two tasks for the new leaf. md1 routes on availability - rework written
+# against a departure that cannot be reversed. md2 routes on the authority rise
+# a permanent departure against a customer-controlled requirement triggers.
+# Both must deterministically hit
+# space-systems/ecss/q1009-minor-disposition.
+tasks:
+  - id: md1
+    query: "somebody has written rework against a hole drilled oversize, tell me whether that disposition is even available for this part and what evidence it owes if it is"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.4; disposition availability before authority, and the per-disposition documented conditions that make it auditable"
+    expected_skill: "space-systems/ecss/q1009-minor-disposition"
+  - id: md2
+    query: "can our own board sign off a use-as-is on a minor departure when the requirement being departed from is one the customer controls"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.4; permanent-departure dispositions rising to the customer board, ranked authority comparison, limitation record and effectivity list"
+    expected_skill: "space-systems/ecss/q1009-minor-disposition"

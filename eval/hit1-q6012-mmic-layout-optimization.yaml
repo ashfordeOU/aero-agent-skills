@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-mmic-layout-optimization (space-systems/ecss)
+# Two tasks for the new leaf. mlo1 routes on the pitch trade itself, where
+# spreading heat costs die area and combining loss; mlo2 routes on the
+# constraint-versus-weight distinction that decides which arrangements are even
+# eligible to be scored. Both must deterministically hit
+# space-systems/ecss/q6012-mmic-layout-optimization.
+tasks:
+  - id: mlo1
+    query: "I have three cell pitches for the same four-cell power stage, the tight one keeps the die small but the centre cell runs hot and the wide one lengthens the combining run, pick one and show the working"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.10; placement pitch moves die area, peak channel temperature and combining insertion loss against each other, and the arrangement is chosen on normalised weighted metrics"
+    expected_skill: "space-systems/ecss/q6012-mmic-layout-optimization"
+  - id: mlo2
+    query: "one of my layout options is two degrees over the channel temperature ceiling but scores best on area and loss, should I weight the temperature harder so it still wins"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.10; a temperature ceiling is a pass-or-fail constraint that removes a candidate, not a weight inside the objective the survivors are ranked on"
+    expected_skill: "space-systems/ecss/q6012-mmic-layout-optimization"

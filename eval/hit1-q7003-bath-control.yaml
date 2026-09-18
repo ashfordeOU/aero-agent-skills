@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7003-bath-control (space-systems/ecss)
+# bc1 routes on the control-versus-reject band disposition and the weighed
+# correction; bc2 routes on the two-clock analysis schedule. Both must
+# deterministically hit space-systems/ecss/q7003-bath-control.
+tasks:
+  - id: bc1
+    query: "the titration on the thousand litre tank came back thirty grams a litre under nominal, tell me whether we can still run and how much additive to weigh out at half strength"
+    intent: "ECSS-Q-ST-70-03C process control; control band versus reject band disposition, and addition mass from tank volume, shortfall and additive strength"
+    expected_skill: "space-systems/ecss/q7003-bath-control"
+  - id: bc2
+    query: "that dye tank was analysed six days ago but it has run a lot of area since, work out whether it is due for analysis and what happens to the tank if it is already past the grace"
+    intent: "ECSS-Q-ST-70-03C process control; elapsed-time and processed-area intervals run together, whichever arrives first, and the overdue grace that takes a tank off line"
+    expected_skill: "space-systems/ecss/q7003-bath-control"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-applicability-and-paint-systems (space-systems/ecss)
+# Two tasks for the new leaf. app1 routes on the coating-versus-surface-treatment
+# call itself; app2 routes on the layer stack and the summed dry-film build that
+# decides whether a declaration can be dispositioned at all. Both must
+# deterministically hit space-systems/ecss/q7031-applicability-and-paint-systems.
+tasks:
+  - id: app1
+    query: "the finish note on this bracket drawing just says coated - work out whether that puts it under the paint rules or whether an anodised surface is a different animal entirely"
+    intent: "ECSS-Q-ST-70-31C framework; paint system versus bare surface treatment, and which finish families the paint rules govern"
+    expected_skill: "space-systems/ecss/q7031-applicability-and-paint-systems"
+  - id: app2
+    query: "someone declared a topcoat straight onto the aluminium with no primer and quoted one thickness figure - tell me what the stack is missing and what the real total build is at the tolerance extremes"
+    intent: "ECSS-Q-ST-70-31C framework; primer-intermediate-topcoat stack order, topcoat on unprimed metal, summed dry-film band versus a build limit"
+    expected_skill: "space-systems/ecss/q7031-applicability-and-paint-systems"

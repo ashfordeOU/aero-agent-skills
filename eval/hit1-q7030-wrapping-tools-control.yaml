@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7030-wrapping-tools-control (space-systems/ecss, Q-ST-70-30
+# tooling). Two tasks per leaf; wtc1 routes on bit coverage and calibration
+# standing, wtc2 on the set-up sample and the delivered tension. Both must
+# deterministically hit space-systems/ecss/q7030-wrapping-tools-control.
+tasks:
+  - id: wtc1
+    query: "confirm the wire-wrap-bit-coverage of the bit fitted to this gun for the wire and post we are running, and give me its wire-wrap-tool-calibration-standing and wire-wrap-bit-life-consumed"
+    intent: "ecss wire wrapping; certified bit and sleeve coverage, calibration recall and bit wear before issue"
+    expected_skill: "space-systems/ecss/q7030-wrapping-tools-control"
+  - id: wtc2
+    query: "grade the wire-wrap-setup-sample-grading from this shift and the wire-wrap-delivered-tension-ratio the gun measured, then give me the wire-wrap-tool-disposition"
+    intent: "ecss wire wrapping; set-up sample and measured wrap tension deciding whether the tool goes to production"
+    expected_skill: "space-systems/ecss/q7030-wrapping-tools-control"

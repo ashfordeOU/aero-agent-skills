@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-eidp-drd (space-systems/ecss)
+# Two tasks for the leaf. ebd1 routes on the Annex B category grouping and the
+# generated table of contents; ebd2 routes on a document filed under the wrong
+# category. Both must deterministically hit space-systems/ecss/q20-eidp-drd,
+# not the clause 5.7.2 eidp-content leaf that grades approval and completeness.
+tasks:
+  - id: ebd1
+    query: "build me the annex B table of contents for a data package and tell me which of the four document categories our submitted set is short of, category by category rather than one overall number"
+    intent: "ECSS-Q-ST-20C Annex B; data package document categories, generated table of contents and per-category completeness"
+    expected_skill: "space-systems/ecss/q20-eidp-drd"
+  - id: ebd2
+    query: "someone filed the as-built configuration list under the design data of our package and the as-designed list under manufacturing; tell me where each document belongs under the annex B DRD"
+    intent: "ECSS-Q-ST-20C Annex B; assignment of each data package document to its DRD category and misfiling findings"
+    expected_skill: "space-systems/ecss/q20-eidp-drd"

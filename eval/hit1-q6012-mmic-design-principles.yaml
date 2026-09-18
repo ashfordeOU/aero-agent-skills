@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-mmic-design-principles (space-systems/ecss)
+# Two tasks for the new leaf. mdp1 routes on the parametric margin in sigma and
+# the combined yield across specification lines; mdp2 routes on device derating
+# and the reuse-versus-novelty call before mask release. Both must
+# deterministically hit space-systems/ecss/q6012-mmic-design-principles.
+tasks:
+  - id: mdp1
+    query: "every line of the microwave die specification passes at nominal, work out how much process spread each one actually holds and what fraction of parts meets all of them at once"
+    intent: "ECSS-Q-ST-60-12C clause 7.1; parametric margin in standard deviations of process spread per specification line and the combined predicted parametric yield"
+    expected_skill: "space-systems/ecss/q6012-mmic-design-principles"
+  - id: mdp2
+    query: "the amplifier cell sits at 160 C channel temperature against a 175 C rating, most of the layout is new structures rather than library cells and there are still open foundry rule violations - can this go to mask"
+    intent: "ECSS-Q-ST-60-12C clause 7.1; derated rather than absolute device limits, proven cell reuse versus novel structures needing a test vehicle, design-rule cleanliness and on-wafer test provision"
+    expected_skill: "space-systems/ecss/q6012-mmic-design-principles"

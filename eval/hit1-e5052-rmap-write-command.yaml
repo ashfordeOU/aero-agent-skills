@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5052-rmap-write-command (space-systems/ecss)
+# Two tasks for the new leaf. wc1 routes on the verified-write buffer limit that
+# the data-length field alone does not express; wc2 routes on packing the option
+# bits and the reply-path group count into the single instruction byte. Both must
+# deterministically hit space-systems/ecss/e5052-rmap-write-command.
+tasks:
+  - id: wc1
+    query: "we want the remote node to check the whole block before it commits it, but the block is bigger than the buffer the node offers, decide whether that command can be sent as it stands"
+    intent: "ECSS-E-ST-50-52C clause 5.8.2.3; a verified write is bounded by the target verify buffer, not by the declared data length"
+    expected_skill: "space-systems/ecss/e5052-rmap-write-command"
+  - id: wc2
+    query: "build me the single option byte for a memory deposit command that wants an answer back, walks consecutive locations and has a three hop return path, and give me the packet length"
+    intent: "ECSS-E-ST-50-52C clause 5.8.2.3; instruction-byte packing, reply-path padding to whole groups and packet sizing for a write"
+    expected_skill: "space-systems/ecss/e5052-rmap-write-command"

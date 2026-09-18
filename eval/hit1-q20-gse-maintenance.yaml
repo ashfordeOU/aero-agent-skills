@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-gse-maintenance (space-systems/ecss)
+# Two tasks for the leaf. mnt1 routes on planned maintenance intervals measured
+# on the right clock; mnt2 routes on the reverification an intervention owes
+# before return to service. Both must deterministically hit
+# space-systems/ecss/q20-gse-maintenance, not the general GSE quality leaf and
+# not the calibration leaves.
+tasks:
+  - id: gsemnt1
+    query: "our ground support equipment maintenance plan mixes calendar and operating hour tasks; tell me how much of each interval has been used up, which tasks are overdue and by how much"
+    intent: "ECSS-Q-ST-20C clause 5.8.9; GSE planned maintenance intervals per basis and overdue amounts"
+    expected_skill: "space-systems/ecss/q20-gse-maintenance"
+  - id: gsemnt2
+    query: "we opened the measuring chain and disturbed the load path on this GSE unit; what has to be recalibrated or proved again before it goes back to work and is the readiness record current"
+    intent: "ECSS-Q-ST-20C clause 5.8.9; post-maintenance reverification derived from the part touched and continued readiness"
+    expected_skill: "space-systems/ecss/q20-gse-maintenance"

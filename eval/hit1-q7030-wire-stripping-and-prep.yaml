@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-wire-stripping-and-prep (space-systems/ecss, Q-ST-70-30
+# preparation). Two tasks per leaf; wsp1 routes on the derived strip length and
+# its symmetric tolerance, wsp2 on conductor damage and the re-strip allowance.
+# Both must deterministically hit
+# space-systems/ecss/q7030-wire-stripping-and-prep.
+tasks:
+  - id: wsp1
+    query: "derive the wire-wrap-strip-length-requirement for this gauge and turn count and tell me whether the length we measured is inside tolerance or over-stripped"
+    intent: "ecss wire wrapping; strip length from bare turns, insulated turns and tail allowance, short and long cases separated"
+    expected_skill: "space-systems/ecss/q7030-wire-stripping-and-prep"
+  - id: wsp2
+    query: "report the wire-wrap-conductor-nick-fraction and wire-wrap-conductor-deformation on this bared end, check the wire-wrap-insulation-setback, and give me the wire-wrap-prepared-end-disposition against the wire-wrap-restrip-allowance"
+    intent: "ecss wire wrapping; conductor damage as a fraction of diameter and whether the end can be re-stripped"
+    expected_skill: "space-systems/ecss/q7030-wire-stripping-and-prep"

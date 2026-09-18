@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-use-in-cleanliness-engineering (space-systems/ecss)
+# ce1 routes on the refusal to read a screening percentage as a rate; ce2 routes
+# on summing transported source terms against an areal allocation and ranking
+# them. Both must deterministically hit
+# space-systems/ecss/q7002-use-in-cleanliness-engineering.
+tasks:
+  - id: ce1
+    query: "someone multiplied the condensable screening percentage by the mission duration to get a deposition number on the radiator, tell me whether that is a legitimate use of the figure and what the source term should have been instead"
+    intent: "ECSS-Q-ST-70-02C data used under ECSS-Q-ST-70-01C; the screening percentage is a bounding source term on a fixed bake, never a rate"
+    expected_skill: "space-systems/ecss/q7002-use-in-cleanliness-engineering"
+  - id: ce2
+    query: "add up what the potting, the harness jacket and the thermal blanket each put on the detector window against its areal deposition allocation, apply the bakeout credit only where a bakeout was actually recorded, and tell me which one dominates"
+    intent: "ECSS-Q-ST-70-02C data used under ECSS-Q-ST-70-01C; transported source terms summed against a molecular deposition allocation, bakeout credit needs a reference, dominant contributor named"
+    expected_skill: "space-systems/ecss/q7002-use-in-cleanliness-engineering"

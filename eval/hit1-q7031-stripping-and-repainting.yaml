@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7031-stripping-and-repainting (space-systems/ecss)
+# Two tasks for the leaf. sr1 routes on whether a removal method may be pointed
+# at a given substrate at all; sr2 routes on the cumulative substrate loss
+# against the wall the drawing keeps and on the primer/topcoat system going back
+# on. Both must deterministically hit
+# space-systems/ecss/q7031-stripping-and-repainting, not the touch-up leaf.
+tasks:
+  - id: sr1
+    query: "may we media blast the paint off this carbon composite panel, and is an alkaline chemical stripper allowed on the aluminium bracket next to it"
+    intent: "ECSS-Q-ST-70-31C stripping and re-painting; stripping method standing against the substrate"
+    expected_skill: "space-systems/ecss/q7031-stripping-and-repainting"
+  - id: sr2
+    query: "this part has been stripped twice already - how much wall is left above the minimum thickness, how many more strips will it take, and is an epoxy primer with an inorganic white topcoat a compatible system to put back on"
+    intent: "ECSS-Q-ST-70-31C stripping and re-painting; cumulative substrate loss, remaining strip cycles and repaint system compatibility"
+    expected_skill: "space-systems/ecss/q7031-stripping-and-repainting"

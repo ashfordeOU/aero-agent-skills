@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-flight-model-die-lot-procurement (space-systems/ecss)
+# Two tasks for the new leaf. fmdl1 routes on the reverse yield cascade to die
+# starts and whole wafers; fmdl2 routes on grading the foundry qualification at
+# wafer start rather than at order date, and on the single wafer lot rule. Both
+# must deterministically hit
+# space-systems/ecss/q6012-flight-model-die-lot-procurement.
+tasks:
+  - id: fmdl1
+    query: "the flight build needs 100 good microwave dies after assembly losses plus the ones destructive analysis eats, tell me how many dies the foundry has to start and how many wafers that is"
+    intent: "ECSS-Q-ST-60-12C clause 4.2; back-calculating die starts up through assembly attrition, sample draws and each screening yield, then rounding to whole wafers"
+    expected_skill: "space-systems/ecss/q6012-flight-model-die-lot-procurement"
+  - id: fmdl2
+    query: "the foundry approval was current when we signed the purchase order but the wafers do not start until next spring, and the batch is coming off two lots, is that acceptable for flight dies"
+    intent: "ECSS-Q-ST-60-12C clause 4.2; qualification validity graded at wafer start not order date, and the one wafer lot on one mask set traceability rule"
+    expected_skill: "space-systems/ecss/q6012-flight-model-die-lot-procurement"

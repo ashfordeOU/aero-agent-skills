@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-sealing-process (space-systems/ecss)
+# seal1 routes on the method-specific temperature band and depth-scaled soak;
+# seal2 routes on the water chemistry that poisons the hydration while the tank
+# reads perfect. Both must deterministically hit
+# space-systems/ecss/q7003-sealing-process.
+tasks:
+  - id: seal1
+    query: "we are closing the pores in a nickel acetate tank after the black dye, give me the tank temperature and the soak time for a twenty micron coating and say how long the parts may wait after dyeing"
+    intent: "ECSS-Q-ST-70-03C process clause, sealing; per-method temperature band, depth-scaled seal time and the bounded dye-to-seal hold"
+    expected_skill: "space-systems/ecss/q7003-sealing-process"
+  - id: seal2
+    query: "the seal tank held temperature and time exactly but the parts still wipe black, the water report shows silicate and forty microsiemens, what does that tell me"
+    intent: "ECSS-Q-ST-70-03C process clause, sealing; conductivity ceiling and silicate or phosphate poisoning of the hydration, graded with dye bleed and absorptance loss"
+    expected_skill: "space-systems/ecss/q7003-sealing-process"

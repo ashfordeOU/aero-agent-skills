@@ -1,0 +1,15 @@
+# Hit@1 fragment: q1009-causes-consequences (space-systems/ecss)
+# Two tasks for the new leaf. cc1 routes on the cause chain and its refusal of a
+# person-blame root. cc2 routes on reach - a systemic root putting every unit
+# built under the same condition in question.
+# Both must deterministically hit
+# space-systems/ecss/q1009-causes-consequences.
+tasks:
+  - id: cc1
+    query: "the report says the root cause was operator error, push that chain down to something we can actually raise a corrective action against"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.3; cause chain depth to a control the organisation owns, the taxonomy refusal of a root naming the person present, evidenced versus asserted levels"
+    expected_skill: "space-systems/ecss/q1009-causes-consequences"
+  - id: cc2
+    query: "the jig setting sheet was wrong, work out how many of the units we have already built are now suspect and whether this earns a corrective action"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.3; systemic root reach over units sharing the condition, consequence scope per dimension and the priority number that triggers corrective action"
+    expected_skill: "space-systems/ecss/q1009-causes-consequences"

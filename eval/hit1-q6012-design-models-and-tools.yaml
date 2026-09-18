@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-design-models-and-tools (space-systems/ecss)
+# Two tasks for the new leaf. dmt1 routes on the model usage envelope itself -
+# a model fitted over a narrower band, bias or temperature range than the
+# design exercises; dmt2 routes on the kit-to-process-release pairing and the
+# lumped passive above its electromagnetic crossover. Both must deterministically
+# hit space-systems/ecss/q6012-design-models-and-tools.
+tasks:
+  - id: dmt1
+    query: "the foundry model card says it was extracted from 1 to 28 GHz at room temperature and my amplifier runs to 30 GHz over a qualification thermal range, work out whether I can simulate with it"
+    intent: "ECSS-Q-ST-60-12C clause 5.3; model validated envelope versus the frequency, bias and temperature envelope the MMIC design exercises, and the refusal to extrapolate"
+    expected_skill: "space-systems/ecss/q6012-design-models-and-tools"
+  - id: dmt2
+    query: "we simulated the microwave die on last year's design kit and the wafers are being run on the new process release, plus the spiral inductors use the lumped library model at 30 GHz - tell me what stops this kit being accepted"
+    intent: "ECSS-Q-ST-60-12C clause 5.3; design kit tied to a process release, model correlation error budget, and electromagnetic verification of passive structures above the lumped crossover"
+    expected_skill: "space-systems/ecss/q6012-design-models-and-tools"

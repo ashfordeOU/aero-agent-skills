@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-crewed-material-control (space-systems/ecss, Q-ST-70-29
+# interface into Q-ST-70C selection and Q-ST-70-01C contamination control). Two
+# tasks per leaf; cmc1 routes on the mixture index and the mass limit, cmc2 on
+# the binding compound and the selection evidence link. Both must
+# deterministically hit space-systems/ecss/q7029-crewed-material-control.
+tasks:
+  - id: cmc1
+    query: "work out the crew-compartment-offgassing-mixture-index for this material at the mass we plan to install, then give me the crew-compartment-material-mass-limit if it is over unity"
+    intent: "ecss offgassing results used in crew compartment selection; summed allowable ratios and the mass the free volume can carry"
+    expected_skill: "space-systems/ecss/q7029-crewed-material-control"
+  - id: cmc2
+    query: "name the crew-compartment-binding-compound behind the crew-compartment-smac-ratio and check the crew-compartment-selection-evidence-link plus the offgassing-report-revalidation before we release it"
+    intent: "ecss offgassing interface; which compound sets the limit and whether the selection evidence and report standing support the release"
+    expected_skill: "space-systems/ecss/q7029-crewed-material-control"

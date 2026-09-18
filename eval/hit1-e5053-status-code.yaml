@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-status-code (space-systems/ecss)
+# Two tasks for the new leaf. sc1 routes on a status encoding nothing has
+# assigned a meaning to arriving at a receiver; sc2 routes on a receiver that
+# tests for known errors and accepts everything else. Both must
+# deterministically hit space-systems/ecss/e5053-status-code.
+tasks:
+  - id: sc1
+    query: "a packet transfer arrived carrying status octet 100 and our code table assigns nothing to it, is that transfer acceptable or does the node have to hold it"
+    intent: "ECSS-E-ST-50-53C clause 5.1.3; an unassigned status encoding is a real outcome and must not default to success, and it is distinct from a reserved encoding"
+    expected_skill: "space-systems/ecss/e5053-status-code"
+  - id: sc2
+    query: "our receiving node checks the transfer status field against a list of known error codes and treats anything else as a good transfer, what does that miss"
+    intent: "ECSS-E-ST-50-53C clause 5.1.3; acceptability follows from an encoding being assigned, not from being unfamiliar, so reserved and unassigned encodings are accepted by that test"
+    expected_skill: "space-systems/ecss/e5053-status-code"

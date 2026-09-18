@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-temperature-process-and-supply-sensitivity (space-systems/ecss)
+# Two tasks for the new leaf. tps1 routes on the combination-method question itself --
+# which axes may be root-sum-squared and which are bounds that have to be added. tps2
+# routes on the corner-matrix reduction and the dominant-axis ranking. Both must
+# deterministically hit
+# space-systems/ecss/q6012-temperature-process-and-supply-sensitivity.
+tasks:
+  - id: tps1
+    query: "our MMIC gain moves with temperature, with the wafer lot and with the rail; work out how wide the performance window really is and whether I am allowed to root-sum-square those three or have to add them"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.6; temperature is a deterministic excursion every die sees in full, only an independent measured distribution may be root-sum-squared"
+    expected_skill: "space-systems/ecss/q6012-temperature-process-and-supply-sensitivity"
+  - id: tps2
+    query: "tell me which process voltage temperature corners I actually have to simulate for this die and which of the three axes is eating most of my specification window"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.6; a monotone response is bounded by its extremes so the corner set reduces, a response that turns over is not, and the axes are ranked by the share of spread each owns"
+    expected_skill: "space-systems/ecss/q6012-temperature-process-and-supply-sensitivity"

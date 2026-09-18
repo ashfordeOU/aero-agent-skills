@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-surface-preparation (space-systems/ecss)
+# Two tasks for the new leaf. sp1 routes on the ordered prep sequence and the
+# conversion treatment a light alloy owes; sp2 routes on the prepared-to-coat
+# time window and the two-way masking record. Both must deterministically hit
+# space-systems/ecss/q7031-surface-preparation.
+tasks:
+  - id: sp1
+    query: "the traveller says they abraded first and degreased afterwards - work out what the correct step order was for this alloy and what the conversion treatment step was supposed to sit between"
+    intent: "ECSS-Q-ST-70-31C surface preparation; required ordered sequence per substrate, conversion treatment only where owed, order violations versus a missing step"
+    expected_skill: "space-systems/ecss/q7031-surface-preparation"
+  - id: sp2
+    query: "the panel was prepped yesterday evening and nobody painted it until this afternoon, and one of the bare bond lands has no mask on it - tell me whether we coat or start again"
+    intent: "ECSS-Q-ST-70-31C surface preparation; prepared-to-first-coat window per substrate, declared keep-out areas versus the masking record, rework against re-prepare"
+    expected_skill: "space-systems/ecss/q7031-surface-preparation"

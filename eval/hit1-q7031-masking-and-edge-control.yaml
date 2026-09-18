@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7031-masking-and-edge-control (space-systems/ecss)
+# Two tasks for the new leaf. mec1 routes on the overspray halo that sizes a
+# keep-out mask; mec2 routes on the film a convex edge actually retains and the
+# stripe coats that close it. Both must deterministically hit
+# space-systems/ecss/q7031-masking-and-edge-control.
+tasks:
+  - id: mec1
+    query: "gun stands off 200 mm with a 60 degree fan, work out how far the mask has to stand clear of the connector faces and the optical window so nothing drifts onto them"
+    intent: "ECSS-Q-ST-70-31C application; overspray halo sized from stand-off and fan angle, scaled by how unforgiving each keep-out zone is"
+    expected_skill: "space-systems/ecss/q7031-masking-and-edge-control"
+  - id: mec2
+    query: "the flats measure fine but the rib corners are nearly sharp, tell me what thickness those edges actually hold and how many stripe passes bring them to the minimum"
+    intent: "ECSS-Q-ST-70-31C application; edge retention rises with radius from a sharp-edge floor, and the stripe-coat count follows from the deficit"
+    expected_skill: "space-systems/ecss/q7031-masking-and-edge-control"

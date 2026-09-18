@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7022-stock-rotation (space-systems/ecss)
+# Two tasks for the new leaf. srt1 routes on the issue order and the lots passed
+# over by a pick; srt2 routes on bin separation, which is a property of the
+# arrangement rather than of the stock record.
+# Both must deterministically hit space-systems/ecss/q7022-stock-rotation.
+tasks:
+  - id: srt1
+    query: "the picker took the newest tin of sealant off the shelf, tell me which older lots were passed over and whether that breaks our rotation rule"
+    intent: "ECSS-Q-ST-70-22 stock control; issue order by receipt date with a full tie-break, per material, and the lots skipped by an out of rotation pick"
+    expected_skill: "space-systems/ecss/q7022-stock-rotation"
+  - id: srt2
+    query: "two lot numbers of the same adhesive are sitting in one open tray and a quarantined tin is in there too, is that acceptable storage of the stock"
+    intent: "ECSS-Q-ST-70-22 stock control; commingled lots without a divider, mixed material bins and quarantine not segregated from issuable stock"
+    expected_skill: "space-systems/ecss/q7022-stock-rotation"

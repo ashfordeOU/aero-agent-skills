@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7022-interface-to-process-control (space-systems/ecss)
+# Two tasks for the new leaf. ipc1 routes on the release-or-block gate between
+# stores and a controlled process; ipc2 routes on the operation window and the
+# pot-life clock that runs independently of shelf life. Both must
+# deterministically hit
+# space-systems/ecss/q7022-interface-to-process-control.
+tasks:
+  - id: ipc1
+    query: "wire the stores issue point so an expired or quarantined drum cannot be drawn against a controlled bonding work order, and give the system something it can branch on"
+    intent: "ECSS-Q-ST-70-22C interface to the process flows; coded release or block with approved-process, stores status and open-deviation checks"
+    expected_skill: "space-systems/ecss/q7022-interface-to-process-control"
+  - id: ipc2
+    query: "the adhesive is in date at eight in the morning but the lay-up runs four hours and it was stirred twenty minutes ago, can this issue go ahead"
+    intent: "ECSS-Q-ST-70-22C interface; the operation window against the shelf-life deadline, and the separate pot-life clock running from the moment of mixing"
+    expected_skill: "space-systems/ecss/q7022-interface-to-process-control"

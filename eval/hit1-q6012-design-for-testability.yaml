@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-design-for-testability (space-systems/ecss)
+# Two tasks for the new leaf. dft1 routes on the pre-tape-out access question -- which
+# acceptance parameters have anywhere to put a probe while the die is still on the
+# wafer. dft2 routes on the probe-card landing geometry and the pad area and touchdown
+# budgets. Both must deterministically hit
+# space-systems/ecss/q6012-design-for-testability.
+tasks:
+  - id: dft1
+    query: "before we commit the mask set, go through the acceptance parameter list for this MMIC and tell me which ones we can actually measure on wafer and which only come back once the die is in a carrier"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.7; a screening-critical parameter reachable only after assembly is a coverage gap even though it is measurable somewhere"
+    expected_skill: "space-systems/ecss/q6012-design-for-testability"
+  - id: dft2
+    query: "check our test pads against the probe card we have, then tell me how much die area they cost and whether the screening flow plus retests will exceed what a pad is rated to be touched down on"
+    intent: "ECSS-Q-ST-60-12C clause 7.2.7; pad pitch inside the card tolerance, short side covering the tip diameter plus alignment both ways, pad area fraction and touchdown budget"
+    expected_skill: "space-systems/ecss/q6012-design-for-testability"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-toxicity-assessment (space-systems/ecss)
+# tox1 routes on scaling the tested quantity to the flown quantity and cabin;
+# tox2 routes on the additive group total, which is the rule that fails an
+# article whose every compound is individually compliant. Both must
+# deterministically hit space-systems/ecss/q7029-toxicity-assessment.
+tasks:
+  - id: tox1
+    query: "we tested fifty grams in a two litre vessel but we are flying five kilos into a hundred cubic metre cabin - work out whether the crew stays inside the maximum allowable concentrations"
+    intent: "ECSS-Q-ST-70-29 assessment; predicted cabin concentration scales with the mass ratio and the volume ratio before it is graded against a duration-specific SMAC"
+    expected_skill: "space-systems/ecss/q7029-toxicity-assessment"
+  - id: tox2
+    query: "every single compound is under its own allowable concentration but three of them hit the same target organ, and one has no published limit at all - give me the T-value verdict"
+    intent: "ECSS-Q-ST-70-29 assessment; ratios add inside a toxicological group, the largest group total governs, and a missing limit is a gap rather than a zero"
+    expected_skill: "space-systems/ecss/q7029-toxicity-assessment"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q1009-major-escalation (space-systems/ecss)
+# Two tasks for the new leaf. me1 routes on the submission package a deciding
+# board needs. me2 routes on the working-day window between detection and the
+# package reaching the customer.
+# Both must deterministically hit
+# space-systems/ecss/q1009-major-escalation.
+tasks:
+  - id: me1
+    query: "we have a major nonconformance we cannot dispose of ourselves, tell me what has to be in the package before it goes to the customer board and who signs it"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.5; the larger submission set a deciding board needs including severity evidence and higher-level impact, plus the internal approval signatures"
+    expected_skill: "space-systems/ecss/q1009-major-escalation"
+  - id: me2
+    query: "the departure was found on the first and the package went out on the fifteenth with a factory shutdown in between, work out whether we made the submission deadline"
+    intent: "ECSS-Q-ST-10-09 clause 5.2.2.5; submission window counted in working days past weekends and declared shutdowns, with the on-deadline day inside the window"
+    expected_skill: "space-systems/ecss/q1009-major-escalation"

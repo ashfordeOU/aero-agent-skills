@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-test-matrix-review-item (space-systems/ecss)
+# Two tasks for the leaf. tm1 routes on the forward trace from a requirement to
+# an admissible activity across every specified corner; tm2 routes on the
+# backward trace and the split coverage figure. Both must deterministically hit
+# space-systems/ecss/q6012-test-matrix-review-item.
+tasks:
+  - id: tm1
+    query: "check the planned measurement coverage maps every requirement to a verification activity whose method the requirement permits, that has written pass criteria, and whose temperature corners between them span everything the requirement is specified over"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.8; forward trace with method admissibility and condition-corner union"
+    expected_skill: "space-systems/ecss/q6012-test-matrix-review-item"
+  - id: tm2
+    query: "the verification matrix has an activity that covers no requirement and another citing a requirement identifier that was renumbered away, report coverage overall and for the critical requirements and say whether the review item closes"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.8; backward trace separating surplus activities from broken references, split coverage fractions"
+    expected_skill: "space-systems/ecss/q6012-test-matrix-review-item"

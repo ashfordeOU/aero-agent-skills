@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7030-operator-certification (space-systems/ecss)
+# Two tasks for the new leaf. cert1 routes on the endorsement being per gauge and
+# terminal-type pair; cert2 routes on the continuity lapse against an expiry.
+# Both must deterministically hit
+# space-systems/ecss/q7030-operator-certification.
+tasks:
+  - id: cert1
+    query: "this wrapping operator is endorsed for one wire gauge and terminal type - say whether the assignment to a different combination is permitted or refused, and whether the theory and practical evidence behind the endorsement still stands"
+    intent: "ECSS-Q-ST-70-30C wrapping personnel; endorsement held per wire-gauge and terminal-type combination, dated assignment verdict"
+    expected_skill: "space-systems/ecss/q7030-operator-certification"
+  - id: cert2
+    query: "decide whether this wrapping operator endorsement has expired with its certification period or is only suspended because the continuity window elapsed with no production on that combination"
+    intent: "ECSS-Q-ST-70-30C wrapping personnel; continuity window suspension against an elapsed certification period, plus the vision check clock"
+    expected_skill: "space-systems/ecss/q7030-operator-certification"

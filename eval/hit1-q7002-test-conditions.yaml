@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-test-conditions (space-systems/ecss)
+# Two tasks for the new leaf. cond1 routes on a declared set point away from the
+# screening point and the justification it owes; cond2 routes on the pressure
+# ceiling and the chamber time the whole sequence needs. Both must
+# deterministically hit space-systems/ecss/q7002-test-conditions.
+tasks:
+  - id: cond1
+    query: "the run sheet for the outgassing screening says 80 degrees for twelve hours instead of the standard point, work out what that costs us and what has to be written down for it"
+    intent: "ECSS-Q-ST-70-02C procedure; set points away from the screening point and the per-parameter rationale and approval reference a departure owes"
+    expected_skill: "space-systems/ecss/q7002-test-conditions"
+  - id: cond2
+    query: "we booked 26 hours of chamber time for a 24 hour outgassing soak and the gauge will sit two orders below the pressure limit, say whether the declared conditions hold up"
+    intent: "ECSS-Q-ST-70-02C procedure; chamber pressure as a ceiling rather than a set point, and pump-down plus stabilisation plus soak plus cool-down against the booked window"
+    expected_skill: "space-systems/ecss/q7002-test-conditions"

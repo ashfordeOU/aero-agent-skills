@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-logbook-example (space-systems/ecss)
+# Two tasks for the leaf. lbc1 routes on the cover-page field order and the
+# structural field rules; lbc2 routes on the cover-to-entry cross-check and the
+# computed sheet count. Both must deterministically hit
+# space-systems/ecss/q20-logbook-example, not the Annex C logbook content leaf.
+tasks:
+  - id: lbc1
+    query: "lay out the front sheet of a unit logbook in the standard field order and tell me whether our filled cover has a blank mandatory field, a period running backwards or a sheet numbered past its own total"
+    intent: "ECSS-Q-ST-20C Annex E; logbook cover page field order, mandatory fields, period dates and sheet numbering"
+    expected_skill: "space-systems/ecss/q20-logbook-example"
+  - id: lbc2
+    query: "the front sheet of this logbook says one sheet and quotes a serial number; check it against the entries behind it and work out how many sheets the entry count actually needs"
+    intent: "ECSS-Q-ST-20C Annex E; logbook cover to entry cross-check on serial number and period, and the computed sheet count"
+    expected_skill: "space-systems/ecss/q20-logbook-example"

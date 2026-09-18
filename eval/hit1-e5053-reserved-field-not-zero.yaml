@@ -1,0 +1,15 @@
+# Hit@1 fragment: e5053-reserved-field-not-zero (space-systems/ecss)
+# Two tasks for the new leaf. rfnz1 routes on the receiving-side disposition of a
+# non-zero reserved octet; rfnz2 routes on telling a peer built to another
+# revision apart from a link corrupting octets.
+# Both must deterministically hit
+# space-systems/ecss/e5053-reserved-field-not-zero.
+tasks:
+  - id: rfnz1
+    query: "our SpaceWire receive path found a non zero value in the octet between the protocol identifier and the CCSDS packet, and it went ahead and parsed the packet anyway, tell me what it should have done with that transfer instead"
+    intent: "ECSS-E-ST-50-53C clause 5.5.4.3; a non-zero reserved octet means the transfer is not conformant with this protocol revision, so no packet is handed up and the condition is reported with the value seen"
+    expected_skill: "space-systems/ecss/e5053-reserved-field-not-zero"
+  - id: rfnz2
+    query: "a whole run of incoming transfers is being thrown out on the reserved octet check and the values are all the same number, work out whether the peer is a different build or the line is dropping bits"
+    intent: "ECSS-E-ST-50-53C clause 5.5.4.3; one repeated non-zero value across most of a run points at a peer emitting another revision, a scatter of distinct values points at corruption"
+    expected_skill: "space-systems/ecss/e5053-reserved-field-not-zero"

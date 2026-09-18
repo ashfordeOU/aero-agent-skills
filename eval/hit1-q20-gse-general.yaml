@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-gse-general (space-systems/ecss)
+# Two tasks for the leaf. gen1 routes on GSE identification marking across a
+# register; gen2 routes on record retention against service life and the
+# handling provisions a safety-critical item owes. Both must deterministically
+# hit space-systems/ecss/q20-gse-general, not the GSE configuration leaf and not
+# the GSE maintenance leaf.
+tasks:
+  - id: gsegen1
+    query: "audit our ground support equipment register: do the identification marks follow the scheme, is any mark carried by two items, and does the mark on the hardware match the entry"
+    intent: "ECSS-Q-ST-20C clause 5.8.8; GSE identification marking scheme and register-wide duplicate marks"
+    expected_skill: "space-systems/ecss/q20-gse-general"
+  - id: gsegen2
+    query: "this safety-critical ground support item has a ten year service life and seven years of record retention; tell me how many years short the file is and which point-of-use handling provisions it is missing"
+    intent: "ECSS-Q-ST-20C clause 5.8.8; GSE record retention shortfall and safety-critical handling provisions"
+    expected_skill: "space-systems/ecss/q20-gse-general"

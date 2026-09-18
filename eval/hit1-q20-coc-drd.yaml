@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-coc-drd (space-systems/ecss)
+# Two tasks for the leaf. coc1 routes on the conformity statement against the
+# deviation list; coc2 routes on the evidence references and the signature
+# authority and date. Both must deterministically hit
+# space-systems/ecss/q20-coc-drd, not the data package or delivery leaves.
+tasks:
+  - id: coc1
+    query: "this certificate of conformity says the item conforms fully and then lists two waivers underneath; tell me whether the statement and the deviation list can both stand and which fields the sheet leaves blank"
+    intent: "ECSS-Q-ST-20C Annex D; certificate of conformity statement against its deviation list and the DRD field set"
+    expected_skill: "space-systems/ecss/q20-coc-drd"
+  - id: coc2
+    query: "check the evidence our certificate points at against the register that came with the delivery, and tell me whether the signature is held by an independent function and dated after the last report it cites"
+    intent: "ECSS-Q-ST-20C Annex D; certificate of conformity evidence reference resolution, signing authority independence and signature date"
+    expected_skill: "space-systems/ecss/q20-coc-drd"

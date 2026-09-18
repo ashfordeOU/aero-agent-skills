@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-telecommand-delivery-service (space-systems/ecss)
+# td1 routes on a frame that arrived before the one it should follow; td2
+# routes on a sequence counter wrap that started refusing good frames. Both
+# must deterministically hit
+# space-systems/ecss/e50-telecommand-delivery-service.
+tasks:
+  - id: td1
+    query: "a telecommand frame decoded perfectly but its sequence number is three ahead of what the receiver wants, do we execute it or hold it and ask for the missing one"
+    intent: "ECSS-E-ST-50C clause 5.4.2; the delivery service refuses a frame that would break the order and reports the sequence number that would unblock the stream"
+    expected_skill: "space-systems/ecss/e50-telecommand-delivery-service"
+  - id: td2
+    query: "our uplink started refusing every frame right after the command sequence counter rolled past its maximum, what did the acceptance window get wrong"
+    intent: "ECSS-E-ST-50C clause 5.4.2; the comparison against the expected sequence number has to be modular, and the window has to be narrower than half the counter"
+    expected_skill: "space-systems/ecss/e50-telecommand-delivery-service"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-anodizing-process-parameters (space-systems/ecss)
+# anp1 routes on the electrolyte and current-density windows; anp2 routes on
+# the growth-against-dissolution arithmetic that turns a target thickness into
+# an immersion time. Both must deterministically hit
+# space-systems/ecss/q7003-anodizing-process-parameters.
+tasks:
+  - id: anp1
+    query: "the anodize tank is reading a hundred and fifty grams a litre free acid with fourteen grams of dissolved aluminium and the sparge is off, say whether we can run the load"
+    intent: "ECSS-Q-ST-70-03C process clause, anodizing; free acid, dissolved aluminium, chloride and agitation windows for a coating that will be dyed"
+    expected_skill: "space-systems/ecss/q7003-anodizing-process-parameters"
+  - id: anp2
+    query: "at one and a half amps per square decimetre and a tank sitting at twenty three degrees, how long do I need in the tank for a ten micron coating and what current will the rectifier have to hold"
+    intent: "ECSS-Q-ST-70-03C process clause, anodizing; net growth after the temperature-driven dissolution, required immersion time, and rectifier current from racked area"
+    expected_skill: "space-systems/ecss/q7003-anodizing-process-parameters"

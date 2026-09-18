@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7003-stripping-and-re-anodizing (space-systems/ecss)
+# sra1 routes on the cycle budget the drawing minimum leaves once each strip is
+# costed in base metal on both faces; sra2 routes on the clad skin that limits
+# stripping while every dimensional check still passes. Both must
+# deterministically hit space-systems/ecss/q7003-stripping-and-re-anodizing.
+tasks:
+  - id: sra1
+    query: "this part has been stripped and re-anodized twice already and it is still in tolerance, work out whether it can go through the tank again and how many times after that"
+    intent: "ECSS-Q-ST-70-03 rework clause; the tightest of the dimensional budget and the declared reprocessing ceiling, checked after the proposed cycle"
+    expected_skill: "space-systems/ecss/q7003-stripping-and-re-anodizing"
+  - id: sra2
+    query: "we want to strip the anodize off some clad aluminium sheet parts and run them again, the thickness is nowhere near the lower limit so is there anything stopping us"
+    intent: "ECSS-Q-ST-70-03 rework clause; the remaining cladding sets its own stripping limit and a part out of metal is scrap rather than a concession"
+    expected_skill: "space-systems/ecss/q7003-stripping-and-re-anodizing"

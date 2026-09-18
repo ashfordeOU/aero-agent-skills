@@ -1,0 +1,15 @@
+# Hit@1 fragment: q20-logbook-drd (space-systems/ecss)
+# Two tasks for the leaf. lbd1 routes on the per-type entry fields, numbering
+# and chronology of the unit logbook; lbd2 routes on the modification
+# configuration chain and the environmental exposure record. Both must
+# deterministically hit space-systems/ecss/q20-logbook-drd, not the cover-page
+# leaf and not a general nonconformance leaf.
+tasks:
+  - id: lbd1
+    query: "go through this unit logbook and tell me which entries are missing the fields their type owes, whether the numbering has a gap or a repeat, and whether any line is dated before the line above it"
+    intent: "ECSS-Q-ST-20C Annex C; unit logbook entry fields per type, sequence numbering and entry chronology"
+    expected_skill: "space-systems/ecss/q20-logbook-drd"
+  - id: lbd2
+    query: "walk the modification entries in this logbook from the initial build standard and tell me the configuration the unit stands at now, plus the accumulated environmental exposure hours and any excursion nobody raised"
+    intent: "ECSS-Q-ST-20C Annex C; logbook modification configuration chain, environmental exposure accumulation and excursion references"
+    expected_skill: "space-systems/ecss/q20-logbook-drd"

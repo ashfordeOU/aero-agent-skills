@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7002-method-variants (space-systems/ecss)
+# mv1 routes on the variant-selection decision itself, not the regained arithmetic;
+# mv2 routes on a bake moved off the baseline and what that costs in
+# comparability. Both must deterministically hit
+# space-systems/ecss/q7002-method-variants.
+tasks:
+  - id: mv1
+    query: "this material takes up moisture so the laboratory ran a longer preconditioning period and added a reconditioning weighing, tell me which permitted method variants that run should have declared and whether the declared list matches the periods actually used"
+    intent: "ECSS-Q-ST-70-02C method control; a hygroscopic material indicates the water-vapour regained and extended-preconditioning variants, and the declared variants are checked against the settings actually used"
+    expected_skill: "space-systems/ecss/q7002-method-variants"
+  - id: mv2
+    query: "the maximum use temperature of this part is below the standard bake so we ran it cooler and preconditioned it for longer, tell me which of those departures still leave results I can compare with the baseline screening data"
+    intent: "ECSS-Q-ST-70-02C method control; a reduced bake temperature or an extended bake breaks comparability, a longer preconditioning or a regained determination does not"
+    expected_skill: "space-systems/ecss/q7002-method-variants"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6012-development-plan-review-item (space-systems/ecss)
+# Two tasks for the new leaf. dpr1 routes on rolling the remaining activity
+# durations forward through their dependencies to an earliest finish and the
+# float left against the committed date; dpr2 routes on the staffing peak the
+# overlapping activities demand and a milestone placed before the work it
+# names can finish. Both must deterministically hit
+# space-systems/ecss/q6012-development-plan-review-item.
+tasks:
+  - id: dpr1
+    query: "the die programme has eleven activities left and the mask set cannot start until layout freeze is signed, work out the earliest the remaining development can finish and how much float that leaves against the committed date"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.12; forward pass through the remaining activity dependencies to an earliest finish, and the float against the commitment graded on the margin policy share of the span"
+    expected_skill: "space-systems/ecss/q6012-development-plan-review-item"
+  - id: dpr2
+    query: "two die activities overlap for three weeks and between them carry sixty person-days, say whether the declared team covers the loading peak and whether the lot release milestone can be met by the work it hangs off"
+    intent: "ECSS-Q-ST-60-12C clause 7.3.12; effort spread over duration gives a loading profile whose peak the declared capacity must cover, and a milestone placed before the earliest finish of its own activities is unreachable"
+    expected_skill: "space-systems/ecss/q6012-development-plan-review-item"

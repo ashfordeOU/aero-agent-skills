@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-test-report (space-systems/ecss)
+# rep1 routes on the two-way cross-check between the report's own tables; rep2
+# routes on recomputing a stated total and on a conclusion that contradicts the
+# rows under it. Both must deterministically hit
+# space-systems/ecss/q7029-test-report.
+tasks:
+  - id: rep1
+    query: "the offgassing report lists a compound in the assessment table that never appears in the concentration table - go through the draft and tell me what is missing before it is issued"
+    intent: "ECSS-Q-ST-70-29 reporting; the identification, concentration and assessment tables are cross-checked in both directions and an orphan row blocks issue"
+    expected_skill: "space-systems/ecss/q7029-test-report"
+  - id: rep2
+    query: "check the stated total released mass against the rows it summarises and tell me whether the conclusion at the front of this offgassing report is actually supported by its own tables"
+    intent: "ECSS-Q-ST-70-29 reporting; stated totals are recomputed under an accumulation tolerance and the conclusion is derived from the assessment verdicts"
+    expected_skill: "space-systems/ecss/q7029-test-report"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e5053-function (space-systems/ecss)
+# Two tasks for the new leaf. fn1 routes on the purpose statement that only
+# echoes the primitive name; fn2 routes on parameter detail sitting in the
+# wrong subclause. Both must deterministically hit
+# space-systems/ecss/e5053-function.
+tasks:
+  - id: fn1
+    query: "go through the service definition and tell me which primitives have a purpose line that just says the primitive name back at me instead of describing what the primitive is for"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.1; informative content a function statement adds over the primitive name, and the restatement floor below which it adds nothing"
+    expected_skill: "space-systems/ecss/e5053-function"
+  - id: fn2
+    query: "the opening description of this protocol primitive lists octet counts and says when a timer fires, work out which of those sentences belong in a different subclause"
+    intent: "ECSS-E-ST-50-53 clause 5.2.2.1; content leakage from the semantics, when-generated and effect-on-receipt subclauses into the function statement"
+    expected_skill: "space-systems/ecss/e5053-function"
