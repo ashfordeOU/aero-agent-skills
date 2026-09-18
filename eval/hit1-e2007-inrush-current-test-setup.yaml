@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-inrush-current-test-setup (space-systems/ecss)
+# Two tasks for the new leaf. ics1 routes on deriving the switch-on surge
+# bench from the standard configuration and the deltas declared against it;
+# ics2 routes on whether the probe and recorder together are fast enough for
+# the surge edge and what sample rate that leaves. Both must deterministically
+# hit space-systems/ecss/e2007-inrush-current-test-setup.
+tasks:
+  - id: ics1
+    query: "we are building the bench for the switch on current surge run off the standard EMC configuration, which lead length, lead height and probe to connector distances are we allowed to change and how do we write the ones we did change"
+    intent: "ECSS-E-ST-20-07C clause 5.4.4.3; the inrush bench is the standard configuration plus declared deltas, each graded against its band"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-test-setup"
+  - id: ics2
+    query: "our current probe is 2 MHz and the digitizer is 100 MHz, is that chain fast enough to capture a ten microsecond inrush edge and what sample rate and record length should we set"
+    intent: "ECSS-E-ST-20-07C clause 5.4.4.3; probe and recorder rise times add in quadrature, and the sample rate follows from the chain bandwidth"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-test-setup"

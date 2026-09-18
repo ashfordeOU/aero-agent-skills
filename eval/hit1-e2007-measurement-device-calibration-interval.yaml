@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-measurement-device-calibration-interval (space-systems/ecss)
+# Two tasks for the leaf. mdci1 routes on the biennial recalibration anniversary
+# of an antenna, probe and sensor inventory against a measurement window; mdci2
+# routes on damage pulling the due date in ahead of that anniversary. Both must
+# deterministically hit
+# space-systems/ecss/e2007-measurement-device-calibration-interval.
+tasks:
+  - id: mdci1
+    query: "work out the recalibration due date of every antenna, probe and field sensor in the EMC laboratory from its last calibration and the two-year ceiling, and say which of them falls due inside the planned measurement window"
+    intent: "ECSS-E-ST-20-07C clause 5.2.11.1; biennial recalibration interval of measurement devices against a campaign window"
+    expected_skill: "space-systems/ecss/e2007-measurement-device-calibration-interval"
+  - id: mdci2
+    query: "a current probe was dropped part way through its calibration interval; decide from what date it stopped being usable and whether the certificate anniversary still applies"
+    intent: "ECSS-E-ST-20-07C clause 5.2.11.1; damage invalidating a measurement device ahead of its calibration anniversary"
+    expected_skill: "space-systems/ecss/e2007-measurement-device-calibration-interval"

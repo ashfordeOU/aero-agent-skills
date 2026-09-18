@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-emission-identification-rule (space-systems/ecss)
+# Two tasks for the new leaf. eir1 routes on holding every emission to the
+# prescribed bandwidth whatever character it was recorded under. eir2 routes on
+# auditing a survey for a bandwidth that tracks the recorded character and for
+# emissions dropped on character grounds. Both must deterministically hit
+# space-systems/ecss/e2007-emission-identification-rule.
+tasks:
+  - id: eir1
+    query: "the survey widened the receiver for the emissions it judged broadband: decide whether that is allowed and what level shift the substitution carries"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.2; every emission measured in the prescribed bandwidth regardless of signal character"
+    expected_skill: "space-systems/ecss/e2007-emission-identification-rule"
+  - id: eir2
+    query: "audit an emission survey for a bandwidth that tracks the recorded signal character and for points dropped because they were taken for artefacts"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.2; character-neutral emission identification, character-based omission, reportable exceedances"
+    expected_skill: "space-systems/ecss/e2007-emission-identification-rule"

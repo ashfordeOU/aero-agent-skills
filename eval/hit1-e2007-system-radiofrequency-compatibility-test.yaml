@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-system-radiofrequency-compatibility-test (space-systems/ecss)
+# Two tasks for the new leaf. srct1 routes on building the emitter/receiver test
+# matrix with the passive intermodulation products held outside this test;
+# srct2 routes on the coupled level, out-of-band rejection and margin that make
+# a pair mandatory to exercise. Both must deterministically hit
+# space-systems/ecss/e2007-system-radiofrequency-compatibility-test.
+tasks:
+  - id: srct1
+    query: "build the system level radio compatibility test matrix for our transmitters and receivers and tell me which cases we must run, noting that passive intermodulation products are verified by a separate activity"
+    intent: "ECSS-E-ST-20-07C clause 5.3.8; system radiofrequency compatibility test matrix with passive intermodulation products excluded by name"
+    expected_skill: "space-systems/ecss/e2007-system-radiofrequency-compatibility-test"
+  - id: srct2
+    query: "our S-band transmitter harmonic couples into the navigation receiver through the declared antenna isolation, work out the interference margin with the out-of-band rejection applied and say whether the pair has to be exercised at system level"
+    intent: "ECSS-E-ST-20-07C clause 5.3.8; coupled level, receiver rejection, interference margin and mandatory system-level case"
+    expected_skill: "space-systems/ecss/e2007-system-radiofrequency-compatibility-test"

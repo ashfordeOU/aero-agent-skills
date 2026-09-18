@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-inrush-current-test-purpose
+# (space-systems/ecss, E-ST-20-07C 5.4.4.1). Two tasks per leaf; ictp1 routes
+# on the peak bound and the surge ratio, ictp2 on the envelope dwell and the
+# switch-on condition coverage. Both must deterministically hit
+# space-systems/ecss/e2007-inrush-current-test-purpose.
+tasks:
+  - id: ictp1
+    query: "grade the switch-on-current-surge peak against the inrush-peak-bound-margin and form the inrush-steady-state-surge-ratio from the settled draw"
+    intent: "ecss emc; inrush aim, peak against the specified bound and the surge ratio"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-test-purpose"
+  - id: ictp2
+    query: "measure the inrush-envelope-dwell-time and excess charge above the envelope then name the governing-inrush-line and check switch-on-condition-coverage"
+    intent: "ecss emc; envelope dwell, per-line worst case and condition coverage"
+    expected_skill: "space-systems/ecss/e2007-inrush-current-test-purpose"

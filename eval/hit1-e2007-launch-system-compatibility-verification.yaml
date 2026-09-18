@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-launch-system-compatibility-verification
+# (space-systems/ecss, E-ST-20-07C 5.3.3). Two tasks per leaf; lsc1 routes on
+# the ascent powered-state timeline and the waiver itself, lsc2 on the margin
+# and method owed once the waiver is refused. Both must deterministically hit
+# space-systems/ecss/e2007-launch-system-compatibility-verification.
+tasks:
+  - id: lsc1
+    query: "rebuild the ascent-powered-state-timeline from liftoff to separation and decide whether the ascent-unpowered-waiver for launch-system-compatibility holds"
+    intent: "ecss launcher emc; spacecraft unpowered through ascent, compatibility testing waived"
+    expected_skill: "space-systems/ecss/e2007-launch-system-compatibility-verification"
+  - id: lsc2
+    query: "the survival heater stays on during ascent so size the launcher-radiated-emission-margin and name the spacecraft-verification-method each powered state still owes"
+    intent: "ecss launcher emc; waiver refused, emission margin against the launcher limit and method selection"
+    expected_skill: "space-systems/ecss/e2007-launch-system-compatibility-verification"

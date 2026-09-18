@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-tuneable-equipment-frequency-selection (space-systems/ecss)
+# Two tasks for the leaf. tefs1 routes on deriving the spread of settings and the
+# channel centres; tefs2 routes on grading a proposed plan for point count, edge
+# reach and untested gaps. Both must deterministically hit
+# space-systems/ecss/e2007-tuneable-equipment-frequency-selection.
+tasks:
+  - id: tefs1
+    query: "work out which tuning settings a tuneable receiver and a channelized transmitter must be measured at so the settings are spread across each band and land on real channel centres"
+    intent: "ECSS-E-ST-20-07C clause 5.2.7.2; even spread across a tuning band and channel-centre selection for a channelized range"
+    expected_skill: "space-systems/ecss/e2007-tuneable-equipment-frequency-selection"
+  - id: tefs2
+    query: "grade a proposed emission frequency plan for a tuneable unit on whether it holds enough settings per band, reaches both band edges and leaves no oversized untested gap"
+    intent: "ECSS-E-ST-20-07C clause 5.2.7.2; coverage grading of a proposed tuning plan on count, edge reach and gap"
+    expected_skill: "space-systems/ecss/e2007-tuneable-equipment-frequency-selection"

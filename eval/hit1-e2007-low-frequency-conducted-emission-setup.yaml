@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-low-frequency-conducted-emission-setup
+# (space-systems/ecss, E-ST-20-07C 5.4.2.3). Two tasks per leaf; lfces1 routes
+# on the plane overhang and the unit bond, lfces2 on the per-lead probe offset,
+# harness height and separation windows. Both must deterministically hit
+# space-systems/ecss/e2007-low-frequency-conducted-emission-setup.
+tasks:
+  - id: lfces1
+    query: "grade the conducted-emission-ground-plane-bond and the plane overhang around the unit footprint for the lf-conducted-emission-setup arrangement"
+    intent: "ecss emc; ground plane margin and unit bond resistance for the conducted-emission bench"
+    expected_skill: "space-systems/ecss/e2007-low-frequency-conducted-emission-setup"
+  - id: lfces2
+    query: "audit the current-probe-offset-window, the conducted-emission-harness-height and the conducted-emission-harness-separation per lead with the lisn-presence-per-lead check"
+    intent: "ecss emc; per-lead bench arrangement windows for the low-frequency conducted-emission method"
+    expected_skill: "space-systems/ecss/e2007-low-frequency-conducted-emission-setup"

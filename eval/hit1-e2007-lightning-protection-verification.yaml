@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-lightning-protection-verification (space-systems/ecss,
+# E-ST-20-07C 5.3.4). Two tasks per leaf; lpv1 routes on the direct-effects
+# zoning and method admissibility, lpv2 on the indirect transient levels and
+# the decibel margin. Both must deterministically hit
+# space-systems/ecss/e2007-lightning-protection-verification.
+tasks:
+  - id: lpv1
+    query: "confirm the lightning-attachment-zoning of each exposed surface and decide whether review-of-design closes a direct-effects requirement inside an attachment zone"
+    intent: "ecss lightning; system-level confirmation of direct-effects protection by admissible method per zone"
+    expected_skill: "space-systems/ecss/e2007-lightning-protection-verification"
+  - id: lpv2
+    query: "raise each measured transient to a lightning-transient-control-level and take the lightning-protection-margin-db against the equipment-transient-design-level"
+    intent: "ecss lightning; indirect-effects margin of the equipment design level over the control level"
+    expected_skill: "space-systems/ecss/e2007-lightning-protection-verification"

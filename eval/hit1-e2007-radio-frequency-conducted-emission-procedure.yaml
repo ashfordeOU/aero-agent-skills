@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-radio-frequency-conducted-emission-procedure
+# (space-systems/ecss, E-ST-20-07C 5.4.3.4). Two tasks per leaf; rfcep1 routes
+# on the probe transfer-impedance read-back and the pre-to-post drift, rfcep2
+# on the segment sweep-time floor and the band coverage. Both must
+# deterministically hit
+# space-systems/ecss/e2007-radio-frequency-conducted-emission-procedure.
+tasks:
+  - id: rfcep1
+    query: "carry the injected dBuA through the current-probe-chain-verification transfer impedance to the expected read-back and grade the probe-transfer-impedance-readback error and the pre-to-post drift"
+    intent: "ecss emc; rf conducted-emission run, chain verification and drift before and after the capture"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-procedure"
+  - id: rfcep2
+    query: "derive the rf-conducted-sweep-time-floor per capture segment from its resolution bandwidth and check the conducted-capture-segment-coverage of the method band for gaps"
+    intent: "ecss emc; swept capture segments, sweep-time floor and method-band tiling"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-procedure"

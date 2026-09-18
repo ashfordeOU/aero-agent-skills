@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-peak-detector-usage (space-systems/ecss, E-ST-20-07C
+# 5.2.8.2). Two tasks per leaf; pdu1 routes on the detector choice itself, pdu2
+# on the dwell and bin-step the peak detector needs to reach a peak. Both must
+# deterministically hit space-systems/ecss/e2007-peak-detector-usage.
+tasks:
+  - id: pdu1
+    query: "confirm the frequency-domain-peak-detector is used for the emission and susceptibility sweeps instead of an averaging emc-receiver-detector-choice"
+    intent: "ecss emc; peak detection required whenever a quantity is measured against frequency"
+    expected_skill: "space-systems/ecss/e2007-peak-detector-usage"
+  - id: pdu2
+    query: "derive receiver-dwell-per-bin against the resolution-bandwidth-response-time and the pulse-repetition-interval-dwell then run the spectrum-bin-step-check"
+    intent: "ecss emc; sweep slow enough and fine enough for the peak detector to record the peak"
+    expected_skill: "space-systems/ecss/e2007-peak-detector-usage"

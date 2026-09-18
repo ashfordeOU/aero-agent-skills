@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-low-frequency-conducted-emission-procedure
+# (space-systems/ecss, E-ST-20-07C 5.4.2.4). Two tasks per leaf; lfcep1 routes
+# on the warm-up and the system-check read-back, lfcep2 on the step, dwell and
+# scan time of the stepped sweep. Both must deterministically hit
+# space-systems/ecss/e2007-low-frequency-conducted-emission-procedure.
+tasks:
+  - id: lfcep1
+    query: "walk the lf-conducted-emission-procedure step order and grade the emi-receiver-warm-up soak with the conducted-emission-system-check read-back error"
+    intent: "ecss emc; run sequence, instrument soak and chain system check before the sweep"
+    expected_skill: "space-systems/ecss/e2007-low-frequency-conducted-emission-procedure"
+  - id: lfcep2
+    query: "derive the conducted-emission-step-size ceiling and the conducted-emission-dwell-time floor from the resolution bandwidth then compute the conducted-emission-scan-time for the recording"
+    intent: "ecss emc; stepped sweep step, dwell and scan time for the recording step"
+    expected_skill: "space-systems/ecss/e2007-low-frequency-conducted-emission-procedure"

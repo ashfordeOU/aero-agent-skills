@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-bonding-resistance-measurement (space-systems/ecss)
+# Two tasks for the new leaf. brm1 routes on the four-wire arrangement itself and
+# the two-wire reading that cannot support a milliohm target; brm2 routes on the
+# charging-control exemption that decides which bonds owe a measurement at all.
+# Both must deterministically hit
+# space-systems/ecss/e2007-bonding-resistance-measurement.
+tasks:
+  - id: brm1
+    query: "the bond tester gave me a reading through one pair of leads, work out whether that number can support a milliohm bond target or whether I need a separate voltage sense pair"
+    intent: "ECSS-E-ST-20-07C clause 5.3.10; four-wire bond resistance measurement and the lead-plus-contact resistance a two-wire reading folds in"
+    expected_skill: "space-systems/ecss/e2007-bonding-resistance-measurement"
+  - id: brm2
+    query: "go through the bonding schedule and say which straps have to be resistance measured and which ones are only there to bleed static charge away"
+    intent: "ECSS-E-ST-20-07C clause 5.3.10; charging-control-only bonds are outside the low-resistance measurement, a dual-role charge-bleed path is not"
+    expected_skill: "space-systems/ecss/e2007-bonding-resistance-measurement"

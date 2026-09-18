@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2007-system-verification-entry-condition (space-systems/ecss)
+# Two tasks for the new leaf. svec1 routes on whether unit and subsystem
+# functional acceptance permits the system compatibility campaign to start;
+# svec2 routes on the waiver and non-conformance side of the same entry
+# condition. Both must deterministically hit
+# space-systems/ecss/e2007-system-verification-entry-condition.
+tasks:
+  - id: svec1
+    query: "decide whether every unit and subsystem has passed functional acceptance before the system level emc campaign is authorized"
+    intent: "ECSS-E-ST-20-07C clause 5.3.1; entry condition for system level compatibility work"
+    expected_skill: "space-systems/ecss/e2007-system-verification-entry-condition"
+  - id: svec2
+    query: "roll unit acceptance up to the parent subsystem and judge whether an open major non-conformance or an aged waiver holds the system test"
+    intent: "ECSS-E-ST-20-07C clause 5.3.1; acceptance roll-up, waiver admissibility and blocking non-conformances"
+    expected_skill: "space-systems/ecss/e2007-system-verification-entry-condition"

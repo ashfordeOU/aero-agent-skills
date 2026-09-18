@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-radio-frequency-conducted-emission-setup
+# (space-systems/ecss, E-ST-20-07C 5.4.3.3). Two tasks per leaf; rfces1 routes
+# on the derivation from the general arrangement, rfces2 on the realized bench
+# geometry and its deviations. Both must deterministically hit
+# space-systems/ecss/e2007-radio-frequency-conducted-emission-setup.
+tasks:
+  - id: rfces1
+    query: "build the derived-bench-arrangement for the conducted run by applying the declared method deltas to the general equipment configuration"
+    intent: "ecss emc higher-band conducted emission; bench derived from the standard configuration rather than drawn from nothing"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-setup"
+  - id: rfces2
+    query: "grade power-lead-routing-geometry, current-probe-placement-distance and ground-plane-bond-resistance then return the setup-deviation-categorization"
+    intent: "ecss emc higher-band conducted emission; realized bench geometry against the derived bands and declared departures"
+    expected_skill: "space-systems/ecss/e2007-radio-frequency-conducted-emission-setup"

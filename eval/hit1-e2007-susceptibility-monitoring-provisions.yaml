@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2007-susceptibility-monitoring-provisions (space-systems/ecss,
+# E-ST-20-07C 5.2.7.4). Two tasks per leaf; smp1 routes on the exposure coverage
+# walk, smp2 on the monitor resolution and sample interval the clause implies.
+# Both must deterministically hit
+# space-systems/ecss/e2007-susceptibility-monitoring-provisions.
+tasks:
+  - id: smp1
+    query: "merge the declared monitoring windows and report every exposure-coverage-gap left unwatched during the susceptibility runs"
+    intent: "ecss emc; unit watched for degradation throughout each susceptibility exposure"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-monitoring-provisions"
+  - id: smp2
+    query: "assess monitor-sample-interval and malfunction-detection-resolution for susceptibility-run-observability of each monitored parameter"
+    intent: "ecss emc; monitoring provisions able to resolve and sample a transient upset during exposure"
+    expected_skill: "space-systems/ecss/e2007-susceptibility-monitoring-provisions"

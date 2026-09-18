@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2007-emission-frequency-scanning (space-systems/ecss)
+# Two tasks for the new leaf. efs1 routes on a set of receiver scan segments
+# that individually sit inside the declared band yet together leave an
+# unvisited sub-band; efs2 routes on a fully covered span whose top segment
+# was swept far too fast for its resolution bandwidth. Both must
+# deterministically hit
+# space-systems/ecss/e2007-emission-frequency-scanning.
+tasks:
+  - id: efs1
+    query: "our radiated emission run logged four receiver scan segments and every one of them is inside the declared band, but did the run actually cover the whole span or is there a sub-band nothing ever visited"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.3; span coverage is a property of the union of the scan segments, not of any one segment"
+    expected_skill: "space-systems/ecss/e2007-emission-frequency-scanning"
+  - id: efs2
+    query: "the emission scan reports the full declared span but the top segment finished in under a second on a narrow resolution bandwidth, can that sweep time have registered a narrowband emitter"
+    intent: "ECSS-E-ST-20-07C clause 5.2.9.3; sweep time needed per resolution bandwidth crossed, and the rescan decision when a segment is under-swept"
+    expected_skill: "space-systems/ecss/e2007-emission-frequency-scanning"
