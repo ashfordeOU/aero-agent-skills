@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7029-collection-system (space-systems/ecss)
+# col1 routes on sizing a sorbent bed against breakthrough for the swept volume;
+# col2 routes on the stage ordering and on a compound the train cannot hold.
+# Both must deterministically hit space-systems/ecss/q7029-collection-system.
+tasks:
+  - id: col1
+    query: "we pulled five litres through the tenax bed during the offgassing run and the transfer line was heated - work out whether the bed actually held the light compounds or they came out the far end"
+    intent: "ECSS-Q-ST-70-29 apparatus; breakthrough volume is derated to the bed temperature, divided by the safety factor and compared with the swept volume per compound"
+    expected_skill: "space-systems/ecss/q7029-collection-system"
+  - id: col2
+    query: "our offgassing trap stack puts the sorbent tube ahead of the cold finger and one target species never shows up in the chromatogram - tell me what the collection train is actually capturing"
+    intent: "ECSS-Q-ST-70-29 apparatus; a cold surface belongs upstream of a sorbent bed, stage efficiencies combine in series, and a species no stage can hold is unmeasured rather than absent"
+    expected_skill: "space-systems/ecss/q7029-collection-system"

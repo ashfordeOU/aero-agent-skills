@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-production-manufacturing-contamination-control (space-systems/ecss)
+# Two tasks for the new leaf. pmc1 routes on turning a molecular and particulate
+# allocation into end-of-life optical properties and radiator area growth; pmc2
+# routes on the hand operations - marking placement, shelf life, repair closure.
+# Both must deterministically hit
+# space-systems/ecss/e31-production-manufacturing-contamination-control.
+tasks:
+  - id: pmc1
+    query: "the contamination engineer gave me milligrams per square metre of deposit and a particle obscuration figure for the north radiator - turn that into what the panel actually costs me in area at end of life"
+    intent: "ECSS-E-ST-31C clause 4.6; molecular and particulate degradation of absorptance and emittance converted into radiator area growth, with the per-stage allocation roll-up"
+    expected_skill: "space-systems/ecss/e31-production-manufacturing-contamination-control"
+  - id: pmc2
+    query: "This radiator has its part number marked inside the optical active area, eighteen months of shelf life behind it, and a scratch repaired with no re-verification. What do I raise against it before integration?"
+    intent: "ECSS-E-ST-31C clause 4.6; marking placement and medium on a thermal surface, storage shelf life and purge, and a repair closed without thermo-optical re-verification"
+    expected_skill: "space-systems/ecss/e31-production-manufacturing-contamination-control"

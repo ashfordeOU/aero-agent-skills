@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-on-board-network-exception-reporting (space-systems/ecss)
+# Two tasks for the new leaf. ner1 routes on an exception detected but never
+# sent off the node; ner2 routes on a report that arrives without a source.
+# Both must deterministically hit
+# space-systems/ecss/e50-on-board-network-exception-reporting.
+tasks:
+  - id: ner1
+    query: "an on-board network fault is detected internally and never reported, and another exception is not in the declared catalogue at all, work out which rung each required exception sits on and what an operator is left without"
+    intent: "ECSS-E-ST-50C clause 5.7.2.6; an exception nobody detects, one detected and never sent, one sent without enough to act on and one sent too late are four different rungs with four different owners"
+    expected_skill: "space-systems/ecss/e50-on-board-network-exception-reporting"
+  - id: ner2
+    query: "our declared on-board network exception catalogue says every fault is detected and reported, but the report carries no source and the reporting latency is past its bound, work out the detection ratio and which exceptions an operator cannot act on"
+    intent: "ECSS-E-ST-50C clause 5.7.2.6; the second normative item asks that a report carry what an operator needs to act on, so a missing source or a latency past a stated bound is a content or timing gap rather than a pass"
+    expected_skill: "space-systems/ecss/e50-on-board-network-exception-reporting"

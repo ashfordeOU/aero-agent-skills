@@ -5,10 +5,10 @@
 # the stall margin.
 tasks:
   - id: vs1
-    query: "determine the reference stall speed vs1g from the wing loading and maximum lift coefficient for the flight test"
+    query: "We fly the stall series tomorrow: 6000 Pa wing loading, sea level, clmax 1.8. Give me the vs1g figure the crew briefs to, straight from those three inputs, before anybody touches the weight bookkeeping."
     intent: "flight test; Vs1g reference stall speed from wing loading"
     expected_skill: "flight-test-operations/performance/stall-speed-determination"
   - id: vs2
-    query: "correct the stall speed for the weight change and check the stall margin for the flight test"
+    query: "we flew the stalls at 62 tonnes and the reference weight is 58 - bring the measured stall speed back to reference, work the Vs1g out of our wing loading with the max lift coefficient, and give me the margin on approach"
     intent: "flight test; weight-corrected stall speed and stall margin"
     expected_skill: "flight-test-operations/performance/stall-speed-determination"

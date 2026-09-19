@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-adhesive-compound-bonding-repair (space-systems/ecss)
+# Two tasks for the new leaf. acbr1 routes on the compound's two clocks -
+# storage life to a date and working life in minutes from the mix. acbr2 routes
+# on the bond line implied by dispensed volume over footprint and on the cure
+# dwell the temperature actually needs. Both must deterministically hit
+# space-systems/ecss/q6005-adhesive-compound-bonding-repair.
+tasks:
+  - id: acbr1
+    query: "the technician reattached the chip with epoxy that was mixed an hour and a half ago out of a tube dated next month, is that joint acceptable"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.4; a bonding compound's storage life to a date and its working life in minutes from mixing, and which of the two actually expired during the repair"
+    expected_skill: "space-systems/ecss/q6005-adhesive-compound-bonding-repair"
+  - id: acbr2
+    query: "we dispensed a millimetre cubed of adhesive under a twenty square millimetre part and cured it forty five minutes at a hundred and twenty five degrees, check the bond line and whether that cure was long enough"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.4; bond line derived from dispensed volume over footprint against the qualified window, and the interpolated cure dwell a temperature needs for a complete cure"
+    expected_skill: "space-systems/ecss/q6005-adhesive-compound-bonding-repair"

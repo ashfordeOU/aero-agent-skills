@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-data-unit-identifier (space-systems/ecss)
+# Two tasks for the new leaf. dui1 routes on a counter wrapping inside the
+# retention window; dui2 routes on separating wraps, gaps and duplicates in an
+# observed run. Both must deterministically hit
+# space-systems/ecss/e50-data-unit-identifier.
+tasks:
+  - id: dui1
+    query: "our data unit counter is eight bits and we produce ten units a second but retransmissions can come back a minute later, work out whether that counter still names one unit by the time we act on it and how wide it should be"
+    intent: "ECSS-E-ST-50C clause 5.6.13.2; a fixed-width counter identifies a data unit only until it wraps, so the field has to cover the retention window with margin rather than the pass"
+    expected_skill: "space-systems/ecss/e50-data-unit-identifier"
+  - id: dui2
+    query: "our downlink counter log steps backwards twice, repeats one value, and holds a number too big for the field - separate the wrap from the duplicate from the decoding fault and tell me how many data units actually went missing"
+    intent: "ECSS-E-ST-50C clause 5.6.13.2; a backwards step is a wrap, a repeat is a duplicate and an out-of-field value is a decoding fault, and only real skips are missing data units"
+    expected_skill: "space-systems/ecss/e50-data-unit-identifier"

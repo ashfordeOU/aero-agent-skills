@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-susceptible-payload-magnetic-limits (space-systems/ecss)
+# Case 1 routes on the allowable steady field at a sensitive unit and how several
+# onboard sources combine into it. Case 2 routes on the layout output: the minimum
+# stand-off a dominant source needs against the margined limit.
+tasks:
+  - id: e20-susceptible-payload-magnetic-limits-1
+    query: "A fluxgate sensor on our boom sits 1.2 m from a harness loop of three turns round 0.02 square metres carrying 1.5 A steady, and about as far from a latching relay. Nobody has fixed the orientations yet. What DC field may the sensor see, and should I add those contributions or combine them statistically?"
+    intent: "ECSS-E-ST-20C clause 6.3.7.2; the case turns on the allowable static field for the unit's susceptibility class and on direct sum versus root-sum-square when orientation is unknown"
+    expected_skill: "space-systems/ecss/e20-susceptible-payload-magnetic-limits"
+  - id: e20-susceptible-payload-magnetic-limits-2
+    query: "Under ECSS a coil left with 0.4 A m2 of remanent moment sits 0.6 m from a sensitive unit whose allowable static field is 100 nT. What minimum separation distance does that source need, and does the design margin factor belong in the distance solve or only in the field comparison?"
+    intent: "ECSS-E-ST-20C clause 6.3.7.2; the case turns on solving the minimum separation from the inverse-cube dipole law against the margined limit, not on the summed-field check"
+    expected_skill: "space-systems/ecss/e20-susceptible-payload-magnetic-limits"

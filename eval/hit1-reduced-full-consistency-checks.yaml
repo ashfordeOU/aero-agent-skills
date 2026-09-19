@@ -1,0 +1,12 @@
+# Hit@1 fragment: reduced-full-consistency-checks (space-systems/ecss)
+# Case 1 routes on the mass-property comparison against the parent model.
+# Case 2 routes on modal correlation and interface stiffness agreement.
+tasks:
+  - id: reduced-full-consistency-checks-1
+    query: "Our Craig-Bampton reduction comes out 0.8 percent light against the parent finite element model and the centre of gravity has moved 3 mm. Are those inside tolerance, and what usually causes a mass discrepancy in the reduction?"
+    intent: "ECSS-E-ST-32C 5.8; mass, centre of gravity and inertia agreement between the reduced model and its parent"
+    expected_skill: "space-systems/ecss/reduced-full-consistency-checks"
+  - id: reduced-full-consistency-checks-2
+    query: "Two retained interface modes pair badly: one diagonal correlation value is 0.74 and an off-diagonal entry is high. What does that point to, and how is the interface stiffness compared at each boundary node between the two models?"
+    intent: "ECSS-E-ST-32C 5.8; modal correlation on retained interface modes, off-diagonal coupling as a mode swap, and boundary stiffness agreement"
+    expected_skill: "space-systems/ecss/reduced-full-consistency-checks"

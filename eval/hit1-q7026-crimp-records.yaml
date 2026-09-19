@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-crimp-records (space-systems/ecss)
+# cr1 routes on resolving a crimping entry into its registers; cr2 routes on
+# the periodic pull-test cadence and retention across a dossier. Both must
+# deterministically hit space-systems/ecss/q7026-crimp-records.
+tasks:
+  - id: cr1
+    query: "audit this harness crimping log: every line has a tool number, an operator number and wire and contact lot numbers, check they actually resolve and that the operator was certified on the day each crimp was made"
+    intent: "ECSS-Q-ST-70-26C records clause; the tool identifier resolves into the calibration register, the operator against the window covering the crimp date, and both lots into accepted receiving records"
+    expected_skill: "space-systems/ecss/q7026-crimp-records"
+  - id: cr2
+    query: "how many terminations can we make between periodic pull-test samples before the crimp record set has a gap in it, and how long do we have to keep the dossier"
+    intent: "ECSS-Q-ST-70-26C records clause; the pull-test cadence is graded across the record set in crimp-date order and retention runs in calendar years from the crimp date"
+    expected_skill: "space-systems/ecss/q7026-crimp-records"

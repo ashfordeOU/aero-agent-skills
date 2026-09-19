@@ -1,0 +1,13 @@
+# Hit@1 fragment: e4008-field-link (space-systems/ecss)
+# Two tasks for the new leaf. fl1 routes on the copy-not-convert datatype and
+# array-shape rule; fl2 routes on the single-writer rule for a target field.
+# Both must deterministically hit space-systems/ecss/e4008-field-link.
+tasks:
+  - id: fl1
+    query: "one model writes a three element vector and the other reads a four element array of the same primitive, decide whether the assembly may carry that connection between the two fields"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.4; a field link copies rather than converts, so the primitive datatype and the full array shape both have to match"
+    expected_skill: "space-systems/ecss/e4008-field-link"
+  - id: fl2
+    query: "two connections in this assembly write the same input field of one component and the value flickers between them, say which of them the artefact has to drop"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.4; one writer per target field, and the driven-field set that also forbids a configured value on the same field"
+    expected_skill: "space-systems/ecss/e4008-field-link"

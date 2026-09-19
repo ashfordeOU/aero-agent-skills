@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-hybrid-screening-sequence (space-systems/ecss,
+# Q-ST-60-05 10.3). Two tasks per leaf; hs1 routes on the order the steps ran
+# in and the seal that splits them, hs2 on batch coverage and the mandatory
+# steps. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-screening-sequence.
+tasks:
+  - id: hs1
+    query: "check the hybrid-screening-step-order of a performed run and find every step that broke the pre-seal-and-post-seal-staging"
+    intent: "ecss hybrids; the ordered stress and inspection run applied to a production batch"
+    expected_skill: "space-systems/ecss/q6005-hybrid-screening-sequence"
+  - id: hs2
+    query: "test hybrid-batch-screening-coverage across every unit and list the mandatory-hybrid-screening-steps missing for the hybrid-screening-sequence-verdict"
+    intent: "ecss hybrids; grading a screening run against the sequence it was meant to follow"
+    expected_skill: "space-systems/ecss/q6005-hybrid-screening-sequence"

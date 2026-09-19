@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-propulsion-model-characteristics (space-systems/ecss)
+# Case 1 routes on the required element families a declaration must cover. Case 2
+# routes on the mesh criterion derived from the declared plasma and on cross-checking
+# the declared beam current.
+tasks:
+  - id: e2006-propulsion-model-characteristics-1
+    query: "The plume interaction model declares spacecraft envelope, array surfaces, the thruster source and a structure ground node. Before I trust any potential it predicts, which required elements is that declaration still short of?"
+    intent: "ECSS-E-ST-20-06C 11.3.2; a ground node alone does not represent grounding, since return-path resistance and neutraliser coupling are separately required elements"
+    expected_skill: "space-systems/ecss/e2006-propulsion-model-characteristics"
+  - id: e2006-propulsion-model-characteristics-2
+    query: "The solver mesh is eight millimetres and the model states a plume density and an electron temperature. How do I decide whether that cell size resolves the sheath, and can I check the declared beam current against the stated thrust?"
+    intent: "ECSS-E-ST-20-06C 11.3.2; the mesh criterion follows the Debye length computed from the declared plasma, and the declared beam current is checkable against thrust and ion mass"
+    expected_skill: "space-systems/ecss/e2006-propulsion-model-characteristics"

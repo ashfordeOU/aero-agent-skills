@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-bus-voltage-excursion-robustness (space-systems/ecss)
+# Case 1 routes on the protection half: rating against available fault current and
+# energy coordination between an upstream and a downstream device. Case 2 routes
+# on the bus half: excursion magnitude, duration and reporting precedence.
+tasks:
+  - id: e20-bus-voltage-excursion-robustness-1
+    query: "Our 3 A fuse is sized on the steady load but the circuit can only deliver 8 A into a short. How do I check the blow ratio, and must the upstream melting energy beat the downstream let-through for the pair to coordinate?"
+    intent: "ECSS-E-ST-20C clause 5.7.4; a device is rated against the derated steady current and against the fault current available to clear it, and coordination is a property of the upstream and downstream pair in energy terms"
+    expected_skill: "space-systems/ecss/e20-bus-voltage-excursion-robustness"
+  - id: e20-bus-voltage-excursion-robustness-2
+    query: "The primary bus dipped to 22 V for 400 ms and later held 21 V for four minutes. How do I categorize each excursion, on magnitude then on how long it lasted, and does an absolute limit breach get reported before a ride-through failure?"
+    intent: "ECSS-E-ST-20C clause 5.7.4; the duration axis separates a survivable transient from a sustained departure, and the absolute limits are reported ahead of a ride-through or recovery finding"
+    expected_skill: "space-systems/ecss/e20-bus-voltage-excursion-robustness"

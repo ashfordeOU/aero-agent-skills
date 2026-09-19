@@ -195,7 +195,11 @@ class TestLowpassDesign(unittest.TestCase):
     def test_order4_design_and_stability(self):
         b4, a4 = design_lowpass(FS, FC, 4)
         gain = freq_response_db(b4, a4, FC, FS)
-        self.assertLessEqual(abs(gain + CUTOFF_DB), TOL_3DB)
+        # Independent oracle: a Butterworth response is 1/(1 + (w/wc)^2n), so
+        # |H|^2 = 1/2 at the cutoff and the gain is -10*log10(2) dB at EVERY
+        # order. Deriving it here rather than importing the module's TOL_3DB
+        # keeps this check from widening whenever that policy widens.
+        self.assertAlmostEqual(gain, -10.0 * math.log10(2.0), places=9)
         checks = filter_design_checks(b4, a4, FS, FC, "lowpass")
         self.assertTrue(checks["stable"])
 
@@ -259,7 +263,9 @@ class TestHighpassDesign(unittest.TestCase):
         self.assertEqual(len(b2), 3)
         self.assertEqual(a2[0], 1.0)
         gain_cut = freq_response_db(b2, a2, 2.0, 50.0)
-        self.assertLessEqual(abs(gain_cut + CUTOFF_DB), TOL_3DB)
+        # Same independent -3 dB oracle as the order-4 case: -10*log10(2),
+        # not the module's own TOL_3DB.
+        self.assertAlmostEqual(gain_cut, -10.0 * math.log10(2.0), places=9)
         gain_near_nyquist = freq_response_db(b2, a2, 24.0, 50.0)
         self.assertLess(abs(gain_near_nyquist), 0.05)
 

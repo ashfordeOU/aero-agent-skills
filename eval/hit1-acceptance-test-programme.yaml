@@ -1,0 +1,13 @@
+# Hit@1 fragment: acceptance-test-programme (space-systems/ecss)
+# Case 1 routes on the programme-level roll-up: many per-assembly results and one
+# unrecorded allowable becoming a single close-out verdict. Case 2 routes on the
+# acceptance-level proof factor and the minimum hold, not on the roll-up.
+tasks:
+  - id: acceptance-test-programme-1
+    query: "We have twelve pressurised assemblies on the flight model; nine cleared their proof runs, two cleared leak, and one sealed unit never had an allowable leak figure written down. Can I close out the acceptance campaign or does that blank block the whole verdict?"
+    intent: "ECSS-E-ST-32C clause 5.5; the programme verdict is the AND of every assembly, and an unrecorded allowable is itself an open finding rather than a pass"
+    expected_skill: "space-systems/ecss/acceptance-test-programme"
+  - id: acceptance-test-programme-2
+    query: "Our tank has a maximum design pressure of 22 bar and the technician held 24 bar for 90 seconds against a 300 second dwell. Which proof factor applies at acceptance level and does the short hold force a repeat run?"
+    intent: "ECSS-E-ST-32C clause 5.5; acceptance proof factor versus the higher qualification factor, and a short dwell voiding the run whatever pressure was reached"
+    expected_skill: "space-systems/ecss/acceptance-test-programme"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-plasma-instrument-spacecraft-provisions (space-systems/ecss)
+# Case 1 routes on the lowest measured energy driving spacecraft-level limits.
+# Case 2 routes on the two sizing questions, boom length beyond the photoelectron
+# cloud and emitter current against what the body collects.
+tasks:
+  - id: e2006-plasma-instrument-spacecraft-provisions-1
+    query: "We fly a 3 eV thermal ion sensor alongside a 20 keV electron spectrometer, while the body floats at 7 V. Which instrument sets the potential and surface uniformity limits that the whole vehicle then has to meet?"
+    intent: "ECSS-E-ST-20-06C clause 6.7; distortion is the potential relative to the lowest measured energy, so the most sensitive instrument binds every exposed surface"
+    expected_skill: "space-systems/ecss/e2006-plasma-instrument-spacecraft-provisions"
+  - id: e2006-plasma-instrument-spacecraft-provisions-2
+    query: "How long must the Langmuir probe boom be if the debye length there is 8 m, and do I size the ion emitter from the potential shift we want or from the current the body collects?"
+    intent: "ECSS-E-ST-20-06C clause 6.7; boom length is screening multiples plus the photoelectron cloud, and emitter current is set by the net collected current"
+    expected_skill: "space-systems/ecss/e2006-plasma-instrument-spacecraft-provisions"

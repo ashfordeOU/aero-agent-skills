@@ -1,0 +1,13 @@
+# Hit@1 fragment: reduced-fracture-control-programme (space-systems/ecss)
+# Case 1 routes on the eligibility screens, where the crewed stress-ratio
+# threshold is the discriminator. Case 2 routes on the consequence of being
+# eligible: what is waived and what stays mandatory anyway.
+tasks:
+  - id: reduced-fracture-control-programme-1
+    query: "Crewed mission, the bracket runs at 0.45 of yield, toughness is 45 MPa root metre and it is not fracture critical. Does it qualify for the lighter fracture control route?"
+    intent: "ECSS-E-ST-32C clause 11; the crewed stress-ratio threshold is tighter than the uncrewed one, so a ratio that would pass uncrewed fails here"
+    expected_skill: "space-systems/ecss/reduced-fracture-control-programme"
+  - id: reduced-fracture-control-programme-2
+    query: "Once the reduced programme applies to an item, is the crack growth integration dropped, and what NDE coverage is left? What still has to be documented, stress ratio, toughness, consequence?"
+    intent: "ECSS-E-ST-32C clause 11; eligibility waives the growth and stress-intensity work and cuts inspection, but the documentation set remains mandatory"
+    expected_skill: "space-systems/ecss/reduced-fracture-control-programme"

@@ -146,7 +146,7 @@ right angles, phi = pi/2, P = 2000 N, sigma_y = 1200 MPa):
   degeneracies; the a = b and line limits of this leaf)
 - structures/fem/contact-analysis (FE penalty-method contact, contact
   stiffness, penetration)
-- structures/loads/lug-joint-analysis and the bearing-stress leaves
+- structures/fem/lug-joint-analysis and the bearing-stress leaves
   (nominal bearing stress P/(Dt) and lug margins)
 
 ## Pitfalls

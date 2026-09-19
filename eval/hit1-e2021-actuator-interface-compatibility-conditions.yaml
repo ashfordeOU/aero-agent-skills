@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2021-actuator-interface-compatibility-conditions (space-systems/ecss)
+# Two tasks for the new leaf. aicc1 routes on proving the firing current stays
+# inside its window at the two loop-resistance corners; aicc2 routes on
+# returning the drive voltage band that would close a violated corner. Both
+# must deterministically hit
+# space-systems/ecss/e2021-actuator-interface-compatibility-conditions.
+tasks:
+  - id: aicc1
+    query: "check the firing current stays inside its specified window at the high and low loop resistance corners of this actuator drive line, not just at nominal"
+    intent: "ECSS-E-ST-20-21C clause 5.4.1; actuator electronics output matched to actuator resistance so firing current stays in the window"
+    expected_skill: "space-systems/ecss/e2021-actuator-interface-compatibility-conditions"
+  - id: aicc2
+    query: "give me the drive voltage band that would bring both corners of this actuator interface back inside the firing current limits given the resistance spread"
+    intent: "ECSS-E-ST-20-21C clause 5.4.1; admissible drive voltage band from the loop resistance extremes and the interface current floor and ceiling"
+    expected_skill: "space-systems/ecss/e2021-actuator-interface-compatibility-conditions"

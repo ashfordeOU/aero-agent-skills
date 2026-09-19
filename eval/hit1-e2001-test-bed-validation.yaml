@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-test-bed-validation (space-systems/ecss)
+# Case 1 routes on the negative control and the headroom a quiet sweep does not
+# by itself prove. Case 2 routes on the positive control, per-channel agreement,
+# and the currency a bed change voids.
+tasks:
+  - id: e2001-test-bed-validation-1
+    query: "Our empty bed swept to 400 W and nothing fired, but nobody established where the bed itself would discharge. Is a quiet sweep enough, and how much decibel headroom above that maximum applied power do I have to show?"
+    intent: "ECSS-E-ST-20-01C clause 8.3; the negative step needs an established bed onset and a decibel headroom, not merely an uneventful sweep"
+    expected_skill: "space-systems/ecss/e2001-test-bed-validation"
+  - id: e2001-test-bed-validation-2
+    query: "The certified reference sample fired 1 dB below its certificate value but only the global detector saw it while the local probe stayed silent, and the amplifier was swapped last month. Does that validation still carry?"
+    intent: "ECSS-E-ST-20-01C clause 8.3; the positive step needs every required channel to register, and a reconfiguration voids the validation inside its window"
+    expected_skill: "space-systems/ecss/e2001-test-bed-validation"

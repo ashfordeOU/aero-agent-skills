@@ -91,8 +91,16 @@ class CreditedAttenuationTests(unittest.TestCase):
             credited_attenuation("opto-isolator", "yes")
 
     def test_every_known_barrier_is_at_least_unity(self):
-        for value in BARRIER_ATTENUATION.values():
-            self.assertGreaterEqual(value, 1.0)
+        # Table literals, not computed values. The weakest credited barrier
+        # is the no-barrier case, which is exactly unity by definition, and
+        # every real barrier is strictly above it by at least a factor of
+        # twenty. The exact floor states the contract; a tolerance on an
+        # exact value would hide it.
+        self.assertEqual(min(BARRIER_ATTENUATION.values()), 1.0)
+        for name, value in sorted(BARRIER_ATTENUATION.items()):
+            if value == 1.0:
+                continue
+            self.assertGreater(value, 1.0, name)
 
 
 class EffectiveInjectionTests(unittest.TestCase):

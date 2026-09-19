@@ -4,7 +4,7 @@
 # deterministically hit space-systems/ecss/e50-telecommand-destination-identification.
 tasks:
   - id: di1
-    query: "our twelve satellites are numbered one through twelve in a ten bit spacecraft id field and they are all in the same station beam, is that numbering safe against a bit flip in the uplink"
+    query: "our twelve spacecraft are numbered sequentially inside a ten bit identifier and share one station beam; how much separation in hamming distance does that assignment really have, how many uplink bit flips does it survive, and how full is the field"
     intent: "ECSS-E-ST-50C clause 5.4.10; unique is not separated, minimum pairwise Hamming distance across the co-visible set fixes detectable and correctable bit errors"
     expected_skill: "space-systems/ecss/e50-telecommand-destination-identification"
   - id: di2

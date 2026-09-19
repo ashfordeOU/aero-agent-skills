@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-abort-the-file-copy-operations",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 43,
+  "failed": 0,
+  "evidence": "contract test PASS (43 tests); without-baseline 0.30 (an abort is usually treated as a state change on the entry, so removing the entry from the list outright, deleting the partially written target so no truncated file survives while leaving an untouched target alone, returning the reclaimed octets to the destination free space in the same action, reporting octets discarded separately from operations aborted, distinguishing a lookup failure from a state refusal, and iterating a copy of the list during an abort-all are all missed without the skill)"
+}

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-thermal-performance-test (space-systems/ecss)
+# Two tasks for the new leaf. tpt1 routes on the parasitic-leak subtraction and
+# the capability that moves with condenser temperature; tpt2 routes on the two
+# demonstrations a steady power map cannot make, cold start-up and setpoint
+# regulation. Both must deterministically hit
+# space-systems/ecss/e3102-thermal-performance-test.
+tasks:
+  - id: tpt1
+    query: "our bench log gives heater watts with evaporator and condenser temperatures at every step; subtract the parasitic leak, give me the conductance at each point, and say which required sink temperature cells never reached steady state"
+    intent: "ECSS-E-ST-31-02C clause 5.6.9; transported power after the parasitic leak, and the transport capability interpolated at the point's own condenser temperature rather than a single figure"
+    expected_skill: "space-systems/ecss/e3102-thermal-performance-test"
+  - id: tpt2
+    query: "we mapped the loop across every power and sink temperature cell but the review says the performance test is not complete, tell me what a cold prime run and a setpoint hold run still have to show"
+    intent: "ECSS-E-ST-31-02C clause 5.6.9; the start-up demonstration from a cold unprimed device and the regulation demonstration graded on worst deviation, alongside steady-state dwell and matrix coverage"
+    expected_skill: "space-systems/ecss/e3102-thermal-performance-test"

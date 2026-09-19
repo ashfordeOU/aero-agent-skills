@@ -221,18 +221,27 @@ class TestBoundSemantics(unittest.TestCase):
 
     def test_unbiased_variances_never_below_bound(self):
         """Step 6: every unbiased variance sits at or above its CRLB
-        (0.04 <= 4.0 in the DC case), the best-achievable-variance meaning."""
+        (0.04 <= 4.0 in the DC case), the best-achievable-variance meaning.
+        The single-sample estimator sits strictly above the bound; the
+        sample-mean MLE ATTAINS it. Bound and MLE variance are the same
+        sigma^2/N division, and IEEE-754 division is correctly rounded, so
+        that pair is bitwise equal on every platform - the contract there is
+        an equality, not an inequality."""
         bound = crlb.crlb_dc(N_DC, SIGMA2_DC)
-        self.assertLessEqual(bound, SIGMA2_DC)
-        self.assertLessEqual(bound, crlb.mle_var_dc(N_DC, SIGMA2_DC))
+        self.assertLess(bound, SIGMA2_DC)
+        self.assertEqual(bound, crlb.mle_var_dc(N_DC, SIGMA2_DC))
 
     def test_efficiency_range_semantics(self):
-        """Step 5: efficiency = CRLB/variance lies in (0, 1], 1.0 exactly for
-        the bound-achieving-estimator."""
-        for var in (0.04, 0.4, 4.0, 9.0):
+        """Step 5: efficiency = CRLB/variance lies in (0, 1]. The closed end
+        is reached only by the bound-achieving-estimator, where the quotient
+        is x/x: IEEE-754 division returns exactly 1.0 for that on every
+        platform, so it is asserted as an equality. Every estimator above the
+        bound sits strictly inside the interval."""
+        self.assertEqual(crlb.efficiency(0.04, 0.04), 1.0)
+        for var in (0.4, 4.0, 9.0):
             eff = crlb.efficiency(0.04, var)
             self.assertGreater(eff, 0.0)
-            self.assertLessEqual(eff, 1.0)
+            self.assertLess(eff, 1.0)
 
 
 class TestDeterminism(unittest.TestCase):

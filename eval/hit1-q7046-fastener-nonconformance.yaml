@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-fastener-nonconformance (space-systems/ecss)
+# nc1 routes on how far the hold reaches once the defect is traced to a shared
+# process record; nc2 routes on which dispositions a metal-property defect
+# leaves open and what a scrap physically takes.
+# Both must deterministically hit space-systems/ecss/q7046-fastener-nonconformance.
+tasks:
+  - id: nc1
+    query: "a fastener defect has been traced back to the heat treatment charge and our records cannot tell us which other lots went through it, how far does the quarantine have to reach"
+    intent: "ECSS-Q-ST-70-46 nonconformance clause; quarantine scope widening from the lot to every lot sharing the process record, and to all supplier stock where traceability cannot resolve which lots those were"
+    expected_skill: "space-systems/ecss/q7046-fastener-nonconformance"
+  - id: nc2
+    query: "the review board wants to rework an embrittlement finding on flight bolts and re-plate a lot that has already been stripped twice, tell me what is actually on the table, who signs it and what scrapping the parts involves"
+    intent: "ECSS-Q-ST-70-46 nonconformance clause; permitted dispositions by defect class and criticality, the re-plating cycle limit, board and customer approvals, and scrap as physical mutilation"
+    expected_skill: "space-systems/ecss/q7046-fastener-nonconformance"

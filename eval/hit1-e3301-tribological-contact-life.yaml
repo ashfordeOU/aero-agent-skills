@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-tribological-contact-life (space-systems/ecss)
+# Two tasks for the new leaf. tcl1 routes on the sliding-distance accumulation and
+# the worst-case derating of the wear coefficient; tcl2 routes on the transfer-film
+# reservoir being a second, earlier life limit than wear-through. Both must
+# deterministically hit
+# space-systems/ecss/e3301-tribological-contact-life.
+tasks:
+  - id: tcl1
+    query: "the hinge bushing runs a dry film coating and has fifty thousand cycles to make, accumulate the sliding distance, derate the wear coefficient for contamination, vacuum and temperature at their worst, and tell me if the wear depth eats the coating"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.4.1; sliding distance accumulated over flight plus ground cycles, worst-case wear coefficient, Archard depth against the bonded coating thickness"
+    expected_skill: "space-systems/ecss/e3301-tribological-contact-life"
+  - id: tcl2
+    query: "the pair passes the wear depth check but it is a self lubricating cage, tell me whether the film reservoir runs out before the mechanism finishes its cycles"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.4.1; transfer-film reservoir exhaustion as a separate and earlier life limit than substrate wear-through"
+    expected_skill: "space-systems/ecss/e3301-tribological-contact-life"

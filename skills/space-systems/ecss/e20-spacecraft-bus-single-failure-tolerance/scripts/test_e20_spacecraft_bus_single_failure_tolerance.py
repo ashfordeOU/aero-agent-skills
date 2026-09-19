@@ -360,8 +360,15 @@ class TestCapabilityFindings(unittest.TestCase):
                 for i in range(3)
             ]
         )
-        self.assertGreater(demand_w, 0.3)  # 0.1+0.1+0.1 overshoots in binary
+        # 0.1 three times lands a few ULP off three tenths of a watt. The
+        # SIZE of that representation error is the contract, not which side
+        # of the last bit the sum fell on.
+        self.assertAlmostEqual(demand_w, 0.3, places=12)
         self.assertEqual(sft.capability_findings(units, demand_w), [])
+        # Pin the absorbing branch with a demand constructed to sit strictly
+        # above the 0.3 W capability, by 1e-12 W - inside what the leaf
+        # absorbs, and the same value on every platform.
+        self.assertEqual(sft.capability_findings(units, 0.3 + 1e-12), [])
 
     def test_a_real_shortfall_is_still_flagged(self):
         findings = sft.capability_findings(_clean_units(), 470.001)

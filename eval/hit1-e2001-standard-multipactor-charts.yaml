@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-standard-multipactor-charts (space-systems/ecss)
+# Case 1 routes on falling off the end of the chart and what that obliges.
+# Case 2 routes on how the chart is read and what separation is entered into it.
+tasks:
+  - id: e2001-standard-multipactor-charts-1
+    query: "One of our gaps gives a frequency-gap-product beyond the last tabulated point of the susceptibility chart. Is a small extrapolation defensible there, does that gap escalate to a dedicated second-level analysis, and may I report it meanwhile as a pass?"
+    intent: "ECSS-E-ST-20-01C 5.3.3.4; outside the tabulated range the chart carries no knowledge, so the gap escalates and produces no margin at all rather than a passing one"
+    expected_skill: "space-systems/ecss/e2001-standard-multipactor-charts"
+  - id: e2001-standard-multipactor-charts-2
+    query: "Two bracketing points on our susceptibility chart span nearly a decade of frequency-gap-product. Should I interpolate the threshold voltage linearly between them, and do I enter the chart on the nominal drawing separation or on a worst-case one?"
+    intent: "ECSS-E-ST-20-01C 5.3.3.4; the read between points is logarithmic because a linear read under-states the threshold, and the entry is the worst-case separation rather than the drawing value"
+    expected_skill: "space-systems/ecss/e2001-standard-multipactor-charts"

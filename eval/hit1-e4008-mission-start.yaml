@@ -1,0 +1,13 @@
+# Hit@1 fragment: e4008-mission-start (space-systems/ecss)
+# mst1 routes on the mission time scale itself including negative times; mst2
+# routes on moving mission start after entries are resolved. Both must
+# deterministically hit space-systems/ecss/e4008-mission-start.
+tasks:
+  - id: mst1
+    query: "the timeline is written as minus thirty seconds and plus two minutes from separation, convert those into run times for the simulator"
+    intent: "ECSS-E-ST-40-08C clause 5.4.2; map mission time through the declared mission start, keeping a negative mission time legal"
+    expected_skill: "space-systems/ecss/e4008-mission-start"
+  - id: mst2
+    query: "the declared mission start has to be restated two minutes earlier, does that drag every scheduled entry along with it, do pre-separation activities stay legal at negative mission time, and can we do this once the run has begun"
+    intent: "ECSS-E-ST-40-08C clause 5.4.2; mission start restatement shift, entries crossing the clock, and refusal while the simulator is executing"
+    expected_skill: "space-systems/ecss/e4008-mission-start"

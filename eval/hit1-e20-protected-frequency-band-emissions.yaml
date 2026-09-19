@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-protected-frequency-band-emissions (space-systems/ecss)
+# Case 1 routes on partial spectral overlap and summing contributors inside one band.
+# Case 2 routes on sweep depth and an incomplete spurious declaration.
+tasks:
+  - id: e20-protected-frequency-band-emissions-1
+    query: "Our X-band downlink third harmonic partly overlaps a protected radio astronomy band while one declared spurious product falls fully inside it. Each sits a few dB under the limit alone. How do I combine their contributions into the band total?"
+    intent: "ECSS-E-ST-20C 6.3.2.3; in-band power follows the overlapping fraction of each emission, and the verdict is taken on the summed total rather than contributor by contributor"
+    expected_skill: "space-systems/ecss/e20-protected-frequency-band-emissions"
+  - id: e20-protected-frequency-band-emissions-2
+    query: "We halted our sweep of harmonics at third order because nothing showed up, and one spurious product we declared is missing its bandwidth entry. Is the protected band assessment closed, and what should happen to that incomplete declaration?"
+    intent: "ECSS-E-ST-20C 6.3.2.3; a sweep short of the minimum order is a finding on its own, and an incomplete declaration is reported and held out of the summation"
+    expected_skill: "space-systems/ecss/e20-protected-frequency-band-emissions"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-tether-insulation-continuity (space-systems/ecss)
+# Case 1 routes on sorting observed defects by how far they go through the wall.
+# Case 2 routes on the end-of-life wall after erosion and the withstand margin it leaves.
+tasks:
+  - id: e2006-tether-insulation-continuity-1
+    query: "Inspection of the tether jacket turned up two pinholes plus a long abrasion scuff about a third of the way through the wall. Which of those is an outright continuity break, and how is the scuff graded against its segment allowance?"
+    intent: "ECSS-E-ST-20-06C 10.2.4; a defect reaching bare conductor breaks continuity on sight, while a partial one is graded on the depth fraction it consumes"
+    expected_skill: "space-systems/ecss/e2006-tether-insulation-continuity"
+  - id: e2006-tether-insulation-continuity-2
+    query: "The jacket starts at 250 microns, then erosion from atomic oxygen over the mission plus the abrasion allowance we book for reeling both eat into it. What wall is left at end of life, and does its withstand still cover the tether voltage with its required factor?"
+    intent: "ECSS-E-ST-20-06C 10.2.4; continuity is judged on the wall remaining after erosion and abrasion, and the withstand of that wall carries the voltage factor"
+    expected_skill: "space-systems/ecss/e2006-tether-insulation-continuity"

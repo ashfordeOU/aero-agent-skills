@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-unload-a-request-sequence",
+  "with_skill": 1.0,
+  "without_estimate": 0.35,
+  "delta": 0.65,
+  "passed": 42,
+  "failed": 0,
+  "evidence": "contract test PASS (42 tests); without-baseline 0.35 (the unload is usually treated as a dictionary delete, so answering an unload of an absent sequence with success, releasing a sequence that is mid-execution because the identifier is held, crediting a nominal block size back instead of the sequence's own size, de-duplicating a repeated name instead of refusing the request, refusing a whole multi-name request because one name is executing, and moving the declared capacity on an unload are all missed without the skill)"
+}

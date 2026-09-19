@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-facility-test-report (space-systems/ecss)
+# Two tasks for the new leaf. fr1 routes on the facility-side record of a
+# campaign and whether the condition log covers the window; fr2 routes on a
+# certificate that lapsed mid-campaign. Both must deterministically hit
+# space-systems/ecss/q2007-facility-test-report.
+tasks:
+  - id: fr1
+    query: "writing the facility record after a campaign: which installation, which configuration items each carrying their own reference, and whether the condition log actually covers the whole campaign window or leaves stretches unevidenced"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.1; mandatory sections, item identification, condition log coverage rather than sample count"
+    expected_skill: "space-systems/ecss/q2007-facility-test-report"
+  - id: fr2
+    query: "one instrument certificate expired partway through the campaign; what does the facility record say about readings taken after that point and how is the coverage fraction of the condition log reported"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.1; calibration validity judged against the campaign end, coverage fraction"
+    expected_skill: "space-systems/ecss/q2007-facility-test-report"

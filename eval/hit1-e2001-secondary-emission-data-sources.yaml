@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-secondary-emission-data-sources (space-systems/ecss)
+# Case 1 routes on representativeness outranking provenance tier when they conflict.
+# Case 2 routes on the fallback route and refusing to invent data past the table.
+tasks:
+  - id: e2001-secondary-emission-data-sources-1
+    query: "For a silver-plated iris I hold a flight-lot yield measurement taken on an alodined part plus a coupon measurement on the same plating. Which dataset should the multipactor analysis run on, and does the higher provenance tier win when the surface treatment differs?"
+    intent: "ECSS-E-ST-20-01C 5.3.3.3; provenance only breaks ties among candidates that already represent the emitting surface, so a mismatched treatment disqualifies the better-sourced curve"
+    expected_skill: "space-systems/ecss/e2001-secondary-emission-data-sources"
+  - id: e2001-secondary-emission-data-sources-2
+    query: "None of our candidate secondary-electron-yield curves matches the baked surface condition of the part, and the analysis needs impact energies past the last tabulated point. Do I extrapolate, and is leaning on the standard tabulated curve a pass or a finding?"
+    intent: "ECSS-E-ST-20-01C 5.3.3.3; energies beyond the table are refused rather than invented, and the conservative standard fallback is itself an open finding closed only by measuring the surface"
+    expected_skill: "space-systems/ecss/e2001-secondary-emission-data-sources"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-lot-acceptance-general (space-systems/ecss)
+# Two tasks for the new leaf. hlag1 routes on sizing the destructive sample
+# groups and whether the batch can cover both the sampling and the order. hlag2
+# routes on a group drawn short of its required sample, which is neither a pass
+# nor a fail. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-lot-acceptance-general.
+tasks:
+  - id: hlag1
+    query: "we built a hundred hybrids and owe the customer eighty, lay out the destructive sampling groups and tell me whether the batch can stand it"
+    intent: "ECSS-Q-ST-60-05C clause 12.1; sizing the destructive sampling groups on a finished hybrid batch and testing what is left against the contract delivery quantity"
+    expected_skill: "space-systems/ecss/q6005-hybrid-lot-acceptance-general"
+  - id: hlag2
+    query: "one destructive group on this hybrid batch took only two pieces where a proportional draw rounds up to four, and both passed; grade the group against its accept number, then give me the destructive burden on the batch"
+    intent: "ECSS-Q-ST-60-05C clause 12.1; a lot acceptance group drawn short of its required sample size being neither a pass nor a fail, and the batch disposition that follows"
+    expected_skill: "space-systems/ecss/q6005-hybrid-lot-acceptance-general"

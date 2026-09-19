@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2021-abnormal-output-voltage-bounding (space-systems/ecss)
+# Two tasks for the new leaf. aovb1 routes on proving an abnormal output stays
+# under the input supply envelope; aovb2 routes on naming and grouping the
+# internal path behind an exceedance and on fault case coverage. Both must
+# deterministically hit
+# space-systems/ecss/e2021-abnormal-output-voltage-bounding.
+tasks:
+  - id: aovb1
+    query: "We have a fault list for a valve drive board with peaks reaching 41 V. The bus feeding it is specified 26 V to 36 V and the output is rated 28 V. Against which of those three should each peak be judged?"
+    intent: "ECSS-E-ST-20-21C clause 5.5.2; abnormal output of the actuator electronics bounded by its input supply voltage"
+    expected_skill: "space-systems/ecss/e2021-abnormal-output-voltage-bounding"
+  - id: aovb2
+    query: "name the internal path that lifted this fault peak above the supply bound and tell me which required fault categories the case list never covered"
+    intent: "ECSS-E-ST-20-21C clause 5.5.2; exceedance path naming, grouping and fault case coverage in an abnormal output bounding assessment"
+    expected_skill: "space-systems/ecss/e2021-abnormal-output-voltage-bounding"

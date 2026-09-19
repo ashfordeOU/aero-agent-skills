@@ -110,8 +110,16 @@ class BinaryEntropyTests(unittest.TestCase):
 
     def test_binary_entropy_between_zero_and_one(self):
         for p in (0.001, 0.25, 0.5, 0.75, 0.999):
-            self.assertGreaterEqual(binary_entropy(p), 0.0)
-            self.assertLessEqual(binary_entropy(p), 1.0)
+            bits = binary_entropy(p)
+            self.assertGreaterEqual(bits, 0.0)
+            if p == 0.5:
+                # Fair coin: -0.5*log2(0.5) - 0.5*log2(0.5) = 0.5 + 0.5.
+                # log2 of a power of two is exact, so the unit bound is
+                # reached exactly by construction, not approached through
+                # rounding. Assert that equality instead of a boundary <=.
+                self.assertEqual(bits, 1.0)
+            else:
+                self.assertLess(bits, 1.0)
 
     def test_binary_entropy_out_of_range_raises(self):
         with self.assertRaises(ValueError):
@@ -185,10 +193,14 @@ class EntropySummaryTests(unittest.TestCase):
         self.assertAlmostEqual(result["min_bit_rate_bps"], 0.0, delta=1e-12)
 
     def test_summary_redundancy_within_unit_interval(self):
-        for dist in (WORKED, SKEW, [0.25] * 4, [0.9, 0.1], [1.0, 0.0]):
+        for dist in (WORKED, SKEW, [0.25] * 4, [0.9, 0.1]):
             r = entropy_summary(dist, 500.0)["redundancy"]
             self.assertGreaterEqual(r, 0.0)
-            self.assertLessEqual(r, 1.0)
+            self.assertLess(r, 1.0)
+        # A deterministic source has H = 0 exactly, so its redundancy is
+        # 1 - 0/bound = 1.0 exactly: the top of the interval is reached by
+        # construction, not approached, so assert the equality.
+        self.assertEqual(entropy_summary([1.0, 0.0], 500.0)["redundancy"], 1.0)
 
     def test_summary_accepts_raw_counts(self):
         result = entropy_summary([5, 5], 1000.0)

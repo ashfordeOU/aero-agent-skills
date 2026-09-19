@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-wafer-screening-flow-variants (space-systems/ecss)
+# Two tasks for the new leaf. wsf1 routes on picking the variant from the
+# procurement facts; wsf2 routes on grading a proposed sequence against it.
+# Both must deterministically hit
+# space-systems/ecss/q6012-wafer-screening-flow-variants.
+tasks:
+  - id: wsf1
+    query: "the foundry already screened these wafers and gave us the data, so which screening and acceptance measurement stages do we still have to run ourselves and which does that supplier screening let us drop"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.2; selecting the screening and acceptance sequence from the procurement situation"
+    expected_skill: "space-systems/ecss/q6012-wafer-screening-flow-variants"
+  - id: wsf2
+    query: "someone moved the pre stress electrical measurement to after the wafer level stress to save a setup, tell me whether that reordered flow is still an acceptable alternative sequence or whether it has destroyed the before and after pair the drift assessment rests on"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.2; an alternative sequence is acceptable only where it preserves the ordering the evidence depends on"
+    expected_skill: "space-systems/ecss/q6012-wafer-screening-flow-variants"

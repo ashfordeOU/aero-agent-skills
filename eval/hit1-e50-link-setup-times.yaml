@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-link-setup-times (space-systems/ecss)
+# Two tasks for the new leaf. lst1 routes on the stage sum and the handshake
+# round trips; lst2 routes on a setup that fits its budget and eats the pass.
+# Both must deterministically hit space-systems/ecss/e50-link-setup-times.
+tasks:
+  - id: lst1
+    query: "add up how long our transponder takes to acquire carrier, get symbol and frame sync and finish the setup handshake, and tell me whether that fits the acquisition time we promised"
+    intent: "ECSS-E-ST-50C clause 5.6.8; setup time is the sum of the stages before user data plus two propagation delays for every handshake exchange, compared with the declared budget"
+    expected_skill: "space-systems/ecss/e50-link-setup-times"
+  - id: lst2
+    query: "the link comes up inside the budget the supplier quoted but the ground pass is only forty seconds, work out how much of the contact window the setup eats and what is left for data"
+    intent: "ECSS-E-ST-50C clause 5.6.8; a setup inside its budget can still consume most of a short pass, so the share of the contact window and the usable remainder are a separate verdict"
+    expected_skill: "space-systems/ecss/e50-link-setup-times"

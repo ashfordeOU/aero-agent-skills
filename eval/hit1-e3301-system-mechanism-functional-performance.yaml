@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-system-mechanism-functional-performance (space-systems/ecss)
+# Two tasks for the new leaf. smfp1 routes on the triangular-versus-trapezoidal
+# branch and the acceleration-bound short move; smfp2 routes on the time margin in
+# the window and the function duration budget. Both must deterministically hit
+# space-systems/ecss/e3301-system-mechanism-functional-performance.
+tasks:
+  - id: smfp1
+    query: "this commanded position change is so short the mechanism never reaches its velocity ceiling before it must decelerate, so from the travel and the acceleration limit tell me the quickest this move can run, the peak velocity, and what window is left"
+    intent: "ECSS-E-ST-33-01C clause 4.4; a travel below the saturation point runs triangular so the time goes as twice the root of travel over acceleration, not travel over the velocity limit"
+    expected_skill: "space-systems/ecss/e3301-system-mechanism-functional-performance"
+  - id: smfp2
+    query: "each commanded position change fits its own window but I want to know the margin left in each one and whether the whole deployment sequence with its dwells still fits the budget"
+    intent: "ECSS-E-ST-33-01C clause 4.4; feasibility is not compliance, the window needs a stated margin, and the assembled function carries a duration budget of its own"
+    expected_skill: "space-systems/ecss/e3301-system-mechanism-functional-performance"

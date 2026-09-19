@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-deliverables-drd-set-annex-a-f (space-systems/ecss)
+# Two tasks for the new leaf. drd1 routes on the six-document register and the
+# content each one owes; drd2 routes on the dependency order and the day-count
+# schedule slack against the review each document is due at.
+# Both must deterministically hit
+# space-systems/ecss/e31-deliverables-drd-set-annex-a-f.
+tasks:
+  - id: drd1
+    query: "the customer wants the thermal documentation list for the design review - what documents do we actually owe, and what has to be inside each of them before it can be issued"
+    intent: "ECSS-E-ST-31C clause 4.9 annexes A-F; the six thermal deliverables as one register with the content sections each owes and the review each is due at"
+    expected_skill: "space-systems/ecss/e31-deliverables-drd-set-annex-a-f"
+  - id: drd2
+    query: "our plan has the analysis report going out before the model description and the balance test spec a fortnight after CDR - work out how many days late each one is and which ones are out of order"
+    intent: "ECSS-E-ST-31C clause 4.9; dependency order across the thermal deliverable set and whole-day schedule slack against the review date each document serves"
+    expected_skill: "space-systems/ecss/e31-deliverables-drd-set-annex-a-f"

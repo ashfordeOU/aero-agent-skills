@@ -1,0 +1,13 @@
+# Hit@1 fragment: contained-restrained-compliance (space-systems/ecss)
+# Case 1 routes on categorising a flexible tether as a restraint element that still
+# owes both factor-of-safety checks. Case 2 routes on the redundancy demanded by a
+# catastrophic consequence and on blank consequence fields.
+tasks:
+  - id: contained-restrained-compliance-1
+    query: "A four kilogram battery box is held by two straps plus a lanyard, and the lanyard break load gives 1.3 at ultimate. Does a flexible tether owe the same limit and ultimate checks the straps do?"
+    intent: "ECSS-E-ST-32C 6.3.4; a tether is a restraint element with a load path to size, not a trivial flexible attachment, and the limit and ultimate checks are distinct"
+    expected_skill: "space-systems/ecss/contained-restrained-compliance"
+  - id: contained-restrained-compliance-2
+    query: "Our loose-hardware register lists a pressure bottle whose escape would be catastrophic, and the consequence column is empty for three other items. Does the bottle need a second independent restraint, and are those blanks a pass?"
+    intent: "ECSS-E-ST-32C 6.3.4; a catastrophic or critical consequence earns a redundant restraint provision, and an unfilled consequence field is itself a finding"
+    expected_skill: "space-systems/ecss/contained-restrained-compliance"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-analysis-report (space-systems/ecss)
+# ar1 routes on recomputing the stated areal level from the report's own inputs;
+# ar2 routes on a named contaminant with no reference spectrum and a judgement
+# with no limit beside it. Both must deterministically hit
+# space-systems/ecss/q7005-analysis-report.
+tasks:
+  - id: q7005ar1
+    query: "check this infrared contamination analysis report: does the areal level it states actually follow from the residue mass, the sampled area and the solvent recovery it printed, and is the level written at a sensible resolution for its uncertainty"
+    intent: "ECSS-Q-ST-70-05C reporting clause; the stated level is recomputed from the report's own inputs and an over-fine resolution is an observation rather than a defect"
+    expected_skill: "space-systems/ecss/q7005-analysis-report"
+  - id: q7005ar2
+    query: "this infrared contamination report names the residue as a silicone and prints a pass verdict, but I cannot find the reference spectrum it was matched against or the cleanliness limit the verdict was made against, grade the report"
+    intent: "ECSS-Q-ST-70-05C reporting clause; a named contaminant needs its reference spectrum and a judgement needs the level it was made against printed beside it"
+    expected_skill: "space-systems/ecss/q7005-analysis-report"

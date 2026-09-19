@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-perform-an-on-board-connection-test (space-systems/ecss)
+# Two tasks for the new leaf. obct1 routes on the identifier the report carries back
+# about a named target; obct2 routes on the three groups of a sweep. Both must
+# deterministically hit
+# space-systems/ecss/e7041-perform-an-on-board-connection-test.
+tasks:
+  - id: obct1
+    query: "we asked the test service about on-board process 20 and a report came straight back naming process 21, the log shows it as a pass because it arrived well inside the window"
+    intent: "ECSS-E-ST-70-41C clause 6.17.4.2; the request names a target and the report carries an identifier back, so identity is settled before timing and a fast report about another process is an addressing defect, not a marginal pass"
+    expected_skill: "space-systems/ecss/e7041-perform-an-on-board-connection-test"
+  - id: obct2
+    query: "here is the connection test sweep across eight on-board processes, some were refused before anything went out and some were asked and never answered, give me the reachability picture"
+    intent: "ECSS-E-ST-70-41C clause 6.17.4.2; an accessibility refusal transmits nothing and belongs out of the reachability conclusion, so the sweep reads as reached, refused and silent rather than as one pass fraction"
+    expected_skill: "space-systems/ecss/e7041-perform-an-on-board-connection-test"

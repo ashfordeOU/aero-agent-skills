@@ -5,6 +5,7 @@ Offline, deterministic, stdlib unittest. Run:
     python3 test_e20_antenna_requirement_verification.py
 """
 
+import math
 import unittest
 
 import e20_antenna_requirement_verification_logic as logic
@@ -271,9 +272,13 @@ class TestCoverage(unittest.TestCase):
         self.assertTrue(logic.meets_coverage_threshold(0.75, 0.75))
 
     def test_threshold_met_within_representation_error_is_accepted(self):
-        coverage = 2 / 3
+        # Deliberate boundary case. The shortfall is constructed exactly
+        # with nextafter so it is one unit in the last place on every
+        # platform, rather than depending on how 2/3 and 1 - 1/3 happen to
+        # round; the threshold itself is untouched.
         threshold = 1 - 1 / 3
-        self.assertLess(coverage, threshold)  # one unit in the last place short
+        coverage = math.nextafter(threshold, 0.0)
+        self.assertEqual(threshold - coverage, math.ulp(threshold))
         self.assertTrue(logic.meets_coverage_threshold(coverage, threshold))
 
     def test_real_shortfall_is_still_rejected(self):

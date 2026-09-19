@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-ead-general-separation-nuts-bolts (space-systems/ecss)
+# Two tasks for the new leaf. ead1 routes on the torque-to-preload recovery and
+# the segment friction a separation nut has to drive against; ead2 routes on the
+# notch fracture plus released strain energy an explosive bolt pays instead.
+# Both must deterministically hit
+# space-systems/ecss/e3311-ead-general-separation-nuts-bolts.
+tasks:
+  - id: ead1
+    query: "the separation nut is installed at thirty newton metres on an eight millimetre bolt, take the nut factor and tell me whether the cartridge does enough work to drive the segments out against the clamped friction"
+    intent: "ECSS-E-ST-33-11C clauses 4.12.1 and 4.12.2; preload recovered from installation torque, friction work over the segment stroke, graded as a ratio against the delivered cartridge work"
+    expected_skill: "space-systems/ecss/e3311-ead-general-separation-nuts-bolts"
+  - id: ead2
+    query: "work out whether our explosive bolt has function margin when you count both the energy to sever the notched section and the strain energy that comes back out of the stretched shank, and say whether one initiator is acceptable"
+    intent: "ECSS-E-ST-33-11C clauses 4.12.1 and 4.12.2; notch fracture energy plus released strain energy as the required work, with the single-initiator single-point-failure screen"
+    expected_skill: "space-systems/ecss/e3311-ead-general-separation-nuts-bolts"

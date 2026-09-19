@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-criticality-categories (space-systems/ecss)
+# Two tasks for the new leaf. dcc1 routes on placing devices into categories from
+# failure consequence and the single step of redundancy credit; dcc2 routes on the
+# cold-standby case where the credit is not earned. Both must deterministically hit
+# space-systems/ecss/e2040-device-criticality-categories.
+tasks:
+  - id: dcc1
+    query: "go through the device list and put each item in its criticality category from what its failure does, then tell me the parts screening and derating each one then owes"
+    intent: "ECSS-E-ST-20-40 clause 6.1; base category from failure consequence, one step of credit for independent detected redundancy, and the assurance obligations the category carries"
+    expected_skill: "space-systems/ecss/e2040-device-criticality-categories"
+  - id: dcc2
+    query: "this box has a cold spare but the failure only shows up on the next ground pass, can I move it down a criticality step or does it stay where its consequence put it"
+    intent: "ECSS-E-ST-20-40 clause 6.1; a dormant standby earns no credit without onboard detection, and the device stays a single-point failure"
+    expected_skill: "space-systems/ecss/e2040-device-criticality-categories"

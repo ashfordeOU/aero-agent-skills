@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-distribution-boxes-explosive-delays (space-systems/ecss)
+# Two tasks for the new leaf. dbd1 routes on the one-input-many-outputs energy
+# split and the weakest branch it leaves; dbd2 routes on the delay column whose
+# window opens with tolerance and temperature until the events cross. Both must
+# deterministically hit
+# space-systems/ecss/e3311-distribution-boxes-explosive-delays.
+tasks:
+  - id: dbd1
+    query: "the detonation distribution box splits one donor charge across four branches, two of them through-bulkhead crossings, work out the transfer margin each acceptor is left with and the branch simultaneity spread across the outputs"
+    intent: "ECSS-E-ST-33-11C clauses 4.11.9 and 4.11.10; branch energy after the split and the interface loss, graded against the acceptor threshold, plus the branch-to-branch function time spread"
+    expected_skill: "space-systems/ecss/e3311-distribution-boxes-explosive-delays"
+  - id: dbd2
+    query: "we have two pyrotechnic delay columns nominally twenty and twenty-five milliseconds apart, add the unit tolerance and the cold-case drift and tell me whether the second event can still start before the first one has finished"
+    intent: "ECSS-E-ST-33-11C clause 4.11.10; delay windows widened by unit tolerance and temperature drift, then ordered on window edges rather than nominal times"
+    expected_skill: "space-systems/ecss/e3311-distribution-boxes-explosive-delays"

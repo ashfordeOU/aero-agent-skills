@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuation-safety-barrier-architecture (space-systems/ecss)
+# Two tasks for the new leaf. asba1 routes on the arm/select/fire barrier set and
+# the shared relay that collapses its depth; asba2 routes on the command-domain
+# axis of the same independence question. Both must deterministically hit
+# space-systems/ecss/e2021-actuation-safety-barrier-architecture.
+tasks:
+  - id: asba1
+    query: "we claim three inhibits in front of the hold-down release but two of them are driven off the same relay board, work out how many independent failures an inadvertent deployment actually takes"
+    intent: "ECSS-E-ST-20-21C clause 5.2.1; arm, select and fire barriers, shared release element collapsing the activation depth below three"
+    expected_skill: "space-systems/ecss/e2021-actuation-safety-barrier-architecture"
+  - id: asba2
+    query: "go through the arm select and fire inhibits and tell me whether one erroneous command sequence from a single authority could release more than one of them"
+    intent: "ECSS-E-ST-20-21C clause 5.2.1; command-domain independence of the three barriers and the worst single element to design the inspection around"
+    expected_skill: "space-systems/ecss/e2021-actuation-safety-barrier-architecture"

@@ -396,5 +396,25 @@ class EntryAssessmentTests(unittest.TestCase):
         self.assertIn(result["verdict"], ENTRY_VERDICTS)
 
 
+
+class TestUnexercisedGuards(unittest.TestCase):
+    """Two validation branches that no test had ever entered.
+
+    Found with stdlib trace over this leaf's own suite: 139 statements, 10
+    never executed, six of them docstrings. A guard that has never been
+    seen to fire is the same problem as a gate that has never returned red
+    -- it is assumed to work.
+    """
+
+    def test_non_integer_entered_count_is_refused(self):
+        for bad in (2.0, "2", None, True):
+            with self.assertRaises(ValueError):
+                lot_entry_completeness(bad, 10)
+
+    def test_batch_entry_that_is_not_a_mapping_is_refused(self):
+        with self.assertRaises(ValueError):
+            batch_residence_schedule([("dwell_h", 4.0)], 1.0)
+
+
 if __name__ == "__main__":
     unittest.main()

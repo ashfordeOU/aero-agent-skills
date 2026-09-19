@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-mission-environments-definition (space-systems/ecss)
+# Two tasks for the new leaf. med1 routes on the blank-field-is-not-a-zero rule and
+# the envelope-versus-accumulate split; med2 routes on the decibel-to-amplitude
+# conversion and the life factor on cycles. Both must deterministically hit
+# space-systems/ecss/e3301-mission-environments-definition.
+tasks:
+  - id: med1
+    query: "build me the design driving environment envelope for this mechanism across all its mission phases - two of the phases have no radiation number written in at all"
+    intent: "ECSS-E-ST-33-01C clause 4.3; temperature and level envelope while dose and cycles accumulate, and an unstated category is a gap rather than a zero"
+    expected_skill: "space-systems/ecss/e3301-mission-environments-definition"
+  - id: med2
+    query: "take the worst case random vibration across the phases up to the level we qualify at with our three decibel margin, and say how many actuations the life test has to run"
+    intent: "ECSS-E-ST-33-01C clause 4.3; a decibel margin is an amplitude factor of ten to the power of decibel over twenty, and the life factor multiplies the accumulated mission cycles"
+    expected_skill: "space-systems/ecss/e3301-mission-environments-definition"

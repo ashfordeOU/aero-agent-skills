@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-high-voltage-equipment-provisions (space-systems/ecss)
+# Case 1 routes on bracketing the pressure window and why a wider gap does not remove it.
+# Case 2 routes on the inhibit release point and the venting profile that precedes it.
+tasks:
+  - id: e20-high-voltage-equipment-provisions-1
+    query: "Our unpotted 4 kV converter has a 2 mm air gap and sits behind no sealed pressurised wall. How do I bracket the band of ambient pressure where it can break down, and would widening the gap to 5 mm remove that band?"
+    intent: "ECSS-E-ST-20C 5.10; the breakdown law runs in the pressure-times-gap product, so a wider gap relocates the vulnerable window to lower pressures instead of removing it"
+    expected_skill: "space-systems/ecss/e20-high-voltage-equipment-provisions"
+  - id: e20-high-voltage-equipment-provisions-2
+    query: "The inhibit on our high voltage supply releases at 500 pascal while the vehicle is still venting. How do I check that release point against the breakdown window's lower edge, and how long must the enclosure vent beforehand?"
+    intent: "ECSS-E-ST-20C 5.10; the inhibit may only release at or below the lower edge of the window, and the enclosure pressure at that instant is set by the venting time constant"
+    expected_skill: "space-systems/ecss/e20-high-voltage-equipment-provisions"

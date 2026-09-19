@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-contamination-source-control (space-systems/ecss)
+# csc1 routes on ranking sources by what arrives rather than what is emitted;
+# csc2 routes on refusing credit for an undemonstrated control measure. Both
+# must deterministically hit
+# space-systems/ecss/q7001-contamination-source-control.
+tasks:
+  - id: csc1
+    query: "rank the lubricants, adhesives and outgassing blankets on this design by how much each actually deposits on the cold optic once view factor and sticking are taken into account, and tell me which two are worth redesigning"
+    intent: "ECSS-Q-ST-70-01C design clause; sources rank by what reaches the receiver, not by emission rate, and the rate has to be scaled to the source's own operating temperature first"
+    expected_skill: "space-systems/ecss/q7001-contamination-source-control"
+  - id: csc2
+    query: "our budget closes because we credited a bake out and a debris shroud that have not been demonstrated yet, work out what the contamination totals are with only the verified control measures counted"
+    intent: "ECSS-Q-ST-70-01C design clause; an undemonstrated control measure earns no credit, and applicable measures compose multiplicatively on what survives rather than adding up to a total barrier"
+    expected_skill: "space-systems/ecss/q7001-contamination-source-control"

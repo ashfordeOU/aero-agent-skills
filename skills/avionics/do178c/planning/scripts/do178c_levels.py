@@ -12,6 +12,9 @@ Mapping (paraphrase, not reproduction):
 - DO-178C: structural coverage depth scales with level - A = MC/DC,
   B = decision coverage, C = statement coverage, D/E = none required.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 SEVERITY_TO_DAL = {
     "Catastrophic": "A",

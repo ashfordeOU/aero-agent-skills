@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7006-specimen-preparation (space-systems/ecss)
+# Two tasks for the new leaf. rsp1 routes on how many coupons the destructive
+# and non-destructive readings consume and how many unexposed references go
+# with them; rsp2 routes on fitting a coupon into the uniform beam area and
+# dividing the population into exposure runs. Both must deterministically hit
+# space-systems/ecss/q7006-specimen-preparation.
+tasks:
+  - id: rsp1
+    query: "Size the coupon order for this UV and particle run: tensile reads destroy the specimen at four measurement points, absorptance can be read without pulling anything out, and I need matching unexposed references held in the dark. How many pieces do we cut?"
+    intent: "ECSS-Q-ST-70-06C test item; counting exposed coupons for a destructive reading at every measurement point against a non-destructive one, and the matching unexposed reference coupons an in-place reading does not need"
+    expected_skill: "space-systems/ecss/q7006-specimen-preparation"
+  - id: rsp2
+    query: "the uniform part of the beam is much smaller than the target plate and the holder needs a gap and an edge margin, tell me how many of my samples fit per shot and therefore how many separate exposure runs this costs"
+    intent: "ECSS-Q-ST-70-06C test item; fitting a rectangular coupon into the uniform beam area in either orientation with its inter-coupon gap and edge keep-out, and dividing the coupon population into whole exposure runs"
+    expected_skill: "space-systems/ecss/q7006-specimen-preparation"

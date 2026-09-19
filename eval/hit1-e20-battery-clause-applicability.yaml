@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-battery-clause-applicability (space-systems/ecss)
+# Case 1 routes on which stores the clause reaches at all. Case 2 routes on
+# resolving a declared assembly and picking the provision groups that follow.
+tasks:
+  - id: e20-battery-clause-applicability-1
+    query: "Our energy store inventory holds a rechargeable lithium-ion pack as the only secondary chemistry, a non-rechargeable primary thermal cell stack for the separation squibs, a small fuel cell and a supercapacitor bank. Which of those does the battery provision reach and which sit outside its scope?"
+    intent: "ECSS-E-ST-20C 5.6.1; deciding reach by category, so a converter holding no reactants and a non-electrochemical store fall outside"
+    expected_skill: "space-systems/ecss/e20-battery-clause-applicability"
+  - id: e20-battery-clause-applicability-2
+    query: "With 8 cells in series and 3 strings in parallel at 4.8 Ah each, what nominal voltage, amp-hour rating and stored energy do I record, and which groups of provisions does a rechargeable pack owe that a non-rechargeable one does not?"
+    intent: "ECSS-E-ST-20C 5.6.1; resolving the declared assembly into rating figures and selecting the provision groups the category carries"
+    expected_skill: "space-systems/ecss/e20-battery-clause-applicability"

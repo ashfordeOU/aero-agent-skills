@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-arc-discharge-performance-recovery (space-systems/ecss)
+# Case 1 routes on categorising the arc family, which decides whether the outage
+# arithmetic applies at all. Case 2 routes on the post-arc parameter comparison:
+# direction of merit, residual shortfall and the recovery mode.
+tasks:
+  - id: e20-arc-discharge-performance-recovery-1
+    query: "A solar array string on our GEO bird drew a power-fed arc that kept burning until the shunt tripped. Does that event get the same outage allowance treatment as a primary discharge which self-extinguishes, or is a secondary arc that sustains itself reported on its own?"
+    intent: "ECSS-E-ST-20C clause 6.3.4.3; a power-fed sustained secondary arc never ends by itself, so it is the finding rather than an input to the outage comparison"
+    expected_skill: "space-systems/ecss/e20-arc-discharge-performance-recovery"
+  - id: e20-arc-discharge-performance-recovery-2
+    query: "After the electrostatic discharge our converter ripple doubled and pointing settled 3 percent worse, and the unit only came back on a ground command. How do I orient the recovery ratio when lower is better, and does that residual shortfall matter?"
+    intent: "ECSS-E-ST-20C clause 6.3.4.3; each post-arc parameter is compared in its own direction of merit, a residual shortfall defaults to zero allowance, and a ground-commanded recovery passes only inside the outage allowance"
+    expected_skill: "space-systems/ecss/e20-arc-discharge-performance-recovery"

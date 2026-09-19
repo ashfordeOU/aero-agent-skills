@@ -1,0 +1,12 @@
+# Hit@1 fragment: fos-tables-application (space-systems/ecss)
+# Case 1 routes on picking the tabulated factors for the mission type.
+# Case 2 routes on applying the factor and picking the governing margin.
+tasks:
+  - id: fos-tables-application-1
+    query: "The bracket was sized against an unmanned manifest but now flies on a human spaceflight mission. Which tabulated yield, ultimate and proof factor of safety values apply for that mission type, and may I take one value from each column?"
+    intent: "ECSS-E-ST-32C 4.2.5; the mission type selects the tabulated column, and blending columns needs a recorded tailoring decision"
+    expected_skill: "space-systems/ecss/fos-tables-application"
+  - id: fos-tables-application-2
+    query: "Unmanned mission, strut limit load 4.2 kN. With the ultimate FOS applied to that limit load, what design load must the material cover, and how is the governing margin of safety picked across the yield and ultimate cases?"
+    intent: "ECSS-E-ST-32C 4.2.5; factoring limit load into design load per case and reporting the minimum margin across the cases"
+    expected_skill: "space-systems/ecss/fos-tables-application"

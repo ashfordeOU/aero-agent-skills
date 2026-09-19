@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-acceptance-principles-allowed-modifications
+# (space-systems/ecss). apm1 routes on the permitted-change grading of a
+# flight article that differs from the qualified one; apm2 routes on the
+# acceptance levels sitting inside the qualified envelope. Both must
+# deterministically hit
+# space-systems/ecss/e3102-acceptance-principles-allowed-modifications.
+tasks:
+  - id: apm1
+    query: "this flight heat pipe has a longer evaporator and a different external finish than the qualified one, tell me whether we can still ship it on acceptance and what extra testing that costs"
+    intent: "ECSS-E-ST-31-02 clause 4.5 table 4-1; grading each difference from the qualified design to accept-as-is, delta acceptance or back to qualification, and the acceptance test set that follows"
+    expected_skill: "space-systems/ecss/e3102-acceptance-principles-allowed-modifications"
+  - id: apm2
+    query: "check the acceptance test levels we have written for this two-phase unit sit inside what the qualification actually covered, both temperature ends and the vibration density"
+    intent: "ECSS-E-ST-31-02 clause 4.5; acceptance principles, acceptance levels contained by the qualified envelope, and the most onerous disposition governing delivery"
+    expected_skill: "space-systems/ecss/e3102-acceptance-principles-allowed-modifications"

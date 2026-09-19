@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-component-configuration-requirements (space-systems/ecss)
+# Two tasks for the new leaf. ccr1 routes on the configured value that does not
+# survive because the field is model-produced output; ccr2 routes on the
+# configuration-versus-field-link collision that neither artefact shows alone.
+# Both must deterministically hit
+# space-systems/ecss/e4008-component-configuration-requirements.
+tasks:
+  - id: ccr1
+    query: "the assembly carries an assignment on a component field but the configured value never survives the first model step, so tell me whether that path is a writeable input field or model-produced output, and whether some field link is already writing that field"
+    intent: "ECSS-E-ST-40-08C clause 5.2.6.2; only input and state fields are writeable at configuration time, an output field is produced by the model and the assigned value never survives"
+    expected_skill: "space-systems/ecss/e4008-component-configuration-requirements"
+  - id: ccr2
+    query: "go through the configuration block of this assembly and say which field assignments are duplicates, out of the declared range, or collide with a field link already driving the same field"
+    intent: "ECSS-E-ST-40-08C clause 5.2.6.2; canonical field-path collapse, datatype and range grading, and the configured-value versus link-driven conflict"
+    expected_skill: "space-systems/ecss/e4008-component-configuration-requirements"

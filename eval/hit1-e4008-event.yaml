@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-event (space-systems/ecss)
+# Two tasks for the new leaf. ev1 routes on the repeated-and-aliased sink
+# subscription and the order the sinks are notified in; ev2 routes on the sink
+# that raises mid-delivery and the state an emission is not allowed to come
+# from. Both must deterministically hit space-systems/ecss/e4008-event.
+tasks:
+  - id: ev1
+    query: "a model subscribes the same handler to one simulator event twice, once spelled with a hyphen, and the recorded notification order changes between runs - work out what the event source should have refused and what order it owes"
+    intent: "ECSS-E-ST-40-08C clause 5.4.6; repeated and aliased sink subscription refusal and subscription-order notification of an event source"
+    expected_skill: "space-systems/ecss/e4008-event"
+  - id: ev2
+    query: "one event handler throws and the handlers registered after it never fire, and another emission went out while the simulator was still assembling the model tree - grade the event design against the clause items"
+    intent: "ECSS-E-ST-40-08C clause 5.4.6; raising-sink isolation, state-guarded emission and the fourteen normative event items"
+    expected_skill: "space-systems/ecss/e4008-event"

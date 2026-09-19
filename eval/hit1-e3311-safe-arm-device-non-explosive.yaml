@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-safe-arm-device-non-explosive (space-systems/ecss)
+# Two tasks for the new leaf. sand1 routes on counting genuinely independent
+# inhibits once shared-cause entries collapse; sand2 routes on the interface
+# and position-indication side of the same device. Both must deterministically
+# hit space-systems/ecss/e3311-safe-arm-device-non-explosive.
+tasks:
+  - id: sand1
+    query: "the arming unit has no explosive train, it just opens the firing path, and the drawing shows four contacts in safe but two of them run off the same coil, tell me how many inhibits we can actually claim"
+    intent: "ECSS-E-ST-33-11C clause 4.10.11; independent inhibit count for a non-explosive safe-and-arm device after collapsing common-cause groups and dropping inhibits inactive in the safe state"
+    expected_skill: "space-systems/ecss/e3311-safe-arm-device-non-explosive"
+  - id: sand2
+    query: "our arming unit reports armed off the command it received rather than off the interrupter, and the monitor return shares the firing connector, is that acceptable and what else should the box provide"
+    intent: "ECSS-E-ST-33-11C clause 4.10.11; position indication read from the interrupter, command and monitor connectors kept off the firing output, manual safing without primary power, arm and safe timing and cycle life"
+    expected_skill: "space-systems/ecss/e3311-safe-arm-device-non-explosive"

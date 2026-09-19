@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-antenna-port-spurious-emissions (space-systems/ecss)
+# Case 1 routes on mask coverage: a band the declaration never reaches, and a harmonic landing inside a victim passband.
+# Case 2 routes on the compatibility half: coupling through isolation to the victim and the isolation a failing pair still owes.
+tasks:
+  - id: e2007-antenna-port-spurious-emissions-1
+    query: "Our S-band transmitter's declared spurious-emission mask stops at 6 GHz, yet the fourth harmonic of the carrier sits inside the navigation receiver passband. Is a band our mask simply never covers treated as compliant, or is that a finding at the antenna-port?"
+    intent: "ECSS-E-ST-20-07C 4.2.6; mask coverage over every victim passband and harmonic falling in one, with an undeclared band reported rather than read as permitted"
+    expected_skill: "space-systems/ecss/e2007-antenna-port-spurious-emissions"
+  - id: e2007-antenna-port-spurious-emissions-2
+    query: "Two of our antennas share a panel. How do I take the highest declared limit overlapping the victim passband, subtract the antenna-to-antenna isolation to get the coupled level, weigh that against the receiver susceptibility-threshold, and say how much isolation the layout still owes?"
+    intent: "ECSS-E-ST-20-07C 4.2.6; worst overlapping segment coupled through pair isolation, graded against the susceptibility threshold and required margin, then inverted for the isolation shortfall"
+    expected_skill: "space-systems/ecss/e2007-antenna-port-spurious-emissions"

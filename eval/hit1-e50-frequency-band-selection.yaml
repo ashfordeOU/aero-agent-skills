@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-frequency-band-selection (space-systems/ecss)
+# Two tasks for the new leaf. fbs1 routes on the whole necessary bandwidth
+# having to sit inside the allocation, not just the centre; fbs2 routes on a
+# secondary allocation being usable but unprotected. Both must deterministically
+# hit space-systems/ecss/e50-frequency-band-selection.
+tasks:
+  - id: fbs1
+    query: "our downlink centre sits comfortably inside the deep space allocation but the occupied bandwidth is ten megahertz wide, check whether both edges are still inside and tell me how far we would have to shift"
+    intent: "ECSS-E-ST-50C clause 5.6.12.2; containment of the whole necessary bandwidth inside the allocation is the obligation, and a band that merely overlaps is not usable"
+    expected_skill: "space-systems/ecss/e50-frequency-band-selection"
+  - id: fbs2
+    query: "the band we want is allocated to our service in region one but only on a secondary basis, work out whether we may use it and what that status costs us against the primary services sharing it"
+    intent: "ECSS-E-ST-50C clause 5.6.12.2; a secondary allocation is usable and unprotected, which is a separate outcome from a protected primary allocation and from no allocation at all"
+    expected_skill: "space-systems/ecss/e50-frequency-band-selection"

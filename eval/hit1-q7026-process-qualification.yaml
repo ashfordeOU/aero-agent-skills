@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-process-qualification (space-systems/ecss)
+# pq1 routes on qualifying a named terminal, conductor, die and setting;
+# pq2 routes on what puts a standing qualification back in front of the
+# campaign. Both must deterministically hit
+# space-systems/ecss/q7026-process-qualification.
+tasks:
+  - id: pq1
+    query: "we ran one good batch of crimps on the new contact and conductor with the selector on five and all the crimp heights came out near the top of the window, is the process qualified for that combination"
+    intent: "ECSS-Q-ST-70-26C process-control clause; consecutive conforming setup runs per terminal and wire pairing, crimp height, pull-off force and visual graded together, with an edge-centred campaign carried as a finding"
+    expected_skill: "space-systems/ecss/q7026-process-qualification"
+  - id: pq2
+    query: "the crimp die was reground and the tool setting changed since we qualified this terminal and wire pairing, do we have to run the qualification campaign again"
+    intent: "ECSS-Q-ST-70-26C process-control clause; declared requalification triggers and the validity period on a standing crimp process qualification"
+    expected_skill: "space-systems/ecss/q7026-process-qualification"

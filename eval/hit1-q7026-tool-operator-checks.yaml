@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-tool-operator-checks (space-systems/ecss)
+# oc1 routes on reading the go and no-go pin pair plus the logbook entry;
+# oc2 routes on bounding the crimps a failed check puts in doubt. Both must
+# deterministically hit space-systems/ecss/q7026-tool-operator-checks.
+tasks:
+  - id: oc1
+    query: "the operator reports the go pin went into the closed die and the no go pin went in as well, and the logbook entry has no crimp counter reading, decide whether the tool can be released for the shift and what the pin pair is telling us"
+    intent: "ECSS-Q-ST-70-26C tooling clause; the go and no-go pin pair read as one verdict, and release is the conjunction of a passing gauge and a complete logbook entry"
+    expected_skill: "space-systems/ecss/q7026-tool-operator-checks"
+  - id: oc2
+    query: "a crimp tool failed its gauge check this afternoon and passed at ten this morning, work out how many crimps have to be quarantined and whether the span runs back to the last passing check or to the start of the shift"
+    intent: "ECSS-Q-ST-70-26C tooling clause; quarantine span taken from the crimp counter between the failing check and the nearest earlier passing check, open at the bottom when there is none"
+    expected_skill: "space-systems/ecss/q7026-tool-operator-checks"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-worst-case-emission-yield (space-systems/ecss)
+# Case 1 routes on building a point-by-point upper bound rather than averaging or
+# picking one coupon. Case 2 routes on restricting to the interval every curve covers
+# and on interpolating the unity crossing.
+tasks:
+  - id: e2001-worst-case-emission-yield-1
+    query: "I hold five measured yield curves for the same alodined aluminium finish. Do I average them or take the one with the tallest peak, and how do I keep track of which coupon drives each part of the result?"
+    intent: "ECSS-E-ST-20-01C 9.3; the bounding curve is built point by point from the largest measured yield at each energy, with the driving sample recorded for traceability"
+    expected_skill: "space-systems/ecss/e2001-worst-case-emission-yield"
+  - id: e2001-worst-case-emission-yield-2
+    query: "Two curves stop at 1.2 kiloelectronvolts while the rest run to 3, and the assessment needs data to 2. Can I extend the short ones, and where does the crossover-energy sit between measured primary-electron-energy points?"
+    intent: "ECSS-E-ST-20-01C 9.3; the bound is only defined over the interval every curve covers, and the crossing is interpolated between grid points rather than read off one"
+    expected_skill: "space-systems/ecss/e2001-worst-case-emission-yield"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-hybrid-repair-provisions (space-systems/ecss)
+# Two tasks for the new leaf. hrp1 routes on whether the assembly stage
+# reached still allows the work at all. hrp2 routes on opening a sealed unit
+# and what that costs in re-screening. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-repair-provisions.
+tasks:
+  - id: hrp1
+    query: "we want to replace an element on a hybrid that is already bonded and waiting for pre-cap, so tell me whether that action's window has closed at this assembly stage and what the route then costs in re-screening"
+    intent: "ECSS-Q-ST-60-05C clause 10.5; the assembly stage window in which each repair action on a partly assembled hybrid can still be worked"
+    expected_skill: "space-systems/ecss/q6005-hybrid-repair-provisions"
+  - id: hrp2
+    query: "the unit is sealed and passed its leak tests but a bond has lifted, decide whether we can take the lid off to rebond it and what screening we would owe afterwards"
+    intent: "ECSS-Q-ST-60-05C clause 10.5; lid removal as a repair route, the pre-cap state a de-lidded unit reverts to, and the full re-screen it forces"
+    expected_skill: "space-systems/ecss/q6005-hybrid-repair-provisions"

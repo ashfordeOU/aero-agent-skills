@@ -78,8 +78,14 @@ class TestWeibullCrossSection(unittest.TestCase):
                   for l in (0.0, 5.0, 6.0, 10.0, 20.0, 100.0)]
         for earlier, later in zip(values, values[1:]):
             self.assertLessEqual(earlier, later)
-        for value in values:
-            self.assertLessEqual(value, SIGMA_SAT)
+        # The saturation value is a hard ceiling the function clamps to, not
+        # an asymptote it creeps up on. Every LET below the tail is strictly
+        # under it; at LET = 100 the exponential term is ~1e-39, far below
+        # the last bit of 1.0 on any IEEE-754 libm, so the curve returns
+        # sigma_sat itself. Assert each of those two claims for what it is.
+        for value in values[:-1]:
+            self.assertLess(value, SIGMA_SAT)
+        self.assertEqual(values[-1], SIGMA_SAT)
 
     def test_large_let_approaches_saturation(self):
         sigma = weibull_cross_section(1000.0, LTH, WIDTH, SHAPE, SIGMA_SAT)

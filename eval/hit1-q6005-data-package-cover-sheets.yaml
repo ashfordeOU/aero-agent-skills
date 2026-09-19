@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-data-package-cover-sheets (space-systems/ecss,
+# Q-ST-60-05 13.2.2). Two tasks per leaf; cs1 routes on the serial range and
+# the quantity reconciliation, cs2 on the enclosure index and the build
+# standard the front sheet points at. Both must deterministically hit
+# space-systems/ecss/q6005-data-package-cover-sheets.
+tasks:
+  - id: cs1
+    query: "verify the data-package-cover-sheets of a batch: the hybrid-cover-sheet-serial-range against the units delivered and the hybrid-cover-sheet-quantity-reconciliation"
+    intent: "ecss hybrids; the summary front pages of the delivery data package"
+    expected_skill: "space-systems/ecss/q6005-data-package-cover-sheets"
+  - id: cs2
+    query: "reconcile the hybrid-cover-sheet-enclosure-index both ways with the binder, test the hybrid-cover-sheet-build-standard and grade the hybrid-cover-sheet-fields"
+    intent: "ecss hybrids; what the front sheet claims about the package behind it"
+    expected_skill: "space-systems/ecss/q6005-data-package-cover-sheets"

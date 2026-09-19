@@ -8,6 +8,9 @@ every requirement id to one item; review checks coverage (no
 unallocated requirements), uniqueness (no requirement on two items),
 and groups the register per item for the item development handoff.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 
 class AllocationConflictError(ValueError):

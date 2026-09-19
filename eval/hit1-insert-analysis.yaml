@@ -1,0 +1,12 @@
+# Hit@1 fragment: insert-analysis (space-systems/ecss)
+# Case 1 routes on the substrate deciding which failure mode governs.
+# Case 2 routes on combined axial and lateral load through the interaction.
+tasks:
+  - id: insert-analysis-1
+    query: "Potted inserts in a 25 mm aluminium honeycomb panel with 0.4 mm skins. Which failure mode governs the pull-out allowable there, and how does that differ from a thread cut straight into a solid metal fitting?"
+    intent: "ECSS-E-ST-32C 4.6.2.16; substrate type selects the governing failure mode, core shear and potting for honeycomb against thread pull-out in metal"
+    expected_skill: "space-systems/ecss/insert-analysis"
+  - id: insert-analysis-2
+    query: "A potted insert carries 1.8 kN pull-out and 1.1 kN shear at the same time. How do I combine those against the pull-out allowable and the shear allowable, and what margin comes out of the quadratic interaction once the project safety factor is applied?"
+    intent: "ECSS-E-ST-32C 4.6.2.16; simultaneous axial and lateral load combined through the quadratic interaction into a margin"
+    expected_skill: "space-systems/ecss/insert-analysis"

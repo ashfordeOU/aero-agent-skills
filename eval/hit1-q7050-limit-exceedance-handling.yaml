@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-limit-exceedance-handling (space-systems/ecss)
+# leh1 routes on severity from ratio weighted by hardware sensitivity and the
+# disposition it owes; leh2 routes on the consecutive re-verification run and
+# the closure package. Both must deterministically hit
+# space-systems/ecss/q7050-limit-exceedance-handling.
+tasks:
+  - id: leh1
+    query: "a surface particle count came back five times the limit over an exposed optic, work out how bad that is, what it deposited over the eight hours it sat there and what disposition it owes"
+    intent: "ECSS-Q-ST-70-50C exceedance handling; exceedance ratio weighted by hardware sensitivity, deposition from the exposure, and the disposition the severity permits"
+    expected_skill: "space-systems/ecss/q7050-limit-exceedance-handling"
+  - id: leh2
+    query: "we cleaned the part after the exceedance and took three more samples, one of which failed, tell me whether the finding can be closed and what the closure package is still missing"
+    intent: "ECSS-Q-ST-70-50C exceedance handling; consecutive conforming re-verification run restarted by a failure, and the closure items a disposition owes"
+    expected_skill: "space-systems/ecss/q7050-limit-exceedance-handling"

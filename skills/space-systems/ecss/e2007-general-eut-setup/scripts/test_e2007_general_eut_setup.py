@@ -4,6 +4,7 @@
 Stdlib unittest only, offline, deterministic.
 """
 
+import math
 import unittest
 
 from e2007_general_eut_setup_logic import (
@@ -161,7 +162,12 @@ class TestDimensionCheck(unittest.TestCase):
 
     def test_stack_up_representation_error_at_the_band_edge_is_absorbed(self):
         measured = 50.0 + 0.1 + 0.2
-        self.assertGreater(abs(measured - 50.0), 0.3)
+        # Adding the shims onto a 50 mm carrier rounds at the carrier's
+        # precision, so the recovered deviation overshoots the 0.3 mm band
+        # edge by 77 units in the last place of 0.3. That is exact IEEE-754
+        # arithmetic, identical on every platform, so it is pinned rather
+        # than compared. The 0.3 mm band is unchanged.
+        self.assertEqual(abs(measured - 50.0), 0.3 + 77.0 * math.ulp(0.3))
         result = check_dimension("shim-stack", measured, 50.0, 0.3)
         self.assertTrue(result["compliant"])
 
@@ -194,7 +200,9 @@ class TestMinimumCheck(unittest.TestCase):
 
     def test_representation_error_at_the_minimum_is_absorbed(self):
         minimum = 50.0 + 0.1 + 0.2
-        self.assertGreater(minimum, 50.3)
+        # Exact IEEE-754 addition: the stack-up is the double immediately
+        # above the 50.3 mm minimum on every platform, never on it.
+        self.assertEqual(minimum, math.nextafter(50.3, math.inf))
         self.assertTrue(check_minimum("item-separation", 50.3, minimum)["compliant"])
 
     def test_negative_minimum_is_rejected(self):
@@ -237,7 +245,9 @@ class TestReferencePlane(unittest.TestCase):
 
     def test_representation_error_at_the_area_boundary_is_absorbed(self):
         required = 0.1 + 0.2
-        self.assertGreater(required, 0.3)
+        # The classic binary overshoot: exactly one unit in the last place
+        # above 0.3 m2, identically on every IEEE-754 platform.
+        self.assertEqual(required, math.nextafter(0.3, math.inf))
         self.assertTrue(check_ground_plane(0.3, required)["compliant"])
 
     def test_non_positive_available_area_is_rejected(self):

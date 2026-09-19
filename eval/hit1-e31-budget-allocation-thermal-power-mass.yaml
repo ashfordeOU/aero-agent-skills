@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-budget-allocation-thermal-power-mass (space-systems/ecss)
+# Two tasks for the new leaf. bat1 routes on the maturity contingency policy and
+# the raw-versus-loaded roll-up against an allocation; bat2 routes on grading
+# the dissipation against radiator rejection capacity, not a written number.
+# Both must deterministically hit
+# space-systems/ecss/e31-budget-allocation-thermal-power-mass.
+tasks:
+  - id: bat1
+    query: "roll up the thermal hardware mass and the cold case heater demand with the right contingency per item, some are reused units and some are new builds, then tell me which budget is tightest"
+    intent: "ECSS-E-ST-31C clause 4.4.2; per-line design-maturity contingency, raw and loaded roll-ups, system-level margin and margin against each allocation"
+    expected_skill: "space-systems/ecss/e31-budget-allocation-thermal-power-mass"
+  - id: bat2
+    query: "does our hot case dissipation still fit if the radiator requirement drops twenty kelvin, grade it against what the panel can actually reject rather than the number in the budget sheet"
+    intent: "ECSS-E-ST-31C clause 4.4.2; grey-body radiator rejection capacity at hot-case radiator and sink temperature versus the contingency-loaded dissipation roll-up"
+    expected_skill: "space-systems/ecss/e31-budget-allocation-thermal-power-mass"

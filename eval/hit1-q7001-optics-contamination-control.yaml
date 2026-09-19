@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-optics-contamination-control (space-systems/ecss)
+# Two tasks for the new leaf. occ1 routes on an optics molecular budget whose
+# total is inside the allocation while one source has eaten most of it; occ2
+# routes on the receiver-temperature dependence of what actually sticks. Both
+# must deterministically hit
+# space-systems/ecss/q7001-optics-contamination-control.
+tasks:
+  - id: occ1
+    query: "the instrument aperture has one end-of-life nanogram per square centimetre number and four outgassing sources feeding it, the sum is under the number but I want to know whether any single source has swallowed its share"
+    intent: "ECSS-Q-ST-70-01C sensitive optics; a molecular deposition budget is only auditable once apportioned per source, and a compliant total can hide one source with no growth margin left"
+    expected_skill: "space-systems/ecss/q7001-optics-contamination-control"
+  - id: occ2
+    query: "same plume sees a cryogenic detector window and a warm baffle, work out how much condensed film each one ends up with and what it costs the transmittance through the train"
+    intent: "ECSS-Q-ST-70-01C sensitive optics; sticking coefficient is a strong function of receiver temperature, and areal mass becomes a throughput loss through film density and an absorption coefficient over every contaminated surface"
+    expected_skill: "space-systems/ecss/q7001-optics-contamination-control"

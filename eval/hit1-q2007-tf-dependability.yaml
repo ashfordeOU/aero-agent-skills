@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2007-tf-dependability (space-systems/ecss)
+# Two tasks for the leaf. tfd1 routes on the achieved-versus-inherent availability
+# side. tfd2 routes on the mean times and the monitoring cadence. Both must
+# deterministically hit space-systems/ecss/q2007-tf-dependability.
+tasks:
+  - id: tfd1
+    query: "take the achieved availability of the test facility straight out of its operating and downtime record, work out the inherent availability the mean times imply, and tell me how much of the shortfall is waiting rather than failing"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.6; test facility achieved versus inherent availability and the logistic downtime gap"
+    expected_skill: "space-systems/ecss/q2007-tf-dependability"
+  - id: tfd2
+    query: "Our vibration facility logged 1800 running hours last quarter, six breakdowns, 44 hours under the spanner and 130 hours waiting on spares. What reliability and repair figures do I quote against the targets, and when was this record last looked at?"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.6; facility mean time between failures, mean time to restore and dependability monitoring interval"
+    expected_skill: "space-systems/ecss/q2007-tf-dependability"

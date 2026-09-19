@@ -336,12 +336,20 @@ class MarginFindingsTest(unittest.TestCase):
         self.assertEqual(sm.margin_findings("EED-01", "ordnance", cases), [])
 
     def test_representation_error_at_the_boundary_is_absorbed(self):
-        # 0.7 V over 0.07 V is exactly a decade, but the quotient is a
-        # few units in the last place below ten, so the margin computes
-        # just under the 20 dB an ordnance point demands.
+        # 0.7 V over 0.07 V is exactly a decade, so the margin is exactly the
+        # 20 dB an ordnance point demands. Getting there runs an inexact
+        # quotient through a base-ten logarithm, which is NOT correctly
+        # rounded: the result lands a unit or so in the last place off 20 dB
+        # and which side differs between libm implementations. Asserting the
+        # direction would pass here and can fail on another runner, so only
+        # the magnitude is claimed - places=12 is ~1e2 units in the last place
+        # of 20 dB, wider than any libm disagreement and far below anything
+        # measurable in dB. The requirement is unchanged; the contract is the
+        # line below, and test_a_real_shortfall_survives_the_tolerance shows
+        # the absorption does not swallow a genuine shortfall.
         cases = [_case("mode_transition", 0.7, 0.07)]
         raw = sm.case_margin_db(cases[0])
-        self.assertLess(raw, 20.0)
+        self.assertAlmostEqual(raw, 20.0, places=12)
         self.assertEqual(sm.margin_findings("EED-01", "ordnance", cases), [])
 
     def test_a_real_shortfall_survives_the_tolerance(self):

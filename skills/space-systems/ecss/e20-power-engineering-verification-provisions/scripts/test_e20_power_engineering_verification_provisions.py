@@ -167,9 +167,18 @@ class TestMargin(unittest.TestCase):
 
     def test_exactly_satisfied_margin_survives_float_subtraction(self):
         """3.3 W against 3.0 W is exactly a ten percent margin, but the
-        subtraction lands a few units in the last place low."""
+        subtraction lands a few units in the last place low.
+
+        Subtraction and division are both correctly rounded, so the
+        shortfall below a tenth is the same on every platform. Asserting the
+        shortfall itself keeps the claim the case is making - the value
+        arrives UNDER the requirement, by far less than any engineering
+        quantity - without asking a comparison to resolve the last bit.
+        """
         margin = pv.power_margin_fraction(3.3, 3.0)
-        self.assertLess(margin, 0.1)
+        shortfall = 0.1 - margin
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-15)
         self.assertTrue(pv.margin_meets_requirement(margin, 0.1))
 
     def test_real_shortfall_still_fails(self):

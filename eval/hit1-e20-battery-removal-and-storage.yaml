@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-battery-removal-and-storage (space-systems/ecss)
+# Case 1 routes on projecting the stored charge state and the top-up cadence
+# from a temperature-corrected rate. Case 2 routes on the access path driving
+# the re-verification set and the acceptance outcome.
+tasks:
+  - id: e20-battery-removal-and-storage-1
+    query: "A flight battery module will be pulled and kept at 35 degC on open circuit for eight months. Where will its state of charge sit by then, and how often does it need a top-up before it reaches the floor?"
+    intent: "ECSS-E-ST-20C clause 5.6.4; the stored state is computed from a temperature-corrected self-discharge rate, which also fixes the maintenance charge cadence"
+    expected_skill: "space-systems/ecss/e20-battery-removal-and-storage"
+  - id: e20-battery-removal-and-storage-2
+    query: "Reaching the module means demating the main harness and partly breaking the stack. Which re-verification tasks does that pull in, and does the module keep the acceptance status it already holds or have to earn it again?"
+    intent: "ECSS-E-ST-20C clause 5.6.4; the access path fixes which qualified interfaces are broken, and the resulting task set against the delta allowance decides acceptance"
+    expected_skill: "space-systems/ecss/e20-battery-removal-and-storage"

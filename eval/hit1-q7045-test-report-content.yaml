@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7045-test-report-content (space-systems/ecss)
+# tr1 routes on a report whose method-specific sections are missing; tr2 routes
+# on printed properties that the retained raw data does not reproduce. Both
+# must deterministically hit space-systems/ecss/q7045-test-report-content.
+tasks:
+  - id: tr1
+    query: "the fatigue lab sent a report with the results table and the machine certificate but nothing about run-out, is that report actually complete and what do I chase first"
+    intent: "ECSS-Q-ST-70-45 reporting clause; the required section set comes from the test method, so a fatigue file owes its loading spectrum, stress-life points and run-out criterion, and the gaps are listed in the order the set requires them"
+    expected_skill: "space-systems/ecss/q7045-test-report-content"
+  - id: tr2
+    query: "the tensile report prints an elongation of twenty two percent but the gauge lengths in the raw data give fifteen, and one specimen in the register has no result at all, what do I write up"
+    intent: "ECSS-Q-ST-70-45 reporting clause; re-derive each printed property from the retained measurements and reconcile the specimen register against the results table in both directions"
+    expected_skill: "space-systems/ecss/q7045-test-report-content"

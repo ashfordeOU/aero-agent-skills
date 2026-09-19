@@ -58,8 +58,8 @@ airworthiness certification (FAR-25/CS-25).
 | avionics/do160/radio-frequency-susceptibility | DO-160 RF susceptibility | RS103 radiated immunity, CS114 conducted immunity, field strength |
 | avionics/do160/power-input | DO-160 power input | section 16 voltage limits, sag/surge transients, frequency tolerance |
 | avionics/do254/hardware-planning | DO-254 hardware planning | simple vs complex AEH, PHAC |
-| avionics/do254/verification | DO-254 verification | verification methods per AEH class, independence, coverage |
-| avionics/do254/configuration-management | DO-254 configuration management | baselines, ECR/ECO, change class, hardware configuration index |
+| avionics/do254/hardware-verification | DO-254 verification | verification methods per AEH class, independence, coverage |
+| avionics/do254/hardware-configuration-management | DO-254 configuration management | baselines, ECR/ECO, change class, hardware configuration index |
 | avionics/do254/requirements-capture | DO-254 requirements capture | requirement characteristics, derived requirements, trace links |
 | avionics/far-cs25/airworthiness | FAR-25/CS-25 airworthiness | certification basis, means of compliance, 25.1309 |
 | avionics/far-cs25/special-conditions | FAR-25/CS-25 special conditions | novel design features, FAR 25.17, special-condition scope |

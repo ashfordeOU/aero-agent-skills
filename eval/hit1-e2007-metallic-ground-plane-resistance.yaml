@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-metallic-ground-plane-resistance (space-systems/ecss)
+# Case 1 routes on the per-square quantity, its temperature correction and the
+# thinnest conductive layer that still meets the cap. Case 2 routes on squares along a
+# path plus joints and a non-conductive mating face.
+tasks:
+  - id: e2007-metallic-ground-plane-resistance-1
+    query: "The bench reference plane is 0.3 millimetre aluminium sheet and the chamber runs sixty kelvin hotter than when it was characterised. Does that thickness still hold the per-square limit once resistivity is corrected upward?"
+    intent: "ECSS-E-ST-20-07C 5.2.3.2; the per-square quantity is resistivity over conductive thickness at the working temperature, and the cap inverts to a minimum conductive thickness"
+    expected_skill: "space-systems/ecss/e2007-metallic-ground-plane-resistance"
+  - id: e2007-metallic-ground-plane-resistance-2
+    query: "I probed 1.8 milliohms end to end along a narrow 600 millimetre path crossing two bolted joints, and the mating face under the unit is anodised. How does that reading compare with a per-square figure?"
+    intent: "ECSS-E-ST-20-07C 5.2.3.2; a point-to-point reading differs from the per-square cap by the square count of the path, and an insulating mating face breaks the path outright"
+    expected_skill: "space-systems/ecss/e2007-metallic-ground-plane-resistance"

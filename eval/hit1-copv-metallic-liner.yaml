@@ -1,0 +1,12 @@
+# Hit@1 fragment: copv-metallic-liner (space-systems/ecss)
+# Case 1 routes on the liner at operating and proof pressure and the autofrettage-or-finding call.
+# Case 2 routes on the overwrap side: netting-theory fibre stress at burst plus scatter-factored liner cycle life.
+tasks:
+  - id: copv-metallic-liner-1
+    query: "Our carbon overwrapped tank has a 1.3 mm titanium liner on a 160 mm bore and runs at 310 bar. At 1.25 times operating the liner goes past yield. Is that a finding we raise, or do we declare the vessel an autofrettaged design and carry the residual stress forward?"
+    intent: "ECSS-E-ST-32-02C 4.3.3; liner hoop stress at operating and proof pressure and the autofrettage-regime decision that governs whether yielding is a defect"
+    expected_skill: "space-systems/ecss/copv-metallic-liner"
+  - id: copv-metallic-liner-2
+    query: "Same overwrapped vessel, aluminium liner this time. I need the fibre stress at twice operating with a 0.62 fibre volume fraction and a 4.1 mm wrap, and I need to know how many pressurisation cycles the liner has to demonstrate when the mission asks for 500."
+    intent: "ECSS-E-ST-32-02C 4.3.3; netting-theory fibre stress at burst against the fibre allowable, and the scatter-factored cycle requirement for the metal liner"
+    expected_skill: "space-systems/ecss/copv-metallic-liner"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-engineering-development-flow (space-systems/ecss)
+# Two tasks for the new leaf. deff1 routes on the review sequence and activities gated
+# at a review the flow does not hold; deff2 routes on a dependency pointing backwards
+# through the gates and the longest chain. Both must deterministically hit
+# space-systems/ecss/e2040-device-engineering-development-flow.
+tasks:
+  - id: deff1
+    query: "our device schedule skips one milestone gate and reorders two others against the canonical sequence - check the declared gate order is a legal subsequence and name every engineering activity left hanging on a gate this project never holds"
+    intent: "ECSS-E-ST-20-40C clause 5.1.3; the declared flow is a subsequence of the review order, omissions are recorded and every activity is gated by a review the flow holds"
+    expected_skill: "space-systems/ecss/e2040-device-engineering-development-flow"
+  - id: deff2
+    query: "one activity is pinned to a milestone that falls before the one closing the work feeding it, and dropping a gate made the plan look shorter - trace the gating links, name the reviews that now close nothing, and give me the worst chain depth"
+    intent: "ECSS-E-ST-20-40C clause 5.1.3; dependencies run forward through the review gates and the longest dependency chain, not the milestone count, sets the development length"
+    expected_skill: "space-systems/ecss/e2040-device-engineering-development-flow"

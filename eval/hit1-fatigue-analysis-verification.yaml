@@ -1,0 +1,13 @@
+# Hit@1 fragment: fatigue-analysis-verification (space-systems/ecss)
+# Case 1 routes on assembling the damage sum: per-block cycles to failure and what
+# an endurance limit does to a block. Case 2 routes on the factoring step: which
+# quantity the scatter factor multiplies and what the acceptance test is on.
+tasks:
+  - id: fatigue-analysis-verification-1
+    query: "Our bracket sees a launch spectrum of six stress-range blocks plus two million low-amplitude cycles under the aluminium endurance limit. Do those low blocks contribute to the Miner sum, and how do I get cycles to failure per block off the S-N curve?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.8; each block contributes its cycle ratio to the cumulative sum, and a block at or below a genuine endurance limit contributes nothing while a material without one contributes everything"
+    expected_skill: "space-systems/ecss/fatigue-analysis-verification"
+  - id: fatigue-analysis-verification-2
+    query: "Our unfactored damage sum comes out at 0.6. Does the scatter factor multiply that damage or shift the S-N stress, and is the acceptance test on the raw sum or on the factored value staying under one?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.8; the scatter factor multiplies the damage rather than the curve stress, and the criterion is the factored design damage below unity, not the unfactored sum"
+    expected_skill: "space-systems/ecss/fatigue-analysis-verification"

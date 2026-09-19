@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-level-two-multicarrier-method (space-systems/ecss)
+# Case 1 routes on the timing criterion an envelope excursion must satisfy.
+# Case 2 routes on which tabulated widths are reachable and how the governing row is chosen.
+tasks:
+  - id: e2001-level-two-multicarrier-method-1
+    query: "For an eight-carrier comb at 12 GHz with 2 MHz spacing, how long must an envelope excursion last before a discharge can establish? I need the electron gap crossing time and the twenty crossing sustaining width before reading the pulsed data."
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.4; the sustaining width is twenty half-periods of the centre frequency, and a shorter excursion deposits energy without establishing a discharge"
+    expected_skill: "space-systems/ecss/e2001-level-two-multicarrier-method"
+  - id: e2001-level-two-multicarrier-method-2
+    query: "Our pulsed susceptibility table runs out to 5 microseconds but the beat envelope main lobe is far narrower than that. Which tabulated rows may I use, and how do I pick the governing pulse width and the minimum breakdown level?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.4; rows beyond the main-lobe base width are unreachable and must be dropped, and the governing row is the reachable sustaining one with the least headroom"
+    expected_skill: "space-systems/ecss/e2001-level-two-multicarrier-method"

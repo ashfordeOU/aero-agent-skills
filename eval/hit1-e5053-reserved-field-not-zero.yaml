@@ -10,6 +10,6 @@ tasks:
     intent: "ECSS-E-ST-50-53C clause 5.5.4.3; a non-zero reserved octet means the transfer is not conformant with this protocol revision, so no packet is handed up and the condition is reported with the value seen"
     expected_skill: "space-systems/ecss/e5053-reserved-field-not-zero"
   - id: rfnz2
-    query: "a whole run of incoming transfers is being thrown out on the reserved octet check and the values are all the same number, work out whether the peer is a different build or the line is dropping bits"
+    query: "Our SpaceWire receiver is throwing away most incoming traffic because the octet after the protocol id is not zero, and it reads the same value every time. Is the far end simply built to another revision, or is the link corrupting bits?"
     intent: "ECSS-E-ST-50-53C clause 5.5.4.3; one repeated non-zero value across most of a run points at a peer emitting another revision, a scatter of distinct values points at corruption"
     expected_skill: "space-systems/ecss/e5053-reserved-field-not-zero"

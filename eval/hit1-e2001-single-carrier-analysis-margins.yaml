@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-single-carrier-analysis-margins (space-systems/ecss)
+# Case 1 routes on which uncertainty adders the chosen route is allowed to drop.
+# Case 2 routes on the heritage credit and the policy floor that ends the assembly.
+tasks:
+  - id: e2001-single-carrier-analysis-margins-1
+    query: "Working the chart route, we claimed worst-case coverage of secondary emission yield scatter and field model error, so those adders were dropped. Is that claim allowed at that analysis level, and what else is assembled into the required margin?"
+    intent: "ECSS-E-ST-20-01C 4.6.2.2; the chart route has no model in which to run worst cases, so that coverage claim is refused and the adder stands"
+    expected_skill: "space-systems/ecss/e2001-single-carrier-analysis-margins"
+  - id: e2001-single-carrier-analysis-margins-2
+    query: "A recurring connectorised output unit is being reused but its plating line changed. May I still take the heritage credit off the assembled margin, and what stops accumulated credits from pushing the requirement under its declared floor?"
+    intent: "ECSS-E-ST-20-01C 4.6.2.2; the credit rests on the flown hardware being reproduced, and the floor is applied after assembly so a floor-driven case is reported as such"
+    expected_skill: "space-systems/ecss/e2001-single-carrier-analysis-margins"

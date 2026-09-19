@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-system-grounding-diagram (space-systems/ecss)
+# Case 1 routes on the ground-support side and the single designated crossing.
+# Case 2 routes on loop counting and on isolation that a stray path defeats.
+tasks:
+  - id: e2007-system-grounding-diagram-1
+    query: "Our grounding diagram looks clean on the flight side, but the checkout trolley also earths through the facility. How many conductive links may cross into the ground support equipment, and which one has to be the designated umbilical?"
+    intent: "ECSS-E-ST-20-07C 4.2.10.2; the clause's distinguishing demand is that the support equipment is modelled and reaches the vehicle reference through exactly one designated crossing"
+    expected_skill: "space-systems/ecss/e2007-system-grounding-diagram"
+  - id: e2007-system-grounding-diagram-2
+    query: "Two redundant structure straps sit inside a single-point domain and every unit traces back at low resistance. Does a healthy return path settle it, or do I still owe the independent loop count, and what about an isolated unit that turns out to have a path?"
+    intent: "ECSS-E-ST-20-07C 4.2.10.2; the lowest-resistance trace only proves a return exists, while the loop count says how many parallel ones do, and a conductive path defeats a declared isolation"
+    expected_skill: "space-systems/ecss/e2007-system-grounding-diagram"

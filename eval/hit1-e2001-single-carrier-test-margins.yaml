@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-single-carrier-test-margins (space-systems/ecss)
+# Case 1 routes on reading the base margin off the article-type and heritage pair. Case 2 routes
+# on the uplifts and on the achieved margin measured against the required one.
+tasks:
+  - id: e2001-single-carrier-test-margins-1
+    query: "For a component-level connector with first-of-kind multipactor heritage, what test margin does the single-carrier campaign owe, and how does that differ from an equipment-level article whose build standard was already multipactor tested?"
+    intent: "ECSS-E-ST-20-01C 4.6.3.1; the base margin is a function of the article-type and design-heritage pair, widest for an untested geometry outside its final assembly"
+    expected_skill: "space-systems/ecss/e2001-single-carrier-test-margins"
+  - id: e2001-single-carrier-test-margins-2
+    query: "We tested a single article and carried its multipactor threshold across from a different frequency instead of measuring it. What uplifts does that attract, and what do I do with an article where no threshold was ever measured?"
+    intent: "ECSS-E-ST-20-01C 4.6.3.1; a single tested article and a transposed threshold each add an uplift, and an article with no measured threshold is an open finding rather than a pass"
+    expected_skill: "space-systems/ecss/e2001-single-carrier-test-margins"

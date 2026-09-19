@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-cad-model-description (space-systems/ecss)
+# Case 1 routes on the gate checks at the front of the delivery: exchange-format acceptability and an ambiguous frame.
+# Case 2 routes on the records further in: mass property completeness, maturity declaration, interface rows.
+tasks:
+  - id: drd-cad-model-description-1
+    query: "The mechanical house delivered the CAD model of our bracket as a Parasolid export, and the coordinate system note gives an origin plus the X and Y directions but never states handedness. Do we bounce the drawing delivery up front or run the rest of the checks first?"
+    intent: "ECSS-E-ST-32C Annex A; the format-acceptability stop and the handedness field that makes a frame definition usable, taken before any downstream content check"
+    expected_skill: "space-systems/ecss/drd-cad-model-description"
+  - id: drd-cad-model-description-2
+    query: "Our incoming geometry and drawing package lists total mass and centre of gravity but omits the inertia diagonal, leaves the maturity field blank, and two interface rows name no mating part. Which of those stop it entering configuration control?"
+    intent: "ECSS-E-ST-32C Annex A; mass property record completeness, the four recognised maturity codes, and interface-entry fields that decide release"
+    expected_skill: "space-systems/ecss/drd-cad-model-description"

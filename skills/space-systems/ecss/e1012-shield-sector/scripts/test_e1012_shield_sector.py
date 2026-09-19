@@ -104,7 +104,15 @@ class TestIncidenceAngle(unittest.TestCase):
 
     def test_never_exceeds_85(self):
         for theta in range(0, 181, 5):
-            self.assertLessEqual(incidence_angle_deg(float(theta)), 85.0)
+            angle = incidence_angle_deg(float(theta))
+            # The cap is a min() against the literal 85.0 and 180.0 - theta is
+            # exact for these integral angles, so a grazing ray returns the
+            # limit exactly, not a value a few ULP from it. Assert which rays
+            # are capped and that every other ray is strictly inside.
+            if min(theta, 180 - theta) >= 85:
+                self.assertEqual(angle, 85.0)
+            else:
+                self.assertLess(angle, 85.0)
 
 
 class TestRayTracing(unittest.TestCase):

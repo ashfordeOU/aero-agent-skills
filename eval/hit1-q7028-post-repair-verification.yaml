@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7028-post-repair-verification (space-systems/ecss)
+# Two tasks for the new leaf. prv1 routes on deriving the inspection set from
+# the work rather than grading whatever was run, and on incomplete as an
+# outcome distinct from pass; prv2 routes on the magnification the smallest
+# feature demands and on the radiograph a hidden joint pulls in. Both must
+# deterministically hit space-systems/ecss/q7028-post-repair-verification.
+tasks:
+  - id: prv1
+    query: "only a visual was carried out after this board repair was closed; work out which inspection steps that job actually owed, and whether the evidence reads accept, incomplete, or reject once a skipped step is counted"
+    intent: "ECSS-Q-ST-70-28 verification; the inspection set is derived from the work performed, and a required inspection that was never run makes the verification incomplete rather than passed"
+    expected_skill: "space-systems/ecss/q7028-post-repair-verification"
+  - id: prv2
+    query: "we reworked a joint on a bottom-terminated package; set the magnification against that package's smallest feature and say whether radiographic voiding also has to be measured against its maximum before the repair can be signed as verified"
+    intent: "ECSS-Q-ST-70-28 verification; required magnification follows from the smallest graded feature rounded up to a real bench step, and a hidden connection demands a radiograph on its own"
+    expected_skill: "space-systems/ecss/q7028-post-repair-verification"

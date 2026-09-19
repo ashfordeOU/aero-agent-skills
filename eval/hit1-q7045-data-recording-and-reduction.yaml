@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-data-recording-and-reduction (space-systems/ecss)
+# Two tasks for the new leaf. drr1 routes on the offset line intersection and
+# the elastic fit window; drr2 routes on the unit registry and the monotonicity
+# of the recorded trace. Both must deterministically hit
+# space-systems/ecss/q7045-data-recording-and-reduction.
+tasks:
+  - id: drr1
+    query: "the rig handed back raw force and extension columns plus a specimen diameter; form the original section, convert both channels to engineering stress and engineering strain, then say whether the reduction is reportable or a finding has to be raised first"
+    intent: "ECSS-Q-ST-70-45 data; forming the original cross-section from the specimen geometry and converting the raw force and extension channels into engineering stress and strain before any property becomes reportable"
+    expected_skill: "space-systems/ecss/q7045-data-recording-and-reduction"
+  - id: drr2
+    query: "the logger wrote force in kilonewtons and extension in microns, and partway along the trace the extension repeats and then retreats; run both channels against the unit registry and tell me whether the reduction is still reportable or the record is a rewind"
+    intent: "ECSS-Q-ST-70-45 data; unit normalisation through a registry that refuses an unknown unit, and refusal of a non-monotonic recorded trace"
+    expected_skill: "space-systems/ecss/q7045-data-recording-and-reduction"

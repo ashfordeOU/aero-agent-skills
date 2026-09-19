@@ -110,10 +110,11 @@ class TransportPathTests(unittest.TestCase):
         self.assertTrue(transport["inside_cone"])
 
     def test_surface_at_the_cone_edge_within_representation_is_direct(self):
-        # 0.1 + 0.2 lands a few ULPs above 0.3, yet the surface sits on the
-        # cone edge and is physically inside it.
+        # 0.1 + 0.2 is exactly one representable place above 0.3 on every
+        # platform (one correctly rounded IEEE-754 addition), yet the
+        # surface sits on the cone edge and is physically inside it.
         transport = plume_transport_path("beam-ion", 0.1 + 0.2, 0.3)
-        self.assertGreater(0.1 + 0.2, 0.3)
+        self.assertEqual(0.1 + 0.2, 0.3 + math.ulp(0.3))
         self.assertEqual(transport["path"], DIRECT_PATH)
 
     def test_charged_species_outside_the_cone_takes_charge_exchange(self):
@@ -263,8 +264,11 @@ class AllowanceTests(unittest.TestCase):
         self.assertAlmostEqual(check["margin_nm"], 0.0)
 
     def test_representation_error_at_the_limit_is_absorbed(self):
+        # 0.1 + 0.2 is a single correctly rounded IEEE-754 addition: exactly
+        # one representable place above the 0.3 nm allowance on every
+        # platform. The allowance is unchanged; the check absorbs the place.
         thickness = 0.1 + 0.2
-        self.assertGreater(thickness, 0.3)
+        self.assertEqual(thickness, 0.3 + math.ulp(0.3))
         check = check_deposition_allowance(thickness, 0.3)
         self.assertTrue(check["compliant"])
 

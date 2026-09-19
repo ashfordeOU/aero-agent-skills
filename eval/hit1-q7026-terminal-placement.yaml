@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-terminal-placement (space-systems/ecss)
+# Two tasks for the new leaf. tp1 routes on grading where the contact sits on the
+# conductor before the die closes; tp2 routes on the insulation-to-barrel gap and
+# a conductor that did not bottom in the bore. Both must deterministically hit
+# space-systems/ecss/q7026-terminal-placement.
+tasks:
+  - id: tp1
+    query: "check the contact is positioned correctly on the wire before the crimp tool closes and say which ones can still be repositioned"
+    intent: "ECSS-Q-ST-70-26 preparation; contact placement graded before the crimp cycle"
+    expected_skill: "space-systems/ecss/q7026-terminal-placement"
+  - id: tp2
+    query: "the insulation gap to the barrel mouth is outside its band and the conductor did not bottom in the bore, is that a reposition or back to preparation"
+    intent: "ECSS-Q-ST-70-26 preparation; insulation gap band and conductor bottoming in the barrel"
+    expected_skill: "space-systems/ecss/q7026-terminal-placement"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: fail-safe-compliance (space-systems/ecss)
+# Case 1 routes on residual strength after the assumed damage and which scenarios are admissible.
+# Case 2 routes on inspection opportunities, detectability and widespread fatigue damage.
+tasks:
+  - id: fail-safe-compliance-1
+    query: "A redundant strut pair on our thrust cone is already designated fail-safe. Once one strut is lost, what residual strength must the surviving path show and against which load, and which damage states may I assume: element loss, a through-crack, or a skin bay gone?"
+    intent: "ECSS-E-ST-32C 6.3.3; residual strength after the assumed damage is compared directly against the required residual load, and the scenario must come from the recognised set"
+    expected_skill: "space-systems/ecss/fail-safe-compliance"
+  - id: fail-safe-compliance-2
+    query: "Our inspection interval leaves only one look between the crack becoming detectable and reaching critical size, and a fastener row uses up half its fatigue life inside one interval. Are both of those findings, and does the second count as widespread fatigue damage?"
+    intent: "ECSS-E-ST-32C 6.3.3; the interval must give at least two detection opportunities and the initial damage must exceed the method's threshold, with simultaneous life consumption across similar elements flagged separately"
+    expected_skill: "space-systems/ecss/fail-safe-compliance"

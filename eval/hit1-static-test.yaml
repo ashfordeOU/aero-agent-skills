@@ -1,0 +1,12 @@
+# Hit@1 fragment: static-test (space-systems/ecss)
+# Case 1 routes on what the target is multiplied from and how the ramp is built.
+# Case 2 routes on the success criteria that outlive a survived load.
+tasks:
+  - id: static-test-1
+    query: "Acceptance run on a flight structure: is the target the limit load multiplied by 1.1, or the load we applied during the earlier qualification run, and how many hold steps does the ramp need?"
+    intent: "ECSS-E-ST-32C 4.6.3.7; the factor always multiplies the design limit value rather than any previously applied load, and the ramp needs a minimum number of evenly spaced steps"
+    expected_skill: "space-systems/ecss/static-test"
+  - id: static-test-2
+    query: "Our static test article survived the full test load without fracture but retained 0.4 mm of permanent set, and measured stiffness deviates 14 percent from the model. Do those make the static test non-compliant, and is a margin of exactly zero a violation?"
+    intent: "ECSS-E-ST-32C 4.6.3.7; residual set and stiffness correlation are independent success criteria, while a margin sitting exactly at the allowable is the boundary of compliance"
+    expected_skill: "space-systems/ecss/static-test"

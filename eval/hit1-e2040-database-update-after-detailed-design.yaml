@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-database-update-after-detailed-design (space-systems/ecss)
+# Two tasks for the new leaf. dbud1 routes on the following phase's required
+# inputs and the draft or superseded deposits that cannot be built against;
+# dbud2 routes on dotted-revision comparison against the design baseline. Both
+# must deterministically hit
+# space-systems/ecss/e2040-database-update-after-detailed-design.
+tasks:
+  - id: dbud1
+    query: "has detailed design put everything into the device repository that layout needs to start, and do not count a netlist that is still sitting there as a draft"
+    intent: "ECSS-E-ST-20-40C 5.5.5; required-input coverage per following phase with draft and superseded deposits excluded from usable items"
+    expected_skill: "space-systems/ecss/e2040-database-update-after-detailed-design"
+  - id: dbud2
+    query: "the constraint file in the repository is released at revision 2.9 and the design baseline is 2.10, work out which deposits are actually behind the baseline"
+    intent: "ECSS-E-ST-20-40C 5.5.5; dotted revisions compared as integer tuples against the design baseline, an item exactly at the baseline counted as carrying it"
+    expected_skill: "space-systems/ecss/e2040-database-update-after-detailed-design"

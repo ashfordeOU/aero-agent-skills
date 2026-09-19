@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7054-cleaning-method-selection (space-systems/ecss)
+# Two tasks for the new leaf. cms1 routes on ranking the ultraclean routes for a
+# stated contaminant and substrate; cms2 routes on the geometry screen that no
+# amount of process power answers. Both must deterministically hit
+# space-systems/ecss/q7054-cleaning-method-selection.
+tasks:
+  - id: cms1
+    query: "which route should I use on this part, precision solvent, an ultrasonic aqueous tank, carbon dioxide snow, plasma or ultraviolet ozone, and why are the others out"
+    intent: "ECSS-Q-ST-70-54C methods; hard screens on substrate, geometry, contaminant effect and both cleanliness ladders, then a score on removal effectiveness against margin and aggressiveness"
+    expected_skill: "space-systems/ecss/q7054-cleaning-method-selection"
+  - id: cms2
+    query: "The contamination sits inside a blind passage and the carbon dioxide snow jet cannot see into it. Does turning the jet up help, or does the transport mechanism of that route simply never reach this geometry at the ultraclean level we need?"
+    intent: "ECSS-Q-ST-70-54C methods; a line-of-sight route cannot reach an internal geometry, so the answer is a wetting route or disassembly, not more power"
+    expected_skill: "space-systems/ecss/q7054-cleaning-method-selection"

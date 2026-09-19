@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the clause 6.8.3 current-path robustness logic."""
 
+import math
 import unittest
 
 from e2006_current_path_environmental_robustness_logic import (
@@ -130,13 +131,15 @@ class TestCheckExposureLevel(unittest.TestCase):
         self.assertTrue(check_exposure_level("random-vibration", 14.1, 14.1)["adequate"])
 
     def test_accumulated_level_at_the_requirement_is_adequate(self):
-        # A run level assembled from eight equal band contributions lands a
-        # few ULPs below the qualification level; that is representation
-        # error, not an under-run.
+        # A run level assembled from eight equal band contributions lands
+        # exactly one representable place below the qualification level -
+        # the same place on every platform, because each partial sum is a
+        # correctly rounded IEEE-754 addition. That is representation
+        # error, not an under-run, and the level is not lowered to suit it.
         applied = 0.0
         for _ in range(8):
             applied += 14.1 / 8.0
-        self.assertLess(applied, 14.1)
+        self.assertEqual(applied, 14.1 - math.ulp(14.1))
         self.assertTrue(check_exposure_level("random-vibration", applied, 14.1)["adequate"])
 
     def test_unit_is_reported(self):
@@ -270,21 +273,31 @@ class TestEvaluateExposure(unittest.TestCase):
         self.assertTrue(any("drifted" in f for f in result["findings"]))
 
     def test_drift_exactly_at_the_allowance_passes(self):
-        # (1.1e-3 - 1.0e-3) / 1.0e-3 evaluates a few ULPs above 0.10.
+        # (1.1e-3 - 1.0e-3) / 1.0e-3 is one correctly rounded subtraction
+        # and one correctly rounded division, landing exactly three
+        # representable places above the 0.10 allowance on every platform.
+        # The allowance is not widened; the drift check absorbs those three.
         fraction = (1.1e-3 - 1.0e-3) / 1.0e-3
-        self.assertGreater(fraction, DEFAULT_ALLOWABLE_DRIFT)
+        self.assertEqual(
+            fraction,
+            DEFAULT_ALLOWABLE_DRIFT + 3 * math.ulp(DEFAULT_ALLOWABLE_DRIFT),
+        )
         result = evaluate_exposure(
             "fault-current-return-path", exposure("random-vibration", post_ohm=1.1e-3)
         )
         self.assertTrue(result["passed"], result["findings"])
 
     def test_post_reading_at_the_class_limit_passes(self):
-        # Ten 0.25 mohm segment drops sum to the 2.5 mohm limit but land a few
-        # ULPs above it in binary floating point.
+        # Ten 0.25 mohm segment drops sum to the 2.5 mohm limit, but each
+        # partial sum is a correctly rounded IEEE-754 addition and the total
+        # lands exactly one representable place above it - the same place on
+        # every platform. Above, not below: below the limit the check
+        # short-circuits and the absorbing branch is never exercised.
+        limit_ohm = post_exposure_limit("fault-current-return-path")
         post = 0.0
         for _ in range(10):
             post += 2.5e-4
-        self.assertGreater(post, post_exposure_limit("fault-current-return-path"))
+        self.assertEqual(post, limit_ohm + math.ulp(limit_ohm))
         result = evaluate_exposure(
             "fault-current-return-path",
             exposure("random-vibration", pre_ohm=2.4e-3, post_ohm=post),

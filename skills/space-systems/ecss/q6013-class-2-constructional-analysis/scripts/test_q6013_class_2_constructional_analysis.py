@@ -99,9 +99,13 @@ class SeverityTests(unittest.TestCase):
         self.assertEqual(len(set(scores)), len(scores))
 
     def test_every_score_sits_between_zero_and_one(self):
-        for score in OBSERVATION_SEVERITY_SCORE.values():
-            self.assertGreaterEqual(score, 0.0)
-            self.assertLessEqual(score, 1.0)
+        # The scores are declared constants, so both ends of the scale are
+        # exact literals. The extremes pin the closed interval for every
+        # entry at once, without a comparison whose two sides are the same
+        # bit pattern at the top of the scale.
+        scores = list(OBSERVATION_SEVERITY_SCORE.values())
+        self.assertEqual(min(scores), 0.0)
+        self.assertEqual(max(scores), 1.0)
 
     def test_unknown_severity_rejected(self):
         with self.assertRaises(ValueError):

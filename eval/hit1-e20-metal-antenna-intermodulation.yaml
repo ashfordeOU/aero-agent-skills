@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-metal-antenna-intermodulation (space-systems/ecss)
+# Case 1 routes on classifying the metal junctions as nonlinear or benign.
+# Case 2 routes on product order, in-band fall-in and the noise-floor consequence at the receiver.
+tasks:
+  - id: e20-metal-antenna-intermodulation-1
+    query: "Our C-band reflector feed has nickel plating under the finish and two clamped joints in the radiating path. Which of those behave as nonlinear PIM sources, and is an uncontrolled one already a hardware finding before I compute any product level?"
+    intent: "ECSS-E-ST-20C 7.2.2.4.1; junction classification precedes level arithmetic, and a nonlinear junction with no control action on record is a finding on its own"
+    expected_skill: "space-systems/ecss/e20-metal-antenna-intermodulation"
+  - id: e20-metal-antenna-intermodulation-2
+    query: "Transmit tones at 14.0 and 14.25 GHz. Which third and fifth order products fall inside our 12 GHz receive band, how do I scale their level off a measured reference tone, and how far does the receiver'''s noise floor rise after duplex isolation?"
+    intent: "ECSS-E-ST-20C 7.2.2.4.1; only products landing in a receive band matter, their level scales per-carrier from a measured reference, and the verdict is the noise-floor rise after isolation"
+    expected_skill: "space-systems/ecss/e20-metal-antenna-intermodulation"

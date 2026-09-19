@@ -286,7 +286,13 @@ class TestAssessment(unittest.TestCase):
         # error instead of the tolerance being widened.
         computed = 0.06022727272727272
         measured = 0.07829545454545454
-        self.assertGreater(abs(measured - computed) / computed, logic.MEASURED_DEVIATION_FRACTION)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the ratio landed on.
+        self.assertAlmostEqual(
+            abs(measured - computed) / computed,
+            logic.MEASURED_DEVIATION_FRACTION,
+            places=12,
+        )
         report = logic.assess_metallic_ground_plane(
             plane_baseline(
                 thickness_mm=0.44,
@@ -296,6 +302,20 @@ class TestAssessment(unittest.TestCase):
         )
         self.assertNotIn("MG-MEASURED-DEVIATION", report["codes"])
         self.assertTrue(report["clean"])
+        # Pin the absorbing branch with a reading constructed to deviate by
+        # strictly more than the tolerance - one part in 1e11 more, inside
+        # what the leaf absorbs, and the same value on every platform. The
+        # 30 percent tolerance itself is unchanged.
+        constructed = logic.assess_metallic_ground_plane(
+            plane_baseline(
+                thickness_mm=0.44,
+                joints=[],
+                measured_sheet_resistance_mohm_per_square=(
+                    computed * 1.3 * (1.0 + 1e-11)
+                ),
+            )
+        )
+        self.assertNotIn("MG-MEASURED-DEVIATION", constructed["codes"])
 
     def test_missing_thickness_is_rejected(self):
         spec = plane_baseline()

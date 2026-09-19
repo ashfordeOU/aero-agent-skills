@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-validation-rules (space-systems/ecss)
+# Two tasks for the new leaf. vr1 routes on the two separate validation passes
+# and the entry excluded from the second because it failed the first; vr2
+# routes on the duplicate identifier, the reference that lands on the wrong
+# kind and the parent cycle. Both must deterministically hit
+# space-systems/ecss/e4008-validation-rules.
+tasks:
+  - id: vr1
+    query: "our exchange file checker reports a missing field and half a dozen unresolved references from the same entry, and quietly skips the entries it could not parse - split the checking into the passes it should be"
+    intent: "ECSS-E-ST-40-08C clause 5.7.2.2; the local structural pass, the global referential pass and reporting the entries excluded from the second one"
+    expected_skill: "space-systems/ecss/e4008-validation-rules"
+  - id: vr2
+    query: "the exchange file declares the same identifier twice, one reference lands on an entry whose kind that field never expected, and a parent chain closes into a cycle three hops up - what do the structural and referential passes owe here"
+    intent: "ECSS-E-ST-40-08C clause 5.7.2.2; identifier uniqueness, expected-kind reference resolution and cycle detection over the parent, base and link graph"
+    expected_skill: "space-systems/ecss/e4008-validation-rules"

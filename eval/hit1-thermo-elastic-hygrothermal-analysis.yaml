@@ -1,0 +1,12 @@
+# Hit@1 fragment: thermo-elastic-hygrothermal-analysis (space-systems/ecss)
+# Case 1 routes on restraint turning a free strain into an induced stress in a member.
+# Case 2 routes on the laminate resultants when moisture and temperature act together.
+tasks:
+  - id: thermo-elastic-hygrothermal-analysis-1
+    query: "A titanium strut spans two CFRP fittings and sees a 90 K drop. Unconstrained it just shrinks; held, it builds thermo-elastic stress. How does the restraint factor convert that free strain into stress, and what does assuming full constraint cost me?"
+    intent: "ECSS-E-ST-32C 4.6.2.11; free expansion produces no stress until restrained, and the restraint factor scales the induced stress between the free and fully held extremes"
+    expected_skill: "space-systems/ecss/thermo-elastic-hygrothermal-analysis"
+  - id: thermo-elastic-hygrothermal-analysis-2
+    query: "An asymmetric CFRP laminate has taken up 0.8 percent moisture and cools 120 K. How do I build the in-plane force and the bending moment resultants ply by ply for the hygrothermal case, and why does a symmetric stack drop the moment term?"
+    intent: "ECSS-E-ST-32C 4.6.2.11; thermal and moisture strains add before the ply sum, and only an asymmetric stack couples the in-plane load into bending"
+    expected_skill: "space-systems/ecss/thermo-elastic-hygrothermal-analysis"

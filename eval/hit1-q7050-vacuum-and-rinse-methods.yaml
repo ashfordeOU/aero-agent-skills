@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7050-vacuum-and-rinse-methods (space-systems/ecss)
+# Two tasks for the new leaf. vrm1 routes on the aliquot-to-rinsate scaling and
+# the witness blank that decides whether a rinse number means anything; vrm2
+# routes on the probe stroke overlap that makes the swept area smaller than the
+# pattern area. Both must deterministically hit
+# space-systems/ecss/q7050-vacuum-and-rinse-methods.
+tasks:
+  - id: vrm1
+    query: "the vacuum probe run on this panel logged a stroke pattern with overlap; tell me how much area it really swept, not the footprint it crossed, take the collection recovery out, and say whether the surface loading clears the reporting limit"
+    intent: "ECSS-Q-ST-70-50C surface sampling; aliquot scaling to the collected rinsate, witness-blank subtraction and the recovery fraction of the method"
+    expected_skill: "space-systems/ecss/q7050-vacuum-and-rinse-methods"
+  - id: vrm2
+    query: "the technician ran ten vacuum probe strokes at half overlap across a panel and counted the particles, tell me what area that actually sampled and whether the detection limit can reach our reporting limit"
+    intent: "ECSS-Q-ST-70-50C surface sampling; probe swept area from stroke count, width, length and overlap, and the sample-specific detection limit"
+    expected_skill: "space-systems/ecss/q7050-vacuum-and-rinse-methods"

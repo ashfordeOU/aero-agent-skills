@@ -2,7 +2,7 @@
 """Gate 3 contract test: ECSS-E-ST-32C / ECSS-E-ST-32-11 test-analysis
 correlation assessment.
 
-Exercises scripts/test_analysis_correlation_logic.py (stdlib unittest,
+Exercises scripts/analysis_correlation_logic.py (stdlib unittest,
 offline). Contract: frequency_deviation returns (f_test - f_analysis) /
 f_analysis and raises for negative f_test or non-positive f_analysis;
 frequency_within_tolerance passes for deviations at or below the tolerance
@@ -24,7 +24,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import test_analysis_correlation_logic as tac  # noqa: E402
+import analysis_correlation_logic as tac  # noqa: E402
 
 
 # ---------------------------------------------------------------------------

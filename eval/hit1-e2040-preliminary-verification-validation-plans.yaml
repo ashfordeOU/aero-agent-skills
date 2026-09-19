@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-preliminary-verification-validation-plans (space-systems/ecss)
+# Two tasks for the new leaf. pvvp1 routes on the provisional method plus the
+# article it runs on being inside the declared model set; pvvp2 routes on
+# validation activity depth and the two maturities being reported separately.
+# Both must deterministically hit
+# space-systems/ecss/e2040-preliminary-verification-validation-plans.
+tasks:
+  - id: pvvp1
+    query: "the early verification plan gives every requirement a provisional method but several are allocated to a model the development plan is not building, how mature is that plan really"
+    intent: "ECSS-E-ST-20-40C 5.2.4; provisional method plus model allocation checked against the declared model set"
+    expected_skill: "space-systems/ecss/e2040-preliminary-verification-validation-plans"
+  - id: pvvp2
+    query: "at this stage each requirement carries a provisional method, yet the article it names is not among the models our development plan lists, and several validation objectives merely restate verification lines; grade the maturity these two plans reached"
+    intent: "ECSS-E-ST-20-40C 5.2.4; a provisional method whose article is outside the declared model set, validation objectives restated as verification lines, and the two preliminary plan maturities reported apart"
+    expected_skill: "space-systems/ecss/e2040-preliminary-verification-validation-plans"

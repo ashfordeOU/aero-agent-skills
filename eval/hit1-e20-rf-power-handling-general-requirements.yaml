@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-rf-power-handling-general-requirements (space-systems/ecss)
+# Case 1 routes on selecting average or envelope peak from what limits each
+# element. Case 2 routes on a capability substantiated in the wrong medium.
+tasks:
+  - id: e20-rf-power-handling-general-requirements-1
+    query: "Eight equal carriers feed a chain holding a matched termination, a long lossy waveguide section and a narrow-gap switch. Which of those elements do I size against the summed average, and which against the envelope peak?"
+    intent: "ECSS-E-ST-20C clause 7.3.2.1; a thermally limited element integrates the heat and takes the average, while a breakdown limited one takes the coherent envelope"
+    expected_skill: "space-systems/ecss/e20-rf-power-handling-general-requirements"
+  - id: e20-rf-power-handling-general-requirements-2
+    query: "The datasheet for our coaxial switch quotes a power rating with no medium stated, and the part is vented. Can I take that number for the in-orbit case, and what would a sealed housing need to keep its ambient figure?"
+    intent: "ECSS-E-ST-20C clause 7.3.2.1; an unsubstantiated basis supports no verdict, a vented element derates for vacuum, and a sealed one needs a leak-rate record"
+    expected_skill: "space-systems/ecss/e20-rf-power-handling-general-requirements"

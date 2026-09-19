@@ -1,0 +1,12 @@
+# Hit@1 fragment: dynamic-sine-random-shock-test (space-systems/ecss)
+# Case 1 routes on the notching decision and the evidence that has to back it.
+# Case 2 routes on judging a measured shock point against the envelope and the per-axis pulse count.
+tasks:
+  - id: dynamic-sine-random-shock-test-1
+    query: "During the random vibration qualification run the drive needs notching at the 45 Hz primary resonance so the solar array hinge stays inside its design load limit. What justification must exist before that notch is applied, and how is the notch factor set?"
+    intent: "ECSS-E-ST-32C 4.6.3.9; a notch is only admissible when anchored to an analysed response limit with justification recorded before the run"
+    expected_skill: "space-systems/ecss/dynamic-sine-random-shock-test"
+  - id: dynamic-sine-random-shock-test-2
+    query: "Pyroshock firing on the separation ring came out 3 dB over our SRS envelope at 1600 Hz. How is that one measured point judged, and how many shock pulses per axis should the qualification article have absorbed before I close the run?"
+    intent: "ECSS-E-ST-32C 4.6.3.9; every shock spectrum point has to sit at or under the specified envelope, and pulse count per axis differs between qualification and acceptance"
+    expected_skill: "space-systems/ecss/dynamic-sine-random-shock-test"

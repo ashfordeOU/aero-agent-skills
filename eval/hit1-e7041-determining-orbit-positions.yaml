@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-determining-orbit-positions (space-systems/ecss)
+# Two tasks for the new leaf. dop1 routes on the two-part orbit position and
+# the passed-or-pending decision; dop2 routes on the forward angular distance
+# across the orbit number field wrap. Both must deterministically hit
+# space-systems/ecss/e7041-determining-orbit-positions.
+tasks:
+  - id: dop1
+    query: "our scheduler compares orbit positions by the angle from the ascending node alone and keeps firing activities a revolution early, tell me how a position should be represented and compared on board"
+    intent: "ECSS-E-ST-70-41C clause 6.22.4; orbit position as orbit number plus ascending-node angle, single ordering key, and the passed-or-pending decision"
+    expected_skill: "space-systems/ecss/e7041-determining-orbit-positions"
+  - id: dop2
+    query: "how many degrees does the spacecraft still have to fly to reach a scheduled orbit position that sits behind the current one once the orbit counter field wraps"
+    intent: "ECSS-E-ST-70-41C clause 6.22.4; forward angular distance between two orbit positions across the wrap of a finite orbit number field"
+    expected_skill: "space-systems/ecss/e7041-determining-orbit-positions"

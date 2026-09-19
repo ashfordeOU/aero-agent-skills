@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-assembly (space-systems/ecss)
+# asm1 routes on the assembly artefact itself -- instances resolved against a
+# catalogue before the simulator leaves its building state; asm2 routes on the
+# container multiplicity and read-only field questions only this leaf answers.
+# Both must deterministically hit space-systems/ecss/e4008-assembly.
+tasks:
+  - id: asm1
+    query: "this assembly declares three catalogues, but one instance names a type no supplied catalogue provides and two instances land on one composition path under a parent nobody declared - tell me which of those the build can survive and which it cannot"
+    intent: "ECSS-E-ST-40-08C clause 5.2.10; resolve each assembly instance to a type a supplied catalogue provides, keep composition paths unique and every parent path resolvable"
+    expected_skill: "space-systems/ecss/e4008-assembly"
+  - id: asm2
+    query: "a container on one of my instances holds a single child where its type demands at least two, and the same assembly writes a field the model publishes read-only - tell me whether the simulator can still be assembled and what the verdict says"
+    intent: "ECSS-E-ST-40-08C clause 5.2.10; field writability and declared type range plus container multiplicity counted from the assembly"
+    expected_skill: "space-systems/ecss/e4008-assembly"

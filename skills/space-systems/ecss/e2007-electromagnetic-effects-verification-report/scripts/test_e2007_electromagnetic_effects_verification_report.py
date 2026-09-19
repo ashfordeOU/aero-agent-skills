@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the electromagnetic effects verification report leaf."""
 
+import math
 import unittest
 from datetime import date
 
@@ -217,8 +218,11 @@ class TestMargin(unittest.TestCase):
     def test_exactly_met_margin_survives_float_representation(self):
         corrected = compute_corrected_level_db(30.0, [0.1, 0.2])
         margin = compute_margin_db(36.3, corrected)
-        # the summed decibel terms land a few ULPs short of the exact 6 dB
-        self.assertLess(margin, 6.0)
+        # Addition and subtraction only: the summed decibel terms land
+        # exactly four units in the last place short of 6 dB on any
+        # IEEE-754 machine. State that shortfall as a magnitude rather
+        # than a direction; the 6 dB demand itself is unchanged.
+        self.assertEqual(6.0 - margin, 4.0 * math.ulp(margin))
         self.assertEqual(margin_verdict(margin, "safety-critical"), "pass")
 
     def test_genuine_shortfall_is_not_absorbed(self):

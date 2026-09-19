@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-thruster-spacecraft-neutralization (space-systems/ecss)
+# Case 1 routes on which natural currents add to the demand and which earn no credit.
+# Case 2 routes on choosing the sizing case per environment rather than per term.
+tasks:
+  - id: e2006-thruster-spacecraft-neutralization-1
+    query: "Sizing the neutralizer, our dense low earth orbit case collects far more ambient electrons than the beam removes. Can that surplus be credited against the beam current, and which natural terms genuinely increase the electron emission the cathode must supply?"
+    intent: "ECSS-E-ST-20-06C 11.2.1; an electron-rich environment is floored at zero before the margin, while photoemission, secondaries, backscatter and collected ions add to the demand"
+    expected_skill: "space-systems/ecss/e2006-thruster-spacecraft-neutralization"
+  - id: e2006-thruster-spacecraft-neutralization-2
+    query: "We declare a geosynchronous substorm case and a dense ionospheric case. Should I take the worst value of each current term across both, or evaluate each environment whole, and how are the collection currents formed from plasma density and temperature?"
+    intent: "ECSS-E-ST-20-06C 11.2.1; the terms trade against one another inside one environment, so the sizing case is the environment with the largest demand, not a mix of worst terms"
+    expected_skill: "space-systems/ecss/e2006-thruster-spacecraft-neutralization"

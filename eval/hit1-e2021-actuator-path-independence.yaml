@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuator-path-independence (space-systems/ecss)
+# Two tasks for the new leaf. api1 routes on the shared harness bundle that the
+# block diagram does not show; api2 routes on the shared secondary bus behind two
+# separate firing switches. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-path-independence.
+tasks:
+  - id: api1
+    query: "the prime and backup firing lines to the separation nut are separate boxes but the harness drawing ties both of them into one bundle through the same connector, work out whether that still counts as independent"
+    intent: "ECSS-E-ST-20-21C clause 5.3.2; shared harness bundle and connector shell as a common cause the block diagram does not show, with the elements on each side that bring it in"
+    expected_skill: "space-systems/ecss/e2021-actuator-path-independence"
+  - id: api2
+    query: "two separate firing switches for the deployment device but both drive electronics hang off the same secondary supply, tell me what single failure still loses actuation"
+    intent: "ECSS-E-ST-20-21C clause 5.3.2; empty element intersection with a non-empty resource intersection, and the loss case for the shared bus"
+    expected_skill: "space-systems/ecss/e2021-actuator-path-independence"

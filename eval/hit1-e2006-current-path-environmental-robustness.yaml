@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-current-path-environmental-robustness (space-systems/ecss)
+# Case 1 routes on which exposure set the path class owes. Case 2 routes on how
+# a completed run is graded: live monitoring during excitation plus drift, not
+# the post-run reading alone.
+tasks:
+  - id: e2006-current-path-environmental-robustness-1
+    query: "A surface bleed bonding path has vibration and shock records on file but nothing for humidity or corrosion. Which exposures does that path class owe, and does a shock record count toward what it needs?"
+    intent: "ECSS-E-ST-20-06C clause 6.8.3; the required exposure set follows the path class, and an exposure it did not owe does not fill a gap in the set"
+    expected_skill: "space-systems/ecss/e2006-current-path-environmental-robustness"
+  - id: e2006-current-path-environmental-robustness-2
+    query: "Bond resistance moved from 1.8 to 3.4 milliohm across the vibration exposure, still inside the limit for its path class, and nothing watched the joint for a discontinuity during the excitation. Is the post reading alone evidence, or does that drift fail it?"
+    intent: "ECSS-E-ST-20-06C clause 6.8.3; an intermittent open leaves no post-run trace, and drift is graded alongside the absolute reading"
+    expected_skill: "space-systems/ecss/e2006-current-path-environmental-robustness"

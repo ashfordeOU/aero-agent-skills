@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-architecture-definition-phase-review (space-systems/ecss)
+# Two tasks for the new leaf. adpr1 routes on the six exit criteria and the partial with no
+# action against it; adpr2 routes on the action carried over from the previous review that
+# is open past its due date. Both must deterministically hit
+# space-systems/ecss/e2040-architecture-definition-phase-review.
+tasks:
+  - id: adpr1
+    query: "grade the exit criteria for closing architecture definition, one is only partially met with no action against it and another is asserted met with no evidence reference"
+    intent: "ECSS-E-ST-20-40C clause 5.3.4; six exit criteria met, partially met or not met, a partial is carryable only with an action referencing it, evidence required per criterion"
+    expected_skill: "space-systems/ecss/e2040-architecture-definition-phase-review"
+  - id: adpr2
+    query: "can we authorise detailed design when an action carried over from the earlier device review is still open and already past its due date at this board"
+    intent: "ECSS-E-ST-20-40C clause 5.3.4; carried actions do not vanish between gates, an overdue carried action stacks two phases of debt, weighted criteria satisfaction"
+    expected_skill: "space-systems/ecss/e2040-architecture-definition-phase-review"

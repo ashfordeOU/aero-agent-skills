@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-direct-surface-ir-measurement (space-systems/ecss)
+# Two tasks for the new leaf. dsm1 routes on the reflection-technique choice
+# the surface finish forces; dsm2 routes on the grazing double-pass path
+# enhancement. Both must deterministically hit
+# space-systems/ecss/q7005-direct-surface-ir-measurement.
+tasks:
+  - id: dsm1
+    query: "we are reading the deposit off the surface by reflection; one area is polished metal, one is a rough painted panel and one is a flexible blanket, so decide the reflection arrangement for each finish and what clean reference area each reading needs"
+    intent: "ECSS-Q-ST-70-05C direct method; grazing reflection-absorption on a bright specular substrate, diffuse collection on a scattering finish, internal reflection on a compliant one"
+    expected_skill: "space-systems/ecss/q7005-direct-surface-ir-measurement"
+  - id: dsm2
+    query: "we took the reflection spectrum at a shallow angle across the plate; convert that absorbance into a film thickness accounting for the beam crossing the deposit twice"
+    intent: "ECSS-Q-ST-70-05C direct method; the double-pass path enhancement of two over the cosine of the incidence angle, then thickness to areal mass through the contaminant density"
+    expected_skill: "space-systems/ecss/q7005-direct-surface-ir-measurement"

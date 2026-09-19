@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-level-two-single-carrier-method (space-systems/ecss)
+# Case 1 routes on why a plain two-point bracket fails on a two-sided susceptibility band.
+# Case 2 routes on trajectory bookkeeping and convergence grading in the tracking run.
+tasks:
+  - id: e2001-level-two-single-carrier-method-1
+    query: "My electron-tracking hunt for the multipactor-threshold uses a two-point bracket spanning every trial amplitude and comes back with no crossing whatsoever. Why does the susceptibility-band defeat that, and how should the amplitude ladder be climbed before bisecting?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.3; the case turns on the susceptibility band being bounded on both sides, so the lower edge is found by walking up from a decaying rung"
+    expected_skill: "space-systems/ecss/e2001-level-two-single-carrier-method"
+  - id: e2001-level-two-single-carrier-method-2
+    query: "Our electron tracking reuses one field solution and rescales amplitude for each trial power. Some electrons are still airborne when the tracked cycles expire. Do I drop them from the secondaries average, and what has to be shown about mesh and seed count?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.3; the case turns on counting an unlanded trajectory as a loss and on convergence being graded separately from the threshold number"
+    expected_skill: "space-systems/ecss/e2001-level-two-single-carrier-method"

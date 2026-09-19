@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-space-link-exception-reporting (space-systems/ecss)
+# slxr1 routes on a detectable link condition nothing routes; slxr2 routes on a
+# recurring condition whose per-occurrence reporting saturates the report channel.
+# Both must deterministically hit space-systems/ecss/e50-space-link-exception-reporting.
+tasks:
+  - id: slxr1
+    query: "audit which space link fault conditions our transponder can detect but never actually reports anywhere, and whether the reports we do send carry enough to tell which link and when"
+    intent: "ECSS-E-ST-50C clause 5.6.14.9; the two obligations are graded separately, a detectable condition with no route is a silent failure and a routed report with blank identifying fields fails the second item independently"
+    expected_skill: "space-systems/ecss/e50-space-link-exception-reporting"
+  - id: slxr2
+    query: "a bit error condition on the downlink is firing hundreds of times a second and each occurrence generates its own event report, which is now eating the channel the reports travel over, how many fit and what do we do with the rest"
+    intent: "ECSS-E-ST-50C clause 5.6.14.9; the report channel is part of the link being reported on, so a burst is aggregated into one report per window carrying an occurrence count rather than one report per occurrence"
+    expected_skill: "space-systems/ecss/e50-space-link-exception-reporting"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: ph-classification (space-systems/ecss)
+# Case 1 routes on branch order: a structural-load-carrying item is resolved before the simplicity gate is ever reached.
+# Case 2 routes on assemblies: constituent items categorized individually beneath the assembly label, and incomplete inputs.
+tasks:
+  - id: ph-classification-1
+    query: "A titanium sphere on our launch vehicle acts as a primary structural member of the airframe and also retains propellant at 15 bar MEOP in an 8 litre internal volume. Does it come out as simple pressure equipment, and in what order do the category checks run?"
+    intent: "ECSS-E-ST-32 4.1; the decision order that resolves concurrent structural load carriage before the simplicity criteria, so a geometrically simple low-pressure item is still not equipment"
+    expected_skill: "space-systems/ecss/ph-classification"
+  - id: ph-classification-2
+    query: "Our propulsion feed circuit interconnects tanks, valves and lines as one functional unit. Does the circuit take a single pressure hardware category, or must each sub-item be individually categorized first, and how do I flag two lines whose internal volume was never recorded?"
+    intent: "ECSS-E-ST-32 4.1; an interconnected assembly resolved as a system with every constituent item categorized beneath it, and an item with missing input flagged unresolved"
+    expected_skill: "space-systems/ecss/ph-classification"

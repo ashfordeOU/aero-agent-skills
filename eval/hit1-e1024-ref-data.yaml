@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-ref-data (space-systems/ecss)
+# Case 1 routes on interface-type assignment driving the permitted unit set.
+# Case 2 routes on the format-token vocabulary and record completeness.
+tasks:
+  - id: e1024-ref-data-1
+    query: "Our interface parameter table gives an electrical bus row whose unit is kilograms and a pyrotechnic row with no value range. Which of the eight interface types do those belong to, and what unit set does each type allow?"
+    intent: "ECSS-E-ST-10-24C Annex E; units are specific to the interface type, so a unit borrowed from another type's set is a data error rather than a conservative choice"
+    expected_skill: "space-systems/ecss/e1024-ref-data"
+  - id: e1024-ref-data-2
+    query: "A reviewer rejected our ICD parameter rows because the format column says real and number. Which format tokens are actually accepted, and does a blank value range leave the record incomplete even when every other field is filled?"
+    intent: "ECSS-E-ST-10-24C Annex E; the format vocabulary is fixed and informal synonyms are not substitutes, and every one of the required fields must be non-blank"
+    expected_skill: "space-systems/ecss/e1024-ref-data"

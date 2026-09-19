@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-plasma-power-loss-validation (space-systems/ecss)
+# Case 1 routes on deriving the collected current for an exposed element.
+# Case 2 routes on the snapover multiplier and the summed loss allowance.
+tasks:
+  - id: e2006-plasma-power-loss-validation-1
+    query: "Exposed interconnects on our high voltage array sit well above plasma potential in low orbit. How do I get the electron leakage current from the thermal current density and the sheath enhancement their geometry gives?"
+    intent: "ECSS-E-ST-20-06C 8.3; categorising the element by bias and scaling the thermal current density by the sheath growth for its geometry"
+    expected_skill: "space-systems/ecss/e2006-plasma-power-loss-validation"
+  - id: e2006-plasma-power-loss-validation-2
+    query: "One connector shell is biased past the snapover onset against its dielectric. Once that multiplier is applied and the parasitic loss summed over every exposed element, how much of what the array generates may we still lose?"
+    intent: "ECSS-E-ST-20-06C 8.3; the snapover multiplier and the total parasitic loss judged against the allowable fraction of generated power"
+    expected_skill: "space-systems/ecss/e2006-plasma-power-loss-validation"

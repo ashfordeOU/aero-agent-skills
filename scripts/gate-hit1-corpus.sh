@@ -2,13 +2,15 @@
 # Gate 5 (REAL): Hit@1 corpus eval (deterministic, offline).
 # Contract: docs/harness-contract.md gate 5. Reads eval/hit1-corpus.yaml,
 # resolves each task via the flat+tags router (scripts/router_eval.py) against
-# asserts top-1 == expected_skill. Exit 0 = 126/126 Hit@1.
+# asserts top-1 == expected_skill for EVERY case in eval/: the corpus and
+# every per-leaf hit1-<slug>.yaml fragment. The fragments used to be graded
+# by nothing, which left most leaves asserted by no executed case at all.
 set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
-corpus="$repo_root/eval/hit1-corpus.yaml"
+corpus="$repo_root/eval"
 skills_dir="$repo_root/skills"
 
-if [ ! -f "$corpus" ]; then
+if [ ! -d "$corpus" ]; then
   echo "FAIL gate5-hit1: $corpus missing" >&2
   exit 1
 fi

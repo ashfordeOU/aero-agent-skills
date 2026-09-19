@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuator-electronics-command-interfaces (space-systems/ecss)
+# Two tasks for the new leaf. aeci1 routes on the twelve cell arm/select/fire
+# acceptance matrix and the home-only pairing; aeci2 routes on the isolation duty
+# a cross strap carries. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-electronics-command-interfaces.
+tasks:
+  - id: aeci1
+    query: "neither electronics box will accept arm, select or fire from the opposite command chain, fill in the acceptance matrix, tell me the coverage that leaves, and what survives when one command chain drops out"
+    intent: "ECSS-E-ST-20-21C clause 5.2.3; home-only pairing of arm, select and fire acceptance, coverage of the twelve cell matrix and the command chain loss case"
+    expected_skill: "space-systems/ecss/e2021-actuator-electronics-command-interfaces"
+  - id: aeci2
+    query: "we cross strapped the arm and select lines between the two drive electronics but not the fire line, and the straps are directly wired, tell me what that costs us"
+    intent: "ECSS-E-ST-20-21C clause 5.2.3; per-command cross strapping gaps and the isolation duty an accepted cross strap carries"
+    expected_skill: "space-systems/ecss/e2021-actuator-electronics-command-interfaces"

@@ -89,8 +89,14 @@ class TestDistanceTolerance(unittest.TestCase):
 
     def test_exact_boundary_survives_float_representation(self):
         result = check_distance_tolerance(1.0, 1.05)
-        # the difference lands a few ULPs above the exact 5 % allowance
-        self.assertGreater(result["deviation"], 1.0 * DISTANCE_TOLERANCE_FRACTION)
+        # The subtraction is correctly rounded, so the deviation is the
+        # same bit pattern everywhere: it overshoots the exact 5 % allowance
+        # by parts in ten thousand million million - arithmetic, not a real
+        # separation error. Assert the size of that excess, not the
+        # direction of the last bit. The allowance is untouched.
+        excess = result["deviation"] - 1.0 * DISTANCE_TOLERANCE_FRACTION
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-12)
         self.assertTrue(result["within"])
 
     def test_genuine_overshoot_is_out_of_tolerance(self):
@@ -150,8 +156,14 @@ class TestAmplitudeTolerance(unittest.TestCase):
 
     def test_exact_boundary_survives_float_representation(self):
         result = check_amplitude_tolerance(30.2, 32.2)
-        # the difference lands a few ULPs above the exact 2 dB allowance
-        self.assertGreater(result["deviation"], AMPLITUDE_TOLERANCE_DB)
+        # The subtraction is correctly rounded, so the deviation is the
+        # same bit pattern everywhere: it overshoots the exact 2 dB
+        # allowance by femto-decibels of arithmetic, not by a real level
+        # error. Assert the size of that excess, not the direction of the
+        # last bit. The allowance is untouched.
+        excess = result["deviation"] - AMPLITUDE_TOLERANCE_DB
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-12)
         self.assertTrue(result["within"])
 
     def test_level_beyond_the_band_is_out_of_tolerance(self):

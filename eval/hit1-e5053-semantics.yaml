@@ -5,10 +5,10 @@
 # space-systems/ecss/e5053-semantics.
 tasks:
   - id: sem1
-    query: "this primitive's parameter table marks a field as conditional but never says under what condition it is there, tell me what else in the table has the same gap"
+    query: "this SpaceWire service primitive declares a parameter as conditional but never gives the stated condition. Check the rest of the per-primitive parameter list for the same gap, plus any entry missing a type, a name or a presence category, and any duplicate."
     intent: "ECSS-E-ST-50-53 clause 5.2.2.2; parameter entries need a name, a type and a presence category, and a conditional entry needs its condition with it"
     expected_skill: "space-systems/ecss/e5053-semantics"
   - id: sem2
-    query: "compare the parameter lists of the request and the matching indication and say whether anything the sender always supplies has gone missing or turned up stricter at the far end"
+    query: "Line up this service primitive's request against the indication, the response and the confirm it pairs with. Does any mandatory parameter go missing between them, or does a presence category tighten at the far end?"
     intent: "ECSS-E-ST-50-53 clause 5.2.2.2; a partner primitive may relax a presence category but never tighten it, and may only add a provider-generated parameter"
     expected_skill: "space-systems/ecss/e5053-semantics"

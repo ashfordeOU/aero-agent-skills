@@ -1,0 +1,12 @@
+# Hit@1 fragment: fracture-control-reviews (space-systems/ecss)
+# Case 1 routes on the item-list maturity a given milestone demands.
+# Case 2 routes on unclosed prior actions blocking a later gate on their own.
+tasks:
+  - id: fracture-control-reviews-1
+    query: "We are two weeks out from critical design review and our list of fracture critical items is still only at draft status. How far short of the required maturity does that leave us, and does it alone stop the gate?"
+    intent: "ECSS-E-ST-32C 5.3; the case turns on the item-list maturity required at the milestone being compared against what is actually available"
+    expected_skill: "space-systems/ecss/fracture-control-reviews"
+  - id: fracture-control-reviews-2
+    query: "Heading into qualification review we hold the final fracture analysis, the NDE results and the test results, but previous reviews left action items still open. Can that milestone gate be declared ready, and what FCI list maturity does it demand?"
+    intent: "ECSS-E-ST-32C 5.3; the case turns on closure of predecessor actions being a blocking input at the later gates regardless of deliverable completeness"
+    expected_skill: "space-systems/ecss/fracture-control-reviews"

@@ -7,8 +7,27 @@ and docs/harness-contract.md gate 5): token-overlap scoring over tags
 when a normalized query phrase appears verbatim in name+description. Top-1
 by (score desc, skill path asc). Fully deterministic; no network.
 
-Usage: router_eval.py <corpus.yaml> <skills_dir>
-Exit 0 = every corpus task's top-1 equals expected_skill; 1 otherwise.
+What this gate executes
+-----------------------
+A single corpus file, or EVERY corpus file in a directory. eval/ holds
+eval/hit1-corpus.yaml plus one eval/hit1-<slug>.yaml fragment per leaf. For a
+long time this gate read only the first of those, so the per-leaf fragments --
+the majority of the authored cases, and the only cases naming most leaves --
+were graded by nothing at all. Pointing the gate at the directory executes all
+of them, which is the whole point of authoring them.
+
+Case ids are unique only within a fragment (504 ids are reused across files),
+so every verdict is reported as `<file>#<id>`. Nothing has to be renamed for a
+failure to be identifiable.
+
+Performance note: the skill fields and each query are tokenized ONCE, not once
+per (case, skill) pair. The arithmetic is unchanged -- the same four set
+intersections against the same four token sets -- but the body of every skill
+is no longer re-tokenized for every case, which is what made a full-corpus run
+impractical before.
+
+Usage: router_eval.py <corpus.yaml | eval_dir> <skills_dir>
+Exit 0 = every task's top-1 equals expected_skill; 1 otherwise.
 """
 
 import pathlib
@@ -33,6 +52,7 @@ def tokens(text):
 
 
 def load_skills(root):
+    """Index every SKILL.md, pre-tokenized into the four scoring sets."""
     skills = {}
     for p in sorted(pathlib.Path(root).rglob("SKILL.md")):
         text = p.read_text(encoding="utf-8")
@@ -49,66 +69,88 @@ def load_skills(root):
         meta = fm.get("metadata")
         if not isinstance(meta, dict):
             meta = {}
+        name = fm.get("name", "") or ""
+        description = fm.get("description", "") or ""
         skills[rel] = {
-            "name": fm.get("name", "") or "",
-            "description": fm.get("description", "") or "",
-            "tags": [str(t).lower() for t in (meta.get("tags") or [])],
-            "body": parts[2] if len(parts) >= 3 else "",
+            "tags": set(str(t).lower() for t in (meta.get("tags") or [])),
+            "name": set(tokens(name)),
+            "description": set(tokens(description)),
+            "body": set(tokens(parts[2] if len(parts) >= 3 else "")),
+            "haystack": (name + " " + description).lower(),
         }
     return skills
 
 
-def score(skill, query):
+def score(skill, query_tokens, phrase):
+    """Score one skill against a pre-tokenized query."""
     s = 0.0
-    q = set(tokens(query))
-    if not q:
-        return 0.0
-    name_t = set(tokens(skill["name"]))
-    desc_t = set(tokens(skill["description"]))
-    body_t = set(tokens(skill["body"]))
-    tag_t = set(skill["tags"])
-    s += 3.0 * len(q & tag_t)
-    s += 2.0 * len(q & name_t)
-    s += 1.0 * len(q & desc_t)
-    s += 0.5 * len(q & body_t)
-    phrase = " ".join(tokens(query))
-    haystack = (skill["name"] + " " + skill["description"]).lower()
-    if phrase and phrase in haystack:
+    s += 3.0 * len(query_tokens & skill["tags"])
+    s += 2.0 * len(query_tokens & skill["name"])
+    s += 1.0 * len(query_tokens & skill["description"])
+    s += 0.5 * len(query_tokens & skill["body"])
+    if phrase and phrase in skill["haystack"]:
         s += 4.0
     return s
 
 
-def main():
-    corpus_path = pathlib.Path(sys.argv[1])
-    skills_root = pathlib.Path(sys.argv[2])
-    corpus = yaml.safe_load(corpus_path.read_text(encoding="utf-8"))
-    tasks = corpus.get("tasks") if isinstance(corpus, dict) else None
-    if not isinstance(tasks, list) or not tasks:
-        print("FAIL gate5-hit1: corpus has no non-empty 'tasks' list", file=sys.stderr)
+def load_tasks(target):
+    """[(label, task)] from one corpus file or every fragment in a directory."""
+    path = pathlib.Path(target)
+    if path.is_dir():
+        files = sorted(path.glob("hit1-*.yaml"))
+        if not files:
+            print("FAIL gate5-hit1: no hit1-*.yaml under %s" % path, file=sys.stderr)
+            sys.exit(1)
+    else:
+        files = [path]
+    out = []
+    for f in files:
+        doc = yaml.safe_load(f.read_text(encoding="utf-8"))
+        tasks = doc.get("tasks") if isinstance(doc, dict) else None
+        if not isinstance(tasks, list) or not tasks:
+            print("FAIL gate5-hit1: %s has no non-empty 'tasks' list" % f.name,
+                  file=sys.stderr)
+            sys.exit(1)
+        for t in tasks:
+            if isinstance(t, dict):
+                out.append(("%s#%s" % (f.name, t.get("id", "?")), t))
+    if not out:
+        print("FAIL gate5-hit1: no tasks found", file=sys.stderr)
         sys.exit(1)
+    return out
+
+
+def main():
+    target = sys.argv[1]
+    skills_root = pathlib.Path(sys.argv[2])
+    labelled = load_tasks(target)
     skills = load_skills(skills_root)
     if not skills:
         print("FAIL gate5-hit1: no skills indexed under skills/", file=sys.stderr)
         sys.exit(1)
+
+    items = list(skills.items())
     fail = 0
-    for t in tasks:
+    for label, t in labelled:
         q = t.get("query", "")
         exp = t.get("expected_skill", "")
         if exp not in skills:
             print(
                 "FAIL gate5-hit1: %s expected_skill '%s' not in skills tree"
-                % (t.get("id", "?"), exp),
+                % (label, exp),
                 file=sys.stderr,
             )
             fail = 1
             continue
-        scored = [(score(s, q), path) for path, s in skills.items()]
+        qt = set(tokens(q))
+        phrase = " ".join(tokens(q))
+        scored = [(score(s, qt, phrase), path) for path, s in items]
         scored.sort(key=lambda pair: (-pair[0], pair[1]))
         top_score, top_path = scored[0]
         ok = top_path == exp
         print(
             "%s gate5-hit1: %s top1=%s score=%.1f expected=%s"
-            % ("PASS" if ok else "FAIL", t.get("id", "?"), top_path, top_score, exp)
+            % ("PASS" if ok else "FAIL", label, top_path, top_score, exp)
         )
         if not ok:
             fail = 1
@@ -116,7 +158,7 @@ def main():
         sys.exit(1)
     print(
         "PASS gate5-hit1: %d/%d tasks Hit@1 (deterministic offline router)"
-        % (len(tasks), len(tasks))
+        % (len(labelled), len(labelled))
     )
 
 

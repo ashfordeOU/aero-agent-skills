@@ -1,0 +1,13 @@
+# Hit@1 fragment: fracture-control-plan (space-systems/ecss)
+# Case 1 routes on the plan being in force: required sections plus the full approval
+# chain. Case 2 routes on re-categorising an item after a change and on the parameter
+# set a fracture-critical record then owes.
+tasks:
+  - id: fracture-control-plan-1
+    query: "Our fracture control plan is technically complete, but only the project engineer and the fracture-control authority have signed and the customer has not accepted. The update trigger section is also absent. Is the plan in force?"
+    intent: "ECSS-E-ST-32C Annex F 5.2; all required plan sections plus all three levels of approval must be present, because an unsigned plan is not in force whatever its technical content"
+    expected_skill: "space-systems/ecss/fracture-control-plan"
+  - id: fracture-control-plan-2
+    query: "We substituted material on a part previously treated as non-fracture-critical, and its fracture would now lose the mission. What does that force in the plan, and what must the item record carry once it becomes critical?"
+    intent: "ECSS-E-ST-32C Annex F 5.2; a material change and a re-categorisation are both mandatory update triggers, and a critical item owes inspection limit, life approach, verification method and design life"
+    expected_skill: "space-systems/ecss/fracture-control-plan"

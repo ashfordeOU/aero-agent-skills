@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-internal-electrostatic-discharge-overview (space-systems/ecss)
+# Case 1 routes on shield attenuation and the screen that closes items out.
+# Case 2 routes on which limit each item category is actually judged against.
+tasks:
+  - id: e2006-internal-electrostatic-discharge-overview-1
+    query: "Geostationary box with 2 mm of aluminium shield over the boards. How far does that knock down the energetic-electron-flux reaching each part, and which internal items then fall below the screening threshold for internal-electrostatic-discharge?"
+    intent: "ECSS-E-ST-20-06C 9.1; local shielding attenuates the penetrating flux and the screening level closes items out before any charge is computed"
+    expected_skill: "space-systems/ecss/e2006-internal-electrostatic-discharge-overview"
+  - id: e2006-internal-electrostatic-discharge-overview-2
+    query: "Inside the unit I have cable insulation, an ungrounded bracket and a shield can bonded through 50 kilohm. Which limit applies to each of them, buried field in the dielectric, stored discharge energy, or a bleed time-constant too slow for the exposure?"
+    intent: "ECSS-E-ST-20-06C 9.1; the item category picks the check, and a slow bleed means the grounded part charges for the whole exposure"
+    expected_skill: "space-systems/ecss/e2006-internal-electrostatic-discharge-overview"

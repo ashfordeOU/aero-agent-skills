@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-device-layout-generation (space-systems/ecss)
+# Two tasks for the new leaf. dlg1 routes on core utilisation and the target
+# period of a finished place-and-route run; dlg2 routes on unrouted nets hiding
+# behind a flattering completion percentage and on the missing layout
+# documentation. Both must deterministically hit
+# space-systems/ecss/e2040-device-layout-generation.
+tasks:
+  - id: dlg1
+    query: "the place and route run came back at 90 per cent core utilisation and the critical path closes at 10.8 ns against a 10 ns target, is this layout releasable"
+    intent: "ECSS-E-ST-20-40C 5.6.2; utilisation against its ceiling and critical-path slack against the target period, an exact landing on either bound counted as met"
+    expected_skill: "space-systems/ecss/e2040-device-layout-generation"
+  - id: dlg2
+    query: "routing reports 99.99 per cent complete with three nets open and the record does not say which tool version produced the database, what do I write up"
+    intent: "ECSS-E-ST-20-40C 5.6.2; every unrouted net faulted independently of the completion fraction, and the floorplan, layer stack, pin assignment, deviation and tool version documentation checked"
+    expected_skill: "space-systems/ecss/e2040-device-layout-generation"

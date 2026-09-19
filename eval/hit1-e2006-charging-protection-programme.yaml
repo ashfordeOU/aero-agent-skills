@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-charging-protection-programme (space-systems/ecss)
+# Case 1 routes on scoring the per-item hazard index and banding it. Case 2 routes on the
+# mitigation and verification sets the band demands and on when each activity is due.
+tasks:
+  - id: e2006-charging-protection-programme-1
+    query: "A GEO platform carries 0.6 square metres of exposed kapton on the antenna tower. How do I score the charging hazard for that item from the orbit, the exposure and the area, and which risk band does an exposed dielectric of that size land in?"
+    intent: "ECSS-E-ST-20-06C clause 5; the hazard index combines environment severity, exposure kind and a saturating area term, and the band rather than the raw score drives the programme"
+    expected_skill: "space-systems/ecss/e2006-charging-protection-programme"
+  - id: e2006-charging-protection-programme-2
+    query: "Our protection plan closes the severe items by analysis alone and books the hazard assessment at CDR. Which mitigation measures and verification methods does the severe band demand, and is CDR already too late for that assessment?"
+    intent: "ECSS-E-ST-20-06C clause 5; a severe item cannot close without physical measurement, and the assessment is due early enough that the mitigation it drives can still change the design"
+    expected_skill: "space-systems/ecss/e2006-charging-protection-programme"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: fracture-critical-parts (space-systems/ecss)
+# Case 1 routes on the criticality screen: a consequence gate that still needs a
+# structural trigger. Case 2 routes on the method that criticality then demands
+# and on the numbers each method has to meet.
+tasks:
+  - id: fracture-critical-parts-1
+    query: "A bracket with a catastrophic failure consequence sits in a secondary role, is unpressurized and runs at a quarter of yield. Under clause 4.2.2 does the consequence alone make it fracture critical, or must a structural trigger fire as well?"
+    intent: "ECSS-E-ST-32C clause 4.2.2; criticality needs the consequence gate and at least one structural trigger, so pressurization, primary role or a high applied-to-yield ratio has to fire too"
+    expected_skill: "space-systems/ecss/fracture-critical-parts"
+  - id: fracture-critical-parts-2
+    query: "Our fracture critical strut is cleared by a 1.05 proof run and a penetrant inspection that resolves 2 mm cracks, while the size at which a crack turns critical is 3 mm. Is either acceptable as an assigned fracture control method?"
+    intent: "ECSS-E-ST-32C clause 4.2.2; a proof factor below the programme minimum lets critical-size flaws survive, and an inspection is only credited when it resolves well below the critical crack size"
+    expected_skill: "space-systems/ecss/fracture-critical-parts"

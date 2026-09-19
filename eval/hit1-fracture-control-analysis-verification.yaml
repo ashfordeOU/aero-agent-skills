@@ -1,0 +1,13 @@
+# Hit@1 fragment: fracture-control-analysis-verification (space-systems/ecss)
+# Case 1 routes on the life multiplier differing with pressurisation. Case 2
+# routes on the crack size the residual strength is taken at and on an assumed
+# flaw below what inspection can resolve.
+tasks:
+  - id: fracture-control-analysis-verification-1
+    query: "Crack growth analysis gives 5.2 design lives for an unpressurised bracket and 2.4 design lives for a pressurised feed line. Which life multiplier applies to each structure type, and do both of them clear it?"
+    intent: "ECSS-E-ST-32-01 clause 4.6.2.9; the required life factor is set by structure type, so the two items are graded against different multipliers"
+    expected_skill: "space-systems/ecss/fracture-control-analysis-verification"
+  - id: fracture-control-analysis-verification-2
+    query: "Residual strength was reported at the assumed starting flaw rather than at the crack size reached by mission end, and that starting flaw sits below what our penetrant inspection resolves. Are either of those acceptable on a fracture-critical part?"
+    intent: "ECSS-E-ST-32-01 clause 4.6.2.9; residual strength belongs at the limiting crack, and an assumed flaw under the detection limit is non-conservative"
+    expected_skill: "space-systems/ecss/fracture-control-analysis-verification"

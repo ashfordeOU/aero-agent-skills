@@ -318,7 +318,10 @@ class CoverageTests(unittest.TestCase):
             for i in range(10)
         ]
         coverage = compute_requirement_coverage(requirement)
-        self.assertLess(coverage["declared_share"], 1.0)
+        # Ten correctly rounded additions of 0.1 land bit-exactly one step
+        # below 1.0 on every IEEE-754 platform, so the shortfall being
+        # absorbed here is a fixed quantity, not a rounding direction.
+        self.assertEqual(coverage["declared_share"], math.nextafter(1.0, 0.0))
         self.assertTrue(coverage["complete"])
         self.assertEqual(coverage["deficit"], 0.0)
 

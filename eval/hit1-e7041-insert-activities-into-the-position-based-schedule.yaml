@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-insert-activities-into-the-position-based-schedule
+# (space-systems/ecss). Two tasks for the new leaf. insp1 routes on a partly
+# accepted insertion request; insp2 routes on a release position too close
+# ahead of the current orbit position. Both must deterministically hit
+# space-systems/ecss/e7041-insert-activities-into-the-position-based-schedule.
+tasks:
+  - id: insp1
+    query: "we uplinked nine commands against orbit positions and seven of them are on board, work out which instruction failed and why the others still went in rather than the whole load being refused"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.6; each insertion instruction is accepted or rejected on its own against the declared sub-schedules and groups, a unique activity identifier and the remaining schedule capacity"
+    expected_skill: "space-systems/ecss/e7041-insert-activities-into-the-position-based-schedule"
+  - id: insp2
+    query: "the ground rejected a scheduled activity whose release angle is only a fraction of a degree in front of where the spacecraft is now, and accepted an identical one just behind it, explain the arc rule being applied"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.6; the lead is the forward arc from the current orbit position to the release position, so a point just behind is nearly a whole revolution ahead and one just in front fails the minimum lead"
+    expected_skill: "space-systems/ecss/e7041-insert-activities-into-the-position-based-schedule"

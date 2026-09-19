@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-analyst-qualification (space-systems/ecss)
+# aq1 routes on per-family endorsement and the separate misidentification
+# ceiling; aq2 routes on lapsed currency and the provisional state that needs an
+# independent check. Both must deterministically hit
+# space-systems/ecss/q7005-analyst-qualification.
+tasks:
+  - id: q7005aq1
+    query: "this analyst is endorsed to read silicone contamination spectra and has a good detection record, but named the wrong species twice in the last proficiency set, decide whether they may interpret a fluorinated lubricant spectrum for us"
+    intent: "ECSS-Q-ST-70-05C analyst qualification; endorsement is held per contaminant family and a misidentification rate is graded on its own ceiling, separate from the correct-reading rate"
+    expected_skill: "space-systems/ecss/q7005-analyst-qualification"
+  - id: q7005aq2
+    query: "our spectral interpreter's last qualifying activity was over two years ago and the trainee has only four supervised interpretations, work out who may read today's infrared contamination spectrum and what independent check the answer needs"
+    intent: "ECSS-Q-ST-70-05C analyst qualification; currency runs in whole calendar months and a lapse inside the grace window or a short supervised count is provisional work requiring an independent check"
+    expected_skill: "space-systems/ecss/q7005-analyst-qualification"

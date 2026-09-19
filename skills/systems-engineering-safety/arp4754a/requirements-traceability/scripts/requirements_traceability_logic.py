@@ -9,6 +9,9 @@ traceability through the development levels: system requirements
 back up, derived requirements must be flagged, and verification of each
 trace must be completed before closure can be claimed.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 LEVELS = ("srats", "hlr", "llr", "code", "test")
 _PREFIXES = ("srats", "hlr", "llr", "code", "test")

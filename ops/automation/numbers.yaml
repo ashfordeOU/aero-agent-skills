@@ -421,3 +421,260 @@ measurements:
   - repo: ste-code
     value: 0
     source: "ASD-STE100 race week 2026-07 (no distribution); live 15★ 2026-08-31"
+
+# ===========================================================================
+# CORPUS DENOMINATORS — the repo's own numbers (added 2026-09-19, R4 task 1.5)
+# ===========================================================================
+# Everything above this line is the MARKET register (competitor stars/forks,
+# resolved by ops/automation/number_audit.py via brief-audit.sh). Everything
+# below is the CORPUS register: this repository's own denominators, resolved by
+# tools/figure_audit.py. Same file on purpose — four records that can disagree
+# are worse than two that cannot.
+#
+# WHY: the leaf total was quoted as 3,021 (tree + docs/metrics.json) while the
+# npm manifest shipped 3,033 entries (it also carries the 12 family router
+# docs) and the bundled JetBrains catalogue shipped a third number. Each figure
+# was defensible on its own; together they let a reader falsify the headline by
+# counting. From here every corpus figure names ONE denominator, and each
+# denominator names ONE generator command that produces it.
+#
+# THE DENOMINATORS, DEFINED
+# -------------------------
+#   leaves            A shipped skill. skills/<family>/<pack>/<leaf>/SKILL.md —
+#                     depth-4 SKILL.md files under skills/. This is the number
+#                     the README headline, docs/metrics.json, the manifest
+#                     counts block and the CLI all mean by "verified skills".
+#   category_skills   The per-family router documents, skills/<family>/SKILL.md
+#                     (depth-2). They are real SKILL.md files an agent loads,
+#                     but they route; they are NOT library content.
+#   skill_md_files    leaves + category_skills. Every SKILL.md in the tree, and
+#                     therefore the length of the npm manifest `skills` array
+#                     and metrics.json `skill_files`. The catalogue entry count.
+#                     Quote it as "catalogue entries", never as "skills".
+#   packs             Installable sub-domain packs, skills/<family>/<pack>/
+#                     (depth-2 directories).
+#   families          Top-level disciplines, skills/<family>/ (depth-1 dirs).
+#   standards         Entries in standards-map.yaml.
+#   corpus_tasks      Router assertions in eval/hit1-corpus.yaml (the Hit@1
+#                     gate's task list). "router tasks" in the README.
+#   router_fragments  Per-leaf eval fragments, eval/hit1-<slug>.yaml, excluding
+#                     the assembled hit1-corpus.yaml itself. NOTE: this is a
+#                     FLAT namespace — one directory for the whole corpus — so
+#                     it is not expected to equal `leaves`; it is the count of
+#                     fragment files present, nothing more.
+#   test_files        Per-leaf unittest files, skills/*/*/*/scripts/test_*.py.
+#                     Exceeds `leaves` when a leaf ships more than one test
+#                     file, so it is NOT a synonym for the leaf count.
+#   logic_modules     Per-leaf stdlib-only logic modules, the non-test .py
+#                     files under skills/*/*/*/scripts/.
+#   validate_gates    Prerequisites of the Makefile `validate` target.
+#   attest_gates      Prerequisites of the Makefile `attest` target.
+#
+# GROWTH RATES
+# ------------
+# A growth rate is a claim of the form "<n> <corpus unit> per <time>". It is
+# only checkable with the window it was measured over, so corpus_growth_rates
+# entries MUST carry `window` (the measured period, e.g. "2026-09-13
+# 21:04Z-05:23Z, 8.3 h") alongside `value`, `unit` and `source`. A rate with no
+# window cannot be registered and cannot be quoted: figure_audit.py fails it.
+# Never mix units in one rate (files/hour is not leaves/hour: a leaf is three
+# files plus corpus rows, so the two differ by a factor, not a rounding).
+# The list is deliberately EMPTY: no measured corpus growth rate has been
+# recorded with its window yet.
+#
+# HOW TO ADD A FIGURE
+# -------------------
+#   1. Add (or reuse) a denominator here with its generator command.
+#   2. `python3 tools/figure_audit.py --list` to see registered vs live.
+#   3. Quote the figure in prose using one of that denominator's `phrases`.
+# Generators must be a single read-only pipeline (no ';', '&&', redirects,
+# command substitution) and must print exactly one integer. Keep BACKSLASHES
+# out of every value in this corpus block: PyYAML (which reads the market half)
+# processes escapes inside double quotes and figure_audit.py's strict reader
+# does not, so a backslash is the one character on which the two readers could
+# disagree. Every generator below is written to need none.
+
+corpus_as_of: "2026-09-19"
+
+# Words that mark a number as a corpus claim. A unit listed here that no
+# denominator claims makes figure_audit.py red on sight — that is deliberate:
+# declare the vocabulary first, then the generator that grounds it.
+corpus_units: ["verified skills", "verified leaves", "leaf skills", "published skills", "shipped skills", "skill folders", "leaves", "leaf", "skills", "sub-domain packs", "live packs", "installable packs", "domain packs", "packs", "families", "disciplines", "standards mapped", "standards", "router tasks", "corpus tasks", "task hit@1 corpus", "task corpus", "router cases", "case hit@1 corpus", "case corpus", "executed router cases", "router fragments", "eval fragments", "catalogue entries", "catalog entries", "skill.md files", "skill.md", "family routers", "category skills", "router docs", "test files", "unit test files", "logic modules", "gates"]
+
+corpus_denominators:
+  - id: leaves
+    value: 3189
+    definition: "A shipped skill: skills/<family>/<pack>/<leaf>/SKILL.md, i.e. every depth-4 SKILL.md under skills/. The README headline number."
+    generator: "find skills -mindepth 4 -maxdepth 4 -name SKILL.md | wc -l | tr -d ' '"
+    phrases: ["verified skills", "verified leaves", "leaf skills", "published skills", "shipped skills", "skill folders", "leaves", "leaf", "skills"]
+    tolerance_abs: 0
+  - id: category_skills
+    value: 12
+    definition: "Per-family router documents, skills/<family>/SKILL.md (depth-2). Loaded by agents, but they route rather than carry library content."
+    generator: "find skills -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l | tr -d ' '"
+    phrases: ["family routers", "category skills", "router docs"]
+    tolerance_abs: 0
+  - id: skill_md_files
+    value: 3201
+    definition: "leaves + category_skills: every SKILL.md in the tree. Equals the npm manifest skills-array length and metrics.json skill_files. Quote as catalogue entries, never as skills."
+    generator: "find skills -name SKILL.md | wc -l | tr -d ' '"
+    phrases: ["catalogue entries", "catalog entries", "skill.md files", "skill.md"]
+    tolerance_abs: 0
+  - id: packs
+    value: 86
+    definition: "Installable sub-domain packs: skills/<family>/<pack>/ (depth-2 directories)."
+    generator: "find skills -mindepth 2 -maxdepth 2 -type d | wc -l | tr -d ' '"
+    phrases: ["sub-domain packs", "live packs", "installable packs", "domain packs", "packs"]
+    tolerance_abs: 0
+  - id: families
+    value: 12
+    definition: "Top-level disciplines: skills/<family>/ (depth-1 directories)."
+    generator: "find skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' '"
+    phrases: ["families", "disciplines"]
+    tolerance_abs: 0
+  - id: standards
+    value: 30
+    definition: "Standards mapped in standards-map.yaml (one `- id:` entry each)."
+    generator: "grep -c '^  - id:' standards-map.yaml"
+    phrases: ["standards mapped", "standards"]
+    tolerance_abs: 0
+  - id: corpus_tasks
+    value: 1754
+    definition: "Router assertions in eval/hit1-corpus.yaml — the Hit@1 gate's task list. The README calls these router tasks."
+    generator: "sed -n '/^tasks:/,/^future_pins:/p' eval/hit1-corpus.yaml | grep -c '^  - id:'"
+    phrases: ["router tasks", "corpus tasks", "task hit@1 corpus", "task corpus"]
+    tolerance_abs: 0
+  - id: router_cases
+    value: 6308
+    definition: "Router cases gate 5 executes: every case in eval/, the assembled hit1-corpus.yaml plus every per-leaf hit1-<slug>.yaml fragment. Until 2026-09-19 the gate read the corpus file alone, so this figure and corpus_tasks were the same number; they are not any more."
+    generator: "scripts/gate-hit1-corpus.sh | tail -1 | grep -oE '[0-9]+/[0-9]+' | cut -d/ -f1"
+    phrases: ["router cases", "case hit@1 corpus", "case corpus", "executed router cases"]
+    tolerance_abs: 0
+  - id: router_fragments
+    value: 2277
+    definition: "Per-leaf eval fragments eval/hit1-<slug>.yaml, excluding the assembled hit1-corpus.yaml. A FLAT namespace (one directory for the whole corpus), so it is not expected to equal leaves."
+    generator: "find eval -maxdepth 1 -name 'hit1-*.yaml' ! -name 'hit1-corpus.yaml' | wc -l | tr -d ' '"
+    phrases: ["router fragments", "eval fragments"]
+    tolerance_abs: 0
+  - id: test_files
+    value: 3189
+    definition: "Per-leaf unittest files skills/<family>/<pack>/<leaf>/scripts/test_*.py. Exceeds leaves where a leaf ships more than one test file, so it is not a synonym for the leaf count."
+    generator: "find skills -mindepth 5 -maxdepth 5 -name 'test_*.py' | wc -l | tr -d ' '"
+    phrases: ["test files", "unit test files"]
+    tolerance_abs: 0
+  - id: logic_modules
+    value: 3191
+    definition: "Per-leaf stdlib-only logic modules: the non-test .py files under skills/<family>/<pack>/<leaf>/scripts/."
+    generator: "find skills -mindepth 5 -maxdepth 5 -name '*.py' ! -name 'test_*' | wc -l | tr -d ' '"
+    phrases: ["logic modules"]
+    tolerance_abs: 0
+  - id: validate_gates
+    value: 16
+    definition: "Gates run by `make validate` — the prerequisites of the Makefile validate target."
+    generator: "grep -m1 '^validate:' Makefile | cut -d: -f2 | wc -w | tr -d ' '"
+    phrases: ["gates"]
+    tolerance_abs: 0
+  - id: attest_gates
+    value: 7
+    definition: "Gates run by `make attest` — the prerequisites of the Makefile attest target."
+    generator: "grep -m1 '^attest:' Makefile | cut -d: -f2 | wc -w | tr -d ' '"
+    phrases: []
+    tolerance_abs: 0
+
+# Ratio claims ("5/5 gates", "154/154 corpus tasks"): the DENOMINATOR of the
+# ratio is graded against the named corpus denominator.
+corpus_ratio_phrases:
+  - phrase: "gates"
+    denominator: validate_gates
+  - phrase: "validate"
+    denominator: validate_gates
+  - phrase: "attest"
+    denominator: attest_gates
+  - phrase: "corpus tasks"
+    denominator: corpus_tasks
+  - phrase: "router tasks"
+    denominator: corpus_tasks
+
+# Measured corpus growth rates. Required fields: id, value, unit, window,
+# source (+ optional phrases, tolerance_abs). `window` is the measured period
+# and may not be blank — a rate without one is unfalsifiable and the register
+# refuses it. EMPTY: no rate has been measured with its window recorded.
+corpus_growth_rates: []
+
+# Generated artifacts that SHIP to users. Each declared count must equal the
+# tree, or the product contradicts the repo in the buyer's hands.
+corpus_artifacts:
+  - file: "docs/metrics.json"
+    json_path: "leaves"
+    denominator: leaves
+    why: "metrics.json is the source every site/About/README number is derived from"
+  - file: "docs/metrics.json"
+    json_path: "live_packs"
+    denominator: packs
+    why: "metrics.json pack count"
+  - file: "docs/metrics.json"
+    json_path: "families"
+    denominator: families
+    why: "metrics.json family count"
+  - file: "docs/metrics.json"
+    json_path: "standards"
+    denominator: standards
+    why: "metrics.json standards count"
+  - file: "docs/metrics.json"
+    json_path: "corpus_tasks"
+    denominator: corpus_tasks
+    why: "metrics.json router-task count"
+  - file: "docs/metrics.json"
+    json_path: "skill_files"
+    denominator: skill_md_files
+    why: "leaves + family routers; the catalogue denominator"
+  - file: "packages/aero-agent-skills/manifest.json"
+    json_path: "counts.leaves"
+    denominator: leaves
+    why: "the npm CLI prints this as the headline skill count"
+  - file: "packages/aero-agent-skills/manifest.json"
+    json_path: "counts.live_packs"
+    denominator: packs
+    why: "npm manifest pack count"
+  - file: "packages/aero-agent-skills/manifest.json"
+    json_path: "counts.families"
+    denominator: families
+    why: "npm manifest family count"
+  - file: "packages/aero-agent-skills/manifest.json"
+    json_path: "counts.corpus_tasks"
+    denominator: corpus_tasks
+    why: "npm manifest router-task count"
+  - file: "packages/aero-agent-skills/manifest.json"
+    json_path: "len:skills"
+    denominator: skill_md_files
+    why: "the shipped catalogue carries leaves + 12 family routers; it is the catalogue-entry denominator, not the leaf count"
+  - file: "packages/jetbrains-plugin/src/main/resources/catalog/catalog.json"
+    json_path: "count"
+    denominator: leaves
+    why: "leaf-only catalogue bundled into the IDE plugin (scripts/gen_jetbrains_catalog.py keeps depth-4 only)"
+  - file: "packages/jetbrains-plugin/src/main/resources/catalog/catalog.json"
+    json_path: "len:skills"
+    denominator: leaves
+    why: "the rows actually bundled into the IDE plugin"
+
+# Line-scoped exemptions: the marker must sit on the same line as the number.
+# Each one is a documented decision, not a convenience.
+corpus_line_exemptions:
+  - marker: "release every 100 skills"
+    why: "Founder release-cadence policy (docs/MAINTENANCE_AND_HANDOVER.md), not a corpus claim. Same decision stale-number-guard recorded at R26 when it retired the '100 skills' pattern: do NOT reword the policy doc."
+  - marker: "100-skill boundaries"
+    why: "The same cadence policy named as a release-workflow trigger."
+  - marker: "launched at v1.0.0"
+    why: "Historical record of the public repo's first tag (supersede-not-delete); renumbering it would falsify the release history."
+
+# Subset markers: a count qualified by one of these BEFORE the number on the
+# same line counts a SUBSET of the corpus ("missing Pitfalls/BC sections (192
+# leaves)"), not a corpus denominator, so figure_audit.py does not grade it
+# against one. Line-scoped, like every exemption here.
+corpus_subset_markers:
+  - marker: "missing"
+    why: "a defect or backlog count over part of the tree, e.g. an audit's remaining-work figure"
+  - marker: "out of"
+    why: "an explicit N-out-of-M subset"
+  - marker: "affected"
+    why: "an incident or defect subset"

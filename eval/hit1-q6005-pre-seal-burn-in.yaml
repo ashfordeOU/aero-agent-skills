@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-pre-seal-burn-in (space-systems/ecss, Q-ST-60-05
+# 10.3.3). Two tasks per leaf; bi1 routes on converting the chamber log into
+# equivalent hours, bi2 on interruptions and the drift measured across the
+# soak. Both must deterministically hit
+# space-systems/ecss/q6005-pre-seal-burn-in.
+tasks:
+  - id: bi1
+    query: "convert an open-package-thermal-soak log into burn-in-arrhenius-equivalent-hours and test each segment against the permitted chamber band"
+    intent: "ecss hybrids; the biased soak run before the package is closed"
+    expected_skill: "space-systems/ecss/q6005-pre-seal-burn-in"
+  - id: bi2
+    query: "apply the burn-in-interruption-restart rule and weigh pre-and-post-soak-parameter-drift for the pre-seal-burn-in-verdict"
+    intent: "ecss hybrids; deciding whether a unit survived its pre-seal burn-in"
+    expected_skill: "space-systems/ecss/q6005-pre-seal-burn-in"

@@ -259,4 +259,7 @@ mismatches, singular regressions, non-finite data).
 - Standards referenced, not reproduced: ARP4754A frames the air-vehicle
   system context; the calibration relations above are standard
   engineering methodology, summary-only per standards-map.yaml.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

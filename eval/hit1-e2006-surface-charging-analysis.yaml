@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-surface-charging-analysis (space-systems/ecss)
+# Case 1 routes on the inventory having to cover the whole declared external
+# area before anything is graded. Case 2 routes on illumination state and on
+# grading the offset against the frame rather than the absolute value.
+tasks:
+  - id: e2006-surface-charging-analysis-1
+    query: "The inventoried area of exposed items on our vehicle falls seven square metres short of the external area declared for the configuration. Does that shortfall stop the surface potential analysis, or do I just assess the rows already inventoried?"
+    intent: "ECSS-E-ST-20-06C clause 6.4; the inventory gates the analysis, so an area shortfall is a coverage finding and the uncovered item is precisely the one that charges"
+    expected_skill: "space-systems/ecss/e2006-surface-charging-analysis"
+  - id: e2006-surface-charging-analysis-2
+    query: "A kapton face on the anti-sun side floats to minus 6 kV in eclipse while the bonded radiators sit near minus 200 V. Do I grade that item on its own potential or on its offset from the frame, and against which limit?"
+    intent: "ECSS-E-ST-20-06C clause 6.4; the eclipsed case loses the photoelectron term, and the hazard quantity is the offset from the frame judged against material breakdown"
+    expected_skill: "space-systems/ecss/e2006-surface-charging-analysis"

@@ -190,4 +190,7 @@ under a second.
   estimation software; it is referenced, not reproduced, and the
   estimation relations above are standard engineering methodology,
   summary-only per standards-map.yaml.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

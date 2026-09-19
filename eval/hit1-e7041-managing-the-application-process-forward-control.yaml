@@ -6,10 +6,10 @@
 # space-systems/ecss/e7041-managing-the-application-process-forward-control.
 tasks:
   - id: apfc1
-    query: "the real-time forwarding selection already says forward everything from that application process and now somebody wants to add just one message subtype under it, work out what the service should do with that request"
-    intent: "ECSS-E-ST-70-41C clause 6.14.3.4; an all-report-types wildcard subsumes the specific subtype, so the add is rejected rather than absorbed, and the wildcard cannot be partially deleted afterwards"
+    query: "real time forwarding already passes everything from that source to the ground, and now a deletion arrives naming one narrower entry underneath the wildcard - check it against the controlled processes we hold and tell me the disposition that comes back"
+    intent: "ECSS-E-ST-70-41C clause 6.14.3.4; a wildcard forward selection cannot be deleted in part, so a request naming one narrower entry underneath it is refused, and the request is held against the controlled application-process list"
     expected_skill: "space-systems/ecss/e7041-managing-the-application-process-forward-control"
   - id: apfc2
-    query: "this add telecommand carries six forwarding selections and two of them name application processes the service does not control, tell me whether the whole thing fails or only those two"
+    query: "this add request carries six real-time forwarding selections and two of them name application processes that are not on the controlled list - tell me whether the service rejects the request whole or reports a disposition per selection"
     intent: "ECSS-E-ST-70-41C clause 6.14.3.4; add and delete requests execute per item against the controlled application-process list and return a disposition list, so a rejected item never abandons the ones behind it"
     expected_skill: "space-systems/ecss/e7041-managing-the-application-process-forward-control"

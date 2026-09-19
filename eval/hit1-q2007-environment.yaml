@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-environment (space-systems/ecss)
+# Two tasks for the new leaf. env1 routes on suitability as band containment
+# with a margin at each end; env2 routes on the monitoring cadence that can hide
+# an excursion behind a clean record.
+# Both must deterministically hit space-systems/ecss/q2007-environment.
+tasks:
+  - id: env1
+    query: "the chamber hall can hold 18 to 26 degrees and the test asks for 20 to 24 at 45 percent humidity on a 230 volt supply held to ten percent, work out whether the facility is suitable and how much room is left at each end"
+    intent: "ECSS-Q-ST-20-07C clause 5.5.1; facility capability band containing the required band, containment margin per end, power-quality band derived from nominal plus percentage tolerance"
+    expected_skill: "space-systems/ecss/q2007-environment"
+  - id: env2
+    query: "the test centre recorded every reading inside the required band but sampled at a fifteen minute cadence when the requirement is ten, so give me each end's containment margin and say whether that cadence could hide an excursion"
+    intent: "ECSS-Q-ST-20-07C clause 5.5.2; monitoring cadence graded separately from conformance, excursion side, magnitude and longest unbroken duration"
+    expected_skill: "space-systems/ecss/q2007-environment"

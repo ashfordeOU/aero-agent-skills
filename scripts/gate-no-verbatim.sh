@@ -1,13 +1,37 @@
 #!/usr/bin/env bash
-# Gate 4 (REAL): no-verbatim RTCA/SAE/IAQG grep (copyright control).
+# Gate 4 (REAL): no-verbatim, family-aware (copyright control).
 # Policy: research/briefs/06-legal-export-control.md section 5.2
 # (summarize-not-copy); full contract docs/harness-contract.md gate 4.
-# Scans published content (skills/ + docs/) for verbatim-text markers from
-# proprietary standards (RTCA/SAE/IAQG boilerplate, DRM/license-restriction
-# lines, watermark fragments) plus objective-table blocks (scripts/verbatim_table_scan.py).
-# Zero matches required.
+#
+# Two runners, both deterministic and offline:
+#
+#   tools/verbatim_gate.py         publisher markers for EVERY standards
+#                                  family in the corpus, plus a source-text
+#                                  comparison for every family whose source
+#                                  documents were available at index-build
+#                                  time, plus a coverage line naming the
+#                                  families that got neither. A family the
+#                                  gate cannot check reports UNCHECKED; it
+#                                  never reports PASS.
+#   scripts/verbatim_table_scan.py objective-table blocks ('Table A-1' /
+#                                  'A-1.1' runs), unchanged.
+#
+# Until 2026-09-19 this script was the whole gate: fifteen grep patterns
+# naming RTCA, SAE, IAQG and EUROCAE. Those four publishers account for 216
+# of the 3,021 leaves; the other 2,805 -- ECSS above all -- were scanned by
+# patterns that could not match their sources, and the run still printed
+# PASS. The patterns moved into tools/verbatim_gate.py unchanged; what is
+# new is the rest of the families, the ECSS source-text check and the
+# coverage line.
+#
+# Add --strict (or run `make no-verbatim-strict` if it is wired) to fail on
+# an unchecked family instead of reporting it.
 set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
+
+status=0
+
+python3 "$repo_root/tools/verbatim_gate.py" "$@" || status=1
 
 scans=()
 for d in skills docs; do
@@ -24,44 +48,11 @@ for f in README.md STANDARDS.md NOTICE; do
   fi
 done
 
-if [ "${#scans[@]}" -eq 0 ]; then
-  echo "PASS gate4-no-verbatim: no skills/ or docs/ content to scan"
-  exit 0
+if [ "${#scans[@]}" -ne 0 ]; then
+  python3 "$repo_root/scripts/verbatim_table_scan.py" "${scans[@]}" || status=1
 fi
 
-patterns=(
-  'Copyright.*RTCA,? ?(Inc|International|Europe)'
-  'RTCA, Inc.*All Rights Reserved'
-  'All [Rr]ights [Rr]eserved.*RTCA'
-  'Copyright.*SAE International'
-  'Copyright.*IAQG'
-  'Copyright.*EUROCAE'
-  'RTCA proprietary information'
-  'Electronic License Agreement'
-  'PROPRIETARY AND CONFIDENTIAL'
-  'This document is licensed to'
-  'not for redistribution'
-  'standards\.rtca\.org'
-  'sae\.org/standards/content'
-  'single-user license'
-  'DRM-protected'
-)
-
-hits=0
-for pat in "${patterns[@]}"; do
-  while IFS= read -r line; do
-    echo "FAIL gate4-no-verbatim: $line" >&2
-    hits=$((hits + 1))
-  done < <(grep -rniE -- "$pat" "${scans[@]}" 2>/dev/null || true)
-done
-
-table_fail=0
-if ! python3 "$repo_root/scripts/verbatim_table_scan.py" "${scans[@]}"; then
-  table_fail=1
-fi
-
-if [ "$hits" -ne 0 ] || [ "$table_fail" -ne 0 ]; then
-  echo "FAIL gate4-no-verbatim: ${hits} marker(s) + table blocks found" >&2
+if [ "$status" -ne 0 ]; then
+  echo "FAIL gate4-no-verbatim" >&2
   exit 1
 fi
-echo "PASS gate4-no-verbatim: 0 markers in ${#scans[@]} scan root(s) (skills/, docs/, README.md, STANDARDS.md, NOTICE)"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanliness-responsibilities (space-systems/ecss)
+# clr1 routes on single-point accountability and the facility party being in the
+# loop; clr2 routes on supplier flow-down that must not carry accountability
+# away. Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-responsibilities.
+tasks:
+  - id: clr1
+    query: "go through our cleanliness responsibility matrix and find the activities with nobody accountable or two parties accountable, and the ones where the cleanroom operator is only copied in rather than consulted"
+    intent: "ECSS-Q-ST-70-01C programme clause; exactly one party is accountable per activity, and a facility party merely informed is not in the loop on an activity the facility decides"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-responsibilities"
+  - id: clr2
+    query: "cleaning and witness coupon handling happen at the optics supplier, work out how to write that into the responsibility assignment without the prime losing accountability, and who is allowed to sign the verification"
+    intent: "ECSS-Q-ST-70-01C programme clause; requirements flow down but accountability stays with the requirement holder, and the parties that cleaned cannot be the only ones verifying"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-responsibilities"

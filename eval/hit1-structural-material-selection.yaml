@@ -1,0 +1,12 @@
+# Hit@1 fragment: structural-material-selection (space-systems/ecss)
+# Case 1 routes on the action a stress-corrosion rating forces on a metallic candidate.
+# Case 2 routes on which environment hazards attach to which material family.
+tasks:
+  - id: structural-material-selection-1
+    query: "I am screening candidate structural materials for a bracket: a 7075 alloy, a carbon composite and a ceramic. The alloy rates 3 for stress-corrosion under ECSS-Q-ST-70-32C. Is it acceptable or only conditional, and which rating forces substitution?"
+    intent: "ECSS-E-ST-32 4.5.6 with the ECSS-Q-ST-70-32C rating; the case turns on the action a given susceptibility rating demands and the point at which substitution is the only route"
+    expected_skill: "space-systems/ecss/structural-material-selection"
+  - id: structural-material-selection-2
+    query: "We are choosing between a carbon composite panel and a polymer housing for a 650 km orbit with optics nearby. Which environment hazards attach to each family, and how do erosion and outgassing shape the verdict on each candidate?"
+    intent: "ECSS-E-ST-32 4.5.6; the case turns on mapping mission environment hazards onto the candidate's material family and turning the findings into a candidate verdict"
+    expected_skill: "space-systems/ecss/structural-material-selection"

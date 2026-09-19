@@ -132,7 +132,7 @@ The model categorization, test-phase assignment, qualification-strategy
 selection, test-level validation, PFM duration check, and similarity assessment
 logic is exercised by the gate 3 contract test:
 `scripts/test_test_philosophy_and_model_strategy.py` against
-`scripts/test_philosophy_and_model_strategy_logic.py` (stdlib unittest,
+`scripts/philosophy_and_model_strategy_logic.py` (stdlib unittest,
 offline). Run:
 
 ```

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-antenna-requirement-verification (space-systems/ecss)
+# Case 1 routes on whether the chosen method can evidence the antenna characteristic
+# at all. Case 2 routes on gate feasibility and on closed entries with no verification
+# record behind them.
+tasks:
+  - id: e20-antenna-requirement-verification-1
+    query: "Our antenna set holds a radiation-pattern-verification item, a materials and finish item and a failure rate allocation. The dependability lead wants the last two closed by verification-by-inspection. Which of those ECSS picks is able to evidence its characteristic?"
+    intent: "ECSS-E-ST-20C 7.2.4; each antenna requirement category admits only methods that can produce evidence for that characteristic, so arithmetic and observable properties close differently"
+    expected_skill: "space-systems/ecss/e20-antenna-requirement-verification"
+  - id: e20-antenna-requirement-verification-2
+    query: "Our antenna-verification-matrix plans the radiation pattern measurement to close at preliminary design review, and three entries are marked closed with the antenna-verification-record field blank. How should both be written up?"
+    intent: "ECSS-E-ST-20C 7.2.4; a method cannot close before the evidence it needs exists, and a closure with no well-formed record identifier is an open requirement mislabelled"
+    expected_skill: "space-systems/ecss/e20-antenna-requirement-verification"

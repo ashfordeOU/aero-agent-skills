@@ -1,0 +1,12 @@
+# Hit@1 fragment: acoustic-analysis (space-systems/ecss)
+# Case 1 routes on the field-validity and band-summation half of the clause.
+# Case 2 routes on the panel force and the level-plus-duration fatigue screen.
+tasks:
+  - id: acoustic-analysis-1
+    query: "Reverberant run on a spacecraft radiator panel gives a broadband acoustic spectrum with third-octave bands near 137 dB. How do I collapse those spectral bands into a single overall level of sound pressure, and below which Schroeder frequency does the diffuse field treatment stop applying?"
+    intent: "ECSS-E-ST-32C 4.6.2.6; band levels combine on a power basis and the diffuse assumption is only valid above the chamber Schroeder frequency"
+    expected_skill: "space-systems/ecss/acoustic-analysis"
+  - id: acoustic-analysis-2
+    query: "A thin-gauge equipment shelf sees 142 dB overall for roughly 90 seconds in the qualification run. Do I owe a dedicated fatigue assessment for that shelf, and how is the chamber pressure turned into the force driving the shelf once it is above its critical frequency?"
+    intent: "ECSS-E-ST-32C 4.6.2.6; the fatigue screen gates on level and exposure duration together, and panel force needs the radiation-efficiency correction"
+    expected_skill: "space-systems/ecss/acoustic-analysis"

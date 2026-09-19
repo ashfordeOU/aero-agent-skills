@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-receiving-inspection-cleanliness (space-systems/ecss)
+# ri1 routes on a goods-receipt disposition from measurement plus packaging;
+# ri2 routes on a residue figure with no method and a tripped indicator. Both
+# must deterministically hit
+# space-systems/ecss/q7001-receiving-inspection-cleanliness.
+tasks:
+  - id: ri1
+    query: "the hinge assembly arrived with the inner bag split and the residue measured at four tenths of its limit, tell me whether we accept it, reclean it or raise a nonconformance"
+    intent: "goods-receipt cleanliness disposition from measurements, packaging integrity and the transport record, escalated to the worst input"
+    expected_skill: "space-systems/ecss/q7001-receiving-inspection-cleanliness"
+  - id: ri2
+    query: "goods inwards logged a residue number with no method against it, the contamination indicator in the bag is tripped and they opened it in the loading hall, work out what state that leaves the item in"
+    intent: "a receipt measurement with no method named, a tripped contamination indicator, and an inspection opened in an area dirtier than the item requires"
+    expected_skill: "space-systems/ecss/q7001-receiving-inspection-cleanliness"

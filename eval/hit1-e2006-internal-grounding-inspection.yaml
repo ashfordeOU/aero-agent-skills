@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-internal-grounding-inspection (space-systems/ecss)
+# Case 1 routes on where the inventory comes from and on records naming
+# hardware nobody has. Case 2 routes on whether a method settles the item
+# family it was used on.
+tasks:
+  - id: e2006-internal-grounding-inspection-1
+    query: "Our grounding inspection sheets cover 240 internal metallic parts and the coverage ratio comes out at one. Should the inventory be built from those sheets or from the build records, and what about two sheets naming brackets nobody recognises?"
+    intent: "ECSS-E-ST-20-06C clause 9.3; an inventory drawn from the sheets makes coverage complete by construction, and a record with no matching item is its own finding"
+    expected_skill: "space-systems/ecss/e2006-internal-grounding-inspection"
+  - id: e2006-internal-grounding-inspection-2
+    query: "A technician signed off a screened housing bond by eye, and cleared a structural bracket with a shield continuity checker. Do either of those settle the item, or does each owe a resistance number read against its family limit?"
+    intent: "ECSS-E-ST-20-06C clause 9.3; a visual check leaves a screened item inconclusive and a continuity check does not reach a bolted structural bond at all"
+    expected_skill: "space-systems/ecss/e2006-internal-grounding-inspection"

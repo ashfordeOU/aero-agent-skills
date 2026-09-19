@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-esd-related-emi-control (space-systems/ecss)
+# Case 1 routes on sorting exposures into event families and the provisions each family owes.
+# Case 2 routes on sizing the arc pulse and coupling it onto a shielded run.
+tasks:
+  - id: e2007-esd-related-emi-control-1
+    query: "We have four discharge exposures on the vehicle: an external dielectric charging differentially, buried electrons in an insulator, a deployment separation event, and pre-launch handling. Which interference control provisions does each of those families need on record?"
+    intent: "ECSS-E-ST-20-07C 4.2.4.2; each exposure is placed in exactly one event family and the provision set follows that family, a missing provision being a finding on its own"
+    expected_skill: "space-systems/ecss/e2007-esd-related-emi-control"
+  - id: e2007-esd-related-emi-control-2
+    query: "Given an arc pulse from 200 pF at 8 kV through 20 ohms, how do I get the transient coupled onto a shielded victim harness and compare it with that victim's transient susceptibility threshold to obtain the interference margin?"
+    intent: "ECSS-E-ST-20-07C 4.2.4.2; the capacitive arc is coupled through shield transfer impedance and run length, then graded as a decibel ratio against the victim's transient threshold"
+    expected_skill: "space-systems/ecss/e2007-esd-related-emi-control"

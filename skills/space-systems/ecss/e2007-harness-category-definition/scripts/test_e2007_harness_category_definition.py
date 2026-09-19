@@ -7,6 +7,7 @@ from e2007_harness_category_definition_logic import (
     CAT_POWER,
     CAT_SENSITIVE,
     CAT_SIGNAL,
+    SEPARATION_TOLERANCE_MM,
     assess_harness_categorization,
     categorize_wire,
     check_bundle_composition,
@@ -172,7 +173,12 @@ class TestSeparationIsMet(unittest.TestCase):
 
     def test_representation_error_is_absorbed(self):
         summed = 82.6 + 52.3 + 15.1
-        self.assertLess(summed, 150.0)
+        # The offsets total 150.0 mm in decimal and 149.99999999999997 as a
+        # double on every IEEE-754 platform (each addition is correctly
+        # rounded). Assert the size of that representation error rather
+        # than which side of the requirement it falls on.
+        self.assertNotEqual(summed, 150.0)
+        self.assertLess(abs(summed - 150.0), SEPARATION_TOLERANCE_MM)
         self.assertTrue(separation_is_met(summed, 150.0))
 
     def test_generous_separation_is_met(self):
@@ -326,10 +332,14 @@ class TestRouteSeparations(unittest.TestCase):
             "B-1": {"route_id": "R-1", "categories": {CAT_SENSITIVE}},
             "B-2": {"route_id": "R-2", "categories": {CAT_INTERFERING}},
         }
-        # The segment accumulation lands a few ULPs short of the 200 mm
-        # requirement; the named tolerance absorbs it.
-        self.assertLessEqual(declared_separation_mm(record), 200.0)
-        self.assertAlmostEqual(declared_separation_mm(record), 200.0, places=9)
+        # The segment accumulation totals 200.0 mm in decimal and
+        # 199.99999999999997 as a double on every IEEE-754 platform; the
+        # named tolerance absorbs it. Assert the size of that error rather
+        # than which side of the requirement it falls on.
+        self.assertNotEqual(declared_separation_mm(record), 200.0)
+        self.assertLess(
+            abs(declared_separation_mm(record) - 200.0), SEPARATION_TOLERANCE_MM
+        )
         self.assertEqual(check_route_separations(layout, [record]), [])
 
 

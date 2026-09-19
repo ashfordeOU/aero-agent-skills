@@ -401,11 +401,15 @@ class TestUnitReturns(unittest.TestCase):
         traced = logic.lowest_resistance_path(
             topology, "relay-bracket-c", "vehicle-ground-reference"
         )
-        self.assertAlmostEqual(traced[0], 10.0)
-        # The summed route lands a few units in the last place above the 10.0
-        # allowance although it physically meets it; the comparison tolerance
-        # absorbs the representation error without moving the allowance.
-        self.assertGreater(traced[0], 10.0)
+        # 0.3 + 7.9 + 1.8 mohm is exactly the 10.0 mohm allowance. None of
+        # those decimals is exact in binary, so the running sum lands a unit
+        # or two in the last place off it; which side is a representation
+        # detail, not the claim, so only the magnitude is asserted. places=12
+        # is ~3e2 units in the last place of 10 mohm - beyond any rounding and
+        # far tighter than any real bond reading. The allowance is unchanged
+        # (test_tolerance_does_not_widen_the_allowance proves that); the
+        # contract is the three lines below - on the allowance is compliant.
+        self.assertAlmostEqual(traced[0], 10.0, places=12)
         results = logic.evaluate_unit_returns(topology, "vehicle-ground-reference")
         bracket = [r for r in results if r["id"] == "relay-bracket-c"][0]
         self.assertEqual(bracket["findings"], [])

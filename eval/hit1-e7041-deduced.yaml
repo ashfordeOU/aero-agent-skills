@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-deduced (space-systems/ecss)
+# Two tasks for the new leaf. ded1 routes on an unmapped selector value losing the
+# rest of the packet; ded2 routes on the selector having to precede what it settles.
+# Both must deterministically hit space-systems/ecss/e7041-deduced.
+tasks:
+  - id: ded1
+    query: "a packet leaves one field untyped and only settles it at run time; the selector ahead of it carries a code the reader has no mapping for, so explain why every field behind that point becomes unreadable"
+    intent: "ECSS-E-ST-70-41C clause 7.3.12; a parameter of deduced type takes its type from an earlier field, so a selector value that settles no type leaves the reader unable to say how many bits to consume and every field after it has moved"
+    expected_skill: "space-systems/ecss/e7041-deduced"
+  - id: ded2
+    query: "the packet definition puts the type code after the value it is supposed to describe, decide whether a reader can ever decode that layout and what has to hold for a run-time typed field to work"
+    intent: "ECSS-E-ST-70-41C clause 7.3.12; the field that settles a deduced type appears earlier in the packet than the deduced field itself, and every value it admits maps to exactly one known type"
+    expected_skill: "space-systems/ecss/e7041-deduced"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-ball-bearings-sizing-hertzian-contact (space-systems/ecss)
+# bbh1 routes on the peak contact stress under the factored limit load; bbh2
+# routes on the ISO 76 static rating and the material allowable. Both must
+# deterministically hit
+# space-systems/ecss/e3301-ball-bearings-sizing-hertzian-contact.
+tasks:
+  - id: bbh1
+    query: "check the ball complement we picked for this pointing mechanism keeps the peak Hertzian contact stress inside the allowable once the limit load is raised by the 1.45 design factor, twelve balls of six millimetre at fifteen degrees contact angle"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.6; factored limit load converted to peak contact stress against the ring and ball material allowable"
+    expected_skill: "space-systems/ecss/e3301-ball-bearings-sizing-hertzian-contact"
+  - id: bbh2
+    query: "work out the basic static load rating for this bearing on the ISO 76 form and tell me what static equivalent load the radial and axial components give, then whether 440C rings can take the contact stress that produces"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.6; ISO 76 static rating and static equivalent load, then the per-material peak stress allowable"
+    expected_skill: "space-systems/ecss/e3301-ball-bearings-sizing-hertzian-contact"

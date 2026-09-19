@@ -1,0 +1,12 @@
+# Hit@1 fragment: pfci-fci-flli-lists (space-systems/ecss)
+# Case 1 routes on the screening and escalation that moves an item between the three lists.
+# Case 2 routes on list-level configuration control rather than on any item's fracture result.
+tasks:
+  - id: pfci-fci-flli-lists-1
+    query: "A fitting screened as fracture sensitive with a catastrophic failure consequence only reaches 2.8 on the safe-life ratio. Which of PFCIL, FCIL or FLLIL does it belong on, and what would make it move again to the limited-life one?"
+    intent: "ECSS-E-ST-32C 6.4.2; screening places an item on the first list, falling short of the required ratio escalates it to the second, and a finite derived life limit moves it to the third"
+    expected_skill: "space-systems/ecss/pfci-fci-flli-lists"
+  - id: pfci-fci-flli-lists-2
+    query: "Between issues two items were dropped from our FCIL with no justification recorded, and the new issue carries no signatory. What does configuration control require of each list before they go to the board?"
+    intent: "ECSS-E-ST-32C 6.4.2; each list carries an issue number, an approval date and an authorised signatory, and a removal without recorded justification is a configuration control finding"
+    expected_skill: "space-systems/ecss/pfci-fci-flli-lists"

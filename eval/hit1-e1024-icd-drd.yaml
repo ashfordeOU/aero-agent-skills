@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-icd-drd (space-systems/ecss)
+# Case 1 routes on identification and the recognised interface-type set. Case 2
+# routes on the two link checks instead: a parent reference for every requirement
+# and a verification method drawn from the recognised set.
+tasks:
+  - id: e1024-icd-drd-1
+    query: "Our ICD names only one side of the pair and declares a harness type. Which interface types does the Annex B DRD recognize, is fluid or optical in that set, and can a one-sided pair be controlled at all?"
+    intent: "ECSS-E-ST-10-24C Annex B DRD; both sides of an interface must be named before it can be controlled, and a declared type outside the recognised set is a finding rather than a new category"
+    expected_skill: "space-systems/ecss/e1024-icd-drd"
+  - id: e1024-icd-drd-2
+    query: "Every requirement in our ICD carries a verification method, but three cite engineering judgement and five have no parent reference back to the IRD. Are the four ECSS methods the only ones allowed, and does an untraced requirement block DRD compliance?"
+    intent: "ECSS-E-ST-10-24C Annex B DRD; traceability to a parent requirement must be explicit on record, and a verification method outside the four recognised ones has to be mapped rather than accepted"
+    expected_skill: "space-systems/ecss/e1024-icd-drd"

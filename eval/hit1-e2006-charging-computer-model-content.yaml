@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-charging-computer-model-content (space-systems/ecss)
+# Case 1 routes on an effect the configuration requires but the simulation omits.
+# Case 2 routes on the transient step against the charging time constant and balance closure.
+tasks:
+  - id: e2006-charging-computer-model-content-1
+    query: "Our charging simulation for a geostationary platform represents ambient collection and secondary emission but leaves photoemission out, arguing most surfaces sit in shadow. Is that omission acceptable in evidence offered for design acceptance?"
+    intent: "ECSS-E-ST-20-06C 6.8.4; the case turns on the required effect set being derived from the configuration, so a sunlit case missing photoemission is a content finding"
+    expected_skill: "space-systems/ecss/e2006-charging-computer-model-content"
+  - id: e2006-charging-computer-model-content-2
+    query: "Our spacecraft-charging simulation runs an eclipse-entry transient on a ten second integration-step. How do I test that against the charging-time-constant, and what must the current-balance residual satisfy once the floating-potential has converged?"
+    intent: "ECSS-E-ST-20-06C 6.8.4; the case turns on the step being a small fraction of the charging time constant and on the balance residual scaled to the largest current"
+    expected_skill: "space-systems/ecss/e2006-charging-computer-model-content"

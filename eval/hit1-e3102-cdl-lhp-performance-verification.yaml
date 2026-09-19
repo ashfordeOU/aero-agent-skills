@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-cdl-lhp-performance-verification (space-systems/ecss)
+# Two tasks for the new leaf. cdlpv1 routes on the start-up demonstration and the
+# attached evaporator mass that makes or breaks it; cdlpv2 routes on the adverse
+# tilt pressure budget and the inlet subcooling that decide whether the loop stays
+# primed. Both must deterministically hit
+# space-systems/ecss/e3102-cdl-lhp-performance-verification.
+tasks:
+  - id: cdlpv1
+    query: "the loop primed on the bench at 9 watts but the evaporator had nothing bolted to it, work out whether that counts as meeting our minimum start heat load and what the attached thermal mass does to it"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2d; capillary loop start-up demonstration against the minimum start heat load with the qualification attached thermal mass, and the sensitivity of that load to added mass"
+    expected_skill: "space-systems/ecss/e3102-cdl-lhp-performance-verification"
+  - id: cdlpv2
+    query: "we only ran the heat pipe loop at a favourable elevation and the liquid inlet was two kelvin under saturation, tell me whether the wick can still cover the line losses plus the adverse head and whether that subcooling is enough"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2d; capillary pressure budget at the verified adverse elevation and the evaporator inlet subcooling margin against vapour ingestion"
+    expected_skill: "space-systems/ecss/e3102-cdl-lhp-performance-verification"

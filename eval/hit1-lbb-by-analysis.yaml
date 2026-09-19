@@ -1,0 +1,12 @@
+# Hit@1 fragment: lbb-by-analysis (space-systems/ecss)
+# Case 1 routes on the crack-size criterion, through-wall length against critical length.
+# Case 2 routes on integrating growth from the inspection flaw to wall penetration.
+tasks:
+  - id: lbb-by-analysis-1
+    query: "For our titanium propellant tank I must demonstrate leak-before-burst (LBB) by analysis rather than by test. How do I derive the crack length that turns critical at burst hoop stress, and which through-wall length gets compared against it?"
+    intent: "ECSS-E-ST-32C 5.3.2; the case turns on the crack-size criterion, the through-wall half length staying below the critical size at burst"
+    expected_skill: "space-systems/ecss/lbb-by-analysis"
+  - id: lbb-by-analysis-2
+    query: "Starting from a 0.5 mm initial flaw at our inspection threshold, how many pressurisation cycles does Paris-law crack-growth need to reach the 2.2 mm wall, and what life factor must that penetration count clear?"
+    intent: "ECSS-E-ST-32C 5.3.2; the case turns on integrating Paris-law growth from the assumed initial flaw to wall penetration and comparing against the factored service life"
+    expected_skill: "space-systems/ecss/lbb-by-analysis"

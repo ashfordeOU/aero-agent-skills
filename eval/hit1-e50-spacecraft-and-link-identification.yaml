@@ -1,0 +1,15 @@
+# Hit@1 fragment: e50-spacecraft-and-link-identification (space-systems/ecss)
+# Two tasks for the new leaf. sli1 routes on the identifier field width coming
+# from the transfer frame version and the all-ones pattern being reserved; sli2
+# routes on a link identity being craft plus direction plus channel. Both must
+# deterministically hit
+# space-systems/ecss/e50-spacecraft-and-link-identification.
+tasks:
+  - id: sli1
+    query: "we handed out spacecraft numbers before the transfer frame version was fixed and one of them is the all ones value, check which of our assignments still fit the field and how many are left in each namespace"
+    intent: "ECSS-E-ST-50C clause 5.6.13.1; the identifier field width comes from the frame version, the all-ones pattern is reserved to mean no spacecraft, and each frame version is its own namespace"
+    expected_skill: "space-systems/ecss/e50-spacecraft-and-link-identification"
+  - id: sli2
+    query: "the schedule names a primary and a backup return link on the orbiter, both on the same physical channel and the same direction, so decide whether a receiver could say which link delivered a frame or whether their identity collides"
+    intent: "ECSS-E-ST-50C clause 5.6.13.1; a link is identified by the spacecraft it serves, its direction and its physical channel, not by the name on the schedule"
+    expected_skill: "space-systems/ecss/e50-spacecraft-and-link-identification"

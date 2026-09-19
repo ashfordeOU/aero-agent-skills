@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-use-in-ultracleaning (space-systems/ecss)
+# uc1 routes on per-cycle removal efficiency and the plateau that means a
+# different process; uc2 routes on a residual sitting inside the verification
+# blank. Both must deterministically hit
+# space-systems/ecss/q7005-use-in-ultracleaning.
+tasks:
+  - id: q7005uc1
+    query: "we have run four ultracleaning cycles on this panel and the infrared level has barely moved since the second one while still sitting above target, tell me whether another cycle is worth running or whether the process itself has to change"
+    intent: "ECSS-Q-ST-70-05C verification of an ECSS-Q-ST-70-54C ultracleaning process; per-cycle removal efficiency against the previous level, and successive cycles below the floor mean a process change rather than another pass"
+    expected_skill: "space-systems/ecss/q7005-use-in-ultracleaning"
+  - id: q7005uc2
+    query: "the post-cleaning infrared residual came back almost the same size as the solvent and wipe blank we used to take it, and the level also rose between two of the cycles, work out what this verification actually demonstrates"
+    intent: "ECSS-Q-ST-70-05C ultracleaning verification; a residual inside the verification blank is a bound rather than a clean result, and a rise across a cycle is recontamination between measurements"
+    expected_skill: "space-systems/ecss/q7005-use-in-ultracleaning"

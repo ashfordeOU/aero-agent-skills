@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-pre-tailoring-matrix (space-systems/ecss)
+# Two tasks for the new leaf. dptm1 routes on the blank applicability cell that must
+# not be read as an exemption; dptm2 routes on the project delta against the
+# pre-tailored baseline. Both must deterministically hit
+# space-systems/ecss/e2040-device-pre-tailoring-matrix.
+tasks:
+  - id: dptm1
+    query: "our applicability table has empty boxes for some device categories, can we treat a blank as not applicable or does the table have to say so explicitly before we can inherit it"
+    intent: "ECSS-E-ST-20-40C clause 6.2; an unset cell is a gap reported against the table, never read as an exemption, and a modified cell needs its note"
+    expected_skill: "space-systems/ecss/e2040-device-pre-tailoring-matrix"
+  - id: dptm2
+    query: "the project dropped four requirements from the ready made applicability table for our device category, show me what changed against the inherited baseline and which drops have no reason recorded"
+    intent: "ECSS-E-ST-20-40C clause 6.2; project tailoring is a delta against the pre-tailored baseline and each removal carries a justification"
+    expected_skill: "space-systems/ecss/e2040-device-pre-tailoring-matrix"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7028-conformal-coating-repair (space-systems/ecss)
+# Two tasks for the new leaf. ccr1 routes on the two-sided removal window and
+# the fact that over-stripping is not a touch-up; ccr2 routes on grading the
+# film per reading rather than on its mean, and on the cure time the held
+# temperature demands. Both must deterministically hit
+# space-systems/ecss/q7028-conformal-coating-repair.
+tasks:
+  - id: ccr1
+    query: "the operator stripped a much bigger patch of coating than the part footprint needed to get at the joint, work out whether that is still a touch-up or a nonconformance"
+    intent: "ECSS-Q-ST-70-28 repair methods; coating removal is bounded on both sides, and stripping sound film off untouched hardware cannot be undone by re-coating"
+    expected_skill: "space-systems/ecss/q7028-conformal-coating-repair"
+  - id: ccr2
+    query: "after rework we stripped the coating back, re-applied film over the joint and cured it warm but briefly; the mean thickness passes and one reading does not, so check the lap it makes onto the surrounding coating and the cure time that temperature demands"
+    intent: "ECSS-Q-ST-70-28 repair methods; every thickness reading is graded as well as the mean, and the cure hours demanded are interpolated from the held temperature"
+    expected_skill: "space-systems/ecss/q7028-conformal-coating-repair"

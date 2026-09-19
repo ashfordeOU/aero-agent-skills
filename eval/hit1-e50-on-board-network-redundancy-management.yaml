@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-on-board-network-redundancy-management (space-systems/ecss)
+# Two tasks for the new leaf. nrm1 routes on an element shared by both network
+# paths; nrm2 routes on a switchover outage budget against a tolerated outage.
+# Both must deterministically hit
+# space-systems/ecss/e50-on-board-network-redundancy-management.
+tasks:
+  - id: nrm1
+    query: "On the on-board network, walk the prime string against the backup box by box. Show me what both lean on, told apart from the backplane we knowingly signed off, and whether the swap fits inside the outage the mission allows."
+    intent: "ECSS-E-ST-50C clause 5.7.2.5; an element carried by both paths is a single point of failure unless the design accepts it by name, and redundant hardware either side of it buys nothing for a failure in the middle"
+    expected_skill: "space-systems/ecss/e50-on-board-network-redundancy-management"
+  - id: nrm2
+    query: "add up fault detection, the decision to switch and reconfiguration for our on-board network changeover and tell me how much detection time is left inside the outage the mission tolerates"
+    intent: "ECSS-E-ST-50C clause 5.7.2.5; the switchover outage is detection plus decision plus reconfiguration, and the detection budget is what the tolerated outage leaves once the other two are fixed, or nothing at all"
+    expected_skill: "space-systems/ecss/e50-on-board-network-redundancy-management"

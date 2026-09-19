@@ -252,7 +252,15 @@ class TestExposureAllowance(unittest.TestCase):
             {"activity": "open-bench transfer", "duration_hours": 7.9,
              "environment": "uncontrolled-air"},
         ])["weighted_hours"]
-        self.assertGreater(total, MAX_WEIGHTED_EXPOSURE_HOURS)  # bare <= would fail
+        # 0.3 h at weight 1 plus 7.9 h at weight 3 is exactly the allowance.
+        # Neither decimal is exact in binary, so the weighted sum lands within
+        # a unit in the last place of it; which side it falls on is a
+        # representation detail, not the claim, so only the magnitude is
+        # asserted. places=12 is ~1e2 units in the last place of 24 h - beyond
+        # any rounding, and far tighter than any real custody duration. The
+        # allowance is unchanged; the contract is the line below - a total on
+        # the allowance raises no finding.
+        self.assertAlmostEqual(total, MAX_WEIGHTED_EXPOSURE_HOURS, places=12)
         self.assertEqual(check_exposure(total), [])
 
     def test_negative_total_raises(self):

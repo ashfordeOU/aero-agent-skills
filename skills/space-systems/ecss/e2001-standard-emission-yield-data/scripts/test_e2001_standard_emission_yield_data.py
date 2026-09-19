@@ -8,6 +8,7 @@ selection and the aggregate clause 9.6 evaluation, including every
 ValueError path.
 """
 
+import math
 import unittest
 
 import e2001_standard_emission_yield_data_logic as logic
@@ -290,10 +291,12 @@ class TestAssessRepresentativeness(unittest.TestCase):
         self.assertEqual(reasons, [])
 
     def test_span_endpoint_exactly_met_is_still_covered(self):
-        # The required upper endpoint evaluates a few ULPs above 300.0; a
-        # record that genuinely reaches 300 eV must not be rejected by that.
+        # (0.1 + 0.2) * 1000 is one correctly rounded addition and one
+        # correctly rounded multiplication, so the required upper endpoint
+        # is exactly one representable place above 300.0 on every platform.
+        # A record that genuinely reaches 300 eV must not be rejected by it.
         required_hi = (0.1 + 0.2) * 1000.0
-        self.assertGreater(required_hi, 300.0)
+        self.assertEqual(required_hi, 300.0 + math.ulp(300.0))
         ok, reasons = logic.assess_representativeness(
             measured_record(energy_max_ev=300.0),
             "aluminium",

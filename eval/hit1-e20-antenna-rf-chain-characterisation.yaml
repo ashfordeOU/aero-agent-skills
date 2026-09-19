@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-antenna-rf-chain-characterisation (space-systems/ecss)
+# Case 1 routes on the noise cascade and the figure-of-merit penalty a receive chain costs.
+# Case 2 routes on the mismatch ripple, the port match and transmit power handling.
+tasks:
+  - id: e20-antenna-rf-chain-characterisation-1
+    query: "Our Ka-band feed chain runs a waveguide section, a diplexer, an orthomode transducer and a rotary joint, with stage dissipations adding to 1.3 dB. How is each stage's noise referred back through everything upstream, and what figure-of-merit penalty does the receive path owe?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.5; stage noise contributions only add once referred through the stages ahead of them, and the receive penalty is strictly larger than the bare dissipation"
+    expected_skill: "space-systems/ecss/e20-antenna-rf-chain-characterisation"
+  - id: e20-antenna-rf-chain-characterisation-2
+    query: "Every stage in our transmit feed chain shows 20 dB return loss on its own. How do I get the band ripple from adjacent reflecting interfaces and the worst-case standing wave ratio seen at the input port, and which stage sizes power handling?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.5; the port match is the attenuated sum of every stage reflection rather than the first stage alone, and the forward power is highest at the port end"
+    expected_skill: "space-systems/ecss/e20-antenna-rf-chain-characterisation"

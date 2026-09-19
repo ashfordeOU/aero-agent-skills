@@ -1,0 +1,12 @@
+# Hit@1 fragment: in-service-surveillance (space-systems/ecss)
+# Case 1 routes on setting inspection type and interval from criticality and life consumed.
+# Case 2 routes on the damage tier disposition and the missing residual-strength case.
+tasks:
+  - id: in-service-surveillance-1
+    query: "A fracture-critical fitting on our reusable stage has burned through 70 percent of its fatigue life. How does that consumed fraction change the inspection interval, and how do I choose between visual, NDT and dimensional checks for it?"
+    intent: "ECSS-E-ST-32C 4.8; criticality sets the base interval and a high consumed fatigue fraction shortens it further, while each item carries one primary inspection type"
+    expected_skill: "space-systems/ecss/in-service-surveillance"
+  - id: in-service-surveillance-2
+    query: "Our in-service inspection turned up a crack bigger than the damage limit set at design but short of the extended limit. Do I accept it, repair it, or replace the part, and what if no residual strength analysis has been produced yet?"
+    intent: "ECSS-E-ST-32C 4.8; the middle damage tier permits continued operation only on a residual strength case, so a missing analysis blocks rather than defaults to accept"
+    expected_skill: "space-systems/ecss/in-service-surveillance"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-delete-event-action-definitions (space-systems/ecss)
+# Two tasks for the new leaf. dlead1 routes on the still-enabled refusal;
+# dlead2 routes on the identity the store does not hold. Both must
+# deterministically hit
+# space-systems/ecss/e7041-delete-event-action-definitions.
+tasks:
+  - id: dlead1
+    query: "Three identities in one deletion instruction list, and the middle definition is still enabled. Tell me the verdict each instruction earns, and whether the other two are deleted anyway or the whole request stops there."
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.3; an enabled definition is refused, the rest are still deleted and the batch earns a partial verdict"
+    expected_skill: "space-systems/ecss/e7041-delete-event-action-definitions"
+  - id: dlead2
+    query: "Our stale-reaction clean-up lists one identity twice and two more that are no longer in the store. Is the whole request malformed, or does each missing identity just fail alone while everything else is deleted and its capacity freed?"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.3; a repeated identity makes the whole request malformed, an unheld identity fails only its own instruction rather than reporting success, and freed capacity follows the real removals"
+    expected_skill: "space-systems/ecss/e7041-delete-event-action-definitions"

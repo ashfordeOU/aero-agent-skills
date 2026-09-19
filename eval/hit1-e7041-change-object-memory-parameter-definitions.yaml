@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-change-object-memory-parameter-definitions (space-systems/ecss)
+# Two tasks for the new leaf. comp1 routes on re-pointing a parameter binding
+# after a memory patch and the extent and alignment checks that go with it;
+# comp2 routes on the per-instruction verdict and the untouched store. Both
+# must deterministically hit
+# space-systems/ecss/e7041-change-object-memory-parameter-definitions.
+tasks:
+  - id: comp1
+    query: "a software patch moved the words three telemetry parameters were reading, work out whether the commanded new bit offsets for their object memory definitions sit inside the memory and on its alignment unit before the change is sent"
+    intent: "ECSS-E-ST-70-41C clause 6.20.5.3; object memory extent and alignment checks on a re-pointed parameter definition"
+    expected_skill: "space-systems/ecss/e7041-change-object-memory-parameter-definitions"
+  - id: comp2
+    query: "this request re-points two parameters at fresh memory locations, but one name is not in the definition store at all and the other is a fixed definition, so give me the per-instruction verdict and the state the store is left in"
+    intent: "ECSS-E-ST-70-41C clause 6.20.5.3; per-instruction acceptance verdict and the store left untouched when a change would break it"
+    expected_skill: "space-systems/ecss/e7041-change-object-memory-parameter-definitions"

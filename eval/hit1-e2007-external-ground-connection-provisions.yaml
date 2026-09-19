@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-external-ground-connection-provisions (space-systems/ecss)
+# Case 1 routes on qualifying the provision itself: a current-limiting element in
+# the lead and reachability in the configuration used. Case 2 routes on the
+# operation arithmetic: decay to a residual, peak current and a feasible window.
+tasks:
+  - id: e2007-external-ground-connection-provisions-1
+    query: "Our grounding stud goes hard to structure and carries no current-limiting element in its lead, and it cannot be reached once the fairing is on. Does a hard short qualify as a charge equalization provision, and is reachability part of qualifying the attachment point?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.11.3; the provision needs a current-limiting element rather than a hard short, and the configuration in which it is used must appear in its reachable set"
+    expected_skill: "space-systems/ecss/e2007-external-ground-connection-provisions"
+  - id: e2007-external-ground-connection-provisions-2
+    query: "The item holds 2 kV on 800 pF and the operator can only hold the clip for 10 seconds before mating. What residual potential does that dwell leave against the susceptibility withstand, and what bleed resistance window satisfies the peak current limit as well as the dwell?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.11.3; the residual after the planned dwell is compared with a fraction of the withstand, and the resistance window has a lower bound from the peak current and an upper bound from the dwell"
+    expected_skill: "space-systems/ecss/e2007-external-ground-connection-provisions"

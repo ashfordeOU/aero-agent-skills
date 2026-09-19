@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6015-displacement-damage-dose-assurance (space-systems/ecss)
+# Two tasks for the new leaf. ddd1 routes on accumulating the non-ionising dose
+# over solid-angle sectors and on judging a sampled ray-trace mean; ddd2 routes
+# on the minority-carrier families owing a displacement damage test of their own.
+# Both must deterministically hit
+# space-systems/ecss/q6015-displacement-damage-dose-assurance.
+tasks:
+  - id: ddd1
+    query: "we traced rays through the box and got a mean non-ionising dose, work out whether the sample is big enough or whether I should use solid-angle sectors instead"
+    intent: "ECSS-Q-ST-60-15C clause 5.2; displacement damage dose accumulated by statistical sector ray trace or Monte Carlo ray sample, judged by ray count and standard error"
+    expected_skill: "space-systems/ecss/q6015-displacement-damage-dose-assurance"
+  - id: ddd2
+    query: "say which of these part families owe a displacement damage test of their own and hold their non-ionising dose margin to the minimum this clause sets"
+    intent: "ECSS-Q-ST-60-15C clause 5.2; displacement damage test required for minority-carrier-lifetime families, and the minimum displacement design margin"
+    expected_skill: "space-systems/ecss/q6015-displacement-damage-dose-assurance"

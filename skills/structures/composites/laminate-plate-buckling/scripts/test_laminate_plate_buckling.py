@@ -127,15 +127,19 @@ class TestBucklingMode(unittest.TestCase):
         self.assertGreater(n_min, 86852.5)
 
     def test_step3_minimized_load_not_above_single_modes(self):
-        """Step 3 minimized load is at or below every single-mode load
-        sampled across the half-wave sweep."""
+        """Step 3 returns the smallest single-mode load in the half-wave
+        sweep, bit for bit."""
         n_min, _, _ = lpb.buckling_mode(D11, D22, D12, D66, A, B,
                                         m_max=4, n_max=3)
-        for m in range(1, 5):
-            for n in range(1, 4):
-                self.assertLessEqual(
-                    n_min, lpb.critical_load(D11, D22, D12, D66, A, B,
-                                             m, n) + 1e-9)
+        loads = [lpb.critical_load(D11, D22, D12, D66, A, B, m, n)
+                 for m in range(1, 5) for n in range(1, 4)]
+        # buckling_mode minimises over exactly this sweep using exactly this
+        # function, so whatever a platform's libm does to pi ** 2 it does to
+        # both sides: the minimum is an equality, not a tolerance. The old
+        # form padded by 1e-9 - about seventy places at 8.7e4 N/m - which
+        # was never needed and left the comparison a relative hair from its
+        # bound.
+        self.assertEqual(n_min, min(loads))
 
     def test_step3_determinism_repeat_runs(self):
         """Step 3 buckling_mode is deterministic: repeat runs return the

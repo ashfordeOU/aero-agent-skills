@@ -11,6 +11,9 @@ a derivation rationale, and an impact analysis, and they participate in
 validation, verification planning, and the traceability matrix like
 allocated requirements.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 DERIVATION_SOURCES = (
     "design_decision",

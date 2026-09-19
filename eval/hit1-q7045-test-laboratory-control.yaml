@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-test-laboratory-control (space-systems/ecss)
+# Two tasks for the new leaf. tlc1 routes on operator qualification currency on
+# the run day; tlc2 routes on procedure revision state and the traceability an
+# equipment record has to carry. Both must deterministically hit
+# space-systems/ecss/q7045-test-laboratory-control.
+tasks:
+  - id: tlc1
+    query: "the campaign starts in four months, go through the operator qualification records and tell me which methods will still have somebody authorised to run them on the day"
+    intent: "ECSS-Q-ST-70-45 quality; whole-calendar-month qualification validity and authorisation decided on the run day rather than today"
+    expected_skill: "space-systems/ecss/q7045-test-laboratory-control"
+  - id: tlc2
+    query: "one test instruction is still marked draft and another is at revision B while revision C has been issued, and two of the calibration records have a certificate number but nothing behind it, say whether the laboratory is in control"
+    intent: "ECSS-Q-ST-70-45 quality; procedure status and revision currency, plus equipment records with an empty traceability chain"
+    expected_skill: "space-systems/ecss/q7045-test-laboratory-control"

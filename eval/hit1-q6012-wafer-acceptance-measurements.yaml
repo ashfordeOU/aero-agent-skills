@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-wafer-acceptance-measurements (space-systems/ecss)
+# wam1 routes on the accept-or-reject call from drop-in monitor data; wam2 routes
+# on the two independent acceptance conditions, median and site fraction, which a
+# general statistics skill collapses into one. Both must deterministically hit
+# space-systems/ecss/q6012-wafer-acceptance-measurements.
+tasks:
+  - id: wam1
+    query: "here is the probe data from the process monitor structures on this wafer against the foundry parameter limits, decide whether the wafer is accepted and say which parameter drove it if it is not"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.4; wafer acceptance from process monitor electrical measurements against foundry limits, with the driving parameter named"
+    expected_skill: "space-systems/ecss/q6012-wafer-acceptance-measurements"
+  - id: wam2
+    query: "most sites on this wafer are inside limits but the middle of the distribution has walked, is that a pass, and does a reading sitting exactly on the foundry limit count against us"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.4; median-within-limits and within-limit site fraction as independent conditions, with inclusive on-limit grading"
+    expected_skill: "space-systems/ecss/q6012-wafer-acceptance-measurements"

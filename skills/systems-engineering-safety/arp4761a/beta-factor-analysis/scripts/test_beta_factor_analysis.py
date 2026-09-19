@@ -212,8 +212,12 @@ class TestEnhancement(unittest.TestCase):
         """The common-cause contribution never reduces dual-channel risk:
         the CCF enhancement ratio is at least 1.0, so redundancy credit
         decisions must discount the independence-only assumption."""
-        for b in (0.0, 0.1, 0.5, 1.0):
-            self.assertGreaterEqual(ccf_enhancement(LAMBDA, b, TIME), 1.0)
+        # At beta == 0 the ratio is returned as exactly 1.0 by identity, not
+        # reached by rounding, so the exact value is the contract. Above it
+        # the common-cause term makes the ratio strictly greater.
+        self.assertEqual(ccf_enhancement(LAMBDA, 0.0, TIME), 1.0)
+        for b in (0.1, 0.5, 1.0):
+            self.assertGreater(ccf_enhancement(LAMBDA, b, TIME), 1.0)
 
 
 class TestValueErrorRejection(unittest.TestCase):

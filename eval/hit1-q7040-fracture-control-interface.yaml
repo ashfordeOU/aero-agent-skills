@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-fracture-control-interface (space-systems/ecss)
+# Two tasks for the new leaf. fci1 routes on categorising a brazed part against
+# consequence, containment and redundancy; fci2 routes on the detectable flaw
+# size through a braze layer and where a shortfall goes. Both must
+# deterministically hit space-systems/ecss/q7040-fracture-control-interface.
+tasks:
+  - id: fci1
+    query: "this brazed fitting sits in a single load path and its failure would take the payload with it, work out what that makes it for fracture control and what the braze file then owes"
+    intent: "ECSS-Q-ST-70-40 brazing against ECSS-E-ST-32-01C fracture control; categorisation runs on consequence, containment and redundancy and an item so categorised drags the braze process into the programme"
+    expected_skill: "space-systems/ecss/q7040-fracture-control-interface"
+  - id: fci2
+    query: "the ultrasonic capability through the braze layer leaves a bigger flaw than the crack size we calculated, tell me whether more inspection closes that or whether we are into a proof test"
+    intent: "ECSS-Q-ST-70-40 brazing against ECSS-E-ST-32-01C fracture control; a damage-tolerance shortfall is answered by a proof test or a redesign, never by re-inspecting to the same capability"
+    expected_skill: "space-systems/ecss/q7040-fracture-control-interface"

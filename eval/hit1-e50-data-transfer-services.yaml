@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-data-transfer-services (space-systems/ecss)
+# Two tasks for the new leaf. dts1 routes on a flow with no on-board network
+# service at all; dts2 routes on two flows that each fit but together do not.
+# Both must deterministically hit space-systems/ecss/e50-data-transfer-services.
+tasks:
+  - id: dts1
+    query: "our on-board network offers two declared data transfer services and one payload flow needs assured delivery inside a tight latency bound, work out whether any declared service can carry that flow at all or whether it is unserved"
+    intent: "ECSS-E-ST-50C clause 5.7.2.1; the first normative item is that a data transfer service exists for every flow, and a flow whose latency bound and assurance need no declared service meets is unserved rather than slow"
+    expected_skill: "space-systems/ecss/e50-data-transfer-services"
+  - id: dts2
+    query: "two on-board network flows were each sized against the same transfer service and each one fits, tell me what the service actually carries once both are assigned and how much spare capacity is left"
+    intent: "ECSS-E-ST-50C clause 5.7.2.1; adequacy is a property of the service under its whole load, so the rate test runs against the aggregate after assignment, and utilisation and spare capacity are reported alongside the verdict"
+    expected_skill: "space-systems/ecss/e50-data-transfer-services"

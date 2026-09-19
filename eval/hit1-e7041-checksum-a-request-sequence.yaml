@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-checksum-a-request-sequence (space-systems/ecss)
+# cksq1 routes on establishing that a stored sequence body is still what was
+# uplinked; cksq2 routes on the rules that keep the check honest -- stored side,
+# stored order, length reported, declared value never re-reported. Both must
+# deterministically hit space-systems/ecss/e7041-checksum-a-request-sequence.
+tasks:
+  - id: cksq1
+    query: "a request sequence has been sitting in the store since launch and we want it activated next pass, how do we establish the body up there is still the one we sent"
+    intent: "ECSS-E-ST-70-41C clause 6.21.7; checksum the stored sequence body and compare against the declared value"
+    expected_skill: "space-systems/ecss/e7041-checksum-a-request-sequence"
+  - id: cksq2
+    query: "a request sequence sat in store since it was uplinked; checksum the body as the store holds it, refuse a part-loaded body or an algorithm this store has not declared, and give back identifier, value, length, with no state changed"
+    intent: "ECSS-E-ST-70-41C clause 6.21.7; the computation changes no state, the report carries identifier and body length, a drifted declared checksum is corruption"
+    expected_skill: "space-systems/ecss/e7041-checksum-a-request-sequence"

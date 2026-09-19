@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-control-system-bandwidth-damping (space-systems/ecss)
+# Two tasks for the new leaf. bwd1 routes on the bandwidth ceiling the lowest
+# flexible mode sets and the roll-off attenuation demanded by the resonant peak;
+# bwd2 routes on recovering closed-loop damping from a measured overshoot.
+# Both must deterministically hit
+# space-systems/ecss/e3301-control-system-bandwidth-damping.
+tasks:
+  - id: bwd1
+    query: "work out how fast the mechanism control loop is allowed to be before it closes around the first bending mode of the deployed boom, and whether the loop roll-off attenuates that lightly damped mode far enough once the gain margin is counted"
+    intent: "ECSS-E-ST-33-01C clause 4.7.8.3; bandwidth ceiling from the lowest flexible mode and the separation factor, plus resonant peak versus roll-off attenuation"
+    expected_skill: "space-systems/ecss/e3301-control-system-bandwidth-damping"
+  - id: bwd2
+    query: "the pointing mechanism step response overshoots; recover the closed-loop damping ratio from that overshoot and say whether the loop still keeps the required minimum damping and what settling time it implies"
+    intent: "ECSS-E-ST-33-01C clause 4.7.8.4; closed-loop damping graded from declared poles or recovered from measured overshoot, with settling time"
+    expected_skill: "space-systems/ecss/e3301-control-system-bandwidth-damping"

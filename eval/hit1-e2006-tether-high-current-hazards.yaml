@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-tether-high-current-hazards (space-systems/ecss)
+# Case 1 routes on the steady-state segment thermals around the whole loop,
+# including the return leg nobody models. Case 2 routes on the fault case: energy
+# let through against what the cross-section can take.
+tasks:
+  - id: e2006-tether-high-current-hazards-1
+    query: "Our electrodynamic tether pushes 3 A down the conductor and brings it back through structure. The wire itself was modelled but nobody looked at the return leg or the bonding straps. How do I get drop, ohmic dissipation and steady temperature rise per segment against each insulation rating?"
+    intent: "ECSS-E-ST-20-06C clause 10.2.3; the case turns on treating every segment of the loop including the structural return and its bonding joints, not just the tether wire"
+    expected_skill: "space-systems/ecss/e2006-tether-high-current-hazards"
+  - id: e2006-tether-high-current-hazards-2
+    query: "One segment of our tether loop has no protective device recorded at all, and another sits behind a breaker clearing in 80 ms at a 60 A fault. How do I compare the energy that gets through against what the conductor cross-section can absorb, and how should the blank entry be scored?"
+    intent: "ECSS-E-ST-20-06C clause 10.2.3; the case turns on let-through energy against the adiabatic withstand of the section, and on an unrecorded protection device being a finding"
+    expected_skill: "space-systems/ecss/e2006-tether-high-current-hazards"

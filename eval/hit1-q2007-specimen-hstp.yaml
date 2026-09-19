@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-specimen-hstp (space-systems/ecss)
+# Two tasks for the new leaf. hs1 routes on scoring a storage log against the
+# environment limits and totalling the time outside them; hs2 routes on
+# internal moves and the preservation clock. Both must deterministically hit
+# space-systems/ecss/q2007-specimen-hstp.
+tasks:
+  - id: hs1
+    query: "The test house held our specimen in their store six weeks and handed back a chart recorder trace. How do I judge that trace against the humidity, temperature and particulate cleanliness the item was accepted under, and total the hours genuinely spent out of limits?"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.4; environment excursions plus duration, cleanliness as a graded limit"
+    expected_skill: "space-systems/ecss/q2007-specimen-hstp"
+  - id: hs2
+    query: "for an internal move between buildings do the shock and tilt monitors travel with the item, and when does preservation applied before shipping expire against the planned use day"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.4; internal transport is transport, preservation clock runs from the day applied"
+    expected_skill: "space-systems/ecss/q2007-specimen-hstp"

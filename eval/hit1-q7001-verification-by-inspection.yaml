@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-verification-by-inspection (space-systems/ecss)
+# Two tasks for the new leaf. vbi1 routes on the detectable particle size the
+# viewing geometry and lighting achieve; vbi2 routes on the ultraviolet lamp
+# band, surface irradiance and observer dark adaptation. Both must
+# deterministically hit space-systems/ecss/q7001-verification-by-inspection.
+tasks:
+  - id: vbi1
+    query: "the technician looked over the radiator from arm's length under the bay lights and signed it clean, tell me what particle size that observation is actually good for"
+    intent: "ECSS-Q-ST-70-01C verification; resolvable size from viewing distance and acuity, derated for illuminance below the reference level and for viewing away from normal"
+    expected_skill: "space-systems/ecss/q7001-verification-by-inspection"
+  - id: vbi2
+    query: "we ran an ultraviolet lamp at the long-wave end over the optical bench right after leaving a lit cleanroom, with nobody dark adapted; grade the irradiance arriving at the surface and tell me what particle size this observation really supports"
+    intent: "ECSS-Q-ST-70-01C verification; long-wave ultraviolet band, irradiance measured at the surface rather than the lamp, and observer dark adaptation before the observation"
+    expected_skill: "space-systems/ecss/q7001-verification-by-inspection"

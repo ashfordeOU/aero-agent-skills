@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-brazing-audits (space-systems/ecss)
+# Two tasks for the new leaf. bza1 routes on the surveillance scope and the two
+# areas that never rotate out; bza2 routes on what an open finding severity does
+# to the approval and the next interval. Both must deterministically hit
+# space-systems/ecss/q7040-brazing-audits.
+tasks:
+  - id: bza1
+    query: "put together the scope for this year's visit to our approved brazing shop, last year we looked at consumables and they had a major on pre-braze cleaning"
+    intent: "ECSS-Q-ST-70-40 audit clause; furnace survey and records never rotate out of a surveillance scope and an area that carried a major finding comes back into it"
+    expected_skill: "space-systems/ecss/q7040-brazing-audits"
+  - id: bza2
+    query: "the audit left one critical finding still open at the closing meeting, say what happens to the shop's brazing approval and when we go back"
+    intent: "ECSS-Q-ST-70-40 audit clause; an open critical finding suspends the approval and pulls the next visit forward to a short follow-up rather than the base interval"
+    expected_skill: "space-systems/ecss/q7040-brazing-audits"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: aeroelastic-analysis (space-systems/ecss)
+# Case 1 routes on the speed-margin pair evaluated at the max-Q trajectory point
+# rather than at sea level. Case 2 routes on the separate frequency-separation gate
+# that can fail while both speed margins pass.
+tasks:
+  - id: aeroelastic-analysis-1
+    query: "Our grid fin flutter onset sits eighteen percent above design airspeed at sea level but only nine percent above it at max-Q. Which point governs the ECSS aeroelastic speed clearance, and is that fin a finding?"
+    intent: "ECSS-E-ST-32C 4.6.2.17; the speed clearance is judged at max-Q rather than at sea level, and flutter and divergence are separate margins"
+    expected_skill: "space-systems/ecss/aeroelastic-analysis"
+  - id: aeroelastic-analysis-2
+    query: "The canard lowest elastic mode lands at forty-one hertz and the unsteady forcing at peak dynamic pressure is thirty-eight hertz. Both its divergence and flutter speeds clear the envelope easily. Do I still raise something?"
+    intent: "ECSS-E-ST-32C 4.6.2.17; near-resonant coupling between a structural eigenmode and aerodynamic forcing is its own gate, independent of the two speed margins"
+    expected_skill: "space-systems/ecss/aeroelastic-analysis"

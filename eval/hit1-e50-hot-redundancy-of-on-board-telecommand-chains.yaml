@@ -5,7 +5,7 @@
 # space-systems/ecss/e50-hot-redundancy-of-on-board-telecommand-chains.
 tasks:
   - id: hr1
-    query: "we have two command receivers but the b side is switched on by ground command, is that redundancy for the case where we cannot command the spacecraft at all"
+    query: "the b-side receiving chain only wakes on an uplinked instruction, so walk the antenna, the demodulator and the decoder on both chains, tell me which chains can receive today without anyone commanding them, and count the failures that would cost us uplink authority"
     intent: "ECSS-E-ST-50C clause 5.4.9; a command-activated chain is not receptive at the moment command authority is lost, so it does not count toward the hot total"
     expected_skill: "space-systems/ecss/e50-hot-redundancy-of-on-board-telecommand-chains"
   - id: hr2

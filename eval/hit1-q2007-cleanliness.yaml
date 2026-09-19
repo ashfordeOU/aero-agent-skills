@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-cleanliness (space-systems/ecss)
+# Two tasks for the new leaf. cl1 routes on the airborne limit being computed
+# from class plus particle size rather than quoted; cl2 routes on the surface
+# level ordering, where a lower level number is the cleaner surface.
+# Both must deterministically hit space-systems/ecss/q2007-cleanliness.
+tasks:
+  - id: cl1
+    query: "the counter is reporting particles per cubic metre for this bay, work out the admissible concentration for the class it is supposed to be held at and how much margin is left on the worst reading"
+    intent: "ECSS-Q-ST-20-07C clause 5.5.3; airborne particulate limit computed from the class number and the particle size, margin ratio against the worst count"
+    expected_skill: "space-systems/ecss/q2007-cleanliness"
+  - id: cl2
+    query: "the bench is certified to surface level 500 and the activity asks for level 300, and nobody has sampled the air in this cell since Tuesday - what do I write up"
+    intent: "ECSS-Q-ST-20-07C clause 5.5.3; surface cleanliness level ordering and obscuration limit, monitoring cadence graded separately from conformance"
+    expected_skill: "space-systems/ecss/q2007-cleanliness"

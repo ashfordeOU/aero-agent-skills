@@ -242,7 +242,10 @@ class TestLimitComparison(RatioMixin):
 
     def test_product_of_powers_of_ten_drifts_over_the_limit(self):
         drifted = stored_energy(2.0e-12, 1000.0)
-        self.assertGreater(drifted, 1.0e-6)
+        # 0.5*C*V*V is exact IEEE-754 multiplication: this product of powers
+        # of ten is the double immediately ABOVE the 1 uJ limit on every
+        # platform, never on it. The limit itself is unchanged.
+        self.assertEqual(drifted, math.nextafter(1.0e-6, math.inf))
         self.assertTrue(within_limit(drifted, 1.0e-6))
 
     def test_drift_absorption_does_not_raise_the_limit(self):
@@ -286,7 +289,11 @@ class TestPartEvaluation(RatioMixin):
     def test_exact_energy_limit_is_granted_despite_representation_drift(self):
         part = {"id": "clip", "exposed_area_m2": 5.0e-5, "capacitance_f": 2.0e-12}
         result = evaluate_floating_part(part, V_GEO)
-        self.assertGreater(result["stored_energy_j"], 1.0e-6)
+        # The same one-ULP drift over the limit, reached through the full
+        # assessment rather than the bare energy helper.
+        self.assertEqual(
+            result["stored_energy_j"], math.nextafter(1.0e-6, math.inf)
+        )
         self.assertTrue(result["criteria"]["stored-energy"])
         self.assertEqual(result["disposition"], "exception-granted")
 

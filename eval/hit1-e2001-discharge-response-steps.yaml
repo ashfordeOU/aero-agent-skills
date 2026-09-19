@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-discharge-response-steps (space-systems/ecss)
+# Case 1 routes on the unconditional bench actions and on attributing the excursion to
+# the facility. Case 2 routes on where a repeat restarts and on judging onset
+# reproducibility as a spread in decibels.
+tasks:
+  - id: e2001-discharge-response-steps-1
+    query: "A detection channel tripped part-way up the multipactor power ramp with the chamber-pressure reading high. Is drive-removal and onset-state-capture the right first move, and does that reading make it facility-conditioning rather than the unit?"
+    intent: "ECSS-E-ST-20-01C 8.5.3; drive removal and onset-state capture come before anything is adjusted, and a pressure reading above the vacuum limit attributes the excursion to the facility"
+    expected_skill: "space-systems/ecss/e2001-discharge-response-steps"
+  - id: e2001-discharge-response-steps-2
+    query: "We re-ran the multipactor ramp four times and saw onsets at 210, 228, 215 and 240 watts. What drive-backoff should each repeat start from, and is that spread tight enough to raise a multipactor-nonconformance?"
+    intent: "ECSS-E-ST-20-01C 8.5.3; a repeat restarts below the onset at a backoff level, and repeatability is a decibel spread across onsets rather than equality in watts"
+    expected_skill: "space-systems/ecss/e2001-discharge-response-steps"

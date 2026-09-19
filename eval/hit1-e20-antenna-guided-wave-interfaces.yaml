@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-antenna-guided-wave-interfaces (space-systems/ecss)
+# Case 1 routes on the moding check that follows from the port category.
+# Case 2 routes on the other half: turning the standing-wave ratio into the peak
+# the interface actually sees and grading it against a derated rating.
+tasks:
+  - id: e20-antenna-guided-wave-interfaces-1
+    query: "The antenna feed ends in a rectangular waveguide flange at one port and a dielectric filled coaxial connector at another. For each, is the operating frequency far enough clear of the dominant cutoff and still below the onset of a second propagating mode?"
+    intent: "ECSS-E-ST-20C clause 7.2.3.1; the port category selects the moding check, and a dielectric fill moves both the impedance and the mode onset"
+    expected_skill: "space-systems/ecss/e20-antenna-guided-wave-interfaces"
+  - id: e20-antenna-guided-wave-interfaces-2
+    query: "The antenna port measures a standing wave ratio of 1.6 and the connector is rated 300 W on the bench. How much of that rating is left after vacuum derating and the hot interface temperature, once the standing wave lifts the local peak at that connector?"
+    intent: "ECSS-E-ST-20C clause 7.2.3.1; mismatch raises the local peak above the forward wave, so power handling is a margin against a derated rating"
+    expected_skill: "space-systems/ecss/e20-antenna-guided-wave-interfaces"

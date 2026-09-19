@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-file-copy-operations (space-systems/ecss)
+# Two tasks for the new leaf. fcop1 routes on the admission decision that turns
+# a copy request away before it becomes an entry; fcop2 routes on room judged
+# against the octets already in flight. Both must deterministically hit
+# space-systems/ecss/e7041-file-copy-operations.
+tasks:
+  - id: fcop1
+    query: "a copy request was turned away, does the source repository hold that file, is the target repository even declared with that file name still unused, does the destination still have the space, and did the copy list have a spare entry"
+    intent: "ECSS-E-ST-70-41C clause 6.23.5.2; a copy request is refused for a missing source, an unknown or already-occupied target name, a copy onto itself, a pair already queued, a target with no room, or a full copy operation list, and those refusals need different actions from the ground"
+    expected_skill: "space-systems/ecss/e7041-file-copy-operations"
+  - id: fcop2
+    query: "two file copy requests were both admitted to the copy operation list because each one fitted the empty target repository, and both are now stalling halfway. What should the room check at the destination have counted - the octets already in flight too?"
+    intent: "ECSS-E-ST-70-41C clause 6.23.5.2; free space at the target must be judged against the octets already landed by running copies as well as the files held, or two requests are admitted for room only one of them has"
+    expected_skill: "space-systems/ecss/e7041-file-copy-operations"

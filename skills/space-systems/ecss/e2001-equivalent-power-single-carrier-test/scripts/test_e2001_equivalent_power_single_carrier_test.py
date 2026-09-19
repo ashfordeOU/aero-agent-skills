@@ -270,11 +270,19 @@ class TestDriveCapability(unittest.TestCase):
         self.assertEqual(len(findings), 2)
 
     def test_exact_boundary_from_square_root_sum_is_compliant(self):
-        # sqrt(50)+sqrt(50) squared is 200.00000000000003 in binary floating
-        # point; an exactly 200 W source is physically adequate.
+        # sqrt(50)+sqrt(50) squared lands within float error of 200 W, and
+        # an exactly 200 W source is physically adequate. Which side of 200
+        # the square-root sum falls on is a property of the host maths
+        # library, so the boundary-ness is asserted with a tolerance and the
+        # over-by-one-ULP case is CONSTRUCTED rather than computed. The
+        # 200 W engineering limit is unchanged.
         required = logic.equivalent_single_carrier_power_w(TWO_EQUAL_50W)
-        self.assertGreater(required, 200.0)
+        self.assertAlmostEqual(required, 200.0, places=9)
         self.assertEqual(logic.assess_drive_capability(required, 200.0, 200.0), [])
+        just_over = math.nextafter(200.0, math.inf)
+        self.assertEqual(
+            logic.assess_drive_capability(just_over, 200.0, 200.0), []
+        )
 
     def test_genuine_exceedance_is_not_absorbed(self):
         findings = logic.assess_drive_capability(200.5, 200.0, 1000.0)

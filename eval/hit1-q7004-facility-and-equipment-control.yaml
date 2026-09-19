@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-facility-and-equipment-control (space-systems/ecss)
+# Two tasks for the new leaf. fec1 routes on calibration standing and the ratio
+# between the required tolerance and the instrument uncertainty; fec2 routes on
+# chamber envelope margin and fixture thermal mass. Both must deterministically
+# hit space-systems/ecss/q7004-facility-and-equipment-control.
+tasks:
+  - id: fec1
+    query: "instrument-calibration-interval-standing and test-accuracy-ratio-check: the thermocouple is calibrated until next month and brings a quarter kelvin of uncertainty, is that enough to hold a two kelvin tolerance across a six week thermal campaign"
+    intent: "ECSS-Q-ST-70-04C quality assurance; instrument calibration interval standing across a campaign and the ratio of required tolerance to instrument uncertainty"
+    expected_skill: "space-systems/ecss/q7004-facility-and-equipment-control"
+  - id: fec2
+    query: "thermal-chamber-envelope-margin and test-fixture-thermal-mass-ratio: our chamber tops out at exactly the required hot limit and the jig weighs five times the item, is the thermal-test-facility-readiness statement ready or not ready"
+    intent: "ECSS-Q-ST-70-04C quality assurance; chamber envelope checked with margin rather than on equality, fixture to item thermal mass ratio, and the ready or not-ready readiness statement"
+    expected_skill: "space-systems/ecss/q7004-facility-and-equipment-control"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: damage-tolerance-functionality (space-systems/ecss)
+# Case 1 routes on choosing an approach per element and on the residual-strength
+# check that sits alongside crack growth. Case 2 routes on whether a monolithic part
+# can be called fail-safe and on the stress-intensity ratio that triggers fracture control.
+tasks:
+  - id: damage-tolerance-functionality-1
+    query: "We have to state a damage-tolerance approach for every part of the thrust cone. For the safe-life items, how do I show the end-of-life flaw stays under critical size, and what strength must a damaged part still hold?"
+    intent: "ECSS-E-ST-32C 4.3.8; the safe-life route bounds a postulated flaw to end of life, and residual strength after the design damage state is a second independent check"
+    expected_skill: "space-systems/ecss/damage-tolerance-functionality"
+  - id: damage-tolerance-functionality-2
+    query: "The stress team wants a machined one-piece frame called fail-safe because load redistributes inside it, and its applied K sits at 0.72 of toughness. Is that designation defensible and does the ratio pull us into formal fracture control?"
+    intent: "ECSS-E-ST-32C 4.3.8; fail-safe demands two physically independent load paths, and the stress-intensity ratio decides whether a fracture-control plan becomes mandatory"
+    expected_skill: "space-systems/ecss/damage-tolerance-functionality"

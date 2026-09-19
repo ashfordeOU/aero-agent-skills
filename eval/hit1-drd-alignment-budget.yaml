@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-alignment-budget (space-systems/ecss)
+# Case 1 routes on the combination rule choice, RSS versus worst-case arithmetic.
+# Case 2 routes on sensitivity coefficients and the unrecorded interface allowable.
+tasks:
+  - id: drd-alignment-budget-1
+    query: "I am rolling up misalignment sources for an instrument mounting foot: machining tolerance, gravity release, thermoelastic distortion and survey error. Should I root-sum-square them or sum absolute values, and may I mix both inside one interface?"
+    intent: "ECSS-E-ST-32C Annex L; the case turns on selecting and uniformly applying one combination method across the contributors at a single interface"
+    expected_skill: "space-systems/ecss/drd-alignment-budget"
+  - id: drd-alignment-budget-2
+    query: "Every misalignment contributor on our optical bench runs through a lever path before it reaches the reference cube. Does each one need a coefficient applied before I total them, and what if the interface has no pointing allowable written down?"
+    intent: "ECSS-E-ST-32C Annex L; the case turns on converting raw magnitudes into effective errors through sensitivity coefficients and on an absent allowable being an open finding"
+    expected_skill: "space-systems/ecss/drd-alignment-budget"

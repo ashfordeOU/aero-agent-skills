@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-restricted-dielectric-materials (space-systems/ecss)
+# Case 1 routes on the dimensionality a supporting charging analysis must have.
+# Case 2 routes on resistivity pulling an unlisted material into restriction.
+tasks:
+  - id: e2006-restricted-dielectric-materials-1
+    query: "Our antenna carries an uncoated polyimide sunshield externally, and the team offered a two-dimensional axisymmetric charging-simulation as the waiver. Is a reduced-dimension run acceptable for a restricted-dielectric, or does it fail before the discharge-onset comparison?"
+    intent: "ECSS-E-ST-20-06C 6.3.3.6; the case turns on the justification having to be three-dimensional, so a reduced-dimension run is refused rather than caveated"
+    expected_skill: "space-systems/ecss/e2006-restricted-dielectric-materials"
+  - id: e2006-restricted-dielectric-materials-2
+    query: "A conformal coating on our spacecraft external surface is not on the restricted-dielectric register, yet it measures two times ten to the sixteen ohm-centimetre in bulk. Is it restricted anyway, and must the prediction cover eclipse-entry?"
+    intent: "ECSS-E-ST-20-06C 6.3.3.6; the case turns on the resistivity threshold being an independent door into restriction and on eclipse-entry coverage in the analysis scope"
+    expected_skill: "space-systems/ecss/e2006-restricted-dielectric-materials"

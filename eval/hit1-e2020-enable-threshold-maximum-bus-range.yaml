@@ -7,7 +7,7 @@
 # clause 5.4.3.2.1 undervoltage TRIP point leaf.
 tasks:
   - id: etmbr1
-    query: "refer each settable turn on fraction of a protection function into volts through the maximum direct current bus voltage value and test the resulting enable ladder against the window between the equipment turn on floor and the lowest steady state bus"
+    query: "Our enable threshold is adjustable in percentage steps referred to the maximum bus value of 32 V. Turn each step into volts, and count how many land between the floor the equipment can start from and the lowest steady bus we ever see."
     intent: "ECSS-E-ST-20-20C clause 5.4.4.2.1; adjustable enable threshold referred to the maximum bus value and its usable window"
     expected_skill: "space-systems/ecss/e2020-enable-threshold-maximum-bus-range"
   - id: etmbr2

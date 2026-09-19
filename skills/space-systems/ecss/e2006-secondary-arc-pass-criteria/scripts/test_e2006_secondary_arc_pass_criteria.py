@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the secondary-arc pass conditions leaf (offline, stdlib)."""
 
+import math
 import unittest
 
 from e2006_secondary_arc_pass_criteria_logic import (
@@ -79,7 +80,15 @@ class CategorizeArcEventTests(unittest.TestCase):
         start = 0.1
         stop = start + NON_SUSTAINED_LIMIT_S
         duration = stop - start
-        self.assertGreaterEqual(duration, NON_SUSTAINED_LIMIT_S)
+        # The round trip does not return the limit: only + and - are
+        # involved, both correctly rounded by IEEE-754, so the difference
+        # lands exactly four units in the last place above the limit on every
+        # platform. The limit itself is unchanged.
+        self.assertEqual(
+            (duration - NON_SUSTAINED_LIMIT_S)
+            / math.ulp(NON_SUSTAINED_LIMIT_S),
+            4.0,
+        )
         event = {"duration_s": duration, "peak_current_a": 2.0, "termination": "self-extinguished"}
         self.assertEqual(categorize_arc_event(event), "non-sustained")
 

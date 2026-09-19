@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-certificate-of-conformity (space-systems/ecss,
+# Q-ST-60-05 13.2.3). Two tasks per leaf; cc1 routes on the configuration
+# comparison and the waiver coverage, cc2 on the signatory authority and the
+# quantity declaration. Both must deterministically hit
+# space-systems/ecss/q6005-certificate-of-conformity.
+tasks:
+  - id: cc1
+    query: "validate a certificate-of-conformity for a hybrid lot: the hybrid-coc-configuration-match between ordered and delivered and the hybrid-coc-waiver-coverage of every difference"
+    intent: "ecss hybrids; the signed declaration issued with the shipment"
+    expected_skill: "space-systems/ecss/q6005-certificate-of-conformity"
+  - id: cc2
+    query: "test the hybrid-coc-signatory-authority on a conformity certificate and the hybrid-coc-quantity-declaration against the serials shipped for the hybrid-coc-completeness-index"
+    intent: "ecss hybrids; who signed the conformity declaration and what it covers"
+    expected_skill: "space-systems/ecss/q6005-certificate-of-conformity"

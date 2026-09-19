@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-creating-and-deleting-files (space-systems/ecss).
+# fcrud1 routes on the three bounds a create request has to clear and on the
+# free space accounting; fcrud2 routes on a delete of a file a transfer is
+# holding open. Both must deterministically hit
+# space-systems/ecss/e7041-creating-and-deleting-files.
+tasks:
+  - id: fcrud1
+    query: "a create file request was refused even though the repository has thousands of octets free; work out which bound it actually failed and when the free space moves for a create that only reserves an allocation"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.1; a create clears the duplicate name, the file count limit, the per-file ceiling and the free space, and reserves on acceptance"
+    expected_skill: "space-systems/ecss/e7041-creating-and-deleting-files"
+  - id: fcrud2
+    query: "should a delete succeed on an on board file that a downlink transfer still has open, and if we replay the same run of create and delete requests in a different order do we get the same repository"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.1; delete refused on absent, locked and held-open files, a refused request changes nothing and the run is order dependent"
+    expected_skill: "space-systems/ecss/e7041-creating-and-deleting-files"

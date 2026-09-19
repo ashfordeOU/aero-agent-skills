@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-contamination-level-calculation (space-systems/ecss)
+# Two tasks for the new leaf. clc1 routes on the per-species inversion and the
+# sampling chain carried to an areal figure; clc2 routes on the sub-limit
+# contributor that makes the total an interval. Both must deterministically hit
+# space-systems/ecss/q7005-contamination-level-calculation.
+tasks:
+  - id: clc1
+    query: "two species were identified and each has its own response curve; give me one number in micrograms per square centimetre for the surface and the cleanliness band it falls in"
+    intent: "ECSS-Q-ST-70-05C quantification; invert each species through its own calibration before summing, carry dilution, recovery and sampled area, then place the total in a level band"
+    expected_skill: "space-systems/ecss/q7005-contamination-level-calculation"
+  - id: clc2
+    query: "one species reads right at its detection floor and the summed organic residue per square metre lands on the edge of a cleanliness level, so how do I state that honestly, as a bounded range or a single figure"
+    intent: "ECSS-Q-ST-70-05C quantification; a sub-limit species makes the total a bounded pair, and a pair straddling a level boundary has no single level"
+    expected_skill: "space-systems/ecss/q7005-contamination-level-calculation"

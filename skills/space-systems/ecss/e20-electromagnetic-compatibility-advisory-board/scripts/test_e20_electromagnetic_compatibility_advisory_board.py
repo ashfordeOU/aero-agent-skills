@@ -16,6 +16,7 @@ customer approval; and the aggregate review is compliant only when the
 board is constituted, quorate and leaves nothing deferred.
 """
 
+import math
 import os
 import sys
 import unittest
@@ -220,7 +221,11 @@ class CeilWithToleranceTest(unittest.TestCase):
 
     def test_representation_error_above_an_integer_is_absorbed(self):
         product = 0.56 * 25
-        self.assertGreater(product, 14.0)
+        # IEEE-754 multiplication is correctly rounded, so this product has
+        # the same bit pattern on every platform: exactly one ULP above the
+        # seat count. Assert that exact overshoot, not the direction of the
+        # last bit, then assert the ceiling absorbs it.
+        self.assertEqual(product, math.nextafter(14.0, math.inf))
         self.assertEqual(ab._ceil_with_tolerance(product), 14)
 
     def test_a_real_fraction_still_rounds_up(self):

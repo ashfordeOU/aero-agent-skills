@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-power-flux-density-limits (space-systems/ecss)
+# Two tasks for the new leaf. pfd1 routes on the limit being a schedule over
+# arrival angle; pfd2 routes on referring a measurement to the limit's reference
+# bandwidth. Both must deterministically hit
+# space-systems/ecss/e50-power-flux-density-limits.
+tasks:
+  - id: pfd1
+    query: "work out the flux our downlink puts on the ground across the pass from the EIRP and slant range, and find which arrival angle actually governs rather than assuming it is closest approach"
+    intent: "ECSS-E-ST-50C clause 5.6.12.4; the limit is a schedule over angle of arrival, so the smallest margin is not in general at the highest flux density"
+    expected_skill: "space-systems/ecss/e50-power-flux-density-limits"
+  - id: pfd2
+    query: "the flux figure we have was integrated over a forty kilohertz span while the coordination limit applies in a four kilohertz reference bandwidth; get it referred, then read the limit off its schedule at every arrival angle and name the angle that governs"
+    intent: "ECSS-E-ST-50C clause 5.6.12.4; the value graded against the flux limit is referred to the limit's reference bandwidth first, and the referral is one-directional"
+    expected_skill: "space-systems/ecss/e50-power-flux-density-limits"

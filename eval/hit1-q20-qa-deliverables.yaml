@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-qa-deliverables (space-systems/ecss)
+# Two tasks for the new leaf. qd1 routes on which QA documents a given review
+# owes for the declared scope and at what maturity; qd2 routes on the lead-time
+# check and the first blocking review across the sequence. Both must
+# deterministically hit space-systems/ecss/q20-qa-deliverables.
+tasks:
+  - id: qd1
+    query: "build me the list of quality assurance documents this review owes for a project with no software and tell me which of them are reissued every time and which arrive once in draft and once approved"
+    intent: "ECSS-Q-ST-20C Annex I mapping as a delivery schedule; scope gating, recurring versus one-shot rows and the maturity owed"
+    expected_skill: "space-systems/ecss/q20-qa-deliverables"
+  - id: qd2
+    query: "half this review data pack landed the day before the meeting and the nonconformance list is still the one from the design phase, work out the readiness score and which review blocks first"
+    intent: "ECSS-Q-ST-20C Annex I submission lead time before the review date, maturity shortfall and the first blocking review rollup"
+    expected_skill: "space-systems/ecss/q20-qa-deliverables"

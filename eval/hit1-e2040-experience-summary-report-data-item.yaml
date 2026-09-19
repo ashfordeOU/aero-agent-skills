@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-experience-summary-report-data-item (space-systems/ecss)
+# Two tasks for the new leaf. esr1 routes on tracing the development anomaly
+# history into the lessons and the severity weighting of that trace; esr2
+# routes on the four parts a lesson record needs and the three-factor priority
+# index. Both must deterministically hit
+# space-systems/ecss/e2040-experience-summary-report-data-item.
+tasks:
+  - id: esr1
+    query: "we are closing out the development, trace every anomaly we raised through to the lesson that captures it and tell me which ones we are about to close with nothing written down"
+    intent: "ECSS-E-ST-20-40C Annex I; severity-weighted traceability of the anomaly history into the lessons and the uncaptured anomalies the closing report has to name"
+    expected_skill: "space-systems/ecss/e2040-experience-summary-report-data-item"
+  - id: esr2
+    query: "go through the lessons we drafted for the closing report, several have a recommendation with nobody against it, and rank what is left by how badly it would hurt the next build"
+    intent: "ECSS-E-ST-20-40C Annex I; a lesson needs observation, cause, recommendation and owner, and the ranking is the occurrence-by-impact-by-detection priority index with a stable tie-break"
+    expected_skill: "space-systems/ecss/e2040-experience-summary-report-data-item"

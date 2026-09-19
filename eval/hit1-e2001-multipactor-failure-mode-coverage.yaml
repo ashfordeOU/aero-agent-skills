@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-failure-mode-coverage (space-systems/ecss)
+# Case 1 routes on a credible case present in one set and absent from the other.
+# Case 2 routes on how the degraded operating point is actually built.
+tasks:
+  - id: e2001-multipactor-failure-mode-coverage-1
+    query: "Our critical payload unit has a credible degraded case: an amplifier drop-out re-routes four channels' carrier power onto a single path. Multipactor sizing covered it, but the bench cannot reproduce it, so it never entered the demonstration set. Is that coverage gap acceptable under ECSS?"
+    intent: "ECSS-E-ST-20-01C 4.3.1.3; a credible case owes a place in both sets and an awkward-to-reproduce case needs a recorded rationale rather than silence"
+    expected_skill: "space-systems/ecss/e2001-multipactor-failure-mode-coverage"
+  - id: e2001-multipactor-failure-mode-coverage-2
+    query: "A degraded case names a standing wave ratio of 2.0 while the nominal interface is 1.4, and a hot surface derates the secondary emission threshold. Do I multiply the two mismatch figures, and how does that feed the breakdown margin in decibels?"
+    intent: "ECSS-E-ST-20-01C 4.3.1.3; both mismatch figures describe one interface so the worse governs, and the surface derating lowers the threshold rather than the applied level"
+    expected_skill: "space-systems/ecss/e2001-multipactor-failure-mode-coverage"

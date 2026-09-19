@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-anti-creep-barriers (space-systems/ecss).
+# acb1 routes on the surface-energy physics of a barrier band; acb2 routes on
+# path coverage to a deliberately dry surface and on vapour a surface barrier
+# cannot stop. Both must deterministically hit
+# space-systems/ecss/e3301-anti-creep-barriers.
+tasks:
+  - id: acb1
+    query: "we painted a low energy band around the shaft to stop the oil running to the window, check the spreading coefficient and the contact angle the oil makes on that band and tell me whether the band is wide enough and continuous enough to hold"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.3.3; spreading coefficient and Young contact angle of the lubricant on the barrier film, band width, continuity and temperature rating"
+    expected_skill: "space-systems/ecss/e3301-anti-creep-barriers"
+  - id: acb2
+    query: "list every route the lubricant can take out of the gear mesh and tell me which ones reach a surface that is supposed to stay dry, like the friction brake face, and whether any of them is an open line of sight where a painted band will not stop the vapour"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.3.3; migration path coverage to sensitive and deliberately un-lubricated surfaces, and vapour transport needing its own control"
+    expected_skill: "space-systems/ecss/e3301-anti-creep-barriers"

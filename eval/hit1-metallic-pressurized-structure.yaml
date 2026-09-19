@@ -1,0 +1,13 @@
+# Hit@1 fragment: metallic-pressurized-structure (space-systems/ecss)
+# Case 1 routes on factoring pressure and mechanical load separately then superposing
+# the axial contributions. Case 2 routes on the proof and burst multiples and on the
+# fail-safe provision a safety-designated bulkhead owes.
+tasks:
+  - id: metallic-pressurized-structure-1
+    query: "A crew module barrel sees 1.05 bar MEOP and 240 kilonewtons of axial load at the same moment on ascent. Do I factor each limit contribution before combining them, and how do the pressure hoop and mechanical axial stresses add up?"
+    intent: "ECSS-E-ST-32C 4.4.2; each limit contribution is factored before combination, and the membrane axial stress from pressure adds algebraically to the mechanical axial stress"
+    expected_skill: "space-systems/ecss/metallic-pressurized-structure"
+  - id: metallic-pressurized-structure-2
+    query: "The aft bulkhead is safety-designated and both its hoop and axial margins are comfortably positive. Is that enough to close it, and what multiples of operating pressure should the proof and burst programme demonstrate?"
+    intent: "ECSS-E-ST-32C 4.4.2; a safety-designated bulkhead owes a fail-safe feature or a redundant load path independently of its stress margins, alongside the proof and burst thresholds"
+    expected_skill: "space-systems/ecss/metallic-pressurized-structure"

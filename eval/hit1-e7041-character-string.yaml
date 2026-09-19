@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-character-string (space-systems/ecss)
+# Two tasks for the new leaf. chs1 routes on the count field being too narrow for
+# the declared maximum; chs2 routes on a pad octet drawn from the repertoire making
+# the decode ambiguous. Both must deterministically hit
+# space-systems/ecss/e7041-character-string.
+tasks:
+  - id: chs1
+    query: "our packet definition declares a variable length text field and the leading count in front of it is only one octet wide, can that even express the longest value the database allows, which runs to several hundred characters"
+    intent: "ECSS-E-ST-70-41C clause 7.3.9; a variable-length character string carries a leading count of the characters present and the count field has to be wide enough to express the declared maximum, otherwise the longest legal value is unrepresentable"
+    expected_skill: "space-systems/ecss/e7041-character-string"
+  - id: chs2
+    query: "a memory area label that ends in a blank comes back one character shorter every time it is dumped, check how the fixed-width name field is filled out and whether the filler can be told apart from the value"
+    intent: "ECSS-E-ST-70-41C clause 7.3.9; a fixed-length character string is padded to its declared length with a declared pad octet, and a pad octet inside the repertoire makes a trailing occurrence of that character indistinguishable from padding on decode"
+    expected_skill: "space-systems/ecss/e7041-character-string"

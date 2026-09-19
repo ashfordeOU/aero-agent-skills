@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-netlist-generation (space-systems/ecss)
+# Two tasks for the new leaf. dng1 routes on synthesis run reproducibility and the
+# unpinned technology library; dng2 routes on resource utilisation against budget and
+# unresolved cells. Both must deterministically hit
+# space-systems/ecss/e2040-device-netlist-generation.
+tasks:
+  - id: dng1
+    query: "our synthesis run record pins the sources and the tool but not the technology library version, can somebody else obtain the same netlist from what we wrote down"
+    intent: "ECSS-E-ST-20-40C clause 5.5.2; synthesis run reproducibility, source and constraint revisions, tool and technology library version pinning"
+    expected_skill: "space-systems/ecss/e2040-device-netlist-generation"
+  - id: dng2
+    query: "work out the resource utilisation the synthesis reached against the budget we set, list the cells the run left unresolved, and flag the blocking warnings nobody dispositioned"
+    intent: "ECSS-E-ST-20-40C clause 5.5.2; netlist resource utilisation against budget with exact landings inside, unresolved cells, warning disposition"
+    expected_skill: "space-systems/ecss/e2040-device-netlist-generation"

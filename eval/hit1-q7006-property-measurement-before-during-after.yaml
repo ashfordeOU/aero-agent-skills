@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7006-property-measurement-before-during-after (space-systems/ecss)
+# tr1 routes on the read-out schedule of an irradiation and the pristine baseline;
+# tr2 routes on the sampling of the exposure axis and the resolvability of the
+# expected change. Both must deterministically hit
+# space-systems/ecss/q7006-property-measurement-before-during-after.
+tasks:
+  - id: tr1
+    query: "set the read-out points for this UV and electron exposure: where does the pristine baseline sit, which properties are measured at every point, and how many replicates does a tensile coupon need against an absorptance coupon"
+    intent: "ECSS-Q-ST-70-06C measurement clause; pristine baseline, intermediate exposure points and the replicate floor per property family"
+    expected_skill: "space-systems/ecss/q7006-property-measurement-before-during-after"
+  - id: tr2
+    query: "our irradiation plan only measures absorptance before and after; how wide is the unmeasured stretch of the exposure axis and is the expected absorptance change even larger than the reflectometer expanded uncertainty"
+    intent: "ECSS-Q-ST-70-06C measurement clause; exposure-axis sampling gap and the resolvability of an expected change against its measurement uncertainty"
+    expected_skill: "space-systems/ecss/q7006-property-measurement-before-during-after"

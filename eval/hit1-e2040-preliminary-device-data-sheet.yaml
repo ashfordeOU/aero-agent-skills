@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-preliminary-device-data-sheet (space-systems/ecss)
+# Two tasks for the new leaf. pdds1 routes on the early sheet going to readers outside
+# the development and on unit discipline; pdds2 routes on maturity against basis and on
+# the mandatory groups left empty. Both must deterministically hit
+# space-systems/ecss/e2040-preliminary-device-data-sheet.
+tasks:
+  - id: pdds1
+    query: "the early device summary we send to people outside the development has figures with no unit on them and one value sitting outside the range the sheet itself declares"
+    intent: "ECSS-E-ST-20-40C clause 5.4.5; preliminary data sheet unit discipline, declared range bound check with exact landings inside"
+    expected_skill: "space-systems/ecss/e2040-preliminary-device-data-sheet"
+  - id: pdds2
+    query: "a couple of characteristics in the preliminary sheet are marked confirmed while they still rest on a simulation, and the environmental section was never filled in at all"
+    intent: "ECSS-E-ST-20-40C clause 5.4.5; figure maturity against its basis, mandatory characteristic group left empty is a gap not silence"
+    expected_skill: "space-systems/ecss/e2040-preliminary-device-data-sheet"

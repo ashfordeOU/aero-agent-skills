@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-ird-drd (space-systems/ecss)
+# Case 1 routes on the two-party precondition and the per-requirement type and
+# verification method. Case 2 routes on identifier format and uniqueness, a
+# different admissibility check on the same data item.
+tasks:
+  - id: e1024-ird-drd-1
+    query: "The IRD between our platform and the customer instrument names the same subsystem as both parties, and half the entries carry no verification method letter. Can it be baselined, and which of the seven interface categories do the rest fall under?"
+    intent: "ECSS-E-ST-10-24C Annex A; two distinct named parties are a precondition, and an entry with no verification method is unverifiable rather than pending"
+    expected_skill: "space-systems/ecss/e1024-ird-drd"
+  - id: e1024-ird-drd-2
+    query: "Our IRD identifiers look like IRD-MECH-01 and two of them repeat across the list. What identifier pattern does the interface requirements data item demand, and does a duplicate block baselining?"
+    intent: "ECSS-E-ST-10-24C Annex A; the mandated identifier pattern and uniqueness across the whole list, distinct from the content checks on each entry"
+    expected_skill: "space-systems/ecss/e1024-ird-drd"

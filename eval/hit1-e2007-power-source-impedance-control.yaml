@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-power-source-impedance-control (space-systems/ecss)
+# Case 1 routes on which conductors carry the network obligation and which are exempt.
+# Case 2 routes on campaign drift against the opening baseline, not sweep conformity.
+tasks:
+  - id: e2007-power-source-impedance-control-1
+    query: "We fitted a line-impedance-stabilization-network on the primary feed but took the dedicated supply return straight to the bench. Does each energized conductor that sources power need one, and what about a redundant feed left unpowered for this run?"
+    intent: "ECSS-E-ST-20-07C 5.2.4; the case turns on coverage being per energized source conductor including the dedicated return, with de-energized and referenced conductors recorded exempt"
+    expected_skill: "space-systems/ecss/e2007-power-source-impedance-control"
+  - id: e2007-power-source-impedance-control-2
+    query: "Our stabilization network sat inside tolerance at the opening calibration of a five-week electromagnetic campaign and nobody read it again. Which calibration checkpoints does 5.2.4 expect through the campaign, and what drift from that opening supply impedance is permitted?"
+    intent: "ECSS-E-ST-20-07C 5.2.4; the case turns on campaign stability needing an opening baseline plus later checkpoints inside a drift fraction, separate from sweep conformity"
+    expected_skill: "space-systems/ecss/e2007-power-source-impedance-control"

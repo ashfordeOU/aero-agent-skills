@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-qualification-process-selection (space-systems/ecss)
+# Two tasks for the new leaf. qps1 routes on the heritage-versus-modification
+# routing itself; qps2 routes on the accumulated-minor-changes case that a
+# per-change review never catches. Both must deterministically hit
+# space-systems/ecss/e3102-qualification-process-selection.
+tasks:
+  - id: qps1
+    query: "this heat pipe has flight heritage but the new application changes the working fluid and asks for a wider operating envelope than its qualification covered; does any single modification force the whole programme open again, and what delta test scope do the rest owe"
+    intent: "ECSS-E-ST-31-02C clauses 5.3-5.4; heritage qualification envelope against a fundamental design modification, and the full-versus-delta routing"
+    expected_skill: "space-systems/ecss/e3102-qualification-process-selection"
+  - id: qps2
+    query: "six small changes to the two-phase loop, each one signed off on its own, work out whether the stack of them still justifies a delta qualification or has quietly become a full one"
+    intent: "ECSS-E-ST-31-02C clauses 5.3-5.4; weighted modification extent index over distinct bounded categories against the full-programme threshold"
+    expected_skill: "space-systems/ecss/e3102-qualification-process-selection"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-lessons-learned (space-systems/ecss)
+# Two tasks for the new leaf. lls1 routes on ranking register entries by
+# recurrence, consequence and detectability and on routing them to a controlled
+# item; lls2 routes on entries captured per campaign anomaly. Both must
+# deterministically hit space-systems/ecss/q2007-lessons-learned.
+tasks:
+  - id: lls1
+    query: "score every entry in the register that came out of the test campaign on how often it recurs, what it costs and whether we would catch it, sort them into priority bands, then say which baseline absorbs each"
+    intent: "ECSS-Q-ST-20-07C clause 5.8.3; priority from recurrence, consequence and detectability, and the feedback route from the entry category to a controlled baseline"
+    expected_skill: "space-systems/ecss/q2007-lessons-learned"
+  - id: lls2
+    query: "twelve anomalies came out of that campaign and the register closed with only two entries, both signed off, so grade the capture rate against the anomalies and tell me what is overdue"
+    intent: "ECSS-Q-ST-20-07C clause 5.8.3; capture ratio of register entries per campaign anomaly, and why a high closure fraction does not redeem a thin capture"
+    expected_skill: "space-systems/ecss/q2007-lessons-learned"

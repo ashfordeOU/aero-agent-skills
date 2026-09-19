@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-package-delidding-rules (space-systems/ecss)
+# Two tasks for the new leaf. pdr1 routes on the two budgets a sealed package
+# carries - reopen cycles and sealing land consumed per reseal. pdr2 routes on
+# the reason for opening deciding whether the unit ever returns to deliverable
+# stock, and on the retest set the reseal owes. Both must deterministically hit
+# space-systems/ecss/q6005-package-delidding-rules.
+tasks:
+  - id: pdr1
+    query: "a sealed hybrid needs a second delid for failure analysis; has the reopen-cycle allowance run out, is there sealing land left to reweld on, what retest set does the reseal owe, and can the unit go back to deliverable stock"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.5; the reopen-cycle allowance of a sealed hybrid package and the sealing land each reseal consumes against the minimum that must survive"
+    expected_skill: "space-systems/ecss/q6005-package-delidding-rules"
+  - id: pdr2
+    query: "if we delid a flight unit to do failure analysis on it, does it ever go back into deliverable stock and what testing does the reseal owe"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.5; whether the reason for opening a sealed hybrid returns the unit to stock, and the leak, visual and re-screening obligations a reseal carries"
+    expected_skill: "space-systems/ecss/q6005-package-delidding-rules"

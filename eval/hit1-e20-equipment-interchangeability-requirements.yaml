@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-equipment-interchangeability-requirements (space-systems/ecss)
+# Case 1 routes on sorting attributes into the three dimensions and the undeclared-tolerance trap.
+# Case 2 routes on qualification-status ranking and the installation-property disqualifiers.
+tasks:
+  - id: e20-equipment-interchangeability-requirements-1
+    query: "Two units share a part number: mass differs by 3 percent, the CoG offset differs by 1.5 mm with no tolerance ever declared, and the pinout is identical. How do I sort those attributes, and what happens to the numeric one with no tolerance?"
+    intent: "ECSS-E-ST-20C 4.2.6; attributes sort into form, fit and function, and a measured attribute with no declared tolerance is a finding rather than a silent pass"
+    expected_skill: "space-systems/ecss/e20-equipment-interchangeability-requirements"
+  - id: e20-equipment-interchangeability-requirements-2
+    query: "Can an engineering model drop into a flight slot when every attribute matches? And does a unit that only works after its neighbour is paired to it, or after a trim at installation, still count as a straight replacement?"
+    intent: "ECSS-E-ST-20C 4.2.6; the candidate's qualification status must rank at or above the slot's, and matched-set pairing or on-installation adjustment defeats the claim outright"
+    expected_skill: "space-systems/ecss/e20-equipment-interchangeability-requirements"

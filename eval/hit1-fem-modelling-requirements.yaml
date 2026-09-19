@@ -1,0 +1,13 @@
+# Hit@1 fragment: fem-modelling-requirements (space-systems/ecss)
+# Case 1 routes on idealization choice and the mesh density criterion.
+# Case 2 routes on the bookkeeping side of the same clause: constitutive law,
+# a single unit system, and justified boundary conditions.
+tasks:
+  - id: fem-modelling-requirements-1
+    query: "A slender strut of aspect ratio around 20 is currently meshed with solid bricks, and the fillet where we need stress is 3 mm. What idealization should it carry and what element size does the gradient criterion allow?"
+    intent: "ECSS-E-ST-32C section 4.3; the idealization follows the dominant behaviour, and element size is a fraction of the characteristic gradient length"
+    expected_skill: "space-systems/ecss/fem-modelling-requirements"
+  - id: fem-modelling-requirements-2
+    query: "Half the finite element model is built in newton-millimetre and the rest in newton-metre, so the unit system is mixed; the composite skins carry an isotropic material model and several boundary constraints have no written justification. Which of those block acceptance?"
+    intent: "ECSS-E-ST-32C section 4.3; one consistent unit system, a constitutive law matched to the material class, and a written reason behind every constraint"
+    expected_skill: "space-systems/ecss/fem-modelling-requirements"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-test-temperature (space-systems/ecss)
+# Case 1 routes on deriving the setpoints and the gap that expansion gives at each one.
+# Case 2 routes on the threshold read at each extreme, the applied gap voltage and soak evidence.
+tasks:
+  - id: e2001-multipactor-test-temperature-1
+    query: "The critical gap measures 0.4 mm on the drawing and the predicted orbital range is minus 20 to plus 65 C. Where do my hot and cold setpoints sit once qualification margin is added, and how far does the gap itself move at each one?"
+    intent: "ECSS-E-ST-20-01C 6.3; setpoints widen the predicted range by the qualification margin, and the gap that matters is the expanded one at the test temperature"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-temperature"
+  - id: e2001-multipactor-test-temperature-2
+    query: "At each extreme I form the frequency times gap product and pick the first-order threshold from the susceptibility trend. With 60 W into a 50 ohm line, what peak voltage appears across that gap, and how long must the item soak before a setpoint counts as covered?"
+    intent: "ECSS-E-ST-20-01C 6.3; margin is the threshold over the applied gap voltage derived from power and line impedance, and a setpoint only counts once stabilised"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-temperature"

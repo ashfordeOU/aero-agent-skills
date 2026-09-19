@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-stress-strength (space-systems/ecss)
+# Case 1 routes on forming the margin itself -- safety factor on the load, not the allowable.
+# Case 2 routes on coverage of secondary elements, a zero margin, and the mandated content.
+tasks:
+  - id: drd-stress-strength-1
+    query: "In the Annex K stress report one element was worked by dividing the allowable by the ultimate safety factor rather than scaling the limit load, and every bracket now shows a positive margin. How should the margin actually be formed?"
+    intent: "ECSS-E-ST-32C Annex K; the factor multiplies the limit load to give the design load, and inverting that produces an unconservative margin that must be recomputed and escalated"
+    expected_skill: "space-systems/ecss/drd-stress-strength"
+  - id: drd-stress-strength-2
+    query: "The strength report skips every element we call secondary structure, and one fitting comes out with a margin of exactly zero against its ultimate allowable. Are those both findings, and which content items must the stress report carry before submission?"
+    intent: "ECSS-E-ST-32C Annex K; secondary elements are inside the required coverage and a zero margin carries no reserve, while the report's mandated content is graded separately from the numbers"
+    expected_skill: "space-systems/ecss/drd-stress-strength"

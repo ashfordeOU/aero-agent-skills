@@ -1,0 +1,13 @@
+# Hit@1 fragment: fsi-analysis (space-systems/ecss)
+# Case 1 routes on the tank side: how much of the propellant participates and what
+# the coupling does to a frequency the launcher constrains. Case 2 routes on the
+# external side: unsteady aerodynamic excitation at the worst flight condition.
+tasks:
+  - id: fsi-analysis-1
+    query: "Our upper-stage tank is about 60 percent full and the dry lateral mode sits at 32 Hz against a 30 Hz floor in the launcher interface document. How far does propellant sloshing and the hydroelastic coupling pull that mode down, and which portion of the fluid mass acts as added mass?"
+    intent: "ECSS-E-ST-32 clause 4.6.2.7; the case turns on the participating slosh mass, the added-mass ratio and the coupled frequency being the one checked against the interface floor"
+    expected_skill: "space-systems/ecss/fsi-analysis"
+  - id: fsi-analysis-2
+    query: "At maximum dynamic pressure our fairing shoulder takes buffet excitation, roughly 38 kPa acting over a 2.4 square metre reference area. How do I turn that buffet into a load I can set against the panel allowable, and is an RMS figure enough when a panel mode sits inside the band?"
+    intent: "ECSS-E-ST-32 clause 4.6.2.7; the case turns on the buffet excitation at the critical flight condition and on it being broadband rather than a static load"
+    expected_skill: "space-systems/ecss/fsi-analysis"

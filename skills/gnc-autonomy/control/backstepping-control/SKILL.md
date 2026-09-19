@@ -233,4 +233,7 @@ deterministic, 37 test methods). Run:
   shared with pid-control-design, digital-control-design,
   observer-design, deadbeat-control, smith-predictor, sliding-mode-
   control, feedback-linearization and h-infinity-control.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

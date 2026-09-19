@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-telemetry-and-data-antenna-patterns (space-systems/ecss)
+# Case 1 routes on cut sampling validity and per-band classification of a nearby structure.
+# Case 2 routes on the installed worst-case gain and solid-angle weighting of coverage.
+tasks:
+  - id: e20-telemetry-and-data-antenna-patterns-1
+    query: "Our low-gain telecommand antenna cuts were taken every 15 degrees, and a 40 cm bracket sits 30 cm from the element. At S-band is that bracket blockage or a scatterer, and is 15-degree stepping fine enough to see the nulls at all?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.1; a structure is graded by its size in wavelengths and whether it obscures the path, and a coarse cut is reported rather than interpolated across"
+    expected_skill: "space-systems/ecss/e20-telemetry-and-data-antenna-patterns"
+  - id: e20-telemetry-and-data-antenna-patterns-2
+    query: "Once blockage loss and scattering ripple are laid onto the isolated-antenna cut, how do I extract the worst installed gain across the cone the link demands, and why is counting angular samples above threshold the wrong route to coverage fraction?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.1; the figure of merit is worst-case installed gain inside the required cone, and coverage has to be weighted by solid angle rather than by angle"
+    expected_skill: "space-systems/ecss/e20-telemetry-and-data-antenna-patterns"

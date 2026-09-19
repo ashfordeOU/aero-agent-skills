@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-battery-safety-management (space-systems/ecss)
+# Case 1 routes on sizing inhibits from severity and discounting inhibits that are not
+# genuinely independent. Case 2 routes on the containment trade and on grading a
+# cell-to-cell barrier by thermal margin.
+tasks:
+  - id: e20-battery-safety-management-1
+    query: "Our battery hazard log calls overcharge catastrophic. The drawing shows three series relays but all three take their command from one decoder. How many inhibits may I claim, and what failure tolerance does that leave?"
+    intent: "ECSS-E-ST-20C 5.6.5.2; severity sets the required inhibit count and only inhibits independent of their neighbours and verifiable count toward achieved failure tolerance"
+    expected_skill: "space-systems/ecss/e20-battery-safety-management"
+  - id: e20-battery-safety-management-2
+    query: "Electrolyte leakage is handled by a sealed enclosure rather than by cutting current, and runaway has a barrier fitted with the worst predicted surface temperature of any cell eight kelvin under onset. Are both hazards adequately controlled?"
+    intent: "ECSS-E-ST-20C 5.6.5.2; a containment-family hazard trades an inhibit for a mandatory containment provision, and a fitted propagation barrier is still graded by its thermal margin"
+    expected_skill: "space-systems/ecss/e20-battery-safety-management"

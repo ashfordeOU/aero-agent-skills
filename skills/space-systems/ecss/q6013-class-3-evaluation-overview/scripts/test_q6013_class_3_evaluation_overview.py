@@ -67,9 +67,17 @@ class ExtentRetentionTests(unittest.TestCase):
         )
 
     def test_every_retention_sits_between_zero_and_one(self):
-        for retention in EXTENT_RETENTION.values():
-            self.assertGreaterEqual(retention, 0.0)
-            self.assertLessEqual(retention, 1.0)
+        # Table literals, not computed values: both endpoints of the unit
+        # interval are hit exactly - an evaluation performed in full retains
+        # 1.0, an omission retains 0.0 - so the ceiling and the floor are
+        # asserted as equalities and only the interior entries are compared.
+        self.assertEqual(max(EXTENT_RETENTION.values()), 1.0)
+        self.assertEqual(min(EXTENT_RETENTION.values()), 0.0)
+        for name, retention in sorted(EXTENT_RETENTION.items()):
+            if retention in (0.0, 1.0):
+                continue
+            self.assertGreater(retention, 0.0, name)
+            self.assertLess(retention, 1.0, name)
 
     def test_unknown_extent_rejected(self):
         with self.assertRaises(ValueError):

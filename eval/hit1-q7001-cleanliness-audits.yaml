@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7001-cleanliness-audits (space-systems/ecss)
+# ca1 routes on scoring practice areas into a conformity index; ca2 routes on
+# the approval status and the re-audit interval. Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-audits.
+tasks:
+  - id: ca1
+    query: "score a supplier cleanroom on garmenting, air quality monitoring, consumable control and cleaning method, weight the areas and give me the contamination control conformity index"
+    intent: "ECSS-Q-ST-70-01C surveillance; weighted contamination-control practice scoring for a facility or supplier audit"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-audits"
+  - id: ca2
+    query: "one practice area scored zero and there are three major findings; decide whether flight hardware may still enter that facility and when the re-audit falls due"
+    intent: "ECSS-Q-ST-70-01C surveillance; contamination audit finding severity, facility approval status and re-audit interval"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-audits"

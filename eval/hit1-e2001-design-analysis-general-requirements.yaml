@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-design-analysis-general-requirements (space-systems/ecss)
+# Case 1 routes on applicability: which transmit-chain items the clause reaches and
+# where a sealed pressurised region is handed instead. Case 2 routes on the carrier
+# case: the level used for the screen and the coverage each case demands.
+tasks:
+  - id: e2001-design-analysis-general-requirements-1
+    query: "Half our transmit chain sits in a sealed pressurised housing and half is vented to vacuum. Which items does the clause 5.3.2.1 multipaction design analysis actually apply to, and where does the sealed hardware go instead?"
+    intent: "ECSS-E-ST-20-01C clause 5.3.2.1; the applicability gates are a power-carrying equipment type and a vacuum-exposed region, and a sealed pressurised region is visibly routed to the gas discharge case rather than dropped"
+    expected_skill: "space-systems/ecss/e2001-design-analysis-general-requirements"
+  - id: e2001-design-analysis-general-requirements-2
+    query: "Our output multiplexer carries eight carriers. Do I take the summed average or the coherent peak envelope power for the gap voltage screen, and does a multicarrier analysis discharge the single-carrier demand as well?"
+    intent: "ECSS-E-ST-20-01C clause 5.3.2.1; the coherent envelope of a multicarrier set drives the gap voltage, and the single-carrier and multicarrier items are separate demands on the same equipment"
+    expected_skill: "space-systems/ecss/e2001-design-analysis-general-requirements"

@@ -6,10 +6,10 @@
 # space-systems/ecss/q6005-chip-lot-acceptance-conditions.
 tasks:
   - id: clac1
-    query: "the bare die delivery arrived as two batches from different wafer lots in one container, decide whether we can take it into stores against the one set of lot acceptance data we were given"
+    query: "the bare die delivery arrived as two sublots from different wafer lots, packed together - work out the homogeneity ratio across everything that came, say how many dice carry both a wafer and a diffusion identity, and whether stores can accept it"
     intent: "ECSS-Q-ST-60-05C clause 8.1.4; wafer-lot homogeneity of a delivered chip batch and when a split delivery is a reservation rather than a rejection"
     expected_skill: "space-systems/ecss/q6005-chip-lot-acceptance-conditions"
   - id: clac2
-    query: "the delivery note says a thousand die but the waffle packs add up to less and one pack has no diffusion lot on it, work out the disposition of this batch"
+    query: "the delivery note claims a thousand bare dice but the waffle packs come up short and one pack carries no diffusion lot identity - reconcile the sublot counts against the order and tell me how this delivery should be dispositioned"
     intent: "ECSS-Q-ST-60-05C clause 8.1.4; sublot quantity reconciliation against the delivery note and the order, and quantity-weighted traceability coverage"
     expected_skill: "space-systems/ecss/q6005-chip-lot-acceptance-conditions"

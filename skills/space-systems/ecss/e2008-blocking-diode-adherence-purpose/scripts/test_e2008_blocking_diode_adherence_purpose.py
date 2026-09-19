@@ -166,7 +166,11 @@ class ExposureTests(unittest.TestCase):
         self.assertAlmostEqual(service_exposure_index(ALL_EXPOSURES), 1.0, places=9)
 
     def test_the_full_exposure_set_never_indexes_above_one(self):
-        self.assertLessEqual(service_exposure_index(ALL_EXPOSURES), 1.0)
+        # The declared weights sum to one, and the leaf clamps any
+        # representation error back onto the literal 1.0, so a full set
+        # indexes at EXACTLY one. Assert that equality rather than an
+        # inequality whose two sides are the same bit pattern.
+        self.assertEqual(service_exposure_index(ALL_EXPOSURES), 1.0)
 
     def test_a_repeated_exposure_counts_once(self):
         single = service_exposure_index(["diode-lead-series-weld"])

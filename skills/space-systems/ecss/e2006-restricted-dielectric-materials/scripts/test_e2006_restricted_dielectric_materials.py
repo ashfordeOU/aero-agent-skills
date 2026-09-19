@@ -226,8 +226,13 @@ class PotentialTests(unittest.TestCase):
 
     def test_onset_boundary_with_representation_drift_is_within(self):
         drifted = differential_potential_v(-1660.57, -2060.57)
-        self.assertAlmostEqual(drifted, DISCHARGE_ONSET_V)
-        self.assertGreater(drifted, DISCHARGE_ONSET_V)
+        # The subtraction is correctly rounded, so the drift is the same on
+        # every platform: the differential sits above the onset by a
+        # sub-nanovolt of arithmetic, not by a real potential. Assert the
+        # size of the drift; the onset itself is untouched.
+        drift = drifted - DISCHARGE_ONSET_V
+        self.assertGreater(drift, 0.0)
+        self.assertLess(drift, 1e-9)
         self.assertTrue(within_discharge_onset(drifted))
 
     def test_above_onset_is_not_within(self):

@@ -1,0 +1,12 @@
+# Hit@1 fragment: strength-functionality (space-systems/ecss)
+# Case 1 routes on deriving the two design load levels and where the check has to be repeated.
+# Case 2 routes on reducing a multiaxial state and reporting the margin, nonlinear runs included.
+tasks:
+  - id: strength-functionality-1
+    query: "Limit load on the bracket is 12 kN. Once the yield factor and the ultimate factor are applied, what are the two design load levels, and must the margin be checked at every assembly level or only for the complete system?"
+    intent: "ECSS-E-ST-32C 4.3.2; the two gates come from separate factors on the limit load and both apply at component, subsystem and system alike"
+    expected_skill: "space-systems/ecss/strength-functionality"
+  - id: strength-functionality-2
+    query: "Our bracket carries combined tension and shear. Do I use von Mises to reduce that to one equivalent stress before checking yielding at DYL, how is the margin of safety written, and does a nonlinear run still face DYL and DUL?"
+    intent: "ECSS-E-ST-32C 4.3.2; a multiaxial state reduces to an equivalent stress before comparison, and a nonlinear solution answers to the same two thresholds and allowables"
+    expected_skill: "space-systems/ecss/strength-functionality"

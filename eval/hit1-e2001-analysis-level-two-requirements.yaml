@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-analysis-level-two-requirements (space-systems/ecss)
+# Case 1 routes on the escalation verdict and the route an ineligible equipment type takes.
+# Case 2 routes on whether an escalated item is ready to start the detailed run.
+tasks:
+  - id: e2001-analysis-level-two-requirements-1
+    query: "Across our payload inventory several items fail a first-level criterion and one is dielectric-exposed. Which of them escalate to the detailed second multipactor analysis level, and which instead route to a seeded test on hardware because no surface charging is represented in the electron model?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.1; eligibility is a property of the equipment type, so an item whose dielectric sees the field goes to hardware rather than to the detailed analysis"
+    expected_skill: "space-systems/ecss/e2001-analysis-level-two-requirements"
+  - id: e2001-analysis-level-two-requirements-2
+    query: "An item has been escalated onto the second level, but its three-dimensional field model is not identified and no validation reference exists for the electron tracking solver. May the detailed run start, or is each missing prerequisite a finding?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.1; the second level cannot begin on geometry alone, and each unset prerequisite is an open finding rather than a default assumption"
+    expected_skill: "space-systems/ecss/e2001-analysis-level-two-requirements"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-enable-the-event-action-function (space-systems/ecss)
+# Two tasks for the new leaf. eaf1 routes on per-definition statuses surviving a
+# function-level toggle; eaf2 routes on arming a definition while the function is
+# off. Both must deterministically hit
+# space-systems/ecss/e7041-enable-the-event-action-function.
+tasks:
+  - id: eaf1
+    query: "we shut the whole event-to-command function off for a critical burn and when we switched it back on the individual entries came back armed differently from how we left them, work out what the function-wide switch is permitted to write"
+    intent: "ECSS-E-ST-70-41C clause 6.19.6.1; the function-level enable status gates the definitions and never writes them, so every per-definition status is the same before and after a disable-and-enable round trip"
+    expected_skill: "space-systems/ecss/e7041-enable-the-event-action-function"
+  - id: eaf2
+    query: "we armed several event-action definitions while the outer function switch sat off, so tell me whether a request naming one definition is legal then, and prove that a toggle of that outer switch only gates the table and rewrites no status"
+    intent: "ECSS-E-ST-70-41C clause 6.19.6.1; definition-level enable requests are independent of the function-level switch, so a definition armed while the function is disabled takes effect the moment the function is enabled"
+    expected_skill: "space-systems/ecss/e7041-enable-the-event-action-function"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-shear-and-fatigue-testing (space-systems/ecss)
+# sf1 routes on whether the application owes shear or fatigue at all and on the
+# plane the shear crosses; sf2 routes on scoring run-outs in a fatigue set.
+# Both must deterministically hit
+# space-systems/ecss/q7046-shear-and-fatigue-testing.
+tasks:
+  - id: sf1
+    query: "this joint is double shear and the plate interface lands on the threads, not the shank, what shear load may the bolt carry and does the application owe fatigue testing as well"
+    intent: "ECSS-Q-ST-70-46 testing clause; the shear plane sets the area, two planes double the load carried, and shear or fatigue is owed by the load mode, the criticality and whether the duty is cyclic"
+    expected_skill: "space-systems/ecss/q7046-shear-and-fatigue-testing"
+  - id: sf2
+    query: "two of my five threaded-fastener specimens reached the cut-off cycle count without breaking, so do those score as run-outs or failures, and is a set of five enough for this joint to call the lot passed"
+    intent: "ECSS-Q-ST-70-46 testing clause; a run-out is a third outcome beside pass and fail, and a set below the minimum specimen count has measured no scatter and yields no verdict"
+    expected_skill: "space-systems/ecss/q7046-shear-and-fatigue-testing"

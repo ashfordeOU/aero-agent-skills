@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-find-files (space-systems/ecss)
+# Two tasks for the new leaf. fdf1 routes on a bounded search report that was
+# truncated; fdf2 routes on recursion being a flag a wildcard cannot trigger.
+# Both must deterministically hit space-systems/ecss/e7041-find-files.
+tasks:
+  - id: fdf1
+    query: "Our on-board file search returned a list and we are about to delete every entry on it. How do I judge whether that report is complete or truncated against its capacity, and where is the omitted count stated?"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.4; a file search reply is a bounded report, so a match count over the capacity yields a truncated report whose omitted count must be read before acting, and a pattern of nothing but the any-run wildcard was never narrowed"
+    expected_skill: "space-systems/ecss/e7041-find-files"
+  - id: fdf2
+    query: "our name pattern with the star in it only returned hits from the top repository and missed the ones in the folder underneath, work out whether the pattern should have reached down there and why every hit has a path attached"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.4; a search pattern matches within a name and never crosses a path separator, so only an explicit recursion flag reaches a sub-repository, and each reported entry carries its repository path because one name exists in several repositories"
+    expected_skill: "space-systems/ecss/e7041-find-files"

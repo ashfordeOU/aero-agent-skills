@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-solar-array-power-computation (space-systems/ecss)
+# Case 1 routes on measurement provenance and the fill-factor plausibility screen.
+# Case 2 routes on the two temperature coefficients and where the diode drop applies.
+tasks:
+  - id: e20-solar-array-power-computation-1
+    query: "Our array prediction currently leans on the catalogue maximum-power number because the cell-level measurements have not arrived. Is that provenance admissible, and what does the fill factor tell me about a record I would rather use?"
+    intent: "ECSS-E-ST-20C 5.5.3; the case turns on provenance making an untraceable-source prediction inadmissible, and on the fill-factor band screening a candidate record"
+    expected_skill: "space-systems/ecss/e20-solar-array-power-computation"
+  - id: e20-solar-array-power-computation-2
+    query: "At hot case our cells sit near 78 degrees and the data sheet offers a lumped temperature coefficient on power. Is applying that to the maximum-power-point acceptable, and where in a series-parallel string does the blocking-diode drop come off?"
+    intent: "ECSS-E-ST-20C 5.5.3; the case turns on correcting current and voltage with separate coefficients of opposite sign and subtracting the diode drop from string voltage"
+    expected_skill: "space-systems/ecss/e20-solar-array-power-computation"

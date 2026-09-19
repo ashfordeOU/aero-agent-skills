@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test for e2006-propulsion-model-characteristics."""
 
+import math
 import unittest
 
 import e2006_propulsion_model_characteristics_logic as logic
@@ -204,7 +205,10 @@ class MeshResolution(unittest.TestCase):
     def test_cell_size_a_few_ulps_over_the_limit_is_resolved(self):
         limit = logic.debye_length(1.0e14, 2.0)
         over = limit * (1.0 + 1.0e-13)
-        self.assertGreater(over, limit)
+        # The step is a relative 1e-13 -- some hundreds of units in the
+        # last place -- so the overshoot survives rounding on any libm.
+        # Assert it in ULP instead of comparing two near-equal magnitudes.
+        self.assertGreater(over - limit, 100.0 * math.ulp(limit))
         self.assertTrue(logic.mesh_resolution(over, 1.0e14, 2.0)["debye_resolved"])
 
     def test_cell_size_one_percent_over_the_limit_is_not_resolved(self):
@@ -359,7 +363,11 @@ class GroundingPathWithinLimit(unittest.TestCase):
         total = logic.grounding_return_resistance(
             [{"id": "a", "resistance_ohm": 0.1}, {"id": "b", "resistance_ohm": 0.2}]
         )
-        self.assertGreater(total, 0.3)
+        # Adding the two branch resistances overshoots the limit they sum
+        # to exactly by one unit in the last place -- an exact, repeatable
+        # IEEE-754 addition. State the overshoot as a magnitude, not a
+        # direction; the 0.3 ohm limit itself is unchanged.
+        self.assertEqual(total - 0.3, math.ulp(0.3))
         self.assertTrue(logic.grounding_path_within_limit(total, 0.3))
 
     def test_zero_limit_raises(self):

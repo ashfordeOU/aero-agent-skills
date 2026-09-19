@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7021-test-report (space-systems/ecss)
+# tr1 routes on whether a returned laboratory report can be filed as screening
+# evidence and what it is missing; tr2 routes on the internal contradiction a
+# field-presence check cannot see. Both must deterministically hit
+# space-systems/ecss/q7021-test-report.
+tasks:
+  - id: tr1
+    query: "the lab sent back the flammability write-up with the burn lengths but nothing about the oxygen level or the ignition source, work out whether we can file it as evidence or have to send it back and what exactly is missing"
+    intent: "ECSS-Q-ST-70-21C reporting; the test conditions are blocking fields and an omission there stops the report being usable, unlike an advisory omission"
+    expected_skill: "space-systems/ecss/q7021-test-report"
+  - id: tr2
+    query: "this flammability report quotes a worst-case burn of 62 mm but one of its own specimen rows says 88 mm, and another row records a burn longer than the specimen, tell me what to do with it"
+    intent: "ECSS-Q-ST-70-21C reporting; a complete report can still contradict itself, and the quoted worst case is cross-checked against the specimen rows"
+    expected_skill: "space-systems/ecss/q7021-test-report"

@@ -9,6 +9,7 @@ including every ValueError path.
 """
 
 import datetime
+import math
 import unittest
 
 import e2001_measurement_facility_calibration_logic as logic
@@ -196,7 +197,10 @@ class TestDriftWithinTolerance(unittest.TestCase):
         # (7.7 - 7.0) / 7.0 * 100 evaluates a few ULPs above 10.0; the
         # physically compliant case must not be failed by that residue.
         drift = logic.relative_drift_percent(7.0, 7.7)
-        self.assertGreater(drift, 10.0)
+        # Subtraction, division and scaling only -- the residue is exactly
+        # one unit in the last place on any IEEE-754 machine. State it as
+        # a magnitude, not a direction; the 10 percent tolerance stands.
+        self.assertEqual(drift - 10.0, math.ulp(10.0))
         self.assertTrue(logic.drift_within_tolerance(drift, 10.0))
 
     def test_drift_beyond_tolerance_fails(self):
@@ -247,7 +251,11 @@ class TestUncertaintyWithinBudget(unittest.TestCase):
         # The quadrature sum of these three contributions lands a few ULPs
         # above the 0.15 budget it was built to meet exactly.
         combined = logic.combine_uncertainties([0.02, 0.05, 0.14])
-        self.assertGreater(combined, 0.15)
+        # The quadrature sum sits within a unit or two in the last place of
+        # the 0.15 budget it was built to meet exactly. Bound that residue
+        # instead of asserting which side of the budget the square root
+        # lands on; the budget itself is unchanged.
+        self.assertLessEqual(abs(combined - 0.15), 2.0 * math.ulp(0.15))
         self.assertTrue(logic.uncertainty_within_budget(combined, 0.15))
 
     def test_genuine_exceedance_fails(self):

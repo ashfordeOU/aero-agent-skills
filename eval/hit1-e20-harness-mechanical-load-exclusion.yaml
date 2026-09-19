@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-harness-mechanical-load-exclusion (space-systems/ecss)
+# Case 1 routes on the span tension a zero-slack run develops under launch
+# acceleration. Case 2 routes on the service loop across a moving interface and on a
+# connector left carrying the bundle behind it.
+tasks:
+  - id: e20-harness-mechanical-load-exclusion-1
+    query: "A 0.9 metre harness run between two clamps is dressed dead straight with no slack, the bundle is 0.25 kilograms per metre, and it sees twenty g at lift-off. What tension does that span develop and why does no slack make it worse?"
+    intent: "ECSS-E-ST-20C 5.8.2; distributed load from bundle mass and quasi-static acceleration, and the tension relation that has no finite solution as installed sag goes to zero"
+    expected_skill: "space-systems/ecss/e20-harness-mechanical-load-exclusion"
+  - id: e20-harness-mechanical-load-exclusion-2
+    query: "The bundle crosses a deployment hinge with six millimetres of thermal travel plus four of mechanism stroke, is tied down at one end only, and has no connector-strain-relief behind the backshell. How much service-loop-slack does that crossing need?"
+    intent: "ECSS-E-ST-20C 5.8.2; a crossing needs slack sized on the summed relative displacement and an anchor each side, and a connector is a termination rather than the first support"
+    expected_skill: "space-systems/ecss/e20-harness-mechanical-load-exclusion"

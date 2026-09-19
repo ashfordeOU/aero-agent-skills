@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-ir-analysis-of-extract (space-systems/ecss)
+# Two tasks for the new leaf. iae1 routes on the cast-film-to-surface factor
+# chain the indirect route hides; iae2 routes on the two-candidate band-match
+# that must be reported ambiguous rather than won on score. Both must
+# deterministically hit space-systems/ecss/q7005-ir-analysis-of-extract.
+tasks:
+  - id: iae1
+    query: "we rinsed a panel, concentrated the solvent and evaporated a small part of it onto an infrared window; turn the band height on that cast film into micrograms per square centimetre of the panel"
+    intent: "ECSS-Q-ST-70-05C indirect method; the cast aliquot, the extraction recovery and the sampled area all sit between the film on the window and the surface figure"
+    expected_skill: "space-systems/ecss/q7005-ir-analysis-of-extract"
+  - id: iae2
+    query: "our cast film spectrum shows bands that fit both a silicone and a phthalate reference, do not pick the higher score, tell me whether the band positions can identify the contaminant at all, and subtract the solvent blank first"
+    intent: "ECSS-Q-ST-70-05C indirect method; reference-spectra band coverage with a separation margin, an ambiguous pair reported rather than the higher score taken"
+    expected_skill: "space-systems/ecss/q7005-ir-analysis-of-extract"

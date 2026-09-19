@@ -5,10 +5,10 @@
 # hit space-systems/ecss/q7080-process-window-qualification.
 tasks:
   - id: pwq1
-    query: "here is the coupon campaign for our declared power and speed window, tell me whether the window is qualified or whether the builds only ever sat at nominal"
-    intent: "ECSS-Q-ST-70-80 process clause; parameter-window qualification by coupons, build count for repeatability, excursions and unrecorded parameters"
+    query: "our declared window has bounds nobody ever ran at - every run in this campaign sat comfortably in the interior. Grade the evidence: is the window qualified as declared, or does it stand only with a coverage gap recorded against it"
+    intent: "ECSS-Q-ST-70-80 process clause; window-bound coverage, a declared window is not qualified by a campaign whose runs only ever sat in its interior"
     expected_skill: "space-systems/ecss/q7080-process-window-qualification"
   - id: pwq2
-    query: "one build for the qualification never logged its layer thickness and nobody ran anything at the top of the speed range, does that fail the window or is it just a coverage note"
+    query: "one run in this campaign left a setting blank in the log and nothing was ever run at the top of the declared range - does an unrecorded value count as an excursion and fail the window, or is it just a coverage note"
     intent: "ECSS-Q-ST-70-80 process clause; an unrecorded parameter is an excursion, a missing window bound is fatal, thin interior coverage is a standing finding"
     expected_skill: "space-systems/ecss/q7080-process-window-qualification"

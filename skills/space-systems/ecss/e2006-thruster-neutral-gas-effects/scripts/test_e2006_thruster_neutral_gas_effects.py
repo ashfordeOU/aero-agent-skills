@@ -338,7 +338,11 @@ class DischargeCriteria(unittest.TestCase):
     def test_boundary_plasma_density_from_float_sum_is_compliant(self):
         fraction = 0.1 + 0.2
         threshold = 3.0e13
-        self.assertGreater(1.0e14 * fraction, threshold)
+        # The addition and the multiplication are both correctly rounded,
+        # so the seeded density is the same bit pattern on every platform:
+        # exactly one ULP above the sustaining threshold. State that
+        # exactly; the threshold the criterion tests is untouched.
+        self.assertEqual(1.0e14 * fraction, math.nextafter(threshold, math.inf))
         result = logic.evaluate_discharge_criteria(
             1.0e14,
             0.002,

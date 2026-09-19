@@ -13,19 +13,19 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="2517 verified skills · 86 live packs · 12 families · 30 standards · 1754 router tasks · 8/8 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="3189 verified skills · 86 live packs · 12 families · 30 standards · 6308 router cases · 16/16 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-2517-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 2517"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-3189-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 3189"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-86-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 86"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-5%2F5-2ea043?style=flat&labelColor=1a1e35" alt="gates 5%2F5"></a>
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-3%2F3-2ea043?style=flat&labelColor=1a1e35" alt="attest 3%2F3"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_tasks-1754-0ea5e9?style=flat&labelColor=1a1e35" alt="router tasks 1754"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-16%2F16-2ea043?style=flat&labelColor=1a1e35" alt="gates 16/16"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-7%2F7-2ea043?style=flat&labelColor=1a1e35" alt="attest 7/7"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_cases-6308-0ea5e9?style=flat&labelColor=1a1e35" alt="router cases 6308"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <p align="center">
@@ -56,7 +56,7 @@ Ask a general-purpose AI about DO-178C and you get a Wikipedia summary: the acro
 
 **Aero Agent Skills encodes the process** — when to use a standard, the workflow, the pitfalls, and the point where the agent must stop and let a human sign. Each skill is a `SKILL.md` on the open agentskills.io format: YAML frontmatter the router reads, a body the agent follows. Loaded on demand, no lock-in, works in any host that reads the format.
 
-Every number and chart in this README is **generated from the tree at HEAD** by `make visuals` and CI fails if they drift — the same fail-closed philosophy as the skill gates. No hand-counted claims.
+The statline, the badges, the family table and the roadmap are **generated from the tree at HEAD** by `make visuals` — gate ratios included, read from the Makefile's own `validate:` and `attest:` lines — and `make visuals-check` fails CI when any block drifts. The prose outside those blocks is written by hand. A generated figure states a count; it does not state coverage, so where you need to know what a gate actually reaches and what it leaves untouched, [docs/harness-contract.md](docs/harness-contract.md) is the authority and every figure in it carries the command that produces it.
 
 ## Quick start
 
@@ -134,7 +134,7 @@ Per-host setup paths: [docs/harness-integration.md](docs/harness-integration.md)
 ### The domain map
 
 <!-- gen:overview -->
-**2517 verified skills** across **12 families** and **86 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **1754-task Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**3189 verified skills** across **12 families** and **86 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **6308-case Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -156,21 +156,21 @@ Full per-pack skill lists: **[docs/DOMAINS.md](docs/DOMAINS.md)**.
 The 12-family register — every count computed from the tree, regenerated on every change. Per-pack skill lists live in **[docs/DOMAINS.md](docs/DOMAINS.md)** so this table stays summary-only and the README does not grow with the library.
 
 <!-- gen:family-table -->
-| Family | Standard spine | Packs | Skills | Router tasks |
+| Family | Standard spine | Packs | Skills | Router cases |
 |---|---|---:|---:|---:|
-| **Aerodynamics** | NACA TR-824 | 10 | 57 | 116 |
-| **Avionics** | DO-178C / DO-254 / DO-160G | 9 | 51 | 105 |
+| **Aerodynamics** | NACA TR-824 | 10 | 57 | 118 |
+| **Avionics** | DO-178C / DO-254 / DO-160G | 9 | 51 | 113 |
 | **Cross-cutting** | SEP-2640 | 7 | 56 | 112 |
-| **Flight mechanics** | FAR-25 / CS-25 | 4 | 49 | 98 |
-| **Flight test & operations** | FAR-25 / CS-25 | 6 | 49 | 98 |
-| **GNC & autonomy** | ARP4754A | 6 | 68 | 137 |
-| **Manufacturing quality** | AS9100 / AS9102 | 8 | 48 | 98 |
-| **Propulsion** | FAR-33 | 11 | 54 | 108 |
-| **Space systems** | ECSS | 5 | 1910 | 527 |
-| **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 69 | 139 |
+| **Flight mechanics** | FAR-25 / CS-25 | 4 | 49 | 104 |
+| **Flight test & operations** | FAR-25 / CS-25 | 6 | 49 | 102 |
+| **GNC & autonomy** | ARP4754A | 6 | 68 | 143 |
+| **Manufacturing quality** | AS9100 / AS9102 | 8 | 48 | 101 |
+| **Propulsion** | FAR-33 | 11 | 54 | 118 |
+| **Space systems** | ECSS | 5 | 2582 | 5035 |
+| **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 69 | 147 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 47 | 96 |
 | **Vehicle design** | FAR-25 / CS-25 | 6 | 59 | 120 |
-| **Total** | 30 standards mapped | **86** | **2517** | **1754** |
+| **Total** | 30 standards mapped | **86** | **3189** | **6308** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -199,7 +199,10 @@ planning artifacts (PSAC, SDP, SVP, SCMP, SQAP) → the review gates →
 
 Every skill ships three things: a trigger-optimized description the router
 reads, a step-by-step workflow with verification gates, and a **behavior
-contract test** that runs offline. `make validate` checks all of it.
+contract test** that runs offline. `make validate` lints the description and
+runs the contract test for every skill; since 2026-09-19 it also tests the
+routing for every skill, because gate 13 refuses a build in which any leaf
+has no query. It does not grade the engineering in the workflow.
 
 <p align="center">
   <img src="docs/skill-anatomy-dark.png" alt="Anatomy of a skill: frontmatter for the router, body workflow for the agent, offline behavior contract test, Hit@1 corpus tasks" width="100%">
@@ -231,7 +234,7 @@ contract test** that runs offline. `make validate` checks all of it.
 | MIL-STD-1553 | Data bus | reference |
 | SEP-2640 | Skill delivery format | open spec |
 
-Gated standards never appear verbatim anywhere in this repository — the no-verbatim gate enforces it.
+**What the no-verbatim gate actually enforces.** Not reproducing gated standards is the policy every skill here is written to, and gate 4 enforces it unevenly — by design, and in the open. It compares this repository's text against the real source documents for **one** publisher family (ECSS, which is most of the library); for eight more families it checks publisher boilerplate only, which catches a pasted page and would not catch a retyped paragraph; and the remaining five it reports **UNCHECKED**, because no source text exists to compare against. An unchecked family is not a clean family. The per-family table — every count with its complement — is in [docs/harness-contract.md](docs/harness-contract.md#gate-4-no-verbatim), and `make no-verbatim` reproduces it on your own checkout.
 
 ## For agents
 
@@ -278,7 +281,7 @@ flowchart LR
 
 - **Discovery:** the router reads only the description (`what + when + trigger`) — loaded on demand, no context bloat
 - **Determinism:** every skill's behavior contract runs offline; the router is deterministic
-- **Proof:** `make validate` 5/5 + `make attest` 3/3, replayable by anyone
+- **Proof:** `make validate` (the full offline gate battery — roster and per-gate coverage in [docs/harness-contract.md](docs/harness-contract.md)) + `make attest`, replayable by anyone
 - **Format:** open agentskills.io spec, no lock-in, any host that reads the format
 
 ### Verify
@@ -286,39 +289,56 @@ flowchart LR
 You do not need to trust the badge. Replay the gates on the commit you are looking at:
 
 <p align="center">
-  <img src="docs/gates-dark.png" alt="Verification battery: commit passes 5 validate gates, 3 attestation gates, and the visuals-freshness check before CI goes green" width="100%">
+  <img src="docs/gates-dark.png" alt="Verification battery: a commit passes the validate gates, the attestation gates and the visuals-freshness check before CI goes green" width="100%">
+</p>
+<p align="center">
+  <sub>Chart generated by <code>scripts/gen_visuals.py</code> from the Makefile's own <code>validate:</code> and <code>attest:</code> lines; <code>make visuals</code> regenerates it. A committed chart can lag the Makefile until someone does — <code>make visuals-check</code> is what catches that, and the table below is the roster that runs.</sub>
 </p>
 
 | Gate | What it checks | How to run |
 |---|---|---|
 | 1 spec lint | agentskills.io conformance + compliance flags | `make lint-spec` |
 | 2 desc lint | description what + when + trigger | `make desc-lint` |
-| 3 behavior tests | per-skill behavior contract, DAL A–E determination | `make pytest-contract` |
-| 4 no-verbatim | standards text copyright control | `make no-verbatim` |
-| 5 Hit@1 corpus | router selects the expected skill | `make hit1` |
+| 3 behavior tests | per-skill behavior contract, run under a driver the test cannot influence | `make pytest-contract` |
+| 4 no-verbatim | publisher markers, ECSS source text, objective-table blocks | `make no-verbatim` |
+| 5 Hit@1 corpus | router selects the expected skill for every case in `eval/` — corpus and per-leaf fragments alike | `make hit1` |
+| 6 verifier independence | nothing verifies its own output | `make independence` |
+| 7 release law | shipped versions match the release band | `make release-law` |
+| 8 portability | no test pinned to which side of the last bit a libm result lands | `make portability` |
+| 9 corpus naming | one corpus-fragment spelling per leaf | `make corpus-naming` |
+| 10 no-inference | nothing on a verdict path calls a model | `make no-inference` |
+| 11 slug uniqueness | no two leaves claim the same install slug | `make slug-uniqueness` |
+| 12 router coverage, structure | the corpus file has the shape gate 5 assumes | `make router-coverage-structure` |
+| 13 router coverage, complete | no leaf ships without a router case | `make router-coverage-complete` |
+| 14 hermeticity | generated artefacts carry no timestamp, local path or hostname | `make hermeticity` |
+| 15 evidence contract | the evidence record's digest and regrade rules hold | `make evidence-contract` |
+| 16 export bundle | the exported reference case set and its tokenizer | `make export-bundle` |
 <!-- gen:verify-extra -->
 | — visuals fresh | charts + README numbers regenerate to zero diff | `make visuals-check` |
 <!-- /gen:verify-extra -->
 
 ```bash
-make validate       # 5/5 REAL gates, deterministic, offline
-make attest         # 3/3: number snapshot, brief audit, content-policy sweep
+make validate       # the whole gate battery, deterministic, offline
+make attest         # number snapshot, brief audit, content-policy sweep, figure audit, gated-set + stale-number guards
+make publish-health # is the PUBLIC repo actually current? (needs network)
 make visuals-check  # charts + README numbers regenerate to zero diff
 ```
 
 Verified means the full bar passes on the commit you are looking at. That is what "verified" means in this repository: nothing more. It is not certification, not approval, not airworthy.
 
+It also has a stated edge, and the edge is published rather than implied. Routing coverage closed on 2026-09-19: every leaf now carries at least one query and gate 13 fails a build where one does not, where previously 2,251 of 3,189 leaves were spec-linted and behavior-tested but never router-asserted. What a green still does not cover: the router scores raw token overlap, so 222 of the 6,308 cases win by half a point or less, and re-scored the way a user actually types — hyphens stripped from the query — Hit@1 is 96.48% rather than 100%. And the no-verbatim gate compares source text for one standards family out of fourteen, reporting the rest as markers-only or UNCHECKED. Every one of those figures, with its complement and the command that produces it, is in [docs/harness-contract.md](docs/harness-contract.md).
+
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 2517 verified skills in 86 packs across 12 disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 1754-task corpus) and Claude Code plugin packaging
+- **Shipped:** 3189 verified skills in 86 packs across 12 disciplines, all gated by `make validate` (16/16) and `make attest` (7/7); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 6308-case corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR: one skill per PR, every contributor certifies their submission contains no controlled data and no verbatim standards text, every merge must pass `make validate` (5/5) and `make attest` (3/3).
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR: one skill per PR, every contributor certifies their submission contains no controlled data and no verbatim standards text, every merge must pass `make validate` and `make attest`.
 
 ## Security
 
@@ -326,7 +346,7 @@ Skills are folders that can carry scripts, and agent hosts execute what they loa
 
 ## FAQ
 
-[docs/FAQ.md](docs/FAQ.md) covers license, certification status, export control, what verified means, and affiliation. Short answers: Apache-2.0, not certified, not controlled as published, verified = replayable `make validate` 5/5 + `make attest` 3/3 on the commit you are looking at, not affiliated with RTCA, SAE, EASA, FAA, or any government.
+[docs/FAQ.md](docs/FAQ.md) covers license, certification status, export control, what verified means, and affiliation. Short answers: Apache-2.0, not certified, not controlled as published, verified = replayable `make validate` + `make attest` on the commit you are looking at, with the gate coverage and its complement stated in [docs/harness-contract.md](docs/harness-contract.md), not affiliated with RTCA, SAE, EASA, FAA, or any government.
 
 <details>
 <summary><b>Compliance notice</b></summary>

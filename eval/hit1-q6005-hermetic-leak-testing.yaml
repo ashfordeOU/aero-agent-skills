@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hermetic-leak-testing (space-systems/ecss,
+# Q-ST-60-05 10.3.7). Two tasks for the new leaf. hlt1 routes on the volume
+# banded limit and the fixed-method reading behind it; hlt2 routes on the bomb
+# and dwell conditions and on the gross test the fine test cannot replace.
+# Both must deterministically hit
+# space-systems/ecss/q6005-hermetic-leak-testing.
+tasks:
+  - id: hlt1
+    query: "turn this fine-leak-fixed-method-reading back into an equivalent air leak rate and grade it against the hermetic-cavity-volume-reject-limit for the cavity it came from"
+    intent: "ecss hybrids; the instrument reads tracer, not the seal, and the limit is banded on internal free volume"
+    expected_skill: "space-systems/ecss/q6005-hermetic-leak-testing"
+  - id: hlt2
+    query: "check the tracer-bomb-pressure-time-product and the fine-leak-dwell-window on this hybrid seal run, and the gross-leak-test-sequence for the hole the fine test is blind to"
+    intent: "ecss hybrids; an undercharged bomb or a late measurement makes a leaking part read clean, and the gross test runs second"
+    expected_skill: "space-systems/ecss/q6005-hermetic-leak-testing"

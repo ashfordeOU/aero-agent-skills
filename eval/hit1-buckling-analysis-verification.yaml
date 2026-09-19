@@ -1,0 +1,12 @@
+# Hit@1 fragment: buckling-analysis-verification (space-systems/ecss)
+# Case 1 routes on bounding the empirical knockdown against the mode-specific envelope.
+# Case 2 routes on the crippling-mode reserve factor arithmetic and the deficiency threshold.
+tasks:
+  - id: buckling-analysis-verification-1
+    query: "Our conical adapter skirt is a thin monocoque shell and the stress analyst picked a knockdown factor of 0.08 against the classical compression eigenvalue. Is 0.08 inside what HB-32-24 shell data actually covers, or does it need separate justification?"
+    intent: "ECSS-E-ST-32C 4.6.2.10; the knockdown must sit inside the mode-specific empirical bound, and shells carry the lowest lower bound of the four modes"
+    expected_skill: "space-systems/ecss/buckling-analysis-verification"
+  - id: buckling-analysis-verification-2
+    query: "A hat-section stringer flange on our payload deck goes local before the column mode does. How do I form the reserve factor for that crippling case once the safety factor is carried on the applied compression, and what value counts as a deficient margin?"
+    intent: "ECSS-E-ST-32C 4.6.2.10; open thin-wall sections map to the crippling mode and the reserve factor divides critical load by applied load times the safety factor"
+    expected_skill: "space-systems/ecss/buckling-analysis-verification"

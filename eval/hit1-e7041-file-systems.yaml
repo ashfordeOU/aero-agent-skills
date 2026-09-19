@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-file-systems (space-systems/ecss)
+# Two tasks for the new leaf. efs1 routes on flat versus hierarchical and the
+# two-part object address; efs2 routes on a self-contradicting declaration and
+# case-folded name aliasing. Both must deterministically hit
+# space-systems/ecss/e7041-file-systems.
+tasks:
+  - id: efs1
+    query: "our ground tool keeps building nested paths for the spacecraft storage and every one of them comes back as not found, work out whether the on-board storage nests at all and what two pieces actually identify a stored file"
+    intent: "ECSS-E-ST-70-41C clause 6.23.5.1; a file system is flat or hierarchical as an implementation property, a flat one keeps every repository path to a single segment, and an object is addressed by a repository path plus a name within it rather than by a name alone"
+    expected_skill: "space-systems/ecss/e7041-file-systems"
+  - id: efs2
+    query: "our on-board file system is declared flat yet its depth is four, the separator is itself one of the permitted charset characters, and names fold case; tell me which of those contradict each other and what folding does to two ground objects"
+    intent: "ECSS-E-ST-70-41C clause 6.23.5.1; a file system declaration can contradict itself across fields that are each individually legal, and case-folded names alias two ground objects onto one so a create believed to be new overwrites an existing file"
+    expected_skill: "space-systems/ecss/e7041-file-systems"

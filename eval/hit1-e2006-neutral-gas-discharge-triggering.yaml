@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-neutral-gas-discharge-triggering (space-systems/ecss)
+# Case 1 routes on turning a release into a local pressure and onto the species breakdown curve.
+# Case 2 routes on the decay behaviour of release paths and when activation may be released.
+tasks:
+  - id: e2006-neutral-gas-discharge-triggering-1
+    query: "Our ion thruster plume raises neutral density locally around a 600 V exposed connector. How do I turn that into a pressure, form the pressure times gap product, and does xenon sit on the same breakdown curve as water vapour?"
+    intent: "ECSS-E-ST-20-06C 6.9; the curve is read against the pressure-gap product, and each released species carries its own ionisation and emission coefficients"
+    expected_skill: "space-systems/ecss/e2006-neutral-gas-discharge-triggering"
+  - id: e2006-neutral-gas-discharge-triggering-2
+    query: "Our outgassing-decay after launch should eventually let us lift the inhibit on high-voltage-activation. How long is that wait, and which release paths — a propellant-leak or a steady sublimation — never fade and so keep that gas-discharge hazard permanent?"
+    intent: "ECSS-E-ST-20-06C 6.9; a decaying release is bounded by a wait that can be solved for, while a continuous one leaves the hazard standing for the whole mission"
+    expected_skill: "space-systems/ecss/e2006-neutral-gas-discharge-triggering"

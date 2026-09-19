@@ -5,10 +5,10 @@
 # space-systems/ecss/e7041-time-stamping.
 tasks:
   - id: tmst1
-    query: "the time-window dump came back empty for a period we know the spacecraft was producing reports, work out which time the store is actually selecting on and why the one printed in the packet gives a different answer"
+    query: "the ground asked the recorder for everything it stored between two instants and got nothing back, though telemetry was certainly being produced then; tell me which storage stamp sits beside each stored packet and why the generation time inside it disagrees"
     intent: "ECSS-E-ST-70-41C clause 6.15.3.2; a packet is held with the on-board time at which it was stored, and a retrieval window selects on that storage time rather than the generation time in the data field header"
     expected_skill: "space-systems/ecss/e7041-time-stamping"
   - id: tmst2
-    query: "packets stored right on the closing edge of the window are being dropped from the dump, check how the sub-second part of the stored time is being written and whether it can ever read later than the moment the packet landed"
+    query: "packets landing right on the closing edge get dropped; check how the fine fractional field of the stored stamp is written, whether it truncates downwards so a stamp can never read later than the instant the packet arrived, and what the quantisation costs"
     intent: "ECSS-E-ST-70-41C clause 6.15.3.2; the storage stamp is a coarse-seconds and fine-fraction pair truncated downwards to the fine-field resolution, so it never reads later than the storage moment"
     expected_skill: "space-systems/ecss/e7041-time-stamping"

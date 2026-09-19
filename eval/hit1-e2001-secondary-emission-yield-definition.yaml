@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-secondary-emission-yield-definition (space-systems/ecss)
+# Case 1 routes on what the quantity counts and what it depends on. Case 2 routes
+# on the two unity crossings, the band they bracket, and the surface whose
+# corrected peak never reaches unity.
+tasks:
+  - id: e2001-secondary-emission-yield-definition-1
+    query: "A vendor quotes 2.1 for secondary electron yield on their silver plating. Does that figure include primaries that simply bounce back off the surface, and can one number stand in when the gap delivers electrons over a spread of impact energies and incidence angles?"
+    intent: "ECSS-E-ST-20-01C clause 9.1; the case turns on the emitted population counting backscattered primaries too and on the yield being a function of energy and angle, not a constant"
+    expected_skill: "space-systems/ecss/e2001-secondary-emission-yield-definition"
+  - id: e2001-secondary-emission-yield-definition-2
+    query: "Our coating has an angle-corrected peak of 1.4 on Vaughan's fitted curve. At which two impact energies does the yield pass one, and what does the range between them mean for a gap? If a treated surface peaks right at unity, is any susceptible range left?"
+    intent: "ECSS-E-ST-20-01C clause 9.1; the case turns on locating the lower and upper unity crossings and on a corrected peak at or below unity leaving no growth band"
+    expected_skill: "space-systems/ecss/e2001-secondary-emission-yield-definition"

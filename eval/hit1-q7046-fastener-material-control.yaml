@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-fastener-material-control (space-systems/ecss)
+# mc1 routes on the stress-corrosion category limiting sustained tension;
+# mc2 routes on the fastener-to-structure galvanic couple. Both must
+# deterministically hit space-systems/ecss/q7046-fastener-material-control.
+tasks:
+  - id: mc1
+    query: "the bolt vendor offered us peak-aged seven-oh-seven-five instead of the overaged temper, the joint sits at half yield preload for the whole mission, can we take it"
+    intent: "ECSS-Q-ST-70-46 materials clause with the companion stress-corrosion standard; the temper carries the stress-corrosion category, and the category sets the sustained tensile stress limit rather than the peak load"
+    expected_skill: "space-systems/ecss/q7046-fastener-material-control"
+  - id: mc2
+    query: "a nickel superalloy fastener going into a magnesium bracket in a salt-laden coastal environment: is the alloy admitted at all, what stress-corrosion category does it carry, and what potential difference does that couple show"
+    intent: "ECSS-Q-ST-70-46 materials clause; the couple is judged by the potential difference between fastener and structure against an environment limit, and the anodic member is named"
+    expected_skill: "space-systems/ecss/q7046-fastener-material-control"

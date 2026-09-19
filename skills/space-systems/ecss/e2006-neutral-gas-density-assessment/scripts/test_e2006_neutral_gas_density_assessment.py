@@ -273,11 +273,18 @@ class TestIonization(unittest.TestCase):
 
     def test_fraction_never_exceeds_the_mechanism_ceiling(self):
         ceiling = logic.RELEASE_KINDS["electric-thruster-plume"]["fraction_ceiling"]
+        partial = logic.ionization_fraction(
+            "electric-thruster-plume", "xenon", 1.0e-4, 5.0
+        )
+        self.assertLess(partial, ceiling)
         value = logic.ionization_fraction(
             "electric-thruster-plume", "xenon", 1.0e6, 50.0
         )
-        self.assertLessEqual(value, ceiling)
-        self.assertAlmostEqual(value, ceiling, places=9)
+        # At this dwell the saturating exponent is about -2e8, so exp
+        # underflows to exactly zero on any conforming libm, (1 - exp) is
+        # exactly 1.0 and the fraction is the ceiling bit for bit. Assert
+        # that equality: a tolerance here would hide an exact contract.
+        self.assertEqual(value, ceiling)
 
     def test_hotter_electrons_ionize_more(self):
         cool = logic.ionization_fraction("electric-thruster-plume", "xenon", 1.0e-4, 2.0)
@@ -384,7 +391,11 @@ class TestRfCompatibility(unittest.TestCase):
         probe = logic.assess_rf_compatibility(1.0e12, 1.0e9, 3.0)
         required = probe["required_headroom_hz"]
         carrier = math.nextafter(required, 0.0)
-        self.assertLess(carrier, required)
+        # nextafter towards zero returns the adjacent representable value
+        # below, exactly - no libm rounding is involved. Assert that
+        # by-construction relationship (stepping back up lands on the
+        # original) rather than a strict inequality one ULP wide.
+        self.assertEqual(math.nextafter(carrier, math.inf), required)
         edge = logic.assess_rf_compatibility(1.0e12, carrier, 3.0)
         self.assertTrue(edge["compatible"])
 
@@ -458,7 +469,9 @@ class TestObservationPoint(unittest.TestCase):
         )
         density = probe["electron_density_m3"]
         limit = math.nextafter(density, 0.0)
-        self.assertLess(limit, density)
+        # As above: the limit is the adjacent representable value below
+        # the density, exactly one step, by construction.
+        self.assertEqual(math.nextafter(limit, math.inf), density)
         edge = logic.assess_observation_point(
             antenna_point(plasma_density_limit_m3=limit),
             [ep_source(), vent_source()],

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7005-solvent-rinse-extraction (space-systems/ecss)
+# Two tasks for the new leaf. rns1 routes on the cumulative recovery over
+# repeated passes and how many passes a target needs; rns2 routes on turning the
+# residue mass back into an areal surface level with the recovery correction.
+# Both must deterministically hit
+# space-systems/ecss/q7005-solvent-rinse-extraction.
+tasks:
+  - id: rns1
+    query: "each wipe pass recovers about sixty per cent of whatever is still there; how many passes before cumulative recovery reaches ninety five per cent, and what solvent volume does that take over two hundred square centimetres"
+    intent: "ECSS-Q-ST-70-05C indirect method; building the cumulative recovery geometrically from the per-pass removal fraction, inverting it for a target, and sizing the rinse volume per unit area"
+    expected_skill: "space-systems/ecss/q7005-solvent-rinse-extraction"
+  - id: rns2
+    query: "the pan came out at a hundred and twenty micrograms of residue, what does that make the surface loading once we allow for what the rinse left behind"
+    intent: "ECSS-Q-ST-70-05C indirect method; back-calculating the areal contamination level from the residue mass, the sampled area and the cumulative recovery, and checking the residue against the cell quantitation limit"
+    expected_skill: "space-systems/ecss/q7005-solvent-rinse-extraction"

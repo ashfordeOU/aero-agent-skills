@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-process-design (space-systems/ecss)
+# Two tasks for the new leaf. pd1 routes on tolerance bands, measurement
+# uncertainty and guard-banded acceptance limits; pd2 routes on the load-step
+# sequence, its ramp rates and the instrument range the band needs. Both must
+# deterministically hit space-systems/ecss/q2007-process-design.
+tasks:
+  - id: pd1
+    query: "We are drafting the procedure for a thermal vacuum run. Each controlled parameter needs a tolerance band around its nominal, our instruments carry real measurement uncertainty, and I have to tell the operator which acceptance limits to work to. Where do I start?"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.3; accuracy ratio against the band, guard-banded acceptance limits in the procedure"
+    expected_skill: "space-systems/ecss/q2007-process-design"
+  - id: pd2
+    query: "how do we order the load steps with their dwells and ramp rates so the facility can hold them, and does the instrument range have to bracket the whole tolerance band rather than just the nominal"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.3; advancing load steps, ramp rate against what the facility holds, instrument coverage of the band"
+    expected_skill: "space-systems/ecss/q2007-process-design"

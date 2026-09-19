@@ -1,0 +1,13 @@
+# Hit@1 fragment: e3311-shaped-charges (space-systems/ecss)
+# esc1 routes on penetration derated by installed standoff and misalignment;
+# esc2 routes on the safety side, keep-out radius and neighbour spacing. Both
+# must deterministically hit space-systems/ecss/e3311-shaped-charges.
+tasks:
+  - id: esc1
+    query: "the linear shaped charge is mounted off its optimum standoff and a few degrees off normal, work out what penetration it actually reaches as installed and whether that still cuts the skin thickness with margin"
+    intent: "ECSS-E-ST-33-11C clause 4.11.7; standoff deviation and cosine derates on nominal penetration, capability against target thickness with margin"
+    expected_skill: "space-systems/ecss/e3311-shaped-charges"
+  - id: esc2
+    query: "work out the keep-out zone around the cutting charges, how much residual jet carries past the cut line into the structure behind it, and whether two adjacent charges are far enough apart to avoid setting each other off"
+    intent: "ECSS-E-ST-33-11C clause 4.11.7; keep-out radius in charge diameters, residual jet against backup clearance, sympathetic initiation spacing"
+    expected_skill: "space-systems/ecss/e3311-shaped-charges"

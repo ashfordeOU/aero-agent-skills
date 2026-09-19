@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-link-to-e-st-10-03 (space-systems/ecss)
+# Two tasks for the new leaf. lnk1 routes on deciding which of two standards
+# governs each thermal parameter and whether the equipment-level set envelopes
+# the material-level one; lnk2 routes on crediting equipment-level cycles
+# against the remaining count. Both must deterministically hit
+# space-systems/ecss/q7004-link-to-e-st-10-03.
+tasks:
+  - id: lnk1
+    query: "the unit already has an equipment-level environmental test spec and we also have thermal test conditions, which document governs each limit and does the equipment run actually cover ours"
+    intent: "ECSS-Q-ST-70-04C interface with ECSS-E-ST-10-03C; parameter-by-parameter reconciliation keeping the more severe value, naming the governing document, and listing the parameters the equipment-level set fails to envelope"
+    expected_skill: "space-systems/ecss/q7004-link-to-e-st-10-03"
+  - id: lnk2
+    query: "we ran twelve cycles at equipment level, how many of those can we count against the material-level requirement and how many are still owed"
+    intent: "ECSS-Q-ST-70-04C interface with ECSS-E-ST-10-03C; crediting equipment-level cycles at a declared efficiency under a cap and reporting the remaining cycle count"
+    expected_skill: "space-systems/ecss/q7004-link-to-e-st-10-03"

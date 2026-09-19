@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6015-phase-b-radiation-requirements-consolidation
+# pb1 routes on the requirement attributes and the allocation-level design
+# factor floor; pb2 routes on the sector shielding geometry and the early part
+# screening it feeds. Both must deterministically hit
+# space-systems/ecss/q6015-phase-b-radiation-requirements-consolidation.
+tasks:
+  - id: pb1
+    query: "go through the draft radiation requirements before the system review and say which ones are not yet consolidated because they are missing an environment source, a design factor or a verification method"
+    intent: "ECSS-Q-ST-60-15C clause 4.4.2; requirement attribute completeness and the design factor floor that rises as the allocation descends"
+    expected_skill: "space-systems/ecss/q6015-phase-b-radiation-requirements-consolidation"
+  - id: pb2
+    query: "the box sits in a corner of the structure with very different wall thicknesses around it, work out the dose it actually sees and which candidate parts survive the first screening"
+    intent: "ECSS-Q-ST-60-15C clause 4.4.2; solid-angle sector shielding weighted over a dose-depth curve, then early part screening by radiation design margin"
+    expected_skill: "space-systems/ecss/q6015-phase-b-radiation-requirements-consolidation"

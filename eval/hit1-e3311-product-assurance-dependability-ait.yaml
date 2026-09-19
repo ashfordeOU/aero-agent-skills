@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-product-assurance-dependability-ait (space-systems/ecss)
+# Two tasks for the new leaf. pa1 routes on parallel-versus-series reliability
+# of an explosive train; pa2 routes on where the live device enters the
+# integration flow. Both must deterministically hit
+# space-systems/ecss/e3311-product-assurance-dependability-ait.
+tasks:
+  - id: pa1
+    query: "two initiators feed one charge, then a transfer line and a separation nut; work out the reliability of that explosive train stage by stage, apportion our system target across the stages, and say which stage stands alone with nothing parallel to it"
+    intent: "ECSS-E-ST-33-11C clause 4.17; parallel elements combine through failure probabilities inside a stage while stages multiply, then the target is apportioned per stage"
+    expected_skill: "space-systems/ecss/e3311-product-assurance-dependability-ait"
+  - id: pa2
+    query: "the integration flow has a vibration run scheduled after the live device goes in, tell me what is wrong with that and what else to look for"
+    intent: "ECSS-E-ST-33-11C clause 4.17; the live device goes in as late as the flow allows and nothing needing an inert vehicle may follow it"
+    expected_skill: "space-systems/ecss/e3311-product-assurance-dependability-ait"

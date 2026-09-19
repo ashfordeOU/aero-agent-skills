@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-proof-pressure-test (space-systems/ecss)
+# Two tasks for the new leaf. ppt1 routes on the proof factor and the test-temperature
+# correction on the applied pressure; ppt2 routes on the acceptance pair of hold
+# duration and permanent set. Both must deterministically hit
+# space-systems/ecss/e3102-proof-pressure-test.
+tasks:
+  - id: ppt1
+    query: "the two-phase loop condenser line has to be proofed cold rather than at ambient, so start from its proof factor and declared design pressure maximum, correct for the material allowable down there, and give me the window up to article yield"
+    intent: "ECSS-E-ST-31-02C clause 5.6.5; proof pressure from maximum design pressure and the proof factor, corrected by the ratio of material allowables, graded as a window below the yield of the article"
+    expected_skill: "space-systems/ecss/e3102-proof-pressure-test"
+  - id: ppt2
+    query: "The article held proof pressure for ninety seconds and measured two tenths of a percent longer afterwards. Is that hold long enough, does the permanent set stay under the allowed value, and does no leakage close acceptance alone?"
+    intent: "ECSS-E-ST-31-02C clause 5.6.5; proof hold duration and permanent set allowance as separate acceptance conditions alongside the no-leakage observation"
+    expected_skill: "space-systems/ecss/e3102-proof-pressure-test"

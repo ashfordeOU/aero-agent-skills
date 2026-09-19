@@ -3,9 +3,9 @@
 
 Common-knowledge summary (standards-map.yaml, ecss: gated false,
 quotable with citation): the ECSS series covers European space
-procurement - E-ST-40C (software engineering), Q-ST-80C (software
+procurement - E-ST-40C Rev.1 (software engineering), Q-ST-80C Rev.2 (software
 product assurance), M-ST-40 (configuration management), E-ST-10C
-(systems engineering). E-ST-40C classes software by the consequences
+(systems engineering). E-ST-40C Rev.1 classes software by the consequences
 of failure: A = loss of life or total loss of mission, B = major
 mission degradation, C = minor degradation, D = negligible effects;
 assurance and verification rigor scale with the category. Heritage
@@ -22,7 +22,7 @@ CONSEQUENCE_TO_CATEGORY = {
 }
 
 # Paraphrase of typical assurance depth per ECSS category; confirm the
-# exact rigor against the project's product assurance plan (Q-ST-80C).
+# exact rigor against the project's product assurance plan (Q-ST-80C Rev.2).
 RIGOR_BY_CATEGORY = {
     "A": "independent-verification",
     "B": "enhanced-project-verification",
@@ -49,7 +49,7 @@ PHASE_RECORD = {
 
 
 def criticality_category(consequence):
-    """ECSS-E-ST-40C software criticality category from failure
+    """ECSS-E-ST-40C Rev.1 software criticality category from failure
     consequence."""
     if consequence not in CONSEQUENCE_TO_CATEGORY:
         raise ValueError("unknown failure consequence: %r" % (consequence,))

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-execution-status-reporting (space-systems/ecss)
+# Two tasks for the new leaf. obesr1 routes on a report longer than one
+# telemetry packet; obesr2 routes on the scope a report declares. Both must
+# deterministically hit space-systems/ecss/e7041-execution-status-reporting.
+tasks:
+  - id: obesr1
+    query: "we carry far more autonomous sequences than fit in one downlink packet and the summary we get back always seems to stop early, work out how that telemetry should be split so a partial arrival is visible as partial"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.5; a summary longer than one packet becomes a numbered sequence carrying its own count rather than a truncation, because a truncated packet parses cleanly and the entries that fell off the end read exactly like procedures that are not aboard"
+    expected_skill: "space-systems/ecss/e7041-execution-status-reporting"
+  - id: obesr2
+    query: "to save downlink we only want the telemetry to carry the sequences whose state moved since last time, but then nobody can tell a quiet one from one that is gone, sort out what the summary has to say about itself"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.5; a summary must declare whether it covers everything, a named subset or only what changed, needs the previous values to compare against, treats a procedure absent from that baseline as changed, and still emits one packet when nothing moved"
+    expected_skill: "space-systems/ecss/e7041-execution-status-reporting"

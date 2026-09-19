@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-ticd (space-systems/ecss)
+# Case 1 routes on internal consistency of the signal table -- pin clashes and contradictory
+# direction. Case 2 routes on completeness against the categories the test configuration needs.
+tasks:
+  - id: e1024-ticd-1
+    query: "In the TICD for our thermal vacuum run two signals are assigned to connector J3 pin 14, and one net name appears once as source and once as sink. Are those blockers for baselining, or can the test start and the wiring be corrected afterwards?"
+    intent: "ECSS-E-ST-10-24C 5.10; pin assignments are unique within a connector and a name cannot be driven and received at once, both resolved before baseline"
+    expected_skill: "space-systems/ecss/e1024-ticd"
+  - id: e1024-ticd-2
+    query: "Our powered functional test TICD lists data and mechanical lines but no power signals anywhere and no ground return. Which completeness checks does the document have to pass before the UUT is mated to the GSE?"
+    intent: "ECSS-E-ST-10-24C 5.10; every interface category the test specification calls for must be represented, and a reference potential must exist"
+    expected_skill: "space-systems/ecss/e1024-ticd"

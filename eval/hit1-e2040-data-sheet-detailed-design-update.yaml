@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-data-sheet-detailed-design-update (space-systems/ecss)
+# Two tasks for the new leaf. dsdu1 routes on folding tool-printed units onto the
+# canonical unit before the budget comparison is redone; dsdu2 routes on the
+# parameters nobody refreshed staying in the denominator. Both must
+# deterministically hit space-systems/ecss/e2040-data-sheet-detailed-design-update.
+tasks:
+  - id: dsdu1
+    query: "detailed design has given us real timing in nanoseconds and power in milliwatts, fold them into the preliminary data sheet and redo the budget comparison against the refreshed numbers not the old estimates"
+    intent: "ECSS-E-ST-20-40C 5.5.4; canonical unit folding of refreshed figures and budget comparison redone on the refreshed value, an exact landing on the budget counted as met"
+    expected_skill: "space-systems/ecss/e2040-data-sheet-detailed-design-update"
+  - id: dsdu2
+    query: "which data sheet parameters are still carrying the preliminary estimate after detailed design, and do not drop them out of the refresh percentage"
+    intent: "ECSS-E-ST-20-40C 5.5.4; unrefreshed-parameter detection with the unrefreshed parameters kept in the refresh-fraction denominator, provisional and estimate-sourced figures reported"
+    expected_skill: "space-systems/ecss/e2040-data-sheet-detailed-design-update"

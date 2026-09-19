@@ -5,10 +5,10 @@
 # space-systems/ecss/q7029-concentration-determination.
 tasks:
   - id: cdt1
-    query: "turn these offgassing peak areas into micrograms per gram of sample and milligrams per cubic metre of vessel, remembering the blank run and the spike recovery of the desorption train"
+    query: "Offgassing run is done: integrated areas for six compounds, an empty vessel run, a spike that came back at 84 percent, 25 g of material and a one cubic metre chamber. Give me micrograms per gram of material and milligrams per cubic metre of chamber."
     intent: "ECSS-Q-ST-70-29 analysis; blank subtraction before the calibration, bracketing interpolation, recovery correction and the two normalisations"
     expected_skill: "space-systems/ecss/q7029-concentration-determination"
   - id: cdt2
-    query: "one compound came out above the detection limit but under the quantitation limit and another response is off the top of the calibration series - what do I report for each"
+    query: "one offgassing peak sits above detection but under the quantitation limit and another response runs off the top of the bracketing series; with the system blank taken off and recovery corrected, what concentration do I report for each"
     intent: "ECSS-Q-ST-70-29 analysis; a below-quantitation result carries the limit with its marker, and an over-range response is refused rather than extrapolated"
     expected_skill: "space-systems/ecss/q7029-concentration-determination"

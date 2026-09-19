@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-composite-antenna-surface-finish (space-systems/ecss)
+# Case 1 routes on the roughness loss and where its closed form stops bounding.
+# Case 2 routes on the conductive and coating loss terms against the allocation.
+tasks:
+  - id: e20-composite-antenna-surface-finish-1
+    query: "Our composite reflector has a woven-carbon radiating face with a resin-rich finish, surface error measured at 0.35 mm RMS, operating at 32 GHz. What aperture-efficiency loss does that roughness give at that wavelength, and when does the closed form stop bounding it?"
+    intent: "ECSS-E-ST-20C 7.2.2.4.2; the surface-error term against wavelength and the small-error validity limit on the closed form"
+    expected_skill: "space-systems/ecss/e20-composite-antenna-surface-finish"
+  - id: e20-composite-antenna-surface-finish-2
+    query: "The reflector face measures 0.05 ohm per square and the metallization only reaches 96 percent of the area, with a white thermal coating over it. How do those loss terms add up against the gain budget allocation held for surface finish?"
+    intent: "ECSS-E-ST-20C 7.2.2.4.2; ohmic, coverage and coating-absorption terms summed against the gain-budget allocation"
+    expected_skill: "space-systems/ecss/e20-composite-antenna-surface-finish"

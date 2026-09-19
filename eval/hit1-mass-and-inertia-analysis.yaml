@@ -1,0 +1,12 @@
+# Hit@1 fragment: mass-and-inertia-analysis (space-systems/ecss)
+# Case 1 routes on the tensor transfer and the sign that exposes a mistake in it.
+# Case 2 routes on building the system centre of mass and the budget verdict.
+tasks:
+  - id: mass-and-inertia-analysis-1
+    query: "I am summing component self-inertia tensors for a spacecraft platform and the assembled tensor comes out non-symmetric. How should the parallel-axis transfer treat the off-diagonal products, and can tensors about different origins be added directly?"
+    intent: "ECSS-E-ST-32C 4.6.2.18; tensors about different origins cannot be summed until each is transferred, and the off-diagonal correction carries a negative sign"
+    expected_skill: "space-systems/ecss/mass-and-inertia-analysis"
+  - id: mass-and-inertia-analysis-2
+    query: "Given a component inventory of mass, centroid and self-inertia, how do I get the system centre of mass, and what should the report say when no allocated mass budget has been set for the subsystem?"
+    intent: "ECSS-E-ST-32C 4.6.2.18; the centre of mass is the mass-weighted mean of component centroids, and an unset budget is a data gap rather than a pass"
+    expected_skill: "space-systems/ecss/mass-and-inertia-analysis"

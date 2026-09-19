@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-neutral-gas-density-assessment (space-systems/ecss)
+# Case 1 routes on carrying a release from mass flow through the plume to an
+# induced electron density. Case 2 routes on the checks at the point: headroom
+# over the carrier and whether the collisionless expansion was even valid there.
+tasks:
+  - id: e2006-neutral-gas-density-assessment-1
+    query: "Under ECSS I need the plasma our propulsion gas release induces around the vehicle. A vent 1.4 m from a sensitive antenna throws a plume whose half angle is near 25 degrees. How do I expand that release into the far field, get the neutral density at that observation point, and turn it into the electron density it induces with the ambient added?"
+    intent: "ECSS-E-ST-20-06C clause 11.3.5; the case turns on the cosine-law plume giving neutral density, the ionized share converting it to electrons, and the ambient background being added"
+    expected_skill: "space-systems/ecss/e2006-neutral-gas-density-assessment"
+  - id: e2006-neutral-gas-density-assessment-2
+    query: "At a point fairly close to the thruster exit my computed density gives a plasma frequency of 1.8 GHz while the downlink carrier is at 2.2 GHz. Does that count as clear, and how do I even know the collisionless expansion I used still holds that near the nozzle?"
+    intent: "ECSS-E-ST-20-06C clause 11.3.5; the case turns on the carrier needing headroom above the plasma frequency and on the Knudsen regime bounding the validity of the free-molecular model"
+    expected_skill: "space-systems/ecss/e2006-neutral-gas-density-assessment"

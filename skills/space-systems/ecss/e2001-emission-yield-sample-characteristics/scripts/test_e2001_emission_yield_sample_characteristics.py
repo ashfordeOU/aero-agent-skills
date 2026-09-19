@@ -190,12 +190,15 @@ class TestSurfaceFinish(unittest.TestCase):
         )
 
     def test_measured_ratio_at_tolerance_edge_is_absorbed(self):
-        # abs(1.3 - 1.0) / 1.0 evaluates a few ULPs above the exact 0.30
-        # allowance; that is binary representation error in a ratio of
+        # abs(1.3 - 1.0) / 1.0 is exactly the 0.30 allowance physically, but
+        # 1.3 is not exact in binary so the ratio lands within a unit in the
+        # last place of it. Which side is representation error in a ratio of
         # measured values, not a real roughness exceedance, so the logic
         # absorbs it and the 0.30 allowance itself stays put.
+        # places=14 is ~90 units in the last place of 0.30: wider than any
+        # rounding, tighter than any real roughness exceedance.
         deviation = surface_finish_deviation(1.3, 1.0)
-        self.assertGreater(deviation, 0.3)
+        self.assertAlmostEqual(deviation, 0.3, places=14)
         self.assertTrue(finish_within_tolerance(1.3, 1.0, 0.3))
 
     def test_tolerance_rejects_zero_allowance(self):
@@ -248,9 +251,14 @@ class TestCouponArea(unittest.TestCase):
         self.assertTrue(coupon_area_adequate(16.0, 4.0, 4.0))
 
     def test_float_product_at_keep_out_edge_is_absorbed(self):
-        # 0.1 * 3 evaluates a few ULPs above 0.3; a coupon of exactly the
-        # required area is adequate, and the keep-out factor is unchanged.
-        self.assertGreater(0.1 * 3.0, 0.3)
+        # A 0.1 footprint at a keep-out factor of 3 requires exactly 0.3 of
+        # area. 0.1 is not exact in binary, so the product lands within a unit
+        # in the last place of 0.3 and the side it falls on is a
+        # representation detail, not the claim: places=14 is ~90 units in the
+        # last place of 0.3, beyond any rounding and far tighter than any real
+        # area. The keep-out factor is unchanged; the claim under test is the
+        # line below - a coupon of exactly the required area is adequate.
+        self.assertAlmostEqual(0.1 * 3.0, 0.3, places=14)
         self.assertTrue(coupon_area_adequate(0.3, 0.1, 3.0))
 
     def test_rejects_keep_out_factor_below_one(self):

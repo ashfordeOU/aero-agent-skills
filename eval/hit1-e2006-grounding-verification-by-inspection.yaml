@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-grounding-verification-by-inspection (space-systems/ecss)
+# Case 1 routes on the paired evidence: what the inspection record must carry and
+# how the resistance reading must be taken. Case 2 routes on the bounds being
+# two-sided for a bleed path and on the network needing a reference point.
+tasks:
+  - id: e2006-grounding-verification-by-inspection-1
+    query: "Our bonding dossier closes each equipment chassis bond on a 2.5 milliohm reading taken two-wire, and the inspection record leaves corrosion protection marked not applicable while surface preparation is unrecorded. Is that inspection evidence plus that measurement enough to close the provision?"
+    intent: "ECSS-E-ST-20-06C clause 6.8.1; the case turns on the inspection attributes that may not be waived and on a milliohm bond needing a four-wire measurement to mean anything"
+    expected_skill: "space-systems/ecss/e2006-grounding-verification-by-inspection"
+  - id: e2006-grounding-verification-by-inspection-2
+    query: "Our grounding dossier logs a static dissipative bleed path at almost zero ohms as a pass because lower is better, and nobody nominated a structure bond reference point for the network. Acceptable when we close the provision under ECSS?"
+    intent: "ECSS-E-ST-20-06C clause 6.8.1; the case turns on a bleed path being bounded below as well as above, and on the network roll-up requiring a structure reference point"
+    expected_skill: "space-systems/ecss/e2006-grounding-verification-by-inspection"

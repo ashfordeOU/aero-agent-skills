@@ -6,10 +6,10 @@
 # space-systems/ecss/q1009-classification.
 tasks:
   - id: cl1
-    query: "this departure is tiny but it moves a connector keying feature, decide whether that makes it a minor or a major nonconformance and which board can dispose of it"
+    query: "This departure is tiny but it moves a connector keying feature, so interchangeability and the interface are both touched. Answer every severity criterion in clause 3.2: is the nonconformance minor or major, and which board gets to dispose of it?"
     intent: "ECSS-Q-ST-10-09 clause 5.2.2.2; the clause 3.2 severity criteria as a disjunction, interchangeability and interface answered explicitly rather than weighed"
     expected_skill: "space-systems/ecss/q1009-classification"
   - id: cl2
-    query: "that bracket has picked up four separate small mass overruns on four separate reports, work out whether the item as a whole still counts as minor"
+    query: "four small mass departures have been raised against the same bracket, each minor on its own, add up the margin they have eaten between them and tell me whether the group now has to be escalated to major"
     intent: "ECSS-Q-ST-10-09 clause 5.2.2.2; grouping minor departures by the item that owns the margin and escalating the group when the allocated margin or the permitted count is reached"
     expected_skill: "space-systems/ecss/q1009-classification"

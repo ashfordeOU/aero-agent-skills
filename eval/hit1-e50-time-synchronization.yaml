@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-time-synchronization (space-systems/ecss)
+# ts1 routes on recovering an offset from a four-timestamp two-way exchange;
+# ts2 routes on sizing the synchronization interval from relative drift.
+# Both must deterministically hit space-systems/ecss/e50-time-synchronization.
+tasks:
+  - id: ts1
+    query: "we run a two-way exchange between the two spacecraft and log all four timestamps, pull the clock offset out of them and tell me how much the closing rate during the turnaround corrupts it"
+    intent: "ECSS-E-ST-50C clause 5.7.4.5; the exchange cancels the reciprocal path, so the residual is half the static asymmetry plus half the asymmetry that relative motion opens over the responder hold time"
+    expected_skill: "space-systems/ecss/e50-time-synchronization"
+  - id: ts2
+    query: "how often do the two spacecraft in the pair have to re-exchange time to stay inside their coordination window given how fast their oscillators walk apart from each other"
+    intent: "ECSS-E-ST-50C clause 5.7.4.5; the interval is the window less the exchange estimate error divided by the relative drift rate, and zero when the exchange alone spends the window"
+    expected_skill: "space-systems/ecss/e50-time-synchronization"

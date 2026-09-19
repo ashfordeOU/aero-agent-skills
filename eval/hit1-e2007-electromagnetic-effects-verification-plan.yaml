@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-electromagnetic-effects-verification-plan (space-systems/ecss)
+# Case 1 routes on whether a method is admissible for a requirement family and
+# what a substitution owes. Case 2 routes on coverage, orphan activities,
+# unnamed facilities and schedule feasibility, none of which coverage shows.
+tasks:
+  - id: e2007-electromagnetic-effects-verification-plan-1
+    query: "The chamber is booked out, so we want review of design to close our radiated-emission requirement. Is that verification method admissible for the family, and does the substitution need a tailoring justification written into the plan?"
+    intent: "ECSS-E-ST-20-07C clause 5.1.2; measured behaviour families are closed on hardware, and a substitution is only admissible against a recorded tailoring justification"
+    expected_skill: "space-systems/ecss/e2007-electromagnetic-effects-verification-plan"
+  - id: e2007-electromagnetic-effects-verification-plan-2
+    query: "Two planned activities point at requirements that are not on the requirement-list, one names no facility and no equipment-under-test setup, and the summed durations plus contingency overrun the campaign window. Is the plan releasable while the coverage fraction still reads complete?"
+    intent: "ECSS-E-ST-20-07C clause 5.1.2; orphan activities, an unnamed facility or configuration, and an infeasible schedule each block release independently of coverage"
+    expected_skill: "space-systems/ecss/e2007-electromagnetic-effects-verification-plan"

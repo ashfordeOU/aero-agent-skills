@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-self-sustained-discharge-prevention (space-systems/ecss)
+# Case 1 routes on deciding which of the three arc regimes a conductor pair falls
+# into. Case 2 routes on what may be credited as protection and what evidence the
+# regime demands to close it.
+tasks:
+  - id: e2006-self-sustained-discharge-prevention-1
+    query: "Two adjacent interconnects are 0.4 mm apart with 95 V across the gap and no solid barrier between them; the string can feed roughly 4 A. Under ECSS, once a discharge is triggered, is this pair one that quenches, one that re-strikes temporarily, or one that latches permanently, and which thresholds fix the regime?"
+    intent: "ECSS-E-ST-20-06C clause 8.2; the case turns on deriving both sustaining thresholds for the gap and placing the pair in the quenched, temporary or permanent regime"
+    expected_skill: "space-systems/ecss/e2006-self-sustained-discharge-prevention"
+  - id: e2006-self-sustained-discharge-prevention-2
+    query: "Our analysis credits a current-limiting device that never reached the flight harness, and one adjacent-conductor pair lands in the temporary-sustained-arc regime. May that pair close on analysis alone, and does an arc that quenches itself still owe per-event energy?"
+    intent: "ECSS-E-ST-20-06C clause 8.2; the case turns on crediting only mitigations in the as-built hardware and on empirical evidence being required for a re-striking pair"
+    expected_skill: "space-systems/ecss/e2006-self-sustained-discharge-prevention"

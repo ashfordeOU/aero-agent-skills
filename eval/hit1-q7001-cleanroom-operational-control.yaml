@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanroom-operational-control (space-systems/ecss)
+# oc1 routes on sizing a session against the occupancy the ventilation supports;
+# oc2 routes on gowning, materials and tooling screened at the airlock. Both must
+# deterministically hit
+# space-systems/ecss/q7001-cleanroom-operational-control.
+tasks:
+  - id: oc1
+    query: "we want eight people moving hardware around in that clean hall for a shift, work out from the air change rate and the room volume how many the ventilation actually supports before the room drops out of its class"
+    intent: "occupant particle generation by activity converted to a steady-state concentration against the class ceiling, inverted into a supported occupancy"
+    expected_skill: "space-systems/ecss/q7001-cleanroom-operational-control"
+  - id: oc2
+    query: "check the gowning list, the materials and the tool trolley going into the clean area this afternoon and tell me what has to be refused at the airlock and which garment each person is missing"
+    intent: "clean-area operating discipline: gowning graded per person against the class, refused fibre-shedding materials, tooling with no cleaning record, interlock and transit breaches"
+    expected_skill: "space-systems/ecss/q7001-cleanroom-operational-control"

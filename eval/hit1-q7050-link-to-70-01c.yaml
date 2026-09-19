@@ -1,0 +1,16 @@
+# Hit@1 fragment: q7050-link-to-70-01c (space-systems/ecss)
+# Two tasks for the new leaf. link1 routes on the witness-plate fallout rate
+# projected over an exposure the monitoring did not span, and the percentage
+# area coverage the 70-01C requirement is verified on; link2 routes on the
+# requirement reference size sitting above the coarsest monitored bin, which
+# makes the coverage a lower bound. Both must deterministically hit
+# space-systems/ecss/q7050-link-to-70-01c.
+tasks:
+  - id: link1
+    query: "the witness plates were read after ten days of monitoring and the hardware is exposed for a month, turn those per-size-bin fallout counts into the percentage area coverage I verify the surface cleanliness requirement against"
+    intent: "ECSS-Q-ST-70-50 monitoring interface toward ECSS-Q-ST-70-01C; per-bin fallout rate projected over the exposure, obscured area summed bin by bin, coverage compared with the declared cleanliness level"
+    expected_skill: "space-systems/ecss/q7050-link-to-70-01c"
+  - id: link2
+    query: "our contamination monitors only counted down to fifty micrometres but the cleanliness requirement is written at a hundred, and the exposure is forty times longer than the monitored period - is the coverage figure I have usable as verification evidence"
+    intent: "ECSS-Q-ST-70-50 monitoring handover; coarse tail above the coarsest monitored bin makes the coverage a lower bound, and a projection past the allowed extrapolation factor is refused"
+    expected_skill: "space-systems/ecss/q7050-link-to-70-01c"

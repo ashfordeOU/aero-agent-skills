@@ -116,10 +116,18 @@ class ThermalTests(unittest.TestCase):
         )
 
     def test_the_impedance_never_exceeds_the_steady_state(self):
-        for duration in (0.001, 0.1, 1.0, 10.0, 100.0):
-            self.assertLessEqual(
+        # A single-pole path approaches its steady state from below and then
+        # saturates on it. Below a few tens of time constants the impedance
+        # is strictly under the steady state; at a hundred of them exp() is
+        # around 4e-44, so 1 - exp() is exactly 1.0 in binary64 whatever
+        # value libm returns, and the impedance is exactly the steady state.
+        # Both are the contract: assert them separately rather than behind
+        # one <= that hides which case is which.
+        for duration in (0.001, 0.1, 1.0, 10.0):
+            self.assertLess(
                 transient_thermal_impedance(20.0, 1.0, duration), 20.0
             )
+        self.assertEqual(transient_thermal_impedance(20.0, 1.0, 100.0), 20.0)
 
     def test_a_zero_time_constant_is_refused(self):
         with self.assertRaises(ValueError):

@@ -7,6 +7,7 @@ emitter-redundancy and aggregation paths of the clause 11.2.2 logic,
 including every ValueError path and the at-the-limit boundary cases.
 """
 
+import math
 import unittest
 
 from e2006_thruster_beam_neutralization_logic import (
@@ -103,10 +104,16 @@ class CurrentBalanceTests(unittest.TestCase):
         )
 
     def test_ratio_at_unity_within_representation_is_electron_rich(self):
-        # 0.1 + 0.2 lands a few ULPs above 0.3, so the ratio computes just
-        # below unity while the design is physically balanced.
+        # 0.1 + 0.2 is one representable place above 0.3, so 0.3 divided by
+        # it computes two places below unity - the spacing halves below a
+        # power of two. Both steps are correctly rounded IEEE-754, so this
+        # is the same value on every platform, while the design is
+        # physically balanced.
         balance = neutralizer_current_balance(0.1 + 0.2, 0.3)
-        self.assertLess(balance["neutralization_ratio"], 1.0)
+        two_places_below_unity = math.nextafter(math.nextafter(1.0, 0.0), 0.0)
+        self.assertEqual(
+            balance["neutralization_ratio"], two_places_below_unity
+        )
         self.assertTrue(balance["electron_rich"])
 
     def test_zero_beam_current_is_rejected(self):
@@ -175,9 +182,12 @@ class PotentialAllowanceTests(unittest.TestCase):
         self.assertAlmostEqual(check["margin_v"], 0.0)
 
     def test_representation_error_at_the_limit_is_absorbed(self):
-        # (0.1 + 0.2) / 0.03 evaluates a few ULPs above 10.0.
+        # (0.1 + 0.2) / 0.03 is one correctly rounded addition and one
+        # correctly rounded division: exactly one representable place above
+        # the 10.0 V allowance on every platform. The allowance stands; the
+        # check absorbs the place.
         magnitude = (0.1 + 0.2) / 0.03
-        self.assertGreater(magnitude, 10.0)
+        self.assertEqual(magnitude, 10.0 + math.ulp(10.0))
         check = check_potential_allowance(-magnitude, 10.0)
         self.assertTrue(check["compliant"])
 
@@ -224,9 +234,12 @@ class IgnitionSequenceTests(unittest.TestCase):
         self.assertAlmostEqual(check["lead_s"], 5.0)
 
     def test_lead_equal_to_requirement_within_representation_passes(self):
-        # 0.3 - 0.1 evaluates a few ULPs below 0.2.
+        # 0.3 - 0.1 is one correctly rounded IEEE-754 subtraction: exactly
+        # one representable place below the 0.2 s required lead, the same
+        # place on every platform. The requirement is not relaxed - the
+        # sequence check absorbs that place.
         check = check_ignition_sequence(0.1, 0.3, 0.2)
-        self.assertLess(check["lead_s"], 0.2)
+        self.assertEqual(check["lead_s"], 0.2 - math.ulp(0.2))
         self.assertTrue(check["compliant"])
 
     def test_beam_opening_before_ignition_fails(self):

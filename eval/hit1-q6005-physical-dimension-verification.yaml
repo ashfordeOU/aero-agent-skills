@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-physical-dimension-verification (space-systems/ecss,
+# Q-ST-60-05 10.3.8). Two tasks for the new leaf. pdv1 routes on asymmetric
+# limits and the uncertainty guard band that makes a reading indeterminate;
+# pdv2 routes on the worst-case envelope fit and the position accumulated along
+# a terminal row. Both must deterministically hit
+# space-systems/ecss/q6005-physical-dimension-verification.
+tasks:
+  - id: pdv1
+    query: "grade these package readings against asymmetric-drawing-tolerance-limits with the dimensional-measurement-uncertainty-guard-band applied, and check the gauge-capability-tolerance-ratio before trusting any of them"
+    intent: "ecss hybrids; two tolerances are not one, and a reading inside a limit by less than the uncertainty shows nothing"
+    expected_skill: "space-systems/ecss/q6005-physical-dimension-verification"
+  - id: pdv2
+    query: "work out the worst-case-package-envelope-fit into the host site with its keep-out intact, and the terminal-pitch-position-accumulation over a twenty four terminal row"
+    intent: "ecss hybrids; the site has to take the largest package the drawing permits, and pitch tolerance accumulates along the row"
+    expected_skill: "space-systems/ecss/q6005-physical-dimension-verification"

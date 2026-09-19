@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-die-packaging-and-storage (space-systems/ecss)
+# dps1 routes on the stores question for bare die awaiting assembly; dps2 routes on
+# out-of-seal floor life and the bake decision, which a general ESD or stores skill
+# does not carry. Both must deterministically hit
+# space-systems/ecss/q6012-die-packaging-and-storage.
+tasks:
+  - id: dps1
+    query: "our bare dies are sitting in stores in a gel pack inside a bag with no desiccant recorded, work out whether that arrangement is good enough to still build with and what we would have to do to fix it"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.5; carrier, seal and store barrier adequacy for bare die awaiting assembly, with the restoring actions named"
+    expected_skill: "space-systems/ecss/q6012-die-packaging-and-storage"
+  - id: dps2
+    query: "these dies have been out of their sealed bag for exactly as many days as their floor life allows and the stores humidity has been over the ceiling, do they need baking before assembly"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.5; out-of-seal floor life in whole days, the bake decision on the boundary, and store condition scoring"
+    expected_skill: "space-systems/ecss/q6012-die-packaging-and-storage"

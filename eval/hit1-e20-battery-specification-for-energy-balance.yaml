@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-battery-specification-for-energy-balance (space-systems/ecss)
+# Case 1 routes on which mission phase demands the most capacity.
+# Case 2 routes on the fade allowance and the recurring-cycle energy closure.
+tasks:
+  - id: e20-battery-specification-for-energy-balance-1
+    query: "Sizing a LEO secondary battery, the eclipse discharge is 180 Wh limited to 25 percent depth of discharge, but a four-hour safe mode is permitted 60 percent. Which phase demands the most capacity, and where does the discharge path efficiency enter?"
+    intent: "ECSS-E-ST-20C 5.6.2; the driving case is the single phase demanding the most capacity, and the phase discharge is divided by both the path efficiency and the allowed depth"
+    expected_skill: "space-systems/ecss/e20-battery-specification-for-energy-balance"
+  - id: e20-battery-specification-for-energy-balance-2
+    query: "Our sizing produced 900 Wh of demand at end of life. Do I procure that figure as the beginning-of-life rating, and how do I prove the recurring orbit does not run the store down even though every phase sits inside its allowance?"
+    intent: "ECSS-E-ST-20C 5.6.2; the demand is an end-of-life figure that must be divided by the retained fraction, and the recurring cycle needs its own net-energy closure"
+    expected_skill: "space-systems/ecss/e20-battery-specification-for-energy-balance"

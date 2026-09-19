@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-detailed-emc-verification-requirements (space-systems/ecss)
+# Case 1 routes on a run whose cited procedure identifier cannot be resolved.
+# Case 2 routes on step size against resolution bandwidth and per-point dwell.
+tasks:
+  - id: e20-detailed-emc-verification-requirements-1
+    query: "A conducted emission run on our unit is citing a detailed verification requirement identifier our applicable document set does not contain. Do I quietly drop that run from the electromagnetic compatibility campaign, or is the unresolved citation itself a finding?"
+    intent: "ECSS-E-ST-20C 6.4.3; the case turns on an unresolved reference being a finding, since the basis the run was graded against is unknown"
+    expected_skill: "space-systems/ecss/e20-detailed-emc-verification-requirements"
+  - id: e20-detailed-emc-verification-requirements-2
+    query: "One segment of our sweep stepped 40 kHz while the analyser sat at 10 kHz resolution bandwidth, and it spent sixty seconds covering around 900 points. What does that combination do to the validity of the level we reported?"
+    intent: "ECSS-E-ST-20C 6.4.3; the case turns on the step exceeding its allowed share of the measurement bandwidth and on dwell being owed per point, not per segment"
+    expected_skill: "space-systems/ecss/e20-detailed-emc-verification-requirements"

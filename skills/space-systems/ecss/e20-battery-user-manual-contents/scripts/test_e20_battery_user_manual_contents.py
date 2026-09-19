@@ -5,6 +5,7 @@ Stdlib unittest, offline, deterministic. Run:
     python3 test_e20_battery_user_manual_contents.py
 """
 
+import math
 import unittest
 
 import e20_battery_user_manual_contents_logic as logic
@@ -163,10 +164,11 @@ class TestOperatingEnvelope(unittest.TestCase):
         self.assertEqual(out["findings"], [])
 
     def test_termination_a_few_ulps_over_by_representation_is_absorbed(self):
-        # 0.9 + 3.2 lands a few ULPs above 4.1; the physical case is the
-        # declared envelope maximum and must not be read as an exceedance.
+        # 0.9 + 3.2 is bit-exactly one unit in the last place above 4.1 on
+        # every IEEE-754 platform; the physical case is the declared envelope
+        # maximum and must not be read as an exceedance.
         v_term = 0.9 + 3.2
-        self.assertGreater(v_term, 4.10)
+        self.assertEqual(v_term, math.nextafter(4.10, math.inf))
         out = logic.validate_operating_envelope(
             envelope(charge_termination_voltage_v=v_term), "lithium-ion"
         )
@@ -362,13 +364,15 @@ class TestDutyProfileAndLife(unittest.TestCase):
         )
 
     def test_summed_years_a_few_ulps_over_by_representation_are_absorbed(self):
-        # mission 0.1 y + storage 0.2 y sums a few ULPs above 0.3; a
-        # calendar-life declared at exactly 0.3 y is compliant.
+        # mission 0.1 y + storage 0.2 y is bit-exactly one unit in the last
+        # place above 0.3 on every IEEE-754 platform (a single correctly
+        # rounded addition, no libm). A calendar life declared at exactly
+        # 0.3 y is compliant, so the overshoot must be absorbed.
         out = logic.check_life_data(
             life(calendar_life_years=0.3),
             duty_profile(mission_years=0.1, storage_years=0.2),
         )
-        self.assertGreater(out["total_years"], 0.3)
+        self.assertEqual(out["total_years"], math.nextafter(0.3, math.inf))
         self.assertNotIn(
             "declared calendar-life short of mission plus storage", out["findings"]
         )

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e31-temperature-ranges-allowable-limits-classification (space-systems/ecss)
+# trg1 routes on grouping hardware by temperature range including an item that
+# straddles a boundary; trg2 routes on inflating a prediction by its uncertainty
+# before comparing with an allowable limit. Both must deterministically hit
+# space-systems/ecss/e31-temperature-ranges-allowable-limits-classification.
+tasks:
+  - id: trg1
+    query: "go through our thermal hardware list and put each unit in the right temperature range - one radiator runs warm in operation but drops to 180 K in the cold survival case"
+    intent: "ECSS-E-ST-31 clauses 3.2 and 4.2.1; items are grouped cryogenic, conventional or high-temperature by the range their predictions occupy, and an item straddling a boundary owes both rule sets"
+    expected_skill: "space-systems/ecss/e31-temperature-ranges-allowable-limits-classification"
+  - id: trg2
+    query: "these boxes already sit in the cryogenic, conventional and high-temperature ranges - now take each box's allowable limits and its predicted temperature with the uncertainty on it, and tell me the margin the thermal subsystem is really designed to"
+    intent: "ECSS-E-ST-31 clause 4.2.4; an allowable limit and a predicted temperature inflated by its own uncertainty are paired into the margin the thermal control subsystem is actually designed to"
+    expected_skill: "space-systems/ecss/e31-temperature-ranges-allowable-limits-classification"

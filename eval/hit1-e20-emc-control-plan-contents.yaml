@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-emc-control-plan-contents (space-systems/ecss)
+# Case 1 routes on block and role presence: an empty heading is not a declared
+# block. Case 2 routes on the register and budget arithmetic: a measure must act
+# on the mechanism it claims, and emitter levels are logarithmic.
+tasks:
+  - id: e20-emc-control-plan-contents-1
+    query: "Reviewing our electromagnetic compatibility control plan against Annex A: the deviation-handling heading exists but is empty, and the organisation section names an owner with no reporting line and no control-board link. Does an empty heading count as a block that has been declared?"
+    intent: "ECSS-E-ST-20C Annex A; content-block presence is presence plus content, and the organisation block owes the compatibility owner, the reporting path and the control-board interface by name"
+    expected_skill: "space-systems/ecss/e20-emc-control-plan-contents"
+  - id: e20-emc-control-plan-contents-2
+    query: "Our control-measure register offers a filtering scheme against a radiated coupling path, and one budget row adds a pair of 40 dB emitters to 80 dB. Is a measure that misses the mechanism still coverage, and how do emitter levels aggregate behind a victim?"
+    intent: "ECSS-E-ST-20C Annex A; a measure that does not act on the claimed coupling path buys no coverage, and emitter levels are power-summed rather than added in decibels before the margin is read"
+    expected_skill: "space-systems/ecss/e20-emc-control-plan-contents"

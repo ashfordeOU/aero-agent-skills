@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-specimen (space-systems/ecss)
+# Two tasks for the new leaf. sp1 routes on intake of a customer item and its
+# unique marking in the centre register; sp2 routes on a custody chain that
+# does not connect. Both must deterministically hit
+# space-systems/ecss/q2007-specimen.
+tasks:
+  - id: sp1
+    query: "a customer item has arrived, the receipt inspection is done, and we have to give it a marking unique in the centre register, record the build it actually arrived in against the declared one, and decide accept, nonconformance or quarantine"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.3; unique identification, as-received configuration recorded, graded disposition"
+    expected_skill: "space-systems/ecss/q2007-specimen"
+  - id: sp2
+    query: "the custody record for the customer item has a handover where the receiving holder never reappears as the next releasing holder, and the declared configuration list never arrived with the item"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.3; custody chain joins, accompanying documents missing on receipt"
+    expected_skill: "space-systems/ecss/q2007-specimen"

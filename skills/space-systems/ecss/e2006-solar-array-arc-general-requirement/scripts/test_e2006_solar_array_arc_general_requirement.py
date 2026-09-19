@@ -5,6 +5,7 @@ import unittest
 
 from e2006_solar_array_arc_general_requirement_logic import (
     BOND_PATH_RESISTANCE_LIMIT_OHM,
+    COMPARISON_TOLERANCE,
     MINIMUM_INCEPTION_VOLTAGE_V,
     UNGROUNDED_DIELECTRIC_AREA_LIMIT_CM2,
     arc_characterization_scope,
@@ -101,7 +102,15 @@ class GroundingProvisionTests(unittest.TestCase):
         accumulated = 0.0
         for segment in segments:
             accumulated += segment
-        self.assertGreater(accumulated, BOND_PATH_RESISTANCE_LIMIT_OHM)
+        # Eleven equal shares re-sum to 1000000.0000000002 on every
+        # IEEE-754 platform (each addition is correctly rounded): two last
+        # places of representation error above the limit, not an
+        # exceedance. Assert the size of that error, not its direction.
+        self.assertNotEqual(accumulated, BOND_PATH_RESISTANCE_LIMIT_OHM)
+        self.assertLess(
+            abs(accumulated - BOND_PATH_RESISTANCE_LIMIT_OHM),
+            BOND_PATH_RESISTANCE_LIMIT_OHM * COMPARISON_TOLERANCE,
+        )
         finding = element_grounding_finding(
             bonded_interconnect(segments=tuple(segments))
         )
@@ -228,7 +237,15 @@ class DifferentialPotentialTests(unittest.TestCase):
         # is exactly 120 V physically, but sums one ULP low in binary.
         differential = worst_case_differential_potential(-0.02, 0.02, 119.96)
         threshold = primary_arc_inception_threshold(100.0, 0.90, 20.0)
-        self.assertLess(differential, threshold)
+        # The reference thickness, gap and temperature leave the threshold
+        # at exactly 120 V, while the potential sums to 119.99999999999999
+        # on every IEEE-754 platform. Assert the size of that one-last-place
+        # representation error rather than which side of 120 V it falls on.
+        self.assertEqual(threshold, 120.0)
+        self.assertNotEqual(differential, threshold)
+        self.assertLess(
+            abs(differential - threshold), threshold * COMPARISON_TOLERANCE
+        )
         self.assertTrue(inception_margin(differential, threshold)["inception_reached"])
 
     def test_negative_differential_is_rejected(self):

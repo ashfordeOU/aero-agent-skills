@@ -5,6 +5,7 @@ Offline, deterministic, stdlib unittest. Run:
     python3 test_e2001_single_carrier_analysis_levels.py
 """
 
+import math
 import unittest
 
 from e2001_single_carrier_analysis_levels_logic import (
@@ -120,7 +121,11 @@ class TestChartBands(unittest.TestCase):
         frequency_ghz = 67.0 / 7.0
         gap_m = (20.0 / frequency_ghz) / 1000.0
         product = frequency_gap_product_ghz_mm(frequency_ghz * 1.0e9, gap_m)
-        self.assertGreater(product, 20.0)
+        # Division and multiplication only, so the overshoot is exactly
+        # one unit in the last place on any IEEE-754 machine. State it as
+        # a magnitude rather than asserting which side of the charted
+        # upper edge it lands on; the edge itself is unchanged.
+        self.assertEqual(product - 20.0, math.ulp(20.0))
         self.assertAlmostEqual(product, 20.0, places=9)
         self.assertTrue(is_within_chart_band(product, (0.5, 20.0)))
 

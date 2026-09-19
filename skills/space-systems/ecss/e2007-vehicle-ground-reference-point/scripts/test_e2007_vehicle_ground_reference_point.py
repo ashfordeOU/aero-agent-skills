@@ -306,8 +306,15 @@ class TestMeasurementEvaluation(unittest.TestCase):
             "lead_offset_mohm": 1.65,
         }
         # The subtraction lands a few units in the last place above the 2.5
-        # allowance although the bond physically sits on it.
-        self.assertGreater(4.15 - 1.65, 2.5)
+        # allowance although the bond physically sits on it. It is a single
+        # IEEE-754 subtraction of two exactly parsed doubles: correctly
+        # rounded in hardware and bit-identical on every conforming
+        # platform. The difference from the allowance is itself exact, so
+        # state that excess rather than compare reading against allowance
+        # on the boundary.
+        excess = (4.15 - 1.65) - 2.5
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-14)
         verdict = logic.evaluate_measurement(record, REFERENCE_ID)
         self.assertAlmostEqual(verdict["corrected_mohm"], 2.5)
         self.assertEqual(verdict["findings"], [])

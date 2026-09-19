@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-heat-pipe-performance-verification (space-systems/ecss)
+# hpp1 routes on the power-length rating and the temperature dependence; hpp2
+# routes on the tilt and bend knockdowns that come off it. Both must
+# deterministically hit
+# space-systems/ecss/e3102-heat-pipe-performance-verification.
+tasks:
+  - id: hpp1
+    query: "our heat pipe datasheet quotes a watt-metre rating and the capability curve stops above my cold survival temperature; convert that rating over the run's effective length, and tell me which operating point is worst and what power is left there"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2a; power-length rating converted at the effective transport length, and the capability curve read at the cold end without extrapolating"
+    expected_skill: "space-systems/ecss/e3102-heat-pipe-performance-verification"
+  - id: hpp2
+    query: "two bends in this pipe run and the evaporator sits eight millimetres above the condenser, so the tilt is adverse; subtract what that elevation consumes from transport capability, apply each bend's knockdown at its radius, and refuse any radius under the qualified minimum"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2a; adverse tilt subtracting capillary head to the point of exhaustion, and bend knockdown scaled by the qualified minimum radius"
+    expected_skill: "space-systems/ecss/e3102-heat-pipe-performance-verification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-on-board-network-management-service (space-systems/ecss)
+# Two tasks for the new leaf. nms1 routes on a resource that can be read but
+# not commanded; nms2 routes on a router managed only through itself.
+# Both must deterministically hit
+# space-systems/ecss/e50-on-board-network-management-service.
+tasks:
+  - id: nms1
+    query: "every node on our on-board network answers a status poll but only some of them can be reconfigured or commanded, work out the management operation coverage and which resources have gaps"
+    intent: "ECSS-E-ST-50C clause 5.7.2.4; a resource is managed only when the service reaches it for every operation it is owed, so a node that reports state but cannot be configured or commanded is monitored rather than managed"
+    expected_skill: "space-systems/ecss/e50-on-board-network-management-service"
+  - id: nms2
+    query: "the management traffic for one of our on-board network routers is routed through that same router, decide whether the resource is still manageable once it has failed and name any management path hop that is not itself a managed resource"
+    intent: "ECSS-E-ST-50C clause 5.7.2.4; a management path that runs through the resource it manages is a self-dependency, and a path hop outside the managed inventory is an unmanaged dependency"
+    expected_skill: "space-systems/ecss/e50-on-board-network-management-service"

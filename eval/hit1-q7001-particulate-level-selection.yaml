@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-particulate-level-selection (space-systems/ecss)
+# Two tasks for the new leaf. pls1 routes on choosing the level to write into a
+# requirement given the fallout accumulated over the remaining exposure; pls2
+# routes on the coarsest candidate held under the band ceiling and above the
+# verification floor. Both must deterministically hit
+# space-systems/ecss/q7001-particulate-level-selection.
+tasks:
+  - id: pls1
+    query: "choose the particulate cleanliness level to write into the requirement for this banded item, allowing for the fallout it will accumulate over the exposure that remains before the performance matters"
+    intent: "ECSS-Q-ST-70-01C framework; level allocation against the end-of-exposure obscuration budget including projected fallout"
+    expected_skill: "space-systems/ecss/q7001-particulate-level-selection"
+  - id: pls2
+    query: "give me the coarsest candidate level that still fits the obscuration budget with margin while staying under the sensitivity band ceiling and above the finest level we can actually verify, and say which of those bound the choice"
+    intent: "ECSS-Q-ST-70-01C framework; coarsest admissible level under the band ceiling and verification floor with the binding constraint named"
+    expected_skill: "space-systems/ecss/q7001-particulate-level-selection"

@@ -9,6 +9,6 @@ tasks:
     intent: "ECSS-E-ST-50-53C clause 5.1.1; the length field counts one less than the data field and the transfer frame adds routing bytes plus one protocol byte"
     expected_skill: "space-systems/ecss/e5053-ccsds-packet"
   - id: cp2
-    query: "I have a nine hundred byte telemetry item and a two hundred and fifty six byte data field limit, split it into packets with the right grouping flags and say what the counter should do"
+    query: "I have a nine hundred byte user datum and a two hundred fifty six byte data field limit. How do I split it across packets, what do the grouping flags read on each, and how must the sequence counter advance?"
     intent: "ECSS-E-ST-50-53C clause 5.1.1; first, continuation and last grouping across a split datum, and the per-identifier sequence counter that must advance by one"
     expected_skill: "space-systems/ecss/e5053-ccsds-packet"

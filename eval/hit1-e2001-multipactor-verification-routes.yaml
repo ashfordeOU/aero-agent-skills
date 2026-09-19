@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-verification-routes (space-systems/ecss)
+# Case 1 routes on criticality closing the analysis-only route regardless of
+# margin. Case 2 routes on the detection set the chosen route obliges.
+tasks:
+  - id: e2001-multipactor-verification-routes-1
+    query: "Our output filter's computed multipactor margin clears the required value by 5 dB on a validated chart, and no similarity claim is on the table, but the unit is on the critical list. Is a route of analysis alone permitted, or does criticality ratchet it?"
+    intent: "ECSS-E-ST-20-01C clause 4.5; criticality is a one-way ratchet off analysis alone, however comfortable the computed margin is"
+    expected_skill: "space-systems/ecss/e2001-multipactor-verification-routes"
+  - id: e2001-multipactor-verification-routes-2
+    query: "Our campaign plans reverse and forward power nulls plus third harmonic content. Is that two independent detectors, and does the set also need something watching the gap itself rather than only the ports?"
+    intent: "ECSS-E-ST-20-01C clause 4.5; two independent detection methods are required and they cannot both be port-level, so one must observe the gap locally"
+    expected_skill: "space-systems/ecss/e2001-multipactor-verification-routes"

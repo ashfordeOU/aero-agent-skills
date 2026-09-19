@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-spacecraft-grounding-reference-concept (space-systems/ecss)
+# Case 1 routes on topology chosen from electrical length and the one-reference rule.
+# Case 2 routes on shared-path coupling and per-category bonding limits.
+tasks:
+  - id: e20-spacecraft-grounding-reference-concept-1
+    query: "Harness routing leaves 4.3 m as our longest return run, with the fastest circuit on the bus at 100 MHz. Can the reference topology stay single-point at that electrical length, and what if an isolated secondary domain ends up with two reference points?"
+    intent: "ECSS-E-ST-20C 6.3.8.2; the topology follows run length against wavelength rather than the agreed concept, and a second reference on one isolated domain is a structure loop, not redundancy"
+    expected_skill: "space-systems/ecss/e20-spacecraft-grounding-reference-concept"
+  - id: e20-spacecraft-grounding-reference-concept-2
+    query: "A sensitive analogue receiver shares its return path with a 6 A heater feed. How do I estimate the common-impedance voltage that shared path injects into the victim, and does one unit-bonding-resistance limit cover every unit or does a pyrotechnic initiator get a tighter one?"
+    intent: "ECSS-E-ST-20C 6.3.8.2; shared-path coupling only appears when aggressor current and victim budget are taken together, and bonding limits are set per unit category"
+    expected_skill: "space-systems/ecss/e20-spacecraft-grounding-reference-concept"

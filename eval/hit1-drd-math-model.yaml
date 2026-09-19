@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-math-model (space-systems/ecss)
+# Case 1 routes on the numeric correlation thresholds the document has to record.
+# Case 2 routes on the model-type categorisation and the delivery-package completeness.
+tasks:
+  - id: drd-math-model-1
+    query: "Our spacecraft finite element model predicts the first bending mode 6.4 percent off the measured eigenfrequency and the MAC for that pair is 0.87. Does the MMDD let me record the model as correlated, or is that mode a finding?"
+    intent: "ECSS-E-ST-32C Annex I; correlation needs both the frequency error inside the tolerance and the mode-shape criterion above its floor, so one mode failing either blocks the correlated claim"
+    expected_skill: "space-systems/ecss/drd-math-model"
+  - id: drd-math-model-2
+    query: "I am drafting the MMDD for a hybrid model mixing shell meshes with closed-form panel formulations. Which documentation fields must be filled in, and what else ships in the delivery package beyond the model file before it counts as delivered?"
+    intent: "ECSS-E-ST-32C Annex I; the model type drives the documentation obligations and the delivery package is a separate checklist from the model itself"
+    expected_skill: "space-systems/ecss/drd-math-model"

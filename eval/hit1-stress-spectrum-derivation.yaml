@@ -1,0 +1,12 @@
+# Hit@1 fragment: stress-spectrum-derivation (space-systems/ecss)
+# Case 1 routes on the residual stack left after counting. Case 2 routes on the
+# mean-stress correction and the pair that represents static failure.
+tasks:
+  - id: stress-spectrum-derivation-1
+    query: "I converted a load event sequence into stress at the fatigue-critical location with the stress concentration factor, then ran rainflow. Four points sit unpaired on the stack - do those half cycles go into the spectrum bins and the Miner summation, per ECSS-E-ST-32C?"
+    intent: "ECSS-E-ST-32C clauses 7.2.3-7.2.4; the residual stack contributes half cycles that carry weight, and dropping them understates cumulative damage"
+    expected_skill: "space-systems/ecss/stress-spectrum-derivation"
+  - id: stress-spectrum-derivation-2
+    query: "How do I put each amplitude and mean pair from the counted cycles through a Goodman correction to get fully-reversed equivalents for the stress spectrum, and what happens when a mean stress reaches ultimate tensile strength?"
+    intent: "ECSS-E-ST-32C clauses 7.2.3-7.2.4; the correction lets the spectrum run against a fully-reversed curve, and a mean at the ultimate is static failure, not a fatigue cycle"
+    expected_skill: "space-systems/ecss/stress-spectrum-derivation"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanliness-budget (space-systems/ecss)
+# clb1 routes on splitting one allowance down the decomposition with a reserve
+# held at the top; clb2 routes on per-node closure and on contributions adding
+# directly rather than in quadrature. Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-budget.
+tasks:
+  - id: clb1
+    query: "we have one end of life deposition allowance on the telescope surface, split it across the payload and platform subsystems and their units with a reserve kept back at system level and tell me what each supplier can be held to"
+    intent: "ECSS-Q-ST-70-01C levels clause; a reserve is held before the weighted split so a late contributor is not funded by taking allocation back"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-budget"
+  - id: clb2
+    query: "check whether this contamination allocation tree actually closes at every node or only at the top, and say whether the unit contributions should have been added directly or combined in quadrature"
+    intent: "ECSS-Q-ST-70-01C levels clause; deposited masses superpose so they add directly, and a root that closes can still hide an over-subscribed subsystem"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-budget"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-eicd-equipment (space-systems/ecss)
+# Case 1 routes on the missing thermal family in an otherwise complete control document.
+# Case 2 routes on pin-table data integrity inside one connector.
+tasks:
+  - id: e1024-eicd-equipment-1
+    query: "The star tracker supplier sent us a control document with connector pinouts plus the bolt pattern, envelope and mass, but nothing on dissipation, mounting resistance or allowable temperature range. Is that an editorial gap or does it block acceptance?"
+    intent: "ECSS-E-ST-10-24C 5.8.1; the case turns on all three interface families being mandatory for one equipment item, so an absent thermal record is a non-conformance"
+    expected_skill: "space-systems/ecss/e1024-eicd-equipment"
+  - id: e1024-eicd-equipment-2
+    query: "Two rows in our equipment-level EICD share a pin identifier inside the same connector, and three more carry a signal name and voltage but no direction. Are duplicate pin assignments and blank fields blocking findings, or can harness generation work around them?"
+    intent: "ECSS-E-ST-10-24C 5.8.1; the case turns on duplicate pin identifiers and incomplete pin rows being blocking data-integrity findings inside one connector"
+    expected_skill: "space-systems/ecss/e1024-eicd-equipment"

@@ -29,6 +29,9 @@ Reference note: ARP4754A (standards-map.yaml, gated, reference-only)
 frames development assurance for aircraft systems; pursuit guidance
 laws themselves are common knowledge and are only summarized here.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import math
 

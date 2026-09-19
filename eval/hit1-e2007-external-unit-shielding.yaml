@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-external-unit-shielding (space-systems/ecss)
+# Case 1 routes on scope by mounting location and on how much attenuation the item actually needs.
+# Case 2 routes on what the declared shield really provides after the braid and termination derates, and on a shield credited twice.
+tasks:
+  - id: e2007-external-unit-shielding-1
+    query: "A boom-mounted sun sensor and the cable run feeding it sit outside the primary structure, where the incident field reaches 20 V/m against a susceptibility threshold of 2 V/m. How much attenuation does each item owe, and are the boxes inside the envelope in scope at all?"
+    intent: "ECSS-E-ST-20-07C 4.2.12.2; scoping the inventory by mounting location and deriving required attenuation from local field against the item's own threshold"
+    expected_skill: "space-systems/ecss/e2007-external-unit-shielding"
+  - id: e2007-external-unit-shielding-2
+    query: "The declared shield curve gives 62 dB at our assessment frequency, but the braid covers only 80 percent and the screen ends in a pigtail rather than a backshell. Two externally-mounted items also quote the same shield identifier. What attenuation survives the derates, and is the sharing a finding?"
+    intent: "ECSS-E-ST-20-07C 4.2.12.2; measured curve read then cut by the braid coverage and termination derates, plus the individual-shield finding when one identifier serves two items"
+    expected_skill: "space-systems/ecss/e2007-external-unit-shielding"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-packaging-and-despatch (space-systems/ecss,
+# Q-ST-60-05 13.3). Two tasks per leaf; pd1 routes on the electrostatic
+# protection level and the cushion thickness, pd2 on the desiccant demand and
+# the transport envelope. Both must deterministically hit
+# space-systems/ecss/q6005-packaging-and-despatch.
+tasks:
+  - id: pd1
+    query: "assess hybrid-packaging-and-despatch for a finished lot: the hybrid-packaging-esd-protection-level the device demands and the hybrid-packaging-cushion-thickness the declared drop needs"
+    intent: "ecss hybrids; the packing a finished hybrid lot travels in"
+    expected_skill: "space-systems/ecss/q6005-packaging-and-despatch"
+  - id: pd2
+    query: "budget the hybrid-packaging-desiccant-demand inside a moisture barrier and test the hybrid-despatch-transport-envelope against the product limits for the hybrid-packing-provision-index"
+    intent: "ecss hybrids; moisture protection and the shipping route for delivered hybrids"
+    expected_skill: "space-systems/ecss/q6005-packaging-and-despatch"

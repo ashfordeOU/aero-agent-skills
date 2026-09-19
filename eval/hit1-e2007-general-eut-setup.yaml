@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-general-eut-setup (space-systems/ecss)
+# Case 1 routes on sizing the plane and the two independent standoff requirements.
+# Case 2 routes on band-versus-floor limits and the harness the record must carry.
+tasks:
+  - id: e2007-general-eut-setup-1
+    query: "Bench arrangement before the emission sweep: our unit footprint is 300 by 220 mm with a 100 mm perimeter margin. How large must the reference plane be, and does a standoff sitting inside the height band still need its dielectric judged separately?"
+    intent: "ECSS-E-ST-20-07C 5.2.6.1; the margin is owed on all four sides so the plane grows by twice it in each direction, and standoff height and permittivity are separate requirements"
+    expected_skill: "space-systems/ecss/e2007-general-eut-setup"
+  - id: e2007-general-eut-setup-2
+    query: "Extra shielded-enclosure wall clearance is fine, but is a longer-than-nominal exposed harness equally fine? And what if the interconnecting harness never appears in our arrangement record before we start measuring?"
+    intent: "ECSS-E-ST-20-07C 5.2.6.1; a clearance is a floor while the exposed run is a two-sided band that sets the coupling length, and an unrecorded harness leaves the dominant coupling path unchecked"
+    expected_skill: "space-systems/ecss/e2007-general-eut-setup"

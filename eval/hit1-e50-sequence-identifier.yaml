@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-sequence-identifier (space-systems/ecss)
+# Two tasks for the new leaf. seq1 routes on the field width a window needs;
+# seq2 routes on a received identifier trace that has to be told apart from a
+# loss. Both must deterministically hit
+# space-systems/ecss/e50-sequence-identifier.
+tasks:
+  - id: seq1
+    query: "our acknowledged downlink runs selective repeat and wants a few hundred data units outstanding, work out how many bits the sequence number field needs and how long before the numbers wrap round"
+    intent: "ECSS-E-ST-50C clause 5.6.13.3; selective repeat keeps only half the identifier space unambiguous, and the wrap time is the space divided by the unit rate"
+    expected_skill: "space-systems/ecss/e50-sequence-identifier"
+  - id: seq2
+    query: "replay this identifier trace for me - the transferred units arrive 0 2 1 3 with one value showing twice - and tell me which of those are gaps, which are repeats, and which only arrived out of turn"
+    intent: "ECSS-E-ST-50C clause 5.6.13.3; a sequence identifier trace replay separates gaps from repeats from reorderings instead of retransmitting on the first out-of-order arrival"
+    expected_skill: "space-systems/ecss/e50-sequence-identifier"

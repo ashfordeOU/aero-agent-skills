@@ -66,4 +66,17 @@ if ! bash "$SITE_REPO/aeroagentroles/sync-and-publish.sh"; then
   echo "!!! landing page sync FAILED — see above, ashforde.org/aeroagentroles not updated"
 fi
 
+# --- did any of the above actually reach the public repo? -------------
+# The failure this catches is the one that went unnoticed for 18 hours on
+# 2026-09-19: each step above reports its own success, and none of them
+# reports that the PUBLISHED state is still stale. Non-fatal here on
+# purpose -- this job's remaining steps should still run -- but it prints a
+# line an operator can grep for, which is exactly what was missing.
+echo "--- publish health (is public current?) ---"
+if ! python3 "$SCRIPT_DIR/publish-health.py"; then
+  echo "!!! PUBLISH HEALTH RED — the public repo is NOT current. The gate"
+  echo "!!! battery grades the tree, not the shipping path, so nothing else"
+  echo "!!! in this log will tell you. Check the abort above."
+fi
+
 echo "===== $(date -u +%FT%TZ) hourly-publish done ====="

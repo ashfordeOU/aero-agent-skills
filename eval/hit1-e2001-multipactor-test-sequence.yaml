@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-multipactor-test-sequence (space-systems/ecss)
+# Case 1 routes on the frequency grid as part of the gate: a clean verdict over a
+# band that was never visited. Case 2 routes on passivity and on reading the
+# deviation from the component reference as an installation defect.
+tasks:
+  - id: e2001-multipactor-test-sequence-1
+    query: "Before raising drive on the multipactor bed I swept the mounted article over 40 points bunched near mid-band and everything looked clean. Neither edge of the band we declared was visited. Is that sweep good enough to clear the run, or does the grid itself fail the gate?"
+    intent: "ECSS-E-ST-20-01C clause 8.4; the case turns on the frequency grid covering the declared band edges with enough resolution before any verdict is credited"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-sequence"
+  - id: e2001-multipactor-test-sequence-2
+    query: "My installed sweep shows 1.5 dB worse match than the bench reference at several points, and at one point the squares of the two measured magnitudes add up a hair over one. Does that point to a faulty article, a badly mated flange, or an uncalibrated analyser?"
+    intent: "ECSS-E-ST-20-01C clause 8.4; the case turns on the passivity sanity check and on a signed deviation from the component reference indicating the installation rather than the part"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-sequence"

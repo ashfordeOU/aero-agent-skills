@@ -1,0 +1,13 @@
+# Hit@1 fragment: mechanical-parts-selection (space-systems/ecss)
+# Case 1 routes on qualified-source status and the load margin. Case 2 routes on
+# the other two screens, rated temperature against the mission envelope and the
+# galvanic pairing with the mating structure.
+tasks:
+  - id: mechanical-parts-selection-1
+    query: "A titanium fastener flown on the last programme is missing from this project's QPL. It is rated 12 kN against an applied 9 kN. Does prior use qualify it, and what margin of safety does that rated capacity leave?"
+    intent: "ECSS-E-ST-32C clause 4.5.7; each project keeps its own approved-source register, and the margin follows from rated capacity over applied load"
+    expected_skill: "space-systems/ecss/mechanical-parts-selection"
+  - id: mechanical-parts-selection-2
+    query: "A steel helicoil insert going into a CFRP fitting, rated down to minus 40 while our cold case is minus 70. Which checks does that part fail, and what does the dissimilar metal pairing need before installation?"
+    intent: "ECSS-E-ST-32C clause 4.5.7; the rated range must span both thermal extremes, and a galvanic pairing needs a recorded mitigation before acceptance"
+    expected_skill: "space-systems/ecss/mechanical-parts-selection"

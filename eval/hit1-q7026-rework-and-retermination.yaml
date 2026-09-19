@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-rework-and-retermination (space-systems/ecss)
+# rw1 routes on the re-termination count and the wire length each remake costs;
+# rw2 routes on contact reuse and defects with no rework path. Both must
+# deterministically hit space-systems/ecss/q7026-rework-and-retermination.
+tasks:
+  - id: rw1
+    query: "this pigtail has already been cut back and crimped twice and is close to its routed length, decide whether we may re-terminate it once more or have to replace the wire"
+    intent: "ECSS-Q-ST-70-26C rework clause; the re-termination count limit and the wire length budget each remake consumes, tested after the cut"
+    expected_skill: "space-systems/ecss/q7026-rework-and-retermination"
+  - id: rw2
+    query: "the crimp failed and someone wants to reuse the same contact on a fresh wire end; the conductor is nicked under the insulation - say whether that contact can be crimped again and whether this defect has any rework path or goes straight to scrap"
+    intent: "ECSS-Q-ST-70-26C rework clause; a crimp contact is consumed by its crimp, and some defect categories have no rework path and scrap instead"
+    expected_skill: "space-systems/ecss/q7026-rework-and-retermination"

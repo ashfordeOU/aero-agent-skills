@@ -1,0 +1,16 @@
+# Hit@1 fragment: e3311-laser-mechanical-initiators-packaged-charges
+# (space-systems/ecss). Two tasks for the new leaf. lmipc1 routes on the
+# optical budget of a laser initiator, where the delivered energy and the
+# delivered monitor power come from the same loss; lmipc2 routes on the
+# percussion initiator and the assembled packaged charge. Both must
+# deterministically hit
+# space-systems/ecss/e3311-laser-mechanical-initiators-packaged-charges.
+tasks:
+  - id: lmipc1
+    query: "the firing laser puts out a 1 joule pulse at 1064 nm, there are three connectors and a run of fibre between it and the device, and an alignment beam is on continuously, work out what actually arrives and whether it is enough and not too much"
+    intent: "ECSS-E-ST-33-11C clause 4.11.2 table 4-6; laser initiator optical loss budget turned into a transmission, delivered pulse energy against all-fire with margin, delivered continuous power against the no-fire power, and the characterised wavelength band"
+    expected_skill: "space-systems/ecss/e3311-laser-mechanical-initiators-packaged-charges"
+  - id: lmipc2
+    query: "the percussion primer is struck by a firing pin pushing forty newtons through a ten millimetre stroke, the initiator could also be dropped during handling, and the packaged cutting charge is filled to 10.2 grams against a 10 gram nominal - grade all three"
+    intent: "ECSS-E-ST-33-11C clause 4.11.2 tables 4-7 and 4-8; mechanical initiator firing-pin work against all-fire with margin, drop impact energy from mass and height against the no-fire impact level, and packaged-charge explosive mass tolerance, output margin and autoignition separation"
+    expected_skill: "space-systems/ecss/e3311-laser-mechanical-initiators-packaged-charges"

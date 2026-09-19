@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-instrument-control (space-systems/ecss)
+# ic1 routes on the flow deviation and the concentration bias it injects;
+# ic2 routes on the conjunction of calibration, threshold sensitivity and the
+# filtered zero run. Both must deterministically hit
+# space-systems/ecss/q7050-instrument-control.
+tasks:
+  - id: ic1
+    query: "our optical particle counter is drawing 26 litres a minute against a nominal 28.3; what concentration bias does that flow deviation inject into everything it reported, and is the instrument still fit given its calibration currency and zero run"
+    intent: "ECSS-Q-ST-70-50C instrument control; sample flow accuracy and the concentration bias of nominal over measured volume"
+    expected_skill: "space-systems/ecss/q7050-instrument-control"
+  - id: ic2
+    query: "before I accept this monitoring campaign check the counter's calibration date, its counting efficiency at the smallest channel and the filtered zero run, and tell me if it was fit to produce data"
+    intent: "ECSS-Q-ST-70-50C instrument control; calibration currency, threshold sensitivity window and zero-run background rate as a conjunction"
+    expected_skill: "space-systems/ecss/q7050-instrument-control"

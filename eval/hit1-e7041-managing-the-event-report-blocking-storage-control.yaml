@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-managing-the-event-report-blocking-storage-control (space-systems/ecss)
+# Two tasks for the new leaf. erbs1 routes on the packet store declining to KEEP an
+# event, against the real-time forward-control block that suppresses a different hop;
+# erbs2 routes on the cross-store census that no single instruction reveals. Both must
+# deterministically hit
+# space-systems/ecss/e7041-managing-the-event-report-blocking-storage-control.
+tasks:
+  - id: erbs1
+    query: "put this chatty event identifier on the blocked list for the recorder that application process 10 writes into, without touching anything else, then tell me which arriving reports are still retained afterwards"
+    intent: "ECSS-E-ST-70-41C clause 6.15.4.7; the per-packet-store blocking configuration lists what the store declines to keep, is held per application process, and is a different hop from the real-time forward-control block"
+    expected_skill: "space-systems/ecss/e7041-managing-the-event-report-blocking-storage-control"
+  - id: erbs2
+    query: "operations blocked that chatty event on every recorder, one request per recorder, and all of them came back accepted - work out whether any identifier they blocked was one the mission is obliged to keep"
+    intent: "ECSS-E-ST-70-41C clause 6.15.4.7; each instruction is graded on its own and a retention-mandatory definition is refused, but blocking an event in every store serving its application process leaves it retrievable from nowhere and only the aggregate shows it"
+    expected_skill: "space-systems/ecss/e7041-managing-the-event-report-blocking-storage-control"

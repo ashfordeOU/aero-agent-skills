@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-burst-pressure-test (space-systems/ecss)
+# Two tasks for the new leaf. bpt1 routes on the burst factor and which article is
+# taken to failure; bpt2 routes on the leak-before-burst argument built from
+# toughness, hoop stress and wall thickness. Both must deterministically hit
+# space-systems/ecss/e3102-burst-pressure-test.
+tasks:
+  - id: bpt1
+    query: "we burst a fresh spare tube on a pneumatic ramp and got a high number, so apply our minimum burst factor to the design pressure, and tell me whether a pristine article and a gas ramp can be the evidence"
+    intent: "ECSS-E-ST-31-02C clause 5.6.7; burst requirement from maximum design pressure and the minimum burst factor, plus the ramp method and the end-of-life article the result has to come from"
+    expected_skill: "space-systems/ecss/e3102-burst-pressure-test"
+  - id: bpt2
+    query: "show that a growing flaw in the condenser wall will weep before it runs, using the toughness of the alloy and the hoop stress at design pressure, and say whether the sniffer would even find it"
+    intent: "ECSS-E-ST-31-02C clause 5.6.7; leak-before-burst evidence from the critical through-wall crack length against the wall thickness plus the detectability of the resulting leak"
+    expected_skill: "space-systems/ecss/e3102-burst-pressure-test"

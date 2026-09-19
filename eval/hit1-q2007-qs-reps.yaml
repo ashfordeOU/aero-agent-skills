@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-qs-reps (space-systems/ecss)
+# Two tasks for the new leaf. rep1 routes on the authority an appointment has to
+# carry - stopping a running test and reaching management with no intermediary.
+# rep2 routes on the coverage question, which is per test activity and per role.
+# Both must deterministically hit space-systems/ecss/q2007-qs-reps.
+tasks:
+  - id: rep1
+    query: "our quality representative at the test centre reports into the test conductor and needs two intermediaries to reach top management; is that appointment independent enough to hold stop-test authority at all, and is every test activity covered"
+    intent: "ECSS-Q-ST-20-07C clause 5.3.4; quality and safety representative appointment form, stop-test authority, direct management access and independence from the test-execution reporting line"
+    expected_skill: "space-systems/ecss/q2007-qs-reps"
+  - id: rep2
+    query: "go through the test centre appointment register and tell me which campaigns have no sound quality or safety representative standing on them"
+    intent: "ECSS-Q-ST-20-07C clause 5.3.4; per-activity coverage by role, where a deficient appointment does not count as cover"
+    expected_skill: "space-systems/ecss/q2007-qs-reps"

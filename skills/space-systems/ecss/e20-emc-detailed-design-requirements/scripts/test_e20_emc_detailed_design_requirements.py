@@ -404,9 +404,14 @@ class SafetyMarginTest(unittest.TestCase):
         self.assertAlmostEqual(findings[0]["demanded_db"], 6.0, places=9)
 
     def test_margin_exactly_on_demand_passes_despite_rounding(self):
-        # 64.1 dB threshold over a 58.1 dB environment is exactly the
-        # 6 dB standard demand, but the subtraction lands a few ULPs low.
-        self.assertLess(64.1 - 58.1, 6.0)
+        # A 64.1 dB threshold over a 58.1 dB environment is exactly the
+        # 6 dB standard demand in decimal; as a double the subtraction is
+        # 5.999999999999993 on every IEEE-754 platform (it is correctly
+        # rounded). Assert the size of that representation error, not the
+        # side of the demand it falls on.
+        margin = 64.1 - 58.1
+        self.assertNotEqual(margin, 6.0)
+        self.assertLess(abs(margin - 6.0), emc.LIMIT_ABS_TOL_DB)
         self.assertEqual(
             emc.susceptibility_findings(
                 self._requirement(

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-on-board-network-medium-access (space-systems/ecss)
+# Two tasks for the new leaf. med1 routes on comparing arbitration schemes for a
+# bounded grant; med2 routes on a low-priority node starved off the medium.
+# Both must deterministically hit space-systems/ecss/e50-on-board-network-medium-access.
+tasks:
+  - id: med1
+    query: "three units share one on-board bus, compare what a fixed time-slotted round, a circulating token and bitwise priority arbitration each guarantee about how long a unit can be kept off the medium before it starts sending"
+    intent: "ECSS-E-ST-50C clause 5.7.1.5; a round caps the wait at the rest of the round, a token at one rotation less the node's own turn, and priority arbitration at a recursive blocking-plus-interference fixed point"
+    expected_skill: "space-systems/ecss/e50-on-board-network-medium-access"
+  - id: med2
+    query: "on our on-board network the lowest priority node sometimes never wins the medium, and the design only says colliding frames are retried after a random backoff; does this arbitration bound the access delay that node suffers at all"
+    intent: "ECSS-E-ST-50C clause 5.7.1.5; random backoff gives no access bound, and under priority arbitration a node whose betters saturate the medium has no fixed point and can be held off indefinitely"
+    expected_skill: "space-systems/ecss/e50-on-board-network-medium-access"

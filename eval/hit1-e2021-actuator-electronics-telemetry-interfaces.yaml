@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuator-electronics-telemetry-interfaces (space-systems/ecss)
+# Two tasks for the new leaf. aeti1 routes on the one-to-one pairing of chain to
+# acquisition path that blinds a healthy chain; aeti2 routes on the buffering duty
+# a dual-path fan-out carries. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-electronics-telemetry-interfaces.
+tasks:
+  - id: aeti1
+    query: "the arm and fire status from each actuator drive box goes out on its own telemetry encoder, work out what we can still read about each box if one encoder dies"
+    intent: "ECSS-E-ST-20-21C clause 5.2.4; housekeeping paired one to one with an acquisition path, observability coverage and the chain blinded by one acquisition loss"
+    expected_skill: "space-systems/ecss/e2021-actuator-electronics-telemetry-interfaces"
+  - id: aeti2
+    query: "we want to send the same firing current monitor signal to both telemetry acquisition units off one output, is wiring it straight across a problem"
+    intent: "ECSS-E-ST-20-21C clause 5.2.4; unbuffered fan-out of one housekeeping channel coupling the nominal and redundant acquisition paths"
+    expected_skill: "space-systems/ecss/e2021-actuator-electronics-telemetry-interfaces"

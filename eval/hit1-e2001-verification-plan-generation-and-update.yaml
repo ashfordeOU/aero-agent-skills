@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-verification-plan-generation-and-update (space-systems/ecss)
+# Case 1 routes on issue meaning both the milestone and a released state.
+# Case 2 routes on which project changes force a revision and on the backward
+# trace that catches one closed without a change-log entry.
+tasks:
+  - id: e2001-verification-plan-generation-and-update-1
+    query: "Our multipactor verification plan is dated two weeks ahead of the review where qualification evidence for the equipment is accepted, yet it still sits in draft. Does a date count as issued, or does the baseline need a released state?"
+    intent: "ECSS-E-ST-20-01C clause 4.2.1; a date is not an issue, so a draft or under-review state at the due review has not met the baseline obligation"
+    expected_skill: "space-systems/ecss/e2001-verification-plan-generation-and-update"
+  - id: e2001-verification-plan-generation-and-update-2
+    query: "Three months after baseline the input power rose by 1.5 dB and an electrode plating changed, both raised as documentation updates. Which of those force a revision, and how do I find one that got closed but never appeared in the change log?"
+    intent: "ECSS-E-ST-20-01C clause 4.2.1; a change is categorized by what it moved rather than how it was raised, and the backward trace finds the forcing event that never reached the log"
+    expected_skill: "space-systems/ecss/e2001-verification-plan-generation-and-update"

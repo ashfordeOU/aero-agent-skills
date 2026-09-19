@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-equivalent-power-single-carrier-test (space-systems/ecss)
+# Case 1 routes on deriving the raised single-carrier level and on whether the
+# bench and the part can actually take it. Case 2 routes on the dissipation price
+# of the substitution and the disposition when the hardware cannot absorb it.
+tasks:
+  - id: e2001-equivalent-power-single-carrier-test-1
+    query: "Our output multiplexer carries eight service carriers at 45 W apiece and for multipaction qualification I want to raise one carrier instead. What equivalent drive matches the envelope voltage peak of the full set once the verification margin is applied, can our amplifier chain deliver it, and would it exceed the part's peak power rating?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.3.2; the case turns on the raised single-carrier level from the voltage-coherent sum plus margin, and on the deliverability check against bench and part rating"
+    expected_skill: "space-systems/ecss/e2001-equivalent-power-single-carrier-test"
+  - id: e2001-equivalent-power-single-carrier-test-2
+    query: "Our multipaction substitution drives one carrier continuously at many times the average power the unit ever sees in flight. How do I quantify that over-test ratio against the thermal design, and if the part cannot take it, does duty-cycling the drive rescue it or must I fall back to a reduced-carrier run?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.3.2; the case turns on the over-test dissipation ratio and the acceptable/conditional/not-acceptable disposition with the reduced-carrier fallback"
+    expected_skill: "space-systems/ecss/e2001-equivalent-power-single-carrier-test"

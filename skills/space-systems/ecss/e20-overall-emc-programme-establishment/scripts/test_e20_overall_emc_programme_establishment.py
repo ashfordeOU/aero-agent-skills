@@ -295,7 +295,10 @@ class TestMarginPolicy(unittest.TestCase):
         """8.2 dB against 2.2 dB is exactly six decibels, but the
         subtraction lands one unit in the last place low."""
         margin = pe.interference_margin_db(8.2, 2.2)
-        self.assertLess(margin, 6.0)
+        # State the shortfall exactly -- one unit in the last place --
+        # rather than asserting which side of 6.0 the last bit lands on.
+        # The 6 dB policy margin itself is unchanged.
+        self.assertEqual(6.0 - margin, math.ulp(6.0))
         self.assertTrue(pe.margin_meets_policy(margin, 6.0))
 
     def test_real_shortfall_still_fails(self):

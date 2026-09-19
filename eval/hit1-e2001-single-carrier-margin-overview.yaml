@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-single-carrier-margin-overview (space-systems/ecss)
+# Case 1 routes on reducing a duty-cycled condition to its governing carrier power.
+# Case 2 routes on the two margin families and the policy table behind them.
+tasks:
+  - id: e2001-single-carrier-margin-overview-1
+    query: "A gap sees a pulsed-carrier condition and the only figure logged is a level averaged over its duty cycle. Do I grade the multipactor-margin from that, or must I recover the carrier-power that actually governs inside the gap?"
+    intent: "ECSS-E-ST-20-01C 4.6.1; the case turns on the peak-envelope power governing a pulsed condition rather than its duty-averaged value"
+    expected_skill: "space-systems/ecss/e2001-single-carrier-margin-overview"
+  - id: e2001-single-carrier-margin-overview-2
+    query: "One pulsed condition on our filter has a pulse narrower than the discharge-build-up-time computed from its cycle count. Is that an automatic credit against the multipactor-margin, or a build-up-limited condition that still owes a justification?"
+    intent: "ECSS-E-ST-20-01C 4.6.1; the case turns on the analysis and test margin families carrying different declared values per carrier mode and never being mixed"
+    expected_skill: "space-systems/ecss/e2001-single-carrier-margin-overview"

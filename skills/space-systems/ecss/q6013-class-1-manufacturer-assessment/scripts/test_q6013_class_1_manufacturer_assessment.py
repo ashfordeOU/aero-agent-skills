@@ -69,9 +69,18 @@ class RatingAndEvidenceTests(unittest.TestCase):
         self.assertAlmostEqual(rating_score("does-not-meet"), 0.0, places=9)
 
     def test_every_rating_score_sits_between_zero_and_one(self):
-        for score in RATING_SCORES.values():
-            self.assertGreaterEqual(score, 0.0)
-            self.assertLessEqual(score, 1.0)
+        # The scores are table literals, not computed values, so both ends
+        # of the range are exact and attained: assert the extremes as
+        # equalities (which pins every entry inside [0, 1]) and the
+        # interior entries as strict inequalities. A tolerance here would
+        # hide a contract that is exact.
+        scores = list(RATING_SCORES.values())
+        self.assertEqual(min(scores), 0.0)
+        self.assertEqual(max(scores), 1.0)
+        for score in scores:
+            if score not in (0.0, 1.0):
+                self.assertGreater(score, 0.0)
+                self.assertLess(score, 1.0)
 
     def test_unknown_rating_rejected(self):
         with self.assertRaises(ValueError):
@@ -90,9 +99,15 @@ class RatingAndEvidenceTests(unittest.TestCase):
         )
 
     def test_every_confidence_factor_sits_between_zero_and_one(self):
-        for factor in EVIDENCE_CONFIDENCE.values():
-            self.assertGreaterEqual(factor, 0.0)
-            self.assertLessEqual(factor, 1.0)
+        # As for the rating scores: table literals, so the ends of the
+        # range are exact and attained.
+        factors = list(EVIDENCE_CONFIDENCE.values())
+        self.assertEqual(min(factors), 0.0)
+        self.assertEqual(max(factors), 1.0)
+        for factor in factors:
+            if factor not in (0.0, 1.0):
+                self.assertGreater(factor, 0.0)
+                self.assertLess(factor, 1.0)
 
     def test_unknown_evidence_basis_rejected(self):
         with self.assertRaises(ValueError):

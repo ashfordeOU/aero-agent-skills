@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-time-correlation (space-systems/ecss)
+# tcorr1 routes on a correlation whose offset absorbed the light time; tcorr2
+# routes on two pairs whose zero residuals are an artefact of the fit.
+# Both must deterministically hit space-systems/ecss/e50-time-correlation.
+tasks:
+  - id: tcorr1
+    query: "we correlate onboard time against station time using the timestamps as they arrive on the ground, and the offset looks constant but wrong by about the propagation delay, plus I need to know how often to re-correlate"
+    intent: "ECSS-E-ST-50C clause 5.6.14.6; the one-way light time is a bias every pair shares so the fit absorbs it into the offset, and the re-correlation interval is the accuracy bound less the residual spread divided by the drift standard error"
+    expected_skill: "space-systems/ecss/e50-time-correlation"
+  - id: tcorr2
+    query: "we took two onboard clock correlation points, the residuals came out at exactly zero and the report says the correlation is perfect, how long is that fit actually good for"
+    intent: "ECSS-E-ST-50C clause 5.6.14.6; two pairs determine a line exactly so the residuals are zero by construction, the drift uncertainty cannot be estimated and no validity horizon can be stated"
+    expected_skill: "space-systems/ecss/e50-time-correlation"

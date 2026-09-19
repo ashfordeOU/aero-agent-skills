@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-heat-treatment-control (space-systems/ecss)
+# ht1 routes on the charge controls: section soak, per-thermocouple survey and
+# the quench transfer clock; ht2 routes on the class targets and the
+# hardness-to-tensile cross-check. Both must deterministically hit
+# space-systems/ecss/q7046-heat-treatment-control.
+tasks:
+  - id: ht1
+    query: "the furnace survey averaged out on setpoint but one corner ran twenty degrees hot, and the crane took half a minute to get the basket into the oil, is this charge still good for heavy section bolts"
+    intent: "ECSS-Q-ST-70-46 heat treatment; the survey is judged at every thermocouple rather than on its average, the soak is sized from the governing section, and the transfer to the quenchant carries its own clock"
+    expected_skill: "space-systems/ecss/q7046-heat-treatment-control"
+  - id: ht2
+    query: "the lab hardness converts to a much higher strength than the tensile bar gave and the temper ran at three hundred ninety degrees, what does a ten point nine class actually require here"
+    intent: "ECSS-Q-ST-70-46 heat treatment; the tensile and yield targets come out of the class designation, each class carries a minimum tempering temperature, and a hardness that contradicts the tensile is a measurement question"
+    expected_skill: "space-systems/ecss/q7046-heat-treatment-control"

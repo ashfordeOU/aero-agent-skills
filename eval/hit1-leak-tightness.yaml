@@ -1,0 +1,13 @@
+# Hit@1 fragment: leak-tightness (space-systems/ecss)
+# Case 1 routes on setting the budget up: path typing and the effective limit the
+# class allowable and the margin produce. Case 2 routes on applying it: scaling a
+# rate measured off-pressure and the separate system-total check.
+tasks:
+  - id: leak-tightness-1
+    query: "Our pressurized tank boundary has seals, a weld, two fittings and a bonded joint, plus a feedthrough nobody typed. Which tightness class allowable applies, and do I divide it by a design margin before comparing any single path?"
+    intent: "ECSS-E-ST-32C clause 4.2.1; every interface takes one of the recognised path types before it enters the budget, and the effective limit is the class allowable reduced by the design margin"
+    expected_skill: "space-systems/ecss/leak-tightness"
+  - id: leak-tightness-2
+    query: "Every individual leak path clears the limit, but the rates were measured at 3 bar while the system operates at 1.2 bar. Do I scale them to operating pressure, and does the sum of all paths get its own separate check?"
+    intent: "ECSS-E-ST-32C clause 4.2.1; a rate taken at a different test pressure is scaled to operating conditions first, and the system total is a compliance check distinct from the per-path ones"
+    expected_skill: "space-systems/ecss/leak-tightness"

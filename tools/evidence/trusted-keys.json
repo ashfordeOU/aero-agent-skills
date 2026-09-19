@@ -1,0 +1,34 @@
+{
+  "_comment": [
+    "Trust anchor for evidence-record attestation.",
+    "",
+    "These are PUBLIC keys. Publishing them is the point: a stranger who",
+    "clones this repository can verify any record we issue without asking",
+    "us for anything, and without trusting the key the record carries.",
+    "",
+    "`evidence verify` checks a record's signature against THIS file and",
+    "nothing else. A record that encloses its own public key is not",
+    "verified by it -- a forger encloses a key too. Only a key listed here",
+    "can produce a record that verifies.",
+    "",
+    "The matching private keys live outside this repository and are never",
+    "committed. `evidence keygen` refuses to write one inside the tree.",
+    "",
+    "Retiring a key: set status to 'retired' and leave the entry in place.",
+    "Removing it would invalidate every record it ever issued, which is the",
+    "opposite of what an evidence archive is for. A retired key still",
+    "verifies its historical records; it must not be used to issue new ones."
+  ],
+  "schema": "aeroskills-trust-anchor/v1",
+  "keys": [
+    {
+      "key_id": "k_05cdb4e9541397df",
+      "public_key": "4af29ba00f13d1e654bd2bbfeecc7db5e82a5125f6608987b7f0ccb1f779414d",
+      "algorithm": "ed25519",
+      "issuer": "ashforde-conformance",
+      "status": "active",
+      "created": "2026-09-19",
+      "note": "Ashforde OU conformance issuing key. Records issued by this key carry issued.by = ashforde-conformance."
+    }
+  ]
+}

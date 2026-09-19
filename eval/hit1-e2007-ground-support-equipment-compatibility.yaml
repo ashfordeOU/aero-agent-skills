@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-ground-support-equipment-compatibility (space-systems/ecss)
+# Case 1 routes on the bond chain summing past a ceiling three good joints cannot
+# breach alone, and the potential a return current lifts. Case 2 routes on moving
+# a datasheet emission to the real stand-off and on an unverified item.
+tasks:
+  - id: e2007-ground-support-equipment-compatibility-1
+    query: "Our electrical ground support rack reaches facility earth through three bond segments of 6, 9 and 8 milliohms, each comfortably inside the 25 milliohm ceiling on its own. With about 4 A of return current in a powered run, does that bond path leave the vehicle's electromagnetic compatibility intact, and what reference potential does it raise at the interface?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.9; the case turns on the bond ceiling applying to the summed chain and on the return current turning a small resistance into an interface potential"
+    expected_skill: "space-systems/ecss/e2007-ground-support-equipment-compatibility"
+  - id: e2007-ground-support-equipment-compatibility-2
+    query: "A ground support rack's datasheet quotes radiated emission at a 3 m reference distance, yet during integration it will stand 0.8 m from the spacecraft, and no compatibility verification record exists for it. How do I move that emission to the true stand-off, margin it against the vehicle's radiated susceptibility limit? Also, does the absent record block the activity?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.9; the case turns on translating a datasheet emission to the actual separation before the margin check, and on an absent verification record being the finding"
+    expected_skill: "space-systems/ecss/e2007-ground-support-equipment-compatibility"

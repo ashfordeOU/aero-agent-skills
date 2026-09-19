@@ -247,9 +247,14 @@ class SeparationTest(unittest.TestCase):
 
     def test_separation_exactly_on_minimum_passes_despite_rounding(self):
         # Bundle centres measured at 0.29 m and 0.14 m from the tray
-        # datum: exactly the 0.15 m minimum, a few ULPs low as a float.
+        # datum: exactly the 0.15 m minimum in decimal, a fraction of a
+        # last place off it in binary. IEEE-754 subtraction is correctly
+        # rounded, so assert the SIZE of that representation error rather
+        # than which side of the minimum it falls on.
+        minimum = 0.15
         separation = 0.29 - 0.14
-        self.assertLess(separation, 0.15)
+        self.assertNotEqual(separation, minimum)
+        self.assertLess(abs(separation - minimum), minimum * cs.LIMIT_REL_TOL)
         pair = {
             "pair_id": "P3",
             "wire_kind_a": "low_level_analogue",
@@ -258,6 +263,13 @@ class SeparationTest(unittest.TestCase):
             "has_dedicated_overshield": False,
         }
         self.assertEqual(cs.separation_findings(pair), [])
+        # One last place short of the minimum, built exactly rather than
+        # computed, so the absorbing branch is exercised whichever way the
+        # subtraction above rounded.
+        just_short = dict(
+            pair, pair_id="P3b", separation_m=math.nextafter(minimum, 0.0)
+        )
+        self.assertEqual(cs.separation_findings(just_short), [])
 
     def test_pyrotechnic_pair_without_overshield_is_reported(self):
         pair = {
@@ -563,17 +575,33 @@ class TransferImpedanceTest(unittest.TestCase):
         self.assertAlmostEqual(findings[0]["coupled_v"], 6.0e-2, places=9)
 
     def test_coupling_exactly_on_budget_passes_despite_rounding(self):
-        # 7 mOhm/m over 3 m at 100 mA is exactly the 2.1 mV budget, but
-        # the product lands a few ULPs above it.
-        self.assertGreater(0.007 * 3.0 * 0.1, 0.0021)
+        # 7 mOhm/m over 3 m at 100 mA is exactly the 2.1 mV budget in
+        # decimal; in binary the product misses it by a fraction of a last
+        # place. IEEE-754 multiplication is correctly rounded, so assert
+        # the SIZE of that representation error, not its direction.
+        budget = 0.0021
+        product = 0.007 * 3.0 * 0.1
+        self.assertNotEqual(product, budget)
+        self.assertLess(abs(product - budget), budget * cs.LIMIT_REL_TOL)
         coupling = {
             "victim_id": "V3",
             "transfer_impedance_ohm_per_m": 0.007,
             "coupled_length_m": 3.0,
             "disturbing_current_a": 0.1,
-            "susceptibility_voltage_v": 0.0021,
+            "susceptibility_voltage_v": budget,
         }
         self.assertEqual(cs.coupling_findings(coupling), [])
+        # One last place over the budget, built exactly rather than
+        # computed, so the absorbing branch is exercised whichever way the
+        # product above rounded.
+        just_over = {
+            "victim_id": "V3b",
+            "transfer_impedance_ohm_per_m": math.nextafter(budget, 1.0),
+            "coupled_length_m": 1.0,
+            "disturbing_current_a": 1.0,
+            "susceptibility_voltage_v": budget,
+        }
+        self.assertEqual(cs.coupling_findings(just_over), [])
 
     def test_zero_susceptibility_voltage_raises(self):
         coupling = {

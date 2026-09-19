@@ -6,10 +6,10 @@
 # space-systems/ecss/e2020-spurious-state-change-immunity.
 tasks:
   - id: ssci1
-    query: "how do we demonstrate that the latching switch will not change state on its own from an EMC transient or a heavy ion hit"
+    query: "our device is supposed to keep whatever state it was commanded into when an electromagnetic transient or a heavy ion arrives, but only one environment was ever demonstrated; how do I grade that immunity claim against every perturbation the mission presents"
     intent: "ECSS-E-ST-20-20C clause 5.2.16.1.1; a device state resisting electromagnetic disturbance, radiation events and similar perturbations that could change it"
     expected_skill: "space-systems/ecss/e2020-spurious-state-change-immunity"
   - id: ssci2
-    query: "we tested the radiated field case only, and for everything else we rely on a one second state refresh to put the relay back after it moves"
+    query: "for the environments nobody tested, our only mitigation is a one second refresh that puts the relay back after it moves; does that provision prevent the flip or merely restore it, and what outage does the gap leave"
     intent: "ECSS-E-ST-20-20C clause 5.2.16.1.1; per-perturbation-class immunity margins, provisions that prevent a state flip against provisions that only restore state, and the perturbation classes nobody assessed"
     expected_skill: "space-systems/ecss/e2020-spurious-state-change-immunity"

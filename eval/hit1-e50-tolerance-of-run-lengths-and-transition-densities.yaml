@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-tolerance-of-run-lengths-and-transition-densities (space-systems/ecss)
+# Two tasks for the new leaf. trl1 routes on the longest run of identical symbols;
+# trl2 routes on a healthy average hiding a window with no edges.
+# Both must deterministically hit the run length and transition density leaf.
+tasks:
+  - id: trl1
+    query: "check this telemetry bit pattern for the longest stretch of identical symbols and tell me whether the bit synchroniser can coast through it or we need to randomise the stream"
+    intent: "ECSS-E-ST-50C clause 5.6.11.3; the longest run and its position are compared against what the clock recovery tolerates, and exceeding it calls for randomisation or a transition-rich line code"
+    expected_skill: "space-systems/ecss/e50-tolerance-of-run-lengths-and-transition-densities"
+  - id: trl2
+    query: "the overall edge rate on our downlink stream looks healthy but the receiver still loses lock partway through a frame, find the leanest window and how many transitions it is short"
+    intent: "ECSS-E-ST-50C clause 5.6.11.3; transition density has to hold in the worst sliding window the recovery loop integrates over, not only on average, and the shortfall is counted in whole edges"
+    expected_skill: "space-systems/ecss/e50-tolerance-of-run-lengths-and-transition-densities"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-charging-test-general-trigger (space-systems/ecss)
+# Case 1 routes on resolving the evidence offered for a provision before believing the compliance claim.
+# Case 2 routes on what the triggered shortfalls add up to: sample count per distinct material, run order, and an invalid waiver.
+tasks:
+  - id: e2006-charging-test-general-trigger-1
+    query: "For our thermal blanket the supplier hands us an analytical demonstration where measured data was expected, and for the radiator they cite heritage from a much milder orbit. Does either close the provision for that surface, or does each still trigger sampling?"
+    intent: "ECSS-E-ST-20-06C 6.6.1; evidence resolution that downgrades an analysis offered against a measured-property provision and heritage outside its qualified envelope"
+    expected_skill: "space-systems/ecss/e2006-charging-test-general-trigger"
+  - id: e2006-charging-test-general-trigger-2
+    query: "Fourteen external items covering four distinct materials each came back with an unmet provision, two carry no status at all, and one has a waiver sitting on a provision that plainly applies. How many samples does the campaign need and in what order do the kinds run?"
+    intent: "ECSS-E-ST-20-06C 6.6.1; campaign sizing from distinct materials per triggered kind, sequencing so material work precedes exposure work, and a waiver that leaves the trigger standing"
+    expected_skill: "space-systems/ecss/e2006-charging-test-general-trigger"

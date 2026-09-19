@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-wired-connection-stress-relief (space-systems/ecss)
+# Case 1 routes on the inertial load against conductor and termination limits.
+# Case 2 routes on clamp spacing, bend radius and the soldered load path.
+tasks:
+  - id: e20-wired-connection-stress-relief-1
+    query: "A 22 AWG wire runs 180 mm unsupported to a crimp termination, harness mass 12 g per metre, design acceleration 60 g with a safety factor of 1.25. Does the conductor tensile capability or the termination pull-out run short of margin first?"
+    intent: "ECSS-E-ST-20C 4.2.5; the quasi-static load from the unsupported span judged separately against wire and termination allowables"
+    expected_skill: "space-systems/ecss/e20-wired-connection-stress-relief"
+  - id: e20-wired-connection-stress-relief-2
+    query: "Our tie-down scheme leaves a solder cup taking the pull from the bundle, and the relief bends the harness to roughly three times the outer diameter of the bundle. How close together must the clamps sit, and may a soldered joint carry that load by itself?"
+    intent: "ECSS-E-ST-20C 4.2.5; clamp spacing inverted from the governing allowable, the bend-radius check at the relief, and the soldered-joint load path flag"
+    expected_skill: "space-systems/ecss/e20-wired-connection-stress-relief"

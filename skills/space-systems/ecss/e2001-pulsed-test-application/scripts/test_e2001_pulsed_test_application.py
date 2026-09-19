@@ -277,10 +277,16 @@ class TestFullAssessment(unittest.TestCase):
 
     def test_exact_growth_boundary_is_not_flagged(self):
         # At 1 GHz and seventh order the shortest admissible pulse divides
-        # back to 19.999999999999996 crossings; that is representation
-        # error, not a physical shortfall.
+        # back to 19.999999999999996 crossings: the transit time is reached
+        # by division and the width by multiplication, both correctly rounded
+        # by IEEE-754, so the round trip lands bit-exactly one step below 20
+        # on every platform. That is representation error, not a physical
+        # shortfall, and the 20-crossing requirement is unchanged.
         width = logic.minimum_pulse_width_s(1.0e9, resonant_order=7)
-        self.assertLess(logic.gap_crossings_per_pulse(width, 1.0e9, 7), 20.0)
+        self.assertEqual(
+            logic.gap_crossings_per_pulse(width, 1.0e9, 7),
+            math.nextafter(20.0, 0.0),
+        )
         report = assess(
             frequency_hz=1.0e9,
             resonant_order=7,

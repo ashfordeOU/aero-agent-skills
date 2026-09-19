@@ -132,7 +132,7 @@ inspection, DT, 4500), (cabin interior check, ROUTINE, 2000),
 - systems-engineering-safety/certification/mmel-development: the
   operator dispatch-limits list that relaxes which failures may defer
   maintenance on this program.
-- systems-engineering-safety/arp4754a/configuration-management: change
+- systems-engineering-safety/arp4754a/systems-configuration-management: change
   control over the ALS pages when an item or interval is revised.
 
 ## Pitfalls

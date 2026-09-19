@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-parameter (space-systems/ecss)
+# Two tasks for the new leaf. obcpp1 routes on positional binding against the declared
+# order; obcpp2 routes on the omitted parameter with no declared default and the
+# encoded size. Both must deterministically hit space-systems/ecss/e7041-parameter.
+tasks:
+  - id: obcpp1
+    query: "check these start arguments against what the procedure declares before we build the request, every value looks sane on its own and I want to know they land in the right parameters"
+    intent: "ECSS-E-ST-70-41C clause 6.18.3.2; positional binding follows the declared order, type compatibility is settled before any range talk, and a boolean is not a narrow unsigned however small the field is"
+    expected_skill: "space-systems/ecss/e7041-parameter"
+  - id: obcpp2
+    query: "one argument was left out of the start request and the tool filled it with zero, and I also need the octet size of the parameter area before we uplink"
+    intent: "ECSS-E-ST-70-41C clause 6.18.3.2; a declared default is applied while an omission with no default is a missing argument rather than a zero, and the encoded size comes from the declared widths rounded up to whole octets, not from the values"
+    expected_skill: "space-systems/ecss/e7041-parameter"

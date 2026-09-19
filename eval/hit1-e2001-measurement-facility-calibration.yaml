@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-measurement-facility-calibration (space-systems/ecss)
+# Case 1 routes on validity interval and traceability chain per instrumented channel. Case 2
+# routes on the drift check, the uncertainty roll-up and delivery of the results to the customer.
+tasks:
+  - id: e2001-measurement-facility-calibration-1
+    query: "For a secondary-emission yield run, which instrumented channels have to hold a valid calibration on the day, and does a channel checked against an in-house gauge, with nothing declared linking it to a national standard, count as traceable?"
+    intent: "ECSS-E-ST-20-01C 9.5.2; five channels are required and each must be in force on the run day, with an in-house comparison breaking the chain to a recognised reference"
+    expected_skill: "space-systems/ecss/e2001-measurement-facility-calibration"
+  - id: e2001-measurement-facility-calibration-2
+    query: "We logged a check reading on an unchanging reference at the start of the run and again at the end for every channel, plus per-channel standard uncertainties. How do I combine those into an expanded figure, and must the customer be given the results?"
+    intent: "ECSS-E-ST-20-01C 9.5.2; drift is the relative change across the run against a per-channel tolerance, contributions combine by root-sum-square with a stated coverage factor, and delivery is its own duty"
+    expected_skill: "space-systems/ecss/e2001-measurement-facility-calibration"

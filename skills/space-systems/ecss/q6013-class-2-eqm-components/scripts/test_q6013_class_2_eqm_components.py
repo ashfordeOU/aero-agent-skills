@@ -71,10 +71,17 @@ class CatalogueTests(unittest.TestCase):
                 self.assertIn(domain, TRANSFER_DOMAINS)
 
     def test_every_loss_share_lies_in_the_unit_interval(self):
-        for losses in ATTRIBUTE_DOMAIN_LOSS.values():
-            for share in losses.values():
-                self.assertGreater(share, 0.0)
-                self.assertLessEqual(share, 1.0)
+        # These shares are declared table literals, not computed values.
+        # A full loss of credit is exactly 1.0, so state that case as the
+        # equality it is and hold every other share strictly inside the
+        # interval; together that is still 0 < share <= 1.
+        for attribute, losses in ATTRIBUTE_DOMAIN_LOSS.items():
+            for domain, share in losses.items():
+                where = "%s/%s" % (attribute, domain)
+                self.assertGreater(share, 0.0, where)
+                if share == 1.0:
+                    continue
+                self.assertLess(share, 1.0, where)
 
     def test_fundamental_attributes_remove_every_domain(self):
         for attribute in FUNDAMENTAL_ATTRIBUTES:

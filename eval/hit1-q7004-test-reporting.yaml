@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-test-reporting (space-systems/ecss)
+# Two tasks for the new leaf. tr1 routes on what the report format has to carry
+# about conditions and results; tr2 routes on anomaly dispositions blocking a
+# release and on an anomaly logged outside the cycles that ran. Both must
+# deterministically hit space-systems/ecss/q7004-test-reporting.
+tasks:
+  - id: tr1
+    query: "what has to be in the thermal test report before we issue it, and does an empty cell in the results table count as a zero or as a gap"
+    intent: "ECSS-Q-ST-70-04C reporting; per-section field completeness with a blank treated as an omission while a measured zero survives"
+    expected_skill: "space-systems/ecss/q7004-test-reporting"
+  - id: tr2
+    query: "the report says pass but one anomaly is still open and another is logged at cycle a hundred and forty in a hundred cycle test, can this be released"
+    intent: "ECSS-Q-ST-70-04C reporting; anomaly dispositions, the cross-check of anomaly cycles against the recorded cycle count, and blocking a release on a pass over an open anomaly"
+    expected_skill: "space-systems/ecss/q7004-test-reporting"

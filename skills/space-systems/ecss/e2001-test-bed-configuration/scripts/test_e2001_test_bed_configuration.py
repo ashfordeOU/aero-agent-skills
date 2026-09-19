@@ -127,10 +127,11 @@ class TestVacuumReadiness(unittest.TestCase):
         self.assertTrue(result["pressure_ok"])
 
     def test_limit_reached_as_a_sum_of_partial_pressures_is_compliant(self):
-        # Summed residual-gas partial pressures land a few ULPs above 1e-4 in
-        # binary floating point although the total is physically at the limit.
+        # Summed residual-gas partial pressures land bit-exactly one unit in
+        # the last place above 1e-4 on every IEEE-754 platform, although the
+        # total is physically at the limit.
         measured = 1.0e-5 + 2.0e-5 + 3.0e-5 + 4.0e-5
-        self.assertGreater(measured, 1.0e-4)
+        self.assertEqual(measured, math.nextafter(1.0e-4, math.inf))
         result = check_vacuum_readiness(measured, 1.0e-4, True)
         self.assertTrue(result["pressure_ok"])
         self.assertTrue(result["compliant"])
@@ -243,8 +244,12 @@ class TestRfChainSizing(unittest.TestCase):
 
     def test_rating_a_few_ulps_under_the_requirement_is_still_compliant(self):
         required = required_source_rating_w(100.0, 3.0)
+        # nextafter is exact, so two steps toward zero put nudged two units
+        # in the last place below required whatever libm made required: the
+        # direction is nextafter's own contract, and the only thing worth
+        # asserting is that the step actually moved the value.
         nudged = math.nextafter(math.nextafter(required, 0.0), 0.0)
-        self.assertLess(nudged, required)
+        self.assertNotEqual(nudged, required)
         self.assertTrue(check_rf_chain_capability(nudged, 100.0, 3.0)["compliant"])
 
     def test_undersized_source_reports_the_shortfall(self):

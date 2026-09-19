@@ -2,7 +2,7 @@
 """Gate 3 contract test: ECSS-E-ST-32C clauses 4.6.3.1-4.6.3.6 structural
 model philosophy and test campaign.
 
-Exercises scripts/test_philosophy_and_model_strategy_logic.py (stdlib
+Exercises scripts/philosophy_and_model_strategy_logic.py (stdlib
 unittest, offline). Contract: each model type is assigned to exactly one
 article category (development, qualification, or flight) and an
 unrecognized type raises; each model type has a fixed set of required test
@@ -23,7 +23,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import test_philosophy_and_model_strategy_logic as tp  # noqa: E402
+import philosophy_and_model_strategy_logic as tp  # noqa: E402
 
 
 class CategorizModelTest(unittest.TestCase):

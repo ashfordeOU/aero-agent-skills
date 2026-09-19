@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-secondary-arc-pass-criteria (space-systems/ecss)
+# Case 1 routes on grading each recorded event by duration, peak current and how
+# it ended. Case 2 routes on the insulation condition instead: retention against
+# the pre-campaign value and cosmetic versus disqualifying damage.
+tasks:
+  - id: e2006-secondary-arc-pass-criteria-1
+    query: "During the coupon campaign one discharge self-extinguished after 40 ms and another had to be cut off by the power supply. Does going out on its own make an event non-sustained, and which of these breaches the no-sustained-arc condition?"
+    intent: "ECSS-E-ST-20-06C clause 7.2.3.3; self-extinction only separates temporary from permanent, while non-sustained needs a duration inside the recovery window or a current the string cannot feed"
+    expected_skill: "space-systems/ecss/e2006-secondary-arc-pass-criteria"
+  - id: e2006-secondary-arc-pass-criteria-2
+    query: "Post-campaign the string-to-string insulation fell from 100 gigaohm to 2 gigaohm, which still clears the floor, and the coupon shows brown discoloration plus one carbonized track. Is retention judged as a ratio, and which marks disqualify?"
+    intent: "ECSS-E-ST-20-06C clause 7.2.3.3; the retention ratio against the pre-campaign value catches what an absolute floor misses, and discoloration is cosmetic while a carbonized track is disqualifying"
+    expected_skill: "space-systems/ecss/e2006-secondary-arc-pass-criteria"

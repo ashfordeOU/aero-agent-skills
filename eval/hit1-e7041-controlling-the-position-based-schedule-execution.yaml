@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-controlling-the-position-based-schedule-execution (space-systems/ecss)
+# Two tasks for the new leaf. cps1 routes on the enable/disable/reset control
+# state and what each one does to the held entries; cps2 routes on the fate of
+# activities that came due while the function was off. Both must
+# deterministically hit
+# space-systems/ecss/e7041-controlling-the-position-based-schedule-execution.
+tasks:
+  - id: cps1
+    query: "when we disable the position based schedule execution function does the store keep its entries, and what does a reset leave behind if the function was enabled at the time"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.3; enable, disable and reset of the position-based schedule execution function and their separate effects on the held entries"
+    expected_skill: "space-systems/ecss/e7041-controlling-the-position-based-schedule-execution"
+  - id: cps2
+    query: "the execution function was off for half an orbit and three activities went past unreleased, decide whether they are dropped or fire late and what the status report should say"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.3; disposition of position-based activities that came due while the execution function was disabled"
+    expected_skill: "space-systems/ecss/e7041-controlling-the-position-based-schedule-execution"

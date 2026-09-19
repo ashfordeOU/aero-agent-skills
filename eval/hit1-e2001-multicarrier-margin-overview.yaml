@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multicarrier-margin-overview (space-systems/ecss)
+# Case 1 routes on the base margin a route owes and the uplifts it attracts.
+# Case 2 routes on which reference power the margin is applied to per route.
+tasks:
+  - id: e2001-multicarrier-margin-overview-1
+    query: "For a multicarrier chain, what decibel margin does an analysis route owe against a test route, and what uplift applies when the single-carrier threshold that anchors it was computed instead of measured?"
+    intent: "ECSS-E-ST-20-01C 4.7.1; the base margin per verification route plus the heritage and computed-threshold uplifts"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-margin-overview"
+  - id: e2001-multicarrier-margin-overview-2
+    query: "Which power does the margin apply to for a twelve-carrier plan, the coherent peak envelope or the level applied in the chamber? I want the crest-factor and the demonstration power for both routes together in one table."
+    intent: "ECSS-E-ST-20-01C 4.7.1; the reference power differs by route, and both routes are reported against the same plan with its crest factor"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-margin-overview"

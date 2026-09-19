@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7054-applicability-and-objectives (space-systems/ecss)
+# Two tasks for the new leaf. uao1 routes on whether a usage owes ultracleaning
+# at all rather than the routine cleaning route; uao2 routes on which ladder
+# drives the objective and therefore what the verification has to measure.
+# Both must deterministically hit
+# space-systems/ecss/q7054-applicability-and-objectives.
+tasks:
+  - id: uao1
+    query: "this bracket sits in view of a cryogenic detector, work out whether the normal shop clean is enough or whether it has to go through the ultraclean route"
+    intent: "ECSS-Q-ST-70-54C framework; applicability of ultracleaning read from the driving function, the exposure and the allowances against the standard cleanliness baseline"
+    expected_skill: "space-systems/ecss/q7054-applicability-and-objectives"
+  - id: uao2
+    query: "the budget gives me a permitted particle count at five micron and a residue allowance, turn those into a surface cleanliness level and a residue class and tell me which one drives the objective"
+    intent: "ECSS-Q-ST-70-54C framework; inverting a particulate allowance onto the cleanliness ladder, resolving the residue class, and reading the driven ladder to fix the verification"
+    expected_skill: "space-systems/ecss/q7054-applicability-and-objectives"

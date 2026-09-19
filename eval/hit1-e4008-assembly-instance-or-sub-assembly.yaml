@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-assembly-instance-or-sub-assembly (space-systems/ecss)
+# Two tasks for the new leaf. ai1 routes on sub-assembly expansion recursing
+# into itself; ai2 routes on the node that names both, or neither, of the two
+# admissible implementations. Both must deterministically hit
+# space-systems/ecss/e4008-assembly-instance-or-sub-assembly.
+tasks:
+  - id: ai1
+    query: "expanding the assembly tree never terminates, find the sub-assembly that reaches itself through the chain and explain why a depth limit is the wrong repair"
+    intent: "ECSS-E-ST-40-08C clause 5.2.9; stack-guarded sub-assembly expansion, cyclic composition reported at the node that closes the cycle rather than as excess depth"
+    expected_skill: "space-systems/ecss/e4008-assembly-instance-or-sub-assembly"
+  - id: ai2
+    query: "review the instance tree of this assembly artefact for nodes that name a model type and a sub-assembly at once, nodes that name neither, sibling names that repeat, and containers holding the wrong number of children"
+    intent: "ECSS-E-ST-40-08C clause 5.2.9; one implementation per node, sibling name uniqueness, abstract types, containment multiplicity and assemblies the root never reaches"
+    expected_skill: "space-systems/ecss/e4008-assembly-instance-or-sub-assembly"

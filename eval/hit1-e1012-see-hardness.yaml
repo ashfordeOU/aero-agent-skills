@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1012-see-hardness (space-systems/ecss)
+# Case 1 routes on the hardness assurance category forced by a destructive effect.
+# Case 2 routes on the immunity thresholds that remove the rate integration entirely.
+tasks:
+  - id: e1012-see-hardness-1
+    query: "Our power MOSFET is prone to single-event burnout, SEB, yet the predicted on-orbit SEE rate lands well under the allowed error rate for that function. Can we drop lot screening, or does a destructive effect force the strictest hardness assurance category?"
+    intent: "ECSS-E-ST-10-12C 9.5; the case turns on a destructive effect fixing the hardness assurance category regardless of the numerical rate comparison"
+    expected_skill: "space-systems/ecss/e1012-see-hardness"
+  - id: e1012-see-hardness-2
+    query: "This SRAM's heavy-ion onset sits at 42 MeV per square centimetre per milligram and its proton threshold at 210 MeV, both past the immunity levels. Does the device still owe any SEE hardness measures, and which assurance category do we assign?"
+    intent: "ECSS-E-ST-10-12C 9.5; the case turns on the ion and proton immunity levels short-circuiting the cross-section integration before any rate is predicted"
+    expected_skill: "space-systems/ecss/e1012-see-hardness"

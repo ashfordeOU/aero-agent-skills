@@ -1,0 +1,12 @@
+# Hit@1 fragment: q7001-cleaning-verification-after-cleaning (space-systems/ecss)
+# cva1 routes on grading counts plus a rinse sample after a clean; cva2 routes
+# on the blank and detection-limit handling that decides the disposition.
+tasks:
+  - id: cva1
+    query: "after cleaning I have particle counts per size band over a wiped area plus a solvent rinse weighed against a witness blank, decide whether the surface is accepted, has to be cleaned again or was simply not sampled widely enough"
+    intent: "ECSS-Q-ST-70-01 post-cleaning verification; the ladder is set by the largest populated band and sampling adequacy is a precondition to any verdict"
+    expected_skill: "space-systems/ecss/q7001-cleaning-verification-after-cleaning"
+  - id: cva2
+    query: "the rinse sample came back only a hundredth of a milligram heavier than the blank on a balance that resolves five hundredths, tell me what cleanliness level that actually demonstrates"
+    intent: "ECSS-Q-ST-70-01 post-cleaning verification; a net mass at or under the balance resolution is an upper bound, not a measured loading"
+    expected_skill: "space-systems/ecss/q7001-cleaning-verification-after-cleaning"

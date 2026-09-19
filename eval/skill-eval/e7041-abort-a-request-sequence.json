@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-abort-a-request-sequence",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 45,
+  "failed": 0,
+  "evidence": "contract test PASS (45 tests); without-baseline 0.30 (the call is usually made by setting a state flag, so reporting an abort as though it undid the sequence, rewinding the released count and hiding the requests already executing in their destinations, unloading the body so a re-activation needs a fresh uplink, treating the abort as a pause with a resumption point, absorbing an abort of a sequence that was never running, and collapsing not-started, already-aborted and already-completed into one refusal are all missed without the skill)"
+}

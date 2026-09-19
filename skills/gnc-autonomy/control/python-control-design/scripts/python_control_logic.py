@@ -8,6 +8,9 @@ margins here (gain margin >= 6 dB, phase margin >= 45 degrees) and the
 Ziegler-Nichols PID tuning rule are textbook control engineering
 practice, not standard text.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 
 def _is_number(x):

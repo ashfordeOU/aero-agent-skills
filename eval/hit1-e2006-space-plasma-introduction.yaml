@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-space-plasma-introduction (space-systems/ecss)
+# Case 1 routes on turning the density and temperature pair into screening
+# distance, collected flux and a sheath regime. Case 2 routes on the population
+# band, the risk families it raises, and whether the build-up has time to happen.
+tasks:
+  - id: e2006-space-plasma-introduction-1
+    query: "Ambient density is 3e6 per cubic metre at an electron temperature of 4 keV and the body is about 3 m across. Give me the debye-length here, the thermal flux onto a surface, and whether this is a thin sheath, a thick one or transitional."
+    intent: "ECSS-E-ST-20-06C clause 4.1.1; the density and temperature pair fixes the screening distance and collected flux, and its ratio to body size fixes the regime"
+    expected_skill: "space-systems/ecss/e2006-space-plasma-introduction"
+  - id: e2006-space-plasma-introduction-2
+    query: "For a substorm population of kilovolt electrons during a geostationary eclipse, which charging risk families belong on the list, and with our frame capacitance will the hazardous potential actually be reached before the pass ends?"
+    intent: "ECSS-E-ST-20-06C clause 4.1.1; the temperature band selects the risk families, and the build-up timescale decides whether a listed risk is credible in the exposure"
+    expected_skill: "space-systems/ecss/e2006-space-plasma-introduction"

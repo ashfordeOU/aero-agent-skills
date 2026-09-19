@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-mass-property-checks (space-systems/ecss)
+# Two tasks for the new leaf. mpc1 routes on the relative mass change against a
+# per-category allowance; mpc2 routes on whether the two weighings could resolve
+# the limit at all, and on a gain being its own finding. Both must
+# deterministically hit space-systems/ecss/q7004-mass-property-checks.
+tasks:
+  - id: mpc1
+    query: "post-exposure-mass-change-check on a coupon: it weighed two hundred grams before the exposure and a gram less after, what relative-mass-loss-limit applies to a structural item and how is the mass change reported as a percentage of the initial mass"
+    intent: "ECSS-Q-ST-70-04C evaluation; relative post-exposure mass change judged against the loss allowance for the item category"
+    expected_skill: "space-systems/ecss/q7004-mass-property-checks"
+  - id: mpc2
+    query: "balance-resolution-uncertainty question: the balance resolves a tenth of a milligram and the specimen is a hundred milligrams, can the two weighings demonstrate the category loss limit or is the mass-property verdict indeterminate, and one specimen shows a mass-gain-uptake-finding after the exposure"
+    intent: "ECSS-Q-ST-70-04C evaluation; combined two-weighing resolution against the category limit, the indeterminate verdict, and a mass gain reported as uptake rather than netted against losses"
+    expected_skill: "space-systems/ecss/q7004-mass-property-checks"

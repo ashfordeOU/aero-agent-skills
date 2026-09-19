@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-fluid-lubrication-lubricant-quantity
+# (space-systems/ecss). flq1 routes on how much oil to charge the mechanism
+# with once the life losses are added; flq2 routes on which loss term dominates
+# and on over-filling the free volume. Both must deterministically hit
+# space-systems/ecss/e3301-fluid-lubrication-lubricant-quantity.
+tasks:
+  - id: flq1
+    query: "How much lubricant goes into a reaction wheel bearing so there is still a film after fifteen years? I need what boils off in vacuum, what wicks away past the edges, what the cage soaks up, and what running it uses."
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.3.2; the four life loss terms with the outgassing-standard mass-loss rate scaled to operating temperature, plus the operating film and the quantity factor"
+    expected_skill: "space-systems/ecss/e3301-fluid-lubrication-lubricant-quantity"
+  - id: flq2
+    query: "our bearing runs twenty kelvin hotter than the screening temperature the mass loss figure was measured at, tell me which loss term now dominates the charge and whether the amount we want to put in is past the fill fraction where it starts churning"
+    intent: "ECSS-E-ST-33-01C clauses 4.7.3.3.1 and 4.7.3.3.2; Arrhenius scaling of the reference vacuum mass-loss rate, dominant loss term, reservoir capacity and maximum fill fraction"
+    expected_skill: "space-systems/ecss/e3301-fluid-lubrication-lubricant-quantity"

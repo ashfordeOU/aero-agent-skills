@@ -198,7 +198,15 @@ class TestSurfaceCleanliness(unittest.TestCase):
             **{"exposed-area-m2": total, "conductive-area-m2": MIN_CONDUCTIVE_COVERAGE * total}
         )
         report = surface_findings(rec)
-        self.assertLess(report["coverage"], MIN_CONDUCTIVE_COVERAGE)
+        # One IEEE-754 multiplication to store the area and one division to
+        # read it back, both correctly rounded by the hardware, so the
+        # quotient is bit-identical on every conforming platform and lands
+        # one unit in the last place below the floor. The difference below
+        # is exact, so state the shortfall rather than compare the coverage
+        # against the floor on the boundary.
+        shortfall = MIN_CONDUCTIVE_COVERAGE - report["coverage"]
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-14)
         self.assertEqual(report["findings"], [])
 
     def test_unbonded_conductive_area_is_flagged(self):

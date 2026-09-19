@@ -231,7 +231,13 @@ class TestAxisBudget(unittest.TestCase):
             ]
         )
         worst_x = rolled["worst_case_vector_am2"][0]
-        self.assertGreater(worst_x, 0.3)
+        # The roll-up is a correctly rounded IEEE-754 addition of 0.1 and
+        # 0.2, so the overshoot past the 0.3 A.m2 allocation is the same
+        # sliver on every platform. Assert its size, not the rounding
+        # direction. The axis allocation itself is unchanged.
+        excess = worst_x - 0.3
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         out = check_axis_budget(rolled["worst_case_vector_am2"], (0.3, 0.1, 0.1), 0.5)
         self.assertTrue(out["axes"]["x"]["within_limit"])
         self.assertTrue(out["within_limit"])

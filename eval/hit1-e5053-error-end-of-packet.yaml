@@ -5,7 +5,7 @@
 # space-systems/ecss/e5053-error-end-of-packet.
 tasks:
   - id: eep1
-    query: "a SpaceWire transfer carrying a CCSDS packet came in with an error terminator at the end and the header at the front parsed fine, decide whether we may hand that part up to the user"
+    query: "the link handed us an error terminator on this transfer and we already have the first half of the CCSDS packet buffered in the receive path - does any of that partial packet reach the user, and how must the discard be reported"
     intent: "ECSS-E-ST-50-53C clause 5.5.4.4; an error-terminated transfer is discarded whole because its extent is unknown, and the discard is reported rather than absorbed silently"
     expected_skill: "space-systems/ecss/e5053-error-end-of-packet"
   - id: eep2

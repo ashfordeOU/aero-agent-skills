@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-converter-control-loop-stability (space-systems/ecss)
+# Case 1 routes on the corner set the envelope owes and on a corner with no
+# model. Case 2 routes on which crossover carries which margin, and on a loop
+# with no phase crossover at all.
+tasks:
+  - id: e20-converter-control-loop-stability-1
+    query: "Our point-of-load regulator shows 52 degrees of phase margin when run at nominal. The envelope declares axes for temperature, for input voltage and for load. How many operating points do I owe a loop model for, and what if one has none?"
+    intent: "ECSS-E-ST-20C clause 5.7.5; the demonstration is the full combination of axis extremes, and a corner with no model on record is a coverage finding"
+    expected_skill: "space-systems/ecss/e20-converter-control-loop-stability"
+  - id: e20-converter-control-loop-stability-2
+    query: "A boost-derived loop with a right-half-plane zero plus 200 ns of modulator delay never takes its phase past minus 180 degrees in the analysis band. Is that a failed gain margin, and at which crossover do I read phase margin?"
+    intent: "ECSS-E-ST-20C clause 5.7.5; no phase crossover means an unbounded gain margin rather than a failure, and phase margin is read where the magnitude passes unity"
+    expected_skill: "space-systems/ecss/e20-converter-control-loop-stability"

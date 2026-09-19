@@ -123,8 +123,14 @@ class TestDeviationAndTolerance(unittest.TestCase):
         self.assertFalse(within_tolerance(60.0, 50.0, 0.05))
 
     def test_exact_boundary_case_survives_representation_error(self):
+        # 3.3 * 1.05, then |x - 3.3| / 3.3: multiply, subtract, divide,
+        # each correctly rounded by IEEE-754, so the deviation is exactly
+        # two representable places above the 5 percent tolerance on every
+        # platform. The tolerance is not widened - the check absorbs them.
         measured = 3.3 * 1.05
-        self.assertGreater(relative_deviation(measured, 3.3), 0.05)
+        self.assertEqual(
+            relative_deviation(measured, 3.3), 0.05 + 2 * math.ulp(0.05)
+        )
         self.assertTrue(within_tolerance(measured, 3.3, 0.05))
 
     def test_a_real_exceedance_is_not_absorbed(self):

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-in-test-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. im1 routes on role coverage plus per-channel
+# sampling-rate and recording-gap grading; im2 routes on merging consecutive
+# out-of-limit readings into timed excursion events. Both must deterministically
+# hit space-systems/ecss/q7004-in-test-monitoring.
+tasks:
+  - id: im1
+    query: "our thermal test logged temperature and chamber pressure but no functional parameter channel at all, and one thermocouple stopped sampling for twenty minutes; grade the monitored role coverage and say whether that gap makes the record unusable"
+    intent: "ECSS-Q-ST-70-04C in-test monitoring; checking that temperature, pressure and functional roles are each covered by a channel and grading each channel's sampling interval, recording gaps and window coverage"
+    expected_skill: "space-systems/ecss/q7004-in-test-monitoring"
+  - id: im2
+    query: "our in-test monitoring channel for chamber pressure logged four consecutive samples above the limit and then recovered; merge them into a single timed departure for the test record instead of counting four separate out-of-limit points"
+    intent: "ECSS-Q-ST-70-04C in-test monitoring; merging consecutive out-of-limit readings on the same side into a single timed excursion event carrying its duration and extreme value"
+    expected_skill: "space-systems/ecss/q7004-in-test-monitoring"

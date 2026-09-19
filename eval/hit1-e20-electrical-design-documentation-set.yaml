@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-electrical-design-documentation-set (space-systems/ecss)
+# Case 1 routes on deriving which supporting analyses an item actually owes from
+# its own physics. Case 2 routes on the maturity side: draft-versus-issued against
+# the milestone, and a report built on a superseded design revision.
+tasks:
+  - id: e20-electrical-design-documentation-set-1
+    query: "A passive filter block on our platform dissipates essentially nothing, sits behind a thick bulkhead with negligible mission dose, and has no connector leaving the unit. The board still wants thermal, radiation and EMC studies for it. Which supporting analyses does an item like that genuinely owe under the ECSS electrical standard?"
+    intent: "ECSS-E-ST-20C clause 4.3.2; the case turns on the conditional analyses being driven by dissipation, dose and external interfaces, so demanding all of them is scope creep"
+    expected_skill: "space-systems/ecss/e20-electrical-design-documentation-set"
+  - id: e20-electrical-design-documentation-set-2
+    query: "Going into CDR our power converter's worst-case study is issued but was run against board revision C while the hardware is now at revision E, and the reliability study is still marked draft. Does either of those count as evidence at this review, or are both findings?"
+    intent: "ECSS-E-ST-20C clause 4.3.2; the case turns on report maturity read against the milestone and on a report whose design revision no longer matches the item"
+    expected_skill: "space-systems/ecss/e20-electrical-design-documentation-set"

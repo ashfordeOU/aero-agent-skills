@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-surface-deposition-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. sdm1 routes on turning a witness-plate count into
+# percent area coverage and a deposition rate; sdm2 routes on the control plate
+# and the projection across an exposure far longer than the plate saw. Both must
+# deterministically hit space-systems/ecss/q7050-surface-deposition-monitoring.
+tasks:
+  - id: sdm1
+    query: "the fallout plate beside the panel was counted by size band after two days, turn that into obscured area and a settling rate for the exposed surface"
+    intent: "ECSS-Q-ST-70-50C surface clause; particles as projected discs give percent area coverage, and plate exposure divides it into a deposition rate"
+    expected_skill: "space-systems/ecss/q7050-surface-deposition-monitoring"
+  - id: sdm2
+    query: "our fallout plate was exposed for one shift while the hardware stays open four months; can that percent area coverage be projected across the campaign, and what does the missing control plate cost the particulate result"
+    intent: "ECSS-Q-ST-70-50C surface clause; the handling and counting background needs an unexposed control removed, and a projection far past the measured span is an assumption"
+    expected_skill: "space-systems/ecss/q7050-surface-deposition-monitoring"

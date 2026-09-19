@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-screening-general-provisions (space-systems/ecss,
+# Q-ST-60-05 10.3.1). Two tasks per leaf; sp1 routes on the planning and
+# recording provisions, sp2 on the reject allowance and the re-screen limit.
+# Both must deterministically hit
+# space-systems/ecss/q6005-screening-general-provisions.
+tasks:
+  - id: sp1
+    query: "grade the hybrid-screening-provisions of a programme for hundred-percent-screening-application and per-unit-screening-records"
+    intent: "ecss hybrids; the baseline rules above the individual screening steps"
+    expected_skill: "space-systems/ecss/q6005-screening-general-provisions"
+  - id: sp2
+    query: "weigh a batch against its hybrid-screening-reject-allowance and hybrid-rescreen-cycle-limit for the hybrid-screening-provision-verdict"
+    intent: "ecss hybrids; deciding whether a screened batch may still be released"
+    expected_skill: "space-systems/ecss/q6005-screening-general-provisions"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7045-certificate-of-test (space-systems/ecss)
+# ct1 routes on a release that spans two heats; ct2 routes on sampling size and
+# a voided specimen. Both must deterministically hit
+# space-systems/ecss/q7045-certificate-of-test.
+tasks:
+  - id: ct1
+    query: "the forged rings released here came from two heats and the buyer wants a single certificate of test, so tell me how many specimens each heat owed for that form and mass, and whether the mean may be certified"
+    intent: "ECSS-Q-ST-70-45 certificate of test; a certificate covers exactly one heat, so a release spanning two heats owes two certificates and none may be averaged across them"
+    expected_skill: "space-systems/ecss/q7045-certificate-of-test"
+  - id: ct2
+    query: "one of our four tensile bars fractured outside the gauge length so the lab voided it, and the mean of the rest is above the spec minimum, is the heat certifiable on a two tonne plate release"
+    intent: "ECSS-Q-ST-70-45 certificate of test; size the owed sampling from the product form and released mass, exclude voided specimens from the count, and judge every counted specimen against the specification minimum rather than the mean"
+    expected_skill: "space-systems/ecss/q7045-certificate-of-test"

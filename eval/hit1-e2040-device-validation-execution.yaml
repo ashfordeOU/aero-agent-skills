@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-device-validation-execution (space-systems/ecss)
+# Two tasks for the leaf. dve1 routes on running and documenting the validation
+# campaign, including runs with no evidence reference and runs gathered on the
+# wrong article; dve2 routes on the retest closure that propagates transitively
+# from a failure through the dependency graph. Both must deterministically hit
+# space-systems/ecss/e2040-device-validation-execution.
+tasks:
+  - id: dve1
+    query: "work out whether the device validation campaign is really finished: how much of the plan was run, how much passed, which runs recorded no evidence reference and which were run on an engineering model instead of the delivered article"
+    intent: "ECSS-E-ST-20-40C clause 5.8.2; validation execution and documentation, evidence references and delivered-article configuration match"
+    expected_skill: "space-systems/ecss/e2040-device-validation-execution"
+  - id: dve2
+    query: "one validation run failed and three later runs leaned on the state it left behind - propagate the retest through that dependency chain and give me every device validation case that owes a rerun before the campaign can be closed"
+    intent: "ECSS-E-ST-20-40C clause 5.8.2; transitive retest closure over the validation case dependency graph after a failure"
+    expected_skill: "space-systems/ecss/e2040-device-validation-execution"

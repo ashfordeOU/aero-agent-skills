@@ -6,10 +6,10 @@
 # space-systems/ecss/e5053-protocol-identifier.
 tasks:
   - id: pid1
-    query: "a transfer came in with a zero in the identifier octet and the driver dropped it as malformed, tell me whether zero is actually an invalid value there"
+    query: "our receiver sees zero in the first protocol byte and gives up, should it instead keep reading further octets for an extended identifier, and what does it do with traffic belonging to some other protocol sharing the same link"
     intent: "ECSS-E-ST-50-53C clause 5.5.4.1; zero announces an extended identifier carried in the following octets, so further octets must be read before demultiplexing"
     expected_skill: "space-systems/ecss/e5053-protocol-identifier"
   - id: pid2
-    query: "our encoder writes one value into that identifier field and our decoder rejects everything that is not that value, review both sides of that and say which one is wrong"
+    query: "the transmit side stamps the assigned protocol number on every SpaceWire packet and the receive side throws away anything else, is that demultiplexing correct, or is it mistaking a held-back code for a fault"
     intent: "ECSS-E-ST-50-53C clause 5.5.4.1; the sender writes the single assigned value, the receiver demultiplexes and must not treat another protocol's identifier as a fault"
     expected_skill: "space-systems/ecss/e5053-protocol-identifier"

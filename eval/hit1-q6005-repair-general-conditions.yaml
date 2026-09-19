@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-repair-general-conditions (space-systems/ecss)
+# Two tasks for the new leaf. rgc1 routes on who is allowed to do the work
+# and whether their certification covers it on the day. rgc2 routes on the
+# attempt allowances and the whole-unit repaired fraction. Both must
+# deterministically hit space-systems/ecss/q6005-repair-general-conditions.
+tasks:
+  - id: rgc1
+    query: "the operator doing this hybrid rebond is certified for cleaning work and their card ran out last month, decide whether this repair can be authorised and what has to be on file for it"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.1; per-action operator certification and its validity on the day of the work, and the record set that accompanies a repair"
+    expected_skill: "space-systems/ecss/q6005-repair-general-conditions"
+  - id: rgc2
+    query: "this pad has already been rebonded once and several other elements on the same unit have been reworked, work out how many more attempts are allowed before the unit is a rebuild"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.1; the per-bond-site and per-element repair attempt allowances and the whole-unit repaired-element fraction limit"
+    expected_skill: "space-systems/ecss/q6005-repair-general-conditions"

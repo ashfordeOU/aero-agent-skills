@@ -1,0 +1,12 @@
+# Hit@1 fragment: q7001-launch-site-control (space-systems/ecss)
+# lsc1 routes on the launch-campaign stage ledger; lsc2 routes on the fairing
+# and propellant-loading rules that block a campaign outright.
+tasks:
+  - id: lsc1
+    query: "from container arrival through integration, fuelling, encapsulation, transfer and two days on the pad, work out how much of the contamination budget is left at lift off and which stage ate most of it"
+    intent: "ECSS-Q-ST-70-01 launch site; pickup accumulates per stage from the environment, the duration and the protection state, starting from the state the article shipped in"
+    expected_skill: "space-systems/ecss/q7001-launch-site-control"
+  - id: lsc2
+    query: "the fairing is being closed before anyone verified the surfaces inside and the pad stay is taking the purged credit with the purge line disconnected, tell me whether this campaign can proceed"
+    intent: "ECSS-Q-ST-70-01 launch site; encapsulation is a one-way door needing verification first, and a purge credit requires a connected purge"
+    expected_skill: "space-systems/ecss/q7001-launch-site-control"

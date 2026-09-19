@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-lens-material-properties (space-systems/ecss)
+# Case 1 routes on the matching layer and the wave sent back toward the feed.
+# Case 2 routes on permittivity spread as phase error and the absorption path length.
+tasks:
+  - id: e20-lens-material-properties-1
+    query: "Our lens is alumina with relative-permittivity near 9.8 at Ka band. What permittivity and physical thickness does the quarter-wave matching-layer need on the illuminated face, and what fraction of the bare-face reflection travels back into the feed?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.3; the layer permittivity is the geometric mean and its quarter wave is measured inside the layer, while the face reflection is a feed-match problem as well as a loss"
+    expected_skill: "space-systems/ecss/e20-lens-material-properties"
+  - id: e20-lens-material-properties-2
+    query: "Batch spread on our dielectric-foam lens permittivity is plus or minus 3 percent and the part is 180 mm thick. How does that tolerance become an aperture phase error and a gain loss, and is axial thickness the right path length for the loss-tangent absorption?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.3; a permittivity tolerance is a phase error scaling with thickness in wavelengths, and off-axis rays make the axial path an understatement of absorption"
+    expected_skill: "space-systems/ecss/e20-lens-material-properties"

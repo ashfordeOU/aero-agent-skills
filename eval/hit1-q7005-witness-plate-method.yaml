@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-witness-plate-method (space-systems/ecss)
+# Two tasks for the new leaf. wpm1 routes on the control-coupon subtraction and
+# the view-factor scaling onto the represented surface; wpm2 routes on the
+# crystal frequency shift and its disagreement with the coupon. Both must
+# deterministically hit space-systems/ecss/q7005-witness-plate-method.
+tasks:
+  - id: wpm1
+    query: "coupons were hung next to the instrument during the campaign and one travelled in the bag but was never exposed; reduce them to a deposition figure for the optic they stand in for"
+    intent: "ECSS-Q-ST-70-05C deposition sampling; the unexposed control carries the handling gain, and the coupon figure scales onto the represented surface by the ratio of view factors"
+    expected_skill: "space-systems/ecss/q7005-witness-plate-method"
+  - id: wpm2
+    query: "the quartz crystal microbalance shifted only a few hertz across the exposure while the witness coupon shows three times as much organic deposit; convert each into an areal mass and tell me whether a disagreement like that can be used at all"
+    intent: "ECSS-Q-ST-70-05C deposition sampling; frequency shift through the crystal sensitivity, sign convention, and a coupon-crystal disagreement reported rather than averaged"
+    expected_skill: "space-systems/ecss/q7005-witness-plate-method"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7028-solder-joint-rework (space-systems/ecss)
+# Two tasks for the new leaf. sjr1 routes on adding iron dwell at different tip
+# temperatures onto one exposure scale, which a cycle count alone cannot do;
+# sjr2 routes on grading the finished joint by its worst characteristic.
+# Both must deterministically hit
+# space-systems/ecss/q7028-solder-joint-rework.
+tasks:
+  - id: sjr1
+    query: "this joint has been touched twice already at different iron settings, work out how much heat budget is left before I put the tip on it again"
+    intent: "ECSS-Q-ST-70-28 repair methods; dwell seconds at different tip temperatures are converted onto one exposure scale by a doubling rule before they can be summed against a budget"
+    expected_skill: "space-systems/ecss/q7028-solder-joint-rework"
+  - id: sjr2
+    query: "the reworked joint has a lovely big fillet but the solder is balling up at the edge, decide whether that joint is acceptable or goes back"
+    intent: "ECSS-Q-ST-70-28 repair methods; the finished joint is graded on its worst characteristic, so a generous fillet cannot compensate a dewetted contact angle"
+    expected_skill: "space-systems/ecss/q7028-solder-joint-rework"

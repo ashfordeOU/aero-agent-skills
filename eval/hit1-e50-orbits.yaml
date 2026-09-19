@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-orbits (space-systems/ecss)
+# Two tasks for the new leaf. orb1 routes on deriving the link consequences of
+# an orbit; orb2 routes on the per-phase orbit declaration. Both must
+# deterministically hit space-systems/ecss/e50-orbits.
+tasks:
+  - id: orb1
+    query: "from a 700 km circular orbit and a five degree station mask work out the slant range, the round trip propagation delay, the largest Doppler shift on our X band carrier and how long a pass actually lasts, then say whether the receiver can pull that Doppler in"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.5; range, delay, Doppler and pass duration derived from the orbit and compared against the link and receiver allowances"
+    expected_skill: "space-systems/ecss/e50-orbits"
+  - id: orb2
+    query: "our transfer phase reached the link budget with no orbit written down for it while there is an orbit declared for a disposal phase the mission no longer has, flag both and tell me which phases still have their communication consequences derived"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.5; the orbit declaration per mission phase is a separate normative item from deriving its communication implications"
+    expected_skill: "space-systems/ecss/e50-orbits"

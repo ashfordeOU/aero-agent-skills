@@ -150,9 +150,11 @@ quotable with attribution. Source: STANDARDS.md; standards-map.yaml.
 Router quality metric from the eval harness: the fraction of corpus
 tasks where the expected skill is the top-1 retrieval result. Gate 5
 requires all active tasks to resolve to the expected skill using the
-deterministic offline router; the corpus carries 66 routed evaluation
-tasks across the 27 published skills (58 domain tasks + 8 adversarial
-cross-pair tasks). Source: docs/harness-contract.md (gate 5).
+deterministic offline router. The executed corpus (eval/hit1-corpus.yaml,
+read by gate 5) and the per-leaf fragments under eval/ are two different
+sets with different coverage; `make router-coverage` prints both, and no
+figure for either belongs in this file. Source: docs/harness-contract.md
+(gate 5) and tools/router_coverage.py.
 
 ## Derived requirement
 

@@ -396,8 +396,14 @@ class TestConvergence(unittest.TestCase):
         self.assertTrue(report["converged"])
 
     def test_one_ulp_over_the_mesh_limit_is_absorbed(self):
+        # nextafter toward 1.0 steps UP only while the limit sits below it,
+        # and it is then the next representable value above the limit BY
+        # CONSTRUCTION - exact and identical on every IEEE-754 platform. The
+        # premise is carried by the construction, so it needs no run-time
+        # float comparison one ULP wide to establish it.
+        self.assertLess(L.MAX_MESH_DELTA, 1.0)
         just_over = math.nextafter(L.MAX_MESH_DELTA, 1.0)
-        self.assertGreater(just_over, L.MAX_MESH_DELTA)
+        self.assertNotEqual(just_over, L.MAX_MESH_DELTA)
         report = L.check_convergence(
             {
                 "seed_phase_count": 16,

@@ -1,0 +1,13 @@
+# Hit@1 fragment: production-and-manufacturing-control (space-systems/ecss)
+# Case 1 routes on the pre-build gates: process authorisation, drawing revision on
+# the floor, and tooling traceability. Case 2 routes on the in-build environment:
+# storage, item cleanliness versus room class, and hazard mitigation actually in place.
+tasks:
+  - id: production-and-manufacturing-control-1
+    query: "Before we release a bonded panel for build, the shop floor holds a drawing one revision behind the configuration system, the bonding process document was revised last month with no fresh authorisation, and one fixture has no calibration certificate on file. Which of those stop work under the structures standard?"
+    intent: "ECSS-E-ST-32 section 4.7; the case turns on process authorisation, the floor drawing matching the current approved revision, and tooling traceability before hardware advances"
+    expected_skill: "space-systems/ecss/production-and-manufacturing-control"
+  - id: production-and-manufacturing-control-2
+    query: "The team logged our bonded faces as clean because the room is rated to the right class, storage humidity was spot-checked once during the week, and a solvent hazard has a written mitigation nobody has confirmed is physically in place. Can I sign this build phase off?"
+    intent: "ECSS-E-ST-32 section 4.7; the case turns on item-level cleanliness monitoring, continuous storage monitoring, and a hazard mitigation only closing once verified in place"
+    expected_skill: "space-systems/ecss/production-and-manufacturing-control"

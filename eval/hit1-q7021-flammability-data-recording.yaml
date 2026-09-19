@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7021-flammability-data-recording (space-systems/ecss)
+# fd1 routes on the entry key that separates two atmospheres of one film;
+# fd2 routes on reconciling a new flammability run against a record already
+# held. Both must deterministically hit
+# space-systems/ecss/q7021-flammability-data-recording.
+tasks:
+  - id: fd1
+    query: "we have finished upward flame propagation runs on the same polyimide film at two thicknesses and two cabin atmospheres, work out what a single materials data set entry should actually be keyed on before I merge them"
+    intent: "ECSS-Q-ST-70-21C data recording into the ECSS-Q-ST-70-71C declared materials practice; material fields plus thickness band plus tested oxygen partial pressure form the entry key"
+    expected_skill: "space-systems/ecss/q7021-flammability-data-recording"
+  - id: fd2
+    query: "a new flammability run reports a different rating for a material our data set already holds and its test date is older than the recorded one, decide whether it supersedes, is stale, or is a same-date conflict, and what the declared list cross-reference should say"
+    intent: "ECSS-Q-ST-70-21C data recording; reconciling a run against a recorded entry by rating and worst burn length then by test date, and emitting the declared-list link with any drip restriction"
+    expected_skill: "space-systems/ecss/q7021-flammability-data-recording"

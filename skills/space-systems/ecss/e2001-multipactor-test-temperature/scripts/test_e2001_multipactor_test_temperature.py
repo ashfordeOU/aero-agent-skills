@@ -252,8 +252,15 @@ class SoakTests(unittest.TestCase):
         drift = 0.0
         for _ in range(20):
             drift += 0.1
-        self.assertNotEqual(drift, 2.0)
-        self.assertGreater(drift, 2.0)
+        # Twenty IEEE-754 additions of the same exactly parsed double: each
+        # is correctly rounded in hardware, so the accumulated value is
+        # bit-identical on every conforming platform and lands a couple of
+        # units in the last place above the tolerance. The difference below
+        # is itself exact, so state the excess rather than compare the drift
+        # against the tolerance on the boundary.
+        excess = drift - 2.0
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-14)
         soak = L.evaluate_soak(90.0, 60.0, drift, 2.0)
         self.assertTrue(soak["drift_within_tolerance"])
 
@@ -300,7 +307,13 @@ class CoverageTests(unittest.TestCase):
         offset = 0.0
         for _ in range(30):
             offset += 0.1
-        self.assertGreater(offset, 3.0)
+        # Thirty IEEE-754 additions of the same exactly parsed double: each
+        # correctly rounded in hardware, so the accumulated value is
+        # bit-identical on every conforming platform and sits a few units in
+        # the last place above the tolerance. The difference is exact.
+        excess = offset - 3.0
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-14)
         result = L.evaluate_temperature_coverage(
             [-30.0 - offset, 80.0 + offset], self.extremes, 3.0
         )

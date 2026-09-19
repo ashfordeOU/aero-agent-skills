@@ -361,8 +361,14 @@ class MarginRequirementTest(unittest.TestCase):
 
     def test_representation_error_below_the_limit_is_absorbed(self):
         separation = 33.3 - 27.3
-        self.assertLess(separation, 6.0)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the difference landed on.
+        self.assertAlmostEqual(separation, 6.0, places=12)
         self.assertTrue(ip.margin_meets_requirement(separation, 6.0))
+        # Pin the absorbing branch with a shortfall constructed to be
+        # strictly short by 1e-10 dB - inside what the leaf absorbs, and the
+        # same value on every platform. The 6 dB requirement is unchanged.
+        self.assertTrue(ip.margin_meets_requirement(6.0 - 1e-10, 6.0))
 
     def test_the_tolerance_does_not_widen_the_requirement(self):
         self.assertFalse(ip.margin_meets_requirement(6.0 - 1e-3, 6.0))
@@ -398,11 +404,23 @@ class MergeBandsTest(unittest.TestCase):
         self.assertAlmostEqual(merged[0][1], 1e9, places=3)
 
     def test_the_same_edge_reached_by_different_arithmetic_still_joins(self):
-        self.assertGreater(_LOWER_RADIATED_HZ, _UPPER_CONDUCTED_HZ)
+        # The same band edge reached two ways is not the same float. The
+        # contract is that the discrepancy is representation error, not
+        # which way the last bit fell, so bound its size instead.
+        self.assertNotEqual(_LOWER_RADIATED_HZ, _UPPER_CONDUCTED_HZ)
+        self.assertLess(
+            abs(_LOWER_RADIATED_HZ - _UPPER_CONDUCTED_HZ) / _UPPER_CONDUCTED_HZ,
+            1e-12,
+        )
         merged = ip.merge_bands(
             [(10.0, _UPPER_CONDUCTED_HZ), (_LOWER_RADIATED_HZ, 18e9)]
         )
         self.assertEqual(len(merged), 1)
+        # Pin the absorbing branch with a gap constructed to be strictly
+        # open: one part in 1e12, inside the 1e-9 relative the leaf absorbs.
+        self.assertEqual(
+            len(ip.merge_bands([(10.0, 33e6), (33e6 * (1.0 + 1e-12), 18e9)])), 1
+        )
 
     def test_a_real_hole_is_not_merged_away(self):
         merged = ip.merge_bands([(10.0, 30e6), (60e6, 18e9)])

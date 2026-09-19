@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-emc-test-safety-provisions (space-systems/ecss)
+# Case 1 routes on the exposure at the operator position and the standoff radius it implies.
+# Case 2 routes on an asset carrying both hazard families and the safeguard set owed.
+tasks:
+  - id: e2007-emc-test-safety-provisions-1
+    query: "During a radiated run our horn is driven at 200 W with an antenna-gain of 18 dBi, and the operator console sits three metres away. What far-field-power-density reaches them, and what standoff puts it on the permissible-exposure-limit?"
+    intent: "ECSS-E-ST-20-07C 5.2.5.1; the case turns on the inverse-square estimate at the operator position and reporting the minimum standoff rather than a bare fail"
+    expected_skill: "space-systems/ecss/e2007-emc-test-safety-provisions"
+  - id: e2007-emc-test-safety-provisions-2
+    query: "The asset being energized next week is both a high-drive radiating chain and a two kilovolt supply with real stored-energy. Do I apply the stricter safeguard set, or must the radiated-field and high-voltage sets both be met?"
+    intent: "ECSS-E-ST-20-07C 5.2.5.1; the case turns on an asset carrying both hazard categories owing the union of the safeguard sets, never the larger one"
+    expected_skill: "space-systems/ecss/e2007-emc-test-safety-provisions"

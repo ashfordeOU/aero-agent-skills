@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-definition-phase-review (space-systems/ecss)
+# Two tasks for the new leaf. ddpr1 routes on per-item maturity at the gate closing the
+# definition phase; ddpr2 routes on discrepancy disposition and the action falling due
+# after the work it was meant to protect. Both must deterministically hit
+# space-systems/ecss/e2040-device-definition-phase-review.
+tasks:
+  - id: ddpr1
+    query: "the definition phase package is all on the table but the requirements specification is still a draft, can we close the gate and let architecture work start on the device"
+    intent: "ECSS-E-ST-20-40C clause 5.2.7; per-data-item maturity at the definition gate rather than presence, missing item is a stopper, revision identifies what was reviewed"
+    expected_skill: "space-systems/ecss/e2040-device-definition-phase-review"
+  - id: ddpr2
+    query: "one major review discrepancy is open and another is accepted with an action that falls due a month after architecture work begins, what does that do to the gate decision"
+    intent: "ECSS-E-ST-20-40C clause 5.2.7; discrepancy severity governs disposition, an open major stops the gate, an action due after the architecture start protects nothing"
+    expected_skill: "space-systems/ecss/e2040-device-definition-phase-review"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: interface-verification-test (space-systems/ecss)
+# Case 1 routes on selecting the verification method from the interface category.
+# Case 2 routes on traceability, where a clean measurement is still not compliance.
+tasks:
+  - id: interface-verification-test-1
+    query: "Our structural interface list mixes bolted mating surfaces with an optical bench mount and a fluid fitting. Which of these can close on inspection, which need a dedicated test, and can analysis alone settle a dimensional fit?"
+    intent: "ECSS-E-ST-32C 4.6.3.22; the category drives the method, and analysis supplements rather than replaces a physical measurement for dimensional fit"
+    expected_skill: "space-systems/ecss/interface-verification-test"
+  - id: interface-verification-test-2
+    query: "One mating surface measured well inside its gap band but the record carries no ICD reference, and another row has a blank tolerance. Are those compliant because no dimensional violation was found, or do they count as findings?"
+    intent: "ECSS-E-ST-32C 4.6.3.22; a missing controlled-document reference and an unset tolerance are traceability findings independent of the measured dimension"
+    expected_skill: "space-systems/ecss/interface-verification-test"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ECSS-E-ST-40C software verification planning logic (paraphrase).
+"""ECSS-E-ST-40C Rev.1 software verification planning logic (paraphrase).
 
 Pure stdlib, no network. Unit conventions: this module carries no
 physical units; its inputs are string enums. Requirement categories are
@@ -7,7 +7,7 @@ one of functional, performance, interface, resource, safety, data.
 Criticality levels are one of catastrophic, critical, major, minor,
 no-effect. Unknown categories or criticality levels raise ValueError.
 
-This module is a deterministic paraphrase of ECSS-E-ST-40C verification
+This module is a deterministic paraphrase of ECSS-E-ST-40C Rev.1 verification
 practice: each requirement category maps to a primary verification
 method set (test, analysis, inspection, review), each criticality maps
 to a verification depth, an independence flag, and the records the
@@ -56,7 +56,7 @@ CRITICALITY_DEPTH = {
 def verify_method(requirement_category):
     """Return the verification method list for a requirement category.
 
-    Accepts the ECSS-E-ST-40C requirement categories (functional,
+    Accepts the ECSS-E-ST-40C Rev.1 requirement categories (functional,
     performance, interface, resource, safety, data), case-insensitive.
     Unknown categories raise ValueError. Returns a fresh list of method
     names in the standard order.

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-high-voltage-surface-description (space-systems/ecss)
+# Case 1 routes on the two-area current balance that splits the string voltage about the plasma.
+# Case 2 routes on per-surface categorisation, regime placement and the parasitic current total.
+tasks:
+  - id: e2006-high-voltage-surface-description-1
+    query: "A 160 V solar-array string immersed in ionospheric plasma at low-orbit densities. What share of that string voltage ends up positive with respect to the surrounding plasma, and how far below plasma potential is spacecraft-ground pulled?"
+    intent: "ECSS-E-ST-20-06C 8.1; electrons are collected far more efficiently, so a small positive area balances a large negative one and drags the ground rail down"
+    expected_skill: "space-systems/ecss/e2006-high-voltage-surface-description"
+  - id: e2006-high-voltage-surface-description-2
+    query: "Coverglass, exposed interconnect tabs and the triple junction at a cell gap all sit at different potentials relative to the plasma. How do I place each one in its collection regime and total the parasitic current against the budget?"
+    intent: "ECSS-E-ST-20-06C 8.1; collecting area depends on the surface category, and each plasma-relative potential lands in exactly one regime before the currents are summed"
+    expected_skill: "space-systems/ecss/e2006-high-voltage-surface-description"

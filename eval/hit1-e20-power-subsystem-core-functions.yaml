@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-power-subsystem-core-functions (space-systems/ecss)
+# Case 1 routes on the element-to-function coverage map and single-string cover.
+# Case 2 routes on telemetry observability and the delivered-power computation.
+tasks:
+  - id: e20-power-subsystem-core-functions-1
+    query: "I have a solar-array, a bus regulator, one battery and a distribution unit declared for the power subsystem. Which of the five core functions ends up with no element behind it, and is it acceptable for one unit alone to carry a function nobody wrote down?"
+    intent: "ECSS-E-ST-20C 5.2.2.1; mapping declared elements onto the five core functions and treating an unrecorded single-string function as a finding"
+    expected_skill: "space-systems/ecss/e20-power-subsystem-core-functions"
+  - id: e20-power-subsystem-core-functions-2
+    query: "Our monitored telemetry list names a shunt we never declared as an element, and one energy-carrying unit is not observable at all. With 1.6 kW generated, conditioning at 0.94 and distribution at 0.97, what power actually reaches the loads?"
+    intent: "ECSS-E-ST-20C 5.2.2.1; observability of every energy-carrying element plus the delivered-power chain through the two efficiencies"
+    expected_skill: "space-systems/ecss/e20-power-subsystem-core-functions"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6005-review-board-and-process-control-option (space-systems/ecss)
+# Two tasks for the new leaf. rbpc1 routes on the control limits drawn from
+# the line's own yield history and whether monitoring may still substitute
+# for sampling. rbpc2 routes on the board that authorises the substitution
+# and on the difference between reverting and suspending. Both must
+# deterministically hit
+# space-systems/ecss/q6005-review-board-and-process-control-option.
+tasks:
+  - id: rbpc1
+    query: "the line ships without sampling every batch because it is statistically monitored, here are the last dozen lot yields, draw the control limits and tell me whether that still holds or the line reverts to testing each batch"
+    intent: "ECSS-Q-ST-60-05C clause 12.2.2; control limits drawn from the line's own yield history plus the run rule that catches a process walking off centre while every point is still inside those limits"
+    expected_skill: "space-systems/ecss/q6005-review-board-and-process-control-option"
+  - id: rbpc2
+    query: "the technical review board behind our monitored hybrid line has not reviewed in nine lots and the customer product assurance seat is empty, tell me whether the line reverts to lot testing or the monitoring scheme is suspended"
+    intent: "ECSS-Q-ST-60-05C clause 12.2.2; board composition, quorum and review currency are conditions on the substitution, and an inadequate board reverts the line while an unconvened one suspends the scheme"
+    expected_skill: "space-systems/ecss/q6005-review-board-and-process-control-option"

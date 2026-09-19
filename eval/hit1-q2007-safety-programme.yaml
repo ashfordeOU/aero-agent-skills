@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-safety-programme (space-systems/ecss)
+# Two tasks for the new leaf. sfp1 routes on the control hierarchy applied to a
+# severe facility hazard; sfp2 routes on the independence of the safety officer
+# and on drill currency. Both must deterministically hit
+# space-systems/ecss/q2007-safety-programme.
+tasks:
+  - id: sfp1
+    query: "our test centre hazard register holds the high-pressure gas hazard at critical and shows it controlled by a written procedure and personal protective equipment; derive its risk index, place it in an acceptance band, and say whether those controls sit high enough on the hierarchy"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.1; risk index from consequence and likelihood, and a severe hazard held only by procedural or protective controls needs a design control"
+    expected_skill: "space-systems/ecss/q2007-safety-programme"
+  - id: sfp2
+    query: "our safety officer reports to the test conductor and the spill drill last ran fourteen months ago on a six month cycle, work out what that means for the programme"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.1 and 5.9.1.2; independence of the safety function from the execution line, and emergency drill currency against its interval"
+    expected_skill: "space-systems/ecss/q2007-safety-programme"

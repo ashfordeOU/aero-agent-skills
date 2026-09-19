@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-tf-config (space-systems/ecss)
+# Two tasks for the leaf. tfc1 routes on the baseline-and-identification side of
+# facility configuration control. tfc2 routes on the change-replay side and the
+# as-run drift it exposes. Both must deterministically hit
+# space-systems/ecss/q2007-tf-config.
+tasks:
+  - id: tfc1
+    query: "the thermal vacuum facility has moved since we last baselined it; identify every facility configuration item, check each one actually carries an identification a change record could point at, and say whether the facility is baselined at all"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.2; test facility configuration item identification and baseline completeness"
+    expected_skill: "space-systems/ecss/q2007-tf-config"
+  - id: tfc2
+    query: "replay the approved and applied facility change records forward from the baseline version and tell me which items sit at an as-run configuration the chain never reaches, separating that from any change somebody applied to the facility without an approval"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.2; test facility change control replay, unapproved applied change and as-run configuration drift"
+    expected_skill: "space-systems/ecss/q2007-tf-config"

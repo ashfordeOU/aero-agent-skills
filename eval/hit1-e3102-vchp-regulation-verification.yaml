@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-vchp-regulation-verification (space-systems/ecss)
+# vrv1 routes on the off-mode leak and reservoir resistance pair; vrv2 routes
+# on the evaporator swing and the passive-versus-active heater question. Both
+# must deterministically hit
+# space-systems/ecss/e3102-vchp-regulation-verification.
+tasks:
+  - id: vrv1
+    query: "with the gas front pushed right over the condenser the pipe is meant to be off, work out what still gets through and whether the reservoir is tied tightly enough to hold the front where the control law wants it"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2b; off-mode axial conduction heat leak and reservoir thermal resistance from a measured rise"
+    expected_skill: "space-systems/ecss/e3102-vchp-regulation-verification"
+  - id: vrv2
+    query: "here is the evaporator temperature across the whole power and sink matrix for the gas-controlled pipe, tell me whether it holds the band and how much reservoir heater power we need at the coldest sink"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2b; evaporator regulation swing against the control band, and active reservoir heater sizing against the budget"
+    expected_skill: "space-systems/ecss/e3102-vchp-regulation-verification"

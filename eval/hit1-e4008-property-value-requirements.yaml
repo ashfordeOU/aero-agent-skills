@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-property-value-requirements (space-systems/ecss)
+# pvr1 routes on the access-kind gate, including the write-only case that a
+# naive reader refuses; pvr2 routes on the backing-field conflict, a defect
+# that exists only in the pair. Both must deterministically hit
+# space-systems/ecss/e4008-property-value-requirements.
+tasks:
+  - id: pvr1
+    query: "my tool refused to set a seed because the accessor has no getter, and it happily accepted a value on a read-only temperature - sort out which of those two the configuration is actually allowed to write"
+    intent: "ECSS-E-ST-40-08 clause 5.2.3.2; write-only and read-write properties expose a setter to the configuration, read-only does not, whatever the backing field allows"
+    expected_skill: "space-systems/ecss/e4008-property-value-requirements"
+  - id: pvr2
+    query: "the same document sets a property through its accessor and also writes the field sitting behind it - both look legal on their own, work out what the initial state ends up being"
+    intent: "ECSS-E-ST-40-08 clause 5.2.3.2; a property value and its backing field written in one configuration leaves the applied order undetermined"
+    expected_skill: "space-systems/ecss/e4008-property-value-requirements"

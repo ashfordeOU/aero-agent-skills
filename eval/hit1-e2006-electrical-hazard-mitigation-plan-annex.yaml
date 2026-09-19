@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-electrical-hazard-mitigation-plan-annex (space-systems/ecss)
+# Case 1 routes on the annex's required section list and an unrecognised heading. Case 2 routes
+# on the severity-likelihood grid and the rank credit a mitigation earns from its verification.
+tasks:
+  - id: e2006-electrical-hazard-mitigation-plan-annex-1
+    query: "I am auditing the annex on electrical hazard mitigation that our supplier delivered. It has scope, the hazard inventory and the mitigation measures, but no residual risk statement, and one heading titled lessons learned is not in our template. What should I raise?"
+    intent: "ECSS-E-ST-20-06C Annex A; the annex is graded against a fixed required section list, and a heading belonging to neither the required nor the optional list means a different template was used"
+    expected_skill: "space-systems/ecss/e2006-electrical-hazard-mitigation-plan-annex"
+  - id: e2006-electrical-hazard-mitigation-plan-annex-2
+    query: "One hazard sits at catastrophic severity and occasional likelihood. Two mitigations point at it: a bonding strap whose verification is still running, and a filter network whose verification is closed. How much does each pull the residual index down?"
+    intent: "ECSS-E-ST-20-06C Annex A; credit is proportional to how far verification has gone and acts on one axis of the grid, with neither rank falling below the floor"
+    expected_skill: "space-systems/ecss/e2006-electrical-hazard-mitigation-plan-annex"

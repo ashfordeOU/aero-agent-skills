@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-propulsion-cleanliness-interface (space-systems/ecss)
+# Two tasks for the new leaf. pci1 routes on which of two specifications
+# actually governs one fluid interface; pci2 routes on a filter sized from the
+# limit instead of from the passage behind it. Both must deterministically hit
+# space-systems/ecss/q7001-propulsion-cleanliness-interface.
+tasks:
+  - id: pci1
+    query: "the system cleanliness spec flows one particle size down to the thruster valve inlet and the propulsion spec asks for another, which one governs at that interface and does the flow down need tightening"
+    intent: "ECSS-Q-ST-70-01C meeting ECSS-E-ST-35-06C; per interface the governing particle and residue limits are the more stringent of the two, and the source has to be named because a propulsion-driven interface is a flow-down defect"
+    expected_skill: "space-systems/ecss/q7001-propulsion-cleanliness-interface"
+  - id: pci2
+    query: "we picked the inline filter to match the cleanliness limit, is that fine enough for the smallest orifice behind it and how much of that orifice would a limit sized particle actually block"
+    intent: "ECSS-Q-ST-70-01C meeting ECSS-E-ST-35-06C; the coarsest usable rating comes from the passage over a safety factor, and particle size becomes a flow consequence through the squared area ratio"
+    expected_skill: "space-systems/ecss/q7001-propulsion-cleanliness-interface"

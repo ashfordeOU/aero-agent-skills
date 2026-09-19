@@ -1,0 +1,13 @@
+# Hit@1 fragment: cospe-metallic-liner (space-systems/ecss)
+# Case 1 routes on the pressure-ratio thresholds a metal-lined overwrapped vessel
+# owes. Case 2 routes on the cyclic-life side: the scatter divisor on demonstrated
+# cycles and the thinnest measured liner wall.
+tasks:
+  - id: cospe-metallic-liner-1
+    query: "Our overwrapped propellant tank has a titanium inner shell and the maximum operating pressure we expect is 310 bar. We proofed it to 335 bar and the analytical burst sits at 600 bar. Do both those pressure ratios clear what the structures standard demands of a metal-lined vessel?"
+    intent: "ECSS-E-ST-32C clause 4.6.2; the case turns on the proof and burst multipliers on MEOP for a metallic-liner COSPE, and on both being required independently"
+    expected_skill: "space-systems/ecss/cospe-metallic-liner"
+  - id: cospe-metallic-liner-2
+    query: "Ultrasonic mapping of the stainless steel inner shell on our overwrapped vessel found a thin spot at 0.87 mm where the drawing calls for 1.00 mm after corrosion allowance and gauge tolerance. Hoop and ultimate margins at operating pressure are both still positive. Is that a finding or can I accept it?"
+    intent: "ECSS-E-ST-32C clause 4.6.2; the case turns on the minimum liner wall being a standalone dimensional non-conformance and on stainless steel being an accepted liner family"
+    expected_skill: "space-systems/ecss/cospe-metallic-liner"

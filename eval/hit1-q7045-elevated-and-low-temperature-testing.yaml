@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-elevated-and-low-temperature-testing (space-systems/ecss)
+# Two tasks for the new leaf. elt1 routes on soak and thermocouple placement so
+# the piece, not the chamber, is at temperature; elt2 routes on a compliant mean
+# hiding an axial gradient and on drift while loaded. Both must deterministically
+# hit space-systems/ecss/q7045-elevated-and-low-temperature-testing.
+tasks:
+  - id: elt1
+    query: "the furnace reached set point in twenty minutes and the operator started pulling the thick section straight away, on a single control thermocouple - size the soak that section needed and say whether the gradient along the gauge length was ever known"
+    intent: "ECSS-Q-ST-70-45C test conditions; soak sized from the section so the core reaches temperature, and the measurement points a parallel length needs to show uniformity"
+    expected_skill: "space-systems/ecss/q7045-elevated-and-low-temperature-testing"
+  - id: elt2
+    query: "the average of the three probes sat right on nominal but one end ran four degrees hot and it drifted while the curve was recording, does the cryostat run stand"
+    intent: "ECSS-Q-ST-70-45C test conditions; axial gradient graded separately from the deviation of the mean, and stability across the loaded window against the allowance ladder"
+    expected_skill: "space-systems/ecss/q7045-elevated-and-low-temperature-testing"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-test-bandwidth-definition (space-systems/ecss)
+# Case 1 routes on how far either side of a tested point the result still holds,
+# and why the two edges are set by different things. Case 2 routes on the activity
+# difference and on placing extra points when one cannot span the band.
+tasks:
+  - id: e2001-test-bandwidth-definition-1
+    query: "We passed a multipactor run at one frequency, 12.5 GHz, driving 380 W into a unit whose maximum operating power is 120 W. What bandwidth does that single point actually cover? I assumed the covered band sits symmetrically about the tested frequency, but the lower side seems to give out first."
+    intent: "ECSS-E-ST-20-01C clause 6.4.1; the case turns on the lower edge being margin-limited through the frequency-gap product while the upper edge is limited by extrapolation validity"
+    expected_skill: "space-systems/ecss/e2001-test-bandwidth-definition"
+  - id: e2001-test-bandwidth-definition-2
+    query: "Our 12.5 GHz multipactor result was declared to cover the 11.7 to 12.7 GHz operating band at acceptance. What bandwidth does that one point really cover for qualification once the larger margin and the build-spread widening apply, and if it falls short what is the smallest ordered run of test frequencies that tile the whole band?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.1; the case turns on qualification and acceptance demanding different margins and band widening, and on tiling the band into a minimum ordered point set"
+    expected_skill: "space-systems/ecss/e2001-test-bandwidth-definition"

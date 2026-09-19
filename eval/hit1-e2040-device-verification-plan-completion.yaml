@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-verification-plan-completion (space-systems/ecss)
+# Two tasks for the new leaf. dvpc1 routes on the five fields an executable entry needs and
+# the TBD that fills a field and nothing else; dvpc2 routes on approval at the phase start
+# and facility availability. Both must deterministically hit
+# space-systems/ecss/e2040-device-verification-plan-completion.
+tasks:
+  - id: dvpc1
+    query: "the verification plan says it is a hundred per cent complete but half the success criteria read TBD and some rows have no schedule slot, is it actually ready for the design phase"
+    intent: "ECSS-E-ST-20-40C clause 5.4.2; completeness is per entry across five fields, a placeholder is an empty field, uncovered requirements stay in the denominator"
+    expected_skill: "space-systems/ecss/e2040-device-verification-plan-completion"
+  - id: dvpc2
+    query: "the plan is still a draft at the phase start and one entry books a chamber that is not available until two months later, what stops the design phase opening on it"
+    intent: "ECSS-E-ST-20-40C clause 5.4.2; approval is separate from completeness, facility must exist by the phase start, orphan entries outside the covered requirement set"
+    expected_skill: "space-systems/ecss/e2040-device-verification-plan-completion"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-preliminary-support-maintenance-plan (space-systems/ecss)
+# Two tasks for the new leaf. psmp1 routes on the spares demand computed from
+# mean time between failures and a maintenance interval longer than the support
+# window; psmp2 routes on part end of life inside the window and lifetime buy
+# sizing. Both must deterministically hit
+# space-systems/ecss/e2040-preliminary-support-maintenance-plan.
+tasks:
+  - id: psmp1
+    query: "size the spares holding for the post delivery support years from the operating hours and the mean time between failures, and tell me which maintenance task repeats so rarely it never falls due inside the support window"
+    intent: "ECSS-E-ST-20-40C 5.2.5; spares demand from fleet operating hours and failure rate, maintenance interval feasibility against the support window"
+    expected_skill: "space-systems/ecss/e2040-preliminary-support-maintenance-plan"
+  - id: psmp2
+    query: "which parts go end of life before our support obligation finishes, and is the last time buy quantity big enough to cover the demand from that date to the end of support"
+    intent: "ECSS-E-ST-20-40C 5.2.5; obsolescence risk measured against the support window end and lifetime buy sizing against remaining demand"
+    expected_skill: "space-systems/ecss/e2040-preliminary-support-maintenance-plan"

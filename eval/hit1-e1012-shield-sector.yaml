@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1012-shield-sector (space-systems/ecss)
+# Case 1 routes on the directional discretisation itself: weighting each traced
+# direction by the solid angle it subtends and handling near-grazing rays.
+# Case 2 routes on the downstream compliance step against the part's rating.
+tasks:
+  - id: e1012-shield-sector-1
+    query: "I want dose at one specific box location from our geometry model rather than a flat slab estimate, so I have split the sphere around it into 18 elevation bands by 36 azimuth bins and traced a ray through each. How should each direction's contribution be weighted, and what do I do with rays that skim almost parallel to a panel?"
+    intent: "ECSS-E-ST-10-12C §6.2.3; the case turns on solid-angle weighting of a directional grid and the grazing-incidence cap, not on a simple thickness estimate"
+    expected_skill: "space-systems/ecss/e1012-shield-sector"
+  - id: e1012-shield-sector-2
+    query: "The device is qualified to 30 krad and my ray-traced shielding aggregate at that location gives about 14 krad of total ionising dose over six years in GEO. Do I compare those two straight across, or does an RDM have to multiply the computed figure before the check?"
+    intent: "ECSS-E-ST-10-12C §6.2.3; the case turns on the design margin factor applied to the aggregated dose before the comparison with the part's qualified level"
+    expected_skill: "space-systems/ecss/e1012-shield-sector"

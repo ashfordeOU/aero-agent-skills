@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-material-parameter-selection-evidence (space-systems/ecss)
+# Case 1 routes on grading where each property value came from. Case 2 routes on the parameter
+# set the material's role demands and on the temperature range the data actually covers.
+tasks:
+  - id: e2006-material-parameter-selection-evidence-1
+    query: "For every material property feeding our spacecraft charging assessment I must declare where the number came from. The dossier mixes a handbook figure for a similar polyimide, a maker measurement that states its method, and an engineer's estimate. Which are evidence and which are gaps?"
+    intent: "ECSS-E-ST-20-06C 6.8.2; this is a provenance requirement, so a measured value is admissible while a generic figure for a nominally similar material and an unsubstantiated estimate are gaps"
+    expected_skill: "space-systems/ecss/e2006-material-parameter-selection-evidence"
+  - id: e2006-material-parameter-selection-evidence-2
+    query: "An exposed dielectric in our charging dossier records resistivity and permittivity but no secondary emission yield and no photoemission yield. Which electrical material parameters does that role oblige, and can a measurement taken only at ambient conditions envelope the cold end of the mission range?"
+    intent: "ECSS-E-ST-20-06C 6.8.2; the required parameter set follows the material's role, and measurement conditions must envelope the mission range on the cold side as well as the hot"
+    expected_skill: "space-systems/ecss/e2006-material-parameter-selection-evidence"

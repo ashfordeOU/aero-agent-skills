@@ -219,8 +219,11 @@ class ChargeExchangeFraction(unittest.TestCase):
 
     def test_fraction_saturates_at_unity_for_a_long_dense_path(self):
         value = logic.charge_exchange_fraction(1.0, 100.0, 5.0e-19, 300.0)
-        self.assertLessEqual(value, 1.0)
-        self.assertAlmostEqual(value, 1.0, places=12)
+        # The optical depth here is over twelve thousand e-folds, so the
+        # exponential underflows to zero on any IEEE-754 platform and the
+        # fraction is EXACTLY unity. That is a saturation, not a value a
+        # few ULP from one, so assert the equality the code guarantees.
+        self.assertEqual(value, 1.0)
 
     def test_fraction_stays_strictly_inside_the_unit_interval(self):
         value = logic.charge_exchange_fraction(1.0e-2, 3.0, 5.0e-19, 300.0)
@@ -395,10 +398,24 @@ class EffectIsEstablished(unittest.TestCase):
     def test_influence_exactly_at_tolerance_from_a_float_sum(self):
         record = dict(effects()[1])
         record["relative_influence"] = 0.1 + 0.2
-        self.assertGreater(record["relative_influence"], 0.3)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the sum landed on.
+        self.assertAlmostEqual(record["relative_influence"], 0.3, places=12)
         result = logic.effect_is_established(record, negligible_influence=0.3)
         self.assertTrue(result["established"])
         self.assertEqual(result["disposition"], "negligible-within-tolerance")
+        # Pin the absorbing branch with an influence constructed to sit
+        # strictly above the tolerance, by 1e-12 - inside what the leaf
+        # absorbs, and the same value on every platform. The 0.3 tolerance
+        # is unchanged: 0.31 is still not established, below.
+        constructed = dict(record)
+        constructed["relative_influence"] = 0.3 + 1e-12
+        self.assertEqual(
+            logic.effect_is_established(
+                constructed, negligible_influence=0.3
+            )["disposition"],
+            "negligible-within-tolerance",
+        )
 
     def test_influence_just_beyond_tolerance_is_not_established(self):
         record = dict(effects()[1])

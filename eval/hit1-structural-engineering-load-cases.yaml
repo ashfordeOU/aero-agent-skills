@@ -1,0 +1,12 @@
+# Hit@1 fragment: structural-engineering-load-cases (space-systems/ecss)
+# Case 1 routes on the scatter-factor policy and the order the factors multiply in.
+# Case 2 routes on sustained loading triggering the time-dependent checks.
+tasks:
+  - id: structural-engineering-load-cases-1
+    query: "Our vibration and thrust environments are not statistically bounded yet somebody set the scatter factor at 1.0, then applied the ultimate factor to our limit load. In what order do scatter and safety factors apply, and when is 1.0 ever permitted?"
+    intent: "ECSS-E-ST-32C 5.2h; the scatter factor multiplies the limit load before the safety factor, and unity is only allowed when the load characterisation already bounds the statistics"
+    expected_skill: "space-systems/ecss/structural-engineering-load-cases"
+  - id: structural-engineering-load-cases-2
+    query: "A bonded CFRP fitting holds a sustained preload for eleven hours on orbit. Under ECSS clause 5.2, does that sustained loading condition make this a creep-rupture load case, and does it also trigger a separate creep deformation assessment?"
+    intent: "ECSS-E-ST-32C 5.2; a sustained hold on a creep-sensitive material mandates the deformation study and the rupture check as independent obligations"
+    expected_skill: "space-systems/ecss/structural-engineering-load-cases"

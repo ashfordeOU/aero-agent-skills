@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-emc-general-system-requirements (space-systems/ecss)
+# Case 1 routes on policy elements needing an owner, a real release state and a
+# baseline milestone in time. Case 2 routes on unit electromagnetic roles and on the
+# charging tasks the orbit regime drives.
+tasks:
+  - id: e2007-emc-general-system-requirements-1
+    query: "Our emc-control-plan exists but is still draft and names no owner, and the grounding-and-bonding-policy was only baselined at qualification review. Does merely holding those documents count as system-level policy coverage?"
+    intent: "ECSS-E-ST-20-07C 4.1; only released or baselined elements credit coverage, an unowned element fails normalisation, and a late baseline is a finding even though the document exists"
+    expected_skill: "space-systems/ecss/e2007-emc-general-system-requirements"
+  - id: e2007-emc-general-system-requirements-2
+    query: "We copied the spacecraft-charging-protection task list straight from a low Earth orbit programme onto a geostationary mission, and two units declare no transmit power, no receive sensitivity and no switching source. What is missing?"
+    intent: "ECSS-E-ST-20-07C 4.1; the orbit regime drives which charging tasks are owed, and a unit with no electromagnetic role escapes the control plan allocation entirely"
+    expected_skill: "space-systems/ecss/e2007-emc-general-system-requirements"

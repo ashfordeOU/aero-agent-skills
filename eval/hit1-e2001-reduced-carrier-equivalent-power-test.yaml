@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-reduced-carrier-equivalent-power-test (space-systems/ecss)
+# Case 1 routes on deriving the per-carrier drive that preserves the operational envelope peak.
+# Case 2 routes on the dwell above onset and the gap crossings the retained set actually gives.
+tasks:
+  - id: e2001-reduced-carrier-equivalent-power-test-1
+    query: "The bench cannot drive all sixteen operational carriers for our multipaction verification. If I retain four and raise each so the envelope peak is unchanged, what drive level per carrier is that, and how much average power will the four need?"
+    intent: "ECSS-E-ST-20-01C 6.4.3.3; the retained drive follows from the square-root power sum over the retained count, and the reduced set draws a fraction of the equivalent continuous-wave demand"
+    expected_skill: "space-systems/ecss/e2001-reduced-carrier-equivalent-power-test"
+  - id: e2001-reduced-carrier-equivalent-power-test-2
+    query: "With four retained carriers at the operational carrier spacing and a 6 dB verification margin, how long does the envelope dwell over the multipaction onset level, and how many gap transits does that come to at the highest carrier frequency?"
+    intent: "ECSS-E-ST-20-01C 6.4.3.3; matching the peak is not sufficient, the envelope must stay above onset long enough for the avalanche to build through enough transits"
+    expected_skill: "space-systems/ecss/e2001-reduced-carrier-equivalent-power-test"

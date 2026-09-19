@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-critical-intermodulation-product-identification (space-systems/ecss)
+# Case 1 routes on enumerating coefficient sets and discarding the non-physical ones.
+# Case 2 routes on the guard-band test and which order drives design.
+tasks:
+  - id: e20-critical-intermodulation-product-identification-1
+    query: "With four transmit carriers I am enumerating mixing products out to eleventh order. How do I stop the sign-flipped twin of each coefficient set being counted as a second line, and which enumerated sets drop out as non-physical before the band test?"
+    intent: "ECSS-E-ST-20C 7.4.3; the mirror pair is resolved after the frequency is computed, so a set whose weighted sum is not strictly positive is dropped rather than counted again"
+    expected_skill: "space-systems/ecss/e20-critical-intermodulation-product-identification"
+  - id: e20-critical-intermodulation-product-identification-2
+    query: "A fifth-order product lands 200 kHz outside our receive band edge while the third-order one falls well clear. Once the receive filter skirt guard band is applied, which order do I quote as the design driver for the verification campaign?"
+    intent: "ECSS-E-ST-20C 7.4.3; the victim band is widened by its guard-band before the test, and the lowest order that then hits is the order that sizes hardware and verification"
+    expected_skill: "space-systems/ecss/e20-critical-intermodulation-product-identification"

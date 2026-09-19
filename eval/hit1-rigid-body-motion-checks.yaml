@@ -1,0 +1,13 @@
+# Hit@1 fragment: rigid-body-motion-checks (space-systems/ecss)
+# Case 1 routes on running the energy check free-free and on the rotational modes
+# being skipped. Case 2 routes on the residual force check being independent of strain
+# energy and on the assembled mass total.
+tasks:
+  - id: rigid-body-motion-checks-1
+    query: "My model gives essentially zero strain energy for the three translations when I impose rigid-body displacements. Is it fine to skip the three rotations, and does it matter that the boundary conditions were still applied?"
+    intent: "ECSS-E-ST-32C 5.4; the energy check only exposes spurious stiffness on an unconstrained model, and rotational grounding is invisible unless the rotation fields are imposed too"
+    expected_skill: "space-systems/ecss/rigid-body-motion-checks"
+  - id: rigid-body-motion-checks-2
+    query: "The assembled mass-matrix total comes out 1.8 percent over the design figure, and one rotation mode leaves a noticeable residual-forces vector even though its strain-energy is negligible. Are those the same defect?"
+    intent: "ECSS-E-ST-32C 5.4; the mass total, the strain energy and the residual force are three separate checks, and a force-balance fault can hide behind a clean energy result"
+    expected_skill: "space-systems/ecss/rigid-body-motion-checks"

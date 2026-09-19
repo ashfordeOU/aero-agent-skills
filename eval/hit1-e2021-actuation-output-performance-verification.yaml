@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2021-actuation-output-performance-verification (space-systems/ecss)
+# Two tasks for the new leaf. aopv1 routes on grading the delivered firing
+# current and output voltage against the interface limits; aopv2 routes on
+# taking the pulse plateau and pushing the measurement uncertainty the
+# unhelpful way. Both must deterministically hit
+# space-systems/ecss/e2021-actuation-output-performance-verification.
+tasks:
+  - id: aopv1
+    query: "Four pyro lines fired on the bench. I have a current and a voltage off each channel plus the bounds the interface document allows. Which channel holds the verification up, and which of those two quantities is the one that missed?"
+    intent: "ECSS-E-ST-20-21C clause 5.5.1; delivered firing current and output voltage checked against the interface limits"
+    expected_skill: "space-systems/ecss/e2021-actuation-output-performance-verification"
+  - id: aopv2
+    query: "take the held plateau of each measured firing pulse rather than its overshoot and apply the measurement uncertainty in the direction that works against the channel"
+    intent: "ECSS-E-ST-20-21C clause 5.5.1; firing pulse plateau reduction and directional measurement uncertainty in an output performance verification"
+    expected_skill: "space-systems/ecss/e2021-actuation-output-performance-verification"

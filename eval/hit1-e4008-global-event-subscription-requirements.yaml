@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-global-event-subscription-requirements (space-systems/ecss)
+# ges1 routes on the published-but-closed event and the entry point that takes
+# an argument; ges2 routes on duplicate detection by the event-instance-entry
+# triple and on the ordered dispatch plan. Both must deterministically hit
+# space-systems/ecss/e4008-global-event-subscription-requirements.
+tasks:
+  - id: ges1
+    query: "the environment raises this event and my subscription still will not take - the name is spelled right and the callback exists, but it takes a parameter and the event itself is one the environment keeps for its own sequencing"
+    intent: "ECSS-E-ST-40-08 clause 5.2.5.2; a global event must be open to subscription and the entry point must be published and argument-free because the event carries no payload"
+    expected_skill: "space-systems/ecss/e4008-global-event-subscription-requirements"
+  - id: ges2
+    query: "Our simulation configuration wires one entry point to three environment events and two instances subscribe to the same event. Which of those counts as a duplicate subscription, and what dispatch order do the global event callbacks come out in?"
+    intent: "ECSS-E-ST-40-08 clause 5.2.5.2; a duplicate is the same event with the same instance and the same entry point, and the dispatch plan keeps the order the configuration entered them in"
+    expected_skill: "space-systems/ecss/e4008-global-event-subscription-requirements"

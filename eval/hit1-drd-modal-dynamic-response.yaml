@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-modal-dynamic-response (space-systems/ecss)
+# Case 1 routes on modal completeness, the per-axis effective mass fraction.
+# Case 2 routes on separation from a recurring excitation and the amplification remedy.
+tasks:
+  - id: drd-modal-dynamic-response-1
+    query: "The eigensolution for our instrument bench sums to 86 percent effective mass in Y but 94 percent in X and Z. Must I ask the analyst for more modes before those response numbers can feed an interface load derivation?"
+    intent: "ECSS-E-ST-32C Annex J; the case turns on the per-axis effective mass completeness threshold deciding whether the modal basis is truncated"
+    expected_skill: "space-systems/ecss/drd-modal-dynamic-response"
+  - id: drd-modal-dynamic-response-2
+    query: "A bracket mode sits at 82 Hz while the reaction wheel excitation runs at 78 Hz. What modal frequency separation does Annex J owe, and if the design cannot deliver it, what dynamic amplification at our damping ratio multiplies the interface load?"
+    intent: "ECSS-E-ST-32C Annex J; the case turns on the mode-to-excitation separation ratio and on computing a dynamic amplification factor when the margin is unattainable"
+    expected_skill: "space-systems/ecss/drd-modal-dynamic-response"

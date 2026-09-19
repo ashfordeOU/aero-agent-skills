@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-isochronous-requirements (space-systems/ecss)
+# iso-req1 routes on a specification that omits a figure; iso-req2 routes on a
+# jitter bound that rules out its own period.
+# Both must deterministically hit space-systems/ecss/e50-isochronous-requirements.
+tasks:
+  - id: iso-req1
+    query: "review the isochronous service requirement set we wrote for the instrument interface before it goes to the supplier, tell me which figures we never stated and what the numbers we did state already commit us to for link rate and clock stability"
+    intent: "ECSS-E-ST-50C clause 5.6.14.5; an absent figure is named rather than defaulted, and the stated set already implies a minimum link rate, a utilisation, a playout depth and a clock stability in ppm"
+    expected_skill: "space-systems/ecss/e50-isochronous-requirements"
+  - id: iso-req2
+    query: "our spec asks for a jitter bound that is bigger than half the period and a latency budget smaller than that same jitter, is this requirement set even satisfiable before we build anything"
+    intent: "ECSS-E-ST-50C clause 5.6.14.5; a jitter bound past half a period makes slot ordering undecidable and a latency bound below the jitter it permits contradicts itself, so the set is unsatisfiable as written"
+    expected_skill: "space-systems/ecss/e50-isochronous-requirements"

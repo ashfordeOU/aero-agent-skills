@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-receiver-overload-precautions (space-systems/ecss)
+# Case 1 routes on propagating the level and grading each stage against its own two thresholds.
+# Case 2 routes on sizing the pad and re-checking sensitivity once it is in.
+tasks:
+  - id: e2007-receiver-overload-precautions-1
+    query: "Our biconical transducer feeds a preamp and then the spectrum analyser. At the strongest emission the preamp input sits 3 dB above its declared compression-point. Propagate that signal through each stage: which overload, and which cross a damage-threshold?"
+    intent: "ECSS-E-ST-20-07C 5.2.5.3; only the active stages declare a linear window, and each is graded against its own compression point and its own damage threshold"
+    expected_skill: "space-systems/ecss/e2007-receiver-overload-precautions"
+  - id: e2007-receiver-overload-precautions-2
+    query: "The preamplifier is compressing by 3 dB. What pad value behind the transducer restores linearity with a 10 dB step attenuator, will the added loss cost sensitivity against the receiver's own noise floor, and how do I demonstrate linearity on the bench?"
+    intent: "ECSS-E-ST-20-07C 5.2.5.3; the pad is the worst compression excess rounded up to a whole step, the sensitivity re-check stops one invalid result replacing another, and the pad-insertion check is the demonstration"
+    expected_skill: "space-systems/ecss/e2007-receiver-overload-precautions"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-dielectric-sample-charging-control (space-systems/ecss)
+# Case 1 routes on spread as a controlled figure in its own right, separate from
+# magnitude. Case 2 routes on which neutralization techniques are admissible and
+# on sizing the dwell from the material relaxation time.
+tasks:
+  - id: e2001-dielectric-sample-charging-control-1
+    query: "The coupon surface potential map averages only a few volts but the readings differ by 300 V corner to corner before we start the yield sweep. Is the average enough to release it, or does that point to point difference block the run?"
+    intent: "ECSS-E-ST-20-01C clause 9.4.2.4; magnitude and spread are both controlled, and a large spread varies landing energy across the swept area and cannot be corrected"
+    expected_skill: "space-systems/ecss/e2001-dielectric-sample-charging-control"
+  - id: e2001-dielectric-sample-charging-control-2
+    query: "Can I bake or solvent wipe the sample to shed its retained charge, and how long would passive grounding need on a polymer of 1e16 ohm centimetre resistivity before an electron flood becomes necessary?"
+    intent: "ECSS-E-ST-20-01C clause 9.4.2.4; a step that alters the emitting surface is not a discharge step, and the dwell follows the dielectric relaxation time"
+    expected_skill: "space-systems/ecss/e2001-dielectric-sample-charging-control"

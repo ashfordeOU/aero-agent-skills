@@ -1,0 +1,12 @@
+# Hit@1 fragment: cospe-nonmetallic-liner (space-systems/ecss)
+# Case 1 routes on liner strain compatibility at proof for a polymer liner.
+# Case 2 routes on degrading burst before the factor is taken, plus the overwrap fibre content bound.
+tasks:
+  - id: cospe-nonmetallic-liner-1
+    query: "Filament-wound helium tank with a thermoplastic PEEK liner: at proof the liner reaches 1.4 percent strain while its own allowable is 1.2 percent. Does that sink the vessel even though the overwrap itself has plenty of room left?"
+    intent: "ECSS-E-ST-32C 4.6.3; a non-metallic liner must stay strain-compatible with the overwrap at proof, and an exceedance is a finding regardless of overwrap margin"
+    expected_skill: "space-systems/ecss/cospe-nonmetallic-liner"
+  - id: cospe-nonmetallic-liner-2
+    query: "Composite overwrapped tank flying six years: it burst at 2.1 times MAWP as built, but moisture uptake and thermal cycling degrade the wrap over life, and the fiber volume fraction of the wrap came back at 0.73. Is the vessel still compliant once degradation is taken off the burst strength?"
+    intent: "ECSS-E-ST-32C 4.6.3; environmental degradation comes off burst before the factor is taken, and fibre content is bounded from above for resin starvation as well as from below"
+    expected_skill: "space-systems/ecss/cospe-nonmetallic-liner"

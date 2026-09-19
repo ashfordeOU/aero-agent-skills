@@ -1,0 +1,12 @@
+# Hit@1 fragment: q7001-in-orbit-contamination-control (space-systems/ecss)
+# ioc1 routes on the mission deposition budget for a cold optic; ioc2 routes on
+# plume backflow and released particles being separate accounts.
+tasks:
+  - id: ioc1
+    query: "over a five year mission work out how thick a film the blankets, harness potting and vented volumes lay down on a cold optic, given each source decays with its own time constant and the surface only keeps what sticks at its temperature"
+    intent: "ECSS-Q-ST-70-01 in-orbit control; the emitted mass is the analytic integral of a decaying rate, carried by a view factor and a temperature-dependent sticking coefficient"
+    expected_skill: "space-systems/ecss/q7001-in-orbit-contamination-control"
+  - id: ioc2
+    query: "the thrusters point away from the radiator so we left plume backflow out of the budget and folded the released particle count into the same film number, check whether either of those is defensible"
+    intent: "ECSS-Q-ST-70-01 in-orbit control; backflow reaches the hemisphere behind the nozzle and particles obscure area rather than forming a film, so they are budgeted separately"
+    expected_skill: "space-systems/ecss/q7001-in-orbit-contamination-control"

@@ -210,8 +210,11 @@ class CrossoverTests(unittest.TestCase):
         self.assertIsNone(first_crossover_energy(1.0, PEAK_ENERGY))
 
     def test_peak_yield_one_ulp_above_unity_is_absorbed_as_unity(self):
+        # nextafter returns the next double above one by definition, so
+        # the ordering needs no assertion; asserting it only re-tests the
+        # standard library across a one-last-place gap.
         just_over = math.nextafter(1.0, 2.0)
-        self.assertGreater(just_over, 1.0)
+        self.assertNotEqual(just_over, 1.0)
         self.assertIsNone(first_crossover_energy(just_over, PEAK_ENERGY))
 
     def test_peak_yield_genuinely_above_unity_still_crosses(self):
@@ -292,8 +295,11 @@ class SurfaceCategorizationTests(unittest.TestCase):
         self.assertEqual(categorize_surface_yield(1.0), "low-yield")
 
     def test_unity_with_representation_error_is_still_low(self):
+        # nextafter returns the next double above one by definition, so
+        # the ordering needs no assertion; asserting it only re-tests the
+        # standard library across a one-last-place gap.
         just_over = math.nextafter(1.0, 2.0)
-        self.assertGreater(just_over, 1.0)
+        self.assertNotEqual(just_over, 1.0)
         self.assertEqual(categorize_surface_yield(just_over), "low-yield")
 
     def test_yield_just_above_unity_is_moderate(self):

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-acceptance-criteria (space-systems/ecss)
+# acp1 routes on the defect selecting the repair category and its own limit
+# set; acp2 routes on putting a ceiling and a floor on one utilisation scale
+# and on an unmeasured criterion staying open. Both must deterministically hit
+# space-systems/ecss/q7028-acceptance-criteria.
+tasks:
+  - id: acp1
+    query: "the jumper repair lost about a fifth of the track width and left six millimetres of overlap, so check the category actually treats that defect, put both readings on one utilisation scale for our assurance level, and name the governing criterion"
+    intent: "ECSS-Q-ST-70-28C acceptance; the defect selects the repair category, and the category's ceilings and floors scale with the assurance level of the product"
+    expected_skill: "space-systems/ecss/q7028-acceptance-criteria"
+  - id: acp2
+    query: "which of these repair measurements is closest to failing, and what do I do about the one nobody recorded a value for"
+    intent: "ECSS-Q-ST-70-28C acceptance; utilisation puts a ceiling and a floor on one scale so the governing criterion can be named, and a criterion with no measurement is an open item rather than a pass"
+    expected_skill: "space-systems/ecss/q7028-acceptance-criteria"

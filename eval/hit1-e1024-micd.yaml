@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-micd (space-systems/ecss)
+# Case 1 routes on the datum frame having to appear in the project master list
+# and on rejecting an uncategorised interface class. Case 2 routes on numeric
+# validity of the load and mass block and on document closure.
+tasks:
+  - id: e1024-micd-1
+    query: "Reviewing the mechanical interface sheet for a mirror mount bracket: the datum frame it cites is absent from the master frame register our project keeps, and the type field just says bolted. Should I raise both of those, or assume sensible defaults?"
+    intent: "ECSS-E-ST-10-24C 5.11; an unregistered datum frame and a type outside the recognised mechanical interface set are both open items, not defaults"
+    expected_skill: "space-systems/ecss/e1024-micd"
+  - id: e1024-micd-2
+    query: "On our bracket MICD three of the six interface load components read TBD and the provider mass property is blank. Does that leave the document open, or can I treat a placeholder load as zero and issue it?"
+    intent: "ECSS-E-ST-10-24C 5.11; placeholder load components count as missing rather than zero, and the document cannot close while any required item stays open"
+    expected_skill: "space-systems/ecss/e1024-micd"

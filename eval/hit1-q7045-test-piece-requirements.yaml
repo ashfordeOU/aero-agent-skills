@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-test-piece-requirements (space-systems/ecss)
+# Two tasks for the new leaf. tpr1 routes on the proportional gauge length that
+# follows from the section; tpr2 routes on the parallel length and fillet radius
+# behind a break outside the gauge marks. Both must deterministically hit
+# space-systems/ecss/q7045-test-piece-requirements.
+tasks:
+  - id: tpr1
+    query: "the shop reused the gauge length from the old drawing on a smaller diameter bar, does the elongation number still mean the same thing"
+    intent: "ECSS-Q-ST-70-45C test pieces; proportional gauge length derived from the original cross-sectional area, and a non-proportional length that must be reported"
+    expected_skill: "space-systems/ecss/q7045-test-piece-requirements"
+  - id: tpr2
+    query: "three bars in a row failed up near the shoulder instead of inside the gauge length; before we blame the material, check the specimen drawing, the transition radius, the parallel portion and whether its gauge length stays proportional to the cross-section"
+    intent: "ECSS-Q-ST-70-45C test pieces; parallel length allowance over the gauge length, shoulder fillet radius minimum and the machined finish in the measured length"
+    expected_skill: "space-systems/ecss/q7045-test-piece-requirements"

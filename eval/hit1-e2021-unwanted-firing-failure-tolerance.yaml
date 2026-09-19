@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-unwanted-firing-failure-tolerance (space-systems/ecss)
+# Two tasks for the new leaf. uf1 routes on inhibits that collapse behind one
+# shared bus; uf2 routes on a stray current reaching the initiator with every
+# inhibit intact. Both must deterministically hit
+# space-systems/ecss/e2021-unwanted-firing-failure-tolerance.
+tasks:
+  - id: uf1
+    query: "Our deployment actuator has one inhibit at arm, one at select and one at fire, but all three are fed from a single secondary supply. How many effective inhibits survive if that supply fails?"
+    intent: "ECSS-E-ST-20-21C clause 5.1.2; inhibits sharing a bus, driver or command path collapse into one effective inhibit against a failure of that resource"
+    expected_skill: "space-systems/ecss/e2021-unwanted-firing-failure-tolerance"
+  - id: uf2
+    query: "With every switch still open, one short could couple stray current into our release actuator's initiator. Work out the worst case a short like that can drive and say how many decibels below no-fire that leaves us."
+    intent: "ECSS-E-ST-20-21C clause 5.1.2; the stray current a single failure can drive is graded in decibels against the no-fire current of the actuator"
+    expected_skill: "space-systems/ecss/e2021-unwanted-firing-failure-tolerance"

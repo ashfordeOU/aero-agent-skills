@@ -110,7 +110,7 @@ all discrepancies have been resolved.
 
 The frequency-deviation, MAC, mode-pairing, and violation-aggregation logic is
 exercised by the gate 3 contract test: scripts/test_test_analysis_correlation.py
-against scripts/test_analysis_correlation_logic.py (stdlib unittest, offline). Run:
+against scripts/analysis_correlation_logic.py (stdlib unittest, offline). Run:
 python3 scripts/test_test_analysis_correlation.py
 
 ## Compliance

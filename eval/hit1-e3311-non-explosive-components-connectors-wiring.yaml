@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-non-explosive-components-connectors-wiring
+# (space-systems/ecss). ncw1 routes on the firing-line resistance budget and
+# the all-fire margin; ncw2 routes on connector keying and segregation. Both
+# must deterministically hit
+# space-systems/ecss/e3311-non-explosive-components-connectors-wiring.
+tasks:
+  - id: ncw1
+    query: "size the copper for a five metre initiator firing line so the bridgewire still gets one and a half times the all-fire current through the connector contacts and the source resistance"
+    intent: "ECSS-E-ST-33-11C clauses 4.10.1 and 4.10.2; the loop counts both conductors plus every contact at its end-of-life resistance, the delivered current is a series divider across source, loop and bridgewire, and the cross-section is that budget read backwards"
+    expected_skill: "space-systems/ecss/e3311-non-explosive-components-connectors-wiring"
+  - id: ncw2
+    query: "review the initiator harness design for anti-mismating keying, a shell unique to the firing circuit, twisted shielded pair and segregation from the rest of the loom"
+    intent: "ECSS-E-ST-33-11C clauses 4.10.1 and 4.10.2; anti-mismating is a physical property of the connector rather than a procedure, and a protective feature the design does not declare is treated as absent"
+    expected_skill: "space-systems/ecss/e3311-non-explosive-components-connectors-wiring"

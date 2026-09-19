@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-cleanliness-after-repair (space-systems/ecss)
+# cln1 routes on the agent-to-flux pairing and the disturbed no-clean residue;
+# cln2 routes on the blank-subtracted extract converted to a surface density
+# over the wetted area. Both must deterministically hit
+# space-systems/ecss/q7028-cleanliness-after-repair.
+tasks:
+  - id: cln1
+    query: "we reworked a joint on a board built with no-clean flux - does the repair area have to be cleaned, and what do we clean it with"
+    intent: "ECSS-Q-ST-70-28C verification; the iron breaks the encapsulating film so the repair area is cleaned, and the agent has to match the flux that was actually used"
+    expected_skill: "space-systems/ecss/q7028-cleanliness-after-repair"
+  - id: cln2
+    query: "take this resistivity of solvent extract reading from a reworked board, net the system blank out of it, and give me sodium chloride equivalent per square centimetre over the wetted area, then say how much of our category limit that eats"
+    intent: "ECSS-Q-ST-70-28C verification; system blank subtracted, wetted area over both faces, extract volume per unit area, and the limit of the cleanliness category held under ECSS-Q-ST-70-01C"
+    expected_skill: "space-systems/ecss/q7028-cleanliness-after-repair"

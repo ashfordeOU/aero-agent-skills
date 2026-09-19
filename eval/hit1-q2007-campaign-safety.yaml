@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-campaign-safety (space-systems/ecss)
+# Two tasks for the new leaf. cs1 routes on the hazard-family threshold decision
+# and the design inputs the confirmed families owe; cs2 routes on the two-way
+# reconciliation between the declaration and the returned questionnaire. Both
+# must deterministically hit space-systems/ecss/q2007-campaign-safety.
+tasks:
+  - id: cs1
+    query: "the customer is bringing a 900 kg lift, a 250 bar vessel and three inert boxes into the test hall, work out which of those are hazardous for the campaign and what the test process design then has to carry for each"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.4; hazard-family thresholds and the safety design inputs owed by each confirmed family"
+    expected_skill: "space-systems/ecss/q2007-campaign-safety"
+  - id: cs2
+    query: "compare the campaign item declaration against the safety answers that came back and tell me which hazards have no answered topic and which confirmed topic has nothing declared behind it"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.4; two-way reconciliation of the hazard set against the customer safety questionnaire before the campaign is released"
+    expected_skill: "space-systems/ecss/q2007-campaign-safety"

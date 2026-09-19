@@ -1,0 +1,13 @@
+# Hit@1 fragment: drd-fracture-control-plan (space-systems/ecss)
+# Case 1 routes on the inspection threshold against the assumed initial flaw.
+# Case 2 routes on the two numeric screening factors the plan owes and on an
+# unrecorded one.
+tasks:
+  - id: drd-fracture-control-plan-1
+    query: "Our NDI technique reliably finds 1.3 mm defects while the plan assumes a 1.0 mm initial flaw. Does a detection threshold above the assumed flaw invalidate the technique for the plan, and what does that do to the damage-tolerance argument?"
+    intent: "ECSS-E-ST-32C Annex F; a threshold larger than the assumed flaw leaves a gap the analysis never covers, so the technique must be replaced or supplemented"
+    expected_skill: "space-systems/ecss/drd-fracture-control-plan"
+  - id: drd-fracture-control-plan-2
+    query: "Our plan screens by NDI. It quotes a proof-test factor of 1.15 and a safe-life factor of 3.2 on a fracture-critical fitting. Do those meet the damage-tolerance minimums, and does a blank factor count as verified?"
+    intent: "ECSS-E-ST-32C Annex F; both screening factors carry programme minimums, and an unrecorded factor means the check was never performed rather than passed"
+    expected_skill: "space-systems/ecss/drd-fracture-control-plan"

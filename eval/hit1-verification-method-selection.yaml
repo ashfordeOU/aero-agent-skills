@@ -1,0 +1,13 @@
+# Hit@1 fragment: verification-method-selection (space-systems/ecss)
+# Case 1 routes on per-category admissibility and the mandatory method.
+# Case 2 routes on the programme-level roll-up: uncovered requirements and a
+# rationale that restates the method instead of justifying it.
+tasks:
+  - id: verification-method-selection-1
+    query: "In our structural requirements register a strength requirement carries only test and a workmanship one only review-of-design. Is that an acceptable method assignment for those categories, or a coverage finding because the mandatory method is missing?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.1; each category has an acceptable set and sometimes a mandatory method, so an otherwise valid method can still leave a gap"
+    expected_skill: "space-systems/ecss/verification-method-selection"
+  - id: verification-method-selection-2
+    query: "Twelve structural requirements carry no method at all and several rationale entries just name the method again. How does that affect the programme coverage summary before we submit it for agreement?"
+    intent: "ECSS-E-ST-32C clause 4.6.1; an unassigned requirement is a programme gap, and the rationale must justify sufficiency rather than repeat the method name"
+    expected_skill: "space-systems/ecss/verification-method-selection"

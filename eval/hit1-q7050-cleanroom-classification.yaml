@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7050-cleanroom-classification (space-systems/ecss)
+# Two tasks for the new leaf. room1 routes on sizing the sample plan (location
+# count from floor area, single-sample volume from the limit concentration,
+# sampling time from the counter flow rate); room2 routes on grading a campaign
+# whose locations were sampled short and on the re-qualification interval. Both
+# must deterministically hit space-systems/ecss/q7050-cleanroom-classification.
+tasks:
+  - id: room1
+    query: "I need the airborne particle sample plan for a 180 square metre room we are qualifying at class 5 for half-micrometre particles - how many sample locations, what single-sample volume, and how long does the counter run at 28.3 litres a minute"
+    intent: "ISO 14644-1 sample plan coordination for a contamination-monitored cleanroom; limit concentration per reference size, minimum location count from floor area, sample volume that collects enough particles at the limit"
+    expected_skill: "space-systems/ecss/q7050-cleanroom-classification"
+  - id: room2
+    query: "the cleanroom qualification report has three locations each sampled at 28.3 litres and the facility re-qualifies annually - grade each location against the class limit and tell me whether that campaign actually qualifies the room"
+    intent: "ISO 14644-1 and 14644-2 grading; per-location concentration against the limit, sampled volume against the required single-sample volume, re-qualification interval for the class"
+    expected_skill: "space-systems/ecss/q7050-cleanroom-classification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-database-update-after-implementation (space-systems/ecss)
+# Two tasks for the new leaf. dui1 routes on the as-built digest read back from
+# the delivered part; dui2 routes on the baseline freeze and the regeneration
+# record. Both must deterministically hit
+# space-systems/ecss/e2040-database-update-after-implementation.
+tasks:
+  - id: dui1
+    query: "the final programming file is in the repository but nobody recorded the checksum read back off the loaded part, decide whether the implementation phase can be closed on that deposit"
+    intent: "ECSS-E-ST-20-40C clause 5.7.3; an as-built deposit proves identity by a digest matching the one read back from the device or lot, and an unrecorded read-back leaves it unproven"
+    expected_skill: "space-systems/ecss/e2040-database-update-after-implementation"
+  - id: dui2
+    query: "our implementation outputs sit in the repository under a moving branch label instead of a frozen baseline, and nobody recorded the tool chain or seed; what does that cost when the device has to be regenerated years later"
+    intent: "ECSS-E-ST-20-40C clause 5.7.3; an as-built deposit has to be frozen at an immutable baseline and carry the tool chain and run parameters needed to regenerate it"
+    expected_skill: "space-systems/ecss/e2040-database-update-after-implementation"

@@ -368,14 +368,21 @@ class PlanTests(unittest.TestCase):
         self.assertAlmostEqual(result["effective_gap_m"], 0.94e-3, places=12)
 
     def test_margin_exactly_on_the_requirement_is_compliant(self):
-        # 80 W x 10**0.3 evaluates one unit in the last place below 3.0 dB.
+        # 80 W x 10**0.3 puts the achieved margin within one unit in the
+        # last place of the 3.0 dB requirement. Neither ** nor the log10
+        # inside achieved_margin_db is correctly rounded, so which side of
+        # 3.0 dB it lands on differs between libm implementations: assert the
+        # distance from the requirement, never the direction. The 3.0 dB
+        # requirement itself is unchanged.
         case = _case(
             BEST_CASE,
             operating_power_w=80.0,
             predicted_breakdown_power_w=80.0 * (10.0 ** 0.3),
         )
-        self.assertLess(
-            achieved_margin_db(case["predicted_breakdown_power_w"], 80.0), 3.0
+        self.assertAlmostEqual(
+            achieved_margin_db(case["predicted_breakdown_power_w"], 80.0),
+            3.0,
+            places=9,
         )
         result = plan_margin_strategy(case)
         self.assertTrue(result["compliant"])

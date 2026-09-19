@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-record-in-cleanliness-database (space-systems/ecss)
+# db1 routes on the entry key and the same-date conflict versus an independent
+# confirmation; db2 routes on storing a non-detect as a bound and reading the
+# trend across verifications. Both must deterministically hit
+# space-systems/ecss/q7005-record-in-cleanliness-database.
+tasks:
+  - id: q7005db1
+    query: "two infrared contamination results for the same panel arrived with the same verification date and different areal levels, and a third repeats last quarter's value, tell me how each one should enter the cleanliness verification history and what the entry is keyed on"
+    intent: "ECSS-Q-ST-70-05C recording into a cleanliness verification history; the key is item, surface zone and method, and a same-date disagreement is a conflict while a later repeat is an independent confirmation"
+    expected_skill: "space-systems/ecss/q7005-record-in-cleanliness-database"
+  - id: q7005db2
+    query: "record this non-detect infrared verification in our cleanliness history without writing a zero, and tell me whether the surface is degrading between verifications now that the previous entry was a measured level"
+    intent: "ECSS-Q-ST-70-05C recording clause; a non-detect is stored as its quantitation bound and a trend taken across a bound and a value is indicative only"
+    expected_skill: "space-systems/ecss/q7005-record-in-cleanliness-database"

@@ -16,6 +16,9 @@ requirements. Coverage closure means every requirement, allocated or
 derived, verified by an acceptable method with evidence before the
 verification results release.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 METHODS = ("test", "analysis", "demonstration", "inspection")
 LEVELS = ("A", "B", "C", "D", "E")

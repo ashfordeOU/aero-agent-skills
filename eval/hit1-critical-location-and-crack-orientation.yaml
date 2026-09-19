@@ -1,0 +1,13 @@
+# Hit@1 fragment: critical-location-and-crack-orientation (space-systems/ecss)
+# Case 1 routes on pairing every site with every plausible direction rather
+# than taking the peak-stress site alone. Case 2 routes on a negative margin
+# and on which toughness value the pair is graded against.
+tasks:
+  - id: critical-location-and-crack-orientation-1
+    query: "I have five candidate initiation sites on a machined bracket. Is it enough to take the highest net section stress, assuming a crack normal to it, or must every site be paired with each plausible propagation direction?"
+    intent: "ECSS-E-ST-32C clause 7.2.2; a moderate-stress site with an unfavourable geometry factor can govern, so the governing pair comes from site and orientation together"
+    expected_skill: "space-systems/ecss/critical-location-and-crack-orientation"
+  - id: critical-location-and-crack-orientation-2
+    query: "One site and orientation pair comes out with a slightly negative margin of safety against toughness, on thin sheet material at cryogenic temperature. Can I round that to zero, and which toughness value should I be using?"
+    intent: "ECSS-E-ST-32C clause 7.2.2; a negative margin is a fracture prediction to be recorded, and toughness is corrected for the thickness and temperature of the case"
+    expected_skill: "space-systems/ecss/critical-location-and-crack-orientation"

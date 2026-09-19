@@ -99,9 +99,18 @@ class TestWeibullCrossSection(unittest.TestCase):
             self.assertLessEqual(earlier, later)
 
     def test_never_exceeds_saturation(self):
-        for let in (1.0, 5.0, 10.0, 100.0, 1000.0):
+        # Two different claims, asserted separately. Below saturation the
+        # cross-section is strictly under sigma_sat. At LET 100 and 1000
+        # the Weibull exponential term is far below half an ULP of 1.0,
+        # so (1 - exp) is exactly 1.0 whatever the libm returns for exp,
+        # and the clamp in the logic caps the product at sigma_sat: the
+        # result is bit-for-bit sigma_sat, so assert that equality.
+        for let in (1.0, 5.0, 10.0):
             sigma = weibull_cross_section(let, LTH, SIGMA_SAT, WIDTH, SHAPE)
-            self.assertLessEqual(sigma, SIGMA_SAT)
+            self.assertLess(sigma, SIGMA_SAT)
+        for let in (100.0, 1000.0):
+            sigma = weibull_cross_section(let, LTH, SIGMA_SAT, WIDTH, SHAPE)
+            self.assertEqual(sigma, SIGMA_SAT)
 
     def test_large_let_approaches_saturation(self):
         sigma = weibull_cross_section(1000.0, LTH, SIGMA_SAT, WIDTH, SHAPE)

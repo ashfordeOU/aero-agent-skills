@@ -1,0 +1,13 @@
+# Hit@1 fragment: composite-bonded-sandwich-fracture (space-systems/ecss)
+# Case 1 routes on the mixed-mode interaction that neither Mode I nor Mode II
+# reaches alone. Case 2 routes on completeness of the damage-threat enumeration,
+# which gates the compliance declaration independently of any flaw arithmetic.
+tasks:
+  - id: composite-bonded-sandwich-fracture-1
+    query: "Ultrasound found a disbond at the facesheet to core boundary on a honeycomb panel. Mode I sits near 60 percent of its critical energy release rate and Mode II near 55 percent of its own. Does the combined interaction still leave growth margin?"
+    intent: "ECSS-E-ST-32C clause 8.4; the power-law interaction of the two modes, which can be exceeded while each component alone stays sub-critical"
+    expected_skill: "space-systems/ecss/composite-bonded-sandwich-fracture"
+  - id: composite-bonded-sandwich-fracture-2
+    query: "A reviewer says our CFRP panel damage source table only lists tool drops and handling knocks. Which in-service threats and which manufacturing ones have to be enumerated before we can declare fracture compliance on the bonded sandwich?"
+    intent: "ECSS-E-ST-32C clause 8.4; the damage-threat enumeration must cover manufacturing sources as well as in-service ones before compliance is asserted"
+    expected_skill: "space-systems/ecss/composite-bonded-sandwich-fracture"

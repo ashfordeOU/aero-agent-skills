@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-field-value-requirements (space-systems/ecss)
+# fvr1 routes on field-path resolution through nested structures and array
+# subscripts; fvr2 routes on the publication-versus-settability split and on
+# two array elements being two distinct addresses. Both must deterministically
+# hit space-systems/ecss/e4008-field-value-requirements.
+tasks:
+  - id: fvr1
+    query: "the configuration writes a value at a path that names an array without a subscript and another that stops on a structure - resolve both against the instance's declared type and say why neither value can be applied"
+    intent: "ECSS-E-ST-40-08 clause 5.2.2.2; a field value must resolve to a single primitive field, with every subscript inside the declared multiplicity"
+    expected_skill: "space-systems/ecss/e4008-field-value-requirements"
+  - id: fvr2
+    query: "one initial value here addresses a field that the type only publishes as an output, and another writes element three and element four of one array - tell me which assignment is inapplicable and why the array pair is not one address twice"
+    intent: "ECSS-E-ST-40-08 clause 5.2.2.2; published but non-settable access is its own reason, and two subscripts of one array are two canonical addresses"
+    expected_skill: "space-systems/ecss/e4008-field-value-requirements"

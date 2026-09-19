@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-general-design-requirements (space-systems/ecss).
+# gdr1 routes on the six life-cycle phases and the two operating
+# demonstrations; gdr2 routes on ground test cycles eating the qualified life.
+# Both must deterministically hit
+# space-systems/ecss/e3301-general-design-requirements.
+tasks:
+  - id: gdr1
+    query: "go through the environments our deployment mechanism is designed for - handling, transport, test, storage, launch, orbit - tell me which phase we never declared and whether the design capability encloses each one, and whether we have shown it working both in air on the bench and in thermal vacuum"
+    intent: "ECSS-E-ST-33-01C clause 4.7.2; life-cycle phase coverage, per-phase enclosure against the design capability, both ground-ambient and thermal-vacuum operating demonstrations"
+    expected_skill: "space-systems/ecss/e3301-general-design-requirements"
+  - id: gdr2
+    query: "add up every actuation this hinge sees across its whole life including the functional checks during integration and the cycles run during acceptance, and tell me whether the qualified life still covers it or whether ground testing has already eaten the budget"
+    intent: "ECSS-E-ST-33-01C clause 4.7.2; cumulative life-cycle duty in hours and actuation cycles, ground activity included, against the qualified life"
+    expected_skill: "space-systems/ecss/e3301-general-design-requirements"

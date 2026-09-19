@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-acceptance-criteria (space-systems/ecss)
+# Two tasks for the new leaf. ac1 routes on picking the criterion set the item
+# category carries; ac2 routes on an observation that was never taken coming
+# back as undemonstrated rather than as a pass. Both must deterministically hit
+# space-systems/ecss/q7004-acceptance-criteria.
+tasks:
+  - id: ac1
+    query: "what does a bonded panel actually have to satisfy to pass the thermal test, and is it the same list we use for a machined bracket"
+    intent: "ECSS-Q-ST-70-04C evaluation; selecting the per-category acceptance criterion set and applying presence and bounded criteria to one item"
+    expected_skill: "space-systems/ecss/q7004-acceptance-criteria"
+  - id: ac2
+    query: "undemonstrated-criterion-handling: the inspection sheet has nothing written against permanent deformation, does the item still pass its thermal-test-acceptance-criteria or is that criterion undemonstrated rather than met, and what thermal-test-item-verdict do I report overall"
+    intent: "ECSS-Q-ST-70-04C evaluation; an unrecorded observation returned as undemonstrated rather than met, and the accepted, rejected or not-demonstrated roll-up"
+    expected_skill: "space-systems/ecss/q7004-acceptance-criteria"

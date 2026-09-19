@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-report-the-execution-status-of-each-request-sequence
+# (space-systems/ecss). resr1 routes on the whole-store sweep of what each
+# sequence is DOING; resr2 routes on the derivation that separates never-started
+# from stopped part way from ran to the end. Both must deterministically hit
+# space-systems/ecss/e7041-report-the-execution-status-of-each-request-sequence.
+tasks:
+  - id: resr1
+    query: "give me a sweep of every request sequence on board saying which the engine is running right now and what happened to the rest"
+    intent: "ECSS-E-ST-70-41C clause 6.21.6; whole-store execution status report with no identifier list and a sequence count total"
+    expected_skill: "space-systems/ecss/e7041-report-the-execution-status-of-each-request-sequence"
+  - id: resr2
+    query: "Three request sequences are idle: one ran to the end, one never started, one stopped part way. How do I derive each execution status from the running set the engine reports and from the released count, rather than trust a stored status field?"
+    intent: "ECSS-E-ST-70-41C clause 6.21.6; execution status derived from the engine running set and the released count, not echoed from storage"
+    expected_skill: "space-systems/ecss/e7041-report-the-execution-status-of-each-request-sequence"

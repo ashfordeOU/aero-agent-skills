@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-shielded-enclosure-sizing (space-systems/ecss)
+# Case 1 routes on the measurement axis: usable envelope after absorber, then the four terms that make up the required length.
+# Case 2 routes on the two checks a dimensionally adequate room can still fail: quiet-zone coverage and the antenna scan on the vertical axis.
+tasks:
+  - id: e2007-shielded-enclosure-sizing-1
+    query: "Our candidate chamber measures 9 m long inside with 0.6 m absorber wedges on both end walls. With a 3 m standoff, an antenna body 0.4 m deep, plus whatever clearance stays behind it, does a 1.2 m deep unit on the bench fit on the measurement axis?"
+    intent: "ECSS-E-ST-20-07C 5.2.2.2; usable envelope after stripping absorber from both ends and the four-term requirement along the measurement axis"
+    expected_skill: "space-systems/ecss/e2007-shielded-enclosure-sizing"
+  - id: e2007-shielded-enclosure-sizing-2
+    query: "The room is dimensionally big enough on every axis, but our bench footprint is 2.4 by 1.8 m while the qualified quiet-zone diameter is only 3 m. Does that fail, and should the height requirement come off the bench stack or from how high the antenna scans?"
+    intent: "ECSS-E-ST-20-07C 5.2.2.2; bench footprint diagonal against the declared quiet-zone diameter, and the vertical requirement governed by the larger of bench stack and antenna scan ceiling"
+    expected_skill: "space-systems/ecss/e2007-shielded-enclosure-sizing"

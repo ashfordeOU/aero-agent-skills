@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-tested-unit-bonding (space-systems/ecss)
+# Case 1 routes on the provenance of a bond path added for the test.
+# Case 2 routes on the resistance, strap geometry and bench reconciliation.
+tasks:
+  - id: e2007-tested-unit-bonding-1
+    query: "The lab bonded our unit to the reference-plane with an extra braid jumper the design does not include, because the reading looked high. Is that test-added path acceptable, and how does it get raised, as a non-conformance against the setup?"
+    intent: "ECSS-E-ST-20-07C 5.2.6.2; only design-provided paths may bond the unit, so a test-added jumper is a setup non-conformance and leaves the calculation"
+    expected_skill: "space-systems/ecss/e2007-tested-unit-bonding"
+  - id: e2007-tested-unit-bonding-2
+    query: "Two design-provided bond straps, 60 mm long and 8 mm wide, each with joint contact resistance at both ends. What effective bonding-resistance do they give in parallel against the declared requirement, does the length-to-width ratio clear the low-inductance rule, and how closely must the bench reading agree?"
+    intent: "ECSS-E-ST-20-07C 5.2.6.2; parallel effective resistance against the requirement, the aspect-ratio geometry rule, and reconciliation with the measured value"
+    expected_skill: "space-systems/ecss/e2007-tested-unit-bonding"

@@ -182,13 +182,17 @@ class TestMeshConvergence(unittest.TestCase):
         self.assertTrue(any("still moving" in f for f in result["findings"]))
 
     def test_change_landing_exactly_on_the_tolerance_is_converged(self):
-        # 100005.0 and 102005.1 differ by exactly two percent in decimal, but
-        # the binary quotient lands a few units in the last place above the
-        # tolerance. The tolerance must not move to accommodate that.
+        # 100005.0 and 102005.1 differ by exactly two percent in decimal.
+        # The quotient is subtract, divide and multiply only - each
+        # correctly rounded by IEEE-754 - so it lands thirteen representable
+        # places above the tolerance on every platform, not merely on this
+        # one. Landing ABOVE is the point: at or below it the convergence
+        # test short-circuits and never reaches the absorbing branch. The
+        # tolerance must not move to accommodate that.
         result = mesh_convergence([102005.1, 100005.0], 2)
-        self.assertGreater(result["relative_change_pct"], CONVERGENCE_TOLERANCE_PCT)
-        self.assertAlmostEqual(
-            result["relative_change_pct"], CONVERGENCE_TOLERANCE_PCT, places=9
+        self.assertEqual(
+            result["relative_change_pct"],
+            CONVERGENCE_TOLERANCE_PCT + 13 * math.ulp(CONVERGENCE_TOLERANCE_PCT),
         )
         self.assertTrue(result["converged"])
 

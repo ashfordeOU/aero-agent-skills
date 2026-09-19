@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-disable-event-action-definitions",
+  "with_skill": 1.0,
+  "without_estimate": 0.35,
+  "delta": 0.65,
+  "passed": 34,
+  "failed": 0,
+  "evidence": "contract test PASS (34 tests); without-baseline 0.35 (a disable is routinely conflated with a removal, so dropping the definition and its action binding instead of clearing the flag, suppressing the event report along with the action, failing the whole batch over one stale identity, treating a repeated disable as an error, and forgetting that a disabled definition still occupies store capacity and still collides with a later add are all missed without the skill)"
+}

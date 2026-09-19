@@ -233,7 +233,11 @@ class AssessmentTests(unittest.TestCase):
         )
         self.assertTrue(result["accepted"])
         self.assertTrue(result["marginal"])
-        self.assertGreaterEqual(result["percent_defective"], MARGINAL_FRACTION * 5.0)
+        # 4 rejects out of a lot of 100 is exactly 4.0 %, and the marginal
+        # band opens at exactly MARGINAL_FRACTION x 5.0 %. Both sides are
+        # exact in binary64, so this boundary is an equality, not a near
+        # miss; the 5 % allowance itself is unchanged.
+        self.assertEqual(result["percent_defective"], MARGINAL_FRACTION * 5.0)
 
     def test_allowance_outside_percentage_range_refused(self):
         with self.assertRaises(ValueError):

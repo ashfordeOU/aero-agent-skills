@@ -205,7 +205,16 @@ class CoverageTests(unittest.TestCase):
         for chain in (BUS_SIDE_CHAIN, RETURN_SIDE_CHAIN):
             coverage = isolation_coverage_fraction(chain)
             self.assertGreaterEqual(coverage, 0.0)
-            self.assertLessEqual(coverage, 1.0)
+        # The fraction is a count of isolated elements over a count of
+        # protected ones, so the top of the interval is REACHED, not
+        # approached: a chain that isolates everything returns the literal
+        # 1.0 and a return-side chain returns exactly one fifth. Both are
+        # exact in binary, so both are asserted as equalities - a tolerance
+        # here would hide the contract.
+        self.assertEqual(isolation_coverage_fraction(BUS_SIDE_CHAIN), 1.0)
+        self.assertEqual(
+            isolation_coverage_fraction(RETURN_SIDE_CHAIN), 1.0 / 5.0
+        )
 
     def test_no_reachable_interface_is_live_behind_a_bus_side_switch(self):
         self.assertEqual(exposed_live_interfaces(BUS_SIDE_CHAIN), ())

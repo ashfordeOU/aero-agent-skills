@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test for e2001-emission-yield-measurement-justification."""
 
+import math
 import unittest
 
 from e2001_emission_yield_measurement_justification_logic import (
@@ -181,8 +182,13 @@ class TestGapCriticality(unittest.TestCase):
         self.assertFalse(result["critical"])
 
     def test_margin_from_summed_decibels_at_threshold_is_not_critical(self):
-        margin = 3.76 + 2.11 + 0.13  # three contributions, lands 1 ULP under 6.0
-        self.assertLess(margin, DEFAULT_CRITICAL_MARGIN_DB)  # a bare >= would fail
+        # Three contributions summed left to right land bit-exactly one unit
+        # in the last place under the 6.0 dB threshold on every IEEE-754
+        # platform; a bare >= comparison would reject a compliant margin.
+        margin = 3.76 + 2.11 + 0.13
+        self.assertEqual(
+            margin, math.nextafter(DEFAULT_CRITICAL_MARGIN_DB, 0.0)
+        )
         result = assess_gap_criticality(critical_gap(design_margin_db=margin))
         self.assertTrue(result["margin_meets_threshold"])
         self.assertFalse(result["critical"])

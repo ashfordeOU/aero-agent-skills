@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7005-solvent-control-and-blanks (space-systems/ecss)
+# Two tasks for the new leaf. blk1 routes on predicting the solvent's own
+# residue contribution and testing it against the gross signal; blk2 routes on
+# the detection and quantitation limits built from blank scatter and the grading
+# of the net. Both must deterministically hit
+# space-systems/ecss/q7005-solvent-control-and-blanks.
+tasks:
+  - id: blk1
+    query: "the certificate gives non-volatile residue per litre and we used two litres; work the expected blank mass, put it against the gross residue we weighed as a blank fraction, subtract, and tell me if the net is quantifiable or just blank-limited"
+    intent: "ECSS-Q-ST-70-05C solvent purity and control; predicting the expected blank from the residue specification and the volume used, checking the measured blank against it, and testing the blank fraction of the gross residue against a ceiling"
+    expected_skill: "space-systems/ecss/q7005-solvent-control-and-blanks"
+  - id: blk2
+    query: "our three control runs scatter by a couple of micrograms, can we quote the corrected result as a figure or only say something was there"
+    intent: "ECSS-Q-ST-70-05C solvent purity and control; building the detection and quantitation limits from the blank standard deviation, subtracting the blank, combining the scatters in quadrature and grading the net as quantifiable, detected only, or blank-limited"
+    expected_skill: "space-systems/ecss/q7005-solvent-control-and-blanks"

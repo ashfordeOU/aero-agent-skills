@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-cable-shield-current-restriction (space-systems/ecss)
+# Case 1 routes on which runs actually qualify for the narrow exemption. Case 2
+# routes on the current a compliant both-end-bonded shield unavoidably picks up
+# and how much of it is allowed.
+tasks:
+  - id: e2007-cable-shield-current-restriction-1
+    query: "One run on our harness is a 2 Gbit per second link built as a shielded twisted pair; another is a coaxial feed carrying unit power. Someone has marked both as permitted to return their current on the screen. Which of the two, if either, genuinely qualifies?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.13.2; the case turns on the exemption needing coaxial construction and the right function together, so neither fast-but-not-coaxial nor coaxial-but-power qualifies"
+    expected_skill: "space-systems/ecss/e2007-cable-shield-current-restriction"
+  - id: e2007-cable-shield-current-restriction-2
+    query: "A screened run that is not exempt is bonded at each end, so part of its 1.2 A circuit current inevitably flows on the braid. The screen measures 60 milliohms and the dedicated return 25 milliohms. How much braid current may I accept, and how do I predict it with no bond-strap reading?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.13.2; the case turns on incidental current from the parallel division between screen and return being bounded as a fraction, not forbidden outright"
+    expected_skill: "space-systems/ecss/e2007-cable-shield-current-restriction"

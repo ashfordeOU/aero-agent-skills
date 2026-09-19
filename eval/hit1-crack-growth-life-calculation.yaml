@@ -1,0 +1,13 @@
+# Hit@1 fragment: crack-growth-life-calculation (space-systems/ecss)
+# Case 1 routes on the data-quality choice of scatter factor applied to life.
+# Case 2 routes on the integration itself: critical size as the upper bound and
+# the Forman denominator that must not be evaluated past it.
+tasks:
+  - id: crack-growth-life-calculation-1
+    query: "We only have handbook da/dN coefficients for this titanium fitting, no coupon data of our own. What scatter factor do I divide the integrated cycle count by, and how does the margin against 40000 required cycles come out?"
+    intent: "ECSS-E-ST-32-01C 7.2.8; generic versus material-specific data selects the life scatter factor, and the factor divides life rather than scaling growth rate"
+    expected_skill: "space-systems/ecss/crack-growth-life-calculation"
+  - id: crack-growth-life-calculation-2
+    query: "I need the critical crack size for this fracture-critical structural component out of the toughness and the peak stress, then to integrate Forman from a 1.3 mm flaw under ECSS-E-ST-32-01C - the denominator collapses near the end, so where should the integration stop?"
+    intent: "ECSS-E-ST-32-01C 7.2.8; critical crack size as the integration bound and the Forman denominator singularity at the fracture limit"
+    expected_skill: "space-systems/ecss/crack-growth-life-calculation"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-test-area-occupancy-limits (space-systems/ecss)
+# Case 1 routes on vetting the roster against what the running step needs and on a
+# withdrawal leaving a function uncovered. Case 2 routes on the two numeric checks:
+# egress against who is left, and the footprint that perturbs the quiet zone.
+tasks:
+  - id: e2007-test-area-occupancy-limits-1
+    query: "Six occupants are on the roster to stay inside the shielded electromagnetic enclosure for a radiated run, but two are visiting managers with no step in the procedure to justify them. Must those occupants be withdrawn, and what if a withdrawal leaves a necessary role with nobody covering it?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.5.2; the case turns on withdrawing occupants with no run-step justification and on reporting a necessary role left uncovered by the withdrawal"
+    expected_skill: "space-systems/ecss/e2007-test-area-occupancy-limits"
+  - id: e2007-test-area-occupancy-limits-2
+    query: "After the withdrawals four occupants remain in the enclosure along with a trolley of unrelated boxes awaiting removal. Do I size the egress capacity on the original roster or on the surviving headcount, and does that stray trolley add to the perturbation footprint of the quiet zone?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.5.2; the case turns on the egress check using the surviving headcount and on withdrawn hardware being excluded from the perturbation fraction"
+    expected_skill: "space-systems/ecss/e2007-test-area-occupancy-limits"

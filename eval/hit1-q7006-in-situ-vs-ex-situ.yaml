@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7006-in-situ-vs-ex-situ (space-systems/ecss)
+# tr1 routes on the bleaching-during-transfer decision; tr2 routes on the handling
+# controls an ex-situ read-out has to carry. Both must deterministically hit
+# space-systems/ecss/q7006-in-situ-vs-ex-situ.
+tasks:
+  - id: tr1
+    query: "this coating bleaches with a two hour half-time and the reflectometer is outside the chamber; how much of the darkening is gone by the time we measure, and does that force an in-vacuum read-out"
+    intent: "ECSS-Q-ST-70-06C measurement clause; recovered fraction during transfer deciding in-situ against ex-situ read-out"
+    expected_skill: "space-systems/ecss/q7006-in-situ-vs-ex-situ"
+  - id: tr2
+    query: "we have to take the irradiated specimens out to the bench instrument; what transfer-time ceiling, container atmosphere, humidity limit and chamber-opening count do we have to write into the handling procedure"
+    intent: "ECSS-Q-ST-70-06C measurement clause; handling controls mandated for an ex-situ read-out of an irradiated specimen"
+    expected_skill: "space-systems/ecss/q7006-in-situ-vs-ex-situ"

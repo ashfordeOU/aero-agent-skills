@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-test-cable-representativeness (space-systems/ecss)
+# Case 1 routes on the twisting comparison and which way a looser sample biases the result.
+# Case 2 routes on shield construction and on the termination that is substituted at the bench.
+tasks:
+  - id: e2007-test-cable-representativeness-1
+    query: "The bench cable has a 60 mm lay length while the flight run uses 25 mm. How many twists per metre is each, and which way does the looser bench sample bias the susceptibility and emission results?"
+    intent: "ECSS-E-ST-20-07C 5.2.6.6.1; lay length converts to twists per metre, and a loosely twisted stand-in overstates susceptibility while understating balanced-mode emission"
+    expected_skill: "space-systems/ecss/e2007-test-cable-representativeness"
+  - id: e2007-test-cable-representativeness-2
+    query: "Flight harness lands a braided shield in a circumferential backshell, but the bench sample was terminated with a 70 mm pigtail onto foil. How do I bound the inductance that pigtail adds, and is foil an acceptable stand-in for braid?"
+    intent: "ECSS-E-ST-20-07C 5.2.6.6.1; a pigtail adds series inductance a backshell never would, and foil is not equivalent to braid even at matching nominal coverage"
+    expected_skill: "space-systems/ecss/e2007-test-cable-representativeness"

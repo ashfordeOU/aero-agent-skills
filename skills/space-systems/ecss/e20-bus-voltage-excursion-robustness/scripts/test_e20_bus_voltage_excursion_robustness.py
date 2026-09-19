@@ -19,6 +19,7 @@ compliant even when it overshoots in the last place; and the aggregated
 review is robust only when every list is empty.
 """
 
+import math
 import os
 import sys
 import unittest
@@ -228,7 +229,11 @@ class TestProtectionFindings(unittest.TestCase):
         steady_a = 0.0
         for _ in range(3):
             steady_a += 0.1
-        self.assertGreater(steady_a, 0.3)  # overshoots in binary
+        # Adding 0.1 three times is exact IEEE-754 addition: the total
+        # lands one unit in the last place ABOVE the 0.3 A rating, never on
+        # it. Stated as an exact gap so no maths library can move the
+        # witness; the rating itself is untouched.
+        self.assertEqual(steady_a - 0.3, math.ulp(0.3))
         circuit = _clean_circuit()
         circuit["steady_current_a"] = steady_a
         circuit["derating_factor"] = 1.0
@@ -298,7 +303,12 @@ class TestHarnessFindings(unittest.TestCase):
         circuit["fault_current_a"] = 1.1
         circuit["clearing_time_s"] = 0.1
         circuit["harness_withstand_i2t_a2s"] = 0.121
-        self.assertGreater(br.let_through_i2t(1.1, 0.1), 0.121)
+        # I2t here is plain multiplication, exact under IEEE-754: the
+        # let-through lands two units in the last place ABOVE the withstand
+        # rather than on it, identically on every platform.
+        self.assertEqual(
+            br.let_through_i2t(1.1, 0.1) - 0.121, 2.0 * math.ulp(0.121)
+        )
         self.assertEqual(br.harness_findings(circuit), [])
         self.assertEqual(br.protection_findings(circuit), [])
 
@@ -337,7 +347,9 @@ class TestSelectivityFindings(unittest.TestCase):
         pair["downstream_let_through_i2t_a2s"] = 0.1
         pair["selectivity_ratio"] = 3.0
         pair["upstream_minimum_melting_i2t_a2s"] = 0.3
-        self.assertGreater(0.1 * 3.0, 0.3)  # overshoots in binary
+        # Exact IEEE-754 multiplication: the required upstream energy is
+        # one unit in the last place above the declared 0.3 A2s, not on it.
+        self.assertEqual((0.1 * 3.0) - 0.3, math.ulp(0.3))
         self.assertEqual(br.selectivity_findings(pair), [])
 
     def test_missing_pair_key_raises(self):

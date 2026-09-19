@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-applicability-and-repair-types (space-systems/ecss)
+# Two tasks for the new leaf. art1 routes on whether the standard covers the
+# item at all and which repair category the damage falls in; art2 routes on the
+# repair-versus-modification split and the per-board repair budget. Both must
+# deterministically hit space-systems/ecss/q7028-applicability-and-repair-types.
+tasks:
+  - id: art1
+    query: "this multilayer board came back with a burned patch in the laminate and an open track, is that something we are allowed to repair at all or does it go to review"
+    intent: "ECSS-Q-ST-70-28C framework; assembly constructions the board repair standard covers, damage-to-repair-category mapping, and damage for which no repair category exists"
+    expected_skill: "space-systems/ecss/q7028-applicability-and-repair-types"
+  - id: art2
+    query: "we want to add a jumper and change a component value on a delivered multilayer; is that a repair or a modification, must the as-built records follow it, and is any per-board budget left after the three we already did"
+    intent: "ECSS-Q-ST-70-28C framework; repair against design-altering modification with its drawing and as-built obligation, plus the per-category and per-board cumulative repair budgets"
+    expected_skill: "space-systems/ecss/q7028-applicability-and-repair-types"

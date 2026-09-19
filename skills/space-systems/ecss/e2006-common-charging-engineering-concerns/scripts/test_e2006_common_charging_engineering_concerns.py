@@ -168,8 +168,12 @@ class PrimitiveTests(unittest.TestCase):
         self.assertFalse(logic.exceeds_limit(400.0, 400.0))
 
     def test_one_unit_in_the_last_place_over_is_absorbed(self):
+        # nextafter toward +inf is the next representable value ABOVE the
+        # limit BY CONSTRUCTION - exact and identical on every IEEE-754
+        # platform, so the premise needs no run-time comparison one ULP
+        # wide to establish it.
         drifted = math.nextafter(400.0, math.inf)
-        self.assertGreater(drifted, 400.0)
+        self.assertNotEqual(drifted, 400.0)
         self.assertFalse(logic.exceeds_limit(drifted, 400.0))
 
     def test_genuine_exceedance_is_reported(self):
@@ -220,12 +224,22 @@ class SurfaceConcernTests(unittest.TestCase):
 
     def test_differential_drift_above_the_limit_is_absorbed(self):
         drifted = -(0.1 + 0.2)
-        self.assertGreater(abs(drifted), 0.3)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the sum landed on.
+        self.assertAlmostEqual(abs(drifted), 0.3, places=12)
         result = logic.evaluate_item(
             surface(potential_v=drifted, reference_potential_v=0.0),
             {"differential_potential_limit_v": 0.3},
         )
         self.assertTrue(result["concern_free"])
+        # Pin the absorbing branch with a drift constructed to sit strictly
+        # above the limit, by 1e-14 V - inside what the leaf absorbs, and
+        # the same value on every platform. The 0.3 V limit is unchanged.
+        constructed = logic.evaluate_item(
+            surface(potential_v=-(0.3 + 1e-14), reference_potential_v=0.0),
+            {"differential_potential_limit_v": 0.3},
+        )
+        self.assertTrue(constructed["concern_free"])
 
     def test_clear_exceedance_still_fails_the_tightened_limit(self):
         result = logic.evaluate_item(
@@ -288,8 +302,12 @@ class InternalDepositionTests(unittest.TestCase):
 
     def test_allowable_one_unit_in_the_last_place_low_is_absorbed(self):
         field = logic.bulk_field(5.0e-10, 1.0e17)
+        # nextafter toward -inf is the next representable value BELOW the
+        # field BY CONSTRUCTION - exact and identical on every IEEE-754
+        # platform, so the premise needs no run-time comparison one ULP
+        # wide to establish it.
         allowable = math.nextafter(field, -math.inf)
-        self.assertLess(allowable, field)
+        self.assertNotEqual(allowable, field)
         result = logic.evaluate_item(
             dielectric(
                 deposited_current_density_a_m2=5.0e-10,

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-dry-lubrication-design (space-systems/ecss).
+# dld1 routes on sizing a solid film by Archard wear to a wear-through cycle
+# count; dld2 routes on the deposition process window and on the humid-air
+# versus vacuum inversion between the disulphides and graphite. Both must
+# deterministically hit space-systems/ecss/e3301-dry-lubrication-design.
+tasks:
+  - id: dld1
+    query: "we are putting a molybdenum disulphide film on the latch pivot instead of oil because it runs hot and slow, work out how many cycles the usable film thickness survives from the stroke, the load and the wear coefficient, and whether that covers what we need"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.2; dry-lubrication domain check plus sliding distance, Archard wear volume, wear depth over the contact and the wear-through cycle count"
+    expected_skill: "space-systems/ecss/e3301-dry-lubrication-design"
+  - id: dld2
+    query: "the coating house changed the deposition rate and the substrate finish on our solid lubricant batch and one part came out thinner than the rest - tell me whether that film is still the qualified film, and whether the disulphide needs a dry purge while it sits in the integration hall"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.2; deposition process window on thickness, rate, substrate roughness and batch uniformity, plus humid-air degradation of the solid during ground phases"
+    expected_skill: "space-systems/ecss/e3301-dry-lubrication-design"

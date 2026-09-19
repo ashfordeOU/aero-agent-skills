@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-test-bed-configuration (space-systems/ecss)
+# Case 1 routes on the chamber condition and which elements belong in the configuration record.
+# Case 2 routes on calibration currency at the run date and sizing the chain against a dB margin.
+tasks:
+  - id: e2001-test-bed-configuration-1
+    query: "Before the article is mounted, what must the chamber demonstrate on residual pressure, and is pumping down enough or does bake-out have to be on record too? And which bed items belong in the configuration record at all?"
+    intent: "ECSS-E-ST-20-01C 8.2; the chamber must reach and hold the level with an outgassing treatment recorded, and each element must fall into one of the recognised families"
+    expected_skill: "space-systems/ecss/e2001-test-bed-configuration"
+  - id: e2001-test-bed-configuration-2
+    query: "Our power meter certificate lapses two weeks after the run is planned for, and the source is rated 400 W against 250 W maximum applied with a 3 dB run margin. Does that chain size correctly, and which date do I check the certificate against?"
+    intent: "ECSS-E-ST-20-01C 8.2; currency is judged at the planned run date rather than today, and the source rating scales the applied power by the decibel margin"
+    expected_skill: "space-systems/ecss/e2001-test-bed-configuration"

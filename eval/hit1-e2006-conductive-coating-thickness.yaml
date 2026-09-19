@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-conductive-coating-thickness (space-systems/ecss)
+# Case 1 routes on accumulating the erosion mechanisms over the mission and what
+# has to survive for the film to stay continuous. Case 2 routes on the resistance
+# ceiling being an end-of-life criterion and on sizing the as-deposited layer.
+tasks:
+  - id: e2006-conductive-coating-thickness-1
+    query: "Our conductive coating goes on at 120 nm as the electrostatic bleed path on a blanket exposed to the outside. Across eight years of atomic oxygen, sputtering and handling wear, how do I budget the total erosion and how much layer has to survive by the end of the mission to stay continuous?"
+    intent: "ECSS-E-ST-20-06C clause 6.3.3.5; the case turns on summing every erosion mechanism over the mission with its uncertainty factor and testing the surviving layer against the continuity floor"
+    expected_skill: "space-systems/ecss/e2006-conductive-coating-thickness"
+  - id: e2006-conductive-coating-thickness-2
+    query: "Our coating's sheet resistance, taken after all that erosion, comes out comfortably under the ceiling, yet only about 8 nm of conductive film survives the erosion budget. Is a good resistance number enough to call it compliant, and what as-deposited value should the drawing carry so both criteria are met?"
+    intent: "ECSS-E-ST-20-06C clause 6.3.3.5; the case turns on the continuity floor being an independent criterion from the resistance ceiling, and on back-computing the as-deposited thickness"
+    expected_skill: "space-systems/ecss/e2006-conductive-coating-thickness"

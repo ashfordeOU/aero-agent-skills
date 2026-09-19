@@ -1,0 +1,12 @@
+# Hit@1 fragment: composite-material-characterization (space-systems/ecss)
+# Case 1 routes on the coupon batch size and which statistical basis a single
+# load path owes. Case 2 routes on the knockdowns and the winding efficiency.
+tasks:
+  - id: composite-material-characterization-1
+    query: "Twenty coupon results are in for the fiber direction of a composite overwrap. The strut carries a single load path, so I need the stricter statistical basis. Does that specimen count meet the requirements, and how do the test data become design allowables?"
+    intent: "ECSS-E-ST-32C 5.6; a single load path forces the stricter basis and the batch must clear the tabulated minimum before a k-factor limit is defined"
+    expected_skill: "space-systems/ecss/composite-material-characterization"
+  - id: composite-material-characterization-2
+    query: "Our overwrap coupons were conditioned dry at room temperature, and the winder is only getting 0.78 of the dry-fibre strength into the laminate. What reductions must I apply before these numbers go into the stress model, and is that efficiency figure acceptable?"
+    intent: "ECSS-E-ST-32C 5.6; wet-hot and process knockdowns convert a coupon value into a design value, and translation efficiency has its own acceptance floor"
+    expected_skill: "space-systems/ecss/composite-material-characterization"

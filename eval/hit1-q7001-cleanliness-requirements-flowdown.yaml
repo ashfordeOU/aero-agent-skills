@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanliness-requirements-flowdown (space-systems/ecss)
+# fd1 routes on proving a programme cleanliness limit reached both the purchase
+# orders and the AIT procedures; fd2 routes on a child document carrying a
+# looser limit than its parent with no waiver. Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-requirements-flowdown.
+tasks:
+  - id: fd1
+    query: "the contamination control plan states a residue limit for the optical bench face but I need to show at the review that it actually reached the purchase orders and the AIT procedures, tell me which requirements never got carried anywhere"
+    intent: "ECSS-Q-ST-70-01C programme cleanliness requirement flowdown into procurement and AIT documentation, coverage graded per document family"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-requirements-flowdown"
+  - id: fd2
+    query: "the subcontractor spec carries twice the residue limit the programme requirement states and nobody cited a waiver, work out whether that is a relaxation and which other carried clauses are looser than their parents"
+    intent: "carried cleanliness limit compared with its parent limit, relaxation requires a waiver reference, verification method must be named on the carried clause"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-requirements-flowdown"

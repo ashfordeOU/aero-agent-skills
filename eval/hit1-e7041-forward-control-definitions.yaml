@@ -5,10 +5,10 @@
 # hit space-systems/ecss/e7041-forward-control-definitions.
 tasks:
   - id: fcd1
-    query: "we already forward two report types from that application process and now operations asked to forward the whole application process, work out what the definition list should hold afterwards"
+    query: "We already forward two message subtypes from that application process, and operations now asks to forward the whole process. Does the wider entry absorb the two already held, and what should the forwarding definition store contain afterwards?"
     intent: "ECSS-E-ST-70-41C clause 6.14.3.2; a wider forward-control definition absorbing the narrower service type and subtype entries beneath it"
     expected_skill: "space-systems/ecss/e7041-forward-control-definitions"
   - id: fcd2
-    query: "this batch of forwarding definition adds and deletes came back with something rejected, tell me which ones the subservice refuses and which ones changed nothing at all"
+    query: "a batch of adds and deletes hit the forwarding store at every level, application process, then service type, then subtype; which of them are refused outright, which are absorbed by an entry already held wider, and which change nothing"
     intent: "ECSS-E-ST-70-41C clause 6.14.3.2; definition store capacity refusal, delete of an entry that is not held and a redundant add under a wider entry"
     expected_skill: "space-systems/ecss/e7041-forward-control-definitions"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-high-temperature-tps-verification (space-systems/ecss)
+# Two tasks for the new leaf. tps1 routes on the qualification temperature being
+# prediction plus margin and on the separate bondline limit; tps2 routes on the
+# thickness stack and on an agreed test being closed by analysis.
+# Both must deterministically hit
+# space-systems/ecss/e31-high-temperature-tps-verification.
+tasks:
+  - id: tps1
+    query: "we agreed an arc jet run plus a correlated analysis on the nose cap but only ran the analysis - with a 1500 K predicted peak, a 150 K agreed margin and an adhesive good to only 600 K, what is this qualified to"
+    intent: "ECSS-E-ST-31C clause 4.5.2.3; qualification temperature as predicted peak plus agreed margin, and the bondline limit graded separately from the surface capability"
+    expected_skill: "space-systems/ecss/e31-high-temperature-tps-verification"
+  - id: tps2
+    query: "we sized the ablator on the nominal recession rate and never fired the arc jet because the model agrees with itself - work out the thickness the exposure and scatter really demand once insulation and machining tolerance are stacked, and whether skipping that test closes anything"
+    intent: "ECSS-E-ST-31C clause 4.5.2.3; recession-plus-insulation-plus-tolerance thickness stack with a scatter factor, and an agreed thermal test that an analysis cannot close"
+    expected_skill: "space-systems/ecss/e31-high-temperature-tps-verification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-development-lifecycle-overview (space-systems/ecss)
+# Two tasks for the new leaf. ddlo1 routes on the derivation tree and a device need
+# dated before its parent; ddlo2 routes on maturity per need category across the
+# phases and the environmental family nobody derived. Both must deterministically hit
+# space-systems/ecss/e2040-device-development-lifecycle-overview.
+tasks:
+  - id: ddlo1
+    query: "walk our device need tree back to the equipment level and tell me which needs have a parent nobody declared and which ones are dated before the need they came from"
+    intent: "ECSS-E-ST-20-40C clause 4.1; every device need derives from one above it and cannot be derived in an earlier phase than its parent"
+    expected_skill: "space-systems/ecss/e2040-device-development-lifecycle-overview"
+  - id: ddlo2
+    query: "the phase b gate wants our device needs budgeted, check each need family across the phases and say which family went backwards and which one we never wrote at all"
+    intent: "ECSS-E-ST-20-40C clause 4.1; functional, performance and environmental needs harden across the phases, maturity is tracked per category and does not regress"
+    expected_skill: "space-systems/ecss/e2040-device-development-lifecycle-overview"

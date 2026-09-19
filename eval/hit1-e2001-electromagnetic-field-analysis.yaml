@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-electromagnetic-field-analysis (space-systems/ecss)
+# Case 1 routes on whether the field model may support a threshold claim at all.
+# Case 2 routes on scaling the field to operating power and picking the governing region.
+tasks:
+  - id: e2001-electromagnetic-field-analysis-1
+    query: "Before we establish any multipactor threshold, our internal field model was run once at a single mesh density and swept at eight points across the band. The filter has a loaded quality factor near 900. Is that model converged and adequately sampled?"
+    intent: "ECSS-E-ST-20-01C 5.2; convergence needs successive refinement levels and the sampling requirement follows the loaded resonance width, not the band width alone"
+    expected_skill: "space-systems/ecss/e2001-electromagnetic-field-analysis"
+  - id: e2001-electromagnetic-field-analysis-2
+    query: "The solver ran at one watt reference power but we operate at 250 watts. How do I scale the peak field, convert it into a gap voltage with the region's uniformity factor, and should the second highest region be carried forward too?"
+    intent: "ECSS-E-ST-20-01C 5.2; fields scale with the square root of power and a runner-up region inside the closeness band governs alongside the highest one"
+    expected_skill: "space-systems/ecss/e2001-electromagnetic-field-analysis"

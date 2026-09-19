@@ -1,0 +1,12 @@
+# Hit@1 fragment: q7001-cleaning-process-selection (space-systems/ecss)
+# cps1 routes on choosing among solvent, aqueous, plasma and CO2 snow for a
+# constrained part; cps2 routes on the case where every candidate is excluded.
+tasks:
+  - id: cps1
+    query: "this honeycomb panel with a blind cavity and an electrostatic sensitive board behind it has an organic film on it, tell me whether solvent wipe, an aqueous bath, plasma or carbon dioxide snow is the one to run and why the others are out"
+    intent: "ECSS-Q-ST-70-01 cleaning operations; admissibility screens on material, trapped-liquid geometry and mechanism sensitivity come before removal effectiveness"
+    expected_skill: "space-systems/ecss/q7001-cleaning-process-selection"
+  - id: cps2
+    query: "this part carries soft gold plating, cannot be immersed, and there is no vacuum chamber for plasma; screen solvent wipe, an aqueous bath, plus carbon dioxide snow for material attack and residue, and say what happens when nothing survives"
+    intent: "ECSS-Q-ST-70-01 cleaning operations; when no candidate survives the screens the item is re-designed or dispositioned, not cleaned by a default process"
+    expected_skill: "space-systems/ecss/q7001-cleaning-process-selection"

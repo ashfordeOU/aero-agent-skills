@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electromagnetic-radiation-hazard-control (space-systems/ecss)
+# Case 1 routes on the density receptors -- people and propellant vapour -- and the separation
+# distance. Case 2 routes on the coupled-power receptors, ordnance and an actuated valve.
+tasks:
+  - id: e20-electromagnetic-radiation-hazard-control-1
+    query: "A pad radar sits 40 m from the propellant transfer line with technicians working closer than that. How do I work out what incident power density each of them stands in, and what separation distance should I post around the dish?"
+    intent: "ECSS-E-ST-20C 6.3.3; personnel and propellant vapour are graded on incident density, which region the receptor stands in decides the law, and the standoff is the inverse of it"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-radiation-hazard-control"
+  - id: e20-electromagnetic-radiation-hazard-control-2
+    query: "Our S-band transmitter is keyed while an ordnance initiator is installed and a thruster latch valve is powered. How do I convert the field into power those circuits actually pick up, and what decibel margin below their firing thresholds is required?"
+    intent: "ECSS-E-ST-20C 6.3.3; an initiator and a valve drive are graded on extracted power through pickup area and coupling efficiency, with the stricter default margin on inadvertent actuation"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-radiation-hazard-control"

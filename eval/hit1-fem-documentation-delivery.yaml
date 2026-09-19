@@ -1,0 +1,12 @@
+# Hit@1 fragment: fem-documentation-delivery (space-systems/ecss)
+# Case 1 routes on which document types the package owes and what an unknown type does.
+# Case 2 routes on per-document metadata and revision consistency across the package.
+tasks:
+  - id: fem-documentation-delivery-1
+    query: "A supplier sent us their FEM delivery with a model description, a load case list and a modal summary, but no element quality report and no mass properties check. Which of those are mandatory, and what do I do with a document type I do not recognise?"
+    intent: "ECSS-E-ST-32C model documentation and delivery; the mandatory set is fixed, optional types do not substitute for it, and an unrecognised type is flagged before acceptance"
+    expected_skill: "space-systems/ecss/fem-documentation-delivery"
+  - id: fem-documentation-delivery-2
+    query: "Three documents in the FEM package quote model revision C while one quotes revision B, and two carry no issue date. Does that block acceptance of the package, and which metadata fields does every document have to carry?"
+    intent: "ECSS-E-ST-32C model documentation and delivery; every document carries the same fixed metadata group, and one differing revision mark makes the package internally inconsistent"
+    expected_skill: "space-systems/ecss/fem-documentation-delivery"

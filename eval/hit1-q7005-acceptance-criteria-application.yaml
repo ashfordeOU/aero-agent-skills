@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-acceptance-criteria-application (space-systems/ecss)
+# ac1 routes on the extraction-recovery correction and the decision rule that
+# decides who pays for the uncertainty; ac2 routes on a non-detect bound coarser
+# than the required level. Both must deterministically hit
+# space-systems/ecss/q7005-acceptance-criteria-application.
+tasks:
+  - id: q7005ac1
+    query: "the solvent rinse recovered 0.6 mg per square metre of organics at 75 percent recovery and the surface is allocated a cleanliness level, tell me whether it passes and whether the expanded uncertainty has to be added on before the comparison"
+    intent: "ECSS-Q-ST-70-05C acceptance against an ECSS-Q-ST-70-01C cleanliness level; the extracted level is lifted by the recovery, and the declared decision rule says whether the uncertainty is spent against the applicant"
+    expected_skill: "space-systems/ecss/q7005-acceptance-criteria-application"
+  - id: q7005ac2
+    query: "the infrared analysis reported no organic contamination detected with a quantitation limit above the areal level this optic is allocated, decide whether that non-detect demonstrates compliance or whether the measurement is simply too coarse to say"
+    intent: "ECSS-Q-ST-70-05C acceptance clause; a non-detect is a bound that demonstrates compliance only when the quantitation limit itself sits under the required level"
+    expected_skill: "space-systems/ecss/q7005-acceptance-criteria-application"

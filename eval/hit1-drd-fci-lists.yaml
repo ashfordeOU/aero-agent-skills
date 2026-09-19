@@ -1,0 +1,13 @@
+# Hit@1 fragment: drd-fci-lists (space-systems/ecss)
+# Case 1 routes on the subset relation between the primary register and the main
+# register plus the consequence field. Case 2 routes on the limited-life register
+# bounds, a different list with different mandatory numbers.
+tasks:
+  - id: drd-fci-lists-1
+    query: "Our register has eight items on the primary list but only six of them appear on the main fracture critical list. Is that gap allowed, and which entries need a consequence category recorded before the review?"
+    intent: "ECSS-E-ST-32C Annex G; the primary register is a derived subset, so a cross-reference gap is a register deficiency, and consequence category is mandatory only on that subset"
+    expected_skill: "space-systems/ecss/drd-fci-lists"
+  - id: drd-fci-lists-2
+    query: "For limited life items in the Annex G register, can a life limit be lower than the service cycles required, and does the retest interval have to fall inside that limit? Auditing before the design review."
+    intent: "ECSS-E-ST-32C Annex G; limited-life entries carry bounds the other registers do not, and a life limit under the service requirement is a finding"
+    expected_skill: "space-systems/ecss/drd-fci-lists"

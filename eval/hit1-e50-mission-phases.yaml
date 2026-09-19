@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-mission-phases (space-systems/ecss)
+# Two tasks for the new leaf. mph1 routes on the phase timeline; mph2 routes on
+# per-phase service to link allocation and the critical phase recovery set.
+# Both must deterministically hit space-systems/ecss/e50-mission-phases.
+tasks:
+  - id: mph1
+    query: "lay our mission phases against the timeline and tell me whether they abut properly, because there seem to be hours between the transfer phase ending and the routine phase starting that no phase claims, and another pair that both claim the same days"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.7; the phases must cover the mission with no uncovered interval and no two phases claiming the same hours"
+    expected_skill: "space-systems/ecss/e50-mission-phases"
+  - id: mph2
+    query: "during early operations we only have the omni deployed but the essential telemetry service is allocated to the high gain antenna, check every phase allocates its services to a link that phase actually has and that each critical phase still keeps an emergency command path"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.7; communication requirements are stated per phase, and a service allocated to a link the phase does not carry is unavailable"
+    expected_skill: "space-systems/ecss/e50-mission-phases"

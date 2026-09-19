@@ -1,0 +1,13 @@
+# Hit@1 fragment: operations-and-maintenance (space-systems/ecss)
+# Case 1 routes on deriving the safe operating pressure from the proof value and its
+# safety factor. Case 2 routes on dispositioning an observation against its allowable
+# damage limit and on an allowable that was never recorded.
+tasks:
+  - id: operations-and-maintenance-1
+    query: "A tank was proof tested to 31 bar and operations want to run it at 24 bar. Under the ECSS structures clause, how is the allowable maximum operating pressure derived from proof before the operating-procedures are authorised?"
+    intent: "ECSS-E-ST-32 4.2.3; the safe operating pressure is the proof value divided by the applicable safety factor, so operating at the proof value consumes the entire margin"
+    expected_skill: "space-systems/ecss/operations-and-maintenance"
+  - id: operations-and-maintenance-2
+    query: "A 0.9 millimetre dent sits against a 1.1 millimetre allowable-damage-limit at that location, while a second location has no allowable-damage-limit recorded at all. What disposition does each get under the damage-control rules?"
+    intent: "ECSS-E-ST-32 4.2.3; the observed-to-allowable ratio sets accept, conditional or reject, and an unrecorded allowable is a finding rather than a silent acceptance"
+    expected_skill: "space-systems/ecss/operations-and-maintenance"

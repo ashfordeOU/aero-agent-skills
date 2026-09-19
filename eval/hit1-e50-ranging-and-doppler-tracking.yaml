@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-ranging-and-doppler-tracking (space-systems/ecss)
+# rdt1 routes on a range folded onto the ranging code interval; rdt2 routes on
+# a Doppler shift that will not fit the receiver tracking band.
+# Both must deterministically hit space-systems/ecss/e50-ranging-and-doppler-tracking.
+tasks:
+  - id: rdt1
+    query: "our round trip light time puts the spacecraft several ranging code intervals out, the measurement keeps coming back folded, what a-priori accuracy do we need to lift it onto the right interval and what code period would avoid the problem"
+    intent: "ECSS-E-ST-50C clause 5.6.14.7; the code repeats so the range repeats with it every half code period in round-trip time, and an a-priori resolves the interval only while its uncertainty stays inside half an interval"
+    expected_skill: "space-systems/ecss/e50-ranging-and-doppler-tracking"
+  - id: rdt2
+    query: "size the receiver tracking bandwidth for the worst case range rate at closest approach given our uplink frequency and the transponder turnaround ratio, and tell me the range rate implied by the two-way shift we measured"
+    intent: "ECSS-E-ST-50C clause 5.6.14.7; the two-way shift scales with the turnaround ratio and the uplink frequency, and the tracking bandwidth is sized by the extreme range rate rather than the mean"
+    expected_skill: "space-systems/ecss/e50-ranging-and-doppler-tracking"

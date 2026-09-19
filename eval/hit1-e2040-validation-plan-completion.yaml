@@ -1,0 +1,16 @@
+# Hit@1 fragment: e2040-validation-plan-completion (space-systems/ecss)
+# Two tasks for the leaf. vpc1 routes on the closure decision itself at the end
+# of the implementation phase — requirement-to-case traceability, missing pass
+# criteria and mandated section maturity; vpc2 routes on the cases still
+# written against a superseded build rather than the final implementation
+# baseline. Both must deterministically hit
+# space-systems/ecss/e2040-validation-plan-completion.
+tasks:
+  - id: vpc1
+    query: "the implementation phase is ending and I need to say whether the device validation plan is actually closed out so validation can formally begin, tracing every requirement that owes validation to a case and grading each mandated plan section on its maturity"
+    intent: "ECSS-E-ST-20-40C clause 5.7.4; validation plan completion, requirement-to-case traceability and mandated section maturity before validation starts"
+    expected_skill: "space-systems/ecss/e2040-validation-plan-completion"
+  - id: vpc2
+    query: "some validation cases still name the layout-phase build instead of the final implementation baseline and some carry no pass criterion at all, work out which of them block the start of device validation"
+    intent: "ECSS-E-ST-20-40C clause 5.7.4; validation plan baseline configuration mismatch and cases without a pass criterion at the closure check"
+    expected_skill: "space-systems/ecss/e2040-validation-plan-completion"

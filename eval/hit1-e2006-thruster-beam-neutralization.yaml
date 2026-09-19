@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-thruster-beam-neutralization (space-systems/ecss)
+# Case 1 routes on converting the residual current into a platform potential
+# through the plasma contact conductance. Case 2 routes on the design
+# provisions around the balance: emitter sharing, ignition lead, coupling drop.
+tasks:
+  - id: e2006-thruster-beam-neutralization-1
+    query: "Our gridded ion engine emits 1.52 A of electrons against a 1.50 A beam, so the ratio looks healthy. The hull exposes very little conductor. How do I turn the leftover current into a platform potential and judge it?"
+    intent: "ECSS-E-ST-20-06C clause 11.2.2; an electron-rich ratio is not the verdict, since the residual current divided by a small contact conductance can still give a large potential"
+    expected_skill: "space-systems/ecss/e2006-thruster-beam-neutralization"
+  - id: e2006-thruster-beam-neutralization-2
+    query: "Four thrusters in a cluster share one hollow cathode, the timeline opens the beam 200 ms before cathode ignition, and no coupling voltage was recorded. Which of those blocks the case and which is merely a single-string note?"
+    intent: "ECSS-E-ST-20-06C clause 11.2.2; a beam opened ahead of emitter ignition and an unevidenced coupling drop are blocking, while one emitter for a cluster is a redundancy observation"
+    expected_skill: "space-systems/ecss/e2006-thruster-beam-neutralization"

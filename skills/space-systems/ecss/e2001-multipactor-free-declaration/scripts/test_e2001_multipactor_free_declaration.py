@@ -5,7 +5,7 @@ Offline, deterministic, stdlib unittest. Run:
 python3 test_e2001_multipactor_free_declaration.py
 """
 
-import sys
+import math
 import unittest
 
 import e2001_multipactor_free_declaration_logic as L
@@ -375,12 +375,20 @@ class DeclarationTests(unittest.TestCase):
         self.assertTrue(any("does not reach" in f for f in out["findings"]))
 
     def test_level_short_by_representation_error_is_still_declarable(self):
-        # The bench level was built up from two contributions, so it lands a
-        # few units in the last place under the level reached by one
+        # The bench level was built up from two contributions, so it lands
+        # a few units in the last place under the level reached by one
         # multiplication. That is representation error, not a shortfall.
+        # The required level itself comes through a decibel conversion,
+        # which is not correctly rounded, so the bench level is built by
+        # stepping twelve representable doubles DOWN from whatever that
+        # conversion produced on this host. nextafter moves strictly toward
+        # zero by construction, so the shortfall is exactly representation
+        # error on every platform and no comparison sits on the boundary.
         required = L.required_drive_level_w(100.0, 3.0)
-        quiet = required - 8.0 * sys.float_info.epsilon * required
-        self.assertLess(quiet, required)
+        quiet = required
+        for _ in range(12):
+            quiet = math.nextafter(quiet, 0.0)
+        self.assertEqual(required - quiet, 12.0 * math.ulp(quiet))
         out = L.evaluate_declaration(
             base_record(run_log=[{"level_w": quiet, "multipactor_observed": False}])
         )

@@ -213,10 +213,12 @@ class RateLimitTest(unittest.TestCase):
         )
 
     def test_rate_limit_never_overshoots_commanded_value(self):
-        # Even with a huge cap the applied value never passes new_value
+        # A cap of 1e6 per second is not binding on a +0.3 step, so the
+        # limiter returns the commanded value itself. No arithmetic is
+        # applied to it, so the applied value is exactly new_value - which
+        # is both "never overshoots" and "never undershoots".
         v = gs.rate_limited_scheduling_variable(10000.0, 10000.3, 1e6, 1.0)
-        self.assertLessEqual(v, 10000.3)
-        self.assertAlmostEqual(v, 10000.3, delta=1e-9)
+        self.assertEqual(v, 10000.3)
 
     def test_negative_max_rate_raises(self):
         with self.assertRaises(ValueError):

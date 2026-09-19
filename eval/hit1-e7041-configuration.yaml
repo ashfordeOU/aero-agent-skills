@@ -6,7 +6,7 @@
 # space-systems/ecss/e7041-configuration.
 tasks:
   - id: cfg1
-    query: "we fixed the downlink part size straight from the telemetry packet limit, work out what is actually left for message data once the part report header is taken off and whether that part size can be flown"
+    query: "we sized the message parts straight off the ECSS packet limit; subtract what the part report header itself eats, tell me how much large-message content is really left, and whether the sequence number field can index that many parts"
     intent: "ECSS-E-ST-70-41C clause 6.13.3.1; usable part data field of a large packet transfer downlink part report and a configured part size the packet cannot carry"
     expected_skill: "space-systems/ecss/e7041-configuration"
   - id: cfg2

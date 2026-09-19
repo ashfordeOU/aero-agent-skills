@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6015-equipment-radiation-control-board (space-systems/ecss)
+# Two tasks for the new leaf. rcb1 routes on who has to be present and who may
+# chair; rcb2 routes on the completeness the board applies before it clears an
+# equipment. Both must deterministically hit
+# space-systems/ecss/q6015-equipment-radiation-control-board.
+tasks:
+  - id: rcb1
+    query: "the design authority wants to chair the radiation control board and product assurance sent apologies, say whether the board can sit and clear the equipment"
+    intent: "ECSS-Q-ST-60-15C clause 5.4; radiation control board membership, attendance, quorum and the chair's independence from the design authority under review"
+    expected_skill: "space-systems/ecss/q6015-equipment-radiation-control-board"
+  - id: rcb2
+    query: "before the board clears this unit, reconcile the parts list against the analyses presented and check every shortfall left the room with an owned dated action"
+    intent: "ECSS-Q-ST-60-15C clause 5.4; board completeness checks over analysis coverage, stated margins, evidence references and the actions carrying every shortfall"
+    expected_skill: "space-systems/ecss/q6015-equipment-radiation-control-board"

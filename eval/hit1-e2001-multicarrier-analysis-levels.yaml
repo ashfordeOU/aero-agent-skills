@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multicarrier-analysis-levels (space-systems/ecss)
+# Case 1 routes on whether the coherent bounding check closes the case or forces the second level.
+# Case 2 routes on the excursion window set by credited gap crossings and the beat sampling period.
+tasks:
+  - id: e2001-multicarrier-analysis-levels-1
+    query: "Our Ku-band output chain carries eight carriers totalling 240 W. If I add them coherently and the envelope peak lands above the single-carrier threshold once the margin is taken off, must I drop to a time-resolved assessment or can that bound close the case?"
+    intent: "ECSS-E-ST-20-01C 4.7.2.1; the coherent envelope is a bound that closes the case when it passes, and only its failure opens the second level"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-analysis-levels"
+  - id: e2001-multicarrier-analysis-levels-2
+    query: "The envelope only exceeds the margined level for roughly 40 ps in each beat. What excursion length is tolerated for twenty credited gap crossings at the top carrier, and over what period do I sample the beat to measure the dwell?"
+    intent: "ECSS-E-ST-20-01C 4.7.2.1; the tolerated dwell comes from the crossing count at the highest carrier, measured over one beat period of the carrier plan"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-analysis-levels"

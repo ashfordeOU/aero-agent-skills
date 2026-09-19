@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-margin-of-safety-factors-of-safety (space-systems/ecss)
+# Two tasks for the new leaf. mos1 routes on the separate yield and ultimate
+# margins and the governing case; mos2 routes on the category that has no yield
+# point. Both must deterministically hit
+# space-systems/ecss/e3301-margin-of-safety-factors-of-safety.
+tasks:
+  - id: mos1
+    query: "apply the factors of safety the verification route carries to the design limit load rather than to the allowable, take a separate margin against yield and against ultimate, and name the governing case"
+    intent: "ECSS-E-ST-33-01 clauses 4.7.5.2.5 and 4.7.5.2.6; yield and ultimate margins per load case with the governing case named"
+    expected_skill: "space-systems/ecss/e3301-margin-of-safety-factors-of-safety"
+  - id: mos2
+    query: "the joint is bonded so it fails without warning and has no yield point, work out the special factor and whether a yield margin should be refused for that category"
+    intent: "ECSS-E-ST-33-01 clauses 4.7.5.2.5 and 4.7.5.2.6; special factor and the refusal of a yield margin for a category with no yield point"
+    expected_skill: "space-systems/ecss/e3301-margin-of-safety-factors-of-safety"

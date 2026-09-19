@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-process-planning (space-systems/ecss)
+# Two tasks for the leaf. tpp1 routes on the schedule side, the longest path and
+# the customer milestone margin. tpp2 routes on the resource, review and customer
+# interface side. Both must deterministically hit
+# space-systems/ecss/q2007-process-planning.
+tasks:
+  - id: tpp1
+    query: "plan the test campaign: take the longest path through the activity dependency graph as the campaign duration rather than summing the durations, and tell me how much margin is left against the milestone the customer is holding"
+    intent: "ECSS-Q-ST-20-07 clause 5.7.1; test campaign critical path duration and schedule margin against the customer milestone"
+    expected_skill: "space-systems/ecss/q2007-process-planning"
+  - id: tpp2
+    query: "load each shaker, chamber and operator in the campaign plan against the capacity declared for it rather than against the total, check the plan names the readiness and post-test reviews it owes, and check the customer notification lead back from the campaign start"
+    intent: "ECSS-Q-ST-20-07 clause 5.7.1; campaign resource capacity, review coverage and customer notification lead time"
+    expected_skill: "space-systems/ecss/q2007-process-planning"

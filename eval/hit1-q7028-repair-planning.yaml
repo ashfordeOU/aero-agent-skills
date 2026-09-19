@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-repair-planning (space-systems/ecss)
+# Two tasks for the new leaf. rp1 routes on picking the method and checking the
+# consumables; rp2 routes on rework cycles and the risk score that calls for a
+# trial coupon. Both must deterministically hit
+# space-systems/ecss/q7028-repair-planning.
+tasks:
+  - id: rp1
+    query: "the repair is approved, now which method do I write into the plan for this much damage and is the adhesive still in date and safe on a flex board at that temperature"
+    intent: "ECSS-Q-ST-70-28C planning; least invasive catalogued method whose damage-extent limit covers the damage, shelf life graded at the planned date, and the per-construction process temperature ceiling"
+    expected_skill: "space-systems/ecss/q7028-repair-planning"
+  - id: rp2
+    query: "this spot on the board has taken two rework cycles already and sits under a component on a critical function with poor access; count the thermal excursions against the budget, score the repair risk, and say whether a trial coupon is needed first"
+    intent: "ECSS-Q-ST-70-28C planning; thermal excursions accumulated per location against the budget, and the multiplicative criticality, accessibility and thermal-exposure risk score with its trial-coupon band"
+    expected_skill: "space-systems/ecss/q7028-repair-planning"

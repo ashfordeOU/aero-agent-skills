@@ -188,8 +188,12 @@ class ComponentTests(unittest.TestCase):
         )
 
     def test_every_declared_distribution_has_a_divisor_of_at_least_one(self):
-        for distribution, divisor in DISTRIBUTION_DIVISORS.items():
-            self.assertGreaterEqual(divisor, 1.0, distribution)
+        # Declared constants, not computed values. The floor is attained
+        # exactly, so one equality on the smallest member proves the whole
+        # table is at or above one - without a >= whose two operands
+        # coincide on that member.
+        smallest = min(DISTRIBUTION_DIVISORS, key=DISTRIBUTION_DIVISORS.get)
+        self.assertEqual(DISTRIBUTION_DIVISORS[smallest], 1.0, smallest)
 
     def test_a_triangular_component_is_divided_by_the_root_of_six(self):
         entry = validate_component(

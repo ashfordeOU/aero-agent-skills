@@ -1,0 +1,16 @@
+# Hit@1 fragment: e7041-set-parameter-values (space-systems/ecss)
+# Two tasks for the new leaf. spv1 routes on WRITING new values into named
+# on-board parameters and keeping the three refusals distinct; spv2 routes on
+# independence - a refused instruction does not withdraw an applied sibling -
+# and on last-writer-wins for a parameter named twice. Neither may reach
+# e7041-report-parameter-values, which only reads. Both must deterministically
+# hit space-systems/ecss/e7041-set-parameter-values.
+tasks:
+  - id: spv1
+    query: "this telecommand carries new values for four on-board parameters, one of them is read-only and one value is past the parameter's engineering limit, what does the set request write and how do I report each refusal"
+    intent: "ECSS-E-ST-70-41C clause 6.20.4.2; distinct no-such-parameter, read-only and out-of-domain refusals with the sound instructions still applied"
+    expected_skill: "space-systems/ecss/e7041-set-parameter-values"
+  - id: spv2
+    query: "if one parameter setting instruction is rejected do the ones already written get rolled back, and what value ends up on board when the same parameter is named twice in one request"
+    intent: "ECSS-E-ST-70-41C clause 6.20.4.2; instructions are independent, last writer wins on a repeated parameter and the collision is raised"
+    expected_skill: "space-systems/ecss/e7041-set-parameter-values"

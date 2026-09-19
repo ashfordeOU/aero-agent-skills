@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-safety-policy (space-systems/ecss)
+# Two tasks for the new leaf. sfy1 routes on the commitments a policy owes and
+# the level that must approve it; sfy2 routes on grading an objective against
+# its baseline, direction and target. Both must deterministically hit
+# space-systems/ecss/q2007-safety-policy.
+tasks:
+  - id: sfy1
+    query: "the safety policy for our test centre was approved by a shift supervisor rather than anyone who binds resources, and there is no record of it reaching personnel or being reviewed inside its interval; grade the commitments it carries"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.2; the commitments a policy must carry, approval at a level that binds resources, communication and review currency"
+    expected_skill: "space-systems/ecss/q2007-safety-policy"
+  - id: sfy2
+    query: "a safety objective in our centre policy reads fewer incidents with no baseline, no unit, no owner and no due day; another has a target of two against a baseline of four and sits at three, so score progress and attainment"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.2; a safety objective graded on baseline, direction and target, progress from the baseline and attainment across the set"
+    expected_skill: "space-systems/ecss/q2007-safety-policy"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: static-analysis-checks (space-systems/ecss)
+# Case 1 routes on the equilibrium criterion and why a global resultant is not it.
+# Case 2 routes on the other two criteria: the energy balance with its own
+# tolerance and a convergence residual that never appeared.
+tasks:
+  - id: static-analysis-checks-1
+    query: "After a linear static run in CalculiX I summed every applied and reaction force and got nearly zero. Is a balanced global resultant enough, or do I need a per-component residual across the constrained degrees of freedom, scaled against the largest term?"
+    intent: "ECSS-E-ST-32C section 5.5; equilibrium is checked component by component against a scale taken from the largest term, because a balanced global sum hides opposing per-axis errors"
+    expected_skill: "space-systems/ecss/static-analysis-checks"
+  - id: static-analysis-checks-2
+    query: "External work and strain energy differ by 4 percent on our model while the equilibrium check passed, and the solver log carries no residual norm at all. Can I reuse the reaction tolerance for the energy comparison, and is a missing residual a pass?"
+    intent: "ECSS-E-ST-32C section 5.5; each criterion carries its own tolerance from its physical basis, and an absent convergence residual must be confirmed explicitly rather than read as a pass"
+    expected_skill: "space-systems/ecss/static-analysis-checks"

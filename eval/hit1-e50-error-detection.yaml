@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-error-detection (space-systems/ecss)
+# Two tasks for the new leaf. err1 routes on the undetected error budget;
+# err2 routes on a code that does not cover the header. Both must
+# deterministically hit space-systems/ecss/e50-error-detection.
+tasks:
+  - id: err1
+    query: "Our downlink runs about one bad bit in ten million and the frames are eight kilobits long. Across a single pass, how many corrupted frames would a crc of sixteen bits wave through, and should we move to something longer?"
+    intent: "ECSS-E-ST-50C clause 5.6.13.4; the undetected rate is the probability a unit is corrupted times the fraction of corruptions the code fails to notice, scaled by the units in the pass"
+    expected_skill: "space-systems/ecss/e50-error-detection"
+  - id: err2
+    query: "the transfer layer computes its check across the payload but leaves the header out - is that enough for a transferred data unit, and at our link bit error rate how many units slip through undetected in one pass"
+    intent: "ECSS-E-ST-50C clause 5.6.13.4; the detection code has to cover the whole data unit including the header, and a payload-only code leaves a corrupted destination or length field to be acted on as sound"
+    expected_skill: "space-systems/ecss/e50-error-detection"

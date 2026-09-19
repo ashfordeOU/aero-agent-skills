@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2040-device-production-and-testing (space-systems/ecss)
+# Two tasks for the new leaf. dpt1 routes on the per-technology reporting unit;
+# dpt2 routes on coverage and yield being separate gradings. Both must
+# deterministically hit space-systems/ecss/e2040-device-production-and-testing.
+tasks:
+  - id: dpt1
+    query: "the supplier filed one production report covering a device that uses two implementation technologies, decide whether that satisfies the obligation or whether each technology owes its own report with its own lot counts and test results"
+    intent: "ECSS-E-ST-20-40C clause 5.7.2; production and production-test results are reported for each technology used, and a merged report hides the worse line"
+    expected_skill: "space-systems/ecss/e2040-device-production-and-testing"
+  - id: dpt2
+    query: "ninety nine percent of the tested units passed but only a tenth of the completed units were tested at all, turn those counts into coverage and yield for the technology and tell me what the lot verdict should be"
+    intent: "ECSS-E-ST-20-40C clause 5.7.2; coverage is tested over completed and yield is passed over tested, a coverage shortfall is a hard finding and a yield shortfall opens an investigation"
+    expected_skill: "space-systems/ecss/e2040-device-production-and-testing"

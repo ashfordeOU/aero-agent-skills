@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-requirements-specification-data-item (space-systems/ecss)
+# Two tasks for the new leaf. drsd1 routes on the four mandatory content areas and the
+# empty heading; drsd2 routes on the per-area demands that make a statement verifiable.
+# Both must deterministically hit
+# space-systems/ecss/e2040-device-requirements-specification-data-item.
+tasks:
+  - id: drsd1
+    query: "check this device requirements document holds everything the data item asks for, it has all the headings but a couple of them look like they have nothing under them"
+    intent: "ECSS-E-ST-20-40C Annex A; function, performance, interface and quality areas present, with an absent area and an empty heading reported separately"
+    expected_skill: "space-systems/ecss/e2040-device-requirements-specification-data-item"
+  - id: drsd2
+    query: "audit this device requirements specification: which of the four mandatory areas are empty headings, which statements carry no identifier or nominated verification method, which performance lines lack a unit, and which wording no method could ever answer"
+    intent: "ECSS-E-ST-20-40C Annex A; each statement needs an identifier and a method, performance a value and unit, interface a counterpart, quality an acceptance criterion"
+    expected_skill: "space-systems/ecss/e2040-device-requirements-specification-data-item"

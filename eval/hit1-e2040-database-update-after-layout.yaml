@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-database-update-after-layout (space-systems/ecss)
+# Two tasks for the new leaf. dul1 routes on the per-technology owing of the
+# post-layout artefacts; dul2 routes on the carried-over deposit from a
+# superseded layout run. Both must deterministically hit
+# space-systems/ecss/e2040-database-update-after-layout.
+tasks:
+  - id: dul1
+    query: "the part is built on two foundry technologies and we dropped one post layout netlist and one timing extraction into the repository, work out whether that closes the layout deposit or leaves the second technology with nothing"
+    intent: "ECSS-E-ST-20-40C clause 5.6.5; technology-dependent post-layout artefacts are owed once per implementation technology, a single deposit does not cover two"
+    expected_skill: "space-systems/ecss/e2040-database-update-after-layout"
+  - id: dul2
+    query: "place and route was re-run after the floorplan change but the timing file in the repository still carries the earlier run id, tell me whether implementation can start on that repository"
+    intent: "ECSS-E-ST-20-40C clause 5.6.5; a deposit from a superseded layout run describes a device that no longer exists and is not an admissible phase input"
+    expected_skill: "space-systems/ecss/e2040-database-update-after-layout"

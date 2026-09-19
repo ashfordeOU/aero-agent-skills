@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-preliminary-escc-detail-specification (space-systems/ecss)
+# Two tasks for the new leaf. esc1 routes on whether the early component
+# specification is owed at all; esc2 routes on the operating range sitting
+# inside the absolute maximum ratings. Both must deterministically hit
+# space-systems/ecss/e2040-preliminary-escc-detail-specification.
+tasks:
+  - id: esc1
+    query: "one part is going for formal evaluation and catalogue listing and the other is a single application design delivered as source, decide which of them owes an early component specification at the end of layout"
+    intent: "ECSS-E-ST-20-40C clause 5.6.7; the obligation follows the procurement route, and a core delivered as source has no package to specify"
+    expected_skill: "space-systems/ecss/e2040-preliminary-escc-detail-specification"
+  - id: esc2
+    query: "the draft component specification puts the recommended supply maximum on exactly the same number as the absolute maximum rating and half the characteristics have no test condition, tell me if it is fit for the layout gate"
+    intent: "ECSS-E-ST-20-40C clause 5.6.7; the recommended operating envelope sits inside the absolute maximum ratings and every characteristic needs a bound, a condition and a temperature"
+    expected_skill: "space-systems/ecss/e2040-preliminary-escc-detail-specification"

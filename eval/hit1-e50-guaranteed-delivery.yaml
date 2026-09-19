@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-guaranteed-delivery (space-systems/ecss)
+# Two tasks for the new leaf. gdl1 routes on a delivery trace with duplicates
+# and reordering; gdl2 routes on the residual left by a bounded retry count.
+# Both must deterministically hit space-systems/ecss/e50-guaranteed-delivery.
+tasks:
+  - id: gdl1
+    query: "the far end log shows one data unit delivered twice and two arriving before an earlier one, does our acknowledged service still deliver everything exactly once and in order or has the guarantee failed"
+    intent: "ECSS-E-ST-50C clause 5.6.14.2; guaranteed delivery means each unit arrives once and in order, so a duplicate breaks it and a reordering is separated from a loss"
+    expected_skill: "space-systems/ecss/e50-guaranteed-delivery"
+  - id: gdl2
+    query: "our transfer gives up after four attempts and silently drops the unit, work out the residual loss that leaves and whether giving up without telling the sender is acceptable"
+    intent: "ECSS-E-ST-50C clause 5.6.14.2; a bounded retry count is acceptable when the sender is notified, and the residual is the per-attempt loss compounded over the attempts"
+    expected_skill: "space-systems/ecss/e50-guaranteed-delivery"

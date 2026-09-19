@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-verification-plan-data-item (space-systems/ecss)
+# Two tasks for the new leaf. dvpd1 routes on a method that cannot answer the kind of
+# requirement it is nominated on; dvpd2 routes on the coverage goal and the
+# requirements with no method. Both must deterministically hit
+# space-systems/ecss/e2040-device-verification-plan-data-item.
+tasks:
+  - id: dvpd1
+    query: "several timing and throughput requirements in this device plan are nominated against a desk review of drawings rather than measurement - is that suitable for requirements of that sort, and does the strategy even name a level for each of them"
+    intent: "ECSS-E-ST-20-40C Annex C; method suitability per requirement kind, one suitable method among those nominated is enough"
+    expected_skill: "space-systems/ecss/e2040-device-verification-plan-data-item"
+  - id: dvpd2
+    query: "work out what fraction of the requirement set each verification method actually reaches against the goals we committed to, and do not drop the requirements that have no method assigned"
+    intent: "ECSS-E-ST-20-40C Annex C; per-method and overall coverage against declared goals, uncovered requirements kept in the denominator"
+    expected_skill: "space-systems/ecss/e2040-device-verification-plan-data-item"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-firing-telemetry-sampling-rate (space-systems/ecss)
+# Two tasks for the new leaf. ftsr1 routes on the recommended housekeeping
+# sampling of current and voltage during a long duration firing; ftsr2 routes
+# on the buffer depth and the firing duration actually covered. Both must
+# deterministically hit space-systems/ecss/e2021-firing-telemetry-sampling-rate.
+tasks:
+  - id: ftsr1
+    query: "what rate should current and voltage housekeeping be sampled at while this long duration actuator is firing, given the shortest feature the record has to show"
+    intent: "ECSS-E-ST-20-21C clause 5.5.3; recommended sampling of current and voltage housekeeping during a long duration actuator firing"
+    expected_skill: "space-systems/ecss/e2021-firing-telemetry-sampling-rate"
+  - id: ftsr2
+    query: "count the housekeeping samples this firing generates across both monitored channels and tell me how much of the firing the telemetry buffer actually covers"
+    intent: "ECSS-E-ST-20-21C clause 5.5.3; sample budget and telemetry buffer coverage for firing current and voltage monitoring"
+    expected_skill: "space-systems/ecss/e2021-firing-telemetry-sampling-rate"

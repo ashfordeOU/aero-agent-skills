@@ -120,11 +120,25 @@ class PoolingTest(unittest.TestCase):
         single_k = cmh17.k_factor_one_sided(6, "B")
         self.assertLess(pooled["k"], single_k)
 
-    def test_pooled_sd_stays_within_batch_spreads(self):
+    def test_pooled_sd_of_equally_spread_batches_is_that_spread(self):
+        # Both fixtures are arithmetic sequences of the same step, so the
+        # two batch spreads are one and the same number and the bracket
+        # min(sds) <= pooled <= max(sds) was a point, not an interval.
+        # The real contract in that case is an equality.
         pooled = cmh17.pooled_allowable([self.BATCH1, self.BATCH2], "B")
         sds = [cmh17.statistics.stdev(b) for b in (self.BATCH1, self.BATCH2)]
-        self.assertLessEqual(pooled["sd"], max(sds))
-        self.assertGreaterEqual(pooled["sd"], min(sds))
+        self.assertEqual(sds[0], sds[1])
+        self.assertAlmostEqual(pooled["sd"], sds[0], places=12)
+
+    def test_pooled_sd_stays_within_batch_spreads(self):
+        # Batches of genuinely different spread, so the bracket is a real
+        # interval and the pooled spread has somewhere to land inside it.
+        tight = [100.0, 100.5, 101.0, 101.5, 102.0, 102.5]
+        wide = [90.0, 95.0, 100.0, 105.0, 110.0, 115.0]
+        pooled = cmh17.pooled_allowable([tight, wide], "B")
+        sds = [cmh17.statistics.stdev(b) for b in (tight, wide)]
+        self.assertLess(pooled["sd"], max(sds))
+        self.assertGreater(pooled["sd"], min(sds))
 
     def test_pooled_allowable_below_pooled_mean(self):
         pooled = cmh17.pooled_allowable([self.BATCH1, self.BATCH2], "B")

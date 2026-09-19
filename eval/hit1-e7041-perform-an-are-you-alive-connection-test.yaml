@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-perform-an-are-you-alive-connection-test (space-systems/ecss)
+# Two tasks for the new leaf. ayal1 routes on the empty-data liveness question and what
+# its pass actually covers; ayal2 routes on the second answer to one request. Both must
+# deterministically hit
+# space-systems/ecss/e7041-perform-an-are-you-alive-connection-test.
+tasks:
+  - id: ayal1
+    query: "our are-you-alive request went out carrying no data at all and a single report returned inside the timeout, yet housekeeping stays quiet; tell me precisely what that outcome proves and whether the two observations really contradict"
+    intent: "ECSS-E-ST-70-41C clause 6.17.3; the are-you-alive request and its report both carry no application data, and a pass covers only that the test service of that application process was reached and answered"
+    expected_skill: "space-systems/ecss/e7041-perform-an-are-you-alive-connection-test"
+  - id: ayal2
+    query: "one connection test went out, yet our are-you-alive check drew two identical reports inside the timeout and the tool called it green; grade the duplicate with a verdict of its own and say whether a second responder or a repeated uplink explains it"
+    intent: "ECSS-E-ST-70-41C clause 6.17.3; exactly one report answers one request, so a second match is a duplicated uplink or a second responder verdict rather than a firmer pass, and a report past the budget is its own outcome distinct from silence"
+    expected_skill: "space-systems/ecss/e7041-perform-an-are-you-alive-connection-test"

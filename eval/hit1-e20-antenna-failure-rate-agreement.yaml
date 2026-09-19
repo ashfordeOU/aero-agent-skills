@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-antenna-failure-rate-agreement (space-systems/ecss)
+# Case 1 routes on categorising the redundancy arrangement and whether the obligation is triggered at all.
+# Case 2 routes on the demonstrated-against-specified direction and the ranking of evidence routes.
+tasks:
+  - id: e20-antenna-failure-rate-agreement-1
+    query: "Our S-band omni antenna is one string: one aperture, one feed chain, nothing cross-strapped, and losing it ends telecommand. Does the antenna then count as single-point-failure, obliging us to agree a failure-rate with the customer, or does a loss absorbed elsewhere exempt it?"
+    intent: "ECSS-E-ST-20C 7.2.1.3; the obligation attaches only to a non-redundant string whose loss removes a function, so categorisation of the arrangement comes before any number"
+    expected_skill: "space-systems/ecss/e20-antenna-failure-rate-agreement"
+  - id: e20-antenna-failure-rate-agreement-2
+    query: "Antenna record specifies a failure-rate of 45 per billion hours yet the demonstrated number is 60, supported by handbook analysis alone. Which way must that comparison come out, and does analysis close the demonstration without qualification test or flown heritage behind it?"
+    intent: "ECSS-E-ST-20C 7.2.1.3; the demonstrated value must not exceed the specified ceiling, and handbook analysis sizes the number rather than closing the demonstration"
+    expected_skill: "space-systems/ecss/e20-antenna-failure-rate-agreement"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-idd-drd (space-systems/ecss)
+# Case 1 routes on the citation each terminal status owes.
+# Case 2 routes on structural completeness of a record and when the whole document closes.
+tasks:
+  - id: e1024-idd-drd-1
+    query: "Going through our interface definition register: several rows are marked agreed yet cite no bilateral control document, and two rows marked as replaced point at no successor. Can I close those rows as they stand or do they remain open?"
+    intent: "ECSS-E-ST-10-24C Annex C; an agreed row owes the bilateral instrument that formalised it and a replaced row owes its successor, so neither closes without that citation"
+    expected_skill: "space-systems/ecss/e1024-idd-drd"
+  - id: e1024-idd-drd-2
+    query: "May the single-end version of our interface register be declared finished once every row carries a status, when some rows are still out for review and one names the mating unit but leaves its characteristics block blank?"
+    intent: "ECSS-E-ST-10-24C Annex C; a row without characteristics is structurally incomplete and the register only closes when every status is terminal, not merely assigned"
+    expected_skill: "space-systems/ecss/e1024-idd-drd"

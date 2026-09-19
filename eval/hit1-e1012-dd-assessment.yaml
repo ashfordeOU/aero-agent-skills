@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1012-dd-assessment (space-systems/ecss)
+# Case 1 routes on accumulating the non-ionizing dose across the bin list.
+# Case 2 routes on the reference-particle conversion and the margined verdict.
+tasks:
+  - id: e1012-dd-assessment-1
+    query: "Our device list mixes silicon detectors with gallium arsenide amplifiers. Can one reference NIEL value serve the whole DD assessment, and what should the per device summary show next to TNID and DDEF for each part?"
+    intent: "ECSS-E-ST-10-12C 8.5.1; summing NIEL-weighted fluence over species and energy bins with per-bin contributions recorded"
+    expected_skill: "space-systems/ecss/e1012-dd-assessment"
+  - id: e1012-dd-assessment-2
+    query: "The optocoupler was qualified against a 10 MeV proton equivalent fluence limit. Once I convert our mission environment to that same reference particle and apply the project design margin of 2, how do I state whether the part passes and what margin ratio do I report?"
+    intent: "ECSS-E-ST-10-12C 8.5.2; converting to the reference-particle equivalent fluence used by the device limit, applying the design margin, and reporting the compliance ratio"
+    expected_skill: "space-systems/ecss/e1012-dd-assessment"

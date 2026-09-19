@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the clause 7.2.3.1 secondary-arc test exemption logic."""
 
+import math
 import unittest
 
 from e2006_secondary_arc_test_exemption_logic import (
@@ -142,7 +143,9 @@ class VoltageCriterionTests(unittest.TestCase):
         # lands one ULP above it in binary floating point.
         worst_case = worst_case_string_to_string_voltage(28.0, 1.2, 0.0025, -30.0, 20.0, 2.2)
         self.assertAlmostEqual(worst_case, 40.0, places=9)
-        self.assertGreater(worst_case, 40.0)
+        # The term-by-term sum is exact IEEE-754 arithmetic and lands on the
+        # double immediately above the allowance, identically everywhere.
+        self.assertEqual(worst_case, math.nextafter(40.0, math.inf))
         self.assertTrue(evaluate_voltage_criterion(worst_case, 50.0)["satisfied"])
 
     def test_zero_margin_fraction_uses_the_bare_onset(self):
@@ -178,7 +181,13 @@ class CurrentCriterionTests(unittest.TestCase):
         # Twenty 25 mA strings are exactly the 0.5 A limit physically; the
         # running sum lands one ULP above it.
         result = evaluate_current_criterion(0.025, 20)
-        self.assertGreater(result["available_current_a"], SUSTAINING_CURRENT_LIMIT_A)
+        # Twenty plain additions land the running total one unit in the last
+        # place above the sustaining limit on every IEEE-754 platform, never
+        # on it. The limit itself is unchanged.
+        self.assertEqual(
+            result["available_current_a"],
+            math.nextafter(SUSTAINING_CURRENT_LIMIT_A, math.inf),
+        )
         self.assertTrue(result["satisfied"])
 
     def test_zero_parallel_strings_is_rejected(self):

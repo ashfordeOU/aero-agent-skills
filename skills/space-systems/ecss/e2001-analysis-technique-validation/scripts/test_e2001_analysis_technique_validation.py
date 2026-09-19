@@ -362,11 +362,18 @@ class CoverageTests(unittest.TestCase):
         self.assertTrue(any("above" in r for r in result["reasons"]))
 
     def test_case_on_the_lower_bound_is_covered(self):
-        # 7.0 GHz x 0.7 mm evaluates one unit in the last place below 4.9.
+        # 7.0 GHz x 0.7 mm IS the validated lower bound. Recomputing it from
+        # Hz and metres routes through two scalings of inexact decimals, so it
+        # lands within a unit in the last place of the declared bound; which
+        # side is a representation detail, not the claim. places=12 is ~6e2
+        # units in the last place of 4.9 GHz.mm - beyond any rounding, and far
+        # tighter than the spacing of any real case. The bound is unchanged;
+        # the contract is the line below - a case on it is covered.
         case = dict(CASE_INSIDE, frequency_hz=7.0e9, gap_m=0.7e-3)
-        self.assertLess(
+        self.assertAlmostEqual(
             frequency_gap_product_ghz_mm(7.0e9, 0.7e-3),
             self._envelope()["frequency_gap_product_min"],
+            places=12,
         )
         self.assertTrue(covers_analysis_case(self._envelope(), case)["covered"])
 

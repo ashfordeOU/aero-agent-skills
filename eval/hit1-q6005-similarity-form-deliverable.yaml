@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6005-similarity-form-deliverable (space-systems/ecss)
+# Two tasks for the new leaf. simf1 routes on a comparison row whose declared
+# verdict contradicts the two values written beside it. simf2 routes on the
+# divergent rows filed with no justification and no impact statement. Neither is
+# the route-decision leaf (q6005-approval-by-design-similarity), which sizes the
+# delta programme rather than grading the filed record. Both must
+# deterministically hit space-systems/ecss/q6005-similarity-form-deliverable.
+tasks:
+  - id: simf1
+    query: "go through the filed likeness claim row by row -- several rows are ticked as identical but the candidate and reference values written next to them are plainly different, and I want that contradiction listed before anyone reads the conclusion"
+    intent: "ECSS-Q-ST-60-05C Annex C; declared same-or-differs verdict tested against the recorded values on every comparison row of the similarity form"
+    expected_skill: "space-systems/ecss/q6005-similarity-form-deliverable"
+  - id: simf2
+    query: "the similarity form lists four attributes as divergent but the justification and impact columns are blank on three of them, and two mandated attributes have no row at all -- score what the record actually documents"
+    intent: "ECSS-Q-ST-60-05C Annex C; unsupported divergences and absent comparison rows scored as a documented evidence ratio"
+    expected_skill: "space-systems/ecss/q6005-similarity-form-deliverable"

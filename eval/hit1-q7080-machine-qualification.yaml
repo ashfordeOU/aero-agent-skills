@@ -7,10 +7,10 @@
 # space-systems/ecss/q7080-machine-qualification.
 tasks:
   - id: mq1
-    query: "the laser power meter went out of calibration last month and the witness build densities scatter more than usual, decide whether the machine can build flight parts"
+    query: "our chamber oxygen reading drifted, one calibrated item is three weeks past its interval, and the specimen spread from the last check is wider than before - is the machine still in a state where flight hardware can be run on it"
     intent: "ECSS-Q-ST-70-80C machine qualification; calibration interval status, chamber environment limits and a witness build capability index rather than a mean alone"
     expected_skill: "space-systems/ecss/q7080-machine-qualification"
   - id: mq2
-    query: "we want to run the same alloy on the same machine at sixty micron layers instead of thirty, work out whether the existing qualification still covers it"
+    query: "this machine was signed off on one alloy at one thickness with one set of settings; the run now proposed is thirty microns coarser. Is that outside the envelope it earned, and does the machine owe a fresh verdict first"
     intent: "ECSS-Q-ST-70-80C; the machine, material, layer-thickness and parameter-set envelope, and whether a change costs a delta qualification or a requalification"
     expected_skill: "space-systems/ecss/q7080-machine-qualification"

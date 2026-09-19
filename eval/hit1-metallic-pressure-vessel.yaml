@@ -1,0 +1,13 @@
+# Hit@1 fragment: metallic-pressure-vessel (space-systems/ecss)
+# Case 1 routes on choosing between the two development approaches from the
+# critical crack size against the wall. Case 2 routes on the distinct test
+# pressure factors for acceptance, qualification proof and burst.
+tasks:
+  - id: metallic-pressure-vessel-1
+    query: "Our titanium propellant tank has a 2.1 mm wall and 310 MPa of hoop stress when it sits at MEOP. Do I develop this metallic pressure vessel by leak-before-burst or by safe-life, and what decides between them?"
+    intent: "ECSS-E-ST-32C clause 4.3.2; the approach follows from whether the critical crack size exceeds the wall thickness at the operating hoop stress"
+    expected_skill: "space-systems/ecss/metallic-pressure-vessel"
+  - id: metallic-pressure-vessel-2
+    query: "For our metallic pressure vessel, what multiple of MEOP is the acceptance proof, what multiple is the qualification proof, and what burst factor must the qualification article demonstrate? We were about to use one pressure for all three."
+    intent: "ECSS-E-ST-32C clause 4.3.2; the three factors differ, and using the acceptance proof for qualification leaves the burst margin untested"
+    expected_skill: "space-systems/ecss/metallic-pressure-vessel"

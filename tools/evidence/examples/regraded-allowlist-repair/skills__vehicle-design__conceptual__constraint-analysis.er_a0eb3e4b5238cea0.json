@@ -1,0 +1,880 @@
+{
+  "amendments": [],
+  "body": {
+    "checker_set": {
+      "checkers": [
+        {
+          "id": "contract-test",
+          "observation": "contract-test",
+          "observation_version": "1.0.0",
+          "params": {
+            "allow_skips": false,
+            "max_errors": 0,
+            "max_failures": 0,
+            "min_tests": 1,
+            "require_instrumented": true
+          },
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "title": "the leaf's behaviour contract test passes",
+          "version": "1.0.0"
+        },
+        {
+          "id": "desc-lint",
+          "observation": "desc-lint",
+          "observation_version": "1.0.0",
+          "params": {
+            "action_verb_vocabulary_version": "1.0.0",
+            "max_words": 150,
+            "min_trigger_keywords": 2,
+            "min_words": 50,
+            "require_action_verb": true,
+            "require_trigger_label": true,
+            "require_use_when": true
+          },
+          "params_digest": "sha256:728f2e800176ef147119c608dc1f9aea49f24d0526fe09b23ff010e993187ebb",
+          "title": "the description carries what, when and trigger keywords",
+          "version": "1.0.0"
+        },
+        {
+          "id": "no-verbatim",
+          "observation": "marker-scan",
+          "observation_version": "1.0.0",
+          "params": {
+            "markers_enforced": [
+              "all-rights-reserved",
+              "redistribution-bar",
+              "single-user-licence",
+              "confidentiality-banner",
+              "licence-agreement-banner",
+              "rights-management-banner",
+              "licensed-to-banner",
+              "dated-copyright-notice"
+            ],
+            "max_hits_per_marker": 0,
+            "max_quoted_span_chars": 400
+          },
+          "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+          "title": "no copyright boilerplate and no long quoted span",
+          "version": "1.0.0"
+        },
+        {
+          "id": "portability",
+          "observation": "near-boundary",
+          "observation_version": "1.0.0",
+          "params": {
+            "relative_tolerance": "1e-12"
+          },
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "title": "no strict float comparison sits on its bound",
+          "version": "1.0.0"
+        },
+        {
+          "id": "spec-shape",
+          "observation": "spec-shape",
+          "observation_version": "1.0.0",
+          "params": {
+            "allowed_compliance": [
+              "none",
+              "ITAR-GATED",
+              "EAR-GATED",
+              "STANDARDS-REF"
+            ],
+            "allowed_licenses": [
+              "Apache-2.0"
+            ],
+            "max_absolute_links": 0,
+            "max_body_lines": 500,
+            "max_description_chars": 1024,
+            "require_logic_module": true,
+            "require_name_matches_directory": true,
+            "require_test_module": true,
+            "required_frontmatter_keys": [
+              "name",
+              "description",
+              "license",
+              "compliance",
+              "standards",
+              "gated",
+              "domain",
+              "pack",
+              "metadata"
+            ]
+          },
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "title": "front matter and leaf layout conform to the skill specification",
+          "version": "1.0.0"
+        },
+        {
+          "id": "stdlib-only",
+          "observation": "import-surface",
+          "observation_version": "1.0.0",
+          "params": {
+            "allowlist": [
+              "__future__",
+              "abc",
+              "argparse",
+              "ast",
+              "asyncio",
+              "base64",
+              "bisect",
+              "builtins",
+              "calendar",
+              "cmath",
+              "collections",
+              "concurrent",
+              "contextlib",
+              "copy",
+              "csv",
+              "dataclasses",
+              "datetime",
+              "decimal",
+              "doctest",
+              "enum",
+              "errno",
+              "faulthandler",
+              "fractions",
+              "functools",
+              "gc",
+              "glob",
+              "hashlib",
+              "heapq",
+              "hmac",
+              "importlib",
+              "inspect",
+              "io",
+              "itertools",
+              "json",
+              "logging",
+              "math",
+              "mmap",
+              "multiprocessing",
+              "os",
+              "pathlib",
+              "pickle",
+              "pprint",
+              "queue",
+              "random",
+              "re",
+              "select",
+              "shlex",
+              "shutil",
+              "signal",
+              "socket",
+              "sqlite3",
+              "stat",
+              "statistics",
+              "string",
+              "struct",
+              "subprocess",
+              "sys",
+              "tempfile",
+              "textwrap",
+              "threading",
+              "time",
+              "timeit",
+              "traceback",
+              "types",
+              "typing",
+              "unicodedata",
+              "unittest",
+              "uuid",
+              "weakref",
+              "xml",
+              "zlib",
+              "zoneinfo"
+            ]
+          },
+          "params_digest": "sha256:f075328453b136223629e79d5b7c1bad1e9d8951efd4c1f6d37a4734e267977c",
+          "title": "shipped modules import the standard library and their siblings only",
+          "version": "1.0.0"
+        }
+      ],
+      "digest": "sha256:fcc26a625f0dde394fa1a0fbf6b8f50d8b28d2bdf92dde8c518c4a8c680b886f",
+      "label": "allowlist-repair-2026-09-19",
+      "spec": "aero-evidence-checkerset/1"
+    },
+    "corpus": {
+      "algorithm": "sha256",
+      "byte_count": 94952274,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 9085,
+      "subtree": "skills",
+      "subtree_digest": "sha256:80114ebff78847912c0a8c24f93736f1e3a443f22cd7918da1ae7cc281e61931"
+    },
+    "derivation": {
+      "anomalies": [],
+      "checker_set_after": {
+        "digest": "sha256:fcc26a625f0dde394fa1a0fbf6b8f50d8b28d2bdf92dde8c518c4a8c680b886f",
+        "label": "allowlist-repair-2026-09-19"
+      },
+      "checker_set_before": {
+        "digest": "sha256:5267e54b448a3d90ecab8603dc178bec02dff45ad8364e83ca1ad64f1de0ecfc",
+        "label": "baseline-2026-09-19"
+      },
+      "corpus_re_executed": false,
+      "gate_changes": [
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "contract-test",
+          "reason_after": "22 test(s) across 1 module(s), no failure or error"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "desc-lint",
+          "reason_after": "114 words, action verb, use-when and triggers present"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "no-verbatim",
+          "reason_after": "8 marker(s) enforced, none present across 1 scanned file(s)"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "portability",
+          "reason_after": "no comparison within 1e-12 relative of its bound across 3 comparison(s)"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "spec-shape",
+          "reason_after": "front matter and layout conform"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "allowlist: +10 (__future__, ast, calendar, cmath, doctest, fractions, hmac, importlib, unicodedata, zlib)"
+          ],
+          "change": "held",
+          "gate": "stdlib-only",
+          "reason_after": "2 module(s) import stdlib and siblings only"
+        }
+      ],
+      "kind": "regrade",
+      "parent": {
+        "amendments_at_regrade": 0,
+        "body_digest": "sha256:17ca58f1f0556543351dd4c77b81820e4e5077ef4f0ba8c679f2fd6045866af7",
+        "issued_at": "2026-09-19T00:11:04Z",
+        "record_id": "er_17ca58f1f0556543"
+      },
+      "performed_with": {
+        "note": "no observation was re-taken, so no environment fingerprint is claimed for this step",
+        "tool": "aero-evidence/1.0.0"
+      },
+      "reobservation_required": [],
+      "verdict_before": "PASS"
+    },
+    "environment": {
+      "float": {
+        "epsilon": "2.220446049250313e-16",
+        "mant_dig": 53,
+        "max_exp": 1024,
+        "min_exp": -1021,
+        "radix": 2,
+        "rounds": 1
+      },
+      "hash_randomization": true,
+      "interpreter": {
+        "implementation": "CPython",
+        "version": "3.14.4",
+        "version_info": [
+          3,
+          14,
+          4
+        ]
+      },
+      "libm": {
+        "fingerprint": "sha256:0bb4a15c81e4cea456a3a4d9de5df0b7f55adced5ef40caea6b6e90d010221c0",
+        "probes": [
+          {
+            "probe": "log10_pow_roundtrip",
+            "repr": "-20.0"
+          },
+          {
+            "probe": "pow_10_neg_tenth",
+            "repr": "0.7943282347242815"
+          },
+          {
+            "probe": "log10_thousand",
+            "repr": "3.0"
+          },
+          {
+            "probe": "exp_one",
+            "repr": "2.718281828459045"
+          },
+          {
+            "probe": "sin_large_argument",
+            "repr": "-0.8522008497671888"
+          },
+          {
+            "probe": "sqrt_two",
+            "repr": "1.4142135623730951"
+          },
+          {
+            "probe": "atan2_one_three",
+            "repr": "0.3217505543966422"
+          },
+          {
+            "probe": "tenth_plus_fifth",
+            "repr": "0.30000000000000004"
+          },
+          {
+            "probe": "fsum_ten_tenths",
+            "repr": "1.0"
+          },
+          {
+            "probe": "pow_two_half",
+            "repr": "1.4142135623730951"
+          }
+        ]
+      },
+      "platform": {
+        "byteorder": "little",
+        "machine": "arm64",
+        "pointer_bits": 64,
+        "system": "Darwin"
+      },
+      "spec": "aero-evidence-environment/1"
+    },
+    "gates": [
+      {
+        "checker_version": "1.0.0",
+        "gate": "contract-test",
+        "observation": "contract-test",
+        "observation_digest": "sha256:5e35b7e39bcfd75d6b62e0f66ef47f92d8824c70434376edeb7906bf67832946",
+        "outcome": {
+          "findings": [],
+          "reason": "22 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "reason": "22 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "desc-lint",
+        "observation": "desc-lint",
+        "observation_digest": "sha256:4dae1d1a9f84619e0924f4a50401d890f61057f77804e77bcb8e255767b38217",
+        "outcome": {
+          "findings": [],
+          "reason": "114 words, action verb, use-when and triggers present",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:728f2e800176ef147119c608dc1f9aea49f24d0526fe09b23ff010e993187ebb",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:728f2e800176ef147119c608dc1f9aea49f24d0526fe09b23ff010e993187ebb",
+          "reason": "114 words, action verb, use-when and triggers present",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "no-verbatim",
+        "observation": "marker-scan",
+        "observation_digest": "sha256:795c961160cc1b5d996fcd42c624c50b807f80cc9f9edf8dde169c4686af8690",
+        "outcome": {
+          "findings": [],
+          "reason": "8 marker(s) enforced, none present across 1 scanned file(s)",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+          "reason": "8 marker(s) enforced, none present across 1 scanned file(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "portability",
+        "observation": "near-boundary",
+        "observation_digest": "sha256:ac0ef284d0a325a6346cfcd5412706749c93fa65a203898509f40dcc38dfed60",
+        "outcome": {
+          "findings": [],
+          "reason": "no comparison within 1e-12 relative of its bound across 3 comparison(s)",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "reason": "no comparison within 1e-12 relative of its bound across 3 comparison(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "spec-shape",
+        "observation": "spec-shape",
+        "observation_digest": "sha256:3a817fa327d605166980b0e45419df53c2fe4315929d2ee257ac3ced7856e908",
+        "outcome": {
+          "findings": [],
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "stdlib-only",
+        "observation": "import-surface",
+        "observation_digest": "sha256:6fc279aae35895194b2d29a56b683b4f55bf7c2606c2f9624d715465cac846c4",
+        "outcome": {
+          "findings": [],
+          "reason": "2 module(s) import stdlib and siblings only",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:f075328453b136223629e79d5b7c1bad1e9d8951efd4c1f6d37a4734e267977c",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+          "reason": "2 module(s) import stdlib and siblings only",
+          "verdict": "PASS"
+        }
+      }
+    ],
+    "issued": {
+      "at": "2026-09-19T00:15:02Z",
+      "by": "ashforde-conformance",
+      "tool": "aero-evidence/1.0.0"
+    },
+    "leaf": {
+      "algorithm": "sha256",
+      "byte_count": 22194,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 3,
+      "files": [
+        {
+          "digest": "sha256:c2aa9c09e9effba1a4d6c10fcaa8ca82108b6c5ba4f73998c66f6a2350b0b691",
+          "path": "SKILL.md"
+        },
+        {
+          "digest": "sha256:82a7fe2f840e38371efc98bb06a7a52266a8b3101890b8969b2cc78c339d8540",
+          "path": "scripts/constraint_analysis_logic.py"
+        },
+        {
+          "digest": "sha256:97fb95b30b5701889f4aad2e73423330c96fd717a810002020cf3a1c7d6741b5",
+          "path": "scripts/test_constraint_analysis.py"
+        }
+      ],
+      "leaf_digest": "sha256:42da94f212319ad70e23933f16d655af1d74018e3abaece49f1e6ce45f9e6290",
+      "ref": "skills/vehicle-design/conceptual/constraint-analysis"
+    },
+    "observations": {
+      "contract-test": {
+        "modules": [
+          {
+            "errors": 0,
+            "expected_failures": 0,
+            "failures": 0,
+            "instrumented": true,
+            "load_error": null,
+            "module": "scripts/test_constraint_analysis.py",
+            "outcomes": [
+              {
+                "status": "ok",
+                "test": "__main__.ClimbConstraintTest.test_climb_thrust_to_weight"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ClimbConstraintTest.test_gradient_adds_excess_thrust_term"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ClimbConstraintTest.test_invalid_inputs_raise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ClimbConstraintTest.test_level_flight_minimum"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.CruiseConstraintTest.test_cruise_has_a_minimum"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.CruiseConstraintTest.test_cruise_thrust_to_weight"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.CruiseConstraintTest.test_invalid_inputs_raise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.FeasibleRegionTest.test_all_constraints_enter_the_envelope"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.FeasibleRegionTest.test_bounds_are_sorted_by_wing_loading"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.FeasibleRegionTest.test_invalid_inputs_raise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.FeasibleRegionTest.test_lower_bound_is_maximum_of_constraints"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ManeuveringConstraintTest.test_invalid_inputs_raise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ManeuveringConstraintTest.test_level_flight_reduces_to_cruise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ManeuveringConstraintTest.test_load_factor_squared_scaling"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.ManeuveringConstraintTest.test_maneuvering_thrust_to_weight"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.StallConstraintTest.test_custom_density"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.StallConstraintTest.test_invalid_inputs_raise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.StallConstraintTest.test_stall_scales_with_speed_squared"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.StallConstraintTest.test_stall_wing_loading"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TakeoffConstraintTest.test_invalid_inputs_raise"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TakeoffConstraintTest.test_takeoff_scales_with_wing_loading"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TakeoffConstraintTest.test_takeoff_thrust_to_weight"
+              }
+            ],
+            "skipped": 0,
+            "tests_run": 22,
+            "unexpected_successes": 0
+          }
+        ],
+        "observation": "contract-test",
+        "runner": "stdlib-unittest",
+        "totals": {
+          "errors": 0,
+          "expected_failures": 0,
+          "failures": 0,
+          "modules": 1,
+          "skipped": 0,
+          "tests_run": 22,
+          "unexpected_successes": 0
+        },
+        "version": "1.0.0"
+      },
+      "desc-lint": {
+        "action_verb_vocabulary_version": "1.0.0",
+        "action_verbs_found": [
+          "compute",
+          "design",
+          "run"
+        ],
+        "char_count": 787,
+        "has_trigger_label": true,
+        "has_use_when_clause": true,
+        "observation": "desc-lint",
+        "present": true,
+        "trigger_keyword_count": 9,
+        "version": "1.0.0",
+        "word_count": 114
+      },
+      "import-surface": {
+        "extraction": "ast",
+        "modules": [
+          {
+            "imports": [],
+            "module": "scripts/constraint_analysis_logic.py",
+            "parse_error": null,
+            "sibling_resolved": []
+          },
+          {
+            "imports": [
+              "constraint_analysis_logic",
+              "os",
+              "sys",
+              "unittest"
+            ],
+            "module": "scripts/test_constraint_analysis.py",
+            "parse_error": null,
+            "sibling_resolved": [
+              "constraint_analysis_logic"
+            ]
+          }
+        ],
+        "observation": "import-surface",
+        "version": "1.0.0"
+      },
+      "marker-scan": {
+        "files_scanned": [
+          {
+            "chars": 6304,
+            "digest": "sha256:c2aa9c09e9effba1a4d6c10fcaa8ca82108b6c5ba4f73998c66f6a2350b0b691",
+            "path": "SKILL.md"
+          }
+        ],
+        "longest_quoted_span_chars": 0,
+        "marker_counts": {
+          "all-rights-reserved": 0,
+          "confidentiality-banner": 0,
+          "dated-copyright-notice": 0,
+          "licence-agreement-banner": 0,
+          "licensed-to-banner": 0,
+          "redistribution-bar": 0,
+          "rights-management-banner": 0,
+          "single-user-licence": 0
+        },
+        "marker_ids": [
+          "all-rights-reserved",
+          "confidentiality-banner",
+          "dated-copyright-notice",
+          "licence-agreement-banner",
+          "licensed-to-banner",
+          "redistribution-bar",
+          "rights-management-banner",
+          "single-user-licence"
+        ],
+        "marker_set_digest": "sha256:ebd947e6113e971146bdb95d62996b0945755fe2ec288b184debab41af068374",
+        "marker_set_version": "1.0.0",
+        "observation": "marker-scan",
+        "quote_scan_scope": "prose only; SKILL.md front matter is excluded",
+        "quoted_spans_over_40_chars": 0,
+        "version": "1.0.0"
+      },
+      "near-boundary": {
+        "all_recorded": true,
+        "comparisons_total": 3,
+        "gap_floor": null,
+        "mirrors_gate": "portability",
+        "observation": "near-boundary",
+        "recorded_cap": 64,
+        "tightest": [
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_constraint_analysis.py",
+            "relative_gap": "0.012538775510204075",
+            "test": "__main__.ManeuveringConstraintTest.test_load_factor_squared_scaling"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_constraint_analysis.py",
+            "relative_gap": "0.05527827380952382",
+            "test": "__main__.CruiseConstraintTest.test_cruise_has_a_minimum"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_constraint_analysis.py",
+            "relative_gap": "0.13871806972789116",
+            "test": "__main__.CruiseConstraintTest.test_cruise_has_a_minimum"
+          }
+        ],
+        "version": "1.0.0"
+      },
+      "spec-shape": {
+        "absolute_link_count": 0,
+        "body_lines": 100,
+        "compliance": "STANDARDS-REF",
+        "description_chars": 787,
+        "directory_name": "constraint-analysis",
+        "domain": "vehicle-design",
+        "gated": false,
+        "has_scripts_dir": true,
+        "keys_present": [
+          "compatibility",
+          "compliance",
+          "description",
+          "domain",
+          "gated",
+          "license",
+          "metadata",
+          "name",
+          "pack",
+          "standards"
+        ],
+        "license": "Apache-2.0",
+        "logic_modules": [
+          "scripts/constraint_analysis_logic.py"
+        ],
+        "markdown_link_count": 0,
+        "metadata_author_present": true,
+        "metadata_version": "0.1.0",
+        "name": "constraint-analysis",
+        "name_matches_directory": true,
+        "observation": "spec-shape",
+        "pack": "vehicle-design",
+        "standards": [
+          {
+            "id": "far-25",
+            "reference_only": true
+          },
+          {
+            "id": "cs-25",
+            "reference_only": true
+          }
+        ],
+        "test_modules": [
+          "scripts/test_constraint_analysis.py"
+        ],
+        "version": "1.0.0"
+      }
+    },
+    "standards": {
+      "edition_gaps": [
+        "cs-25",
+        "far-25"
+      ],
+      "editions_overlay": {
+        "digest": null,
+        "present": false,
+        "ref": "tools/evidence/standards-editions.json"
+      },
+      "in_scope": [
+        {
+          "designation": "CS-25",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "regulation",
+          "gated": false,
+          "id": "cs-25",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:6971a7c0fc171a3b6ad6c78ae9a0a09d5abc905f96f36c59828fa0a2a0eb7113",
+          "publisher": "EASA",
+          "resolved": true,
+          "revision_token": null,
+          "status": "free-download",
+          "title": "CS-25: Certification Specifications and Acceptable Means of Compliance for Large Aeroplanes"
+        },
+        {
+          "designation": "14 CFR Part 25",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "regulation",
+          "gated": false,
+          "id": "far-25",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:66af77b0587b5fc80f2bdd53e0c11d42da53be565ca16f948eb678634f06c869",
+          "publisher": "FAA (US Government)",
+          "resolved": true,
+          "revision_token": null,
+          "status": "public-domain",
+          "title": "14 CFR Part 25: Airworthiness Standards for Transport Category Airplanes"
+        }
+      ],
+      "map": {
+        "digest": "sha256:90692e66181274392e351b0f313136898f2c4b2434282e5c283af3d6c2102b0f",
+        "entry_count": 30,
+        "ref": "standards-map.yaml"
+      },
+      "spec": "aero-evidence-standards/1"
+    },
+    "subject": {
+      "domain": "vehicle-design",
+      "kind": "leaf",
+      "name": "constraint-analysis",
+      "pack": "vehicle-design",
+      "ref": "skills/vehicle-design/conceptual/constraint-analysis"
+    },
+    "verdict": {
+      "counts": {
+        "PASS": 6
+      },
+      "gates": 6,
+      "overall": "PASS"
+    },
+    "versions": {
+      "harness_runtime": {
+        "components": {
+          "canonicalization": "json-c14n/1",
+          "corpus_digest_spec": "aero-corpus-digest/1",
+          "observation_specs": {
+            "contract-test": "1.0.0",
+            "desc-lint": "1.0.0",
+            "import-surface": "1.0.0",
+            "marker-scan": "1.0.0",
+            "near-boundary": "1.0.0",
+            "spec-shape": "1.0.0"
+          },
+          "observer_set": "1.0.0",
+          "record_schema": "1.0.0",
+          "tool": "aero-evidence/1.0.0"
+        },
+        "id": "aero-evidence-harness",
+        "version": "1.0.0"
+      },
+      "specification": {
+        "id": "aero-conformance-spec",
+        "note": "no separately published conformance specification exists yet; this version is the tool's declaration of the contract it implements, bound to the in-tree harness contract by digest",
+        "source_digest": "sha256:8f90dcb0a85e51689c86e1178810f1c36b745950b27ed2709d24007cea7431b7",
+        "source_ref": "docs/harness-contract.md",
+        "version": "0.1.0-draft"
+      }
+    }
+  },
+  "kind": "aero.evidence.record",
+  "record_id": "er_a0eb3e4b5238cea0",
+  "schema_version": "1.0.0",
+  "seal": {
+    "algorithm": "sha256",
+    "binds": "integrity",
+    "body_digest": "sha256:a0eb3e4b5238cea00930648ae2e6cb7b3ed3210de70d5d8b7126c8d7edfa8be0",
+    "canonicalization": "json-c14n/1"
+  },
+  "telemetry": {
+    "note": "regrade executed no work; run telemetry lives on the parent",
+    "parent_record_id": "er_17ca58f1f0556543"
+  }
+}

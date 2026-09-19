@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-secondary-arc-description (space-systems/ecss)
+# Case 1 routes on sorting recorded events into families by duration and how they ended.
+# Case 2 routes on whether an array site can sustain an arc at its potential and current.
+tasks:
+  - id: e2006-secondary-arc-description-1
+    query: "How do I tell a flashover of stored surface charge apart from a sustained arc on a solar array? One event lasted 0.3 ms and died on its own, another burned until the bus was removed. Does the second one count as permanent?"
+    intent: "ECSS-E-ST-20-06C clause 7.1; duration and termination sort each event into its family, and anything ended by outside action belongs to the permanent family whatever the record length"
+    expected_skill: "space-systems/ecss/e2006-secondary-arc-description"
+  - id: e2006-secondary-arc-description-2
+    query: "On a 100 V string delivering 4 A, is the potential sitting across a gap between adjacent strings high enough to keep an arc burning, and does a carbonised track left by an earlier discharge lower that threshold?"
+    intent: "ECSS-E-ST-20-06C clause 7.1; the sustaining threshold falls with available string current and is corrected for gap width and site condition, with a previous track the strongest correction"
+    expected_skill: "space-systems/ecss/e2006-secondary-arc-description"

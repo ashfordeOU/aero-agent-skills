@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-experience-summary-report-task (space-systems/ecss)
+# Two tasks for the leaf. esr1 routes on the conditional applicability — the
+# record is owed only on a customer request; esr2 routes on tracing each
+# development event into the topic that owns its kind, weighted by
+# significance. Both must deterministically hit
+# space-systems/ecss/e2040-experience-summary-report-task.
+tasks:
+  - id: esr1
+    query: "the customer asked for a lessons record at the end of this device development, decide whether the experience summary report we have actually captures the development or whether one was even owed"
+    intent: "ECSS-E-ST-20-40C clause 5.8.4; experience summary report applicability from the customer request and mandated topic coverage"
+    expected_skill: "space-systems/ecss/e2040-experience-summary-report-task"
+  - id: esr2
+    query: "check every anomaly, tool defect, waiver and methodology deviation from the device development landed in the right topic of the lessons record, weighting the significant ones above the trivial ones"
+    intent: "ECSS-E-ST-20-40C clause 5.8.4; development event traceability into the owning report topic with significance weighting"
+    expected_skill: "space-systems/ecss/e2040-experience-summary-report-task"

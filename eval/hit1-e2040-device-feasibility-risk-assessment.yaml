@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-feasibility-risk-assessment (space-systems/ecss)
+# Two tasks for the new leaf. dfra1 routes on the feasibility driver verdicts and the
+# technology readiness gap; dfra2 routes on residual banding after mitigation and the
+# mitigation nobody owns. Both must deterministically hit
+# space-systems/ecss/e2040-device-feasibility-risk-assessment.
+tasks:
+  - id: dfra1
+    query: "four of our device feasibility drivers are fine but the supply chain one is not achievable and we are two readiness steps short, is this still a development we can commit to"
+    intent: "ECSS-E-ST-20-40C clause 5.2.6; feasibility driver verdicts as a conjunction, technology readiness gap against the required level, qualified driver needs a named action"
+    expected_skill: "space-systems/ecss/e2040-device-feasibility-risk-assessment"
+  - id: dfra2
+    query: "band each device risk on what is left after the mitigation rather than before it, and flag the ones whose mitigation has nobody accountable for delivering it"
+    intent: "ECSS-E-ST-20-40C clause 5.2.6; residual severity and likelihood banding after declared reductions, unowned mitigation treated as absent, exposure against a limit"
+    expected_skill: "space-systems/ecss/e2040-device-feasibility-risk-assessment"

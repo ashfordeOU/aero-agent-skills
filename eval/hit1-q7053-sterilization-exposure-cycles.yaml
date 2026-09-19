@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7053-sterilization-exposure-cycles (space-systems/ecss)
+# Two tasks for the new leaf. cyc1 routes on the interpolated dwell above the
+# set-point and the lethality equivalent that makes differently shaped cycles
+# additive; cyc2 routes on an over-temperature excursion and on accumulated
+# dose across repeated cycles. Both must deterministically hit
+# space-systems/ecss/q7053-sterilization-exposure-cycles.
+tasks:
+  - id: cyc1
+    query: "here are the chamber time-temperature logs for three dry-heat sterilization cycles - work out how much dwell each one actually held at the set-point with the ramps excluded, and give me the equivalent time at the reference temperature so I can add them"
+    intent: "ECSS-Q-ST-70-53 exposure procedure; dwell integrated with the set-point crossings interpolated between log samples, thermal lethality equivalent at the reference temperature with the declared resistance parameter"
+    expected_skill: "space-systems/ecss/q7053-sterilization-exposure-cycles"
+  - id: cyc2
+    query: "one sterilization cycle overshot to 180 C against a 150 C material limit and the specimens have now seen three gamma cycles at 20 kGy an hour - is the accumulated exposure still inside what the material is qualified for"
+    intent: "ECSS-Q-ST-70-53 exposure procedure; an excursion above the material limit is a finding even when the dwell was met, and the accumulated dose across cycles is compared with the qualified value"
+    expected_skill: "space-systems/ecss/q7053-sterilization-exposure-cycles"

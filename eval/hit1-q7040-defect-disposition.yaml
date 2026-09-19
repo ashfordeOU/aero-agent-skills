@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-defect-disposition (space-systems/ecss)
+# Two tasks for the new leaf. bdd1 routes on the re-braze budget and cumulative
+# thermal exposure; bdd2 routes on the eroded parent metal that more heat makes
+# worse. Both must deterministically hit
+# space-systems/ecss/q7040-defect-disposition.
+tasks:
+  - id: bdd1
+    query: "this brazed joint has already been run twice and it is still outside its void limit, tell me whether I re-braze it again, carry it on a deviation or scrap the part"
+    intent: "brazing rework; the re-braze budget and cumulative thermal exposure allowance close the thermal route, and use-as-is needs an approved deviation out of the load path"
+    expected_skill: "space-systems/ecss/q7040-defect-disposition"
+  - id: bdd2
+    query: "the filler dissolved part of the parent wall next to this braze, work out what the disposition is and what has to be re-inspected afterwards"
+    intent: "brazing rework; eroded parent metal is repaired mechanically and never by another molten cycle, and in the load path there is no route at all"
+    expected_skill: "space-systems/ecss/q7040-defect-disposition"

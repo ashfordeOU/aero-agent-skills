@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-molecular-verification-methods (space-systems/ecss)
+# Two tasks for the new leaf. mvm1 routes on the aliquot fraction and solvent
+# blank behind a weighed residue; mvm2 routes on the Beer-Lambert reduction and
+# the witness plate view-factor and exposure transfer. Both must
+# deterministically hit
+# space-systems/ecss/q7001-molecular-verification-methods.
+tasks:
+  - id: mvm1
+    query: "we evaporated a quarter of the rinse volume and weighed the dish against a solvent blank, convert that into milligrams of residue per square metre of the rinsed hardware"
+    intent: "ECSS-Q-ST-70-01C verification; solvent blank subtraction, aliquot-fraction recovery of the whole rinse, area normalisation and the rinse recovery fraction"
+    expected_skill: "space-systems/ecss/q7001-molecular-verification-methods"
+  - id: mvm2
+    query: "turn this absorbance into the residue surface density using the logged absorptivity and cell path length, take the solvent blank and aliquot fraction off first, then carry the witness plate number onto the surface nobody can rinse"
+    intent: "ECSS-Q-ST-70-01C verification; Beer-Lambert mass from absorbance, path length and absorptivity, and the witness plate view-factor and exposure-time transfer onto the hardware"
+    expected_skill: "space-systems/ecss/q7001-molecular-verification-methods"

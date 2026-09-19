@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2010-plan (space-systems/ecss)
+# Two tasks for the new leaf. pl1 routes on the DRD section grading and the
+# evaluation need day against the procurement commitment; pl2 routes on the
+# responsibilities and the two-sided interface rule. Both must
+# deterministically hit space-systems/ecss/q2010-plan.
+tasks:
+  - id: pl1
+    query: "grade the draft utilisation plan before we issue it: the interfaces heading is there with nothing under it, and one evaluation finishes after we are already committed to buying the part"
+    intent: "ECSS-Q-ST-20-10C clause 5.1.1 with its Annex A DRD; empty versus missing DRD section and an evaluation completing after the day its result is needed"
+    expected_skill: "space-systems/ecss/q2010-plan"
+  - id: pl2
+    query: "every bought-in candidate in the plan needs a named owner for its evaluation and an interface with two actual parties on it - tell me which entries fail that and whether the document can be issued"
+    intent: "ECSS-Q-ST-20-10C clause 5.1.1; attributed evaluation responsibilities and the two-distinct-party interface rule driving the issue decision"
+    expected_skill: "space-systems/ecss/q2010-plan"

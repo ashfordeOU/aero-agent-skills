@@ -231,8 +231,10 @@ class InrushCaseTests(unittest.TestCase):
         self.assertIn("trip delay", result["findings"][0])
 
     def test_settling_time_exactly_on_its_limit_is_compliant(self):
-        # 5 * 2.2 ohm * 680 uF evaluates a few bits above 7.48 ms; the
-        # case is physically on the limit, so the comparison absorbs it.
+        # 5 * (2.2 ohm * 680 uF) is two correctly rounded IEEE-754
+        # multiplications, so it is exactly one representable place above
+        # 7.48 ms on every platform. The case is physically on the limit,
+        # and that one place is what the limit check has to absorb.
         fields = _inrush_fields(
             limiter_resistance_ohm=2.2,
             load_capacitance_f=680.0e-6,
@@ -241,7 +243,7 @@ class InrushCaseTests(unittest.TestCase):
             max_settling_time_s=0.00748,
         )
         result = pbi.evaluate_inrush_case(_case("IR-04", "cold_start_inrush", fields))
-        self.assertGreater(result["settling_time_s"], 0.00748)
+        self.assertEqual(result["settling_time_s"], 0.00748 + math.ulp(0.00748))
         self.assertEqual(result["findings"], [])
 
     def test_settling_time_past_its_limit_is_a_finding(self):
@@ -456,8 +458,10 @@ class FailureCaseTests(unittest.TestCase):
         self.assertIn("containment requirement", result["findings"][0])
 
     def test_let_through_energy_exactly_on_its_allowance_is_compliant(self):
-        # 2.5 A2s through a 140 A fault evaluates a few bits above the
-        # allowance; the case is physically on the limit.
+        # The clearing time is i2t / I^2 and the let-through is I^2 * t, so
+        # the round trip through one divide and two multiplies returns
+        # exactly one representable place above the 2.5 A2s allowance on
+        # every platform. The case is physically on the limit.
         fields = _failure_fields(
             protection_i2t_a2s=2.5, allowed_let_through_a2s=2.5
         )
@@ -465,7 +469,7 @@ class FailureCaseTests(unittest.TestCase):
             _case("FC-05", "payload_short_circuit", fields),
             ["payload_short_circuit"],
         )
-        self.assertGreater(result["let_through_a2s"], 2.5)
+        self.assertEqual(result["let_through_a2s"], 2.5 + math.ulp(2.5))
         self.assertEqual(result["findings"], [])
 
     def test_let_through_energy_past_its_allowance_is_a_finding(self):

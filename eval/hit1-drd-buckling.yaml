@@ -1,0 +1,13 @@
+# Hit@1 fragment: drd-buckling (space-systems/ecss)
+# Case 1 routes on the report inventory step: sorting members into geometry
+# families and resolving end fixity. Case 2 routes on the reduction factor for
+# imperfections and on when the margin is read.
+tasks:
+  - id: drd-buckling-1
+    query: "For the Annex M report the inventory has slender struts, thin flat plates, a curved shell, and one stiffened member matching none of those shapes. How do I categorize each load-bearing member, and what does the report owe for the odd one?"
+    intent: "ECSS-E-ST-32C Annex M; every compression member is placed in the column, plate or shell family first, and a member fitting none of them needs an explicit justification before a custom model is used"
+    expected_skill: "space-systems/ecss/drd-buckling"
+  - id: drd-buckling-2
+    query: "A shell member shows margin of safety +0.4 taken on the unreduced critical stress, and we used a knock-down of 1.0 with nothing on record behind it. Must the margin be recomputed after the knock-down, and is the missing justification a finding by itself?"
+    intent: "ECSS-E-ST-32C Annex M; the knock-down for initial imperfections is applied before the margin is read, and an unjustified factor is its own finding whatever the margin value"
+    expected_skill: "space-systems/ecss/drd-buckling"

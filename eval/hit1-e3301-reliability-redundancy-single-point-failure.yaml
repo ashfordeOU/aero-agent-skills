@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-reliability-redundancy-single-point-failure (space-systems/ecss)
+# Two tasks for the new leaf. rsp1 routes on the two obligations closing together --
+# an apportioned figure that is met while a single-string release device is still in
+# the chain; rsp2 routes on the disposition ledger and the cold-standby switch.
+# Both must deterministically hit
+# space-systems/ecss/e3301-reliability-redundancy-single-point-failure.
+tasks:
+  - id: rsp1
+    query: "the deployment mechanism hits its apportioned reliability number but there is still one release device with nothing behind it - work out whether that closes the clause or not"
+    intent: "ECSS-E-ST-33-01C clause 4.2.5; the numerical figure and the single-point failure enumeration are two separate obligations that both have to close"
+    expected_skill: "space-systems/ecss/e3301-reliability-redundancy-single-point-failure"
+  - id: rsp2
+    query: "go through the mechanism failure mode ledger and tell me which entries are genuinely accepted with a rationale and which ones are still open, and model the standby pair with a real changeover rather than a perfect one"
+    intent: "ECSS-E-ST-33-01C clause 4.2.5; eliminated or accepted-against-a-rationale are the only two outcomes, and the cold-standby switch reliability belongs in the model"
+    expected_skill: "space-systems/ecss/e3301-reliability-redundancy-single-point-failure"

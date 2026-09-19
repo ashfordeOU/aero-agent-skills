@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test for e2006-maximum-dielectric-resistivity-limit."""
 
+import math
 import unittest
 
 from e2006_maximum_dielectric_resistivity_limit_logic import (
@@ -169,8 +170,13 @@ class TestCeilingComparison(RatioMixin):
         self.assertTrue(within_ceiling(1.0e12, 1.0e12))
 
     def test_representation_drift_at_the_boundary_is_absorbed(self):
-        drifted = 0.1 + 0.2  # 0.30000000000000004
-        self.assertGreater(drifted, 0.3)
+        # The case this absorbs is a value one unit in the last place above
+        # the ceiling. That is constructed here rather than arrived at by an
+        # arithmetic coincidence, so the test states its own boundary exactly
+        # and does not assert which way a sum happened to round. The ceiling
+        # itself is unchanged - the next test proves it is not widened.
+        drifted = math.nextafter(0.3, math.inf)
+        self.assertNotEqual(drifted, 0.3)
         self.assertTrue(within_ceiling(drifted, 0.3))
 
     def test_drift_absorption_does_not_widen_the_engineering_limit(self):

@@ -201,7 +201,11 @@ class TestRouteWithinCap(unittest.TestCase):
 
     def test_float_sum_a_few_ulps_over_cap_is_still_compliant(self):
         total = route_resistance([seg("a", 0.0008), seg("b", 0.0041), seg("c", 0.0051)])
-        self.assertGreater(total, 0.010)
+        # Summing the segments in order overshoots the cap they add up to
+        # exactly by one unit in the last place -- an exact, repeatable
+        # IEEE-754 addition. State the overshoot as a magnitude rather
+        # than a direction; the 10 mOhm cap itself is unchanged.
+        self.assertEqual(total - 0.010, math.ulp(0.010))
         self.assertTrue(route_within_cap(total, 0.010))
 
     def test_genuine_exceedance_is_rejected(self):

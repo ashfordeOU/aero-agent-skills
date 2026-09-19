@@ -198,17 +198,27 @@ class RegimeTests(unittest.TestCase):
         self.assertEqual(categorize_interaction_regime(120.0), "snapover-collection")
 
     def test_inception_magnitude_reached_by_a_sum_of_offsets_still_counts(self):
-        # -33.4 - 33.3 - 33.3 is exactly -100 V physically but lands a few ULPs
-        # short of it in binary; the compliant-looking shortfall must not
-        # downgrade the regime.
+        # -33.4 - 33.3 - 33.3 is exactly -100 V physically but lands a few
+        # units in the last place short of it in binary; the compliant
+        # looking shortfall must not downgrade the regime. The additions
+        # are correctly rounded IEEE-754 operations, so the shortfall is
+        # the same everywhere: assert its size, not the rounding
+        # direction. The inception magnitude itself is unchanged.
         potential = -33.4 + -33.3 + -33.3
-        self.assertGreater(potential, -ARC_INCEPTION_MAGNITUDE_V)
+        shortfall = ARC_INCEPTION_MAGNITUDE_V - abs(potential)
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         self.assertEqual(categorize_interaction_regime(potential), "arc-inception-risk")
 
     def test_snapover_onset_reached_by_a_sum_of_offsets_still_counts(self):
-        # 0.01 + 32.05 + 7.94 is exactly 40 V physically, one ULP short in binary.
+        # 0.01 + 32.05 + 7.94 is exactly 40 V physically, one unit in the
+        # last place short in binary - the same chain of correctly rounded
+        # additions on every platform. Assert the size of the shortfall,
+        # not the rounding direction; the onset voltage is unchanged.
         potential = 0.01 + 32.05 + 7.94
-        self.assertLess(potential, SNAPOVER_ONSET_V)
+        shortfall = SNAPOVER_ONSET_V - potential
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         self.assertEqual(categorize_interaction_regime(potential), "snapover-collection")
 
     def test_non_positive_threshold_is_rejected(self):
@@ -272,10 +282,15 @@ class BudgetTests(unittest.TestCase):
         self.assertIn("exceeds", result["findings"][0])
 
     def test_total_exactly_at_the_budget_passes(self):
-        # 0.1 A + 0.2 A is exactly the 0.3 A budget physically; in binary the
-        # sum lands one ULP above it.
+        # 0.1 A + 0.2 A is exactly the 0.3 A budget physically; in binary
+        # the sum lands one unit in the last place above it. fsum is
+        # exactly rounded by definition, so that overshoot is identical on
+        # every platform. Assert its size, not the rounding direction; the
+        # budget itself is unchanged.
         currents = [0.1, 0.2]
-        self.assertGreater(math.fsum(currents), 0.3)
+        excess = math.fsum(currents) - 0.3
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         self.assertEqual(check_parasitic_budget(currents, 0.3)["findings"], [])
 
     def test_negative_per_surface_current_is_rejected(self):

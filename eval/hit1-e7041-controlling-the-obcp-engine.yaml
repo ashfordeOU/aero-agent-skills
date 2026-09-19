@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-controlling-the-obcp-engine (space-systems/ecss)
+# Two tasks for the new leaf. eng1 routes on a stop that terminated procedures
+# the ground expected back; eng2 routes on a resume that restarted a procedure
+# somebody had held on purpose. Both must deterministically hit
+# space-systems/ecss/e7041-controlling-the-obcp-engine.
+tasks:
+  - id: eng1
+    query: "we shut the procedure engine down and brought it back up and none of the procedures that were stepping before have resumed, work out whether shutting it down was supposed to leave them recoverable at all"
+    intent: "ECSS-E-ST-70-41C clause 6.18.5.1; stopping the OBCP engine terminates the procedures it was running and they do not come back when the engine starts again, which is what separates a stop from a hold"
+    expected_skill: "space-systems/ecss/e7041-controlling-the-obcp-engine"
+  - id: eng2
+    query: "after we released the engine-wide hold a procedure that an operator had deliberately suspended hours earlier started stepping again, check which procedures an engine-level resume is entitled to release"
+    intent: "ECSS-E-ST-70-41C clause 6.18.5.1; an engine hold suspends the procedures that were running and an engine resume releases exactly those, leaving a procedure suspended by its own command suspended"
+    expected_skill: "space-systems/ecss/e7041-controlling-the-obcp-engine"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-interoperability (space-systems/ecss)
+# Two tasks for the new leaf. iop1 routes on profile comparison against a
+# cross-support partner; iop2 routes on the undeclared-attribute third outcome
+# and the remedy. Both must deterministically hit
+# space-systems/ecss/e50-interoperability.
+tasks:
+  - id: iop1
+    query: "we want to use another agency's ground stations as backup, compare what our space link can operate on band, modulation, coding and frame format against what each of their stations supports, and tell me which station we cannot reach and exactly which attribute stops us"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.4; cross-support compatibility is per attribute set intersection, and a single clashing attribute makes the partner unsupported"
+    expected_skill: "space-systems/ecss/e50-interoperability"
+  - id: iop2
+    query: "one partner station never stated its frame format at all and another shares no frequency band with us, separate those two cases and tell me which options we would have to add to the link to recover the station we genuinely cannot work with"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.4; unconfirmed is not unsupported, and the remedy is stated as the options the mission side adds"
+    expected_skill: "space-systems/ecss/e50-interoperability"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: bonded-joint-analysis (space-systems/ecss)
+# Case 1 routes on the unequal-adherend form of the shear-lag parameter and where
+# the peak migrates. Case 2 routes on the other failure mode the clause demands:
+# through-thickness peel from the offset load path, and the joint-type branch.
+tasks:
+  - id: bonded-joint-analysis-1
+    query: "A 3 mm carbon skin bonded to a 2 mm titanium fitting over a 30 mm overlap, stiffnesses nowhere near equal. Under ECSS, how do I set up the Volkersen shear-lag term for dissimilar adherends and which overlap end peaks?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.12; the case turns on the dissimilar-adherend shear-lag formulation and the peak migrating toward the stiffer side, not the equal-adherend case"
+    expected_skill: "space-systems/ecss/bonded-joint-analysis"
+  - id: bonded-joint-analysis-2
+    query: "The adhesive in our bonded doubler takes through-thickness tension from the offset load path on top of the shear. Under ECSS how do I estimate that peel from the eccentricity, and does switching to a symmetric two-sided strap kill it so the peel margin goes away?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.12; the case turns on peel stress from load eccentricity and on the symmetric joint type zeroing it, not on bondline shear"
+    expected_skill: "space-systems/ecss/bonded-joint-analysis"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-periodic-file-copy-status-reporting (space-systems/ecss)
+# Two tasks for the new leaf. pfcs1 routes on the generation schedule and its
+# phase; pfcs2 routes on the content of a report when nothing is copying. Both
+# must deterministically hit
+# space-systems/ecss/e7041-periodic-file-copy-status-reporting.
+tasks:
+  - id: pfcs1
+    query: "we re-enabled the periodic status reporting for on-board file copies with a new interval midway through the pass and the ticks did not land where the ground predicted; work out when the first report after that enable was due"
+    intent: "ECSS-E-ST-70-41C clause 6.23.5.5; enabling an already-enabled reporting function replaces the interval and restarts the schedule from that instant, and the first report falls one whole interval after the enable rather than at it"
+    expected_skill: "space-systems/ecss/e7041-periodic-file-copy-status-reporting"
+  - id: pfcs2
+    query: "the recurring copy status report arrived with an empty list during the pass; is an empty report still owed when no copy operation is outstanding, or should the spacecraft have sent nothing at all"
+    intent: "ECSS-E-ST-70-41C clause 6.23.5.5; an empty operation list still generates a report carrying zero entries, because silence and a report of nothing outstanding are different messages to the ground"
+    expected_skill: "space-systems/ecss/e7041-periodic-file-copy-status-reporting"

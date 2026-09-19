@@ -216,7 +216,12 @@ class TestPropagation(unittest.TestCase):
 
     def test_within_capability_absorbs_summation_representation_error(self):
         stress = 0.1 + 0.2  # a sum of carrier powers, one unit in the last place over
-        self.assertGreater(stress, 0.3)
+        # Binary addition of two exactly parsed doubles is correctly rounded
+        # in hardware and identical on every conforming platform, so the
+        # overshoot below is an exact quantity, not a libm artefact.
+        overshoot = stress - 0.3
+        self.assertGreater(overshoot, 0.0)
+        self.assertLess(overshoot, 1e-15)
         self.assertTrue(logic.within_capability(stress, 0.3))
 
     def test_within_capability_still_rejects_a_real_exceedance(self):
@@ -409,7 +414,15 @@ class TestChainAssessment(unittest.TestCase):
             )
         ]
         report = logic.assess_chain_power_handling([0.1, 0.2], chain)
-        self.assertGreater(report["average_drive_w"], 0.3)
+        # The average drive is 0.0 + 0.1 + 0.2 summed in IEEE-754 binary:
+        # correctly rounded in hardware, bit-identical on every conforming
+        # platform, and one unit in the last place above the element
+        # capability. State that overshoot directly - the difference of two
+        # neighbouring doubles is itself exact - instead of comparing the
+        # drive against the capability on the boundary.
+        overshoot = report["average_drive_w"] - 0.3
+        self.assertGreater(overshoot, 0.0)
+        self.assertLess(overshoot, 1e-15)
         self.assertTrue(report["compliant"])
 
     def test_attenuation_ahead_of_an_element_relieves_it(self):

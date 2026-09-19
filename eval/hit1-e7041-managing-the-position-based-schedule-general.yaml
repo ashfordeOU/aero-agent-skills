@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-managing-the-position-based-schedule-general (space-systems/ecss)
+# Two tasks for the new leaf. mps1 routes on entry ordering and free slots;
+# mps2 routes on request identifier uniqueness and the deletion of an absent
+# entry. Both must deterministically hit
+# space-systems/ecss/e7041-managing-the-position-based-schedule-general.
+tasks:
+  - id: mps1
+    query: "after a load the entries need to come back sorted first on orbit number, then on ascending node angle, check that ordering holds, and tell me how many free slots the schedule store has left"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.2; entries held in orbit-number then ascending-node-angle order, and free-slot accounting against the store capacity"
+    expected_skill: "space-systems/ecss/e7041-managing-the-position-based-schedule-general"
+  - id: mps2
+    query: "a duplicate scheduled request identifier got into the loaded schedule, which breaks uniqueness, and now a deletion naming an absent identifier has come up too, so tell me what the subservice owes on each and how much store capacity is left"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.2; uniqueness of the scheduled request identifier and refusal of a deletion naming an entry the schedule does not hold"
+    expected_skill: "space-systems/ecss/e7041-managing-the-position-based-schedule-general"

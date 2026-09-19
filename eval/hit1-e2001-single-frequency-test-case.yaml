@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-single-frequency-test-case (space-systems/ecss)
+# Case 1 routes on the branch that picks the test point: resonant-field against
+# non-resonant-field hardware. Case 2 routes on the checks applied afterwards: the
+# critical gap, the chart span, and whether one point is enough.
+tasks:
+  - id: e2001-single-frequency-test-case-1
+    query: "For the single-frequency multipactor test under clause 6.4.2, is a waveguide filter resonant-field hardware or non-resonant-field hardware, and do I run at a low band edge pulled down by the tuning and thermal drift allowance, or at the field-map peak we measured?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.2; the selection rule branches on the hardware family, an edge for non-resonant items and the field-map peak for resonant ones, with no safe default"
+    expected_skill: "space-systems/ecss/e2001-single-frequency-test-case"
+  - id: e2001-single-frequency-test-case-2
+    query: "Three gaps are declared on the unit and we picked the widest as critical. The frequency-gap product formed from that gap and our chosen point lands beyond the span of the validated susceptibility chart. Does one point cover both band edges?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.2; the smallest declared gap is the critical one, a product outside the validated chart span is a finding, and one point is established only when it covers both band edges"
+    expected_skill: "space-systems/ecss/e2001-single-frequency-test-case"

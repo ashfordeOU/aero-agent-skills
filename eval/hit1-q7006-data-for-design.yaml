@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7006-data-for-design (space-systems/ecss)
+# tr1 routes on building the hot and cold optical design cases; tr2 routes on the
+# envelope coverage that decides whether design data may be issued at all. Both
+# must deterministically hit space-systems/ecss/q7006-data-for-design.
+tasks:
+  - id: tr1
+    query: "Our white paint measured 0.22 absorptance at beginning-of-life and 0.38 after the ultraviolet run, with emittance slipping 0.88 to 0.86 and 0.02 of uncertainty on each. What pair feeds the hot case and what pair the cold case, and what equilibrium temperature falls out?"
+    intent: "ECSS-Q-ST-70-06C data clause; hot and cold optical design cases built from the worst corner with directional uncertainty"
+    expected_skill: "space-systems/ecss/q7006-data-for-design"
+  - id: tr2
+    query: "the mission sees more UV dose than we irradiated to and goes colder than the chamber went; may we issue end-of-life absorptance and emittance to the thermal model, and how does the ratio growth compare with the thermal allocation"
+    intent: "ECSS-Q-ST-70-06C data clause; test envelope coverage against the mission and grading the end-of-life ratio against the thermal allocation"
+    expected_skill: "space-systems/ecss/q7006-data-for-design"

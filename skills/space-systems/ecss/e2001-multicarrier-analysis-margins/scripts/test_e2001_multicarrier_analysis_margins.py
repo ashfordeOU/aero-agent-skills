@@ -311,7 +311,13 @@ class TestAnalysisCaseAssessment(unittest.TestCase):
             if e["category"] != "carrier-phasing-uncertainty"
         ]
         result = assess_analysis_case(case(contribs=entries))
-        self.assertGreaterEqual(result["applied_margin_db"], result["required_margin_db"])
+        # The three surviving contributions are 2.0 dB each and the
+        # requirement is 6.0 dB: exact binary values under exact additions,
+        # so the case lands ON the requirement bit for bit everywhere. The
+        # margin is therefore not the reason for the verdict - the missing
+        # mandatory category is, which is what this case asserts.
+        self.assertEqual(result["applied_margin_db"], result["required_margin_db"])
+        self.assertEqual(result["deficit_db"], 0.0)
         self.assertFalse(result["compliant"])
 
 

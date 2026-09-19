@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-integral-initiator-connectors (space-systems/ecss)
+# Two tasks for the new leaf. eic1 routes on the mated contact resistance
+# landing inside the firing loop and the all-fire margin that follows; eic2
+# routes on the set-level keying barrier between two firing circuits. Both
+# must deterministically hit
+# space-systems/ecss/e3311-integral-initiator-connectors.
+tasks:
+  - id: eic1
+    query: "the initiators have the connector built into the body so I cannot re-terminate them, work out whether the mated contact resistance leaves enough delivered current over the all-fire current and whether the connector is now the dominant term in the firing loop"
+    intent: "ECSS-E-ST-33-11C clause 4.11.3; contact resistances summed into the firing loop, delivered current against all-fire with margin, connector share of the loop"
+    expected_skill: "space-systems/ecss/e3311-integral-initiator-connectors"
+  - id: eic2
+    query: "two integral-connector initiators on different firing circuits take the same key and the pins are not shorted until mate, tell me whether a technician can cross-connect them by hand and what else the connector screen is missing"
+    intent: "ECSS-E-ST-33-11C clause 4.11.3; keying code shared across firing circuits, pin shorting provision, insulation and mate-demate life"
+    expected_skill: "space-systems/ecss/e3311-integral-initiator-connectors"

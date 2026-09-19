@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-level-one-single-carrier-method (space-systems/ecss)
+# Case 1 routes on the two corrections between feed power and gap voltage.
+# Case 2 routes on grading the decibel margin against the route's requirement
+# and on inverting for the largest power that keeps it.
+tasks:
+  - id: e2001-level-one-single-carrier-method-1
+    query: "Starting from 120 W forward into a waveguide iris on a 50 ohm feed, do I take the matched-line peak straight to the chart, or must the specified mismatch lift it and the field solve's concentration factor carry it to the gap?"
+    intent: "ECSS-E-ST-20-01C clause 5.3.2.2.3; the matched-line peak is raised by the standing wave and scaled by field concentration before the chart is read"
+    expected_skill: "space-systems/ecss/e2001-level-one-single-carrier-method"
+  - id: e2001-level-one-single-carrier-method-2
+    query: "The ratio of boundary voltage to applied gives plus 3 dB, but we are qualifying by analysis with no discharge campaign behind it. Is that compliant for the route in force, and how much power could we run and keep the owed margin?"
+    intent: "ECSS-E-ST-20-01C clause 5.3.2.2.3; a positive margin is graded against the margin the chosen route owes, and the procedure inverts to a maximum admissible carrier power"
+    expected_skill: "space-systems/ecss/e2001-level-one-single-carrier-method"

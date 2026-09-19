@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-material-outgassing-interface (space-systems/ecss)
+# Two tasks for the new leaf. mo1 routes on the recovered-mass-loss versus
+# total-mass-loss rule when a water vapour regain was measured; mo2 routes on
+# the grade-tightened condensable limit and the deposition budget of the
+# surface in view. Both must deterministically hit
+# space-systems/ecss/q7001-material-outgassing-interface.
+tasks:
+  - id: mo1
+    query: "this adhesive came back at 1.4 percent total mass loss with 0.9 percent water vapour regain and 0.02 percent condensable, and purchasing wants to reject it before it goes near the star tracker baffle"
+    intent: "ECSS-Q-ST-70-01C outgassing screening with ECSS-Q-ST-70-02C figures; the recovered mass loss governs where a regain was measured"
+    expected_skill: "space-systems/ecss/q7001-material-outgassing-interface"
+  - id: mo2
+    query: "same potting compound passes beside a structure panel and I am being told it fails beside the cryogenic detector, work out the condensable limit and how much it would actually deposit at that view factor and temperature difference"
+    intent: "ECSS-Q-ST-70-01C sensitive-surface grade tightening of the condensable limit and the areal deposition budget"
+    expected_skill: "space-systems/ecss/q7001-material-outgassing-interface"

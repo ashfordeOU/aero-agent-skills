@@ -7,6 +7,7 @@ item blocking-conditions, drive-mode gating, suite selection and the
 latency-budget boundary.
 """
 
+import math
 import unittest
 
 from e2001_permitted_detection_methods_logic import (
@@ -249,12 +250,14 @@ class TestSuiteSelection(unittest.TestCase):
     def test_exact_latency_budget_boundary_absorbs_summation_error(self):
         # With nulling and harmonic-rise blocked under single-carrier
         # drive the suite is close-to-carrier-noise-rise (0.4 ms) plus
-        # electron-probe-current (0.02 ms). That sum is 0.42 only to
-        # within a ULP - it evaluates a hair ABOVE 0.42 in binary
-        # floating point - yet the suite is physically on budget, so it
-        # must pass without the budget being inflated.
+        # electron-probe-current (0.02 ms). IEEE-754 addition is correctly
+        # rounded, so that sum is exactly one representable place ABOVE
+        # 0.42 on every platform, not just this one. The suite is
+        # physically on budget and must pass without the budget being
+        # inflated - and being above is what makes it a real test of the
+        # absorbing branch rather than of a comfortable margin.
         raw_sum = 0.4 + 0.02
-        self.assertGreater(raw_sum, 0.42)
+        self.assertEqual(raw_sum, 0.42 + math.ulp(0.42))
         report = select_detection_suite(
             CANDIDATES,
             FULL_FACILITY,

@@ -225,8 +225,15 @@ class TestResistanceWithinLimit(unittest.TestCase):
 
     def test_summed_reading_a_few_ulps_over_limit_is_still_compliant(self):
         total = 0.0008 + 0.0041 + 0.0051
-        self.assertGreater(total, 0.010)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the sum landed on.
+        self.assertAlmostEqual(total, 0.010, places=12)
         self.assertTrue(resistance_within_limit(total, 0.010))
+        # Pin the absorbing branch with a reading constructed to sit
+        # strictly above the limit, by 1e-13 ohm - inside what the leaf
+        # absorbs, and the same value on every platform. The 10 milliohm
+        # limit is unchanged: 0.02 ohm is still rejected, below.
+        self.assertTrue(resistance_within_limit(0.010 + 1e-13, 0.010))
 
     def test_genuine_exceedance_is_rejected(self):
         self.assertFalse(resistance_within_limit(0.02, 0.010))

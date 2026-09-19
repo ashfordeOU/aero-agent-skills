@@ -1,0 +1,13 @@
+# Hit@1 fragment: drd-dimstab-analysis (space-systems/ecss)
+# Case 1 routes on the deliverable itself: whether the DSA report carries the
+# content the Annex C data requirement demands. Case 2 routes on the moisture
+# contribution and the expansion mismatch across a dissimilar-material interface.
+tasks:
+  - id: drd-dimstab-analysis-1
+    query: "I am reviewing a supplier's dimensional stability report for an optical bench before delivery. It has geometry, materials and displacement numbers but no section stating the applicable requirements and no margin roll-up. Can I accept it, or is the missing content a non-conformance on its own?"
+    intent: "ECSS-E-ST-32C Annex C; the case turns on completeness of the mandated report content, not on the numerical distortion result"
+    expected_skill: "space-systems/ecss/drd-dimstab-analysis"
+  - id: drd-dimstab-analysis-2
+    query: "Our metering structure gives up about 0.35 percent moisture on orbit and also swings 40 K. I have the CTE and the moisture expansion coefficient for the composite. How do I add the hygrothermal displacement to the thermal one and turn the total into a stability margin against the pointing allowance?"
+    intent: "ECSS-E-ST-32C Annex C; the case turns on the moisture-driven length change summed with the thermal one and on the resulting stability margin against the allowable"
+    expected_skill: "space-systems/ecss/drd-dimstab-analysis"

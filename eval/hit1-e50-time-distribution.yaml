@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-time-distribution (space-systems/ecss)
+# Two tasks for the new leaf. td1 routes on the hop-by-hop distribution budget
+# at a consumer; td2 routes on sizing the distribution period against holdover.
+# Both must deterministically hit space-systems/ecss/e50-time-distribution.
+tasks:
+  - id: td1
+    query: "the on-board time reference goes through a router and two more hops before it reaches the instrument, work out what accuracy actually arrives there and which hop is spending most of it"
+    intent: "ECSS-E-ST-50C clause 5.7.2.8; the budget is evaluated at the consumer, with uncompensated delay, half the path asymmetry and half the timestamp step added as biases and per-hop jitter combined root-sum-square"
+    expected_skill: "space-systems/ecss/e50-time-distribution"
+  - id: td2
+    query: "our users free-run on their own oscillators between time messages and one of them is missing its accuracy, tell me how often we have to redistribute time to hold it"
+    intent: "ECSS-E-ST-50C clause 5.7.2.8; holdover is drift rate times distribution period, so the longest period is the allowance less the chain budget divided by the drift, and zero when the chain alone spends the allowance"
+    expected_skill: "space-systems/ecss/e50-time-distribution"

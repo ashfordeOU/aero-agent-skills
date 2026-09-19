@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6015-single-event-effects-assurance (space-systems/ecss)
+# Two tasks for the new leaf. see1 routes on turning a linear-energy-transfer
+# threshold and saturated cross-section into an upset rate against a budget;
+# see2 routes on the destructive events, their exclusion by threshold and the
+# latchup limiter and burnout derating rules. Both must deterministically hit
+# space-systems/ecss/q6015-single-event-effects-assurance.
+tasks:
+  - id: see1
+    query: "given the part's linear-energy-transfer threshold and saturated cross-section, work out the upset rate per day for four devices and whether error correction brings it inside our budget"
+    intent: "ECSS-Q-ST-60-15C clause 5.3; recoverable single event rate from the integral flux at the threshold, device count and a mitigation reduction factor against a system budget"
+    expected_skill: "space-systems/ecss/q6015-single-event-effects-assurance"
+  - id: see2
+    query: "the latchup threshold sits inside the mission spectrum, decide whether the current limiter trips low enough and fast enough and whether the burnout derating holds"
+    intent: "ECSS-Q-ST-60-15C clause 5.3; destructive single event exclusion by threshold, latchup current limiter trip level and speed, and single-event burnout voltage derating"
+    expected_skill: "space-systems/ecss/q6015-single-event-effects-assurance"

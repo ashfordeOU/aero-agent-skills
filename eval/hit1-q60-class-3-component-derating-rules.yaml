@@ -6,7 +6,7 @@
 # space-systems/ecss/q60-class-3-component-derating-rules.
 tasks:
   - id: to1
-    query: "these Class 3 parts were derated against the numbers printed on the datasheet but half the board runs near 85 C, redo the margins at the case temperature each part actually sits at"
+    query: "these Class 3 parts were derated on datasheet numbers, but half the board runs near 85 C. Take each maker rating from its reference point down the derating line toward the zero-rating temperature, then redo the margins at the real case temperature."
     intent: "ECSS-Q-ST-60C clause 6.2.2.5; walking each maker rating down its derating line from the reference point toward the zero-rating temperature before any margin is applied"
     expected_skill: "space-systems/ecss/q60-class-3-component-derating-rules"
   - id: to2

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-gse-test-equipment-launch-site-items (space-systems/ecss)
+# Two tasks for the new leaf. gse1 routes on which flight explosive requirements
+# follow an item that never flies; gse2 routes on the instrument fault current
+# capped below the no-fire current. Both must deterministically hit
+# space-systems/ecss/e3311-gse-test-equipment-launch-site-items.
+tasks:
+  - id: gse1
+    query: "go through the ground support list, the firing box, the bridgewire meter, the handling trolley and the pad rack, and say which of the explosive hardware requirements each one actually inherits"
+    intent: "ECSS-E-ST-33-11C clause 4.13; requirement allocation to non-flight items from what they contact, what they can energize and whether they operate at the pad"
+    expected_skill: "space-systems/ecss/e3311-gse-test-equipment-launch-site-items"
+  - id: gse2
+    query: "the bridgewire meter can push twenty milliamps into the squib if a component shorts and the initiator no-fire is one amp, tell me whether that instrument is allowed near the hardware and what bond resistance the trolley owes"
+    intent: "ECSS-E-ST-33-11C clause 4.13; instrument fault current capped at a fraction of the no-fire current, and the ground support bonding limit that binds every item"
+    expected_skill: "space-systems/ecss/e3311-gse-test-equipment-launch-site-items"

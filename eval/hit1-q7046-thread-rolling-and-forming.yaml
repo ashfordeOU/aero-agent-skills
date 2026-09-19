@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-thread-rolling-and-forming (space-systems/ecss)
+# tf1 routes on the forced rolled-versus-cut decision and the heat-treatment
+# sequence; tf2 routes on the rolling blank and the root-radius floor. Both
+# must deterministically hit space-systems/ecss/q7046-thread-rolling-and-forming.
+tasks:
+  - id: tf1
+    query: "the supplier wants to cut these threads instead of rolling them and roll the ones we insist on before hardening, what does the class and the fatigue duty actually force"
+    intent: "ECSS-Q-ST-70-46 thread forming; the class floor and the fatigue duty each force a rolled thread on their own, and rolling before the hardening soak relaxes the compressive root stress away"
+    expected_skill: "space-systems/ecss/q7046-thread-rolling-and-forming"
+  - id: tf2
+    query: "what diameter blank do we feed the rolling dies for an M10 coarse thread and how sharp can the root radius get before the rolling stops being worth anything"
+    intent: "ECSS-Q-ST-70-46 thread forming; the rolling blank sits just above the pitch diameter because the displaced metal fills the crest, and the root radius has a notch floor as a fraction of the pitch"
+    expected_skill: "space-systems/ecss/q7046-thread-rolling-and-forming"

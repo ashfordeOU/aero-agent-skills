@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7028-repair-authorization (space-systems/ecss)
+# Two tasks for the new leaf. ra1 routes on who has to sign a given piece of
+# repair work; ra2 routes on what the repair file has to hold and how long.
+# Both must deterministically hit space-systems/ecss/q7028-repair-authorization.
+tasks:
+  - id: ra1
+    query: "who actually has to sign this off before we touch the board, it is a flight unit, the function is safety critical and the method is not one of the listed ones"
+    intent: "ECSS-Q-ST-70-28C authorization; the approval ladder, the highest of the work-type, hardware-model and criticality drivers, and the customer escalation an unlisted method forces"
+    expected_skill: "space-systems/ecss/q7028-repair-authorization"
+  - id: ra2
+    query: "auditing an old repair folder, what entries should be in there for a modification and how many years were we supposed to keep it"
+    intent: "ECSS-Q-ST-70-28C authorization; the base repair record entries plus the drawing and as-built references a modification adds, blank entries counted as missing, and the file retention minimum"
+    expected_skill: "space-systems/ecss/q7028-repair-authorization"

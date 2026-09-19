@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-telecommand-delivery-confirmation (space-systems/ecss)
+# Two tasks for the new leaf. tdc1 routes on a per-command confirmation
+# deadline; tdc2 routes on a stray confirmation in an otherwise clean log.
+# Both must deterministically hit
+# space-systems/ecss/e50-telecommand-delivery-confirmation.
+tasks:
+  - id: tdc1
+    query: "match our on-board telecommand dispatch log against the delivery confirmations that came back and tell me which commands were confirmed inside the transit and return bounds and which were confirmed too late to matter"
+    intent: "ECSS-E-ST-50C clause 5.7.2.7; the confirmation deadline is each command's own dispatch time plus the network transit bound plus the return bound, and a confirmation after it is evidence of delivery but not of the service"
+    expected_skill: "space-systems/ecss/e50-telecommand-delivery-confirmation"
+  - id: tdc2
+    query: "every telecommand in our on-board dispatch log came back confirmed inside its deadline but there is a stray confirmation for an identifier nobody dispatched and a duplicate confirmation for another command, say whether the delivery confirmation service is sound"
+    intent: "ECSS-E-ST-50C clause 5.7.2.7; a clean service and a clean log are separate claims, so a stray confirmation for an undispatched identifier and a duplicate confirmation are reported even when every command is confirmed in time"
+    expected_skill: "space-systems/ecss/e50-telecommand-delivery-confirmation"

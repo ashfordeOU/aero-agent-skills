@@ -1,0 +1,13 @@
+# Hit@1 fragment: low-risk-fracture-compliance (space-systems/ecss)
+# Case 1 routes on the gross-section stress test that earns the reduced route.
+# Case 2 routes on the consequence being evaluated first and disqualifying
+# outright whatever the stress ratio says.
+tasks:
+  - id: low-risk-fracture-compliance-1
+    query: "A 7075 bracket sees a peak gross-section stress of 190 MPa when limit load is applied, against 480 MPa yield. Does it qualify for the reduced route that skips crack growth work, and which qualifying path do I record?"
+    intent: "ECSS-E-ST-32C clause 6.3.5; the load-limited criterion turns on the gross-section stress ratio at limit load against yield, and the qualifying path is documented"
+    expected_skill: "space-systems/ecss/low-risk-fracture-compliance"
+  - id: low-risk-fracture-compliance-2
+    query: "An item sits at only 35 percent of yield but it is the only load path in primary structure. Can the low stress ratio still exempt it from the full procedure, or does the failure consequence decide first?"
+    intent: "ECSS-E-ST-32C clause 6.3.5; consequence is evaluated ahead of stress, and a fracture-critical consequence disqualifies the item however low the ratio"
+    expected_skill: "space-systems/ecss/low-risk-fracture-compliance"

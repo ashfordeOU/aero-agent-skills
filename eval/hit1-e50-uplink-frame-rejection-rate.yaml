@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-uplink-frame-rejection-rate (space-systems/ecss)
+# uf1 routes on a coded uplink figure scaled from the uncoded one; uf2 routes
+# on retransmission cost per delivered frame. Both must deterministically hit
+# space-systems/ecss/e50-uplink-frame-rejection-rate.
+tasks:
+  - id: uf1
+    query: "we halved the assumed error rate and halved our telecommand frame rejection figure with a decoder that fixes two bits, is that the right relationship"
+    intent: "ECSS-E-ST-50C clause 5.6.11.6; with correction the rejection rate is a binomial tail over the whole on-air frame, not a scaled version of the uncoded number"
+    expected_skill: "space-systems/ecss/e50-uplink-frame-rejection-rate"
+  - id: uf2
+    query: "the uplink rejects about one telecommand frame in ten thousand, how many transmissions per delivered frame does that cost us over a pass"
+    intent: "ECSS-E-ST-50C clause 5.6.11.6; the per frame rate has to be turned into rejections per pass and mean transmissions per delivered frame before the link is judged usable"
+    expected_skill: "space-systems/ecss/e50-uplink-frame-rejection-rate"

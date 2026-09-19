@@ -139,14 +139,23 @@ class TestResponseTimeWithBlocking(unittest.TestCase):
             self.assertEqual(result["blocking"][name], 0.0)
 
     def test_blocking_never_shrinks_response_time(self):
-        # Adding resources can only add blocking, so every response
-        # time with locks is at least the plain value.
+        # Adding resources can only add blocking, so no response time
+        # with locks is below its plain value. Split into the two claims
+        # that are actually made, because they are different claims:
+        # T1 and T2 carry a non-zero blocking term (0.6 / 0.7), so their
+        # response time strictly grows; T3 is the lowest-priority task,
+        # nothing can block it, its blocking term is exactly 0.0, so the
+        # two fixed-point iterations are the same integer-valued
+        # computation and return the identical value on any platform.
         plain = sra.rta_with_blocking_feasibility(TASKS, [])
         with_locks = sra.rta_with_blocking_feasibility(TASKS, LOCKS)
-        for name in ("T1", "T2", "T3"):
-            self.assertGreaterEqual(
+        for name in ("T1", "T2"):
+            self.assertGreater(
                 with_locks["response_times"][name],
                 plain["response_times"][name])
+        self.assertEqual(with_locks["blocking"]["T3"], 0.0)
+        self.assertEqual(with_locks["response_times"]["T3"],
+                         plain["response_times"]["T3"])
 
     def test_t1_blocking_term_exact(self):
         # T1 with blocking (1.6) is exactly plain RTA (1.0) plus 0.6.

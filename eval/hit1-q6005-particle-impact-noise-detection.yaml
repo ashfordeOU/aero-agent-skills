@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-particle-impact-noise-detection (space-systems/ecss,
+# Q-ST-60-05 10.3.6). Two tasks for the new leaf. pind1 routes on eligibility
+# and the excitation condition with the stroke it demands; pind2 routes on the
+# bridging particle mass and the block a failed closing sensitivity check
+# withdraws. Both must deterministically hit
+# space-systems/ecss/q6005-particle-impact-noise-detection.
+tasks:
+  - id: pind1
+    query: "work out whether this hybrid-cavity-particle-noise check even applies to a solid body, then the pind-excitation-condition and the pind-vibration-stroke-demand the shaker has to deliver at the bottom of the band"
+    intent: "ecss hybrids; listening for loose debris inside a sealed cavity needs a cavity and a real excitation"
+    expected_skill: "space-systems/ecss/q6005-particle-impact-noise-detection"
+  - id: pind2
+    query: "derive the pind-bridging-particle-mass from the smallest conductor spacing and decide the pind-sensitivity-block-withdrawal after the closing check failed, plus the pind-indication-rejection rule"
+    intent: "ecss hybrids; what the system must hear, and which quiet results are withdrawn when the bracketing check fails"
+    expected_skill: "space-systems/ecss/q6005-particle-impact-noise-detection"

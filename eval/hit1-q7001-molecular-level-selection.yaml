@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-molecular-level-selection (space-systems/ecss)
+# mls1 routes on the level being derived from a surface's own sensitivity rather
+# than picked; mls2 routes on the delivery allowance being the end-of-life
+# allowance less what arrives after delivery. Both must deterministically hit
+# space-systems/ecss/q7001-molecular-level-selection.
+tasks:
+  - id: mls1
+    query: "each of these surfaces has an allowed absorptance rise and a known degradation per mg per square metre of residue, work out which non-volatile residue level off our ladder each one has to be built to"
+    intent: "ECSS-Q-ST-70-01C levels clause; the molecular level follows from the degradation budget divided by the surface sensitivity, and the least demanding ladder level inside that allowance is the one to take"
+    expected_skill: "space-systems/ecss/q7001-molecular-level-selection"
+  - id: mls2
+    query: "we picked the residue level from the end of life number, tell me what the level should actually be once ground storage and on orbit self contamination after delivery are taken off, and what the enclosing bay then inherits"
+    intent: "ECSS-Q-ST-70-01C levels clause; the delivery allowance is the end-of-life allowance minus post-delivery accumulation, and an enclosure inherits the tightest level it encloses"
+    expected_skill: "space-systems/ecss/q7001-molecular-level-selection"

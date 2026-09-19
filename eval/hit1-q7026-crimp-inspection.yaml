@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-crimp-inspection (space-systems/ecss)
+# Two tasks for the new leaf. ci1 routes on dispositioning finished crimps on
+# height, width, flash and bell mouth; ci2 routes on a characteristic that was
+# never read. Both must deterministically hit
+# space-systems/ecss/q7026-crimp-inspection.
+tasks:
+  - id: ci1
+    query: "disposition the finished crimps on crimp height and width, the flash at the die parting line and the bell mouth length"
+    intent: "ECSS-Q-ST-70-26 quality; finished crimp dimensional and visual acceptance"
+    expected_skill: "space-systems/ecss/q7026-crimp-inspection"
+  - id: ci2
+    query: "the crimp width and the flash were never measured on half the crimps, can those be accepted on the readings that were taken"
+    intent: "ECSS-Q-ST-70-26 quality; an unread crimp characteristic held at review rather than passed"
+    expected_skill: "space-systems/ecss/q7026-crimp-inspection"

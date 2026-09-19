@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-lot-identification (space-systems/ecss)
+# li1 routes on the composed identifier and the head marking capacity; li2
+# routes on the traceability chain and the mixed-lot package. Both must
+# deterministically hit space-systems/ecss/q7046-lot-identification.
+tasks:
+  - id: li1
+    query: "the marking spec wants the class, our code, the heat and the charge stamped on an M4 head, work out what actually fits and how deep the stamp can go"
+    intent: "ECSS-Q-ST-70-46 identification; the markable area follows from the head width across flats, each character needs its spacing, the surplus moves to the package, and the stamp depth is a fraction of head height"
+    expected_skill: "space-systems/ecss/q7046-lot-identification"
+  - id: li2
+    query: "a fastener package arrived with two production lots inside and the traceability chain breaks at the melt record - can these parts still be told apart later, and what does that do to the lot identity"
+    intent: "ECSS-Q-ST-70-46 identification and packaging; one gap in the chain from melt certificate to package record makes the lot untraceable, and a package holding two production lots is a segregation failure"
+    expected_skill: "space-systems/ecss/q7046-lot-identification"

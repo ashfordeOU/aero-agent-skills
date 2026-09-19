@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-security (space-systems/ecss)
+# Two tasks for the new leaf. sec1 routes on the escort being the admitting
+# party for a visitor; sec2 routes on the open visit and the holding location
+# that decides what protection an item actually receives.
+# Both must deterministically hit space-systems/ecss/q2007-security.
+tasks:
+  - id: sec1
+    query: "a visitor with no badge for that zone wants into the test centre chamber escorted by one of our staff; is the visit admissible, who becomes the admitting party, and list every reason it could fail"
+    intent: "ECSS-Q-ST-20-07C clause 5.5.4; zone protection tier, badge validity, authorised hours, and the escort graded against the zone instead of the visitor"
+    expected_skill: "space-systems/ecss/q2007-security"
+  - id: sec2
+    query: "three people signed into the high bay last night and only two signed out, and the flight unit spent the weekend in the gatehouse store - give me the security findings"
+    intent: "ECSS-Q-ST-20-07C clause 5.5.4; visits signed in and never signed out, zone occupancy reconstruction, item and data held below their sensitivity tier"
+    expected_skill: "space-systems/ecss/q2007-security"

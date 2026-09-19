@@ -1,6 +1,6 @@
 ---
 name: software-engineering
-description: "Use when scoping European space software work per the ECSS series: classify space software criticality (A-D) from failure consequence, size the assurance and verification rigor for the category, gate lifecycle phases (requirements through acceptance) on their review records, and scope heritage-reuse evidence. ECSS-E-ST-40C governs software engineering, Q-ST-80C software product assurance, and the series is the European space procurement baseline. Trigger: ECSS, space software, E-ST-40C, software criticality, product assurance, Q-ST-80C, heritage software, space software lifecycle, software verification."
+description: "Use when scoping European space software work per the ECSS series: classify space software criticality (A-D) from failure consequence, size the assurance and verification rigor for the category, gate lifecycle phases (requirements through acceptance) on their review records, and scope heritage-reuse evidence. ECSS-E-ST-40C Rev.1 governs software engineering, Q-ST-80C Rev.2 software product assurance, and the series is the European space procurement baseline. Trigger: ECSS, space software, E-ST-40C, software criticality, product assurance, Q-ST-80C, heritage software, space software lifecycle, software verification."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -27,14 +27,14 @@ gates, and heritage reuse.
 ## Domain quick reference
 
 - The ECSS series is the European space procurement baseline:
-  E-ST-10C (systems engineering), E-ST-40C (software engineering),
-  Q-ST-80C (software product assurance), M-ST-40 (configuration
+  E-ST-10C (systems engineering), E-ST-40C Rev.1 (software engineering),
+  Q-ST-80C Rev.2 (software product assurance), M-ST-40 (configuration
   management).
-- E-ST-40C classes software by failure consequence: A = loss of
+- E-ST-40C Rev.1 classes software by failure consequence: A = loss of
   life or total loss of mission, B = major mission degradation,
   C = minor degradation, D = negligible effects.
 - Assurance and verification rigor scale with the category;
-  Q-ST-80C carries the product assurance evidence expectations.
+  Q-ST-80C Rev.2 carries the product assurance evidence expectations.
 - Heritage reuse demands a heritage assessment against the original
   verification evidence, full evidence at categories A/B.
 

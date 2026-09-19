@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1012-dd-env-tech (space-systems/ecss)
+# Case 1 routes on mapping an orbit to the particle environments that actually drive
+# displacement damage. Case 2 routes on the technology susceptibility tier and on an
+# unrecognised technology label blocking scope closure.
+tasks:
+  - id: e1012-dd-env-tech-1
+    query: "For a ten-year geostationary mission the proton belts stay thin at that altitude. Which particle environments really drive displacement damage there, and do solar proton events end up dominating lifetime fluence on the arrays?"
+    intent: "ECSS-E-ST-10-12C 8.3; the orbit decides which environments carry displacement relevance, and belt-poor altitudes shift the driver onto solar proton events"
+    expected_skill: "space-systems/ecss/e1012-dd-env-tech"
+  - id: e1012-dd-env-tech-2
+    query: "Our parts list has solar-cells, one optocoupler, a CCD, plain digital logic and a line labelled photonic crystal modulator. Which of these owe a NIEL displacement-damage analysis, and what happens to the label nobody recognises?"
+    intent: "ECSS-E-ST-10-12C 8.4; the susceptibility tier decides which technologies owe an assigned analysis path, and an unrecognised technology blocks scope closure rather than defaulting to safe"
+    expected_skill: "space-systems/ecss/e1012-dd-env-tech"

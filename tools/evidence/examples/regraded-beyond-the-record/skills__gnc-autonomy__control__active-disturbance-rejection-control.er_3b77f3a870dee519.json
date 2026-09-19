@@ -1,0 +1,952 @@
+{
+  "amendments": [],
+  "body": {
+    "checker_set": {
+      "checkers": [
+        {
+          "id": "contract-test",
+          "observation": "contract-test",
+          "observation_version": "1.0.0",
+          "params": {
+            "allow_skips": false,
+            "max_errors": 0,
+            "max_failures": 0,
+            "min_tests": 1,
+            "require_instrumented": true
+          },
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "title": "the leaf's behaviour contract test passes",
+          "version": "1.0.0"
+        },
+        {
+          "id": "desc-lint",
+          "observation": "desc-lint",
+          "observation_version": "1.0.0",
+          "params": {
+            "action_verb_vocabulary_version": "2.0.0",
+            "max_words": 150,
+            "min_trigger_keywords": 2,
+            "min_words": 50,
+            "require_action_verb": true,
+            "require_trigger_label": true,
+            "require_use_when": true
+          },
+          "params_digest": "sha256:588fd0bec53d24f6d5e5a42a10d9895b4a3c908c43357670ce9143adcd0a4123",
+          "title": "the description carries what, when and trigger keywords",
+          "version": "1.0.0"
+        },
+        {
+          "id": "no-verbatim",
+          "observation": "marker-scan",
+          "observation_version": "1.0.0",
+          "params": {
+            "markers_enforced": [
+              "all-rights-reserved",
+              "redistribution-bar",
+              "single-user-licence",
+              "confidentiality-banner",
+              "licence-agreement-banner",
+              "rights-management-banner",
+              "licensed-to-banner",
+              "dated-copyright-notice",
+              "export-control-banner"
+            ],
+            "max_hits_per_marker": 0,
+            "max_quoted_span_chars": 400
+          },
+          "params_digest": "sha256:819b3027071494c57e1020704a3fbb22baa3297375220e7aaee07eaacccfbdee",
+          "title": "no copyright boilerplate and no long quoted span",
+          "version": "1.0.0"
+        },
+        {
+          "id": "portability",
+          "observation": "near-boundary",
+          "observation_version": "1.0.0",
+          "params": {
+            "relative_tolerance": "1e-12"
+          },
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "title": "no strict float comparison sits on its bound",
+          "version": "1.0.0"
+        },
+        {
+          "id": "references-present",
+          "observation": "spec-shape",
+          "observation_version": "1.0.0",
+          "params": {},
+          "params_digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "title": "the leaf ships a references directory",
+          "version": "1.0.0"
+        },
+        {
+          "id": "spec-shape",
+          "observation": "spec-shape",
+          "observation_version": "1.0.0",
+          "params": {
+            "allowed_compliance": [
+              "none",
+              "ITAR-GATED",
+              "EAR-GATED",
+              "STANDARDS-REF"
+            ],
+            "allowed_licenses": [
+              "Apache-2.0"
+            ],
+            "max_absolute_links": 0,
+            "max_body_lines": 500,
+            "max_description_chars": 1024,
+            "require_logic_module": true,
+            "require_name_matches_directory": true,
+            "require_test_module": true,
+            "required_frontmatter_keys": [
+              "name",
+              "description",
+              "license",
+              "compliance",
+              "standards",
+              "gated",
+              "domain",
+              "pack",
+              "metadata"
+            ]
+          },
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "title": "front matter and leaf layout conform to the skill specification",
+          "version": "1.0.0"
+        }
+      ],
+      "digest": "sha256:157c19b4605774c7547ea0dc955da32940911ab04ca0877b969aeeb1ba5ae393",
+      "label": "beyond-the-record-2026-09-19",
+      "spec": "aero-evidence-checkerset/1"
+    },
+    "corpus": {
+      "algorithm": "sha256",
+      "byte_count": 94952274,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 9085,
+      "subtree": "skills",
+      "subtree_digest": "sha256:80114ebff78847912c0a8c24f93736f1e3a443f22cd7918da1ae7cc281e61931"
+    },
+    "derivation": {
+      "anomalies": [],
+      "checker_set_after": {
+        "digest": "sha256:157c19b4605774c7547ea0dc955da32940911ab04ca0877b969aeeb1ba5ae393",
+        "label": "beyond-the-record-2026-09-19"
+      },
+      "checker_set_before": {
+        "digest": "sha256:5267e54b448a3d90ecab8603dc178bec02dff45ad8364e83ca1ad64f1de0ecfc",
+        "label": "baseline-2026-09-19"
+      },
+      "corpus_re_executed": false,
+      "gate_changes": [
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "contract-test",
+          "reason_after": "40 test(s) across 1 module(s), no failure or error"
+        },
+        {
+          "after": "INDETERMINATE",
+          "before": "PASS",
+          "cause": [
+            "action_verb_vocabulary_version: '1.0.0' -> '2.0.0'"
+          ],
+          "change": "flipped",
+          "gate": "desc-lint",
+          "reason_after": "description was measured against action-verb vocabulary 1.0.0; this rule needs 2.0.0, which requires re-observation"
+        },
+        {
+          "after": "INDETERMINATE",
+          "before": "PASS",
+          "cause": [
+            "markers_enforced: +1 (export-control-banner)"
+          ],
+          "change": "flipped",
+          "gate": "no-verbatim",
+          "reason_after": "marker(s) export-control-banner were added after this record was observed; the record holds no count for them"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "portability",
+          "reason_after": "no comparison within 1e-12 relative of its bound across 11 comparison(s)"
+        },
+        {
+          "after": "INDETERMINATE",
+          "before": null,
+          "cause": [
+            "checker was not in the issuing set"
+          ],
+          "change": "added",
+          "gate": "references-present",
+          "reason_after": "observation 'spec-shape' does not record has_references_dir"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "spec-shape",
+          "reason_after": "front matter and layout conform"
+        },
+        {
+          "after": "WITHDRAWN",
+          "before": "FAIL",
+          "cause": [
+            "checker retired from the applied set"
+          ],
+          "change": "withdrawn",
+          "gate": "stdlib-only",
+          "reason_after": "retired from checker set 'beyond-the-record-2026-09-19'"
+        }
+      ],
+      "kind": "regrade",
+      "parent": {
+        "amendments_at_regrade": 0,
+        "body_digest": "sha256:f730c77cd6ea0e8044ce5b1473f1d7190b617a9c30853f3c2578efd843e6cf30",
+        "issued_at": "2026-09-19T00:11:04Z",
+        "record_id": "er_f730c77cd6ea0e80"
+      },
+      "performed_with": {
+        "note": "no observation was re-taken, so no environment fingerprint is claimed for this step",
+        "tool": "aero-evidence/1.0.0"
+      },
+      "reobservation_required": [
+        "desc-lint",
+        "no-verbatim",
+        "references-present"
+      ],
+      "verdict_before": "FAIL"
+    },
+    "environment": {
+      "float": {
+        "epsilon": "2.220446049250313e-16",
+        "mant_dig": 53,
+        "max_exp": 1024,
+        "min_exp": -1021,
+        "radix": 2,
+        "rounds": 1
+      },
+      "hash_randomization": true,
+      "interpreter": {
+        "implementation": "CPython",
+        "version": "3.14.4",
+        "version_info": [
+          3,
+          14,
+          4
+        ]
+      },
+      "libm": {
+        "fingerprint": "sha256:0bb4a15c81e4cea456a3a4d9de5df0b7f55adced5ef40caea6b6e90d010221c0",
+        "probes": [
+          {
+            "probe": "log10_pow_roundtrip",
+            "repr": "-20.0"
+          },
+          {
+            "probe": "pow_10_neg_tenth",
+            "repr": "0.7943282347242815"
+          },
+          {
+            "probe": "log10_thousand",
+            "repr": "3.0"
+          },
+          {
+            "probe": "exp_one",
+            "repr": "2.718281828459045"
+          },
+          {
+            "probe": "sin_large_argument",
+            "repr": "-0.8522008497671888"
+          },
+          {
+            "probe": "sqrt_two",
+            "repr": "1.4142135623730951"
+          },
+          {
+            "probe": "atan2_one_three",
+            "repr": "0.3217505543966422"
+          },
+          {
+            "probe": "tenth_plus_fifth",
+            "repr": "0.30000000000000004"
+          },
+          {
+            "probe": "fsum_ten_tenths",
+            "repr": "1.0"
+          },
+          {
+            "probe": "pow_two_half",
+            "repr": "1.4142135623730951"
+          }
+        ]
+      },
+      "platform": {
+        "byteorder": "little",
+        "machine": "arm64",
+        "pointer_bits": 64,
+        "system": "Darwin"
+      },
+      "spec": "aero-evidence-environment/1"
+    },
+    "gates": [
+      {
+        "checker_version": "1.0.0",
+        "gate": "contract-test",
+        "observation": "contract-test",
+        "observation_digest": "sha256:b2ee33e8a58bd649fcc09436e7460c1e97d8f1c7ff2e8e9a6b18d34f1b021523",
+        "outcome": {
+          "findings": [],
+          "reason": "40 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "reason": "40 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "desc-lint",
+        "observation": "desc-lint",
+        "observation_digest": "sha256:70ecaefb7beb5dc5c754097dd14fc1fa9b4baeba9c8e62a814b1d4c62eb670cd",
+        "outcome": {
+          "findings": [],
+          "needs": {
+            "observation": "desc-lint",
+            "vocabulary_required": "2.0.0",
+            "vocabulary_stored": "1.0.0"
+          },
+          "reason": "description was measured against action-verb vocabulary 1.0.0; this rule needs 2.0.0, which requires re-observation",
+          "verdict": "INDETERMINATE"
+        },
+        "params_digest": "sha256:588fd0bec53d24f6d5e5a42a10d9895b4a3c908c43357670ce9143adcd0a4123",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:728f2e800176ef147119c608dc1f9aea49f24d0526fe09b23ff010e993187ebb",
+          "reason": "113 words, action verb, use-when and triggers present",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "no-verbatim",
+        "observation": "marker-scan",
+        "observation_digest": "sha256:8321aa147ca17cb348c93429abceb667728efce2976a0392f55cfcdeb943e34f",
+        "outcome": {
+          "findings": [],
+          "needs": {
+            "markers": [
+              "export-control-banner"
+            ],
+            "observation": "marker-scan"
+          },
+          "reason": "marker(s) export-control-banner were added after this record was observed; the record holds no count for them",
+          "verdict": "INDETERMINATE"
+        },
+        "params_digest": "sha256:819b3027071494c57e1020704a3fbb22baa3297375220e7aaee07eaacccfbdee",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+          "reason": "8 marker(s) enforced, none present across 1 scanned file(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "portability",
+        "observation": "near-boundary",
+        "observation_digest": "sha256:35cc01512dc76c7d79d9b696fc81319709baa89b913ed24c0ed9591a14b6e392",
+        "outcome": {
+          "findings": [],
+          "reason": "no comparison within 1e-12 relative of its bound across 11 comparison(s)",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "reason": "no comparison within 1e-12 relative of its bound across 11 comparison(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "references-present",
+        "observation": "spec-shape",
+        "observation_digest": "sha256:a04009a31c11fb8c46705e30d480ab77ea5a95d7bebb679d4813838bc2139c70",
+        "outcome": {
+          "findings": [],
+          "needs": {
+            "fields": [
+              "has_references_dir"
+            ],
+            "observation": "spec-shape"
+          },
+          "reason": "observation 'spec-shape' does not record has_references_dir",
+          "verdict": "INDETERMINATE"
+        },
+        "params_digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "spec-shape",
+        "observation": "spec-shape",
+        "observation_digest": "sha256:a04009a31c11fb8c46705e30d480ab77ea5a95d7bebb679d4813838bc2139c70",
+        "outcome": {
+          "findings": [],
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "stdlib-only",
+        "observation": "import-surface",
+        "observation_digest": "sha256:ee0d779a376c87bd75722262bbdb69cd53d7d2c6de3d4d8f2ecf2a59a0e21a04",
+        "outcome": {
+          "findings": [],
+          "reason": "retired from checker set 'beyond-the-record-2026-09-19'",
+          "verdict": "WITHDRAWN"
+        },
+        "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+          "reason": "1 non-stdlib import(s)",
+          "verdict": "FAIL"
+        }
+      }
+    ],
+    "issued": {
+      "at": "2026-09-19T00:15:02Z",
+      "by": "ashforde-conformance",
+      "tool": "aero-evidence/1.0.0"
+    },
+    "leaf": {
+      "algorithm": "sha256",
+      "byte_count": 34851,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 3,
+      "files": [
+        {
+          "digest": "sha256:1de901f9797a93a8101843b422c7679458d66d7351cd289a38cffaa09ab063c4",
+          "path": "SKILL.md"
+        },
+        {
+          "digest": "sha256:ca62022b71de394777a0156519fc43c16dfa547cc3879bba7e8c2ccfaeb28c4b",
+          "path": "scripts/active_disturbance_rejection_control_logic.py"
+        },
+        {
+          "digest": "sha256:c17109766fdd095c6f29263376002941a21636e4b425ecd2b0c5042a5beef580",
+          "path": "scripts/test_active_disturbance_rejection_control.py"
+        }
+      ],
+      "leaf_digest": "sha256:e3664749cc773deb35d32695b807a955afb833b079d69e7ea00eb4840325c542",
+      "ref": "skills/gnc-autonomy/control/active-disturbance-rejection-control"
+    },
+    "observations": {
+      "contract-test": {
+        "modules": [
+          {
+            "errors": 0,
+            "expected_failures": 0,
+            "failures": 0,
+            "instrumented": true,
+            "load_error": null,
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "outcomes": [
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_at_pole"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_off_pole_samples"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_rejects_nonpositive_bandwidth"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_controller_gains_rejects_nonpositive_bandwidth"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_controller_gains_worked"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_observer_gains_rejects_nonpositive_bandwidth"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBandwidthParameterization.test_observer_gains_worked"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDeterminism.test_module_constants_pinned"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDeterminism.test_repeated_runs_are_identical"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDisturbanceCancellationIdentity.test_cancellation_residual_rejects_zero_b0"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDisturbanceCancellationIdentity.test_cancellation_residual_zero_when_estimate_matches"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDisturbanceCancellationIdentity.test_control_law_matches_cancellation_residual_arithmetic"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDisturbanceCancellationIdentity.test_control_law_rejects_zero_b0"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFixedPointArithmetic.test_total_disturbance_phase_one"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFixedPointArithmetic.test_total_disturbance_phase_two"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIdealClosedForm.test_ideal_euler_matches_closed_form_at_half_second"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIdealClosedForm.test_ideal_euler_matches_closed_form_at_one_second"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIdealClosedForm.test_ideal_euler_matches_closed_form_at_quarter_second"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIdealLoopComparison.test_max_deviation_over_full_horizon"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIdealLoopComparison.test_max_deviation_over_settled_window"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIdealLoopComparison.test_observer_lag_deficit_at_one_second"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestMismatchRobustness.test_bias_equals_gain_mismatch_times_command"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestMismatchRobustness.test_command_and_estimate_carry_bias"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestMismatchRobustness.test_output_still_settles_at_reference"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestMismatchRobustness.test_settled_window_error_small"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_nonpositive_dt"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_nonpositive_sim_time"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_omega_o_not_exceeding_omega_c"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_t_step_outside_horizon"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_zero_b0"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_zero_omega_c"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSimulateAdrcValueErrors.test_rejects_zero_omega_o"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_beta_and_gains_reported"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_final_command_and_estimate"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_final_tracking_error_small"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_peak_step_excursion"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_sample_count"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_sample_points_phase_one"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_sample_points_phase_two"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedAdrcRun.test_settled_window_residuals"
+              }
+            ],
+            "skipped": 0,
+            "tests_run": 40,
+            "unexpected_successes": 0
+          }
+        ],
+        "observation": "contract-test",
+        "runner": "stdlib-unittest",
+        "totals": {
+          "errors": 0,
+          "expected_failures": 0,
+          "failures": 0,
+          "modules": 1,
+          "skipped": 0,
+          "tests_run": 40,
+          "unexpected_successes": 0
+        },
+        "version": "1.0.0"
+      },
+      "desc-lint": {
+        "action_verb_vocabulary_version": "1.0.0",
+        "action_verbs_found": [
+          "audit",
+          "design",
+          "estimate",
+          "run",
+          "simulate"
+        ],
+        "char_count": 999,
+        "has_trigger_label": true,
+        "has_use_when_clause": true,
+        "observation": "desc-lint",
+        "present": true,
+        "trigger_keyword_count": 7,
+        "version": "1.0.0",
+        "word_count": 113
+      },
+      "import-surface": {
+        "extraction": "ast",
+        "modules": [
+          {
+            "imports": [
+              "math"
+            ],
+            "module": "scripts/active_disturbance_rejection_control_logic.py",
+            "parse_error": null,
+            "sibling_resolved": []
+          },
+          {
+            "imports": [
+              "importlib",
+              "math",
+              "os",
+              "unittest"
+            ],
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "parse_error": null,
+            "sibling_resolved": []
+          }
+        ],
+        "observation": "import-surface",
+        "version": "1.0.0"
+      },
+      "marker-scan": {
+        "files_scanned": [
+          {
+            "chars": 15083,
+            "digest": "sha256:1de901f9797a93a8101843b422c7679458d66d7351cd289a38cffaa09ab063c4",
+            "path": "SKILL.md"
+          }
+        ],
+        "longest_quoted_span_chars": 58,
+        "marker_counts": {
+          "all-rights-reserved": 0,
+          "confidentiality-banner": 0,
+          "dated-copyright-notice": 0,
+          "licence-agreement-banner": 0,
+          "licensed-to-banner": 0,
+          "redistribution-bar": 0,
+          "rights-management-banner": 0,
+          "single-user-licence": 0
+        },
+        "marker_ids": [
+          "all-rights-reserved",
+          "confidentiality-banner",
+          "dated-copyright-notice",
+          "licence-agreement-banner",
+          "licensed-to-banner",
+          "redistribution-bar",
+          "rights-management-banner",
+          "single-user-licence"
+        ],
+        "marker_set_digest": "sha256:ebd947e6113e971146bdb95d62996b0945755fe2ec288b184debab41af068374",
+        "marker_set_version": "1.0.0",
+        "observation": "marker-scan",
+        "quote_scan_scope": "prose only; SKILL.md front matter is excluded",
+        "quoted_spans_over_40_chars": 2,
+        "version": "1.0.0"
+      },
+      "near-boundary": {
+        "all_recorded": true,
+        "comparisons_total": 11,
+        "gap_floor": null,
+        "mirrors_gate": "portability",
+        "observation": "near-boundary",
+        "recorded_cap": 64,
+        "tightest": [
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_at_pole"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_off_pole_samples"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_off_pole_samples"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestBandwidthParameterization.test_char_poly_residual_off_pole_samples"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "9.1984326521699e-06",
+            "test": "__main__.TestWorkedAdrcRun.test_settled_window_residuals"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "9.19846493334763e-06",
+            "test": "__main__.TestIdealLoopComparison.test_max_deviation_over_settled_window"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "9.797512249211096e-06",
+            "test": "__main__.TestWorkedAdrcRun.test_final_tracking_error_small"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "9.727760674428368e-05",
+            "test": "__main__.TestMismatchRobustness.test_settled_window_error_small"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "9.859695920712e-05",
+            "test": "__main__.TestWorkedAdrcRun.test_settled_window_residuals"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "0.003958874713211213",
+            "test": "__main__.TestIdealLoopComparison.test_observer_lag_deficit_at_one_second"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_active_disturbance_rejection_control.py",
+            "relative_gap": "0.010827839587238302",
+            "test": "__main__.TestIdealLoopComparison.test_max_deviation_over_full_horizon"
+          }
+        ],
+        "version": "1.0.0"
+      },
+      "spec-shape": {
+        "absolute_link_count": 0,
+        "body_lines": 245,
+        "compliance": "STANDARDS-REF",
+        "description_chars": 999,
+        "directory_name": "active-disturbance-rejection-control",
+        "domain": "gnc-autonomy",
+        "gated": false,
+        "has_scripts_dir": true,
+        "keys_present": [
+          "compatibility",
+          "compliance",
+          "description",
+          "domain",
+          "gated",
+          "license",
+          "metadata",
+          "name",
+          "pack",
+          "standards"
+        ],
+        "license": "Apache-2.0",
+        "logic_modules": [
+          "scripts/active_disturbance_rejection_control_logic.py"
+        ],
+        "markdown_link_count": 0,
+        "metadata_author_present": true,
+        "metadata_version": "0.1.0",
+        "name": "active-disturbance-rejection-control",
+        "name_matches_directory": true,
+        "observation": "spec-shape",
+        "pack": "control",
+        "standards": [
+          {
+            "id": "arp4754a",
+            "reference_only": true
+          }
+        ],
+        "test_modules": [
+          "scripts/test_active_disturbance_rejection_control.py"
+        ],
+        "version": "1.0.0"
+      }
+    },
+    "standards": {
+      "edition_gaps": [
+        "arp4754a"
+      ],
+      "editions_overlay": {
+        "digest": null,
+        "present": false,
+        "ref": "tools/evidence/standards-editions.json"
+      },
+      "in_scope": [
+        {
+          "designation": "ARP4754A",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "guidance",
+          "gated": true,
+          "id": "arp4754a",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:a27a8ef462e6cd606eb034e0895c07b948fb235e8250010d7b227ca050e608ea",
+          "publisher": "SAE International",
+          "resolved": true,
+          "revision_token": "A",
+          "status": "proprietary-sold",
+          "title": "ARP4754A: Guidelines for Development of Civil Aircraft and Systems"
+        }
+      ],
+      "map": {
+        "digest": "sha256:90692e66181274392e351b0f313136898f2c4b2434282e5c283af3d6c2102b0f",
+        "entry_count": 30,
+        "ref": "standards-map.yaml"
+      },
+      "spec": "aero-evidence-standards/1"
+    },
+    "subject": {
+      "domain": "gnc-autonomy",
+      "kind": "leaf",
+      "name": "active-disturbance-rejection-control",
+      "pack": "control",
+      "ref": "skills/gnc-autonomy/control/active-disturbance-rejection-control"
+    },
+    "verdict": {
+      "counts": {
+        "INDETERMINATE": 3,
+        "PASS": 3,
+        "WITHDRAWN": 1
+      },
+      "gates": 7,
+      "overall": "INDETERMINATE"
+    },
+    "versions": {
+      "harness_runtime": {
+        "components": {
+          "canonicalization": "json-c14n/1",
+          "corpus_digest_spec": "aero-corpus-digest/1",
+          "observation_specs": {
+            "contract-test": "1.0.0",
+            "desc-lint": "1.0.0",
+            "import-surface": "1.0.0",
+            "marker-scan": "1.0.0",
+            "near-boundary": "1.0.0",
+            "spec-shape": "1.0.0"
+          },
+          "observer_set": "1.0.0",
+          "record_schema": "1.0.0",
+          "tool": "aero-evidence/1.0.0"
+        },
+        "id": "aero-evidence-harness",
+        "version": "1.0.0"
+      },
+      "specification": {
+        "id": "aero-conformance-spec",
+        "note": "no separately published conformance specification exists yet; this version is the tool's declaration of the contract it implements, bound to the in-tree harness contract by digest",
+        "source_digest": "sha256:8f90dcb0a85e51689c86e1178810f1c36b745950b27ed2709d24007cea7431b7",
+        "source_ref": "docs/harness-contract.md",
+        "version": "0.1.0-draft"
+      }
+    }
+  },
+  "kind": "aero.evidence.record",
+  "record_id": "er_3b77f3a870dee519",
+  "schema_version": "1.0.0",
+  "seal": {
+    "algorithm": "sha256",
+    "binds": "integrity",
+    "body_digest": "sha256:3b77f3a870dee51981f0aeb324ad0f5745616e610e2b1a0ad084bb5f63c6baaf",
+    "canonicalization": "json-c14n/1"
+  },
+  "telemetry": {
+    "note": "regrade executed no work; run telemetry lives on the parent",
+    "parent_record_id": "er_f730c77cd6ea0e80"
+  }
+}

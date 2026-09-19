@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-acceptance-rejection-criteria (space-systems/ecss)
+# ar1 routes on turning per-category inspection findings into a disposition;
+# ar2 routes on what a rejected sample does to the lot behind it. Both must
+# deterministically hit space-systems/ecss/q7026-acceptance-rejection-criteria.
+tasks:
+  - id: ar1
+    query: "the crimp inspection sheet lists a missing bellmouth, an off-centre tool witness mark and two cut strands on a nineteen strand conductor, work out whether that termination is accepted, reworked or rejected"
+    intent: "ECSS-Q-ST-70-26C acceptance clause; per-defect-category severity with the worst finding governing, and a strand-damage allowance that scales with the strand count"
+    expected_skill: "space-systems/ecss/q7026-acceptance-rejection-criteria"
+  - id: ar2
+    query: "one sample out of the crimp lot we inspected failed its pull-off force against the minimum for that conductor size, decide what happens to the rest of the lot"
+    intent: "ECSS-Q-ST-70-26C acceptance clause; a rejected sample escalates a sampled inspection to full inspection rather than discarding the one bad unit"
+    expected_skill: "space-systems/ecss/q7026-acceptance-rejection-criteria"

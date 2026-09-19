@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7053-specimen-selection (space-systems/ecss)
+# Two tasks for the new leaf. spec1 routes on reducing a coupon pool to a
+# defensible test set with worst-case specimens, replicates and unexposed
+# controls; spec2 routes on the coupon thickness representativeness rule and
+# the uncovered-family finding. Both must deterministically hit
+# space-systems/ecss/q7053-specimen-selection.
+tasks:
+  - id: spec1
+    query: "I have a tray of coupons across two material families and need the sterilization compatibility test set - pick the worst-case specimen per family, fill it to three replicates and attach an unexposed control from the same lot"
+    intent: "ECSS-Q-ST-70-53 test item clause; least-margin specimen per material family against the dominant stressor, replicate filling, unexposed control from the worst-case lot"
+    expected_skill: "space-systems/ecss/q7053-specimen-selection"
+  - id: spec2
+    query: "one polyamide coupon is 0.05 mm and another is 40 mm while the flight parts run 1 to 4 mm, and we have no coupon at all for the titanium family - tell me what my compatibility specimen set actually covers"
+    intent: "ECSS-Q-ST-70-53 test item clause; a coupon outside the flight thickness range is set aside rather than counted toward coverage, and a material family with no specimen is a finding"
+    expected_skill: "space-systems/ecss/q7053-specimen-selection"

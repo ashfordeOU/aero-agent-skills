@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-maximum-dielectric-resistivity-limit (space-systems/ecss)
+# Case 1 routes on deriving the bulk ceiling from the allowable potential, the
+# bounding current density and the thickness. Case 2 routes on the coating branch:
+# a sheet ceiling along the bleed path and what a failing coating leaves behind.
+tasks:
+  - id: e2006-maximum-dielectric-resistivity-limit-1
+    query: "We need the highest resistivity a 125 micron external dielectric may carry. How do the allowable differential potential and the bounding charging current density set that bulk ceiling through the thickness, and what if no allowable potential was ever fixed?"
+    intent: "ECSS-E-ST-20-06C clause 6.2.2; the bulk ceiling scales with the allowable potential over the current density and the thickness, and an unset allowable is a finding rather than a silent default"
+    expected_skill: "space-systems/ecss/e2006-maximum-dielectric-resistivity-limit"
+  - id: e2006-maximum-dielectric-resistivity-limit-2
+    query: "Our external dielectric sits above its bulk resistivity ceiling, so the design adds a conductive coating grounded through a bleed path. How is the sheet resistivity ceiling derived for that path, and does a coating failing its own ceiling leave the dielectric unmitigated?"
+    intent: "ECSS-E-ST-20-06C clause 6.2.2; the sheet ceiling follows the bleed-path geometry rather than the thickness, and a coating that misses it leaves the item non-compliant instead of mitigated"
+    expected_skill: "space-systems/ecss/e2006-maximum-dielectric-resistivity-limit"

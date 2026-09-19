@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-propulsion-ground-test-limitations (space-systems/ecss)
+# Case 1 routes on the operating-point pressure the throughput sets and on
+# sizing the pump. Case 2 routes on what makes an effect established rather
+# than merely named.
+tasks:
+  - id: e2006-propulsion-ground-test-limitations-1
+    query: "With the pumps on and nothing firing the chamber reads a low base pressure, but our thruster throws 5 mg per second of xenon into it. What operating pressure does that propellant throughput give, and what pump holds the facility target?"
+    intent: "ECSS-E-ST-20-06C clause 11.3.1; the pressure that matters is throughput over pumping speed at the operating point, and the same relation inverted sizes the pump"
+    expected_skill: "space-systems/ecss/e2006-propulsion-ground-test-limitations"
+  - id: e2006-propulsion-ground-test-limitations-2
+    query: "Our report lists chamber wall sputtering and plume truncation as known limitations with numbers attached, but never says which measured quantity each one moves or whether a correction was applied. Is that enough to call the firing flight-representative?"
+    intent: "ECSS-E-ST-20-06C clause 11.3.1; an effect counts as established only with a magnitude, the quantity it influences and either a correction or a justified negligibility"
+    expected_skill: "space-systems/ecss/e2006-propulsion-ground-test-limitations"

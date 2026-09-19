@@ -1,0 +1,13 @@
+# Hit@1 fragment: e4008-task (space-systems/ecss)
+# tsk1 routes on the flattened order a triggered task produces; tsk2 routes on
+# the atomicity rule and the invocation cycle, which no single task reveals.
+# Both must deterministically hit space-systems/ecss/e4008-task.
+tasks:
+  - id: tsk1
+    query: "in this simulation schedule one task invokes another halfway through its own steps; expand that nested invocation in place and tell me the flattened order of activities a single trigger really produces when the entry fires"
+    intent: "ECSS-E-ST-40-08C clause 5.4.4; expand nested task invocations in place to get the single ordered activity sequence a trigger produces"
+    expected_skill: "space-systems/ecss/e4008-task"
+  - id: tsk2
+    query: "check whether any of my scheduled tasks calls its way back round to itself, and whether a step that declares a duration belongs in one at all"
+    intent: "ECSS-E-ST-40-08C clause 5.4.4; whole-graph invocation cycle detection and the single-scheduling-point atomicity rule on task steps"
+    expected_skill: "space-systems/ecss/e4008-task"

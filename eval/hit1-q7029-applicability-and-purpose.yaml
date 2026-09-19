@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-applicability-and-purpose (space-systems/ecss)
+# app1 routes on scope following the crew atmosphere and on containment only
+# counting when it has no vent path; app2 routes on the material-level versus
+# assembled-article route. Both must deterministically hit
+# space-systems/ecss/q7029-applicability-and-purpose.
+tasks:
+  - id: app1
+    query: "this stowage bag hangs in the crew cabin and its contents sit in a vented liner - decide whether it shares breathable atmosphere at all, then weigh its exposed mass against the free cabin volume before we book any offgassing test"
+    intent: "ECSS-Q-ST-70-29 scope; the crew atmosphere decides scope rather than the item's function, and only a containment with no vent path removes the exposure"
+    expected_skill: "space-systems/ecss/q7029-applicability-and-purpose"
+  - id: app2
+    query: "we hold vacuum outgassing numbers for this foam and an old offgassing report for an earlier build of the same panel - say whether either covers what it releases into cabin air as flown, or whether the finished article owes its own run"
+    intent: "ECSS-Q-ST-70-29 scope; offgassing into breathable cabin air is a different determination from vacuum outgassing, and a prior report only carries if it still covers the article as flown"
+    expected_skill: "space-systems/ecss/q7029-applicability-and-purpose"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-hot-redundant-operation-of-ground-network-nodes
+# (space-systems/ecss). hot1 routes on the hot-versus-standby distinction;
+# hot2 routes on the k-of-n term with the switchover gap charged. Both must
+# deterministically hit
+# space-systems/ecss/e50-hot-redundant-operation-of-ground-network-nodes.
+tasks:
+  - id: hot1
+    query: "the design calls the second ground network node a hot spare but it needs two minutes to boot and resync before it can serve, tell me whether that still counts as hot redundancy and what the failover actually costs"
+    intent: "ECSS-E-ST-50C clause 5.8.5; a spare needing start-up or state recovery time is a standby node, and those seconds belong in the service gap rather than being assumed away"
+    expected_skill: "space-systems/ecss/e50-hot-redundant-operation-of-ground-network-nodes"
+  - id: hot2
+    query: "two of three ground station nodes have to be up at once, work out the availability that leaves once the switchover gap is charged and how many hot nodes it takes to hit the target"
+    intent: "ECSS-E-ST-50C clause 5.8.5; the redundancy term is a binomial tail over the node count, the switchover gap is an additive unavailability on top, and a node count sized against the tail alone comes up short once the gap is charged"
+    expected_skill: "space-systems/ecss/e50-hot-redundant-operation-of-ground-network-nodes"

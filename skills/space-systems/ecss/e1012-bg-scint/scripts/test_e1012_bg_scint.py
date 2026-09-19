@@ -34,9 +34,27 @@ class TestBeta(unittest.TestCase):
         self.assertAlmostEqual(beta(0.0, "electron"), 0.0)
 
     def test_ultra_relativistic_electron_approaches_one(self):
+        # v < c is a physical invariant, not an engineering limit, so it is
+        # asserted exactly - as a strictly positive deficit rather than a bare
+        # "b < 1.0". For b in [0.5, 1] the subtraction 1.0 - b is exact, so
+        # this is the same predicate with the margin named and checked rather
+        # than left implicit. The margin is real and large: b sits ~1.2e3
+        # representable doubles below 1.0, not the one or two a libm could
+        # disagree by, and IEEE-754 requires sqrt to be correctly rounded.
+        # The size of the deficit is checked against the independent analytic
+        # limit 1 - beta -> (m0c2 / E_total)^2 / 2, which does not reuse the
+        # expression the implementation evaluates. That check cannot be tight:
+        # only ~1.2e3 doubles separate b from one, so 1 - b carries the
+        # deficit to about 8.5e-4 relative. 1 % is therefore the honest
+        # tolerance here, and it still catches a wrong mass, a wrong energy or
+        # a lost factor of two.
         b = beta(1e6, "electron")   # 1 TeV electron
+        deficit = 1.0 - b
+        self.assertGreater(deficit, 0.0)
         self.assertGreater(b, 0.9999)
-        self.assertLess(b, 1.0)
+        m0c2 = PARTICLES["electron"][0]
+        analytic_deficit = 0.5 * (m0c2 / (1e6 + m0c2)) ** 2
+        self.assertAlmostEqual(deficit / analytic_deficit, 1.0, places=2)
 
     def test_proton_at_1000_mev_kinetic(self):
         # E_total = 1938.272 MeV, β = sqrt(1-(938.272/1938.272)²) ≈ 0.875

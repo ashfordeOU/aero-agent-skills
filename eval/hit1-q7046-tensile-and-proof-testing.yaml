@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-tensile-and-proof-testing (space-systems/ecss)
+# tp1 routes on deriving the proof and ultimate acceptance loads from the
+# thread stress area and property class; tp2 routes on a specimen that broke
+# in the grips. Both must deterministically hit
+# space-systems/ecss/q7046-tensile-and-proof-testing.
+tasks:
+  - id: tp1
+    query: "what proof load and what minimum breaking load does an M8 by 1.25 class 10.9 bolt have to take, and how much permanent set is the specimen allowed to keep after the proof load is released"
+    intent: "ECSS-Q-ST-70-46 testing clause; thread stress area from nominal diameter and pitch, proof and ultimate stresses from the property class with its diameter split, permanent-set limit on the proof specimen"
+    expected_skill: "space-systems/ecss/q7046-tensile-and-proof-testing"
+  - id: tp2
+    query: "one tensile specimen snapped inside the jaws well below the acceptance load and another broke at the head fillet above it, how do I score each of those against the lot"
+    intent: "ECSS-Q-ST-70-46 testing clause; fracture location decides whether a breaking load counts, an in-grip break invalidates the specimen and a head-fillet break fails at any load"
+    expected_skill: "space-systems/ecss/q7046-tensile-and-proof-testing"

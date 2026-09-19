@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-level-2-simulator-isimulatorl2-requirements
+# (space-systems/ecss). Two tasks for the new leaf. l21 routes on the level 1
+# operation the level 2 interface dropped and the invented one it added; l22
+# routes on the widened state guard and the hold that is undefined when the run
+# is already held. Both must deterministically hit
+# space-systems/ecss/e4008-level-2-simulator-isimulatorl2-requirements.
+tasks:
+  - id: l21
+    query: "our level 2 simulator interface exposes hold, store and step but the configure call from the lower interface is gone and somebody added a rewind - is this still a valid extension"
+    intent: "ECSS-E-ST-40-08C clause 5.5.4.2; the level 2 interface as a superset of level 1 and the refusal of operations outside the declared sets"
+    expected_skill: "space-systems/ecss/e4008-level-2-simulator-isimulatorl2-requirements"
+  - id: l22
+    query: "store is documented as callable while the simulator is running, calling hold on an already held run is undefined, and a step of zero ticks is accepted - grade the interface"
+    intent: "ECSS-E-ST-40-08C clause 5.5.4.2; per-operation state guards, hold and resume idempotence and the bounded step duration of a level 2 simulator"
+    expected_skill: "space-systems/ecss/e4008-level-2-simulator-isimulatorl2-requirements"

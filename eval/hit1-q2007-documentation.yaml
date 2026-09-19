@@ -1,0 +1,15 @@
+# Hit@1 fragment: q2007-documentation (space-systems/ecss)
+# Two tasks for the new leaf. doc1 routes on the superseded-issue-on-the-floor
+# case that must not be merged with an unapproved one; doc2 routes on retention
+# and test-data traceability, where a pointer at a record nobody holds passes a
+# presence check. Both must deterministically hit
+# space-systems/ecss/q2007-documentation.
+tasks:
+  - id: doc1
+    query: "our test centre floor is circulating a superseded issue of a procedure alongside the current one, and neither carries an approval signature - say which control that breaks, and what else the document register should be checked for"
+    intent: "ECSS-Q-ST-20-07 clause 5.2.1; a superseded issue still circulating is a live-issue defect, separate from a document circulating with no approval behind it"
+    expected_skill: "space-systems/ecss/q2007-documentation"
+  - id: doc2
+    query: "go through our test centre data archive and tell me which sets have a backup, integrity evidence behind them, and a pointer that still resolves to a real record - and whether the retention period holds long enough before disposal"
+    intent: "ECSS-Q-ST-20-07 clause 5.2.1; test-data integrity evidence, backup and a traceability pointer that resolves, plus retention against the centre floor and each record's own period"
+    expected_skill: "space-systems/ecss/q2007-documentation"

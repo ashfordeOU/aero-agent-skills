@@ -1,0 +1,16 @@
+# Hit@1 fragment: e3311-explosive-components-common-initiator-properties
+# (space-systems/ecss). Two tasks for the new leaf. eccip1 routes on the
+# two-ended temperature containment and service-life side of the common
+# property table; eccip2 routes on the seal, insulation and autoignition side
+# and on which properties a packaged charge does not carry. Both must
+# deterministically hit
+# space-systems/ecss/e3311-explosive-components-common-initiator-properties.
+tasks:
+  - id: eccip1
+    query: "the detonator is qualified from minus 60 to plus 90 and the mission asks for minus 40 to plus 70, it sits on a shelf five years then flies seven, and the datasheet quotes a 10 year life, does it clear the common requirements"
+    intent: "ECSS-E-ST-33-11C clauses 4.11.1 to 4.11.2 table 4-3; qualified temperature range containing the mission range with margin reported separately at each end, and declared service life covering storage plus mission"
+    expected_skill: "space-systems/ecss/e3311-explosive-components-common-initiator-properties"
+  - id: eccip2
+    query: "go through the properties that apply to every energetic part we fly, the seal leak rate, the insulation reading and the voltage it was taken at, and how close the autoignition point sits to the hottest the part ever gets"
+    intent: "ECSS-E-ST-33-11C clauses 4.11.1 to 4.11.2 table 4-3; common properties applied per component kind, with function time excluded from a packaged charge and a missing declaration rejected rather than assumed"
+    expected_skill: "space-systems/ecss/e3311-explosive-components-common-initiator-properties"

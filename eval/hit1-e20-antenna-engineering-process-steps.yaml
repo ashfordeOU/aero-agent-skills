@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-antenna-engineering-process-steps (space-systems/ecss)
+# Case 1 routes on the ordering gate: a later activity closed while an earlier one
+# is still open, and what the project may enter next. Case 2 routes on the
+# geometry-to-pattern conversion and whether the concept can hold the link gain.
+tasks:
+  - id: e20-antenna-engineering-process-steps-1
+    query: "Our RF group has already signed off the coverage and pattern spec for the payload antenna, but the transmission and reception study behind it is still open and the link demand was assumed. Under the ECSS electrical standard is that a finding, and which activity are we allowed to start next?"
+    intent: "ECSS-E-ST-20C clause 7.2.1.2.2; the case turns on predecessor completion and entry-data availability gating the next step, not on any antenna calculation"
+    expected_skill: "space-systems/ecss/e20-antenna-engineering-process-steps"
+  - id: e20-antenna-engineering-process-steps-2
+    query: "From an 800 km orbit we must cover a 1400 km ground radius and the link asks for 21 dBi with 60 percent aperture efficiency. What half-angle does the footprint edge subtend at the spacecraft, what beamwidth does that force, and can one beam that wide still reach 21 dBi once efficiency is paid?"
+    intent: "ECSS-E-ST-20C clause 7.2.1.2.2; the case turns on turning orbit geometry into beamwidth and directivity and testing the concept's achievable gain against the link demand"
+    expected_skill: "space-systems/ecss/e20-antenna-engineering-process-steps"

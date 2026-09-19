@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-emc-measurement-tolerances (space-systems/ecss)
+# Case 1 routes on the separation allowance and why it carries an absolute floor.
+# Case 2 routes on the band-dependent sweep parameters and the uncertainty combination.
+tasks:
+  - id: e2007-emc-measurement-tolerances-1
+    query: "Our radiated emission setup is nominally at one metre but the fixture holds 0.96 metres. The fractional allowance alone leaves a band no fixture can keep. How does the absolute floor on separation work alongside the percentage one at that point?"
+    intent: "ECSS-E-ST-20-07C 5.2.1; the separation is judged against the greater of the fractional allowance and the absolute floor, which is what makes a short separation workable"
+    expected_skill: "space-systems/ecss/e2007-emc-measurement-tolerances"
+  - id: e2007-emc-measurement-tolerances-2
+    query: "Sweeping across a band edge, which point's frequency-band fixes the scan-step allowance to the following point and the minimum dwell? And do the calibration, cable and receiver terms of my measurement-uncertainty budget add arithmetically or as a root-sum-square?"
+    intent: "ECSS-E-ST-20-07C 5.2.1; the step allowance belongs to the band the sweep is stepping from, and independent uncertainty terms combine in quadrature rather than arithmetically"
+    expected_skill: "space-systems/ecss/e2007-emc-measurement-tolerances"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-telemetry-packet-secondary-header (space-systems/ecss)
+# Two tasks for the new leaf. tpsh1 routes on the mission-configured field widths and
+# the octet boundary the user data field has to start on; tpsh2 routes on the modulo
+# message type counter and telling a rollover from a lost report. Both must
+# deterministically hit
+# space-systems/ecss/e7041-telemetry-packet-secondary-header.
+tasks:
+  - id: tpsh1
+    query: "Our mission gave the destination identifier fewer bits and widened the spacecraft time field in the PUS secondary header. Does the layout still come out octet-aligned, where does each field start now, and do the type and subtype identifiers still range-check?"
+    intent: "ECSS-E-ST-70-41C clause 7.4.3.1; mission-configured secondary header field set and widths, contiguous offsets and the octet boundary the user data field begins on"
+    expected_skill: "space-systems/ecss/e7041-telemetry-packet-secondary-header"
+  - id: tpsh2
+    query: "the message type counter on this housekeeping report went from 65535 to 0 and the ground tool logged thousands of missing packets, tell me which of these steps are real losses and which are the field rolling over"
+    intent: "ECSS-E-ST-70-41C clause 7.4.3.1; the message type counter is a modulo counter per service type and subtype, so a wrap is normal, a repeat is a duplicate and a jump is a loss"
+    expected_skill: "space-systems/ecss/e7041-telemetry-packet-secondary-header"

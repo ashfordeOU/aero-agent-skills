@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-rejected-lot-disposition (space-systems/ecss)
+# Two tasks for the new leaf. rld1 routes on which recovery routes are open
+# to an already-refused batch. rld2 routes on the waiver that cannot cover a
+# hermeticity failure and on scrapping as the fallback. Both must
+# deterministically hit space-systems/ecss/q6005-rejected-lot-disposition.
+tasks:
+  - id: rld1
+    query: "the hybrid batch has been refused and the programme wants to know whether we can rework it, screen it down to a lower grade or have to bin it, and what each of those routes commits us to"
+    intent: "ECSS-Q-ST-60-05C clause 10.4.3; the disposition routes open to a refused hybrid batch and the approvals and records each one drags with it"
+    expected_skill: "space-systems/ecss/q6005-rejected-lot-disposition"
+  - id: rld2
+    query: "the customer has offered to sign a concession so we can ship the refused units as they are, but the defect is a leaking seal, decide what may actually be done with this material"
+    intent: "ECSS-Q-ST-60-05C clause 10.4.3; the limits of a use-as-is waiver on a refused lot, scrapping with defacement as the fallback, and notification before dispositioning"
+    expected_skill: "space-systems/ecss/q6005-rejected-lot-disposition"

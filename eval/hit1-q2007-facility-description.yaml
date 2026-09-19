@@ -1,0 +1,15 @@
+# Hit@1 fragment: q2007-facility-description (space-systems/ecss)
+# Two tasks for the new leaf. fac1 routes on the per-facility register entry and
+# its environmental limits; fac2 routes on screening a customer demand against
+# one facility envelope, where a demand on an undeclared parameter is not the
+# same as an exceedance. Both must deterministically hit
+# space-systems/ecss/q2007-facility-description.
+tasks:
+  - id: fac1
+    query: "audit the facility sheets for our test centre - each chamber's capabilities, the environmental limits it can actually hold, and the governing documents - and tell me which sheet cannot support a booking"
+    intent: "ECSS-Q-ST-20-07 clause 5.2.2; facility register completeness taken entry by entry, with capability coverage against what the centre declares it sells"
+    expected_skill: "space-systems/ecss/q2007-facility-description"
+  - id: fac2
+    query: "we need to place a customer demand of minus 170 kelvin with a simultaneous vibration level on one of our facilities; screen it against that entry's declared envelope, say how much margin each bound leaves, and flag any parameter the register never declared"
+    intent: "ECSS-Q-ST-20-07 clause 5.2.2; screening a demanded envelope against a facility's declared limits, separating an exceeded bound from a parameter the sheet never declared"
+    expected_skill: "space-systems/ecss/q2007-facility-description"

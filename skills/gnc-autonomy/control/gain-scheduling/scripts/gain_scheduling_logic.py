@@ -19,6 +19,9 @@ gains in whatever units the controller uses (dimensionless, per rad, per
 m/s, and so on). ARP4754A supplies the development-assurance context;
 the interpolation math is common knowledge, paraphrase only.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 
 def _normalize_table(table):

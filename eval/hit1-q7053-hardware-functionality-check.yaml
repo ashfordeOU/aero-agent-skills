@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7053-hardware-functionality-check (space-systems/ecss)
+# tr1 routes on intermittency across a repeated-actuation series; tr2 routes
+# on the criticality-weighted index and the safety-critical override. Both
+# must deterministically hit
+# space-systems/ecss/q7053-hardware-functionality-check.
+tasks:
+  - id: tr1
+    query: "the latch actuated twenty times after the sterilization exposure and the mean actuation time sits inside the window but two individual strokes did not, is that a pass"
+    intent: "ECSS-Q-ST-70-53C post-exposure functional evaluation; a repeated-actuation series graded sample by sample, intermittency when the mean is inside but a stroke is not"
+    expected_skill: "space-systems/ecss/q7053-hardware-functionality-check"
+  - id: tr2
+    query: "work out the criticality-weighted functional index for this assembly after exposure and tell me whether a safety-critical insulation resistance floor breach can be outweighed by a healthy index and a positive mechanism actuation margin"
+    intent: "ECSS-Q-ST-70-53C post-exposure functional evaluation; criticality weighting, actuation margin against the factored resisting load, safety-critical loss overriding the index"
+    expected_skill: "space-systems/ecss/q7053-hardware-functionality-check"

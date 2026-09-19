@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6012-die-procurement-general-approach (space-systems/ecss)
+# Two tasks for the new leaf. dpga1 routes on sizing the wafer start back from a
+# flight quantity through the per-stage yields. dpga2 routes on the route stages
+# that name no owner and no exit criterion. Neither is the clause-map leaf
+# (q6012-die-mmic-procurement-overview) nor the die eligibility leaf
+# (q6012-die-selection-general-requirements). Both must deterministically hit
+# space-systems/ecss/q6012-die-procurement-general-approach.
+tasks:
+  - id: dpga1
+    query: "I need 400 accepted microwave dies at the end of the line and the fab gives me 200 per wafer; with the yields we have at fab, screening and lot acceptance, how many wafers do I have to start, and does the count still work once every stage is floored to whole parts"
+    intent: "ECSS-Q-ST-60-12C clause 10.1; wafer start sized back from the delivered quantity through the cumulative survival fraction, then stepped up until the floored projection meets the target"
+    expected_skill: "space-systems/ecss/q6012-die-procurement-general-approach"
+  - id: dpga2
+    query: "walk the whole die route from wafer fabrication through to delivery acceptance and tell me which stages nobody owns and which have no criterion for being closed, plus anything declared out of sequence"
+    intent: "ECSS-Q-ST-60-12C clause 10.1; end-to-end die route integrity, stage ownership, exit criteria and sequence"
+    expected_skill: "space-systems/ecss/q6012-die-procurement-general-approach"

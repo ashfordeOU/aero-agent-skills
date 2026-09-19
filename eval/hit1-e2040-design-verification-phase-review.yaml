@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-design-verification-phase-review (space-systems/ecss)
+# Two tasks for the new leaf. dvpr1 routes on the three-way gate verdict and the action
+# severities; dvpr2 routes on the unassessed exit criterion and the draft deliverable.
+# Both must deterministically hit
+# space-systems/ecss/e2040-design-verification-phase-review.
+tasks:
+  - id: dvpr1
+    query: "decide whether the gate closing the design and verification phase lets detailed design start, given one open critical action and three open major ones against the tolerance the board set"
+    intent: "ECSS-E-ST-20-40C clause 5.4.6; phase gate verdict of proceed, proceed with actions or repeat the review, action severity weighing"
+    expected_skill: "space-systems/ecss/e2040-design-verification-phase-review"
+  - id: dvpr2
+    query: "two exit criteria at the phase review were never assessed and one required document was only shown as a draft, does that still close the phase and what do the minutes have to say"
+    intent: "ECSS-E-ST-20-40C clause 5.4.6; unassessed exit criterion kept distinct from unmet, required deliverable presented but not released"
+    expected_skill: "space-systems/ecss/e2040-design-verification-phase-review"

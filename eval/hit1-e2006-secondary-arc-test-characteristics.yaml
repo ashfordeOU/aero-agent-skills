@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-secondary-arc-test-characteristics (space-systems/ecss)
+# Case 1 routes on whether a coupon reproduces the arc site of the flight article closely enough to stand in for it.
+# Case 2 routes on the campaign layout: the voltage-by-current grid, the arc budget per point, and how a recorded event is graded.
+tasks:
+  - id: e2006-secondary-arc-test-characteristics-1
+    query: "The coupon our array supplier built shows a 0.7 mm conductor-gap where the flight article has 0.9 mm, a thinner coverglass, and only two strings against four on the wing. Which of those deviations disqualifies it from representing the wing in a secondary-arc campaign?"
+    intent: "ECSS-E-ST-20-06C 7.2.3.2; coupon representativeness of the arc site, dimensional parameters held to a tolerance fraction and string count allowed only to exceed the flight value"
+    expected_skill: "space-systems/ecss/e2006-secondary-arc-test-characteristics"
+  - id: e2006-secondary-arc-test-characteristics-2
+    query: "We must spread test points over generator voltage crossed with current, drive a set number of triggered primary-arc events at every point, and grade one that burned 40 ms before self-extinguishing. How many arcs do points near the expected boundary get, and what category is that event?"
+    intent: "ECSS-E-ST-20-06C 7.2.3.2; the voltage-against-current matrix, the doubled arc budget inside the band around the sustained boundary, and event categorisation from duration and current"
+    expected_skill: "space-systems/ecss/e2006-secondary-arc-test-characteristics"

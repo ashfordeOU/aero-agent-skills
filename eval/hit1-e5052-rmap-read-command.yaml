@@ -5,10 +5,10 @@
 # space-systems/ecss/e5052-rmap-read-command.
 tasks:
   - id: rc1
-    query: "work out how many bytes a four byte fetch from a remote node actually costs in both directions, and how much of that is the data I asked for"
+    query: "size both halves of an rmap read over spacewire: the command, its padded reply path, no payload at all, then the reply header, its returned data bytes and the check byte, and what share of the link traffic is the four bytes I wanted"
     intent: "ECSS-E-ST-50-52C clause 5.8.2.4; the fetch carries no payload while the answer does, so the two halves size differently and overhead dominates a short fetch"
     expected_skill: "space-systems/ecss/e5052-rmap-read-command"
   - id: rc2
-    query: "the fetch walks consecutive locations but the thing it is aimed at is a single hardware queue register, say whether that setting is right"
-    intent: "ECSS-E-ST-50-52C clause 5.8.2.4; the increment flag against a port-style register versus a memory region, and the reply-status consistency check"
+    query: "our rmap read leaves the increment bit on, but the address it targets is a single port-style queue register rather than a memory region, so grade that option set and tell me what the address span actually walks across"
+    intent: "ECSS-E-ST-50-52C clause 5.8.2.4; the increment flag belongs to a memory region, so an incrementing read aimed at a port-style register walks the address span off the register"
     expected_skill: "space-systems/ecss/e5052-rmap-read-command"

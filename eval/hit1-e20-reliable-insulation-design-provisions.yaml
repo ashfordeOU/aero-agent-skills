@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-reliable-insulation-design-provisions (space-systems/ecss)
+# Case 1 routes on mapping each exposure hazard onto the provision set it demands.
+# Case 2 routes on barrier redundancy plus the withstand and standoff checks.
+tasks:
+  - id: e20-reliable-insulation-design-provisions-1
+    query: "A high-voltage harness runs along an exposed boom where micrometeoroid impact and atomic oxygen both act on it. Which provisions does each of those exposures demand of the wire, and how do I flag the ones the design never implemented?"
+    intent: "ECSS-E-ST-20C 4.2.1.2.3; the hazard family sets the provision style, and an unimplemented provision is the finding rather than a bench measurement result"
+    expected_skill: "space-systems/ecss/e20-reliable-insulation-design-provisions"
+  - id: e20-reliable-insulation-design-provisions-2
+    query: "This line runs beside a pyrotechnic circuit. Is one qualified jacket enough or does it need two independent barriers, and how do I show dielectric withstand margin at the working voltage plus adequate standoff from the outer surface?"
+    intent: "ECSS-E-ST-20C 4.2.1.2.3; where loss of a single barrier would itself be hazardous the design owes two independent barriers, alongside the withstand margin and routing standoff"
+    expected_skill: "space-systems/ecss/e20-reliable-insulation-design-provisions"

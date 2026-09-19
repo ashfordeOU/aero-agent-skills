@@ -202,7 +202,13 @@ class PopulationCategoryTests(unittest.TestCase):
 
     def test_band_edge_absorbs_representation_error(self):
         drifted = logic.WARM_BAND_EDGE_EV * (1.0 - 1.0e-12)
-        self.assertLess(drifted, logic.WARM_BAND_EDGE_EV)
+        # A deliberate one-part-in-1e12 drift below the edge, built by a
+        # correctly rounded multiplication, so it is the same value on
+        # every platform. Assert the relative size of the drift rather
+        # than the strict inequality. The band edge is unchanged.
+        drift = (logic.WARM_BAND_EDGE_EV - drifted) / logic.WARM_BAND_EDGE_EV
+        self.assertGreater(drift, 0.0)
+        self.assertLess(drift, 1e-9)
         self.assertEqual(logic.categorize_population(drifted), "hot-substorm-plasma")
 
     def test_clear_margin_below_an_edge_stays_in_the_lower_band(self):
@@ -235,7 +241,13 @@ class SheathRegimeTests(unittest.TestCase):
 
     def test_thick_boundary_absorbs_representation_error(self):
         screening = 0.7 + 0.1
-        self.assertLess(screening / 0.8, 1.0)
+        # 0.7 + 0.1 is one correctly rounded IEEE-754 addition, so the
+        # ratio against 0.8 falls short of unity by the same sliver
+        # everywhere. Assert the size of that shortfall, not the rounding
+        # direction. The thick-sheath boundary is unchanged.
+        shortfall = 1.0 - screening / 0.8
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         self.assertEqual(logic.sheath_regime(screening, 0.8), "thick-sheath")
 
     def test_ratio_is_screening_over_body(self):

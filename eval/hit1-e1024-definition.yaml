@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-definition (space-systems/ecss)
+# Case 1 routes on which attribute groups each interface type owes before an end may
+# be baselined. Case 2 routes on the two-end electrical compatibility check across a
+# matched pair.
+tasks:
+  - id: e1024-definition-1
+    query: "I am filling in the interface definition document. A thermal end and a data end each have their envelope and mounting captured but no resource allocation block. Can either be put under configuration control as written?"
+    intent: "ECSS-E-ST-10-24C 5.4; each interface type owes a fixed set of attribute groups, and a budget-bearing end with no allocation is incomplete rather than implicitly fine"
+    expected_skill: "space-systems/ecss/e1024-definition"
+  - id: e1024-definition-2
+    query: "Two ends of the same optical link in our IDD were written by different teams: one declares 3.3 volt signals, the other 2.5 volts. Does that mismatch block the interface-definition from being complete, or is it an integration problem?"
+    intent: "ECSS-E-ST-10-24C 5.4; electrical and optical pairs are checked end against end for signal type identity and voltage compatibility, and a mismatch blocks completeness"
+    expected_skill: "space-systems/ecss/e1024-definition"

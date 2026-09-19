@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-mechanical-cable-design (space-systems/ecss)
+# Two tasks for the new leaf. mcd1 routes on the returning run going slack under
+# half the drive force; mcd2 routes on bend events over pulleys and the tension
+# derating of a flexure life curve. Both must deterministically hit
+# space-systems/ecss/e3301-mechanical-cable-design.
+tasks:
+  - id: mcd1
+    query: "the tape drive loses its position reference now and then, work out whether the preload is enough to keep the returning run in tension while the actuator pushes"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.4.3; preload versus half the drive force, slack-run tension as a functional constraint on a cable loop"
+    expected_skill: "space-systems/ecss/e3301-mechanical-cable-design"
+  - id: mcd2
+    query: "four pulleys and the cable goes round each one twice a cycle, tell me if the rope makes the required life at that pulley to rope ratio and the tension we are actually running"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.4.3; bend-event accumulation, bend-ratio life curve read at a reference tension and derated for the tension ratio, plus the swaged end fitting"
+    expected_skill: "space-systems/ecss/e3301-mechanical-cable-design"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-reliability-interchangeability-maintenance-safety-availa
+# (space-systems/ecss). rim1 routes on the redundant heater chain and the shared
+# element that caps it; rim2 routes on the thermostat topology chosen from the
+# hazardous outcome, and on swapping a spare without requalification. Both must
+# deterministically hit
+# space-systems/ecss/e31-reliability-interchangeability-maintenance-safety-availa.
+tasks:
+  - id: rim1
+    query: "we have two heater lines but they go through one common switch, work out what the mission reliability of the chain really is and whether the redundancy is buying what we claimed"
+    intent: "ECSS-E-ST-31C clauses 4.4.9 and 4.4.13; series line product, parallel redundant block, and a shared element placed in series with the block"
+    expected_skill: "space-systems/ecss/e31-reliability-interchangeability-maintenance-safety-availa"
+  - id: rim2
+    query: "decide whether the two thermostats on the propellant line should sit in series or in parallel given that freezing is the hazardous outcome, and say whether the flight spare can swap in without requalification"
+    intent: "ECSS-E-ST-31C clauses 4.4.10 to 4.4.12; stuck-open against stuck-closed topology choice from the declared hazardous outcome, and interface tolerance for interchangeability"
+    expected_skill: "space-systems/ecss/e31-reliability-interchangeability-maintenance-safety-availa"

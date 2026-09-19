@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-battery-charge-discharge-management (space-systems/ecss)
+# Case 1 routes on the deep-recovery half: the stage a zero-volt state permits and
+# whether the trickle fits the operational budget. Case 2 routes on the discharge
+# and thermal limits, which are reported as separate findings.
+tasks:
+  - id: e20-battery-charge-discharge-management-1
+    query: "A pack came back at 0.2 V per cell after a safe mode drain. The charger claims a zero volt restart capability, but only at a 0.02 C trickle; with 30 percent of a 50 Ah pack to recover, does that fit our four hour window?"
+    intent: "ECSS-E-ST-20C clause 5.7.3; the cell state fixes the permitted stage and its current limit, and a declared recovery capability still has to be timed"
+    expected_skill: "space-systems/ecss/e20-battery-charge-discharge-management"
+  - id: e20-battery-charge-discharge-management-2
+    query: "This pack reaches its discharge voltage floor long before we get near the permitted depth of discharge; on some orbits charging starts at minus five degrees. Report those as a single breach or as two separate findings?"
+    intent: "ECSS-E-ST-20C clause 5.7.3; the two discharge limits are evaluated independently, and cold charging is a distinct mechanism from hot charging"
+    expected_skill: "space-systems/ecss/e20-battery-charge-discharge-management"

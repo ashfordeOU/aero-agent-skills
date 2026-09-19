@@ -1,0 +1,12 @@
+# Hit@1 fragment: mass-and-inertia-measurement (space-systems/ecss)
+# Case 1 routes on calibrating the swing table and extracting inertia from the periods.
+# Case 2 routes on the CG result per axis and on the tensor's own consistency checks.
+tasks:
+  - id: mass-and-inertia-measurement-1
+    query: "We are swinging our 340 kg module on a torsion table. How do I establish the torsion constant before the article goes on, and then back out the item's moment of inertia from the periods measured with the fixture loaded and empty?"
+    intent: "ECSS-E-ST-32C 4.6.3.18; the torsion constant comes from a reference object of certified inertia, and the fixture contribution is removed from the loaded period"
+    expected_skill: "space-systems/ecss/mass-and-inertia-measurement"
+  - id: mass-and-inertia-measurement-2
+    query: "The measured CG is 3 mm off the predicted position in Y, and the cross terms Ixy and Iyx came out different from each other. What tolerance applies per axis, and is that asymmetry something I can accept?"
+    intent: "ECSS-E-ST-32C 4.6.3.18; each axis is compared against its own tolerance band, and an off-diagonal mismatch points at axis assignment or data reduction rather than at the hardware"
+    expected_skill: "space-systems/ecss/mass-and-inertia-measurement"

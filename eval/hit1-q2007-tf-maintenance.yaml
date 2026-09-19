@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2007-tf-maintenance (space-systems/ecss)
+# Two tasks for the leaf. tfm1 routes on the preventive-interval side. tfm2 routes
+# on the corrective backlog and the revalidation that gates release. Both must
+# deterministically hit space-systems/ecss/q2007-tf-maintenance.
+tasks:
+  - id: tfm1
+    query: "age every preventive maintenance task on the vibration facility against its own interval rather than one facility calendar, and tell me whether any lapsed task is safety critical enough to hold the facility before the campaign"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.4; test facility preventive maintenance intervals and lapsed safety-critical tasks"
+    expected_skill: "space-systems/ecss/q2007-tf-maintenance"
+  - id: tfm2
+    query: "age the open corrective work orders on the facility from the day each was raised against the close-out allowance its priority carries, and hold the release to service for any completed maintenance whose revalidation nobody recorded"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.4; facility corrective work order backlog, post-maintenance revalidation and release to service"
+    expected_skill: "space-systems/ecss/q2007-tf-maintenance"

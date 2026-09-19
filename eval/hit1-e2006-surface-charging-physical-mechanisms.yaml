@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-surface-charging-physical-mechanisms (space-systems/ecss)
+# Case 1 routes on solving the current balance self-consistently at the trial
+# potential. Case 2 routes on judging the hazard by the offset between adjacent
+# surfaces rather than by the absolute level.
+tasks:
+  - id: e2006-surface-charging-physical-mechanisms-1
+    query: "With a hot substorm environment, how do I land on the potential an exposed radiator settles at? Electron collection dominates at zero volts but the surface cannot charge forever, so which emitted terms push back?"
+    intent: "ECSS-E-ST-20-06C 4.1.3; every current term is evaluated at the trial potential and the equilibrium is the potential where the signed sum of collection and emission vanishes"
+    expected_skill: "space-systems/ecss/e2006-surface-charging-physical-mechanisms"
+  - id: e2006-surface-charging-physical-mechanisms-2
+    query: "One panel is sunlit and its neighbour sits in shadow across a dielectric joint, while the whole vehicle floats near minus three kilovolts. Is the absolute figure the thing to judge or the difference between those two surfaces?"
+    intent: "ECSS-E-ST-20-06C 4.1.3; losing photoemission in shadow is what opens the offset, and the hazard is graded on the spread across adjacent surfaces, not the absolute potential"
+    expected_skill: "space-systems/ecss/e2006-surface-charging-physical-mechanisms"

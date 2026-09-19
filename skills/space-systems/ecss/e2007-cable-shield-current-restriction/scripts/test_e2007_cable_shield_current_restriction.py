@@ -291,9 +291,15 @@ class TestIncidentalCurrent(unittest.TestCase):
         findings, current = check_incidental_current(record)
         limit = incidental_current_limit_a(record)
         # The strap accumulation lands a few ULPs over a limit it in fact
-        # sits exactly on; the named tolerance absorbs that.
-        self.assertGreater(current, limit)
-        self.assertLess(current - limit, CURRENT_TOLERANCE_A)
+        # sits exactly on; the named tolerance absorbs that. Both the strap
+        # sum and the limit are plain IEEE-754 addition and multiplication,
+        # correctly rounded by the hardware and bit-identical on every
+        # conforming platform, and the difference of two neighbouring
+        # doubles is itself exact - so state the excess, not a comparison
+        # of current against limit on the boundary.
+        excess = current - limit
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, CURRENT_TOLERANCE_A)
         self.assertEqual(findings, [])
 
 

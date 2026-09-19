@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-seeding-for-continuous-wave-tests (space-systems/ecss)
+# Case 1 routes on getting from a source certificate to the rate actually
+# entering the gap. Case 2 routes on the dwell the arrival statistics demand and
+# on the accumulated fluence that caps how long dwells may be stretched.
+tasks:
+  - id: e2001-seeding-for-continuous-wave-tests-1
+    query: "Our beta source certificate is six years old and the emitter sits behind a narrow port. How do I get from the certificate emission to the rate that actually reaches the gap, and what mean arrival interval that implies?"
+    intent: "ECSS-E-ST-20-01C clause 6.5.2; decay correction to the run date, then transport and capture fractions reduce emission to the delivered seed rate"
+    expected_skill: "space-systems/ecss/e2001-seeding-for-continuous-wave-tests"
+  - id: e2001-seeding-for-continuous-wave-tests-2
+    query: "The carrier is continuous-wave and each step holds 30 seconds. If seed arrivals follow Poisson statistics, is that dwell long enough for 99 percent confidence one electron reached the gap, and does the summed dwell push the seed fluence past its irradiation limit?"
+    intent: "ECSS-E-ST-20-01C clause 6.5.2; the dwell required for a stated seeding confidence, bounded above by the fluence the article may absorb"
+    expected_skill: "space-systems/ecss/e2001-seeding-for-continuous-wave-tests"

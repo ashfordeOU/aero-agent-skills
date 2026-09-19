@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-pre-post-inspection (space-systems/ecss)
+# Two tasks for the new leaf. pp1 routes on differencing the two defect
+# registers by identifier into new, grown and unaccounted entries; pp2 routes on
+# distortion against a per-dimension tolerance plus mass loss and degradation
+# feeding one disposition. Both must deterministically hit
+# space-systems/ecss/q7004-pre-post-inspection.
+tasks:
+  - id: pp1
+    query: "our thermally tested item came back with a hairline flaw the arrival records never mention, while one entry they did record is absent afterwards - difference those defect registers, tell me which of them count as new and which are unaccounted"
+    intent: "ECSS-Q-ST-70-04C evaluation; differencing the pre-test and post-test defect registers by identifier into new, grown beyond the growth tolerance, and unaccounted entries"
+    expected_skill: "space-systems/ecss/q7004-pre-post-inspection"
+  - id: pp2
+    query: "coming out of the thermal test the flange lost eight microns of flatness, more distortion than the tolerance allows, the item is a tenth of a gram lighter and insertion loss drifted - accept it, send it to review, or reject it"
+    intent: "ECSS-Q-ST-70-04C evaluation; comparing each dimension against its distortion tolerance, reducing mass and performance to change fractions, and grouping the anomalies into accept, review or reject"
+    expected_skill: "space-systems/ecss/q7004-pre-post-inspection"

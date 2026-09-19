@@ -9,6 +9,6 @@ tasks:
     intent: "ECSS-E-ST-70-41C clause 6.14.3.7; the configuration lists what is held back rather than what is passed on, and blocking suppresses only the real-time hop while detection and on-board storage continue"
     expected_skill: "space-systems/ecss/e7041-managing-the-event-report-blocking-forward-control"
   - id: erbf2
-    query: "the request to block that one event came back rejected so the operator wants to block every event from that application process instead, work out whether that gets them there"
+    query: "this chattering event will not go on the forward-blocking list because the event service says it cannot be blocked, so the operator wants a wildcard over the whole application process - is that allowed, and what real-time visibility do we give up by severity"
     intent: "ECSS-E-ST-70-41C clause 6.14.3.7; an event marked as not blockable is refused, and a block-all wildcard over an application process holding one is refused too, so breadth cannot achieve what the specific request was denied"
     expected_skill: "space-systems/ecss/e7041-managing-the-event-report-blocking-forward-control"

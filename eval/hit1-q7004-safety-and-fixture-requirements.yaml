@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-safety-and-fixture-requirements (space-systems/ecss)
+# Two tasks for the new leaf. sfr1 routes on the fixture-to-item expansion
+# mismatch and the strain it drives into the mounting joint; sfr2 routes on the
+# over-temperature interlock stack and the wait before an operator may touch the
+# hardware. Both must deterministically hit
+# space-systems/ecss/q7004-safety-and-fixture-requirements.
+tasks:
+  - id: sfr1
+    query: "before this thermal vacuum run I need the fixture checked: the mounting plate and the item shrink by different amounts over the temperature range, give me the mismatch strain against what is allowable and the load margin the fixture keeps under the mounted mass"
+    intent: "ECSS-Q-ST-70-04C test safety and fixturing; the differential expansion strain between fixture and item across the test span, its margin against an allowable, and the fixture load margin"
+    expected_skill: "space-systems/ecss/q7004-safety-and-fixture-requirements"
+  - id: sfr2
+    query: "what interlock setting cuts the chamber on over-temperature for a sixty degree hot soak once overshoot is allowed for, does it still leave headroom to the damage threshold of the item, and how long before anyone can safely handle the unit"
+    intent: "ECSS-Q-ST-70-04C test safety and fixturing; stacking the interlock set point from the test limit, chamber overshoot and guard band against the item damage limit, and the touch-safe access wait from the item's thermal lag"
+    expected_skill: "space-systems/ecss/q7004-safety-and-fixture-requirements"

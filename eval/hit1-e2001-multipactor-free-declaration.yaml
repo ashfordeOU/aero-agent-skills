@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-free-declaration (space-systems/ecss)
+# Case 1 routes on the detection capability a declaration needs behind a clean ramp.
+# Case 2 routes on where the declared level sits once an onset was logged.
+tasks:
+  - id: e2001-multipactor-free-declaration-1
+    query: "Our unit ramped to 340 W and nothing was seen, watched only by comparing forward with reflected drive. Does that detection-capability support a multipactor-free-declaration, or do we owe a local-detection-method alongside the global one, each sensitivity-verified?"
+    intent: "ECSS-E-ST-20-01C 8.5.2; the case turns on the declaration needing both a global and a local detection method, each sensitivity-verified and in calibration"
+    expected_skill: "space-systems/ecss/e2001-multipactor-free-declaration"
+  - id: e2001-multipactor-free-declaration-2
+    query: "A faint onset was logged at 290 W, then the ramp carried on cleanly up to 360 W. Where does the declared clear level actually sit, and what operating power does that support once the verification margin is released?"
+    intent: "ECSS-E-ST-20-01C 8.5.2; the case turns on an observation capping the declaration strictly below the onset and on backing the margin off to get the qualified operating level"
+    expected_skill: "space-systems/ecss/e2001-multipactor-free-declaration"

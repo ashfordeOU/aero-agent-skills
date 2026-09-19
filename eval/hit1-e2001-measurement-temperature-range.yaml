@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-measurement-temperature-range (space-systems/ecss)
+# Case 1 routes on whether the declared range brackets the in-service extremes and whether the customer approval still covers the current declaration.
+# Case 2 routes on the setpoints inside the range: endpoint anchoring, interior gap, and thermometry graded against the span.
+tasks:
+  - id: e2001-measurement-temperature-range-1
+    query: "Our supplier declared a yield measurement range of 253 K to 353 K, but the predicted service extremes reach 233 K at the cold end, while the customer approval on file predates the last revision of that declaration. Where is the shortfall and does the approval still count?"
+    intent: "ECSS-E-ST-20-01C 9.4.1.4; envelopment of the in-service extremes with per-end margin, and the approval state that turns superseded when a declaration is revised after signature"
+    expected_skill: "space-systems/ecss/e2001-measurement-temperature-range"
+  - id: e2001-measurement-temperature-range-2
+    query: "We measured yield at 250 K, 300 K and 340 K inside a declared band running 240 K to 350 K, with a sensor good to four kelvin. How do I grade whether each endpoint is anchored, whether the interior gap is too wide to interpolate, and whether that thermometry resolves the span?"
+    intent: "ECSS-E-ST-20-01C 9.4.1.4; setpoint coverage graded for endpoint anchoring and interpolation gap, plus thermometry uncertainty as a fraction of the declared span"
+    expected_skill: "space-systems/ecss/e2001-measurement-temperature-range"

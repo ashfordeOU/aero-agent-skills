@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-ground-network-availability (space-systems/ecss)
+# gna1 routes on composing a chain from failure and repair times; gna2 routes
+# on apportioning an end-to-end availability and the outage-seconds budget.
+# Both must deterministically hit
+# space-systems/ecss/e50-ground-network-availability.
+tasks:
+  - id: gna1
+    query: "build the availability of the ground chain from the antenna, modem and wide area link mean time between failures and repair times, charge the planned maintenance, and tell me which element is spending the outage budget"
+    intent: "ECSS-E-ST-50C clause 5.8.6; element availability comes from failure and repair time with preventive downtime charged, the chain composes in series, and unavailability shares rank where the next euro goes"
+    expected_skill: "space-systems/ecss/e50-ground-network-availability"
+  - id: gna2
+    query: "the mission is promised 99.9 percent on the ground network, turn that into outage minutes a year and into the per-element availability each of the six elements in the chain has to hold"
+    intent: "ECSS-E-ST-50C clause 5.8.6; an availability is only a budget once restated as outage seconds over a stated period, and series apportionment is the count-th root of the target rather than the target divided by the count"
+    expected_skill: "space-systems/ecss/e50-ground-network-availability"

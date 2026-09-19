@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-boolean (space-systems/ecss)
+# Two tasks for the new leaf. bool1 routes on what may legitimately be encoded
+# into the one-bit field; bool2 routes on bit order and padding in a run of
+# flags. Both must deterministically hit space-systems/ecss/e7041-boolean.
+tasks:
+  - id: bool1
+    query: "our on-board flag parameter is coming back set whenever the source variable holds anything at all, including the number two that was meant to be an error code, work out what the one-bit parameter field is allowed to be given"
+    intent: "ECSS-E-ST-70-41C clause 7.3.2; the one-bit flag parameter takes a genuine truth value only, and integers, strings and nulls that a language would convert must be refused rather than reaching a plausible bit through truthiness"
+    expected_skill: "space-systems/ecss/e7041-boolean"
+  - id: bool2
+    query: "a run of five on-board flags round-trips inside our own software but the ground system reads them in the opposite order and finds three extra ones, work out how the run is supposed to sit in the octet"
+    intent: "ECSS-E-ST-70-41C clause 7.3.2; a run of one-bit flags packs most significant bit first so the first of the definition leads, the short run is padded with clear bits, and decoding takes its count from the definition so the padding is never read back as declared flags"
+    expected_skill: "space-systems/ecss/e7041-boolean"

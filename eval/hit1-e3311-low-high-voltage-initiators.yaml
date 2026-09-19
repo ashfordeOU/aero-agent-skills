@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-low-high-voltage-initiators (space-systems/ecss)
+# Two tasks for the new leaf. lhvi1 routes on the bridgewire property table,
+# where no-fire is a floor, all-fire a ceiling and the ratio between them a
+# third check; lhvi2 routes on the exploding-bridge table graded together with
+# its firing set. Both must deterministically hit
+# space-systems/ecss/e3311-low-high-voltage-initiators.
+tasks:
+  - id: lhvi1
+    query: "the squib vendor quotes 1.5 amps no-fire, 2 amps all-fire, a bridge near 1.05 ohms and one 25 kV electrostatic rating for the whole part - grade this bridgewire initiator on its resistance band and its pin-to-pin and pin-to-case withstand"
+    intent: "ECSS-E-ST-33-11C clause 4.11.2 table 4-4; low-voltage bridgewire initiator no-fire floor, all-fire ceiling, the separation ratio between them, the bridge-resistance band and the per-path electrostatic withstand"
+    expected_skill: "space-systems/ecss/e3311-low-high-voltage-initiators"
+  - id: lhvi2
+    query: "we are using an exploding foil device with a 1 microfarad firing capacitor charged to 2 kV, and the part needs 4 millijoules to go, check the device and the firing set together"
+    intent: "ECSS-E-ST-33-11C clause 4.11.2 table 4-5; high-voltage initiator no-fire voltage, all-fire energy, energy separation ratio, and the energy the firing set actually delivers from its capacitance and charge voltage against the all-fire level with margin"
+    expected_skill: "space-systems/ecss/e3311-low-high-voltage-initiators"

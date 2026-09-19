@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-intermodulation-verification-testing (space-systems/ecss)
+# Case 1 routes on what to measure and whether the bench can measure it at all:
+# the lowest critical order and the residual headroom. Case 2 routes on grading a
+# reading: uncertainty and the aggregation of several products in one band.
+tasks:
+  - id: e20-intermodulation-verification-testing-1
+    query: "For the passive intermodulation run on our output multiplexer the bench habitually measures seventh order, and its residual sits only 2 dB below the acceptance level. Which intermodulation order should be graded, and does the bench have headroom for any verdict on the unit?"
+    intent: "ECSS-E-ST-20C clause 7.4.4; the lowest critical order is the product to measure, and a bench whose residual lacks the required headroom below the limit can only return an instrument-limited result"
+    expected_skill: "space-systems/ecss/e20-intermodulation-verification-testing"
+  - id: e20-intermodulation-verification-testing-2
+    query: "Our passive intermodulation bench reads one product a decibel under the acceptance level with 2 dB of measurement uncertainty, and three products fall in the same victim band. Is that run a pass or uncertainty-limited, and how do the products aggregate before the campaign verdict?"
+    intent: "ECSS-E-ST-20C clause 7.4.4; the uncertainty is added to every reading before a verdict, and several products in one band add as powers rather than the best single run standing for the band"
+    expected_skill: "space-systems/ecss/e20-intermodulation-verification-testing"

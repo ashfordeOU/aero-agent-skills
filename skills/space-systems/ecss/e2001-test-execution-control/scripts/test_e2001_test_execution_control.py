@@ -5,6 +5,7 @@ Offline, deterministic, stdlib unittest. Run:
     python3 test_e2001_test_execution_control.py
 """
 
+import math
 import os
 import sys
 import unittest
@@ -172,7 +173,11 @@ class TestLimitComparison(unittest.TestCase):
         # IEEE-754 platform, and that shortfall is representation, not power.
         required = required_test_level_w(100.0, 0.0)
         summed = accumulated_level_w(100.0, 0.1, 10)
-        self.assertLess(summed, required)
+        # Ten plain additions scaled by the nominal land the total on the
+        # double immediately BELOW the un-margined level, identically on
+        # every IEEE-754 platform. Pin that double instead of comparing
+        # across the boundary; the required level is untouched.
+        self.assertEqual(summed, math.nextafter(required, 0.0))
         self.assertTrue(at_or_above(summed, required))
 
     def test_real_shortfall_fails(self):
@@ -197,7 +202,9 @@ class TestPowerSchedule(unittest.TestCase):
     def test_summed_peak_at_the_limit_is_accepted(self):
         required = required_test_level_w(100.0, 0.0)
         peak = accumulated_level_w(100.0, 0.1, 10)
-        self.assertLess(peak, required)  # a genuine few-ULP shortfall
+        # One unit in the last place short of the required level: a
+        # representation artefact, not a power shortfall. Pinned exactly.
+        self.assertEqual(peak, math.nextafter(required, 0.0))
         steps = [{"level_w": peak, "dwell_s": 120.0}]
         self.assertEqual(validate_power_schedule(steps, required), [])
 

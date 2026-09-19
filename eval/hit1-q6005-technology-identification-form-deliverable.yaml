@@ -1,0 +1,17 @@
+# Hit@1 fragment: q6005-technology-identification-form-deliverable (space-systems/ecss)
+# Two tasks for the new leaf. tifd1 routes on the delivered data item itself --
+# headings with nothing written behind them and entries out of the mandated
+# arrangement. tifd2 routes on the conditional entries a declared sealing option
+# pulls into the mandated set. Neither is the purpose-and-readiness leaf
+# (q6005-hybrid-technology-identification-form) nor the upkeep-and-reissue leaf
+# (q6005-identification-form-general-provisions). Both must deterministically hit
+# space-systems/ecss/q6005-technology-identification-form-deliverable.
+tasks:
+  - id: tifd1
+    query: "the supplier sent back the completed identification form as a deliverable; work out which mandated entries are absent, which are just headings with nothing written under them, and how far the entries have drifted out of the prescribed arrangement"
+    intent: "ECSS-Q-ST-60-05C Annex A; delivered technology identification form data item graded on its entry set, its blank headings and its arrangement against the mandated order"
+    expected_skill: "space-systems/ecss/q6005-technology-identification-form-deliverable"
+  - id: tifd2
+    query: "this identification form declares a hermetic seal and a polymer encapsulation, tell me which extra entries those two declarations pull into the mandated set for this case and whether the form actually filed them"
+    intent: "ECSS-Q-ST-60-05C Annex A; conditional entry rules derive the mandated set of the data item from the declarations written inside it"
+    expected_skill: "space-systems/ecss/q6005-technology-identification-form-deliverable"

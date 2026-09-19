@@ -137,7 +137,7 @@ grace_days 91.3125). On 2027-06-01 (1233 elapsed days): remaining
   directive action.
 - systems-engineering-safety/certification/mmel-development: dispatch
   relief context when an aircraft is unairworthy.
-- systems-engineering-safety/arp4754a/configuration-management: design
+- systems-engineering-safety/arp4754a/systems-configuration-management: design
   change control for the type design that directives amend.
 
 ## Pitfalls

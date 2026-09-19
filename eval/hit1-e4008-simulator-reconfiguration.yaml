@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-simulator-reconfiguration (space-systems/ecss)
+# Two tasks for the new leaf. rc1 routes on the state a reconfiguration was
+# requested from and the rebuild walk it skipped; rc2 routes on the field the
+# re-applied configuration dropped and the identity token that moved. Both must
+# deterministically hit space-systems/ecss/e4008-simulator-reconfiguration.
+tasks:
+  - id: rc1
+    query: "someone triggered a reconfiguration while the simulator was mid run and it went straight back to standby without rebuilding or reconnecting the models - say which reconfiguration rules that breaks"
+    intent: "ECSS-E-ST-40-08C clause 5.5.3; the quiescent entry state for a reconfiguration and the build, connect, initialise, standby rebuild walk"
+    expected_skill: "space-systems/ecss/e4008-simulator-reconfiguration"
+  - id: rc2
+    query: "after reconfiguring, one configured field has silently disappeared, an undeclared one turned up, and the schedule service came back under a different identity so last run's saved state no longer matches - diff it"
+    intent: "ECSS-E-ST-40-08C clause 5.5.3; re-applied configuration diff and preservation of service and model identity tokens across a reconfiguration"
+    expected_skill: "space-systems/ecss/e4008-simulator-reconfiguration"

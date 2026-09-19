@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-conductor-repair (space-systems/ecss)
+# Two tasks for the new leaf. cr1 routes on the lap-against-jumper choice and
+# the overlap a lap joint needs; cr2 routes on sizing the jumper and bonding it
+# down. Both must deterministically hit
+# space-systems/ecss/q7028-conductor-repair.
+tasks:
+  - id: cr1
+    query: "there is a two millimetre break in a fairly narrow track, do I solder a piece of conductor over it or run a wire, and how far does the replacement piece have to overlap each end"
+    intent: "ECSS-Q-ST-70-28C conductor method; lap-solder splice against jumper wire from gap length and track width, and the lap overlap scaled from the track width against its floor"
+    expected_skill: "space-systems/ecss/q7028-conductor-repair"
+  - id: cr2
+    query: "the jumper wire has to carry half an amp over a forty millimetre gap, pick the gauge once the current density is derated, say how many places it gets tacked down, and compare its cross section with the copper it stands in for"
+    intent: "ECSS-Q-ST-70-28C conductor method; jumper gauge from circuit current against a derated current density, bond count over the unsupported run, and the replacement cross-section against the original copper"
+    expected_skill: "space-systems/ecss/q7028-conductor-repair"

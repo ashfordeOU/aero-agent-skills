@@ -1,0 +1,12 @@
+# Hit@1 fragment: structural-requirements-spec (space-systems/ecss)
+# Case 1 routes on sorting the requirement baseline and on the fields each entry owes.
+# Case 2 routes on deriving the design loads from the environment and the factor ordering.
+tasks:
+  - id: structural-requirements-spec-1
+    query: "I am putting together the requirement baseline for the structure of a launcher upper stage. Half the entries carry a threshold but no verification method. How do I split entries into functional and performance groups, and does a missing method block the baseline?"
+    intent: "ECSS-E-ST-32C clause 4; every requirement goes into exactly one group, and an entry without a threshold, a method and an identifier is incomplete and stays out of the compliant count"
+    expected_skill: "space-systems/ecss/structural-requirements-spec"
+  - id: structural-requirements-spec-2
+    query: "Starting from a 6 g quasi-static environment load, what dynamic amplification do I apply to reach design limit load, and how do the yield factor and the ultimate factor then follow -- must the ultimate one always exceed the yield one?"
+    intent: "ECSS-E-ST-32C clause 4; the limit load comes from the environment through amplifying factors that never reduce it, and the yield and ultimate loads derive from it in a fixed order"
+    expected_skill: "space-systems/ecss/structural-requirements-spec"

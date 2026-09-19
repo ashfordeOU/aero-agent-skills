@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-mechanical-design-sizing-general (space-systems/ecss)
+# Two tasks for the new leaf. mdsg1 routes on the environment knockdown belonging
+# in the allowable and on separate yield and ultimate margins; mdsg2 routes on the
+# lifetime half of the clause, a Miner sum over the mission spectrum. Both must
+# deterministically hit
+# space-systems/ecss/e3301-mechanical-design-sizing-general.
+tasks:
+  - id: mdsg1
+    query: "size the bracket for the quasi static case with the axial, bending and shear all on at once, and put the hot end and the ageing derating on the material rather than on the factor"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.1; von Mises combination per load case, environment knockdowns applied to the allowable, separate yield and ultimate margins with their own factors"
+    expected_skill: "space-systems/ecss/e3301-mechanical-design-sizing-general"
+  - id: mdsg2
+    query: "the part has big static margins but the mechanism cycles it for eight years, work out the cumulative damage over the mission spectrum and check the first mode allocation too"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.1; Miner damage on a log-log S-N line over the mission spectrum, plus the first-mode stiffness allocation as a requirement in its own right"
+    expected_skill: "space-systems/ecss/e3301-mechanical-design-sizing-general"

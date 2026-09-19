@@ -4,6 +4,7 @@
 Stdlib unittest only, offline, deterministic.
 """
 
+import math
 import unittest
 
 from e2007_receiver_overload_precautions_logic import (
@@ -208,7 +209,10 @@ class TestStageOverloadEvaluation(unittest.TestCase):
     def test_representation_error_at_the_compression_point_stays_linear(self):
         stage = {"name": "rx", "kind": "receiver", "compression_point_dbm": 0.3}
         result = evaluate_stage_overload(stage, 0.1 + 0.2)
-        self.assertGreater(0.1 + 0.2, 0.3)
+        # IEEE-754 addition is correctly rounded, so this sum is the same
+        # bit pattern on every platform: exactly one ULP above the limit.
+        # State that exactly, not the direction of the last bit.
+        self.assertEqual(0.1 + 0.2, math.nextafter(0.3, math.inf))
         self.assertEqual(result["status"], "linear")
 
     def test_stage_above_compression_is_overloaded(self):
@@ -378,7 +382,10 @@ class TestMeasurementHeadroom(unittest.TestCase):
 
     def test_representation_error_at_the_headroom_boundary_is_absorbed(self):
         result = measurement_headroom_db(0.3, 0.0, 0.1 + 0.2, 0.0)
-        self.assertGreater(0.1 + 0.2, 0.3)
+        # IEEE-754 addition is correctly rounded, so this sum is the same
+        # bit pattern on every platform: exactly one ULP above the limit.
+        # State that exactly, not the direction of the last bit.
+        self.assertEqual(0.1 + 0.2, math.nextafter(0.3, math.inf))
         self.assertTrue(result["sufficient"])
 
     def test_negative_required_headroom_is_rejected(self):
@@ -403,7 +410,11 @@ class TestInsertionCheck(unittest.TestCase):
 
     def test_representation_error_at_the_tolerance_boundary_is_absorbed(self):
         result = attenuation_insertion_check(1.0, 0.0, 0.7, 0.3)
-        self.assertGreater(1.0 - 0.7, 0.3)
+        # IEEE-754 subtraction is correctly rounded, so the 1.0 dB drop
+        # short of the 0.7 dB pad is the same bit pattern on every
+        # platform: exactly one ULP above the 0.3 dB tolerance. State that
+        # exactly, not the direction of the last bit.
+        self.assertEqual(1.0 - 0.7, math.nextafter(0.3, math.inf))
         self.assertTrue(result["linear"])
 
     def test_shortfall_beyond_tolerance_signals_compression(self):

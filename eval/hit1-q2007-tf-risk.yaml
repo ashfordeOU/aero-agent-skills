@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2007-tf-risk (space-systems/ecss)
+# Two tasks for the leaf. tfr1 routes on the hazard identification and coverage
+# side. tfr2 routes on the residual band and the acceptance authority. Both must
+# deterministically hit space-systems/ecss/q2007-tf-risk.
+tasks:
+  - id: tfr1
+    query: "identify the hazards the pressure and lifting side of this test facility presents, place each on a severity and likelihood index, and tell me which of the hazard categories the facility actually operates the assessment never covered"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.5; test facility hazard identification and hazard category coverage"
+    expected_skill: "space-systems/ecss/q2007-tf-risk"
+  - id: tfr2
+    query: "recompute the residual risk band of each facility hazard crediting only the mitigations actually implemented, clamp the reduction at the floor of the scale, and say which residuals need a named acceptance authority and which cannot be accepted at all"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.5; facility residual risk band after implemented mitigation and risk acceptance authority"
+    expected_skill: "space-systems/ecss/q2007-tf-risk"

@@ -174,8 +174,14 @@ class TestHoleFillCheck(unittest.TestCase):
         self.assertFalse(res["ok"])
 
     def test_exact_max_clearance_boundary_passes(self):
+        # 4.1 - 4.0 cancels down to a few tens of units in the last place
+        # below 0.1, so which side of the limit the difference lands on is a
+        # representation detail of the subtraction. Assert its distance from
+        # the limit and the verdict the check returns; the 0.1 mm limit is
+        # unchanged.
         res = hole_fill_check(4.1, 4.0)
-        self.assertLessEqual(res["clearance_mm"], MAX_HOLE_CLEARANCE_MM)
+        self.assertAlmostEqual(res["clearance_mm"], MAX_HOLE_CLEARANCE_MM,
+                               places=12)
         self.assertTrue(res["ok"])
 
     def test_custom_max_clearance(self):

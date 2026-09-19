@@ -281,8 +281,15 @@ class SweepArithmetic(unittest.TestCase):
     def test_an_accumulated_dwell_a_hair_short_still_meets_the_minimum(self):
         segments = normalise_verification_run(run())["segments"]
         total = total_sweep_dwell(segments)
-        self.assertLess(total, 12.3)
+        # The accumulated sum sits on the minimum to within representation
+        # error. Assert the SIZE of that error, not which side of the last
+        # bit it fell on; the minimum itself stays 12.3 s.
+        self.assertAlmostEqual(total, 12.3, places=12)
         self.assertTrue(meets_minimum_dwell(total, 12.3))
+        # Pin the absorbing branch with a shortfall constructed to be
+        # strictly short: 1e-10 s under the minimum is well inside the
+        # 1e-9 s the leaf absorbs and is the same value on every platform.
+        self.assertTrue(meets_minimum_dwell(12.3 - 1e-10, 12.3))
 
     def test_a_genuinely_short_sweep_does_not_meet_the_minimum(self):
         self.assertFalse(meets_minimum_dwell(8.2, 12.3))
@@ -300,8 +307,14 @@ class AmbientAndDisposition(unittest.TestCase):
         self.assertAlmostEqual(ambient_separation_db(33.0, 27.0), 6.0, places=9)
 
     def test_a_separation_a_hair_short_is_still_quiet_enough(self):
-        self.assertLess(ambient_separation_db(33.3, 27.3), 6.0)
+        # 33.3 - 27.3 lands a few ULP off six decibel. The size of that
+        # error is the contract; the direction of the last bit is not.
+        self.assertAlmostEqual(ambient_separation_db(33.3, 27.3), 6.0, places=12)
         self.assertTrue(ambient_is_quiet_enough(33.3, 27.3, 6.0))
+        # Pin the absorbing branch with a separation constructed to be
+        # strictly short by 1e-10 dB - inside the 1e-9 dB the leaf absorbs,
+        # and the same value on every platform. The 6 dB stays 6 dB.
+        self.assertTrue(ambient_is_quiet_enough(33.3, 27.3 + 1e-10, 6.0))
 
     def test_a_loud_background_is_not_quiet_enough(self):
         self.assertFalse(ambient_is_quiet_enough(33.3, 31.0, 6.0))
@@ -317,8 +330,14 @@ class AmbientAndDisposition(unittest.TestCase):
         self.assertEqual(disposition(20.0, 33.3, 2.0), "compliant")
 
     def test_a_level_whose_upper_bound_lands_on_the_limit_is_compliant(self):
-        self.assertGreater(31.1 + 2.2, 33.3)
+        # The upper bound lands on the limit to within representation error;
+        # which side of the last bit it falls on is not a contract.
+        self.assertAlmostEqual(31.1 + 2.2, 33.3, places=12)
         self.assertEqual(disposition(31.1, 33.3, 2.2), "compliant")
+        # Pin the absorbing branch with an overshoot constructed to be
+        # strictly over: 1e-10 dB above the limit, inside the 1e-9 dB the
+        # leaf absorbs. The limit stays 33.3 dB.
+        self.assertEqual(disposition(33.3 + 1e-10, 33.3, 0.0), "compliant")
 
     def test_a_level_straddling_the_limit_is_inconclusive(self):
         self.assertEqual(disposition(33.0, 33.3, 2.0), "inconclusive")

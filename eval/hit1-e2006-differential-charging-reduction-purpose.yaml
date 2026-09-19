@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-differential-charging-reduction-purpose (space-systems/ecss)
+# Case 1 routes on which potential the objective actually grades. Case 2 routes
+# on sizing the design answer once a pair overspends the stored-energy budget.
+tasks:
+  - id: e2006-differential-charging-reduction-purpose-1
+    query: "Our whole structure floats at minus 4 kV during a substorm, but neighbouring faces differ by only 180 V. Is the big absolute number what I grade, or the gap across the dielectric and the energy a discharge there could dump?"
+    intent: "ECSS-E-ST-20-06C clause 6.1.2; a uniformly floating structure is benign, so the graded quantities are the potential difference across the gap and the energy it stores"
+    expected_skill: "space-systems/ecss/e2006-differential-charging-reduction-purpose"
+  - id: e2006-differential-charging-reduction-purpose-2
+    query: "A pair of adjacent surfaces exceeds our stored energy budget because the coated area is large. Solve me what minimum thickness of dielectric would meet it, and tell me whether shrinking the patch or lowering the potential difference is the stronger lever."
+    intent: "ECSS-E-ST-20-06C clause 6.1.2; the reduction factor resolves into a minimum thickness or maximum area, and the quadratic term makes the potential the strongest lever"
+    expected_skill: "space-systems/ecss/e2006-differential-charging-reduction-purpose"

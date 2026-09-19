@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-managing-the-diagnostic-parameter-report-storage
+# (space-systems/ecss). Two tasks for the new leaf. dgst1 routes on the fill
+# rate a diagnostic selection commits a packet store to; dgst2 routes on the
+# dormant selection whose generation is switched off. Both must
+# deterministically hit
+# space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-storage.
+tasks:
+  - id: dgst1
+    query: "we added four fast diagnostic structures to the on-board recording and now the store wraps between ground passes, work out how long it actually lasts and which store is the problem"
+    intent: "ECSS-E-ST-70-41C clause 6.15.4.6; each diagnostic structure is priced as report size over collection interval, the rates of one packet store's selections add, capacity over that sum is the time to fill, and the verdict is per store against the retrieval period"
+    expected_skill: "space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-storage"
+  - id: dgst2
+    query: "half the diagnostic structures selected for on-board recording are not being generated at the moment, say whether to delete them and what happens to the fill time when the campaign turns them on"
+    intent: "ECSS-E-ST-70-41C clause 6.15.4.6; a selection whose generation is switched off is dormant rather than stale, it is priced at zero today, it must not be pruned, and enabling generation converts the whole dormant set into octets per second at once"
+    expected_skill: "space-systems/ecss/e7041-managing-the-diagnostic-parameter-report-storage"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-common-charging-engineering-concerns (space-systems/ecss)
+# Case 1 routes on which potential actually arcs on an external surface.
+# Case 2 routes on the buried-dielectric pair of screens and the derated allowable.
+tasks:
+  - id: e2006-common-charging-engineering-concerns-1
+    query: "Our sunshade outer layer floats 8 kV negative to the frame while the frame itself sits at 9 kV negative. Is the large absolute number the concern, or the difference to structure and to the neighbouring kapton patch, and can one surface raise more than one finding?"
+    intent: "ECSS-E-ST-20-06C 4.1.2; a uniformly charged frame has nothing to break down across, and the structure-referenced, adjacent-surface and absolute findings are raised independently"
+    expected_skill: "space-systems/ecss/e2006-common-charging-engineering-concerns"
+  - id: e2006-common-charging-engineering-concerns-2
+    query: "A buried PTFE standoff collects 0.05 pA per square centimetre and its resistivity is 1e18 ohm-cm. How do I get the bulk field through it, do I compare that against the raw dielectric strength, and does a modest deposition rate let me skip the field screen?"
+    intent: "ECSS-E-ST-20-06C 4.1.2; the allowable is the strength reduced by the safety factor, and the rate screen and the field check answer different questions so neither substitutes for the other"
+    expected_skill: "space-systems/ecss/e2006-common-charging-engineering-concerns"

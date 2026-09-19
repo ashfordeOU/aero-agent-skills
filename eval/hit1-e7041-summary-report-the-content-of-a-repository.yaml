@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-summary-report-the-content-of-a-repository
+# (space-systems/ecss). Two tasks for the new leaf. srp1 routes on a one-level
+# listing being mistaken for the whole branch; srp2 routes on a truncated
+# listing whose counts still span everything held. Both must deterministically
+# hit space-systems/ecss/e7041-summary-report-the-content-of-a-repository.
+tasks:
+  - id: srp1
+    query: "the content listing for that on-board folder came back with four things in it so we sized the downlink for four, work out whether that number covers everything sitting underneath it and which total we should have used"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.6; a content summary names the immediate children only, so its object count and octet total are direct figures that must be kept apart from the branch totals, and a sub-repository entry carries no size of its own"
+    expected_skill: "space-systems/ecss/e7041-summary-report-the-content-of-a-repository"
+  - id: srp2
+    query: "the repository listing came back truncated; are the object counts and octet totals in it still complete, does a sub-repository carry any size at all, and how does an empty repository read against one that is not there"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.6; the entry listing is bounded and truncates while the file, sub-repository and object counts are computed over everything held, and an empty repository that was found is a distinct outcome from an unknown repository path"
+    expected_skill: "space-systems/ecss/e7041-summary-report-the-content-of-a-repository"

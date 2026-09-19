@@ -1,0 +1,12 @@
+# Hit@1 fragment: modal-survey-test (space-systems/ecss)
+# Case 1 routes on the correlation verdict for one test-prediction mode pair.
+# Case 2 routes on test configuration validity and the plausibility of an extracted parameter.
+tasks:
+  - id: modal-survey-test-1
+    query: "On our modal survey of the spacecraft structural assembly, identified mode 3 pairs at MAC 0.82 and its frequency sits 4 percent off the prediction. Is that pair acceptable, and what must a pair clear on both counts, allowable tolerance and MAC threshold?"
+    intent: "ECSS structures modal survey; a pair passes only when shape correlation clears the threshold and the frequency sits inside tolerance, both together"
+    expected_skill: "space-systems/ecss/modal-survey-test"
+  - id: modal-survey-test-2
+    query: "Our modal survey on the spacecraft structural assembly used an impact hammer with 24 measurement points, and one mode came back with a damping ratio near 18 percent. Is the point count enough to resolve every target mode, and is that damping credible?"
+    intent: "ECSS structures modal survey; the sensor set must spatially resolve every target mode, and a damping estimate outside the plausible structural band signals a processing error"
+    expected_skill: "space-systems/ecss/modal-survey-test"

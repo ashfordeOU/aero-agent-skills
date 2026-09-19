@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-file-format-specification (space-systems/ecss)
+# Two tasks for the new leaf. ffs1 routes on the missing and unterminated
+# declaration block at the head of an exchange file; ffs2 routes on the
+# two-part version support range and the fixed section order. Both must
+# deterministically hit space-systems/ecss/e4008-file-format-specification.
+tasks:
+  - id: ffs1
+    query: "our simulator exchange file has no delimited header telling the reader what format and encoding it is in, and one of them is never closed so body lines got read as declarations - what does the file owe the reader"
+    intent: "ECSS-E-ST-40-08C clause 5.7.2.1; the delimited format declaration block at the head of an exchange file and its required keys"
+    expected_skill: "space-systems/ecss/e4008-file-format-specification"
+  - id: ffs2
+    query: "a file declares version 2.10 and the reader compared it as text against 2.9 and accepted it, and its assembly section comes before the catalogue it references - grade the format declaration"
+    intent: "ECSS-E-ST-40-08C clause 5.7.2.1; two-part version support range, forward-readable minor versions and the fixed section order of an exchange file"
+    expected_skill: "space-systems/ecss/e4008-file-format-specification"

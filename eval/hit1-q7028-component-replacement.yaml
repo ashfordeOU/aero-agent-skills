@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-component-replacement (space-systems/ecss)
+# Two tasks for the new leaf. cr1 routes on the heat reaching parts nobody
+# touched; cr2 routes on the two-number reading of a profile plus the floor
+# life a moisture-sensitive replacement has already spent. Both must
+# deterministically hit space-systems/ecss/q7028-component-replacement.
+tasks:
+  - id: cr1
+    query: "I have to lift a part off a densely populated board, work out which of the neighbouring components will get too hot and need shielding before I start"
+    intent: "ECSS-Q-ST-70-28 repair methods; the removal peak is projected onto each neighbour through a distance decay and compared with that neighbour's own temperature limit"
+    expected_skill: "space-systems/ecss/q7028-component-replacement"
+  - id: cr2
+    query: "here is the reflow profile for lifting a part off this populated board, with the laminate limit, the neighbouring parts and a replacement that has been out of its dry bag a fortnight - can I proceed and what happens first"
+    intent: "ECSS-Q-ST-70-28 repair methods; a profile is graded on peak AND on interpolated time above the damage threshold, and a spent moisture floor life owes a bake before the part is fitted"
+    expected_skill: "space-systems/ecss/q7028-component-replacement"

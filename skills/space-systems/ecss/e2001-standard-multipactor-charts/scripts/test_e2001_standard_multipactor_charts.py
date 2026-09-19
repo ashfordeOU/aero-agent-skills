@@ -175,7 +175,11 @@ class ThresholdLookupTests(unittest.TestCase):
     def test_abscissa_a_few_ulps_over_the_bound_still_reads_the_chart(self):
         narrow = chart(points=[(0.1, 60.0), (1.0, 300.0), (3.3, 800.0)])
         fd_value = frequency_gap_product(3.0, 1.1)
-        self.assertGreater(fd_value, 3.3)
+        # IEEE-754 multiplication is correctly rounded, so 3.0 * 1.1 is the
+        # same bit pattern everywhere: exactly the double above the last
+        # abscissa of the chart. State that exactly, then assert the chart
+        # is still read rather than declared out of range.
+        self.assertEqual(fd_value, math.nextafter(3.3, math.inf))
         self.assertAlmostEqual(lookup_threshold_voltage(narrow, fd_value), 800.0)
 
 
@@ -228,9 +232,16 @@ class FirstLevelAssessmentTests(unittest.TestCase):
         self.assertFalse(result["escalate_to_dedicated_analysis"])
 
     def test_margin_exactly_on_the_requirement_is_compliant(self):
+        # 10 ** x and log10 are NOT correctly rounded: this decibel round
+        # trip lands a few ULP under 7.5 dB on one libm and can land on or
+        # above it on another, so the side it falls is not a portable
+        # claim. What is portable - and what the case is about - is that
+        # the margin equals the requirement to far tighter than any
+        # decibel measurement, and that such a gap is graded compliant.
+        # The 7.5 dB requirement is unchanged.
         operating = 300.0 / (10.0 ** (7.5 / 20.0))
         raw_margin = multipactor_margin_db(300.0, operating)
-        self.assertLess(raw_margin, 7.5)
+        self.assertAlmostEqual(raw_margin, 7.5, places=9)
         result = assess_gap_first_level(
             gap(operating_voltage_v=operating), CHARTS, 7.5
         )

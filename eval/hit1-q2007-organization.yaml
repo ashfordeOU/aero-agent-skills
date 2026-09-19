@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-organization (space-systems/ecss)
+# Two tasks for the new leaf. org1 routes on the assurance independence walk up
+# the reporting chain; org2 routes on a function nobody holds behind a box named
+# after it. Both must deterministically hit
+# space-systems/ecss/q2007-organization.
+tasks:
+  - id: org1
+    query: "our quality assurance group reports to the test floor lead who reports to the head of test operations, tell me whether that arrangement still counts as independent for a test centre"
+    intent: "ECSS-Q-ST-20-07 clause 5.3.1; assurance independence taken by walking the full reporting chain to the root, not one level up"
+    expected_skill: "space-systems/ecss/q2007-organization"
+  - id: org2
+    query: "here is the test centre org chart, work out which quality and safety functions nobody actually holds and which interfaces between them were never declared"
+    intent: "ECSS-Q-ST-20-07 clause 5.3.1; a unit named for a function it does not hold leaves the function unassigned, and a required interface pair needs a declaration unless both functions sit in one unit"
+    expected_skill: "space-systems/ecss/q2007-organization"

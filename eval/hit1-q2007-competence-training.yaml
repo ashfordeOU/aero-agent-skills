@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-competence-training (space-systems/ecss)
+# Two tasks for the new leaf. ct1 routes on the four distinct ways a competence
+# falls short of a role need; ct2 routes on the record clocks - a certificate
+# validity window and an assessment retention window are different objects.
+# Both must deterministically hit space-systems/ecss/q2007-competence-training.
+tasks:
+  - id: ct1
+    query: "this operator is one level short on facility operation and has no training event behind the safety level they claim, work out whether they can be cleared for the role and what to train"
+    intent: "ECSS-Q-ST-20-07C clause 5.4; competence need per test role, gap reasons kept separate, training plan ordered by shortfall"
+    expected_skill: "space-systems/ecss/q2007-competence-training"
+  - id: ct2
+    query: "Our test centre operator holds a certificate still inside its validity date, but the competence assessment behind it was recorded eleven years ago. Does the retention window on that record still let me clear the person for the chamber role?"
+    intent: "ECSS-Q-ST-20-07C clause 5.4; certificate validity window versus assessment record retention window as two independent clocks"
+    expected_skill: "space-systems/ecss/q2007-competence-training"

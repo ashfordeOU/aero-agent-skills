@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-statistical-treatment (space-systems/ecss)
+# Two tasks for the new leaf. stt1 routes on the basis value and the tolerance
+# factor at the sample size in hand; stt2 routes on the extreme result screened
+# with a normed residual and the scatter of the sample. Both must
+# deterministically hit space-systems/ecss/q7045-statistical-treatment.
+tasks:
+  - id: stt1
+    query: "sixteen coupons came back from the ECSS mechanical campaign with these proof strengths, so screen the low one as an outlier against its critical value, tell me the scatter, and give me the B basis figure the set supports"
+    intent: "ECSS-Q-ST-70-45 data; one-sided normal tolerance factor at the sample size, basis value as mean less factor times sample deviation, minimum sample floor"
+    expected_skill: "space-systems/ecss/q7045-statistical-treatment"
+  - id: stt2
+    query: "one of the eleven results came out forty megapascals below the rest, tell me whether that is a statistical outlier on the normed residual and what the coefficient of variation says about the set"
+    intent: "ECSS-Q-ST-70-45 data; maximum normed residual against its tabulated critical value, and sample scatter reported as a coefficient of variation"
+    expected_skill: "space-systems/ecss/q7045-statistical-treatment"

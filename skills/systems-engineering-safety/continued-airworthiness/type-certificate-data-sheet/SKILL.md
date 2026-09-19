@@ -162,7 +162,7 @@ mmo 0.84}, noise_standards ["far-36"].
 - systems-engineering-safety/continued-airworthiness/
   in-service-safety-assessment: the field review that reacts to events
   on the certified type after it enters service.
-- systems-engineering-safety/arp4754a/configuration-management: change
+- systems-engineering-safety/arp4754a/systems-configuration-management: change
   control over the type design record when the sheet is amended.
 
 ## Pitfalls

@@ -1,0 +1,13 @@
+# Hit@1 fragment: fem-coordinate-unit-system (space-systems/ecss)
+# Case 1 routes on the unit block of the exchange header and the mass unit that
+# actually closes with newton and millimetre. Case 2 routes on the frame block:
+# triad validity and the named global frame the receiving tool needs.
+tasks:
+  - id: fem-coordinate-unit-system-1
+    query: "A supplier's finite element exchange package declares newton, millimetre, megapascal and kilogram in its header, and my inertia loads come out a thousand times too large. Which mass unit closes alongside newton and millimetre, and is that declared combination one the structures standard even accepts?"
+    intent: "ECSS-E-ST-32C clause 4.2; the case turns on internal consistency of the declared unit block and on which combinations are approved, not on any coordinate frame"
+    expected_skill: "space-systems/ecss/fem-coordinate-unit-system"
+  - id: fem-coordinate-unit-system-2
+    query: "The model package we received defines six local frames, two of which have axes that are only roughly perpendicular, and nothing in the header names which frame is global. How do I test each triad properly, and how serious is the missing global declaration for anyone rebuilding the geometry?"
+    intent: "ECSS-E-ST-32C clause 4.2; the case turns on orthogonality and handedness of each frame triad and on the global-frame label being resolvable, not on units"
+    expected_skill: "space-systems/ecss/fem-coordinate-unit-system"

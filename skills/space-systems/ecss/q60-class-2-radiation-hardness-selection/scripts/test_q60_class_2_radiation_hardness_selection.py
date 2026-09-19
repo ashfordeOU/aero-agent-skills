@@ -84,12 +84,24 @@ class MarginPolicyTests(unittest.TestCase):
     def test_a_lot_measurement_costs_the_smallest_margin(self):
         lot = radiation_design_margin(LOT_SPECIFIC_PEDIGREE)
         for pedigree in EVIDENCE_PEDIGREES:
-            self.assertLessEqual(lot, radiation_design_margin(pedigree))
+            margin = radiation_design_margin(pedigree)
+            if pedigree == LOT_SPECIFIC_PEDIGREE:
+                # The same policy entry read twice: the same float, so the
+                # closed end of the ordering is an equality, not a bound.
+                self.assertEqual(lot, margin)
+            else:
+                self.assertLess(lot, margin)
 
     def test_a_datasheet_claim_costs_the_largest_margin(self):
         claim = radiation_design_margin("manufacturer-datasheet-claim")
         for pedigree in EVIDENCE_PEDIGREES:
-            self.assertGreaterEqual(claim, radiation_design_margin(pedigree))
+            margin = radiation_design_margin(pedigree)
+            if pedigree == "manufacturer-datasheet-claim":
+                # The same policy entry read twice: the same float, so the
+                # closed end of the ordering is an equality, not a bound.
+                self.assertEqual(claim, margin)
+            else:
+                self.assertGreater(claim, margin)
 
     def test_no_margin_sits_below_unity(self):
         for pedigree in EVIDENCE_PEDIGREES:

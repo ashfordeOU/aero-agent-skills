@@ -1,0 +1,1312 @@
+{
+  "amendments": [],
+  "body": {
+    "checker_set": {
+      "checkers": [
+        {
+          "id": "contract-test",
+          "observation": "contract-test",
+          "observation_version": "1.0.0",
+          "params": {
+            "allow_skips": false,
+            "max_errors": 0,
+            "max_failures": 0,
+            "min_tests": 20,
+            "require_instrumented": true
+          },
+          "params_digest": "sha256:91054226a73f8dea9ac3e45b3593fee293a1bbfebc9bcd46b9879326468ebc8b",
+          "title": "the leaf's behaviour contract test passes",
+          "version": "1.0.0"
+        },
+        {
+          "id": "desc-lint",
+          "observation": "desc-lint",
+          "observation_version": "1.0.0",
+          "params": {
+            "action_verb_vocabulary_version": "1.0.0",
+            "max_words": 150,
+            "min_trigger_keywords": 2,
+            "min_words": 100,
+            "require_action_verb": true,
+            "require_trigger_label": true,
+            "require_use_when": true
+          },
+          "params_digest": "sha256:66af1db8674c23dc039a24b44fa52a7d9eae700d186f744c25bec94d3f685457",
+          "title": "the description carries what, when and trigger keywords",
+          "version": "1.0.0"
+        },
+        {
+          "id": "no-verbatim",
+          "observation": "marker-scan",
+          "observation_version": "1.0.0",
+          "params": {
+            "markers_enforced": [
+              "all-rights-reserved",
+              "redistribution-bar",
+              "single-user-licence",
+              "confidentiality-banner",
+              "licence-agreement-banner",
+              "rights-management-banner",
+              "licensed-to-banner",
+              "dated-copyright-notice"
+            ],
+            "max_hits_per_marker": 0,
+            "max_quoted_span_chars": 400
+          },
+          "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+          "title": "no copyright boilerplate and no long quoted span",
+          "version": "1.0.0"
+        },
+        {
+          "id": "portability",
+          "observation": "near-boundary",
+          "observation_version": "1.0.0",
+          "params": {
+            "relative_tolerance": "1e-8"
+          },
+          "params_digest": "sha256:8fc2797868a9a588976143b3c7364a3d7b34f5203cb69b7f1be84ae624e5fb03",
+          "title": "no strict float comparison sits on its bound",
+          "version": "1.0.0"
+        },
+        {
+          "id": "spec-shape",
+          "observation": "spec-shape",
+          "observation_version": "1.0.0",
+          "params": {
+            "allowed_compliance": [
+              "none",
+              "ITAR-GATED",
+              "EAR-GATED",
+              "STANDARDS-REF"
+            ],
+            "allowed_licenses": [
+              "Apache-2.0"
+            ],
+            "max_absolute_links": 0,
+            "max_body_lines": 500,
+            "max_description_chars": 1024,
+            "require_logic_module": true,
+            "require_name_matches_directory": true,
+            "require_test_module": true,
+            "required_frontmatter_keys": [
+              "name",
+              "description",
+              "license",
+              "compliance",
+              "standards",
+              "gated",
+              "domain",
+              "pack",
+              "metadata"
+            ]
+          },
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "title": "front matter and leaf layout conform to the skill specification",
+          "version": "1.0.0"
+        },
+        {
+          "id": "stdlib-only",
+          "observation": "import-surface",
+          "observation_version": "1.0.0",
+          "params": {
+            "allowlist": [
+              "abc",
+              "argparse",
+              "asyncio",
+              "base64",
+              "bisect",
+              "builtins",
+              "collections",
+              "concurrent",
+              "contextlib",
+              "copy",
+              "csv",
+              "dataclasses",
+              "datetime",
+              "decimal",
+              "enum",
+              "errno",
+              "faulthandler",
+              "functools",
+              "gc",
+              "glob",
+              "hashlib",
+              "heapq",
+              "inspect",
+              "io",
+              "itertools",
+              "json",
+              "logging",
+              "math",
+              "mmap",
+              "multiprocessing",
+              "os",
+              "pathlib",
+              "pickle",
+              "pprint",
+              "queue",
+              "random",
+              "re",
+              "select",
+              "shlex",
+              "shutil",
+              "signal",
+              "socket",
+              "sqlite3",
+              "stat",
+              "statistics",
+              "string",
+              "struct",
+              "subprocess",
+              "sys",
+              "tempfile",
+              "textwrap",
+              "threading",
+              "time",
+              "timeit",
+              "traceback",
+              "types",
+              "typing",
+              "unittest",
+              "uuid",
+              "weakref",
+              "xml",
+              "zoneinfo"
+            ]
+          },
+          "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+          "title": "shipped modules import the standard library and their siblings only",
+          "version": "1.0.0"
+        }
+      ],
+      "digest": "sha256:9e95bdedc712284445b716337051ebbfae79eed7eb8cc6ec2a8f305e445d6da4",
+      "label": "tightened-2026-09-19",
+      "spec": "aero-evidence-checkerset/1"
+    },
+    "corpus": {
+      "algorithm": "sha256",
+      "byte_count": 94952274,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 9085,
+      "subtree": "skills",
+      "subtree_digest": "sha256:80114ebff78847912c0a8c24f93736f1e3a443f22cd7918da1ae7cc281e61931"
+    },
+    "derivation": {
+      "anomalies": [],
+      "checker_set_after": {
+        "digest": "sha256:9e95bdedc712284445b716337051ebbfae79eed7eb8cc6ec2a8f305e445d6da4",
+        "label": "tightened-2026-09-19"
+      },
+      "checker_set_before": {
+        "digest": "sha256:5267e54b448a3d90ecab8603dc178bec02dff45ad8364e83ca1ad64f1de0ecfc",
+        "label": "baseline-2026-09-19"
+      },
+      "corpus_re_executed": false,
+      "gate_changes": [
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "min_tests: 1 -> 20"
+          ],
+          "change": "held",
+          "gate": "contract-test",
+          "reason_after": "34 test(s) across 1 module(s), no failure or error"
+        },
+        {
+          "after": "FAIL",
+          "before": "PASS",
+          "cause": [
+            "min_words: 50 -> 100"
+          ],
+          "change": "flipped",
+          "gate": "desc-lint",
+          "reason_after": "1 description violation(s)"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "no-verbatim",
+          "reason_after": "8 marker(s) enforced, none present across 1 scanned file(s)"
+        },
+        {
+          "after": "FAIL",
+          "before": "PASS",
+          "cause": [
+            "relative_tolerance: '1e-12' -> '1e-8'"
+          ],
+          "change": "flipped",
+          "gate": "portability",
+          "reason_after": "5 strict comparison(s) within 1e-8 relative of the bound"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "spec-shape",
+          "reason_after": "front matter and layout conform"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "stdlib-only",
+          "reason_after": "2 module(s) import stdlib and siblings only"
+        }
+      ],
+      "kind": "regrade",
+      "parent": {
+        "amendments_at_regrade": 0,
+        "body_digest": "sha256:4f08bb5d9d673cef7639325dc2dc33274412f8fe3b7db29c8ad71c0c26033351",
+        "issued_at": "2026-09-19T00:11:03Z",
+        "record_id": "er_4f08bb5d9d673cef"
+      },
+      "performed_with": {
+        "note": "no observation was re-taken, so no environment fingerprint is claimed for this step",
+        "tool": "aero-evidence/1.0.0"
+      },
+      "reobservation_required": [],
+      "verdict_before": "PASS"
+    },
+    "environment": {
+      "float": {
+        "epsilon": "2.220446049250313e-16",
+        "mant_dig": 53,
+        "max_exp": 1024,
+        "min_exp": -1021,
+        "radix": 2,
+        "rounds": 1
+      },
+      "hash_randomization": true,
+      "interpreter": {
+        "implementation": "CPython",
+        "version": "3.14.4",
+        "version_info": [
+          3,
+          14,
+          4
+        ]
+      },
+      "libm": {
+        "fingerprint": "sha256:0bb4a15c81e4cea456a3a4d9de5df0b7f55adced5ef40caea6b6e90d010221c0",
+        "probes": [
+          {
+            "probe": "log10_pow_roundtrip",
+            "repr": "-20.0"
+          },
+          {
+            "probe": "pow_10_neg_tenth",
+            "repr": "0.7943282347242815"
+          },
+          {
+            "probe": "log10_thousand",
+            "repr": "3.0"
+          },
+          {
+            "probe": "exp_one",
+            "repr": "2.718281828459045"
+          },
+          {
+            "probe": "sin_large_argument",
+            "repr": "-0.8522008497671888"
+          },
+          {
+            "probe": "sqrt_two",
+            "repr": "1.4142135623730951"
+          },
+          {
+            "probe": "atan2_one_three",
+            "repr": "0.3217505543966422"
+          },
+          {
+            "probe": "tenth_plus_fifth",
+            "repr": "0.30000000000000004"
+          },
+          {
+            "probe": "fsum_ten_tenths",
+            "repr": "1.0"
+          },
+          {
+            "probe": "pow_two_half",
+            "repr": "1.4142135623730951"
+          }
+        ]
+      },
+      "platform": {
+        "byteorder": "little",
+        "machine": "arm64",
+        "pointer_bits": 64,
+        "system": "Darwin"
+      },
+      "spec": "aero-evidence-environment/1"
+    },
+    "gates": [
+      {
+        "checker_version": "1.0.0",
+        "gate": "contract-test",
+        "observation": "contract-test",
+        "observation_digest": "sha256:fdbf9a004effe12ddd70f189833259b7eae4277c68ccf754c6040ca715612d87",
+        "outcome": {
+          "findings": [],
+          "reason": "34 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:91054226a73f8dea9ac3e45b3593fee293a1bbfebc9bcd46b9879326468ebc8b",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "reason": "34 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "desc-lint",
+        "observation": "desc-lint",
+        "observation_digest": "sha256:e64b77354d88f8afae7df5588875714a180e38c660799f01e0abe0ff148e69c9",
+        "outcome": {
+          "findings": [
+            {
+              "code": "word-count-out-of-range",
+              "detail": "97 words, allowed 100-150"
+            }
+          ],
+          "reason": "1 description violation(s)",
+          "verdict": "FAIL"
+        },
+        "params_digest": "sha256:66af1db8674c23dc039a24b44fa52a7d9eae700d186f744c25bec94d3f685457",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:728f2e800176ef147119c608dc1f9aea49f24d0526fe09b23ff010e993187ebb",
+          "reason": "97 words, action verb, use-when and triggers present",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "no-verbatim",
+        "observation": "marker-scan",
+        "observation_digest": "sha256:3b4e5c1d90f80b758be5eafa1f9a12fdf668699c8346f1cfcdc4d73ae10d48b9",
+        "outcome": {
+          "findings": [],
+          "reason": "8 marker(s) enforced, none present across 1 scanned file(s)",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+          "reason": "8 marker(s) enforced, none present across 1 scanned file(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "portability",
+        "observation": "near-boundary",
+        "observation_digest": "sha256:742074788cbc430614b37ccca730632ea4c884478b55dec9c24bc46d617e2aa8",
+        "outcome": {
+          "findings": [
+            {
+              "code": "near-boundary-comparison",
+              "detail": "__main__.TestWorkedExample.test_ground_reference_respected assertGreaterEqual gap 1e-09"
+            },
+            {
+              "code": "near-boundary-comparison",
+              "detail": "__main__.TestWorkedExample.test_ground_reference_respected assertGreaterEqual gap 1e-09"
+            },
+            {
+              "code": "near-boundary-comparison",
+              "detail": "__main__.TestWorkedExample.test_ground_reference_respected assertGreaterEqual gap 1e-09"
+            },
+            {
+              "code": "near-boundary-comparison",
+              "detail": "__main__.TestWorkedExample.test_ground_reference_respected assertGreaterEqual gap 1e-09"
+            },
+            {
+              "code": "near-boundary-comparison",
+              "detail": "__main__.TestWorkedExample.test_ground_reference_respected assertGreaterEqual gap 1e-09"
+            }
+          ],
+          "reason": "5 strict comparison(s) within 1e-8 relative of the bound",
+          "verdict": "FAIL"
+        },
+        "params_digest": "sha256:8fc2797868a9a588976143b3c7364a3d7b34f5203cb69b7f1be84ae624e5fb03",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "reason": "no comparison within 1e-12 relative of its bound across 1035 comparison(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "spec-shape",
+        "observation": "spec-shape",
+        "observation_digest": "sha256:61f48f6b3147ae8a17b3fbca15dcd2668896c041a259cf69f7557b1c162ad423",
+        "outcome": {
+          "findings": [],
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "stdlib-only",
+        "observation": "import-surface",
+        "observation_digest": "sha256:80373bb8ecc7e55915dc4d3d4be16087725f8ec797cdd65d9e9439a07db12daa",
+        "outcome": {
+          "findings": [],
+          "reason": "2 module(s) import stdlib and siblings only",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+          "reason": "2 module(s) import stdlib and siblings only",
+          "verdict": "PASS"
+        }
+      }
+    ],
+    "issued": {
+      "at": "2026-09-19T00:15:02Z",
+      "by": "ashforde-conformance",
+      "tool": "aero-evidence/1.0.0"
+    },
+    "leaf": {
+      "algorithm": "sha256",
+      "byte_count": 39419,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 3,
+      "files": [
+        {
+          "digest": "sha256:0d8ea182958875247a43f02cb7460ae8389763a561b6feaead3077f45727d4a6",
+          "path": "SKILL.md"
+        },
+        {
+          "digest": "sha256:736cd7e1b2618125eb9b1df4df637a56259b355d7fbd0924cb7d0a0b30efa2fc",
+          "path": "scripts/point_mass_trajectory_logic.py"
+        },
+        {
+          "digest": "sha256:d0322ee2d72e5d8c10ea5b6b4059ccac542928214210ccdd7acb67d88952b540",
+          "path": "scripts/test_point_mass_trajectory.py"
+        }
+      ],
+      "leaf_digest": "sha256:f2a11eacf21d558bbb5a0946221920f6782ada125d8aaadfaee95e30d75d4336",
+      "ref": "skills/flight-mechanics/flight-dynamics-sim/point-mass-trajectory"
+    },
+    "observations": {
+      "contract-test": {
+        "modules": [
+          {
+            "errors": 0,
+            "expected_failures": 0,
+            "failures": 0,
+            "instrumented": true,
+            "load_error": null,
+            "module": "scripts/test_point_mass_trajectory.py",
+            "outcomes": [
+              {
+                "status": "ok",
+                "test": "__main__.TestDerivativesAndRk4.test_derivs_kinematic_identities"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDerivativesAndRk4.test_initial_acceleration_positive"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDerivativesAndRk4.test_level_cruise_force_balance_zero_derivs"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDerivativesAndRk4.test_rk4_level_cruise_round_trip"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDerivativesAndRk4.test_unpowered_state_decelerates_and_bad_speed_rejected"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDragPolarAndThrust.test_drag_polar_negative_inputs_rejected"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDragPolarAndThrust.test_drag_polar_parabolic_values"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDragPolarAndThrust.test_thrust_at_sea_level_and_lapse"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDragPolarAndThrust.test_thrust_invalid_inputs_rejected"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDragPolarAndThrust.test_thrust_lapse_exponent_behavior"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaAtmosphere.test_isa_negative_altitude_rejected"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaAtmosphere.test_isa_sea_level_conditions"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaAtmosphere.test_isa_tropopause_conditions"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaAtmosphere.test_isa_troposphere_and_stratosphere"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSummaryHelpers.test_level_trim_cl_formula"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSummaryHelpers.test_steady_climb_angle_positive"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestSummaryHelpers.test_summary_fields_and_identity"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestValueErrors.test_bad_dt_and_n_steps"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestValueErrors.test_bad_initial_state"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestValueErrors.test_k_inconsistent_with_e_ar_and_missing_keys"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestValueErrors.test_nonphysical_mass_area_thrust"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestValueErrors.test_nonphysical_polar_and_geometry"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestValueErrors.test_steady_climb_and_summary_bad_inputs"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_altitude_at_300s_in_band"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_altitude_monotone_trend"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_initial_acceleration_positive_and_climb"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_speed_at_300s"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_stall_events_recorded"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_state_and_derived_consistency"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_steady_climb_consistency_within_30_percent"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestWorkedExample.test_thrust_lapses_with_altitude"
+              }
+            ],
+            "skipped": 0,
+            "tests_run": 34,
+            "unexpected_successes": 0
+          }
+        ],
+        "observation": "contract-test",
+        "runner": "stdlib-unittest",
+        "totals": {
+          "errors": 0,
+          "expected_failures": 0,
+          "failures": 0,
+          "modules": 1,
+          "skipped": 0,
+          "tests_run": 34,
+          "unexpected_successes": 0
+        },
+        "version": "1.0.0"
+      },
+      "desc-lint": {
+        "action_verb_vocabulary_version": "1.0.0",
+        "action_verbs_found": [
+          "simulate"
+        ],
+        "char_count": 717,
+        "has_trigger_label": true,
+        "has_use_when_clause": true,
+        "observation": "desc-lint",
+        "present": true,
+        "trigger_keyword_count": 8,
+        "version": "1.0.0",
+        "word_count": 97
+      },
+      "import-surface": {
+        "extraction": "ast",
+        "modules": [
+          {
+            "imports": [
+              "math"
+            ],
+            "module": "scripts/point_mass_trajectory_logic.py",
+            "parse_error": null,
+            "sibling_resolved": []
+          },
+          {
+            "imports": [
+              "math",
+              "os",
+              "point_mass_trajectory_logic",
+              "sys",
+              "unittest"
+            ],
+            "module": "scripts/test_point_mass_trajectory.py",
+            "parse_error": null,
+            "sibling_resolved": [
+              "point_mass_trajectory_logic"
+            ]
+          }
+        ],
+        "observation": "import-surface",
+        "version": "1.0.0"
+      },
+      "marker-scan": {
+        "files_scanned": [
+          {
+            "chars": 9780,
+            "digest": "sha256:0d8ea182958875247a43f02cb7460ae8389763a561b6feaead3077f45727d4a6",
+            "path": "SKILL.md"
+          }
+        ],
+        "longest_quoted_span_chars": 0,
+        "marker_counts": {
+          "all-rights-reserved": 0,
+          "confidentiality-banner": 0,
+          "dated-copyright-notice": 0,
+          "licence-agreement-banner": 0,
+          "licensed-to-banner": 0,
+          "redistribution-bar": 0,
+          "rights-management-banner": 0,
+          "single-user-licence": 0
+        },
+        "marker_ids": [
+          "all-rights-reserved",
+          "confidentiality-banner",
+          "dated-copyright-notice",
+          "licence-agreement-banner",
+          "licensed-to-banner",
+          "redistribution-bar",
+          "rights-management-banner",
+          "single-user-licence"
+        ],
+        "marker_set_digest": "sha256:ebd947e6113e971146bdb95d62996b0945755fe2ec288b184debab41af068374",
+        "marker_set_version": "1.0.0",
+        "observation": "marker-scan",
+        "quote_scan_scope": "prose only; SKILL.md front matter is excluded",
+        "quoted_spans_over_40_chars": 0,
+        "version": "1.0.0"
+      },
+      "near-boundary": {
+        "all_recorded": false,
+        "comparisons_total": 1035,
+        "gap_floor": "0.9960880676992163",
+        "mirrors_gate": "portability",
+        "observation": "near-boundary",
+        "recorded_cap": 64,
+        "tightest": [
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "1e-09",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.005",
+            "test": "__main__.TestDerivativesAndRk4.test_rk4_level_cruise_round_trip"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.030191821264679",
+            "test": "__main__.TestSummaryHelpers.test_steady_climb_angle_positive"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.04239857631661125",
+            "test": "__main__.TestWorkedExample.test_altitude_at_300s_in_band"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.05325320762179052",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.06937820107418319",
+            "test": "__main__.TestWorkedExample.test_state_and_derived_consistency"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.08546639705653422",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.10211214250474689",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.13453290456184108",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.1371433331415659",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.1594380120111768",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.16125093198151652",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.17007234648000963",
+            "test": "__main__.TestWorkedExample.test_thrust_lapses_with_altitude"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.17838379448492292",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.17838379448492292",
+            "test": "__main__.TestIsaAtmosphere.test_isa_troposphere_and_stratosphere"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.1861614720687479",
+            "test": "__main__.TestIsaAtmosphere.test_isa_density_monotonic_decreasing_to_20000"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.21888670174358163",
+            "test": "__main__.TestDerivativesAndRk4.test_unpowered_state_decelerates_and_bad_speed_rejected"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.2476050456837117",
+            "test": "__main__.TestSummaryHelpers.test_level_trim_cl_formula"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.27898510526005793",
+            "test": "__main__.TestWorkedExample.test_steady_climb_consistency_within_30_percent"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.33731178637488174",
+            "test": "__main__.TestDragPolarAndThrust.test_thrust_lapse_exponent_behavior"
+          },
+          {
+            "assertion": "assertGreaterEqual",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.41427295604327785",
+            "test": "__main__.TestWorkedExample.test_ground_reference_respected"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.465947760052465",
+            "test": "__main__.TestDragPolarAndThrust.test_thrust_at_sea_level_and_lapse"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.4787501405204004",
+            "test": "__main__.TestWorkedExample.test_speed_at_300s"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.4806765964932947",
+            "test": "__main__.TestWorkedExample.test_steady_climb_consistency_within_30_percent"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.686717257743772",
+            "test": "__main__.TestWorkedExample.test_altitude_at_300s_in_band"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9944017486960987",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9944421253277309",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9944865795353973",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9945348098602125",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.994586482242227",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9946412375940077",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9946986994816175",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.994758481636309",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9948201950554552",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9948834544962603",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9949478842161031",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9950131228647208",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9950788274821954",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9951446766000938",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9952103724793067",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9952756425462318",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.99534024010884",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9954039444463629",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9954665603717817",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9955279173661686",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9955878683794958",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9956462883850189",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.99570307276488",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9957581355940979",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9958114078793898",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9958628357988624",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9959123789789247",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9959600088360699",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960057070035723",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960494638567085",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960817183807503",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960826694277466",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960834949722283",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960862506825081",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          },
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_point_mass_trajectory.py",
+            "relative_gap": "0.9960880676992163",
+            "test": "__main__.TestWorkedExample.test_no_ground_return_after_initial_climb"
+          }
+        ],
+        "version": "1.0.0"
+      },
+      "spec-shape": {
+        "absolute_link_count": 0,
+        "body_lines": 168,
+        "compliance": "STANDARDS-REF",
+        "description_chars": 717,
+        "directory_name": "point-mass-trajectory",
+        "domain": "flight-mechanics",
+        "gated": false,
+        "has_scripts_dir": true,
+        "keys_present": [
+          "compatibility",
+          "compliance",
+          "description",
+          "domain",
+          "gated",
+          "license",
+          "metadata",
+          "name",
+          "pack",
+          "standards"
+        ],
+        "license": "Apache-2.0",
+        "logic_modules": [
+          "scripts/point_mass_trajectory_logic.py"
+        ],
+        "markdown_link_count": 0,
+        "metadata_author_present": true,
+        "metadata_version": "0.1.0",
+        "name": "point-mass-trajectory",
+        "name_matches_directory": true,
+        "observation": "spec-shape",
+        "pack": "flight-dynamics-sim",
+        "standards": [
+          {
+            "id": "far-25",
+            "reference_only": true
+          },
+          {
+            "id": "cs-25",
+            "reference_only": true
+          }
+        ],
+        "test_modules": [
+          "scripts/test_point_mass_trajectory.py"
+        ],
+        "version": "1.0.0"
+      }
+    },
+    "standards": {
+      "edition_gaps": [
+        "cs-25",
+        "far-25"
+      ],
+      "editions_overlay": {
+        "digest": null,
+        "present": false,
+        "ref": "tools/evidence/standards-editions.json"
+      },
+      "in_scope": [
+        {
+          "designation": "CS-25",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "regulation",
+          "gated": false,
+          "id": "cs-25",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:6971a7c0fc171a3b6ad6c78ae9a0a09d5abc905f96f36c59828fa0a2a0eb7113",
+          "publisher": "EASA",
+          "resolved": true,
+          "revision_token": null,
+          "status": "free-download",
+          "title": "CS-25: Certification Specifications and Acceptable Means of Compliance for Large Aeroplanes"
+        },
+        {
+          "designation": "14 CFR Part 25",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "regulation",
+          "gated": false,
+          "id": "far-25",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:66af77b0587b5fc80f2bdd53e0c11d42da53be565ca16f948eb678634f06c869",
+          "publisher": "FAA (US Government)",
+          "resolved": true,
+          "revision_token": null,
+          "status": "public-domain",
+          "title": "14 CFR Part 25: Airworthiness Standards for Transport Category Airplanes"
+        }
+      ],
+      "map": {
+        "digest": "sha256:90692e66181274392e351b0f313136898f2c4b2434282e5c283af3d6c2102b0f",
+        "entry_count": 30,
+        "ref": "standards-map.yaml"
+      },
+      "spec": "aero-evidence-standards/1"
+    },
+    "subject": {
+      "domain": "flight-mechanics",
+      "kind": "leaf",
+      "name": "point-mass-trajectory",
+      "pack": "flight-dynamics-sim",
+      "ref": "skills/flight-mechanics/flight-dynamics-sim/point-mass-trajectory"
+    },
+    "verdict": {
+      "counts": {
+        "FAIL": 2,
+        "PASS": 4
+      },
+      "gates": 6,
+      "overall": "FAIL"
+    },
+    "versions": {
+      "harness_runtime": {
+        "components": {
+          "canonicalization": "json-c14n/1",
+          "corpus_digest_spec": "aero-corpus-digest/1",
+          "observation_specs": {
+            "contract-test": "1.0.0",
+            "desc-lint": "1.0.0",
+            "import-surface": "1.0.0",
+            "marker-scan": "1.0.0",
+            "near-boundary": "1.0.0",
+            "spec-shape": "1.0.0"
+          },
+          "observer_set": "1.0.0",
+          "record_schema": "1.0.0",
+          "tool": "aero-evidence/1.0.0"
+        },
+        "id": "aero-evidence-harness",
+        "version": "1.0.0"
+      },
+      "specification": {
+        "id": "aero-conformance-spec",
+        "note": "no separately published conformance specification exists yet; this version is the tool's declaration of the contract it implements, bound to the in-tree harness contract by digest",
+        "source_digest": "sha256:8f90dcb0a85e51689c86e1178810f1c36b745950b27ed2709d24007cea7431b7",
+        "source_ref": "docs/harness-contract.md",
+        "version": "0.1.0-draft"
+      }
+    }
+  },
+  "kind": "aero.evidence.record",
+  "record_id": "er_476d2218e09c61fc",
+  "schema_version": "1.0.0",
+  "seal": {
+    "algorithm": "sha256",
+    "binds": "integrity",
+    "body_digest": "sha256:476d2218e09c61fc293ffc8123a9e7786cf078b484bd24a2182a40a0060d41e9",
+    "canonicalization": "json-c14n/1"
+  },
+  "telemetry": {
+    "note": "regrade executed no work; run telemetry lives on the parent",
+    "parent_record_id": "er_4f08bb5d9d673cef"
+  }
+}

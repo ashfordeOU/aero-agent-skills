@@ -281,7 +281,16 @@ class MarginSatisfiesTest(unittest.TestCase):
 
     def test_decibel_subtraction_below_the_limit_by_representation_error_passes(self):
         demonstrated = cc.interference_margin_db(33.3, 27.3)
-        self.assertLess(demonstrated, 6.0)
+        # 33.3 - 27.3 is a single IEEE-754 subtraction of two exactly parsed
+        # doubles: correctly rounded in hardware, bit-identical on every
+        # conforming platform, with no libm call in the path. State the
+        # shortfall itself rather than comparing against the limit - the
+        # difference is exact (both operands are within a factor of two of
+        # each other), strictly positive, and orders of magnitude below any
+        # shortfall an engineer would call one.
+        shortfall = 6.0 - demonstrated
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-12)
         self.assertTrue(cc.margin_satisfies(demonstrated, 6.0))
 
     def test_the_tolerance_does_not_widen_the_engineering_limit(self):

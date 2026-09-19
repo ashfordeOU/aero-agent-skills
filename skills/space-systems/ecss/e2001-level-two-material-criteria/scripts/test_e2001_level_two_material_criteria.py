@@ -265,7 +265,12 @@ class TestEnergyCoverage(unittest.TestCase):
 
     def test_one_ulp_outside_the_upper_bound_is_absorbed(self):
         high = math.nextafter(3000.0, 4000.0)
-        self.assertGreater(high, 3000.0)
+        # nextafter returns the adjacent double by definition, so the value
+        # sits exactly one unit in the last place above the bound on every
+        # IEEE-754 platform. Both that subtraction and ulp are exact, so
+        # assert the gap itself instead of an inequality that reads, to any
+        # instrument, like a rounding accident.
+        self.assertEqual(high - 3000.0, math.ulp(3000.0))
         self.assertTrue(L.covers_energy_range(silver_air(), 5.0, high))
 
     def test_negative_lower_bound_raises(self):
@@ -289,7 +294,11 @@ class TestTemperatureRepresentativeness(unittest.TestCase):
 
     def test_one_ulp_outside_the_window_is_absorbed(self):
         hot = math.nextafter(60.0, 61.0)
-        self.assertGreater(abs(hot - 20.0), 40.0)
+        # nextafter returns the adjacent double by definition, and 60 and 40
+        # share a binary exponent, so the separation from the reference is
+        # exactly the window plus one unit in the last place, on every
+        # IEEE-754 platform. Assert that exact excess.
+        self.assertEqual(abs(hot - 20.0) - 40.0, math.ulp(60.0))
         self.assertTrue(L.temperature_is_representative(silver_air(temperature_c=hot), 20.0))
 
     def test_non_positive_window_raises(self):

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-project-validated-supplier-acceptance (space-systems/ecss)
+# Two tasks for the new leaf. pvsa1 routes on a single-programme validation
+# read against a build on another programme and the four scope edges. pvsa2
+# routes on the production acceptance steps such a maker owes, including the
+# first-lot additions. Both must deterministically hit
+# space-systems/ecss/q6005-project-validated-supplier-acceptance.
+tasks:
+  - id: pvsa1
+    query: "the hybrid maker was validated for one programme only, tell me whether that validation reaches a build on the new programme and which scope edges it falls outside, plus the production acceptance steps the build still owes"
+    intent: "ECSS-Q-ST-60-05C clause 12.3; a validation scoped to one programme does not travel, and programme, technology, hybrid type and the validity window each cut it off independently so every failing edge is named"
+    expected_skill: "space-systems/ecss/q6005-project-validated-supplier-acceptance"
+  - id: pvsa2
+    query: "the maker has no approved line, only a validation for this programme, and this is their first build off it, list the production acceptance steps the batch owes before we take it"
+    intent: "ECSS-Q-ST-60-05C clause 12.3; the base production acceptance steps a project-validated build carries with no line monitoring behind it, plus the additions a first production lot and an enhanced reliability level bring"
+    expected_skill: "space-systems/ecss/q6005-project-validated-supplier-acceptance"

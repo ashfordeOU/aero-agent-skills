@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-functional-verification-during-test (space-systems/ecss)
+# Two tasks for the new leaf. fv1 routes on building and covering the owed
+# check-point set at the extremes of the first and last cycle; fv2 routes on
+# ambient-to-ambient parameter drift across the campaign. Both must
+# deterministically hit
+# space-systems/ecss/q7004-functional-verification-during-test.
+tasks:
+  - id: fv1
+    query: "we powered the assembly up cold on cycle one and then only checked it again at the end at room temperature, which at-temperature checks does the campaign still owe us"
+    intent: "ECSS-Q-ST-70-04C functional verification; building the owed check-point set at ambient and at both extremes of the first, last and any intermediate cycle and naming the omissions"
+    expected_skill: "space-systems/ecss/q7004-functional-verification-during-test"
+  - id: fv2
+    query: "bus current reads one amp before the campaign and one point one five after, both inside spec, does the unit still pass the functional verification"
+    intent: "ECSS-Q-ST-70-04C functional verification; comparing the two ambient reference checks parameter by parameter for relative drift against the campaign allowance, separately from the limit verdicts"
+    expected_skill: "space-systems/ecss/q7004-functional-verification-during-test"

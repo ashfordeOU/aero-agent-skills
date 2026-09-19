@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-interference-critical-point-list (space-systems/ecss)
+# Case 1 routes on deriving the candidate points by victim criticality and on customer approval.
+# Case 2 routes on grading the declared rows and on the spectrum the merged bands leave bare.
+tasks:
+  - id: e20-interference-critical-point-list-1
+    query: "Before we commit money to the EMC demonstration campaign we owe the customer a list of the points at which we will show margin. How do I choose points for a safety-critical victim against an essential one, and does it need signing first?"
+    intent: "ECSS-E-ST-20C 6.3.1.2; candidate points follow the victim's criticality across the coupling families, and the deliverable is not closed until the customer has approved it"
+    expected_skill: "space-systems/ecss/e20-interference-critical-point-list"
+  - id: e20-interference-critical-point-list-2
+    query: "Our declared interference point list covers 30 MHz to 1 GHz and 4 to 8 GHz while the project spectrum runs to 18 GHz. Two rows name no responsible party and one has a blank required margin. Which of those are findings?"
+    intent: "ECSS-E-ST-20C 6.3.1.2; blank mandatory fields are findings in the list itself, and merging the listed bands exposes the stretches of spectrum no point covers"
+    expected_skill: "space-systems/ecss/e20-interference-critical-point-list"

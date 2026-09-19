@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-passive-intermodulation-qualification (space-systems/ecss)
+# Case 1 routes on which mixing products have to be enumerated at all. Case 2
+# routes on predicting a level from the measured reference and on setting the
+# qualification drive and dwell.
+tasks:
+  - id: e20-passive-intermodulation-qualification-1
+    query: "Three downlink carriers sit near 8.2 GHz and our receive band is at 7.19 GHz. Do I only need the two-tone third order products, or do three-carrier combinations and fifth order reach that band as well?"
+    intent: "ECSS-E-ST-20C clause 7.4.5; enumeration runs over every odd-order integer combination of the whole carrier set, not the two-tone third order alone"
+    expected_skill: "space-systems/ecss/e20-passive-intermodulation-qualification"
+  - id: e20-passive-intermodulation-qualification-2
+    query: "The passive intermodulation figure we measured came from one nominated per-carrier drive at a known reference order. How do I roll that onto the carrier plan for flight, and what per-carrier level and what dwell would envelope it in qualification?"
+    intent: "ECSS-E-ST-20C clause 7.4.5; the reference scales by the per-carrier order coefficients and the order roll-off, and the qualification drive is nominal raised by its margin"
+    expected_skill: "space-systems/ecss/e20-passive-intermodulation-qualification"

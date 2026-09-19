@@ -5,6 +5,7 @@ stdlib unittest, offline, deterministic. Run:
     python3 test_e2007_ambient_conducted_level_check.py
 """
 
+import math
 import unittest
 
 from e2007_ambient_conducted_level_check_logic import (
@@ -147,7 +148,9 @@ class TestDummyLoadValidation(unittest.TestCase):
         # 1.3 * 0.9 is 1.1700000000000002, so a load drawing exactly the
         # physically-correct 1.17 A edge reads outside the computed band.
         low, _high = current_tolerance_band(1.3)
-        self.assertGreater(low, 1.17)
+        # 1.3*0.9 is exact IEEE-754 multiplication: the lower band edge is
+        # the double immediately above the physically-correct 1.17 A.
+        self.assertEqual(low, math.nextafter(1.17, math.inf))
         record = validate_dummy_load(
             good_load(current_a=1.17), good_unit(nominal_current_a=1.3)
         )
@@ -286,7 +289,14 @@ class TestHeadroomCategorization(unittest.TestCase):
         # 32.3 - 26.3 is 5.9999999999999964 in binary floating point, so a
         # physically compliant 6.0 dB separation reads short of the limit.
         point = {"frequency_hz": 30.0e3, "background_dbuv": 26.3, "limit_dbuv": 32.3}
-        self.assertLess(point_headroom_db(point), DEFAULT_REQUIRED_HEADROOM_DB)
+        # 32.3 - 26.3 is exact IEEE-754 subtraction and lands four units in
+        # the last place below the required headroom on every platform. The
+        # required headroom is untouched; only the witness is made exact.
+        self.assertEqual(
+            point_headroom_db(point),
+            DEFAULT_REQUIRED_HEADROOM_DB
+            - 4.0 * math.ulp(DEFAULT_REQUIRED_HEADROOM_DB),
+        )
         self.assertEqual(categorize_point(point), CATEGORY_COMPLIANT)
 
     def test_negative_required_headroom_rejected(self):

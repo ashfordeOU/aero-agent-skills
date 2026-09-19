@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-telemetry-monitoring-coverage (space-systems/ecss)
+# Case 1 routes on the per-family sampling demand against the allocated rate.
+# Case 2 routes on the limit configuration and on function coverage, the two
+# failure modes a rate check never reaches.
+tasks:
+  - id: e20-telemetry-monitoring-coverage-1
+    query: "A relay status point is allocated 1 Hz and our thermistors 0.1 Hz. How do I work out the rate each family actually needs from its observed bandwidth, and would a relay that toggles between two samples show up in the housekeeping at all?"
+    intent: "ECSS-E-ST-20C clause 4.1.4; the required rate is twice the bandwidth times the family oversampling factor, and a discrete status needs the heaviest factor"
+    expected_skill: "space-systems/ecss/e20-telemetry-monitoring-coverage"
+  - id: e20-telemetry-monitoring-coverage-2
+    query: "Someone set a high alarm at 150 C on a sensor that saturates at 125 C, and our critical propulsion function has three parameters but none of them limit checked. Are those two separate findings against the monitored set?"
+    intent: "ECSS-E-ST-20C clause 4.1.4; a threshold outside the sensor range can never fire, and a critical function needs at least one limit-checked parameter to be monitored onboard"
+    expected_skill: "space-systems/ecss/e20-telemetry-monitoring-coverage"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: life-extension-reactivation (space-systems/ecss)
+# Case 1 routes on the extension arithmetic: unused life reduced for a load increase, then graded against the programme factor.
+# Case 2 routes on the dormancy and traceability gates that send an item to re-qualification whatever the inspections say.
+tasks:
+  - id: life-extension-reactivation-1
+    query: "A propellant tank certified for 4000 pressure cycles has consumed 3100 and we want 1200 more, but it will now operate 15 percent above the load its original basis assumed. How do I reduce the unused life for that and grade the safety margin on the extension?"
+    intent: "ECSS-E-ST-32C 4.2.4; service-life extension margin from remaining life cut by the fractional load increase and compared with the programme minimum factor"
+    expected_skill: "space-systems/ecss/life-extension-reactivation"
+  - id: life-extension-reactivation-2
+    query: "A valve assembly sat in bonded storage six years, beyond our dormancy limit, and material traceability for one lot cannot be confirmed. Do the seal integrity, visual and functional checks get that pressure hardware back into service, or does it go straight to re-qualification?"
+    intent: "ECSS-E-ST-32C 4.2.4; dormancy limit exceedance forcing re-qualification ahead of any inspection, and unconfirmed traceability as an unconditional rejection on the re-acceptance path"
+    expected_skill: "space-systems/ecss/life-extension-reactivation"

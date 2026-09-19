@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-cleanliness-acceptance-criteria (space-systems/ecss)
+# Two tasks for the new leaf. cac1 routes on the guard band that makes a
+# straddling value repeat the measurement rather than the cleaning; cac2 routes
+# on sizing the exceedance and routing the nonconformance. Both must
+# deterministically hit
+# space-systems/ecss/q7001-cleanliness-acceptance-criteria.
+tasks:
+  - id: cac1
+    query: "a particulate count landed a whisker inside its limit with the measurement uncertainty straddling the line - say whether we re-measure or re-clean, and if it had gone over, where the exceedance would have been routed"
+    intent: "ECSS-Q-ST-70-01C verification; guard-banded versus shared-risk decision rule and the indeterminate outcome that repeats the measurement rather than the cleaning"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-acceptance-criteria"
+  - id: cac2
+    query: "this molecular result sits at half again over its limit and the same item failed a month ago - size the exceedance, grade it from criticality and repeat history, and tell me whether we re-clean, carry it as-is, or go to the board"
+    intent: "ECSS-Q-ST-70-01C verification; exceedance ratio, minor versus major grouping with criticality and recurrence, and routing to re-clean, use-as-is or a review board"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-acceptance-criteria"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-thermal-blanket-grounding (space-systems/ecss)
+# Case 1 routes on the ground-path topology each metallic layer declares.
+# Case 2 routes on grading the path resistance and sizing the strap count.
+tasks:
+  - id: e2006-thermal-blanket-grounding-1
+    query: "Our blanket grounds layer three to layer two and layer two to structure. Is that chained route acceptable under the insulation grounding rule, and what happens when one layer points its ground target back at itself in a loop?"
+    intent: "ECSS-E-ST-20-06C 6.3.3.3; each metallic layer needs its own direct route, so chained and looped topologies are rejected"
+    expected_skill: "space-systems/ecss/e2006-thermal-blanket-grounding"
+  - id: e2006-thermal-blanket-grounding-2
+    query: "Each metallic layer carries two straps of 8 milliohm plus the sheet lateral resistance. How do I grade that path against the limit the bonding rule sets, and how many straps does a 1.2 square metre blanket owe for redundancy?"
+    intent: "ECSS-E-ST-20-06C 6.3.3.3; parallel straps plus layer lateral resistance graded against the bonding limit, with strap count sized from area and redundancy"
+    expected_skill: "space-systems/ecss/e2006-thermal-blanket-grounding"

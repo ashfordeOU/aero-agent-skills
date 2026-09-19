@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-specimen-preparation (space-systems/ecss)
+# osp1 routes on sizing the test item so the chamber reaches the cabin
+# loading; osp2 routes on the prohibition against cleaning or baking the item
+# and on the post-cure age window. Both must deterministically hit
+# space-systems/ecss/q7029-specimen-preparation.
+tasks:
+  - id: osp1
+    query: "how much of this insert goes into the offgassing chamber so the test represents what the crew cabin will actually see, and how full can the chamber get"
+    intent: "ECSS-Q-ST-70-29 test item; grams per cubic metre of chamber must reach or exceed the cabin loading, and past about half the chamber volume the sampled atmosphere is no longer well mixed"
+    expected_skill: "space-systems/ecss/q7029-specimen-preparation"
+  - id: osp2
+    query: "can we wipe the article down and bake it before the offgassing run, and does it matter that it cured eight months ago"
+    intent: "ECSS-Q-ST-70-29 test item; a solvent wipe, bake-out or purge strips the products the determination looks for, the cure has to be complete, and an item long past cure understates the launch condition"
+    expected_skill: "space-systems/ecss/q7029-specimen-preparation"

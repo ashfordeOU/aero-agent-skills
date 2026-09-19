@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-design-loads (space-systems/ecss)
+# Case 1 routes on the limit-to-ultimate multiplication chain and where yield sits.
+# Case 2 routes on register hygiene: repeated identifiers, blank values, stray types.
+tasks:
+  - id: drd-design-loads-1
+    query: "The launcher gives us a 12 g quasi-static limit load and the project applies a 1.15 partial safety-factor for scatter. Show me the chain from that to DLL, then DYL and DUL, for the bracket I am sizing."
+    intent: "ECSS-E-ST-32C Annex B; the uncertainty factor lands on the limit value first, and both the yield and ultimate numbers are derived from that intermediate rather than straight from the limit load"
+    expected_skill: "space-systems/ecss/drd-design-loads"
+  - id: drd-design-loads-2
+    query: "Two rows in our load-cases register share one identifier, another has a blank limit load, and a third is typed as transient. How should the design-loads DRD treat each of those before it can be accepted?"
+    intent: "ECSS-E-ST-32C Annex B; a repeated case identifier, an empty limit value and a type outside the recognised taxonomy are each findings, never defaults to be substituted"
+    expected_skill: "space-systems/ecss/drd-design-loads"

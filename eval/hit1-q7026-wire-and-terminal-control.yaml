@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-wire-and-terminal-control (space-systems/ecss)
+# wt1 routes on the qualified wire and terminal combination; wt2 routes on the
+# derived strip length window and exposed conductor. Both must deterministically
+# hit space-systems/ecss/q7026-wire-and-terminal-control.
+tasks:
+  - id: wt1
+    query: "the build sheet pairs a contact part number with a conductor cross section nobody qualified that contact for, work out whether this is an unlisted terminal or an out of range conductor and who it goes to"
+    intent: "ECSS-Q-ST-70-26C materials clause; qualified combination list keyed on the terminal, with the conductor cross-section range that terminal was qualified with"
+    expected_skill: "space-systems/ecss/q7026-wire-and-terminal-control"
+  - id: wt2
+    query: "work out what strip length these wires should be cut to from the barrel length and insulation stand off, and tell me whether a measured strip that is inside tolerance can still leave too much bare conductor outside the barrel"
+    intent: "ECSS-Q-ST-70-26C materials clause; strip window derived from barrel length plus insulation support gap, short and long verdicts, exposed conductor measured from the barrel, and strands left outside"
+    expected_skill: "space-systems/ecss/q7026-wire-and-terminal-control"

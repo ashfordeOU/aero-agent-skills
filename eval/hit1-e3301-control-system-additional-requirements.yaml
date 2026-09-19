@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-control-system-additional-requirements (space-systems/ecss)
+# Two tasks for the new leaf. acr1 routes on the two-kind accuracy budget and the
+# contributor that drives it; acr2 routes on the ordered magnitude-then-rate
+# command clamp and the actuator effort margin. Both must deterministically hit
+# space-systems/ecss/e3301-control-system-additional-requirements.
+tasks:
+  - id: acr1
+    query: "build the mechanism positioning accuracy budget where alignment offset and thermal drift add directly while encoder quantization and sensor noise combine in quadrature, then tell me which contributor is driving the budget"
+    intent: "ECSS-E-ST-33-01C clause 4.7.8.5; systematic terms summed, random terms root-sum-squared with a coverage factor, driving contributor named"
+    expected_skill: "space-systems/ecss/e3301-control-system-additional-requirements"
+  - id: acr2
+    query: "confirm the commanded profile is clamped in magnitude first and then in rate over the sample interval before it reaches the actuator, and that the actuator still has the required effort margin over the demand"
+    intent: "ECSS-E-ST-33-01C clause 4.7.8.5; ordered command limiting with carried state and actuator capability margin"
+    expected_skill: "space-systems/ecss/e3301-control-system-additional-requirements"

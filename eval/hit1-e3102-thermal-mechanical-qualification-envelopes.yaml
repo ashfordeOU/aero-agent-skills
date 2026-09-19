@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-thermal-mechanical-qualification-envelopes
+# (space-systems/ecss). tme1 routes on the two-step margin build-out and the
+# survival range that has to contain it; tme2 routes on the merit-number
+# choice of working fluid across the cold end. Both must deterministically
+# hit space-systems/ecss/e3102-thermal-mechanical-qualification-envelopes.
+tasks:
+  - id: tme1
+    query: "take the predicted heat pipe temperatures, add the acceptance and qualification margins, and tell me whether the survival range we declared actually contains the envelope we will be testing at"
+    intent: "ECSS-E-ST-31-02 clause 4.4.2; acceptance then qualification temperature envelope build-out and survival range containment, plus the decibel uplift on the vibration level"
+    expected_skill: "space-systems/ecss/e3102-thermal-mechanical-qualification-envelopes"
+  - id: tme2
+    query: "pick between ammonia and propylene for this radiator heat pipe given the cold end after margins, using the liquid transport merit number rather than the headline figure"
+    intent: "ECSS-E-ST-31-02 clause 4.4.2 figure 4-2; working-fluid merit number, freezing and critical point admission across the qualification envelope, selection on the weakest end"
+    expected_skill: "space-systems/ecss/e3102-thermal-mechanical-qualification-envelopes"

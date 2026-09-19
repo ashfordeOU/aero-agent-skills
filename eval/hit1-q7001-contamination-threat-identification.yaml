@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-contamination-threat-identification (space-systems/ecss)
+# Two tasks for the new leaf. cti1 routes on building the life-cycle source
+# register and ranking what actually arrives; cti2 routes on the phase with
+# neither a source nor a nil statement. Both must deterministically hit
+# space-systems/ecss/q7001-contamination-threat-identification.
+tasks:
+  - id: cti1
+    query: "build the register of what can contaminate this hardware from machining through assembly, storage, transport and launch site processing to orbit, and rank the sources by what actually arrives at the sensitive surface rather than by how much they release"
+    intent: "ECSS-Q-ST-70-01C framework; life-cycle contamination source register with arrival ranking through the transport fraction"
+    expected_skill: "space-systems/ecss/q7001-contamination-threat-identification"
+  - id: cti2
+    query: "tell me which life cycle phases in this threat register carry neither an identified source nor an explicit statement that none exists, and whether one source dominates the molecular arrivals"
+    intent: "ECSS-Q-ST-70-01C framework; phase coverage gaps and dominant threat per contamination species"
+    expected_skill: "space-systems/ecss/q7001-contamination-threat-identification"

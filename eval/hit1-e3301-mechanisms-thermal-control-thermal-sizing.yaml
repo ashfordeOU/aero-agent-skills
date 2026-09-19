@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-mechanisms-thermal-control-thermal-sizing (space-systems/ecss)
+# Two tasks for the new leaf. mts1 routes on the passive hot and cold solve for a
+# mechanism plus the conductance that would fix a failing case; mts2 routes on the
+# interface gradient distorting an alignment while every node sits inside limits.
+# Both must deterministically hit
+# space-systems/ecss/e3301-mechanisms-thermal-control-thermal-sizing.
+tasks:
+  - id: mts1
+    query: "the actuator is mounted on an isolating bracket with no heater, solve where it settles hot and cold and tell me what bracket conductance would bring the hot case back inside the band the lubricant needs"
+    intent: "ECSS-E-ST-33-01C clauses 4.7.4.1-4.7.4.2; one-node passive balance with conductive and radiative paths, graded against the mechanism operational band, with the required conductance sized"
+    expected_skill: "space-systems/ecss/e3301-mechanisms-thermal-control-thermal-sizing"
+  - id: mts2
+    query: "every temperature is inside its limits but the pointing budget is blowing, check whether the gradient across the mechanism mounting interface is distorting the structure"
+    intent: "ECSS-E-ST-33-01C clause 4.7.4.2; conductive temperature rise converted into a thermo-elastic distortion and graded against the alignment allowance"
+    expected_skill: "space-systems/ecss/e3301-mechanisms-thermal-control-thermal-sizing"

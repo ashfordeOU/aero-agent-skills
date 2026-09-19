@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-lifetime-degradation-pmp-eee-constraints (space-systems/ecss)
+# Two tasks for the new leaf. ldg1 routes on the aged coating and the
+# absorptance-to-emittance ratio the radiator was sized on; ldg2 routes on the
+# outgassing screening and the part derating that go with it. Both must
+# deterministically hit
+# space-systems/ecss/e31-lifetime-degradation-pmp-eee-constraints.
+tasks:
+  - id: ldg1
+    query: "the radiator was sized on the coating absorptance we measured at delivery, work out what that ratio becomes after the ultraviolet dose of the whole mission and how much extra absorbed power that costs us"
+    intent: "ECSS-E-ST-31C clauses 4.4.3 to 4.4.5; saturating absorptance ageing, the end-of-life absorptance-to-emittance ratio and the absorbed-power growth on the radiator area"
+    expected_skill: "space-systems/ecss/e31-lifetime-degradation-pmp-eee-constraints"
+  - id: ldg2
+    query: "go through the thermal hardware materials list and the electronics and tell me which ones are out on total mass loss or condensables and which parts run too hot once the derating margin comes off the rated limit"
+    intent: "ECSS-E-ST-31C clauses 4.4.4 and 4.4.5; outgassing screening with a recorded exemption reason, and the usable part limit after derating"
+    expected_skill: "space-systems/ecss/e31-lifetime-degradation-pmp-eee-constraints"

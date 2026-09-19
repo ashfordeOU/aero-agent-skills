@@ -1,0 +1,12 @@
+# Hit@1 fragment: bolted-joint-analysis (space-systems/ecss)
+# Case 1 routes on sharing load between fasteners and the combined hole criterion.
+# Case 2 routes on torque-derived clamp force and which failure mode governs.
+tasks:
+  - id: bolted-joint-analysis-1
+    query: "On an ECSS bolted-joint check, how do I split the applied load between fasteners by their stiffness and then grade each hole on bearing-stress together with the bypass-ratio, instead of on the bearing margin alone?"
+    intent: "ECSS-E-ST-32C 4.6.2.13; the per-fastener share follows relative stiffness and each hole is graded on the combined bearing-plus-bypass envelope rather than bearing margin by itself"
+    expected_skill: "space-systems/ecss/bolted-joint-analysis"
+  - id: bolted-joint-analysis-2
+    query: "Our drawing specifies 6 N.m installation torque on M5 steel bolts. What preload does that give at a nut factor of 0.2, and for a thin sheet which bolted-joint failure mode governs: shear-out toward the free edge, net-section tension, or the head pulling through?"
+    intent: "ECSS-E-ST-32C 4.6.2.13; torque converts to clamp-up through the scalar nut-factor relation, and the governing mode for a thin sheet is picked from the recognised failure-mode set"
+    expected_skill: "space-systems/ecss/bolted-joint-analysis"

@@ -14,6 +14,7 @@ import unittest
 from e2001_detection_capability_verification_logic import (
     DEFAULT_REQUIRED_RATIO_DB,
     DEFAULT_VALIDITY_WINDOW_DAYS,
+    REL_TOL,
     assess_detection_capability,
     evaluate_record,
     format_capability_report,
@@ -159,12 +160,17 @@ class TestRecordEvaluation(unittest.TestCase):
         self.assertIn("signal-to-noise-ratio", result["reasons"][0])
 
     def test_exact_ratio_boundary_is_demonstrated(self):
-        # -59.88 - (-65.88) is a physically exact 6.00 dB ratio, but in
-        # binary floating point it lands a few ULPs BELOW 6.0. The
-        # compliant boundary case must pass with the error absorbed in
-        # the comparison, not by relaxing the required ratio.
+        # -59.88 - (-65.88) is a physically exact 6.00 dB ratio; in binary
+        # it is 5.999999999999993 on every IEEE-754 platform (subtraction
+        # is correctly rounded). The compliant boundary case must pass with
+        # that error absorbed in the comparison, never by relaxing the
+        # required ratio, so assert the size of the error, not its sign.
         raw = -59.88 - (-65.88)
-        self.assertLess(raw, DEFAULT_REQUIRED_RATIO_DB)
+        self.assertNotEqual(raw, DEFAULT_REQUIRED_RATIO_DB)
+        self.assertLess(
+            abs(raw - DEFAULT_REQUIRED_RATIO_DB),
+            DEFAULT_REQUIRED_RATIO_DB * REL_TOL,
+        )
         item = validate_demonstration_record(
             record(response_dbm=-59.88, noise_floor_dbm=-65.88)
         )

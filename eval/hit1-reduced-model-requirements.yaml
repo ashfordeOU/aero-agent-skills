@@ -1,0 +1,13 @@
+# Hit@1 fragment: reduced-model-requirements (space-systems/ecss)
+# Case 1 routes on the retained-mode margin above the target frequency and the
+# residual flexibility that truncation forces. Case 2 routes on Guyan validity
+# against the eliminated set and on interface-node integrity.
+tasks:
+  - id: reduced-model-requirements-1
+    query: "Our Craig-Bampton superelement retains fixed interface modes up to 128 Hz and the coupled load analysis targets 120 Hz. Is that enough headroom, and does the truncation then need a residual flexibility term?"
+    intent: "ECSS-E-ST-32 clause 4.4; the retained set must clear the target frequency by the prescribed margin, and truncation below it forces a residual flexibility correction"
+    expected_skill: "space-systems/ecss/reduced-model-requirements"
+  - id: reduced-model-requirements-2
+    query: "A Guyan condensed model is being delivered for a 90 Hz analysis but the eliminated degrees of freedom start resonating at 110 Hz, and two boundary nodes appear twice in the interface list. Which of those blocks delivery?"
+    intent: "ECSS-E-ST-32 clause 4.4; static condensation is only accurate well below the eliminated-set frequencies, and a duplicated boundary node corrupts the constraint modes"
+    expected_skill: "space-systems/ecss/reduced-model-requirements"

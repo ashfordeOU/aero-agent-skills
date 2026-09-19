@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-synchronous-command-and-control (space-systems/ecss)
+# Two tasks for the new leaf. syn1 routes on laying out the reserved slots of a
+# control cycle; syn2 routes on a repetition period that will not fit the cycle.
+# Both must deterministically hit space-systems/ecss/e50-synchronous-command-and-control.
+tasks:
+  - id: syn1
+    query: "lay out our 8 Hz control cycle: one attitude exchange per cycle and a thruster command four times per cycle, tell me how much of the cycle the reserved slots take once guard time and protocol overhead are counted and what is left over"
+    intent: "ECSS-E-ST-50C clause 5.7.1.3; each activation costs payload plus overhead plus guard, the busiest cycle sets the reservation, and the spare time is the whole asynchronous budget"
+    expected_skill: "space-systems/ecss/e50-synchronous-command-and-control"
+  - id: syn2
+    query: "one of our periodic command exchanges runs every 30 ms inside a 125 ms cycle and its slot seems to walk, work out whether it can have a fixed place in the schedule at all"
+    intent: "ECSS-E-ST-50C clause 5.7.1.3; a repetition period that divides neither into nor by the control cycle is not harmonic, so no fixed slot exists and no link rate fixes it"
+    expected_skill: "space-systems/ecss/e50-synchronous-command-and-control"

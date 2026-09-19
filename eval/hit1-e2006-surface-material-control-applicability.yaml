@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-surface-material-control-applicability (space-systems/ecss)
+# Case 1 routes on exposure categorisation and the difference between out of scope and compliant.
+# Case 2 routes on the screening quantities that separate a controlled surface from a floating one.
+tasks:
+  - id: e2006-surface-material-control-applicability-1
+    query: "Our external item list has a thermal blanket under seventy percent shield coverage and an avionics box with no ambient plasma view at all. Which fall inside the surface-material electrical-control rule, and is the internal one reported compliant or simply out of scope?"
+    intent: "ECSS-E-ST-20-06C 6.1.1; shield coverage and ambient view decide the exposure category, and an internal item is not-applicable rather than compliant"
+    expected_skill: "space-systems/ecss/e2006-surface-material-control-applicability"
+  - id: e2006-surface-material-control-applicability-2
+    query: "An optical solar reflector puts a highly resistive outer layer over a well-grounded metallic backing. How do I compute that charge-bleed-path resistance through the layer, screen it against the surface-resistivity ceiling, and is the grounded substrate alone enough to avoid a floating-dielectric finding?"
+    intent: "ECSS-E-ST-20-06C 6.1.1; the path that matters runs through the outer layer's thickness, so a grounded backing under a resistive face still leaves a floating surface"
+    expected_skill: "space-systems/ecss/e2006-surface-material-control-applicability"

@@ -21,9 +21,22 @@ FAMILIES=$(python3 -c "import json; print(json.load(open('docs/metrics.json'))['
 # Files are STAGED (git add -A ran before this script) — diff --cached.
 # New leaf dirs: skills/<family>/<pack>/<leaf>/SKILL.md that are new/added.
 DIFF_BASE="git diff --cached HEAD"
-NEW_LEAF_FILES=$($DIFF_BASE --name-status -- 'skills/*/*/*/SKILL.md' | awk '$1=="A" {print $2}' | head -40)
-MOD_LEAF_FILES=$($DIFF_BASE --name-status -- 'skills/*/*/*/SKILL.md' | awk '$1=="M" {print $2}' | head -20)
-NEW_PACK_DIRS=$($DIFF_BASE --name-status -- 'skills/*/*/*/SKILL.md' | awk '$1=="A" {print $2}' | sed -E 's|skills/([^/]+)/([^/]+)/.*|\1/\2|' | sort -u | head -20)
+# `awk NR<=N` and NOT `head -N`: head closes the pipe at N lines, which
+# SIGPIPEs the producer, and under `set -o pipefail` that kills this script
+# (exit 141). Harmless while a sync added tens of leaves; fatal the first
+# time one added hundreds. awk reads to EOF, so the producer always
+# finishes. Same truncation, no signal.
+# The FULL sets, for counting. Truncating then counting reports the cap
+# instead of the change: a 672-leaf sync committed as "add 40 leaf
+# skill(s)" is a permanent, wrong public record of what happened.
+NEW_LEAF_ALL=$($DIFF_BASE --name-status -- 'skills/*/*/*/SKILL.md' | awk '$1=="A" {print $2}')
+NEW_LEAF_COUNT=$(printf '%s' "$NEW_LEAF_ALL" | grep -c 'SKILL\.md' || true)
+NEW_FAMS_ALL=$(printf '%s\n' "$NEW_LEAF_ALL" | cut -d/ -f2 | sort -u | tr '\n' ',' | sed 's/,$//')
+
+# And the capped set, for the list a human reads.
+NEW_LEAF_FILES=$(printf '%s\n' "$NEW_LEAF_ALL" | awk 'NR<=40')
+MOD_LEAF_FILES=$($DIFF_BASE --name-status -- 'skills/*/*/*/SKILL.md' | awk '$1=="M" {print $2}' | awk 'NR<=20')
+NEW_PACK_DIRS=$($DIFF_BASE --name-status -- 'skills/*/*/*/SKILL.md' | awk '$1=="A" {print $2}' | sed -E 's|skills/([^/]+)/([^/]+)/.*|\1/\2|' | sort -u | awk 'NR<=20')
 
 # Extract leaf names + families for the body
 declare -a LEAF_LINES=()
@@ -38,9 +51,8 @@ fi
 
 # Subject: highlight the dominant change
 if [ -n "$NEW_LEAF_FILES" ]; then
-  NEW_COUNT=$(echo "$NEW_LEAF_FILES" | grep -c SKILL.md)
-  # families touched by new leaves
-  NEW_FAMS=$(echo "$NEW_LEAF_FILES" | cut -d/ -f2 | sort -u | tr '\n' ',' | sed 's/,$//')
+  NEW_COUNT="$NEW_LEAF_COUNT"
+  NEW_FAMS="$NEW_FAMS_ALL"
   SUBJECT="add ${NEW_COUNT} leaf skill(s) across ${NEW_FAMS} — ${LEAVES} total"
 elif [ -n "$MOD_LEAF_FILES" ]; then
   SUBJECT="update leaf skill content — ${LEAVES} skills, ${PACKS} packs"
@@ -50,7 +62,7 @@ fi
 
 # Body
 BODY="Automated sync from the private dev tree (ops/automation/publish-public.sh).
-Gates verified inside this export: validate 5/5, attest 3/3, visuals-check, package-test.
+Gates verified inside this export: validate, attest, visuals-check, package-test.
 
 Stats: ${LEAVES} leaves · ${PACKS} packs · ${FAMILIES} families"
 
@@ -59,6 +71,11 @@ if [ "${#LEAF_LINES[@]}" -gt 0 ]; then
 
 New leaves in this sync:
 $(printf '%s\n' "${LEAF_LINES[@]}")"
+  if [ "${NEW_LEAF_COUNT:-0}" -gt "${#LEAF_LINES[@]}" ]; then
+    # A truncated list that does not say it is truncated reads as complete.
+    BODY+="
+  ... and $(( NEW_LEAF_COUNT - ${#LEAF_LINES[@]} )) more not listed here"
+  fi
 fi
 
 if [ -n "$NEW_PACK_DIRS" ] && [ "$NEW_COUNT" -gt 0 ]; then

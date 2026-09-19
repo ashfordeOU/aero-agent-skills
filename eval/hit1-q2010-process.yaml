@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2010-process (space-systems/ecss)
+# Two tasks for the new leaf. op1 routes on the ordered stage-reached rule and
+# the conditional delta qualification artefact; op2 routes on the two-way
+# product tree reconciliation. Both must deterministically hit
+# space-systems/ecss/q2010-process.
+tasks:
+  - id: op1
+    query: "this bought-in unit has a procurement spec written but the trade-off is still open, and it is only qualified for someone else's application - how far through the selection process has it really got"
+    intent: "ECSS-Q-ST-20-10C clause 4; ordered stage-reached rule across market investigation, characterization and selection, procurement and qualification, plus the delta qualification plan an item qualified elsewhere owes"
+    expected_skill: "space-systems/ecss/q2010-process"
+  - id: op2
+    query: "cross-check the bought-in item candidates against the make-or-buy decisions in the product tree and flag the nodes we decided to make that somehow have a supplier item against them"
+    intent: "ECSS-Q-ST-20-10C clause 4; reconciling off-the-shelf candidates with the product tree in both directions, including a buy node with no candidate"
+    expected_skill: "space-systems/ecss/q2010-process"

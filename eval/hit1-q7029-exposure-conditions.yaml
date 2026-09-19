@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7029-exposure-conditions (space-systems/ecss)
+# exp1 routes on the dwell being counted from stabilisation rather than from
+# vessel close; exp2 routes on judging a profile that left the tolerance band
+# mid-soak and on the vacuum-versus-nitrogen choice. Both must deterministically
+# hit space-systems/ecss/q7029-exposure-conditions.
+tasks:
+  - id: exp1
+    query: "Our offgassing log starts the seventy-two hour clock at vessel closure, but the part only reached the set point two hours later. Start the dwell at thermal stabilisation instead and give me the effective in-band time, the excursion count and the worst deviation."
+    intent: "ECSS-Q-ST-70-29 exposure; the dwell is credited from thermal stabilisation inside the tolerance band, not from vessel close, so the ramp is subtracted"
+    expected_skill: "space-systems/ecss/q7029-exposure-conditions"
+  - id: exp2
+    query: "the conditioning run dropped ten degrees below the band twice during the soak and we were on a nitrogen purge not vacuum - tell me whether this exposure is acceptable"
+    intent: "ECSS-Q-ST-70-29 exposure; out-of-band intervals are subtracted and grouped into excursions, and the purge flow and purity are graded against their floors"
+    expected_skill: "space-systems/ecss/q7029-exposure-conditions"

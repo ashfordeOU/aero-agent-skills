@@ -156,7 +156,13 @@ class PenetrationControlTest(unittest.TestCase):
         result = contact.penetration_control(
             100000.0, 1.0e6, 0.001, factor=10.0, max_iterations=20)
         self.assertTrue(result["converged"])
-        self.assertLessEqual(result["penetration"], 0.001)
+        # Two ramps of ten take the stiffness from 1.0e6 to 1.0e8 exactly
+        # (both exactly representable, both products exact), so the
+        # penetration is 1.0e5 / 1.0e8 - a correctly rounded division whose
+        # result is the tolerance itself, bit for bit on every platform.
+        # The loop exits on the inclusive edge, so this is an equality; the
+        # tolerance is untouched.
+        self.assertEqual(result["penetration"], 0.001)
         self.assertGreater(result["stiffness"], 1.0e6)
 
     def test_iteration_count_matches_stiffness_growth(self):

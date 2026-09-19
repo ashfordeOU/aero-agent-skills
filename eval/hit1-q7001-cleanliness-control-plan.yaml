@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanliness-control-plan (space-systems/ecss)
+# ccp1 routes on content and lifecycle-phase completeness of the plan document;
+# ccp2 routes on the issued plan having gone stale against the configuration.
+# Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-control-plan.
+tasks:
+  - id: ccp1
+    query: "review our contamination and cleanliness control plan and tell me which content areas are only headings with nothing under them and which lifecycle phases past delivery it never speaks to"
+    intent: "ECSS-Q-ST-70-01C programme clause; a named but empty section is a gap, and a plan ending at delivery leaves the launch campaign without a controlling document"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-control-plan"
+  - id: ccp2
+    query: "the CCCP was issued eighteen months ago and the design has changed since, decide whether it is still the controlling document or whether the approval and the periodic review have lapsed"
+    intent: "ECSS-Q-ST-70-01C programme clause; an issue predating the last configuration change is stale, and periodic review lapses separately from change-driven revision"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-control-plan"

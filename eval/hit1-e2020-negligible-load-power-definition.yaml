@@ -7,10 +7,10 @@
 # space-systems/ecss/e2020-negligible-load-power-definition.
 tasks:
   - id: nlpd1
-    query: "write down what a load has to draw before the power budget stops tracking it, applying the tighter of the declared absolute watt threshold and the declared share of the reference power"
+    query: "Our 340 W platform carries dozens of pull-up networks and sense taps. I have to put our negligibility policy into the budget as two figures, 0.25 W and 0.08 percent of reference. How small must a draw be before we stop giving it a line?"
     intent: "ECSS-E-ST-20-20C clause 5.2.13.2.1; integrator declaration of the negligible consumption threshold for budgeting"
     expected_skill: "space-systems/ecss/e2020-negligible-load-power-definition"
   - id: nlpd2
-    query: "sum every consumer the negligibility rule excuses, compare the total against the aggregate cap and report the unbudgeted residual against the budget uncertainty allowance"
+    query: "Forty small consumers each fall under our negligibility figure, so none of them is in the budget. Added together, how much power sits outside it, and does that sum breach the collective cap or eat the margin we kept?"
     intent: "ECSS-E-ST-20-20C clause 5.2.13.2.1; aggregate cap on excused loads and the unbudgeted residual power"
     expected_skill: "space-systems/ecss/e2020-negligible-load-power-definition"

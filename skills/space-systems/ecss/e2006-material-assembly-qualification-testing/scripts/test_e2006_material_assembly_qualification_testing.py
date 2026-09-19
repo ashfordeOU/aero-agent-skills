@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test for e2006-material-assembly-qualification-testing."""
 
+import math
 import unittest
 
 from e2006_material_assembly_qualification_testing_logic import (
@@ -241,10 +242,15 @@ class TestRunEvaluation(unittest.TestCase):
         self.assertTrue(result["passed"])
 
     def test_stress_limit_float_edge_is_absorbed(self):
-        # 400.0 * 1.1 stores as 440.00000000000006; an applied 440.0 V is the
-        # physically identical, compliant case and must not read as short.
+        # 400.0 * 1.1 is one correctly rounded IEEE-754 multiplication, so
+        # the qualification stress is exactly one representable place above
+        # 440.0 V on every platform. An applied 440.0 V is the physically
+        # identical, compliant case and must not read as short of it.
         spec = item(**{"qualification-factor": 1.1})
-        self.assertGreater(normalize_item(spec)["qualification-stress-v"], 440.0)
+        self.assertEqual(
+            normalize_item(spec)["qualification-stress-v"],
+            440.0 + math.ulp(440.0),
+        )
         result = evaluate_run(normal_run(**{"surface-potential-v": -440.0}), spec)
         self.assertTrue(result["passed"])
 

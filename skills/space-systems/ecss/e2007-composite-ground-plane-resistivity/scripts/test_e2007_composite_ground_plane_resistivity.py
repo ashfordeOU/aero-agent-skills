@@ -214,10 +214,27 @@ class TestIndividualChecks(unittest.TestCase):
         # compliant, so the comparison absorbs the representation error
         # rather than the tolerance being widened.
         deviation = logic.decade_deviation(2.0e3, 1.0e3)
-        self.assertGreater(deviation, logic.MAX_DECADE_DEVIATION)
+        # log10 is NOT correctly rounded, so which side of the last bit this
+        # difference lands on is a property of the host maths library, not
+        # of the panel. The contract is that the deviation sits ON the
+        # tolerance to within representation error, and reads compliant
+        # whichever way the last bit fell.
+        self.assertAlmostEqual(deviation, logic.MAX_DECADE_DEVIATION, places=12)
         self.assertEqual(
             logic.check_decade_match(
                 flight_panel(), test_panel(surface_resistivity_ohm_per_square=2.0e3)
+            ),
+            [],
+        )
+        # Pin the absorbing branch with a tolerance constructed to sit
+        # strictly below the deviation, by one part in 1e12 - inside what
+        # the leaf absorbs, and the same value on every platform. This is a
+        # constructed argument; the published decade tolerance is untouched.
+        self.assertEqual(
+            logic.check_decade_match(
+                flight_panel(),
+                test_panel(surface_resistivity_ohm_per_square=2.0e3),
+                max_decades=deviation * (1.0 - 1e-12),
             ),
             [],
         )

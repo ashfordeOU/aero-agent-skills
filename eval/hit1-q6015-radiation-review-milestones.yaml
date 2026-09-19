@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6015-radiation-review-milestones (space-systems/ecss)
+# rm1 routes on the depth an equipment category owes at a named review;
+# rm2 routes on the working-day lead time that turns that depth into a date.
+# Both must deterministically hit
+# space-systems/ecss/q6015-radiation-review-milestones.
+tasks:
+  - id: rm1
+    query: "work out how deep the radiation analysis report has to be for this box at the critical design review given how critical its function is"
+    intent: "ECSS-Q-ST-60-15C clause 4.5; reporting depth ladder read from the equipment category and the review, with a deeper report satisfying a shallower demand"
+    expected_skill: "space-systems/ecss/q6015-radiation-review-milestones"
+  - id: rm2
+    query: "our radiation analysis report is due at the next milestone review; what depth does this equipment category owe for it, how many working days before the review date must it be in, and grade each report on arrival, depth and lateness"
+    intent: "ECSS-Q-ST-60-15C clause 4.5; lead time counted in working days back from the review date by report depth, graded separately from delivery and depth"
+    expected_skill: "space-systems/ecss/q6015-radiation-review-milestones"

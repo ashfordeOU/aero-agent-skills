@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-changing-packet-store-properties (space-systems/ecss)
+# Two tasks for the new leaf. cpsp1 routes on the preconditions that block a
+# packet store resize; cpsp2 routes on the empty-store rule for a store type
+# change. Both must deterministically hit
+# space-systems/ecss/e7041-changing-packet-store-properties.
+tasks:
+  - id: cpsp1
+    query: "ground asked to shrink a packet store on board that still holds octets while its storage is enabled and a retrieval still runs; work out whether the service takes that resize, and how the new size sits against the allocation block and the memory pool"
+    intent: "ECSS-E-ST-70-41C clause 6.15.3.9; a property change is refused while storage is enabled and while a retrieval is open, and a capacity below the octets already held is refused rather than truncating the content"
+    expected_skill: "space-systems/ecss/e7041-changing-packet-store-properties"
+  - id: cpsp2
+    query: "we want a half full store moved from bounded to circular and its capacity raised out of the shared memory pool in the same request; say which of those property changes the service accepts and which it refuses"
+    intent: "ECSS-E-ST-70-41C clause 6.15.3.9; the packet store type may only change on an empty store, a capacity growth is checked against the whole memory pool with this store's own commitment removed, and each change in the request is decided on its own"
+    expected_skill: "space-systems/ecss/e7041-changing-packet-store-properties"

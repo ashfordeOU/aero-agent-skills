@@ -2,10 +2,11 @@
 // Offline smoke + parity battery for the npm package. Fails loud, exits 1.
 //
 //  1. manifest freshness invariants vs docs/metrics.json
-//  2. FULL Hit@1 corpus replay through the JS router — every task must
+//  2. FULL Hit@1 replay through the JS router — every case in eval/ must
 //     resolve top-1 to expected_skill, proving the port matches
 //     scripts/router_eval.py on the entire gated corpus
-//  3. installer: flatten + name-collision qualification into a temp dir
+//  3. installer: flatten + name-collision qualification, exercised against a
+//     SYNTHESISED catalogue in a temp dir (never against corpus defects)
 //  4. MCP server: initialize / tools/list / tools/call round-trip on stdio
 //  5. CLI: list, search, show
 import { spawn, execFileSync } from 'node:child_process';
@@ -56,16 +57,23 @@ check('manifest skill entries match the tree', () => {
   assert.ok(catalog.manifest.standards.length > 0, 'standards register empty');
 });
 
-check(`router parity: full Hit@1 corpus (${metrics.corpus_tasks} tasks)`, () => {
-  // Load the corpus through yaml.safe_load — the exact reader gate 5 uses —
-  // so the parity claim covers the parsing, not just the scoring.
+check(`router parity: every gated case (${metrics.router_cases})`, () => {
+  // Load every case gate 5 executes — the assembled corpus AND the per-leaf
+  // fragments — through yaml.safe_load, the exact reader gate 5 uses, so the
+  // parity claim covers the parsing and not just the scoring. Reading only
+  // hit1-corpus.yaml proved the port on 1,754 of 6,308 cases while this test
+  // called itself full.
   const corpusJson = execFileSync('python3', ['-c',
-    'import json,yaml\n'
-    + "d = yaml.safe_load(open('eval/hit1-corpus.yaml'))\n"
-    + "print(json.dumps([[t.get('query',''), t.get('expected_skill','')] for t in d['tasks']]))",
-  ], { cwd: repoRoot, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    'import json,glob,yaml\n'
+    + "out = []\n"
+    + "for f in sorted(glob.glob('eval/hit1-*.yaml')):\n"
+    + "    d = yaml.safe_load(open(f)) or {}\n"
+    + "    for t in (d.get('tasks') or []):\n"
+    + "        out.append([t.get('query',''), t.get('expected_skill','')])\n"
+    + "print(json.dumps(out))",
+  ], { cwd: repoRoot, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
   const tasks = JSON.parse(corpusJson).map(([query, expected]) => ({ query, expected }));
-  assert.equal(tasks.length, metrics.corpus_tasks, `parsed ${tasks.length} corpus tasks`);
+  assert.equal(tasks.length, metrics.router_cases, `parsed ${tasks.length} router cases`);
   const misses = [];
   for (const t of tasks) {
     const top = catalog.search(t.query, 1)[0];
@@ -74,22 +82,139 @@ check(`router parity: full Hit@1 corpus (${metrics.corpus_tasks} tasks)`, () => 
   assert.equal(misses.length, 0, `Hit@1 misses:\n${misses.slice(0, 5).join('\n')}`);
 });
 
-check('installer flattens and qualifies duplicate names', () => {
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'aeroskills-install-'));
+// ---------------------------------------------------------------------------
+// Installer: flatten + name-collision qualification.
+//
+// This block used to assert `dupPaths.length >= 2` over the real corpus, i.e.
+// "expected at least one duplicate frontmatter name in the tree". That is an
+// assertion that a DEFECT still exists: it passed only while two leaves shared
+// a frontmatter name, and inverted into a false red the moment slug/name
+// uniqueness was made provable. It also never reached the escalation rungs of
+// the qualifier ladder, because which rungs fired depended on whichever
+// collisions the corpus happened to contain that week.
+//
+// The installer's ladder (name -> family-name -> family-pack-name -> full
+// path, per lib/install.js folderNames) is now exercised against SYNTHESISED
+// catalogues built in a temp dir, one case per rung. The test depends on the
+// installer, not on the corpus being broken. Corpus name uniqueness is
+// asserted separately below, in the direction that is actually desirable.
+// ---------------------------------------------------------------------------
+
+// A catalogue duck-typed to what lib/install.js consumes: .root, .leaves,
+// .skills, and .search (only reached on a selector miss). Each spec writes a
+// real SKILL.md under the temp root so the copy step is exercised for real.
+function synthCatalog(root, specs) {
+  const leaves = specs.map(({ path: p, name }) => {
+    const [family, pack, slug] = p.split('/');
+    fs.mkdirSync(path.join(root, p), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, p, 'SKILL.md'),
+      `---\nname: ${name}\ndescription: synthetic leaf for ${p}\n---\n\n# leaf ${p}\n`,
+    );
+    return { path: p, name, family, pack, slug, description: `synthetic leaf for ${p}`, tags: [] };
+  });
+  return {
+    root,
+    leaves,
+    skills: leaves,
+    find: (p) => leaves.find((s) => s.path === p),
+    search: () => [],
+  };
+}
+
+// Build a synthesised catalogue + empty destination, run fn, always clean up.
+function withSynthCatalog(specs, fn) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'aeroskills-synth-'));
   try {
-    const dupNames = new Map();
-    for (const s of catalog.leaves) dupNames.set(s.name, (dupNames.get(s.name) || []).concat([s.path]));
-    const dupPaths = [...dupNames.values()].filter((v) => v.length > 1).flat();
-    assert.ok(dupPaths.length >= 2, 'expected at least one duplicate frontmatter name in the tree');
-    const result = install(catalog, dupPaths.concat(['avionics/do178c/planning']), { dest: tmp });
-    const folders = fs.readdirSync(tmp);
-    assert.equal(folders.length, dupPaths.length + 1, 'one folder per selected skill');
-    assert.equal(new Set(folders).size, folders.length, 'folder names unique');
-    assert.ok(result.notes.length > 0, 'collision NOTE printed');
-    for (const f of folders) assert.ok(fs.existsSync(path.join(tmp, f, 'SKILL.md')), `no SKILL.md in ${f}`);
+    const src = path.join(tmp, 'skills');
+    fs.mkdirSync(src, { recursive: true });
+    return fn(synthCatalog(src, specs), path.join(tmp, 'dest'));
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
+}
+
+// Every installed folder must hold the body of the leaf it was named for. A
+// qualifier that produced unique names but copied the wrong source directory
+// would satisfy a folder-count check and still ship the wrong skill.
+function assertBodiesLandedCorrectly(dest, result) {
+  for (const { path: p, folder } of result.installed) {
+    const body = fs.readFileSync(path.join(dest, folder, 'SKILL.md'), 'utf8');
+    assert.ok(body.includes(`# leaf ${p}`), `folder ${folder} holds the body of ${p}`);
+  }
+}
+
+check('installer: unique names install flat and unqualified', () => {
+  withSynthCatalog([
+    { path: 'alpha/pack-one/first', name: 'first-widget' },
+    { path: 'beta/pack-two/second', name: 'second-widget' },
+  ], (cat, dest) => {
+    const result = install(cat, ['all'], { dest });
+    assert.deepEqual(fs.readdirSync(dest).sort(), ['first-widget', 'second-widget']);
+    assert.deepEqual(result.notes, [], `no collision NOTE expected, got ${JSON.stringify(result.notes)}`);
+    assertBodiesLandedCorrectly(dest, result);
+  });
+});
+
+check('installer: synthesised duplicate qualifies to family-name (rung 1)', () => {
+  withSynthCatalog([
+    { path: 'alpha/pack-one/widget-a', name: 'twin-widget' },
+    { path: 'beta/pack-one/widget-b', name: 'twin-widget' },
+    { path: 'gamma/pack-one/widget-c', name: 'twin-widget' },
+    { path: 'alpha/pack-one/solo', name: 'solo-widget' },
+  ], (cat, dest) => {
+    const result = install(cat, ['all'], { dest });
+    const folders = fs.readdirSync(dest).sort();
+    assert.equal(new Set(folders).size, folders.length, `folder names unique: ${folders.join(', ')}`);
+    assert.equal(folders.length, 4, `one folder per selected skill: ${folders.join(', ')}`);
+    assert.deepEqual(folders, [
+      'alpha-twin-widget', 'beta-twin-widget', 'gamma-twin-widget', 'solo-widget',
+    ], `family-qualified names, uncollided name left bare: ${folders.join(', ')}`);
+    assert.ok(
+      result.notes.some((n) => n.includes("'twin-widget'") && n.startsWith('NOTE:')),
+      `collision NOTE names the clashing skill: ${JSON.stringify(result.notes)}`,
+    );
+    assertBodiesLandedCorrectly(dest, result);
+  });
+});
+
+check('installer: same family escalates to family-pack-name (rung 2)', () => {
+  withSynthCatalog([
+    { path: 'alpha/pack-one/widget-a', name: 'twin-widget' },
+    { path: 'alpha/pack-two/widget-b', name: 'twin-widget' },
+  ], (cat, dest) => {
+    const result = install(cat, ['all'], { dest });
+    const folders = fs.readdirSync(dest).sort();
+    assert.deepEqual(folders, ['alpha-pack-one-twin-widget', 'alpha-pack-two-twin-widget'],
+      `family-name still collides, must escalate: ${folders.join(', ')}`);
+    assertBodiesLandedCorrectly(dest, result);
+  });
+});
+
+check('installer: same family+pack escalates to the full path (rung 3)', () => {
+  withSynthCatalog([
+    { path: 'alpha/pack-one/widget-a', name: 'twin-widget' },
+    { path: 'alpha/pack-one/widget-b', name: 'twin-widget' },
+  ], (cat, dest) => {
+    const result = install(cat, ['all'], { dest });
+    const folders = fs.readdirSync(dest).sort();
+    assert.deepEqual(folders, ['alpha-pack-one-widget-a', 'alpha-pack-one-widget-b'],
+      `both earlier rungs collide, must fall back to the path: ${folders.join(', ')}`);
+    assert.equal(new Set(folders).size, folders.length, 'folder names unique');
+    assertBodiesLandedCorrectly(dest, result);
+  });
+});
+
+// The invariant the old assertion had backwards: the shipped corpus should
+// need NO qualification at all. Red here means two leaves share a frontmatter
+// name and every harness that flattens the tree would clobber one of them.
+check('corpus: leaf frontmatter names are unique (installer needs no qualification)', () => {
+  const byName = new Map();
+  for (const s of catalog.leaves) byName.set(s.name, (byName.get(s.name) || []).concat([s.path]));
+  const clashes = [...byName.entries()].filter(([, v]) => v.length > 1);
+  assert.equal(clashes.length, 0,
+    `duplicate frontmatter names: ${clashes.map(([n, v]) => `${n} -> ${v.join(' + ')}`).join('; ')}`);
+  assert.equal(byName.size, catalog.leaves.length, 'one distinct name per leaf');
 });
 
 check('installer resolves pack selectors', () => {

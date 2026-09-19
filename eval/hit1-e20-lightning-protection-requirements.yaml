@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-lightning-protection-requirements (space-systems/ecss)
+# Case 1 routes on the direct side: strike zoning of external regions and sizing
+# metal against the action integral. Case 2 routes on the induced side: building
+# the bundle transient and the decibel separation, plus the no-degradation rule.
+tasks:
+  - id: e20-lightning-protection-requirements-1
+    query: "A carbon-skinned region of our launcher fairing could take the first strike attachment while the vehicle sits on the pad. I have a peak current near 200 kA and an action integral around 2 MJ per ohm. How do I size the diverter metal there, and what is the verdict on an external surface nobody has assigned a strike region classification?"
+    intent: "ECSS-E-ST-20C clause 6.3.2.4; the case turns on attachment zoning of external regions and on the adiabatic conductor section that the action integral, not the peak, demands"
+    expected_skill: "space-systems/ecss/e20-lightning-protection-requirements"
+  - id: e20-lightning-protection-requirements-2
+    query: "A harness bundle on our upper stage has about 12 nH of mutual coupling to the strike path with a 100 kA per microsecond rise, and the structure return measures 2 milliohms at the 200 kA peak. The box is rated for 300 V transients. Do I have 6 dB of headroom, and does a unit needing a ground command to come back count as compliant?"
+    intent: "ECSS-E-ST-20C clause 6.3.2.4; the case turns on summing the inductive and resistive coupling terms into a decibel separation and on intervention-assisted recovery counting as degradation"
+    expected_skill: "space-systems/ecss/e20-lightning-protection-requirements"

@@ -4,6 +4,7 @@
 Stdlib unittest, offline, deterministic.
 """
 
+import math
 import unittest
 
 import e2007_emc_general_system_requirements_logic as logic
@@ -139,10 +140,15 @@ class TestCoverage(unittest.TestCase):
         self.assertTrue(logic.coverage_meets_target(1.0, 1.0))
 
     def test_coverage_meets_target_absorbs_last_place_error(self):
+        # Build the shortfall exactly - five representable places below the
+        # target - instead of subtracting a decimal constant and relying on
+        # where it happens to land. The target is untouched, and a ratio
+        # genuinely short of it is still rejected.
         target = 5.0 / 6.0
-        ratio = target - 5e-16
-        self.assertLess(ratio, target)
+        ratio = target - 5 * math.ulp(target)
+        self.assertNotEqual(ratio, target)
         self.assertTrue(logic.coverage_meets_target(ratio, target))
+        self.assertFalse(logic.coverage_meets_target(target - 1e-6, target))
 
     def test_coverage_below_target_is_rejected(self):
         self.assertFalse(logic.coverage_meets_target(0.5, 5.0 / 6.0))

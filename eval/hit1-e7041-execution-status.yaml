@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-execution-status (space-systems/ecss)
+# Two tasks for the new leaf. obes1 routes on deriving the one status a set of
+# observed facts describes; obes2 routes on a ground model that disagrees with
+# the spacecraft. Both must deterministically hit
+# space-systems/ecss/e7041-execution-status.
+tasks:
+  - id: obes1
+    query: "one procedure in the fleet list is marked holding and also never started, tell me which execution status that record earns, or whether those two facts cannot both be true and the record is defective"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.3; the state of an autonomous procedure is derived from observed facts rather than stored, and a combination such as holding without having started describes nothing, so it is raised as a contradiction instead of being given the nearest plausible name"
+    expected_skill: "space-systems/ecss/e7041-execution-status"
+  - id: obes2
+    query: "the ground model still shows one procedure running while the engine reports it terminated hours back, so reconcile that disagreement, and tell me whether a held procedure keeps its engine slot when we count demand against our concurrency limit"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.3; a stored state survives the facts that justified it, so a ground value has to be reconciled against the derived one, and a held procedure still occupies its engine slot against the concurrency limit while a finished one has released it"
+    expected_skill: "space-systems/ecss/e7041-execution-status"

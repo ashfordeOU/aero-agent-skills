@@ -143,9 +143,14 @@ class RatingSourceTests(unittest.TestCase):
             rating_source_factor("rumour")
 
     def test_every_factor_is_a_usable_fraction(self):
+        # The factors are declared constants, not computed values: unity is
+        # reached exactly rather than approached. Assert the exact ceiling,
+        # and keep the strict fraction for every source that sits below it.
         for factor in RATING_SOURCE_FACTORS.values():
             self.assertGreater(factor, 0.0)
-            self.assertLessEqual(factor, 1.0)
+            if factor != 1.0:
+                self.assertLess(factor, 1.0)
+        self.assertEqual(max(RATING_SOURCE_FACTORS.values()), 1.0)
 
 
 class TemperatureDeratingTests(unittest.TestCase):

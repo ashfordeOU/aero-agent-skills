@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-qualification-lot-acceptance (space-systems/ecss)
+# Two tasks for the new leaf. ql1 routes on sizing a zero-failure attribute
+# sample from a reliability and a confidence; ql2 routes on a sample drawn
+# across two explosive batches. Both must deterministically hit
+# space-systems/ecss/e3311-qualification-lot-acceptance.
+tasks:
+  - id: ql1
+    query: "sizing the firing sample for a delivered batch of initiators: we must show nine hundred and ninety in a thousand fire, at ninety percent confidence, with zero failures allowed - give me the exact binomial count, not a normal approximation"
+    intent: "ECSS-E-ST-33-11C clause 4.14.4 and Annex A; zero-failure attribute sample size from the reliability and confidence pair, checked against the lot size"
+    expected_skill: "space-systems/ecss/e3311-qualification-lot-acceptance"
+  - id: ql2
+    query: "our acceptance draw for these cartridges pulled units from two different explosive batches and two build standards because the first batch ran short; is that still one lot for sampling purposes, and does the verdict on it stand"
+    intent: "ECSS-E-ST-33-11C clause 4.14.4; a sample spanning two explosive batches speaks for neither population, so lot homogeneity is graded before the accept rule"
+    expected_skill: "space-systems/ecss/e3311-qualification-lot-acceptance"

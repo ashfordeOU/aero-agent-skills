@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2010-equipment-spec (space-systems/ecss)
+# es1 routes on writing the yardstick before the candidates are looked at, with
+# the interface family the one that is usually left out; es2 routes on the
+# supplier datum that was never declared and must not be scored as a zero. Both
+# must deterministically hit space-systems/ecss/q2010-equipment-spec.
+tasks:
+  - id: es1
+    query: "we have three off-the-shelf reaction wheels on the shortlist, write down what the application actually demands of the unit so all three get measured against the same thing instead of against their own data sheets"
+    intent: "ECSS-Q-ST-20-10C clause 5.1.2; the equipment specification carries functional, performance and interface requirements, and one with no interface requirement cannot decide between candidates"
+    expected_skill: "space-systems/ecss/q2010-equipment-spec"
+  - id: es2
+    query: "the supplier data pack for this candidate unit never states the radiated emission figure our mandatory requirement needs, work out whether that counts against the candidate's compliance score or blocks the assessment"
+    intent: "ECSS-Q-ST-20-10C clause 5.1.2; an undeclared characteristic is an unknown kept out of the compliance ratio, and blocks while the requirement behind it is mandatory"
+    expected_skill: "space-systems/ecss/q2010-equipment-spec"

@@ -327,7 +327,12 @@ class AssessmentTests(unittest.TestCase):
         floor = math.nextafter(0.8, 1.0)
         share = summarize_matrix(
             build_pre_tailoring_matrix(BARE_SUBSYSTEM))["binding_share"]
-        self.assertLess(share, floor)
+        # Eight of ten cells bind: the share is the exact double 0.8, and
+        # the floor is the next double above it. Both sides are constructed
+        # rather than measured, so the one-ULP shortfall is identical on
+        # every platform.
+        self.assertEqual(share, 0.8)
+        self.assertEqual(floor - share, math.ulp(0.8))
         out = assess_pre_tailoring(BARE_SUBSYSTEM, (), floor)
         self.assertTrue(out["compliant"])
 

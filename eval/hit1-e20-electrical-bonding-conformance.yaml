@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-electrical-bonding-conformance (space-systems/ecss)
+# Case 1 routes on the resistance window a bond's function imposes, including the
+# floor that only the charge-bleed path carries. Case 2 routes on the
+# radio-frequency reference check, which direct-current resistance cannot settle.
+tasks:
+  - id: e20-electrical-bonding-conformance-1
+    query: "We bonded an antenna bracket as a fault-current return path and a thermal blanket as a charge-bleed path; the blanket bond reads 2 kilohms and the bracket a few milliohms. Which resistance window does each bonding function impose, and is a bleed path bounded from below too?"
+    intent: "ECSS-E-ST-20C clause 6.3.8.1; the window follows the function the bond performs, and the charge-bleed path is bounded below as well as above because too low a path shorts the isolation beside it"
+    expected_skill: "space-systems/ecss/e20-electrical-bonding-conformance"
+  - id: e20-electrical-bonding-conformance-2
+    query: "Our radio-frequency reference strap reads 4 milliohms on direct current but it is 200 mm long and 10 mm wide. Does the length-to-width ratio disqualify it, and how do I get its impedance at 400 MHz?"
+    intent: "ECSS-E-ST-20C clause 6.3.8.1; a radio-frequency reference is judged on strap geometry and impedance at the frequency of interest, not on its direct-current reading"
+    expected_skill: "space-systems/ecss/e20-electrical-bonding-conformance"

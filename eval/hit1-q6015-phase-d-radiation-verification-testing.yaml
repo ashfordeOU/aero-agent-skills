@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6015-phase-d-radiation-verification-testing
+# pd1 routes on diffusion-lot heritage coverage of a delivered flight lot;
+# pd2 routes on lot acceptance and the action closure a milestone depends on.
+# Both must deterministically hit
+# space-systems/ecss/q6015-phase-d-radiation-verification-testing.
+tasks:
+  - id: pd1
+    query: "the flight parts arrived with a different diffusion lot code from the ones we already irradiated, work out whether that earlier data covers them or whether this delivery owes its own test"
+    intent: "ECSS-Q-ST-60-15C clause 4.4.4; heritage coverage tested on diffusion lot identity, not on the part reference or date code, plus the categories that owe a test regardless"
+    expected_skill: "space-systems/ecss/q6015-phase-d-radiation-verification-testing"
+  - id: pd2
+    query: "three of the ten parts we irradiated came back softer than the rest - decide whether that flight lot passes its radiation verification, whether heritage data from that diffusion lot already covers the others, and which hardness assurance actions are still open"
+    intent: "ECSS-Q-ST-60-15C clause 4.4.4; lot acceptance on the worst result over a category-sized sample, and the assurance actions still open at the milestone"
+    expected_skill: "space-systems/ecss/q6015-phase-d-radiation-verification-testing"

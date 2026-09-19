@@ -1,0 +1,13 @@
+# Hit@1 fragment: e4008-activity (space-systems/ecss)
+# act1 routes on resolving an activity against the assembled model; act2 routes
+# on the entry-point no-argument rule and the repeated-write order hazard.
+# Both must deterministically hit space-systems/ecss/e4008-activity.
+tasks:
+  - id: act1
+    query: "resolve the steps inside my scheduled task against the built model and tell me which ones name a field or an entry point the instance does not actually have"
+    intent: "ECSS-E-ST-40-08C clause 5.4.5; resolve each activity's instance path, entry point, field or event against the assembled model"
+    expected_skill: "space-systems/ecss/e4008-activity"
+  - id: act2
+    query: "one step passes arguments into an entry point and two steps write the same field in the same task, are either of those wrong"
+    intent: "ECSS-E-ST-40-08C clause 5.4.5; an entry point takes no arguments, and two writes to one field make the sequence order-dependent"
+    expected_skill: "space-systems/ecss/e4008-activity"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7009-applicability-and-properties (space-systems/ecss)
+# Two tasks for the new leaf. appl1 routes on the measurement-port overfill and
+# the pattern periods a textured coupon spans; appl2 routes on the
+# semi-transparent film opacity floor and which of the two thermo-optical
+# properties a free film can yield at all. Both must deterministically hit
+# space-systems/ecss/q7009-applicability-and-properties.
+tasks:
+  - id: appl1
+    query: "I have a batch of thermal control coupons for a thermo-optical campaign, one is a 20 mm textured radiator sample going onto a 25 mm sphere port, work out which of them are inside the applicability envelope before I book the instrument"
+    intent: "ECSS-Q-ST-70-09C framework clause; specimen overfill of the measurement port and the pattern periods spanned across it decide whether the reading represents the surface"
+    expected_skill: "space-systems/ecss/q7009-applicability-and-properties"
+  - id: appl2
+    query: "one of my samples is a semi-transparent kapton film with nothing behind it and another transmits about four percent, tell me whether solar absorptance and infrared emittance are obtainable on those and what the reflectance-only measurement would miss"
+    intent: "ECSS-Q-ST-70-09C framework clause; the transmittance floor, a free transmitting film with no declared substrate, and the properties each surface family can yield"
+    expected_skill: "space-systems/ecss/q7009-applicability-and-properties"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-attitude-control-magnetic-cleanliness (space-systems/ecss)
+# Case 1 routes on deriving the allowable spacecraft moment from what the control
+# system can absorb at the actual orbit field. Case 2 routes on the three-family
+# allocation and on growing the drifting contributors to end of life.
+tasks:
+  - id: e20-attitude-control-magnetic-cleanliness-1
+    query: "Our attitude control team can absorb 2 micronewton-metres of magnetic disturbance torque before pointing suffers, and we fly at 550 km. The cleanliness number we inherited came off a geostationary programme. Under ECSS how do I derive the residual dipole allowance that fits our own altitude?"
+    intent: "ECSS-E-ST-20C clause 6.3.7.3; the case turns on converting the control system's torque allowance through the ambient field at the actual orbit into a dipole allowance"
+    expected_skill: "space-systems/ecss/e20-attitude-control-magnetic-cleanliness"
+  - id: e20-attitude-control-magnetic-cleanliness-2
+    query: "My magnetic budget mixes permanent magnets and ferromagnetic brackets with a heater loop that cycles, magnetorquer duty switching, and array current that degrades about 2 percent a year over a 12 year mission. How do I split the allowance across those kinds, and which value counts for the ones that drift?"
+    intent: "ECSS-E-ST-20C clause 6.3.7.3; the case turns on the steady, switching and drifting families each holding an allocated share, with drifters assessed at end of life"
+    expected_skill: "space-systems/ecss/e20-attitude-control-magnetic-cleanliness"

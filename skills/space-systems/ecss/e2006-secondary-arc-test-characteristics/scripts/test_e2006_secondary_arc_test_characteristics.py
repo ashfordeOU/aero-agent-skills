@@ -100,10 +100,14 @@ class RepresentativenessTests(unittest.TestCase):
         )
 
     def test_gap_exactly_at_tolerance_is_absorbed(self):
-        # 0.63 mm against a 0.60 mm flight gap is exactly the 5 % allowance,
-        # but the relative deviation lands a few ULP above it in binary.
+        # 0.63 mm against a 0.60 mm flight gap is exactly the 5 % allowance.
+        # Neither decimal is exact in binary, so the computed deviation sits a
+        # few units in the last place off the allowance; the side it lands on
+        # is not part of the claim. places=14 is ~7e2 units in the last place
+        # of 0.05 - wide enough for any libm, tight enough that a genuinely
+        # different gap fails. The allowance itself is unchanged.
         relative = abs(0.63 - 0.60) / 0.60
-        self.assertGreater(relative, DIMENSION_TOLERANCE_FRACTION)
+        self.assertAlmostEqual(relative, DIMENSION_TOLERANCE_FRACTION, places=14)
         self.assertEqual(
             coupon_representativeness_deviations(
                 coupon(conductor_gap_mm=0.63), flight_article()
@@ -230,10 +234,16 @@ class ArcEventTests(unittest.TestCase):
         )
 
     def test_timestamp_difference_at_the_limit_is_absorbed(self):
-        # A 1.2 ms to 2.2 ms window is exactly 1 ms physically, but the
-        # difference lands two ULP above the limit in binary.
+        # A 1.2 ms to 2.2 ms window is exactly 1 ms physically; the binary
+        # difference of the two timestamps lands within a unit in the last
+        # place of the limit. Which side of that bit it falls on is a
+        # representation detail, so the assertion states the magnitude - the
+        # window IS the limit - and places=15 is ~2e3 units in the last place
+        # of 1 ms, far wider than any rounding and far tighter than any real
+        # difference in duration. The limit itself is unchanged; the claim
+        # under test is the line below: on the limit stays non-sustained.
         duration = arc_duration_from_timestamps(0.0012, 0.0022)
-        self.assertGreater(duration, NON_SUSTAINED_DURATION_LIMIT_S)
+        self.assertAlmostEqual(duration, NON_SUSTAINED_DURATION_LIMIT_S, places=15)
         self.assertEqual(categorize_arc_event(duration, 0.4), "non-sustained")
 
     def test_mid_length_event_is_temporary_sustained(self):

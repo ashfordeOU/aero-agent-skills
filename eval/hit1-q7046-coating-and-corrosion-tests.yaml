@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-coating-and-corrosion-tests (space-systems/ecss)
+# cc1 routes on a plating thickness band judged per reading with a thread-fit
+# ceiling; cc2 routes on white bloom against red base-metal attack and on the
+# relief bake window. Both must deterministically hit
+# space-systems/ecss/q7046-coating-and-corrosion-tests.
+tasks:
+  - id: cc1
+    query: "zinc nickel plated bolts came back with one reading at two microns and one at twenty, the average is fine, is the lot acceptable and will the threads still gauge"
+    intent: "ECSS-Q-ST-70-46 coating tests; the thickness band is judged per reading not on the mean, and a deposit over the ceiling is a thread-fit and torque-tension problem rather than extra protection"
+    expected_skill: "space-systems/ecss/q7046-coating-and-corrosion-tests"
+  - id: cc2
+    query: "white powder appeared on the coupons part way through salt exposure and red rust near the end, and the relief bake started six hours after plating, what does that give me for a launch site campaign"
+    intent: "ECSS-Q-ST-70-46 coating tests; sacrificial bloom is tolerated after a fraction of the environment-scaled exposure while base-metal attack fails outright, and a late embrittlement relief bake is not recovered by a longer one"
+    expected_skill: "space-systems/ecss/q7046-coating-and-corrosion-tests"

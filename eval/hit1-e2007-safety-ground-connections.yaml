@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-safety-ground-connections (space-systems/ecss)
+# Case 1 routes on the mirroring check: the bench provision against the flight one
+# down to family, terminal count and pin designation. Case 2 routes on the two
+# physical properties of the path, conductor sizing and summed resistance.
+tasks:
+  - id: e2007-safety-ground-connections-1
+    query: "On the EMC bench the unit is earthed through a crocodile clip on a mounting foot, while the flight build uses two protective earth terminals. Must the bench provision mirror the flight installation, matching the number of terminals and every earth pin designation?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.6.4; a terminal and a connector pin put the fault path in different places, so a family mismatch or a differing terminal count is a finding in its own right"
+    expected_skill: "space-systems/ecss/e2007-safety-ground-connections"
+  - id: e2007-safety-ground-connections-2
+    query: "How do I size the protective earth conductor cross-section adiabatically from a 250 A prospective fault and a 0.4 s clearing time, and does summing the segment resistances of the safety ground path replace that check? The same wire also carries a signal return."
+    intent: "ECSS-E-ST-20-07C clause 5.2.6.4; cross-section and path resistance are independent requirements sized from the fault case, and an earth conductor shared as a signal return is a separate finding"
+    expected_skill: "space-systems/ecss/e2007-safety-ground-connections"

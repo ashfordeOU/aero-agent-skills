@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-emc-control-plan-delivery (space-systems/ecss)
+# Case 1 routes on the hand-over date: lead counted against the data package window rather than the review date itself.
+# Case 2 routes on section maturity scoring into the index and on requirements pointing at a section nobody has begun.
+tasks:
+  - id: e20-emc-control-plan-delivery-1
+    query: "We intend to issue our EMC control plan nine days ahead of preliminary design review, but the data package is supposed to reach reviewers three weeks out. Is that hand-over late, and how do I count the lead so the schedule argument holds up?"
+    intent: "ECSS-E-ST-20C 6.2.2; delivery lead counted in calendar days between issue and review and tested against the data package window, not merely against the review date"
+    expected_skill: "space-systems/ecss/e20-emc-control-plan-delivery"
+  - id: e20-emc-control-plan-delivery-2
+    query: "Four sections of our compatibility control plan are still at draft, the bonding and grounding concept has not been begun at all, and two flow-down requirements point straight at it. How do I turn those statuses into a single completeness score at hand-over?"
+    intent: "ECSS-E-ST-20C 6.2.2; per-section status scored into a mean maturity index over the mandatory set, plus requirements tracing to a section that has not started"
+    expected_skill: "space-systems/ecss/e20-emc-control-plan-delivery"

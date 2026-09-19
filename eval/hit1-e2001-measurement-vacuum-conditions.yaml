@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-measurement-vacuum-conditions (space-systems/ecss)
+# Case 1 routes on which logged pressure governs and the free-molecular beam path.
+# Case 2 routes on surface contamination over the scan and the hydrocarbon share.
+tasks:
+  - id: e2001-measurement-vacuum-conditions-1
+    query: "The yield rig logged 2e-8 mbar overnight but peaked at 6e-7 mbar with the beam running. Which figure do I carry into the vacuum-regime check, and how do I show the primary electrons stay free-molecular across a 0.8 m chamber?"
+    intent: "ECSS-E-ST-20-01C 9.4.1.3; the beam-on peak is the pressure the sample actually saw, and the Knudsen comparison against the chamber dimension is what proves the path"
+    expected_skill: "space-systems/ecss/e2001-measurement-vacuum-conditions"
+  - id: e2001-measurement-vacuum-conditions-2
+    query: "Our yield scan takes 40 minutes. How do I show the monolayer-formation-time outlasts that with declared margin, and does the hydrocarbon share of the residual gas carry its own limit or simply fold into the total?"
+    intent: "ECSS-E-ST-20-01C 9.4.1.3; sitting inside the regime does not stop a layer forming inside a long scan, and beam-deposited carbon changes the surface so it is bounded separately"
+    expected_skill: "space-systems/ecss/e2001-measurement-vacuum-conditions"

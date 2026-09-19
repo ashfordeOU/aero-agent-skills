@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-tcs-design-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. tdg1 routes on the predicted-to-qualification
+# temperature stack and the uncertainty the model maturity earns; tdg2 routes
+# on worst-case basis consistency and naming the subsystem design drivers.
+# Both must deterministically hit
+# space-systems/ecss/e31-tcs-design-general-requirements.
+tasks:
+  - id: tdg1
+    query: "our thermal model is still immature at this stage, so how much uncertainty do I add on top of the predicted hot and cold cases before I set the design limit, then the levels we accept and qualify each unit to"
+    intent: "ECSS-E-ST-31C clause 4.4.1; model-maturity uncertainty margin applied to the predicted hot and cold cases, then the design, acceptance and qualification limits derived from them"
+    expected_skill: "space-systems/ecss/e31-tcs-design-general-requirements"
+  - id: tdg2
+    query: "the hot case was run with clean coating properties while the dissipation came from the cold budget, are those extremes even consistent, and once fixed which item is left with the least margin in kelvin"
+    intent: "ECSS-E-ST-31C clause 4.4.1; worst-case basis consistency across environment, optical properties and dissipation, then design-driver ranking by smallest margin"
+    expected_skill: "space-systems/ecss/e31-tcs-design-general-requirements"

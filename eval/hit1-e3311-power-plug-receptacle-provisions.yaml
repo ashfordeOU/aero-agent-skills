@@ -1,0 +1,16 @@
+# Hit@1 fragment: e3311-power-plug-receptacle-provisions (space-systems/ecss)
+# Two tasks for the new leaf. pprp1 routes on the parallel-bridge firing power
+# provision, where the loop resistance and the delivered per-bridge current
+# depend on how many initiators fire together; pprp2 routes on the arm
+# receptacle and the safe/arm/test plug keying and mating matrix. Both must
+# deterministically hit
+# space-systems/ecss/e3311-power-plug-receptacle-provisions.
+tasks:
+  - id: pprp1
+    query: "the firing box is 5 volts through a harness into four squibs that go off together, work out what current each bridge actually gets once the source and wire resistance have had their share and whether that clears the all fire level"
+    intent: "ECSS-E-ST-33-11C clauses 4.10.6 to 4.10.10; parallel-bridge loop resistance, per-initiator delivered current against all-fire times margin, and the firing-line voltage drop fraction"
+    expected_skill: "space-systems/ecss/e3311-power-plug-receptacle-provisions"
+  - id: pprp2
+    query: "we have a green safety plug, a red arming plug and a yellow test plug for the pyro bay, check the receptacle provisions and that nothing can be pushed into the wrong socket on the pad"
+    intent: "ECSS-E-ST-33-11C clauses 4.10.6 to 4.10.10; arm-receptacle provision walk plus plug keying, identification colour and the mating matrix that keeps the test plug out of the arm receptacle"
+    expected_skill: "space-systems/ecss/e3311-power-plug-receptacle-provisions"

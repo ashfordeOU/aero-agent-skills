@@ -129,8 +129,14 @@ class TestAnomalyMaps(unittest.TestCase):
         for E_t in (0.0, 0.5, 1.0, 2.041030, math.pi, 4.0, 4.5, 5.5,
                     5.9, TWO_PI - 0.01, TWO_PI):
             nu = kop.true_anomaly_from_eccentric(E_t, E)
-            self.assertGreater(nu, -math.pi - 1e-12)
-            self.assertLessEqual(nu, math.pi + 1e-12)
+            # nu is built from atan2, which is NOT correctly rounded, so the
+            # apoapsis endpoint can land a few ULP either side of pi on a
+            # different maths library. Measure that excursion directly - the
+            # subtraction is exact at this scale - instead of comparing two
+            # nearly equal angles. The fold is not widened: the allowance is
+            # the same 1e-12 rad, and the lower end is now strict.
+            self.assertGreater(nu, -math.pi)
+            self.assertLessEqual(nu - math.pi, 1e-12)
             nu_shift = kop.true_anomaly_from_eccentric(E_t + TWO_PI, E)
             self.assertAlmostEqual(nu_shift, nu, places=9)
         self.assertEqual(kop.true_anomaly_from_eccentric(TWO_PI, E), 0.0)

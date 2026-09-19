@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7054-solvent-and-material-control (space-systems/ecss)
+# Two tasks for the new leaf. smc1 routes on turning a batch residue figure into
+# what the agent actually deposits on the hardware; smc2 routes on the
+# agent-substrate pairing that no residue figure rescues. Both must
+# deterministically hit space-systems/ecss/q7054-solvent-and-material-control.
+tasks:
+  - id: smc1
+    query: "the drum certificate says point eight milligram per litre residue on evaporation, we drain two litres over half a square metre, is that inside our surface allowance"
+    intent: "ECSS-Q-ST-70-54C agent control; deposited residue per 0.1 square metre from concentration, drained volume and wetted area, and the least stringent purity grade that meets the allowance"
+    expected_skill: "space-systems/ecss/q7054-solvent-and-material-control"
+  - id: smc2
+    query: "can we use a chlorinated solvent on a stressed titanium fitting if we rinse it thoroughly afterwards"
+    intent: "ECSS-Q-ST-70-54C agent control; a prohibited agent-substrate pairing is not traded against cleaning performance or rinse regime"
+    expected_skill: "space-systems/ecss/q7054-solvent-and-material-control"

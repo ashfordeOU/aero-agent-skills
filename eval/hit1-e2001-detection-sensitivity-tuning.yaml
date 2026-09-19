@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-detection-sensitivity-tuning (space-systems/ecss)
+# Case 1 routes on deriving null-depth from arm phase error and amplitude imbalance.
+# Case 2 routes on the drift crossing that sets the re-tuning interval and on grading a schedule.
+tasks:
+  - id: e2001-detection-sensitivity-tuning-1
+    query: "Our nulling bridge on the multipactor global detector shows 0.15 dB amplitude imbalance and about 0.01 radian of residual phase error. What null-depth does that pair actually permit, and can a well-built bridge ever claim an arbitrarily deep null?"
+    intent: "ECSS-E-ST-20-01C 7.3.2; null-depth follows from the two-arm mismatch, so a tenth of a dB or a hundredth of a radian already caps detection sensitivity"
+    expected_skill: "space-systems/ecss/e2001-detection-sensitivity-tuning"
+  - id: e2001-detection-sensitivity-tuning-2
+    query: "Both arms drift once radio-frequency power is on the chain. Given drift rates per second, how do I solve for the longest gap before null-depth sinks below the detection floor our verification plan committed to, and how do I mark a logged run that overran it?"
+    intent: "ECSS-E-ST-20-01C 7.3.2; the drift crossing of the committed floor fixes the longest admissible re-tuning gap, and any longer recorded gap ran desensitised"
+    expected_skill: "space-systems/ecss/e2001-detection-sensitivity-tuning"

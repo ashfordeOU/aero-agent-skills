@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-delete-all-event-action-definitions (space-systems/ecss)
+# Two tasks for the new leaf. daead1 routes on the function-status
+# precondition; daead2 routes on the reach of the clearance. Both must
+# deterministically hit
+# space-systems/ecss/e7041-delete-all-event-action-definitions.
+tasks:
+  - id: daead1
+    query: "the reconfiguration procedure wants to wipe the whole event-action store in one command while the function is still running, decide whether the service accepts that and which command has to be sent before it"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.4; the wholesale clearance is refused while the event-action function is enabled"
+    expected_skill: "space-systems/ecss/e7041-delete-all-event-action-definitions"
+  - id: daead2
+    query: "if we clear every event-action definition at once, work out whether the ones that were individually armed survive it, what happens to their action bindings and whether the function comes back on by itself"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.4; the clearance spares no definition, releases every action binding and leaves the function status where it was"
+    expected_skill: "space-systems/ecss/e7041-delete-all-event-action-definitions"

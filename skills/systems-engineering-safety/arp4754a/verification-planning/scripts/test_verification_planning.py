@@ -26,6 +26,9 @@ Anchors:
   = total 2, planned 1, ratio 0.5, complete False
 - verification_plan_closure with ("R1", "A", "inspection") raises ValueError
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import os
 import sys

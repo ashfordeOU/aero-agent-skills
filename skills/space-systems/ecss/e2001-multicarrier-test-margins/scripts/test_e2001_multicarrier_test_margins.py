@@ -309,8 +309,11 @@ class TestArticleAssessment(unittest.TestCase):
     def test_facility_landing_a_hair_short_through_rounding_still_passes(self):
         # The campaign ceiling is quoted the way it is sized: one carrier plus
         # the twenty-log envelope factor plus the margin. The logic reaches the
-        # same level through the summed root-powers, which lands a few units in
-        # the last place higher. That is representation error, not a shortfall.
+        # same level through the summed root-powers, which lands within a few
+        # units in the last place of it. log10 is not correctly rounded and
+        # the two sides group their terms differently, so the direction of
+        # that last place is libm-dependent: assert the distance between the
+        # two, never which is larger.
         quoted = 10.0 * math.log10(3.0) + 20.0 * math.log10(16.0) + 6.0
         result = assess_test_case(
             case(
@@ -319,7 +322,9 @@ class TestArticleAssessment(unittest.TestCase):
                 facility_dbw=quoted,
             )
         )
-        self.assertGreater(result["required_test_level_dbw"], quoted)
+        self.assertAlmostEqual(
+            result["required_test_level_dbw"], quoted, places=9
+        )
         self.assertTrue(result["facility_sufficient"])
         self.assertAlmostEqual(result["facility_headroom_db"], 0.0)
         self.assertTrue(result["testable"])

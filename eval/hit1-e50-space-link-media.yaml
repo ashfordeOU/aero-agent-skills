@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-space-link-media (space-systems/ecss)
+# Two tasks for the new leaf. slm1 routes on a medium being named at all and
+# being one the mission agreed; slm2 routes on availability disqualifying a
+# medium that wins every throughput comparison. Both must deterministically hit
+# space-systems/ecss/e50-space-link-media.
+tasks:
+  - id: slm1
+    query: "Two of our space links name a band in the proposal but never state the transmission medium they fly on. Which links carry no declared medium, and do the named media fall inside the interoperable set agreed with the ground segment?"
+    intent: "ECSS-E-ST-50C clause 5.6.12.1; every space link names a medium the mission declared and agreed, and a link naming an unlisted medium is a different finding from a link whose medium is under-capable"
+    expected_skill: "space-systems/ecss/e50-space-link-media"
+  - id: slm2
+    query: "the optical terminal gives us ten times the data rate of the x-band chain but only closes seventy percent of the year and our science link asked for ninety-eight, decide whether that medium can carry the link and rank what else could"
+    intent: "ECSS-E-ST-50C clause 5.6.12.1; rate, range and availability are three separate capability criteria and a medium can be generous on two and disqualifying on the third"
+    expected_skill: "space-systems/ecss/e50-space-link-media"

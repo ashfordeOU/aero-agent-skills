@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-storage-control-processing-logic (space-systems/ecss)
+# Two tasks for the new leaf. scpl1 routes on the four named reasons a
+# report ends up stored nowhere; scpl2 routes on the circular eviction
+# versus oversized report distinction. Both must deterministically hit
+# space-systems/ecss/e7041-storage-control-processing-logic.
+tasks:
+  - id: scpl1
+    query: "A housekeeping report never reached the recorder. Work out which named disposition should have come back: the application process silenced at the storage gate, no store definition selecting it, the store switched off, or a bounded store already full."
+    intent: "ECSS-E-ST-70-41C clause 6.15.4.3; the four gates are the application-process storage control, the definitions of the store, the storage state of the store and whether it fits, and each has its own named disposition per packet store"
+    expected_skill: "space-systems/ecss/e7041-storage-control-processing-logic"
+  - id: scpl2
+    query: "One oversized report keeps making our circular store evict everything it holds. Should the routing call that a sizing error rather than an ordinary full-store discard, and what disposition does each selecting store return for it?"
+    intent: "ECSS-E-ST-70-41C clause 6.15.4.3; a report larger than a packet store's whole capacity is a sizing error rather than a fullness discard, and eviction only applies to a circular store when the report can actually fit"
+    expected_skill: "space-systems/ecss/e7041-storage-control-processing-logic"

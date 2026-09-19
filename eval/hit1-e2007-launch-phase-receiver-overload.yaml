@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-launch-phase-receiver-overload (space-systems/ecss)
+# Case 1 routes on coupling one pad emitter through to the antenna port.
+# Case 2 routes on the phase and configuration matrix and the two thresholds.
+tasks:
+  - id: e2007-launch-phase-receiver-overload-1
+    query: "A pad radar puts 120 V/m on the vehicle at 5.6 GHz while our S-band receiver sits behind the fairing. How do I turn that field-strength into the level coupled at the antenna-port, allowing for fairing shielding and for the rejection the front-end gives off-tune?"
+    intent: "ECSS-E-ST-20-07C 4.2.2.2; converting illumination to a coupled port level through effective aperture, fairing attenuation and front-end rejection"
+    expected_skill: "space-systems/ecss/e2007-launch-phase-receiver-overload"
+  - id: e2007-launch-phase-receiver-overload-2
+    query: "Must the ascent, liftoff and prelaunch phases each be demonstrated separately, and both with the fairing on and jettisoned? Our summed level leaves 4 dB to the overload-threshold but only 1 dB to the damage-threshold."
+    intent: "ECSS-E-ST-20-07C 4.2.2.2; every phase and configuration pair is demonstrated, and both the overload and damage margins must hold"
+    expected_skill: "space-systems/ecss/e2007-launch-phase-receiver-overload"

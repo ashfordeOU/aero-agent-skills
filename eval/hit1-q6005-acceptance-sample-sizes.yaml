@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6005-acceptance-sample-sizes (space-systems/ecss)
+# Two tasks for the new leaf, both aimed at what clause 12.1.2 owns rather
+# than the destructive-burden vocabulary of its 12.1 parent. sams1 routes on
+# reading the sample off a batch-size band and testing the resulting fraction
+# against a contractual percentage. sams2 routes on the small-batch collapse
+# to full inspection and the cap of the sample at the batch. Both must
+# deterministically hit space-systems/ecss/q6005-acceptance-sample-sizes.
+tasks:
+  - id: sams1
+    query: "the contract says ten percent but the schedule reads the sample off a batch size band, tell me which band four hundred hybrids falls in, what the sampling fraction actually works out at, and whether it still meets that contractual minimum"
+    intent: "ECSS-Q-ST-60-05C clause 12.1.2; the acceptance sample comes from a batch-size band, so the sampling fraction is a consequence of the band and has to be compared with any contractual minimum rather than substituted for it"
+    expected_skill: "space-systems/ecss/q6005-acceptance-sample-sizes"
+  - id: sams2
+    query: "this batch is small enough that the schedule wants more units than we built, tell me whether the plan collapses to full inspection, how the sample is capped at the batch, and where the band boundaries sit"
+    intent: "ECSS-Q-ST-60-05C clause 12.1.2; a batch at or below the threshold collapses to full inspection, and a band whose scheduled sample exceeds a batch sitting at its low end is capped at the batch rather than asking for units that do not exist"
+    expected_skill: "space-systems/ecss/q6005-acceptance-sample-sizes"

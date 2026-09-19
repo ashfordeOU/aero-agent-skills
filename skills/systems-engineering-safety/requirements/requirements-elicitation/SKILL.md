@@ -116,4 +116,7 @@ python3 skills/systems-engineering-safety/requirements/requirements-elicitation/
   proprietary (SAE), summary-only per standards-map.yaml and brief 06.
   Requirement statement quality criteria (atomic, verifiable,
   unambiguous, traceable) are common systems engineering knowledge.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

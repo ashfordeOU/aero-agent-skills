@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-charging-programme-analysis-and-testing (space-systems/ecss)
+# Case 1 routes on whether the planned task set is complete for the exposure regime.
+# Case 2 routes on the two material numbers the plan has to compute and compare.
+tasks:
+  - id: e20-charging-programme-analysis-and-testing-1
+    query: "Our spacecraft charging protection plan is all modelling: eleven analysis tasks, no hardware runs at all, and two rows named with no status against them. Which tasks does the exposure regime make mandatory, and do the status-less rows count as planned?"
+    intent: "ECSS-E-ST-20C 6.3.4.2; the regime draws hardware tasks as well as predictive ones, and a row carrying no commitment is treated the same as an absent row"
+    expected_skill: "space-systems/ecss/e20-charging-programme-analysis-and-testing"
+  - id: e20-charging-programme-analysis-and-testing-2
+    query: "A penetrating electron current of 0.1 pA per square centimetre into a polyimide blanket of 1e16 ohm-cm bulk resistivity: how do I get the steady-state internal field to set against the derated breakdown strength, and a bleed-off time constant to weigh against our drain limit?"
+    intent: "ECSS-E-ST-20C 6.3.4.2; the same resistivity answers two different questions, so the field comparison against the derated allowable never substitutes for the drain check"
+    expected_skill: "space-systems/ecss/e20-charging-programme-analysis-and-testing"

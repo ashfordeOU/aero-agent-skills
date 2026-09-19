@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-bit-string",
+  "with_skill": 1.0,
+  "without_estimate": 0.20,
+  "delta": 0.80,
+  "passed": 50,
+  "failed": 0,
+  "evidence": "contract test PASS (50 tests); without-baseline 0.20 (a bit pattern is routinely handled as an integer, which loses its length and its leading zeros, and the trailing pad of the last octet is read as real status flags sitting inactive; holding a fixed field to exactly its declared length rather than padding bits the sender never set or dropping bits it did, bounding a variable pattern by what its count field can announce rather than by the room left in the packet, keeping the pad after the last declared bit at a fixed value, and refusing a trailing remainder of a whole octet as a boundary error are all missed without the skill)"
+}

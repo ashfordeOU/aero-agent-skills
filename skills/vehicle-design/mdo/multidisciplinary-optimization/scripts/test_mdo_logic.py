@@ -94,9 +94,13 @@ class GridSearchOptimizerTest(unittest.TestCase):
         )
         # no penalty on the feasible side
         self.assertEqual(mdo.penalized_objective(5.0, 4.0), mdo.objective(5.0))
-        # the optimizer never returns an infeasible point
+        # The optimizer never returns an infeasible point. On this grid the
+        # selected point is the boundary itself: 0.0 + 40 * 0.1 is exactly 4.0
+        # in IEEE-754 (multiplication is correctly rounded on every platform),
+        # so the equality below is exact, not a near-boundary comparison.
         result = mdo.grid_search_optimize(0.0, 10.0, 0.1, 4.0)
-        self.assertGreaterEqual(result["x_opt"], 4.0)
+        self.assertEqual(result["x_opt"], 4.0)
+        self.assertTrue(mdo.constraint_min_x(result["x_opt"], 4.0))
 
     def test_penalty_moves_optimum_to_constraint_boundary(self):
         # without the penalty the grid optimum would sit at x = 2.0

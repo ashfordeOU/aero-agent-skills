@@ -264,11 +264,18 @@ class ConditionRepresentativeness(unittest.TestCase):
         self.assertFalse(out["detail"]["gap_mm"]["representative"])
 
     def test_deviation_exactly_at_tolerance_is_representative(self):
-        # |0,66 - 0,6| / 0,6 lands a few ULPs above the 0,1 tolerance.
+        # |0.66 - 0.6| / 0.6 is a physically exact one-tenth, but built
+        # from correctly rounded IEEE-754 subtraction and division it
+        # lands a few units in the last place above the 0.1 tolerance -
+        # the same value on every platform. Assert the size of that
+        # overshoot, not the rounding direction. The tolerance is
+        # unchanged; the check absorbs the representation error.
         drift = dict(VALIDATION)
         drift["gap_mm"] = 0.66
         out = logic.conditions_representative(drift, PLANNED, TOLERANCES)
-        self.assertGreater(out["detail"]["gap_mm"]["deviation"], 0.1)
+        excess = out["detail"]["gap_mm"]["deviation"] - 0.1
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         self.assertTrue(out["detail"]["gap_mm"]["representative"])
         self.assertTrue(out["representative"])
 

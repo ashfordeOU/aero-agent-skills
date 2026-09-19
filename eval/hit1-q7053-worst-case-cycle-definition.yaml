@@ -1,0 +1,16 @@
+# Hit@1 fragment: q7053-worst-case-cycle-definition (space-systems/ecss)
+# Two tasks for the new leaf. wc1 routes on pushing a nominal recipe to its
+# worst corner and scaling only the cumulative parameters by the cycle count
+# and over-test factor; wc2 routes on the downward severity direction of a
+# protective floor parameter and on the undefined margin of an undeclared
+# capability. Both must deterministically hit
+# space-systems/ecss/q7053-worst-case-cycle-definition.
+tasks:
+  - id: wc1
+    query: "the dry-heat recipe is 125 C plus or minus 5 for 30 hours plus or minus 2, the hardware may see 20 cycles and we apply a 1.5 over-test factor - what level do I actually run the compatibility test at"
+    intent: "ECSS-Q-ST-70-53 worst-case cycle definition; each parameter pushed along its severity direction, cumulative dwell and dose scaled by the cycle count and over-test factor, temperature not scaled"
+    expected_skill: "space-systems/ecss/q7053-worst-case-cycle-definition"
+  - id: wc2
+    query: "our chamber humidity is a protective floor rather than a ceiling and the agent concentration has no declared material capability - derive the worst-case cycle anyway and tell me which parameter drives it"
+    intent: "ECSS-Q-ST-70-53 worst-case cycle definition; a downward severity direction flips the sense of the capability margin, and an undeclared capability leaves the margin undefined as a finding"
+    expected_skill: "space-systems/ecss/q7053-worst-case-cycle-definition"

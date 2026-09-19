@@ -57,8 +57,16 @@ class TestWeibullCrossSection(unittest.TestCase):
 
     def test_never_exceeds_sigma_sat(self):
         sigma_sat = 1e-6
-        sigma = weibull_cross_section(500.0, 1.0, sigma_sat, 5.0, 1.5)
-        self.assertLessEqual(sigma, sigma_sat)
+        # Deep in saturation the Weibull exponent is about -997, far below
+        # the -745 underflow floor of a double, so exp() returns exactly
+        # 0.0 on any IEEE-754 platform and the cross-section IS sigma_sat.
+        self.assertEqual(
+            weibull_cross_section(500.0, 1.0, sigma_sat, 5.0, 1.5), sigma_sat
+        )
+        # Below saturation the same ceiling holds with real margin.
+        self.assertLess(
+            weibull_cross_section(30.0, 1.0, sigma_sat, 5.0, 1.5), sigma_sat
+        )
 
     def test_invalid_width_raises(self):
         with self.assertRaises(ValueError):
@@ -136,16 +144,28 @@ class TestBendelProtonCrossSection(unittest.TestCase):
         self.assertGreater(sigma, 0.0)
 
     def test_monotonically_increasing_with_energy(self):
-        energies = [25.0, 50.0, 100.0, 200.0, 500.0]
         A, B = 20.0, 1e-8
-        sigmas = [bendel_proton_cross_section(e, A, B) for e in energies]
+        rising = [25.0, 50.0, 100.0]
+        sigmas = [bendel_proton_cross_section(e, A, B) for e in rising]
         for i in range(len(sigmas) - 1):
             self.assertLess(sigmas[i], sigmas[i + 1])
+        # Past 200 MeV the curve has closed to within 2e-13 of B, so which
+        # side of the last bit two adjacent samples land on is an exp()
+        # rounding detail. Assert the saturation itself, and that the tail
+        # still stands above the rising part of the curve.
+        tail = [bendel_proton_cross_section(e, A, B) for e in (200.0, 500.0)]
+        self.assertGreater(tail[0], sigmas[-1])
+        for sigma in tail:
+            self.assertAlmostEqual(sigma / B, 1.0, places=12)
 
     def test_never_exceeds_B(self):
         B = 1e-8
-        sigma = bendel_proton_cross_section(1e6, 20.0, B)
-        self.assertLessEqual(sigma, B)
+        # At 1e6 MeV the Bendel exponent is about -1.7e5, so exp()
+        # underflows to exactly 0.0 on any IEEE-754 platform and the
+        # cross-section IS B rather than merely at or below it.
+        self.assertEqual(bendel_proton_cross_section(1e6, 20.0, B), B)
+        # On the rising part of the curve the ceiling holds with margin.
+        self.assertLess(bendel_proton_cross_section(100.0, 20.0, B), B)
 
     def test_invalid_A_raises(self):
         with self.assertRaises(ValueError):

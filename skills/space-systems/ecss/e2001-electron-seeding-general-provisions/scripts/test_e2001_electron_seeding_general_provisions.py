@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the clause 6.5.1 electron-seeding general provisions."""
 
+import math
 import unittest
 
 from e2001_electron_seeding_general_provisions_logic import (
@@ -68,8 +69,13 @@ class SeedAccessCategoryTests(unittest.TestCase):
         self.assertEqual(categorize_seed_access(make_gap()), ACCESS_BLOCKED)
 
     def test_aperture_area_summed_a_hair_under_the_minimum_still_passes(self):
+        # Three 0.3 mm2 apertures plus a 0.1 mm2 one is exactly the minimum
+        # in decimal. IEEE-754 multiplication and addition are correctly
+        # rounded, so the sum is the same bit pattern on every platform:
+        # exactly the double below the minimum. State that exactly rather
+        # than asking a comparison to resolve the last bit.
         summed = 3 * 0.3 + 0.1
-        self.assertLess(summed, MIN_APERTURE_MM2)
+        self.assertEqual(summed, math.nextafter(MIN_APERTURE_MM2, 0.0))
         gap = make_gap(aperture_area_mm2=summed, shield_attenuation_db=3.0)
         self.assertEqual(categorize_seed_access(gap), ACCESS_APERTURE)
 
@@ -173,8 +179,16 @@ class RepresentativenessTests(unittest.TestCase):
         self.assertFalse(report["representative"])
 
     def test_gap_height_at_the_tolerance_edge_absorbs_representation_error(self):
+        # 0.51 mm against 0.50 mm is exactly a two percent deviation in
+        # exact arithmetic; the correctly rounded subtraction and division
+        # land a few ULP above it, identically on every platform. Assert the
+        # size of that excess - far below any metrological significance -
+        # rather than the direction of the last bit. The tolerance itself
+        # is untouched.
         raw = (0.51 - 0.5) / 0.5
-        self.assertGreater(raw, 0.02)
+        excess = raw - 0.02
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-15)
         report = evaluate_representativeness(make_gap(), make_gap(gap_height_mm=0.51))
         self.assertTrue(report["representative"])
 

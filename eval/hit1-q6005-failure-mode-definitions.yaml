@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-failure-mode-definitions (space-systems/ecss)
+# Two tasks for the new leaf. fmd1 routes on which observed defects are
+# charged to the batch when the threshold count is built. fmd2 routes on the
+# tester-fault excuse and the evidence it needs before a failure leaves the
+# tally. Both must deterministically hit
+# space-systems/ecss/q6005-failure-mode-definitions.
+tasks:
+  - id: fmd1
+    query: "we have lifted bonds, a die attach void and two units the operator says were damaged in the tray after screening, decide which of these defect types go into the count the batch limit is applied to"
+    intent: "ECSS-Q-ST-60-05C clause 10.4.1; naming the defect types charged against a hybrid batch and grouping them for the rejection tally"
+    expected_skill: "space-systems/ecss/q6005-failure-mode-definitions"
+  - id: fmd2
+    query: "the test house tagged four rejects as tester fault so they would not be charged to the hybrid lot; which of those observed modes are extrinsic, and what must a failure analysis show before the attribution drops them from the tally"
+    intent: "ECSS-Q-ST-60-05C clause 10.4.1; intrinsic versus extrinsic failure modes and the failure analysis that has to evidence an attribution before a failure is excused"
+    expected_skill: "space-systems/ecss/q6005-failure-mode-definitions"

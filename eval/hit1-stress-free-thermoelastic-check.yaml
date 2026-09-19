@@ -1,0 +1,13 @@
+# Hit@1 fragment: stress-free-thermoelastic-check (space-systems/ecss)
+# Case 1 routes on the stress residual scale and the constraint that manufactures
+# a false failure. Case 2 routes on the precondition and the displacement side:
+# uniformity of the applied field and the reference the expansion is measured from.
+tasks:
+  - id: stress-free-thermoelastic-check-1
+    query: "I applied a uniform 80 K rise with only rigid body suppression and some elements still show a few kPa. What fraction of E alpha delta T counts as numerical noise, and would one leftover clamped degree of freedom explain it?"
+    intent: "ECSS-E-ST-32C 5.6; the residual is judged against the characteristic thermoelastic scale, and a surplus constraint generates reactions that fail the check spuriously"
+    expected_skill: "space-systems/ecss/stress-free-thermoelastic-check"
+  - id: stress-free-thermoelastic-check-2
+    query: "The applied temperature field varies by half a degree across the mesh. Is the check still valid, and should the expected expansion be measured from the origin or from the node that suppresses rigid body motion?"
+    intent: "ECSS-E-ST-32C 5.6; a non-uniform field invalidates the case before any stress is read, and free expansion is referenced to the suppression point"
+    expected_skill: "space-systems/ecss/stress-free-thermoelastic-check"

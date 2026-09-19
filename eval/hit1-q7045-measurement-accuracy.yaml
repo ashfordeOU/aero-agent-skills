@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-measurement-accuracy (space-systems/ecss)
+# Two tasks for the new leaf. mac1 routes on the digital-step and drift
+# conversions into standard uncertainties; mac2 routes on the doubled diameter
+# term propagating into a stress and the expanded figure against a target. Both
+# must deterministically hit space-systems/ecss/q7045-measurement-accuracy.
+tasks:
+  - id: mac1
+    query: "my force display steps in increments of two newtons and the amplifier drifts by plus or minus a tenth of a percent, turn those into the uncertainty contributions they are really worth and add them to the chain"
+    intent: "ECSS-Q-ST-70-45 equipment; resolution over two root three, a plus-or-minus band over root three, and their quadrature combination into a budget"
+    expected_skill: "space-systems/ecss/q7045-measurement-accuracy"
+  - id: mac2
+    query: "the diameter is known to a tenth of a percent and the load cell to half a percent, tell me what expanded uncertainty the reported stress carries and whether it comes in under the two percent we promised"
+    intent: "ECSS-Q-ST-70-45 equipment; area term doubling the diameter uncertainty, quadrature with the force channel, expansion by a coverage factor against a target"
+    expected_skill: "space-systems/ecss/q7045-measurement-accuracy"

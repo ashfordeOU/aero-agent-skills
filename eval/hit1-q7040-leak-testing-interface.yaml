@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-leak-testing-interface (space-systems/ecss)
+# Two tasks for the new leaf. blt1 routes on turning a permitted loss into an
+# allowable throughput and a method; blt2 routes on the molar-mass conversion
+# between the tracer and the service gas. Both must deterministically hit
+# space-systems/ecss/q7040-leak-testing-interface.
+tasks:
+  - id: blt1
+    query: "this brazed pressurant manifold may lose one millibar over the mission, turn that into a leak rate and tell me which test rig can actually resolve it"
+    intent: "brazing inspection; permitted pressure drop times enclosed volume over hold time, and a detection floor that must sit a margin below the allowable rate"
+    expected_skill: "space-systems/ecss/q7040-leak-testing-interface"
+  - id: blt2
+    query: "the sniffer reported a helium figure but the budget I was given is in nitrogen, work out whether this brazed assembly actually passes"
+    intent: "brazing inspection; molecular flow scales with the inverse square root of molar mass, so a tracer reading has to be converted before it is graded"
+    expected_skill: "space-systems/ecss/q7040-leak-testing-interface"

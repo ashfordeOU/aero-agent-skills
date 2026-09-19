@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-charge-exchange-ion-sputtering (space-systems/ecss)
+# Case 1 routes on turning collected current into flux and the near-threshold yield.
+# Case 2 routes on the two limits held against the depth, and the sputtered material's fate.
+tasks:
+  - id: e2006-charge-exchange-ion-sputtering-1
+    query: "Our off-axis radiator collects 0.6 amps per square metre of charge exchange ions arriving near 60 eV, with a notable doubly charged fraction. How do I turn that into a number flux, and does the yield vanish under the material's threshold energy?"
+    intent: "ECSS-E-ST-20-06C 11.2.4; the charge state divides the current density into a number flux, and below the material threshold energy no atom is ejected at all"
+    expected_skill: "space-systems/ecss/e2006-charge-exchange-ion-sputtering"
+  - id: e2006-charge-exchange-ion-sputtering-2
+    query: "Nine years of electric propulsion firing gives 0.8 micrometres of charge-exchange sputter erosion on an optical solar reflector whose conductive coating is only 0.5 micrometres, against an agreed 5 micrometre allowance. Does that surface pass, and what becomes of the material sputtered away?"
+    intent: "ECSS-E-ST-20-06C 11.2.4; the agreed allowance and the coating reserve are separate limits on the same depth, and the removed material becomes a deposition source elsewhere"
+    expected_skill: "space-systems/ecss/e2006-charge-exchange-ion-sputtering"

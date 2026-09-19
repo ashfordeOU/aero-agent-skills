@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-phase-review-conduct (space-systems/ecss)
+# Two tasks for the new leaf. dprc1 routes on the customer-led board and the
+# mandatory outputs that are delivered but not mature; dprc2 routes on the
+# observation severity and disposition deciding the closure verdict. Both must
+# deterministically hit space-systems/ecss/e2040-device-phase-review-conduct.
+tasks:
+  - id: dprc1
+    query: "the supplier is chairing the review that closes our definition phase and two of the mandatory data items arrived as drafts, can the phase be declared closed on that"
+    intent: "ECSS-E-ST-20-40C 5.1.4; customer-led board and mandatory output delivery kept separate from maturity in the readiness fraction"
+    expected_skill: "space-systems/ecss/e2040-device-phase-review-conduct"
+  - id: dprc2
+    query: "we still have one major review observation open and several minor ones turned into actions, work out whether the phase closes, closes with actions or has to be repeated"
+    intent: "ECSS-E-ST-20-40C 5.1.4; observation severity and disposition folding driving the phase closure verdict"
+    expected_skill: "space-systems/ecss/e2040-device-phase-review-conduct"

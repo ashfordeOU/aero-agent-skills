@@ -1,0 +1,12 @@
+# Hit@1 fragment: special-item-fracture-control (space-systems/ecss)
+# Case 1 routes on the numeric acceptance thresholds for rotating parts and glass. Case 2 routes
+# on the fastener exemption conditions and the recast layer an EDM part has to lose.
+tasks:
+  - id: special-item-fracture-control-1
+    query: "I have a momentum wheel rotor spinning at 6000 rpm with a burst speed of 7000, and a glass viewport proof loaded to 1.2 times its design stress. Do either of those clear the special-item acceptance thresholds?"
+    intent: "ECSS-E-ST-32C 8.6 and 8.7; a rotating part is judged on burst speed over operating speed and a glass item on proof stress over design stress, each against its own category threshold"
+    expected_skill: "space-systems/ecss/special-item-fracture-control"
+  - id: special-item-fracture-control-2
+    query: "Our bracket uses standard A-grade fasteners under torque control but two of them sit in a tension-critical joint, and one titanium part was EDM cut. What clears the fasteners from fracture control, and how much recast layer has to come off?"
+    intent: "ECSS-E-ST-32C 8.8 and 8.9; the fastener exemption needs grade, torque control and a joint that is not tension-critical all together, and an EDM part needs a documented removal to a minimum depth"
+    expected_skill: "space-systems/ecss/special-item-fracture-control"

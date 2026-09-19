@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-multicarrier-test-margins (space-systems/ecss)
+# Case 1 routes on the operating condition a multicarrier article actually
+# sees. Case 2 routes on the build standard of the article and on sample-count
+# relief against the floor.
+tasks:
+  - id: e2001-multicarrier-test-margins-1
+    query: "Sixteen equal carriers run through our output multiplexer. Should the bench be driven at the sum of their average powers or at the envelope peak they reach when they add in phase, and how far above that must the campaign reach?"
+    intent: "ECSS-E-ST-20-01C clause 4.7.3.1; the article sees the in-phase envelope peak, and the test level is that peak raised by the resolved test margin"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-test-margins"
+  - id: e2001-multicarrier-test-margins-2
+    query: "The unit we will put on the bench is an engineering model and we plan to run three of them. Does the extra sample credit offset the build-standard adder, and could a breadboard ever close this requirement no matter what level it withstands?"
+    intent: "ECSS-E-ST-20-01C clause 4.7.3.1; sample relief is capped and floored, and a breadboard build standard cannot close the requirement however the run goes"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-test-margins"

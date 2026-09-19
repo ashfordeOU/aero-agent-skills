@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-applicability-and-scope (space-systems/ecss)
+# ap1 routes on a ground-support item in a flight load path; ap2 routes on what
+# a small non-critical in-scope item owes. Both must deterministically hit
+# space-systems/ecss/q7046-applicability-and-scope.
+tasks:
+  - id: ap1
+    query: "the bolts in our lifting fitting never fly, and the nuts are bought loose from a different supplier, does the threaded fastener procurement standard apply to either of them"
+    intent: "ECSS-Q-ST-70-46 applicability; the kind gate puts a loose nut out and a bolt in, the application gate keeps ground support equipment in when it sits in a load path flight hardware depends on, and both reasons are reported"
+    expected_skill: "space-systems/ecss/q7046-applicability-and-scope"
+  - id: ap2
+    query: "the supplier says an M2 screw is too small to run the destructive tests on, so the threaded fastener standard cannot apply to this non-critical fitting; is that right, and then which clause groups does it owe"
+    intent: "ECSS-Q-ST-70-46 applicability; size and criticality reduce which clause groups an in-scope item owes, and a reduced set is not a waiver of procurement, inspection and records"
+    expected_skill: "space-systems/ecss/q7046-applicability-and-scope"

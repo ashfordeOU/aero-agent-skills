@@ -68,12 +68,20 @@ class StokesFirstProblemTests(unittest.TestCase):
         traverse: u/U at a station y equals math.erfc(y/(2*sqrt(nu*t)))
         and the profile is monotone decreasing from 1 at the wall."""
         t = 0.001
-        prev = 1.0
+        prev = None
         for eta in (0.0, 0.25, 0.5, 1.0, 1.5, 2.0, 3.0, 6.0):
             y = 2.0 * eta * math.sqrt(NU * t)
             ratio = sl.stokes_first_velocity(U, NU, y, t) / U
             self.assertAlmostEqual(ratio, math.erfc(eta), delta=1e-12)
-            self.assertLessEqual(ratio, prev)
+            if prev is None:
+                # eta = 0 is the wall, where erfc(0) is exactly one: that
+                # is an equality, not an inequality against a seed value
+                # that happens to share its last bit.
+                self.assertEqual(ratio, 1.0)
+            else:
+                # Every later station falls by far more than one last
+                # place, so the profile is strictly decreasing.
+                self.assertLess(ratio, prev)
             prev = ratio
 
     def test_profile_eta_one_anchor(self):

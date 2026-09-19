@@ -1,0 +1,17 @@
+# Hit@1 fragment: e7041-report-event-action-definitions (space-systems/ecss)
+# Two tasks for the new leaf. read1 routes on reporting the ACTION each
+# event-action definition carries for a named identifier list; read2 routes on
+# request resolution - partial reporting with one notification per unknown
+# identifier and a failed start when nothing resolves. Neither may reach
+# e7041-report-the-status-of-each-event-action-definition, which reports only
+# whether a definition is armed. Both must deterministically hit
+# space-systems/ecss/e7041-report-event-action-definitions.
+tasks:
+  - id: read1
+    query: "report which telecommand each of these named event-action definitions would release when its event is raised, and treat an empty identifier list as everything the application process holds"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.6; per-definition report of the action plus enable state, empty list meaning the whole store"
+    expected_skill: "space-systems/ecss/e7041-report-event-action-definitions"
+  - id: read2
+    query: "three identifiers in this event-action definition report request resolve to nothing in the store; do I return the known ones with a failure notification each, and what changes when none of the requested identifiers is known"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.6; partial report with one failure notification per unknown identifier, failed start only when nothing resolves"
+    expected_skill: "space-systems/ecss/e7041-report-event-action-definitions"

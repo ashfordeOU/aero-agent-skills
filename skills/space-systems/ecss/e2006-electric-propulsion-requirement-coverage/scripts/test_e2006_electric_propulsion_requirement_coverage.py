@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the ECSS-E-ST-20-06C clause 11.1.2 coverage leaf."""
 
+import math
 import unittest
 
 from e2006_electric_propulsion_requirement_coverage_logic import (
@@ -269,10 +270,12 @@ class ThresholdTests(unittest.TestCase):
         self.assertTrue(meets_threshold(0.9, 0.9))
 
     def test_float_representation_shortfall_is_absorbed(self):
-        # 0.7 + 0.1 + 0.1 evaluates a few units in the last place below 0.9;
-        # the set is compliant, so the comparison absorbs the error.
+        # 0.7 + 0.1 + 0.1 is nine tenths in decimal. IEEE-754 addition is
+        # correctly rounded, so the sum is the same bit pattern on every
+        # platform: exactly the double below 0.9. State that exactly, then
+        # assert the set is still compliant - the threshold is untouched.
         ratio = 0.7 + 0.1 + 0.1
-        self.assertLess(ratio, 0.9)
+        self.assertEqual(ratio, math.nextafter(0.9, 0.0))
         self.assertTrue(meets_threshold(ratio, 0.9))
 
     def test_real_shortfall_is_not_absorbed(self):

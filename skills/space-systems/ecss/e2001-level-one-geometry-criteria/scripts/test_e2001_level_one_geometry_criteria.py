@@ -97,9 +97,14 @@ class TestParallelPlateLimits(unittest.TestCase):
     def test_extent_ratio_exactly_at_limit_passes_despite_representation_error(self):
         gap = 0.47
         extent = gap * logic.MIN_EXTENT_TO_GAP_RATIO
-        # The extent is exactly ten gaps, yet the quotient lands a few units in
-        # the last place under the limit: a compliant shape must still pass.
-        self.assertLess(extent / gap, logic.MIN_EXTENT_TO_GAP_RATIO)
+        # The extent is exactly ten gaps, yet the quotient lands a few units
+        # in the last place under the limit: a compliant shape must still
+        # pass. Multiplication and division are correctly rounded IEEE-754
+        # operations, so the shortfall is the same everywhere - assert its
+        # size, not the rounding direction. The ratio limit is unchanged.
+        shortfall = logic.MIN_EXTENT_TO_GAP_RATIO - extent / gap
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         geometry = plate(gap_mm=gap, surface_extent_mm=extent)
         self.assertEqual(logic.check_parallel_plate_geometry(geometry), [])
 
@@ -146,14 +151,25 @@ class TestCoaxialLimits(unittest.TestCase):
     def test_ratio_at_band_floor_passes_despite_representation_error(self):
         inner = 1.19
         outer = inner + inner * 0.05
-        self.assertLess(outer / inner, logic.MIN_COAXIAL_RADIUS_RATIO)
+        # The shape sits exactly on the band floor; the quotient lands a
+        # couple of units in the last place under it. Assert the size of
+        # that shortfall rather than the strict inequality. The band floor
+        # itself is unchanged.
+        shortfall = logic.MIN_COAXIAL_RADIUS_RATIO - outer / inner
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         geometry = coax(inner_radius_mm=inner, outer_radius_mm=outer)
         self.assertEqual(logic.check_coaxial_geometry(geometry), [])
 
     def test_ratio_at_band_ceiling_passes_despite_representation_error(self):
         inner = 0.98
         outer = 4.9
-        self.assertGreater(outer / inner, logic.MAX_COAXIAL_RADIUS_RATIO)
+        # The shape sits exactly on the band ceiling; the quotient lands a
+        # unit in the last place over it. Assert the size of that excess
+        # rather than the strict inequality. The ceiling is unchanged.
+        excess = outer / inner - logic.MAX_COAXIAL_RADIUS_RATIO
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         geometry = coax(inner_radius_mm=inner, outer_radius_mm=outer)
         self.assertEqual(logic.check_coaxial_geometry(geometry), [])
 
@@ -214,7 +230,13 @@ class TestFrequencyGapProduct(unittest.TestCase):
         frequency_ghz = 11.0
         gap_mm = logic.FD_MAX_GHZ_MM / frequency_ghz
         product = logic.frequency_gap_product_ghz_mm(frequency_ghz, gap_mm)
-        self.assertGreater(product, logic.FD_MAX_GHZ_MM)
+        # Dividing the ceiling by the frequency and multiplying back does
+        # not return the ceiling exactly: the product overshoots by a few
+        # units in the last place. Assert the size of that excess rather
+        # than the strict inequality. The chart ceiling is unchanged.
+        excess = product - logic.FD_MAX_GHZ_MM
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         self.assertEqual(logic.check_chart_range(product), [])
 
 

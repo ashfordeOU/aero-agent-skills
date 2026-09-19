@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-identification-marking-labelling (space-systems/ecss)
+# Two tasks for the new leaf. mark1 routes on the marking field sizing the
+# character height and the thin-wall penetration refusal; mark2 routes on a
+# repeated part-and-serial identity and a subassembly whose parent carries no
+# serial. Both must deterministically hit
+# space-systems/ecss/e3301-identification-marking-labelling.
+tasks:
+  - id: mark1
+    query: "this delivered bracket has a 6 mm square flat for its part number and serial and the wall under it is only 0.4 mm, tell me which marking method I can use and whether the characters will even be readable"
+    intent: "ECSS-E-ST-33-01 clause 4.2.4.1; the marking field sizes the achievable character height and a penetrating method is refused on a thin or fracture-critical wall"
+    expected_skill: "space-systems/ecss/e3301-identification-marking-labelling"
+  - id: mark2
+    query: "two units in this mechanism delivery came out with the same part number and serial and one subassembly names a parent that was never serialised, check the identification plan before the hardware ships"
+    intent: "ECSS-E-ST-33-01 clause 4.2.4.1; identity uniqueness across delivered items and traceability of a subassembly through an identified parent"
+    expected_skill: "space-systems/ecss/e3301-identification-marking-labelling"

@@ -234,8 +234,4 @@ class FieldModelSourceSelectionTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    result = unittest.main(exit=False)
-    if result.result.wasSuccessful():
-        print("OK")
-    else:
-        raise SystemExit(1)
+    unittest.main()

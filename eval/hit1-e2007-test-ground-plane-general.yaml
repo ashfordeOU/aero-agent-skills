@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-test-ground-plane-general (space-systems/ecss)
+# Case 1 routes on the two deviations that change the return path itself and are
+# therefore major. Case 2 routes on the dimensional and bonding floors, and on
+# an unrecorded flight arrangement being a finding in its own right.
+tasks:
+  - id: e2007-test-ground-plane-general-1
+    query: "This box flies on a composite mounting panel through isolator mounts, but on the bench it is hard-mounted to a metallic ground plane. Is swapping the conduction family and the interface a major deviation, or only lost representativeness?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.3.1; conduction family and mounting interface change the return path, unlike a grade or set-back deviation"
+    expected_skill: "space-systems/ecss/e2007-test-ground-plane-general"
+  - id: e2007-test-ground-plane-general-2
+    query: "Nobody captured which panel this box flies on. Can the setup still close, and what must the arrangement meet on plane area, on bond-point count, on shortest edge and on front set-back?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.3.1; an unknown installation only closes against a declared worst case, and the geometry and bonding floors are separate checks"
+    expected_skill: "space-systems/ecss/e2007-test-ground-plane-general"

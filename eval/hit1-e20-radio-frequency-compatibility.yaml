@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-radio-frequency-compatibility (space-systems/ecss)
+# Case 1 routes on one aggressor reaching one victim through isolation and front-end rejection.
+# Case 2 routes on emitter pairs mixing in band and on the aggregate noise-floor rise.
+tasks:
+  - id: e20-radio-frequency-compatibility-1
+    query: "Our X-band transmitter and the GPS receiver sit 1.2 m apart with 55 dB antenna-to-antenna isolation and 40 dB front-end rejection. What power actually lands at the receiver input, and what margin does that leave against its susceptibility threshold?"
+    intent: "ECSS-E-ST-20C 6.3.6; two losses in series carry transmit power to the victim input, and the per-emitter margin asks whether any single unit disturbs it"
+    expected_skill: "space-systems/ecss/e20-radio-frequency-compatibility"
+  - id: e20-radio-frequency-compatibility-2
+    query: "Three transmitters are on together. Two of them mix into a third-order intermodulation product that lands inside the telecommand receive band, and even where each holds margin the noise floor is up 1.3 dB. Which budget does that rise get judged against?"
+    intent: "ECSS-E-ST-20C 6.3.6; an in-band mixing product is a finding on the emitter pair, and the summed rise is graded against the per-victim mission degradation budget"
+    expected_skill: "space-systems/ecss/e20-radio-frequency-compatibility"

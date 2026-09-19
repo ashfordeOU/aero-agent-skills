@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-design-verification-tasks (space-systems/ecss)
+# Two tasks for the new leaf. ddvt1 routes on a design item nobody examines and on the
+# prerequisite ordering of the task set; ddvt2 routes on a checking task aimed at an
+# item nothing produces and on completion evidence. Both must deterministically hit
+# space-systems/ecss/e2040-device-design-verification-tasks.
+tasks:
+  - id: ddvt1
+    query: "order the design and verification phase task list by its prerequisites, refuse it if the prerequisites close a loop, and tell me which design items are produced that no checking task ever looks at"
+    intent: "ECSS-E-ST-20-40C clause 5.4.3; engineering and checking task pairing, prerequisite ordering with cycle refusal, unexamined design outputs"
+    expected_skill: "space-systems/ecss/e2040-device-design-verification-tasks"
+  - id: ddvt2
+    query: "several checking activities in the phase plan name an item that no engineering activity produces, and two tasks are reported complete while their predecessor is still open with no evidence attached"
+    intent: "ECSS-E-ST-20-40C clause 5.4.3; checking-task target not produced, completion ahead of prerequisite, evidence required on a completed task"
+    expected_skill: "space-systems/ecss/e2040-device-design-verification-tasks"

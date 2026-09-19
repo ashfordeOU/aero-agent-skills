@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-in-service-feedback-launch-site-procedures-monitoring
+# (space-systems/ecss). Two tasks for the new leaf. is1 routes on the two age
+# clocks a stored device runs; is2 routes on the launch-site step order around
+# safing-device removal. Both must deterministically hit
+# space-systems/ecss/e3311-in-service-feedback-launch-site-procedures-monitoring.
+tasks:
+  - id: is1
+    query: "this cutter is still two years inside its shelf life but the last surveillance firing was a long time ago, say whether we can use it"
+    intent: "ECSS-E-ST-33-11C clause 4.16; shelf life and surveillance interval are independent clocks and an overdue surveillance blocks use on its own"
+    expected_skill: "space-systems/ecss/e3311-in-service-feedback-launch-site-procedures-monitoring"
+  - id: is2
+    query: "check the pad procedure order for me, they measure bridge resistance after pulling the safing pin and the arming step comes before the area is cleared"
+    intent: "ECSS-E-ST-33-11C clause 4.16; launch-site precedence rules keep the item inert until the area is clear, with firing last and hazardous steps two-person"
+    expected_skill: "space-systems/ecss/e3311-in-service-feedback-launch-site-procedures-monitoring"

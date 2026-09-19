@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-requirements-specification-task (space-systems/ecss)
+# Two tasks for the new leaf. drst1 routes on two-way traceability between the
+# source set and the device set; drst2 routes on derived-requirement
+# justification and the open-marker budget. Both must deterministically hit
+# space-systems/ecss/e2040-device-requirements-specification-task.
+tasks:
+  - id: drst1
+    query: "every line in the device specification names a parent, but I need the other direction: which mandatory source requirements has nothing in the device set been written against, and what coverage fraction does that leave before we baseline"
+    intent: "ECSS-E-ST-20-40C 5.2.2; downward coverage of mandatory source requirements alongside upward tracing of the device set"
+    expected_skill: "space-systems/ecss/e2040-device-requirements-specification-task"
+  - id: drst2
+    query: "how many of these definition phase requirements are derived with no justification behind them, and is the share still carrying a to be determined marker inside the budget we allowed"
+    intent: "ECSS-E-ST-20-40C 5.2.2; derived-requirement justification and open-marker fraction against the project budget"
+    expected_skill: "space-systems/ecss/e2040-device-requirements-specification-task"

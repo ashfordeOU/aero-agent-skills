@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7046-source-qualification (space-systems/ecss)
+# Two tasks for the new leaf. sq1 routes on reducing the qualification-lot
+# measurements to a capability index and letting the weakest characteristic
+# govern; sq2 routes on weighting audit findings into a demerit total with a
+# blocking severity and ageing the audit. Both must deterministically hit
+# space-systems/ecss/q7046-source-qualification.
+tasks:
+  - id: sq1
+    query: "we are deciding on the supplier here, not sentencing one lot: turn each measured characteristic from their qualification lot into a capability index, let the worst one govern, and say whether this fastener maker can be qualified as our source"
+    intent: "ECSS-Q-ST-70-46C source qualification; computing a capability index per characteristic from the sample's own mean and n-1 standard deviation and taking the weakest characteristic as governing"
+    expected_skill: "space-systems/ecss/q7046-source-qualification"
+  - id: sq2
+    query: "our threaded fastener supplier's audit turned up one blocking severity and eleven minor findings, and the audit is two years old; roll those findings into one demerit score, age it against the validity period, and give me an expiry date"
+    intent: "ECSS-Q-ST-70-46C source qualification; weighting audit findings into a demerit total, blocking on a critical severity regardless of the total, and ageing the audit against its validity period"
+    expected_skill: "space-systems/ecss/q7046-source-qualification"

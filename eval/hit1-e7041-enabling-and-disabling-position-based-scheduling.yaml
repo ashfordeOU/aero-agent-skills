@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-enabling-and-disabling-position-based-scheduling
+# (space-systems/ecss). Two tasks for the new leaf. pbsen1 routes on the two
+# release gates of a position-based schedule and the activities a group
+# disable suspends; pbsen2 routes on a multi-group enable command carrying an
+# undeclared group identifier. Both must deterministically hit
+# space-systems/ecss/e7041-enabling-and-disabling-position-based-scheduling.
+tasks:
+  - id: pbsen1
+    query: "position based scheduling is enabled at service level but nothing releases on the orbit; split the schedule into activities that are release candidates and activities held closed by their own group gate, and count the gates each command moved"
+    intent: "ECSS-E-ST-70-41C clause 6.22.8.3; service level gate and per-group gate both open before release, disable suspends rather than deletes"
+    expected_skill: "space-systems/ecss/e7041-enabling-and-disabling-position-based-scheduling"
+  - id: pbsen2
+    query: "we sent one enable covering scheduling groups 1, 4 and 9 but group 9 was never declared on the subservice, tell me which group gates moved and what the rejection should say"
+    intent: "ECSS-E-ST-70-41C clause 6.22.8.3; per-identifier acceptance and rejection inside one group enable command, gates-moved count for an idempotent repeat"
+    expected_skill: "space-systems/ecss/e7041-enabling-and-disabling-position-based-scheduling"

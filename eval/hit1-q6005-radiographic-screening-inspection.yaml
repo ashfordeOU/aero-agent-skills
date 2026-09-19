@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-radiographic-screening-inspection (space-systems/ecss,
+# Q-ST-60-05 10.3.10). Two tasks for the new leaf. rsi1 routes on view coverage
+# and on showing the image could resolve anything; rsi2 routes on the three
+# void limits and on loose material graded by the spacing it can span. Both
+# must deterministically hit
+# space-systems/ecss/q6005-radiographic-screening-inspection.
+tasks:
+  - id: rsi1
+    query: "decide the radiographic-view-coverage this stacked hybrid owes and check the radiographic-image-quality-percent and the radiographic-beam-transmission-band through a kovar lid before reading the film"
+    intent: "ecss hybrids; one projection is a sample of the interior, and an unqualified image returns clean views that mean nothing"
+    expected_skill: "space-systems/ecss/q6005-radiographic-screening-inspection"
+  - id: rsi2
+    query: "grade the die-attach-void-area-limits three ways on this bond and judge radiographic-foreign-material-bridging against the smallest conductor spacing in the cavity"
+    intent: "ecss hybrids; total voiding, the worst single void and a void under the active area are three objections, and debris is graded by what it can reach"
+    expected_skill: "space-systems/ecss/q6005-radiographic-screening-inspection"

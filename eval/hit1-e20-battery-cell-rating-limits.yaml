@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-battery-cell-rating-limits (space-systems/ecss)
+# Case 1 routes on building the derated envelope and catching a policy that inverts a window.
+# Case 2 routes on grading declared duty points mode by mode and ranking the driving parameter.
+tasks:
+  - id: e20-battery-cell-rating-limits-1
+    query: "Our lithium-ion cell charges between 0 and 45 C, and the derating policy pulls every window in at both ends by 8 C while scaling the voltage ceiling by 0.9. How do I build the tightened envelope, and what if a thermal margin inverts a window?"
+    intent: "ECSS-E-ST-20C 5.6.3; derating narrows the rating set before use, and a margin wide enough to invert a window is a defect in the policy rather than a tight design"
+    expected_skill: "space-systems/ecss/e20-battery-cell-rating-limits"
+  - id: e20-battery-cell-rating-limits-2
+    query: "A cell rated 20 Ah is asked to accept 15 A while charging at 5 C ambient and deliver 60 A through eclipse. Which mode limits bite at each point, and how do I report which parameter sits nearest its limit instead of three unranked passes?"
+    intent: "ECSS-E-ST-20C 5.6.3; the limit that applies depends on the operating mode, and normalising each margin by its own span is what names the driving parameter"
+    expected_skill: "space-systems/ecss/e20-battery-cell-rating-limits"

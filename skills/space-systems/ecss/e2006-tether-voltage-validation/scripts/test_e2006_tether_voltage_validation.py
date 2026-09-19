@@ -345,7 +345,14 @@ class TestWorstCaseSweep(unittest.TestCase):
     def test_denser_sweep_does_not_lower_the_bound(self):
         coarse = worst_case_end_to_end_potential(base_case(sample_count=2))
         fine = worst_case_end_to_end_potential(base_case(sample_count=31))
-        self.assertGreaterEqual(fine["bounding_v"], coarse["bounding_v"] - 1.0e-9)
+        # Each sample runs through sin, cos and sqrt, so the two grids can
+        # disagree in the last bits at a shared sample point. The slack is
+        # relative, not the absolute 1e-9 that sat only 0.6e-12 away from
+        # the coarse bound at these magnitudes: still far tighter than any
+        # real drop in the bound, and no longer a rounding-direction test.
+        self.assertGreaterEqual(
+            fine["bounding_v"], coarse["bounding_v"] * (1.0 - 1.0e-9)
+        )
 
     def test_worst_case_rejects_a_missing_key(self):
         case = base_case()

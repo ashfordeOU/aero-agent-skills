@@ -10,6 +10,6 @@ tasks:
     intent: "ECSS-Q-ST-60-13C clause 4.5.4; single-receipt custody chain, identity fields per event, forward and backward board-serial trace"
     expected_skill: "space-systems/ecss/q6013-class-1-traceability"
   - id: tr2
-    query: "our stores record issued more parts than the lot received and one kitting line carries a different lot code with no cross reference back to the receipt"
-    intent: "ECSS-Q-ST-60-13C clause 4.5.4; quantity reconciliation over received, installed, scrapped and returned, re-marked lot code treated as an identity break"
+    query: "two events in this commercial lot's history carry no lot code at all and one shows a date code that disagrees with goods-in; sort every event - receipt, inspection, stores, kitting, installation - onto a single clock and score the identity"
+    intent: "ECSS-Q-ST-60-13C clause 4.5.4; custody events ordered on one clock, a dropped lot code or a date code contradicting goods-in treated as an identity break, and identity completeness scored"
     expected_skill: "space-systems/ecss/q6013-class-1-traceability"

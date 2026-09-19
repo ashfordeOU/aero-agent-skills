@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-pressure-cycle-test (space-systems/ecss)
+# Two tasks for the new leaf. pct1 routes on the life scatter factor and the whole
+# cycle count it produces; pct2 routes on the amplitude the rig actually applied and
+# the rate ceiling. Both must deterministically hit
+# space-systems/ecss/e3102-pressure-cycle-test.
+tasks:
+  - id: pct1
+    query: "count up the ground pressurisations and the orbital thermal excursions for the loop and turn that into how many fatigue cycles the qualification run actually owes"
+    intent: "ECSS-E-ST-31-02C clause 5.6.6; service cycle count times the life scatter factor rounded up to whole cycles for a two-phase pressure boundary"
+    expected_skill: "space-systems/ecss/e3102-pressure-cycle-test"
+  - id: pct2
+    query: "our rig will not vent below half a megapascal, so the pressure cycling ran from there up to design pressure at one cycle a second - does that envelop the service swing at both ends, and is that rate still a mechanical fatigue run"
+    intent: "ECSS-E-ST-31-02C clause 5.6.6; applied cycle range enveloping the service range at both ends, and the cycle and ramp rate ceilings that keep the run mechanical rather than thermal"
+    expected_skill: "space-systems/ecss/e3102-pressure-cycle-test"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-thermographic-screening-test (space-systems/ecss,
+# Q-ST-60-05 10.3.2). Two tasks per leaf; tg1 routes on the imaging setup and
+# the radiometric correction, tg2 on grading the sites against their predicted
+# rise. Both must deterministically hit
+# space-systems/ecss/q6005-thermographic-screening-test.
+tasks:
+  - id: tg1
+    query: "set up a hybrid-thermographic-screening run: test thermographic-detector-resolution and apply the hybrid-surface-emissivity-correction before reading anything"
+    intent: "ecss hybrids; infrared imaging of a biased circuit before the package is sealed"
+    expected_skill: "space-systems/ecss/q6005-thermographic-screening-test"
+  - id: tg2
+    query: "grade infrared-hot-spot-detection results by predicted-temperature-rise-excursion and return the thermographic-screen-verdict"
+    intent: "ecss hybrids; deciding which imaged sites are behaving as designed"
+    expected_skill: "space-systems/ecss/q6005-thermographic-screening-test"

@@ -4,6 +4,7 @@ Offline, deterministic, stdlib unittest. Run:
     python3 test_e2001_multipactor_deliverables_per_review.py
 """
 
+import math
 import unittest
 
 import e2001_multipactor_deliverables_per_review_logic as logic
@@ -354,8 +355,13 @@ class ReadinessTests(unittest.TestCase):
             logic.gate_readiness({"satisfied": ()})
 
     def test_threshold_absorbs_representation_error(self):
-        drifted = 0.7 + 0.1
-        self.assertLess(drifted, 0.8)
+        # The case this absorbs is a score one unit in the last place below
+        # the threshold. That is constructed here rather than arrived at by an
+        # arithmetic coincidence, so the test states its own boundary exactly
+        # and does not assert which way a sum happened to round. The threshold
+        # is unchanged - the next test shows a genuine shortfall still fails.
+        drifted = math.nextafter(0.8, -math.inf)
+        self.assertNotEqual(drifted, 0.8)
         self.assertTrue(logic.meets_readiness_threshold(drifted, 0.8))
 
     def test_genuine_shortfall_still_fails_the_threshold(self):

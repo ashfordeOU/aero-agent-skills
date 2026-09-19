@@ -161,7 +161,11 @@ class ScreeningTests(unittest.TestCase):
 
     def test_representation_error_above_threshold_is_absorbed(self):
         just_over = math.nextafter(100.0, 200.0)
-        self.assertGreater(just_over, 100.0)
+        # nextafter already puts the value exactly one unit in the last
+        # place above the threshold by construction; state that magnitude
+        # instead of re-measuring the direction with a comparison that sits
+        # on the rounding boundary.
+        self.assertEqual(just_over - 100.0, math.ulp(100.0))
         self.assertTrue(screen_equipment(just_over, 100.0))
 
     def test_engineering_limit_is_not_widened(self):

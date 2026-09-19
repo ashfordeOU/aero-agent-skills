@@ -1,0 +1,13 @@
+# Hit@1 fragment: e4008-event-link (space-systems/ecss)
+# Two tasks for the new leaf. el1 routes on the source/sink role asymmetry and
+# the argument agreement; el2 routes on fan-in ordering, which is legal but not
+# neutral. Both must deterministically hit space-systems/ecss/e4008-event-link.
+tasks:
+  - id: el1
+    query: "the emitted event never reaches the handler even though both elements exist in the assembly, check the roles at each end and whether the argument the sink expects is the one the source carries"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.3; event source versus event sink roles and argument agreement, with the void argument treated as a type rather than an absent one"
+    expected_skill: "space-systems/ecss/e4008-event-link"
+  - id: el2
+    query: "several models emit into the same event sink in this assembly, tell me whether that is admissible and what it makes the artefact responsible for"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.3; fan-out and fan-in of event links, invocation order following the assembly declaration order"
+    expected_skill: "space-systems/ecss/e4008-event-link"

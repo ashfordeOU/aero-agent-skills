@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-analysis-margin-strategy (space-systems/ecss)
+# Case 1 routes on which gap and yield values a weak data basis forces the analysis to use.
+# Case 2 routes on the margin a measurement campaign would buy back.
+tasks:
+  - id: e2001-analysis-margin-strategy-1
+    query: "There is no measured gap on our flight filter, only a drawing dimension plus its tolerance, and the secondary-emission data is a generic-literature curve. Does that force a tolerance-worst-case dimension-basis, and what multipaction-margin does the build-up then demand?"
+    intent: "ECSS-E-ST-20-01C 5.3.3.1; the case turns on categorizing both data bases and taking the small end of the tolerance plus a bounding yield before any margin is set"
+    expected_skill: "space-systems/ecss/e2001-analysis-margin-strategy"
+  - id: e2001-analysis-margin-strategy-2
+    query: "Management asks whether paying for a secondary-emission coupon run on the real plated finish, plus measuring the gap on assembled hardware, is worth it. How much multipaction-margin would moving to measured-hardware and surface-measured data retire?"
+    intent: "ECSS-E-ST-20-01C 5.3.3.1; the case turns on the margin build-up being differenced against an all-measured basis to quantify the benefit of the measurement campaign"
+    expected_skill: "space-systems/ecss/e2001-analysis-margin-strategy"

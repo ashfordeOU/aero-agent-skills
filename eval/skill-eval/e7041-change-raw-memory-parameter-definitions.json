@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-change-raw-memory-parameter-definitions",
+  "with_skill": 1.0,
+  "without_estimate": 0.20,
+  "delta": 0.80,
+  "passed": 65,
+  "failed": 0,
+  "evidence": "contract test PASS (65 tests); without-baseline 0.20 (the call is usually made by storing the new base and length as given, so checking the base against the area size instead of the region end and accepting a window that starts inside and runs off the end, treating the region end as the last addressed byte and rejecting every legal full-area window, taking alignment from the request instead of from the memory area, skipping the length check once bounds pass so a two-byte window on a four-byte parameter reports a quarter of the value, collapsing the four geometry refusals into one code, refusing a legal overlap or applying it silently instead of raising it as a hazard, and mutating the definition store in place are all missed without the skill)"
+}

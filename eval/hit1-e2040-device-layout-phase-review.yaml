@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-layout-phase-review (space-systems/ecss)
+# Two tasks for the new leaf. lpr1 routes on distribution lead time as an entry
+# criterion; lpr2 routes on the severity disposition producing the outcome.
+# Both must deterministically hit
+# space-systems/ecss/e2040-device-layout-phase-review.
+tasks:
+  - id: lpr1
+    query: "two of the layout gate inputs reached the panel the afternoon before the meeting and a third is still at draft issue - work out whether the entry criteria are met and whether this gate can be held at all"
+    intent: "ECSS-E-ST-20-40C clause 5.6.8; entry criteria cover existence, issue status and a working-day distribution lead time before the review date"
+    expected_skill: "space-systems/ecss/e2040-device-layout-phase-review"
+  - id: lpr2
+    query: "we came out of the gate with one major item, four minor items with owners and dates and one detailed design action still open, decide whether that is a pass with actions or a repeat"
+    intent: "ECSS-E-ST-20-40C clause 5.6.8; a major item and an open carried-over action both block, minor items are tolerated dated and owned inside the agreed cap"
+    expected_skill: "space-systems/ecss/e2040-device-layout-phase-review"

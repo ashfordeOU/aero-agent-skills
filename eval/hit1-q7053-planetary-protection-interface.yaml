@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7053-planetary-protection-interface (space-systems/ecss)
+# tr1 routes on the decimal-reduction-time correction and the surviving spore
+# count; tr2 routes on the compatibility-qualified envelope bounding the
+# planetary-protection process. Both must deterministically hit
+# space-systems/ecss/q7053-planetary-protection-interface.
+tasks:
+  - id: tr1
+    query: "correct the reference decimal reduction time from 125 C to the dry heat temperature we actually ran using the z value, then tell me the log reduction and the surviving spore count against our bioburden allocation"
+    intent: "ECSS-Q-ST-70-53C interface to ECSS-Q-ST-70-56C; z-value correction of the decimal reduction time, log reduction from accumulated exposure, surviving count against the allocation"
+    expected_skill: "space-systems/ecss/q7053-planetary-protection-interface"
+  - id: tr2
+    query: "Our microbial reduction cycle needs a higher peak temperature and more cycles than the sterilization compatibility test qualified. Which required process parameters fall outside that qualified envelope, and how do I report the interface conflict against the bioburden case?"
+    intent: "ECSS-Q-ST-70-53C interface to ECSS-Q-ST-70-57C; required process parameters compared with the compatibility-qualified envelope, an uncovered parameter treated as outside it"
+    expected_skill: "space-systems/ecss/q7053-planetary-protection-interface"

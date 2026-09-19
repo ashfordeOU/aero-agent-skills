@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-monitoring-reports (space-systems/ecss)
+# mr1 routes on merging reported intervals to find unmonitored days inside a
+# closed period; mr2 routes on traceability and submission turnaround measured
+# from the close of the period. Both must deterministically hit
+# space-systems/ecss/q7050-monitoring-reports.
+tasks:
+  - id: mr1
+    query: "check this quarterly cleanliness monitoring report actually covers the whole quarter, the sampling intervals overlap in places and I think there is a stretch nobody sampled"
+    intent: "ECSS-Q-ST-70-50C monitoring reporting; merging reported intervals for period coverage, locating gaps and double-counted stretches"
+    expected_skill: "space-systems/ecss/q7050-monitoring-reports"
+  - id: mr2
+    query: "before we accept the contractor's monitoring report confirm every result names its instrument and method, all the named locations appear, and it arrived inside the agreed turnaround"
+    intent: "ECSS-Q-ST-70-50C monitoring reporting; result traceability, location coverage and submission latency from the close of the reporting period"
+    expected_skill: "space-systems/ecss/q7050-monitoring-reports"

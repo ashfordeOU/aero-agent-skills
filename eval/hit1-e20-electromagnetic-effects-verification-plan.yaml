@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-electromagnetic-effects-verification-plan (space-systems/ecss)
+# Case 1 routes on method admissibility against the requirement kind and on the
+# correlation condition for an analysis. Case 2 routes on integration level adequacy
+# and on coverage shares that overshoot.
+tasks:
+  - id: e20-electromagnetic-effects-verification-plan-1
+    query: "Our ECSS Annex B plan closes a radiated emission requirement by design-review because the layout looks clean, and a lightning-coupled requirement by an uncorrelated field solver run. Can either method close its electromagnetic effects requirement on that evidence?"
+    intent: "ECSS-E-ST-20C Annex B; a field quantity that only exists when the item is powered cannot be closed from a drawing, and an uncorrelated model moves the uncertainty into flight"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-effects-verification-plan"
+  - id: e20-electromagnetic-effects-verification-plan-2
+    query: "One system-level requirement is split across three planned activities whose declared verification-coverage-share values are five tenths, four tenths and three tenths, and all three run at equipment level. What do I flag in the ECSS verification plan for electromagnetic effects?"
+    intent: "ECSS-E-ST-20C Annex B; an activity below the requirement integration level leaves the inter-unit coupling unverified, and shares summing past the whole signal double counting"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-effects-verification-plan"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-load-by-reference-and-activate-a-request-sequence
+# (space-systems/ecss). lbra1 routes on the combined request that names a
+# repository body instead of carrying one; lbra2 routes on the atomicity -- what
+# the store must look like when the activation half fails. Both must
+# deterministically hit
+# space-systems/ecss/e7041-load-by-reference-and-activate-a-request-sequence.
+tasks:
+  - id: lbra1
+    query: "the uplink names a sequence body the repository already holds and asks us to copy it into a slot and start it in the same command, what has to be checked"
+    intent: "ECSS-E-ST-70-41C clause 6.21.5.6; reference resolution, destination eligibility and landed-copy verification before activation"
+    expected_skill: "space-systems/ecss/e7041-load-by-reference-and-activate-a-request-sequence"
+  - id: lbra2
+    query: "the body copied across fine but the engine had no free slot so the activation failed, is the slot allowed to keep the body it just received"
+    intent: "ECSS-E-ST-70-41C clause 6.21.5.6; load and activate are atomic, a failed activation rolls the load back and the step that failed is named"
+    expected_skill: "space-systems/ecss/e7041-load-by-reference-and-activate-a-request-sequence"

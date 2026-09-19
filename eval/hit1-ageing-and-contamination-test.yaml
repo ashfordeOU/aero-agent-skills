@@ -1,0 +1,12 @@
+# Hit@1 fragment: ageing-and-contamination-test (space-systems/ecss)
+# Case 1 routes on the property-retention ratio drawn from before/after coupon values.
+# Case 2 routes on the deposited-contamination check and the unset-allowable finding.
+tasks:
+  - id: ageing-and-contamination-test-1
+    query: "Structural coupons and passive film coating specimens came out of our ageing campaign, 500 thermal-cycling excursions plus a hygrothermal soak. Adhesion fell from 12 MPa to 9.8. What property retention ratios does that give, and does each specimen pass?"
+    intent: "ECSS-E-ST-32C 4.6.3.16-4.6.3.17; the case turns on deriving a retention ratio from paired baseline and post-conditioning measurements rather than on the conditioning regime itself"
+    expected_skill: "space-systems/ecss/ageing-and-contamination-test"
+  - id: ageing-and-contamination-test-2
+    query: "Each post-exposure witness specimen from our ageing run carries 8 mg per square metre of deposited contamination, yet no allowable was ever recorded for them. Is that silence a pass under ECSS-E-ST-32C, or a finding in its own right?"
+    intent: "ECSS-E-ST-32C 4.6.3.17; the case turns on the contamination-exposure comparison and on treating an absent allowable as a missing-requirement finding rather than as zero"
+    expected_skill: "space-systems/ecss/ageing-and-contamination-test"

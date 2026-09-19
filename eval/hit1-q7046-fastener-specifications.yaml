@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-fastener-specifications (space-systems/ecss)
+# fs1 routes on turning a parts-list line into a buyable description with its
+# load figures; fs2 routes on a class/material/coating conflict. Both must
+# deterministically hit space-systems/ecss/q7046-fastener-specifications.
+tasks:
+  - id: fs1
+    query: "the parts list just says M6 stainless cap screw twenty long, what else does the purchase description need and what proof load should receiving inspection be checking it to"
+    intent: "ECSS-Q-ST-70-46 specifications clause; name the fields a buyable description needs, take the coarse pitch only when none is stated, and compute the tensile stress area and proof load from the property class"
+    expected_skill: "space-systems/ecss/q7046-fastener-specifications"
+  - id: fs2
+    query: "Our parts list writes property class A4-80 against an alloy steel item and 12.9 with a zinc plating elsewhere. Which of those purchase descriptions can a supplier actually make, and does the zinc plating conflict with its class?"
+    intent: "ECSS-Q-ST-70-46 specifications clause; cross-check the property class against the material family and the coating against the class, because an electroplated finish on a high-strength class is a hydrogen problem written into the purchase order"
+    expected_skill: "space-systems/ecss/q7046-fastener-specifications"

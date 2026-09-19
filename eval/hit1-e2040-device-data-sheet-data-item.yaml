@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-device-data-sheet-data-item (space-systems/ecss)
+# Two tasks for the new leaf. dds1 routes on the recommended operating limit
+# sitting inside the absolute maximum rating and the derating margin it leaves;
+# dds2 routes on the min-typ-max ordering and the test conditions a published
+# characteristic needs. Both must deterministically hit
+# space-systems/ecss/e2040-device-data-sheet-data-item.
+tasks:
+  - id: dds1
+    query: "before we publish this data sheet check that every recommended operating limit sits under its absolute maximum rating and work out how much headroom each one leaves against our derating policy"
+    intent: "ECSS-E-ST-20-40C Annex H; recommended operating range strictly inside the absolute maximum rating envelope, derating margin per parameter and the tightest parameter"
+    expected_skill: "space-systems/ecss/e2040-device-data-sheet-data-item"
+  - id: dds2
+    query: "review the characteristics table we are about to publish, several rows give a typical figure with no guaranteed edges and some have no conditions printed against them at all"
+    intent: "ECSS-E-ST-20-40C Annex H; minimum-typical-maximum ordering, a real unit rather than a placeholder, and the test conditions a published characteristic has to name"
+    expected_skill: "space-systems/ecss/e2040-device-data-sheet-data-item"

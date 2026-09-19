@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-electrical-continuity-applicability-decision (space-systems/ecss)
+# Case 1 routes on the two-part small isolated part waiver.
+# Case 2 routes on the exposure node and the fixed order the diagram is walked in.
+tasks:
+  - id: e2006-electrical-continuity-applicability-decision-1
+    query: "An unbonded conductive bracket on our outer surface shows only four square centimetres exposed but measures roughly 900 picofarads to structure. Does the small-isolated-conductive-part waiver still hold, and what stored-discharge-energy has to be computed first?"
+    intent: "ECSS-E-ST-20-06C 6.3.3.1; the case turns on the waiver needing both a small exposed area and a stored discharge energy inside the non-hazardous limit"
+    expected_skill: "space-systems/ecss/e2006-electrical-continuity-applicability-decision"
+  - id: e2006-electrical-continuity-applicability-decision-2
+    query: "One fitting sits entirely inside the bus with no plasma-exposure, and another is behind partial shielding. Do both fall outside the surface electrical-continuity rule, and does the order of the applicability decision-diagram nodes actually matter?"
+    intent: "ECSS-E-ST-20-06C 6.3.3.1; the case turns on the first resolving node ending the walk, with partial shielding staying in scope and carrying a justification finding"
+    expected_skill: "space-systems/ecss/e2006-electrical-continuity-applicability-decision"

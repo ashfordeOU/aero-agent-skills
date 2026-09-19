@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-cable-and-shield-categories (space-systems/ecss)
+# Case 1 routes on routing: minimum bundle separation derived from the distance between two category ranks, plus the pyrotechnic overshield.
+# Case 2 routes on the shield itself: required termination style for the category and frequency, pigtail reactance and braid coverage.
+tasks:
+  - id: e20-cable-and-shield-categories-1
+    query: "On our harness layout a reaction wheel drive pair runs 15 mm from a digital data bus, and a pyrotechnic firing line shares a tray with primary power feed. How do I derive the minimum gap between those bundles from their category ranks, and what extra does the firing line need on top?"
+    intent: "ECSS-E-ST-20C 6.3.8.3; separation set by the distance between two harness ranks rather than absolute rank, and the segregated pyrotechnic treatment with its dedicated overshield"
+    expected_skill: "space-systems/ecss/e20-cable-and-shield-categories"
+  - id: e20-cable-and-shield-categories-2
+    query: "A low-level analogue sensing run on our spacecraft carries nothing above 100 kHz, but the drawing shows its shield bonded at both ends through a 40 mm tail, and the braid only covers 78 percent of the circumference. Which termination does that run actually require and does the tail reactance pass?"
+    intent: "ECSS-E-ST-20C 6.3.8.3; termination style chosen from category and highest frequency carried, with the pigtail reactance allowance and the category-specific braid optical coverage minimum"
+    expected_skill: "space-systems/ecss/e20-cable-and-shield-categories"

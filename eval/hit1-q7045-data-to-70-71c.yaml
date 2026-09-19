@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7045-data-to-70-71c (space-systems/ecss)
+# dt1 routes on mixed units arriving for one data set; dt2 routes on a
+# population split by raw test temperature. Both must deterministically hit
+# space-systems/ecss/q7045-data-to-70-71c.
+tasks:
+  - id: dt1
+    query: "half this batch came back in ksi at seventy Fahrenheit and half in megapascals at twenty one Celsius, how do I get it into the programme materials data set as one thing"
+    intent: "ECSS-Q-ST-70-45 data interface into ECSS-Q-ST-70-71C; normalise stress, strain and temperature at the delivery boundary and key the entry on the fields that make two results comparable"
+    expected_skill: "space-systems/ecss/q7045-data-to-70-71c"
+  - id: dt2
+    query: "the data set is showing nine groups of two instead of two groups of nine and each entry lists its own melt, what am I keying the population on wrong"
+    intent: "ECSS-Q-ST-70-45 data interface into ECSS-Q-ST-70-71C; the test temperature enters the key through a bucket and the heat is carried on the entry but kept out of the key"
+    expected_skill: "space-systems/ecss/q7045-data-to-70-71c"

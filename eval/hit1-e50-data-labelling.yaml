@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-data-labelling (space-systems/ecss)
+# dl1 routes on identifier field width against the number of things named;
+# dl2 routes on the sequence counter wrapping inside the ambiguity window.
+# Both must deterministically hit space-systems/ecss/e50-data-labelling.
+tasks:
+  - id: dl1
+    query: "our data unit header has an eight bit source field and the constellation is growing past three hundred emitters, work out how wide the field has to be and what the whole header costs us per frame"
+    intent: "ECSS-E-ST-50C clause 5.8.2; naming N distinct sources takes the integer bit count that addresses N, and the header cost is label bits over the whole data unit"
+    expected_skill: "space-systems/ecss/e50-data-labelling"
+  - id: dl2
+    query: "the sequence count in our unit header rolls over faster than the ground retention window so two units end up carrying the same number, find the narrowest counter that keeps them distinguishable"
+    intent: "ECSS-E-ST-50C clause 5.8.2; the wrap period is the counter space over the unit rate, and the requirement is that it exceed the window over which two units must be told apart"
+    expected_skill: "space-systems/ecss/e50-data-labelling"

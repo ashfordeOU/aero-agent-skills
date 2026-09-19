@@ -1,0 +1,12 @@
+# Hit@1 fragment: mechanical-environment-spec (space-systems/ecss)
+# Case 1 routes on the environment inventory and the frequency spans each one must cover.
+# Case 2 routes on reading the specified spectra between breakpoints and grading audible noise.
+tasks:
+  - id: mechanical-environment-spec-1
+    query: "Our environment specification lists random vibration only up to 1200 Hz and shock to 5 kHz, and says nothing about microgravity or crew-induced excitation. Do those spans meet the requirement, and is a missing type a gap or just conservatism?"
+    intent: "ECSS-E-ST-32C 4.2.3-4.2.4; each spectrum has a mandated span and every environment type must appear before loads analysis, so an absent type is a gap"
+    expected_skill: "space-systems/ecss/mechanical-environment-spec"
+  - id: mechanical-environment-spec-2
+    query: "The specification gives the shock envelope only at its breakpoints but I need the level at 780 Hz. How do I interpolate between breakpoints, and how are the audible-noise levels in each octave band graded against their allowable?"
+    intent: "ECSS-E-ST-32C 4.2.3-4.2.4; the specified spectrum is read log-log between breakpoints, and the noise environment is graded band by band against its limits"
+    expected_skill: "space-systems/ecss/mechanical-environment-spec"

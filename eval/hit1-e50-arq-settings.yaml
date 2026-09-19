@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-arq-settings (space-systems/ecss)
+# Two tasks for the new leaf. arq1 routes on the retransmission timer floor;
+# arq2 routes on a parameter fixed in the build. Both must deterministically
+# hit space-systems/ecss/e50-arq-settings.
+tasks:
+  - id: arq1
+    query: "our acknowledged transfer keeps retransmitting frames that were never lost, work out the shortest retransmission timeout the round trip and the far end acknowledgement delay allow and what window the link needs"
+    intent: "ECSS-E-ST-50C clause 5.6.13.5; the retransmission timeout floor is the round trip plus the acknowledgement delay plus the jitter, and the window is the bandwidth-delay product in units"
+    expected_skill: "space-systems/ecss/e50-arq-settings"
+  - id: arq2
+    query: "the retry limit and retransmission timer are compiled into the flight software and cannot be commanded, is that a finding against the retransmission settings requirement and what should we expose instead"
+    intent: "ECSS-E-ST-50C clause 5.6.13.5; the retransmission settings have to be adjustable in flight as well as consistent with the link, so a parameter fixed in the build is a finding whatever its value"
+    expected_skill: "space-systems/ecss/e50-arq-settings"

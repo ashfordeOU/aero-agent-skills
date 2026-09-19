@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electromagnetic-effects-verification-report (space-systems/ecss)
+# Case 1 routes on the margin sense each electromagnetic family imposes.
+# Case 2 routes on the three-band grading and the deviation register's closure rules.
+tasks:
+  - id: e20-electromagnetic-effects-verification-report-1
+    query: "Auditing an ECSS Annex C verification report: a conducted susceptibility activity states its margin as the requirement taken off the level survived, while a radiated emission row does the opposite. Which sense is right for each electromagnetic family, and must I recompute both?"
+    intent: "ECSS-E-ST-20C Annex C; emission families are lower-is-better and susceptibility families are higher-is-better, and the reported margin is recomputed rather than carried through"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-effects-verification-report"
+  - id: e20-electromagnetic-effects-verification-report-2
+    query: "Our Annex C electromagnetic-effects verification report has two activities that cleared the applicable limit but missed the required margin, plus a deviation closed as a waiver with no reference. Can I accept the report, and where do the marginal activities belong?"
+    intent: "ECSS-E-ST-20C Annex C; a margin short of the requirement is a marginal band distinct from a pass, and a waiver disposition without its reference leaves the deviation open"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-effects-verification-report"

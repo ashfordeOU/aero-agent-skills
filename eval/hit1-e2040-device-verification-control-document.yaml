@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-verification-control-document (space-systems/ecss)
+# Two tasks for the new leaf. dvcd1 routes on a stage closed ahead of the stage
+# before it; dvcd2 routes on evidence-backed closure and the not-applicable rows
+# leaving the denominator. Both must deterministically hit
+# space-systems/ecss/e2040-device-verification-control-document.
+tasks:
+  - id: dvcd1
+    query: "the control record shows acceptance closed on several requirements while their qualification rows are still in work, is that a real ordering problem and which rows are affected"
+    intent: "ECSS-E-ST-20-40C 5.1.5; qualification, acceptance, pre-launch and in-orbit stage ordering inside one requirement row"
+    expected_skill: "space-systems/ecss/e2040-device-verification-control-document"
+  - id: dvcd2
+    query: "work out the closure per verification stage in the controlled record, keep the not-applicable rows out of the fraction but still counted, and list the closures with no evidence reference"
+    intent: "ECSS-E-ST-20-40C 5.1.5; per-stage closure over applicable rows with evidence-backed closure and baseline issue and revision"
+    expected_skill: "space-systems/ecss/e2040-device-verification-control-document"

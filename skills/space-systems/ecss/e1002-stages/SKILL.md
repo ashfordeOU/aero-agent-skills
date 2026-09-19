@@ -27,10 +27,11 @@ pre-launch, in-orbit, post-landing) are written.
 
 ## Domain quick reference
 
-- ECSS-E-ST-10-02C clause 5.2.4.1 fixes a sequence of five verification
-  stages, each verifying a different point in the product's life:
-  qualification, acceptance, pre-launch, in-orbit (including
-  commissioning), and post-landing.
+- ECSS-E-ST-10-02C clause 5.2.4.1 fixes five verification stages in a
+  set order, each covering a different point in the product's life.
+  Qualification comes first, then acceptance, then pre-launch. In-orbit
+  follows, and commissioning sits inside it rather than beside it.
+  Post-landing closes the set.
 - Qualification demonstrates the design meets its requirements with
   adequate margin, before any article is accepted for delivery.
   Acceptance demonstrates the specific deliverable article is free of

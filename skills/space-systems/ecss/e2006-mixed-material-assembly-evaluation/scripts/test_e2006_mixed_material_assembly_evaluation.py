@@ -10,6 +10,7 @@ from e2006_mixed_material_assembly_evaluation_logic import (
     CATEGORY_GROUNDED_CONDUCTOR,
     CONDUCTIVE_CEILING_OHM_SQ,
     DECADE_SPAN_LIMIT,
+    DECADE_TOLERANCE,
     EVIDENCE_LEVEL_CONSTITUENT,
     EVIDENCE_LEVEL_UNIT,
     categorize_assembly,
@@ -247,8 +248,13 @@ class DecadeSpanTests(unittest.TestCase):
                  dielectric("film-overlay", resistivity=4.7e8)]
             )
         )
-        self.assertAlmostEqual(out["max_span_decades"], DECADE_SPAN_LIMIT)
-        self.assertGreater(out["max_span_decades"], DECADE_SPAN_LIMIT)
+        # The span is a difference of two log10 results, and log10 is not
+        # correctly rounded: the drift off four decades is about 1e-15 here
+        # and its sign is a libm detail. Assert that the drift stays inside
+        # the tolerance that absorbs it, and that the threshold holds.
+        self.assertLess(
+            abs(out["max_span_decades"] - DECADE_SPAN_LIMIT), DECADE_TOLERANCE
+        )
         self.assertFalse(out["exceeds_review_threshold"])
 
     def test_span_beyond_threshold_is_an_exceedance(self):

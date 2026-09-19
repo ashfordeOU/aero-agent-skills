@@ -127,8 +127,16 @@ class TestCripplingStress(unittest.TestCase):
         self.assertAlmostEqual(Fcc, expected, delta=1.0)
 
     def test_crippling_stress_bounded_by_fcy(self):
-        Fcc = rj.crippling_stress_fcc(200e6, 70e9, 3e-3, 3e-3)
-        self.assertLessEqual(Fcc, 200e6)
+        # Fcc is min(Fcy, elastic buckling). For a stocky flange the yield
+        # stress wins and is returned unchanged - the same float, with no
+        # arithmetic applied to it - so assert that equality rather than a
+        # boundary comparison that would not say which branch was taken.
+        stocky = rj.crippling_stress_fcc(200e6, 70e9, 3e-3, 3e-3)
+        self.assertEqual(stocky, 200e6)
+        # For a thin flange elastic buckling governs and Fcc is far below
+        # the yield stress, which is the other half of "bounded by Fcy".
+        thin = rj.crippling_stress_fcc(200e6, 70e9, 50e-3, 1e-3)
+        self.assertLess(thin, 200e6)
 
     def test_crippling_margin_positive(self):
         # thin flange: Fcc << Fcy; apply stress well below Fcc → MS > 0

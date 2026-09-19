@@ -10,6 +10,6 @@ tasks:
     intent: "ECSS-E-ST-50-53C clause 5.5.3; routers consume path address octets one per hop, a logically addressed transfer still carries its address octet before the protocol fields"
     expected_skill: "space-systems/ecss/e5053-transfer-packet"
   - id: tp2
-    query: "we share the link with a memory access protocol and the driver is logging every one of its packets as a receive error, work out what the entity should actually do with traffic that is not ours"
+    query: "our SpaceWire receive path logs every transfer that belongs to some other protocol identifier as an error, so tell me what the entity owes traffic that is not this protocol and whether we must look at the terminator before parsing anything"
     intent: "ECSS-E-ST-50-53C clause 5.5.3; the protocol identifier demultiplexes to an entity, another protocol's transfer is handed on rather than discarded as an error"
     expected_skill: "space-systems/ecss/e5053-transfer-packet"

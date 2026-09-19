@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the clause 5.3.3.2 worst case gap dimension logic."""
 
+import math
 import unittest
 
 from e2001_dimensional_accuracy_and_stability_logic import (
@@ -194,7 +195,10 @@ class AllowanceTests(unittest.TestCase):
         worst = derive_worst_case_gap(
             1.0, [machining(minus=0.15, plus=0.15), thermal(minus=0.15, plus=0.15)]
         )
-        self.assertGreater(worst["excursion_mm"], 0.6)
+        # The decimal stack-up lands one unit in the last place above the
+        # allowance it adds up to exactly. State that overshoot exactly
+        # rather than asserting its direction; the allowance is unchanged.
+        self.assertEqual(worst["excursion_mm"] - 0.6, math.ulp(0.6))
         self.assertTrue(excursion_within_allowance(worst, 0.6))
 
     def test_excursion_beyond_the_allowance_fails(self):

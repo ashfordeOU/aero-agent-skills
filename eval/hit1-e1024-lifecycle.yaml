@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-lifecycle (space-systems/ecss)
+# Case 1 routes on stream-specific phase activities and the earlier-gate check.
+# Case 2 routes on the off-the-shelf agreements and the separate maturity check.
+tasks:
+  - id: e1024-lifecycle-1
+    query: "We are going into the Phase C gate on the launcher mechanical and radio-frequency interface. Which activities does the launch segment stream add beyond the generic ones, and may I assess this gate while Phase B items on the same interface are still open?"
+    intent: "ECSS-E-ST-10C 4.3; stream-specific activities stack on the generic stream, and an unclosed earlier phase blocks the current gate assessment"
+    expected_skill: "space-systems/ecss/e1024-lifecycle"
+  - id: e1024-lifecycle-2
+    query: "An off-the-shelf reaction wheel sits on one of our interfaces and the supplier has sent only a datasheet from their catalogue. By which project phase must a formal agreement exist, and is raising the documentation maturity a separate tick from completing the activities?"
+    intent: "ECSS-E-ST-10C 4.3; the off-the-shelf agreement sequence by phase, and maturity level judged separately from activity completion"
+    expected_skill: "space-systems/ecss/e1024-lifecycle"

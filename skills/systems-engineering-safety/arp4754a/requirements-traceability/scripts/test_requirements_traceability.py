@@ -8,6 +8,9 @@ pair verified; trace_gaps focuses one level; derived requirements are
 flagged; the verified-closure ratio is 0..1; invalid inputs raise
 ValueError.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import os
 import sys

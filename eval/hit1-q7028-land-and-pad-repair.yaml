@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-land-and-pad-repair (space-systems/ecss)
+# Two tasks for the new leaf. lpr1 routes on which build-up method a partly
+# destroyed land takes; lpr2 routes on the bond area a pull-off needs and the
+# ring left round the hole. Both must deterministically hit
+# space-systems/ecss/q7028-land-and-pad-repair.
+tasks:
+  - id: lpr1
+    query: "a pad lifted when we pulled the part off and about half of it is gone, do I stick it back down or cut it away and bond a new one, and what changes if the hole plating went too"
+    intent: "ECSS-Q-ST-70-28C land method; surviving copper as a fraction of the designed land, re-bond against epoxy-bonded replacement land, the eyelet the damaged barrel forces, and refusal when too little base material is sound"
+    expected_skill: "space-systems/ecss/q7028-land-and-pad-repair"
+  - id: lpr2
+    query: "how much bonded area does the rebuilt land actually need to survive the pull test, and is the ring left around the hole big enough afterwards"
+    intent: "ECSS-Q-ST-70-28C land method; bond area derived from the minimum pull-off load at the allowable bond stress, re-bond area against rebuilt footprint area, annular ring after repair, and the per-footprint repaired-land count"
+    expected_skill: "space-systems/ecss/q7028-land-and-pad-repair"

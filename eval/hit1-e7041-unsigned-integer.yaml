@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-unsigned-integer (space-systems/ecss)
+# Two tasks for the new leaf. uint1 routes on a counter that wrapped inside its
+# field rather than resetting; uint2 routes on narrowing a parameter field and
+# the octet alignment that decides whether it can be lifted out alone. Both must
+# deterministically hit space-systems/ecss/e7041-unsigned-integer.
+tasks:
+  - id: uint1
+    query: "this housekeeping counter reads 4 after we know it took more than 260 increments, work out whether the counter reset or the field it travels in cannot hold the number"
+    intent: "ECSS-E-ST-70-41C clause 7.3.4; an unsigned field spans zero to one below two-to-the-width, and a value past the ceiling wraps into a plausible in-range number unless the encoding refuses it"
+    expected_skill: "space-systems/ecss/e7041-unsigned-integer"
+  - id: uint2
+    query: "we want to move a sixteen bit unsigned parameter into twelve bits to save packet space, say whether that is lossless and whether the narrower field can still be read on its own"
+    intent: "ECSS-E-ST-70-41C clause 7.3.4; narrowing is lossless only if the largest reachable value fits the destination range, and a field that is not a whole number of octets has no standalone big-endian representation"
+    expected_skill: "space-systems/ecss/e7041-unsigned-integer"

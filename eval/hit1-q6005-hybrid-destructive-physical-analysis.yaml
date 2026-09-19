@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-hybrid-destructive-physical-analysis
+# (space-systems/ecss, Q-ST-60-05 14). Two tasks per leaf; dp1 routes on the
+# sample plan and the teardown order, dp2 on the bond-pull and die-shear
+# acceptance forces and the lot disposition. Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-destructive-physical-analysis.
+tasks:
+  - id: dp1
+    query: "plan a hybrid-destructive-physical-analysis on a screened lot: the hybrid-dpa-sample-size the lot size demands and the hybrid-dpa-step-sequence before the lid comes off"
+    intent: "ecss hybrids; the ordered teardown of sampled hybrid units"
+    expected_skill: "space-systems/ecss/q6005-hybrid-destructive-physical-analysis"
+  - id: dp2
+    query: "derive the hybrid-dpa-bond-pull-minimum and hybrid-dpa-die-shear-minimum for an opened hybrid and decide the hybrid-dpa-lot-disposition"
+    intent: "ecss hybrids; what the measurements inside a sampled hybrid have to reach"
+    expected_skill: "space-systems/ecss/q6005-hybrid-destructive-physical-analysis"

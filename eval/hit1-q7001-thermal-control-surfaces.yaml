@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-thermal-control-surfaces (space-systems/ecss)
+# Two tasks for the new leaf. tcs1 routes on the asymmetric degradation of
+# absorptance against emittance on a radiator; tcs2 routes on the sunlit
+# radiator that no longer closes at any area. Both must deterministically hit
+# space-systems/ecss/q7001-thermal-control-surfaces.
+tasks:
+  - id: tcs1
+    query: "the radiator coating is predicted to pick up a condensed film plus about half a percent of particulate fallout, what does that do to the alpha over epsilon and how much hotter does the panel run at end of life"
+    intent: "ECSS-Q-ST-70-01C sensitive thermal-control surfaces; a film darkens in the solar band and barely touches the infrared, so the ratio moves and the radiative equilibrium follows it"
+    expected_skill: "space-systems/ecss/q7001-thermal-control-surfaces"
+  - id: tcs2
+    query: "sized the multi-layer insulation outer layer and the sunlit radiator on clean properties and added a flat ten percent, does that survive the contamination prediction or do I need more area"
+    intent: "ECSS-Q-ST-70-01C sensitive thermal-control surfaces; degradation is not a flat percentage, and a contaminated sunlit radiator can reach a point where no finite area rejects the load at the allowable temperature"
+    expected_skill: "space-systems/ecss/q7001-thermal-control-surfaces"

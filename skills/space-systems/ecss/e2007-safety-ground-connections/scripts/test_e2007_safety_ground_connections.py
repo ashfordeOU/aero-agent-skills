@@ -4,6 +4,7 @@
 Offline, deterministic, stdlib unittest only.
 """
 
+import math
 import unittest
 
 import e2007_safety_ground_connections_logic as logic
@@ -194,12 +195,13 @@ class PathResistanceTests(unittest.TestCase):
 
     def test_representation_error_at_the_limit_is_absorbed(self):
         # 0.5 + 1.6 + 7.9 milliohm is exactly on a 10 milliohm interface
-        # limit, but the running sum lands a few ULPs above it; a path that
-        # is physically compliant must not be graded as an exceedance.
+        # limit, but the running sum lands bit-exactly one unit in the last
+        # place above it on every IEEE-754 platform; a path that is
+        # physically compliant must not be graded as an exceedance.
         segments = [{"resistance_ohm": 0.0005}, {"resistance_ohm": 0.0016},
                     {"resistance_ohm": 0.0079}]
         total = logic.safety_ground_path_resistance(segments)
-        self.assertGreater(total, 0.01)
+        self.assertEqual(total, math.nextafter(0.01, math.inf))
         result = logic.check_path_resistance(total, 0.01)
         self.assertTrue(result["within_limit"])
         self.assertEqual(result["findings"], [])

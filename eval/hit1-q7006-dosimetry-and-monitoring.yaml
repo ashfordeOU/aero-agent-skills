@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7006-dosimetry-and-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. rdm1 routes on integrating the logged flux over a
+# run that tripped and reconciling it with the target; rdm2 routes on monitor
+# calibration validity, redundancy and the disagreement between two instruments
+# reading the same agent. Both must deterministically hit
+# space-systems/ecss/q7006-dosimetry-and-monitoring.
+tasks:
+  - id: rdm1
+    query: "the beam dropped out twice during the overnight run, work out from the logged flux samples what the samples actually received and whether that is close enough to what we asked for"
+    intent: "ECSS-Q-ST-70-06C facility dosimetry; integrating sampled flux over the run by trapezoid including the trips, and judging delivered exposure against target inside the acceptance band as short delivery or overshoot"
+    expected_skill: "space-systems/ecss/q7006-dosimetry-and-monitoring"
+  - id: rdm2
+    query: "the two cups on the same beam are reading eight percent apart and one of them was last calibrated a while ago, decide whether I can defend the delivered figure and what the combined uncertainty on it is"
+    intent: "ECSS-Q-ST-70-06C facility dosimetry; checking monitor calibration validity and traceability on the run date, requiring redundant monitors per agent, grading their disagreement against the agreement limit and combining uncertainties in quadrature"
+    expected_skill: "space-systems/ecss/q7006-dosimetry-and-monitoring"

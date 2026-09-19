@@ -1,0 +1,45 @@
+{
+  "_comment": [
+    "Checker-set overlay: the edge of what a stored record can answer.",
+    "",
+    "Three rule changes that regrade must refuse to guess at:",
+    "  stdlib-only retired        -> WITHDRAWN, the historical outcome kept",
+    "  references-present added   -> INDETERMINATE, the 1.0.0 shape",
+    "                                observation records no such field",
+    "  a new copyright marker     -> INDETERMINATE, no count was ever taken",
+    "  a new action-verb vocabulary -> INDETERMINATE, the description was",
+    "                                measured against version 1.0.0",
+    "",
+    "Every one of these is a work order for re-observation, and the report",
+    "names the leaves that need it."
+  ],
+  "label": "beyond-the-record-2026-09-19",
+  "checkers": {
+    "stdlib-only": {
+      "enabled": false
+    },
+    "references-present": {
+      "enabled": true
+    },
+    "no-verbatim": {
+      "params": {
+        "markers_enforced": [
+          "all-rights-reserved",
+          "redistribution-bar",
+          "single-user-licence",
+          "confidentiality-banner",
+          "licence-agreement-banner",
+          "rights-management-banner",
+          "licensed-to-banner",
+          "dated-copyright-notice",
+          "export-control-banner"
+        ]
+      }
+    },
+    "desc-lint": {
+      "params": {
+        "action_verb_vocabulary_version": "2.0.0"
+      }
+    }
+  }
+}

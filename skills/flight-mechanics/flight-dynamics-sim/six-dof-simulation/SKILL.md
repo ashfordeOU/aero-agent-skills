@@ -108,4 +108,7 @@ python3 scripts/test_six_dof_simulation.py
   during development; this leaf cites it as reference only per
   standards-map.yaml. The equations here are generic rigid body
   dynamics, not ARP4754A text.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

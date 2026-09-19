@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7045-tensile-testing (space-systems/ecss)
+# Two tasks for the new leaf. ten1 routes on the offset proof strength and the
+# elastic window the modulus was fitted over; ten2 routes on the peak of the
+# engineering curve versus the last recorded point and the broken-halves
+# ductility. Both must deterministically hit
+# space-systems/ecss/q7045-tensile-testing.
+tasks:
+  - id: ten1
+    query: "off this metallic specimen's stress-strain record, give me the modulus from a least squares line through the elastic window we declared and how good that fit is, slide the offset line until it cuts the record and read the proof strength off that crossing"
+    intent: "ECSS-Q-ST-70-45 methods; least-squares modulus over a declared elastic window with its fit quality, and the offset line crossing interpolated inside the bracketing segment"
+    expected_skill: "space-systems/ecss/q7045-tensile-testing"
+  - id: ten2
+    query: "the last stress in the tension record is lower than the one before necking started, work out the ultimate strength properly and the elongation from the two broken halves"
+    intent: "ECSS-Q-ST-70-45 methods; peak engineering stress rather than the fracture point, elongation after fracture and reduction of area from the measured specimen"
+    expected_skill: "space-systems/ecss/q7045-tensile-testing"

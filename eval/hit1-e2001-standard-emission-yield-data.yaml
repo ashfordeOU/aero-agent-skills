@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-standard-emission-yield-data (space-systems/ecss)
+# Case 1 routes on the source decision: whether a measured record represents the flight surface, and how a table fallback must be declared.
+# Case 2 routes on using the tabulated pair: reading the curve at an impact energy and finding both unity crossings.
+tasks:
+  - id: e2001-standard-emission-yield-data-1
+    query: "We hold no measured record for the as-received oxidized aluminium of our waveguide, only data taken on sputter-cleaned specimens over a narrower span. Do I fall back to the tabulated pair, and how must provenance be recorded so nobody later reads the table as a measurement?"
+    intent: "ECSS-E-ST-20-01C 9.6; representativeness legs that send an analysis to the table, and the declared provenance that keeps tabulated input distinguishable from measured input"
+    expected_skill: "space-systems/ecss/e2001-standard-emission-yield-data"
+  - id: e2001-standard-emission-yield-data-2
+    query: "For gold in its as-received state the table gives a peak yield above unity. How do I read the universal curve at 300 eV impact energy, find both energies where yield crosses unity, one under the peak and one over, and decide which way that surface drifts?"
+    intent: "ECSS-E-ST-20-01C 9.6; evaluating the universal shape from the tabulated peak pair, bisecting for the two unity crossings, and the charging disposition at a given impact energy"
+    expected_skill: "space-systems/ecss/e2001-standard-emission-yield-data"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-airborne-sampling-strategy (space-systems/ecss)
+# Two tasks for the new leaf. ass1 routes on sizing the locations and the air
+# each one draws; ass2 routes on the volume-flow-duration relation and the
+# high-flow counter that shortens a sample past usefulness. Both must
+# deterministically hit space-systems/ecss/q7050-airborne-sampling-strategy.
+tasks:
+  - id: ass1
+    query: "we are planning a particle monitoring run in this cleanroom zone: how many counter positions does it need, how much air must each one draw to be meaningful, and what does that total in air volume and occupancy time"
+    intent: "ECSS-Q-ST-70-50C airborne clause; location count from floor area and the smallest sample volume that still collects a useful particle count at the class limit"
+    expected_skill: "space-systems/ecss/q7050-airborne-sampling-strategy"
+  - id: ass2
+    query: "our counter draws a hundred litres a minute so each sample is over in seconds; is a monitoring sample that short still defensible, and what duration should we actually hold at every position given that flow rate"
+    intent: "ECSS-Q-ST-70-50C airborne clause; volume, flow rate and duration are one relation, and a minimum duration stops a high-flow counter reducing a sample to an instant"
+    expected_skill: "space-systems/ecss/q7050-airborne-sampling-strategy"

@@ -160,12 +160,25 @@ class ThresholdTests(unittest.TestCase):
         self.assertAlmostEqual(threshold, 0.05, places=9)
 
     def test_threshold_never_exceeds_either_declared_figure(self):
+        # The applied figure is whichever declared figure is tighter, selected
+        # whole rather than blended, so it is exactly equal to one of the two
+        # and strictly below the other whenever they differ. A "<=" here would
+        # compare the selected figure against itself at zero distance and say
+        # nothing; these assertions state both halves of the claim outright.
+        absolute = DEFAULT_DEFINITION["absolute_threshold_w"]
         for reference in (25.0, 100.0, 200.0, 400.0, 2000.0):
+            relative = DEFAULT_DEFINITION["relative_threshold"] * reference
             threshold = negligibility_threshold_w(DEFAULT_DEFINITION, reference)
-            self.assertLessEqual(threshold, DEFAULT_DEFINITION["absolute_threshold_w"])
-            self.assertLessEqual(
-                threshold, DEFAULT_DEFINITION["relative_threshold"] * reference
-            )
+            if relative < absolute:
+                self.assertEqual(threshold, relative)
+                self.assertLess(threshold, absolute)
+            elif absolute < relative:
+                self.assertEqual(threshold, absolute)
+                self.assertLess(threshold, relative)
+            else:
+                # The two declared figures coincide exactly at this reference.
+                self.assertEqual(threshold, absolute)
+                self.assertEqual(threshold, relative)
 
     def test_aggregate_cap_scales_with_the_reference_power(self):
         self.assertAlmostEqual(aggregate_cap_w(DEFAULT_DEFINITION, 400.0), 4.0, places=9)

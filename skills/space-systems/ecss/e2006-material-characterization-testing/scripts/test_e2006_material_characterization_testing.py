@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate 3 contract test for e2006-material-characterization-testing."""
 
+import math
 import unittest
 
 from e2006_material_characterization_testing_logic import (
@@ -237,7 +238,13 @@ class TestEnvelopeCoverage(unittest.TestCase):
         # is compliant, so the logic absorbs the representation error.
         camp = normalize_environment(campaign_env(**{"applied-bias-v": 0.3}), "c")
         flight = normalize_environment(flight_env(**{"applied-bias-v": 0.1 + 0.2}), "f")
-        self.assertGreater(flight["applied-bias-v"], camp["applied-bias-v"])
+        # IEEE-754 addition is correctly rounded, so 0.1 + 0.2 is the same
+        # bit pattern everywhere: exactly one ULP above the stored 0.3.
+        # State that exactly rather than the direction of the last bit.
+        self.assertEqual(
+            flight["applied-bias-v"],
+            math.nextafter(camp["applied-bias-v"], math.inf),
+        )
         self.assertEqual(envelope_findings(camp, flight), [])
 
     def test_energy_shortfall_is_flagged(self):

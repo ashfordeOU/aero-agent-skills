@@ -6,6 +6,9 @@ Contract: docs/harness-contract.md gate 3 - validation method checks,
 FDAL-based independence requirements, and validation closure
 accounting; invalid inputs raise ValueError.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import os
 import sys

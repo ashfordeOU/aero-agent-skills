@@ -1,0 +1,13 @@
+# Hit@1 fragment: drd-mass-summary (space-systems/ecss)
+# Case 1 routes on the maturity-code-driven growth margin and which total faces the
+# allocation. Case 2 routes on the document-level defects: unset budget, duplicate
+# component identifier and an unrecognised maturity letter.
+tasks:
+  - id: drd-mass-summary-1
+    query: "I am building the mass summary document (SMS). Half the brackets are still analysis estimates while the panels have weighed masses. How do I set the growth allowance line by line, and which total do I hold against the 214 kg allocation?"
+    intent: "ECSS-E-ST-32C Annex N; the maturity code sets the minimum growth fraction per line and the budget comparison uses the margined total, not the bare dry mass"
+    expected_skill: "space-systems/ecss/drd-mass-summary"
+  - id: drd-mass-summary-2
+    query: "Our ECSS structure mass summary has two rows both labelled BR-107, one line whose maturity-code is X, and no mass-budget figure entered anywhere. Can the SMS be signed off when no component shows an overrun?"
+    intent: "ECSS-E-ST-32C Annex N; a duplicate identifier, an unrecognised maturity letter and an unset allocation are document-level findings that survive a clean per-component pass"
+    expected_skill: "space-systems/ecss/drd-mass-summary"

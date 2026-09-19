@@ -6,10 +6,10 @@
 # space-systems/ecss/q7022-procurement-data-requirements.
 tasks:
   - id: pdr1
-    query: "write the data the purchase order has to demand from the adhesive supplier so that the drum arrives with an expiry we can actually audit, not just a sticker"
+    query: "Write the data items our purchase order must demand from the adhesive supplier so every drum arrives with an auditable expiry: which mandatory shelf life entries, and what batch identifier ties the manufacture date to the container itself?"
     intent: "ECSS-Q-ST-70-22C procurement; mandatory shelf-life data items and the batch identifier that binds the manufacture date to the container"
     expected_skill: "space-systems/ecss/q7022-procurement-data-requirements"
   - id: pdr2
-    query: "this sealant arrived with most of its life already burned and a transit log showing it sat warm, decide whether goods-in takes it, takes it with actions or sends it back"
+    query: "this sealant lot landed with most of its shelf life already gone and a transit record showing it sat warm, so check the manufacture date, the receipt date and the expiry against each other and give me the goods-in disposition"
     intent: "ECSS-Q-ST-70-22C procurement; remaining shelf life at receipt as a fraction of the full life, and a recorded storage envelope graded against the specified one"
     expected_skill: "space-systems/ecss/q7022-procurement-data-requirements"

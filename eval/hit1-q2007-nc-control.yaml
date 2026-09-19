@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-nc-control (space-systems/ecss)
+# Two tasks for the new leaf. ncc1 routes on the reporting clock starting at
+# detection and on who may agree a use-as-is; ncc2 routes on the retest scope a
+# facility fault forces when the article itself was never touched. Both must
+# deterministically hit space-systems/ecss/q2007-nc-control.
+tasks:
+  - id: ncc1
+    query: "the article saw eight percent over its limit, the report reached the customer three days later, and the test centre wants to use it as is, did that report go out inside the deadline it owed, and does that disposition need the customer to agree"
+    intent: "ECSS-Q-ST-20-07C clause 5.8.2 with Q-ST-10-09; overstress makes the anomaly major, the reporting clock runs from detection and a major use-as-is needs the customer's agreement"
+    expected_skill: "space-systems/ecss/q2007-nc-control"
+  - id: ncc2
+    query: "the run at the centre was stopped by a facility fault and the conditions it had to hold were invalidated, does this anomaly come out major or minor, who holds the disposition authority, and do we owe a partial retest or a full one"
+    intent: "ECSS-Q-ST-20-07C clause 5.8.2; invalidated test conditions categorized major or minor, the disposition authority derived, and the affected phases re-run rather than the whole sequence"
+    expected_skill: "space-systems/ecss/q2007-nc-control"

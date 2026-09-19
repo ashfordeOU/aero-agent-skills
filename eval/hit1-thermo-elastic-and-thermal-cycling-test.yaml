@@ -1,0 +1,13 @@
+# Hit@1 fragment: thermo-elastic-and-thermal-cycling-test (space-systems/ecss)
+# Case 1 routes on the distortion half: predicting it from expansion and temperature
+# swing and picking the right allowable. Case 2 routes on the endurance half: how
+# many cycles are owed, which runs count, and the ramp limit.
+tasks:
+  - id: thermo-elastic-and-thermal-cycling-test-1
+    query: "Our thermo-elastic distortion test moved a 1.5 m composite boom by 0.18 mm across a 90 K swing, and the boom is bolted into titanium fittings. How do I predict that distortion given the thermal expansion coefficient of each material and the temperature delta, and which allowable governs the comparison?"
+    intent: "ECSS E-ST-32 clauses 4.6.3.14-4.6.3.15; the case turns on thermal strain times characteristic length, both materials at a dissimilar joint, and using the structural allowable"
+    expected_skill: "space-systems/ecss/thermo-elastic-and-thermal-cycling-test"
+  - id: thermo-elastic-and-thermal-cycling-test-2
+    query: "Our chamber campaign logged 240 excursions against a design life of 100, but twelve of them never held the cold extreme long enough and the ramp touched 6 K per minute where the adhesive is limited to 5. How many are actually owed, and does this campaign pass?"
+    intent: "ECSS E-ST-32 clauses 4.6.3.14-4.6.3.15; the case turns on the required count from design life and qualification factor, partial excursions not counting, and the ramp limit voiding the run"
+    expected_skill: "space-systems/ecss/thermo-elastic-and-thermal-cycling-test"

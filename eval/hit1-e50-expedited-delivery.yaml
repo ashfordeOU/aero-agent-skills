@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-expedited-delivery (space-systems/ecss)
+# Two tasks for the new leaf. exp1 routes on urgent latency behind a queue;
+# exp2 routes on the priority starving the normal traffic. Both must
+# deterministically hit space-systems/ecss/e50-expedited-delivery.
+tasks:
+  - id: exp1
+    query: "an urgent event report has to reach the ground inside a deadline but twenty frames are already queued on the downlink, work out the latency it sees with and without a priority class that can interrupt the frame going out"
+    intent: "ECSS-E-ST-50C clause 5.6.14.3; the urgent latency depends on whether the unit waits for the queue, only for the unit in service, or interrupts it at a switch cost"
+    expected_skill: "space-systems/ecss/e50-expedited-delivery"
+  - id: exp2
+    query: "Our expedited class now takes nearly the whole service rate and the normal traffic never drains, even though the urgent deadline is met. Does that priority policy still pass, and what share of the link must the normal load keep?"
+    intent: "ECSS-E-ST-50C clause 5.6.14.3; an expedited class that consumes the service rate starves the normal queue, which is a failure of the design even when the urgent deadline is met"
+    expected_skill: "space-systems/ecss/e50-expedited-delivery"

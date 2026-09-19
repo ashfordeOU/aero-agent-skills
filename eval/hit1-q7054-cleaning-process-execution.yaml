@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7054-cleaning-process-execution (space-systems/ecss)
+# Two tasks for the new leaf. cpe1 routes on sizing the rinse cascade from the
+# carryover fraction; cpe2 routes on the step ordering and the drying that has to
+# reach the fluid. Both must deterministically hit
+# space-systems/ecss/q7054-cleaning-process-execution.
+tasks:
+  - id: cpe1
+    query: "work out the rinse cascade this ultracleaning run needs: the part carries two percent of each bath into the next, so how many stages bring the retained liquor down to the target concentration"
+    intent: "ECSS-Q-ST-70-54C process; a rinse dilutes rather than removes, so the stage count follows geometrically from the carryover fraction and is snapped at an exact landing"
+    expected_skill: "space-systems/ecss/q7054-cleaning-process-execution"
+  - id: cpe2
+    query: "review this cleaning sequence for me, we degrease, rinse once, inspect and bag it, and the part has blind holes we dry in ambient air"
+    intent: "ECSS-Q-ST-70-54C process; step ordering rules, no wet part to inspection or a bag, and a drying method that reaches the geometry and the fluid volatility"
+    expected_skill: "space-systems/ecss/q7054-cleaning-process-execution"

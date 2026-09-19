@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-emc-verification-plan-and-report (space-systems/ecss)
+# Case 1 routes on tracing the two documents against each other and settling an
+# activity that was rerun. Case 2 routes on the coverage arithmetic: a campaign
+# that closed everything it planned can still leave the requirement set short.
+tasks:
+  - id: e20-emc-verification-plan-and-report-1
+    query: "Our supplier's EMC test report contains three result entries whose activity tags appear nowhere in the plan, and one activity that was rerun after a failure where an earlier entry says it was accepted under a deviation yet cites no record number. How should I judge each of those?"
+    intent: "ECSS-E-ST-20C clause 6.4.1; the case turns on orphan report entries, settling an activity on its latest run, and an unsupported acceptance-with-deviation"
+    expected_skill: "space-systems/ecss/e20-emc-verification-plan-and-report"
+  - id: e20-emc-verification-plan-and-report-2
+    query: "Every activity in our electromagnetic compatibility campaign closed cleanly, yet when I add up the portion of the EMC requirement set each one declared, it only reaches 82 percent against a demand of 100. Is a fully closed campaign still short, and what do I write up?"
+    intent: "ECSS-E-ST-20C clause 6.4.1; the case turns on summing the declared shares of closed activities against the demanded coverage, which a fully closed plan can still miss"
+    expected_skill: "space-systems/ecss/e20-emc-verification-plan-and-report"

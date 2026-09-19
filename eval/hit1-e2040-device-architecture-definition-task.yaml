@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-architecture-definition-task (space-systems/ecss)
+# Two tasks for the new leaf. dadt1 routes on partitioning and assurance level mixing;
+# dadt2 routes on interface endpoint integrity, requirement allocation and the resource
+# rollup against budget. Both must deterministically hit
+# space-systems/ecss/e2040-device-architecture-definition-task.
+tasks:
+  - id: dadt1
+    query: "write down the internal architecture of the device and check that no partition is quietly carrying two different assurance levels without that being declared for it"
+    intent: "ECSS-E-ST-20-40C clause 5.3.2; blocks placed in declared partitions, assurance level mixing only where mixed criticality is declared, separation argument per partition"
+    expected_skill: "space-systems/ecss/e2040-device-architecture-definition-task"
+  - id: dadt2
+    query: "one internal interface names a block that is not in the block list and two blocks have no requirement allocated to them, plus I need the power and mass rollup against the device budget"
+    intent: "ECSS-E-ST-20-40C clause 5.3.2; interface endpoints resolved against declared blocks, allocation both ways, resource rollup compared against budget absorbing float error"
+    expected_skill: "space-systems/ecss/e2040-device-architecture-definition-task"

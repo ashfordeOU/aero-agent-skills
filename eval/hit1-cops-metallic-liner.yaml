@@ -1,0 +1,12 @@
+# Hit@1 fragment: cops-metallic-liner (space-systems/ecss)
+# Case 1 routes on the hoop-strain compatibility that splits the pressure load and on a liner
+# taken plastic by design. Case 2 routes on the burst estimate and the smeared stiffener ring.
+tasks:
+  - id: cops-metallic-liner-1
+    query: "The liner and the wound overwrap on our stiffened shell share one circumferential strain at the bond line. How do I get the stress in each layer from that, and is a liner pushed past yield there a failure or just something to declare?"
+    intent: "ECSS-E-ST-32C 4.4.3; the bonded layers strain together so the load apportions by relative stiffness, and liner yielding at design pressure is declared rather than automatically failed"
+    expected_skill: "space-systems/ecss/cops-metallic-liner"
+  - id: cops-metallic-liner-2
+    query: "I need a burst pressure figure for a composite overwrapped vessel that has a metallic liner inside it, and whether the ring stiffeners at 250 mm pitch get smeared into an effective shell stiffness before I quote a burst margin."
+    intent: "ECSS-E-ST-32C 4.4.3; burst capacity from the liner at yield plus the overwrap at its allowable, and the stiffener ring reduced to an equivalent smeared stiffness"
+    expected_skill: "space-systems/ecss/cops-metallic-liner"

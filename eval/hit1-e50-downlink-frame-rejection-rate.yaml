@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-downlink-frame-rejection-rate (space-systems/ecss)
+# df1 routes on a codeword figure quoted as a frame figure; df2 routes on
+# telemetry loss that nobody retransmits. Both must deterministically hit
+# space-systems/ecss/e50-downlink-frame-rejection-rate.
+tasks:
+  - id: df1
+    query: "our budget quoted a per-codeword failure figure as though it were the whole frame's rejection rate, but each telemetry frame interleaves five reed solomon codewords; redo it from the error rate we assume per bit, through symbol errors and the decoder tail"
+    intent: "ECSS-E-ST-50C clause 5.6.11.8; a frame is rejected when any of its codewords stays broken, so the frame rate is worse than the codeword rate by about the interleaving depth"
+    expected_skill: "space-systems/ecss/e50-downlink-frame-rejection-rate"
+  - id: df2
+    query: "we multiplied the downlink bit error rate by eight to get a symbol error rate and never worked out how much science a pass loses"
+    intent: "ECSS-E-ST-50C clause 5.6.11.8; a symbol fails when at least one of its bits does, and the consequence of the downlink rate is payload lost per pass because telemetry is rarely resent"
+    expected_skill: "space-systems/ecss/e50-downlink-frame-rejection-rate"

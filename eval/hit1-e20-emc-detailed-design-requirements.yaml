@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-emc-detailed-design-requirements (space-systems/ecss)
+# Case 1 routes on the shared-bus aggregate and how a limit line is read.
+# Case 2 routes on the margin the criticality demands and the enclosure obligation.
+tasks:
+  - id: e20-emc-detailed-design-requirements-1
+    query: "Six units share one primary bus and each passes conducted emission alone at 400 kHz. How do I combine them for the bus verdict, and how should I read the limit line between break points without running off the end of it?"
+    intent: "ECSS-E-ST-20C 6.3.9; uncorrelated sources aggregate on a power basis before the bus is judged, and the line is read logarithmically in frequency with no extrapolation beyond its ends"
+    expected_skill: "space-systems/ecss/e20-emc-detailed-design-requirements"
+  - id: e20-emc-detailed-design-requirements-2
+    query: "Our pyro driver has a susceptibility threshold 8 dB above the predicted environment. Is 8 dB enough margin for an ordnance function, and what shielding effectiveness does the enclosure owe when the environment already sits under the allowable?"
+    intent: "ECSS-E-ST-20C 6.3.9; the demanded margin scales with function criticality rather than a single default, and an environment already below the allowable owes nothing instead of a negative requirement"
+    expected_skill: "space-systems/ecss/e20-emc-detailed-design-requirements"

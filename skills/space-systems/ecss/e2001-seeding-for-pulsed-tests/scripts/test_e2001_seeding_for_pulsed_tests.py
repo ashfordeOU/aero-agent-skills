@@ -233,9 +233,18 @@ class SynchronizationFindingTests(unittest.TestCase):
 
     def test_gate_advance_a_hair_under_the_transit_time_is_accepted(self):
         advance = 0.85 * 1e-6 - 0.65 * 1e-6
-        self.assertLess(advance, 2.0e-7)
+        # The advance equals the transit time to within representation
+        # error. Bound that error relatively - the SIZE is the contract,
+        # not which side of the last bit the difference landed on.
+        self.assertAlmostEqual(advance / 2.0e-7, 1.0, places=12)
         source = make_gated_source(gate_advance_s=advance)
         self.assertEqual(synchronization_findings(source, 1.0e-6, 1.0e-4), [])
+        # Pin the absorbing branch with an advance constructed to fall
+        # strictly short of the transit time, by one part in 1e12 - inside
+        # the relative tolerance the leaf absorbs, and the same value on
+        # every platform. The transit time itself is unchanged.
+        short = make_gated_source(gate_advance_s=2.0e-7 * (1.0 - 1e-12))
+        self.assertEqual(synchronization_findings(short, 1.0e-6, 1.0e-4), [])
 
     def test_burst_launched_too_late_is_flagged(self):
         source = make_gated_source(gate_advance_s=1.0e-8)

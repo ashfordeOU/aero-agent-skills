@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-equipment-type-categorisation (space-systems/ecss)
+# Case 1 routes on which of the two tiers governs and what heritage actually moves.
+# Case 2 routes on assembly roll-up and auditing a declared value against the derived one.
+tasks:
+  - id: e2001-equipment-type-categorisation-1
+    query: "We have a dielectric-loaded window whose yield data was measured on the actual flight surface. Does that good surface data pull the part into a gentler multipactor type-group, or does the geometry tier govern, and where does recurrent heritage enter?"
+    intent: "ECSS-E-ST-20-01C 4.4.1; the worse of the geometry and surface-knowledge tiers sets the group, and heritage moves only the adder rather than the group itself"
+    expected_skill: "space-systems/ecss/e2001-equipment-type-categorisation"
+  - id: e2001-equipment-type-categorisation-2
+    query: "Our filter is a machined aluminium housing containing one printed-line board, and the supplier declared the whole unit at the housing group. How should that assembly roll up, and what do I do with a declared margin that falls under the derived policy figure?"
+    intent: "ECSS-E-ST-20-01C 4.4.1; an assembly inherits its most demanding constituent, and a hand-declared value is a claim to be audited against the derived one"
+    expected_skill: "space-systems/ecss/e2001-equipment-type-categorisation"

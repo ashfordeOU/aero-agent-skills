@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-array-element-mutual-coupling (space-systems/ecss)
+# Case 1 routes on the impedance half: active reflection with the whole lattice driven, edge radiators kept apart.
+# Case 2 routes on the beam half: scan sweep for a blindness angle and the excitation ripple turned into efficiency and sidelobe penalties.
+tasks:
+  - id: e20-array-element-mutual-coupling-1
+    query: "Every radiator of our 8 by 8 phased array measured under 1.3 standing wave ratio alone, but with all elements driven and coupling active the edge ones degrade. Give me the active reflection per radiator, keeping edge elements out of the interior average."
+    intent: "ECSS-E-ST-20C 7.2.2.2.3; active reflection and active standing-wave-ratio summed over every pair with the lattice driven, and edge radiators kept separate from interior radiators"
+    expected_skill: "space-systems/ecss/e20-array-element-mutual-coupling"
+  - id: e20-array-element-mutual-coupling-2
+    query: "Our phased array has to steer 55 degrees off boresight and coupling between neighbouring radiators ripples the taper we command. How do I sweep across scan angles to find a blindness angle, and convert that ripple into an aperture efficiency loss and a sidelobe floor penalty?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.3; scan-blindness screening across the scan volume and the commanded-to-realized excitation departure converted into efficiency loss and sidelobe penalty"
+    expected_skill: "space-systems/ecss/e20-array-element-mutual-coupling"

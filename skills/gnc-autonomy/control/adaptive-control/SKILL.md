@@ -209,4 +209,7 @@ steps, negative adaptation rates, and zero plant control effectiveness.
   assurance for the aircraft functions that host adaptive loops; the
   MRAC equations above are standard adaptive control methodology,
   summary-only per standards-map.yaml, reference-only: true.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

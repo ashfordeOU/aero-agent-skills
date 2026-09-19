@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6015-rha-project-phase-mapping (space-systems/ecss)
+# Two tasks for the new leaf. pm1 routes on the phase-window question itself —
+# which assurance activity belongs in which project phase and what a phase owes
+# in writing; pm2 routes on the precedence inversion that a window check alone
+# cannot see. Both must deterministically hit
+# space-systems/ecss/q6015-rha-project-phase-mapping.
+tasks:
+  - id: pm1
+    query: "take our radiation hardness assurance plan and tell me which activities are sitting in the wrong project phase and which phase deliverables we owe but have not written"
+    intent: "ECSS-Q-ST-60-15C clause 4.4; assurance activity phase windows, the single-phase baseline freeze, and the deliverables each passed phase owes"
+    expected_skill: "space-systems/ecss/q6015-rha-project-phase-mapping"
+  - id: pm2
+    query: "our schedule puts the radiation lot screening before the hardness assurance baseline is frozen; against the ECSS phase map for RHA activities and deliverables, is that ordering allowed, or is one of them sitting in the wrong phase"
+    intent: "ECSS-Q-ST-60-15C clause 4.4; producer-consumer precedence between assurance activities, sharing a phase allowed, inverting it not"
+    expected_skill: "space-systems/ecss/q6015-rha-project-phase-mapping"

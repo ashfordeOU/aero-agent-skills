@@ -91,4 +91,7 @@ python3 scripts/test_n2_diagram.py
 - Standards referenced, not reproduced: ARP4754A text is proprietary
   (SAE); summary-only per standards-map.yaml. The N2 chart method is
   common systems engineering methodology.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

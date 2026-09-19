@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-cleanliness-limit-application (space-systems/ecss)
+# cla1 routes on grading a size-resolved count against the whole level curve
+# rather than one size; cla2 routes on the inverse problem of assigning the
+# smallest level a measured distribution supports. Both must deterministically
+# hit space-systems/ecss/q7050-cleanliness-limit-application.
+tasks:
+  - id: cla1
+    query: "the programme assigned us a product cleanliness level and I have particle counts in five size bins over a 0.3 square metre coupon, say whether the item passes and which size bin drives it"
+    intent: "ECSS-Q-ST-70-50C limit application; level-curve allowance per size channel, scaled from the reference area onto the inspected area"
+    expected_skill: "space-systems/ecss/q7050-cleanliness-limit-application"
+  - id: cla2
+    query: "our particle counts off this hardware are size-resolved and given per square centimetre; find the smallest cleanliness level whose curve envelopes every counted channel, name the channel that drives it, and grade the airborne counts against our room's class curve"
+    intent: "ECSS-Q-ST-70-50C limit application; inverting the level curve per counted point to the enveloping level, plus the facility air class curve"
+    expected_skill: "space-systems/ecss/q7050-cleanliness-limit-application"

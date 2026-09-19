@@ -212,7 +212,14 @@ class TestChannelRegistration(unittest.TestCase):
         # 3.0. The compliant boundary case must still register, with the
         # error absorbed in the comparison and not in the required limit.
         raw = -31.94 - (-34.94)
-        self.assertLess(raw, DEFAULT_REQUIRED_MARGIN_DB)
+        # One IEEE-754 subtraction of two exactly parsed decimals: the
+        # same value on every platform. Assert how far below the limit it
+        # lands instead of only that it is below, so the claim is about
+        # round-off rather than about the rounding direction. The
+        # required margin itself is untouched.
+        shortfall = DEFAULT_REQUIRED_MARGIN_DB - raw
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         channel = validate_detection_channel(global_channel(threshold_dbm=-34.94))
         report = evaluate_channel_registration(
             channel, -31.94, 1.0, DEFAULT_REQUIRED_MARGIN_DB

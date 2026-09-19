@@ -117,8 +117,15 @@ class FieldHomogeneityTests(unittest.TestCase):
         self.assertTrue(field_homogeneous(DEFAULT_MAX_FIELD_RATIO, 1.0))
 
     def test_representation_error_at_the_limit_is_absorbed(self):
+        # nextafter is exact on every IEEE-754 platform, so this value is
+        # the immediate successor of the limit and no rounding decision is
+        # involved. Say that structurally - stepping back down lands on the
+        # limit - rather than as an inequality exactly one place wide.
         just_over = math.nextafter(DEFAULT_MAX_FIELD_RATIO, 2.0)
-        self.assertGreater(just_over, DEFAULT_MAX_FIELD_RATIO)
+        self.assertNotEqual(just_over, DEFAULT_MAX_FIELD_RATIO)
+        self.assertEqual(
+            math.nextafter(just_over, 0.0), DEFAULT_MAX_FIELD_RATIO
+        )
         self.assertTrue(field_homogeneous(just_over, 1.0))
 
     def test_limit_is_not_widened(self):

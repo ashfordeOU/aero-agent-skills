@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-suspending-and-resuming-the-file-copy-operations",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 45,
+  "failed": 0,
+  "evidence": "contract test PASS (45 tests); without-baseline 0.30 (suspension is usually modelled as one subservice-wide flag with symmetric switches, so holding it as a per-operation lifecycle state with exactly one legal predecessor per directive, putting a completed operation out of reach of both, separating a redundant directive from a refused one, preserving the octets already moved so a resume continues rather than restarts, refusing to move octets while suspended, and flagging a list with entries left but nothing running are all missed without the skill)"
+}

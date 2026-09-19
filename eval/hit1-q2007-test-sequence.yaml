@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-test-sequence (space-systems/ecss)
+# Two tasks for the new leaf. ts1 routes on coverage and tailoring against the
+# reference flow; ts2 routes on the adjacent-pair ordering check and the day
+# windows. Both must deterministically hit
+# space-systems/ecss/q2007-test-sequence.
+tasks:
+  - id: ts1
+    query: "our campaign plan leaves out two phases the reference flow has and runs another pair in the wrong order; which omissions must carry a written tailoring rationale, and turn the durations into day windows"
+    intent: "ECSS-Q-ST-20-07C Annex B; mandatory versus optional phases of the typical test process sequence and the tailoring rationale that turns an omission into tailoring"
+    expected_skill: "space-systems/ecss/q2007-test-sequence"
+  - id: ts2
+    query: "check the proposed phase order against the typical process flow, name the pairs that run backwards, and lay the durations out into day windows from the campaign start"
+    intent: "ECSS-Q-ST-20-07C Annex B; adjacent-pair precedence conformance against the reference flow plus contiguous phase day windows"
+    expected_skill: "space-systems/ecss/q2007-test-sequence"

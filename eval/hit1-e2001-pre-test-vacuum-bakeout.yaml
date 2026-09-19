@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-pre-test-vacuum-bakeout (space-systems/ecss)
+# Case 1 routes on trading dwell against setpoint and the cap the setpoint sits under.
+# Case 2 routes on finishing the bakeout against rate and pressure rather than the clock.
+tasks:
+  - id: e2001-pre-test-vacuum-bakeout-1
+    query: "Our RF filter gets a vacuum bakeout at 85 C for thirty hours, but the requirement is quoted as twelve equivalent hours at 125 C. How does the Arrhenius desorption relation justify that dwell, and what caps the setpoint, given the non-operating allowance?"
+    intent: "ECSS-E-ST-20-01C 6.2; desorption kinetics convert a dwell at one setpoint into equivalent hours at the reference, and the upper bound is the survival allowance less a thermal margin"
+    expected_skill: "space-systems/ecss/e2001-pre-test-vacuum-bakeout"
+  - id: e2001-pre-test-vacuum-bakeout-2
+    query: "Under the ECSS multipactor rules our chamber held four times ten to the minus four pascal through a forty-hour bakeout we simply stopped on the clock. How do I show the outgassing rate decay reached its target and the chamber pressure requirement was met?"
+    intent: "ECSS-E-ST-20-01C 6.2; the bakeout is finished against the decayed outgassing rate, and the pressure the chamber actually reached is a separate check from that rate"
+    expected_skill: "space-systems/ecss/e2001-pre-test-vacuum-bakeout"

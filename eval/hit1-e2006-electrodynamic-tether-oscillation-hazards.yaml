@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-electrodynamic-tether-oscillation-hazards (space-systems/ecss)
+# Case 1 routes on building the forcing spectrum and matching each line to a mode
+# family. Case 2 routes on sizing the response instead: resonant amplification and
+# the two amplitude limits that end the assessment.
+tasks:
+  - id: e2006-electrodynamic-tether-oscillation-hazards-1
+    query: "Our electrodynamic tether switches its current at 0.05 Hz. Does that forcing line land on a libration mode or a transverse string mode, and where does a steady unmodulated current put the second harmonic of the orbital rate?"
+    intent: "ECSS-E-ST-20-06C clause 10.2.6; forcing lines come from orbital harmonics and the current-modulation rate, and each is matched against the nearest libration, transverse or longitudinal mode inside the detuning band"
+    expected_skill: "space-systems/ecss/e2006-electrodynamic-tether-oscillation-hazards"
+  - id: e2006-electrodynamic-tether-oscillation-hazards-2
+    query: "With a damping ratio near half a percent, the libration deflection computed quasi-statically from the Lorentz torque gets amplified badly. How far can it swing before the dumbbell crosses its tumbling separatrix, and what sag ratio makes the strand go slack?"
+    intent: "ECSS-E-ST-20-06C clause 10.2.6; the quasi-static deflection is multiplied by the resonant quality factor, then judged against the tumbling separatrix and the transverse sag slack-onset limit"
+    expected_skill: "space-systems/ecss/e2006-electrodynamic-tether-oscillation-hazards"

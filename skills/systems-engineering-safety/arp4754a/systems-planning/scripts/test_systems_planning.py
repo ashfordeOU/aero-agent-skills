@@ -7,6 +7,9 @@ to FDAL; item IDAL is the highest FDAL among implemented functions; the
 planning artifact set covers certification plan, system development plan,
 and safety assessment plan; safety assessment depth scales with DAL.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import os
 import sys

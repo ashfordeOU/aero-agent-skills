@@ -1,0 +1,12 @@
+# Hit@1 fragment: material-fatigue-properties (space-systems/ecss)
+# Case 1 routes on correcting a cycle with a large mean component and reading life off the curve.
+# Case 2 routes on whether the coupon dataset is qualified, provisional or simply incomplete before the pack is accepted.
+tasks:
+  - id: material-fatigue-properties-1
+    query: "Our strut cycles between 40 and 260 MPa, so a large mean stress rides under the amplitude. Should Goodman or Gerber give the equivalent fully reversed amplitude, and how do I then read the life off the log-log S-N curve for this alloy?"
+    intent: "ECSS-E-ST-32C 4.2.3; mean stress correction choice between the linear and parabolic relations, then log-log interpolation of life at the corrected amplitude"
+    expected_skill: "space-systems/ecss/material-fatigue-properties"
+  - id: material-fatigue-properties-2
+    query: "One record in our fatigue pack holds five coupon points at a single stress-ratio, no run-out results, and no endurance limit filled in. Is that dataset provisional or plainly incomplete, and what scatter factor must be assigned before we accept the pack?"
+    intent: "ECSS-E-ST-32C 4.2.3; dataset qualification from specimen count, stress-ratio coverage and run-out presence, against record completeness that makes an allowable undefined rather than uncertain"
+    expected_skill: "space-systems/ecss/material-fatigue-properties"

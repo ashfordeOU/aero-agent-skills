@@ -5,6 +5,7 @@ import unittest
 
 from e2001_worst_case_emission_yield_logic import (
     NO_SUSTAINED_GROWTH,
+    REL_TOL,
     SUSTAINED_GROWTH,
     assess_susceptibility,
     check_assessment_coverage,
@@ -268,8 +269,13 @@ class TestSusceptibility(unittest.TestCase):
         self.assertTrue(any("exceeds the allowable" in f for f in result["findings"]))
 
     def test_peak_exactly_at_the_allowable_stays_compliant(self):
-        allowable = 2.05 + 0.11 + 0.24  # summed budget, lands 1 ULP under 2.4
-        self.assertLess(allowable, 2.4)  # a bare <= against the peak would fail
+        # The summed budget is exactly 2.4 in decimal and 2.3999999999999995
+        # as a double on every IEEE-754 platform (each addition is correctly
+        # rounded): one last place of representation error, which a bare <=
+        # against the peak would reject. Assert the size, not the direction.
+        allowable = 2.05 + 0.11 + 0.24
+        self.assertNotEqual(allowable, 2.4)
+        self.assertLess(abs(allowable - 2.4), 2.4 * REL_TOL)
         result = assess_susceptibility(self.envelope, allowable_peak_yield=allowable)
         self.assertTrue(result["compliant"])
         self.assertEqual(result["findings"], [])

@@ -156,7 +156,7 @@ Items from the type safety assessment:
   FAR-25 / CS-25 regulatory context for the type design.
 - systems-engineering-safety/arp4761a/safety-assessment: the severity
   and redundancy inputs this leaf consumes.
-- systems-engineering-safety/arp4754a/configuration-management:
+- systems-engineering-safety/arp4754a/systems-configuration-management:
   post-certification change control, out of scope here.
 
 ## Pitfalls

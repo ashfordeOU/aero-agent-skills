@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-corona-design-and-verification (space-systems/ecss)
+# Case 1 routes on the applied peak voltage under mismatch and the voltage-ratio
+# coefficient in the headroom arithmetic. Case 2 routes on the allowance the evidence
+# category earns and on an unrecorded relaxation.
+tasks:
+  - id: e20-corona-design-and-verification-1
+    query: "The output filter runs 180 watts into a 2.5 to 1 mismatch. I turned the onset voltage into power and took ten times the log of that power ratio for headroom, and a colleague says that is wrong. Does the mismatch also lift the applied peak?"
+    intent: "ECSS-E-ST-20C 7.3.3.2; the standing wave raises the applied peak above the matched value, and the logarithm coefficient must match whether the ratio is voltage or power"
+    expected_skill: "space-systems/ecss/e20-corona-design-and-verification"
+  - id: e20-corona-design-and-verification-2
+    query: "We measured onset using an engineering model but the budget claims the small headroom normally reserved for flight-standard hardware, and the review verbally agreed the reduced figure. Is that defensible with nothing written down?"
+    intent: "ECSS-E-ST-20C 7.3.3.2; weaker evidence earns a larger allowance, and an allowance below the route default is a relaxation that needs its agreement recorded against the item"
+    expected_skill: "space-systems/ecss/e20-corona-design-and-verification"

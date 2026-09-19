@@ -27,6 +27,7 @@ Scope (documented in ops/automation/TEST.md):
   derived phrase (number after phrase) -> unique register match (multiple
   matches = FAIL ambiguous, forcing the doc to name the repo).
 """
+import collections
 import os
 import re
 import sys
@@ -58,6 +59,29 @@ FORK_WORD_RE = re.compile(NUM_PREFIX + r"([0-9][0-9,]*\.?[0-9]*)\s*([kK])?\s*for
 SKILL_WORD_RE = re.compile(NUM_PREFIX + r"([0-9][0-9,]*\.?[0-9]*)\s*([kK])?\s*skills\b")
 ATTR_RE = re.compile(r"(measured|brief says|said|reported|task brief|at race week|at race time|same[- ]?week)", re.I)
 YEAR_RE = re.compile(r"^(19|20)\d{2}$")
+
+
+# --- denominator accounting -------------------------------------------------
+# A gate that prints PASS without saying what it checked is indistinguishable
+# from a gate that checked nothing, and this one has been in exactly that state:
+# the tree currently holds no market figure the register can resolve, so every
+# run printed the same PASS a 3,000-figure audit would print. Each run now
+# reports three things: what it checked, what it could not check, and why. A run
+# whose CHECKED count is zero prints EMPTY, never PASS (--strict makes it fail).
+def new_stats():
+    return {
+        "roots_configured": [],
+        "roots_missing": [],
+        "files_scanned": 0,
+        "files_excluded": 0,
+        "tokens_seen": 0,
+        "tokens_checked": 0,
+        "table_alias_rows": 0,
+        "table_checked": 0,
+        "ranges_suppressed": 0,
+        "floors_suppressed": 0,
+        "skipped": collections.Counter(),
+    }
 
 
 def load_register(path):
@@ -101,8 +125,13 @@ def within(expected, found, entry):
     return abs(found - expected) <= max(1, expected * pct / 100.0)
 
 
-def strip_ranges_floors(text):
-    return FLOOR_RE.sub("", RANGE_RE.sub("", text))
+def strip_ranges_floors(text, stats=None):
+    if stats is not None:
+        stats["ranges_suppressed"] += len(RANGE_RE.findall(text))
+    no_ranges = RANGE_RE.sub("", text)
+    if stats is not None:
+        stats["floors_suppressed"] += len(FLOOR_RE.findall(no_ranges))
+    return FLOOR_RE.sub("", no_ranges)
 
 
 def find_aliases(line_lower, aliases):
@@ -243,7 +272,7 @@ def alias_dominates_cell(alias, cell_lower):
     return False
 
 
-def scan_file(reg, aliases, measurements, filepath, out):
+def scan_file(reg, aliases, measurements, filepath, out, stats):
     try:
         with open(filepath, "r", encoding="utf-8", errors="replace") as fh:
             lines = fh.readlines()
@@ -253,7 +282,7 @@ def scan_file(reg, aliases, measurements, filepath, out):
     rel = os.path.relpath(filepath, REPO_ROOT)
     for lineno, raw in enumerate(lines, 1):
         line = raw.rstrip("\n")
-        stripped = strip_ranges_floors(raw)
+        stripped = strip_ranges_floors(raw, stats)
         line_lower = stripped.lower()
         hits = find_aliases(line_lower, aliases)
         is_table = line.lstrip().startswith("|")
@@ -274,6 +303,7 @@ def scan_file(reg, aliases, measurements, filepath, out):
                 hit_here = [h for h in hit_here if alias_dominates_cell(h[1], cell_lower)]
                 if not hit_here:
                     continue
+                stats["table_alias_rows"] += 1
                 # most specific alias in this cell wins (e.g. ai4space over LunCoSim)
                 hit_here.sort(key=lambda h: -len(h[1]))
                 nxt = None
@@ -283,13 +313,18 @@ def scan_file(reg, aliases, measurements, filepath, out):
                         nxt = c
                         break
                 if nxt is None:
+                    stats["skipped"]["table row: no cell follows the repo cell"] += 1
                     continue
                 m = re.match(r"([0-9][0-9,]*\.?[0-9]*)\s*([kK])?\s*(★)?$", nxt)
                 if not m:
+                    stats["skipped"]["table row: next cell is not a bare number"] += 1
                     continue  # cell has words (e.g. "818 skills, 34 domains") -> not the star column
                 found = norm(m.group(1), m.group(2))
                 if found is None:
+                    stats["skipped"]["table row: value is a 4-digit year or unparseable"] += 1
                     continue
+                stats["tokens_checked"] += 1
+                stats["table_checked"] += 1
                 rid = hit_here[0][2]
                 entry = resolve_entry(reg, rid)
                 if entry is not None and "stars" in entry and entry["stars"] is not None:
@@ -303,59 +338,132 @@ def scan_file(reg, aliases, measurements, filepath, out):
         for pattern, field in ((STAR_MARKED_RE, "stars"), (STAR_WORD_RE, "stars"),
                                (FORK_WORD_RE, "forks"), (SKILL_WORD_RE, "skills")):
             for m in pattern.finditer(stripped):
+                stats["tokens_seen"] += 1
                 found = norm(m.group(1), m.group(2))
                 if found is None:
+                    stats["skipped"]["value is a 4-digit year or unparseable"] += 1
                     continue
                 if field == "skills" and (found < 10 or not hits):
+                    stats["skipped"]["skill count under 10, or no repo alias on the line"] += 1
                     continue  # internal/context-sensitive counts without a repo
                 if field == "skills" and nearest_repo(hits, m.start()) is None:
+                    stats["skipped"]["skill count with no repo alias before it (internal figure)"] += 1
                     continue  # internal target count, no repo attribution
                 # aggregate noise descriptor ("noise, ~0★") and internal targets
                 # ("≥500★") are out of scope
                 if found < 5 and "noise" in line_lower:
+                    stats["skipped"]["aggregate noise descriptor"] += 1
                     continue
                 pre = raw[max(0, m.start() - 40):m.start()]
                 if "≥" in pre or "target" in line_lower:
+                    stats["skipped"]["explicit target/floor (>= or 'target' on the line)"] += 1
                     continue
                 token_idx = m.start()
                 pre120 = raw[max(0, m.start() - 120):m.start()]
                 post60 = raw[m.end():m.end() + 60]
                 attributed = bool(ATTR_RE.search(pre120) or ATTR_RE.search(post60))
+                stats["tokens_checked"] += 1
                 check_token(reg, measurements, line_lower, hits, found, field,
                             attributed, token_idx, rel, lineno, out)
 
 
-def iter_files(roots):
+def iter_files(roots, stats):
     for root in roots:
+        stats["roots_configured"].append(root)
         if os.path.isfile(root):
             yield root
             continue
+        if not os.path.isdir(root):
+            # A configured root that is not on disk contributes zero files and
+            # says nothing about it. Silence here is what let the denominator
+            # reach zero unnoticed.
+            stats["roots_missing"].append(root)
+            continue
         for dirpath, _dirnames, filenames in os.walk(root):
             if any(ex in dirpath for ex in EXCLUDED_DIRS):
+                stats["files_excluded"] += sum(
+                    1 for fn in filenames if fn.endswith((".md", ".html", ".txt")))
                 continue
             for fn in sorted(filenames):
                 if fn.endswith((".md", ".html", ".txt")):
                     full = os.path.join(dirpath, fn)
                     if any(ex in full for ex in EXCLUDED_DIRS):
+                        stats["files_excluded"] += 1
                         continue
                     yield full
 
 
+def _rel(path):
+    try:
+        r = os.path.relpath(path, REPO_ROOT)
+    except ValueError:
+        return os.path.basename(path)
+    return r if not r.startswith("..") else os.path.basename(path)
+
+
+def print_denominator_report(reg, stats, drifts):
+    """State what was checked, what was not, and why.
+
+    Printed on every outcome. A reviewer reading "attest 3/3 green" has to be
+    able to tell a gate that resolved three thousand figures from one that
+    resolved none; the only thing that distinguishes them is this block.
+    """
+    seen = stats["tokens_seen"] + stats["table_alias_rows"]
+    checked = stats["tokens_checked"]
+    conf = [_rel(r) for r in stats["roots_configured"]]
+    missing = [_rel(r) for r in stats["roots_missing"]]
+    print("brief-audit denominator report (what this gate checked, and what it could not)")
+    print("  roots configured ..................... %d   [%s]" % (len(conf), ", ".join(conf) or "-"))
+    print("  roots absent from the tree ........... %d   [%s]   -> contributed 0 files"
+          % (len(missing), ", ".join(missing) or "-"))
+    print("  files scanned (.md/.html/.txt) ....... %d" % stats["files_scanned"])
+    print("  files skipped (excluded dirs) ........ %d" % stats["files_excluded"])
+    print("  figure candidates seen ............... %d   (%d marked token(s) + %d table row(s) with a repo cell)"
+          % (seen, stats["tokens_seen"], stats["table_alias_rows"]))
+    print("  FIGURES CHECKED (denominator) ........ %d   (%d marked + %d table)"
+          % (checked, checked - stats["table_checked"], stats["table_checked"]))
+    print("  candidates not checkable ............. %d" % max(0, seen - checked))
+    for reason, n in sorted(stats["skipped"].items(), key=lambda kv: (-kv[1], kv[0])):
+        print("      %-56s %d" % (reason, n))
+    print("  ranges/floors suppressed by rule ..... %d range(s), %d floor(s)   (N-M and N+ are self-consistent)"
+          % (stats["ranges_suppressed"], stats["floors_suppressed"]))
+    print("  register available to resolve against  %d repo entr(ies), %d derived claim(s), %d measurement(s)"
+          % (len(reg.get("tracked", [])) + len(reg.get("repos", [])),
+             len(reg.get("derived", [])), len(reg.get("measurements", []))))
+    print("  drifts ............................... %d" % drifts)
+
+
 def main():
+    argv = sys.argv[1:]
+    strict = "--strict" in argv or os.environ.get("BRIEF_AUDIT_STRICT") == "1"
+    roots = [a for a in argv if not a.startswith("-")]
     reg = load_register(os.environ.get("NUMBERS_YAML", DEFAULT_YAML))
     aliases, measurements = build_index(reg)
-    roots = sys.argv[1:] or [os.path.join(REPO_ROOT, r) for r in DEFAULT_ROOTS]
+    roots = roots or [os.path.join(REPO_ROOT, r) for r in DEFAULT_ROOTS]
+    stats = new_stats()
     out = []
-    scanned = 0
-    for fp in iter_files(roots):
-        scan_file(reg, aliases, measurements, fp, out)
-        scanned += 1
+    for fp in iter_files(roots, stats):
+        scan_file(reg, aliases, measurements, fp, out, stats)
+        stats["files_scanned"] += 1
     for line in out:
         print(line)
+    print_denominator_report(reg, stats, len(out))
+    scanned = stats["files_scanned"]
     if out:
         print(f"FAIL brief-audit: {len(out)} drift(s) in {scanned} file(s) — reconcile or register in numbers.yaml")
         return 1
-    print(f"PASS brief-audit: all quoted numbers resolve against numbers.yaml ({scanned} files)")
+    if stats["roots_missing"]:
+        print("WARN brief-audit: %d configured root(s) absent from the tree (%s) — nothing was read from them"
+              % (len(stats["roots_missing"]), ", ".join(_rel(r) for r in stats["roots_missing"])))
+    if stats["tokens_checked"] == 0:
+        print("EMPTY brief-audit: denominator 0 — %d file(s) scanned, %d figure candidate(s) seen, "
+              "NONE of them resolvable against numbers.yaml. This run verified NOTHING: a green here "
+              "is not evidence that any market figure in this tree is correct. Re-run with --strict "
+              "(or BRIEF_AUDIT_STRICT=1) to make a zero denominator a failure."
+              % (scanned, stats["tokens_seen"] + stats["table_alias_rows"]))
+        return 1 if strict else 0
+    print("PASS brief-audit: %d quoted figure(s) in %d file(s) resolve against numbers.yaml"
+          % (stats["tokens_checked"], scanned))
     return 0
 
 

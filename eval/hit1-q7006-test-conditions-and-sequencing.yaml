@@ -1,0 +1,16 @@
+# Hit@1 fragment: q7006-test-conditions-and-sequencing (space-systems/ecss)
+# Two tasks for the new leaf. rts1 routes on splitting the total exposure into
+# steps with cumulative measurement points and on the flux rate the run is
+# driven at; rts2 routes on the chamber pressure, achieved specimen temperature
+# and the air-recovery window after the chamber is opened. Both must
+# deterministically hit
+# space-systems/ecss/q7006-test-conditions-and-sequencing.
+tasks:
+  - id: rts1
+    query: "I want intermediate readings partway through the exposure rather than one number at the end, split the total into steps and tell me the accumulated level and the beam hours at each stop and whether the rate we are driving at is defensible"
+    intent: "ECSS-Q-ST-70-06C procedure; splitting a total exposure into step fractions that account for the whole run, building cumulative exposure and beam hours at every measurement point, and grading the flux rate against the mission rate and the acceleration limit"
+    expected_skill: "space-systems/ecss/q7006-test-conditions-and-sequencing"
+  - id: rts2
+    query: "the chamber never got below soft vacuum, the specimen ran above its temperature band, and we measured the optical property an hour after venting - say what that invalidates and whether the flux rate still sits under the acceleration limit"
+    intent: "ECSS-Q-ST-70-06C procedure; grading chamber pressure and achieved specimen temperature against their limit and band during exposure, and bounding the air-exposure window for a property that recovers once the chamber is opened"
+    expected_skill: "space-systems/ecss/q7006-test-conditions-and-sequencing"

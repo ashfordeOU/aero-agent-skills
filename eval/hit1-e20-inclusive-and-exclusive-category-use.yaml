@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-inclusive-and-exclusive-category-use (space-systems/ecss)
+# Case 1 routes on reading silence in each category and unioning several type roles.
+# Case 2 routes on the record owed when an applicable requirement is dropped anyway.
+tasks:
+  - id: e20-inclusive-and-exclusive-category-use-1
+    query: "Our unit counts as an antenna assembly and also as a passive unit in the radio-frequency chain. One catalogue row names only antenna assemblies; another lists passive items among its exceptions. Does silence mean applicable or not, and which role wins?"
+    intent: "ECSS-E-ST-20C 8.2; the case turns on the opposite reading of silence in the two applicability categories and on taking the union across the product's roles"
+    expected_skill: "space-systems/ecss/e20-inclusive-and-exclusive-category-use"
+  - id: e20-inclusive-and-exclusive-category-use-2
+    query: "The project wants to drop a catalogue requirement that our tailoring reading says genuinely applies to this product. Is a deletion rationale enough for the applicability column, or does deleting one that is applicable need an approved deviation?"
+    intent: "ECSS-E-ST-20C 8.2; the case turns on a deletion of an applicable requirement needing an approved deviation rather than the rationale that covers a non-applicable one"
+    expected_skill: "space-systems/ecss/e20-inclusive-and-exclusive-category-use"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-position-based-sub-schedules (space-systems/ecss)
+# Two tasks for the new leaf. pbss1 routes on exclusive sub-schedule membership
+# inside one position-based schedule; pbss2 routes on a service that never
+# declared sub-schedule support. Both must deterministically hit
+# space-systems/ecss/e7041-position-based-sub-schedules.
+tasks:
+  - id: pbss1
+    query: "our position-based schedule is split into named sub-schedules and one activity is listed under two of them; how many sub-schedules may a single activity belong to, and what does an empty but declared sub-schedule mean in the report"
+    intent: "ECSS-E-ST-70-41C clause 6.22.7.1; every activity of a position-based schedule belongs to exactly one sub-schedule, and a declared but unloaded sub-schedule stays visible in the partition as an empty entry"
+    expected_skill: "space-systems/ecss/e7041-position-based-sub-schedules"
+  - id: pbss2
+    query: "this spacecraft never declared partition support for its orbit-position schedule but our ground model tags every command with a partition name, decide where those activities actually live on board"
+    intent: "ECSS-E-ST-70-41C clause 6.22.7.1; without sub-schedule support the schedule behaves as one default sub-schedule holding everything, so a named sub-schedule is unplaceable rather than silently re-homed"
+    expected_skill: "space-systems/ecss/e7041-position-based-sub-schedules"

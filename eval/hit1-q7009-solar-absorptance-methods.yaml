@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7009-solar-absorptance-methods (space-systems/ecss)
+# Two tasks for the new leaf. abs1 routes on the solar-weighted integration of a
+# scan and the fraction of solar irradiance that scan span carries; abs2 routes
+# on the certified reference standard transfer and the agreement between the
+# spectral and calorimetric routes. Both must deterministically hit
+# space-systems/ecss/q7009-solar-absorptance-methods.
+tasks:
+  - id: abs1
+    query: "my spectrophotometer scan of a white paint stops at 1800 nm, turn the spectral reflectance into a solar absorptance and tell me how much of the solar irradiance that scan span actually covered"
+    intent: "ECSS-Q-ST-70-09C solar absorptance method; solar-weighted integration over the scanned span plus the covered irradiance fraction that has to travel with the number"
+    expected_skill: "space-systems/ecss/q7009-solar-absorptance-methods"
+  - id: abs2
+    query: "the integrating sphere gives me a ratio against a certified reflectance standard and the calorimetric rig settled at a different absorptance, rescale the relative scan and tell me whether the two determinations agree inside their combined expanded uncertainty"
+    intent: "ECSS-Q-ST-70-09C solar absorptance methods; reference standard transfer of a relative scan and the normalised error between the spectral and calorimetric routes"
+    expected_skill: "space-systems/ecss/q7009-solar-absorptance-methods"

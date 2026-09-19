@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-electrical-design-connectors-insulation (space-systems/ecss)
+# edci1 routes on the two-identical-shells cross-mating hazard and the family
+# separation rule; edci2 routes on the insulation reading taken at the wrong
+# stress and the withstand voltage the circuit calls for. Both must
+# deterministically hit
+# space-systems/ecss/e3301-electrical-design-connectors-insulation.
+tasks:
+  - id: edci1
+    query: "this mechanism harness runs motor drive and resolver signal through one connector shell, and the two shells on the bracket will mate either way round - name the separation and keying faults and size the spare contacts the design owes"
+    intent: "ECSS-E-ST-33-01C 4.7.7.1 to 4.7.7.3; cross-mateable connectors, power and signal in one shell, occupancy derating and spare-contact provision"
+    expected_skill: "space-systems/ecss/e3301-electrical-design-connectors-insulation"
+  - id: edci2
+    query: "the bench read the winding to case insulation at a hundred volts and the requirement is written at five hundred, plus tell me what proof voltage a twenty eight volt circuit owes"
+    intent: "ECSS-E-ST-33-01C 4.7.7.5; insulation resistance depends on the measurement stress, and the withstand voltage derives from the operating voltage with a leakage limit"
+    expected_skill: "space-systems/ecss/e3301-electrical-design-connectors-insulation"

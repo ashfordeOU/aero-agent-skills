@@ -15,6 +15,7 @@ from e2001_incident_electron_dose_limits_logic import (  # noqa: E402
     CAUTION_FRACTION,
     COUPON_CATEGORIES,
     MAX_LANDING_ENERGY_EV,
+    REL_TOL,
     accumulated_spot_dose,
     allowable_spot_dose,
     assess_incident_dose_plan,
@@ -212,7 +213,12 @@ class TestDoseMarginCategorization(unittest.TestCase):
         # that is binary representation error, not an engineering
         # exceedance, so the comparison absorbs it and the limit stays put.
         accumulated = 0.1 + 0.2
-        self.assertGreater(accumulated, 0.3)
+        # The sum is 0.30000000000000004 on every IEEE-754 platform (both
+        # addends and the sum are correctly rounded): one last place of
+        # representation error, not an engineering exceedance. Assert the
+        # size of that error rather than which side of 0.3 it falls on.
+        self.assertNotEqual(accumulated, 0.3)
+        self.assertLess(abs(accumulated - 0.3), 0.3 * REL_TOL)
         self.assertTrue(is_within_allowance(accumulated, 0.3))
         self.assertEqual(categorize_dose_margin(accumulated, 0.3), "marginal")
 

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-on-board-network-error-rates (space-systems/ecss)
+# Two tasks for the new leaf. err1 routes on turning a channel BER into frame
+# level figures; err2 routes on what slips past the frame check sequence.
+# Both must deterministically hit space-systems/ecss/e50-on-board-network-error-rates.
+tasks:
+  - id: err1
+    query: "the link spec gives a bit error rate of 1e-9 and we send kilobit frames at 10 Mbit/s, turn that into how often a frame arrives damaged and the mean time between damaged frames"
+    intent: "ECSS-E-ST-50C clause 5.7.1.8; the frame error rate is 1-(1-BER)^n computed through log1p and expm1, and the mean time is the reciprocal of that rate times the frames per second"
+    expected_skill: "space-systems/ecss/e50-on-board-network-error-rates"
+  - id: err2
+    query: "retransmission covers the errors our 32 bit check sequence catches, but I need the rate of corrupted frames that pass the check anyway and how many of those we expect across the mission"
+    intent: "ECSS-E-ST-50C clause 5.7.1.8; the residual undetected rate is the frame error rate scaled by two to the minus check width, and the mission exposure is that rate over the frames actually sent"
+    expected_skill: "space-systems/ecss/e50-on-board-network-error-rates"

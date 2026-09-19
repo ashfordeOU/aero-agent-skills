@@ -1,0 +1,13 @@
+# Hit@1 fragment: initial-flaw-size-assumption (space-systems/ecss)
+# Case 1 routes on which capability entry governs the assumed starting flaw and
+# on the uninspected default. Case 2 routes on flaw shape from geometry and on
+# the aspect ratio being an output rather than a chosen value.
+tasks:
+  - id: initial-flaw-size-assumption-1
+    query: "Two NDT methods cover the same region and a sister part is never inspected. Which minimum detectable dimensions set the initial flaw I assume, how is the governing method picked, and what default applies where there is no inspection?"
+    intent: "ECSS-E-ST-32C clause 7.2.6; the most detection-capable method governs, and the uninspected default is a deliberate assumption rather than a fallback"
+    expected_skill: "space-systems/ecss/initial-flaw-size-assumption"
+  - id: initial-flaw-size-assumption-2
+    query: "The assumed flaw sits at a fastener hole in a 4 mm thick lug. Should I take a semi-elliptical surface crack or a quarter circle corner crack, and is it right to force the depth to half length ratio to one?"
+    intent: "ECSS-E-ST-32C clause 7.2.6; geometry fixes the flaw shape, and the aspect ratio falls out of the two capability dimensions instead of being set to unity"
+    expected_skill: "space-systems/ecss/initial-flaw-size-assumption"

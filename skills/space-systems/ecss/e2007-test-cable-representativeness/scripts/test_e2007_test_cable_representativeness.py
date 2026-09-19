@@ -65,7 +65,15 @@ class TwistingTests(unittest.TestCase):
         # tighter, but the twists-per-metre difference lands a few ULPs above
         # the allowance; the compliant case must still pass.
         result = logic.compare_twisting(22.0, 20.0, 0.10)
-        self.assertGreater(result["deviation"], result["allowed"])
+        # deviation and allowed are both 1000/22 scaled by exactly one
+        # tenth, so they agree to one last place; IEEE-754 divide, multiply
+        # and subtract are correctly rounded, so assert the size of that
+        # gap rather than its sign.
+        self.assertNotEqual(result["deviation"], result["allowed"])
+        self.assertLess(
+            abs(result["deviation"] - result["allowed"]),
+            result["allowed"] * logic.REL_TOL,
+        )
         self.assertTrue(result["within_tolerance"])
         self.assertEqual(result["findings"], [])
 

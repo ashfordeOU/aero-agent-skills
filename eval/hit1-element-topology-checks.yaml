@@ -1,0 +1,12 @@
+# Hit@1 fragment: element-topology-checks (space-systems/ecss)
+# Case 1 routes on the distortion metrics and their two-tier severity bands.
+# Case 2 routes on the superposed-element family of the same clause.
+tasks:
+  - id: element-topology-checks-1
+    query: "Our ECSS finite element model check flags four-node quadrilaterals with warping near twelve degrees, three-node triangles whose skewness reaches fifty degrees, and one aspect ratio above eight. Which distortion findings force a remesh, and which are only a warn severity?"
+    intent: "ECSS-E-ST-32C 5.3; each metric belongs to a particular element topology and carries separate warn and fail thresholds rather than one pass criterion"
+    expected_skill: "space-systems/ecss/element-topology-checks"
+  - id: element-topology-checks-2
+    query: "Our modal run makes one bay stiffer than hand calculation, and I suspect a pair of shells reference an identical node set so their stiffness superposes. How do I detect duplicate elements in the finite element model, and how is that graded for topology severity?"
+    intent: "ECSS-E-ST-32C 5.3; two elements over the same sorted node set superpose stiffness, which is a distinct finding family from node-level geometry checks"
+    expected_skill: "space-systems/ecss/element-topology-checks"

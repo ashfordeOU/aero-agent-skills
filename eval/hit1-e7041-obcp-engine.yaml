@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-obcp-engine (space-systems/ecss)
+# Two tasks for the new leaf. obce1 routes on loaded versus running being separate
+# bounded resources; obce2 routes on the per-cycle step budget the running set shares.
+# Both must deterministically hit space-systems/ecss/e7041-obcp-engine.
+tasks:
+  - id: obce1
+    query: "the declaration says six procedures can sit in the engine at once but the fifth load came back refused, so check how much store the procedure needs, the concurrently loaded ceiling, and how many steps a cycle the running ones already eat"
+    intent: "ECSS-E-ST-70-41C clause 6.18.2.3; loaded and running are separate declared limits with separate resources, a procedure occupies engine store from load and step budget only while running, and each acceptance moves what the next request is graded against"
+    expected_skill: "space-systems/ecss/e7041-obcp-engine"
+  - id: obce2
+    query: "can we start one more control procedure on that engine this cycle, or does its step demand not fit next to what is already running"
+    intent: "ECSS-E-ST-70-41C clause 6.18.2.3; the per-cycle step budget is shared by the running set, an admission past it overruns the cycle for everything the engine hosts, and a stopped engine admits nothing whatever the resources say"
+    expected_skill: "space-systems/ecss/e7041-obcp-engine"

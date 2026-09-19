@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-identification (space-systems/ecss)
+# Case 1 routes on the categorisation decision: one physical connector carrying two
+# different things across a boundary. Case 2 routes on the naming scheme, sequence
+# numbering and whether the hierarchical view must agree with the flat list.
+tasks:
+  - id: e1024-identification-1
+    query: "We are building the interface list for a small satellite before any ICD is drafted. One connector between platform and payload carries 28 V power and an RS-422 link. Does that boundary get one entry or two, and which category does each take, electrical or data?"
+    intent: "ECSS-E-ST-10-24C §5.2; the case turns on the seven-category assignment by what crosses the boundary and on a dual-purpose connector splitting into separate entries"
+    expected_skill: "space-systems/ecss/e1024-identification"
+  - id: e1024-identification-2
+    query: "Two rows in my interface list ended up with an identical identifier for one entity pair, and another row has no sequence number at all because it is the only thermal coupling there. How does the naming convention number these, and must the interface tree match the flat list exactly?"
+    intent: "ECSS-E-ST-10-24C §5.2; the case turns on identifier construction, sequence numbering and uniqueness, and tree-versus-list consistency, not on categorisation"
+    expected_skill: "space-systems/ecss/e1024-identification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-netlist-verification (space-systems/ecss)
+# Two tasks for the new leaf. dnv1 routes on unmapped equivalence points folded in with
+# the equivalent ones; dnv2 routes on the gate-level re-run and the recorded outcome.
+# Both must deterministically hit
+# space-systems/ecss/e2040-device-netlist-verification.
+tasks:
+  - id: dnv1
+    query: "the equivalence comparison between our source description and the netlist left a batch of points it could not relate at all, and the summary counted them alongside the matched ones"
+    intent: "ECSS-E-ST-20-40C clause 5.5.3; unmapped comparison points kept out of the equivalent count, waiver justification, equivalence against a goal"
+    expected_skill: "space-systems/ecss/e2040-device-netlist-verification"
+  - id: dnv2
+    query: "which tests that passed against the source description were never re-run on the netlist, which ones passed before and fail now, and can we record the netlist as verified"
+    intent: "ECSS-E-ST-20-40C clause 5.5.3; gate-level re-run completeness, a test broken by synthesis kept apart from one already failing, outcome derived from the evidence"
+    expected_skill: "space-systems/ecss/e2040-device-netlist-verification"

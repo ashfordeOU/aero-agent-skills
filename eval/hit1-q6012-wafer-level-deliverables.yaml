@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-wafer-level-deliverables (space-systems/ecss)
+# wld1 routes on deriving the owed deliverable set from the batch conditions; wld2
+# routes on the revision-mismatch unusable state, which a generic document
+# checklist reads as present. Both must deterministically hit
+# space-systems/ecss/q6012-wafer-level-deliverables.
+tasks:
+  - id: wld1
+    query: "this accepted wafer batch is being handed over as separated die from a first lot, work out exactly which records and items the foundry owes us with it and which ones this batch does not"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.6; condition-derived deliverable set for an accepted wafer batch handover"
+    expected_skill: "space-systems/ecss/q6012-wafer-level-deliverables"
+  - id: wld2
+    query: "the foundry sent everything on the list but the conformity certificate is a draft and the map is issued against the previous batch revision, is that a complete handover or do we hold the batch"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.6; draft, unsigned, superseded and wrong-revision as distinct unusable states, and the completeness fraction over what was owed"
+    expected_skill: "space-systems/ecss/q6012-wafer-level-deliverables"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-pulsed-test-application (space-systems/ecss)
+# Case 1 routes on the pulse length needed for the avalanche to grow at a given order.
+# Case 2 routes on the duty cycle leaving the article thermally unrepresentative.
+tasks:
+  - id: e2001-pulsed-test-application-1
+    query: "Our amplifier operates continuous-wave in flight, but the bench can only reach the margined level in pulses. At 12 GHz with a resonant-order of three, what pulse-width does avalanche-growth need before a multipaction discharge becomes observable?"
+    intent: "ECSS-E-ST-20-01C 6.4.4; the case turns on converting burst width into gap crossings at the operating frequency and resonant order against the growth minimum"
+    expected_skill: "space-systems/ecss/e2001-pulsed-test-application"
+  - id: e2001-pulsed-test-application-2
+    query: "The bursts sit at a two percent duty cycle, so the hardware never reaches the surface temperature it would see in real service. What compensating measure has to be on record, and how much accumulated on-time does the detector need?"
+    intent: "ECSS-E-ST-20-01C 6.4.4; the case turns on the duty cycle failing thermal representativeness and on accumulated on-time rather than wall-clock feeding the detector"
+    expected_skill: "space-systems/ecss/e2001-pulsed-test-application"

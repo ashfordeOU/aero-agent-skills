@@ -18,6 +18,7 @@ declares it can restart from there; and the aggregated review is
 compliant only when every list is empty.
 """
 
+import math
 import os
 import sys
 import unittest
@@ -279,7 +280,10 @@ class TestDepthOfDischarge(unittest.TestCase):
         removed_ah = 0.0
         for _ in range(3):
             removed_ah += 0.1
-        self.assertGreater(removed_ah, 0.3)  # overshoots in binary
+        # IEEE-754 addition is correctly rounded, so this sum has the same
+        # bit pattern on every platform: exactly one ULP above the limit.
+        # Assert that exact overshoot, not the direction of the last bit.
+        self.assertEqual(removed_ah, math.nextafter(0.3, math.inf))
         self.assertAlmostEqual(
             bm.depth_of_discharge(removed_ah, 0.3), 1.0, places=9
         )
@@ -337,7 +341,10 @@ class TestChargeTemperatureFindings(unittest.TestCase):
         temperature_c = 0.0
         for _ in range(3):
             temperature_c += 0.1
-        self.assertGreater(temperature_c, 0.3)
+        # IEEE-754 addition is correctly rounded, so this sum has the same
+        # bit pattern on every platform: exactly one ULP above the limit.
+        # Assert that exact overshoot, not the direction of the last bit.
+        self.assertEqual(temperature_c, math.nextafter(0.3, math.inf))
         self.assertEqual(
             bm.charge_temperature_findings("bat", temperature_c, (-10.0, 0.3)), []
         )
@@ -381,7 +388,10 @@ class TestChargeCommandFindings(unittest.TestCase):
         current_a = 0.0
         for _ in range(3):
             current_a += 0.1
-        self.assertGreater(current_a, 0.3)
+        # IEEE-754 addition is correctly rounded, so this sum has the same
+        # bit pattern on every platform: exactly one ULP above the limit.
+        # Assert that exact overshoot, not the direction of the last bit.
+        self.assertEqual(current_a, math.nextafter(0.3, math.inf))
         command = {
             "stage": "bulk_constant_current",
             "current_a": current_a,
@@ -539,7 +549,10 @@ class TestDischargeFindings(unittest.TestCase):
         removed_ah = 0.0
         for _ in range(3):
             removed_ah += 0.1
-        self.assertGreater(removed_ah, 0.3)
+        # IEEE-754 addition is correctly rounded, so this sum has the same
+        # bit pattern on every platform: exactly one ULP above the limit.
+        # Assert that exact overshoot, not the direction of the last bit.
+        self.assertEqual(removed_ah, math.nextafter(0.3, math.inf))
         discharge = {
             "discharged_ah": removed_ah,
             "capacity_ah": 1.0,
@@ -566,7 +579,10 @@ class TestDischargeFindings(unittest.TestCase):
         pack_voltage_v = 0.0
         for _ in range(8):
             pack_voltage_v += 2.9
-        self.assertLess(pack_voltage_v, 23.2)  # undershoots in binary
+        # IEEE-754 addition is correctly rounded, so this sum has the same
+        # bit pattern on every platform: exactly one ULP below the floor.
+        # Assert that exact undershoot, not the direction of the last bit.
+        self.assertEqual(pack_voltage_v, math.nextafter(23.2, -math.inf))
         discharge = {
             "discharged_ah": 10.0,
             "capacity_ah": 50.0,

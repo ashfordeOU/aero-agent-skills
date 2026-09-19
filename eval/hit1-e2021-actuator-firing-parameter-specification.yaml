@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuator-firing-parameter-specification (space-systems/ecss)
+# Two tasks for the new leaf. afps1 routes on the no-fire / all-fire pair and the
+# unspecified band between them; afps2 routes on the all-fire duration that makes
+# a firing pulse an all-fire condition. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-firing-parameter-specification.
+tasks:
+  - id: afps1
+    query: "turn this actuator datasheet into a reviewable specification: which firing parameters were never stated, is the drive current above all fire, is the monitor current under no fire, do both margins clear our policy minima, and what is the bridge dissipation"
+    intent: "ECSS-E-ST-20-21C clause 5.3.1; no fire and all fire levels, the unspecified band between them and the margins against the firing and monitoring currents"
+    expected_skill: "space-systems/ecss/e2021-actuator-firing-parameter-specification"
+  - id: afps2
+    query: "our supplier quotes an all fire current with no time against it and our pulse is five milliseconds, tell me what is missing from that parameter set before we design the firing circuit"
+    intent: "ECSS-E-ST-20-21C clause 5.3.1; the duration an all fire level is specified over, absent parameters reported rather than defaulted, and the pulse energy into the bridge"
+    expected_skill: "space-systems/ecss/e2021-actuator-firing-parameter-specification"

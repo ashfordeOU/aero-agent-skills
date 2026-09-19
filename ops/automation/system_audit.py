@@ -323,7 +323,12 @@ def check_corpus_coverage(leaves: int):
         fail("corpus", "eval/hit1-corpus.yaml missing")
         return
     txt = open(f).read()
-    tasks = len(re.findall(r"^\s*-\s*id:", txt, re.M)) or txt.count("- id:")
+    # 2026-09-19: this counted `- id:` over the WHOLE file, so it could not tell a
+    # tasks: item from a future_pins: item and returned 1755 against 1754 real tasks.
+    # It was only ever right because the future-pin was malformed and its id had leaked
+    # to the document root. Count the tasks block, and nothing else.
+    _m = re.search(r"^tasks:\s*$(.*?)(?=^\w|\Z)", txt, re.M | re.S)
+    tasks = len(re.findall(r"^\s*-\s*id:", _m.group(1), re.M)) if _m else 0
     # 2 tasks per leaf is the program's coverage rule (2 ratings per leaf).
     if leaves and tasks < leaves:
         fail("corpus", f"only {tasks} Hit@1 tasks for {leaves} leaves (under-covered)")

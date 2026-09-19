@@ -318,7 +318,13 @@ class EvaluationTests(unittest.TestCase):
                 mechanisms=[linear_mechanism(rate=0.87)],
             )
         )
-        self.assertLess(out["end_of_life_thickness_nm"], 20.0)
+        # Multiplication and subtraction only, so the surviving thickness
+        # lands exactly one unit in the last place under the continuity
+        # floor on any IEEE-754 machine. State that shortfall as a
+        # magnitude, not a direction; the floor itself is unchanged.
+        self.assertEqual(
+            20.0 - out["end_of_life_thickness_nm"], math.ulp(20.0)
+        )
         self.assertTrue(out["continuity_ok"])
         self.assertTrue(out["compliant"])
 

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-responsibility (space-systems/ecss)
+# Two tasks for the new leaf. rsp1 routes on the delegation that grants more
+# than the delegator holds; rsp2 routes on the two-holders-one-item case and the
+# authority level a safety-critical item demands. Both must deterministically
+# hit space-systems/ecss/q2007-responsibility.
+tasks:
+  - id: rsp1
+    query: "a shift supervisor signed a delegation letter giving an operator sign-off authority on pressure system safety, tell me whether that delegation is valid and what the reporting line has to look like"
+    intent: "ECSS-Q-ST-20-07 clause 5.3.3; a delegator cannot pass down authority above their own, and the reporting line has to terminate at the centre head"
+    expected_skill: "space-systems/ecss/q2007-responsibility"
+  - id: rsp2
+    query: "two people both think they own the pressure safety item at our test centre and a third item has nobody on it, work out which duties are ambiguous and whether the authority levels are high enough"
+    intent: "ECSS-Q-ST-20-07 clause 5.3.3; an unassigned item and an item with two holders are different defects, and the held authority is compared with what the item's criticality demands"
+    expected_skill: "space-systems/ecss/q2007-responsibility"

@@ -5,10 +5,10 @@
 # hit space-systems/ecss/e5053-protocol-identifier-field.
 tasks:
   - id: pid1
-    query: "the receiver reads the protocol identifier at a fixed offset and mis-parses every path-routed unit: work out where the octet really sits and whether it is the expected one"
+    query: "the receiver counts path-address bytes wrong, so it reads the identifier octet in the wrong place and the remainder goes to the wrong handler, one never registered for this protocol; work out the true offset and categorize the value found there"
     intent: "ECSS-E-ST-50-53C clause 5.3.3; identifier offset from path length, expected identifier comparison"
     expected_skill: "space-systems/ecss/e5053-protocol-identifier-field"
   - id: pid2
-    query: "decide what a node does with a spacewire unit whose protocol identifier names a different registered protocol, and with one whose identifier no handler claims"
+    query: "a unit arrives carrying the escape value in its identifier octet, another carries a value no handler here claims; say how each is categorized, which one gets dropped, and whether an identifier spilling past a single byte is admissible"
     intent: "ECSS-E-ST-50-53C clause 5.3.3; protocol handler demultiplexing, extended identifier escape, unclaimed identifier discard"
     expected_skill: "space-systems/ecss/e5053-protocol-identifier-field"

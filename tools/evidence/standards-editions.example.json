@@ -1,0 +1,29 @@
+{
+  "_comment": [
+    "Copy this file to standards-editions.json (same directory) to bind issue",
+    "and date to the standards a verdict is measured against.",
+    "",
+    "standards-map.yaml carries a designation, a publisher and a gating flag,",
+    "but no issue and no date. Until this overlay exists, every entry in a",
+    "record is emitted with issue and issue_date explicitly null and",
+    "edition_binding 'unbound'. That is a gap someone must close with the",
+    "paper in front of them: nothing in this tool will guess a date.",
+    "",
+    "Keys are the standard ids used in standards-map.yaml. issue is the",
+    "revision or amendment designation as the publisher writes it; issue_date",
+    "is ISO 8601 (YYYY-MM-DD, or YYYY-MM when the publisher gives only a",
+    "month). Leave a key out entirely rather than filling it with a guess -",
+    "an absent key reads as 'unbound', an invented date reads as fact.",
+    "",
+    "The overlay file is bound into every record by digest, so a later change",
+    "to an edition claim is visible to anyone re-reading an issued dossier."
+  ],
+  "overlay_version": "1.0.0",
+  "editions": {
+    "example-standard-id": {
+      "issue": "Revision C, Amendment 2",
+      "issue_date": "2019-11-15",
+      "source": "who checked this, and against what copy"
+    }
+  }
+}

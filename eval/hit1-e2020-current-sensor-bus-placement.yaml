@@ -10,6 +10,6 @@ tasks:
     intent: "ECSS-E-ST-20-20C clause 5.2.3.3.1; current sensing element on the energised main bus side"
     expected_skill: "space-systems/ecss/e2020-current-sensor-bus-placement"
   - id: csp2
-    query: "a load short returning through the structure bond never crosses our current sense element, so work out the real branch current needed to reach the trip threshold and compare it against the harness rating"
+    query: "Our lcl has its sense resistor on the return side, so a short going back through structure never crosses it. How much real branch current must flow before the trip threshold is reached, and does the harness rating cover that?"
     intent: "ECSS-E-ST-20-20C clause 5.2.3.3.1; unsensed fault path and effective trip current"
     expected_skill: "space-systems/ecss/e2020-current-sensor-bus-placement"

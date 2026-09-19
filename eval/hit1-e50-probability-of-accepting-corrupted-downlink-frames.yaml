@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-probability-of-accepting-corrupted-downlink-frames
+# (space-systems/ecss). cd1 routes on a decoder reporting success on wrong
+# data; cd2 routes on the mission scope and provenance obligations. Both must
+# deterministically hit
+# space-systems/ecss/e50-probability-of-accepting-corrupted-downlink-frames.
+tasks:
+  - id: cd1
+    query: "Our link case puts a number on lost frames but nothing on corruption that slips through. Can the block decoder report a good decode on a wrong frame? Give me the miscorrection probability and how it combines with the check field."
+    intent: "ECSS-E-ST-50C clause 5.6.11.9; a block beyond the correction radius can land inside another codeword's sphere, so miscorrection and check field escape are two gates that both have to open"
+    expected_skill: "space-systems/ecss/e50-probability-of-accepting-corrupted-downlink-frames"
+  - id: cd2
+    query: "our per-frame undetected telemetry corruption figure sits inside its bound, but nobody recorded the declared configuration it was derived from, and nothing states the mission exposure over a hundred million frames. Grade the three ECSS obligations separately."
+    intent: "ECSS-E-ST-50C clause 5.6.11.9; the clause carries three obligations, bound, declared derivation and mission exposure, and they have to be graded separately because they fail separately"
+    expected_skill: "space-systems/ecss/e50-probability-of-accepting-corrupted-downlink-frames"

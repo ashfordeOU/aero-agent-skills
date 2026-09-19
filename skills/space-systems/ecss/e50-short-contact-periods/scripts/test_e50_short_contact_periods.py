@@ -202,7 +202,25 @@ class TestAssessContactSchedule(unittest.TestCase):
             [contact("P-1", start=0.0, duration=100.0, setup=40.0)],
             generation_rate_bps=1.0e6,
         )
-        self.assertGreaterEqual(report["peak_backlog_bits"], report["final_backlog_bits"])
+        # The peak is a running max over the same backlog values the final
+        # one is taken from, so a plan that ends at its worst point reports
+        # the SAME float twice - an equality by construction, not two
+        # values a rounding apart.
+        self.assertEqual(
+            report["peak_backlog_bits"], report["final_backlog_bits"]
+        )
+        # A plan that drains its store puts the peak strictly above the
+        # value it ends on, which is where the invariant has content.
+        drained = assess_contact_schedule(
+            [
+                contact("P-1", start=0.0, duration=100.0, setup=40.0),
+                contact("P-2", start=100.0, duration=400.0, setup=40.0),
+            ],
+            generation_rate_bps=3.0e5,
+        )
+        self.assertGreater(
+            drained["peak_backlog_bits"], drained["final_backlog_bits"]
+        )
 
     def test_tolerance_absorbs_a_sub_microbit_residue(self):
         report = assess_contact_schedule(

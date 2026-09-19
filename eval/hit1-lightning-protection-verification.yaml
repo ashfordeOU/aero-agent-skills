@@ -1,0 +1,12 @@
+# Hit@1 fragment: lightning-protection-verification (space-systems/ecss)
+# Case 1 routes on zoning preceding measurement and on what sets bond class.
+# Case 2 routes on tracing the path itself and on records that stand alone.
+tasks:
+  - id: lightning-protection-verification-1
+    query: "Before we measure bonds on the launch vehicle fairing, must every external region carry a strike-zone assignment first, and does a structurally minor joint sitting on the primary current path take the looser secondary bond limit?"
+    intent: "ECSS-E-ST-32C 4.6.3.25; limits and shielding duties differ by zone so measuring first can produce a false pass, and bond class follows position in the current path rather than structural importance"
+    expected_skill: "space-systems/ecss/lightning-protection-verification"
+  - id: lightning-protection-verification-2
+    query: "Every bond joint we measured passes its class limit. Do passing joints on their own prove the lightning-current path stays unbroken back from a Zone A attachment, and is a Zone B surface lacking any shielding disposition a finding by itself?"
+    intent: "ECSS-E-ST-32C 4.6.3.25; a joint can pass its own measurement while sitting outside the intended path, and a missing shielding disposition is an independent finding, not a neutral state"
+    expected_skill: "space-systems/ecss/lightning-protection-verification"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-measurement-procedure-documentation (space-systems/ecss)
+# Case 1 routes on scoring the procedure: mandatory against optional items and the
+# depth floor that separates a populated item from a heading. Case 2 routes on the
+# two structural records the audit refuses outright.
+tasks:
+  - id: e2001-measurement-procedure-documentation-1
+    query: "Auditing our emission yield measurement procedure: eight of the ten mandatory items are present, three optional records are included, and the uncertainty budget is one sentence. Does that score as eighty percent complete, and is a one-line heading a populated item?"
+    intent: "ECSS-E-ST-20-01C clause 9.5.1; completeness is the fraction of mandatory items both present and deep enough, and optional records never offset a missing mandatory one"
+    expected_skill: "space-systems/ecss/e2001-measurement-procedure-documentation"
+  - id: e2001-measurement-procedure-documentation-2
+    query: "The procedure's sample description names only the alloy, with no batch identifier, no thickness and no surface finish, and two normative references carry no issue or date. Are those refusals or just findings to log?"
+    intent: "ECSS-E-ST-20-01C clause 9.5.1; the sample identity is material plus batch plus thickness plus finish, and every reference needs an identifier with an issue or date before the list is valid"
+    expected_skill: "space-systems/ecss/e2001-measurement-procedure-documentation"

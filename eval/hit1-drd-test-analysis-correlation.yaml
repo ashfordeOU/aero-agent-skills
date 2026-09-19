@@ -1,0 +1,13 @@
+# Hit@1 fragment: drd-test-analysis-correlation (space-systems/ecss)
+# Case 1 routes on the deliverable document: the headings the DRD demands and the
+# justification block that survives an all-pass outcome. Case 2 routes on the
+# quantity taxonomy and a zero denominator, not on modal pairing.
+tasks:
+  - id: drd-test-analysis-correlation-1
+    query: "Every row in our TAC report met its threshold, so the author dropped the model-update justification block. Does Annex O still demand that heading, and which other DRD sections, pre-test predictions, test configuration, conclusions, must the document carry?"
+    intent: "ECSS-E-ST-32C Annex O DRD; document content completeness, where the model-update justification heading is owed whatever the numeric outcome and a missing heading is a compliance gap of its own"
+    expected_skill: "space-systems/ecss/drd-test-analysis-correlation"
+  - id: drd-test-analysis-correlation-2
+    query: "Our correlation table mixes natural frequencies, static deflection, strain-gauge stress and modal damping, and one damping row came back measured as zero. Do I still form the relative delta on that row, and does each quantity type carry its own threshold?"
+    intent: "ECSS-E-ST-32C Annex O DRD; the recognised quantity types each carry a separate default acceptance threshold, and a zero measurement makes the relative delta an input error rather than a fail"
+    expected_skill: "space-systems/ecss/drd-test-analysis-correlation"

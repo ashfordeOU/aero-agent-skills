@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-octet-string (space-systems/ecss)
+# Two tasks for the new leaf. ostr1 routes on a count field announcing more
+# octets than follow and the short read that hides it; ostr2 routes on an opaque
+# payload being decoded as text. Both must deterministically hit
+# space-systems/ecss/e7041-octet-string.
+tasks:
+  - id: ostr1
+    query: "the length in front of this memory dump blob says more octets than actually arrived and our tool returns what it got, work out whether that is safe to pass on"
+    intent: "ECSS-E-ST-70-41C clause 7.3.8; the leading count is a claim, and a payload announced longer than the octets that follow is truncated and refused rather than returned short"
+    expected_skill: "space-systems/ecss/e7041-octet-string"
+  - id: ostr2
+    query: "a ground tool is round-tripping an opaque instrument blob through a text encoding and some octets come back altered, say what handling this parameter type actually allows"
+    intent: "ECSS-E-ST-70-41C clause 7.3.8; the payload is opaque, the parameter type imposes no character set, byte order or numeric reading, and a fixed field is exactly its declared octet count with no padding anywhere"
+    expected_skill: "space-systems/ecss/e7041-octet-string"

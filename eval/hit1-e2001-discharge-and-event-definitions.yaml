@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-discharge-and-event-definitions (space-systems/ecss)
+# Case 1 routes on an excursion that matches neither signature. Case 2 routes
+# on the pressure regime between the two, where both mechanisms stay credible.
+tasks:
+  - id: e2001-discharge-and-event-definitions-1
+    query: "One detection channel crossed its declared trip-threshold during the multipactor qualification run, but the excursion neither tracked chamber pressure nor showed extinction when we backed the drive off. How do I categorize that observation, and can the log record a no-event?"
+    intent: "ECSS-E-ST-20-01C clause 8.5.1; an unresolved mechanism leaves an event on the record rather than becoming a no-event, so the run is not yet judgeable"
+    expected_skill: "space-systems/ecss/e2001-discharge-and-event-definitions"
+  - id: e2001-discharge-and-event-definitions-2
+    query: "The chamber pressure sat inside the transition band when a monitored channel crossed its threshold. Is one discriminator enough to categorize that observation as multipactor or as gas discharge, or does it remain an undetermined event?"
+    intent: "ECSS-E-ST-20-01C clause 8.5.1; between the regime limits both mechanisms are live and both signatures can be met, so a single discriminator does not settle the category"
+    expected_skill: "space-systems/ecss/e2001-discharge-and-event-definitions"

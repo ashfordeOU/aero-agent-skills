@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-harness-category-definition (space-systems/ecss)
+# Case 1 routes on the promotion and demotion adjustments to a wire'''s family category.
+# Case 2 routes on bundle uniformity, the separation matrix and critical-line treatment.
+tasks:
+  - id: e2007-harness-category-definition-1
+    query: "A telemetry wire switches fast enough that its voltage-slew rate is over our limit, and a separate 20 mV sensor wire sees a 100 kilohm source impedance. Is the first promoted to interfering and the second demoted to sensitive, and which check runs first?"
+    intent: "ECSS-E-ST-20-07C 4.2.13.1; a fast edge promotes a wire to the aggressor category and a quiet high-impedance node demotes to victim, with promotion tested first"
+    expected_skill: "space-systems/ecss/e2007-harness-category-definition"
+  - id: e2007-harness-category-definition-2
+    query: "Can one bundle carry both power and sensitive wires if they are spaced apart inside it? How do I set the gap between two bundles of different categories, and what extra treatment does a critical redundant line need?"
+    intent: "ECSS-E-ST-20-07C 4.2.13.1; wires in one bundle are at zero separation so a bundle holds one category, and the pair matrix sets the route gap between bundles"
+    expected_skill: "space-systems/ecss/e2007-harness-category-definition"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-repair-records (space-systems/ecss)
+# rec1 routes on locating the work and naming the procedure revision; rec2
+# routes on material batch traceability, shelf life read against the day of
+# use, and the method-specific verification set. Both must deterministically
+# hit space-systems/ecss/q7028-repair-records.
+tasks:
+  - id: rec1
+    query: "audit this repair record: the location is written as prose near the connector with no side and no reference designator, and the method carries no procedure revision - grade the header fields it must carry and say what is still owed"
+    intent: "ECSS-Q-ST-70-28C documentation; a location is a side plus a reference designator or grid, and a procedure number without its revision does not say which text was followed"
+    expected_skill: "space-systems/ecss/q7028-repair-records"
+  - id: rec2
+    query: "the repair record lists an adhesive with no lot number and a verification that was only a visual check - what is missing from the paperwork"
+    intent: "ECSS-Q-ST-70-28C documentation; every material carries a batch and a shelf life checked against the repair date, and the verification set belongs to the repair method"
+    expected_skill: "space-systems/ecss/q7028-repair-records"

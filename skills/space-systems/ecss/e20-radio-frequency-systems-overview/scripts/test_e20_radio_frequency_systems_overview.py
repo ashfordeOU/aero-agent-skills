@@ -270,9 +270,15 @@ class LinkMarginTests(unittest.TestCase):
         self.assertAlmostEqual(assessment["shortfall_db"], 0.0)
 
     def test_margin_exactly_at_the_minimum_is_compliant(self):
-        # 64.99 - 61.99 evaluates a few units in the last place below 3.0;
-        # the decibel limit is not widened, the round-off is absorbed.
-        self.assertLess(64.99 - 61.99, rf.MINIMUM_LINK_MARGIN_DB)
+        # 64.99 - 61.99 is a single IEEE-754 subtraction of two exactly
+        # parsed decimals, so every platform lands on the same value: a
+        # few units in the last place below 3.0 dB. Assert the size of
+        # that shortfall rather than the strict inequality, so the claim
+        # is "round-off, not a real shortfall". The decibel limit itself
+        # is not widened; the round-off is absorbed by the assessment.
+        shortfall = rf.MINIMUM_LINK_MARGIN_DB - (64.99 - 61.99)
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         assessment = rf.assess_link_margin(64.99, 61.99)
         self.assertTrue(assessment["compliant"])
         self.assertAlmostEqual(assessment["shortfall_db"], 0.0)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the clause 6.8.2 material-parameter evidence logic."""
 
+import math
 import unittest
 
 from e2006_material_parameter_selection_evidence_logic import (
@@ -258,11 +259,12 @@ class TestEnvironmentCoverage(unittest.TestCase):
         self.assertTrue(environment_coverage((-100.0, 90.0), (-100.0, 90.0))["covered"])
 
     def test_accumulated_mission_limit_at_the_measured_limit_is_covered(self):
-        # The mission cold limit assembled from two contributions lands a few
-        # ULPs below the measured limit; that is representation error, not an
+        # The mission cold limit assembled from two contributions lands
+        # bit-exactly one unit in the last place below the measured limit on
+        # every IEEE-754 platform; that is representation error, not an
         # uncovered environment.
         mission_low = -0.1 + -0.2
-        self.assertLess(mission_low, -0.3)
+        self.assertEqual(mission_low, math.nextafter(-0.3, -math.inf))
         self.assertTrue(environment_coverage((-0.3, 90.0), (mission_low, 90.0))["covered"])
 
     def test_inverted_measured_range_raises(self):

@@ -181,10 +181,18 @@ class IndexTests(unittest.TestCase):
         self.assertAlmostEqual(scored["index"], 1.0, places=9)
 
     def test_index_stays_inside_the_unit_interval(self):
+        # The index is clamped into the unit interval before it is
+        # returned, so the top is a hard ceiling rather than a value
+        # approached through rounding: the strongest tier, with a whole
+        # traceability chain and a stable line, scores it exactly, and
+        # every weaker tier lands strictly below with room to spare.
         for tier in SOURCE_TIERS:
             scored = sourcing_assurance_index(_case(PREFERRED_CASE, source_tier=tier))
             self.assertGreaterEqual(scored["index"], 0.0)
-            self.assertLessEqual(scored["index"], 1.0)
+            if tier == "preferred-parts-listing":
+                self.assertEqual(scored["index"], 1.0)
+            else:
+                self.assertLess(scored["index"], 1.0)
 
     def test_weaker_tier_scores_lower(self):
         strong = sourcing_assurance_index(PREFERRED_CASE)["index"]

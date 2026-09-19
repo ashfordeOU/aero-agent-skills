@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-circuit-criticality-categories (space-systems/ecss)
+# Case 1 routes on deriving the rung from hazard versus mission-loss attributes.
+# Case 2 routes on escalating an aggressor to its victim's level and reading the margin demand.
+tasks:
+  - id: e20-circuit-criticality-categories-1
+    query: "A pyro firing line is fully redundant, but a stuck-on driver could still ignite the separation charge. Does redundancy pull it below safety critical, which rung takes equipment whose failure costs only recoverable degradation, and where do both sit in the criticality grouping order?"
+    intent: "ECSS-E-ST-20C 6.3.1.1; redundancy demotes a mission-loss circuit but never a hazard circuit, and recoverable degradation lands on the essential rung"
+    expected_skill: "space-systems/ecss/e20-circuit-criticality-categories"
+  - id: e20-circuit-criticality-categories-2
+    query: "A non-essential heater return runs in the same harness as a mission-critical data bus and can inject into it. At what level do I have to control the heater line, and what interference margin in decibels must I then demonstrate at the victim?"
+    intent: "ECSS-E-ST-20C 6.3.1.1; an aggressor coupling into a more critical victim is controlled at the victim's level, and that raised level sets the margin demand read off the ladder"
+    expected_skill: "space-systems/ecss/e20-circuit-criticality-categories"

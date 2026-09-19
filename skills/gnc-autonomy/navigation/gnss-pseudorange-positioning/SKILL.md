@@ -184,4 +184,7 @@ non-physical input in the validation list.
   system development context (arp4754a, reference-only per
   standards-map.yaml); the GNSS pseudorange positioning relations above
   are standard engineering methodology, summary-only.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

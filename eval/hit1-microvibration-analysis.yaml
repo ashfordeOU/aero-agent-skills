@@ -1,0 +1,12 @@
+# Hit@1 fragment: microvibration-analysis (space-systems/ecss)
+# Case 1 routes on the harmonic content of each source family and what falls in the sensitive
+# band. Case 2 routes on isolator roll-off and the instrument allowable it is judged against.
+tasks:
+  - id: microvibration-analysis-1
+    query: "Our reaction wheels run from 1000 to 6000 rpm and the star tracker is sensitive between 20 and 150 Hz. Which wheel harmonic orders fall inside that window, and how do the solar array drive and the thruster valves get treated differently?"
+    intent: "ECSS-E-ST-32C 4.6.2.21; a rotating source generates integer multiples of spin rate while a low-speed drive and an impulsive device are handled by their own rules, and only in-band content counts"
+    expected_skill: "space-systems/ecss/microvibration-analysis"
+  - id: microvibration-analysis-2
+    query: "With a 12 Hz isolator between the cryocooler and the optical bench, how much of an 80 Hz disturbance actually reaches the instrument, and what do I do when the payload never gave us a micro-vibration allowable?"
+    intent: "ECSS-E-ST-32C 4.6.2.21; transmissibility rolls off above the isolation frequency to give the induced amplitude, and an instrument with in-band content but no allowable on record is itself a finding"
+    expected_skill: "space-systems/ecss/microvibration-analysis"

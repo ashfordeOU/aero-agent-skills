@@ -552,10 +552,22 @@ class TransmitterReviewTest(unittest.TestCase):
         transmitter = _vhf_transmitter()
         totals = pf.band_totals_w(pf.transmitter_emissions(transmitter))
         raw_dbm = pf.watts_to_dbm(totals["distress_406_0_406_1"])
-        self.assertGreater(raw_dbm, -90.0)
+        # The total runs through 10**(-db/10) and log10, neither of which is
+        # correctly rounded, so which side of the -90 dBm limit the computed
+        # total lands on differs between libm implementations. Assert that
+        # it sits on the limit well inside the absorbing tolerance.
+        self.assertLess(abs(raw_dbm - (-90.0)), pf.POWER_TOLERANCE_DB)
+        self.assertAlmostEqual(raw_dbm, -90.0, places=9)
         review = pf.transmitter_emission_review(transmitter)
         self.assertEqual(review["band_limit"], [])
         self.assertTrue(pf.is_transmitter_compliant(review))
+        # Half a tolerance less filtering puts the total over the limit by
+        # more than any libm difference and less than the tolerance, so the
+        # absorbing branch is exercised on every platform.
+        marginal = _vhf_transmitter(ON_LIMIT_SUPPRESSION_DB - 0.5e-9)
+        marginal_review = pf.transmitter_emission_review(marginal)
+        self.assertEqual(marginal_review["band_limit"], [])
+        self.assertTrue(pf.is_transmitter_compliant(marginal_review))
 
     def test_three_decibels_less_filtering_is_a_real_exceedance(self):
         transmitter = _vhf_transmitter(ON_LIMIT_SUPPRESSION_DB - 3.0)

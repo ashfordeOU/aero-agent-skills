@@ -5,6 +5,7 @@ stdlib unittest, offline, deterministic. Run:
 python3 test_e20_eed_circuit_safety_margin_demonstration.py
 """
 
+import math
 import unittest
 
 from e20_eed_circuit_safety_margin_demonstration_logic import (
@@ -211,7 +212,11 @@ class SeparationComputation(unittest.TestCase):
 class DemandComparison(unittest.TestCase):
     def test_a_decibel_difference_a_hair_under_the_demand_still_meets_it(self):
         margin = margin_from_levels(33.3, 13.3)
-        self.assertLess(margin, 20.0)
+        # Deliberate boundary case. Subtracting two decibel levels exactly
+        # one demand apart lands one unit in the last place short of 20.0.
+        # State that shortfall exactly rather than asserting which side of
+        # the demand the last bit falls on; the 20 dB demand is unchanged.
+        self.assertEqual(20.0 - margin, math.ulp(20.0))
         self.assertTrue(meets_required_margin(margin, 20.0))
 
     def test_a_genuine_shortfall_does_not_meet_the_demand(self):
@@ -362,7 +367,10 @@ class CircuitDemonstration(unittest.TestCase):
 
     def test_a_firing_circuit_on_the_exact_demand_is_demonstrated(self):
         result = demonstrate_circuit(decibel_record())
-        self.assertLess(result["governing_margin_db"], 20.0)
+        # Same deliberate boundary case as DemandComparison: the governing
+        # separation is one unit in the last place short of the 20 dB
+        # demand. Assert the shortfall exactly, not its direction.
+        self.assertEqual(20.0 - result["governing_margin_db"], math.ulp(20.0))
         self.assertTrue(result["demonstrated"])
 
     def test_a_firing_circuit_below_the_demand_is_a_finding(self):

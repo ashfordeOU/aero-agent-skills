@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-lot-rejection (space-systems/ecss)
+# Two tasks for the new leaf. hlr1 routes on turning a screening failure into
+# a formal lot declaration and on how far the rejection reaches. hlr2 routes
+# on the stage that never ran - no failure on record, but no evidence either.
+# Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-lot-rejection.
+tasks:
+  - id: hlr1
+    query: "burn-in threw failures on the hybrid batch and only one waffle pack is affected, work out whether we declare the whole lot unacceptable or just that segregated pack and what that declaration commits us to"
+    intent: "ECSS-Q-ST-60-05C clause 10.4; declaring a hybrid production lot unacceptable, the earliest failing stage, the scope of the rejection and the obligations it carries"
+    expected_skill: "space-systems/ecss/q6005-hybrid-lot-rejection"
+  - id: hlr2
+    query: "nothing failed on this hybrid lot but the constant acceleration step was never performed and the paperwork is about to be signed off as accepted, decide what status this batch actually has"
+    intent: "ECSS-Q-ST-60-05C clause 10.4; an incomplete screening evidence chain, why an unrun stage is not a pass, and the indeterminate lot status"
+    expected_skill: "space-systems/ecss/q6005-hybrid-lot-rejection"

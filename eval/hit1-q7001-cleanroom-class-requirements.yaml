@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanroom-class-requirements (space-systems/ecss)
+# cr1 routes on selecting the least demanding airborne class an operation needs;
+# cr2 routes on an area certified only unoccupied being offered for exposed work.
+# Both must deterministically hit
+# space-systems/ecss/q7001-cleanroom-class-requirements.
+tasks:
+  - id: cr1
+    query: "the detector bonding operation can tolerate four thousand particles of at least half a micron per cubic metre, tell me the loosest ISO 14644-1 class that still holds that and whether the room they have offered us is clean enough"
+    intent: "ISO 14644-1 airborne class selected backwards from a tolerable concentration at a threshold particle size, assigned area graded against it"
+    expected_skill: "space-systems/ecss/q7001-cleanroom-class-requirements"
+  - id: cr2
+    query: "the facility certificate for that clean area was taken with nobody in the room but we will have three people and open hardware in there, does the certificate cover the operation and are we two classes cleaner than we needed to be"
+    intent: "at-rest versus operational demonstration state for a clean-area class, and a clean area assigned far cleaner than the work requires"
+    expected_skill: "space-systems/ecss/q7001-cleanroom-class-requirements"

@@ -2,6 +2,7 @@
 """Gate 3 contract test for the ECSS-E-ST-20C clause 7.2.1.2.1 antenna
 terminology definitions leaf. Stdlib unittest, offline, deterministic."""
 
+import math
 import unittest
 
 import e20_antenna_terminology_definitions_logic as term
@@ -305,10 +306,14 @@ class ConformanceAssessmentTests(unittest.TestCase):
         self.assertAlmostEqual(assessment["shortfall"], 0.0)
 
     def test_ratio_exactly_on_the_threshold_passes_despite_round_off(self):
-        # 1 - 7/100 evaluates a few units in the last place below 0.93;
-        # the threshold is not lowered, the representation error is absorbed.
+        # 1.0 - 7/100 is one IEEE-754 division and one subtraction, both
+        # correctly rounded, so the ratio is exactly one representable place
+        # BELOW 0.93 on every platform - no libm is involved. Pinning that
+        # place keeps the case on the shortfall side of the threshold, which
+        # is what exercises the absorption, without asserting a rounding
+        # direction. The threshold itself is not lowered.
         ratio = term.terminology_conformance_ratio(100, 7)
-        self.assertLess(ratio, 0.93)
+        self.assertEqual(ratio, 0.93 - math.ulp(0.93))
         assessment = term.assess_terminology_conformance(ratio, 0.93)
         self.assertTrue(assessment["meets_threshold"])
         self.assertAlmostEqual(assessment["shortfall"], 0.0)

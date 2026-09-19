@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-qualification-principles-units-processes
+# (space-systems/ecss). qup1 routes on the unit count itself -- build
+# standards to cover plus the life test that consumes hardware; qup2 routes
+# on the process the declared change obliges and the heritage claim it
+# contradicts. Both must deterministically hit
+# space-systems/ecss/e3102-qualification-principles-units-processes.
+tasks:
+  - id: qup1
+    query: "how many qualification heat pipes do we actually have to build if three build standards have to be covered and one of them gets a life test run to destruction"
+    intent: "ECSS-E-ST-31-02 clause 4.4.1; qualification unit count from build-standard coverage plus destructive testing, against the per-process unit floor"
+    expected_skill: "space-systems/ecss/e3102-qualification-principles-units-processes"
+  - id: qup2
+    query: "the supplier says this loop heat pipe is qualified by heritage but they have moved the wick to a new braze house, tell me what qualification process that change really obliges"
+    intent: "ECSS-E-ST-31-02 clause 4.4.1; change categorization to a qualification process and escalation of a heritage claim the declared change contradicts"
+    expected_skill: "space-systems/ecss/e3102-qualification-principles-units-processes"

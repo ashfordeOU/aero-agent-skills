@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-data-recording-and-trending (space-systems/ecss)
+# drt1 routes on the drift projection to the action limit; drt2 routes on the
+# consecutive-alert run and the sampling gap that make a conforming record
+# uncontrolled. Both must deterministically hit
+# space-systems/ecss/q7050-data-recording-and-trending.
+tasks:
+  - id: drt1
+    query: "here are twelve months of particle counts for one clean room location, every one under the limit, tell me whether it is drifting and how long it has before it reaches the action limit"
+    intent: "ECSS-Q-ST-70-50C recording and trending; least-squares drift over elapsed days and the projection from the last observation to the action limit"
+    expected_skill: "space-systems/ecss/q7050-data-recording-and-trending"
+  - id: drt2
+    query: "the last few monitoring results are all above the alert level but none has hit the action limit, and there is a two month hole in the record, say whether this location is still in control"
+    intent: "ECSS-Q-ST-70-50C recording and trending; consecutive alert run as a trigger in its own right, plus sampling gaps against the recording interval"
+    expected_skill: "space-systems/ecss/q7050-data-recording-and-trending"

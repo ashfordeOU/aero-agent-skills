@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1012-seu-proton (space-systems/ecss)
+# Case 1 routes on the two transport paths and their differing efficiency weights.
+# Case 2 routes on the multiple-cell fraction and the upset tally against a budget.
+tasks:
+  - id: e1012-seu-proton-1
+    query: "Our SRAM datasheet carries separate Weibull cross-section fits, one for direct ionisation and one covering nuclear-reaction secondaries. How do I integrate each over the trapped proton flux spectrum for an SEU rate, and what path efficiency should the nuclear-reaction channel carry?"
+    intent: "ECSS-E-ST-10C 9.4.1.3; the two transport routes are integrated separately over the spectrum and the spallation route carries a reduced efficiency weight rather than unity"
+    expected_skill: "space-systems/ecss/e1012-seu-proton"
+  - id: e1012-seu-proton-2
+    query: "Our budget for a 64 Mbit proton-exposed memory is stated in upsets per bit-second. How do I tally the five-year mission count against it, and what MCU rate follows once our measured multiple-cell fraction is applied, if no budget was ever recorded?"
+    intent: "ECSS-E-ST-10C 9.4.1.3; the mission tally scales rate by bit count and duration, the multiple-cell rate is a separate derived quantity, and an absent budget record is itself a finding"
+    expected_skill: "space-systems/ecss/e1012-seu-proton"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-motorization-factors-uncertainty (space-systems/ecss)
+# Two tasks for the new leaf. mfu1 routes on the per-contribution minimum
+# uncertainty factor; mfu2 routes on the end-of-life and worst-travel condition
+# each resistive contribution owes. Both must deterministically hit
+# space-systems/ecss/e3301-motorization-factors-uncertainty.
+tasks:
+  - id: mfu1
+    query: "Our hinge torque budget has lines for inertia, seal drag, harness pull, spring hysteresis, stiction after weeks parked and plain sliding friction. Someone scaled the total by one factor. Each line rests on different evidence, so what floor multiplier does each owe separately?"
+    intent: "ECSS-E-ST-33-01 clause 4.7.5.3.1; per-contribution minimum uncertainty factors on the resistive build-up"
+    expected_skill: "space-systems/ecss/e3301-motorization-factors-uncertainty"
+  - id: mfu2
+    query: "the resistive value was taken at a nominal mid-stroke position at begin of life, work out what it owes at end of life and at the worst point of travel before it is factored"
+    intent: "ECSS-E-ST-33-01 clause 4.7.5.3.1; life-point and travel worst-case coverage of each resistive contribution"
+    expected_skill: "space-systems/ecss/e3301-motorization-factors-uncertainty"

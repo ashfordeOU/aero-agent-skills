@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-inter-spacecraft-network-exception-reporting (space-systems/ecss)
+# er1 routes on the arrival-time budget for a fault report; er2 routes on the
+# shared rate limiter crowding out an urgent report during a storm.
+# Both must hit space-systems/ecss/e50-inter-spacecraft-network-exception-reporting.
+tasks:
+  - id: er1
+    query: "a node on the crosslink network raises a fault and the manager is three hops away with the relay down for ten minutes, work out whether the report ever arrives and how much store we need to hold it"
+    intent: "ECSS-E-ST-50C clause 5.7.4.4; arrival is detection plus queueing plus propagation plus forwarding against the severity allowance, and an outage converts the requirement into rate times outage times record size"
+    expected_skill: "space-systems/ecss/e50-inter-spacecraft-network-exception-reporting"
+  - id: er2
+    query: "we throttle fault reports to protect the link and during a storm of routine notices the one alarm we cared about never came through, check whether the limiter is the reason"
+    intent: "ECSS-E-ST-50C clause 5.7.4.4; a limiter shared across severity groups is graded against the aggregate offered load, and the fix is a per-group partition of the limit rather than a higher shared limit"
+    expected_skill: "space-systems/ecss/e50-inter-spacecraft-network-exception-reporting"

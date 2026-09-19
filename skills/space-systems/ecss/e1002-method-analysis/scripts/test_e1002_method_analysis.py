@@ -267,6 +267,4 @@ class AnalysisCaseRollupTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    result = unittest.main(exit=False)
-    if result.result.wasSuccessful():
-        print("OK")
+    unittest.main()

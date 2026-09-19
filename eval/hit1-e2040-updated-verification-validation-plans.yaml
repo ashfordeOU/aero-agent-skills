@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-updated-verification-validation-plans (space-systems/ecss)
+# Two tasks for the new leaf. uvvp1 routes on the stale architecture citation and the plan
+# revision that never moved; uvvp2 routes on two-way entry reconciliation and the entry
+# left pointing at the block a requirement moved away from. Both must deterministically hit
+# space-systems/ecss/e2040-updated-verification-validation-plans.
+tasks:
+  - id: uvvp1
+    query: "the team says the verification and validation plans were refreshed after architecture close but the plan still cites the old architecture revision and its own revision never moved"
+    intent: "ECSS-E-ST-20-40C clause 5.3.3; updated is a checkable claim, cited architecture revision versus current, plan revision moved past its baseline, both plans owed"
+    expected_skill: "space-systems/ecss/e2040-updated-verification-validation-plans"
+  - id: uvvp2
+    query: "Architecture froze last month and the validation and verification plans were reissued. Check both directions: requirements with no entry, entries whose requirement is gone, and anything still aimed at a block the requirement has since left."
+    intent: "ECSS-E-ST-20-40C clause 5.3.3; requirements with no entry and orphan entries, retired block references, reallocation not carried into the entry, refresh ratio"
+    expected_skill: "space-systems/ecss/e2040-updated-verification-validation-plans"

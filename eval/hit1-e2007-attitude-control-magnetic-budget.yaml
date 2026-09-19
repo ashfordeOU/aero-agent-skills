@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-attitude-control-magnetic-budget (space-systems/ecss)
+# Case 1 routes on how contributors and their uncertainties are combined.
+# Case 2 routes on the second allocation check and the induced contributor's worst case.
+tasks:
+  - id: e2007-attitude-control-magnetic-budget-1
+    query: "We have a compensation magnet alongside permanent and induced contributors. Do I add their magnitudes, or sum signed components on each axis, to build the vehicle dipole, and how should the per-contributor uncertainties combine before a coverage factor is applied?"
+    intent: "ECSS-E-ST-20-07C 4.2.5.2; signed summation preserves the cancellation a compensation magnet buys, while uncertainties combine in quadrature and only ever grow the worst case"
+    expected_skill: "space-systems/ecss/e2007-attitude-control-magnetic-budget"
+  - id: e2007-attitude-control-magnetic-budget-2
+    query: "Our magnetic budget checks each axis against its allocation and passes. Is a check against the resultant magnitude allocation owed as well, and how should an induced-magnetization contributor be oriented for the worst case when it simply followed the ambient field during our measurement?"
+    intent: "ECSS-E-ST-20-07C 4.2.5.2; the axis and magnitude allocations each let a different violation through, and an induced contributor is not fixed in the vehicle frame"
+    expected_skill: "space-systems/ecss/e2007-attitude-control-magnetic-budget"

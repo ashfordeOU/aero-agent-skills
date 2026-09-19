@@ -1,0 +1,14 @@
+# Hit@1 fragment: q20-coc-example (space-systems/ecss)
+# Two tasks for the new leaf. cx1 routes on the serial-range arithmetic against
+# the declared quantity on the worked sheet format; cx2 routes on the block
+# order, the derived certificate number and the issue-date check. Both must
+# deterministically hit space-systems/ecss/q20-coc-example.
+tasks:
+  - id: cx1
+    query: "this conformity sheet prints two serial ranges that share a serial and still add up to the quantity in the box, and one of them runs backwards, decide whether the sheet identifies what was shipped"
+    intent: "ECSS-Q-ST-20C Annex H worked certificate as the sheet format; serial range parsing, overlap and quantity reconciliation"
+    expected_skill: "space-systems/ecss/q20-coc-example"
+  - id: cx2
+    query: "the certificate number on this sheet looks copied from the last delivery and the issue date is after the day it reached us, check the sheet against the house format before I sign the receipt"
+    intent: "ECSS-Q-ST-20C Annex H certificate number pattern from the contract reference and sequence, and the issue-date against the presentation day"
+    expected_skill: "space-systems/ecss/q20-coc-example"

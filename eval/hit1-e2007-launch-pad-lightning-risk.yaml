@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-launch-pad-lightning-risk (space-systems/ecss)
+# Case 1 routes on the geometric direct-attachment check and the tall-mast
+# branch. Case 2 routes on the two coupled paths, loop voltage from the current
+# derivative and the umbilical shield transfer.
+tasks:
+  - id: e2007-launch-pad-lightning-risk-1
+    query: "Our pad masts are 90 m and the stack is 60 m tall. At our protection level the sphere radius comes out smaller than the masts. Does mast height alone put the vehicle in the protected volume?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.3.2; once a mast exceeds the rolling-sphere radius the protected radius collapses above that height, so height alone proves nothing"
+    expected_skill: "space-systems/ecss/e2007-launch-pad-lightning-risk"
+  - id: e2007-launch-pad-lightning-risk-2
+    query: "A stroke 200 m away with a 2 microsecond rise: how do I get the voltage induced in a vehicle wiring loop, and separately what does transfer impedance on the umbilical shield put on the ground support side?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.3.2; indirect coupling follows the current derivative and loop area, and the umbilical is a separate path the geometry check never covers"
+    expected_skill: "space-systems/ecss/e2007-launch-pad-lightning-risk"

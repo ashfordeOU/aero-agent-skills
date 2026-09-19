@@ -1,0 +1,13 @@
+# Hit@1 fragment: alignment-geometry-checks (space-systems/ecss)
+# Case 1 routes on the per-axis alignment comparison and the half-band reading of
+# a drawing tolerance. Case 2 routes on the form-control clause instead: which
+# deviation types have allowables and what an unlisted type means.
+tasks:
+  - id: alignment-geometry-checks-1
+    query: "Post-integration alignment survey on our instrument mount reads tip +8 arcsec, tilt -3 arcsec and translational axes inside a millimetre, against a plus-minus 10 arcsec tolerance in the ICD. Is that band a half-band read per axis, and does one axis out of tolerance fail the whole component?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.19; the drawing tolerance is a symmetric half-band read axis by axis, and a single axis outside it is a non-conformance for the component"
+    expected_skill: "space-systems/ecss/alignment-geometry-checks"
+  - id: alignment-geometry-checks-2
+    query: "The machine shop reports flatness 0.05 mm, perpendicularity 0.02 mm, runout 0.03 mm and a negative circularity figure on our bracket. Which of these form deviations do I check against ICD allowables, and how do I treat a geometrical type nobody listed?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.21; form deviations are non-negative magnitudes judged against interface allowables, and a type outside the recognised set is an incomplete interface definition rather than a pass"
+    expected_skill: "space-systems/ecss/alignment-geometry-checks"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-charging-standard-cross-references (space-systems/ecss)
+# Case 1 routes on placement and on what a malformed entry may be credited for.
+# Case 2 routes on the root-level comparison: a superseded issue is not a missing
+# reference, and a newer issue is a note.
+tasks:
+  - id: e2006-charging-standard-cross-references-1
+    query: "Auditing the applicable document tree of our spacecraft charging activity: one entry is free text that will not parse. I must confirm the anchor standard's ECSS branch and its discipline for electrical and electromagnetic work, and whether an unparseable entry counts toward a required normative reference."
+    intent: "ECSS-E-ST-20-06C clause 4.2; the anchor standard's branch and discipline placement are separate findings, and an entry that does not parse is isolated from the coverage arithmetic"
+    expected_skill: "space-systems/ecss/e2006-charging-standard-cross-references"
+  - id: e2006-charging-standard-cross-references-2
+    query: "Our list names ECSS-E-ST-20-07B while the governing reference is the C issue, and the same document root appears twice. Is that a missing reference or a superseded one, and is a newer issue than required a finding?"
+    intent: "ECSS-E-ST-20-06C clause 4.2; entries are collapsed by document root before comparison, so an older issue is superseded rather than missing and a newer issue is a note"
+    expected_skill: "space-systems/ecss/e2006-charging-standard-cross-references"

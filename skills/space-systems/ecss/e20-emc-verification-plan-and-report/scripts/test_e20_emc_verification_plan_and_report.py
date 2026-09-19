@@ -298,7 +298,13 @@ class Coverage(unittest.TestCase):
     def test_decimal_share_sum_just_under_the_target_still_meets_it(self):
         index = build_activity_index(good_plan()["activities"])
         total = coverage_percent(index, ["CE01", "RE02", "RS03"])
-        self.assertLess(total, 100.0)
+        # 33.4 + 33.3 + 33.3 is a chain of IEEE-754 additions over exactly
+        # parsed decimals, so every platform lands on the same sum: a hair
+        # below one hundred. Assert the shortfall rather than the strict
+        # inequality - it is decimal-to-binary noise, not missing coverage.
+        shortfall = 100.0 - total
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         self.assertTrue(meets_coverage_target(total, 100.0))
 
     def test_a_genuine_shortfall_does_not_meet_the_target(self):
@@ -383,7 +389,12 @@ class AggregateReview(unittest.TestCase):
         self.assertTrue(review["compliant"])
         self.assertEqual(review["closed_activities"], ["CE01", "RE02", "RS03"])
         self.assertTrue(review["coverage_met"])
-        self.assertLess(review["coverage_percent"], 100.0)
+        # The accumulated share sits just below the full hundred by the
+        # same representation error as the coverage case above, and the
+        # pair is compliant anyway. The target itself stays at 100.0.
+        shortfall = 100.0 - review["coverage_percent"]
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
 
     def test_a_missing_report_section_breaks_the_pair(self):
         report = good_report()

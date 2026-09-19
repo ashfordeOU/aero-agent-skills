@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-analysis-frequency-selection (space-systems/ecss)
+# Case 1 routes on the candidate set having to reach the band interior.
+# Case 2 routes on which quantity picks the worst-case frequency.
+tasks:
+  - id: e2001-analysis-frequency-selection-1
+    query: "We ran the multipaction analysis only at 12.75 and 14.5 GHz, the two ends of the band. There is a filter resonance near mid-band that lifts the voltage magnification sharply. Is a candidate set sampling only those two ends sufficient?"
+    intent: "ECSS-E-ST-20-01C clause 5.3.1; an in-band magnification peak can pull the worst case interior, so a candidate set that never samples the interior is itself a finding"
+    expected_skill: "space-systems/ecss/e2001-analysis-frequency-selection"
+  - id: e2001-analysis-frequency-selection-2
+    query: "Sweeping our Ku-band component, the lowest threshold voltage falls at one frequency while the local impedance and magnification vary across the band. Which candidate frequency should the remaining breakdown work run at, and on what quantity do I choose it?"
+    intent: "ECSS-E-ST-20-01C clause 5.3.1; selection is on lowest breakdown power, which impedance and magnification move away from the lowest-voltage point"
+    expected_skill: "space-systems/ecss/e2001-analysis-frequency-selection"

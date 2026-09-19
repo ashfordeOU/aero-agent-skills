@@ -5,7 +5,7 @@
 # Both must deterministically hit space-systems/ecss/q7022-stock-rotation.
 tasks:
   - id: srt1
-    query: "the picker took the newest tin of sealant off the shelf, tell me which older lots were passed over and whether that breaks our rotation rule"
+    query: "the picker took the newest tin of sealant off the shelf; order the issuable lots of that material by receipt date and expiry, name the older ones passed over, and say whether the bin separation made that mis-pick possible"
     intent: "ECSS-Q-ST-70-22 stock control; issue order by receipt date with a full tie-break, per material, and the lots skipped by an out of rotation pick"
     expected_skill: "space-systems/ecss/q7022-stock-rotation"
   - id: srt2

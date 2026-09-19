@@ -31,6 +31,9 @@ Conventions: matrices are lists of rows (lists of floats). B is a
 column matrix (n x 1) and C is a row matrix (1 x n); the helpers accept
 the general m-input / p-output shapes for the rank tests.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import cmath
 import math

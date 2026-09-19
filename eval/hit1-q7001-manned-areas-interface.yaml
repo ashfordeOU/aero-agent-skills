@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-manned-areas-interface (space-systems/ecss)
+# Two tasks for the new leaf. mai1 routes on the summed hazard index of a
+# crewed compartment where no single species is over its own limit; mai2
+# routes on the steady state being set by the revitalisation path and not by
+# the cabin volume. Both must deterministically hit
+# space-systems/ecss/q7001-manned-areas-interface.
+tasks:
+  - id: mai1
+    query: "the offgassing test came back with five species and not one of them is anywhere near its own allowable concentration, can the unit go in the habitable volume and which material would I change first"
+    intent: "ECSS-Q-ST-70-01C hardware in a crewed compartment against the ECSS-Q-ST-70-29C offgassing determination; the shares add into a total index and the largest contributor is the one that drives a redesign"
+    expected_skill: "space-systems/ecss/q7001-manned-areas-interface"
+  - id: mai2
+    query: "someone divided the milligrams per day by the cabin volume to get the concentration the crew breathes, is that the right denominator or should the air revitalisation flow be in there"
+    intent: "ECSS-Q-ST-70-01C crewed-area interface; steady-state concentration is the offgassing rate over the removal flow times its efficiency, the volume only sets how long the rise takes, and airborne particulate is a separate limit"
+    expected_skill: "space-systems/ecss/q7001-manned-areas-interface"

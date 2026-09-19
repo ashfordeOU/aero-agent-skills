@@ -402,12 +402,17 @@ class ApprovalTimingTest(unittest.TestCase):
         record = _clean_approval()
         record["approval_day"] = 3.3
         record["review_day"] = 33.3
-        self.assertLess(
-            cp.approval_lead_days(
-                record["approval_day"], record["review_day"]
-            ),
-            30.0,
+        lead = cp.approval_lead_days(
+            record["approval_day"], record["review_day"]
         )
+        # The case under test is a lead that falls short of the thirty-day
+        # minimum by representation error alone. State that exactly: the
+        # shortfall is strictly positive, and smaller than a nanoday, so
+        # the "below" is decimal-to-binary noise and not a real shortfall.
+        # The engineering minimum stays thirty days.
+        shortfall = 30.0 - lead
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         self.assertEqual(cp.approval_timing_findings(record), [])
 
     def test_approval_after_the_review_is_reported(self):

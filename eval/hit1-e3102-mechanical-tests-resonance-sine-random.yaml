@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-mechanical-tests-resonance-sine-random (space-systems/ecss)
+# Two tasks for the new leaf. mtr1 routes on the before/after low-level sweep
+# pair and the first-mode frequency shift; mtr2 routes on integrating a
+# breakpoint table to one overall level and the decibel stage offset. Both must
+# deterministically hit
+# space-systems/ecss/e3102-mechanical-tests-resonance-sine-random.
+tasks:
+  - id: mtr1
+    query: "we ran a low level sweep before and after the shake on the heat pipe assembly and the first mode moved a bit, tell me whether that move means damage and whether the searched band even covered the mode"
+    intent: "ECSS-E-ST-31-02C clause 5.6.10; the resonance search pair as a damage indicator, the percentage first-mode shift against its limit, and the band bracketing check"
+    expected_skill: "space-systems/ecss/e3102-mechanical-tests-resonance-sine-random"
+  - id: mtr2
+    query: "I have a random vibration breakpoint table in g squared per hertz and a qualification offset in decibels, give me the overall level and say whether the notches we cut in the sine sweep went too deep"
+    intent: "ECSS-E-ST-31-02C clause 5.6.10; log-log segment integration of the spectral density to one overall level, the tenth versus twentieth power decibel offset, and the notch depth floor"
+    expected_skill: "space-systems/ecss/e3102-mechanical-tests-resonance-sine-random"

@@ -222,7 +222,10 @@ class TestRouteSelection(unittest.TestCase):
         # 32.3 dBm threshold minus 24.3 dBm operating is exactly 8 dB
         # physically, but lands a few ULPs under it in binary floating point.
         margin = 32.3 - 24.3
-        self.assertLess(margin, 8.0)
+        # The subtraction lands exactly four units in the last place short
+        # of 8 dB on any IEEE-754 machine. State that shortfall as a
+        # magnitude, not as a direction; the threshold itself is unchanged.
+        self.assertEqual(8.0 - margin, 4.0 * math.ulp(margin))
         self.assertEqual(
             logic.select_verification_route(margin), logic.ROUTE_ANALYSIS_ONLY
         )
@@ -235,7 +238,10 @@ class TestRouteSelection(unittest.TestCase):
 
     def test_test_threshold_reached_by_a_difference_a_few_ulps_short(self):
         margin = 32.3 - 29.3
-        self.assertLess(margin, 3.0)
+        # 32.3 dBm threshold minus 29.3 dBm operating is exactly 3 dB
+        # physically; the subtraction lands exactly eight units in the last
+        # place under it. State the shortfall, not its direction.
+        self.assertEqual(3.0 - margin, 8.0 * math.ulp(margin))
         self.assertEqual(logic.select_verification_route(margin), logic.ROUTE_TEST_REQUIRED)
 
     def test_small_margin_forces_redesign(self):

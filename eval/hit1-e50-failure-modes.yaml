@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-failure-modes (space-systems/ecss)
+# fm1 routes on a budget that proved only the nominal column; fm2 routes on
+# concurrent contributors inside one mode beating a single larger loss. Both
+# must deterministically hit space-systems/ecss/e50-failure-modes.
+tasks:
+  - id: fm1
+    query: "our link budget meets the margin in the nominal case and the failure mode rows were left blank, can we call the communications performance requirement satisfied"
+    intent: "ECSS-E-ST-50C clause 5.6.11.4; a declared failure mode with no figure against it is unassessed rather than passing, so the whole assessment is open"
+    expected_skill: "space-systems/ecss/e50-failure-modes"
+  - id: fm2
+    query: "we graded the three decibel amplifier failure as the worst link case but a degraded pointing mode stacks three smaller losses, which one governs the margin"
+    intent: "ECSS-E-ST-50C clause 5.6.11.4; concurrent degradation contributors inside one mode add, so the governing mode is found by grading every mode rather than by the largest single loss"
+    expected_skill: "space-systems/ecss/e50-failure-modes"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-transfer-devices (space-systems/ecss)
+# etd1 routes on the donor-to-acceptor gap margin and the bulkhead crossing
+# staying sealed; etd2 routes on branch arrival timing down a fanned-out
+# transfer train. Both must deterministically hit
+# space-systems/ecss/e3311-transfer-devices.
+tasks:
+  - id: etd1
+    query: "the through-bulkhead initiator has to fire the acceptor across a tolerance gap and leave the pressure wall intact, grade the transfer gap margin and the containment and tell me if the seal survives the firing"
+    intent: "ECSS-E-ST-33-11C clause 4.11.4; reliable transfer gap over design gap, bulkhead containment margin and retained seal"
+    expected_skill: "space-systems/ecss/e3311-transfer-devices"
+  - id: etd2
+    query: "the detonation transfer lines fan out to four separation points with different run lengths and a couple of crossings in between, work out when each branch arrives and whether the spread is tight enough for the joint to separate cleanly"
+    intent: "ECSS-E-ST-33-11C clause 4.11.4; branch arrival from length over propagation velocity plus crossing delays, simultaneity spread, core load and bend radius"
+    expected_skill: "space-systems/ecss/e3311-transfer-devices"

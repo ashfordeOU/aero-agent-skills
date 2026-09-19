@@ -16,10 +16,12 @@ jobs:
         # FIX 2026-09-10: 'make attest' includes number-snapshot-offline, which
         # reads ops/automation/state/ — the export DELIBERATELY excludes that
         # dir (internal ops state), so on the public tree the gate failed with
-        # "no snapshot exists" and every public commit went red. Same dev-only
-        # situation as the negative-control suite below: run the full attest
-        # when the snapshot state is present (dev tree), otherwise run the
-        # attestation gates that ARE valid at rest on a public export.
+        # "no snapshot exists" and every public commit went red. So: run the
+        # full attest when the snapshot state is present (dev tree),
+        # otherwise run the attestation gates that ARE valid at rest on a
+        # public export. This is a genuine dev-only condition -- unlike the
+        # negative-control battery below, which ships and runs on both
+        # trees as of 2026-09-19.
         run: |
           if [ -d ops/automation/state ]; then
             make attest
@@ -31,13 +33,23 @@ jobs:
           fi
       - name: Visuals fresh (charts + README numbers regenerate to zero diff)
         run: make visuals-check
-      - name: Negative-control regression suite (N1-N7, G1-G6; dev-only)
-        # ops/automation/test/ is dev-only and is NOT shipped in the
-        # public package (runbook section 3a). Run it when present,
-        # skip with a note when absent so public CI stays green.
+      - name: Negative-control battery (every gate must be able to return red)
+        # FIX 2026-09-19: this step used to guard on
+        # ops/automation/test/run-tests.sh, a path that has never existed in
+        # this repository (0 files tracked under it), so it printed
+        # "skipped" on every run and CI had never once shown that a gate can
+        # fail -- the one thing this harness claims.
+        #
+        # The suite is tools/negative_controls/, which DOES ship in the
+        # public export (replaying the export pathspec yields 126 tools/
+        # files, 5 of them this suite). Its absence is therefore a real
+        # fault, not a public-tree condition, so this fails rather than
+        # skipping. The runner exits non-zero if any gate is unproven, void,
+        # orphaned, or has no control at all, so it cannot pass by grading
+        # nothing.
         run: |
-          if [ -f ops/automation/test/run-tests.sh ]; then
-            bash ops/automation/test/run-tests.sh
-          else
-            echo "dev-only negative-control suite not shipped; skipped"
+          if [ ! -f tools/negative_controls/run_negative_controls.py ]; then
+            echo "::error::negative-control suite absent: the gates cannot be shown red-capable"
+            exit 1
           fi
+          python3 tools/negative_controls/run_negative_controls.py

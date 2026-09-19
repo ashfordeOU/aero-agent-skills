@@ -5,7 +5,7 @@
 # space-systems/ecss/e50-telemetry-source-identification.
 tasks:
   - id: tsi1
-    query: "two of our satellites use the same application process number for their platform housekeeping, work out whether a receiving station can still tell the packets apart and how wide the identifier fields have to be"
+    query: "two spacecraft in the constellation share one source number for platform housekeeping, so form each stream's spacecraft-and-source pair, show me whether any two collide, and work out how many bits each identifier field needs for the sources we fly"
     intent: "ECSS-E-ST-50C clause 5.5.3; the spacecraft-plus-source identifier tuple is the unit of uniqueness, and field width is set by the largest value issued"
     expected_skill: "space-systems/ecss/e50-telemetry-source-identification"
   - id: tsi2

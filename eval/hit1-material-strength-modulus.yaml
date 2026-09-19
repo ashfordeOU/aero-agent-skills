@@ -1,0 +1,12 @@
+# Hit@1 fragment: material-strength-modulus (space-systems/ecss)
+# Case 1 routes on environmental derating and the tensile-versus-compressive yield trap.
+# Case 2 routes on isotropic modulus consistency and the multiaxial yield criterion.
+tasks:
+  - id: material-strength-modulus-1
+    query: "Our cold-worked aluminium strut runs at 200 C. What environmental knockdown do I apply to the room-temperature strength allowables before the yield margin, and may I treat Fcy as equal to Fty for that alloy?"
+    intent: "ECSS-E-ST-32C 4.2.1-4.2.2; the service condition derates the base allowable, and several aerospace alloys carry a compressive-to-tensile yield ratio away from unity"
+    expected_skill: "space-systems/ecss/material-strength-modulus"
+  - id: material-strength-modulus-2
+    query: "The datasheet gives E, G and Poisson ratio that do not quite reconcile for an isotropic alloy. How close do they have to be before the FEM stiffness can be trusted, and for a triaxial stress state do I take von Mises or the more conservative Tresca?"
+    intent: "ECSS-E-ST-32C 4.2.1-4.2.2; the shear modulus must reconcile with E and Poisson ratio inside the project tolerance, and Tresca is the conservative substitute for the distortion-energy equivalent"
+    expected_skill: "space-systems/ecss/material-strength-modulus"

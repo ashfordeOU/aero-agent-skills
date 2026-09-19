@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7001-contamination-nonconformance (space-systems/ecss)
+# cn1 routes on the exceedance and the performance penalty; cn2 routes on the
+# re-clean cycle budget and the re-verification method. Both must
+# deterministically hit space-systems/ecss/q7001-contamination-nonconformance.
+tasks:
+  - id: cn1
+    query: "the measured molecular deposition on the radiator came back over its cleanliness limit; size the exceedance, turn it into the absorptance penalty through the surface sensitivity and say whether use-as-is under concession is defensible"
+    intent: "ECSS-Q-ST-70-01C nonconformance; cleanliness limit exceedance, performance penalty and use-as-is disposition"
+    expected_skill: "space-systems/ecss/q7001-contamination-nonconformance"
+  - id: cn2
+    query: "the item has already had two cleaning cycles and is over the particulate limit again; decide between re-cleaning with re-verification and escalation, and name the re-verification method that can actually see the contaminant"
+    intent: "ECSS-Q-ST-70-01C nonconformance; recleaning cycle budget, escalation threshold and cleanliness re-verification method"
+    expected_skill: "space-systems/ecss/q7001-contamination-nonconformance"

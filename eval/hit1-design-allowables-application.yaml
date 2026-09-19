@@ -1,0 +1,12 @@
+# Hit@1 fragment: design-allowables-application (space-systems/ecss)
+# Case 1 routes on picking the statistical basis from the load-path count.
+# Case 2 routes on matching the allowable to the service environment and not double-counting the factor.
+tasks:
+  - id: design-allowables-application-1
+    query: "A machined titanium fitting is the sole path carrying the array yoke load, while the adjacent panel splice is redundant. Which statistical basis does each one owe, and can I quote the B column out of the metals handbook for the fitting?"
+    intent: "ECSS-E-ST-32C 4.5.8; a single load path owes the A-basis bound while a redundant member may use B-basis, so the source column has to match the member"
+    expected_skill: "space-systems/ecss/design-allowables-application"
+  - id: design-allowables-application-2
+    query: "Our margin used an MMPDS ultimate allowable divided by a stress built from limit load, and the number came from the room-temperature entry although the bracket runs cryogenic. How do I rebuild that margin of safety before I sign off this analysis package?"
+    intent: "ECSS-E-ST-32C 4.5.8; the allowable must correspond to the service temperature and the safety factor must not be applied on both sides of the margin"
+    expected_skill: "space-systems/ecss/design-allowables-application"

@@ -165,8 +165,10 @@ class TestLevelComparison(unittest.TestCase):
         self.assertTrue(logic.meets_required_level(398.0, 398.0))
 
     def test_representation_shortfall_is_absorbed(self):
-        required = 0.1 + 0.2  # a sum of carrier powers, one place over 0.3
-        self.assertGreater(required, 0.3)
+        # A sum of carrier powers. 0.1 + 0.2 is bit-exactly one unit in the
+        # last place above 0.3 on every IEEE-754 platform.
+        required = 0.1 + 0.2
+        self.assertEqual(required, math.nextafter(0.3, math.inf))
         self.assertTrue(logic.meets_required_level(0.3, required))
 
     def test_real_shortfall_is_rejected(self):

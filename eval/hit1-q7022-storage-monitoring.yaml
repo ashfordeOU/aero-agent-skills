@@ -5,7 +5,7 @@
 # Both must deterministically hit space-systems/ecss/q7022-storage-monitoring.
 tasks:
   - id: smo1
-    query: "the storage log has a twelve hour hole in it with good readings either side, can I report that period as within limits or not"
+    query: "the storage log skips twelve hours, with in-limit readings logged right before the hole and right after it; does that count as unmonitored time against the sampling cadence, or may I report the period as within limits"
     intent: "ECSS-Q-ST-70-22 storage monitoring; a sampling gap wider than the required interval is unmonitored time and a record finding, not in-limit time"
     expected_skill: "space-systems/ecss/q7022-storage-monitoring"
   - id: smo2

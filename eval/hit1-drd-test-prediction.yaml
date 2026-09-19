@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-test-prediction (space-systems/ecss)
+# Case 1 routes on halt levels scaled off the model and sensor full-scale coverage.
+# Case 2 routes on the acceptance band fixed before the run for later comparison.
+tasks:
+  - id: drd-test-prediction-1
+    query: "For the static run the linear model gives minus 3.4 mm at one monitoring-point at unit load and we pull to 1.25. What abort-threshold goes on that channel, and how do I confirm the transducer full scale covers it?"
+    intent: "ECSS-E-ST-32C Annex Q; the halt level is a margin above the absolute scaled peak, and every monitored channel needs an instrument whose full scale reaches that peak before the run"
+    expected_skill: "space-systems/ecss/drd-test-prediction"
+  - id: drd-test-prediction-2
+    query: "What acceptance band should the test-prediction report fix against each predicted strain so measured data can be judged later in test-correlation, and is a zero-width or hundred-percent band ever defensible?"
+    intent: "ECSS-E-ST-32C Annex Q; the correlation band is set before the run as a percentage of the predicted quantity, and degenerate widths make the later comparison worthless"
+    expected_skill: "space-systems/ecss/drd-test-prediction"

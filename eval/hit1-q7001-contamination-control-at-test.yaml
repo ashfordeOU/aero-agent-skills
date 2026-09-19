@@ -1,0 +1,12 @@
+# Hit@1 fragment: q7001-contamination-control-at-test (space-systems/ecss)
+# tct1 routes on budgeting a whole test campaign phase by phase; tct2 routes on
+# the protection credit and the per-phase re-clean point.
+tasks:
+  - id: tct1
+    query: "the article goes through vibration, acoustic and a two hundred hour thermal vacuum run with storage between them, work out how much of its cleanliness budget each phase eats and whether it still holds at the end"
+    intent: "ECSS-Q-ST-70-01 cleanliness during test; particulate fallout comes from environment times exposure hours and molecular deposition only from the vacuum phase"
+    expected_skill: "space-systems/ecss/q7001-contamination-control-at-test"
+  - id: tct2
+    query: "we double bagged the hardware for three hundred hours of storage between tests and started the budget from zero, check whether that is right and tell me the first phase where a re-clean is owed"
+    intent: "ECSS-Q-ST-70-01 cleanliness during test; a bag is a transmission factor not a seal, and the arrival state is the opening balance of the campaign"
+    expected_skill: "space-systems/ecss/q7001-contamination-control-at-test"

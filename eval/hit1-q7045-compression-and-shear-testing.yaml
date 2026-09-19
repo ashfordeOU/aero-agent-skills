@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7045-compression-and-shear-testing (space-systems/ecss)
+# Two tasks for the new leaf. cas1 routes on whether a short compression
+# specimen buckled rather than yielded; cas2 routes on the plane count of a
+# shear arrangement and whether the arrangement can deliver the property at
+# all. Both must deterministically hit
+# space-systems/ecss/q7045-compression-and-shear-testing.
+tasks:
+  - id: cas1
+    query: "the compression coupon is 100 mm long and 10 mm across, is the peak load we recorded a compressive strength or did the thing behave like a strut"
+    intent: "ECSS-Q-ST-70-45 methods; short-specimen length-to-diameter band and the recorded peak expressed as a fraction of the Euler stress at that slenderness"
+    expected_skill: "space-systems/ecss/q7045-compression-and-shear-testing"
+  - id: cas2
+    query: "a pin was broken in a double shear rig and somebody divided the peak load by a single plane area; reconcile the plane count with the arrangement, and say whether that rig can deliver a shear modulus at all"
+    intent: "ECSS-Q-ST-70-45 methods; total shear plane area for the arrangement used, and the property-to-arrangement applicability decision"
+    expected_skill: "space-systems/ecss/q7045-compression-and-shear-testing"

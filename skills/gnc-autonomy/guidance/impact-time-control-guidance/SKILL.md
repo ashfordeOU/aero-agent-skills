@@ -118,7 +118,7 @@ the bias lengthens the flight time by about 4.1 s at this command.
 
 ## Related leaves
 
-- gnc-autonomy/guidance/proportional-navigation-guidance (the unaugmented
+- gnc-autonomy/guidance/proportional-navigation (the unaugmented
   planar PN law that forms this law's baseline)
 - gnc-autonomy/guidance/augmented-proportional-navigation (maneuvering-
   target augmentation of the same baseline)
@@ -168,3 +168,6 @@ STANDARDS-REF, gated false. ARP4754A (reference-only) frames development
 assurance for guided systems; the ITCG law itself is paraphrased public
 guidance-theory literature (Jeon, Lee and Tahk 2006) and is never
 reproduced verbatim.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.

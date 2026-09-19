@@ -21,6 +21,9 @@ Standard engineering method (Gelb; Brown and Hwang style error-state
 filtering, ARP4754A reference-only). Deterministic, no RNG, stdlib
 only.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import math
 

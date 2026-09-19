@@ -4,7 +4,7 @@
 # must deterministically hit space-systems/ecss/e5053-effect-on-receipt.
 tasks:
   - id: eor1
-    query: "the specification says twice what the receiver does with this primitive in the open state and the two say different things about where it ends up, sort out which entries conflict"
+    query: "our spacewire service definition declares this primitive's receipt behaviour twice in the same state, and the two entries send it to different destinations; assemble the receipt transitions and say which declarations are not deterministic"
     intent: "ECSS-E-ST-50-53 clause 5.2.2.4; receipt transitions keyed on state and primitive, determinism, and discards that must leave the state unchanged"
     expected_skill: "space-systems/ecss/e5053-effect-on-receipt"
   - id: eor2

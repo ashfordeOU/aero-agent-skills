@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-declared-materials-parts-processes-lists
+# (space-systems/ecss). dml1 routes on compiling the three registers and the
+# mandatory fields each owes; dml2 routes on the wetted-material
+# compatibility basis and the non-condensable gas concern behind it. Both
+# must deterministically hit
+# space-systems/ecss/e3102-declared-materials-parts-processes-lists.
+tasks:
+  - id: dml1
+    query: "pull together the declared materials, mechanical parts and processes registers for this heat pipe build and tell me which entries are missing the fields their own list owes"
+    intent: "ECSS-E-ST-31-02 clause 5.2 table 5-7; compiling the three declared lists, per-list mandatory fields, duplicate item identifiers and approval status"
+    expected_skill: "space-systems/ecss/e3102-declared-materials-parts-processes-lists"
+  - id: dml2
+    query: "which of the materials on this loop heat pipe are actually wetted by the ammonia, and which of them have no compatibility evidence behind them for gas generation"
+    intent: "ECSS-E-ST-31-02 clause 5.2; fluid-wetted material compatibility basis on the declared materials list and the non-condensable gas risk it controls"
+    expected_skill: "space-systems/ecss/e3102-declared-materials-parts-processes-lists"

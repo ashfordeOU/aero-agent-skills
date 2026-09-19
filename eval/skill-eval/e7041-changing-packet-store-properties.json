@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-changing-packet-store-properties",
+  "with_skill": 1.0,
+  "without_estimate": 0.30,
+  "delta": 0.70,
+  "passed": 33,
+  "failed": 0,
+  "evidence": "contract test PASS (33 tests); without-baseline 0.30 (a packet store property change is usually treated as an assignment, so performing it while storage is enabled or a retrieval is open, truncating a store to a capacity below the octets already held and calling the change accepted, rounding a capacity to the nearest allocation block instead of rejecting it, checking a growth against the memory pool without first removing the store's own commitment, tripping the empty-store rule on a request that merely restates the current type, and accepting a change whose named properties already hold those values are all missed without the skill)"
+}

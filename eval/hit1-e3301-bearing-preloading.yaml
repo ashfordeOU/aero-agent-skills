@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-bearing-preloading (space-systems/ecss)
+# Two tasks for the new leaf. bp1 routes on the separation factor a solid duplex
+# pair earns versus a spring arrangement; bp2 routes on inverting a measured axial
+# natural frequency back into an installed preload. Both must deterministically hit
+# space-systems/ecss/e3301-bearing-preloading.
+tasks:
+  - id: bp1
+    query: "the duplex pair sees a big axial reaction at lift off, tell me how much preload it needs and whether going to a spring washer arrangement changes that number"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.4.2; preload sized against the worst-case axial load through the separation factor, solid arrangement versus flexible"
+    expected_skill: "space-systems/ecss/e3301-bearing-preloading"
+  - id: bp2
+    query: "we tapped the rotor and measured the axial resonance after mounting, back out what preload is actually in the stack and say whether it survives the hot and cold cases"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.4.2; preload inferred from axial stiffness through the one-third power law, then re-verified against the no-unload floor and the torque ceiling"
+    expected_skill: "space-systems/ecss/e3301-bearing-preloading"

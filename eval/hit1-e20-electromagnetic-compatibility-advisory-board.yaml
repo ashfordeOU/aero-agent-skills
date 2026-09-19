@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electromagnetic-compatibility-advisory-board (space-systems/ecss)
+# Case 1 routes on quorum taken against voting seats plus the chair. Case 2
+# routes on the board's remit and on the disposition of an item nobody voted on.
+tasks:
+  - id: e20-electromagnetic-compatibility-advisory-board-1
+    query: "Eleven people attended our electromagnetic compatibility board, but four were observers and two nominees had never been formally appointed. The chair dialled out early. Was that sitting quorate against the stated fraction?"
+    intent: "ECSS-E-ST-20C clause 6.2.3; quorum counts appointed voting seats, not attendance, and the chair's presence is a second condition of the same test"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-compatibility-advisory-board"
+  - id: e20-electromagnetic-compatibility-advisory-board-2
+    query: "The board voted to tailor a radiated emission requirement and to accept a margin deviation. Can it close those itself, and what happens to an agenda item where every member abstained?"
+    intent: "ECSS-E-ST-20C clause 6.2.3; an item moving the agreed baseline leaves as a recommendation for customer approval, and an all-abstention item is deferred, not rejected"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-compatibility-advisory-board"

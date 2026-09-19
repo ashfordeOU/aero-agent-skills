@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electrical-subsystem-safety-conformance (space-systems/ecss)
+# Case 1 routes on severity driving tolerance and the independent inhibit count.
+# Case 2 routes on residual stored energy after bleed and the closure record.
+tasks:
+  - id: e20-electrical-subsystem-safety-conformance-1
+    query: "Payload carries a 1200 V power conditioner. If the credible worst outcome is a catastrophic hazard, how many independent monitored inhibits must the design carry, and can two inhibits driven from the same relay driver both be counted?"
+    intent: "ECSS-E-ST-20C 5.9; severity band sets failure tolerance and inhibit count, and inhibits sharing a cause do not count as independent"
+    expected_skill: "space-systems/ecss/e20-electrical-subsystem-safety-conformance"
+  - id: e20-electrical-subsystem-safety-conformance-2
+    query: "Our capacitor bank still sits at 62 V after the 90 second bleed the procedure allows. Is that residual under the safe-touch threshold or past the energy limit that applies, and what has to be on the hazard closure record before verification is called done?"
+    intent: "ECSS-E-ST-20C 5.9; residual voltage and energy at the end of the bleed period, and the traceable closure record for the hazard"
+    expected_skill: "space-systems/ecss/e20-electrical-subsystem-safety-conformance"

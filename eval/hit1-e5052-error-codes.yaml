@@ -5,10 +5,10 @@
 # space-systems/ecss/e5052-error-codes.
 tasks:
   - id: ec1
-    query: "the node saw a bad access key and a payload check mismatch on the same incoming command, work out which single outcome value it reports back"
+    query: "an RMAP target saw a bad access key and a payload check mismatch on the same incoming command - several conditions trip at once. Walk the detection precedence and tell me the single status value it reports back, and its registry slug."
     intent: "ECSS-E-ST-50-52C clause 5.6; a single status is reported and detection has a precedence, so the outer fault wins over the payload fault"
     expected_skill: "space-systems/ecss/e5052-error-codes"
   - id: ec2
-    query: "our issuer keeps timing out with nothing coming back at all, and one capture shows a failure outcome that still carries payload bytes, tell me what both of those mean"
+    query: "the RMAP initiator times out with no reply at all on one command, and another target reply reports a failure yet still returns data, tell me which detection the target settled on and which fault family each belongs to"
     intent: "ECSS-E-ST-50-52C clause 5.6; an untrusted header is dropped without a reply, and a non-zero outcome value carries no returned data"
     expected_skill: "space-systems/ecss/e5052-error-codes"

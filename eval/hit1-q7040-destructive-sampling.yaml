@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-destructive-sampling (space-systems/ecss)
+# Two tasks for the new leaf. dss1 routes on sizing the plan and the coupon
+# switch for a small lot; dss2 routes on the continuous-void limit that total
+# void fraction cannot see. Both must deterministically hit
+# space-systems/ecss/q7040-destructive-sampling.
+tasks:
+  - id: dss1
+    query: "we only brazed eleven of these and they are critical, work out how many get cut open for sectioning and whether we should be brazing coupons alongside instead"
+    intent: "ECSS-Q-ST-70-40 destructive verification; the plan is sized from lot and criticality between a floor and a ceiling and switches to representative coupons when it would consume the lot"
+    expected_skill: "space-systems/ecss/q7040-destructive-sampling"
+  - id: dss2
+    query: "two sections cut from this brazed lot carry the same total void fraction, but on one the voids merged into a single long run; grade each on its coverage and that run, then accept, hold or reject the lot"
+    intent: "ECSS-Q-ST-70-40 destructive verification; coverage, total void fraction and longest continuous void are three separate limits and the third is what distinguishes these sections"
+    expected_skill: "space-systems/ecss/q7040-destructive-sampling"

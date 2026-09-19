@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7001-cleanliness-margin-management (space-systems/ecss)
+# mm1 routes on the phase apportionment and the margin still held; mm2 routes on
+# the consumption rate and the end-of-programme forecast. Both must
+# deterministically hit space-systems/ecss/q7001-cleanliness-margin-management.
+tasks:
+  - id: mm1
+    query: "split the end-of-life molecular contamination budget across the programme phases, keep a reserve back, and tell me how much cleanliness margin each phase still holds against its allocation"
+    intent: "ECSS-Q-ST-70-01C cleanliness data; contamination budget apportionment, reserve and per-phase cleanliness margin"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-margin-management"
+  - id: mm2
+    query: "Cleanroom build and the test campaign are both closed, and the particulate obscuration allowance is draining faster than the plan assumed. Taking only those two finished phases as the basis, what burn rate comes out and where does the end-of-programme figure land?"
+    intent: "ECSS-Q-ST-70-01C cleanliness data; contamination budget consumption rate and end-of-programme forecast against the allocatable budget"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-margin-management"

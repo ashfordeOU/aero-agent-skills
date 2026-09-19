@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-connection-establishment-and-maintenance
+# (space-systems/ecss). Two tasks for the new leaf. con1 routes on the
+# handshake timeout floor; con2 routes on keepalives against an inactivity
+# timeout. Both must deterministically hit
+# space-systems/ecss/e50-connection-establishment-and-maintenance.
+tasks:
+  - id: con1
+    query: "the connection oriented service needs a three exchange handshake over a two second round trip, what establishment timeout should we set and how long could opening take if we allow three attempts inside one contact"
+    intent: "ECSS-E-ST-50C clause 5.6.14.1; each handshake exchange costs a round trip plus far-end processing, and the retries multiply that floor into the worst case time to open"
+    expected_skill: "space-systems/ecss/e50-connection-establishment-and-maintenance"
+  - id: con2
+    query: "our link keeps dropping the connection whenever the traffic pauses, work out what keepalive interval survives two lost keepalives inside the inactivity timeout without flooding the link with supervision traffic"
+    intent: "ECSS-E-ST-50C clause 5.6.14.1; maintenance needs the keepalive interval times one more than the tolerated losses to stay inside the inactivity timeout, and an over-frequent interval costs link capacity"
+    expected_skill: "space-systems/ecss/e50-connection-establishment-and-maintenance"

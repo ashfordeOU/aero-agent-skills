@@ -149,7 +149,7 @@ open_requirements [REQ-4, REQ-5].
   assessment: the proposed-architecture analytical argument whose
   requirements this SSA close-out confirms on the implemented system.
 - systems-engineering-safety/arp4754a/requirements-traceability and
-  systems-engineering-safety/arp4754a/configuration-management: their
+  systems-engineering-safety/arp4754a/systems-configuration-management: their
   closure work maps requirements to design and verification artifacts
   and is not a safety verdict over the assessed conditions.
 - systems-engineering-safety/continued-airworthiness/in-service-

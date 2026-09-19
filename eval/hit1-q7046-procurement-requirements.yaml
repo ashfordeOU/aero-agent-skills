@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-procurement-requirements (space-systems/ecss)
+# Two tasks for the new leaf. pr1 routes on the qualified-source and scope check
+# at the delivery date; pr2 routes on the purchase-data omission and the
+# certificate-to-lot match that decides hold versus release. Both must
+# deterministically hit space-systems/ecss/q7046-procurement-requirements.
+tasks:
+  - id: pr1
+    query: "our fastener manufacturer is qualified for socket head screws but this order is for hex heads, and the qualification lapses three weeks before delivery; score the scope coverage plus the validity left on that date and give me the disposition"
+    intent: "ECSS-Q-ST-70-46C procurement; checking that the fastener manufacturer holds a qualification live on the delivery date whose scope actually covers the ordered category"
+    expected_skill: "space-systems/ecss/q7046-procurement-requirements"
+  - id: pr2
+    query: "goods-in has a fastener lot where the purchase order never stated the surface treatment and the material certificate quotes a different lot number, do we release it or quarantine it"
+    intent: "ECSS-Q-ST-70-46C procurement; scoring the purchase-data items against the required set and matching each certificate to the delivered lot before returning a release, hold or reject disposition"
+    expected_skill: "space-systems/ecss/q7046-procurement-requirements"

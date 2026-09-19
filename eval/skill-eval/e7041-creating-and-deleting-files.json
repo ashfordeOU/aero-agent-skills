@@ -1,0 +1,9 @@
+{
+  "skill": "e7041-creating-and-deleting-files",
+  "with_skill": 1.0,
+  "without_estimate": 0.25,
+  "delta": 0.75,
+  "passed": 41,
+  "failed": 0,
+  "evidence": "contract test PASS (41 tests); without-baseline 0.25 (the free space is usually accounted on the first write rather than on the create, so two creates both appear to fit the same octets and the repository over-commits, only the capacity is checked while the per-file ceiling and the file-count limit are missed, a rejected create leaves a reservation with no file behind it, a delete is allowed on a file a transfer is holding open, the run is evaluated as a set so a create refused for space is never retried after the delete that would have freed it, and a refused request reports a bare failure instead of the condition that refused it)"
+}

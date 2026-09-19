@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7054-ultracleaning-plan (space-systems/ecss)
+# Two tasks for the new leaf. ucp1 routes on assigning one qualified process per
+# item and inserting the verification points; ucp2 routes on the sequence defect
+# where a cleaning step is undone by a later contaminating operation. Both must
+# deterministically hit space-systems/ecss/q7054-ultracleaning-plan.
+tasks:
+  - id: ucp1
+    query: "here are the items with the levels they owe and the materials they are made of; pick the gentlest qualified ultracleaning process for each, slot it into the integration sequence, and mark where a verification point is needed"
+    intent: "ECSS-Q-ST-70-54C programme; gentlest qualified process per item on both ladders, verification points derived from the claims, coverage gaps reported"
+    expected_skill: "space-systems/ecss/q7054-ultracleaning-plan"
+  - id: ucp2
+    query: "the housing gets its ultracleaning at step ten and the bolts are torqued at step twenty; walk the plan against the integration sequence and tell me whether a later contaminating step undoes the level claimed at handover"
+    intent: "ECSS-Q-ST-70-54C programme; a cleaning step followed by a contaminating operation, and the closing pre-delivery verification the plan owes"
+    expected_skill: "space-systems/ecss/q7054-ultracleaning-plan"

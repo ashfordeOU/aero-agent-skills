@@ -1,0 +1,12 @@
+# Hit@1 fragment: fci-classification (space-systems/ecss)
+# Case 1 routes on consequence level gating every criterion.
+# Case 2 routes on secondary composites, unverified inspection access, and multiple hits.
+tasks:
+  - id: fci-classification-1
+    query: "A pressurized nitrogen line whose failure consequence is graded non-critical: does being a pressure item make it an FCI regardless, or does the consequence level, critical or catastrophic, gate every criterion in that determination?"
+    intent: "ECSS-E-ST-32-01C 6.2.2; the consequence level is a gate condition, so a pressurized item with a non-critical consequence is not fracture-critical on that ground alone"
+    expected_skill: "space-systems/ecss/fci-classification"
+  - id: fci-classification-2
+    query: "One item is a composite secondary cover outside the load path, another a fitting whose NDT accessibility was never confirmed. Do either of them take an FCI category, and should I stop at the first criterion that fires or record every one that applies?"
+    intent: "ECSS-E-ST-32-01C 6.2.2; only primary load-path composites meet that criterion, unconfirmed inspection access is treated as inspection-limited, and every applicable criterion is recorded"
+    expected_skill: "space-systems/ecss/fci-classification"

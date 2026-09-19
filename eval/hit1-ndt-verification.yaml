@@ -1,0 +1,12 @@
+# Hit@1 fragment: ndt-verification (space-systems/ecss)
+# Case 1 routes on the coverage fraction criticality demands. Case 2 routes on
+# method applicability and on an indication sitting exactly at its limit.
+tasks:
+  - id: ndt-verification-1
+    query: "We inspected 62 percent of a primary load-carrying panel and found nothing. Is that enough coverage to call the element verified, and what fraction would secondary or tertiary structure have needed?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.13; the coverage minimum is set by criticality and a shortfall stands as a finding whatever the inspected portion showed"
+    expected_skill: "space-systems/ecss/ndt-verification"
+  - id: ndt-verification-2
+    query: "One inspection used penetrant, a surface-only technique, on a composite fitting and recorded no indications; on another element an indication measured exactly at its acceptance limit. Does either element reach NDT verification?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.13; a method outside its applicable set carries no evidence, and an indication equal to the limit is marginal rather than acceptable"
+    expected_skill: "space-systems/ecss/ndt-verification"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-radio-frequency-systems-overview (space-systems/ecss)
+# Case 1 routes on the element inventory: every family populated, one element per
+# family, and an unrecognised type rejected. Case 2 routes on the chain arithmetic
+# that turns those elements into a link margin.
+tasks:
+  - id: e20-radio-frequency-systems-overview-1
+    query: "Our chain inventory lists four amplifiers, a waveguide run and two filters, so every element falls in the transmitter and transmission-line families. Is that a complete chain, and what happens to an element type nobody recognises?"
+    intent: "ECSS-E-ST-20C clause 7.1; the check is one populated element in each of the four families rather than a count, and an unrecognised element type is rejected before the system is assessed"
+    expected_skill: "space-systems/ecss/e20-radio-frequency-systems-overview"
+  - id: e20-radio-frequency-systems-overview-2
+    query: "Working an X-band link: 12 W transmitter, 1.5 dB feeder loss, 38 dBi antenna gain, 2100 km slant range. Is the free-space spreading term a factor of twenty in the logarithm, and must a standing wave ratio of 1.5 become a mismatch loss before the link margin?"
+    intent: "ECSS-E-ST-20C clause 7.1; the spreading term is squared in both range and frequency, and the standing wave ratio is a dimensionless quantity that must be converted into a decibel mismatch penalty first"
+    expected_skill: "space-systems/ecss/e20-radio-frequency-systems-overview"

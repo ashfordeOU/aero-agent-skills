@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-simulator-initialisation-process-description (space-systems/ecss)
+# Two tasks for the new leaf. sipd1 routes on the platform precedences between
+# creation, linking, configuration, registration and arming; sipd2 routes on the
+# phase document items, the dependency cycle and the standby state. Both must
+# deterministically hit
+# space-systems/ecss/e4008-simulator-initialisation-process-description.
+tasks:
+  - id: sipd1
+    query: "review the written start up sequence for our simulator and tell me whether instances get built before anything is wired, whether field values land before the entry points are registered, and whether the schedule is armed too early"
+    intent: "ECSS-E-ST-40-08C clause 4.4.3; the four platform precedences of the initialisation process description, graded on the span of each phase kind rather than a single position"
+    expected_skill: "space-systems/ecss/e4008-simulator-initialisation-process-description"
+  - id: sipd2
+    query: "this simulator initialisation description lists phases but never says what has to hold before one is entered or left, and two of them name each other as dependencies; tell me which of the clause's eleven items it fails"
+    intent: "ECSS-E-ST-40-08C clause 4.4.3; entry and exit conditions per phase, dependencies naming declared phases, a dependency cycle reported rather than ordered, and the terminal standby state"
+    expected_skill: "space-systems/ecss/e4008-simulator-initialisation-process-description"

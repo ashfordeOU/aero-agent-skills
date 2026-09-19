@@ -279,7 +279,15 @@ class TestRatioCeiling(unittest.TestCase):
 
     def test_representation_error_does_not_breach_the_ceiling(self):
         drifted = 0.1 + 0.2  # 0.30000000000000004
-        self.assertGreater(drifted, 0.3)
+        # One IEEE-754 addition of two exactly parsed doubles: correctly
+        # rounded in hardware and bit-identical on every conforming
+        # platform, landing one unit in the last place above three tenths.
+        # State the overshoot itself rather than comparing against the
+        # ceiling - the subtraction is exact, and the size that comes out
+        # is representation error, not an engineering breach.
+        overshoot = drifted - 0.3
+        self.assertGreater(overshoot, 0.0)
+        self.assertLess(overshoot, 1e-15)
         self.assertTrue(ratio_within_ceiling(drifted, 0.3))
 
     def test_a_real_overshoot_still_breaches_the_ceiling(self):

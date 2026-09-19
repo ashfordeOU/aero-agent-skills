@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1012-bg-xray (space-systems/ecss)
+# Case 1 routes on the K-edge excitation gate and the steep energy fall-off of the K-shell cross-section.
+# Case 2 routes on per-line photon yield with the solid-angle factor and flagging lines over the instrument allowance.
+tasks:
+  - id: e1012-bg-xray-1
+    query: "Our soft X-ray imager looks past a tantalum collimator and an aluminium optical bench. With primaries around 30 keV, which of those two metals actually gets excited, and how fast does the K-shell photoelectric term drop as I step the primary energy up the band?"
+    intent: "ECSS-E-ST-10-12C 10.4.5; the absorption-edge excitation gate per material and the cubic energy scaling of the K-shell cross-section"
+    expected_skill: "space-systems/ecss/e1012-bg-xray"
+  - id: e1012-bg-xray-2
+    query: "I have fluence, areal density and the solid angle our active area subtends, and I need the predicted counts from the iron in the housing split between the two characteristic lines. Which of those lines then breaks the instrument background allowance we budgeted?"
+    intent: "ECSS-E-ST-10-12C 10.4.5; per-line K-alpha and K-beta yield including the solid-angle fraction, and dominant-line flagging against the tolerance"
+    expected_skill: "space-systems/ecss/e1012-bg-xray"

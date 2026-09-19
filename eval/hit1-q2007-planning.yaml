@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-planning (space-systems/ecss)
+# Two tasks for the new leaf. pln1 routes on the measurable-objective test and
+# the direction the target is read in; pln2 routes on resource coverage where a
+# surplus on one line must not pay for a gap on another. Both must
+# deterministically hit space-systems/ecss/q2007-planning.
+tasks:
+  - id: pln1
+    query: "grade next year's centre objectives: which carry no metric at all, no numeric target and no direction, which nobody owns, and of the rest tell me which we have already attained and which we have not"
+    intent: "ECSS-Q-ST-20-07 clause 5.3.2; an objective needs a metric, a numeric target and a direction before attainment means anything, the objectives nobody owns are named, and the direction decides which way is better"
+    expected_skill: "space-systems/ecss/q2007-planning"
+  - id: pln2
+    query: "we have plenty of test conductor hours booked and almost no safety officer hours, tell me whether the resourcing behind our quality and safety objectives actually adds up"
+    intent: "ECSS-Q-ST-20-07 clause 5.3.2; resource coverage taken per line against its own requirement so a surplus cannot mask a shortfall, plus the objectives no approved programme carries"
+    expected_skill: "space-systems/ecss/q2007-planning"

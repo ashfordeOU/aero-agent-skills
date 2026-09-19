@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-lot-acceptance (space-systems/ecss)
+# la1 routes on the code letter, the acceptance number at the quality limit and
+# the step-up when the letter's sample cannot discriminate; la2 routes on
+# severity carried forward from the supplier's recent lot record.
+# Both must deterministically hit space-systems/ecss/q7046-lot-acceptance.
+tasks:
+  - id: la1
+    query: "a lot of 900 bolts arrived and another of 30, how many do I draw from each, how many defectives may the draw carry, and is the small lot's sample even big enough to say anything at the quality limit we buy to"
+    intent: "ECSS-Q-ST-70-46 acceptance clause; general-level-two code letter, acceptance number at the quality limit, and the step-up to a larger sample where the letter's sample cannot discriminate"
+    expected_skill: "space-systems/ecss/q7046-lot-acceptance"
+  - id: la2
+    query: "this supplier has had two rejected fastener lots in the last five deliveries, what severity does the next lot get inspected at and when would the plan relax again or stop accepting deliveries altogether"
+    intent: "ECSS-Q-ST-70-46 acceptance clause; inspection severity carried forward from the supplier's trailing lot record, with tightening, relaxation and suspension"
+    expected_skill: "space-systems/ecss/q7046-lot-acceptance"

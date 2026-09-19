@@ -1,0 +1,12 @@
+# Hit@1 fragment: safe-life-compliance (space-systems/ecss)
+# Case 1 routes on the two independent checks that both have to pass for one item.
+# Case 2 routes on items carrying no recorded evidence type at all.
+tasks:
+  - id: safe-life-compliance-1
+    query: "An item on the no-inspection route has a design life of 4,000 cycles and the crack growth computation gives 14,000. Does that clear the required multiple, and can a comfortable residual strength offset a shortfall on the other check?"
+    intent: "ECSS-E-ST-32C 6.3.2; the case turns on the growth-life multiple and the residual-strength ratio being independent verdicts that must both pass for the item"
+    expected_skill: "space-systems/ecss/safe-life-compliance"
+  - id: safe-life-compliance-2
+    query: "Several safe-life items in our set carry neither a crack-growth analysis nor a crack-growth test on record. Do I carry them as unknown, or does the missing evidence settle the compliance verdict before any residual-strength check?"
+    intent: "ECSS-E-ST-32C 6.3.2; the case turns on an item lacking any evidence type being flagged and stopped rather than assessed or carried as indeterminate"
+    expected_skill: "space-systems/ecss/safe-life-compliance"

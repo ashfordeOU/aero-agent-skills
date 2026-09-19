@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-feasibility-risk-report-data-item (space-systems/ecss)
+# Two tasks for the new leaf. frr1 routes on the severity-by-likelihood
+# magnitude before and after mitigation and the band the residual lands in;
+# frr2 routes on the two-condition closure of a feasibility question and the
+# criticality-weighted confidence. Both must deterministically hit
+# space-systems/ecss/e2040-feasibility-risk-report-data-item.
+tasks:
+  - id: frr1
+    query: "the definition phase risk register scores everything before mitigation only, rework it so each entry carries the residual severity and likelihood and tell me which mitigations move neither index"
+    intent: "ECSS-E-ST-20-40C Annex F; initial and residual severity-by-likelihood magnitude, banding both, and the empty mitigation that takes credit without moving an index"
+    expected_skill: "space-systems/ecss/e2040-feasibility-risk-report-data-item"
+  - id: frr2
+    query: "we want to declare the concept feasible as definition closes, so which questions can actually be closed on the evidence we hold, which are blocked by a residual still over the band we agreed to accept, and what is the weighted confidence"
+    intent: "ECSS-E-ST-20-40C Annex F; a feasibility question closes only on evidence plus an accepted residual band, and the report states a criticality-weighted feasibility confidence"
+    expected_skill: "space-systems/ecss/e2040-feasibility-risk-report-data-item"

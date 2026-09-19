@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-detection-method-overview (space-systems/ecss)
+# Case 1 routes on the coverage mix and whether the observables are independent.
+# Case 2 routes on per-channel registration: speed and calibration, not margin alone.
+tasks:
+  - id: e2001-detection-method-overview-1
+    query: "Our multipactor detection arrangement is three RF power-balance probes, every one of them global-coverage across the chain. Does the clause also want a local-coverage channel at the critical gap, and do three probes drawing on one observable-family count as independent?"
+    intent: "ECSS-E-ST-20-01C 7.1; the arrangement must both notice and localise, and instruments sharing one observable fail together so they supply one independent family rather than three"
+    expected_skill: "space-systems/ecss/e2001-detection-method-overview"
+  - id: e2001-detection-method-overview-2
+    query: "One detection channel shows 12 dB over the expected event signature but integrates across 5 ms. Does a comfortable margin excuse a slow channel, and may I count a channel whose threshold was never calibrated toward the minimum arrangement?"
+    intent: "ECSS-E-ST-20-01C 7.1; a channel registers only when both sensitivity and response time clear their checks, and an uncalibrated threshold is an assumption rather than a measured capability"
+    expected_skill: "space-systems/ecss/e2001-detection-method-overview"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-leak-test (space-systems/ecss)
+# Two tasks for the new leaf. lkt1 routes on deriving the acceptance rate from the
+# fluid inventory the loop may lose over its life; lkt2 routes on the helium tracer
+# conversion and whether the chosen method can resolve that rate. Both must
+# deterministically hit space-systems/ecss/e3102-leak-test.
+tasks:
+  - id: lkt1
+    query: "our ammonia two-phase loop may only lose one gram of working fluid across a fifteen year mission, turn that permitted inventory into the leak throughput the acceptance criterion should demand and say which method could resolve it"
+    intent: "ECSS-E-ST-31-02C clause 5.6.8; acceptance leak rate derived from the allowed working-fluid inventory loss, the specific gas constant and the mission duration"
+    expected_skill: "space-systems/ecss/e3102-leak-test"
+  - id: lkt2
+    query: "the bench reported a helium tracer figure and somebody graded it straight against our ammonia limit; scale it for molar mass first, then tell me whether a number that small is a real measurement or just the noise floor of the rig"
+    intent: "ECSS-E-ST-31-02C clause 5.6.8; tracer-gas to working-fluid conversion by inverse root molar mass, and whether the method sensitivity resolves the acceptance rate at all"
+    expected_skill: "space-systems/ecss/e3102-leak-test"

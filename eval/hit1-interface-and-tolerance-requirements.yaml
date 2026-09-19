@@ -1,0 +1,13 @@
+# Hit@1 fragment: interface-and-tolerance-requirements (space-systems/ecss)
+# Case 1 routes on choosing between arithmetic and statistical stack-up and justifying
+# the switch. Case 2 routes on interface definition completeness blocking the check
+# before any budget comparison means anything.
+tasks:
+  - id: interface-and-tolerance-requirements-1
+    query: "A star tracker mount chain has seven contributors in the tolerance-stack-up. The analyst switched from arithmetic worst case to root sum of squares to fit the alignment-budget. When is that switch legitimate in the tolerance-analysis?"
+    intent: "ECSS-E-ST-32 4.4; the stack-up method must be stated and the statistical route needs independent characterised contributors rather than being a default to avoid redesign"
+    expected_skill: "space-systems/ecss/interface-and-tolerance-requirements"
+  - id: interface-and-tolerance-requirements-2
+    query: "Three bearing-contact interfaces in our structural assembly have tolerances listed but no datum frame and no control document reference against them. Can I report zero budget exceedances and call the interface set compliant?"
+    intent: "ECSS-E-ST-32 4.3.9; an interface with no coordinate frame or control document is incomplete, and an unchecked interface is an open finding rather than a clean result"
+    expected_skill: "space-systems/ecss/interface-and-tolerance-requirements"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7045-link-to-e-st-32-08 (space-systems/ecss)
+# al1 routes on whether a data set supports the basis asked for; al2 routes on
+# a heat that should not be pooled. Both must deterministically hit
+# space-systems/ecss/q7045-link-to-e-st-32-08.
+tasks:
+  - id: al1
+    query: "we have thirty tensile results but twenty six come from a single heat, may we pool those heats together, which allowable basis does the evidence support, and what tolerance factor goes with that sample size"
+    intent: "ECSS-Q-ST-70-45 allowables interface to ECSS-E-ST-32-08C; the basis carries specimen, distinct-heat and per-heat minima, and a set failing them is downgraded with the shortfalls named"
+    expected_skill: "space-systems/ecss/q7045-link-to-e-st-32-08"
+  - id: al2
+    query: "one of my three heats runs much higher than the other two; should the pooling check weigh that heat offset against how much the specimens scatter inside each heat, not across the whole data set"
+    intent: "ECSS-Q-ST-70-45 allowables interface to ECSS-E-ST-32-08C; the heat offset is judged against the within-heat pooled scatter because the total scatter already contains the offset being tested"
+    expected_skill: "space-systems/ecss/q7045-link-to-e-st-32-08"

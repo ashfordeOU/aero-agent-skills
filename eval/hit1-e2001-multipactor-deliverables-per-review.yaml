@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-multipactor-deliverables-per-review (space-systems/ecss)
+# Case 1 routes on the owed set following the declared verification routes. Case 2
+# routes on document maturity at a gate and on an early delivery that is an
+# observation rather than a shortfall.
+tasks:
+  - id: e2001-multipactor-deliverables-per-review-1
+    query: "Our multipactor case closes entirely by similarity to a flown filter, and the reviewer is demanding a test procedure and a test report. Is the similarity-justification-dossier plus the multipactor-free-declaration the set we actually owe at this gate?"
+    intent: "ECSS-E-ST-20-01C Annex A; the owed data-item set is route dependent, so auditing a similarity case against the test route manufactures findings on items nobody owes"
+    expected_skill: "space-systems/ecss/e2001-multipactor-deliverables-per-review"
+  - id: e2001-multipactor-deliverables-per-review-2
+    query: "At the acceptance review we handed in the multipactor-free-declaration as a draft and delivered the multipactor-critical-item-list early, before it was due at all. Is the gate complete, and which of those two blocks it?"
+    intent: "ECSS-E-ST-20-01C Annex A; maturity rank decides whether a delivered item counts as satisfied, while an early delivery is recorded as unplanned without blocking the gate"
+    expected_skill: "space-systems/ecss/e2001-multipactor-deliverables-per-review"

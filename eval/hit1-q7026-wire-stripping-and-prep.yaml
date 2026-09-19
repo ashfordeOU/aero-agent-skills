@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-wire-stripping-and-prep (space-systems/ecss)
+# Two tasks for the new leaf. wsp1 routes on grading a stripped conductor before
+# the contact goes on; wsp2 routes on the nicked-versus-severed strand allowance
+# and the refusal of a solder-tinned end. Both must deterministically hit
+# space-systems/ecss/q7026-wire-stripping-and-prep.
+tasks:
+  - id: wsp1
+    query: "grade the stripped wire ends before crimping: exposed length against the band for each gauge and whether any end can still be cut back"
+    intent: "ECSS-Q-ST-70-26 preparation; strip length band per gauge with a rework margin"
+    expected_skill: "space-systems/ecss/q7026-wire-stripping-and-prep"
+  - id: wsp2
+    query: "two strands are nicked and one is severed on a stripped conductor and another end came in solder tinned, what happens to those wire ends before crimping"
+    intent: "ECSS-Q-ST-70-26 preparation; nicked and severed strand allowances and a tinned conductor"
+    expected_skill: "space-systems/ecss/q7026-wire-stripping-and-prep"

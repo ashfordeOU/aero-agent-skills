@@ -20,6 +20,9 @@ determine the certification basis (see certification-basis leaf), the
 program-level airworthiness sequencing, or ARP4754A verification
 method assignment.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 ITEM_KINDS = (
     "structure",

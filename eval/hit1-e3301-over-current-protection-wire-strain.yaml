@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-over-current-protection-wire-strain (space-systems/ecss)
+# ocp1 routes on the rating window between operating current and derated wire
+# capacity, and the stall case; ocp2 routes on the service loop across a moving
+# joint. Both must deterministically hit
+# space-systems/ecss/e3301-over-current-protection-wire-strain.
+tasks:
+  - id: ocp1
+    query: "pick a fuse rating for the actuator drive and tell me whether the wire survives a jam, the motor pulls one amp running and four stalled on a five amp wire buried in a bundle"
+    intent: "ECSS-E-ST-33-01C 4.7.7.6; the rating sits between the derated operating current and the derated wire capacity, and a stall is either interrupted inside the withstand time or carried indefinitely"
+    expected_skill: "space-systems/ecss/e3301-over-current-protection-wire-strain"
+  - id: ocp2
+    query: "size the harness loop that crosses the hinge so it does not pull tight at end of travel and the conductors survive the flexure cycles"
+    intent: "ECSS-E-ST-33-01C 4.7.7.7; free length versus travel with slack, bend radius against the cable minimum, outer-fibre strain against the flexure allowable and the qualified cycle count"
+    expected_skill: "space-systems/ecss/e3301-over-current-protection-wire-strain"

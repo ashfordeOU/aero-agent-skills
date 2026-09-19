@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-report-the-attributes-of-a-file (space-systems/ecss)
+# Two tasks for the new leaf. rfa1 routes on the three distinct failure codes
+# of an attribute request; rfa2 routes on lock plus open transfer deciding a
+# delete while a read stays allowed. Both must deterministically hit
+# space-systems/ecss/e7041-report-the-attributes-of-a-file.
+tasks:
+  - id: rfa1
+    query: "the ground asked the spacecraft for the size of a file and got a rejection, work out whether the repository path was wrong, the file was already gone, or they pointed at a directory and asked it how big it is"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.2; an attribute request fails three separable ways -- unknown repository, unknown file within a known repository, and a name that denotes a sub-repository -- and each one sends the investigation somewhere different"
+    expected_skill: "space-systems/ecss/e7041-report-the-attributes-of-a-file"
+  - id: rfa2
+    query: "before we delete that on-board log tell me from its reported attributes whether the delete will be accepted, it is flagged locked and there is a dump still reading it out, and say whether we can still downlink it"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.2; the lock state and an in-progress transfer each independently refuse a delete, rename or overwrite, while retrieval is blocked by neither, so a locked held file is still downlinkable"
+    expected_skill: "space-systems/ecss/e7041-report-the-attributes-of-a-file"

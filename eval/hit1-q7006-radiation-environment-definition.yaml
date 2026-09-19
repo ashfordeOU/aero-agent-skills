@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7006-radiation-environment-definition (space-systems/ecss)
+# Two tasks for the new leaf. rev1 routes on integrating a differential
+# spectrum over an energy window with partial bins carried correctly; rev2
+# routes on accumulating the mission phase by phase and converting illuminated
+# time into equivalent sun hours. Both must deterministically hit
+# space-systems/ecss/q7006-radiation-environment-definition.
+tasks:
+  - id: rev1
+    query: "I have the differential flux of this particle spectrum per MeV; integrate it by trapezoid over the window I name, with each window edge interpolated within the bin it falls in, and give me the integral flux for the coupon"
+    intent: "ECSS-Q-ST-70-06C environment; validating a differential particle spectrum and integrating it over a stated energy window by trapezoid with interpolated nodes at both window edges"
+    expected_skill: "space-systems/ecss/q7006-radiation-environment-definition"
+  - id: rev2
+    query: "the mission has a transfer leg and then six years on station with a different eclipse fraction, turn that into the fluence and the sun hours the irradiation specification should be written against rather than one averaged flux"
+    intent: "ECSS-Q-ST-70-06C environment; accumulating particle fluence across mission phases with their own duration, duty and spectrum scaling, and converting illuminated fraction into equivalent sun hours at the declared solar intensity"
+    expected_skill: "space-systems/ecss/q7006-radiation-environment-definition"

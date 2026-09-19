@@ -58,8 +58,14 @@ class SetpointTests(unittest.TestCase):
         drifted = 0.0
         for _ in range(700):
             drifted += 0.2
-        self.assertNotEqual(drifted, 140.0)
-        self.assertGreater(drifted, 140.0)
+        # Seven hundred correctly rounded additions accumulate the same
+        # error on every IEEE-754 platform. What the case claims is that
+        # the setpoint arrives ABOVE the ceiling by a sub-nanokelvin
+        # artefact - not by a temperature difference - so assert the size
+        # of the drift. The 140 K derated ceiling is untouched.
+        drift = drifted - 140.0
+        self.assertGreater(drift, 0.0)
+        self.assertLess(drift, 1e-9)
         result = L.evaluate_bakeout_setpoint(drifted, 150.0, 10.0, 80.0)
         self.assertTrue(result["acceptable"])
 

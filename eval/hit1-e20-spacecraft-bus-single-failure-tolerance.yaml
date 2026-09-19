@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-spacecraft-bus-single-failure-tolerance (space-systems/ecss)
+# Case 1 routes on the steady state after each branch is failed in turn, and on a non-redundant essential branch that arithmetic never surfaces.
+# Case 2 routes on the switchover window: capability during a cold-standby outage and the stored energy that has to bridge it.
+tasks:
+  - id: e20-spacecraft-bus-single-failure-tolerance-1
+    query: "Our bus takes power from four array sections, two regulator branches and one battery. If I fail each of those in turn, which load list do I hold the surviving capability against, and how do I report the lone battery when the arithmetic still shows margin?"
+    intent: "ECSS-E-ST-20C 5.7.2; branch-by-branch recomputation of chain capability against the essential minimum-mission demand, plus the non-redundant essential function reported independently of the numbers"
+    expected_skill: "space-systems/ecss/e20-spacecraft-bus-single-failure-tolerance"
+  - id: e20-spacecraft-bus-single-failure-tolerance-2
+    query: "One regulator branch on our spacecraft is cold standby with a twelve second changeover, and during that gap the bus cannot meet the essential demand. How do I size the stored energy that bridges the gap, and why does a hot standby branch not need the same sizing?"
+    intent: "ECSS-E-ST-20C 5.7.2; transient capability during the cold-standby switchover outage, the deficit converted to watt-hours, and the distinction from an uninterrupted redundancy scheme"
+    expected_skill: "space-systems/ecss/e20-spacecraft-bus-single-failure-tolerance"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-ambient-temperature-testing (space-systems/ecss)
+# Two tasks for the new leaf. att1 routes on the crosshead speed to strain rate
+# conversion and the rate sensitivity that inflates a strength; att2 routes on
+# the load cell span and the extensometer class. Both must deterministically hit
+# space-systems/ecss/q7045-ambient-temperature-testing.
+tasks:
+  - id: att1
+    query: "the operator kept the same crosshead speed when the specimen got shorter and the yield came out higher than the last batch, is the rate the explanation"
+    intent: "ECSS-Q-ST-70-45C test conditions; crosshead speed converted to strain rate over the parallel length, and the separate elastic stress-rate and plastic strain-rate windows"
+    expected_skill: "space-systems/ecss/q7045-ambient-temperature-testing"
+  - id: att2
+    query: "we pulled a small coupon on the big frame because it was already set up, and read the offset strain on whatever gauge was fitted, is that measurement usable"
+    intent: "ECSS-Q-ST-70-45C test conditions; usable span of the load cell, calibration validity at the test date and the extensometer class a proof-strength reading needs"
+    expected_skill: "space-systems/ecss/q7045-ambient-temperature-testing"

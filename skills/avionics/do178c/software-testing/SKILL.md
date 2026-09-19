@@ -75,7 +75,7 @@ objectives for the software level.
   the verification process (reviews, analyses, independence, verification
   results); this leaf is specifically requirements-based test case
   generation and structural coverage measurement.
-- Confusing this leaf with avionics/do254/verification: DO-254 verifies
+- Confusing this leaf with avionics/do254/hardware-verification: DO-254 verifies
   airborne electronic hardware; DO-178C software testing applies to
   software items.
 - Using 2n cases for MC/DC: a 3-term AND needs 4 cases (TTT, FTT, TFT,

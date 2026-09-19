@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-threaded-parts-locating-devices (space-systems/ecss)
+# etp1 routes on the preload band and the prevailing-torque exclusion; etp2
+# routes on the stress-corrosion category screen and positive locking. Both
+# must deterministically hit
+# space-systems/ecss/e3301-threaded-parts-locating-devices.
+tasks:
+  - id: etp1
+    query: "we torque these M6 fasteners to nine newton metres through a locking nut, work out the real minimum and maximum preload once the wrench tolerance and the friction spread are in, take the embedment and relaxation off and give me the gapping and slip margins"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.10; prevailing torque subtracted, crosswise preload band, relaxation losses, then joint margins"
+    expected_skill: "space-systems/ecss/e3301-threaded-parts-locating-devices"
+  - id: etp2
+    query: "someone specified 7075-T6 bolts and a conical spring washer on this mechanism bracket, tell me whether that alloy is in an acceptable stress-corrosion category and whether that washer counts as a positive locking device"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.10; fastener material stress-corrosion category with the justification path, and the positive locking feature requirement"
+    expected_skill: "space-systems/ecss/e3301-threaded-parts-locating-devices"

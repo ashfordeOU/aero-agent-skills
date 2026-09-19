@@ -1,0 +1,13 @@
+# Hit@1 fragment: q2007-tf-calibration (space-systems/ecss)
+# Two tasks for the leaf. tfk1 routes on the chain-uncertainty and accuracy-ratio
+# side. tfk2 routes on the certificate-validity and plan-coverage side. Both must
+# deterministically hit space-systems/ecss/q2007-tf-calibration.
+tasks:
+  - id: tfk1
+    query: "combine the uncertainties of the transducer, the signal conditioner and the acquisition card of our facility measurement chain in quadrature and work out whether the accuracy ratio against the parameter tolerance is enough for the chain to carry the campaign"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.3; test facility measurement chain uncertainty and calibration accuracy ratio"
+    expected_skill: "space-systems/ecss/q2007-tf-calibration"
+  - id: tfk2
+    query: "check every calibration certificate in the facility instrumentation chain stays valid to the last day of the run rather than the first, name the elements the calibration plan never mentions, and flag anything the campaign drives outside its calibrated range"
+    intent: "ECSS-Q-ST-20-07 clause 5.6.3; facility calibration certificate validity, plan coverage and calibrated range cover"
+    expected_skill: "space-systems/ecss/q2007-tf-calibration"

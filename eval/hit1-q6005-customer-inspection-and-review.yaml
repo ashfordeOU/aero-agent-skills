@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-customer-inspection-and-review (space-systems/ecss)
+# Two tasks for the new leaf. cir1 routes on the difference between a hold point
+# passed without release and a witness point the customer declined to attend.
+# cir2 routes on the notice actually given against the notice the point required
+# and on records not made available for review. Both must deterministically hit
+# space-systems/ecss/q6005-customer-inspection-and-review.
+tasks:
+  - id: cir1
+    query: "on this hybrid build the line ran past the pre-cap hold point with no customer release, and at the lid closure the customer said not to bother attending the witness point; grade both against the inspection plan"
+    intent: "ECSS-Q-ST-60-05C clause 11; a customer hold point passed without a release or recorded waiver against a witness point proceeding on a recorded non-attendance"
+    expected_skill: "space-systems/ecss/q6005-customer-inspection-and-review"
+  - id: cir2
+    query: "we told the buyer three days before the operation when the plan said ten, and two of the travellers they asked for were never sent, does the product still release"
+    intent: "ECSS-Q-ST-60-05C clause 11; notice given against notice required at a customer point, records not made available for review, and the release decision over the whole production plan"
+    expected_skill: "space-systems/ecss/q6005-customer-inspection-and-review"

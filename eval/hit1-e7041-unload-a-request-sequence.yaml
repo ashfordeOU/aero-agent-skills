@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-unload-a-request-sequence (space-systems/ecss)
+# Two tasks for the new leaf. ulrs1 routes on refusing to release a sequence
+# that is mid-execution and on the per-name verdict; ulrs2 routes on the exact
+# space reclaimed and the freed identifier. Both must deterministically hit
+# space-systems/ecss/e7041-unload-a-request-sequence.
+tasks:
+  - id: ulrs1
+    query: "one unload names four held sequences and one of them is still executing; rule on every name separately, tell me what the whole request comes back as, and what the operator is told about the name that stayed held"
+    intent: "ECSS-E-ST-70-41C clause 6.21.5.4; per-name decision, the executing refusal and the partially accepted verdict"
+    expected_skill: "space-systems/ecss/e7041-unload-a-request-sequence"
+  - id: ulrs2
+    query: "after releasing a held procedure from the on-board sequence store, work out exactly how much space comes back, whether the declared capacity moves, and whether that name can be loaded again straight away"
+    intent: "ECSS-E-ST-70-41C clause 6.21.5.4; releasing exactly the occupied space, leaving the capacity alone and freeing the identifier for a later load"
+    expected_skill: "space-systems/ecss/e7041-unload-a-request-sequence"

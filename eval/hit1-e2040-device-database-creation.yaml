@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-database-creation (space-systems/ecss)
+# Two tasks for the new leaf. ddc1 routes on the repository of design inputs and the
+# draft input read as if released; ddc2 routes on supersession and on readiness against
+# what the detailed design activities declare. Both must deterministically hit
+# space-systems/ecss/e2040-device-database-creation.
+tasks:
+  - id: ddc1
+    query: "our detailed design activities are reading inputs out of the design input repository and some of those entries are still drafts, work out which activity is building on something that can still move"
+    intent: "ECSS-E-ST-20-40C clause 5.4.4; design input repository states, unstable input read by an activity, released versus draft"
+    expected_skill: "space-systems/ecss/e2040-device-database-creation"
+  - id: ddc2
+    query: "check the design input repository holds every input the detailed design declares it needs, that each superseded entry names a successor we actually hold, and give me the readiness figure"
+    intent: "ECSS-E-ST-20-40C clause 5.4.4; declared input not held, superseded entry successor, repository readiness against a threshold"
+    expected_skill: "space-systems/ecss/e2040-device-database-creation"

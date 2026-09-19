@@ -6,7 +6,7 @@
 # deterministically hit space-systems/ecss/e2020-rlcl-enable-threshold-blanking.
 tasks:
   - id: rlclb1
-    query: "a 12 ms excursion above the enable point of our retriggerable latching current limiter is turning the output on, how long does the enable condition have to hold before the unit is allowed to come up"
+    query: "A neighbouring load drops off, the rail spikes for about 12 ms, and our retriggerable latching limiter reads that as a live bus and switches on. How long must the condition persist before turn-on without swallowing a real 40 ms enable request?"
     intent: "ECSS-E-ST-20-20C clause 5.4.4.3.1; a brief bus excursion above the enable point must not enable a retriggerable limiter, so the confirmation time is sized against the excursion dwell"
     expected_skill: "space-systems/ecss/e2020-rlcl-enable-threshold-blanking"
   - id: rlclb2

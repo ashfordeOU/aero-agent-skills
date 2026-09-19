@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-planning (space-systems/ecss)
+# Case 1 routes on the responsibility matrix covering every interface type with a real
+# owner. Case 2 routes on milestone coverage across lifecycle phases and the
+# three-part integration with the system engineering plan.
+tasks:
+  - id: e1024-planning-1
+    query: "I am drafting our Interface Management Plan. The IMP responsibilities table names owners for mechanical, electrical and data but leaves radio-frequency and operational blank. Is an empty owner string a gap I must raise?"
+    intent: "ECSS-E-ST-10C 5.1; every interface type in the responsibility matrix needs a named owner, and a blank string is an uncovered type rather than an assignment"
+    expected_skill: "space-systems/ecss/e1024-planning"
+  - id: e1024-planning-2
+    query: "Our plan lists interface milestones for phases B and C only, and while it names the systems engineering plan it is nowhere flagged there as a deliverable. What does that cost us at plan review?"
+    intent: "ECSS-E-ST-10C 5.1; minimum milestone coverage across phases A to D, and integration needing the reference, the named section and the deliverable listing together"
+    expected_skill: "space-systems/ecss/e1024-planning"

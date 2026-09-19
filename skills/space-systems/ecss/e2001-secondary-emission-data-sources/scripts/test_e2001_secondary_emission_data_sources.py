@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Contract test for the clause 5.3.3.3 secondary emission data source logic."""
 
+import math
 import unittest
 
 from e2001_secondary_emission_data_sources_logic import (
@@ -201,7 +202,10 @@ class RepresentativenessTests(unittest.TestCase):
 
     def test_energy_bound_exactly_on_the_span_survives_float_error(self):
         required_high = (0.1 + 0.2) * 1000.0
-        self.assertGreater(required_high, 300.0)
+        # Exact IEEE-754 arithmetic: this is the double immediately above
+        # 300 eV, identically on every platform. Pinned rather than
+        # compared, so the witness cannot invert on another maths library.
+        self.assertEqual(required_high, math.nextafter(300.0, math.inf))
         narrow = dataset(curve=[(20.0, 0.4), (50.0, 1.0), (300.0, 2.1)])
         findings = representativeness_findings(
             part(energy_max_ev=required_high), narrow

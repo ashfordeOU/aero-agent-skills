@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-initiator-harness-connector-test-substitute
+# (space-systems/ecss). Two tasks for the new leaf. ihcts1 routes on the
+# derated contact rating and the circuit-wide keying uniqueness of the
+# initiator harness connector; ihcts2 routes on the inert test substitute that
+# stands in for the flight initiator. Both must deterministically hit
+# space-systems/ecss/e3311-initiator-harness-connector-test-substitute.
+tasks:
+  - id: ihcts1
+    query: "the squib connector contacts are rated 6 amps and the device needs 5 amps to fire, with a fifty percent derating policy, and three firing circuits in the bay share a keying code, is the connector acceptable"
+    intent: "ECSS-E-ST-33-11C clause 4.10.12; required contact rating as all-fire current over the derating factor, plus keying uniqueness graded across the whole firing-circuit list"
+    expected_skill: "space-systems/ecss/e3311-initiator-harness-connector-test-substitute"
+  - id: ihcts2
+    query: "our inert test substitute for the initiator reads two ohms where the flight device is one, and it is finished in the same colour as the live article; against the harness connector clauses, what is wrong with it"
+    intent: "ECSS-E-ST-33-11C clause 4.10.13; initiator test-substitute bridge-resistance tolerance against the flight device, insulation resistance with its test voltage, and an identification colour flight hardware never uses"
+    expected_skill: "space-systems/ecss/e3311-initiator-harness-connector-test-substitute"

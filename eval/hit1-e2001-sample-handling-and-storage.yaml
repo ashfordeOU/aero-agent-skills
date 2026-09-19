@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-sample-handling-and-storage (space-systems/ecss)
+# Case 1 routes on the weighted accumulation of ambient exposure and the container's own storage limit.
+# Case 2 routes on defect grading from handling and transport into the three-valued custody verdict.
+tasks:
+  - id: e2001-sample-handling-and-storage-1
+    query: "Our coupon sat nine weeks in a sealed double bag, saw three short spells in uncontrolled air and two hours of cleanroom time during preparation. How do I accumulate the weighted exposure across those events and check it against the storage limit the container carries?"
+    intent: "ECSS-E-ST-20-01C 9.4.1.1; per-environment weighting of ambient exposure summed over preparation, handling and transit, tested against the allowance and the container storage life"
+    expected_skill: "space-systems/ecss/e2001-sample-handling-and-storage"
+  - id: e2001-sample-handling-and-storage-2
+    query: "A technician touched the coupon edge with a bare hand, the case arrived with its seal broken, and no shock monitoring record exists for the transport leg. Is that sample still admissible, does it need re-cleaning first, or is it withdrawn outright?"
+    intent: "ECSS-E-ST-20-01C 9.4.1.1; handling-step and transport defects graded into the three-valued custody verdict of admissible, re-clean or withdrawn"
+    expected_skill: "space-systems/ecss/e2001-sample-handling-and-storage"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e31-tbt-success-criteria-correlation-tolerance
+# (space-systems/ecss). scc1 routes on the per-sensor tolerance band and the
+# weight-spent exceedance budget; scc2 routes on separating bias from spread and
+# on the excluded sensor that carries no reason. Both must deterministically hit
+# space-systems/ecss/e31-tbt-success-criteria-correlation-tolerance.
+tasks:
+  - id: scc1
+    query: "give me the pass or fail on the balance test correlation: how much of the sensor weight sits outside the tolerance band and whether that is inside the budget we agreed"
+    intent: "ECSS-E-ST-31C clause 4.5.3.2; per-sensor correlation tolerance band and the exceedance budget spent by sensor weight rather than headcount"
+    expected_skill: "space-systems/ecss/e31-tbt-success-criteria-correlation-tolerance"
+  - id: scc2
+    query: "the mean difference between prediction and measurement is basically zero but the scatter is large, and two sensors were dropped without a reason written down, so tell me which success gate this campaign actually fails"
+    intent: "ECSS-E-ST-31C clause 4.5.3.2; bias and spread graded separately, exclusion needing a recorded reason, and the verdict naming the failed gate"
+    expected_skill: "space-systems/ecss/e31-tbt-success-criteria-correlation-tolerance"

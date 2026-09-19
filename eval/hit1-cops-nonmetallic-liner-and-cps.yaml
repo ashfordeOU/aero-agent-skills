@@ -1,0 +1,13 @@
+# Hit@1 fragment: cops-nonmetallic-liner-and-cps (space-systems/ecss)
+# Case 1 routes on the linerless all-composite variant: the cycle-life factor and
+# the fracture-control path. Case 2 routes on the two checks that exist only for a
+# homogeneous non-metallic liner, buckling under external pressure and permeation.
+tasks:
+  - id: cops-nonmetallic-liner-and-cps-1
+    query: "We have an all-composite CPS, and there is no liner in it whatsoever, so the overwrap is itself the gas-tight boundary. It sees 500 pressurisation cycles in service. What cycle-life factor must the qualification article demonstrate, and can I close fracture control without leak-before-burst?"
+    intent: "ECSS-E-ST-32 clause 4.4.4; the all-composite variant that carries no liner, the multiplicative pressure-cycle qualification factor, and leak-before-burst or safe-life as the two documented fracture paths"
+    expected_skill: "space-systems/ecss/cops-nonmetallic-liner-and-cps"
+  - id: cops-nonmetallic-liner-and-cps-2
+    query: "Our COPS runs a homogeneous polymer liner. When autofrettage reverses the pressure, and again on depressurisation in vacuum, the liner sees pressure from outside. What buckling ratio must I show, and does liner permeation come off the leak budget?"
+    intent: "ECSS-E-ST-32 clause 4.4.4; the two additional checks the non-metallic-liner variant owns, a critical-to-applied external pressure ratio of at least unity and permeation against the system leak allocation"
+    expected_skill: "space-systems/ecss/cops-nonmetallic-liner-and-cps"

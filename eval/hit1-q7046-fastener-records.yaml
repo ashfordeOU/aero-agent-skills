@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-fastener-records (space-systems/ecss)
+# fr1 routes on the record set the criticality owes and the gaps in it; fr2
+# routes on walking the delivered lot upwards to see whether it reaches exactly
+# one heat.
+# Both must deterministically hit space-systems/ecss/q7046-fastener-records.
+tasks:
+  - id: fr1
+    query: "the supplier sent a conformity certificate and a dimensional report with a flight critical fastener delivery, tell me what else the file owes before acceptance can be signed and how long we keep it"
+    intent: "ECSS-Q-ST-70-46 records clause; required record set by criticality including heat-treatment and embrittlement relief results, the ordered gap list, and retention counted from delivery"
+    expected_skill: "space-systems/ecss/q7046-fastener-records"
+  - id: fr2
+    query: "the delivery lot says it came from a plating lot and that from a manufacturing lot, but one bar lot parent is not in our records and another branch reaches a second heat number, does this lot trace or not"
+    intent: "ECSS-Q-ST-70-46 records clause; walking the lot declaration upwards through coating, manufacturing and bar lots to a heat, detecting a broken parent, a circular record and two heats mixed into one delivery"
+    expected_skill: "space-systems/ecss/q7046-fastener-records"

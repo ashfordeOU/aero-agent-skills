@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-telecommand-receipt-confirmation (space-systems/ecss)
+# tcrc1 routes on a confirmation timeout shorter than the geometry allows;
+# tcrc2 routes on a confirmation arriving after the retransmission went out.
+# Both must deterministically hit space-systems/ecss/e50-telecommand-receipt-confirmation.
+tasks:
+  - id: tcrc1
+    query: "our ground system declares uplink commands unacknowledged and resends them long before any confirmation could physically get back, work out the shortest confirmation timeout this link geometry can actually meet"
+    intent: "ECSS-E-ST-50C clause 5.6.14.8; the deadline is bounded below by round-trip light time plus onboard processing plus margin, and anything shorter declares timeouts nobody can avoid"
+    expected_skill: "space-systems/ecss/e50-telecommand-receipt-confirmation"
+  - id: tcrc2
+    query: "the receipt confirmation for a tank valve command turned up after we had already retransmitted it, and another command has hit its resend limit with nothing coming back, what should the operator do with each"
+    intent: "ECSS-E-ST-50C clause 5.6.14.8; a late confirmation is a third state carrying a double-execution risk for a non-idempotent command, and a command past the retransmission limit makes the link rather than the command the fault to report"
+    expected_skill: "space-systems/ecss/e50-telecommand-receipt-confirmation"

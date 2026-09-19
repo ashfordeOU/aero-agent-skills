@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuator-electronics-redundancy (space-systems/ecss)
+# Two tasks for the new leaf. aer1 routes on the shared block that caps a
+# duplicated architecture; aer2 routes on the function present in one chain
+# only. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-electronics-redundancy.
+tasks:
+  - id: aer1
+    query: "we built a second actuator drive box but both of them take their firing enable from the same sequencer, work out what single fault tolerance we actually have and what duplicating that sequencer would buy"
+    intent: "ECSS-E-ST-20-21C clause 5.2.2; shared block in series with the nominal and redundant chains, fault tolerance order and the reliability gain available"
+    expected_skill: "space-systems/ecss/e2021-actuator-electronics-redundancy"
+  - id: aer2
+    query: "compare the function list of our nominal and redundant actuator electronics and tell me which blocks are still single points even though the chain count looks symmetric"
+    intent: "ECSS-E-ST-20-21C clause 5.2.2; functions carried by one chain only inside an apparently duplicated actuator electronics set"
+    expected_skill: "space-systems/ecss/e2021-actuator-electronics-redundancy"

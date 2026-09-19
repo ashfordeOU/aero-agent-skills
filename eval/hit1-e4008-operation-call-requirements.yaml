@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-operation-call-requirements (space-systems/ecss)
+# ocr1 routes on parameter direction - the out parameter that was supplied and
+# the inout that was omitted; ocr2 routes on sequence position, the item that
+# disappears if calls are graded as an unordered set. Both must
+# deterministically hit space-systems/ecss/e4008-operation-call-requirements.
+tasks:
+  - id: ocr1
+    query: "this configuration call hands a value to a parameter the model is supposed to produce, and leaves out the one that is both read and written - work out which arguments the caller owes and which it must delete"
+    intent: "ECSS-E-ST-40-08 clause 5.2.4.2; in and inout parameters are the caller's obligation while an out parameter must carry no supplied value"
+    expected_skill: "space-systems/ecss/e4008-operation-call-requirements"
+  - id: ocr2
+    query: "every call in my configuration binds correctly on its own but one of them runs before the instance it targets is created, and another names an operation that only makes sense once stepping has started"
+    intent: "ECSS-E-ST-40-08 clause 5.2.4.2; the target instance must already exist at the step the call is reached, and configuration-time invokability is separate from publication"
+    expected_skill: "space-systems/ecss/e4008-operation-call-requirements"

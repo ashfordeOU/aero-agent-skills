@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electrical-connector-design-rules (space-systems/ecss)
+# Case 1 routes on which half stays live and the contact style that half must carry.
+# Case 2 routes on the zone-level keying comparison and the shroud threshold.
+tasks:
+  - id: e20-electrical-connector-design-rules-1
+    query: "During ground test our harness feeds the load half of a separable power connector, so that half stays live once it is pulled apart. Which half then has to carry socket contacts, and can a protective cover let me keep pin contacts on that live half?"
+    intent: "ECSS-E-ST-20C 4.2.3; the contact-style rule follows where the energy is rather than the schematic position, and a cover protects a stowed connector instead of one mid-mate"
+    expected_skill: "space-systems/ecss/e20-electrical-connector-design-rules"
+  - id: e20-electrical-connector-design-rules-2
+    query: "Two mateable connectors in the same zone were given an identical keying arrangement. Is that a finding, and does a 100 V connector with 37 contacts also demand a scoop-proof shroud before we release the drawing?"
+    intent: "ECSS-E-ST-20C 4.2.3; keying failures only show up when a zone's connectors are compared pairwise, while the shroud requirement is drawn from working voltage and contact count"
+    expected_skill: "space-systems/ecss/e20-electrical-connector-design-rules"

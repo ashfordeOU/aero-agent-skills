@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-method-selection (space-systems/ecss)
+# Two tasks for the new leaf. sel1 routes on gating candidate methods against
+# access, substrate and solvent compatibility; sel2 routes on ranking the
+# survivors by detection-limit margin and flagging a narrow one. Both must
+# deterministically hit space-systems/ecss/q7005-method-selection.
+tasks:
+  - id: sel1
+    query: "this surface sits inside a sealed housing with nothing to flood or drain it through, and the substrate tolerates neither contact nor solvent; gate the candidate infrared methods on access and substrate and tell me which survive to be ranked"
+    intent: "ECSS-Q-ST-70-05C method choice; gating each candidate on physical access, on whether the substrate tolerates solvent or contact, and on whether the solvent takes the contaminant type up at a usable recovery"
+    expected_skill: "space-systems/ecss/q7005-method-selection"
+  - id: sel2
+    query: "two candidate methods both survive the gates for this silicone residue and both reach the cleanliness level our requirement sets; rank them on the margin each holds over its own detection limit and tell me which one we keep"
+    intent: "ECSS-Q-ST-70-05C method choice; ranking the gated survivors by the margin their detection limit leaves on the required level and flagging a retained method with near-zero margin"
+    expected_skill: "space-systems/ecss/q7005-method-selection"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q2007-customer-requirements (space-systems/ecss)
+# Two tasks for the new leaf. cr1 routes on the pre-commitment review of an
+# incoming test request against the facility envelope and the free schedule
+# capacity; cr2 routes on the safety input a hazardous specimen owes before a
+# slot is held. Both must deterministically hit
+# space-systems/ecss/q2007-customer-requirements.
+tasks:
+  - id: cr1
+    query: "a test request arrived and before the centre commits we need to know whether the request carries enough content to quote, whether the facility envelope covers every requested parameter and whether free weeks are left inside the customer window"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.2; missing content, envelope feasibility per parameter, capacity separate from capability"
+    expected_skill: "space-systems/ecss/q2007-customer-requirements"
+  - id: cr2
+    query: "the customer declared the specimen hazardous but no safety data came with the test request, do we accept the request against named actions or decline it before a slot is held"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.2; safety input is an input to the review, graded commitment decision"
+    expected_skill: "space-systems/ecss/q2007-customer-requirements"

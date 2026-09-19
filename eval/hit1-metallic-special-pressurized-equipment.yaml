@@ -1,0 +1,12 @@
+# Hit@1 fragment: metallic-special-pressurized-equipment (space-systems/ecss)
+# Case 1 routes on the two pressure factors being independent, and the over-test warning.
+# Case 2 routes on family temperature windows and the hazard level derivation.
+tasks:
+  - id: metallic-special-pressurized-equipment-1
+    query: "A sealed container demonstrates proof at 1.6 times MAWP but burst only at 1.8 times. Does the strong proof result cover the burst shortfall, and at what proof ratio should I start worrying about over-testing the item?"
+    intent: "ECSS-E-ST-32 4.6.1; the proof and burst factors are verified independently and a generous proof result does not compensate a burst shortfall"
+    expected_skill: "space-systems/ecss/metallic-special-pressurized-equipment"
+  - id: metallic-special-pressurized-equipment-2
+    query: "Our inventory holds a cryostat, a loop heat pipe and a battery. Which operating temperature window applies to each family, and how is the hazard level set by the nature of the working fluid together with MAWP for a hazardous container at 8 bar?"
+    intent: "ECSS-E-ST-32 4.6.1; each equipment family carries its own temperature window, and the hazard level follows from fluid nature together with pressure magnitude"
+    expected_skill: "space-systems/ecss/metallic-special-pressurized-equipment"

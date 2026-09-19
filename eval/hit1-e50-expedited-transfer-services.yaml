@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-expedited-transfer-services (space-systems/ecss)
+# Two tasks for the new leaf. ets1 routes on non-preemptable blocking of an
+# urgent message; ets2 routes on an expedited queue that never stands the
+# ordinary backlog aside.
+# Both must deterministically hit space-systems/ecss/e50-expedited-transfer-services.
+tasks:
+  - id: ets1
+    query: "an urgent on-board message has to be delivered inside a few milliseconds but a long transfer unit may already be on the wire, compute the worst case and the largest non-preemptable unit that deadline can tolerate"
+    intent: "ECSS-E-ST-50C clause 5.7.2.3; worst-case expedited delivery is blocking by the largest non-preemptable unit plus contending expedited traffic plus own transmission over the link rate, and it inverts into a tolerable unit size"
+    expected_skill: "space-systems/ecss/e50-expedited-transfer-services"
+  - id: ets2
+    query: "the network labels a queue expedited but ordinary traffic already queued is still served first, decide whether an expedited transfer service exists at all and what the urgent message really waits for"
+    intent: "ECSS-E-ST-50C clause 5.7.2.3; without precedence over traffic already queued the whole ordinary backlog is delivered ahead of the urgent message, so the service does not exist however the queue is labelled"
+    expected_skill: "space-systems/ecss/e50-expedited-transfer-services"

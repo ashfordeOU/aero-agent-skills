@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-hardness-testing (space-systems/ecss)
+# Two tasks for the new leaf. hrd1 routes on the validity of a Brinell
+# impression and the force-to-ball pairing; hrd2 routes on carrying a reading
+# onto another scale through the conversion table. Both must deterministically
+# hit space-systems/ecss/q7045-hardness-testing.
+tasks:
+  - id: hrd1
+    query: "a 10 mm ball left a 7 mm impression and the marks sit almost on top of each other - is that Brinell hardness reading inside the ratio band, and does the spacing to the next indentation kill it"
+    intent: "ECSS-Q-ST-70-45 methods; impression-to-ball ratio band, the load index that pairs force with ball, and the spacing and edge-distance minima"
+    expected_skill: "space-systems/ecss/q7045-hardness-testing"
+  - id: hrd2
+    query: "the drawing calls out Rockwell C and all we have on the coupon are Vickers hardness numbers - can those be carried onto the other scale through the conversion table, and what happens to a reading that falls off the soft end"
+    intent: "ECSS-Q-ST-70-45 methods; hardness scale conversion by interpolation inside the table, refusing levels where the target scale has no tabulated entry"
+    expected_skill: "space-systems/ecss/q7045-hardness-testing"

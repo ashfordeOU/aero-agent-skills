@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-template-argument-requirements (space-systems/ecss)
+# tar1 routes on the two-sided binding walk - an argument list that looks
+# complete while a mandatory parameter went unsupplied; tar2 routes on the
+# positional-ordering versus positional-range distinction. Both must
+# deterministically hit
+# space-systems/ecss/e4008-template-argument-requirements.
+tasks:
+  - id: tar1
+    query: "bind this argument list onto the template's declared parameters and tell me what is missing - there is no complaint from the tool but one parameter never got a value and another optional one has no default to fall back on"
+    intent: "ECSS-E-ST-40-08 clause 5.2.1.2; the binder walks arguments and parameters in both directions, mandatory parameters owe an argument and unsupplied optionals owe a default"
+    expected_skill: "space-systems/ecss/e4008-template-argument-requirements"
+  - id: tar2
+    query: "my template arguments are given partly by position and partly by name and one of the positions is past the end of the parameter list - separate the ordering problem from the overrun"
+    intent: "ECSS-E-ST-40-08 clause 5.2.1.2; positional contiguity ahead of named arguments and positional index inside the declared list are two distinct obligations with different repairs"
+    expected_skill: "space-systems/ecss/e4008-template-argument-requirements"

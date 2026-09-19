@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7004-screening-test-programme (space-systems/ecss)
+# Two tasks for the new leaf. stp1 routes on the cycle count per screening
+# class; stp2 routes on a claimed class being pulled back by a process or
+# supplier flag and on splitting specimens into chamber loads. Both must
+# deterministically hit space-systems/ecss/q7004-screening-test-programme.
+tasks:
+  - id: stp1
+    query: "how many cycles does a screening run need for a material we have never flown, and how many specimens does that class call for"
+    intent: "ECSS-Q-ST-70-04C method variants; screening cycle and specimen counts read from the class table"
+    expected_skill: "space-systems/ecss/q7004-screening-test-programme"
+  - id: stp2
+    query: "the supplier changed but we booked it as heritage, does the screening programme still stand and how many chamber loads do eleven specimens take"
+    intent: "ECSS-Q-ST-70-04C method variants; screening class escalation against standing flags, chamber run count and the programme duration per run"
+    expected_skill: "space-systems/ecss/q7004-screening-test-programme"

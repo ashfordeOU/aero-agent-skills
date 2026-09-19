@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-antenna-performance-parameter-set (space-systems/ecss)
+# Case 1 routes on completeness of the declared radiative set and its families.
+# Case 2 routes on the derived quantities and the pointing-error combination.
+tasks:
+  - id: e20-antenna-performance-parameter-set-1
+    query: "Our customer wants the radiative parameter list for a shaped-beam transmit antenna declared in full. Which entries are mandatory for that antenna function, how do I sort them into families, and is a missing entry a finding even when everything declared sits inside its bound?"
+    intent: "ECSS-E-ST-20C 7.2.2.5; completeness of the mandatory declared set and family coverage, where an absent entry is a finding independent of the declared values"
+    expected_skill: "space-systems/ecss/e20-antenna-performance-parameter-set"
+  - id: e20-antenna-performance-parameter-set-2
+    query: "For this horn I have both half-power-beamwidth figures and a radiation-efficiency of 0.62, plus three contributors to boresight-pointing-error. How do I derive directivity, convert it to peak antenna gain, and do the pointing terms combine on a root-sum-square basis against the declared allowable?"
+    intent: "ECSS-E-ST-20C 7.2.2.5; deriving directivity and gain from the declared set and combining pointing-error contributors against the allowable"
+    expected_skill: "space-systems/ecss/e20-antenna-performance-parameter-set"

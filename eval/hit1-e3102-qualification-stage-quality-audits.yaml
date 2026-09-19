@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-qualification-stage-quality-audits (space-systems/ecss)
+# qsa1 routes on the audit-before-manufacture precedence; qsa2 routes on which
+# supplier processes owe an audit at all and whether a stale or self-run one
+# counts. Both must deterministically hit
+# space-systems/ecss/e3102-qualification-stage-quality-audits.
+tasks:
+  - id: qsa1
+    query: "the supplier audit on our two-phase loop special processes is booked only once the qualification model has been built; under the ECSS heat transport standard, does that ordering still protect the article, and what has to close before the test campaign"
+    intent: "ECSS-E-ST-31-02C clauses 5.5.1-5.5.2; qualification stage precedences and the audit that must close before model manufacture"
+    expected_skill: "space-systems/ecss/e3102-qualification-stage-quality-audits"
+  - id: qsa2
+    query: "go through the supplier's process list and say which ones need a quality audit before the test campaign starts, and whether a three-year-old audit the supplier ran on itself covers any of them"
+    intent: "ECSS-E-ST-31-02C clauses 5.5.1-5.5.2; special-process audit coverage, audit validity window, auditor independence and open major findings"
+    expected_skill: "space-systems/ecss/e3102-qualification-stage-quality-audits"

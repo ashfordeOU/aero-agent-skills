@@ -194,4 +194,7 @@ solutions round trip, and ValueError rejection of malformed input.
   development-assurance evidence the argument records; the GSN notation rules
   are summarized at reference level from the public description of the GSN
   Community Standard, with no reproduced figures or tables.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

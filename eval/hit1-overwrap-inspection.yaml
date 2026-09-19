@@ -1,0 +1,12 @@
+# Hit@1 fragment: overwrap-inspection (space-systems/ecss)
+# Case 1 routes on screening a surface indication before any volumetric method is chosen.
+# Case 2 routes on coverage overriding the anomaly verdict and how categories aggregate.
+tasks:
+  - id: overwrap-inspection-1
+    query: "A scratch turned up on the aramid overwrap of a flight pressure vessel. Does visual damage tolerance screen that surface anomaly before any volumetric inspection under the ECSS clause, and how does the overwrap material, CFRP or GFRP or aramid, change the recommended method?"
+    intent: "ECSS-E-ST-32C 5.7; a surface indication is screened visually first and the method matrix is keyed on defect type together with the overwrap material"
+    expected_skill: "space-systems/ecss/overwrap-inspection"
+  - id: overwrap-inspection-2
+    query: "We inspected 88 percent of the overwrap area and found one delamination in the monitor band and nothing rejectable. Is that a conditional pass, and how do the worst categories across different defect types combine into one verdict?"
+    intent: "ECSS-E-ST-32C 5.7; a coverage shortfall returns an incomplete verdict whatever the anomalies showed, and each defect type is sized against its own limits before aggregation"
+    expected_skill: "space-systems/ecss/overwrap-inspection"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: e7041-report-the-status-of-each-event-action-definition (space-systems/ecss)
+# Two tasks for the new leaf. reas1 routes on the whole-store sweep of WHICH
+# event-action definitions are armed; reas2 routes on the two-flag derivation
+# where a definition reads enabled underneath a disabled event-action function.
+# Neither may reach e7041-report-event-action-definitions, which reports the
+# ACTION each definition carries. Both must deterministically hit
+# space-systems/ecss/e7041-report-the-status-of-each-event-action-definition.
+tasks:
+  - id: reas1
+    query: "I want a sweep of every event-action definition the application process holds saying which are currently enabled, not what telecommand each one would send"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.5; whole-store event-action status report carrying each definition's own enable flag"
+    expected_skill: "space-systems/ecss/e7041-report-the-status-of-each-event-action-definition"
+  - id: reas2
+    query: "a definition reads enabled but the event-action function of that application process is switched off, what enable status is the status report entitled to carry and what should it flag"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.5; the definition flag is reported unchanged and the inhibited definition is raised as a finding"
+    expected_skill: "space-systems/ecss/e7041-report-the-status-of-each-event-action-definition"

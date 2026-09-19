@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-level-two-material-criteria (space-systems/ecss)
+# Case 1 routes on representativeness, refusing a record measured on a surface cleaner
+# than flight. Case 2 routes on the temperature window and the measured-span screen,
+# and on the run being blocked when nothing qualifies.
+tasks:
+  - id: e2001-level-two-material-criteria-1
+    query: "We hold secondary yield data for silver from a sputter-cleaned coupon and from an air-exposed sample, and flight surfaces will be air-exposed. Which dataset feeds the detailed run, and why is the cleaner one not the better data?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.2; yield falls as a surface is cleaned, so only a record no cleaner than the flight surface is representative of what flight hardware emits"
+    expected_skill: "space-systems/ecss/e2001-level-two-material-criteria"
+  - id: e2001-level-two-material-criteria-2
+    query: "Our only silver secondary-electron-yield record was measured at room temperature while the susceptible gap runs near 120 C, and the measured range ends below the energies our tracked electrons reach. Can the detailed ECSS multipactor level use it?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.3.2; the measurement temperature window and the measured energy span covering the tracked impact energies are screening criteria, and an empty qualifying set blocks the run"
+    expected_skill: "space-systems/ecss/e2001-level-two-material-criteria"

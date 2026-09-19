@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-manufacturing-process-control (space-systems/ecss)
+# mp1 routes on the canonical operation order and the mandatory set; mp2
+# routes on capability grading and the requalification trigger. Both must
+# deterministically hit space-systems/ecss/q7046-manufacturing-process-control.
+tasks:
+  - id: mp1
+    query: "the traveller for these bolts puts threading before the hardening and there is no bake after plating, is the route acceptable and what is it missing for a ten point nine class"
+    intent: "ECSS-Q-ST-70-46 manufacturing clause; a route runs non-decreasing through the canonical operation order, and the mandatory set follows from the property class and the plating route"
+    expected_skill: "space-systems/ecss/q7046-manufacturing-process-control"
+  - id: mp2
+    query: "on this threaded fastener route the bake oven mean sits near the top edge of its window with a narrow spread, so band the capability index for that characteristic and say whether moving the set point retires the qualified parameter"
+    intent: "ECSS-Q-ST-70-46 manufacturing clause; capability is the distance from the mean to the nearer window edge in three standard deviations graded into three bands, and a parameter drift past tolerance retires the process qualification"
+    expected_skill: "space-systems/ecss/q7046-manufacturing-process-control"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-telemetry-user-data-field (space-systems/ecss)
+# Two tasks for the new leaf. tudf1 routes on the alignment spare between the message
+# body and the error control field; tudf2 routes on the packet data length field
+# counting one less than the data field octets. Both must deterministically hit
+# space-systems/ecss/e7041-telemetry-user-data-field.
+tasks:
+  - id: tudf1
+    query: "this report body is a one bit enable flag then a four bit mode word then two 16 bit readings, how much padding goes in before the error control field and which parameters end up straddling an octet"
+    intent: "ECSS-E-ST-70-41C clause 7.4.3.2; the user data field is message body then alignment spare then the packet error control field, and spare is never a whole octet"
+    expected_skill: "space-systems/ecss/e7041-telemetry-user-data-field"
+  - id: tudf2
+    query: "the decoder is one octet out on every report, work out what number the length field in the primary header should carry for a 13 octet data field header and a 9 octet user data field"
+    intent: "ECSS-E-ST-70-41C clause 7.4.3.2; the packet data field is secondary header plus user data field and the length field counts its octets less one"
+    expected_skill: "space-systems/ecss/e7041-telemetry-user-data-field"

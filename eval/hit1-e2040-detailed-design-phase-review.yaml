@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-detailed-design-phase-review (space-systems/ecss)
+# Two tasks for the new leaf. ddpr1 routes on a major review item discrepancy
+# blocking the gate whatever the closure percentage says; ddpr2 routes on the
+# deliverable states and the actions carried out of the review. Both must
+# deterministically hit space-systems/ecss/e2040-detailed-design-phase-review.
+tasks:
+  - id: ddpr1
+    query: "we closed ninety per cent of the review items but one major one is still open, can the detailed design gate close and can layout start"
+    intent: "ECSS-E-ST-20-40C 5.5.6; an unresolved major discrepancy blocks the gate independently of the closure fraction, verdict pass, pass-with-actions or fail"
+    expected_skill: "space-systems/ecss/e2040-detailed-design-phase-review"
+  - id: ddpr2
+    query: "two findings were accepted at the detailed design review with actions nobody put on the register, and one deliverable it was called on never turned up - who owns those actions, against which due milestone, and what verdict does the gate reach"
+    intent: "ECSS-E-ST-20-40C 5.5.6; an unresolved deliverable blocks the gate and an accepted discrepancy must name a registered action with an owner and a due milestone before the verdict is reached"
+    expected_skill: "space-systems/ecss/e2040-detailed-design-phase-review"

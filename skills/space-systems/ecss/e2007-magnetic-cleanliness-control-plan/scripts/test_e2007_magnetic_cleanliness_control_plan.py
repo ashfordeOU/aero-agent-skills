@@ -238,7 +238,14 @@ class TestItemEmission(unittest.TestCase):
         allocation = allocate_emission_limits(20.0, 3, "equal-share")
         on_limit = item(id="on-limit", declared_moment_am2=0.0576)
         record = check_item_emission(on_limit, allocation, 1.2, "axial")
-        self.assertGreater(record["field_nt"], allocation)
+        # The dipole field divides by a cube formed with **, which is not
+        # correctly rounded, so which side of the allocation the last bit
+        # falls on is libm-dependent: on this host the field sits one unit
+        # in the last place above it, on another runner it may sit exactly
+        # on it or one below. The contract does not depend on that
+        # direction - an item on its limit is judged within it either way -
+        # so assert the separation, not the rounding direction.
+        self.assertLess(abs(record["field_nt"] - allocation), 1e-9)
         self.assertAlmostEqual(record["field_nt"], allocation, places=9)
         self.assertTrue(record["within_limit"])
 

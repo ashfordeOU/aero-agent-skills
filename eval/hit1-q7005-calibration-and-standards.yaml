@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-calibration-and-standards (space-systems/ecss)
+# Two tasks for the new leaf. cas1 routes on the fit grading and the working
+# range the standards bracket; cas2 routes on the independent verification
+# standard put back through the curve. Both must deterministically hit
+# space-systems/ecss/q7005-calibration-and-standards.
+tasks:
+  - id: cas1
+    query: "we put gravimetric standards down at four levels on a known area and read each one in the infrared - fit that response against areal mass, say whether the fit is defensible, over what span I can invert it, and how the check standard recovers"
+    intent: "ECSS-Q-ST-70-05C quantification; least-squares slope, coefficient of determination plus worst relative residual, and the bracketed working range that bars extrapolation"
+    expected_skill: "space-systems/ecss/q7005-calibration-and-standards"
+  - id: cas2
+    query: "a standard that was not part of the fit reads back as roughly half its prepared amount; decide what that means for the curve before I quantify any hardware with it"
+    intent: "ECSS-Q-ST-70-05C quantification; verification-standard recovery against the acceptance band, and the rule that the curve is not tuned to make it recover"
+    expected_skill: "space-systems/ecss/q7005-calibration-and-standards"

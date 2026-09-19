@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7028-modification-techniques (space-systems/ecss)
+# Two tasks for the new leaf. mt1 routes on the isolation gap a cut's working
+# voltage demands and on residual copper as a separate failure; mt2 routes on
+# rating and supporting an added wire and on the board's added-wire limit.
+# Both must deterministically hit
+# space-systems/ecss/q7028-modification-techniques.
+tasks:
+  - id: mt1
+    query: "we scraped through a track to break a net, work out how wide that gap has to be for the voltage across it and whether the cut is actually complete"
+    intent: "ECSS-Q-ST-70-28 modification methods; the isolation gap is interpolated from the working voltage and residual copper bridging the cut is a separate refusal"
+    expected_skill: "space-systems/ecss/q7028-modification-techniques"
+  - id: mt2
+    query: "the change note wants three jumper wires added and two tracks cut on this board; check the gauge carries the continuous current, count the supports each run needs, interpolate the isolation gap for the working voltage, and say if the board can take it"
+    intent: "ECSS-Q-ST-70-28 modification methods; an added wire is rated on conductor ampacity and on supports derived from routed length, and added wires are budgeted per board"
+    expected_skill: "space-systems/ecss/q7028-modification-techniques"

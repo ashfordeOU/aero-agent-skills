@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-impact-testing (space-systems/ecss)
+# Two tasks for the new leaf. imp1 routes on sub-size bars judged against a
+# scaled requirement with an individual floor; imp2 routes on the conditions
+# the bars were struck under. Both must deterministically hit
+# space-systems/ecss/q7045-impact-testing.
+tasks:
+  - id: imp1
+    query: "the stock was too thin for full-width Charpy bars so we broke 5 mm ones, and one of the three sits well below the others - scale the toughness figure to the notch width and grade the set"
+    intent: "ECSS-Q-ST-70-45 methods; requirement scaled by the width below the notch, with both the set average and the individual specimen floor applied"
+    expected_skill: "space-systems/ecss/q7045-impact-testing"
+  - id: imp2
+    query: "the lab lifted the notched bars out of the bath and a good ten seconds passed before the pendulum struck, so is the minus forty strike temperature still defensible given that transfer and the soak they gave it"
+    intent: "ECSS-Q-ST-70-45 methods; soak duration, transfer time and strike temperature tolerance, plus the usable band of the pendulum capacity"
+    expected_skill: "space-systems/ecss/q7045-impact-testing"

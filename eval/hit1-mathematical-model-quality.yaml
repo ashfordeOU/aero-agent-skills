@@ -1,0 +1,13 @@
+# Hit@1 fragment: mathematical-model-quality (space-systems/ecss)
+# Case 1 routes on the intrinsic health of the model: element shape limits and the
+# unconstrained low modes sitting at zero. Case 2 routes on the reference data it is
+# graded against: an unset mass baseline and separate correlation tolerances.
+tasks:
+  - id: mathematical-model-quality-1
+    query: "Is our structural mathematical model adequate for verification? A few shell elements have aspect ratios near 12 with very obtuse corner angles, and an unconstrained run puts the sixth low mode at 0.004 Hz rather than essentially zero."
+    intent: "ECSS-E-ST-32C clause 4.6.2.2; the case turns on mesh shape limits and on the six free-free modes having to sit inside the zero-frequency tolerance"
+    expected_skill: "space-systems/ecss/mathematical-model-quality"
+  - id: mathematical-model-quality-2
+    query: "No reference mass was ever recorded for our structural model, and the team applied one 5 percent tolerance to both the static deflection comparison and the modal frequency comparison against the test article. Is a blank mass baseline simply a pass, and can a single tolerance serve both correlations?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.2; the case turns on an unset reference mass being a finding in itself and on static and modal correlation carrying separate limits"
+    expected_skill: "space-systems/ecss/mathematical-model-quality"

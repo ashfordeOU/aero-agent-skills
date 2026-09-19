@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-power-and-discharge-qualification (space-systems/ecss)
+# Case 1 routes on two axes closed on two hardware standards and the envelope that follows.
+# Case 2 routes on which axis a late design change reopens.
+tasks:
+  - id: e20-power-and-discharge-qualification-1
+    query: "We closed the thermal side using a dedicated qualification unit, while the corona sweep ran on an engineering unit instead. Is that acceptable at all, and which of the two demonstrated levels sets the operating envelope we can actually claim?"
+    intent: "ECSS-E-ST-20C 7.3.4; the case turns on the configuration link between two hardware standards and on the weaker axis setting the supported envelope"
+    expected_skill: "space-systems/ecss/e20-power-and-discharge-qualification"
+  - id: e20-power-and-discharge-qualification-2
+    query: "Late in the build the venting route and a critical gap changed on our radio-frequency filter, and the connector interface was swapped too. Which of the two qualification axes does each change reopen, power-handling-capability or gas-discharge-behaviour, and what delta scope follows?"
+    intent: "ECSS-E-ST-20C 7.3.4; the case turns on mapping each design change onto the axis it reopens to scope the delta qualification"
+    expected_skill: "space-systems/ecss/e20-power-and-discharge-qualification"

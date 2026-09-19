@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-propulsion-particle-contamination (space-systems/ecss)
+# Case 1 routes on covering both efflux families rather than only the ionised one.
+# Case 2 routes on the transport geometry that turns a source rate into a film thickness.
+tasks:
+  - id: e2006-propulsion-particle-contamination-1
+    query: "Our plume deposition budget for a radiator counts only beam and charge exchange ions because the unit is an ion thruster. Must unionized propellant and cathode neutral flow enter the same assessment, and how are the two efflux families kept apart?"
+    intent: "ECSS-E-ST-20-06C 11.2.3; the clause covers neutral as well as charged efflux, and unionised propellant is routinely the larger depositing mass on a cold surface"
+    expected_skill: "space-systems/ecss/e2006-propulsion-particle-contamination"
+  - id: e2006-propulsion-particle-contamination-2
+    query: "A sensor window sits 1.2 metres off axis and outside the plume cone. How do I turn the source rate into an arriving areal flux through solid angle, distance and incidence, then into nanometres of deposited film when sticking was never measured?"
+    intent: "ECSS-E-ST-20-06C 11.2.3; a surface outside the cone is reached by backflow spread over the full sphere, and an assumed unity sticking has to be visible in the record"
+    expected_skill: "space-systems/ecss/e2006-propulsion-particle-contamination"

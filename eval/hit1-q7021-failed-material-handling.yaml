@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7021-failed-material-handling (space-systems/ecss)
+# fm1 routes on the route out of a failure and the use-as-is rationale that a
+# drip ignition refuses; fm2 routes on sizing the extended set from the observed
+# rate and on the majority failure that is not a draw. Both must
+# deterministically hit space-systems/ecss/q7021-failed-material-handling.
+tasks:
+  - id: fm1
+    query: "this foam failed its flammability screening because one specimen dropped burning material that lit the paper underneath, and the project wants to keep it with a written justification, tell me whether that is a route and what our options actually are"
+    intent: "ECSS-Q-ST-70-21C evaluation of a failed screening; a drip ignition is a severe mode that refuses a use-as-is rationale, leaving rejection or a change to the installation"
+    expected_skill: "space-systems/ecss/q7021-failed-material-handling"
+  - id: fm2
+    query: "one specimen out of five burned past the limit, work out how many specimens a further round of flammability testing needs and whether the answer changes if four of the five had failed instead"
+    intent: "ECSS-Q-ST-70-21C evaluation of a failed screening; an extended set is sized from the observed pass fraction, and a majority failure is not sent to an extended set at all"
+    expected_skill: "space-systems/ecss/q7021-failed-material-handling"

@@ -111,16 +111,24 @@ class TestChartBand(unittest.TestCase):
         self.assertTrue(L.within_chart_band(24.0))
 
     def test_lower_boundary_absorbs_representation_error(self):
+        # nextafter() towards zero returns the adjacent double BELOW the
+        # edge by definition, so the probe sits one ULP under the band on
+        # every platform - the direction is in the construction, and the
+        # claim under test is that the band absorbs it.
         product = math.nextafter(L.CHART_BAND_GHZ_MM[0], 0.0)
-        self.assertLess(product, L.CHART_BAND_GHZ_MM[0])
+        self.assertNotEqual(product, L.CHART_BAND_GHZ_MM[0])
         self.assertTrue(L.within_chart_band(product))
 
     def test_upper_boundary_is_inclusive(self):
         self.assertTrue(L.within_chart_band(100.0))
 
     def test_upper_boundary_absorbs_representation_error(self):
+        # nextafter() towards a larger value returns the adjacent double
+        # ABOVE the edge by definition, so the probe sits one ULP over the
+        # band on every platform - the direction is in the construction,
+        # and the claim under test is that the band absorbs it.
         product = math.nextafter(L.CHART_BAND_GHZ_MM[1], 1000.0)
-        self.assertGreater(product, L.CHART_BAND_GHZ_MM[1])
+        self.assertNotEqual(product, L.CHART_BAND_GHZ_MM[1])
         self.assertTrue(L.within_chart_band(product))
 
     def test_below_band(self):
@@ -142,8 +150,11 @@ class TestFieldUniformityRatio(unittest.TestCase):
         self.assertAlmostEqual(L.field_uniformity_ratio(800.0, 800.0), 1.0, places=12)
 
     def test_one_ulp_below_unity_is_absorbed(self):
+        # IEEE-754 subtraction is correctly rounded, so 0.3 - 0.1 is the
+        # same bit pattern everywhere: exactly the double below 0.2. State
+        # that exactly instead of asking a comparison to resolve one bit.
         peak = 0.3 - 0.1
-        self.assertLess(peak, 0.2)
+        self.assertEqual(peak, math.nextafter(0.2, 0.0))
         self.assertAlmostEqual(L.field_uniformity_ratio(peak, 0.2), 1.0, places=12)
 
     def test_peak_below_mean_raises(self):
@@ -166,8 +177,11 @@ class TestFirstLevelOutcome(unittest.TestCase):
         self.assertEqual(L.first_level_outcome(4.0, 4.0), "adequate")
 
     def test_one_ulp_below_the_limit_is_still_adequate(self):
+        # IEEE-754 subtraction is correctly rounded, so 0.3 - 0.1 is the
+        # same bit pattern everywhere: exactly the double below the 0.2
+        # requirement. The requirement itself is untouched.
         margin = 0.3 - 0.1
-        self.assertLess(margin, 0.2)
+        self.assertEqual(margin, math.nextafter(0.2, 0.0))
         self.assertEqual(L.first_level_outcome(margin, 0.2), "adequate")
 
     def test_non_numeric_margin_raises(self):

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electrical-budgets-and-margin-policy (space-systems/ecss)
+# Case 1 routes on the item level: maturity contingency and the double-count when a supplier already buried uncertainty in its number.
+# Case 2 routes on the roll-up: duty-cycled per-mode demand, worst-case mode selection, achieved margin against the policy floor.
+tasks:
+  - id: e20-electrical-budgets-and-margin-policy-1
+    query: "Our electrical power budget puts a brand new transponder whose supplier already buried 20 percent uncertainty inside the quoted consumption next to a flight-measured reaction wheel. Do I still load the maturity contingency onto the transponder line, and at which level does the phase-driven margin get applied?"
+    intent: "ECSS-E-ST-20C 4.2.2.2; per-item maturity contingency, the double-counting check when contingency is already folded into a nominal value, and the separation between item contingency and system-level margin"
+    expected_skill: "space-systems/ecss/e20-electrical-budgets-and-margin-policy"
+  - id: e20-electrical-budgets-and-margin-policy-2
+    query: "Our electrical power budget spans five mission modes and most equipment only draws full load part of the time. How do I fold each duty-cycled line item into a demand per mode, choose the mode that sizes the array, and grade achieved margin and shortfall against declared capability and the project policy?"
+    intent: "ECSS-E-ST-20C 4.2.2.2; duty-cycled roll-up per mode, worst-case mode selection as the sizing case, and achieved margin graded against the policy-required floor with its shortfall"
+    expected_skill: "space-systems/ecss/e20-electrical-budgets-and-margin-policy"

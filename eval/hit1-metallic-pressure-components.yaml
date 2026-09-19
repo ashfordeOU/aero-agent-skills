@@ -1,0 +1,12 @@
+# Hit@1 fragment: metallic-pressure-components (space-systems/ecss)
+# Case 1 routes on the proof and burst factors the component type carries.
+# Case 2 routes on the wall stress margin and the safe-life division.
+tasks:
+  - id: metallic-pressure-components-1
+    query: "Our metallic pressure components are two lines, a fitting, an isolation valve and a flexible hose, all at 24 bar operating pressure. What proof factor and what burst factor does each component type owe, and where do the pressure margins differ between them?"
+    intent: "ECSS-E-ST-32 4.5.1; component type selects the burst factor, and proof is set as a multiple of the maximum operating pressure"
+    expected_skill: "space-systems/ecss/metallic-pressure-components"
+  - id: metallic-pressure-components-2
+    query: "For a thin-walled cylindrical section at operating pressure I have the hoop stress and the axial component. What margin against ultimate tensile strength is required, and how do I turn a demonstrated cycles-to-failure figure into a safe life for the mission pressure cycles?"
+    intent: "ECSS-E-ST-32 4.5.1; the equivalent wall stress margin and the scatter factor applied to demonstrated test life"
+    expected_skill: "space-systems/ecss/metallic-pressure-components"

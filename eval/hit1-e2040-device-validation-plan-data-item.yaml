@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-device-validation-plan-data-item (space-systems/ecss)
+# Two tasks for the new leaf. dvp1 routes on the use-case-to-activity coverage
+# matrix and the criticality weighting that makes coverage a quantity; dvp2
+# routes on a pass criterion that cannot be graded because it carries no
+# comparator, bound or unit. Both must deterministically hit
+# space-systems/ecss/e2040-device-validation-plan-data-item.
+tasks:
+  - id: dvp1
+    query: "our device validation plan lists twenty activities but I cannot tell which of the declared use cases are actually covered, work out the weighted coverage and which safety-driving case is held up by analysis alone"
+    intent: "ECSS-E-ST-20-40C Annex D; use-case-to-activity coverage matrix, criticality-weighted coverage fraction and the observing-approach requirement behind a safety-driving use case"
+    expected_skill: "space-systems/ecss/e2040-device-validation-plan-data-item"
+  - id: dvp2
+    query: "go through the pass criteria in this validation plan and tell me which ones a reviewer could never grade an outcome against, including the ones stated as an exact equality with no tolerance"
+    intent: "ECSS-E-ST-20-40C Annex D; pass-criterion measurability needs a comparator, a finite bound and a real unit, and an equality criterion needs a stated tolerance"
+    expected_skill: "space-systems/ecss/e2040-device-validation-plan-data-item"

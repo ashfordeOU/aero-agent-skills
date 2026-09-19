@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-data-sheet-layout-update (space-systems/ecss)
+# Two tasks for the new leaf. dsl1 routes on worst-corner selection differing by
+# bound direction; dsl2 routes on a published figure still carrying the
+# pre-layout estimate. Both must deterministically hit
+# space-systems/ecss/e2040-data-sheet-layout-update.
+tasks:
+  - id: dsl1
+    query: "layout gave me clock to output delay and maximum operating frequency at three pvt corners, decide which corner each of those two numbers gets published at in the device data sheet"
+    intent: "ECSS-E-ST-20-40C clause 5.6.6; the worst corner is the largest value for an upper-bounded parameter and the smallest for a lower-bounded one"
+    expected_skill: "space-systems/ecss/e2040-data-sheet-layout-update"
+  - id: dsl2
+    query: "the published setup time is still the synthesis wire load estimate although the extraction finished last week, work out which data sheet entries were never refreshed after layout and how much margin each one really has"
+    intent: "ECSS-E-ST-20-40C clause 5.6.6; a published value equal to the pre-layout estimate while extracted corner data exists was never revised, and margin is a signed fraction of the limit"
+    expected_skill: "space-systems/ecss/e2040-data-sheet-layout-update"

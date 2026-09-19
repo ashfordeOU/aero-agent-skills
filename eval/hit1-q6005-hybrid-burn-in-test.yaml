@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-burn-in-test (space-systems/ecss,
+# Q-ST-60-05 10.3.9). Two tasks for the new leaf. hbi1 routes on the Arrhenius
+# equivalence of a shortened hot schedule and the die temperature the bias
+# produces; hbi2 routes on the drift and measurement window a survivor is
+# graded by and on the lot the reject fraction condemns. Both must
+# deterministically hit space-systems/ecss/q6005-hybrid-burn-in-test.
+tasks:
+  - id: hbi1
+    query: "prove this hybrid-burn-in-schedule is an arrhenius-burn-in-equivalence of the reference condition and check the hybrid-burn-in-junction-temperature-limit once the bias dissipation is added to ambient"
+    intent: "ecss hybrids; a shorter hot run is admissible only when the equivalence is computed, and the die sits above the oven"
+    expected_skill: "space-systems/ecss/q6005-hybrid-burn-in-test"
+  - id: hbi2
+    query: "apply the hybrid-burn-in-delta-drift-limit and the hybrid-burn-in-measurement-window to the survivors, then the hybrid-burn-in-lot-percent-defective for the flow class this batch is built to"
+    intent: "ecss hybrids; a survivor is graded on how far it moved and how promptly it was read, and the lot is graded too"
+    expected_skill: "space-systems/ecss/q6005-hybrid-burn-in-test"

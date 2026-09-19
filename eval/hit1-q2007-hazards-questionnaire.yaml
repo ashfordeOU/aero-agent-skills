@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-hazards-questionnaire (space-systems/ecss)
+# Two tasks for the new leaf. hq1 routes on building the form itself from the
+# DRD skeleton plus the detail sections a profile pulls in; hq2 routes on the
+# attachment and authorisation grading of what came back. Both must
+# deterministically hit space-systems/ecss/q2007-hazards-questionnaire.
+tasks:
+  - id: hq1
+    query: "build the form we send the customer about hazardous items and activities, and only include the detail blocks their declared families actually pull in rather than the whole catalogue"
+    intent: "ECSS-Q-ST-20-07C Annex A DRD; generating the questionnaire sections, base blocks plus the triggered detail blocks in DRD order"
+    expected_skill: "space-systems/ecss/q2007-hazards-questionnaire"
+  - id: hq2
+    query: "they ticked yes for the pressure vessel but attached nothing, and the form is signed by someone whose role I do not recognise - grade the returned answers and tell me whether it goes back"
+    intent: "ECSS-Q-ST-20-07C Annex A DRD; supporting-attachment rule on an affirmed checklist answer and the authorisation-role check on the signature block"
+    expected_skill: "space-systems/ecss/q2007-hazards-questionnaire"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-noise-sources (space-systems/ecss)
+# Two tasks for the new leaf. nsr1 routes on referring sources to one plane and
+# the noise a lossy run generates; nsr2 routes on identification completeness
+# and the dominant group. Both must deterministically hit
+# space-systems/ecss/e50-noise-sources.
+tasks:
+  - id: nsr1
+    query: "add up the system noise temperature at the receiver input for this ground chain, carrying the sky, atmospheric and spillover temperatures through the feed loss properly and crediting the feed run with the noise it generates as well as what it attenuates"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.6; noise sources only add at a common reference plane, and a lossy element both attenuates and generates"
+    expected_skill: "space-systems/ecss/e50-noise-sources"
+  - id: nsr2
+    query: "our budget never names an atmospheric contribution and we are over the allocated noise temperature anyway, tell me which source groups are missing from the identification and which group dominates the total so we know whether to shorten the feed run or change the front end"
+    intent: "ECSS-E-ST-50C Rev.2 clause 5.6.6; a missing source group is an identification gap rather than a zero, and the dominant contributor is the actionable output"
+    expected_skill: "space-systems/ecss/e50-noise-sources"

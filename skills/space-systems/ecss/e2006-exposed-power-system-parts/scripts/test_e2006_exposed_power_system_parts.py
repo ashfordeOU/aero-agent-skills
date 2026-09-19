@@ -139,17 +139,27 @@ class RegimeTests(unittest.TestCase):
         self.assertEqual(categorize_arcing_regime(90.0, -150.0, True), "sustained-arc-risk")
 
     def test_inception_magnitude_reached_by_a_sum_of_offsets_still_counts(self):
-        # -33.4 - 33.3 - 33.3 is exactly -100 V physically but lands a few ULPs
-        # short of it in binary; the compliant-looking shortfall must not
-        # downgrade the regime.
+        # -33.4 - 33.3 - 33.3 is exactly -100 V physically. None of the three
+        # decimals is exact in binary, so the running sum lands within a unit
+        # in the last place of the inception potential; which side is a
+        # representation detail and not part of the claim. places=11 is ~350
+        # units in the last place of 100 V - unreachable by any rounding and
+        # far below any real potential difference. The inception potential
+        # itself is unchanged; the claim under test is that a shortfall this
+        # small must not downgrade the regime.
         relative = -33.4 + -33.3 + -33.3
-        self.assertGreater(relative, -PRIMARY_ARC_INCEPTION_V)
+        self.assertAlmostEqual(relative, -PRIMARY_ARC_INCEPTION_V, places=11)
         self.assertEqual(categorize_arcing_regime(10.0, relative, True), "primary-arc-risk")
 
     def test_differential_at_the_sustaining_threshold_by_subtraction_still_counts(self):
-        # 64.1 V - 9.1 V is exactly 55 V physically, a few ULPs short in binary.
+        # 64.1 V - 9.1 V is exactly 55 V physically; neither decimal is exact
+        # in binary, so the difference lands within a unit in the last place of
+        # the threshold. The magnitude is the claim, not the side of that bit:
+        # places=11 is ~700 units in the last place of 55 V, wider than any
+        # rounding and far tighter than any real differential. The threshold
+        # itself is unchanged.
         differential = largest_conductor_differential([9.1, 64.1])
-        self.assertLess(differential, SUSTAINED_ARC_DIFFERENTIAL_V)
+        self.assertAlmostEqual(differential, SUSTAINED_ARC_DIFFERENTIAL_V, places=11)
         self.assertEqual(
             categorize_arcing_regime(differential, -150.0, True), "sustained-arc-risk"
         )
@@ -213,10 +223,14 @@ class BondingTests(unittest.TestCase):
         self.assertIn("exceeds", findings[0])
 
     def test_series_bond_path_exactly_at_the_limit_passes(self):
-        # Strap + interface + fastener segments summing to exactly 10 mohm;
-        # the binary sum lands one ULP above the limit.
+        # Strap + interface + fastener segments summing to exactly 10 mohm.
+        # The binary sum lands within a unit in the last place of the limit;
+        # the side it lands on is a representation detail, so the magnitude is
+        # what is asserted. places=15 is ~290 units in the last place of
+        # 10 mohm - unreachable by rounding, and far tighter than any real
+        # series path. The limit itself is unchanged.
         measured = 0.0002 + 0.0079 + 0.0019
-        self.assertGreater(measured, BONDING_RESISTANCE_LIMIT_OHM)
+        self.assertAlmostEqual(measured, BONDING_RESISTANCE_LIMIT_OHM, places=15)
         self.assertEqual(check_bonding_resistance({"bonding_resistance_ohm": measured}), [])
 
     def test_missing_bond_reading_is_a_finding(self):

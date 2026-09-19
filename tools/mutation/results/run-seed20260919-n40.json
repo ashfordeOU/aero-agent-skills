@@ -1,0 +1,1930 @@
+{
+  "tool": "tools/mutation/mutation_score.py",
+  "tool_version": "1.0.0",
+  "generated_utc": "2026-09-18T23:56:24+00:00",
+  "python": "3.14.4",
+  "seed": 20260919,
+  "requested_sample": 40,
+  "mutants_per_leaf": 25,
+  "timeout_seconds": 10.0,
+  "jobs": 8,
+  "wall_seconds": 15.2,
+  "corpus": {
+    "root": "skills",
+    "population": 3021,
+    "fingerprint": "sha256:f677dc813a989ecbf322a415389341b103c130888388d8e1d68c8a97f64351a4"
+  },
+  "selection": [
+    "skills/aerodynamics/boundary-layer/squire-young-profile-drag",
+    "skills/gnc-autonomy/guidance/augmented-proportional-navigation",
+    "skills/gnc-autonomy/guidance/command-to-line-of-sight",
+    "skills/space-systems/ecss/e10-design-general",
+    "skills/space-systems/ecss/e10-pum-drd",
+    "skills/space-systems/ecss/e1002-execution",
+    "skills/space-systems/ecss/e1002-facilities",
+    "skills/space-systems/ecss/e1012-tid-basis",
+    "skills/space-systems/ecss/e2001-seeding-for-multicarrier-tests",
+    "skills/space-systems/ecss/e2001-single-carrier-margin-overview",
+    "skills/space-systems/ecss/e2007-emission-frequency-scanning",
+    "skills/space-systems/ecss/e2008-bare-cell-electrical-performance",
+    "skills/space-systems/ecss/e2008-blocking-diode-qualification-samples",
+    "skills/space-systems/ecss/e2008-coverglass-bubbles-and-inclusions",
+    "skills/space-systems/ecss/e2008-sca-electrostatic-sensitivity-handling",
+    "skills/space-systems/ecss/e50-downlink-frame-rejection-rate",
+    "skills/space-systems/ecss/e5053-eop-character",
+    "skills/space-systems/ecss/e5053-error-end-of-packet",
+    "skills/space-systems/ecss/e7041-action-initiation",
+    "skills/space-systems/ecss/e7041-parameter-definition",
+    "skills/space-systems/ecss/e7041-set-parameter-values",
+    "skills/space-systems/ecss/fracture-material-selection",
+    "skills/space-systems/ecss/pfci-fci-flli-lists",
+    "skills/space-systems/ecss/q40-02-process-principles",
+    "skills/space-systems/ecss/q60-class-1-programmable-logic-devices",
+    "skills/space-systems/ecss/q60-class-3-ground-support-equipment-parts",
+    "skills/space-systems/ecss/q6005-approved-line-acceptance-schemes",
+    "skills/space-systems/ecss/q6013-class-1-manufacturer-data-deliveries",
+    "skills/space-systems/ecss/q6013-class-2-incoming-inspection",
+    "skills/space-systems/ecss/q6013-class-3-manufacturer-data-deliveries",
+    "skills/space-systems/ecss/q7001-cleaning-process-selection",
+    "skills/space-systems/ecss/q7005-calibration-and-standards",
+    "skills/space-systems/ecss/q7006-dosimetry-and-monitoring",
+    "skills/space-systems/ecss/q7045-data-recording-and-reduction",
+    "skills/space-systems/ecss/q7054-contamination-reintroduction-control",
+    "skills/space-systems/ecss/thermo-elastic-and-thermal-cycling-test",
+    "skills/structures/composites/laminate-hygrothermal-response",
+    "skills/systems-engineering-safety/arp4754a/requirements-traceability",
+    "skills/systems-engineering-safety/arp4754a/validation",
+    "skills/systems-engineering-safety/arp4761a/zonal-safety-analysis"
+  ],
+  "aggregate": {
+    "n_leaves_sampled": 40,
+    "n_leaves_scored": 40,
+    "n_leaves_excluded": 0,
+    "mutants_run": 1000,
+    "killed": 819,
+    "survived": 181,
+    "killed_by_timeout": 0,
+    "mutation_score_pooled": 0.819,
+    "ci95_pooled_wilson_mutant_level": [
+      0.7939304685301967,
+      0.841628059556019
+    ],
+    "ci95_pooled_cluster_bootstrap_leaf_level": [
+      0.776,
+      0.859
+    ],
+    "mean_of_per_leaf_scores": 0.819,
+    "ci95_mean_per_leaf_cluster_bootstrap": [
+      0.776,
+      0.859
+    ],
+    "bootstrap_resamples": 10000
+  },
+  "by_operator": {
+    "early-return": {
+      "run": 65,
+      "killed": 65,
+      "survived": 0,
+      "timeouts": 0,
+      "score": 1.0
+    },
+    "boolean-negation": {
+      "run": 251,
+      "killed": 231,
+      "survived": 20,
+      "timeouts": 0,
+      "score": 0.9203187250996016
+    },
+    "comparison-swap": {
+      "run": 113,
+      "killed": 93,
+      "survived": 20,
+      "timeouts": 0,
+      "score": 0.8230088495575221
+    },
+    "boundary-offset": {
+      "run": 221,
+      "killed": 186,
+      "survived": 35,
+      "timeouts": 0,
+      "score": 0.8416289592760181
+    },
+    "constant-perturbation": {
+      "run": 217,
+      "killed": 138,
+      "survived": 79,
+      "timeouts": 0,
+      "score": 0.6359447004608295
+    },
+    "arithmetic-swap": {
+      "run": 133,
+      "killed": 106,
+      "survived": 27,
+      "timeouts": 0,
+      "score": 0.7969924812030075
+    }
+  },
+  "by_operator_kind": {
+    "arithmetic-swap/-": {
+      "run": 133,
+      "killed": 106,
+      "survived": 27,
+      "timeouts": 0,
+      "score": 0.7969924812030075
+    },
+    "boolean-negation/boolop": {
+      "run": 34,
+      "killed": 22,
+      "survived": 12,
+      "timeouts": 0,
+      "score": 0.6470588235294118
+    },
+    "boolean-negation/drop-not": {
+      "run": 62,
+      "killed": 59,
+      "survived": 3,
+      "timeouts": 0,
+      "score": 0.9516129032258065
+    },
+    "boolean-negation/flip-bool": {
+      "run": 18,
+      "killed": 15,
+      "survived": 3,
+      "timeouts": 0,
+      "score": 0.8333333333333334
+    },
+    "boolean-negation/negate-test": {
+      "run": 137,
+      "killed": 135,
+      "survived": 2,
+      "timeouts": 0,
+      "score": 0.9854014598540146
+    },
+    "boundary-offset/-": {
+      "run": 221,
+      "killed": 186,
+      "survived": 35,
+      "timeouts": 0,
+      "score": 0.8416289592760181
+    },
+    "comparison-swap/-": {
+      "run": 113,
+      "killed": 93,
+      "survived": 20,
+      "timeouts": 0,
+      "score": 0.8230088495575221
+    },
+    "constant-perturbation/one-percent": {
+      "run": 36,
+      "killed": 17,
+      "survived": 19,
+      "timeouts": 0,
+      "score": 0.4722222222222222
+    },
+    "constant-perturbation/plus-one": {
+      "run": 98,
+      "killed": 64,
+      "survived": 34,
+      "timeouts": 0,
+      "score": 0.6530612244897959
+    },
+    "constant-perturbation/zero": {
+      "run": 83,
+      "killed": 57,
+      "survived": 26,
+      "timeouts": 0,
+      "score": 0.6867469879518072
+    },
+    "early-return/-": {
+      "run": 65,
+      "killed": 65,
+      "survived": 0,
+      "timeouts": 0,
+      "score": 1.0
+    }
+  },
+  "excluded": [],
+  "leaves": [
+    {
+      "leaf": "skills/aerodynamics/boundary-layer/squire-young-profile-drag",
+      "logic": "squire_young_profile_drag_logic.py",
+      "suite": "test_squire_young_profile_drag.py",
+      "status": "scored",
+      "sites": 183,
+      "mutants_run": 25,
+      "killed": 21,
+      "survived": 4,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.84,
+      "survivors": [
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 97,
+          "detail": "bound -1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 33,
+          "detail": "0.0 -> 1.0"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 67,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 81,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 2.749
+    },
+    {
+      "leaf": "skills/gnc-autonomy/guidance/augmented-proportional-navigation",
+      "logic": "augmented_proportional_navigation_logic.py",
+      "suite": "test_augmented_proportional_navigation.py",
+      "status": "scored",
+      "sites": 68,
+      "mutants_run": 25,
+      "killed": 20,
+      "survived": 5,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.8,
+      "survivors": [
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 57,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 70,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 89,
+          "detail": "bound +1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 57,
+          "detail": "0 -> 1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 89,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 2.458
+    },
+    {
+      "leaf": "skills/gnc-autonomy/guidance/command-to-line-of-sight",
+      "logic": "command_to_line_of_sight_logic.py",
+      "suite": "test_command_to_line_of_sight.py",
+      "status": "scored",
+      "sites": 72,
+      "mutants_run": 25,
+      "killed": 18,
+      "survived": 7,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.72,
+      "survivors": [
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 42,
+          "detail": "LtE -> Lt"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 42,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 138,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 50,
+          "detail": "bound +1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 138,
+          "detail": "0.0 -> 1"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 49,
+          "detail": "Add -> Sub"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 50,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 2.374
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e10-design-general",
+      "logic": "e10_design_general_logic.py",
+      "suite": "test_e10_design_general.py",
+      "status": "scored",
+      "sites": 48,
+      "mutants_run": 25,
+      "killed": 25,
+      "survived": 0,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 1.0,
+      "survivors": [],
+      "seconds": 2.182
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e10-pum-drd",
+      "logic": "e10_pum_drd_logic.py",
+      "suite": "test_e10_pum_drd.py",
+      "status": "scored",
+      "sites": 45,
+      "mutants_run": 25,
+      "killed": 25,
+      "survived": 0,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 1.0,
+      "survivors": [],
+      "seconds": 2.332
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e1002-execution",
+      "logic": "e1002_execution_logic.py",
+      "suite": "test_e1002_execution.py",
+      "status": "scored",
+      "sites": 63,
+      "mutants_run": 25,
+      "killed": 25,
+      "survived": 0,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 1.0,
+      "survivors": [],
+      "seconds": 2.434
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e1002-facilities",
+      "logic": "e1002_facilities_logic.py",
+      "suite": "test_e1002_facilities.py",
+      "status": "scored",
+      "sites": 103,
+      "mutants_run": 25,
+      "killed": 19,
+      "survived": 6,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.76,
+      "survivors": [
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 79,
+          "detail": "Gt -> GtE"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 79,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 90,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 92,
+          "detail": "bound -1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 81,
+          "detail": "bound -1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 90,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 2.237
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e1012-tid-basis",
+      "logic": "e1012_tid_basis_logic.py",
+      "suite": "test_e1012_tid_basis.py",
+      "status": "scored",
+      "sites": 70,
+      "mutants_run": 25,
+      "killed": 25,
+      "survived": 0,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 1.0,
+      "survivors": [],
+      "seconds": 2.307
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2001-seeding-for-multicarrier-tests",
+      "logic": "e2001_seeding_for_multicarrier_tests_logic.py",
+      "suite": "test_e2001_seeding_for_multicarrier_tests.py",
+      "status": "scored",
+      "sites": 311,
+      "mutants_run": 25,
+      "killed": 18,
+      "survived": 7,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.72,
+      "survivors": [
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 126,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 27,
+          "detail": "1000000000.0 -> 0"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 165,
+          "detail": "bound +1"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 73,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 78,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 127,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 275,
+          "detail": "0.0 -> 1"
+        }
+      ],
+      "seconds": 4.43
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2001-single-carrier-margin-overview",
+      "logic": "e2001_single_carrier_margin_overview_logic.py",
+      "suite": "test_e2001_single_carrier_margin_overview.py",
+      "status": "scored",
+      "sites": 188,
+      "mutants_run": 25,
+      "killed": 22,
+      "survived": 3,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.88,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 69,
+          "detail": "1000000.0 -> 1000001.0"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 285,
+          "detail": "GtE -> Gt"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 185,
+          "detail": "Div -> Mult"
+        }
+      ],
+      "seconds": 2.78
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2007-emission-frequency-scanning",
+      "logic": "e2007_emission_frequency_scanning_logic.py",
+      "suite": "test_e2007_emission_frequency_scanning.py",
+      "status": "scored",
+      "sites": 263,
+      "mutants_run": 25,
+      "killed": 12,
+      "survived": 13,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.48,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 25,
+          "detail": "1e-12 -> 1.01e-12"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 30,
+          "detail": "0.01 -> 1.01"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 223,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 156,
+          "detail": "bound -1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 158,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 162,
+          "detail": "And -> Or"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 270,
+          "detail": "And -> Or"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 162,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 270,
+          "detail": "bound -1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 255,
+          "detail": "0.0 -> 1"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 256,
+          "detail": "Gt -> GtE"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 255,
+          "detail": "0.0 -> 1.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 256,
+          "detail": "0.0 -> 1"
+        }
+      ],
+      "seconds": 3.158
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2008-bare-cell-electrical-performance",
+      "logic": "e2008_bare_cell_electrical_performance_logic.py",
+      "suite": "test_e2008_bare_cell_electrical_performance.py",
+      "status": "scored",
+      "sites": 206,
+      "mutants_run": 25,
+      "killed": 21,
+      "survived": 4,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.84,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 62,
+          "detail": "2.0 -> 2.02"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 341,
+          "detail": "bound +1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 341,
+          "detail": "0.0 -> 1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 85,
+          "detail": "bound -1"
+        }
+      ],
+      "seconds": 2.616
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2008-blocking-diode-qualification-samples",
+      "logic": "e2008_blocking_diode_qualification_samples_logic.py",
+      "suite": "test_e2008_blocking_diode_qualification_samples.py",
+      "status": "scored",
+      "sites": 229,
+      "mutants_run": 25,
+      "killed": 19,
+      "survived": 6,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.76,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 137,
+          "detail": "1.0 -> 1.01"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 257,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 296,
+          "detail": "0 -> 1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 474,
+          "detail": "100.0 -> 101.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 375,
+          "detail": "100.0 -> 101.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 376,
+          "detail": "100.0 -> 101.0"
+        }
+      ],
+      "seconds": 3.026
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2008-coverglass-bubbles-and-inclusions",
+      "logic": "e2008_coverglass_bubbles_and_inclusions_logic.py",
+      "suite": "test_e2008_coverglass_bubbles_and_inclusions.py",
+      "status": "scored",
+      "sites": 346,
+      "mutants_run": 25,
+      "killed": 17,
+      "survived": 8,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.68,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "negate-test",
+          "line": 551,
+          "detail": "negate if test"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 70,
+          "detail": "1.5 -> 1.5150000000000001"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 107,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 164,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 575,
+          "detail": "Sub -> Add"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 185,
+          "detail": "0.0 -> 1.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 187,
+          "detail": "2.0 -> 2.02"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 385,
+          "detail": "Div -> Mult"
+        }
+      ],
+      "seconds": 3.199
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e2008-sca-electrostatic-sensitivity-handling",
+      "logic": "e2008_sca_electrostatic_sensitivity_handling_logic.py",
+      "suite": "test_e2008_sca_electrostatic_sensitivity_handling.py",
+      "status": "scored",
+      "sites": 349,
+      "mutants_run": 25,
+      "killed": 12,
+      "survived": 13,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.48,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 138,
+          "detail": "1e-12 -> 1.01e-12"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 122,
+          "detail": "1 -> 2"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "drop-not",
+          "line": 436,
+          "detail": "drop not"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 99,
+          "detail": "35000000.0 -> 35350000.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 100,
+          "detail": "1000000.0 -> 1010000.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 148,
+          "detail": "0.0 -> 1.0"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 357,
+          "detail": "bound -1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 76,
+          "detail": "100.0 -> 101.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 78,
+          "detail": "400.0 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 82,
+          "detail": "125.0 -> 126.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 83,
+          "detail": "250.0 -> 252.5"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 188,
+          "detail": "1 -> 2"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 446,
+          "detail": "100.0 -> 101.0"
+        }
+      ],
+      "seconds": 2.874
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e50-downlink-frame-rejection-rate",
+      "logic": "e50_downlink_frame_rejection_rate_logic.py",
+      "suite": "test_e50_downlink_frame_rejection_rate.py",
+      "status": "scored",
+      "sites": 212,
+      "mutants_run": 25,
+      "killed": 20,
+      "survived": 5,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.8,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 166,
+          "detail": "16 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 169,
+          "detail": "1 -> 2"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 90,
+          "detail": "1.0 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 90,
+          "detail": "1.0 -> 1.01"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "flip-bool",
+          "line": 185,
+          "detail": "False -> True"
+        }
+      ],
+      "seconds": 2.58
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e5053-eop-character",
+      "logic": "e5053_eop_character_logic.py",
+      "suite": "test_e5053_eop_character.py",
+      "status": "scored",
+      "sites": 121,
+      "mutants_run": 25,
+      "killed": 21,
+      "survived": 4,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.84,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 114,
+          "detail": "And -> Or"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 139,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 112,
+          "detail": "0 -> 1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 146,
+          "detail": "1.0 -> 1.01"
+        }
+      ],
+      "seconds": 2.942
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e5053-error-end-of-packet",
+      "logic": "e5053_error_end_of_packet_logic.py",
+      "suite": "test_e5053_error_end_of_packet.py",
+      "status": "scored",
+      "sites": 117,
+      "mutants_run": 25,
+      "killed": 21,
+      "survived": 4,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.84,
+      "survivors": [
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 167,
+          "detail": "Add -> Sub"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 179,
+          "detail": "1 -> 2"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 105,
+          "detail": "0 -> 1"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 145,
+          "detail": "Gt -> GtE"
+        }
+      ],
+      "seconds": 2.556
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e7041-action-initiation",
+      "logic": "e7041_action_initiation_logic.py",
+      "suite": "test_e7041_action_initiation.py",
+      "status": "scored",
+      "sites": 179,
+      "mutants_run": 25,
+      "killed": 19,
+      "survived": 6,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.76,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 65,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 67,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 73,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 193,
+          "detail": "1.0 -> 2.0"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 218,
+          "detail": "bound +1"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 60,
+          "detail": "Mod -> Mult"
+        }
+      ],
+      "seconds": 2.974
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e7041-parameter-definition",
+      "logic": "e7041_parameter_definition_logic.py",
+      "suite": "test_e7041_parameter_definition.py",
+      "status": "scored",
+      "sites": 263,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 100,
+          "detail": "2 -> 3"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 200,
+          "detail": "Gt -> GtE"
+        }
+      ],
+      "seconds": 3.017
+    },
+    {
+      "leaf": "skills/space-systems/ecss/e7041-set-parameter-values",
+      "logic": "e7041_set_parameter_values_logic.py",
+      "suite": "test_e7041_set_parameter_values.py",
+      "status": "scored",
+      "sites": 244,
+      "mutants_run": 25,
+      "killed": 20,
+      "survived": 5,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.8,
+      "survivors": [
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 81,
+          "detail": "bound +1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 81,
+          "detail": "1 -> 2"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 153,
+          "detail": "bound -1"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 80,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 155,
+          "detail": "Mod -> Mult"
+        }
+      ],
+      "seconds": 2.963
+    },
+    {
+      "leaf": "skills/space-systems/ecss/fracture-material-selection",
+      "logic": "fracture_material_selection_logic.py",
+      "suite": "test_fracture_material_selection.py",
+      "status": "scored",
+      "sites": 123,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 62,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 70,
+          "detail": "Lt -> LtE"
+        }
+      ],
+      "seconds": 2.757
+    },
+    {
+      "leaf": "skills/space-systems/ecss/pfci-fci-flli-lists",
+      "logic": "pfci_fci_flli_lists_logic.py",
+      "suite": "test_pfci_fci_flli_lists.py",
+      "status": "scored",
+      "sites": 100,
+      "mutants_run": 25,
+      "killed": 22,
+      "survived": 3,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.88,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 11,
+          "detail": "4.0 -> 5.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 11,
+          "detail": "4.0 -> 4.04"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 96,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 2.667
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q40-02-process-principles",
+      "logic": "q40_02_process_principles_logic.py",
+      "suite": "test_q40_02_process_principles.py",
+      "status": "scored",
+      "sites": 122,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 124,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 161,
+          "detail": "Mod -> Mult"
+        }
+      ],
+      "seconds": 2.919
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q60-class-1-programmable-logic-devices",
+      "logic": "q60_class_1_programmable_logic_devices_logic.py",
+      "suite": "test_q60_class_1_programmable_logic_devices.py",
+      "status": "scored",
+      "sites": 257,
+      "mutants_run": 25,
+      "killed": 21,
+      "survived": 4,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.84,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "negate-test",
+          "line": 471,
+          "detail": "negate if test"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 418,
+          "detail": "bound -1"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 200,
+          "detail": "GtE -> Gt"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 224,
+          "detail": "bound -1"
+        }
+      ],
+      "seconds": 3.089
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q60-class-3-ground-support-equipment-parts",
+      "logic": "q60_class_3_ground_support_equipment_parts_logic.py",
+      "suite": "test_q60_class_3_ground_support_equipment_parts.py",
+      "status": "scored",
+      "sites": 201,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 381,
+          "detail": "And -> Or"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 379,
+          "detail": "0.0 -> 1.0"
+        }
+      ],
+      "seconds": 3.15
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q6005-approved-line-acceptance-schemes",
+      "logic": "q6005_approved_line_acceptance_schemes_logic.py",
+      "suite": "test_q6005_approved_line_acceptance_schemes.py",
+      "status": "scored",
+      "sites": 155,
+      "mutants_run": 25,
+      "killed": 19,
+      "survived": 6,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.76,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 57,
+          "detail": "1e-09 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 71,
+          "detail": "6 -> 7"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 132,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 129,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 168,
+          "detail": "bound -1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 166,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 3.137
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q6013-class-1-manufacturer-data-deliveries",
+      "logic": "q6013_class_1_manufacturer_data_deliveries_logic.py",
+      "suite": "test_q6013_class_1_manufacturer_data_deliveries.py",
+      "status": "scored",
+      "sites": 297,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 192,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 316,
+          "detail": "Mod -> Mult"
+        }
+      ],
+      "seconds": 3.305
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q6013-class-2-incoming-inspection",
+      "logic": "q6013_class_2_incoming_inspection_logic.py",
+      "suite": "test_q6013_class_2_incoming_inspection.py",
+      "status": "scored",
+      "sites": 218,
+      "mutants_run": 25,
+      "killed": 22,
+      "survived": 3,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.88,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 70,
+          "detail": "20 -> 21"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 145,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 143,
+          "detail": "0 -> 1"
+        }
+      ],
+      "seconds": 2.91
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q6013-class-3-manufacturer-data-deliveries",
+      "logic": "q6013_class_3_manufacturer_data_deliveries_logic.py",
+      "suite": "test_q6013_class_3_manufacturer_data_deliveries.py",
+      "status": "scored",
+      "sites": 343,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 210,
+          "detail": "Add -> Sub"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "flip-bool",
+          "line": 447,
+          "detail": "False -> True"
+        }
+      ],
+      "seconds": 3.207
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q7001-cleaning-process-selection",
+      "logic": "q7001_cleaning_process_selection_logic.py",
+      "suite": "test_q7001_cleaning_process_selection.py",
+      "status": "scored",
+      "sites": 285,
+      "mutants_run": 25,
+      "killed": 21,
+      "survived": 4,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.84,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "drop-not",
+          "line": 208,
+          "detail": "drop not"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 66,
+          "detail": "0.8 -> 0.808"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 176,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 367,
+          "detail": "1 -> 2"
+        }
+      ],
+      "seconds": 3.039
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q7005-calibration-and-standards",
+      "logic": "q7005_calibration_and_standards_logic.py",
+      "suite": "test_q7005_calibration_and_standards.py",
+      "status": "scored",
+      "sites": 278,
+      "mutants_run": 25,
+      "killed": 20,
+      "survived": 5,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.8,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 51,
+          "detail": "1.1 -> 1.1110000000000002"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 83,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 77,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 100,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "flip-bool",
+          "line": 101,
+          "detail": "True -> False"
+        }
+      ],
+      "seconds": 3.238
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q7006-dosimetry-and-monitoring",
+      "logic": "q7006_dosimetry_and_monitoring_logic.py",
+      "suite": "test_q7006_dosimetry_and_monitoring.py",
+      "status": "scored",
+      "sites": 239,
+      "mutants_run": 25,
+      "killed": 18,
+      "survived": 7,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.72,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 49,
+          "detail": "5.0 -> 5.05"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 56,
+          "detail": "10.0 -> 11.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 244,
+          "detail": "0.0 -> 1"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 248,
+          "detail": "Gt -> GtE"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 246,
+          "detail": "1 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 141,
+          "detail": "1 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 143,
+          "detail": "1 -> 0"
+        }
+      ],
+      "seconds": 3.393
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q7045-data-recording-and-reduction",
+      "logic": "q7045_data_recording_and_reduction_logic.py",
+      "suite": "test_q7045_data_recording_and_reduction.py",
+      "status": "scored",
+      "sites": 414,
+      "mutants_run": 25,
+      "killed": 12,
+      "survived": 13,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.48,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 49,
+          "detail": "1000000.0 -> 1000001.0"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 173,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 182,
+          "detail": "LtE -> Lt"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 185,
+          "detail": "3 -> 0"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 206,
+          "detail": "bound -1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 233,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 233,
+          "detail": "bound -1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 167,
+          "detail": "0.0 -> 1.0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 182,
+          "detail": "1.0 -> 2.0"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 184,
+          "detail": "LtE -> Lt"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 244,
+          "detail": "bound -1"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 128,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 247,
+          "detail": "Sub -> Add"
+        }
+      ],
+      "seconds": 3.552
+    },
+    {
+      "leaf": "skills/space-systems/ecss/q7054-contamination-reintroduction-control",
+      "logic": "q7054_contamination_reintroduction_control_logic.py",
+      "suite": "test_q7054_contamination_reintroduction_control.py",
+      "status": "scored",
+      "sites": 289,
+      "mutants_run": 25,
+      "killed": 17,
+      "survived": 8,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.68,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 40,
+          "detail": "300.0 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 61,
+          "detail": "0.01 -> 0"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 67,
+          "detail": "1.0 -> 2.0"
+        },
+        {
+          "op": "boolean-negation",
+          "kind": "boolop",
+          "line": 179,
+          "detail": "Or -> And"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 282,
+          "detail": "Div -> Mult"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 141,
+          "detail": "LtE -> Lt"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 283,
+          "detail": "0.0 -> 1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 288,
+          "detail": "0.0 -> 1.0"
+        }
+      ],
+      "seconds": 3.438
+    },
+    {
+      "leaf": "skills/space-systems/ecss/thermo-elastic-and-thermal-cycling-test",
+      "logic": "thermo_elastic_and_thermal_cycling_test_logic.py",
+      "suite": "test_thermo_elastic_and_thermal_cycling_test.py",
+      "status": "scored",
+      "sites": 147,
+      "mutants_run": 25,
+      "killed": 17,
+      "survived": 8,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.68,
+      "survivors": [
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 136,
+          "detail": "2 -> 0"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 154,
+          "detail": "bound +1"
+        },
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 172,
+          "detail": "Lt -> LtE"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 180,
+          "detail": "10.0 -> 11.0"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 186,
+          "detail": "bound +1"
+        },
+        {
+          "op": "boundary-offset",
+          "kind": "",
+          "line": 200,
+          "detail": "bound +1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "zero",
+          "line": 44,
+          "detail": "0.0 -> 1"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "plus-one",
+          "line": 56,
+          "detail": "0.0 -> 1.0"
+        }
+      ],
+      "seconds": 3.328
+    },
+    {
+      "leaf": "skills/structures/composites/laminate-hygrothermal-response",
+      "logic": "laminate_hygrothermal_response_logic.py",
+      "suite": "test_laminate_hygrothermal_response.py",
+      "status": "scored",
+      "sites": 287,
+      "mutants_run": 25,
+      "killed": 24,
+      "survived": 1,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.96,
+      "survivors": [
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 119,
+          "detail": "Mult -> Div"
+        }
+      ],
+      "seconds": 3.176
+    },
+    {
+      "leaf": "skills/systems-engineering-safety/arp4754a/requirements-traceability",
+      "logic": "requirements_traceability_logic.py",
+      "suite": "test_requirements_traceability.py",
+      "status": "scored",
+      "sites": 106,
+      "mutants_run": 25,
+      "killed": 20,
+      "survived": 5,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.8,
+      "survivors": [
+        {
+          "op": "boolean-negation",
+          "kind": "drop-not",
+          "line": 121,
+          "detail": "drop not"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 112,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 122,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 124,
+          "detail": "Mod -> Mult"
+        },
+        {
+          "op": "arithmetic-swap",
+          "kind": "",
+          "line": 128,
+          "detail": "Mod -> Mult"
+        }
+      ],
+      "seconds": 3.02
+    },
+    {
+      "leaf": "skills/systems-engineering-safety/arp4754a/validation",
+      "logic": "validation_logic.py",
+      "suite": "test_validation.py",
+      "status": "scored",
+      "sites": 31,
+      "mutants_run": 25,
+      "killed": 23,
+      "survived": 2,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 0.92,
+      "survivors": [
+        {
+          "op": "comparison-swap",
+          "kind": "",
+          "line": 46,
+          "detail": "GtE -> Gt"
+        },
+        {
+          "op": "constant-perturbation",
+          "kind": "one-percent",
+          "line": 46,
+          "detail": "0.95 -> 0.9594999999999999"
+        }
+      ],
+      "seconds": 3.195
+    },
+    {
+      "leaf": "skills/systems-engineering-safety/arp4761a/zonal-safety-analysis",
+      "logic": "zonal_safety_analysis_logic.py",
+      "suite": "test_zonal_safety_analysis.py",
+      "status": "scored",
+      "sites": 162,
+      "mutants_run": 25,
+      "killed": 25,
+      "survived": 0,
+      "timeouts": 0,
+      "no_op_skipped": 0,
+      "score": 1.0,
+      "survivors": [],
+      "seconds": 2.463
+    }
+  ]
+}

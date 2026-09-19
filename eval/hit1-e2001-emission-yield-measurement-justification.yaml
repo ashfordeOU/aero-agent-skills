@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-emission-yield-measurement-justification (space-systems/ecss)
+# Case 1 routes on grading provenance differences as yield-affecting or merely
+# administrative. Case 2 routes on the other two inputs to the same decision: the
+# criticality of the gap and the validity of the held record.
+tasks:
+  - id: e2001-emission-yield-measurement-justification-1
+    query: "The gap hardware now comes off another plating bath and a new final clean, though the drawing number never changed. Which of those count as yield-affecting against the provenance record behind our held secondary electron yield measurement?"
+    intent: "ECSS-E-ST-20-01C clause 9.2; the reuse decision turns on surface attributes rather than part numbers, and each difference is graded yield-affecting or administrative"
+    expected_skill: "space-systems/ecss/e2001-emission-yield-measurement-justification"
+  - id: e2001-emission-yield-measurement-justification-2
+    query: "Our held yield measurement is six years old and only spans up to 500 eV of primary electron energy. If the frequency-gap product puts the gap well clear of the susceptibility band, must we still measure a fresh sample?"
+    intent: "ECSS-E-ST-20-01C clause 9.2; an aged record or a too-narrow energy span is an independent reason to remeasure, but the trigger only fires on a gap the frequency-gap product makes critical"
+    expected_skill: "space-systems/ecss/e2001-emission-yield-measurement-justification"

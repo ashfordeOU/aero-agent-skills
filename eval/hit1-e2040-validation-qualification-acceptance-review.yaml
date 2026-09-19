@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-validation-qualification-acceptance-review (space-systems/ecss)
+# Two tasks for the new leaf. fvr1 routes on the three-stream close-out and the
+# open-action budget the gate allows; fvr2 routes on qualification evidence
+# claimed on a model the stream does not admit. Both must deterministically hit
+# space-systems/ecss/e2040-validation-qualification-acceptance-review.
+tasks:
+  - id: fvr1
+    query: "the device is up for its closing review and I have validation, qualification and acceptance evidence in three different states, tell me whether the gate opens, opens against an action list, or is held"
+    intent: "ECSS-E-ST-20-40 clause 5.8.6; stream-by-stream closure, the open-action budget the criticality category allows, and a waiver that needs an approved deviation"
+    expected_skill: "space-systems/ecss/e2040-validation-qualification-acceptance-review"
+  - id: fvr2
+    query: "the qualification report for this unit was written against the engineering model and the acceptance levels are higher than I expected, work out whether that evidence closes the final gate"
+    intent: "ECSS-E-ST-20-40 clause 5.8.6; model kinds a stream admits and the ratio by which the qualification level must envelope the acceptance level"
+    expected_skill: "space-systems/ecss/e2040-validation-qualification-acceptance-review"

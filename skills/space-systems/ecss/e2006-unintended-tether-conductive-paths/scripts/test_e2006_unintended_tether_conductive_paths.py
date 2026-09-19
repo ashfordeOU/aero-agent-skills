@@ -383,8 +383,18 @@ class TestCircuitAssessment(unittest.TestCase):
                 "min_isolation_ohm": 1.0,
             },
         ]
+        # 0.3 ohm intended against a 29.7 ohm braid is exactly the 1 %
+        # allowance. None of those decimals is exact in binary, so the
+        # quotient lands within a unit in the last place of the allowance and
+        # the side it falls on is a representation detail, not the claim.
+        # places=15 is ~290 units in the last place of 0.01 - unreachable by
+        # rounding, and tight enough that a genuinely larger bypass fails (the
+        # next test proves that). The allowance itself is unchanged; the claim
+        # under test is the line below: on the allowance stays compliant.
         report = logic.assess_conductive_paths(base_config(edges=edges))
-        self.assertGreater(report["bypasses"][0]["shunted_fraction"], 0.01)
+        self.assertAlmostEqual(
+            report["bypasses"][0]["shunted_fraction"], 0.01, places=15
+        )
         self.assertTrue(report["compliant"], report["findings"])
 
     def test_fraction_genuinely_over_the_allowance_fails(self):

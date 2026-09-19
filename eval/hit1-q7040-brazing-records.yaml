@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-brazing-records (space-systems/ecss)
+# Two tasks for the new leaf. brc1 routes on the operator continuity interval
+# that a valid certificate hides; brc2 routes on the furnace run trace and the
+# load thermocouples behind a run identity. Both must deterministically hit
+# space-systems/ecss/q7040-brazing-records.
+tasks:
+  - id: brc1
+    query: "the operator who made this joint has a certificate good for another year but had not brazed since last autumn, say whether the brazement record still closes"
+    intent: "ECSS-Q-ST-70-40 records clause; operator qualification fails independently through certificate expiry and through a continuity lapse caused by disuse"
+    expected_skill: "space-systems/ecss/q7040-brazing-records"
+  - id: brc2
+    query: "all the traveller carries for the vacuum run is a run number, tell me what the furnace record still owes before this brazement has a history"
+    intent: "ECSS-Q-ST-70-40 records clause; the run identity is not the trace, which owes ramp, soak, cooling and atmosphere plus enough load thermocouples to see a cold corner"
+    expected_skill: "space-systems/ecss/q7040-brazing-records"

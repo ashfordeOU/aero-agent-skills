@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-surface-metallic-part-bonding (space-systems/ecss)
+# Case 1 routes on reachability across the bond network rather than per-part straps.
+# Case 2 routes on strap inductance dominating during a discharge transient.
+tasks:
+  - id: e2006-surface-metallic-part-bonding-1
+    query: "Two metallic fittings on our deployable each carry a good bonding strap onto a third bracket, but that bracket reaches no structural reference at all. Are they bonded, and how do I find the lowest-resistance route for each across the bond network?"
+    intent: "ECSS-E-ST-20-06C 6.3.1; the case turns on continuity being a reachability property of the network, so parts routed only to a floating intermediate are isolated"
+    expected_skill: "space-systems/ecss/e2006-surface-metallic-part-bonding"
+  - id: e2006-surface-metallic-part-bonding-2
+    query: "Our strap measures eight milliohms and clears its category ceiling comfortably, but it is 300 mm long and only 6 mm wide. Why would that still fail once a fast discharge current runs through it?"
+    intent: "ECSS-E-ST-20-06C 6.3.1; the case turns on the inductive term across the strap driving the transient potential, which a low direct-current resistance does not cover"
+    expected_skill: "space-systems/ecss/e2006-surface-metallic-part-bonding"

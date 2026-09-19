@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-recurrent-actuator-firing-targets (space-systems/ecss)
+# Two tasks for the new leaf. raft1 routes on bounding a measured lot with the worst
+# unit's all-fire current; raft2 routes on the minimum actuation duration and its
+# product floor. Both must deterministically hit
+# space-systems/ecss/e2021-recurrent-actuator-firing-targets.
+tasks:
+  - id: raft1
+    query: "we measured all-fire and no-fire on eight units of the same catalogue actuator, what pair of currents do we publish so the figures hold for the whole production lot and still leave room for the inhibit circuit"
+    intent: "ECSS-E-ST-20-21C clause 5.6.3; published all-fire is the highest measured, published no-fire the lowest, separation graded for a recurrent product"
+    expected_skill: "space-systems/ecss/e2021-recurrent-actuator-firing-targets"
+  - id: raft2
+    query: "the mechanism completes in eight milliseconds so can we specify an eight millisecond command, or does a reusable product have to publish a longer minimum actuation time"
+    intent: "ECSS-E-ST-20-21C clause 5.6.3; minimum actuation duration is the function time carried with a margin factor and floored by a product minimum"
+    expected_skill: "space-systems/ecss/e2021-recurrent-actuator-firing-targets"

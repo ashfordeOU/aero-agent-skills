@@ -1,0 +1,16 @@
+# Hit@1 fragment: q7006-applicability-and-objectives (space-systems/ecss)
+# Two tasks for the new leaf. rao1 routes on the framework decision itself, the
+# shielded-versus-bare exposure regime and the mission fluence and equivalent
+# sun hours that drive it; rao2 routes on the screening-versus-qualification
+# objective, the test-level factor and the heritage claim offered instead of a
+# campaign. Both must deterministically hit
+# space-systems/ecss/q7006-applicability-and-objectives.
+tasks:
+  - id: rao1
+    query: "this polymer film sits behind an equipment wall rather than on the outer skin, work out whether it owes a particle and ultraviolet degradation test at all and which of the two agents actually reaches it over five years"
+    intent: "ECSS-Q-ST-70-06C framework; reading the exposure regime off location and cover, scaling mission fluence and equivalent sun hours, and deciding which agents are applicable before any environment table is written"
+    expected_skill: "space-systems/ecss/q7006-applicability-and-objectives"
+  - id: rao2
+    query: "a supplier offers an irradiation result on the same coverglass from an earlier programme instead of running the campaign, decide whether this is a screening objective or a qualification objective, what level it runs to and which degraded properties we have to measure"
+    intent: "ECSS-Q-ST-70-06C framework; separating screening from qualification and characterization, applying the test-level factor, deriving the degradation property set, and grading a heritage claim against fluence, ultraviolet dose, spectrum top and process route"
+    expected_skill: "space-systems/ecss/q7006-applicability-and-objectives"

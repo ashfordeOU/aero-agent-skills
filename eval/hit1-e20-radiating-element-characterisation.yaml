@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-radiating-element-characterisation (space-systems/ecss)
+# Case 1 routes on the family rule for directivity and keeping the two efficiencies apart.
+# Case 2 routes on when the isolated record stops being a valid prediction input.
+tasks:
+  - id: e20-radiating-element-characterisation-1
+    query: "I have a stacked patch measured on its own and I need realised gain out of it. Can I take directivity from an equivalent mouth area, and how should the standing-wave mismatch and the ohmic efficiency be handled separately?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.1; the case turns on directivity being measured rather than derived for a resonant-printed radiator, and on the two efficiencies staying distinct"
+    expected_skill: "space-systems/ecss/e20-radiating-element-characterisation"
+  - id: e20-radiating-element-characterisation-2
+    query: "Our isolated radiating-element characterisation carries co-polar and cross-polar patterns plus the input reflection coefficient, but no phase-centre location. What does that omission cost the whole-antenna prediction, and how is phase-centre-defocus graded against its limit?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.1; the case turns on lattice spacing and mutual coupling forcing an embedded-element pattern instead of the isolated characterisation"
+    expected_skill: "space-systems/ecss/e20-radiating-element-characterisation"

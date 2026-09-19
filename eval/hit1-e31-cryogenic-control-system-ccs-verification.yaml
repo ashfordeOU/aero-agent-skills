@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-cryogenic-control-system-ccs-verification (space-systems/ecss)
+# Two tasks for the new leaf. ccs1 routes on the fractional heat-lift margin and
+# the parasitic path roll-up at the cold tip; ccs2 routes on the level-of-closure
+# rule, where a subsystem run cannot close an instrument-level objective.
+# Both must deterministically hit
+# space-systems/ecss/e31-cryogenic-control-system-ccs-verification.
+tasks:
+  - id: ccs1
+    query: "the cooler gives this much lift at the cold tip and I have parasitic loads down the straps, harness and supports; work out how much cryogenic heat-lift margin survives at our operating temperature and which parasitic path dominates"
+    intent: "ECSS-E-ST-31C clause 4.5.2.2; fractional heat-lift margin at the operating temperature and the parasitic heat-load roll-up with its dominant path"
+    expected_skill: "space-systems/ecss/e31-cryogenic-control-system-ccs-verification"
+  - id: ccs2
+    query: "we ran the cold chain once the detector was already inside the box and the shroud sat colder than the agreed sink - can that run close the objectives that were agreed on the instrument on its own"
+    intent: "ECSS-E-ST-31C clause 4.5.2.2; level of closure for an instrument-level cryogenic objective and grading the achieved sink and vacuum against the agreed setup"
+    expected_skill: "space-systems/ecss/e31-cryogenic-control-system-ccs-verification"

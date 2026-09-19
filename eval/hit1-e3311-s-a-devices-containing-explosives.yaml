@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-s-a-devices-containing-explosives (space-systems/ecss)
+# esa1 routes on the out-of-line interrupt in the safe state; esa2 routes on
+# arming-event independence and the shared-source defect. Both must
+# deterministically hit
+# space-systems/ecss/e3311-s-a-devices-containing-explosives.
+tasks:
+  - id: esa1
+    query: "the safe and arm unit carries its own explosive lead on a rotor, check whether the safe position really interrupts the train given the offset and the barrier, and whether the detent holds the rotor through the shock environment"
+    intent: "ECSS-E-ST-33-11C clause 4.11.5; out-of-line offset in charge diameters, barrier thickness, safe-position lock torque against inertial torque"
+    expected_skill: "space-systems/ecss/e3311-s-a-devices-containing-explosives"
+  - id: esa2
+    query: "Both declared arming events on this safe-and-arm device are wired to a single sequencer output. Are they genuinely independent, and what do position monitoring, monitor-to-firing isolation and de-arming have to look like?"
+    intent: "ECSS-E-ST-33-11C clause 4.11.5; arming events grouped by source, shared-source common mode, position indication isolation and de-arm capability"
+    expected_skill: "space-systems/ecss/e3311-s-a-devices-containing-explosives"

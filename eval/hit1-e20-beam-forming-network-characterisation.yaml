@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-beam-forming-network-characterisation (space-systems/ecss)
+# Case 1 routes on splitting the excitation departure into loss, pointing and gain-costing
+# scatter. Case 2 routes on the phase-shifter quantisation floor and the input-port reflection.
+tasks:
+  - id: e20-beam-forming-network-characterisation-1
+    query: "Measured element excitations on our corporate feed differ from what we commanded, and part of the spread is a straight tilt across the array. How do I separate the piece that only steers the beam from the piece that actually costs me gain?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.4; a common offset is dissipative, a linear gradient is a pointing shift, and only the residual scatter about that line costs aperture gain"
+    expected_skill: "space-systems/ecss/e20-beam-forming-network-characterisation"
+  - id: e20-beam-forming-network-characterisation-2
+    query: "With a 4-bit digital phase shifter in every path, what residual phase error and quantisation lobe am I stuck with no matter how well I calibrate, and how do the individual element reflections recombine at the input port of the network?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.4; the quantisation floor set by the bit count, and element reflections returning through the split as a vector mean at the input"
+    expected_skill: "space-systems/ecss/e20-beam-forming-network-characterisation"

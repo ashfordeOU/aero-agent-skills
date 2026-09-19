@@ -6,10 +6,10 @@
 # space-systems/ecss/q6005-active-chip-user-lot-testing.
 tasks:
   - id: ult1
-    query: "a batch of bare dice just arrived, work out how many we as the buyer have to sample on receipt and how many nonconforming parts the plan still lets us accept"
+    query: "a die delivery just landed at goods-in; work out what sample the schedule indexed by batch size demands of us as the buyer, and how many nonconforming dies we may still find before this user lot has to be rejected"
     intent: "ECSS-Q-ST-60-05 clause 8.3.3; the buyer's sample size and acceptance number come from a lot-size schedule and collapse to full inspection on a small batch"
     expected_skill: "space-systems/ecss/q6005-active-chip-user-lot-testing"
   - id: ult2
-    query: "go through the goods-in log and tell me which die deliveries were received without us running our own acceptance test and whether any lot code was reused across two shipments"
+    query: "reconcile our goods-in receiving log for die batches: which deliveries were accepted without the buyer running a user lot test at all, and was any lot identifier stretched across two separate shipments"
     intent: "ECSS-Q-ST-60-05 clause 8.3.3; every delivery owes its own user-lot record and a reused lot identifier stretches one batch's evidence over an untested batch"
     expected_skill: "space-systems/ecss/q6005-active-chip-user-lot-testing"

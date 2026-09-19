@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-maintainability (space-systems/ecss)
+# Two tasks for the new leaf. mnt1 routes on the maintenance-free default and
+# the customer approval an exception needs; mnt2 routes on a limited-life item
+# whose demonstrated cycles fall short of the accumulated mission duty. Both
+# must deterministically hit space-systems/ecss/e3301-maintainability.
+tasks:
+  - id: mnt1
+    query: "our mechanism procedure has a six-monthly relubrication during ground storage and one in-orbit inspection nobody designed an access hatch for, tell me which of these the design is actually allowed to carry"
+    intent: "ECSS-E-ST-33-01 clause 4.2.4.4; mechanisms are maintenance-free by default and each exception needs a referenced dated customer approval plus declared access and tooling"
+    expected_skill: "space-systems/ecss/e3301-maintainability"
+  - id: mnt2
+    query: "the bearing lubricant is demonstrated to 60000 cycles and the mechanism runs 100 cycles a day for a twelve month mission, work out whether that is a life margin or a replacement somebody has to schedule"
+    intent: "ECSS-E-ST-33-01 clause 4.2.4.4; limited-life items compared against accumulated duty cycles with the required life factor, a shortfall being an unstated maintenance demand"
+    expected_skill: "space-systems/ecss/e3301-maintainability"

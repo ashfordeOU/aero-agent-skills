@@ -18,6 +18,9 @@ zeta = a / (2*sqrt(K)). Critically damped (K == a^2/4) gives zeta = 1.
 Overdamped (K < a^2/4) reports zeta = 1.0 by convention. All functions
 validate inputs and raise ValueError on impossible values.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import math
 

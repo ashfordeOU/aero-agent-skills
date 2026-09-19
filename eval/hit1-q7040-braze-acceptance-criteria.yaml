@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-braze-acceptance-criteria (space-systems/ecss)
+# Two tasks for the new leaf. bac1 routes on grading a measured fill and void set
+# against class limits; bac2 routes on the crack that rejects a joint grading
+# cleanly on every measured criterion. Both must deterministically hit
+# space-systems/ecss/q7040-braze-acceptance-criteria.
+tasks:
+  - id: bac1
+    query: "the radiograph gives me a filled area, a biggest void and a continuous unbonded run along this brazed joint, decide whether it passes and tell me which number is closest to failing"
+    intent: "brazing acceptance; fill is a floor while void area, single void and linear run are ceilings, and the thinnest relative margin names the binding criterion"
+    expected_skill: "space-systems/ecss/q7040-braze-acceptance-criteria"
+  - id: bac2
+    query: "this brazement is ninety six percent filled and every void is tiny but the inspector logged a crack, can it still be accepted"
+    intent: "brazing acceptance; a crack is rejected on existence in every class whatever the measured fill fraction reports"
+    expected_skill: "space-systems/ecss/q7040-braze-acceptance-criteria"

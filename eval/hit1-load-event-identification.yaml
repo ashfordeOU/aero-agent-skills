@@ -1,0 +1,12 @@
+# Hit@1 fragment: load-event-identification (space-systems/ecss)
+# Case 1 routes on lifecycle phase coverage and the gaps an incomplete list leaves.
+# Case 2 routes on the completeness of each event record: load types and the two factors.
+tasks:
+  - id: load-event-identification-1
+    query: "I am assembling the list of load events for a smallsat. Lift-off, ascent and on-orbit are covered but nothing for transport, storage or fuelling, and nothing for the integration mate steps. Is that a gap or an acceptable simplification?"
+    intent: "ECSS-E-ST-32C 7.2.1; every lifecycle phase including assembly and ground operations must contribute at least one event, and an omitted phase is a gap not conservatism"
+    expected_skill: "space-systems/ecss/load-event-identification"
+  - id: load-event-identification-2
+    query: "For each event I record which load types apply plus the limit factor. One pyro shock event has no qualification factor set yet. Does that entry block the schedule, and may a single event carry several load types at once?"
+    intent: "ECSS-E-ST-32C 7.2.1; an event may carry several load types together, and this leaf flags an absent limit or qualification factor rather than setting its value"
+    expected_skill: "space-systems/ecss/load-event-identification"

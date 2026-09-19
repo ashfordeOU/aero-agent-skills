@@ -84,8 +84,15 @@ class TestThresholdComparison(unittest.TestCase):
 
     def test_representation_error_at_the_boundary_is_absorbed(self):
         value = 0.7 + 0.1
-        self.assertLess(value, 0.8)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the sum landed on.
+        self.assertAlmostEqual(value, 0.8, places=12)
         self.assertTrue(meets_threshold(value, 0.8))
+        # Pin the absorbing branch with a shortfall constructed to be
+        # strictly short, by 1e-12 - inside what the leaf absorbs, and the
+        # same value on every platform. The 0.8 threshold is unchanged:
+        # 0.79 still fails it, above.
+        self.assertTrue(meets_threshold(0.8 - 1e-12, 0.8))
 
     def test_exact_equality_passes(self):
         self.assertTrue(meets_threshold(1.0, 1.0))

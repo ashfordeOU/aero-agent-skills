@@ -1,0 +1,12 @@
+# Hit@1 fragment: fatigue-and-fracture-test (space-systems/ecss)
+# Case 1 routes on building the spectrum, accumulating damage across its blocks and deriving how long the rig has to run.
+# Case 2 routes on the back half: inspection capability, specimen verdict in standard mode, and residual strength afterwards.
+tasks:
+  - id: fatigue-and-fracture-test-1
+    query: "Our bracket sees four blocks of launch and on-orbit cycling at different amplitudes. How do I accumulate cycle damage with Miner across those blocks, tell whether the spectrum reaches the failure threshold first, and work out how many cycles the specimen has to complete with the metallic scatter factor?"
+    intent: "ECSS-E-ST-32C 4.6.3.11; cumulative damage index summed over spectrum blocks and the rig cycle count derived from design life times the material scatter factor"
+    expected_skill: "space-systems/ecss/fatigue-and-fracture-test"
+  - id: fatigue-and-fracture-test-2
+    query: "A 0.4 mm crack turned up partway through the fatigue run. Which inspection method has a detection threshold fine enough to have caught it sooner, does finding it ahead of the required life fail the specimen, and how do I check residual strength against limit load?"
+    intent: "ECSS-E-ST-32C 4.6.3.11; crack-detection capability of the chosen inspection method, standard-mode specimen verdict, and the post-test residual strength check"
+    expected_skill: "space-systems/ecss/fatigue-and-fracture-test"

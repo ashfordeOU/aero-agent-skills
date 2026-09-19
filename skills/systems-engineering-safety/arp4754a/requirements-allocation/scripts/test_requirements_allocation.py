@@ -9,6 +9,9 @@ unallocated_requirements lists the missing ids; requirements_by_item
 and group_by_item group the register per item; validate_items rejects
 items outside the design breakdown.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import os
 import sys

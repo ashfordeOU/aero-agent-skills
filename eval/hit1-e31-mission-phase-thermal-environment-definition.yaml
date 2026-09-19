@@ -1,0 +1,14 @@
+# Hit@1 fragment: e31-mission-phase-thermal-environment-definition (space-systems/ecss)
+# mph1 routes on enumerating the phases a TCS is designed against including the
+# ground and post-landing ends; mph2 routes on per-phase environment inputs and
+# on a timeline gap. Both must deterministically hit
+# space-systems/ecss/e31-mission-phase-thermal-environment-definition.
+tasks:
+  - id: mph1
+    query: "our thermal control phase list runs from lift-off to end of life and the vehicle comes back - build the phase breakdown the TCS should actually be designed against"
+    intent: "ECSS-E-ST-31 clause 4.1; the phase list spans ground handling and pre-launch through ascent, transfer, docking and operations to descent and post-landing recovery"
+    expected_skill: "space-systems/ecss/e31-mission-phase-thermal-environment-definition"
+  - id: mph2
+    query: "our phase list runs from ground handling through ascent to post-landing but two phases carry no sink temperature, albedo or planetary infrared at all and there is a gap in the timeline; audit it before thermal sizing starts"
+    intent: "ECSS-E-ST-31 clause 4.1; each phase role demands its own environment inputs (sink, solar, albedo, planetary IR, aerothermal, conducted) and a timeline gap is an interval with no analysis case"
+    expected_skill: "space-systems/ecss/e31-mission-phase-thermal-environment-definition"

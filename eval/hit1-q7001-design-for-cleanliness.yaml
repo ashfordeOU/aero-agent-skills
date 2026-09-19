@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-design-for-cleanliness (space-systems/ecss)
+# dfc1 routes on vent sizing from the depressurizing time constant plus the
+# plume direction; dfc2 routes on undrained trapped volumes and the reachable
+# surface share. Both must deterministically hit
+# space-systems/ecss/q7001-design-for-cleanliness.
+tasks:
+  - id: dfc1
+    query: "size the vent on this sealed instrument housing from the depressurisation time constant it has to meet, and tell me whether an unfiltered vent pointed at the radiator is acceptable"
+    intent: "ECSS-Q-ST-70-01C design clause; free vent area follows from volume, path conductance and the required time constant, and filtration plus plume direction are provisions in their own right"
+    expected_skill: "space-systems/ecss/q7001-design-for-cleanliness"
+  - id: dfc2
+    query: "go through this structure and find the blind holes and honeycomb cells that will hold cleaning fluid with no drain path, and tell me what share of the surface a cleaning operation can actually reach"
+    intent: "ECSS-Q-ST-70-01C design clause; a trapped volume with no drain concentrates residue where it cannot be inspected, and the reachable area fraction bounds the level the item can claim"
+    expected_skill: "space-systems/ecss/q7001-design-for-cleanliness"

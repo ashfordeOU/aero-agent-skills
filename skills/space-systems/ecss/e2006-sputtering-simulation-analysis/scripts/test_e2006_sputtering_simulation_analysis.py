@@ -386,7 +386,12 @@ class TestSurfaceAssessment(unittest.TestCase):
         )
         depth = base["total_depth_um"]
         allowance = math.nextafter(depth, 0.0)
-        self.assertLess(allowance, depth)
+        # The depth itself runs through non-correctly-rounded arithmetic, so
+        # its last bit is libm-dependent - but the case is built from that
+        # value, not from a literal. nextafter returns the adjacent double
+        # by definition, so assert the adjacency exactly rather than a
+        # comparison that reads like a rounding accident.
+        self.assertEqual(math.nextafter(allowance, depth), depth)
         edge = logic.assess_surface_erosion(
             radiator_surface(erosion_allowance_um=allowance),
             [beam_population(), cex_population()],

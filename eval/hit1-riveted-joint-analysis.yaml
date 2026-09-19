@@ -1,0 +1,12 @@
+# Hit@1 fragment: riveted-joint-analysis (space-systems/ecss)
+# Case 1 routes on sharing shear plus moment out to fasteners and the hole bearing check.
+# Case 2 routes on the two stability checks: skin between fasteners and free-edge collapse.
+tasks:
+  - id: riveted-joint-analysis-1
+    query: "Under ECSS structures rules our riveted skin-to-frame joint has nine rivets carrying 4.2 kN of shear plus an in-plane moment. How do I distribute that to each rivet about the centroid of the group, then check the sheet bearing stress at the worst hole?"
+    intent: "ECSS-E-ST-32C 4.6.2.15; the moment share scales with radius from the group centroid, and the resultant then feeds both the fastener shear and the sheet bearing check"
+    expected_skill: "space-systems/ecss/riveted-joint-analysis"
+  - id: riveted-joint-analysis-2
+    query: "Our compression panel uses countersunk fasteners at 25 mm pitch with a thin outstanding stringer flange. How do I work out the buckling stress of the skin bay between two fasteners, and separately the local collapse stress of that free-edge flange?"
+    intent: "ECSS-E-ST-32C 4.6.2.15; inter-rivet skin buckling depends on head fixity and the thickness-to-pitch ratio, while flange crippling is a separate free-edge plate check"
+    expected_skill: "space-systems/ecss/riveted-joint-analysis"

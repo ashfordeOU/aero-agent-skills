@@ -1,0 +1,16 @@
+# Hit@1 fragment: q6005-internal-element-replacement (space-systems/ecss)
+# Two tasks for the new leaf. ier1 routes on the two separate site allowances -
+# replacement attempts and thermal excursions - which is what distinguishes this
+# leaf from the general repair-authorisation leaves. ier2 routes on the keep-out
+# neighbourhood and the attach peak temperature against a neighbour's own limit.
+# Both must deterministically hit
+# space-systems/ecss/q6005-internal-element-replacement.
+tasks:
+  - id: ier1
+    query: "we need to pull a eutectically attached die out of a built hybrid and put another one down at the same site, work out whether that site has any rework left in it"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.2; the replacement-attempt allowance and the thermal-excursion allowance a hybrid substrate site carries, and how a eutectic removal and refit spends both"
+    expected_skill: "space-systems/ecss/q6005-internal-element-replacement"
+  - id: ier2
+    query: "before we lift the failed chip out of that hybrid and fit a new one, say how many rework attempts the site still allows and which neighbours fall within the keep out zone and would go past their temperature limit on attach"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.2; the keep-out radius around a hybrid repair site and the attach peak temperature weighed against each near element's own limit"
+    expected_skill: "space-systems/ecss/q6005-internal-element-replacement"

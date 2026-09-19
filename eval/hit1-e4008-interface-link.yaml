@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-interface-link (space-systems/ecss)
+# Two tasks for the new leaf. il1 routes on interface derivation satisfying a
+# required reference type; il2 routes on the mandatory reference that no link
+# reached, which no per-link loop can see.
+# Both must deterministically hit space-systems/ecss/e4008-interface-link.
+tasks:
+  - id: il1
+    query: "the provider publishes a regulated rail and the consumer asks for a plain power rail, decide whether that binding satisfies the reference or has to be rejected"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.2; a published interface satisfies a reference when it is the required type or derives from it, transitively and in that direction only"
+    expected_skill: "space-systems/ecss/e4008-interface-link"
+  - id: il2
+    query: "every declared link in this assembly looks well formed yet a required interface still comes up unresolved, so find the references nothing was bound into, and any bound past the upper multiplicity or satisfied twice by one provider"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.2; lower-bound sweep over every declared reference plus the upper-bound count, with -1 read as unbounded"
+    expected_skill: "space-systems/ecss/e4008-interface-link"

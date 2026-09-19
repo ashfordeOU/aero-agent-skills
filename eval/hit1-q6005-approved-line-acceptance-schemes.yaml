@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-approved-line-acceptance-schemes (space-systems/ecss)
+# Two tasks for the new leaf. alas1 routes on enumerating the options open to
+# an approved-line maker and the per-option entry conditions and gaps. alas2
+# routes on choosing between two open options from lot rate and annual
+# sampling burden. Both must deterministically hit
+# space-systems/ecss/q6005-approved-line-acceptance-schemes.
+tasks:
+  - id: alas1
+    query: "our hybrid maker operates an approved line, list which acceptance testing options are open to it, test each option against its own entry conditions, and name every gap that is still closing one of them off"
+    intent: "ECSS-Q-ST-60-05C clause 12.2; the approved line gates the whole clause and each acceptance option is tested against its own entry conditions independently, with the gaps reported per option rather than only for the chosen one"
+    expected_skill: "space-systems/ecss/q6005-approved-line-acceptance-schemes"
+  - id: alas2
+    query: "the approved line qualifies both for testing a sample from every batch and for running on monitoring, help me choose between the two options from the lot rate and the annual sampling burden per-lot testing would carry"
+    intent: "ECSS-Q-ST-60-05C clause 12.2; choosing between the per-lot option and the monitored-line option from continuous production and the annual sampling burden, with the review board quorum checked before monitoring may be recommended"
+    expected_skill: "space-systems/ecss/q6005-approved-line-acceptance-schemes"

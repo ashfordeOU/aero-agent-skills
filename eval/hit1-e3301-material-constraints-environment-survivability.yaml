@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-material-constraints-environment-survivability (space-systems/ecss)
+# Two tasks for the new leaf. mces1 routes on the oxygen index margin and the
+# containment question for a toxic material; mces2 routes on the atomic oxygen
+# recession product and the margined dose. Both must deterministically hit
+# space-systems/ecss/e3301-material-constraints-environment-survivability.
+tasks:
+  - id: mces1
+    query: "this liner was fine in air but the volume it now sits in is oxygen enriched and crewed, and the potting compound next to it is on the toxic list behind a vented cover"
+    intent: "ECSS-E-ST-33-01C clauses 4.5.2.2 to 4.5.2.10; flammability is the margin of the limiting oxygen index over the ambient concentration, and a habitable volume needs sealed containment rather than venting"
+    expected_skill: "space-systems/ecss/e3301-material-constraints-environment-survivability"
+  - id: mces2
+    query: "work out how much thickness the exposed hinge liner loses over the mission from the ram direction flux and whether the degradation threshold still clears the dose with its margin on"
+    intent: "ECSS-E-ST-33-01C clauses 4.5.2.2 to 4.5.2.10; recession is erosion yield times fluence, and the radiation ratio is the threshold over the dose multiplied by its design margin"
+    expected_skill: "space-systems/ecss/e3301-material-constraints-environment-survivability"

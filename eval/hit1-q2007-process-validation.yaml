@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-process-validation (space-systems/ecss)
+# Two tasks for the new leaf. pv1 routes on the replicate-run evidence a
+# process needs before release; pv2 routes on why repeatability alone is not
+# the validation. Both must deterministically hit
+# space-systems/ecss/q2007-process-validation.
+tasks:
+  - id: pv1
+    query: "before releasing a new test process for customer work we need replicate runs giving repeatability pooled across groups, reproducibility between operators, bias against a reference specimen and an expanded uncertainty compared with the tolerance"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.2; pooled repeatability, between-group reproducibility, reference bias, capability ratio"
+    expected_skill: "space-systems/ecss/q2007-process-validation"
+  - id: pv2
+    query: "is repeatability from one operator enough evidence to put the process into service, or does the validation need the between operator spread and the bias against a known artefact as well"
+    intent: "ECSS-Q-ST-20-07C clause 5.7.4.2; repeatability alone understates service uncertainty, bias is not a spread"
+    expected_skill: "space-systems/ecss/q2007-process-validation"

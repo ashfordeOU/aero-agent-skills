@@ -1,0 +1,13 @@
+# Hit@1 fragment: microvibration-test (space-systems/ecss)
+# Case 1 routes on typing each disturbance source, which decides whether a budget
+# comparison means anything. Case 2 routes on the measurement itself: band
+# coverage against the specification and the zero-margin convention.
+tasks:
+  - id: microvibration-test-1
+    query: "Our reaction wheels give discrete harmonics, the cryocooler is broadband and a shutter latch is a one-off transient. For the micro-vibration test matrix, can I grade a broadband source against a tonal disturbance budget, and what about a source fitting none of the three?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.12; budget and measurement must share a spectral interpretation, and a source that fits none of the three categories is rejected before it enters the matrix"
+    expected_skill: "space-systems/ecss/microvibration-test"
+  - id: microvibration-test-2
+    query: "The force platform run started at 5 Hz but the specification asks from 1 Hz, and one source landed exactly on its allocated amplitude. Is the uncovered low end a finding, and does a zero margin count as a failure?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.12; a partial band is a coverage gap rather than a conservative result, and a margin of exactly zero is marginal but compliant"
+    expected_skill: "space-systems/ecss/microvibration-test"

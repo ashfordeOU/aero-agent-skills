@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-uplink-assumed-bit-error-rate-ber (space-systems/ecss)
+# ub1 routes on a mid-pass rate quoted where the worst declared condition
+# governs; ub2 routes on two derived pages inheriting different rates. Both
+# must deterministically hit
+# space-systems/ecss/e50-uplink-assumed-bit-error-rate-ber.
+tasks:
+  - id: ub1
+    query: "the uplink analysis quotes a typical mid pass bit error rate but rain fade at low elevation is a declared condition, is that assumption acceptable"
+    intent: "ECSS-E-ST-50C clause 5.6.11.5; the stated uplink rate has to be no better than the worst declared condition, and equality with it is coverage"
+    expected_skill: "space-systems/ecss/e50-uplink-assumed-bit-error-rate-ber"
+  - id: ub2
+    query: "our telecommand rejection page and our undetected corruption page each derived a number from a different assumed uplink error rate, which one is wrong"
+    intent: "ECSS-E-ST-50C clause 5.6.11.5; the assumption is the input every later uplink figure inherits, so a derived figure computed from another rate breaks the chain"
+    expected_skill: "space-systems/ecss/e50-uplink-assumed-bit-error-rate-ber"

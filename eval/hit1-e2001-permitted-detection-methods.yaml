@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-permitted-detection-methods (space-systems/ecss)
+# Case 1 routes on hardware conditions that physically forbid a whole-chain technique.
+# Case 2 routes on filling the region-specific slot and on a corroborating-only
+# instrument that cannot be the primary channel.
+tasks:
+  - id: e2001-permitted-detection-methods-1
+    query: "Our chain carries an output isolator with a harmonic filter behind it, and the campaign runs one carrier. Does that rule out nulling-detection and harmonic-rise-detection, and what whole-chain technique is left?"
+    intent: "ECSS-E-ST-20-01C 7.2; blocking conditions are physical, so an isolator, an output filter and a single carrier each kill the observable a specific technique depends on"
+    expected_skill: "space-systems/ecss/e2001-permitted-detection-methods"
+  - id: e2001-permitted-detection-methods-2
+    query: "The only region-specific instrument that fits is a calorimetric thermal sensor, and the sealed cavity takes neither a biased probe nor a viewing window. Can that fill the local slot or is that coverage simply uncovered?"
+    intent: "ECSS-E-ST-20-01C 7.2; a corroborating-only technique whose latency cannot resolve a discharge may never be the primary channel of a coverage scope"
+    expected_skill: "space-systems/ecss/e2001-permitted-detection-methods"

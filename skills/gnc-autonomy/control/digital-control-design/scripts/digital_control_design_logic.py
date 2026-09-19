@@ -60,6 +60,9 @@ Conventions (documented in SKILL.md):
   the validation list require the candidate sample period; the
   implemented signature is sample_rate_rule(wb, T).)
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import cmath
 import math

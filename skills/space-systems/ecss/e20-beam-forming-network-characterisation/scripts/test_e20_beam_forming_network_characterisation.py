@@ -277,11 +277,15 @@ class InsertionLossBudgetTests(unittest.TestCase):
         self.assertTrue(budget["compliant"])
 
     def test_exact_allocation_from_summed_terms_stays_compliant(self):
-        # 0.1 + 0.1 + 0.1 lands a few ULPs above 0.3 in binary floating
-        # point; the hardware is exactly on allocation, so the comparison
-        # absorbs the representation error without widening the limit.
+        # Three 0.1 dB stages are exactly 0.3 dB of allocation. 0.1 is not
+        # exact in binary, so the running sum lands within a unit in the last
+        # place of the allocation; which side is a representation detail, not
+        # the claim, so the magnitude is what is asserted. places=14 is ~90
+        # units in the last place of 0.3 dB - beyond any rounding and far
+        # below anything measurable in dB. The allocation itself is unchanged;
+        # the claim under test is that being on it stays compliant.
         stages = [{"loss_db": 0.1} for _ in range(3)]
-        self.assertGreater(sum(s["loss_db"] for s in stages), 0.3)
+        self.assertAlmostEqual(sum(s["loss_db"] for s in stages), 0.3, places=14)
         budget = insertion_loss_budget(stages, 0.3)
         self.assertTrue(budget["compliant"])
         self.assertLessEqual(abs(budget["margin_db"]), BUDGET_TOLERANCE_DB)

@@ -217,7 +217,11 @@ class TestAssetEvaluation(unittest.TestCase):
     def test_standing_exactly_at_the_minimum_standoff_is_compliant(self):
         distance = minimum_standoff_distance(100.0, 10.0, 10.0)
         density = far_field_power_density(100.0, 10.0, distance)
-        self.assertGreater(density, 10.0)
+        # The sqrt round trip does not land back on the limit exactly, and
+        # which side of it the last place falls on depends on how the two
+        # expressions group their factors. Assert the distance from the
+        # limit, not the direction; the 10 W/m2 limit is unchanged.
+        self.assertAlmostEqual(density, 10.0, places=9)
         result = evaluate_asset(radiating_asset(), distance)
         self.assertTrue(result["exposure"]["within_limit"])
         self.assertEqual(result["findings"], [])

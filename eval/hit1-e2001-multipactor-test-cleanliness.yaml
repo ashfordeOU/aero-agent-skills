@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-multipactor-test-cleanliness (space-systems/ecss)
+# Case 1 routes on the airborne side: recomputing the concentration ceiling at the
+# sampled particle size and the inverted class ordering. Case 2 routes on the
+# surface side: fall-out over the dwell and undeclared containment controls.
+tasks:
+  - id: e2001-multipactor-test-cleanliness-1
+    query: "Our multipactor-sensitive RF hardware calls for class 7 but the delivery phase is declared class 8, and airborne counts are sampled at 5 micron rather than the reference size. Do I rebuild the concentration ceiling for the sampled particle size, and is a bigger class number stricter?"
+    intent: "ECSS-E-ST-20-01C clause 6.1; the concentration ceiling is size-dependent and must be recomputed at the sampled size, and the class number is an upper bound so a larger number is a looser room"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-cleanliness"
+  - id: e2001-multipactor-test-cleanliness-2
+    query: "Between assembly and the multipactor run our waveguide sits open on the bench for three days. How do I estimate fall-out of particulate onto the exposed critical gap over that dwell, and is an undeclared containment control a finding on its own?"
+    intent: "ECSS-E-ST-20-01C clause 6.1; a clean airborne count is not a clean surface because fall-out accrues over the dwell, and each lifecycle phase owes its containment controls independently of any measured count"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-cleanliness"

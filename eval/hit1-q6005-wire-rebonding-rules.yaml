@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-wire-rebonding-rules (space-systems/ecss)
+# Two tasks for the new leaf. wrr1 routes on the per-pad attempt allowance, the
+# count that separates a chip pad from a substrate pad or a post. wrr2 routes on
+# the accumulated bond footprint against the bondable pad area and on placing a
+# bond over a previous one. Both must deterministically hit
+# space-systems/ecss/q6005-wire-rebonding-rules.
+tasks:
+  - id: wrr1
+    query: "a wire lifted off a die pad during handling and the operator already tried once to put it back, how many more bonding attempts is that pad allowed"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.3; the bonding-attempt allowance a chip pad carries against a substrate pad or a package post, counted in attempts rather than successes"
+    expected_skill: "space-systems/ecss/q6005-wire-rebonding-rules"
+  - id: wrr2
+    query: "the pad already carries two wedge footprints and the tail of the broken wire is still on it, decide whether we can land another bond there or over the old one"
+    intent: "ECSS-Q-ST-60-05C clause 10.5.3; accumulated bond footprint against the bondable pad area, remnant removal before a rebond, and whether a bond may sit over a previous footprint"
+    expected_skill: "space-systems/ecss/q6005-wire-rebonding-rules"

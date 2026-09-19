@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-principles (space-systems/ecss)
+# Two tasks for the new leaf. tp1 routes on the whole-organization scope of the
+# test centre rather than the test run alone; tp2 routes on the subcontracted
+# service rule and the assurance reporting line. Both must deterministically hit
+# space-systems/ecss/q2007-principles.
+tasks:
+  - id: tp1
+    query: "our scope statement excludes calibration and a subcontracted vibration service, and the assurance lead reports to the operations manager he grades; which exclusions can never stand because the function is core, and which need a written rationale and a named accountable owner"
+    intent: "ECSS-Q-ST-20-07C clause 4 principles; assurance covers the whole test centre organization and its services, with core functions that cannot be excluded"
+    expected_skill: "space-systems/ecss/q2007-principles"
+  - id: tp2
+    query: "we push the subcontracted vibration service out of our own assurance scope because the supplier is approved, and our quality lead reports to the test operations manager, is that defensible"
+    intent: "ECSS-Q-ST-20-07C clause 4; subcontracted test services stay in the centre's scope and the assurance function is independent of operations"
+    expected_skill: "space-systems/ecss/q2007-principles"

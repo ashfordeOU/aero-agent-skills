@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-production-lot-control-option (space-systems/ecss)
+# Two tasks for the new leaf. plco1 routes on allocating units from one
+# production lot to acceptance groups that cannot share them, and on what
+# survives to ship. plco2 routes on the resubmission limit and the
+# consecutive-rejection run that suspends the option itself. Both must
+# deterministically hit space-systems/ecss/q6005-production-lot-control-option.
+tasks:
+  - id: plco1
+    query: "each production lot has to feed electrical, environmental and destructive analysis samples that cannot share units, work out how many units that commits, how many are destroyed, how many come back to stock and how many we can still ship"
+    intent: "ECSS-Q-ST-60-05C clause 12.2.1; acceptance groups draw their own units from the lot without sharing, so the commitment is the sum, and only the destructive groups come off the deliverable quantity"
+    expected_skill: "space-systems/ecss/q6005-production-lot-control-option"
+  - id: plco2
+    query: "the last two production lots were both rejected by their acceptance groups and we want to rework and resubmit the second lot, tell me whether that resubmission is still allowed and what a run of consecutive rejected lots does to the lot control entitlement"
+    intent: "ECSS-Q-ST-60-05C clause 12.2.1; the resubmission limit applies to one lot while a run of consecutive rejected lots is a statement about the line and suspends the entitlement to operate the per-lot option at all"
+    expected_skill: "space-systems/ecss/q6005-production-lot-control-option"

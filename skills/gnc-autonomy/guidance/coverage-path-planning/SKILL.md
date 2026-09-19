@@ -160,3 +160,6 @@ second and exits 0 on success.
 STANDARDS-REF. This leaf references ARP4754A as the development
 assurance context for guidance software design; the standard text is
 named, not reproduced. Gated: false.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.

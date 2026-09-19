@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-wafer-screening-and-acceptance-testing (space-systems/ecss)
+# Two tasks for the new leaf. wsat1 routes on the pre-dicing flow itself -- a
+# stress with no measurement bracketing it, and a die level activity written into
+# a wafer level flow. wsat2 routes on the site drift arithmetic and the failing
+# fraction against the allowance. Both must deterministically hit
+# space-systems/ecss/q6012-wafer-screening-and-acceptance-testing.
+tasks:
+  - id: wsat1
+    query: "On our microwave wafer flow a stress step runs with no parametric probe reading ahead of it, and someone wrote a die shear into the same sequence while nothing is diced yet. Grade the whole pre-dicing flow before we commit the lot."
+    intent: "ECSS-Q-ST-60-12C clause 10.2; pre-dicing wafer flow, stress activities bracketed by parametric measurements, activities that need separated dies"
+    expected_skill: "space-systems/ecss/q6012-wafer-screening-and-acceptance-testing"
+  - id: wsat2
+    query: "here are the probe readings from every site before and after the wafer level stress; work out the drift on each monitored parameter, say which sites fail their limits and whether the failing fraction is still inside the percentage defective allowed for the lot"
+    intent: "ECSS-Q-ST-60-12C clause 10.2; relative parametric drift per probed site and the failing site fraction against the percentage defective allowed"
+    expected_skill: "space-systems/ecss/q6012-wafer-screening-and-acceptance-testing"

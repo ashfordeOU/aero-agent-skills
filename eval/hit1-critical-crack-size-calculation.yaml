@@ -1,0 +1,12 @@
+# Hit@1 fragment: critical-crack-size-calculation (space-systems/ecss)
+# Case 1 routes on inverting the crack-tip relation for the ceiling crack size.
+# Case 2 routes on residual strength at the assumed flaw and its margin sign.
+tasks:
+  - id: critical-crack-size-calculation-1
+    query: "Aluminium fitting, toughness 36 MPa root metre, geometry correction 1.12, net section stress 210 MPa at limit load. Treating it as linear elastic, apply fracture mechanics and tell me the critical crack half-length I quote as the ceiling for this structural part."
+    intent: "ECSS E-ST-32C 7.3; inverting the crack-tip relation at limit stress to obtain the ceiling crack half-length"
+    expected_skill: "space-systems/ecss/critical-crack-size-calculation"
+  - id: critical-crack-size-calculation-2
+    query: "The crack our process leaves behind is bigger than the critical size we calculated for this structural component at limit loading, so the margin has gone negative. What disposition does the fracture control programme allow, and does the geometry factor change anything?"
+    intent: "ECSS E-ST-32C 7.3; residual strength at the assumed flaw and the sign of the margin against limit stress, not a growth or report question"
+    expected_skill: "space-systems/ecss/critical-crack-size-calculation"

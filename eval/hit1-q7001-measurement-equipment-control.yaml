@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-measurement-equipment-control (space-systems/ecss)
+# Two tasks for the new leaf. mec1 routes on the calendar-month calibration walk
+# and the days left on the measurement date; mec2 routes on the detection-floor
+# sensitivity ratio and the particle counter sizing error against its smallest
+# bin. Both must deterministically hit
+# space-systems/ecss/q7001-measurement-equipment-control.
+tasks:
+  - id: mec1
+    query: "Before the cleanliness campaign starts, clear the instruments: the residue balance certificate runs on a twelve month cycle from the thirty first of January, so walk it forward in whole months and tell me how many days of cover remain on measurement day."
+    intent: "ECSS-Q-ST-70-01C verification; whole-calendar-month calibration walk with day clamping and the days remaining on the measurement date rather than today"
+    expected_skill: "space-systems/ecss/q7001-measurement-equipment-control"
+  - id: mec2
+    query: "the particle counter resolves down to nearly the level we are policing and its sizing is out by a micrometre on the smallest channel, decide whether that instrument set can carry the verification"
+    intent: "ECSS-Q-ST-70-01C verification; detection-floor sensitivity ratio, counter sizing error against the smallest reported bin, quadrature uncertainty budget and traceability"
+    expected_skill: "space-systems/ecss/q7001-measurement-equipment-control"

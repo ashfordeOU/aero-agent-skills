@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-packet (space-systems/ecss)
+# Two tasks for the new leaf. pkt1 routes on the size being derived from the
+# contained packet's own length field; pkt2 routes on a dump container
+# desynchronising. Both must deterministically hit space-systems/ecss/e7041-packet.
+tasks:
+  - id: pkt1
+    query: "a forwarded telecommand is being carried whole inside a report and there is no length declared next to it, work out where that field ends and whether the primary header of the thing inside stays on"
+    intent: "ECSS-E-ST-70-41C clause 7.3.13; a parameter of packet type carries a complete space packet including its own primary header, and its size is derived from the packet-length field inside that contained packet rather than declared beside it"
+    expected_skill: "space-systems/ecss/e7041-packet"
+  - id: pkt2
+    query: "the first entry of a store dump reads fine and everything after it comes out as garbage, check what one entry misstating its own size does to the reader walking the rest of the container"
+    intent: "ECSS-E-ST-70-41C clause 7.3.13; a container of back-to-back packets has no offset table, so a packet whose stated length disagrees with the octets present desynchronises every packet after it"
+    expected_skill: "space-systems/ecss/e7041-packet"

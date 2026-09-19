@@ -1,0 +1,14 @@
+# Hit@1 fragment: e31-thermal-balance-test-tbt-performance (space-systems/ecss).
+# tbt1 routes on the compensation heater power that makes a cold shroud
+# reproduce the flight boundary; tbt2 routes on the drift-rate steady-state
+# criterion and the reference-point sensors. Both must deterministically hit
+# space-systems/ecss/e31-thermal-balance-test-tbt-performance.
+tasks:
+  - id: tbt1
+    query: "the chamber shroud sits far colder than the flight sink and the lamps cannot make the absorbed flux, work out how much balance heater power each case needs and whether the bank can deliver it"
+    intent: "ECSS-E-ST-31C clause 4.5.3.1; compensation heater power as the flux shortfall plus the colder-shroud rejection term, and the infeasible negative demand"
+    expected_skill: "space-systems/ecss/e31-thermal-balance-test-tbt-performance"
+  - id: tbt2
+    query: "decide from the recorded temperature histories whether this balance case has actually reached steady state, and tell me which reference points are not instrumented well enough to grade it"
+    intent: "ECSS-E-ST-31C clause 4.5.3.1; least-squares drift rate over a declared window at every reference point, and sensor accuracy against the grading need"
+    expected_skill: "space-systems/ecss/e31-thermal-balance-test-tbt-performance"

@@ -102,8 +102,14 @@ class TestIsWithinLimit(unittest.TestCase):
         # not a real exceedance, so the logic absorbs it and the
         # acceptance limit stays at 0.3 V.
         spread = surface_voltage_spread([-0.1, 0.2])
-        self.assertGreater(spread, 0.3)
+        # The SIZE of the representation error is the contract, not which
+        # side of the last bit the difference landed on.
+        self.assertAlmostEqual(spread, 0.3, places=12)
         self.assertTrue(is_within_limit(spread, 0.3))
+        # Pin the absorbing branch with an exceedance constructed to be
+        # strictly over, by 1e-12 V - inside what the leaf absorbs, and the
+        # same value on every platform. The acceptance limit stays 0.3 V.
+        self.assertTrue(is_within_limit(0.3 + 1e-12, 0.3))
 
     def test_rejects_negative_value(self):
         with self.assertRaises(ValueError):

@@ -1,0 +1,13 @@
+# Hit@1 fragment: modal-analysis-verification (space-systems/ecss)
+# Case 1 routes on resolving the fundamental per axis from the modes that actually
+# mobilise mass there. Case 2 routes on the completeness guard: cumulative
+# participation below threshold and an axis nothing contributes to.
+tasks:
+  - id: modal-analysis-verification-1
+    query: "The lowest mode out of our modal run is 41 Hz but it mobilises no effective mass laterally, and the launcher asks for 45 Hz in that direction. Which mode actually sets the lateral fundamental, and does the 41 Hz one bound that requirement at all?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.4; the case turns on the per-axis fundamental being the lowest mode with non-zero effective mass in that axis, not the global lowest"
+    expected_skill: "space-systems/ecss/modal-analysis-verification"
+  - id: modal-analysis-verification-2
+    query: "I have the fundamental frequency resolved per axis and a 45 Hz lateral requirement. What margin figure do I report against that minimum, and how are these predicted fundamentals meant to be cross-checked against what the modal survey campaign actually measured?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.4; the case turns on the frequency margin figure per axis and on carrying the prediction into the modal survey test correlation"
+    expected_skill: "space-systems/ecss/modal-analysis-verification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2008-review-deliverables (space-systems/ecss)
+# Two tasks for the new leaf. rd1 routes on re-anchoring a deliverable when the
+# project does not hold the listed review; rd2 routes on the working-day
+# submission lead and the late/unplanned grading. Both must deterministically
+# hit space-systems/ecss/q2008-review-deliverables.
+tasks:
+  - id: rd1
+    query: "we do not run a separate qualification review on this project, so work out where the container qualification package and the handling procedures are actually due instead"
+    intent: "ECSS-Q-ST-20-08C Annex E; re-anchoring a storage, handling and transport deliverable to the nearest earlier review the project holds"
+    expected_skill: "space-systems/ecss/q2008-review-deliverables"
+  - id: rd2
+    query: "take the review milestone dates, subtract the twenty working day submission lead without landing on a weekend, and tell me which transport documents are planned late and by how many days"
+    intent: "ECSS-Q-ST-20-08C Annex E; submission due day from a working-day lead and the on-time, late and unplanned grading with slack"
+    expected_skill: "space-systems/ecss/q2008-review-deliverables"

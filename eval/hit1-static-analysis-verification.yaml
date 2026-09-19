@@ -1,0 +1,12 @@
+# Hit@1 fragment: static-analysis-verification (space-systems/ecss)
+# Case 1 routes on pairing the right allowable with each design load level and carrying a margin record at every structural level.
+# Case 2 routes on the stability side: knocking an eigenvalue down before the reserve factor, and a compression path with no stability record.
+tasks:
+  - id: static-analysis-verification-1
+    query: "Our bracket model returns 310 MPa peak at design ultimate load and 240 MPa at design yield load. Which allowable belongs with which of those levels, and does every detail fitting and lug need its own margin of safety record as well as the sub-assembly?"
+    intent: "ECSS-E-ST-32C 4.6.2.3; yield allowable against DYL and ultimate allowable against DUL, with a margin record held at each structural level rather than only at the top"
+    expected_skill: "space-systems/ecss/static-analysis-verification"
+  - id: static-analysis-verification-2
+    query: "A thin-walled shell panel in compression comes out of a linear eigenvalue run with a critical load of 41 kN against 30 kN applied. Do I knock that eigenvalue down before taking the reserve factor, and what about elements that carry a compressive path yet have no stability record?"
+    intent: "ECSS-E-ST-32C 4.6.2.3; buckling reserve factor with the imperfection knock-down on a linear eigenvalue, and an unrecorded stability check flagged as incomplete verification"
+    expected_skill: "space-systems/ecss/static-analysis-verification"

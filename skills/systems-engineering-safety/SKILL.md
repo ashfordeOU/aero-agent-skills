@@ -32,6 +32,10 @@ safety assessment process (ARP4761A) with fault tree and FMEA
 analyses, common cause analysis, particular risk analysis, and
 model-based systems engineering (SysML, digital thread).
 
+Revision note: ARP4754B (2023) supersedes ARP4754A; this pack keys to
+ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+see standards-map.yaml arp4754a.revision_decision.
+
 ## Sub-skills in this pack
 
 | Path | Skill | When to route to it |
@@ -61,7 +65,7 @@ model-based systems engineering (SysML, digital thread).
 | systems-engineering-safety/requirements/requirements-elicitation | Requirements elicitation | stakeholder needs, operational scenario, requirements baseline, atomicity, verifiability, weasel words, elicitation log |
 | systems-engineering-safety/certification/certification-basis | Certification basis | certification basis, type certificate, supplemental type certificate, TSO, special conditions, FAR applicability, CS-25, certification program, means of compliance, regulatory path |
 | systems-engineering-safety/arp4761a/preliminary-system-safety-assessment | Preliminary system safety assessment | PSSA, preliminary system safety assessment, safety requirements, FDAL, IDAL, allocation, architecture |
-| systems-engineering-safety/arp4754a/configuration-management | Configuration Management | configuration management, baseline, change control, change request, impact analysis, major change, minor change, safety critical requirement, certification data, interfaces, configuration item, change history, traceability closure. |
+| systems-engineering-safety/arp4754a/systems-configuration-management | Configuration Management | configuration management, baseline, change control, change request, impact analysis, major change, minor change, safety critical requirement, certification data, interfaces, configuration item, change history, traceability closure. |
 | systems-engineering-safety/arp4761a/reliability-block-diagram | Reliability block diagram | reliability block diagram, RBD, series parallel reliability, k-out-of-n, standby redundancy, MTBF |
 | systems-engineering-safety/certification/means-of-compliance | Means of compliance | means of compliance, MOC-1, MOC-2, MOC-3, MOC-6, compliance matrix, certification item, coverage score |
 | systems-engineering-safety/certification/equivalent-level-of-safety | Equivalent level of safety | ELOS finding, deviation from literal compliance, regulation intent, compensating measure, safety margin, equivalent safety finding |

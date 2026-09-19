@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-cleanliness-verification-records (space-systems/ecss)
+# vr1 routes on a dossier whose records cannot be tied back to surfaces; vr2
+# routes on a measurement taken with a lapsed instrument and one overtaken by
+# later handling. Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-verification-records.
+tasks:
+  - id: vr1
+    query: "I have forty cleanliness measurements and an inventory of eleven hardware surfaces, work out which surfaces are actually covered by a usable record and which records point at something the inventory never declared"
+    intent: "ECSS-Q-ST-70-01 verification records; coverage is counted over declared hardware surfaces, not over records, and an orphan record closes nothing"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-verification-records"
+  - id: vr2
+    query: "closing out the cleanliness dossier: one record used an instrument that was out of calibration that day, another surface was reworked after its record was written, and some inventory surfaces have no record covering them at all"
+    intent: "ECSS-Q-ST-70-01 verification records; a lapsed-calibration measurement is not evidence, a record is superseded by later handling of the same surface, and an uncovered inventory surface stays uncovered"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-verification-records"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7001-solar-array-control (space-systems/ecss)
+# Two tasks for the new leaf. sac1 routes on the three separate ways a
+# contaminated wing loses power; sac2 routes on a second-surface mirror in the
+# same environment being graded on a ratio rather than an absorptance. Both
+# must deterministically hit space-systems/ecss/q7001-solar-array-control.
+tasks:
+  - id: sac1
+    query: "the wing cover glasses are predicted to take a molecular film plus about one percent dust, work out the end of life power against what the mission needs and do not forget the cells run hotter once the cover darkens"
+    intent: "ECSS-Q-ST-70-01C sensitive solar arrays; obscuration and film attenuation compose multiplicatively into an illumination factor, and the absorbed light the film stops raises the cell temperature, costing power a second time through the temperature coefficient"
+    expected_skill: "space-systems/ecss/q7001-solar-array-control"
+  - id: sac2
+    query: "optical solar reflectors on the same panel as the array, they start very bright so does the same film hurt them more, and what ratio do they end up at"
+    intent: "ECSS-Q-ST-70-01C second-surface mirrors; the requirement is an alpha over epsilon ratio, and a low starting absorptance makes the same deposition a far larger relative change than on a cover glass"
+    expected_skill: "space-systems/ecss/q7001-solar-array-control"

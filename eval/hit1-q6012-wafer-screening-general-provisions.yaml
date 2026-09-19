@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-wafer-screening-general-provisions (space-systems/ecss)
+# Two tasks for the new leaf. wsg1 routes on lot coverage read both ways plus the
+# declared stress conditions; wsg2 routes on the record and retention half.
+# Both must deterministically hit
+# space-systems/ecss/q6012-wafer-screening-general-provisions.
+tasks:
+  - id: wsg1
+    query: "check our wafer level screening campaign covers every wafer of the procured lot, tell me which wafers were left out and which screened wafers do not belong to the lot at all, and whether the declared soak temperature and duration actually meet the agreed baseline"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.1; wafer lot screening coverage in both directions and the declared stress conditions against their floor"
+    expected_skill: "space-systems/ecss/q6012-wafer-screening-general-provisions"
+  - id: wsg2
+    query: "for each screened wafer we need a record naming the operator, the equipment, when it ran and where the measured data lives, and it has to be kept for ten years, work out which records are short and how many years of retention we still owe"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.1; wafer screening record completeness and the retention shortfall"
+    expected_skill: "space-systems/ecss/q6012-wafer-screening-general-provisions"

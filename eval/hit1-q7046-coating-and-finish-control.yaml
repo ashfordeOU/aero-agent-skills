@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-coating-and-finish-control (space-systems/ecss)
+# cf1 routes on the barred-deposit screen and its substitutes; cf2 routes on
+# the coating thickness eating the thread-class allowance. Both must
+# deterministically hit space-systems/ecss/q7046-coating-and-finish-control.
+tasks:
+  - id: cf1
+    query: "the drawing still calls out cadmium plate on these bolts and the shop wants to run pure tin instead, what can we actually use and does the tin need alloying"
+    intent: "ECSS-Q-ST-70-46 finish control; cadmium is barred for flight and answered with substitutes, and a pure tin or zinc deposit is admissible only above the whisker-suppression alloying floor"
+    expected_skill: "space-systems/ecss/q7046-coating-and-finish-control"
+  - id: cf2
+    query: "we are plating the bolt and the nut to the same thickness and they will not gauge, how much of the class allowance does the deposit actually eat and what is the thickest plate we can still run"
+    intent: "ECSS-Q-ST-70-46 finish control; a deposit moves the pitch diameter by four times its thickness on each mating thread, so the allowance is a joint budget and the admissible external thickness follows from what the internal deposit leaves"
+    expected_skill: "space-systems/ecss/q7046-coating-and-finish-control"

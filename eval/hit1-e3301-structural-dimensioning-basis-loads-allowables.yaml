@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-structural-dimensioning-basis-loads-allowables (space-systems/ecss)
+# Two tasks for the new leaf. sdb1 routes on the limit-load-to-design-load
+# build-up and the enveloping case; sdb2 routes on the statistical basis of a
+# material allowable against load-path redundancy. Both must deterministically
+# hit space-systems/ecss/e3301-structural-dimensioning-basis-loads-allowables.
+tasks:
+  - id: sdb1
+    query: "Limit loads for a mechanism come from handling, the quasi-static launch ride, shock, latch-up and on-orbit slewing, some measured, some from a spec envelope. Which case ends up sizing the bracket once each is uprated for how it was obtained and for the programme factor?"
+    intent: "ECSS-E-ST-33-01 clauses 4.7.5.2.1 to 4.7.5.2.4; design limit load build-up and the driving enveloping case"
+    expected_skill: "space-systems/ecss/e3301-structural-dimensioning-basis-loads-allowables"
+  - id: sdb2
+    query: "decide whether this material allowable has a statistical basis that matches the redundancy of the load path, and whether it was stated at a temperature the part really sees"
+    intent: "ECSS-E-ST-33-01 clauses 4.7.5.2.1 to 4.7.5.2.4; allowable basis against single or redundant load path plus temperature retention"
+    expected_skill: "space-systems/ecss/e3301-structural-dimensioning-basis-loads-allowables"

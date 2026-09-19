@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-gas-discharge-general-requirements (space-systems/ecss)
+# Case 1 routes on the weakest pressure lying inside a declared band. Case 2
+# routes on building the applied power and on what a vacuum-taken onset point
+# can anchor.
+tasks:
+  - id: e20-gas-discharge-general-requirements-1
+    query: "Our ascent profile declares a pressure band running from 20 mbar down to 0.1 mbar, and both ends pass with plenty of corona headroom. Is checking the two ends of that band enough for the radio-frequency chain?"
+    intent: "ECSS-E-ST-20C clause 7.3.3.1; the similarity law puts the weakest condition at an interior pressure whenever the band straddles the curve minimum"
+    expected_skill: "space-systems/ecss/e20-gas-discharge-general-requirements"
+  - id: e20-gas-discharge-general-requirements-2
+    query: "We measured a corona onset in hard vacuum and want to transport it to the outgassing phase. Is the transmitter nameplate rating the right applied level to compare against, or must carriers adding coherently and the mismatch uplift go in first?"
+    intent: "ECSS-E-ST-20C clause 7.3.3.1; an onset taken on the long-mean-free-path branch has no finite voltage to scale from, and the applied level is the uplifted envelope, not the rating"
+    expected_skill: "space-systems/ecss/e20-gas-discharge-general-requirements"

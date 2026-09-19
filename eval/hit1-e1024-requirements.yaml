@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-requirements (space-systems/ecss)
+# Case 1 routes on category coverage across the four mandatory requirement categories.
+# Case 2 routes on per-requirement field validity and an unrecognized category label.
+tasks:
+  - id: e1024-requirements-1
+    query: "The requirements document for our payload-to-platform boundary has plenty of shall statements on connectors, loads and thermal limits, but nothing about packet structure, data rate or timing. Does that leave a coverage gap we have to declare?"
+    intent: "ECSS-E-ST-10-24C 5.3; the case turns on the data-characteristic category being one of four that must each hold at least one entry for the interface"
+    expected_skill: "space-systems/ecss/e1024-requirements"
+  - id: e1024-requirements-2
+    query: "Someone entered rows in our IRD with a category of optical, left the verification method and rationale empty, and gave two requirements the same unique identifier. How do those grade against the four mandatory interface requirement categories?"
+    intent: "ECSS-E-ST-10-24C 5.3; the case turns on mandatory field validation, an out-of-vocabulary category not counting toward coverage, and duplicate identifiers"
+    expected_skill: "space-systems/ecss/e1024-requirements"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-storage-and-handling (space-systems/ecss)
+# sh1 routes on shelf life set by protection and store class with the clock
+# restarted by a package breach; sh2 routes on segregation, bulk handling and
+# oldest-first issue.
+# Both must deterministically hit space-systems/ecss/q7046-storage-and-handling.
+tasks:
+  - id: sh1
+    query: "a bag of plated bolts was made in January, the seal was found open in June and the rack is not climate controlled, how much life do these actually have left and when should they be looked at again"
+    intent: "ECSS-Q-ST-70-46 storage clause; shelf life from corrosion protection and store class, the clock restarted rather than paused by a package breach, and the re-inspection interval"
+    expected_skill: "space-systems/ecss/q7046-storage-and-handling"
+  - id: sh2
+    query: "stores topped up a bin of fasteners from a second lot, tipped them into a tray to count them and issue from the front of the rack, what is wrong with that and can the bin still be released"
+    intent: "ECSS-Q-ST-70-46 handling clause; lot segregation and the loss of identity in a mixed container, thread damage from bulk handling, and oldest-first issue"
+    expected_skill: "space-systems/ecss/q7046-storage-and-handling"

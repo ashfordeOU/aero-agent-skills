@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-reflector-and-lens-antennas (space-systems/ecss)
+# Case 1 routes on roughness turned into specular efficiency and scattered fraction, with different factors for the two surface families.
+# Case 2 routes on combining several depolarisation contributions into one cross-polar discrimination and its axial ratio.
+tasks:
+  - id: e20-reflector-and-lens-antennas-1
+    query: "Our antenna chain puts a mesh reflecting surface ahead of a dichroic transmitting panel. At 30 GHz how do I work out the dissipative loss each one adds, and convert the rms roughness of both into the diffusivity fraction scattered away from the specular direction?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.2; roughness converted to specular efficiency and diffuse fraction with the round-trip factor for a reflecting surface against the refractive-index-excess factor for a transmitting one"
+    expected_skill: "space-systems/ecss/e20-reflector-and-lens-antennas"
+  - id: e20-reflector-and-lens-antennas-2
+    query: "Three things depolarise our antenna: the mesh weave direction, a grid pitch error and an asymmetric curvature defect, each quoted to us in decibels. How do I combine them into a single cross-polar discrimination and turn that into the axial ratio our circular polarisation requirement is written in?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.2; depolarisation contributions summed as orthogonal power ratios rather than in decibels, then converted to one discrimination figure and an equivalent axial ratio"
+    expected_skill: "space-systems/ecss/e20-reflector-and-lens-antennas"

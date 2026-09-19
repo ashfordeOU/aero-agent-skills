@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-solar-array-sizing-and-design (space-systems/ecss)
+# Case 1 routes on categorising each mission phase by illumination and on a phase the array
+# cannot close. Case 2 routes on recharge-driven power and the end-of-life area that governs.
+tasks:
+  - id: e20-solar-array-sizing-and-design-1
+    query: "Our LEO mission has a 35 minute eclipse in a 98 minute orbit plus a long shadowed coast during the transfer. How should each mission phase be treated when I size the solar array, and can the array close that coast at all?"
+    intent: "ECSS-E-ST-20C 5.5.2; each phase is categorised by illumination regime before any number, and a fully shadowed interval is a battery capacity case the array cannot size for"
+    expected_skill: "space-systems/ecss/e20-solar-array-sizing-and-design"
+  - id: e20-solar-array-sizing-and-design-2
+    query: "With a 28 percent cell and seven years of degradation, do I size the wing for whichever phase needs the most power or the most area? Recharge energy crammed into a brief sunlit window seems to push it harder than the daytime load."
+    intent: "ECSS-E-ST-20C 5.5.2; required power includes battery energy returned in the remaining sunlit time, and the driving phase is settled on area after end-of-life degradation"
+    expected_skill: "space-systems/ecss/e20-solar-array-sizing-and-design"

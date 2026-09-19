@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-tmtc-icd (space-systems/ecss)
+# Case 1 routes on the application-process identifier table: legal values, the
+# reserved one, and registration completeness. Case 2 routes on the packet
+# definitions: service ranges, the encoded length field, and both directions.
+tasks:
+  - id: e1024-tmtc-icd-1
+    query: "We allocated APIDs across the on-board processes and one landed on 0x7FF, while two others appear in packet definitions but never in the allocation table. Which APID values are legal, and is an unregistered APID a finding or a placeholder?"
+    intent: "ECSS-E-ST-10-24C 5.9; the identifier allocation table, the value reserved for idle packets, and the two-way completeness between registered identifiers and packet definitions"
+    expected_skill: "space-systems/ecss/e1024-tmtc-icd"
+  - id: e1024-tmtc-icd-2
+    query: "Our TC packets use PUS service 0 and one telemetry packet's computed data length exceeds 65535. Are service and subservice zero legal in PUS-C, and does an ICD with no uplink entry count as complete?"
+    intent: "ECSS-E-ST-10-24C 5.9; service and subservice range validation against PUS-C, the encoded packet data length against the 16-bit field, and the requirement that both directions be defined"
+    expected_skill: "space-systems/ecss/e1024-tmtc-icd"

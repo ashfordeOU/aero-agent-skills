@@ -1,0 +1,12 @@
+# Hit@1 fragment: stress-intensity-solutions (space-systems/ecss)
+# Case 1 routes on matching the crack to a solution family and its reference.
+# Case 2 routes on the correction terms and the elastic validity check.
+tasks:
+  - id: stress-intensity-solutions-1
+    query: "I have a semi-elliptical surface flaw in a machined pocket wall under bending. Which geometry family and compendium entry gives me the right K-solution, and what do I record about that reference in the analysis note?"
+    intent: "ECSS-E-ST-32C 7.2.7; matching the crack to its solution family and recording the compendium source behind the chosen formula"
+    expected_skill: "space-systems/ecss/stress-intensity-solutions"
+  - id: stress-intensity-solutions-2
+    query: "Our surface crack sits at 0.6 depth-to-length and 0.45 depth-to-thickness in a finite width section. Which boundary-correction terms enter the K-solution, and how do I show linear-elastic fracture-mechanics still governs before K feeds crack growth?"
+    intent: "ECSS-E-ST-32C 7.2.7; evaluating the correction factors at the geometry ratios and checking elastic dominance before K is used downstream"
+    expected_skill: "space-systems/ecss/stress-intensity-solutions"

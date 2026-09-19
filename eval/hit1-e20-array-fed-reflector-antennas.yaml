@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-array-fed-reflector-antennas (space-systems/ecss)
+# Case 1 routes on the clause needing both provision families at once.
+# Case 2 routes on turning feed displacement into squint and the scan-loss charge.
+tasks:
+  - id: e20-array-fed-reflector-antennas-1
+    query: "The dossier for our array-fed reflector build lists reflector provisions only, all verified. Does the clause also want a separate radiating-array provision, and what stays uncharged in the budget if I grade the whole antenna under that one family?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.4; coverage needs both provision families declared and verified, and the single-family route silently drops the cluster excitation and network loss"
+    expected_skill: "space-systems/ecss/e20-array-fed-reflector-antennas"
+  - id: e20-array-fed-reflector-antennas-2
+    query: "Feed horns in our cluster sit 140 mm off the focus. How do I convert that offset into a beam-deviation-factor and a squint measured in beamwidths, and how quickly does scan-loss grow for the edge-of-coverage beam against a near-axis one?"
+    intent: "ECSS-E-ST-20C 7.2.2.2.4; displacement maps to squint only through the deviation factor, and the loss grows with the square of the offset so edge beams cannot be extrapolated linearly"
+    expected_skill: "space-systems/ecss/e20-array-fed-reflector-antennas"

@@ -280,8 +280,14 @@ class DriveStepTests(unittest.TestCase):
 
     def test_dwell_assembled_a_hair_under_the_requirement_is_accepted(self):
         needed = required_dwell(1.0, 0.99)
-        dwell = 0.129 + 4.4761701859880905
-        self.assertLess(dwell, needed)
+        # The requirement runs through math.log, which is not correctly
+        # rounded, so the last bit of `needed` is libm-dependent. A dwell
+        # written as a literal neighbour of the value measured here would
+        # land on the wrong side of it on another platform, so derive the
+        # case from the requirement itself: nextafter returns the adjacent
+        # double by definition and is exact everywhere.
+        dwell = math.nextafter(needed, 0.0)
+        self.assertEqual(math.nextafter(dwell, needed), needed)
         result = evaluate_drive_step(
             {"step_id": "step-1", "forward_power_w": 40.0, "dwell_s": dwell}, 1.0
         )
@@ -363,7 +369,14 @@ class RunAssessmentTests(unittest.TestCase):
             ],
         )
         report = assess_cw_seeding(plan)
-        self.assertGreater(report["fluence_per_cm2"], 300.0)
+        # The fluence is an exact seed rate times a dwell summed in IEEE-754
+        # binary, divided by an exact area: multiplication and division are
+        # correctly rounded by the hardware, so the value is bit-identical
+        # on every conforming platform and sits a few units in the last
+        # place over the limit. The difference below is exact.
+        overshoot = report["fluence_per_cm2"] - 300.0
+        self.assertGreater(overshoot, 0.0)
+        self.assertLess(overshoot, 1e-12)
         self.assertTrue(report["compliant"])
 
     def test_source_left_in_the_drive_path_is_flagged(self):

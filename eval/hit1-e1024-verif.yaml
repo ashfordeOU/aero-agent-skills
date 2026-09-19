@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-verif (space-systems/ecss)
+# Case 1 routes on the trace from interface items to verification entries and the resulting coverage figure.
+# Case 2 routes on validating the entries themselves: recognised method and status, and a degenerate interface pair.
+tasks:
+  - id: e1024-verif-1
+    query: "I am tracing our forty-item ICD list against the VCD. Eleven ICD items have nothing pointing at them and three entries sit at waived. What coverage ratio do I report, and do the waived ones count as gaps?"
+    intent: "ECSS-E-ST-10-24C 5.6; tracing every interface item to at least one verification entry, the coverage ratio, and the rule that a waiver is evidence rather than a gap"
+    expected_skill: "space-systems/ecss/e1024-verif"
+  - id: e1024-verif-2
+    query: "One VCD entry gives its method as engineering judgement, and one ICD record names the same subsystem as both source and destination. Are either of those acceptable, and which verification methods and statuses is an interface entry allowed to carry?"
+    intent: "ECSS-E-ST-10-24C 5.6; method validation against the approved set, recognised status values, and the self-referential source/destination finding"
+    expected_skill: "space-systems/ecss/e1024-verif"

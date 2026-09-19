@@ -286,7 +286,13 @@ class TestStrapGeometry(unittest.TestCase):
 
     def test_representation_error_at_the_ratio_limit_is_absorbed(self):
         length = 25.0 + 0.1 + 0.2
-        self.assertGreater(length / 5.06, MAX_STRAP_ASPECT_RATIO)
+        # Correctly rounded IEEE-754 additions and one division, so the
+        # aspect ratio overshoots the limit by the same sliver on every
+        # platform. Assert the size of that overshoot rather than the
+        # rounding direction. The aspect-ratio limit is unchanged.
+        excess = length / 5.06 - MAX_STRAP_ASPECT_RATIO
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess / MAX_STRAP_ASPECT_RATIO, 1e-9)
         self.assertTrue(check_strap_geometry(length, 5.06)["compliant"])
 
     def test_non_positive_maximum_ratio_is_rejected(self):
@@ -308,7 +314,13 @@ class TestBondResistanceCheck(unittest.TestCase):
 
     def test_series_sum_representation_error_at_the_limit_is_absorbed(self):
         measured = 0.0001 + 0.0002
-        self.assertGreater(measured, 0.0003)
+        # One correctly rounded IEEE-754 addition: the series sum sits a
+        # single unit in the last place above the 0.3 mohm limit, the
+        # same on every platform. Assert the relative size of that
+        # overshoot, not the rounding direction. The limit is unchanged.
+        excess = measured - 0.0003
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess / 0.0003, 1e-9)
         self.assertTrue(check_bond_resistance(measured, 0.0003)["compliant"])
 
     def test_negative_measured_resistance_is_rejected(self):

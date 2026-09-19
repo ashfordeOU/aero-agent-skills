@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-analysis-level-one-requirements (space-systems/ecss)
+# Case 1 routes on the applicability criteria for the charted route and on naming what
+# failed when a part escalates. Case 2 routes on the tolerance-stack gap extremes and
+# on the evidence a first-level record must carry.
+tasks:
+  - id: e2001-analysis-level-one-requirements-1
+    query: "Our coupler critical gap has a peak-to-mean field ratio of 1.9 across it and a ceramic spacer sits partly inside the gap. Everything else looks fine. May we still use the charted lookup, and what must the escalation say?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.2.1; field homogeneity and dielectric loading are hard applicability criteria, and an escalated component has to name which criteria it failed"
+    expected_skill: "space-systems/ecss/e2001-analysis-level-one-requirements"
+  - id: e2001-analysis-level-one-requirements-2
+    query: "The gap is 1.2 millimetres nominal with plus 0.15 and minus 0.10 tolerance. Do I read the chart at nominal, and beyond the resulting margin figure what else has to be on file for the assessment to be reproducible?"
+    intent: "ECSS-E-ST-20-01C 5.3.2.2.1; both tolerance extremes are evaluated because the charted curve has an interior minimum, and the record owes gap, frequency and threshold alongside the margin"
+    expected_skill: "space-systems/ecss/e2001-analysis-level-one-requirements"

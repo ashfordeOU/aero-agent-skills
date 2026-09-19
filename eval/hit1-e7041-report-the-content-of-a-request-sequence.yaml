@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-report-the-content-of-a-request-sequence (space-systems/ecss)
+# Two tasks for the new leaf. rcs1 routes on the ordering and the packet split
+# of a request sequence content report; rcs2 routes on the refusal path when
+# the identifier names nothing or the sequence is still being loaded. Both must
+# deterministically hit
+# space-systems/ecss/e7041-report-the-content-of-a-request-sequence.
+tasks:
+  - id: rcs1
+    query: "the ground asked for the content of one stored request sequence and it does not fit a single telemetry packet, work out the entry order and how many content reports the listing costs"
+    intent: "ECSS-E-ST-70-41C clause 6.21.8; request sequence content report ordered by release offset and packed into successive reports with the per-entry overhead charged"
+    expected_skill: "space-systems/ecss/e7041-report-the-content-of-a-request-sequence"
+  - id: rcs2
+    query: "what should the request sequencing subservice answer when the sequence identifier in the report request is not in the store, or names a sequence that is still being loaded"
+    intent: "ECSS-E-ST-70-41C clause 6.21.8; refusal of a sequence content report against an unknown identifier or an under-construction sequence rather than an empty report"
+    expected_skill: "space-systems/ecss/e7041-report-the-content-of-a-request-sequence"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7028-repair-limits (space-systems/ecss)
+# lim1 routes on the per-board count and the density over the board area;
+# lim2 routes on the proximity rule and its dependence on which faces the two
+# sites are on. Both must deterministically hit
+# space-systems/ecss/q7028-repair-limits.
+tasks:
+  - id: lim1
+    query: "this printed circuit board already carries four repairs and we want to add a fifth; what density and count ceilings does our assurance level impose, and does the board area change the answer"
+    intent: "ECSS-Q-ST-70-28C limits; a per-board count and a repairs-per-unit-area density are separate ceilings and both scale with the assurance level"
+    expected_skill: "space-systems/ecss/q7028-repair-limits"
+  - id: lim2
+    query: "two repair sites on this assembly are only a few millimetres apart; what in-plane separation does the rule demand for a pair sharing one face, and does it relax when the second site is on the opposite face through the laminate"
+    intent: "ECSS-Q-ST-70-28C limits; the minimum separation is longer for two sites on one face than for two interacting only through the laminate, and one conductor takes one repair"
+    expected_skill: "space-systems/ecss/q7028-repair-limits"

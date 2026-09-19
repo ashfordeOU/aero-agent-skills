@@ -1,6 +1,6 @@
 ---
 name: software-verification
-description: "Use when you must plan the ECSS-E-ST-40C verification of spacecraft flight software: select the verification method (test, analysis, inspection, review) for each requirement category (functional, performance, interface, resource, safety, data), determine the verification depth and independence required by the software criticality, and list the verification records each method must produce. Produces the per-requirement method map, the criticality depth verdict, and the record list that closes the verification plan. Trigger: ecss verification, software test method, verification depth, verification records, requirement category, criticality, flight software, analysis inspection review."
+description: "Use when you must plan the ECSS-E-ST-40C Rev.1 verification of spacecraft flight software: select the verification method (test, analysis, inspection, review) for each requirement category (functional, performance, interface, resource, safety, data), determine the verification depth and independence required by the software criticality, and list the verification records each method must produce. Produces the per-requirement method map, the criticality depth verdict, and the record list that closes the verification plan. Trigger: ecss verification, software test method, verification depth, verification records, requirement category, criticality, flight software, analysis inspection review."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -20,13 +20,13 @@ metadata:
 
 # ECSS Software Verification (space-systems/ecss/software-verification)
 
-Use when the task is ECSS-E-ST-40C software verification planning:
+Use when the task is ECSS-E-ST-40C Rev.1 software verification planning:
 mapping requirement categories to verification methods, sizing
 verification depth from criticality, and listing the records.
 
 ## Domain quick reference
 
-- ECSS-E-ST-40C (space software engineering) expects every software
+- ECSS-E-ST-40C Rev.1 (space software engineering) expects every software
   requirement to be closed by a verification method: test, analysis,
   inspection, or review.
 - Method choice follows the requirement category: functional and

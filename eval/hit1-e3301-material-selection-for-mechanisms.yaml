@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-material-selection-for-mechanisms (space-systems/ecss)
+# Two tasks for the new leaf. msm1 routes on the four selection questions and the
+# tighter condensable limit; msm2 routes on the design allowable basis and the
+# single load path rule. Both must deterministically hit
+# space-systems/ecss/e3301-material-selection-for-mechanisms.
+tasks:
+  - id: msm1
+    query: "screen this candidate list for the deployment hinge mechanism: one material is new and nobody has approved it, another sits inside the vacuum mass loss limit but reads high on condensable volatiles. Which selection route does each take, and what is still owed?"
+    intent: "ECSS-E-ST-33-01C clause 4.5.2.1 via ECSS-Q-ST-70 clause 5; the condensable limit is an order tighter than the mass loss limit, and a new material leaves with an approval still owed"
+    expected_skill: "space-systems/ecss/e3301-material-selection-for-mechanisms"
+  - id: msm2
+    query: "the stress report used a typical strength for a lug with nothing beside it - tell me what allowable basis we are actually entitled to and what the knockdown should be"
+    intent: "ECSS-E-ST-33-01C clause 4.5.2.1 with E-ST-32-08 allowables guidance; a basis that assumes load redistribution is not available on a single load path"
+    expected_skill: "space-systems/ecss/e3301-material-selection-for-mechanisms"

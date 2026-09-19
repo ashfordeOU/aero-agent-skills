@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-electron-seeding-source-placement (space-systems/ecss)
+# Case 1 routes on the aim-point against the predicted initiation site and on the solid-angle
+# capture. Case 2 routes on the transport check when the technique is changed to illumination.
+tasks:
+  - id: e2001-electron-seeding-source-placement-1
+    query: "The strontium-90 seeding source for our multipactor test sits 120 mm from the gap and is pointed at the waveguide flange, but the analysis says breakdown starts at the iris. How much of the emitted electron rate actually arrives inside the gap?"
+    intent: "ECSS-E-ST-20-01C 6.5.5; the declared aim point must be the predicted initiation site, and delivery falls as the gap aperture over the sphere at the standoff distance"
+    expected_skill: "space-systems/ecss/e2001-electron-seeding-source-placement"
+  - id: e2001-electron-seeding-source-placement-2
+    query: "We switched the multipactor seeding from a beta source to ultraviolet illumination because the electrons could not cross a 1.5 mm aluminium wall. Does the photon energy beat the work function of the gap surface, and what does an opaque item in the path do?"
+    intent: "ECSS-E-ST-20-01C 6.5.5; the transport check is technique-specific, and photon seeding needs the surface work function beaten and an unobstructed path to the gap"
+    expected_skill: "space-systems/ecss/e2001-electron-seeding-source-placement"

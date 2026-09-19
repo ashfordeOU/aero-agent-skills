@@ -225,4 +225,7 @@ input enumerated in the Worked example.
   standard (name plus paraphrase only, per standards-map.yaml); the
   Smith predictor relations above are standard control engineering
   methodology from O. J. M. Smith (1957), summary-only.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

@@ -1,0 +1,29 @@
+{
+  "_comment": [
+    "Checker-set overlay: thresholds tightened.",
+    "",
+    "Three limits move at once - the description floor, the minimum number",
+    "of behaviour tests, and the near-boundary tolerance. Nothing is",
+    "re-measured; the stored observations already carry the word counts,",
+    "the test counts and the comparison gaps, so the new verdicts fall out",
+    "of arithmetic over the records."
+  ],
+  "label": "tightened-2026-09-19",
+  "checkers": {
+    "desc-lint": {
+      "params": {
+        "min_words": 100
+      }
+    },
+    "contract-test": {
+      "params": {
+        "min_tests": 20
+      }
+    },
+    "portability": {
+      "params": {
+        "relative_tolerance": "1e-8"
+      }
+    }
+  }
+}

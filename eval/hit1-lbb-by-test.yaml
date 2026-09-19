@@ -1,0 +1,12 @@
+# Hit@1 fragment: lbb-by-test (space-systems/ecss)
+# Case 1 routes on the coupon evidence and turning it into cycles to a through-wall crack.
+# Case 2 routes on the scaled demonstration article and the leak-before-break comparison itself.
+tasks:
+  - id: lbb-by-test-1
+    query: "We ran coupon tests in the propellant environment at a stress ratio of 0.1 to get da/dN and toughness for our titanium feed line. How many cycles does a surface flaw sized at our NDE detection limit take to grow through the wall?"
+    intent: "ECSS-E-ST-32C 5.3.3; coupon evidence supplies the growth rate and toughness that feed the model, and the initial flaw is taken at the detection limit of the flight inspection method"
+    expected_skill: "space-systems/ecss/lbb-by-test"
+  - id: lbb-by-test-2
+    query: "On the sub-scale article the through-wall crack measured 9 mm when it first leaked and the critical length at burst is 11 mm, and the specimen is 40 percent of flight size. Does that demonstrate leak-before-break?"
+    intent: "ECSS-E-ST-32C 5.3.4; the leak length must stay below the critical length for a positive margin, and a specimen below half of flight scale needs extra justification before it is accepted"
+    expected_skill: "space-systems/ecss/lbb-by-test"

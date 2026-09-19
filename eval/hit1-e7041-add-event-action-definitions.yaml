@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-add-event-action-definitions (space-systems/ecss)
+# Two tasks for the new leaf. aead1 routes on the duplicate identity and the
+# finite store; aead2 routes on the recursive action a new definition may not
+# bind. Both must deterministically hit
+# space-systems/ecss/e7041-add-event-action-definitions.
+tasks:
+  - id: aead1
+    query: "the uplink adds five new event-action definitions, one of them names an event the store already binds an action to and the store only has room for three more, decide which instructions are admitted and in what order"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.1; duplicate event identity refused per instruction and ordered admission against a finite store"
+    expected_skill: "space-systems/ecss/e7041-add-event-action-definitions"
+  - id: aead2
+    query: "someone wants a new on-board reaction whose action is itself a request that deletes event-action definitions, and wants it live the moment the uplink completes, judge whether the service accepts that and what enable state a new definition takes"
+    intent: "ECSS-E-ST-70-41C clause 6.19.8.1; a self-managing action is refused and a new definition defaults to disabled"
+    expected_skill: "space-systems/ecss/e7041-add-event-action-definitions"

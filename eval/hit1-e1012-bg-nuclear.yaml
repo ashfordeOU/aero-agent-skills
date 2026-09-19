@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1012-bg-nuclear (space-systems/ecss)
+# Case 1 routes on the per-layer inelastic interaction probability from areal density and the
+# interaction length. Case 2 routes on the spallation yield threshold and the rate against budget.
+tasks:
+  - id: e1012-bg-nuclear-1
+    query: "Cosmic-ray protons hitting our 8 mm aluminium shield make secondaries that light up the detector. How do I work out the chance a proton reacts inelastically crossing that slab given its interaction length, and does a copper layer behind it matter?"
+    intent: "ECSS-E-ST-10-12C 10.4.3; interaction probability per shielding layer from areal density against the material interaction length, layer by layer through the stack"
+    expected_skill: "space-systems/ecss/e1012-bg-nuclear"
+  - id: e1012-bg-nuclear-2
+    query: "Our gamma instrument has a 0.4 Hz background allowance. Protons arriving at 150 MeV cross the shield stack. How many spallation neutrons come out per reaction, and how do I turn that into a count rate I can hold against the allowance?"
+    intent: "ECSS-E-ST-10-12C 10.4.3; secondary neutron yield rising with incident energy above the spallation threshold, folded into a detector rate and graded against the instrument budget"
+    expected_skill: "space-systems/ecss/e1012-bg-nuclear"

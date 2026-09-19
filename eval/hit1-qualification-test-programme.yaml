@@ -1,0 +1,12 @@
+# Hit@1 fragment: qualification-test-programme (space-systems/ecss)
+# Case 1 routes on the non-destructive versus destructive burst steps and the status roll-up.
+# Case 2 routes on which tests the programme mandates and why the sequence is ordered as it is.
+tasks:
+  - id: qualification-test-programme-1
+    query: "Our metallic tank at 22 bar MEOP has passed proof and leak. What separates the design-burst step from the final burst run, and can the component be called qualified once design-burst has been demonstrated?"
+    intent: "ECSS-E-ST-32 5.4; design-burst confirms the margin without destroying the article while the destructive burst closes the programme, and status follows the whole mandatory set"
+    expected_skill: "space-systems/ecss/qualification-test-programme"
+  - id: qualification-test-programme-2
+    query: "Which tests must a composite-overwrapped vessel pass, and why does vibration come ahead of proof and leak in the order? If we skip pressure-cycling, can the component still be declared qualified?"
+    intent: "ECSS-E-ST-32 5.4; the mandatory set depends on the material family, the order puts dynamics on an unfatigued article, and any omitted mandatory test leaves the part unqualified"
+    expected_skill: "space-systems/ecss/qualification-test-programme"

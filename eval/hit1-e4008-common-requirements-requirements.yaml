@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-common-requirements-requirements (space-systems/ecss)
+# Two tasks for the new leaf. crr1 routes on parent-scope name uniqueness, which
+# a document-wide name set both over- and under-reports; crr2 routes on the
+# split between a reference that resolves and a declared kind that agrees with
+# what it resolved to. Both must deterministically hit
+# space-systems/ecss/e4008-common-requirements-requirements.
+tasks:
+  - id: crr1
+    query: "my configuration has two elements sharing a name under different parents and another element named after a reserved word - say which of those actually break the per-scope uniqueness obligation and which are simply malformed names"
+    intent: "ECSS-E-ST-40-08 clause 5.1.2; element names are unique inside the parent scope, not across the whole document, and a malformed name cannot be shown unique at all"
+    expected_skill: "space-systems/ecss/e4008-common-requirements-requirements"
+  - id: crr2
+    query: "this configuration element points at a path the catalogue publishes, but the kind it declares no longer agrees with the resolved target. Which of the five obligations in the configuration document does that break, and what else do I grade on the element?"
+    intent: "ECSS-E-ST-40-08 clause 5.1.2; reference resolution and declared-kind agreement are separate items, alongside identifier form, scope uniqueness and uuid single-use"
+    expected_skill: "space-systems/ecss/e4008-common-requirements-requirements"

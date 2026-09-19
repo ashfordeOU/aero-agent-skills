@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-magnetic-cleanliness-esd-emc-protection (space-systems/ecss)
+# mce1 routes on the combination rule for dipole moments whose orientations are
+# not fixed; mce2 routes on the charge-bleed window and the switching harmonic
+# landing in a receiver band. Both must deterministically hit
+# space-systems/ecss/e3301-magnetic-cleanliness-esd-emc-protection.
+tasks:
+  - id: mce1
+    query: "add up the residual moments of the stepper and the latch magnets against our allocation, nobody has fixed which way round the latch magnets go, and tell me the field that leaves at the magnetometer"
+    intent: "ECSS-E-ST-33-01C 4.7.7.8; unfixed orientations have to be combined as aligned rather than root-sum-square, and the dipole field at the sensor distance is graded as well as the moment"
+    expected_skill: "space-systems/ecss/e3301-magnetic-cleanliness-esd-emc-protection"
+  - id: mce2
+    query: "the sunshield panel is conductive and nobody drew a bleed path for it, while the mechanism drive switches at three hundred and ninety kilohertz, so give me the resistance window that surface needs and whether a fifth-order harmonic lands in a receiver band"
+    intent: "ECSS-E-ST-33-01C 4.7.7.8; the bleed resistance is a window not a floor, and switching harmonics are checked against the protected receiver bands alongside the filter and screen termination"
+    expected_skill: "space-systems/ecss/e3301-magnetic-cleanliness-esd-emc-protection"

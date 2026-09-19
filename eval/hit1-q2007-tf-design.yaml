@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-tf-design (space-systems/ecss)
+# Two tasks for the new leaf. tfd1 routes on the change category fixing the
+# ordered review set; tfd2 routes on the verification rules that hold a facility
+# out of use regardless of how complete the coverage number looks.
+# Both must deterministically hit space-systems/ecss/q2007-tf-design.
+tasks:
+  - id: tfd1
+    query: "we are rebuilding the shaker mounting plate and that touches the load path, work out which reviews this modification owes before the facility can be used again and whether they closed in the right order"
+    intent: "ECSS-Q-ST-20-07C clause 5.6.1; change category fixing the ordered review set, a later review closed while an earlier one is open"
+    expected_skill: "space-systems/ecss/q2007-tf-design"
+  - id: tfd2
+    query: "the requirement register shows everything verified but two safety items were closed on a design review and one was waived, can we put a flight article in this facility"
+    intent: "ECSS-Q-ST-20-07C clause 5.6.1; safety-critical requirement not closed by review of design alone and not waivable, verification coverage versus readiness for use"
+    expected_skill: "space-systems/ecss/q2007-tf-design"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: alignment-and-dimstab-analysis (space-systems/ecss)
+# Case 1 routes on combining the misalignment contributors and the thermal cases the
+# demonstration owes. Case 2 routes on one element's dimensional change and a missing allowable.
+tasks:
+  - id: alignment-and-dimstab-analysis-1
+    query: "Our optical bench interface carries a 12 arcsec misalignment budget: 4 arcsec of machining tolerance plus thermo-elastic, moisture swell and creep terms. Do I add them linearly or square-root the independent ones, and must eclipse run as well as hot and cold?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.19; systematic tolerance adds linearly while the independent effects combine statistically, and the demonstration owes three thermal environments not one"
+    expected_skill: "space-systems/ecss/alignment-and-dimstab-analysis"
+  - id: alignment-and-dimstab-analysis-2
+    query: "Our instrument bench has a dimensional stability requirement per element. One strut has no dimensional allowable written anywhere. How do I sum the on-orbit length change of each element and what do I report for the one with nothing to compare against?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.20; the per-element dimensional stability check sums thermal and moisture length change at worst-case phasing, and an absent allowable is an open finding rather than a pass"
+    expected_skill: "space-systems/ecss/alignment-and-dimstab-analysis"

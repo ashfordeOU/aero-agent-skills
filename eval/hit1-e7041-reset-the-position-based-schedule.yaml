@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-reset-the-position-based-schedule (space-systems/ecss)
+# Two tasks for the new leaf. rsps1 routes on a reset having emptied every
+# sub-schedule at once; rsps2 routes on the enabled flag surviving the reset
+# while the activities did not. Both must deterministically hit
+# space-systems/ecss/e7041-reset-the-position-based-schedule.
+tasks:
+  - id: rsps1
+    query: "we reset the orbit-position schedule expecting only the routine load to clear and the eclipse load to survive, work out what a reset is actually specified to remove and how we account for what is gone"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.5; a reset deletes every activity the position-based schedule holds whatever sub-schedule or scheduling group it belonged to, so the census per sub-schedule has to be taken before the reset"
+    expected_skill: "space-systems/ecss/e7041-reset-the-position-based-schedule"
+  - id: rsps2
+    query: "after the reset the schedule still reports itself enabled but nothing releases at the positions we expected, and one command was due a couple of degrees ahead of where we were, explain what state a reset leaves behind"
+    intent: "ECSS-E-ST-70-41C clause 6.22.6.5; the reset preserves the schedule enabled flag and the sub-schedule and group definitions while discarding every activity unreleased, including one whose release position was imminent"
+    expected_skill: "space-systems/ecss/e7041-reset-the-position-based-schedule"

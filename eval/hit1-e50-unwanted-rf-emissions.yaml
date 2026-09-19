@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-unwanted-rf-emissions (space-systems/ecss)
+# Two tasks for the new leaf. urf1 routes on placing a component in its emission
+# domain before grading it; urf2 routes on the out-of-band mask tightening with
+# offset. Both must deterministically hit
+# space-systems/ecss/e50-unwanted-rf-emissions.
+tasks:
+  - id: urf1
+    query: "the transmitter spectrum sweep came back with a dozen lines either side of the carrier, work out which of them are unwanted emissions at all and which limit applies to each before anything is graded"
+    intent: "ECSS-E-ST-50C clause 5.6.12.3; a component inside the necessary bandwidth is the wanted emission and is not graded, and the out-of-band and spurious domains carry different limits"
+    expected_skill: "space-systems/ecss/e50-unwanted-rf-emissions"
+  - id: urf2
+    query: "two spurs on our spacecraft transmitter measure the same level in dBc but sit at different offsets from the carrier, decide whether each clears the spectral mask and which one has the least margin"
+    intent: "ECSS-E-ST-50C clause 5.6.12.3; the out-of-band limit is an interpolated mask that tightens with offset, so equal levels at different offsets can land on opposite sides of compliance"
+    expected_skill: "space-systems/ecss/e50-unwanted-rf-emissions"

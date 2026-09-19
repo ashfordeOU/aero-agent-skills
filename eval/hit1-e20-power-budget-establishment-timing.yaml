@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-power-budget-establishment-timing (space-systems/ecss)
+# Case 1 routes on when the budget is fixed and whether later gates re-opened it. Case 2 routes
+# on the two margin levels -- per-line maturity against the system reserve the phase demands.
+tasks:
+  - id: e20-power-budget-establishment-timing-1
+    query: "We fixed the platform power budget at PDR and have not reopened it since, and we are now approaching phase D. Is a budget that was set once and then frozen acceptable, or does every gate since owe its own review?"
+    intent: "ECSS-E-ST-20C 5.2.1; establishment by the end of phase B is one obligation and re-review at each later gate is a separate one, and freezing the early figure fails the second"
+    expected_skill: "space-systems/ecss/e20-power-budget-establishment-timing"
+  - id: e20-power-budget-establishment-timing-2
+    query: "Each equipment line in our electrical budget carries margin by design maturity -- flight-proven, modified, newly built -- and on top of that the system reserve stands at 8 percent. At phase C is 8 percent enough, and am I double counting by holding both?"
+    intent: "ECSS-E-ST-20C 5.2.1; per-line maturity margin and system reserve are distinct levels, and the system requirement shrinks along a fixed ladder as the project matures"
+    expected_skill: "space-systems/ecss/e20-power-budget-establishment-timing"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7001-cleanliness-history-database (space-systems/ecss)
+# hd1 routes on the per-serial-number ledger and the accumulation since the last
+# cleaning; hd2 routes on monitoring gaps and traceability. Both must
+# deterministically hit space-systems/ecss/q7001-cleanliness-history-database.
+tasks:
+  - id: hd1
+    query: "hold the cleaning operations, exposure events and cleanliness measurements for each serial number as one ordered ledger and tell me how much has landed on that unit since it was last cleaned"
+    intent: "ECSS-Q-ST-70-01C cleanliness records; per-unit contamination history ledger and accumulation since the last cleaning"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-history-database"
+  - id: hd2
+    query: "the unit sat in storage for months with no readings; find every monitoring interval longer than the declared maximum and say whether the contamination history is traceable or short of a post-cleaning verification"
+    intent: "ECSS-Q-ST-70-01C cleanliness records; contamination monitoring interval gaps and per-unit traceability state"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-history-database"

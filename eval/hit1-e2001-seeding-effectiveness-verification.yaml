@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-seeding-effectiveness-verification (space-systems/ecss)
+# Case 1 routes on the offset against the combined band and what the sign of the offset names.
+# Case 2 routes on spread, onset latency and whether the validation conditions transfer.
+tasks:
+  - id: e2001-seeding-effectiveness-verification-1
+    query: "Our reference-sample has a known breakdown-threshold of 210 V, but the bed read 260 V while validating the electron-seeding. Combining the sample uncertainty with the facility uncertainty, does that offset sit inside the acceptance-band, and does a high reading mean weak-seeding or a spoiled sample?"
+    intent: "ECSS-E-ST-20-01C 6.5.6; the band combines sample and facility uncertainty, and a high offset indicts the seeding while a low one indicts the sample or the level calibration"
+    expected_skill: "space-systems/ecss/e2001-seeding-effectiveness-verification"
+  - id: e2001-seeding-effectiveness-verification-2
+    query: "Five seeding validation runs scattered by 2 dB run-to-run, and the onset-latency came out at 8 seconds. The validation sat at 12 GHz while the planned campaign runs at 18 GHz. Does that demonstration still count as representative?"
+    intent: "ECSS-E-ST-20-01C 6.5.6; spread and latency expose an intermittent electron supply, and a validation run outside the planned conditions does not transfer to the campaign"
+    expected_skill: "space-systems/ecss/e2001-seeding-effectiveness-verification"

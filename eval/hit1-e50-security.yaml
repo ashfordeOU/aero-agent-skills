@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-security (space-systems/ecss)
+# sec1 routes on per-flow service coverage by sensitivity group; sec2 routes on
+# the replay counter exhausting before the key is retired.
+# Both must deterministically hit space-systems/ecss/e50-security.
+tasks:
+  - id: sec1
+    query: "the uplink is encrypted but nothing authenticates it, and the same link also carries routine housekeeping that needs far less, review what protection each flow actually gets against what its sensitivity needs"
+    intent: "ECSS-E-ST-50C clause 5.8.3; protection is proportional to sensitivity, so the check is a per-flow set comparison and a cipher does not stand in for authentication or replay protection"
+    expected_skill: "space-systems/ecss/e50-security"
+  - id: sec2
+    query: "at fifty frames a second our replay counter runs out of numbers long before we get an uplink pass to rekey, tell me how many counter bits we need and what the security fields cost every frame"
+    intent: "ECSS-E-ST-50C clause 5.8.3; the key ends at the smaller of the counter space and the per-key frame limit over the frame rate, and a counter that wraps under one key ends replay protection"
+    expected_skill: "space-systems/ecss/e50-security"

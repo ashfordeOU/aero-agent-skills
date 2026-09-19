@@ -1,0 +1,12 @@
+# Hit@1 fragment: factors-of-safety-and-scatter (space-systems/ecss)
+# Case 1 routes on the factor pair a material category forces on the limit load.
+# Case 2 routes on the scatter factor set by inspectability of a fatigue location.
+tasks:
+  - id: factors-of-safety-and-scatter-1
+    query: "The bracket is a bonded joint and the analyst applied 1.25 to the design-limit-load for ultimate because that is our metallic ductile value. Is that right for a bonded category, and which yield factor pairs with it?"
+    intent: "ECSS-E-ST-32C 4.5.17; the case turns on the ultimate and yield factors being selected by material category before the design loads are derived"
+    expected_skill: "space-systems/ecss/factors-of-safety-and-scatter"
+  - id: factors-of-safety-and-scatter-2
+    query: "A fatigue-critical lug sits behind a closeout panel and is uninspectable once integrated. The analysis predicts 48,000 cycles. Which scatter-factor divides that into the allowable fatigue-life, and does a 15,000 cycle mission clear it?"
+    intent: "ECSS-E-ST-32C 4.5.18; the case turns on inspectability choosing the scatter factor that divides the predicted life into the allowable design life"
+    expected_skill: "space-systems/ecss/factors-of-safety-and-scatter"

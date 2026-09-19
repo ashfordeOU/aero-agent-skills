@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-fatigue-testing (space-systems/ecss)
+# Two tasks for the new leaf. fat1 routes on censoring run-outs out of the
+# stress-life fit; fat2 routes on the conditions and the specimen form the
+# curve belongs to. Both must deterministically hit
+# space-systems/ecss/q7045-fatigue-testing.
+tasks:
+  - id: fat1
+    query: "three coupons failed and two were stopped when they got to ten million cycles, fit the stress versus life line without letting the survivors drag it over"
+    intent: "ECSS-Q-ST-70-45 methods; log-log least-squares stress-life fit over failures only, run-outs censored and then reconciled against the declared threshold"
+    expected_skill: "space-systems/ecss/q7045-fatigue-testing"
+  - id: fat2
+    query: "somebody ran the coupons at 300 hertz and half of them were notched, can this S-N data be put in the allowables next to the other set"
+    intent: "ECSS-Q-ST-70-45 methods; cycling frequency band, specimen form and its stress concentration factor travelling with the curve"
+    expected_skill: "space-systems/ecss/q7045-fatigue-testing"

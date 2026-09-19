@@ -1,0 +1,13 @@
+# Hit@1 fragment: e3301-venting-of-closed-cavities (space-systems/ecss)
+# evc1 routes on the ascent depressurization lag through a vent; evc2 routes
+# on the unvented cavity and the contamination-trap screen. Both must
+# deterministically hit space-systems/ecss/e3301-venting-of-closed-cavities.
+tasks:
+  - id: evc1
+    query: "this actuator housing is about eight tenths of a litre with four vent holes through a six millimetre wall, tell me how far behind ambient it lags at the peak depressurization rate on ascent and whether that differential is inside what the housing takes"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.11; effective vent area, choked-flow time constant and the depressurization lag against the allowable differential"
+    expected_skill: "space-systems/ecss/e3301-venting-of-closed-cavities"
+  - id: evc2
+    query: "go through the sealed volumes in this mechanism and find the ones with no vent at all, and flag any vent hole small enough to block or any blind pocket that will hold cleaning fluid"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.11; unvented cavity detection plus the vent-path contamination-trap screen"
+    expected_skill: "space-systems/ecss/e3301-venting-of-closed-cavities"

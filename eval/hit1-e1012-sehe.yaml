@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1012-sehe (space-systems/ecss)
+# Case 1 routes on the cross-section fit and its integration against the LET
+# spectrum. Case 2 routes on the downstream half: the shielding factor, the
+# direction the design margin is applied, and an uncaptured allowable.
+tasks:
+  - id: e1012-sehe-1
+    query: "Our on-board computer's heavy-ion run gives a Weibull cross-section with a LET threshold of 12, width 30 and an exponent near 2, but the beam never reached saturation. How do I fold that fit into the mission LET spectrum for the SEHE rate?"
+    intent: "ECSS-E-ST-10-12C 9.4.1.8; fitting the cross-section curve and integrating it over the heavy-ion LET spectrum, where an unreached saturation leaves the plateau unconstrained and is a test-data gap"
+    expected_skill: "space-systems/ecss/e1012-sehe"
+  - id: e1012-sehe-2
+    query: "Our unshielded interrupt rate drops to 0.004 events per device per day once the shielding attenuation is applied, against a 0.005 allowable. Does the design margin multiply the predicted rate or divide the allowable, and what if a unit has no allowable captured?"
+    intent: "ECSS-E-ST-10-12C 9.4.1.8; the margin is a multiplier on the predicted rate rather than a divisor on the requirement, and a nonzero rate with no allowable on record is a finding in itself"
+    expected_skill: "space-systems/ecss/e1012-sehe"

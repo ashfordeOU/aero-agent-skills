@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7050-monitoring-plan (space-systems/ecss)
+# Two tasks for the new leaf. pmp1 routes on building the plan itself -- where,
+# by what method, how often; pmp2 routes on the sampling frequency defence and
+# the workload a plan commits a facility to. Both must deterministically hit
+# space-systems/ecss/q7050-monitoring-plan.
+tasks:
+  - id: pmp1
+    query: "put together the particle monitoring plan for these cleanroom bays, how many sampling points each one gets, which method, and how often it repeats"
+    intent: "ECSS-Q-ST-70-50C programme clause; location sizing from floor area, method assignment per zone and revisit interval from the criticality of the work"
+    expected_skill: "space-systems/ecss/q7050-monitoring-plan"
+  - id: pmp2
+    query: "the customer says our fallout plate frequency is too slack for the bay where the optic is open, justify the interval or change it and tell me what it costs in samples"
+    intent: "ECSS-Q-ST-70-50C programme clause; criticality shortens the revisit interval, and locations times occurrences is the committed monitoring workload"
+    expected_skill: "space-systems/ecss/q7050-monitoring-plan"

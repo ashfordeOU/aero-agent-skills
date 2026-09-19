@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-product-type-pre-tailoring-matrix (space-systems/ecss)
+# Case 1 routes on a declared feature raising a disposition above the bare
+# product-type column. Case 2 routes on admitting a downgrade request and on
+# undeclared cells not defaulting to out of scope.
+tasks:
+  - id: e20-product-type-pre-tailoring-matrix-1
+    query: "Before any project tailoring runs, our deliverable is a single equipment-unit carrying an electro-explosive-device and a high-voltage-assembly. In the ECSS pre-tailoring matrix of clause 8.3, does that hardware pull provision groups back from not-applicable to applicable?"
+    intent: "ECSS-E-ST-20C 8.3; a declared feature can only raise a cell disposition, so hardware actually on board binds the group whatever the bare product-type default said"
+    expected_skill: "space-systems/ecss/e20-product-type-pre-tailoring-matrix"
+  - id: e20-product-type-pre-tailoring-matrix-2
+    query: "The project asks to move three provision groups from applicable to tailorable. Two requests carry a written justification but name no approval authority, and eleven cells of the ECSS pre-tailoring matrix were left empty. How do I score it?"
+    intent: "ECSS-E-ST-20C 8.3; a downgrade needs both a justification and a named approval authority, and an unfilled pairing is an undeclared cell rather than an exclusion"
+    expected_skill: "space-systems/ecss/e20-product-type-pre-tailoring-matrix"

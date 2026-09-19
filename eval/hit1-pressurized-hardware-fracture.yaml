@@ -1,0 +1,12 @@
+# Hit@1 fragment: pressurized-hardware-fracture (space-systems/ecss)
+# Case 1 routes on the compliance gate being a choice of two routes, not one.
+# Case 2 routes on which flaw size is retained and on the stress-intensity geometry.
+tasks:
+  - id: pressurized-hardware-fracture-1
+    query: "Our titanium propellant tank misses leak-before-burst because the critical crack comes out shorter than the factored wall thickness. Is that automatically a compliance failure, or can proof-test screening stand in for it?"
+    intent: "ECSS-E-ST-32C 8.2; the gate is leak-before-burst or a proof test that screens finer than the inspection method, so failing the first alone does not condemn the item"
+    expected_skill: "space-systems/ecss/pressurized-hardware-fracture"
+  - id: pressurized-hardware-fracture-2
+    query: "We proof tested at 1.5 times MEOP and our dye-penetrant threshold is 1.5 mm. Which of those becomes the assumed initial crack for the crack-growth life estimate, and does taking the geometry factor as unity for a corner crack matter?"
+    intent: "ECSS-E-ST-32C 8.2; the smaller of the proof-screened and inspection-detectable sizes is retained, and a unit geometry factor understates the stress intensity for a corner flaw"
+    expected_skill: "space-systems/ecss/pressurized-hardware-fracture"

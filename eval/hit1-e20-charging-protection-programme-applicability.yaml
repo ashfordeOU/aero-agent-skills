@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-charging-protection-programme-applicability (space-systems/ecss)
+# Case 1 routes on whether the programme is owed at all, and what a mission with no
+# driver must still produce. Case 2 routes on the content the drivers demand and on
+# when the customer had to agree to it.
+tasks:
+  - id: e20-charging-protection-programme-applicability-1
+    query: "We fly a low-altitude equatorial orbit everyone treats as benign, but the array bus runs at 100 V and one conductive bracket was never tied to structure. Do we still owe a spacecraft charging protection programme, and if the answer is no, what do we have to put on record instead?"
+    intent: "ECSS-E-ST-20C clause 6.3.4.1; the case turns on the drivers that make the programme applicable even in a benign plasma, and on the written non-applicability statement"
+    expected_skill: "space-systems/ecss/e20-charging-protection-programme-applicability"
+  - id: e20-charging-protection-programme-applicability-2
+    query: "Our medium-orbit mission's charging protection document carries eight headings, but the section on internal charging is a title with no content beneath it, and the customer signed off only four days ahead of our design review. Is a titled-but-empty entry a gap, and did that signature land early enough?"
+    intent: "ECSS-E-ST-20C clause 6.3.4.1; the case turns on an empty section counting as absent and on the approval milestone plus calendar lead ahead of the design review"
+    expected_skill: "space-systems/ecss/e20-charging-protection-programme-applicability"

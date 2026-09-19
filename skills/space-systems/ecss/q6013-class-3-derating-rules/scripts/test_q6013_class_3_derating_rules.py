@@ -59,9 +59,16 @@ class DeratingTableTests(unittest.TestCase):
         self.assertNotAlmostEqual(derating_ratio("fixed-resistor", "voltage"), 0.99)
 
     def test_relay_current_is_the_tightest_current_rule(self):
+        # The loop walks the relay row too. Against itself the declared factor
+        # is exactly equal, which is an identity rather than an ordering; every
+        # other family must be strictly looser, so the relay rule is the
+        # tightest and uniquely so.
         relay = derating_ratio("electromechanical-relay", "current")
         for family in CLASS_3_DERATING_TABLE:
-            self.assertLessEqual(relay, derating_ratio(family, "current"))
+            if family == "electromechanical-relay":
+                self.assertEqual(relay, derating_ratio(family, "current"))
+                continue
+            self.assertLess(relay, derating_ratio(family, "current"), family)
 
     def test_uncategorized_family_rejected(self):
         with self.assertRaises(ValueError):

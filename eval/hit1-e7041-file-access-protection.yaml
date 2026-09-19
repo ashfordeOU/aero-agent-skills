@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-file-access-protection (space-systems/ecss)
+# Two tasks for the new leaf. fap1 routes on the lock refusing change but not
+# retrieval; fap2 routes on the unlock that did not help because a transfer
+# handle is the real blocker. Both must deterministically hit
+# space-systems/ecss/e7041-file-access-protection.
+tasks:
+  - id: fap1
+    query: "the on-board file is locked and the team thinks nothing can be done with it; say which operations that lock actually refuses, delete, overwrite or rename, and whether we can still read it out and downlink the file on the next pass"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.3; the lock refuses delete, rename, move, overwrite and copy-destination while leaving read and downlink permitted, so a locked file is exactly the one still available to retrieve"
+    expected_skill: "space-systems/ecss/e7041-file-access-protection"
+  - id: fap2
+    query: "we cleared the lock on that on-board file and the delete was refused again; work out which second guard is holding it, whether an open transfer handle is still running, and which of the queued operations only need waiting out"
+    intent: "ECSS-E-ST-70-41C clause 6.23.4.3; a deliberate lock and an in-progress transfer handle refuse destructive operations independently, an unlock never releases a handle, and a plan splits into the part an unlock clears and the part only the transfer finishing clears"
+    expected_skill: "space-systems/ecss/e7041-file-access-protection"

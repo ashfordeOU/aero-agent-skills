@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-test-report (space-systems/ecss)
+# Case 1 routes on traceability of the report: waivers, traces, open non-conformances.
+# Case 2 routes on re-deriving the outcome instead of accepting the report's wording.
+tasks:
+  - id: e2001-multipactor-test-report-1
+    query: "Our multipactor test report describes two as-run deviations in its text but references no customer waiver, and credits one detection technique that has no trace attached. Can the customer sign it off, and how do open non-conformance items bear on that?"
+    intent: "ECSS-E-ST-20-01C 8.7; a deviation is waived only by a referenced customer agreement, a credited technique needs its recorded trace, and an undisposed item blocks approval outright"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-report"
+  - id: e2001-multipactor-test-report-2
+    query: "The test report we owe the customer once the RF campaign closes records an operating-power of 60 W and no event up to 180 W applied-power, so no threshold-power was observed. Is the pass it asserts what I grade, or must I re-derive the achieved margin?"
+    intent: "ECSS-E-ST-20-01C 8.7; the report's own verdict is one more content item to audit, and a run with no event yields a lower bound set by the highest level reached"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-report"

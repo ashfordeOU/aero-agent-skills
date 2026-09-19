@@ -1,0 +1,15 @@
+# Hit@1 fragment: q2007-monitoring (space-systems/ecss)
+# Two tasks for the new leaf. mon1 routes on the oversampling ratio of a
+# measurement channel against the peak it is being asked to report; mon2 routes
+# on surveillance coverage computed as a union of watch intervals and on the
+# hold point released with no named authority. Both must deterministically hit
+# space-systems/ecss/q2007-monitoring.
+tasks:
+  - id: mon1
+    query: "rate the acquisition channels on this campaign - one logged two and a half samples per cycle of the frequency we care about, another dropped a tenth of its record, and nobody noted who released the last hold point"
+    intent: "ECSS-Q-ST-20-07C clause 5.8.1; acquisition oversampling ratio and dropout fraction against the frequency of interest of the channel"
+    expected_skill: "space-systems/ecss/q2007-monitoring"
+  - id: mon2
+    query: "two witnesses logged overlapping surveillance intervals across the eight hour run at the test centre, and one hold point was released with no named authority. Merge the intervals for the covered fraction of the window and show me where the gaps sit."
+    intent: "ECSS-Q-ST-20-07C clause 5.8.1; surveillance coverage as the union of logged intervals, and hold-point release without a named authority"
+    expected_skill: "space-systems/ecss/q2007-monitoring"

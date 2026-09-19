@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-detection-rise-time (space-systems/ecss)
+# Case 1 routes on building the chain response from its stages and grading it as a
+# ratio against the pulse. Case 2 routes on what is left of the pulse after
+# blanking and on the digitiser rate the leading edge, not the pulse, demands.
+tasks:
+  - id: e2001-detection-rise-time-1
+    query: "Our multipactor detector chain is a diode quoted at 200 MHz, a video amplifier at 50 MHz and a digitiser front end at 80 MHz, watching 500 ns drive pulses. Do I add those stage responses together or combine them another way, and by what factor must the whole chain beat the pulse width?"
+    intent: "ECSS-E-ST-20-01C clause 7.3.3; the case turns on converting stage bandwidths into rise-times, combining them in quadrature, and the speed ratio against the pulse width"
+    expected_skill: "space-systems/ecss/e2001-detection-rise-time"
+  - id: e2001-detection-rise-time-2
+    query: "On paper our detection chain clears the speed ratio, but we blank 120 ns across the drive turn-on inside a 500 ns pulse. How much of each pulse is genuinely left to decide in, and what digitiser rate do I need if the leading edge is to be resolved by several samples?"
+    intent: "ECSS-E-ST-20-01C clause 7.3.3; the case turns on the usable observation window after blanking as a separate criterion and on sampling set by the edge rather than the pulse"
+    expected_skill: "space-systems/ecss/e2001-detection-rise-time"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-event-action-definition (space-systems/ecss)
+# Two tasks for the new leaf. ead1 routes on two application processes sharing
+# one event identifier; ead2 routes on the single-request rule and the release
+# cycle it makes detectable. Both must deterministically hit
+# space-systems/ecss/e7041-event-action-definition.
+tasks:
+  - id: ead1
+    query: "two application processes on board both number one of their events 4001 and the wrong command is going out when the second one reports, work out what actually identifies one entry in the on-board event-to-command table"
+    intent: "ECSS-E-ST-70-41C clause 6.19.4; an event-action definition is keyed on the application process that generates the event report together with the event definition identifier, so neither half identifies the entry alone"
+    expected_skill: "space-systems/ecss/e7041-event-action-definition"
+  - id: ead2
+    query: "Operations want an on-board event to fire a short command sequence instead of one complete request, and one of those commands raises the same event again. What may one event-action table entry hold, and which release cycles does that graph create?"
+    intent: "ECSS-E-ST-70-41C clause 6.19.4; an event-action definition holds exactly one complete request, and because actions can generate events the definitions form a graph in which a release cycle is detectable at definition time"
+    expected_skill: "space-systems/ecss/e7041-event-action-definition"

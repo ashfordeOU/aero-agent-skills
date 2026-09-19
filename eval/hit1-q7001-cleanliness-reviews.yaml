@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7001-cleanliness-reviews (space-systems/ecss)
+# cr1 routes on the data pack a specific readiness review owes; cr2 routes on
+# open contamination actions and the board verdict. Both must deterministically
+# hit space-systems/ecss/q7001-cleanliness-reviews.
+tasks:
+  - id: cr1
+    query: "assemble the contamination control inputs the critical design review needs for optical hardware and tell me which mandatory items of that data pack are still absent"
+    intent: "ECSS-Q-ST-70-01C programme reviews; cleanliness data pack per review type and contamination sensitivity"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-reviews"
+  - id: cr2
+    query: "a major contamination action is still open at the test readiness review; weigh the open actions by severity and say whether the board may let the next phase start"
+    intent: "ECSS-Q-ST-70-01C programme reviews; contamination open-action severity and the ready, conditional or not-ready review verdict"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-reviews"

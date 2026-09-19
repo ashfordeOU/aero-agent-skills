@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6015-total-ionising-dose-hardness-assurance (space-systems/ecss)
+# Two tasks for the new leaf. tid1 routes on reading the dose-depth curve at a
+# part's own shielding and scaling it to the radiation lifetime; tid2 routes on
+# the required margin being set by the evidence grade the dose capability rests
+# on. Both must deterministically hit
+# space-systems/ecss/q6015-total-ionising-dose-hardness-assurance.
+tasks:
+  - id: tid1
+    query: "the dose-depth curve was issued for five years and our lifetime is fifteen, work out the total-ionising-dose each part actually takes at its own aluminium shielding and what margin is left"
+    intent: "ECSS-Q-ST-60-15C clause 5.1; local ionising dose read off the dose-depth curve at a part's shielding, scaled to the radiation lifetime, against the demonstrated krad capability"
+    expected_skill: "space-systems/ecss/q6015-total-ionising-dose-hardness-assurance"
+  - id: tid2
+    query: "half the parts list still leans on generic-family-data for its dose capability and we are past design freeze, decide what radiation design margin each part owes and group the families by dose sensitivity"
+    intent: "ECSS-Q-ST-60-15C clause 5.1; required radiation design margin set by the evidence grade behind a dose capability, and grouping component families by dose sensitivity"
+    expected_skill: "space-systems/ecss/q6015-total-ionising-dose-hardness-assurance"

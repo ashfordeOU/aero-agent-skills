@@ -6,8 +6,8 @@
 # space-systems/ecss/q6015-radiation-effect-evaluation-basis.
 tasks:
   - id: eb1
-    query: "offset current was inside limit at the 2 krad step and out at the 3 krad step, what level do we credit the part with, and the transfer ratio falls out of limit instead of climbing"
-    intent: "ECSS-Q-ST-60-15C clause 4.3; interpolating the exposure level at which a measured parameter drifts out of its limit, for rising, falling and two-sided parameters"
+    query: "one monitored parameter degrades downward and another upward, so normalise both into a single excursion toward failure, interpolate the dose at which each leaves its limit, and report the worst of the samples as the capability we can claim"
+    intent: "ECSS-Q-ST-60-15C clause 4.3; a rising and a falling parameter reduced to one excursion toward failure, the exposure level at which each leaves its limit interpolated, and the worst sample taken as the demonstrated capability"
     expected_skill: "space-systems/ecss/q6015-radiation-effect-evaluation-basis"
   - id: eb2
     query: "two samples never went out of limit at any step and a third drifted back toward where it started between steps, what capability can we honestly report from this drift data"

@@ -225,7 +225,11 @@ class TestCeilingComparison(unittest.TestCase):
         thickness = minimum_thickness_for_potential(150.0, 1.0e7, 1.14)
         ceiling = permitted_surface_potential("polyimide-film", thickness, 1.14)
         permitted = ceiling["permitted_potential_v"]
-        self.assertLess(permitted, 150.0)
+        # The round trip is a multiplication followed by a division, both
+        # exact under IEEE-754, and it lands on the double immediately
+        # BELOW the requested potential on every platform. Pinned rather
+        # than compared across the boundary.
+        self.assertEqual(permitted, math.nextafter(150.0, 0.0))
         self.assertTrue(within_ceiling(150.0, permitted))
         self.assertAlmostEqual(permitted / 150.0, 1.0, places=12)
 

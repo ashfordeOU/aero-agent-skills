@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-power-robustness-clause-applicability (space-systems/ecss)
+# Case 1 routes on the scoping role of an element that conditions its own power
+# and on the via-interface outcome. Case 2 routes on the governing threshold and
+# the third grading state, both downstream of scoping.
+tasks:
+  - id: e20-power-robustness-clause-applicability-1
+    query: "Our instrument has its own DC-DC front end but is filed in the payload branch of the product tree. Do the robustness provisions written for the power subsystem reach it, and do they bind across the whole unit or only at the bus port?"
+    intent: "ECSS-E-ST-20C clause 5.7.1; scoping role follows function not product tree, and a cross-side provision binds at the interface port"
+    expected_skill: "space-systems/ecss/e20-power-robustness-clause-applicability"
+  - id: e20-power-robustness-clause-applicability-2
+    query: "One unit on a shared power to payload interface makes the strictest demand and exceeds the floor the provision itself sets. Which figure governs the grading of every element that provision reaches, and where does a unit with no demonstrated capability go?"
+    intent: "ECSS-E-ST-20C clause 5.7.1; the strictest demand on a shared interface governs, and absent evidence is a third state rather than a failure"
+    expected_skill: "space-systems/ecss/e20-power-robustness-clause-applicability"

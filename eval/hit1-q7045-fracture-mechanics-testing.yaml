@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7045-fracture-mechanics-testing (space-systems/ecss)
+# Two tasks for the new leaf. frc1 routes on the plane-strain size criterion
+# deciding whether a conditional toughness is a material property; frc2 routes
+# on reducing cyclic growth data without extrapolating it. Both must
+# deterministically hit
+# space-systems/ecss/q7045-fracture-mechanics-testing.
+tasks:
+  - id: frc1
+    query: "the compact specimen gave us a number but the coupon was only 25 mm thick and the alloy is soft, can that be quoted as a toughness for the damage tolerance case"
+    intent: "ECSS-Q-ST-70-45 methods feeding ECSS-E-ST-32-01; conditional toughness from the load and geometry factor, then thickness, crack depth and ligament against the plane-strain size criterion"
+    expected_skill: "space-systems/ecss/q7045-fracture-mechanics-testing"
+  - id: frc2
+    query: "we have crack growth rate data against the cyclic range of stress intensity, 10 to 40. Fit the log-log power law per ECSS-Q-ST-70-45, and say whether reading a rate down at 5 would mean extrapolating past what we ran."
+    intent: "ECSS-Q-ST-70-45 methods; log-log crack growth fit carrying the cycled range so the law is not extrapolated below what was run"
+    expected_skill: "space-systems/ecss/q7045-fracture-mechanics-testing"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7001-cleanliness-personnel-training (space-systems/ecss)
+# pt1 routes on the role-and-zone curriculum and training currency; pt2 routes
+# on the escort ratio and the access decision. Both must deterministically hit
+# space-systems/ecss/q7001-cleanliness-personnel-training.
+tasks:
+  - id: pt1
+    query: "work out which contamination control training modules an operator entering the ISO 7 hall owes, check the completion dates against each module validity and tell me which have lapsed"
+    intent: "ECSS-Q-ST-70-01C personnel; contamination-control training curriculum by role and cleanroom zone, and training currency"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-personnel-training"
+  - id: pt2
+    query: "an untrained visitor wants into the cleanroom to observe; set the escort ratio for the zone, and refuse it outright if the person will put hands on flight hardware"
+    intent: "ECSS-Q-ST-70-01C personnel; cleanroom access authorisation, escort ratio and the refresher due date"
+    expected_skill: "space-systems/ecss/q7001-cleanliness-personnel-training"

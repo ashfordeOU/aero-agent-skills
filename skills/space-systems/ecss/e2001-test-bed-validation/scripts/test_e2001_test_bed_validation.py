@@ -178,11 +178,16 @@ class TestBedHeadroom(unittest.TestCase):
         self.assertIn("below the required", result["findings"][0])
 
     def test_headroom_landing_ulps_under_the_requirement_still_passes(self):
-        # The log-domain round trip of an exactly-3 dB ratio lands a few ULPs
-        # below 3.0; the bed is physically at the requirement.
+        # The log-domain round trip of an exactly-3 dB ratio: ** out, a
+        # logarithm back. Neither is correctly rounded, so the result lands a
+        # unit or two in the last place off 3.0 dB and which side differs
+        # between libm implementations - asserting the direction would pass
+        # here and can fail on another runner. The bed is physically AT the
+        # requirement, so the magnitude is the claim: places=12 is ~1e3 units
+        # in the last place of 3.0 dB. The requirement itself is unchanged.
         onset = 10.0 * (10.0 ** 0.3)
         actual = power_ratio_db(onset, 10.0)
-        self.assertLess(actual, 3.0)
+        self.assertAlmostEqual(actual, 3.0, places=12)
         self.assertTrue(check_bed_headroom(onset, 10.0, 3.0)["compliant"])
 
     def test_zero_required_headroom_is_met_by_equal_powers(self):
@@ -248,9 +253,18 @@ class TestStepTwo(unittest.TestCase):
         self.assertLess(reference_deviation_db(40.0, 50.0), 0.0)
 
     def test_band_edge_landing_ulps_outside_is_still_inside(self):
-        # An exactly 1.5 dB offset round-trips to 1.5000000000000002 dB.
+        # An exactly 1.5 dB offset, applied with ** and read back with a
+        # logarithm. Neither is correctly rounded, so the round trip lands a
+        # unit or two in the last place off 1.5 dB and WHICH SIDE differs
+        # between libm implementations - asserting the direction would pass
+        # here and can fail on another runner. The claim is the magnitude:
+        # places=12 is ~2e3 units in the last place of 1.5 dB, far wider than
+        # any libm disagreement and far below anything measurable in dB. The
+        # band itself is unchanged; the contract is the two lines after it.
         measured = 75.0 * (10.0 ** 0.15)
-        self.assertGreater(abs(reference_deviation_db(measured, 75.0)), 1.5)
+        self.assertAlmostEqual(
+            abs(reference_deviation_db(measured, 75.0)), 1.5, places=12
+        )
         result = validate_step_two(measured, 75.0, 1.5, ["a"], ["a"])
         self.assertTrue(result["inside_band"])
         self.assertTrue(result["compliant"])

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-icd-generic (space-systems/ecss)
+# Case 1 routes on the structure common to every ICD variant: the section set and the header block fields.
+# Case 2 routes on the per-requirement obligations: upward traceability, two-sided allocation, duplicate numbering.
+tasks:
+  - id: e1024-icd-generic-1
+    query: "We run a single checklist over every ICD on the programme, whether it is an EICD, an MICD or a TICD. Two carry no issue date and one never names the receiving party. Which sections and identification fields does any variant owe?"
+    intent: "ECSS-E-ST-10-24C 5.7; the common section set and identification-block fields that bind regardless of which interface variant the document is"
+    expected_skill: "space-systems/ecss/e1024-icd-generic"
+  - id: e1024-icd-generic-2
+    query: "Inside our ICD every numbered requirement states a value, yet none of them traces upward to a system-level parent, several never say who provides and who accepts, and two requirement IDs repeat. How do I grade those against the common content rules?"
+    intent: "ECSS-E-ST-10-24C 5.7; per-entry parent traceability, bilateral supplier/acceptor allocation and unique numbering inside the document"
+    expected_skill: "space-systems/ecss/e1024-icd-generic"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-magnetic-cleanliness-control-plan (space-systems/ecss)
+# Case 1 routes on choosing the allocation rule when the incoherent-addition
+# assumption fails. Case 2 routes on the screening level construction forces
+# and on a declared moment with no screening behind it.
+tasks:
+  - id: e2007-magnetic-cleanliness-control-plan-1
+    query: "Our plan must allocate a stray field limit, quoted at the magnetometer reference distance, onto each individual item. Six of the eighteen are actuators of one identical build bolted in the same orientation, so their residual moments add coherently. Which split rule applies?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.5.1; root-sum-square allocation rests on incoherent addition, so aligned-by-construction items push the split back to equal share"
+    expected_skill: "space-systems/ecss/e2007-magnetic-cleanliness-control-plan"
+  - id: e2007-magnetic-cleanliness-control-plan-2
+    query: "A latch valve holding a permanent magnet declares a residual moment on its supplier datasheet and has never been screened. Which screening level does that construction demand, and can the declared moment stand in the plan without a screening record?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.5.1; the screening level follows construction, and an unscreened declaration is a plan finding however comfortable the number looks"
+    expected_skill: "space-systems/ecss/e2007-magnetic-cleanliness-control-plan"

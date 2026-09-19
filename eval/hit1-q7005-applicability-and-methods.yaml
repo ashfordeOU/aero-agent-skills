@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7005-applicability-and-methods (space-systems/ecss)
+# Two tasks for the new leaf. app1 routes on whether infrared spectroscopy
+# applies to the contaminant at all and which method family reaches the
+# requirement; app2 routes on witness-plate representativeness and the scaling
+# back to the flight surface. Both must deterministically hit
+# space-systems/ecss/q7005-applicability-and-methods.
+tasks:
+  - id: app1
+    query: "is infrared the right technique for this residue at all, and can a direct surface read or a solvent extraction actually see down to the cleanliness level we were given"
+    intent: "ECSS-Q-ST-70-05C applicability; confirming the contaminant is organic with a diagnostic band inside the instrument range, then admitting the direct and indirect families whose areal detection limit reaches the required level"
+    expected_skill: "space-systems/ecss/q7005-applicability-and-methods"
+  - id: app2
+    query: "we hung witness plates instead of touching the hardware, how much of the flight surface do they actually stand for and what do we multiply the plate reading by"
+    intent: "ECSS-Q-ST-70-05C applicability; deciding the sampling object and computing witness-plate representativeness from exposure, view-factor and accommodation ratios with the reciprocal scaling to the flight surface"
+    expected_skill: "space-systems/ecss/q7005-applicability-and-methods"

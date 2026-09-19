@@ -1,0 +1,13 @@
+# Hit@1 fragment: pfci-screening (space-systems/ecss)
+# Case 1 routes on scope: which ground equipment enters the screen and how its
+# critical-operation status is established. Case 2 routes on the tree mechanics:
+# gate order and the recorded gate behind every exclusion.
+tasks:
+  - id: pfci-screening-1
+    query: "Do our GSE lifting slings and the transport dolly enter the Figure 6-1 screening at all, and can a fixture inherit critical operation status from the assembly it supports, or is each piece judged on its own?"
+    intent: "ECSS-E-ST-32C clause 6.1; ground equipment engaged in a critical operation is inside the screening scope, and each item is assessed individually rather than inheriting status from its parent"
+    expected_skill: "space-systems/ecss/pfci-screening"
+  - id: pfci-screening-2
+    query: "One item was screened out on its cross-section being under the minimum before anyone looked at its failure effect. Does the gate order matter, and must the record name the gate that excluded each non-PFCI item?"
+    intent: "ECSS-E-ST-32C clause 6.1; the five gates run in a fixed order and every exclusion carries the gate that produced it, because the gate trail is the auditable evidence"
+    expected_skill: "space-systems/ecss/pfci-screening"

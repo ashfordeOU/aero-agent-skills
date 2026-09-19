@@ -41,7 +41,8 @@ package conformance, skill URIs, and server readiness.
   Agent Skills delivery server (packages/aero-agent-skills/lib/mcp.js)
   implements the resources model TODAY over skill:// URIs — reference
   files under references/ are served too. Same for Aero Agent Roles
-  (role:// URIs in packages/aero-agent-roles/lib/mcp.js).
+  (role:// URIs), which ships as the separate `aero-agent-roles`
+  package rather than from this repository.
 
 ## Workflow
 
@@ -52,7 +53,7 @@ package conformance, skill URIs, and server readiness.
    resources/read, and directory listing. The in-repo servers speak
    newline-delimited JSON-RPC 2.0 over stdio (zero deps):
      node packages/aero-agent-skills/bin/aero-agent-skills.js mcp
-     node packages/aero-agent-roles/bin/aero-agent-roles.js mcp
+     npx aero-agent-roles mcp    # separate package, not in this repo
    Register them with any MCP host (Hermes mcp_servers config,
    `claude mcp add`, VS Code/Cursor/Windsurf .mcp.json) and call
    resources/list + resources/read.

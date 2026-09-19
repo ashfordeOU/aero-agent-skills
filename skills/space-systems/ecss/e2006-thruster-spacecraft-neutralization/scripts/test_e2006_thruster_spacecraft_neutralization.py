@@ -347,11 +347,12 @@ class VerdictTests(unittest.TestCase):
         self.assertTrue(verdict["compliant"])
 
     def test_representation_shortfall_is_absorbed(self):
-        # The requirement is a sum of floats that lands a few units in the
-        # last place above the identical declared capability.
+        # The requirement is a sum of floats that lands bit-exactly one unit
+        # in the last place above the identical declared capability on every
+        # IEEE-754 platform.
         required = 0.1 + 0.2
         capability = 0.3
-        self.assertLess(capability, required)
+        self.assertEqual(required, math.nextafter(capability, math.inf))
         self.assertTrue(verify_emission_capacity(capability, required)["compliant"])
 
     def test_real_shortfall_is_reported(self):

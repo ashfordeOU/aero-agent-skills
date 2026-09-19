@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-electromagnetic-interference-safety-margins (space-systems/ecss)
+# Case 1 routes on the separation an ordnance point demands and the decibel conversion law.
+# Case 2 routes on operating-condition coverage and reporting the governing worst case.
+tasks:
+  - id: e20-electromagnetic-interference-safety-margins-1
+    query: "An initiator firing line on our separation system has a demonstrated upset level of 3 V and we observe 60 mV of noise on it. What separation does that kind of point demand, and which logarithm takes me from volts to decibels?"
+    intent: "ECSS-E-ST-20C 6.3.1.3; the case turns on categorizing the point as ordnance and using the amplitude rather than the power law on a linear voltage pair"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-interference-safety-margins"
+  - id: e20-electromagnetic-interference-safety-margins-2
+    query: "We measured at the one bench state where the bus was nominal and the transmitter was off, and reviewers say that is not enough. Which operating states have to be exercised, and do I quote the average across them or the worst one?"
+    intent: "ECSS-E-ST-20C 6.3.1.3; the case turns on the mandatory operating-condition set, an unexercised condition being its own finding, and the minimum governing the report"
+    expected_skill: "space-systems/ecss/e20-electromagnetic-interference-safety-margins"

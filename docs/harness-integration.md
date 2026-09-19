@@ -354,7 +354,7 @@ Added 2026-09-02. Three first-party channels beyond `npx skills`:
    always-on total, per `claude plugin details`) and their sub-skill
    tables route the agent to leaf SKILL.md files inside the installed
    plugin directory on demand. This is the hierarchical design working
-   as intended, not a gap: the full 330-leaf catalog stays out of
+   as intended, not a gap: the full leaf catalog stays out of
    always-on context.
 
 ## Cross-cutting findings (Ops lens)

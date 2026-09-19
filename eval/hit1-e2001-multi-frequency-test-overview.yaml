@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-multi-frequency-test-overview (space-systems/ecss)
+# Case 1 routes on the time-scale comparison: an envelope peak too brief to seed a
+# discharge, so the level must drop until its dwell matches the onset time. Case 2
+# routes on the comb whose shape the closed-form envelope cannot describe.
+tasks:
+  - id: e2001-multi-frequency-test-overview-1
+    query: "My comb of sixteen carriers is spaced 40 MHz apart, so at 14 GHz the envelope maximum lasts a vanishingly short time. Electrons need something like twenty transits of the gap before an avalanche exists. Does that brief maximum still represent the test level, or must I drop to a level that lingers long enough?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.3.1; the case turns on comparing envelope dwell against the gap-crossing onset time and searching for the sustained level when the peak is too brief"
+    expected_skill: "space-systems/ecss/e2001-multi-frequency-test-overview"
+  - id: e2001-multi-frequency-test-overview-2
+    query: "The carriers our payload actually transmits are neither evenly spaced nor equal in amplitude, and the envelope expression I have assumes they are. What level do I use for the substitute single-carrier run in that situation, and what stops the derived level falling below the continuous power the unit really carries?"
+    intent: "ECSS-E-ST-20-01C clause 6.4.3.1; the case turns on the closed-form envelope not applying to a ragged comb, the recorded conservative fallback, and the average-power floor"
+    expected_skill: "space-systems/ecss/e2001-multi-frequency-test-overview"

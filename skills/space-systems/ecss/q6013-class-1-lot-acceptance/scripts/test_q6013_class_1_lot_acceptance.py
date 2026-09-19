@@ -137,8 +137,11 @@ class SubgroupVerdictTests(unittest.TestCase):
 
     def test_marginal_flag_raised_near_the_allowance(self):
         record = subgroup_verdict(_subgroup(sample_size=25, failures=1, accept_number=3), 500, 5.0)
-        self.assertAlmostEqual(record["percent_defective"], 4.0, places=9)
-        self.assertGreaterEqual(record["percent_defective"], MARGINAL_FRACTION * 5.0)
+        # 100*1/25 and MARGINAL_FRACTION*5.0 are both exactly 4.0: IEEE-754
+        # multiply and divide are correctly rounded, so this subgroup sits ON
+        # the marginal trigger, on every platform, rather than near it.
+        self.assertEqual(record["percent_defective"], 4.0)
+        self.assertEqual(MARGINAL_FRACTION * 5.0, 4.0)
         self.assertTrue(record["marginal"])
 
     def test_subgroup_without_name_rejected(self):

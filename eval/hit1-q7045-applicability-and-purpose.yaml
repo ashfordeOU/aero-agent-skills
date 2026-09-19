@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-applicability-and-purpose (space-systems/ecss)
+# Two tasks for the new leaf. sap1 routes on whether a requested test belongs to
+# this standard at all; sap2 routes on the purpose-to-sample-size link and the
+# empty matrix cell a healthy total hides. Both must deterministically hit
+# space-systems/ecss/q7045-applicability-and-purpose.
+tasks:
+  - id: sap1
+    query: "the materials engineer wants tensile, fatigue and thermal expansion numbers on a titanium forging from one test campaign, sort out which of those this mechanical test standard actually covers"
+    intent: "ECSS-Q-ST-70-45C scope; metallic product forms and the mechanical property set, with the non-mechanical requests carried out explicitly"
+    expected_skill: "space-systems/ecss/q7045-applicability-and-purpose"
+  - id: sap2
+    query: "we have fifty broken test bars from one melt and the customer now wants a design allowable out of them, is that enough or does the sample plan have holes"
+    intent: "ECSS-Q-ST-70-45C scope; purpose sets the minimum pieces per property/orientation/temperature cell, and a design allowable needs more than one heat"
+    expected_skill: "space-systems/ecss/q7045-applicability-and-purpose"

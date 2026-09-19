@@ -318,11 +318,19 @@ class GalvanicIndexTest(unittest.TestCase):
         )
 
     def test_magnesium_against_gold_is_the_widest_couple(self):
+        # The indices are table constants and the spread is one exact
+        # subtraction, so the widest couple is attained rather than
+        # approached: magnesium matches it bit for bit and every other metal
+        # is strictly inside it. Stating both halves is stronger than a
+        # single <= that the magnesium row satisfies only by comparing a
+        # value with itself.
         widest = bc.galvanic_index_difference_v("magnesium_alloy", "gold")
         for metal in bc.GALVANIC_ANODIC_INDEX_V:
-            self.assertLessEqual(
-                bc.galvanic_index_difference_v(metal, "gold"), widest
-            )
+            spread = bc.galvanic_index_difference_v(metal, "gold")
+            if metal == "magnesium_alloy":
+                self.assertEqual(spread, widest)
+            else:
+                self.assertLess(spread, widest, metal)
 
     def test_aluminium_to_cadmium_is_a_deliberately_close_couple(self):
         self.assertAlmostEqual(
@@ -434,12 +442,16 @@ class ResistanceFindingsTest(unittest.TestCase):
         )
 
     def test_representation_error_on_the_ceiling_is_absorbed(self):
-        # Bulk plus joints lands two units in the last place above the
-        # 2.5 milliohm ceiling; the bond is physically on the limit.
+        # Bulk plus joints is multiply, divide and add only - every step
+        # correctly rounded by IEEE-754 - so the total is exactly one
+        # representable place ABOVE the 2.5 milliohm ceiling on any
+        # platform; the bond is physically on the limit. That one place is
+        # what puts the value on the absorbing branch of the ceiling test
+        # rather than under it, so pin it. The ceiling is unchanged.
         resistance_ohm = bc.strap_dc_resistance_ohm(
             2.82e-8, 0.07, 5.0e-6, 0.0010526, 2
         )
-        self.assertGreater(resistance_ohm, 2.5e-3)
+        self.assertEqual(resistance_ohm, 2.5e-3 + math.ulp(2.5e-3))
         self.assertEqual(
             bc.resistance_findings("B1", "power_fault_return", resistance_ohm),
             [],
@@ -598,8 +610,9 @@ class ThermalFindingsTest(unittest.TestCase):
         )
 
     def test_representation_error_on_the_rise_limit_is_absorbed(self):
-        # 0.1 + 0.2 ohm deposits a rise a few units in the last place
-        # above the 0.3 K limit it is physically equal to.
+        # 0.1 + 0.2 is a single correctly rounded IEEE-754 addition, so on
+        # every platform it is exactly one representable place above the
+        # 0.3 K rise limit it is physically equal to.
         bond = {
             "fault_case": {
                 "current_a": 1.0,
@@ -608,7 +621,7 @@ class ThermalFindingsTest(unittest.TestCase):
                 "maximum_temperature_rise_k": 0.3,
             }
         }
-        self.assertGreater(0.1 + 0.2, 0.3)
+        self.assertEqual(0.1 + 0.2, 0.3 + math.ulp(0.3))
         self.assertEqual(
             bc.thermal_findings("B1", "power_fault_return", bond, 0.1 + 0.2),
             [],

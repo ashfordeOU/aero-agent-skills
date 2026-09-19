@@ -6,10 +6,10 @@
 # space-systems/ecss/e2007-susceptibility-threshold-determination.
 tasks:
   - id: std1
-    query: "the star tracker output went out of band during the radiated susceptibility run, how do I find and write down the level where the disturbance goes away"
-    intent: "ECSS-E-ST-20-07C clause 5.2.10.3; the injected level is reduced until the indication ceases and that cessation level is the recorded susceptibility threshold"
+    query: "the indication ceases as I walk the injected level down in steps - which step do I write down as the susceptibility threshold, and does the affected function plus its modulation have to be recorded beside that level"
+    intent: "ECSS-E-ST-20-07C clause 5.2.10.3; the injected level is reduced until the indication ceases, that cessation level is the recorded susceptibility threshold, and the affected function and its modulation are recorded beside it"
     expected_skill: "space-systems/ecss/e2007-susceptibility-threshold-determination"
   - id: std2
-    query: "we stepped the injection down in fourteen decibel jumps and the upset stopped, then came back two steps lower, can I still quote a susceptibility threshold and what margin does it leave over the required level"
+    query: "the disturbance went quiet two notches down and then came back further down again, so can this descending search still yield a usable susceptibility threshold, and what margin does the number hold over the immunity level the requirement fixes"
     intent: "ECSS-E-ST-20-07C clause 5.2.10.3; search bracket as the resolution of the threshold, a returning indication as an inconsistent search, margin of the threshold over the required immunity level"
     expected_skill: "space-systems/ecss/e2007-susceptibility-threshold-determination"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1024-eicd-subsystem (space-systems/ecss)
+# Case 1 routes on bidirectional consistency -- one record per subsystem pair and type.
+# Case 2 routes on per-record field completeness and requirement traceability to the registry.
+tasks:
+  - id: e1024-eicd-subsystem-1
+    query: "We are closing the subsystem-level EICD for the platform. Two separate rows both describe the OBC to ADCS data interface with different definitions. Does a second entry covering that same pair of subsystems at the same type block the document, or can both stay?"
+    intent: "ECSS-E-ST-10-24C 5.8.2; a pair plus type appears exactly once, so a duplicate is a conflict to be merged or retired rather than a harmless repeat"
+    expected_skill: "space-systems/ecss/e1024-eicd-subsystem"
+  - id: e1024-eicd-subsystem-2
+    query: "Half the interface records in our EICD cite requirement identifiers nobody can resolve in the project registry, and a few carry no verification method. Is that a traceability gap I should raise, and what else must every record hold?"
+    intent: "ECSS-E-ST-10-24C 5.8.2; the mandatory field set on each interface record, and an unresolvable requirement identifier standing as its own finding"
+    expected_skill: "space-systems/ecss/e1024-eicd-subsystem"

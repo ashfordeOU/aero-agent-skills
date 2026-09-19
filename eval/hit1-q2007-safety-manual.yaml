@@ -1,0 +1,15 @@
+# Hit@1 fragment: q2007-safety-manual (space-systems/ecss)
+# Two tasks for the new leaf. sfm1 routes on a chapter sitting at a revision
+# ahead of the manual that contains it; sfm2 routes on controlled-copy
+# acknowledgement, withdrawal of superseded copies and hazard changes that
+# postdate issue. Both must deterministically hit
+# space-systems/ecss/q2007-safety-manual.
+tasks:
+  - id: sfm1
+    query: "the emergency chapter of our centre manual is marked D.1 while the manual cover still says C.2, and the hazard list changed twice since the cover date, is the book usable"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.3; issue.revision ordering, a chapter ahead of its manual as an uncontrolled update, and content stale against the hazard register"
+    expected_skill: "space-systems/ecss/q2007-safety-manual"
+  - id: sfm2
+    query: "Twelve controlled copies of the centre safety manual went out, nine came back acknowledged, and nobody withdrew the superseded ones. What does that distribution record actually prove about copy control under ECSS?"
+    intent: "ECSS-Q-ST-20-07C clause 5.9.3; acknowledged fraction of controlled copies and withdrawal of superseded copies as the two halves of distribution control"
+    expected_skill: "space-systems/ecss/q2007-safety-manual"

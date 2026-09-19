@@ -217,3 +217,6 @@ STANDARDS-REF, gated false. ARP4754A (reference-only) frames development
 assurance for guided systems; the impact-angle-control law itself is
 paraphrased public guidance-theory literature (Ryoo, Cho and Tahk 2005)
 and is never reproduced verbatim.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6012-procurement-methodology-steps (space-systems/ecss)
+# Two tasks for the new leaf. pms1 routes on the buyer's declared steps having
+# no route for the failure case. pms2 routes on a branch naming a step nobody
+# declared, and on a step no path can reach. Neither is the quantity-sizing leaf
+# (q6012-die-procurement-general-approach). Both must deterministically hit
+# space-systems/ecss/q6012-procurement-methodology-steps.
+tasks:
+  - id: pms1
+    query: "our written buying method for microwave dies only ever describes what happens when a step passes -- there is nothing for the offer that misses the specification or the lot that fails witness acceptance; find every step with no failure route and score how mature the method is"
+    intent: "ECSS-Q-ST-60-12C clause 10.1.2; buyer working method graded on fail-route completeness and method maturity"
+    expected_skill: "space-systems/ecss/q6012-procurement-methodology-steps"
+  - id: pms2
+    query: "the procurement plan branches to a step called escalate-to-board that appears nowhere else in the plan, and one of the declared steps has nothing pointing at it; trace the method graph from the entry step and tell me what is unreachable"
+    intent: "ECSS-Q-ST-60-12C clause 10.1.2; method step graph reachability from the entry step and branches pointing at undeclared steps"
+    expected_skill: "space-systems/ecss/q6012-procurement-methodology-steps"

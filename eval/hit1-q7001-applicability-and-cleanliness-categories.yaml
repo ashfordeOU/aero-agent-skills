@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-applicability-and-cleanliness-categories (space-systems/ecss)
+# Two tasks for the new leaf. acc1 routes on the applicability screen plus the
+# two-axis sensitivity banding of a mixed inventory; acc2 routes on which axis
+# drives one item's band and the uplift a shared environment forces. Both must
+# deterministically hit
+# space-systems/ecss/q7001-applicability-and-cleanliness-categories.
+tasks:
+  - id: acc1
+    query: "We have a list covering flight boxes, lifting slings, a bakeout oven and some bench adapters. Before anyone picks cleanliness levels I need to know which of those the contamination rules even touch, and then how sensitive each one in scope really is."
+    intent: "ECSS-Q-ST-70-01C framework; applicability routes into scope and two-axis contamination sensitivity banding of an inventory"
+    expected_skill: "space-systems/ecss/q7001-applicability-and-cleanliness-categories"
+  - id: acc2
+    query: "this radiator tolerates a thin deposited film far less than it tolerates particles, so work out which of the two axes drives its sensitivity band and whether sharing a room with the more demanding optical item pulls it up"
+    intent: "ECSS-Q-ST-70-01C framework; driving axis of an item band and the uplift a shared controlled environment forces"
+    expected_skill: "space-systems/ecss/q7001-applicability-and-cleanliness-categories"

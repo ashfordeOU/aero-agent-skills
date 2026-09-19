@@ -5,8 +5,8 @@
 # deterministically hit space-systems/ecss/e2008-sca-solar-cell-defects.
 tasks:
   - id: scd1
-    query: "decide whether the chip broken out of the cell edge stays inside the inactive border or has reached the active area"
-    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.4; permitted position of chips and nicks on the cell body"
+    query: "on this assembled cell body one corner break goes right through the wafer thickness, with two more along the same edge - should it pass, go to a board, or be rejected, and flag separately anything that has bitten into active area"
+    intent: "ECSS-E-ST-20-08C clause 6.4.3.1.4; permitted position of a cell body chip against the inactive border, the tighter allowance where a break goes through the wafer, and active-area encroachment named apart"
     expected_skill: "space-systems/ecss/e2008-sca-solar-cell-defects"
   - id: scd2
     query: "grade the corner chip and the nicks on this solar cell body for size against the single defect and cumulative area allowances"

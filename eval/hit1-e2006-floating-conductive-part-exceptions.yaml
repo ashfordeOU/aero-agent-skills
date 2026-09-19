@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-floating-conductive-part-exceptions (space-systems/ecss)
+# Case 1 routes on the exception needing all three criteria, not just small size.
+# Case 2 routes on which potential governs when a leakage path is only incidental.
+tasks:
+  - id: e2006-floating-conductive-part-exceptions-1
+    query: "We would like to leave a 6 cm2 isolated metal tab ungrounded. It clears the exposed-area limit easily but sits on a 0.1 mm high-permittivity standoff. What else has to hold before that exception can be granted?"
+    intent: "ECSS-E-ST-20-06C 6.3.2; area, capacitance and stored energy must all pass, and a thin high-permittivity standoff can blow the capacitance criterion while the area looks comfortable"
+    expected_skill: "space-systems/ecss/e2006-floating-conductive-part-exceptions"
+  - id: e2006-floating-conductive-part-exceptions-2
+    query: "One isolated conductive item has an incidental 200 megohm leakage nobody specified on a drawing. Should its floating potential be the clamped value or the environment-driven one when I judge the ungrounded exception, and how does that change the energy stored on its capacitance to structure?"
+    intent: "ECSS-E-ST-20-06C 6.3.2; a clamp counts only when it is a designed and inspected path, otherwise the part is treated as fully floating and the energy follows the higher potential"
+    expected_skill: "space-systems/ecss/e2006-floating-conductive-part-exceptions"

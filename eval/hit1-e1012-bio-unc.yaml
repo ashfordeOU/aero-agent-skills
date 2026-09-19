@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1012-bio-unc (space-systems/ecss)
+# Case 1 routes on the combination rule and the resulting confidence band.
+# Case 2 routes on completeness of the source set, where an omitted term narrows
+# the interval rather than contributing zero.
+tasks:
+  - id: e1012-bio-unc-1
+    query: "Combining the DDREF, the quality factor, the risk coefficient, the transfer model and the dosimetry spreads for an astronaut cancer risk estimate, do I add the log sigmas or root sum square them, and what does the 95th percentile band come out as?"
+    intent: "ECSS-E-ST-10-12C 11.6; independent lognormal components combine in quadrature, not arithmetically, and the resulting band is asymmetric in linear space"
+    expected_skill: "space-systems/ecss/e1012-bio-unc"
+  - id: e1012-bio-unc-2
+    query: "Our budget leaves out the transfer model term entirely and pins DDREF at two. Does that make the confidence interval too narrow, and what qualitative level should we report?"
+    intent: "ECSS-E-ST-10-12C 11.6; a missing required source is not zero uncertainty, and the qualitative level follows the 95th-percentile factor"
+    expected_skill: "space-systems/ecss/e1012-bio-unc"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-obcp-execution-observability-level (space-systems/ecss)
+# Two tasks for the new leaf. obol1 routes on choosing the reporting depth from
+# the events that must be seen; obol2 routes on the downlink cost of that depth
+# across a fleet. Both must deterministically hit
+# space-systems/ecss/e7041-obcp-execution-observability-level.
+tasks:
+  - id: obol1
+    query: "our on-board control procedure reports only that it ran; work out the coarsest observability level that still makes the execution event we need visible to ground, and whether the engine ceiling silently caps us below what we asked for"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.2; the reporting depth of a procedure is an ordered cumulative level, so the coarsest level that makes the required execution event visible is the answer, and a request above what the engine supports is granted quietly at the engine ceiling"
+    expected_skill: "space-systems/ecss/e7041-obcp-execution-observability-level"
+  - id: obol2
+    query: "reporting every step of every procedure across the fleet costs more octets an hour than our downlink budget allows; tell me which procedures to downgrade first, what each level costs, and which ones sit on a mandated floor we cannot go below"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.2; reporting depth costs downlink octets that scale with step and instruction counts times how often each procedure runs, so a fleet over budget is resolved by downgrading the costliest first and never below a procedure's mandated floor"
+    expected_skill: "space-systems/ecss/e7041-obcp-execution-observability-level"

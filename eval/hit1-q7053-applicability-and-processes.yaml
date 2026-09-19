@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7053-applicability-and-processes (space-systems/ecss)
+# Two tasks for the new leaf. scope1 routes on deciding which sterilization
+# processes an item may see and which pairings owe a test; scope2 routes on the
+# undeclared-capability rule and on one sensitive material removing a process
+# from the whole item. Both must deterministically hit
+# space-systems/ecss/q7053-applicability-and-processes.
+tasks:
+  - id: scope1
+    query: "here is the bill of materials for a valve with temperature and dose limits per material, and four candidate sterilization processes - dry heat, gamma, ethylene oxide and vapour-phase hydrogen peroxide - work out which ones stay in scope and which material pairings need a compatibility test"
+    intent: "ECSS-Q-ST-70-53 applicability clause; per-axis stressor comparison against declared material capability, pairing marked admissible by analysis, test-required or excluded, item-level admissible process set"
+    expected_skill: "space-systems/ecss/q7053-applicability-and-processes"
+  - id: scope2
+    query: "one of our polymers has no radiation datum at all and a nitrile seal is attacked by ethylene oxide - does the radiation process still count as admissible for the assembly, and what does the missing datum do to the campaign scope"
+    intent: "ECSS-Q-ST-70-53 applicability clause; an undeclared capability is test-required rather than a pass, and a single sensitive material removes a process for the whole item"
+    expected_skill: "space-systems/ecss/q7053-applicability-and-processes"

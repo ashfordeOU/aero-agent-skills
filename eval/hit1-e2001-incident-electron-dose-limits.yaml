@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-incident-electron-dose-limits (space-systems/ecss)
+# Case 1 routes on accumulating charge density per spot and the coupon-category allowance.
+# Case 2 routes on the landing-energy derating and the fresh-spot remedy ordering.
+tasks:
+  - id: e2001-incident-electron-dose-limits-1
+    query: "We are measuring secondary-emission-yield from a floating-dielectric sample. At 2 nA over a square millimetre with 30 s dwell at each landing energy, what incident electron dose builds on that spot, and how much less does it tolerate than a grounded-metal one?"
+    intent: "ECSS-E-ST-20-01C 9.4.2.3; dose is current times dwell over spot area accumulated across every point on the spot, and the allowance falls with the coupon'''s charge escape route"
+    expected_skill: "space-systems/ecss/e2001-incident-electron-dose-limits"
+  - id: e2001-incident-electron-dose-limits-2
+    query: "Sweeping landing energy from 20 eV up to 3 keV on one irradiated spot. Which parts of that sweep carry a reduced allowance, and how many fresh spots does the campaign need once dwell cannot be shortened any further?"
+    intent: "ECSS-E-ST-20-01C 9.4.2.3; only the mid energy band carries the full allowance, and moving to unirradiated spots is the only remedy that resets accumulated dose"
+    expected_skill: "space-systems/ecss/e2001-incident-electron-dose-limits"

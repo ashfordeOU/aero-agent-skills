@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-test-piece-traceability (space-systems/ecss)
+# Two tasks for the new leaf. tpt1 routes on linking one machined blank back to
+# its melt and its position in the plate; tpt2 routes on a set that is
+# individually traceable and still fails coverage. Both must deterministically
+# hit space-systems/ecss/q7045-test-piece-traceability.
+tasks:
+  - id: tpt1
+    query: "a box of machined blanks arrived with one certificate on the outside and no marks on the bars, can any result from these be attributed to a particular plate"
+    intent: "ECSS-Q-ST-70-45C test pieces; per-piece linkage to cast or heat, lot and sampling position, and the orphan a delivery certificate leaves behind"
+    expected_skill: "space-systems/ecss/q7045-test-piece-traceability"
+  - id: tpt2
+    query: "every bar in the set is stamped and traceable but they all came out of one corner of one plate, is the property we derived representative"
+    intent: "ECSS-Q-ST-70-45C test pieces; orientation and through-thickness sampling coverage and concentration of the set in a single heat"
+    expected_skill: "space-systems/ecss/q7045-test-piece-traceability"

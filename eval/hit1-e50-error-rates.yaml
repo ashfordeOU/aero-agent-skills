@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-error-rates (space-systems/ecss)
+# Two tasks for the new leaf. err1 routes on the bit-to-frame conversion and
+# the end-to-end composition; err2 routes on apportioning the budget across
+# ground segments. Both must deterministically hit
+# space-systems/ecss/e50-error-rates.
+tasks:
+  - id: err1
+    query: "the requirement is a frame error rate but every ground segment quotes me a bit error rate, compose the hops into one end-to-end figure and tell me whether the path meets it"
+    intent: "ECSS-E-ST-50C clause 5.8.4; a block error rate is one minus the per-bit survival raised to the block length, and a path composes multiplicatively on the survival probability rather than by summing the segment rates"
+    expected_skill: "space-systems/ecss/e50-error-rates"
+  - id: err2
+    query: "we have one end-to-end error rate in the ground network spec and four suppliers to hold to it, work out the per-segment number each one has to meet and how many errored seconds that leaves per pass"
+    intent: "ECSS-E-ST-50C clause 5.8.4; apportionment across a series chain is the composition read backwards, not the target divided by the segment count, and the errored-seconds figure is what reconciles against a station log"
+    expected_skill: "space-systems/ecss/e50-error-rates"

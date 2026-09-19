@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-lot-rejection-criteria (space-systems/ecss)
+# Two tasks for the new leaf. lrc1 routes on the per-stage percentage limit
+# and the exactly-on-the-limit case. lrc2 routes on the cumulative criterion
+# and on the small batch where a percentage stops meaning anything. Both must
+# deterministically hit space-systems/ecss/q6005-lot-rejection-criteria.
+tasks:
+  - id: lrc1
+    query: "five of the hundred hybrids that went into burn-in failed it and the allowance reads five percent, so is the whole batch refused, and does the cumulative defective over the earlier screening stages push it over as well"
+    intent: "ECSS-Q-ST-60-05C clause 10.4.2; percentage defective at a screening stage against its stated limit, and a value landing exactly on the limit"
+    expected_skill: "space-systems/ecss/q6005-lot-rejection-criteria"
+  - id: lrc2
+    query: "every stage of this hybrid batch stayed inside its own limit but we have shed a lot of units overall, and one stage only had twelve parts in it, decide whether the batch is refused"
+    intent: "ECSS-Q-ST-60-05C clause 10.4.2; the cumulative defective limit across the screening sequence and the accept number that replaces a percentage below the small-lot population"
+    expected_skill: "space-systems/ecss/q6005-lot-rejection-criteria"

@@ -216,7 +216,13 @@ class PurchaserTestTests(unittest.TestCase):
             _tested("environmental-stress", 25, 2, accept_number=5), 10.0
         )
         self.assertAlmostEqual(record["percent_defective"], 8.0, places=9)
-        self.assertGreaterEqual(record["percent_defective"], MARGINAL_FRACTION * 10.0)
+        # Two failures in twenty-five is 100.0 * 2 / 25, an exact division
+        # to 8.0, and the marginal band opens at MARGINAL_FRACTION * 10.0,
+        # which is exactly 8.0 too. The case sits ON the edge of the band,
+        # bit for bit on every platform, and the edge is inclusive - so
+        # assert the equality rather than a direction the last bit cannot
+        # decide. The allowance itself is untouched.
+        self.assertEqual(record["percent_defective"], MARGINAL_FRACTION * 10.0)
         self.assertTrue(record["marginal"])
 
     def test_more_failures_than_units_rejected(self):

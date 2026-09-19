@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-multicarrier-analysis-margins (space-systems/ecss)
+# Case 1 routes on resolving the required nominal margin from equipment type and
+# heritage. Case 2 routes on the declared contribution set and the shortfall,
+# with the phasing term that a single-carrier budget never owes.
+tasks:
+  - id: e2001-multicarrier-analysis-margins-1
+    query: "We have two multicarrier units in the chain: a recurring low power receive front end and a wholly new output multiplexer. What nominal analysis margin does each owe, and what power level must the field analysis then be run at?"
+    intent: "ECSS-E-ST-20-01C clause 4.7.2.2; the margin is resolved per equipment type and per heritage level, and the analysis then runs at the envelope raised by it"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-analysis-margins"
+  - id: e2001-multicarrier-analysis-margins-2
+    query: "Our output filter carries eight downlink carriers. The declared margin sums to 5 decibel against a required 6, and there is no carrier-phasing uncertainty in the list. Where does the shortfall get reported, and does the missing entry invalidate the multicarrier case?"
+    intent: "ECSS-E-ST-20-01C clause 4.7.2.2; contributions are named uncertainties summed into the applied margin, and an absent phasing term leaves the multicarrier physics unaddressed"
+    expected_skill: "space-systems/ecss/e2001-multicarrier-analysis-margins"

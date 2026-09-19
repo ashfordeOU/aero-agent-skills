@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-separable-contact-surfaces (space-systems/ecss)
+# Two tasks for the new leaf. esc1 routes on plating wear over a mate-demate
+# cycle count with a life factor; esc2 routes on the contact force to
+# resistance conversion and the short-wipe fretting condition. Both must
+# deterministically hit space-systems/ecss/e3301-separable-contact-surfaces.
+tasks:
+  - id: esc1
+    query: "the connector on this deployment mechanism gets mated and demated two hundred times through integration and test, work out whether the gold plating still covers the nickel underplate at the end of that with the life factor applied and the wipe we have"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.5; life-factored mate-demate cycles through an Archard plating wear model against the residual noble cover"
+    expected_skill: "space-systems/ecss/e3301-separable-contact-surfaces"
+  - id: esc2
+    query: "our separable contact only has a quarter millimetre of wipe and a low normal force, tell me what contact resistance that force actually buys through the constriction spot and whether the short stroke puts us in a fretting regime"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.5; Holm a-spot constriction plus film resistance against the budget, and fretting exposure from wipe length and cycles"
+    expected_skill: "space-systems/ecss/e3301-separable-contact-surfaces"

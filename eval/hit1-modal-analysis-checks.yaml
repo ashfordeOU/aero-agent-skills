@@ -1,0 +1,12 @@
+# Hit@1 fragment: modal-analysis-checks (space-systems/ecss)
+# Case 1 routes on the rigid-body population and what an extra low mode means.
+# Case 2 routes on per-axis mass capture and the scope of the frequency requirement.
+tasks:
+  - id: modal-analysis-checks-1
+    query: "Our free-free FEM produced seven near-zero modes, plus one at 0.8 Hz that still sits well under the lowest true elastic peak. How many rigid-body modes should a free-free model return, and what does that extra low mode indicate?"
+    intent: "ECSS-E-ST-32C 5.7; a free-free model owes exactly six rigid-body modes, and a mode above the near-zero threshold but below the first elastic one points at a mechanism or a modelling defect"
+    expected_skill: "space-systems/ecss/modal-analysis-checks"
+  - id: modal-analysis-checks-2
+    query: "Cumulative effective mass reaches 94 percent in X and Y but only 78 percent in Z. Does passing two axes carry the third, and is the minimum frequency requirement applied to the lowest elastic mode or to every mode in the run?"
+    intent: "ECSS-E-ST-32C 5.7; each translational axis is checked independently because coupled modes contribute differently, and the frequency floor applies only to elastic modes"
+    expected_skill: "space-systems/ecss/modal-analysis-checks"

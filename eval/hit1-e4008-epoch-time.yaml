@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-epoch-time (space-systems/ecss)
+# epc1 routes on turning an absolute instant in a schedule into a run time;
+# epc2 routes on the already-past entry and the repeating entry, which only
+# this leaf separates. Both must deterministically hit
+# space-systems/ecss/e4008-epoch-time.
+tasks:
+  - id: epc1
+    query: "my schedule has entries written at absolute instants rather than seconds into the run, work out what run time each of them fires at"
+    intent: "ECSS-E-ST-40-08C clause 5.4.1; subtract the declared epoch at simulation time zero in exact integer nanoseconds"
+    expected_skill: "space-systems/ecss/e4008-epoch-time"
+  - id: epc2
+    query: "my simulator schedule mixes an absolute instant that already sits behind the clock with a repeater on a three second period; resolve both onto simulation time from the declared epoch and tell me which occurrence actually runs"
+    intent: "ECSS-E-ST-40-08C clause 5.4.1; report an already-past instant rather than dropping it and step a repeater to its first remaining occurrence"
+    expected_skill: "space-systems/ecss/e4008-epoch-time"

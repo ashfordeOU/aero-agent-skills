@@ -279,8 +279,11 @@ class TestDeclarationCheck(unittest.TestCase):
         required = derive_nominal_multipactor_free_power(
             [100.0, 100.0], "coherent-peak", _budget()
         )["worst_case_dbm"]
+        # nextafter returns the next double below the requirement by
+        # definition, so the ordering needs no assertion; asserting it only
+        # re-tests the standard library across a one-last-place gap.
         declared = math.nextafter(required, -math.inf)
-        self.assertLess(declared, required)
+        self.assertNotEqual(declared, required)
         self.assertTrue(verify_declared_power(declared, required)["covers_worst_case"])
 
     def test_a_hundredth_of_a_decibel_below_does_not_cover(self):

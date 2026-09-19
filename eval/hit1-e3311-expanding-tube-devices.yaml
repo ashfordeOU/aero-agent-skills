@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-expanding-tube-devices (space-systems/ecss)
+# eet1 routes on the two-sided core-load window bounded by fracture and
+# containment; eet2 routes on the ligament window and dual-end severance
+# timing. Both must deterministically hit
+# space-systems/ecss/e3311-expanding-tube-devices.
+tasks:
+  - id: eet1
+    query: "the separation joint uses a flattened tube with a detonating core that has to swell without splitting, work out the core load range that fractures the notched plane and still keeps the tube contained"
+    intent: "ECSS-E-ST-33-11C clause 4.11.8; core-load window bounded below by expansion stroke and above by tube containment, containment margin and debris evidence"
+    expected_skill: "space-systems/ecss/e3311-expanding-tube-devices"
+  - id: eet2
+    query: "the notched doubler has to carry flight load until it fires and then part under the expanding tube, give me the ligament thickness range that does both and tell me when the two bounds cross over so nothing works"
+    intent: "ECSS-E-ST-33-11C clause 4.11.8; ligament window from limit load and severance force, empty-window case, dual-end meeting point and severance time"
+    expected_skill: "space-systems/ecss/e3311-expanding-tube-devices"

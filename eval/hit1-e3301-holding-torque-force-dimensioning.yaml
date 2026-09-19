@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-holding-torque-force-dimensioning (space-systems/ecss)
+# Two tasks for the new leaf. htf1 routes on the two-directional uncertainty on
+# a held state; htf2 routes on the powered hold that cannot be credited without
+# power. Both must deterministically hit
+# space-systems/ecss/e3301-holding-torque-force-dimensioning.
+tasks:
+  - id: htf1
+    query: "size the latch preload, the magnetic detent and the self-locking gearing so each held state holds, with the capability knocked down while the disturbance is raised at the same time"
+    intent: "ECSS-E-ST-33-01 clause 4.7.5.3.3; minimum uncertainty factors applied in both directions on each held state"
+    expected_skill: "space-systems/ecss/e3301-holding-torque-force-dimensioning"
+  - id: htf2
+    query: "can the powered brake still be credited after the bus undervoltage, and what holding margin does the unpowered brake leave per held state rather than once for the mechanism"
+    intent: "ECSS-E-ST-33-01 clause 4.7.5.3.3; powered hold refused credit in an unpowered state and per-state holding margin"
+    expected_skill: "space-systems/ecss/e3301-holding-torque-force-dimensioning"

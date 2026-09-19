@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-shielding-faraday-cap-safety-cap (space-systems/ecss)
+# sfs1 routes on shield effectiveness against the no-fire power; sfs2 routes on
+# the Faraday cap shorts and the safety cap sequence. Both must
+# deterministically hit
+# space-systems/ecss/e3311-shielding-faraday-cap-safety-cap.
+tasks:
+  - id: sfs1
+    query: "work out how many decibels of shielding the initiator circuit needs so the radio frequency pickup at the bridgewire stays twenty decibels under the no-fire power in the worst launch site field"
+    intent: "ECSS-E-ST-33-11C clauses 4.10.3 to 4.10.5; the safety bound is the no-fire power and not the all-fire current, power attenuates by ten decibels per decade while field strength attenuates by twenty, and the number that goes on the drawing is the required effectiveness rather than the shortfall in margin"
+    expected_skill: "space-systems/ecss/e3311-shielding-faraday-cap-safety-cap"
+  - id: sfs2
+    query: "check the Faraday cap shorts the initiator pins to each other and to the case when the harness is demated, and walk the ground sequence for a safety cap taken off before the arm authorisation or left off through a hold"
+    intent: "ECSS-E-ST-33-11C clauses 4.10.3 to 4.10.5; a demated initiator is an antenna across its bridgewire so both shorts are required, and the safety cap is a property of the whole ordered ground sequence rather than a state at one moment"
+    expected_skill: "space-systems/ecss/e3311-shielding-faraday-cap-safety-cap"

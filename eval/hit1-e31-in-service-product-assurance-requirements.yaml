@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-in-service-product-assurance-requirements (space-systems/ecss)
+# Two tasks for the new leaf. isp1 routes on the telemetry interval being derived
+# from the thermal time constant and on alarm placement inside the band; isp2
+# routes on the dependability interface, where an unmitigated severe mode leaves
+# by name. Both must deterministically hit
+# space-systems/ecss/e31-in-service-product-assurance-requirements.
+tasks:
+  - id: isp1
+    query: "we are past design freeze and operations wants the on-orbit temperature telemetry interval stretched to an hour on a radiator whose thermal time constant is twenty minutes, with the alarm limit pushed out beyond the operational band - is that flyable"
+    intent: "ECSS-E-ST-31C clause 4.7; telemetry interval derived from the thermal time constant, and the alarm limit placed inside the operational-to-design band with its placement fraction"
+    expected_skill: "space-systems/ecss/e31-in-service-product-assurance-requirements"
+  - id: isp2
+    query: "dependability is building the thermal side of the criticality analysis, so tell me which heater and loop failure modes are severe with nothing mitigating them, and which ones the flight telemetry would never show us at all"
+    intent: "ECSS-E-ST-31C clause 4.8; thermal failure modes scored on severity, telemetry observability and mitigation, with unmitigated severe modes carried out by name"
+    expected_skill: "space-systems/ecss/e31-in-service-product-assurance-requirements"

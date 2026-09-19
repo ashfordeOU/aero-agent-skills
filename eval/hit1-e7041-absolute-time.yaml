@@ -1,0 +1,13 @@
+# Hit@1 fragment: e7041-absolute-time (space-systems/ecss)
+# Two tasks for the new leaf. abt1 routes on the coarse field span and the wrap;
+# abt2 routes on the three agreements the packet does not carry. Both must
+# deterministically hit space-systems/ecss/e7041-absolute-time.
+tasks:
+  - id: abt1
+    query: "generation times in the reports jumped back to the start of the mission overnight, work out whether the seconds count in the time field simply ran out of room and what span that field width actually covers"
+    intent: "ECSS-E-ST-70-41C clause 7.3.10; the coarse field of an absolute time fixes the span it can represent, and a time past that span is refused rather than wrapped into a valid-looking count in the wrong era"
+    expected_skill: "space-systems/ecss/e7041-absolute-time"
+  - id: abt2
+    query: "the ground segment reads every on-board timestamp as a date years away from the one the spacecraft meant, list what has to be agreed about the time field when none of it travels with the value"
+    intent: "ECSS-E-ST-70-41C clause 7.3.10; the time code, the coarse and fine field widths and the epoch of an absolute time are all fixed in the mission definition and none of them is carried in the packet"
+    expected_skill: "space-systems/ecss/e7041-absolute-time"

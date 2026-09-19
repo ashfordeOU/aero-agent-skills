@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-verification-tests (space-systems/ecss)
+# Two tasks for the new leaf. vt1 routes on the no-fire dwell that a current
+# reading alone cannot settle; vt2 routes on a firing demonstration made above
+# the stated all-fire current. Both must deterministically hit
+# space-systems/ecss/e3311-verification-tests.
+tasks:
+  - id: vt1
+    query: "the report says the initiator saw its no-fire current and did not go off, work out whether that counts as a pass or whether the hold time also has to be checked"
+    intent: "ECSS-E-ST-33-11C clause 4.14.3; the no-fire exposure is a dwell, so current level and hold duration are graded together with the non-function outcome"
+    expected_skill: "space-systems/ecss/e3311-verification-tests"
+  - id: vt2
+    query: "they fired the cartridge at nine amps to be sure it would go, and the datasheet says all-fire is five, tell me what that demonstration actually proves"
+    intent: "ECSS-E-ST-33-11C clause 4.14.3; a firing demonstration driven above the specified all-fire current leaves the stated level unverified"
+    expected_skill: "space-systems/ecss/e3311-verification-tests"

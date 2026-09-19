@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-tailoring-by-device-criticality (space-systems/ecss)
+# Two tasks for the new leaf. tbdc1 routes on the two applicability axes, device type
+# and criticality floor; tbdc2 routes on the project delta and a removal of a
+# requirement the baseline marks non-removable. Both must deterministically hit
+# space-systems/ecss/e2040-tailoring-by-device-criticality.
+tasks:
+  - id: tbdc1
+    query: "cut the device requirement baseline down for a criticality two asic and show me what a hybrid at the same category would carry instead"
+    intent: "ECSS-E-ST-20-40C clause 5.1.2; device type scope and criticality floor are two independent axes and the set grows as the category gets more severe"
+    expected_skill: "space-systems/ecss/e2040-tailoring-by-device-criticality"
+  - id: tbdc2
+    query: "the project dropped five requirements from our tailored device set, tell me which drops have no reason recorded and which ones the baseline said could not be removed at all"
+    intent: "ECSS-E-ST-20-40C clause 5.1.2; project tailoring is a justified delta against the tailored baseline and some requirements are marked non-removable"
+    expected_skill: "space-systems/ecss/e2040-tailoring-by-device-criticality"

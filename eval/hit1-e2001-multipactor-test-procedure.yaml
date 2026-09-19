@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-test-procedure (space-systems/ecss)
+# Case 1 routes on the power ladder the procedure declares: the level the margin demands and how coarse a step may be.
+# Case 2 routes on the rest of the declared content: vacuum conditions, the seeding source and flux, and detection coverage of both kinds.
+tasks:
+  - id: e2001-multipactor-test-procedure-1
+    query: "Our multipactor test procedure goes straight to the top rung from 120 W of declared operation with a required margin of 6 dB. What power does the ladder actually have to reach, and how fine must the bracketing steps be before the customer will give approval?"
+    intent: "ECSS-E-ST-20-01C 8.6; the test power computed from declared operation and the dB margin, and the step coarseness that decides whether a ladder brackets or steps over a threshold"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-procedure"
+  - id: e2001-multipactor-test-procedure-2
+    query: "The procedure we were handed names two detection arrangements, both reading the carrier for nulling, declares a chamber pressure around five times ten to the minus four millibar after a ten minute pump down, and never says which seeding source is fitted or its flux. Which of those blocks approval?"
+    intent: "ECSS-E-ST-20-01C 8.6; declared vacuum conditions clear of gas discharge, a recognised seeding arrangement with its flux, and the requirement for one global and one local detection technique"
+    expected_skill: "space-systems/ecss/e2001-multipactor-test-procedure"

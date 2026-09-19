@@ -11,6 +11,9 @@ the rationale traces to requirement ids. ARP4754A sets the
 development-planning context: alternative concepts are evaluated and
 the chosen concept is justified as part of the development plan.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 WEIGHT_TOLERANCE = 1e-9
 PUGH_MARKS = (-1, 0, 1)

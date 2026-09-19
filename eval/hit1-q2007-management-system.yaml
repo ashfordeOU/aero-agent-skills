@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2007-management-system (space-systems/ecss)
+# Two tasks for the new leaf. qms1 routes on the scope-versus-services-offered
+# comparison that no scope statement can make against itself; qms2 routes on the
+# draft-process-in-use case, which outranks a plain coverage shortfall. Both must
+# deterministically hit space-systems/ecss/q2007-management-system.
+tasks:
+  - id: qms1
+    query: "our test centre quality manual lists the scope of the management system, cross it with the test services we actually sell and tell me which service is running outside the system"
+    intent: "ECSS-Q-ST-20-07 clause 5.1; management-system scope taken against the services offered, not against the scope statement reading back to itself"
+    expected_skill: "space-systems/ecss/q2007-management-system"
+  - id: qms2
+    query: "half the procedures behind our thermal vacuum service are still unapproved drafts - tell me how much documented process coverage this service really has, whether the declared scope still matches what we offer, and whether our management review has gone stale"
+    intent: "ECSS-Q-ST-20-07 clause 5.1; an unapproved process covering a scoped service ranks above a bare coverage shortfall, with the declared scope against the services offered and the management review currency graded separately"
+    expected_skill: "space-systems/ecss/q2007-management-system"

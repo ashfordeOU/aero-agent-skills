@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7053-property-degradation-assessment (space-systems/ecss)
+# tr1 routes on the direction of an allowable change and the per-category
+# rollup; tr2 routes on utilisation ranking and the resolution-limited
+# reading. Both must deterministically hit
+# space-systems/ecss/q7053-property-degradation-assessment.
+tasks:
+  - id: tr1
+    query: "grade the pre and post sterilization exposure property table for this seal: tensile strength is loss-limited, mass is gain-limited, and I need a per-category verdict for mechanical, physical and functional"
+    intent: "ECSS-Q-ST-70-53C evaluation clause; relative change against each property's own baseline, direction-aware allowable change, rollup across the three evaluation categories"
+    expected_skill: "space-systems/ecss/q7053-property-degradation-assessment"
+  - id: tr2
+    query: "which degraded property governs this compatibility statement, a four percent loss against a five percent limit or a twenty percent loss against a fifty percent limit, and does a change inside the gauge resolution count as degradation"
+    intent: "ECSS-Q-ST-70-53C evaluation clause; governing property by utilisation of its own allowable change, resolution-limited readings absorbed without widening the limit"
+    expected_skill: "space-systems/ecss/q7053-property-degradation-assessment"

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-solar-array-arc-general-requirement (space-systems/ecss)
+# Case 1 routes on whether the grounding provisions discharge the clause or trigger the obligation.
+# Case 2 routes on the triple-junction inception threshold against the differential potential.
+tasks:
+  - id: e2006-solar-array-arc-general-requirement-1
+    query: "Our array front face carries a hinge fitting with no bond to structure and a coverglass whose ungrounded exposed area is 400 square centimetres. Does the design clear the clause on inspection of grounding evidence, or do we now owe an arc characterization?"
+    intent: "ECSS-E-ST-20-06C 7.2.2; the requirement is conditional, so a conductor with no bond path or an oversize ungrounded dielectric is what pulls the analysis into scope"
+    expected_skill: "space-systems/ecss/e2006-solar-array-arc-general-requirement"
+  - id: e2006-solar-array-arc-general-requirement-2
+    query: "With 100 micron coverglass, a 0.9 mm gap between cells and the panel down at minus 120 C, where does primary arc inception sit, and how does it compare against the worst dielectric-to-conductor potential once string bias is included?"
+    intent: "ECSS-E-ST-20-06C 7.2.2; inception rises with coverglass thickness and gap and falls as the surface cools, and the driving potential includes the bias the conductor sees"
+    expected_skill: "space-systems/ecss/e2006-solar-array-arc-general-requirement"

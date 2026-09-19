@@ -82,9 +82,13 @@ class StateCreditTests(unittest.TestCase):
         self.assertLess(credit, 1.0)
 
     def test_every_state_credit_sits_between_zero_and_one(self):
-        for credit in ELEMENT_STATE_CREDIT.values():
-            self.assertGreaterEqual(credit, 0.0)
-            self.assertLessEqual(credit, 1.0)
+        # Declared constants, so both ends of the range are attained
+        # exactly rather than approached. Pinning the two extremes proves
+        # the bound for every member and avoids a <= whose two operands
+        # coincide on the full-credit states.
+        credits = list(ELEMENT_STATE_CREDIT.values())
+        self.assertEqual(max(credits), 1.0)
+        self.assertEqual(min(credits), 0.0)
 
     def test_unknown_state_rejected(self):
         with self.assertRaises(ValueError):

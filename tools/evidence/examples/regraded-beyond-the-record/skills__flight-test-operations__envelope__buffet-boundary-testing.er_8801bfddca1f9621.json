@@ -1,0 +1,914 @@
+{
+  "amendments": [],
+  "body": {
+    "checker_set": {
+      "checkers": [
+        {
+          "id": "contract-test",
+          "observation": "contract-test",
+          "observation_version": "1.0.0",
+          "params": {
+            "allow_skips": false,
+            "max_errors": 0,
+            "max_failures": 0,
+            "min_tests": 1,
+            "require_instrumented": true
+          },
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "title": "the leaf's behaviour contract test passes",
+          "version": "1.0.0"
+        },
+        {
+          "id": "desc-lint",
+          "observation": "desc-lint",
+          "observation_version": "1.0.0",
+          "params": {
+            "action_verb_vocabulary_version": "2.0.0",
+            "max_words": 150,
+            "min_trigger_keywords": 2,
+            "min_words": 50,
+            "require_action_verb": true,
+            "require_trigger_label": true,
+            "require_use_when": true
+          },
+          "params_digest": "sha256:588fd0bec53d24f6d5e5a42a10d9895b4a3c908c43357670ce9143adcd0a4123",
+          "title": "the description carries what, when and trigger keywords",
+          "version": "1.0.0"
+        },
+        {
+          "id": "no-verbatim",
+          "observation": "marker-scan",
+          "observation_version": "1.0.0",
+          "params": {
+            "markers_enforced": [
+              "all-rights-reserved",
+              "redistribution-bar",
+              "single-user-licence",
+              "confidentiality-banner",
+              "licence-agreement-banner",
+              "rights-management-banner",
+              "licensed-to-banner",
+              "dated-copyright-notice",
+              "export-control-banner"
+            ],
+            "max_hits_per_marker": 0,
+            "max_quoted_span_chars": 400
+          },
+          "params_digest": "sha256:819b3027071494c57e1020704a3fbb22baa3297375220e7aaee07eaacccfbdee",
+          "title": "no copyright boilerplate and no long quoted span",
+          "version": "1.0.0"
+        },
+        {
+          "id": "portability",
+          "observation": "near-boundary",
+          "observation_version": "1.0.0",
+          "params": {
+            "relative_tolerance": "1e-12"
+          },
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "title": "no strict float comparison sits on its bound",
+          "version": "1.0.0"
+        },
+        {
+          "id": "references-present",
+          "observation": "spec-shape",
+          "observation_version": "1.0.0",
+          "params": {},
+          "params_digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "title": "the leaf ships a references directory",
+          "version": "1.0.0"
+        },
+        {
+          "id": "spec-shape",
+          "observation": "spec-shape",
+          "observation_version": "1.0.0",
+          "params": {
+            "allowed_compliance": [
+              "none",
+              "ITAR-GATED",
+              "EAR-GATED",
+              "STANDARDS-REF"
+            ],
+            "allowed_licenses": [
+              "Apache-2.0"
+            ],
+            "max_absolute_links": 0,
+            "max_body_lines": 500,
+            "max_description_chars": 1024,
+            "require_logic_module": true,
+            "require_name_matches_directory": true,
+            "require_test_module": true,
+            "required_frontmatter_keys": [
+              "name",
+              "description",
+              "license",
+              "compliance",
+              "standards",
+              "gated",
+              "domain",
+              "pack",
+              "metadata"
+            ]
+          },
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "title": "front matter and leaf layout conform to the skill specification",
+          "version": "1.0.0"
+        }
+      ],
+      "digest": "sha256:157c19b4605774c7547ea0dc955da32940911ab04ca0877b969aeeb1ba5ae393",
+      "label": "beyond-the-record-2026-09-19",
+      "spec": "aero-evidence-checkerset/1"
+    },
+    "corpus": {
+      "algorithm": "sha256",
+      "byte_count": 94952274,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 9085,
+      "subtree": "skills",
+      "subtree_digest": "sha256:80114ebff78847912c0a8c24f93736f1e3a443f22cd7918da1ae7cc281e61931"
+    },
+    "derivation": {
+      "anomalies": [],
+      "checker_set_after": {
+        "digest": "sha256:157c19b4605774c7547ea0dc955da32940911ab04ca0877b969aeeb1ba5ae393",
+        "label": "beyond-the-record-2026-09-19"
+      },
+      "checker_set_before": {
+        "digest": "sha256:5267e54b448a3d90ecab8603dc178bec02dff45ad8364e83ca1ad64f1de0ecfc",
+        "label": "baseline-2026-09-19"
+      },
+      "corpus_re_executed": false,
+      "gate_changes": [
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "contract-test",
+          "reason_after": "38 test(s) across 1 module(s), no failure or error"
+        },
+        {
+          "after": "INDETERMINATE",
+          "before": "PASS",
+          "cause": [
+            "action_verb_vocabulary_version: '1.0.0' -> '2.0.0'"
+          ],
+          "change": "flipped",
+          "gate": "desc-lint",
+          "reason_after": "description was measured against action-verb vocabulary 1.0.0; this rule needs 2.0.0, which requires re-observation"
+        },
+        {
+          "after": "INDETERMINATE",
+          "before": "PASS",
+          "cause": [
+            "markers_enforced: +1 (export-control-banner)"
+          ],
+          "change": "flipped",
+          "gate": "no-verbatim",
+          "reason_after": "marker(s) export-control-banner were added after this record was observed; the record holds no count for them"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "portability",
+          "reason_after": "no comparison within 1e-12 relative of its bound across 2 comparison(s)"
+        },
+        {
+          "after": "INDETERMINATE",
+          "before": null,
+          "cause": [
+            "checker was not in the issuing set"
+          ],
+          "change": "added",
+          "gate": "references-present",
+          "reason_after": "observation 'spec-shape' does not record has_references_dir"
+        },
+        {
+          "after": "PASS",
+          "before": "PASS",
+          "cause": [
+            "no change to this checker"
+          ],
+          "change": "held",
+          "gate": "spec-shape",
+          "reason_after": "front matter and layout conform"
+        },
+        {
+          "after": "WITHDRAWN",
+          "before": "PASS",
+          "cause": [
+            "checker retired from the applied set"
+          ],
+          "change": "withdrawn",
+          "gate": "stdlib-only",
+          "reason_after": "retired from checker set 'beyond-the-record-2026-09-19'"
+        }
+      ],
+      "kind": "regrade",
+      "parent": {
+        "amendments_at_regrade": 0,
+        "body_digest": "sha256:04a59a3bb5d7f7b6859f2325dd62ab9b6648039be2e21ff8d7b8c6219c8cdf0d",
+        "issued_at": "2026-09-19T00:11:03Z",
+        "record_id": "er_04a59a3bb5d7f7b6"
+      },
+      "performed_with": {
+        "note": "no observation was re-taken, so no environment fingerprint is claimed for this step",
+        "tool": "aero-evidence/1.0.0"
+      },
+      "reobservation_required": [
+        "desc-lint",
+        "no-verbatim",
+        "references-present"
+      ],
+      "verdict_before": "PASS"
+    },
+    "environment": {
+      "float": {
+        "epsilon": "2.220446049250313e-16",
+        "mant_dig": 53,
+        "max_exp": 1024,
+        "min_exp": -1021,
+        "radix": 2,
+        "rounds": 1
+      },
+      "hash_randomization": true,
+      "interpreter": {
+        "implementation": "CPython",
+        "version": "3.14.4",
+        "version_info": [
+          3,
+          14,
+          4
+        ]
+      },
+      "libm": {
+        "fingerprint": "sha256:0bb4a15c81e4cea456a3a4d9de5df0b7f55adced5ef40caea6b6e90d010221c0",
+        "probes": [
+          {
+            "probe": "log10_pow_roundtrip",
+            "repr": "-20.0"
+          },
+          {
+            "probe": "pow_10_neg_tenth",
+            "repr": "0.7943282347242815"
+          },
+          {
+            "probe": "log10_thousand",
+            "repr": "3.0"
+          },
+          {
+            "probe": "exp_one",
+            "repr": "2.718281828459045"
+          },
+          {
+            "probe": "sin_large_argument",
+            "repr": "-0.8522008497671888"
+          },
+          {
+            "probe": "sqrt_two",
+            "repr": "1.4142135623730951"
+          },
+          {
+            "probe": "atan2_one_three",
+            "repr": "0.3217505543966422"
+          },
+          {
+            "probe": "tenth_plus_fifth",
+            "repr": "0.30000000000000004"
+          },
+          {
+            "probe": "fsum_ten_tenths",
+            "repr": "1.0"
+          },
+          {
+            "probe": "pow_two_half",
+            "repr": "1.4142135623730951"
+          }
+        ]
+      },
+      "platform": {
+        "byteorder": "little",
+        "machine": "arm64",
+        "pointer_bits": 64,
+        "system": "Darwin"
+      },
+      "spec": "aero-evidence-environment/1"
+    },
+    "gates": [
+      {
+        "checker_version": "1.0.0",
+        "gate": "contract-test",
+        "observation": "contract-test",
+        "observation_digest": "sha256:346280b99f8da5714dac91301bf48ab9f0e30852c3fc18de1b81bfc57c2ac56b",
+        "outcome": {
+          "findings": [],
+          "reason": "38 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:f48004d0f3c49b6fd6166fb2b213e0223b6433f3351bd24fed79d3027c1cd2c4",
+          "reason": "38 test(s) across 1 module(s), no failure or error",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "desc-lint",
+        "observation": "desc-lint",
+        "observation_digest": "sha256:7e254acfc06947ba619ee715629a69d9cf1a941118fbcb8edfa7a25d001d0f72",
+        "outcome": {
+          "findings": [],
+          "needs": {
+            "observation": "desc-lint",
+            "vocabulary_required": "2.0.0",
+            "vocabulary_stored": "1.0.0"
+          },
+          "reason": "description was measured against action-verb vocabulary 1.0.0; this rule needs 2.0.0, which requires re-observation",
+          "verdict": "INDETERMINATE"
+        },
+        "params_digest": "sha256:588fd0bec53d24f6d5e5a42a10d9895b4a3c908c43357670ce9143adcd0a4123",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:728f2e800176ef147119c608dc1f9aea49f24d0526fe09b23ff010e993187ebb",
+          "reason": "135 words, action verb, use-when and triggers present",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "no-verbatim",
+        "observation": "marker-scan",
+        "observation_digest": "sha256:fbd324d76617b35df5ccdf40497bf236c38eba38fd72941d38d2f7210d825b27",
+        "outcome": {
+          "findings": [],
+          "needs": {
+            "markers": [
+              "export-control-banner"
+            ],
+            "observation": "marker-scan"
+          },
+          "reason": "marker(s) export-control-banner were added after this record was observed; the record holds no count for them",
+          "verdict": "INDETERMINATE"
+        },
+        "params_digest": "sha256:819b3027071494c57e1020704a3fbb22baa3297375220e7aaee07eaacccfbdee",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:2f018ced4e55d5a9d04989e1b388fa45f4e53f737aa1d70fe0e0a472c6ec3741",
+          "reason": "8 marker(s) enforced, none present across 1 scanned file(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "portability",
+        "observation": "near-boundary",
+        "observation_digest": "sha256:74379d1f809bcd8f93c42ba698392cf7f8d3d34a0c63cd2dc09196dbcfe1026f",
+        "outcome": {
+          "findings": [],
+          "reason": "no comparison within 1e-12 relative of its bound across 2 comparison(s)",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:da4484d4214895b7ccf9488122081f8f18f112c48922bb5f0a3b09552f8f9e5c",
+          "reason": "no comparison within 1e-12 relative of its bound across 2 comparison(s)",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "references-present",
+        "observation": "spec-shape",
+        "observation_digest": "sha256:64b12d77c174a62b518aaefb3bffe6b326f7b92e49628f8b352d7b77e64f54de",
+        "outcome": {
+          "findings": [],
+          "needs": {
+            "fields": [
+              "has_references_dir"
+            ],
+            "observation": "spec-shape"
+          },
+          "reason": "observation 'spec-shape' does not record has_references_dir",
+          "verdict": "INDETERMINATE"
+        },
+        "params_digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "spec-shape",
+        "observation": "spec-shape",
+        "observation_digest": "sha256:64b12d77c174a62b518aaefb3bffe6b326f7b92e49628f8b352d7b77e64f54de",
+        "outcome": {
+          "findings": [],
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        },
+        "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:3f701c43f857acba0d8c95d5c34be4e6b17bc7f9c1cf25348b56fde9ed17d87d",
+          "reason": "front matter and layout conform",
+          "verdict": "PASS"
+        }
+      },
+      {
+        "checker_version": "1.0.0",
+        "gate": "stdlib-only",
+        "observation": "import-surface",
+        "observation_digest": "sha256:74e9c61a0b5cba9709db528b7438768ea4b043c3a1766f0508309cd215aa0d3a",
+        "outcome": {
+          "findings": [],
+          "reason": "retired from checker set 'beyond-the-record-2026-09-19'",
+          "verdict": "WITHDRAWN"
+        },
+        "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+        "prior": {
+          "checker_version": "1.0.0",
+          "params_digest": "sha256:dfe6d71c22886f1823a73758ad41694e43d8861920103d1cf215a1d05d5b7a42",
+          "reason": "2 module(s) import stdlib and siblings only",
+          "verdict": "PASS"
+        }
+      }
+    ],
+    "issued": {
+      "at": "2026-09-19T00:15:02Z",
+      "by": "ashforde-conformance",
+      "tool": "aero-evidence/1.0.0"
+    },
+    "leaf": {
+      "algorithm": "sha256",
+      "byte_count": 33232,
+      "digest_spec": "aero-corpus-digest/1",
+      "file_count": 3,
+      "files": [
+        {
+          "digest": "sha256:b949945173ccf906a6af614324e8b6eb7a93cf92d076bcd05a36b7b843261b81",
+          "path": "SKILL.md"
+        },
+        {
+          "digest": "sha256:92a9e17e80cc47a1933a7c53f358319b818787b10083869c668d98314b0eba14",
+          "path": "scripts/buffet_boundary_testing_logic.py"
+        },
+        {
+          "digest": "sha256:1981d17d9de74cf1bcf781668edadd9017c3510a769f723e43601323eef3a432",
+          "path": "scripts/test_buffet_boundary_testing.py"
+        }
+      ],
+      "leaf_digest": "sha256:c0d8f8324b4ad4743167669a13244b91f26100166c3cc02fd3811f09611b58b9",
+      "ref": "skills/flight-test-operations/envelope/buffet-boundary-testing"
+    },
+    "observations": {
+      "contract-test": {
+        "modules": [
+          {
+            "errors": 0,
+            "expected_failures": 0,
+            "failures": 0,
+            "instrumented": true,
+            "load_error": null,
+            "module": "scripts/test_buffet_boundary_testing.py",
+            "outcomes": [
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_cruise_at_band_edge_allowed"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_cruise_outside_fitted_band_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_default_onset_threshold_matches_explicit"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_fail_verdict_target_20"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_fewer_than_two_mach_points_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_mismatched_table_length_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_negative_altitude_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_nonpositive_target_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_pass_verdict_and_anchors"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_per_mach_points"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestAnalyze.test_analyze_zero_weight_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBoundaryLiftCoefficient.test_boundary_lift_nonpositive_area_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBoundaryLiftCoefficient.test_boundary_lift_nonpositive_weight_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBoundaryLiftCoefficient.test_boundary_lift_round_trip_identity"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBoundaryLiftCoefficient.test_cl_buf_spec_anchors"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBuffetMargin.test_buffet_margin_negative_fail"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBuffetMargin.test_buffet_margin_nonpositive_target_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestBuffetMargin.test_buffet_margin_positive_pass"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDynamicPressure.test_dynamic_pressure_mach_out_of_range_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDynamicPressure.test_dynamic_pressure_matches_analytic_identity"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestDynamicPressure.test_dynamic_pressure_spec_anchors"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFitBoundaryLine.test_fit_cl_at_cruise_none_without_cruise_mach"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFitBoundaryLine.test_fit_fewer_than_two_points_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFitBoundaryLine.test_fit_line_at_cruise_mach_anchor"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFitBoundaryLine.test_fit_mismatched_lengths_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFitBoundaryLine.test_fit_residual_length_and_values"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestFitBoundaryLine.test_fit_slope_negative_about_minus_3_3"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaState.test_isa_state_at_10668m"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaState.test_isa_state_negative_altitude_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestIsaState.test_isa_state_sea_level"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_all_mach_ideal_anchors"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_default_threshold_used"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_empty_table_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_exact_194_at_mach_074"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_no_crossing_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_non_monotonic_rms_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_nonpositive_threshold_raises"
+              },
+              {
+                "status": "ok",
+                "test": "__main__.TestOnsetDetect.test_onset_detect_single_sample_raises"
+              }
+            ],
+            "skipped": 0,
+            "tests_run": 38,
+            "unexpected_successes": 0
+          }
+        ],
+        "observation": "contract-test",
+        "runner": "stdlib-unittest",
+        "totals": {
+          "errors": 0,
+          "expected_failures": 0,
+          "failures": 0,
+          "modules": 1,
+          "skipped": 0,
+          "tests_run": 38,
+          "unexpected_successes": 0
+        },
+        "version": "1.0.0"
+      },
+      "desc-lint": {
+        "action_verb_vocabulary_version": "1.0.0",
+        "action_verbs_found": [
+          "analyze",
+          "compute",
+          "convert",
+          "plan",
+          "test"
+        ],
+        "char_count": 863,
+        "has_trigger_label": true,
+        "has_use_when_clause": true,
+        "observation": "desc-lint",
+        "present": true,
+        "trigger_keyword_count": 8,
+        "version": "1.0.0",
+        "word_count": 135
+      },
+      "import-surface": {
+        "extraction": "ast",
+        "modules": [
+          {
+            "imports": [
+              "math"
+            ],
+            "module": "scripts/buffet_boundary_testing_logic.py",
+            "parse_error": null,
+            "sibling_resolved": []
+          },
+          {
+            "imports": [
+              "buffet_boundary_testing_logic",
+              "math",
+              "os",
+              "sys",
+              "unittest"
+            ],
+            "module": "scripts/test_buffet_boundary_testing.py",
+            "parse_error": null,
+            "sibling_resolved": [
+              "buffet_boundary_testing_logic"
+            ]
+          }
+        ],
+        "observation": "import-surface",
+        "version": "1.0.0"
+      },
+      "marker-scan": {
+        "files_scanned": [
+          {
+            "chars": 11166,
+            "digest": "sha256:b949945173ccf906a6af614324e8b6eb7a93cf92d076bcd05a36b7b843261b81",
+            "path": "SKILL.md"
+          }
+        ],
+        "longest_quoted_span_chars": 18,
+        "marker_counts": {
+          "all-rights-reserved": 0,
+          "confidentiality-banner": 0,
+          "dated-copyright-notice": 0,
+          "licence-agreement-banner": 0,
+          "licensed-to-banner": 0,
+          "redistribution-bar": 0,
+          "rights-management-banner": 0,
+          "single-user-licence": 0
+        },
+        "marker_ids": [
+          "all-rights-reserved",
+          "confidentiality-banner",
+          "dated-copyright-notice",
+          "licence-agreement-banner",
+          "licensed-to-banner",
+          "redistribution-bar",
+          "rights-management-banner",
+          "single-user-licence"
+        ],
+        "marker_set_digest": "sha256:ebd947e6113e971146bdb95d62996b0945755fe2ec288b184debab41af068374",
+        "marker_set_version": "1.0.0",
+        "observation": "marker-scan",
+        "quote_scan_scope": "prose only; SKILL.md front matter is excluded",
+        "quoted_spans_over_40_chars": 0,
+        "version": "1.0.0"
+      },
+      "near-boundary": {
+        "all_recorded": true,
+        "comparisons_total": 2,
+        "gap_floor": null,
+        "mirrors_gate": "portability",
+        "observation": "near-boundary",
+        "recorded_cap": 64,
+        "tightest": [
+          {
+            "assertion": "assertGreater",
+            "module": "scripts/test_buffet_boundary_testing.py",
+            "relative_gap": "0.5033069308633962",
+            "test": "__main__.TestAnalyze.test_analyze_cruise_at_band_edge_allowed"
+          },
+          {
+            "assertion": "assertLess",
+            "module": "scripts/test_buffet_boundary_testing.py",
+            "relative_gap": "1.0",
+            "test": "__main__.TestFitBoundaryLine.test_fit_slope_negative_about_minus_3_3"
+          }
+        ],
+        "version": "1.0.0"
+      },
+      "spec-shape": {
+        "absolute_link_count": 0,
+        "body_lines": 191,
+        "compliance": "STANDARDS-REF",
+        "description_chars": 863,
+        "directory_name": "buffet-boundary-testing",
+        "domain": "flight-test-operations",
+        "gated": false,
+        "has_scripts_dir": true,
+        "keys_present": [
+          "compatibility",
+          "compliance",
+          "description",
+          "domain",
+          "gated",
+          "license",
+          "metadata",
+          "name",
+          "pack",
+          "standards"
+        ],
+        "license": "Apache-2.0",
+        "logic_modules": [
+          "scripts/buffet_boundary_testing_logic.py"
+        ],
+        "markdown_link_count": 0,
+        "metadata_author_present": true,
+        "metadata_version": "0.1.0",
+        "name": "buffet-boundary-testing",
+        "name_matches_directory": true,
+        "observation": "spec-shape",
+        "pack": "envelope",
+        "standards": [
+          {
+            "id": "far-25",
+            "reference_only": true
+          },
+          {
+            "id": "cs-25",
+            "reference_only": true
+          }
+        ],
+        "test_modules": [
+          "scripts/test_buffet_boundary_testing.py"
+        ],
+        "version": "1.0.0"
+      }
+    },
+    "standards": {
+      "edition_gaps": [
+        "cs-25",
+        "far-25"
+      ],
+      "editions_overlay": {
+        "digest": null,
+        "present": false,
+        "ref": "tools/evidence/standards-editions.json"
+      },
+      "in_scope": [
+        {
+          "designation": "CS-25",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "regulation",
+          "gated": false,
+          "id": "cs-25",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:6971a7c0fc171a3b6ad6c78ae9a0a09d5abc905f96f36c59828fa0a2a0eb7113",
+          "publisher": "EASA",
+          "resolved": true,
+          "revision_token": null,
+          "status": "free-download",
+          "title": "CS-25: Certification Specifications and Acceptable Means of Compliance for Large Aeroplanes"
+        },
+        {
+          "designation": "14 CFR Part 25",
+          "edition_binding": "unbound",
+          "edition_source": "standards-map.yaml records no issue or date field for any standard",
+          "family": "regulation",
+          "gated": false,
+          "id": "far-25",
+          "issue": null,
+          "issue_date": null,
+          "map_entry_digest": "sha256:66af77b0587b5fc80f2bdd53e0c11d42da53be565ca16f948eb678634f06c869",
+          "publisher": "FAA (US Government)",
+          "resolved": true,
+          "revision_token": null,
+          "status": "public-domain",
+          "title": "14 CFR Part 25: Airworthiness Standards for Transport Category Airplanes"
+        }
+      ],
+      "map": {
+        "digest": "sha256:90692e66181274392e351b0f313136898f2c4b2434282e5c283af3d6c2102b0f",
+        "entry_count": 30,
+        "ref": "standards-map.yaml"
+      },
+      "spec": "aero-evidence-standards/1"
+    },
+    "subject": {
+      "domain": "flight-test-operations",
+      "kind": "leaf",
+      "name": "buffet-boundary-testing",
+      "pack": "envelope",
+      "ref": "skills/flight-test-operations/envelope/buffet-boundary-testing"
+    },
+    "verdict": {
+      "counts": {
+        "INDETERMINATE": 3,
+        "PASS": 3,
+        "WITHDRAWN": 1
+      },
+      "gates": 7,
+      "overall": "INDETERMINATE"
+    },
+    "versions": {
+      "harness_runtime": {
+        "components": {
+          "canonicalization": "json-c14n/1",
+          "corpus_digest_spec": "aero-corpus-digest/1",
+          "observation_specs": {
+            "contract-test": "1.0.0",
+            "desc-lint": "1.0.0",
+            "import-surface": "1.0.0",
+            "marker-scan": "1.0.0",
+            "near-boundary": "1.0.0",
+            "spec-shape": "1.0.0"
+          },
+          "observer_set": "1.0.0",
+          "record_schema": "1.0.0",
+          "tool": "aero-evidence/1.0.0"
+        },
+        "id": "aero-evidence-harness",
+        "version": "1.0.0"
+      },
+      "specification": {
+        "id": "aero-conformance-spec",
+        "note": "no separately published conformance specification exists yet; this version is the tool's declaration of the contract it implements, bound to the in-tree harness contract by digest",
+        "source_digest": "sha256:8f90dcb0a85e51689c86e1178810f1c36b745950b27ed2709d24007cea7431b7",
+        "source_ref": "docs/harness-contract.md",
+        "version": "0.1.0-draft"
+      }
+    }
+  },
+  "kind": "aero.evidence.record",
+  "record_id": "er_8801bfddca1f9621",
+  "schema_version": "1.0.0",
+  "seal": {
+    "algorithm": "sha256",
+    "binds": "integrity",
+    "body_digest": "sha256:8801bfddca1f96211b33f165f36923184a18e57f11f919eeefb3f603904ad0cd",
+    "canonicalization": "json-c14n/1"
+  },
+  "telemetry": {
+    "note": "regrade executed no work; run telemetry lives on the parent",
+    "parent_record_id": "er_04a59a3bb5d7f7b6"
+  }
+}

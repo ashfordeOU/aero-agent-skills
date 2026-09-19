@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-particulate-verification-methods (space-systems/ecss)
+# Two tasks for the new leaf. pvm1 routes on turning counted size bins into an
+# obscuration with the tape blank and the recovery fraction; pvm2 routes on the
+# fallout plate deposition rate and its projection over a longer exposure. Both
+# must deterministically hit
+# space-systems/ecss/q7001-particulate-verification-methods.
+tasks:
+  - id: pvm1
+    query: "we have a vacuum sample and a fallout plate that sat out for a shift in the same bay, so correct each for its declared recovery efficiency, turn the size bins into a percent obscuration figure, and give me the plate's deposition rate"
+    intent: "ECSS-Q-ST-70-01C verification; bin-by-bin blank subtraction, recovery-fraction correction for a lifting method and the projected-area obscuration over the sampled area"
+    expected_skill: "space-systems/ecss/q7001-particulate-verification-methods"
+  - id: pvm2
+    query: "a witness plate sat in the bay for forty eight hours and came back with a particle count, work out the deposition rate and what it means for a three week exposure"
+    intent: "ECSS-Q-ST-70-01C verification; particle fallout plate obscuration divided by exposure hours and the linear projection onto a longer exposure"
+    expected_skill: "space-systems/ecss/q7001-particulate-verification-methods"

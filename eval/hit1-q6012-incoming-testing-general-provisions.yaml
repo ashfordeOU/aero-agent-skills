@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-incoming-testing-general-provisions (space-systems/ecss)
+# itg1 routes on sizing the receipt test draw for an arriving lot; itg2 routes on
+# the severity switching rules, which a generic sampling skill omits entirely. Both
+# must deterministically hit
+# space-systems/ecss/q6012-incoming-testing-general-provisions.
+tasks:
+  - id: itg1
+    query: "a lot of dies has arrived and we need to set the receipt test basis, how many do we draw, how many defectives are we allowed to find, and at what point does the lot get rejected"
+    intent: "ECSS-Q-ST-60-12C clause 10.3.1; lot size banding to a code letter, tabled sample draw, integer acceptance number and the rejection number"
+    expected_skill: "space-systems/ecss/q6012-incoming-testing-general-provisions"
+  - id: itg2
+    query: "This supplier has had two die lots rejected in the last few deliveries. Under the switching rules, does the next lot move to a harsher severity, and what puts them back on normal inspection or even reduced?"
+    intent: "ECSS-Q-ST-60-12C clause 10.3.1; tightened and reduced inspection switching rules from the supplier lot result history"
+    expected_skill: "space-systems/ecss/q6012-incoming-testing-general-provisions"

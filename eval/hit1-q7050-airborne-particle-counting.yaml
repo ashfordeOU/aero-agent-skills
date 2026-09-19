@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7050-airborne-particle-counting (space-systems/ecss)
+# Two tasks for the new leaf. apc1 routes on turning a counter output into a
+# concentration and grading it against the class limit at a named size; apc2
+# routes on the channel the instrument cannot resolve and the worst location
+# that an average would hide. Both must deterministically hit
+# space-systems/ecss/q7050-airborne-particle-counting.
+tasks:
+  - id: apc1
+    query: "the counter logged particles counted per sample at each position in the bay; put those and the volume drawn onto one basis, work out what concentration our declared class permits at the considered size, then grade each position and call out the worst"
+    intent: "ECSS-Q-ST-70-50C airborne clause; sampled volume converts counts to particles per cubic metre and the ISO limit curve gives the maximum for that class and size"
+    expected_skill: "space-systems/ecss/q7050-airborne-particle-counting"
+  - id: apc2
+    query: "one location in the bay counts far above the others and the report also quotes a channel finer than the counter can resolve; does the run still pass its class, and is averaging the locations together even defensible"
+    intent: "ECSS-Q-ST-70-50C airborne clause; a run is graded on its worst location not an average, and a channel below the counter's smallest resolvable size was never measured"
+    expected_skill: "space-systems/ecss/q7050-airborne-particle-counting"

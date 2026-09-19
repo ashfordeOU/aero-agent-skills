@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-harness-interface (space-systems/ecss)
+# hi1 routes on which of the two documents governs a shared topic; hi2 routes
+# on a genuine conflict between them. Both must deterministically hit
+# space-systems/ecss/q7026-harness-interface.
+tasks:
+  - id: hi1
+    query: "the crimping standard and the harness manufacturing standard both state a pull-off minimum for this contact and the numbers differ, tell the shop which one to work to"
+    intent: "interface between ECSS-Q-ST-70-26C and ECSS-Q-ST-20-30C; each shared topic is allocated to one governing document and the stricter same-direction limit governs unless a subordination is declared"
+    expected_skill: "space-systems/ecss/q7026-harness-interface"
+  - id: hi2
+    query: "one standard says sleeve then label and the other says label then sleeve, and neither is declared subordinate for that topic, what do we tell the harness bench"
+    intent: "interface between ECSS-Q-ST-70-26C and ECSS-Q-ST-20-30C; two differing non-numeric rules with no subordination are an unresolved conflict to escalate rather than a choice for the bench"
+    expected_skill: "space-systems/ecss/q7026-harness-interface"

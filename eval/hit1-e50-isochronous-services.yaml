@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-isochronous-services (space-systems/ecss)
+# iso-svc1 routes on an observed run whose mean rate is fine and whose slots
+# are not; iso-svc2 routes on a steady slip that no playout buffer absorbs.
+# Both must deterministically hit space-systems/ecss/e50-isochronous-services.
+tasks:
+  - id: iso-svc1
+    query: "I have the measured delivery timestamps from a payload playback that is meant to come out at a fixed cadence, the average rate checks out but the consumer keeps complaining, work out how far each delivery sits from its slot and how much playout buffer would re-time it"
+    intent: "ECSS-E-ST-50C clause 5.6.14.4; deviation is measured against the ideal grid rather than interval to interval, and the peak-to-peak spread of those deviations is the playout buffer depth"
+    expected_skill: "space-systems/ecss/e50-isochronous-services"
+  - id: iso-svc2
+    query: "our synchronous bus service slips a tiny amount on every delivery so each individual interval looks clean, but by the end of a pass we have lost most of a slot, tell me whether buffering fixes it"
+    intent: "ECSS-E-ST-50C clause 5.6.14.4; a rate error accumulates without bound so no fixed playout depth absorbs it, which is the failure a mean delivery rate cannot detect"
+    expected_skill: "space-systems/ecss/e50-isochronous-services"

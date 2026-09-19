@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-power-interface-specification (space-systems/ecss)
+# Case 1 routes on what an external power boundary sheet must carry and on the
+# static delivered-voltage corner. Case 2 routes on the dynamic side: a regulated
+# user behaving as a constant-power draw and the decibel separation it needs.
+tasks:
+  - id: e20-power-interface-specification-1
+    query: "The payload feed sheet handed to us lists nominal voltage, range and a current limit, but nothing on impedances and no connector pin allocation. It also ignores 4 m of harness at the 12 A peak draw. What must a sheet for a boundary out to a user actually carry, and which corner do I check the delivered volts at?"
+    intent: "ECSS-E-ST-20C clause 5.4; the case turns on the mandatory field list an external boundary owes and on the worst-case harness drop corner, not on stability"
+    expected_skill: "space-systems/ecss/e20-power-interface-specification"
+  - id: e20-power-interface-specification-2
+    query: "A regulated 90 W user box hangs off our 28 V bus, and the supplying converter shows 40 milliohms of series resistance with about 3 microhenries of inductance. How do I express the box's input impedance given it draws constant power, and how much separation in decibels do I need where the two curves approach?"
+    intent: "ECSS-E-ST-20C clause 5.4; the case turns on the negative-incremental constant-power load impedance against a rising source impedance and the decibel stability margin"
+    expected_skill: "space-systems/ecss/e20-power-interface-specification"

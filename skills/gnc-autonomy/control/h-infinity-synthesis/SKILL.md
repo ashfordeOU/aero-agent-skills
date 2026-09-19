@@ -371,4 +371,7 @@ computed sums.
   Control 34(8):831-847, 1989, with the textbook treatment of Skogestad
   and Postlethwaite, Multivariable Feedback Control (Wiley, 2005,
   chapter 9), the same works the sibling cites.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

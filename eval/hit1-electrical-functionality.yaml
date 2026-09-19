@@ -1,0 +1,13 @@
+# Hit@1 fragment: electrical-functionality (space-systems/ecss)
+# Case 1 routes on a joint passing its structural bonding limit while failing the
+# tighter limit its ground-plane role imposes. Case 2 routes on lightning zone
+# assignment with provisions and on aperture screening.
+tasks:
+  - id: electrical-functionality-1
+    query: "A secondary structural joint measures six milliohms of bonding-resistance, comfortably inside its structural-bonding limit, but the same joint carries EMC continuity. Does it pass, or does that role pull it tighter?"
+    intent: "ECSS-E-ST-32C 4.3.10 and 4.3.12; a joint in the ground plane is held to the tighter primary-bond limit regardless of its structural class"
+    expected_skill: "space-systems/ecss/electrical-functionality"
+  - id: electrical-functionality-2
+    query: "Two external panels carry no lightning-zone assignment, and a 45 millimetre pass-through has only a five millimetre mesh over it. Which are findings under the aperture-control and shielding rules, and what does a frequent-attachment zone need?"
+    intent: "ECSS-E-ST-32C 4.3.11 and 4.3.12; an unassigned zone is a finding on its own, provisions are set by the assigned zone, and a coarse mesh leaves a large aperture unscreened"
+    expected_skill: "space-systems/ecss/electrical-functionality"

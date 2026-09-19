@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-enabling-and-disabling-position-based-sub-schedules
+# (space-systems/ecss). Two tasks for the new leaf. edss1 routes on activities
+# surviving a disable; edss2 routes on release points swept while the gate was
+# shut. Both must deterministically hit
+# space-systems/ecss/e7041-enabling-and-disabling-position-based-sub-schedules.
+tasks:
+  - id: edss1
+    query: "we shut one sub-schedule of the position based load before the burn and the ground's model of it dropped the activities - do we have to uplink them again, and how many of its release points went by while it was off"
+    intent: "ECSS-E-ST-70-41C clause 6.22.7.2; disabling a sub-schedule suppresses release only, the activities are retained at the same release positions, so re-uplinking would duplicate them"
+    expected_skill: "space-systems/ecss/e7041-enabling-and-disabling-position-based-sub-schedules"
+  - id: edss2
+    query: "three release angles went past while that partition was switched off and one instruction in the enable request named a partition that does not exist, work out what happens to those three and whether the rest of the request took effect"
+    intent: "ECSS-E-ST-70-41C clause 6.22.7.2; each status instruction is accepted or rejected alone, and a release position swept while the gate was shut is missed rather than lost because it comes round again next revolution"
+    expected_skill: "space-systems/ecss/e7041-enabling-and-disabling-position-based-sub-schedules"

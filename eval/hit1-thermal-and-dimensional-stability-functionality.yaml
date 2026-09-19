@@ -1,0 +1,12 @@
+# Hit@1 fragment: thermal-and-dimensional-stability-functionality (space-systems/ecss)
+# Case 1 routes on the stress-free reference and the qualification envelope check.
+# Case 2 routes on horizon-specific swings and the permanent part of the budget.
+tasks:
+  - id: thermal-and-dimensional-stability-functionality-1
+    query: "Our CFRP-to-titanium bonded fitting cured at 177 C and flies between minus 80 and plus 95 C. Which temperature differential drives the CTE-mismatch thermal stress, and must the qualification envelope exceed the operating limits by a margin at each end?"
+    intent: "ECSS-E-ST-32 4.3.7 and 4.3.13; for an adhesive joint the differential runs from the cure reference rather than ambient, and the qualification envelope owes a margin beyond operating on both sides"
+    expected_skill: "space-systems/ecss/thermal-and-dimensional-stability-functionality"
+  - id: thermal-and-dimensional-stability-functionality-2
+    query: "An optical bench must hold dimensional stability over an orbital transient, over a mission phase and across the whole mission lifetime. Should one delta-T serve the short, medium and long horizons alike, and does irreversible drift from outgassing belong in the longer budgets?"
+    intent: "ECSS-E-ST-32 4.3.7 and 4.3.13; each horizon carries its own swing, and permanent contributions such as outgassing shrinkage accumulate instead of recovering between orbits"
+    expected_skill: "space-systems/ecss/thermal-and-dimensional-stability-functionality"

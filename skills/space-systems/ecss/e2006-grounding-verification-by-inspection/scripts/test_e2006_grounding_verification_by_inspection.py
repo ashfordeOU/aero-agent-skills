@@ -5,6 +5,7 @@ import unittest
 
 from e2006_grounding_verification_by_inspection_logic import (
     PROVISION_BOUNDS_OHM,
+    REL_TOL,
     bond_resistance_margin,
     categorize_provision,
     evaluate_continuity_measurement,
@@ -172,7 +173,12 @@ class TestContinuityMeasurement(unittest.TestCase):
         for _ in range(10):
             measured += 2.5e-4
         _, upper = resistance_bounds("structure-bond")
-        self.assertGreaterEqual(measured, upper)
+        # The accumulation is 0.0025000000000000005 on every IEEE-754
+        # platform (each addition is correctly rounded): one last place of
+        # representation error above the bound, not an exceedance. Assert
+        # the size of that error, not its direction.
+        self.assertNotEqual(measured, upper)
+        self.assertLess(abs(measured - upper), upper * REL_TOL)
         result = evaluate_continuity_measurement("structure-bond", measured, 1.0e-5, "four-wire-dc")
         self.assertTrue(result["compliant"], result["findings"])
 

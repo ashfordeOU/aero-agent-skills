@@ -1,0 +1,13 @@
+# Hit@1 fragment: dynamic-response-analysis (space-systems/ecss)
+# Case 1 routes on sorting a mixed load list into excitation families and on which
+# one closed-form models cannot serve. Case 2 routes on the impulsive branch: which
+# region of the half-sine response spectrum each oscillator sits in.
+tasks:
+  - id: dynamic-response-analysis-1
+    query: "Our instrument mechanical environment spec lists a swept sine run, a broadband random stage, a pyrotechnic firing and a docking transient. Which of those four can I close with a closed-form single-oscillator amplification and which one forces a time-marching solve? Working to the ECSS structures clause on dynamic response."
+    intent: "ECSS-E-ST-32C clause 4.6.2.5; the case turns on sorting each load event into an excitation family and rejecting the one that closed-form single-oscillator models cannot serve"
+    expected_skill: "space-systems/ecss/dynamic-response-analysis"
+  - id: dynamic-response-analysis-2
+    query: "Separation-nut firing gives our panel a 1200 g half-sine lasting 0.4 ms. One appendage mode sits at 700 Hz and another at 2600 Hz. Which part of the response spectrum does each mode fall in, and what peak should I compare against the allowable?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.5; the case turns on the pulse-duration times natural-frequency product selecting the residual, transitional or primary region of the half-sine spectrum"
+    expected_skill: "space-systems/ecss/dynamic-response-analysis"

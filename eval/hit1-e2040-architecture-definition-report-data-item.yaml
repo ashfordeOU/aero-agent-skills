@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-architecture-definition-report-data-item (space-systems/ecss)
+# Two tasks for the new leaf. adr1 routes on the function-to-block partitioning
+# and the coupling the connection list produces; adr2 routes on the weighted
+# trade study, its margin and whether the recommendation survives a weight
+# shift. Both must deterministically hit
+# space-systems/ecss/e2040-architecture-definition-report-data-item.
+tasks:
+  - id: adr1
+    query: "this architecture report carries a block diagram plus the functions each block holds; work out the coupling ratio from the connections it lists and name the block with the highest external degree, the one everything else ends up talking to"
+    intent: "ECSS-E-ST-20-40C Annex G; function-to-block partitioning, within-block versus across-block connection split, coupling ratio and the per-block external degree"
+    expected_skill: "space-systems/ecss/e2040-architecture-definition-report-data-item"
+  - id: adr2
+    query: "the architecture report recommends option A on a weighted score, check how far ahead it really is and whether nudging one of the criterion weights would reverse the recommendation"
+    intent: "ECSS-E-ST-20-40C Annex G; weighted trade-off scoring, the margin to the runner-up and the sensitivity of the ranking to a weight shift"
+    expected_skill: "space-systems/ecss/e2040-architecture-definition-report-data-item"

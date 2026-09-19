@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-device-implementation-phase-review (space-systems/ecss)
+# Two tasks for the leaf. dipr1 routes on the gate decision closing the
+# implementation phase, including which outputs the device criticality
+# category actually owes; dipr2 routes on the open-action weighting where an
+# overdue minor action escalates to a blocking one. Both must deterministically
+# hit space-systems/ecss/e2040-device-implementation-phase-review.
+tasks:
+  - id: dipr1
+    query: "hold the gate that closes device implementation before validation, qualification and acceptance work starts, and tell me which phase outputs a category C device actually owes rather than demanding the whole list"
+    intent: "ECSS-E-ST-20-40C clause 5.7.5; implementation phase review, criticality-based output applicability, presence, maturity and customer approval"
+    expected_skill: "space-systems/ecss/e2040-device-implementation-phase-review"
+  - id: dipr2
+    query: "two review actions on the device are already past their due date and one nonconformance is still open, decide whether this is proceed, proceed with actions or hold before validation begins"
+    intent: "ECSS-E-ST-20-40C clause 5.7.5; overdue review action escalation, open nonconformance disposition and the three-way phase gate decision"
+    expected_skill: "space-systems/ecss/e2040-device-implementation-phase-review"

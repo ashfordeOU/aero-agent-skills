@@ -1,0 +1,13 @@
+# Hit@1 fragment: stiffness-and-dynamic-functionality (space-systems/ecss)
+# Case 1 routes on the separation between structural modes and onboard or launcher
+# excitation being fractional rather than an absolute gap. Case 2 routes on the
+# alignment side: drift under the combined environment, not thermal alone.
+tasks:
+  - id: stiffness-and-dynamic-functionality-1
+    query: "Our panel stiffness puts a structural mode at 51 Hz while a reaction wheel runs up through 48 Hz, and elsewhere a 9 Hz launcher tone sits near a 12 Hz mode. Both gaps are 3 Hz. How should the separation margin against each excitation frequency be expressed, and is the dynamic behaviour equally safe in both cases?"
+    intent: "ECSS-E-ST-32C clauses 4.3.5-4.3.6; the case turns on pairing each excitation source with the nearest mode and grading a fractional separation margin, not an absolute hertz gap"
+    expected_skill: "space-systems/ecss/stiffness-and-dynamic-functionality"
+  - id: stiffness-and-dynamic-functionality-2
+    query: "Our structural requirements specification gives a minimum natural frequency for the axial direction but nothing for lateral, and lateral will certainly be excited at launch. Is a missing minimum something we fill in later or a finding now, and which axis usually binds harder on a slender spacecraft?"
+    intent: "ECSS-E-ST-32C clauses 4.3.5-4.3.6; the case turns on every dynamically excited axis owing a defined minimum, an undefined one being a finding, and lateral often governing"
+    expected_skill: "space-systems/ecss/stiffness-and-dynamic-functionality"

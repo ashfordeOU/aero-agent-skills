@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-receiving-inspection (space-systems/ecss)
+# ri1 routes on sizing the goods-in sample and listing the certificates the
+# criticality demands; ri2 routes on the split between a paperwork hold and a
+# wrong product. Both must deterministically hit
+# space-systems/ecss/q7046-receiving-inspection.
+tasks:
+  - id: ri1
+    query: "a delivery of five hundred bolts landed at goods-in on tightened inspection, how many do I pull for dimensional checks and which certificates does a structural lot have to arrive with"
+    intent: "ECSS-Q-ST-70-46 inspection clause; the sample comes from the lot size and the inspection level together, and the document list comes from the criticality"
+    expected_skill: "space-systems/ecss/q7046-receiving-inspection"
+  - id: ri2
+    query: "goods-in has a bolt lot with no material certificate and a second lot whose heads are marked a lower property class than ordered, with two of the drawn sample out of tolerance - which lot can be quarantined and which goes back"
+    intent: "ECSS-Q-ST-70-46 inspection clause; a missing certificate is a recoverable quarantine while a head mark that disagrees with the order means a different product arrived and is not recoverable"
+    expected_skill: "space-systems/ecss/q7046-receiving-inspection"

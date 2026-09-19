@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-allowables (space-systems/ecss)
+# Case 1 routes on the document itself -- what is in scope, what each entry must state.
+# Case 2 routes on per-family property completeness and the environmental knockdown value.
+tasks:
+  - id: drd-allowables-1
+    query: "Our allowables document lists values but half the entries say nothing about the temperatures they are valid over, and two adhesives were never scoped in at all. What does the Annex H content definition oblige me to include before sign-off?"
+    intent: "ECSS-E-ST-32C Annex H; the document is graded on scope and section content, and an entry whose applicable temperature range is unstated cannot be checked against the analysis envelope"
+    expected_skill: "space-systems/ecss/drd-allowables"
+  - id: drd-allowables-2
+    query: "Our composite laminate record lists F1tu and E11 but nothing for shear, and the hot-wet knockdown has no derivation cited. Which properties must each material family carry, and what range is a knockdown allowed to take before the package can be released to stress?"
+    intent: "ECSS-E-ST-32C Annex H; the required property set differs per material family, and an environmental reduction factor needs both a stated derivation and a physically admissible value"
+    expected_skill: "space-systems/ecss/drd-allowables"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e3301-mechanical-mli-clearances (space-systems/ecss)
+# emc1 routes on the worst-case gap closure across the travel; emc2 routes on
+# the inflated blanket envelope rule. Both must deterministically hit
+# space-systems/ecss/e3301-mechanical-mli-clearances.
+tasks:
+  - id: emc1
+    query: "go through the gaps on this deployment mechanism and tell me which one governs once I take the tolerance stack, the thermal distortion, the deflection and the full hinge travel off the drawing gap"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.8; worst-case clearance per interface with the governing one named"
+    expected_skill: "space-systems/ecss/e3301-mechanical-mli-clearances"
+  - id: emc2
+    query: "the blanket is six millimetres thick on the bench but it balloons on ascent, how much gap do I have to hold between the moving yoke and that insulation and does twenty millimetres cover it"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.9; MLI clearance against the inflated blanket envelope plus standoff, not the compressed thickness"
+    expected_skill: "space-systems/ecss/e3301-mechanical-mli-clearances"

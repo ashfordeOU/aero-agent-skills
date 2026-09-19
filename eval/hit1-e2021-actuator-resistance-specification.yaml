@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2021-actuator-resistance-specification (space-systems/ecss)
+# Two tasks for the new leaf. ars1 routes on stating the highest actuator
+# resistance over the full operating temperature and condition range; ars2
+# routes on the worst-case end following the coefficient sign and on the
+# absolute contact and lead adders. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-resistance-specification.
+tasks:
+  - id: ars1
+    query: "state the highest resistance this actuator can present across its full operating temperature and condition range, not the nominal bridgewire value"
+    intent: "ECSS-E-ST-20-21C clause 5.6.1; maximum actuator resistance stated over the whole operating temperature and condition range"
+    expected_skill: "space-systems/ecss/e2021-actuator-resistance-specification"
+  - id: ars2
+    query: "work out which end of the temperature range is worst for this negative coefficient element and stack the build tolerance, ageing and contact and lead resistance on top"
+    intent: "ECSS-E-ST-20-21C clause 5.6.1; worst-case temperature end from the coefficient sign plus proportional and absolute resistance allowances"
+    expected_skill: "space-systems/ecss/e2021-actuator-resistance-specification"

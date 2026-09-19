@@ -139,8 +139,14 @@ class RateWindowTests(unittest.TestCase):
 
     def test_electron_window_sits_above_the_gamma_window(self):
         _gamma_low, gamma_high = dose_rate_window(GAMMA)
-        electron_low, _electron_high = dose_rate_window(ELECTRON)
-        self.assertGreaterEqual(electron_low, gamma_high)
+        electron_low, electron_high = dose_rate_window(ELECTRON)
+        # The two windows abut exactly by construction: the policy table
+        # gives the electron floor the same value as the gamma ceiling,
+        # with no arithmetic between them. Assert that exact equality --
+        # not a near-boundary inequality -- plus the real separation of
+        # the two ceilings.
+        self.assertEqual(electron_low, gamma_high)
+        self.assertGreater(electron_high, gamma_high)
 
     def test_rate_exactly_at_the_window_edge_admitted(self):
         self.assertTrue(dose_rate_within_window(GAMMA, 0.36))

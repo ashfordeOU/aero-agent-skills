@@ -32,6 +32,9 @@ This is generic rigid-body dynamics (textbook material) paraphrased;
 ARP4754A is the pack reference standard (standards-map.yaml) and no
 RTCA/SAE/IAQG content is reproduced here.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import math
 

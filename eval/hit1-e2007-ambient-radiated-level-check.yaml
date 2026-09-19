@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-ambient-radiated-level-check (space-systems/ecss)
+# Case 1 routes on whether the baseline run itself is valid before any sweep is
+# graded. Case 2 routes on grading the sweep and on attributing a later reading
+# that sits on the ambient.
+tasks:
+  - id: e2007-ambient-radiated-level-check-1
+    query: "Before the radiated emission run the technician switched off the support equipment and left the chamber door ajar while sweeping the ambient with the antenna in horizontal polarization. Is that a usable background baseline for the graded radiated run?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.2.3; the baseline is only usable with the unit unpowered, the support equipment running and the enclosure closed, so a configuration that cannot support attribution is rejected"
+    expected_skill: "space-systems/ecss/e2007-ambient-radiated-level-check"
+  - id: e2007-ambient-radiated-level-check-2
+    query: "The ambient sits 3 dB under the limit at 210 MHz and a later unit reading comes in level with the ambient. With the required headroom applied is that frequency marginal, and can such a reading be credited to the unit at all?"
+    intent: "ECSS-E-ST-20-07C clause 5.2.2.3; below the limit but inside the required headroom is marginal rather than compliant, and an emission equal to the ambient is ambient-limited rather than a unit result"
+    expected_skill: "space-systems/ecss/e2007-ambient-radiated-level-check"

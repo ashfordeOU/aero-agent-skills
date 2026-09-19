@@ -310,7 +310,13 @@ class TestMargin(unittest.TestCase):
     def test_margin_absorbs_last_place_error(self):
         required = 6.0
         achieved = required - 5e-13
-        self.assertLess(achieved, required)
+        # The shortfall is constructed, not computed: half a picodecibel
+        # is hundreds of ULPs at 6 dB, so the subtraction is the same on
+        # every platform. Assert the size of the shortfall rather than
+        # the strict inequality. The required margin is unchanged.
+        shortfall = required - achieved
+        self.assertGreater(shortfall, 0.0)
+        self.assertLess(shortfall, 1e-9)
         self.assertTrue(logic.meets_margin(achieved, required))
 
     def test_real_shortfall_is_not_absorbed(self):

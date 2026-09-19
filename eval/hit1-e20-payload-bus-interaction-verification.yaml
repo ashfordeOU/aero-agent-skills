@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-payload-bus-interaction-verification (space-systems/ecss)
+# Case 1 routes on the inrush peak and the dwell above the protection threshold
+# against its trip delay. Case 2 routes on the undervoltage sag against the payload
+# lockout and on the agreed failure-case list.
+tasks:
+  - id: e20-payload-bus-interaction-verification-1
+    query: "Switching the payload on charges 4.7 millifarads through a 1.2 ohm inrush-current-limiting resistor from a 28 volt bus, against a 12 amp feeder threshold with a five millisecond protection-trip-delay. Does the switch-on nuisance-trip its own feeder?"
+    intent: "ECSS-E-ST-20C 5.7.6; the peak alone does not decide an inrush case, the time spent above the protection threshold against the trip delay does"
+    expected_skill: "space-systems/ecss/e20-payload-bus-interaction-verification"
+  - id: e20-payload-bus-interaction-verification-2
+    query: "Our load step drops the bus to 22.4 volts, above the 21 volt bus floor but under the payload 23 volt lockout, and the customer agreed fault list carries a reverse-energy case we never ran. Where does that leave the campaign?"
+    intent: "ECSS-E-ST-20C 5.7.6; the sag is checked against the payload lockout as well as the bus limit, and an agreed failure case not run leaves the campaign short of coverage"
+    expected_skill: "space-systems/ecss/e20-payload-bus-interaction-verification"

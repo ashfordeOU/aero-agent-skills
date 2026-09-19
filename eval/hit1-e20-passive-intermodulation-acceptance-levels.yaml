@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-passive-intermodulation-acceptance-levels (space-systems/ecss)
+# Case 1 routes on deriving the tolerable level back to the transmit port.
+# Case 2 routes on the agreement being bound to the carrier plan it came from.
+tasks:
+  - id: e20-passive-intermodulation-acceptance-levels-1
+    query: "Victim receiver noise-floor is -128 dBm with a permitted interference-to-noise-ratio of -6 dB, and the transmit-to-receive antenna-port-isolation is 85 dB. What passive-intermodulation level may I present at the transmit port once measurement-uncertainty and design-margin are taken off?"
+    intent: "ECSS-E-ST-20C 7.4.2; referring a victim-band tolerable interference back to the transmit port and debiting uncertainty and margin"
+    expected_skill: "space-systems/ecss/e20-passive-intermodulation-acceptance-levels"
+  - id: e20-passive-intermodulation-acceptance-levels-2
+    query: "We agreed a passive-intermodulation figure against a four-carrier plan at 120 W per carrier. Operations now wants six carriers over a wider transmit span. Does the agreement still stand, and how is a supplier-proposed figure reconciled with the customer-required one?"
+    intent: "ECSS-E-ST-20C 7.4.2; the agreed level is bound to the carrier plan it was derived for, and reconciliation picks the stricter of supplier and customer figures"
+    expected_skill: "space-systems/ecss/e20-passive-intermodulation-acceptance-levels"

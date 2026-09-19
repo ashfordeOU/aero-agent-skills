@@ -11,6 +11,6 @@ tasks:
     intent: "ECSS-E-ST-20-20C clause 5.2.2.1.1; RLCL retrigger duty, harness thermal mean current and per-attempt fault energy"
     expected_skill: "space-systems/ecss/e2020-rlcl-class-selection"
   - id: rlclcs2
-    query: "count how many retrigger attempts a capacitive load needs to finish charging at the lower limiting current net of its own draw, and compare that against the attempt allowance of the retriggerable limiter class"
+    query: "A 470 uF capacitive load will not finish charging in one go behind its ECSS retriggerable limiter. How many retrigger attempts does that take, given the bleed-down over each hold-off, and does the class we chose allow that many?"
     intent: "ECSS-E-ST-20-20C clause 5.2.2.1.1; RLCL start-up attempt count against the class attempt allowance"
     expected_skill: "space-systems/ecss/e2020-rlcl-class-selection"

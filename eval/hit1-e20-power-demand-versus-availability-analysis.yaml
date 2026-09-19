@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-power-demand-versus-availability-analysis (space-systems/ecss)
+# Case 1 routes on building the phase demand: load categories, duty cycle and the
+# coincident peak. Case 2 routes on the supply side: degradation to the epoch, the
+# store sizing, and grading a reserve where nothing generates.
+tasks:
+  - id: e20-power-demand-versus-availability-analysis-1
+    query: "Building the safe-mode phase load list, some loads are duty-cycled and three heaters can fire together. Do I size the bus on the averaged draw or on the coincident peak, and what becomes of a load nobody categorized?"
+    intent: "ECSS-E-ST-20C clause 5.2.2.2; the phase carries two demand figures and the coincident peak is the one the bus must serve instantly, while an uncategorized load blocks the phase sum"
+    expected_skill: "space-systems/ecss/e20-power-demand-versus-availability-analysis"
+  - id: e20-power-demand-versus-availability-analysis-2
+    query: "At end of life our array output has degraded and the eclipse deficit comes out of the battery. How much energy must the store supply over that mission phase, how does the deficit become a discharge depth, and how is the phase margin graded when no power is generated?"
+    intent: "ECSS-E-ST-20C clause 5.2.2.2; generation is degraded to the phase epoch, the deficit becomes a discharge depth against capacity, and with no generation the reserve lives in the unused discharge depth"
+    expected_skill: "space-systems/ecss/e20-power-demand-versus-availability-analysis"

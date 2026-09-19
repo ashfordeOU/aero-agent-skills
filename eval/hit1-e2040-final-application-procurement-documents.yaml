@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-final-application-procurement-documents (space-systems/ecss)
+# Two tasks for the leaf. fapd1 routes on the closing document set and what the
+# procurement route owes; fapd2 routes on the revision comparison against the
+# previous phase that catches a reissue which never advanced. Both must
+# deterministically hit
+# space-systems/ecss/e2040-final-application-procurement-documents.
+tasks:
+  - id: fapd1
+    query: "release the closing versions of the documents a user needs to apply this device and a buyer needs to procure it, and say whether an IP core delivered under licence owes a detail specification at all"
+    intent: "ECSS-E-ST-20-40C clause 5.8.5; final application and procurement document set, procurement route applicability and final issue state"
+    expected_skill: "space-systems/ecss/e2040-final-application-procurement-documents"
+  - id: fapd2
+    query: "the final device data sheet went out carrying the same revision it had at the layout phase and the user manual says 2.9 where the previous one said 2.10, tell me which closing documents block the release"
+    intent: "ECSS-E-ST-20-40C clause 5.8.5; closing document revision advance check, numeric dotted revision comparison and delivered-article consistency"
+    expected_skill: "space-systems/ecss/e2040-final-application-procurement-documents"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-generic-actuator-electronics-ratings (space-systems/ecss)
+# Two tasks for the new leaf. gaer1 routes on the recommended output power and
+# current capability of a reusable driver; gaer2 routes on the simultaneous
+# firing group that sizes the rating. Both must deterministically hit
+# space-systems/ecss/e2021-generic-actuator-electronics-ratings.
+tasks:
+  - id: gaer1
+    query: "what output power and output current capability should this reusable actuator electronics be rated for so a later actuator still fits inside it"
+    intent: "ECSS-E-ST-20-21C clause 5.5.4; recommended output power and current capability for a generic reusable actuator electronics design"
+    expected_skill: "space-systems/ecss/e2021-generic-actuator-electronics-ratings"
+  - id: gaer2
+    query: "size the driver from the load family taking the loads that fire together as one demand and tell me which group drove the current rating"
+    intent: "ECSS-E-ST-20-21C clause 5.5.4; simultaneous firing group envelope and sizing driver behind a generic actuator electronics rating"
+    expected_skill: "space-systems/ecss/e2021-generic-actuator-electronics-ratings"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-deleting-the-packet-store-contents (space-systems/ecss)
+# Two tasks for the new leaf. dpsc1 routes on the clamp against an open retrieval
+# cursor; dpsc2 routes on the inclusive cut and the empty-delete success. Both
+# must deterministically hit
+# space-systems/ecss/e7041-deleting-the-packet-store-contents.
+tasks:
+  - id: dpsc1
+    query: "I want to empty a recorder up to the last packet I have on the ground but a retrieval is still reading it out, what should the delete actually remove"
+    intent: "ECSS-E-ST-70-41C clause 6.15.3.7; the cut is clamped below the open retrieval cursor and the clamp is reported, a by-time-range read refuses the delete"
+    expected_skill: "space-systems/ecss/e7041-deleting-the-packet-store-contents"
+  - id: dpsc2
+    query: "should a packet stored exactly at the named deletion time go, and is it a failure when nothing on board is older than that time"
+    intent: "ECSS-E-ST-70-41C clause 6.15.3.7; the cut is inclusive and an empty delete is an accepted result, not a fault"
+    expected_skill: "space-systems/ecss/e7041-deleting-the-packet-store-contents"

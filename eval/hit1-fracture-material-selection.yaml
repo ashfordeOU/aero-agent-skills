@@ -1,0 +1,12 @@
+# Hit@1 fragment: fracture-material-selection (space-systems/ecss)
+# Case 1 routes on an absent toughness-in-environment value for a susceptible code.
+# Case 2 routes on the unconditional screen and the scope of the toughness floor.
+tasks:
+  - id: fracture-material-selection-1
+    query: "Our bracket is a code-B aluminium alloy running in hydrazine service and the datasheet carries no KIscc entry. Does the susceptibility code on its own let us proceed, or does that missing value leave the SCC margin unverifiable?"
+    intent: "ECSS-Q-ST-70-36; a susceptible code in corrosive service needs the environmental toughness value on record, and its absence is a rejection rather than an absence of concern"
+    expected_skill: "space-systems/ecss/fracture-material-selection"
+  - id: fracture-material-selection-2
+    query: "One candidate sits on the prohibited list yet its KIscc to KIc ratio is comfortable, and a second is a non-fracture-critical fitting whose KIc measures 18 MPa root-metre. What verdict does each earn under the fracture-control screen?"
+    intent: "ECSS-Q-ST-70-36; the prohibited screen overrides every other result, while the plane-strain toughness floor is scoped to parts designated fracture-critical"
+    expected_skill: "space-systems/ecss/fracture-material-selection"

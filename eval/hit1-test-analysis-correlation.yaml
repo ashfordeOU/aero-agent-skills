@@ -1,0 +1,13 @@
+# Hit@1 fragment: test-analysis-correlation (space-systems/ecss)
+# Case 1 routes on the pairing rule: one analysis mode may serve only one measured
+# mode. Case 2 routes on the form of the frequency criterion for an already paired
+# mode and on the gate that releases the model.
+tasks:
+  - id: test-analysis-correlation-1
+    query: "On our sine and modal run the same predicted shape gives the best agreement for two different measured modes. May I pair it with both, or does the weaker one have to be left unmatched and carried as a discrepancy?"
+    intent: "ECSS-E-ST-32-11; one-to-one mode pairing, where reusing one analysis mode inflates apparent agreement and a measured mode left unmatched is itself a discrepancy"
+    expected_skill: "space-systems/ecss/test-analysis-correlation"
+  - id: test-analysis-correlation-2
+    query: "Our modal survey found a test mode the FE model never matches above the MAC threshold, and a paired mode sits 2.5 Hz off a 34.5 Hz prediction. Is that deviation taken relative, and can the model be signed off for load analysis with an unpaired mode open?"
+    intent: "ECSS-E-ST-32-11; frequency deviation is scale-invariant and taken against the predicted frequency, and no discrepancy may stay open at the model release gate"
+    expected_skill: "space-systems/ecss/test-analysis-correlation"

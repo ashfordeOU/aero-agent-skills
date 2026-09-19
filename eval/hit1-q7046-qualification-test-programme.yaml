@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-qualification-test-programme (space-systems/ecss)
+# qt1 routes on allocating qualification specimens across production lots and
+# size variants; qt2 routes on how much of a finished qualification a coating
+# change reopens. Both must deterministically hit
+# space-systems/ecss/q7046-qualification-test-programme.
+tasks:
+  - id: qt1
+    query: "we are qualifying a fracture-critical bolt in three production lots and two size variants, how many specimens does each mechanical test take and which of them have to be drawn lot by lot rather than once per size"
+    intent: "ECSS-Q-ST-70-46 testing clause at programme level; per-test specimen counts from the criticality category, multiplied over lots for the lot-sensitive tests and over variants only for the geometry-driven ones"
+    expected_skill: "space-systems/ecss/q7046-qualification-test-programme"
+  - id: qt2
+    query: "the supplier changed the plating process on a bolt we already qualified, how much of the qualification test programme has to be repeated and what evidence still stands"
+    intent: "ECSS-Q-ST-70-46 testing clause; re-qualification scope as the intersection of the tests a coating change can move with the set the criticality category already owed"
+    expected_skill: "space-systems/ecss/q7046-qualification-test-programme"

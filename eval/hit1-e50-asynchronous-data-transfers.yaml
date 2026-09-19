@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-asynchronous-data-transfers (space-systems/ecss)
+# Two tasks for the new leaf. asy1 routes on a dump that will not fit one spare
+# window; asy2 routes on sustained throughput against the leftovers of a cycle.
+# Both must deterministically hit space-systems/ecss/e50-asynchronous-data-transfers.
+tasks:
+  - id: asy1
+    query: "the synchronous schedule already reserves 20 ms of our 100 ms cycle, work out whether a 200 kbit payload dump fits in what is left of one cycle or has to be segmented, and how long it takes to land"
+    intent: "ECSS-E-ST-50C clause 5.7.1.4; unscheduled traffic runs only in the spare window, so the segment count is the airtime over that window and completion adds a whole cycle per extra segment"
+    expected_skill: "space-systems/ecss/e50-asynchronous-data-transfers"
+  - id: asy2
+    query: "housekeeping and file traffic have no reserved slots on this bus, tell me the sustained throughput the leftovers of the control cycle can actually give them and the worst wait before a transfer even starts"
+    intent: "ECSS-E-ST-50C clause 5.7.1.4; sustained capacity is the spare window averaged over the cycle, and the worst start delay is the whole synchronous block"
+    expected_skill: "space-systems/ecss/e50-asynchronous-data-transfers"

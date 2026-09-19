@@ -44,8 +44,17 @@ class WeibullCrossSectionTest(unittest.TestCase):
         self.assertGreater(result, 0.0)
 
     def test_does_not_exceed_sigma_sat(self):
-        result = sehe.weibull_cross_section(1000.0, **self._params())
-        self.assertLessEqual(result, 1e-6)
+        # Two separate claims, neither of them a last-place comparison.
+        # Inside the transition region the curve sits strictly below
+        # saturation by a wide, libm-independent margin:
+        mid = sehe.weibull_cross_section(25.0, **self._params())
+        self.assertLess(mid, 0.999e-6)
+        # Far above the knee the Weibull exponent drives exp() to underflow,
+        # which is exactly +0.0 on any IEEE-754 platform, so the curve is
+        # capped at exactly sigma_sat. It saturates at the bound; it never
+        # creeps past it, and it is not a near-boundary value.
+        far = sehe.weibull_cross_section(1000.0, **self._params())
+        self.assertEqual(far, 1e-6)
 
     def test_approaches_saturation_at_high_let(self):
         result = sehe.weibull_cross_section(1000.0, **self._params())

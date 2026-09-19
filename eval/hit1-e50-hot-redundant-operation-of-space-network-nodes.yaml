@@ -1,0 +1,14 @@
+# Hit@1 fragment: e50-hot-redundant-operation-of-space-network-nodes (space-systems/ecss)
+# Two tasks for the new leaf. hot1 routes on whether a pair is hot at all and
+# safe to leave live; hot2 routes on the failover outage chain and cross-strapping.
+# Both must deterministically hit
+# space-systems/ecss/e50-hot-redundant-operation-of-space-network-nodes.
+tasks:
+  - id: hot1
+    query: "our nominal and backup avionics unit are both powered on the same bus and share one logical address, tell me whether that counts as hot redundancy or whether we have just put a second transmitter on the medium"
+    intent: "ECSS-E-ST-50C clause 5.7.1.6; hot means both powered and attached, and it is only safe when exactly one transmitter is enabled and the standby can still be polled apart from the active unit"
+    expected_skill: "space-systems/ecss/e50-hot-redundant-operation-of-space-network-nodes"
+  - id: hot2
+    query: "both units of the redundant pair hang off the same bus segment and the failover takes detection plus a switchover command plus re-initialisation, check that against our allowed outage and tell me which part has to shrink"
+    intent: "ECSS-E-ST-50C clause 5.7.1.6; a pair confined to one segment shares a single point of failure, and the outage is the whole chain, so the remedy is the detection time the budget leaves or a faster takeover"
+    expected_skill: "space-systems/ecss/e50-hot-redundant-operation-of-space-network-nodes"

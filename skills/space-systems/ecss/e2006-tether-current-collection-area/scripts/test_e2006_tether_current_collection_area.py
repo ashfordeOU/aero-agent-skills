@@ -141,7 +141,15 @@ class TestEnhancement(unittest.TestCase):
 
     def test_every_geometry_is_supported(self):
         for geometry in GEOMETRIES:
-            self.assertGreaterEqual(oml_enhancement(10.0, TEMPERATURE, geometry), 1.0)
+            enhancement = oml_enhancement(10.0, TEMPERATURE, geometry)
+            if geometry == GEOMETRY_FLAT_TAPE:
+                # A broad flat surface gains nothing beyond the random
+                # flux: the leaf returns the literal 1.0, so the contract
+                # here is an equality, not an inequality whose two sides
+                # are the same bit pattern.
+                self.assertEqual(enhancement, 1.0)
+            else:
+                self.assertGreater(enhancement, 1.0)
 
     def test_negative_bias_rejected(self):
         with self.assertRaises(ValueError):

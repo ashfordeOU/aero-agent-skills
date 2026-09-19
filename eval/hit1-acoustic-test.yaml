@@ -1,0 +1,12 @@
+# Hit@1 fragment: acoustic-test (space-systems/ecss)
+# Case 1 routes on what the protoflight category inherits. Case 2 routes on
+# band-level and frequency-span compliance being separate from the overall level.
+tasks:
+  - id: acoustic-test-1
+    query: "Our flight spacecraft structure goes into a protoflight acoustic run under ECSS-E-ST-32C. Does the hold stay at 60 seconds like acceptance, and do we still put the qualification margin of 3 dB above acceptance levels before the vibro-acoustic controller is set up?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.10; protoflight inherits the qualification duration and margin even though the article flies afterwards"
+    expected_skill: "space-systems/ecss/acoustic-test"
+  - id: acoustic-test-2
+    query: "The measured OASPL matched the requirement within half a dB, but four one-third-octave bands sat 2 dB low and the sweep stopped at 8 kHz. With the overall number in line, is the run acceptable?"
+    intent: "ECSS-E-ST-32C clause 4.6.3.10; the power-summed overall figure is a summary, so underdriven bands and a short frequency span remain separate findings"
+    expected_skill: "space-systems/ecss/acoustic-test"

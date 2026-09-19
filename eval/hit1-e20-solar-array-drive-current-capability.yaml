@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-solar-array-drive-current-capability (space-systems/ecss)
+# Case 1 routes on which section current the path is actually sized against.
+# Case 2 routes on paralleled contact sharing and which derating chain applies to which element.
+tasks:
+  - id: e20-solar-array-drive-current-capability-1
+    query: "Our regulator shunts array sections. Which current sizes the drive path conductors, the maximum power point value or the short circuit value, and how do the hot end-of-life temperature and minimum solar distance scale it?"
+    intent: "ECSS-E-ST-20C 5.5.4; the applied current is the hot near-sun short-circuit value, and the maximum-power figure understates it for the whole check"
+    expected_skill: "space-systems/ecss/e20-solar-array-drive-current-capability"
+  - id: e20-solar-array-drive-current-capability-2
+    query: "Six slip ring contacts are paralleled on one array circuit. Can I simply multiply the per-contact rating by six, and what count should I use if the circuit has to survive losing one contact? Does bundle derating apply to that element?"
+    intent: "ECSS-E-ST-20C 5.5.4; paralleled contacts need a sharing factor below one and a reduced count where redundancy is demanded, and loom self-heating is not the slip ring's limit"
+    expected_skill: "space-systems/ecss/e20-solar-array-drive-current-capability"

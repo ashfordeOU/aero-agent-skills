@@ -16,6 +16,7 @@ the plan is deliverable only when every finding list is empty.
 """
 
 import datetime
+import math
 import os
 import sys
 import unittest
@@ -191,7 +192,14 @@ class TestCompletenessIndex(unittest.TestCase):
         place low; the comparison absorbs that, the threshold does not
         move."""
         index = cp.plan_completeness_index(_sections("issued"))
-        self.assertLess(index, cp.DEFAULT_COMPLETENESS_THRESHOLD)
+        # Twelve equal maturities over twelve sections is exact IEEE-754
+        # arithmetic, so the mean is the representable double immediately
+        # BELOW the threshold on every platform. Pinned as that exact
+        # double rather than as an inequality a last-place shift could
+        # invert. The threshold does not move.
+        self.assertEqual(
+            index, math.nextafter(cp.DEFAULT_COMPLETENESS_THRESHOLD, 0.0)
+        )
         self.assertTrue(cp.index_meets_threshold(index))
 
     def test_real_shortfall_still_fails(self):
@@ -312,7 +320,11 @@ class TestAggregate(unittest.TestCase):
         plan["declared_sections"] = _sections("issued")
         result = cp.aggregate_control_plan_delivery(plan)
         self.assertTrue(result["deliverable"])
-        self.assertLess(result["completeness_index"], 0.8)
+        # The aggregate carries the same one-ULP-low mean; pin it exactly.
+        self.assertEqual(
+            result["completeness_index"],
+            math.nextafter(cp.DEFAULT_COMPLETENESS_THRESHOLD, 0.0),
+        )
 
     def test_draft_plan_is_not_deliverable(self):
         plan = _clean_plan()

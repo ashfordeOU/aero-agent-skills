@@ -1,0 +1,17 @@
+# Hit@1 fragment: q6005-detail-specification-format-deliverable (space-systems/ecss)
+# Two tasks for the new leaf. dsfd1 routes on the numbered clause skeleton --
+# an orphan subclause and a sibling sequence with a hole in it. dsfd2 routes on
+# an entry written under the wrong numbered clause rather than missing. Neither
+# is the content leaf (q6005-hybrid-detail-specification-content), which grades
+# what the specification states rather than how the document is numbered. Both
+# must deterministically hit
+# space-systems/ecss/q6005-detail-specification-format-deliverable.
+tasks:
+  - id: dsfd1
+    query: "this draft hybrid product specification has a 4.1 and a 4.2 but no clause 4 anywhere, and the subclause numbers under 3 jump from 3.2 straight to 3.4 -- check the heading numbering tree before I send it back"
+    intent: "ECSS-Q-ST-60-05C Annex B; clause number tree of the delivered specification, orphan subclauses and sibling numbering breaks"
+    expected_skill: "space-systems/ecss/q6005-detail-specification-format-deliverable"
+  - id: dsfd2
+    query: "the sealing method is written up in the scope clause of the hybrid detail specification instead of under design and construction; tell me which mandated entries are in the wrong numbered clause and which are genuinely missing"
+    intent: "ECSS-Q-ST-60-05C Annex B; mandated entry placement under the owning clause, a misfiled entry separated from an absent one"
+    expected_skill: "space-systems/ecss/q6005-detail-specification-format-deliverable"

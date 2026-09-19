@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1024-control (space-systems/ecss)
+# Case 1 routes on board attendance validity and how abstentions are tallied.
+# Case 2 routes on the permitted baseline state progression and on signatory
+# completeness blocking the move to approved.
+tasks:
+  - id: e1024-control-1
+    query: "Our change board needs six members for quorum but only five attended the session that voted three yes, two no and one abstain on a major interface change. Is that vote outcome valid, and how should the abstention be counted?"
+    intent: "ECSS-E-ST-10C 5.5; a board decision taken below the attendance threshold has no standing, and abstentions are neutral rather than counted toward either side"
+    expected_skill: "space-systems/ecss/e1024-control"
+  - id: e1024-control-2
+    query: "Our interface baseline document is in the draft state and the gate is next week. Is a direct transition to approved permitted, or must it pass through proposed, and can it be baselined while two required signatories have not agreed?"
+    intent: "ECSS-E-ST-10C 5.5; the intermediate proposed state carries the signatory check, so skipping it is rejected and a missing agreement blocks approval"
+    expected_skill: "space-systems/ecss/e1024-control"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: welded-joint-analysis (space-systems/ecss)
+# Case 1 routes on the quality class efficiency and the effective throat of a
+# fillet. Case 2 routes on the combined criterion when both stress components
+# are present.
+tasks:
+  - id: welded-joint-analysis-1
+    query: "A fillet weld with 6 mm legs running 80 mm, declared WQ2, carries 12 kN of shear. What throat area and joint efficiency apply, and what allowable comes off the parent ultimate strength?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.14; the quality class fixes the efficiency and a fillet throat is a fraction of the leg, not the leg itself"
+    expected_skill: "space-systems/ecss/welded-joint-analysis"
+  - id: welded-joint-analysis-2
+    query: "Our welded joint carries both a normal pull and a shear across the throat, and each separate margin of safety is positive. Is that enough, or must a von Mises interaction check on the weld be run too?"
+    intent: "ECSS-E-ST-32C clause 4.6.2.14; the single-mode margins do not close the joint when both components act, so the interaction ratio is the governing check"
+    expected_skill: "space-systems/ecss/welded-joint-analysis"

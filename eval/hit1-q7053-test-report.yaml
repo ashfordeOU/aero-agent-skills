@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7053-test-report (space-systems/ecss)
+# tr1 routes on the exposure cycle log and its numbering; tr2 routes on the
+# conclusion graded against the data behind it. Both must deterministically
+# hit space-systems/ecss/q7053-test-report.
+tasks:
+  - id: tr1
+    query: "grade the cycle log of this sterilization compatibility report: the totals match the planned three cycles but one index is logged twice, and one cycle has a temperature outside its window with no deviation written against it"
+    intent: "ECSS-Q-ST-70-53C reporting clause; logged versus planned cycle count, gaps and repeats in the numbering, achieved parameter windows paired with recorded deviations"
+    expected_skill: "space-systems/ecss/q7053-test-report"
+  - id: tr2
+    query: "the report concludes the material is compatible but one declared property has no post exposure value and another is marked unacceptable, score the completeness of the record and the consistency of that conclusion"
+    intent: "ECSS-Q-ST-70-53C reporting clause; pre and post value required per declared property, completeness score, stated conclusion tested against the property verdicts"
+    expected_skill: "space-systems/ecss/q7053-test-report"

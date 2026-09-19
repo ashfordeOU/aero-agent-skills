@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-on-board-file-attributes (space-systems/ecss).
+# fattr1 routes on the consistency of a file attribute record and the room
+# left inside the allocation; fattr2 routes on a write and a delete refused by
+# the lock status. Both must deterministically hit
+# space-systems/ecss/e7041-on-board-file-attributes.
+tasks:
+  - id: fattr1
+    query: "our file attribute record reports a current size larger than the allocated size, tell me whether that is just a big file and how much room a write of two hundred octets actually has left"
+    intent: "ECSS-E-ST-70-41C clause 6.23.3.4; the allocated size is a ceiling, a size past it is an inconsistent record, remaining room and occupancy derive from the validated record"
+    expected_skill: "space-systems/ecss/e7041-on-board-file-attributes"
+  - id: fattr2
+    query: "work out whether a write and a delete are admissible on an on board file that is locked but has plenty of allocation left, and which reason the refusal should carry"
+    intent: "ECSS-E-ST-70-41C clause 6.23.3.4; lock status refuses a write and a delete ahead of the allocation check, boundary write exactly filling the allocation is admissible"
+    expected_skill: "space-systems/ecss/e7041-on-board-file-attributes"

@@ -269,4 +269,7 @@ non-physical input enumerated in the Worked example.
   (Wiley, 2005, chapter 9) and the Doyle, Glover, Khargonekar and
   Francis state-space H-infinity paper (IEEE Transactions on Automatic
   Control 34(8), 1989) as synthesis context.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

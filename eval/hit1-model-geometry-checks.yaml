@@ -1,0 +1,13 @@
+# Hit@1 fragment: model-geometry-checks (space-systems/ecss)
+# Case 1 routes on the node-table checks and the tolerance they run at.
+# Case 2 routes on the two connectivity checks across boundaries: substructure
+# interface matching and shared-edge normal orientation.
+tasks:
+  - id: model-geometry-checks-1
+    query: "Before the modal run, how do I catch nodes sitting on top of each other and nodes that no element references? What tolerance should the coincidence search use against the mesh scale?"
+    intent: "ECSS-E-ST-32C 5.2; coincident and free nodes are silent defects, and the coordinate tolerance is set relative to the characteristic dimension"
+    expected_skill: "space-systems/ecss/model-geometry-checks"
+  - id: model-geometry-checks-2
+    query: "Two substructure meshes meet at a bolted joint and some shell patches look flipped. How do I confirm the interface nodes line up within tolerance and that neighbouring elements traverse their shared edge in opposite directions?"
+    intent: "ECSS-E-ST-32C 5.2; the interface tolerance is coarser than the coordinate one, and consistent normals are proven by the shared-edge winding rule"
+    expected_skill: "space-systems/ecss/model-geometry-checks"

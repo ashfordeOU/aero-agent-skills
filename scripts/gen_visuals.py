@@ -10,6 +10,9 @@ docs/*.svg charts. Everything is computed from the tree at HEAD:
   corpus tasks     eval/hit1-corpus.yaml                    (`- id:` entries,
                    attributed per family via `expected_skill:`)
   standards        standards-map.yaml                       (`- id:` entries)
+  gate battery     Makefile                                 (the prerequisite
+                   lists of the `validate:` and `attest:` targets — read,
+                   never edited, see collect_gates)
 
 Current numbers only — no roadmap/target figures anywhere (founder
 2026-09-01: the README quotes what exists at HEAD, nothing aspirational).
@@ -35,6 +38,8 @@ never altered.
 Usage:
   python3 scripts/gen_visuals.py           regenerate everything
   python3 scripts/gen_visuals.py --check   fail (exit 1) if anything is stale
+  python3 scripts/gen_visuals.py --selftest  unit-test the gate-battery
+                                          derivation (stdlib unittest)
 
 Design law: docs/DESIGN.md (logo-derived palette: space navy + cyan/
 violet/magenta/orange, flat fills, mono uppercase labels, title blocks).
@@ -68,6 +73,104 @@ FAMILY_META = {
     "systems-engineering-safety": ("SYSTEMS ENG & SAFETY", "ARP4754A / ARP4761A"),
     "vehicle-design": ("VEHICLE DESIGN", "FAR-25 / CS-25"),
 }
+
+# small cardinals, so a spelled-out count in a caption is still computed
+NUMWORD = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six",
+           7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven",
+           12: "twelve"}
+
+# ------------------------------------------------------------- gate battery
+# The size of the verification battery used to be TYPED in this file — "8/8
+# gates green" in the statline, a gates-5/5 shields badge, "MAKE VALIDATE ·
+# 5/5 REAL GATES" on the chart, "(5/5)" in the roadmap — while `make
+# validate` had grown to nine prerequisites. `make visuals-check` could not
+# see it: a constant regenerates to itself, so the one figure README.md
+# swears is computed was the one figure nobody was computing.
+#
+# Both counts now come from the Makefile's prerequisite lists at generation
+# time. Same definition ops/automation/numbers.yaml registers for its
+# validate_gates / attest_gates denominators, but evaluated independently
+# here (the register grades this generator; it must not be its input).
+MAKEFILE = REPO / "Makefile"
+
+# Chip captions for the gate-battery diagram. Editorial, exactly as
+# FAMILY_META's labels are editorial — the COUNT never is. A target with no
+# entry still renders: the fallback splits the Makefile target name, so a
+# gate wired into `validate:` shows up on the chart without touching this
+# file (that is the whole point of reading the Makefile).
+GATE_CHIP_LABELS = {
+    "lint-spec": ("SPEC", "LINT"),
+    "desc-lint": ("DESC", "LINT"),
+    "pytest-contract": ("BEHAVIOR", "TESTS"),
+    "no-verbatim": ("NO-", "VERBATIM"),
+    "hit1": ("HIT@1", None),  # None = second line is the live corpus count
+    "independence": ("VERIFY", "INDEPENDENCE"),
+    "release-law": ("RELEASE", "LAW"),
+    "portability": ("PORT-", "ABILITY"),
+    "corpus-naming": ("CORPUS", "NAMING"),
+    "number-snapshot-offline": ("NUMBER", "SNAPSHOT"),
+    "brief-audit": ("BRIEF", "AUDIT"),
+    "content-policy-sweep": ("CONTENT", "POLICY"),
+}
+
+
+def collect_gates():
+    """Gate names + counts, read from the Makefile's validate/attest targets.
+
+    Line continuations are folded first so a prerequisite list broken over
+    several lines is still one list. `.PHONY: validate ...` cannot match:
+    the target name has to start the line.
+    """
+    src = re.sub(r"\\\n", " ", MAKEFILE.read_text(encoding="utf-8"))
+    found = {}
+    for target in ("validate", "attest"):
+        mo = re.search(rf"^{target}[ \t]*:(?!=)([^\n]*)", src, re.M)
+        if mo is None:
+            raise SystemExit(f"Makefile: no `{target}:` target — the gate count "
+                             f"cannot be derived and will not be typed")
+        names = mo.group(1).split("#", 1)[0].split()
+        if not names:
+            raise SystemExit(f"Makefile: `{target}:` has no prerequisites — "
+                             f"refusing to print an empty battery")
+        found[target] = names
+    return {
+        "validate": found["validate"],
+        "validate_count": len(found["validate"]),
+        "attest": found["attest"],
+        "attest_count": len(found["attest"]),
+    }
+
+
+def gate_ratio(g, which="validate"):
+    """"9/9" — the battery is green as a whole or it is not green at all."""
+    n = g[f"{which}_count"]
+    return f"{n}/{n}"
+
+
+def gate_badge_msg(g, which="validate"):
+    """Same ratio, shields.io-encoded (%2F is a literal slash in a message)."""
+    n = g[f"{which}_count"]
+    return f"{n}%2F{n}"
+
+
+def gate_ordinal(g, target, fallback):
+    """"gate 3" — the position the gate actually holds in `validate:`."""
+    try:
+        return f"gate {g['validate'].index(target) + 1}"
+    except ValueError:
+        return fallback
+
+
+def gate_chip_lines(target, m):
+    label = GATE_CHIP_LABELS.get(target)
+    if label is None:
+        head, _, tail = target.upper().replace("_", "-").partition("-")
+        return [head, tail] if tail else [head]
+    top, bottom = label
+    if bottom is None:
+        bottom = f'{m["router_cases"]} CASES'
+    return [top, bottom]
+
 
 # ------------------------------------------------------------------ themes
 
@@ -164,8 +267,25 @@ def collect_metrics():
         }
 
     corpus = (REPO / "eval" / "hit1-corpus.yaml").read_text(encoding="utf-8")
-    tasks = len(re.findall(r"^  - id:", corpus, re.M))
+    # 2026-09-19: this counted `^  - id:` over the WHOLE file, so a future_pins
+    # entry counted as a router task (1755 vs 1754). It was only ever correct
+    # because the pin was malformed and its id had leaked to the document root;
+    # repairing the pin exposed the off-by-one. Count the tasks block only.
+    _tasks_block = re.search(r"^tasks:\s*$(.*?)(?=^\w|\Z)", corpus, re.M | re.S)
+    tasks = len(re.findall(r"^  - id:", _tasks_block.group(1), re.M)) if _tasks_block else 0
     expected = re.findall(r'expected_skill:\s*"?([a-z-]+)/', corpus)
+    # Gate 5 executes the whole eval directory, so the per-family split and
+    # the total have to be taken over the whole directory too -- a table whose
+    # rows come from one file and whose total comes from all of them does not
+    # add up, and the reader cannot tell which figure is wrong.
+    frag_cases = 0
+    for path in sorted((REPO / "eval").glob("hit1-*.yaml")):
+        if path.name == "hit1-corpus.yaml":
+            continue
+        text = path.read_text(encoding="utf-8")
+        frag_cases += len(re.findall(r"^  - id:", text, re.M))
+        expected += re.findall(r'expected_skill:\s*"?([a-z-]+)/', text)
+    router_cases = tasks + frag_cases
     for name, fam in fams.items():
         fam["tasks"] = sum(1 for e in expected if e == name)
     standards_src = (REPO / "standards-map.yaml").read_text(encoding="utf-8")
@@ -179,7 +299,10 @@ def collect_metrics():
         "leaves": leaves,
         "skill_files": leaves + len(fams),  # + one router SKILL.md per family
         "corpus_tasks": tasks,
+        "router_cases": router_cases,
         "standards": standards,
+        # the battery that gates all of the above, sized from the Makefile
+        "gates": collect_gates(),
         "per_family": fams,
     }
 
@@ -304,7 +427,7 @@ def gen_radar(m, t):
     o.append(f'<circle cx="{bx + 22}" cy="{by + 24}" r="4" fill="{mint}" stroke="{ink}" stroke-width="1.2"/>')
     o.append(txt(bx + 36, by + 28, f'VERIFIED SKILLS · {m["leaves"]}', size=10.5, fill=ink))
     o.append(f'<rect x="{bx + 18}" y="{by + 44}" width="8" height="8" fill="none" stroke="{t["magenta"]}" stroke-width="1.6"/>')
-    o.append(txt(bx + 36, by + 52, f'ROUTER TASKS · {m["corpus_tasks"]}', size=10.5, fill=ink))
+    o.append(txt(bx + 36, by + 52, f'ROUTER CASES · {m["router_cases"]}', size=10.5, fill=ink))
     rows = [("UNIT", "COUNT PER FAMILY"), ("SCALE", f"0–{int(rmax)} · RINGS {int(rings[0])}"),
             ("GATE", "HIT@1 · DETERMINISTIC"), ("SHEET", "RDR-01 · REV AUTO")]
     for i, (k, v) in enumerate(rows):
@@ -314,7 +437,7 @@ def gen_radar(m, t):
 
     # left-anchored + short so it ends clear of the title block (founder 2026-09-01)
     o.append(txt(48, H - 22, f'{m["leaves"]} VERIFIED SKILLS · {m["live_packs"]} LIVE PACKS · '
-                 f'{m["corpus_tasks"]} ROUTER TASKS', size=10, fill=pencil, ls=2))
+                 f'{m["router_cases"]} ROUTER CASES', size=10, fill=pencil, ls=2))
     o.append(ownermark(t, bx + bw, H - 8))
     o.append("</svg>")
     return "\n".join(o) + "\n"
@@ -469,9 +592,42 @@ def gen_structure(m, t):
 # ------------------------------------------------------------ gate battery
 
 def gen_gates(m, t):
-    """The verification battery every commit passes, fail-closed."""
-    W, H = 1500, 330
+    """The verification battery every commit passes, fail-closed.
+
+    Every chip, and both group headings, come from the Makefile's
+    `validate:` / `attest:` prerequisite lists (collect_gates). Nothing
+    about the battery is typed here: this chart used to announce "5/5 REAL
+    GATES" over five chips while `make validate` ran nine, and no gate
+    could see it, because a constant regenerates to itself.
+    """
+    g = m["gates"]
     ink, pencil, faint = t["ink"], t["pencil"], t["faint"]
+
+    # Chip grid. A battery that grows gets TALLER, never unreadably wide:
+    # the strip keeps its width so the README embed keeps its scale.
+    per_row, cw, chh, cgx, cgy = 5, 104, 56, 12, 12
+    pad_x, pad_top, pad_bot = 14, 30, 30
+
+    def group_geom(n):
+        cols = min(n, per_row)
+        rows = math.ceil(n / cols)
+        return (cols, rows,
+                2 * pad_x + cols * cw + (cols - 1) * cgx,
+                pad_top + rows * chh + (rows - 1) * cgy + pad_bot)
+
+    vcols, vrows, gw, gh = group_geom(len(g["validate"]))
+    acols, arows, aw, ah = group_geom(len(g["attest"]))
+
+    top = 78
+    hmax = max(gh, ah)
+    mid = top + hmax // 2
+    H = top + hmax + 108
+    gx = 176                      # make validate group
+    ax = gx + gw + 72             # make attest group
+    vx = ax + aw + 34             # visuals-fresh chip
+    cix = vx + 142                # CI verdict box
+    W = cix + 100
+
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
          f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
          f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>']
@@ -489,38 +645,36 @@ def gen_gates(m, t):
                  f'stroke="{ink}" stroke-width="1.4"/>')
         o.append(f'<path d="M {x1:.1f} {y} l -9 -4.5 v 9 Z" fill="{ink}"/>')
 
-    mid = 150
+    def group(bx, bw, bh, cols, heading, accent, names):
+        by = mid - bh // 2
+        o.append(f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" fill="none" '
+                 f'stroke="{accent}" stroke-width="1.8"/>')
+        o.append(txt(bx + 12, by - 8, heading, size=11, fill=accent, ls=2))
+        for i, target in enumerate(names):
+            row, col = i // cols, i % cols
+            in_row = min(cols, len(names) - row * cols)   # last row centers
+            row_w = in_row * cw + (in_row - 1) * cgx
+            chip(bx + (bw - row_w) / 2 + col * (cw + cgx),
+                 by + pad_top + row * (chh + cgy),
+                 cw, chh, gate_chip_lines(target, m), faint)
+
     chip(40, mid - 34, 96, 68, ["COMMIT"], ink)
     arrow(140, 172, mid)
 
-    # group: make validate
-    gx, gw = 176, 596
-    o.append(f'<rect x="{gx}" y="78" width="{gw}" height="144" fill="none" '
-             f'stroke="{t["violet"]}" stroke-width="1.8"/>')
-    o.append(txt(gx + 12, 70, "MAKE VALIDATE · 5/5 REAL GATES", size=11,
-                 fill=t["violet"], ls=2))
-    gates5 = [["SPEC", "LINT"], ["DESC", "LINT"], ["BEHAVIOR", "TESTS"],
-              ["NO-", "VERBATIM"], ["HIT@1", f'{m["corpus_tasks"]} TASKS']]
-    for i, lines in enumerate(gates5):
-        chip(gx + 14 + i * 116, mid - 28, 104, 56, lines, faint)
+    group(gx, gw, gh, vcols,
+          f'MAKE VALIDATE · {gate_ratio(g)} REAL GATES', t["violet"], g["validate"])
     arrow(gx + gw + 4, gx + gw + 36, mid)
 
-    # group: make attest
-    ax, aw = 844, 380
-    o.append(f'<rect x="{ax}" y="78" width="{aw}" height="144" fill="none" '
-             f'stroke="{t["magenta"]}" stroke-width="1.8"/>')
-    o.append(txt(ax + 12, 70, "MAKE ATTEST · 3/3", size=11, fill=t["magenta"], ls=2))
-    gates3 = [["NUMBER", "SNAPSHOT"], ["BRIEF", "AUDIT"], ["CONTENT", "POLICY"]]
-    for i, lines in enumerate(gates3):
-        chip(ax + 14 + i * 120, mid - 28, 108, 56, lines, faint)
+    group(ax, aw, ah, acols,
+          f'MAKE ATTEST · {gate_ratio(g, "attest")}', t["magenta"], g["attest"])
     arrow(ax + aw + 4, ax + aw + 36, mid)
 
-    chip(1258, mid - 34, 104, 68, ["VISUALS", "FRESH"], t["orange"], "1.8")
-    arrow(1366, 1396, mid)
-    o.append(f'<rect x="1400" y="{mid - 34}" width="92" height="68" fill="{t["cyan"]}" '
+    chip(vx, mid - 34, 104, 68, ["VISUALS", "FRESH"], t["orange"], "1.8")
+    arrow(vx + 108, vx + 138, mid)
+    o.append(f'<rect x="{cix}" y="{mid - 34}" width="92" height="68" fill="{t["cyan"]}" '
              f'fill-opacity="{t["fill_data"]}" stroke="{t["cyan"]}" stroke-width="2.2"/>')
-    o.append(txt(1446, mid - 2, "CI", size=11, fill=ink, anchor="middle", ls=1))
-    o.append(txt(1446, mid + 14, "GREEN", size=11, fill=ink, anchor="middle", ls=1))
+    o.append(txt(cix + 46, mid - 2, "CI", size=11, fill=ink, anchor="middle", ls=1))
+    o.append(txt(cix + 46, mid + 14, "GREEN", size=11, fill=ink, anchor="middle", ls=1))
 
     o.append(f'<line x1="40" y1="{H - 62}" x2="{W - 40}" y2="{H - 62}" '
              f'stroke="{faint}" stroke-width="0.8"/>')
@@ -534,17 +688,16 @@ def gen_gates(m, t):
 
 # ------------------------------------------------------------ skill anatomy
 
-def gen_anatomy(t):
-    """Exploded view of one skill folder: what each part is for."""
-    W, H = 1500, 470
-    ink, pencil, faint = t["ink"], t["pencil"], t["faint"]
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
-         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
-         f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>']
+def gen_anatomy(m, t):
+    """Exploded view of one skill folder: what each part is for.
 
-    o.append(txt(48, 56, "ANATOMY OF A SKILL", cls="cond", size=30, fill=ink, ls=2))
-    o.append(txt(48, 80, "skills/avionics/do178c/planning/ — one leaf, four load-bearing parts",
-                 size=11, fill=pencil, ls=1))
+    The gate ordinals in the captions ("gate 3", "gate 5") are the
+    positions those gates actually hold in the Makefile's `validate:`
+    list, and the part count in the subtitle is len(rows) — neither is
+    typed, so a reordered or renamed battery re-labels itself.
+    """
+    g = m["gates"]
+    ink, pencil, faint = t["ink"], t["pencil"], t["faint"]
 
     rows = [
         ("SKILL.md · FRONTMATTER", t["cyan"],
@@ -554,12 +707,24 @@ def gen_anatomy(t):
          ["the workflow the agent follows: steps, standards references,",
           "pitfalls, verification gates, and the human sign-off stop."]),
         ("scripts/test_*.py", t["magenta"],
-         ["behavior contract, plain stdlib unittest — gate 3 replays it",
+         ["behavior contract, plain stdlib unittest — "
+          f"{gate_ordinal(g, 'pytest-contract', 'the contract gate')} replays it",
           "offline and asserts the skill's decisions (e.g. DAL A-E)."]),
         ("eval corpus tasks", t["orange"],
-         ["Hit@1 assertions — gate 5 proves the deterministic router",
+         [f"Hit@1 assertions — {gate_ordinal(g, 'hit1', 'the Hit@1 gate')} "
+          "proves the deterministic router",
           "selects this skill for its trigger queries."]),
     ]
+    W, H = 1500, 110 + 82 * len(rows) + 32
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+         f'viewBox="0 0 {W} {H}">', STYLE.rstrip(),
+         f'<rect width="{W}" height="{H}" fill="{t["canvas"]}"/>']
+
+    o.append(txt(48, 56, "ANATOMY OF A SKILL", cls="cond", size=30, fill=ink, ls=2))
+    o.append(txt(48, 80, "skills/avionics/do178c/planning/ — one leaf, "
+                 f"{NUMWORD.get(len(rows), len(rows))} load-bearing parts",
+                 size=11, fill=pencil, ls=1))
+
     y = 110
     for label, c, desc in rows:
         o.append(f'<rect x="48" y="{y}" width="340" height="62" fill="{t["surface"]}" '
@@ -620,8 +785,8 @@ def gen_statline(m, t):
         (m["live_packs"], "LIVE PACKS", t["violet"]),
         (m["families"], "FAMILIES", t["magenta"]),
         (m["standards"], "STANDARDS", t["orange"]),
-        (m["corpus_tasks"], "ROUTER TASKS", t["cyan"]),
-        ("8/8", "GATES GREEN", t["violet"]),
+        (m["router_cases"], "ROUTER CASES", t["cyan"]),
+        (gate_ratio(m["gates"]), "GATES GREEN", t["violet"]),
     ]
     spans = []
     for k, (v, label, c) in enumerate(stats):
@@ -766,8 +931,8 @@ def gen_social(m, t):
         (m["live_packs"], "LIVE PACKS", t["violet"]),
         (m["families"], "FAMILIES", t["magenta"]),
         (m["standards"], "STANDARDS", t["orange"]),
-        (m["corpus_tasks"], "ROUTER TASKS", t["cyan"]),
-        ("8/8", "GATES GREEN", t["violet"]),
+        (m["router_cases"], "ROUTER CASES", t["cyan"]),
+        (gate_ratio(m["gates"]), "GATES GREEN", t["violet"]),
     ]
     gx0, gy0, chip_w, chip_h, ggap = 660, 428, 156, 56, 12
     for i, (v, label, c) in enumerate(stats):
@@ -849,7 +1014,7 @@ Aero Agent Skills is {m["leaves"]} verified engineering skills in {m["live_packs
 
 What makes it different:
 
-- Verified means replayable. Every skill is spec-linted, behavior-tested offline, and router-asserted against a {m["corpus_tasks"]}-task Hit@1 corpus you can run on the commit you are looking at. It is not certification, and the repo says so plainly.
+- Verified means replayable. Every skill is spec-linted, behavior-tested offline, and router-asserted against a {m["router_cases"]}-case Hit@1 corpus you can run on the commit you are looking at. It is not certification, and the repo says so plainly.
 - {m["standards"]} aerospace standards mapped machine-readably: referenced and summarized, never reproduced.
 - Every number and chart in the repository is generated from the tree. Nothing is hand-counted, and CI fails on drift.
 
@@ -967,8 +1132,8 @@ def block_statline(m):
         '<p align="center">\n'
         f'  <img src="docs/statline-dark.png" alt="{m["leaves"]} verified skills · '
         f'{m["live_packs"]} live packs · {m["families"]} families · '
-        f'{m["standards"]} standards · {m["corpus_tasks"]} router tasks · '
-        f'8/8 gates green" width="100%">\n'
+        f'{m["standards"]} standards · {m["router_cases"]} router cases · '
+        f'{gate_ratio(m["gates"])} gates green" width="100%">\n'
         '</p>'
     )
 
@@ -978,14 +1143,17 @@ def block_badges(m):
         enc = msg.replace("-", "--").replace(" ", "_")
         return (f'  <a href="{href}"><img src="https://img.shields.io/badge/'
                 f'{lab}-{enc}-{color}?style=flat&labelColor=1a1e35" alt="{alt or (label + " " + msg)}"></a>')
+    g = m["gates"]
     row = [
         b("skills", str(m["leaves"]), "0ea5e9", "skills/"),
         b("packs", str(m["live_packs"]), "8b5cf6", "docs/DOMAINS.md"),
         b("families", str(m["families"]), "ec4899", "docs/DOMAINS.md"),
         b("standards", str(m["standards"]), "f97316", "STANDARDS.md"),
-        b("gates", "5%2F5", "2ea043", "docs/harness-contract.md"),
-        b("attest", "3%2F3", "2ea043", "docs/harness-contract.md"),
-        b("router tasks", str(m["corpus_tasks"]), "0ea5e9", "eval/"),
+        b("gates", gate_badge_msg(g), "2ea043", "docs/harness-contract.md",
+          alt=f'gates {gate_ratio(g)}'),
+        b("attest", gate_badge_msg(g, "attest"), "2ea043", "docs/harness-contract.md",
+          alt=f'attest {gate_ratio(g, "attest")}'),
+        b("router cases", str(m["router_cases"]), "0ea5e9", "eval/"),
         b("format", "agentskills.io", "8b5cf6", "https://agentskills.io"),
     ]
     # Distribution row: how the library ships. Static npm badge on purpose —
@@ -1007,7 +1175,7 @@ def block_overview(m):
     return (f'**{m["leaves"]} verified skills** across **{m["families"]} families** and '
             f'**{m["live_packs"]} live sub-domain packs** — each one spec-linted, '
             f'behavior-tested, and router-asserted against a '
-            f'**{m["corpus_tasks"]}-task Hit@1 corpus**. Every figure below is computed '
+            f'**{m["router_cases"]}-case Hit@1 corpus**. Every figure below is computed '
             f'from the tree at HEAD; nothing is hand-counted.')
 
 
@@ -1021,14 +1189,14 @@ def block_family_table(m):
         "structures": "Structures", "systems-engineering-safety": "Systems engineering & safety",
         "vehicle-design": "Vehicle design",
     }
-    rows = ["| Family | Standard spine | Packs | Skills | Router tasks |", "|---|---|---:|---:|---:|"]
+    rows = ["| Family | Standard spine | Packs | Skills | Router cases |", "|---|---|---:|---:|---:|"]
     fams = m["per_family"]
     for name in sorted(fams):
         f = fams[name]
         rows.append(f'| **{pretty_names[name]}** | {f["spine"]} | {f["packs"]} | {f["leaves"]} | '
                     f'{f["tasks"]} |')
     rows.append(f'| **Total** | {m["standards"]} standards mapped | **{m["live_packs"]}** | '
-                f'**{m["leaves"]}** | **{m["corpus_tasks"]}** |')
+                f'**{m["leaves"]}** | **{m["router_cases"]}** |')
     return "\n".join(rows)
 
 
@@ -1039,9 +1207,11 @@ def block_verify_extra(m):
 
 def block_roadmap(m):
     return (f'- **Shipped:** {m["leaves"]} verified skills in {m["live_packs"]} packs across '
-            f'{m["families"]} disciplines, all gated by `make validate` (5/5) and `make attest` (3/3); '
+            f'{m["families"]} disciplines, all gated by `make validate` '
+            f'({gate_ratio(m["gates"])}) and `make attest` '
+            f'({gate_ratio(m["gates"], "attest")}); '
             f'distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the '
-            f'full {m["corpus_tasks"]}-task corpus) and Claude Code plugin packaging\n'
+            f'full {m["router_cases"]}-case corpus) and Claude Code plugin packaging\n'
             f'- **Now:** deepening every live pack and opening new sub-domain packs on the same '
             f'eval-gated pipeline — every addition lands with its behavior contract and router tasks\n'
             f'- **Later:** reference builds; marketplace listings; '
@@ -1092,8 +1262,8 @@ def outputs(m):
         docs / "how-it-works-dark.svg": gen_flow(DARK),
         docs / "gates.svg": gen_gates(m, LIGHT),
         docs / "gates-dark.svg": gen_gates(m, DARK),
-        docs / "skill-anatomy.svg": gen_anatomy(LIGHT),
-        docs / "skill-anatomy-dark.svg": gen_anatomy(DARK),
+        docs / "skill-anatomy.svg": gen_anatomy(m, LIGHT),
+        docs / "skill-anatomy-dark.svg": gen_anatomy(m, DARK),
         docs / "DOMAINS.md": gen_domains(m),
     }
 
@@ -1115,7 +1285,114 @@ def marketing_outputs(m):
     }
 
 
+# ---------------------------------------------------------------- selftest
+# Same shape as tools/figure_audit.py --selftest: stdlib unittest, built
+# lazily so the shipped module never imports a test framework. These lock
+# down the ONE thing this generator got wrong for its whole life — a figure
+# it claimed to compute and did not — so the derivation stays falsifiable.
+
+def _build_gate_selftest():
+    import tempfile
+    import unittest
+
+    def with_makefile(body):
+        """Point collect_gates at a throwaway Makefile (never the repo's)."""
+        global MAKEFILE
+        keep = MAKEFILE
+        fh = tempfile.NamedTemporaryFile("w", suffix=".mk", delete=False,
+                                         encoding="utf-8")
+        fh.write(body)
+        fh.close()
+        MAKEFILE = Path(fh.name)
+        try:
+            return collect_gates()
+        finally:
+            MAKEFILE = keep
+            Path(fh.name).unlink()
+
+    REAL = ("validate: lint-spec desc-lint hit1\n"
+            "\t@echo ok\n"
+            "attest: brief-audit content-policy-sweep\n")
+
+    class GateBattery(unittest.TestCase):
+        def test_counts_come_from_the_prerequisite_lists(self):
+            g = with_makefile(REAL)
+            self.assertEqual(g["validate_count"], 3)
+            self.assertEqual(g["attest_count"], 2)
+            self.assertEqual(g["validate"], ["lint-spec", "desc-lint", "hit1"])
+
+        def test_a_gate_added_to_the_makefile_changes_the_count(self):
+            # the defect: this used to be a constant, so it could not move
+            before = with_makefile(REAL)["validate_count"]
+            after = with_makefile(REAL.replace("validate: ", "validate: portability "))
+            self.assertEqual(after["validate_count"], before + 1)
+
+        def test_phony_declaration_is_not_the_target(self):
+            g = with_makefile(".PHONY: validate a b c d e f g h\n" + REAL)
+            self.assertEqual(g["validate_count"], 3)
+
+        def test_continued_prerequisite_list_is_one_list(self):
+            g = with_makefile("validate: a b \\\n        c d\n" + REAL.split("\n", 1)[1])
+            self.assertEqual(g["validate_count"], 4)
+
+        def test_trailing_comment_is_not_a_gate(self):
+            g = with_makefile("validate: a b # c d e\nattest: x\n")
+            self.assertEqual(g["validate_count"], 2)
+
+        def test_missing_target_refuses_instead_of_typing_a_number(self):
+            with self.assertRaises(SystemExit):
+                with_makefile("attest: x\n")
+
+        def test_empty_prerequisite_list_refuses(self):
+            with self.assertRaises(SystemExit):
+                with_makefile("validate:\n\t@echo ok\nattest: x\n")
+
+        def test_ratio_and_shields_encoding(self):
+            g = with_makefile(REAL)
+            self.assertEqual(gate_ratio(g), "3/3")
+            self.assertEqual(gate_ratio(g, "attest"), "2/2")
+            self.assertEqual(gate_badge_msg(g), "3%2F3")
+
+        def test_ordinal_is_the_position_in_validate(self):
+            g = with_makefile(REAL)
+            self.assertEqual(gate_ordinal(g, "hit1", "x"), "gate 3")
+            self.assertEqual(gate_ordinal(g, "renamed", "the Hit@1 gate"),
+                             "the Hit@1 gate")
+
+        def test_unregistered_gate_still_gets_a_chip(self):
+            self.assertEqual(gate_chip_lines("figure-audit", {"router_cases": 1}),
+                             ["FIGURE", "AUDIT"])
+
+        def test_hit1_chip_carries_the_live_case_count(self):
+            self.assertEqual(gate_chip_lines("hit1", {"router_cases": 4472})[1],
+                             "4472 CASES")
+
+        def test_readme_blocks_quote_the_makefile_not_a_constant(self):
+            """The test that would have caught the original defect."""
+            g = with_makefile(REAL)
+            m = {"leaves": 1, "live_packs": 1, "families": 1, "standards": 1,
+                 "corpus_tasks": 1, "router_cases": 1, "gates": g}
+            self.assertIn("3/3 gates green", block_statline(m))
+            self.assertIn("gates-3%2F3-", block_badges(m))
+            self.assertIn("attest-2%2F2-", block_badges(m))
+            self.assertIn("`make validate` (3/3)", block_roadmap(m))
+            for stale in ("8/8", "5%2F5", "5/5"):
+                self.assertNotIn(stale, block_statline(m) + block_badges(m)
+                                 + block_roadmap(m))
+
+    return GateBattery
+
+
+def run_selftest():
+    import unittest
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(_build_gate_selftest())
+    ok = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
+    return 0 if ok else 1
+
+
 def main():
+    if "--selftest" in sys.argv:
+        return run_selftest()
     check = "--check" in sys.argv
     m = collect_metrics()
     out = outputs(m)

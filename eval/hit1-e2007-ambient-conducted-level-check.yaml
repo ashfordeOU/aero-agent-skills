@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-ambient-conducted-level-check (space-systems/ecss)
+# Case 1 routes on the substitution itself -- what must stand in for the unit on the power leads.
+# Case 2 routes on grading each lead's headroom against the limit and picking the governing one.
+tasks:
+  - id: e2007-ambient-conducted-level-check-1
+    query: "For the background sweep on the power leads the technician left the harness open with the unit removed. Does that ambient reading mean anything without a resistive stand-in pulling something like the unit's real bus current, with the stabilisation network still in circuit?"
+    intent: "ECSS-E-ST-20-07C 5.2.2.4; an unloaded lead changes the source impedance and suppresses the supply ripple the baseline exists to capture, so a representative resistive substitution is required"
+    expected_skill: "space-systems/ecss/e2007-ambient-conducted-level-check"
+  - id: e2007-ambient-conducted-level-check-2
+    query: "On the primary positive lead the recorded ambient floor sits 4 dB below the conducted limit at 2 MHz, and the return lead 9 dB below. With 6 dB of separation required, which lead governs and can that frequency be graded?"
+    intent: "ECSS-E-ST-20-07C 5.2.2.4; every lead is graded separately on headroom against the limit, the worst lead governs, and headroom short of the required separation is a limitation rather than a pass"
+    expected_skill: "space-systems/ecss/e2007-ambient-conducted-level-check"

@@ -1,0 +1,16 @@
+# Hit@1 fragment: q7006-irradiation-facility-requirements (space-systems/ecss)
+# Two tasks for the new leaf. rif1 routes on grading candidate sources against
+# agent, energy, uniformity, pressure and temperature and on the acceleration
+# factor that ranks them; rif2 routes on the combined-versus-sequential
+# question and what a facility that cannot combine costs. Both must
+# deterministically hit
+# space-systems/ecss/q7006-irradiation-facility-requirements.
+tasks:
+  - id: rif1
+    query: "three labs bid for the irradiation and one runs ten times faster; grade each on agent coverage, chamber pressure, specimen temperature, energy-window reach and target-plane uniformity, then work the acceleration factor and beam hours and rank them"
+    intent: "ECSS-Q-ST-70-06C facility; grading candidate irradiation sources on agent and energy coverage, target-plane uniformity, base pressure and specimen temperature window, then ranking the admissible ones by acceleration factor and beam hours"
+    expected_skill: "space-systems/ecss/q7006-irradiation-facility-requirements"
+  - id: rif2
+    query: "the chamber cannot run the lamp and the beam at the same time, decide whether we accept doing one after the other on a material we think responds to both together and in which order"
+    intent: "ECSS-Q-ST-70-06C facility; deciding combined against named sequential exposure when a synergistic response is expected, and recording the lost synergy as a finding on the facility choice"
+    expected_skill: "space-systems/ecss/q7006-irradiation-facility-requirements"

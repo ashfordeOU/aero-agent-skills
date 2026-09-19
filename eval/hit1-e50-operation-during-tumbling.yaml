@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-operation-during-tumbling (space-systems/ecss)
+# Two tasks for the new leaf. tum1 routes on the visibility window a spinning
+# antenna gives; tum2 routes on a geometry the beam never sweeps at all.
+# Both must deterministically hit space-systems/ecss/e50-operation-during-tumbling.
+tasks:
+  - id: tum1
+    query: "the spacecraft is spinning at six degrees a second after a safe mode, how long is each antenna sweep across the ground station and can we get link setup plus a command through before it goes"
+    intent: "ECSS-E-ST-50C clause 5.6.11.2; the visibility arc over one rotation divided by the tumble rate is the window, and it must hold the setup plus at least one whole message"
+    expected_skill: "space-systems/ecss/e50-operation-during-tumbling"
+  - id: tum2
+    query: "our only antenna points broadside and the ground station lies along the spin axis, so the beam never sweeps it - is there any visibility window at all, or is the link geometrically dead whatever the tumble rate"
+    intent: "ECSS-E-ST-50C clause 5.6.11.2; a station on the spin axis sees a separation that does not vary with rotation phase, so the visibility arc is zero and the tumble rate is not the remedy"
+    expected_skill: "space-systems/ecss/e50-operation-during-tumbling"

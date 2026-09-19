@@ -1,0 +1,12 @@
+# Hit@1 fragment: e1012-bio-env-limits (space-systems/ecss)
+# Case 1 routes on which particle populations the orbit geometry admits.
+# Case 2 routes on grading one crew member against short-term and lifetime ceilings.
+tasks:
+  - id: e1012-bio-env-limits-1
+    query: "Crewed vehicle at 420 km and 51.6 degrees: which environments belong in the crew-dose model, GCR, SPE, the trapped belts or secondary neutrons, and may I leave SPE out because the nominal flight sees little fluence?"
+    intent: "ECSS-E-ST-10C 11.3; altitude and inclination decide which populations are admitted, and a stochastic solar source cannot be dropped merely because the nominal case is quiet"
+    expected_skill: "space-systems/ecss/e1012-bio-env-limits"
+  - id: e1012-bio-env-limits-2
+    query: "An astronaut with two prior flights: how do I test her projected BFO dose from a 200-day mission plus prior exposure against the career-limit, and are the 30-day eye-lens and skin numbers judged separately?"
+    intent: "ECSS-E-ST-10C 11.4; the lifetime ceiling is cumulative and per person by sex and age bracket, while the 30-day and annual organ ceilings are separate checks"
+    expected_skill: "space-systems/ecss/e1012-bio-env-limits"

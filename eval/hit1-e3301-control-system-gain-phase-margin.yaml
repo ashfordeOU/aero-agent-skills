@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-control-system-gain-phase-margin (space-systems/ecss)
+# cgpm1 routes on reading the two margins at their own crossovers; cgpm2 routes
+# on the worst-case corner selection across parameter cases. Both must
+# deterministically hit
+# space-systems/ecss/e3301-control-system-gain-phase-margin.
+tasks:
+  - id: cgpm1
+    query: "for this ecss mechanism actuator loop I have the measured open-loop magnitude and lag tabulated by frequency; find both crossovers, read the two margins off them, and say whether the servo holds two on gain and thirty degrees on phase"
+    intent: "ECSS-E-ST-33-01C 4.7.8.1 and 4.7.8.2; gain margin at the phase crossover as a reciprocal magnitude, phase margin at the unity gain crossover measured up from the half turn"
+    expected_skill: "space-systems/ecss/e3301-control-system-gain-phase-margin"
+  - id: cgpm2
+    query: "each friction corner of this mechanism servo, hot, cold, and the worn end-of-life corner, returns a different pair of margins; which corner do I retain for the stability grading, and why can one nominal run not demonstrate a worst-case requirement"
+    intent: "ECSS-E-ST-33-01C 4.7.8.1 and 4.7.8.2; the worst gain margin and the worst phase margin usually come from different corners, and a single nominal case cannot demonstrate a worst-case requirement"
+    expected_skill: "space-systems/ecss/e3301-control-system-gain-phase-margin"

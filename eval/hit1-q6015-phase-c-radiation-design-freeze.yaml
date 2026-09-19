@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6015-phase-c-radiation-design-freeze (space-systems/ecss)
+# pc1 routes on reducing a small characterization lot to a design capability;
+# pc2 routes on the spot shield and the critical-design-review freeze gate.
+# Both must deterministically hit
+# space-systems/ecss/q6015-phase-c-radiation-design-freeze.
+tasks:
+  - id: pc1
+    query: "we only irradiated five parts from the characterization lot, work out what design capability that sample actually supports rather than just quoting the mean failure level"
+    intent: "ECSS-Q-ST-60-15C clause 4.4.3; one-sided tolerance limit read at the sample size actually tested, and a spread wide enough to collapse the capability"
+    expected_skill: "space-systems/ecss/q6015-phase-c-radiation-design-freeze"
+  - id: pc2
+    query: "decide whether we can lock the hardness assurance baseline at the critical design review given the spot shield we added and the waiver still sitting open"
+    intent: "ECSS-Q-ST-60-15C clause 4.4.3; total shielding read once on the dose-depth curve, spot shield mass against its allocation, and the freeze blockers"
+    expected_skill: "space-systems/ecss/q6015-phase-c-radiation-design-freeze"

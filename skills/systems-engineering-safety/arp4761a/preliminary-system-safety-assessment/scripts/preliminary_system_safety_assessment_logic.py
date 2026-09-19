@@ -13,6 +13,9 @@ gates share by product), and checking the realized architecture
 against the target. No standard text or design-value tables are
 reproduced here.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import math
 

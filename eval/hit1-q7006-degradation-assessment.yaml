@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7006-degradation-assessment (space-systems/ecss)
+# tr1 routes on the worst-case degradation against the acceptance criterion;
+# tr2 routes on growing the tested degradation out to the mission end-of-life
+# exposure. Both must deterministically hit
+# space-systems/ecss/q7006-degradation-assessment.
+tasks:
+  - id: tr1
+    query: "absorptance went from 0.20 pristine to 0.26 after the run with an expanded uncertainty of 0.01; does that pass a 0.10 acceptance criterion once the uncertainty is added, and how much margin is left"
+    intent: "ECSS-Q-ST-70-06C evaluation clause; directional degradation plus expanded uncertainty graded against the acceptance criterion"
+    expected_skill: "space-systems/ecss/q7006-degradation-assessment"
+  - id: tr2
+    query: "we only irradiated to half the mission fluence; grow the measured darkening out to end of life on a square-root model and tell me how far past the tested exposure that extrapolation reaches"
+    intent: "ECSS-Q-ST-70-06C evaluation clause; degradation growth model, extrapolation factor and the end-of-life criterion"
+    expected_skill: "space-systems/ecss/q7006-degradation-assessment"

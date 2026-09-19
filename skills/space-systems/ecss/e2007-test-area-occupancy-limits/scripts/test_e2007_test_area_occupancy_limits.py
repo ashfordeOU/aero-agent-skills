@@ -5,6 +5,7 @@ Standard library unittest only; offline and deterministic.
 Run: python3 test_e2007_test_area_occupancy_limits.py
 """
 
+import math
 import unittest
 
 from e2007_test_area_occupancy_limits_logic import (
@@ -273,7 +274,11 @@ class TestPerturbation(unittest.TestCase):
             {"id": "i-2", "footprint_m2": 0.05},
         ]
         fraction = quiet_zone_perturbation(1, items, 6.0)
-        self.assertGreater(fraction, PERTURBATION_LIMIT)
+        # One body plus 0.25 m2 of hardware in a 6 m2 zone is exactly a
+        # tenth physically; exact IEEE-754 arithmetic puts it one unit in
+        # the last place above the limit, identically on every platform.
+        # The limit is unchanged; only the witness is made exact.
+        self.assertEqual(fraction, math.nextafter(PERTURBATION_LIMIT, 1.0))
         run = plan()
         run["quiet_zone_area_m2"] = 6.0
         run["run_mode"] = "enclosure-calibration"
@@ -299,7 +304,11 @@ class TestPerturbation(unittest.TestCase):
             },
         ]
         result = assess_enclosure_occupancy(run)
-        self.assertGreater(result["perturbation_fraction"], PERTURBATION_LIMIT)
+        # The same one-ULP overshoot, reached through the full assessment.
+        self.assertEqual(
+            result["perturbation_fraction"],
+            math.nextafter(PERTURBATION_LIMIT, 1.0),
+        )
         self.assertEqual(result["findings"], [])
         self.assertTrue(result["clear_to_run"])
 

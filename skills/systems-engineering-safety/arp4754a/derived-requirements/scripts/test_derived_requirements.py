@@ -9,6 +9,9 @@ source document classifies as allocated; interface-resolution and
 implementation-constraint cases classify correctly; missing rationale
 fails validation; invalid inputs raise ValueError.
 """
+# Revision note: ARP4754B (2023) supersedes ARP4754A; this module keys to
+# ARP4754A, the certification-baseline revision (see standards-map.yaml
+# arp4754a.revision_decision).
 
 import os
 import sys

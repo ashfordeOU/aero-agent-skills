@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-test-environment-conditions (space-systems/ecss)
+# Two tasks for the new leaf. tec1 routes on grading a laboratory log excursion
+# on depth and duration in the right window; tec2 routes on condensation on a
+# cold-soaked piece in a room inside its humidity band. Both must
+# deterministically hit space-systems/ecss/q7045-test-environment-conditions.
+tasks:
+  - id: tec1
+    query: "the lab air conditioning dropped out for four minutes during a tensile run, work out whether that costs us the result or whether we can keep it"
+    intent: "ECSS-Q-ST-70-45C test conditions; excursion depth and duration graded per window, with the conditioning window recoverable and the loaded window not"
+    expected_skill: "space-systems/ecss/q7045-test-environment-conditions"
+  - id: tec2
+    query: "our laboratory humidity and temperature series sit inside their bands, but the metallic test piece came straight off a cold soak with moisture on it; what conditioning time does it owe before loading, and does that invalidate the run"
+    intent: "ECSS-Q-ST-70-45C test conditions; a compliant humidity log does not clear a cold-soaked, wetted test piece - the conditioning time owed before loading decides whether the run stands"
+    expected_skill: "space-systems/ecss/q7045-test-environment-conditions"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-antenna-radiative-interfaces (space-systems/ecss)
+# Case 1 routes on placing an appendage in a field zone before any closed-form
+# estimate is trusted. Case 2 routes on a radiating neighbour being graded on
+# isolation rather than on the ripple allowable.
+tasks:
+  - id: e20-antenna-radiative-interfaces-1
+    query: "A solar array wing sits 1.8 m from a 0.6 m antenna aperture at Ka-band. Which field zone does that put the appendage in, and is a closed-form estimate of re-radiated level defensible there, or must a full-wave solver take the item instead?"
+    intent: "ECSS-E-ST-20C clause 7.2.3.2; geometry decides first, and an appendage inside the near-field zones routes to a full-wave model rather than a closed-form number"
+    expected_skill: "space-systems/ecss/e20-antenna-radiative-interfaces"
+  - id: e20-antenna-radiative-interfaces-2
+    query: "Our transmit horn sits 900 mm from a neighbouring port that also radiates. Do I judge that pair against the ripple allowable in the pattern, like the other appendages, or against an isolation requirement from port to port?"
+    intent: "ECSS-E-ST-20C clause 7.2.3.2; a radiating neighbour is a coupling case judged on required isolation, which comes from a different budget than the ripple allowable"
+    expected_skill: "space-systems/ecss/e20-antenna-radiative-interfaces"

@@ -334,13 +334,20 @@ class TestOperationEvaluation(unittest.TestCase):
         resistance = provisions[0]["bleed_resistance_ohm"]
         threshold = logic.residual_threshold_v("category-1b")
         dwell = logic.required_dwell_s(initial, threshold, resistance, capacitance)
-        # The decay evaluated at this logarithm-derived dwell lands a few units
-        # in the last place above the threshold although it physically sits on
-        # it; the comparison tolerance absorbs that without moving the
-        # threshold or lengthening the required dwell.
-        self.assertGreater(
+        # The dwell is derived with a natural logarithm and the decay read
+        # back with an exponential. NEITHER is correctly rounded, so the round
+        # trip lands a unit or so in the last place off the threshold and
+        # which side differs between libm implementations: asserting the
+        # direction would pass here and can fail on another runner. The decay
+        # physically sits ON the threshold, so that is what is asserted -
+        # places=10 is ~3.5e3 units in the last place of 100 V, wider than any
+        # libm disagreement and far below any measurable residual. The
+        # threshold is unchanged and the dwell is not lengthened;
+        # test_tolerance_does_not_widen_the_residual_threshold holds the line.
+        self.assertAlmostEqual(
             logic.residual_potential_v(initial, resistance, capacitance, dwell),
             threshold,
+            places=10,
         )
         record = {
             "id": "op-boundary-equalization",

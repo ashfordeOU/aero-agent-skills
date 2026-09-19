@@ -1,0 +1,13 @@
+# Hit@1 fragment: limit-load-to-dll-cascade (space-systems/ecss)
+# Case 1 routes on what actually travels down the hierarchy through a transfer
+# factor and where the uncertainty factor is applied. Case 2 routes on combining
+# axis components and on an uncertainty factor used as relief.
+tasks:
+  - id: limit-load-to-dll-cascade-1
+    query: "Our system level already has its load uncertainty factor applied, and the bracket team took those design limit numbers and multiplied them by their own transfer factor to get bracket loads. Is that the right quantity to pass down the structural hierarchy, or have they double-counted something?"
+    intent: "ECSS-E-ST-32C clauses 4.2.7-4.2.8; the case turns on the parent limit load being the cascade input while each level applies its own uncertainty factor"
+    expected_skill: "space-systems/ecss/limit-load-to-dll-cascade"
+  - id: limit-load-to-dll-cascade-2
+    query: "At panel level we have three axis components that all come out of the same launcher event, and the load model says they are correlated. A colleague combined them in quadrature and then applied a factor of 0.9 to relieve the total. Are either of those steps defensible?"
+    intent: "ECSS-E-ST-32C clauses 4.2.7-4.2.8; the case turns on quadrature combination needing independent components and on an uncertainty factor below unity being a non-conformance"
+    expected_skill: "space-systems/ecss/limit-load-to-dll-cascade"

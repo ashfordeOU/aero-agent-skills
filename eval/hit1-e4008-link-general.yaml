@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-link-general (space-systems/ecss)
+# Two tasks for the new leaf. lg1 routes on the endpoint that must be split
+# between instance and element by longest declared-path match; lg2 routes on the
+# kind/name/duplicate rules every link obeys before any typing rule.
+# Both must deterministically hit space-systems/ecss/e4008-link-general.
+tasks:
+  - id: lg1
+    query: "one endpoint of an assembly link attached itself to the parent instead of the nested instance, explain how the instance and the element are separated in a single dotted endpoint path"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.1; endpoint resolution by longest declared instance-path prefix, dangling endpoint versus an endpoint naming no element"
+    expected_skill: "space-systems/ecss/e4008-link-general"
+  - id: lg2
+    query: "screen this assembly link list for repeated names, a kind that is none of the three, endpoints outside the assembly, and the same connection declared twice"
+    intent: "ECSS-E-ST-40-08C clause 5.2.7.1; general link rules applied before the interface, event and field typing rules"
+    expected_skill: "space-systems/ecss/e4008-link-general"

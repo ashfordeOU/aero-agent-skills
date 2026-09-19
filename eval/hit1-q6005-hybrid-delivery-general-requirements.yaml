@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6005-hybrid-delivery-general-requirements (space-systems/ecss)
+# Two tasks for the new leaf. hdgr1 routes on the data pack lining up serial
+# by serial against the units in the box, orphan records included. hdgr2
+# routes on what the delivery package owes and how the units are packed.
+# Both must deterministically hit
+# space-systems/ecss/q6005-hybrid-delivery-general-requirements.
+tasks:
+  - id: hdgr1
+    query: "check the hybrid data pack against the box: does every shipped serial carry its own record, are there records for serials that never shipped, and is the packaging right to release the batch or hold it"
+    intent: "ECSS-Q-ST-60-05C clause 13.1; delivery data pack coverage measured per shipped serial rather than by the size of the folder, with records held for serials that did not ship reported as their own finding"
+    expected_skill: "space-systems/ecss/q6005-hybrid-delivery-general-requirements"
+  - id: hdgr2
+    query: "we are shipping a batch of non-hermetic hybrids that had a nonconformance raised during the build, list the documents the delivery package owes and the electrostatic and moisture packaging provisions the units need in the box"
+    intent: "ECSS-Q-ST-60-05C clause 13.1; the documents a delivered hybrid batch carries including the additions a raised nonconformance and the package type bring, plus the electrostatic protection and the desiccant obligation a non-hermetic unit has"
+    expected_skill: "space-systems/ecss/q6005-hybrid-delivery-general-requirements"

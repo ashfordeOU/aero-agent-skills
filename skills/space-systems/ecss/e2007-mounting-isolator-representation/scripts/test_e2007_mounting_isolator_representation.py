@@ -4,6 +4,7 @@
 Offline, deterministic, stdlib unittest only.
 """
 
+import math
 import unittest
 
 import e2007_mounting_isolator_representation_logic as logic
@@ -197,7 +198,14 @@ class StackHeightComparisonTests(unittest.TestCase):
         # 8.91 - 8.1 evaluates a few ULPs above the 0.81 mm allowance while
         # being exactly on the engineering limit; the compliant case must pass.
         result = logic.compare_stack_height(8.1, 8.91, 0.1)
-        self.assertGreater(result["deviation_mm"], result["allowed_mm"])
+        # Subtraction and multiplication only: the deviation lands exactly
+        # four units in the last place above the allowance on any IEEE-754
+        # machine. State that overshoot as a magnitude rather than a
+        # direction; the 10 percent allowance itself is unchanged.
+        self.assertEqual(
+            result["deviation_mm"] - result["allowed_mm"],
+            4.0 * math.ulp(result["allowed_mm"]),
+        )
         self.assertTrue(result["within_tolerance"])
 
     def test_zero_flight_height_is_rejected(self):

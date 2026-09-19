@@ -1,0 +1,13 @@
+# Hit@1 fragment: structural-data-exchange (space-systems/ecss)
+# Case 1 routes on a sender and receiver pair with no control document authorising the
+# flow. Case 2 routes on allowed formats per data type together with version, source
+# reference and duplicate identifiers.
+tasks:
+  - id: structural-data-exchange-1
+    query: "The loads team has started sending interface load files straight to the manufacturing supplier, and no control document covers that pair of organisations. Is that just an administrative gap or does it block the package?"
+    intent: "ECSS-E-ST-32C 4.9; every sender and receiver flow must be authorised by a control document entry, and an unauthorised flow is blocking regardless of the data quality"
+    expected_skill: "space-systems/ecss/structural-data-exchange"
+  - id: structural-data-exchange-2
+    query: "One FEM model arrived in a proprietary solver format, two material-card items carry no reference to a source document, and two rows share an item identifier, breaking data-traceability. What stops the ECSS structural-data-exchange package being accepted?"
+    intent: "ECSS-E-ST-32C 4.9; an unlisted format is non-conformant however readable, a blank source reference breaks traceability, and a duplicate identifier makes the matrix ambiguous"
+    expected_skill: "space-systems/ecss/structural-data-exchange"

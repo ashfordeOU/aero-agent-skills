@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2006-material-characterization-testing (space-systems/ecss)
+# Case 1 routes on instrumentation coverage deciding which parameters a run can deliver.
+# Case 2 routes on one environment axis falling short of the flight exposure.
+tasks:
+  - id: e2006-material-characterization-testing-1
+    query: "We ran a qualification-level electron exposure on the complete radiator assembly. Can that stand in for separate coupon work on the white paint, given the run had no instrumentation channel measuring current through the thickness?"
+    intent: "ECSS-E-ST-20-06C 6.6.2; the case turns on mapping each owed parameter to an instrumentation channel, so an unmonitored quantity stays in the residual list"
+    expected_skill: "space-systems/ecss/e2006-material-characterization-testing"
+  - id: e2006-material-characterization-testing-2
+    query: "Our assembly-level qualification exceeded flight on particle-flux and exposure-duration, but its cold end reached only minus 40 where flight sees minus 70. Does one axis outside the test-envelope break the material-characterization waiver across every parameter?"
+    intent: "ECSS-E-ST-20-06C 6.6.2; the case turns on the envelope comparison being axis by axis, with any single shortfall voiding the waiver across the whole parameter set"
+    expected_skill: "space-systems/ecss/e2006-material-characterization-testing"

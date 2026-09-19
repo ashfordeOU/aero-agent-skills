@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7050-applicability-and-objectives (space-systems/ecss)
+# Two tasks for the new leaf. pma1 routes on whether a usage owes particle
+# monitoring at all and which of the three modes it owes; pma2 routes on the
+# containment state that removes a fallout obligation and the optic that is
+# sampled through a coupon rather than a lift. Both must deterministically hit
+# space-systems/ecss/q7050-applicability-and-objectives.
+tasks:
+  - id: pma1
+    query: "work out which items on this integration flow actually owe particle monitoring and whether each one needs air counts, fallout plates or a surface lift"
+    intent: "ECSS-Q-ST-70-50C framework clause; applicability read from surface sensitivity, zone type, containment state, exposed area and exposure duration"
+    expected_skill: "space-systems/ecss/q7050-applicability-and-objectives"
+  - id: pma2
+    query: "the unit stays bagged the whole time it is in the hall, so does it owe any fallout monitoring at all, and the mirror next to it carries a cleanliness level on the drawing but cannot be touched, how do we sample that surface"
+    intent: "ECSS-Q-ST-70-50C framework clause; bagged hardware collects no fallout, and a bare optic is sampled through a co-located witness coupon rather than lifted"
+    expected_skill: "space-systems/ecss/q7050-applicability-and-objectives"

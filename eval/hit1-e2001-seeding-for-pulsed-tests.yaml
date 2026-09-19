@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2001-seeding-for-pulsed-tests (space-systems/ecss)
+# Case 1 routes on counting seed electrons per pulse rather than per second of
+# dwell. Case 2 routes on the gate timing window and on the pulse being long
+# enough in carrier cycles for the avalanche to be seen.
+tasks:
+  - id: e2001-seeding-for-pulsed-tests-1
+    query: "With the carrier chopped into 2 microsecond pulses at one percent duty, our free-running emitter's quoted rate only counts while the field is up. How many seed electrons land per pulse, and how many whole pulses must the train hold for 95 percent initiation confidence?"
+    intent: "ECSS-E-ST-20-01C clause 6.5.3; a free-running source is derated by the on-time and the confidence follows from the cumulative count over whole pulses"
+    expected_skill: "space-systems/ecss/e2001-seeding-for-pulsed-tests"
+  - id: e2001-seeding-for-pulsed-tests-2
+    query: "We gate an electron burst against the pulse train. Given the off-time and the electron transit, how far before the rising edge should it fire, and will a 500 ns on-time span enough cycles for an avalanche to become detectable?"
+    intent: "ECSS-E-ST-20-01C clause 6.5.3; the gate advance is bounded below by transit time and above by the off-time, and build-up cycles are a separate sufficiency check"
+    expected_skill: "space-systems/ecss/e2001-seeding-for-pulsed-tests"

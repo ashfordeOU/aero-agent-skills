@@ -1,0 +1,13 @@
+# Hit@1 fragment: e1012-tid-basis (space-systems/ecss)
+# Case 1 routes on fixing the environment contributor set for an orbit regime
+# before any dose number exists. Case 2 routes on the technology sensitivity
+# grouping and the floor under the margin factor.
+tasks:
+  - id: e1012-tid-basis-1
+    query: "We are fixing the inputs for a six year MEO electronics programme. Which trapped and solar contributors, plus bremsstrahlung and cosmic rays, have to appear on the contributor list before any dose numbers are produced?"
+    intent: "ECSS-E-ST-10-12C 7.1 to 7.2; the orbit regime fixes the contributor set of the basis, and cosmic rays and bremsstrahlung are listed even when small"
+    expected_skill: "space-systems/ecss/e1012-tid-basis"
+  - id: e1012-tid-basis-2
+    query: "The programme wants a margin factor of 1.5 on the qualification level, and our parts list has bipolar linear regulators and opto-couplers. Is 1.5 acceptable and do those parts need low dose rate testing?"
+    intent: "ECSS-E-ST-10-12C 7.3 to 7.4; sensitivity grouping drives the low dose-rate protocol for bipolar parts, and the margin factor has a hard floor"
+    expected_skill: "space-systems/ecss/e1012-tid-basis"

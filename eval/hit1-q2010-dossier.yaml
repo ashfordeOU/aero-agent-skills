@@ -1,0 +1,14 @@
+# Hit@1 fragment: q2010-dossier (space-systems/ecss)
+# do1 routes on the append-only record and the revision that supersedes without
+# erasing; do2 routes on Annex B section coverage per candidate and evidence that
+# has aged out. Both must deterministically hit
+# space-systems/ecss/q2010-dossier.
+tasks:
+  - id: do1
+    query: "a repeat evaluation of this off-the-shelf unit reached the opposite conclusion to the first one; how do I enter the newer result in that candidate's evaluation dossier so the superseded entry and the day it was made stay readable years later"
+    intent: "ECSS-Q-ST-20-10C clause 5.1.3 Annex B dossier; accumulation is append-only and a later evaluation supersedes by a higher revision, the predecessor being retained as history"
+    expected_skill: "space-systems/ecss/q2010-dossier"
+  - id: do2
+    query: "run over the evaluation dossier we hold for each off-the-shelf unit on the shortlist and tell me which sections nobody has covered yet, and which entries have aged past the point where they still stand for the part being offered"
+    intent: "ECSS-Q-ST-20-10C clause 5.1.3 Annex B dossier; coverage is graded per candidate per section, and evidence past its validity window is stale rather than coverage"
+    expected_skill: "space-systems/ecss/q2010-dossier"

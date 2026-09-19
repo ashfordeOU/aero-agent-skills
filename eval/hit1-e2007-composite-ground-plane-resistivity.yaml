@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2007-composite-ground-plane-resistivity (space-systems/ecss)
+# Case 1 routes on reducing a bench reading to the controlled quantity and banding it.
+# Case 2 routes on the two-sided match, the decade tolerance and fibre anisotropy.
+tasks:
+  - id: e2007-composite-ground-plane-resistivity-1
+    query: "Our CFRP bench plane read 3.1 ohms on a four-point probe with 5 mm spacing. How do I reduce that reading so it comes out as ohms per square, and which band does the result land in next to the flight panel?"
+    intent: "ECSS-E-ST-20-07C 5.2.3.3; each measurement geometry reduces differently to the controlled quantity, and the band the panel falls in is checked before any numeric gap"
+    expected_skill: "space-systems/ecss/e2007-composite-ground-plane-resistivity"
+  - id: e2007-composite-ground-plane-resistivity-2
+    query: "Our bench plane conducts far better than the flight panel does. Is lower resistance not always the safe side here? How close in decades must the two agree, and does fibre-direction anisotropy have to be reproduced on the test laminate?"
+    intent: "ECSS-E-ST-20-07C 5.2.3.3; a composite plane is a two-sided match rather than a cap, graded in decades, and the laminate anisotropy is part of the match"
+    expected_skill: "space-systems/ecss/e2007-composite-ground-plane-resistivity"

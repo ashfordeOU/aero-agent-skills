@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-signal-interface-compatibility (space-systems/ecss)
+# Case 1 routes on the loaded level through the source and load divider and the
+# margin floor. Case 2 routes on the matched-termination rule for a transmission-line
+# family and on the loop current the source must supply.
+tasks:
+  - id: e20-signal-interface-compatibility-1
+    query: "The discrete output is specified 4.6 volts open circuit behind 2.2 kilohms into a receiver input of 10 kilohms whose guaranteed high threshold is 3.5 volts. Does that pair still have usable high-side margin once loaded?"
+    intent: "ECSS-E-ST-20C 4.1.2; the open-circuit level must be divided down by the source and load impedances before any noise margin is claimed against the receiver threshold"
+    expected_skill: "space-systems/ecss/e20-signal-interface-compatibility"
+  - id: e20-signal-interface-compatibility-2
+    query: "A designer terminated a differential serial link with a very high input impedance, arguing higher is always safer, and never checked what current the driver actually has to supply. What is wrong with both of those?"
+    intent: "ECSS-E-ST-20C 4.1.2; a transmission-line family wants a matched termination inside a band rather than a high ratio, and drive current is a separate closure check"
+    expected_skill: "space-systems/ecss/e20-signal-interface-compatibility"

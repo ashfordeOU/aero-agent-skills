@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-pullers-pushers (space-systems/ecss)
+# Two tasks for the new leaf. pp1 routes on the gas-expansion work balance of a
+# cartridge-driven piston against a side-loaded pin; pp2 routes on the stroke
+# duty and the surplus energy that lands on the end stop. Both must
+# deterministically hit space-systems/ecss/e3311-pullers-pushers.
+tasks:
+  - id: pp1
+    query: "the pin puller has a twenty megapascal peak chamber pressure on an eight millimetre bore, work out the work it actually delivers once the gas expands and whether that beats the load plus the friction the side load puts on the pin"
+    intent: "ECSS-E-ST-33-11C clauses 4.12.3 and 4.12.4; mean effective pressure across the bore over the stroke against a resisting force built from external load and side-load friction"
+    expected_skill: "space-systems/ecss/e3311-pullers-pushers"
+  - id: pp2
+    query: "our pusher travels twelve millimetres and the pin is engaged six with a millimetre of misalignment take-up, check the travel is enough and tell me how hard the piston hits the end stop with what is left over"
+    intent: "ECSS-E-ST-33-11C clauses 4.12.3 and 4.12.4; stroke margin over engagement depth plus misalignment, and the surplus work arriving at the end stop as a shock input"
+    expected_skill: "space-systems/ecss/e3311-pullers-pushers"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3301-tribology-general-lubricant-selection
+# (space-systems/ecss). tgl1 routes on choosing between candidate lubricants
+# for a moving pair on load, speed, cycles and temperature; tgl2 routes on the
+# governing margin and on a candidate that is excellent but unqualified. Both
+# must deterministically hit
+# space-systems/ecss/e3301-tribology-general-lubricant-selection.
+tasks:
+  - id: tgl1
+    query: "Four greases and dry films are shortlisted for a gimbal bearing. Reduce the duty to contact stress at the rolling element, how fast the surfaces rub, the cycle count once the life factor is applied, and the temperature span, then tell me which survive."
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.1; duty reduction to contact pressure, sliding speed, factored cycles and temperature range, then candidate screening"
+    expected_skill: "space-systems/ecss/e3301-tribology-general-lubricant-selection"
+  - id: tgl2
+    query: "two of these lubricants pass on paper, one has a huge pressure rating but a speed rating barely above our duty and the other is not space qualified at all - work out the governing margin for each and tell me which one is the selection"
+    intent: "ECSS-E-ST-33-01C clause 4.7.3.1; governing margin as the smallest of the pressure, speed and cycle ratios, qualification as a gate not a margin"
+    expected_skill: "space-systems/ecss/e3301-tribology-general-lubricant-selection"

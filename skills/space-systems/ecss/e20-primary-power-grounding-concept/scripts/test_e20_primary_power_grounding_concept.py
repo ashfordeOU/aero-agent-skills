@@ -392,15 +392,21 @@ class BondResistanceTests(unittest.TestCase):
         )
 
     def test_resistance_exactly_on_the_class_limit_is_compliant(self):
-        # A 0.75 m copper strap of 10 mm2 evaluates a few bits above
-        # 1.29 mohm; the bond is physically on the class limit.
+        # A 0.75 m copper strap of 10 mm2 evaluates to 1.29 mohm, the class
+        # limit itself. Which side of the last bit the product-and-quotient
+        # lands on is a representation detail, not part of the contract, so
+        # the magnitude is asserted rather than the rounding direction:
+        # places=15 is ~2e3 units in the last place of 1.29e-3, wide enough to
+        # be platform-proof and far too tight to admit a different strap. The
+        # contract is the line below it - on the limit, no finding is raised,
+        # and the class limit itself is untouched.
         star_point = _star_point(
             strap_length_m=0.75,
             strap_area_mm2=10.0,
             max_bond_resistance_ohm=0.00129,
         )
         result = gnd.evaluate_bond_resistance(star_point)
-        self.assertGreater(result["strap_resistance_ohm"], 0.00129)
+        self.assertAlmostEqual(result["strap_resistance_ohm"], 0.00129, places=15)
         self.assertEqual(result["findings"], [])
 
     def test_resistance_above_the_class_limit_is_reported(self):

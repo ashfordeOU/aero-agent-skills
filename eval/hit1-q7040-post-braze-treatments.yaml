@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-post-braze-treatments (space-systems/ecss)
+# Two tasks for the new leaf. pbt1 routes on the flux-family driven cleaning
+# sequence and the vacuum case that owes no removal at all; pbt2 routes on the
+# final-rinse conductivity ratio that evidences the removal. Both must
+# deterministically hit space-systems/ecss/q7040-post-braze-treatments.
+tasks:
+  - id: pbt1
+    query: "Torch brazed with a fluoride flux on stainless. Build the ordered cleaning operations this part owes, say whether a chemical step is needed for that halide residue, how long we have before it vitrifies, and whether passivation applies."
+    intent: "ECSS-Q-ST-70-40 post-braze clause; a corrosive halide residue adds mechanical and chemical removal, and austenitic stainless owes passivation after the residue is gone"
+    expected_skill: "space-systems/ecss/q7040-post-braze-treatments"
+  - id: pbt2
+    query: "the final rinse off the part reads higher than the water going in, tell me whether that clears the flux residue requirement or whether the part goes back through"
+    intent: "ECSS-Q-ST-70-40 post-braze clause; residue removal is evidenced by final-rinse conductivity as a ratio against the feed water, not by appearance"
+    expected_skill: "space-systems/ecss/q7040-post-braze-treatments"

@@ -339,7 +339,12 @@ class TestFieldWithinCap(unittest.TestCase):
 
     def test_quotient_a_few_ulps_over_cap_is_still_compliant(self):
         field = planar_internal_field(21.0, 1.05e-06)
-        self.assertGreater(field, 2.0e7)
+        # One IEEE-754 division of two exactly parsed doubles: correctly
+        # rounded in hardware, identical on every conforming platform, and
+        # one unit in the last place above the cap. The difference is exact.
+        overshoot = field - 2.0e7
+        self.assertGreater(overshoot, 0.0)
+        self.assertLess(overshoot, 1e-6)
         self.assertTrue(field_within_cap(field, 2.0e7))
 
     def test_genuine_exceedance_is_rejected(self):
@@ -365,7 +370,15 @@ class TestAssessDielectricItem(unittest.TestCase):
 
     def test_boundary_wall_stays_compliant(self):
         result = assess_dielectric_item(planar_item("w4", 21.0, 1.05e-06))
-        self.assertGreater(result["field_v_per_m"], POLYIMIDE_CAP)
+        # The field is one IEEE-754 division of two exactly parsed doubles:
+        # division is correctly rounded by the hardware, so the quotient is
+        # bit-identical on every conforming platform and lands one unit in
+        # the last place above the cap. The difference below is exact, so
+        # state the overshoot rather than compare field against cap on the
+        # boundary.
+        overshoot = result["field_v_per_m"] - POLYIMIDE_CAP
+        self.assertGreater(overshoot, 0.0)
+        self.assertLess(overshoot, 1e-6)
         self.assertTrue(result["compliant"])
 
     def test_coaxial_item_uses_the_inner_gradient(self):

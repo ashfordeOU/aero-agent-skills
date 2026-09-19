@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-support-maintenance-plan-data-item (space-systems/ecss)
+# Two tasks for the new leaf. smp1 routes on the last-time-buy window and the
+# lifetime-buy sizing that follows from it; smp2 routes on the upkeep interval
+# against the declared occurrence count and the response-time commitment. Both
+# must deterministically hit
+# space-systems/ecss/e2040-support-maintenance-plan-data-item.
+tasks:
+  - id: smp1
+    query: "resupply ends at the 2030 last-time-buy and the device has to stay supportable to 2035; size the quantity that window needs from annual consumption, gross it up for attrition, subtract the shelf stock, and categorize the part"
+    intent: "ECSS-E-ST-20-40C Annex E; unsupported window from the last-time-buy date, lifetime-buy quantity grossed up for attrition and netted against stock, and the monitor / lifetime-buy / alternate-source decision"
+    expected_skill: "space-systems/ecss/e2040-support-maintenance-plan-data-item"
+  - id: smp2
+    query: "check the after delivery section of this maintenance plan, the upkeep task is on a thirty month interval but the resource estimate assumes three visits over a six year life and the response time offered looks slower than the contract"
+    intent: "ECSS-E-ST-20-40C Annex E; whole upkeep occurrences inside the service life against the declared count, and the offered response time graded against the contracted one"
+    expected_skill: "space-systems/ecss/e2040-support-maintenance-plan-data-item"

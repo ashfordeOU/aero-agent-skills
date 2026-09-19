@@ -78,9 +78,19 @@ class StateCreditTests(unittest.TestCase):
         self.assertAlmostEqual(state_credit("planned-not-yet-performed"), 0.0, places=9)
 
     def test_every_state_credit_sits_between_zero_and_one(self):
-        for credit in ELEMENT_STATE_CREDIT.values():
-            self.assertGreaterEqual(credit, 0.0)
-            self.assertLessEqual(credit, 1.0)
+        # The credits are declared table constants, not computed values, so the
+        # ones on an endpoint are exactly 0.0 or exactly 1.0 and "<= 1.0" there
+        # compares a literal with itself. The closed interval is stated as the
+        # two exact endpoints plus a strictly interior remainder, and both
+        # endpoints are required to be reachable.
+        endpoints = (0.0, 1.0)
+        for state, credit in ELEMENT_STATE_CREDIT.items():
+            if credit in endpoints:
+                continue
+            self.assertGreater(credit, 0.0, state)
+            self.assertLess(credit, 1.0, state)
+        self.assertIn(1.0, ELEMENT_STATE_CREDIT.values())
+        self.assertIn(0.0, ELEMENT_STATE_CREDIT.values())
 
     def test_unknown_state_rejected(self):
         with self.assertRaises(ValueError):

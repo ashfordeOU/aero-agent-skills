@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-die-incoming-inspection (space-systems/ecss)
+# dii1 routes on the goods inwards decision for an arriving die batch; dii2 routes
+# on the three-way quantity reconciliation, which a generic receiving skill reports
+# as one shortage figure. Both must deterministically hit
+# space-systems/ecss/q6012-die-incoming-inspection.
+tasks:
+  - id: dii1
+    query: "a bare die delivery has just landed at goods inwards, work out which checks we owe on it and whether the batch goes to production, to quarantine, or straight back to the supplier"
+    intent: "ECSS-Q-ST-60-12C clause 10.3; applicable incoming checks for an arriving die batch and the worst-wins reject, quarantine, deviation, accept ladder"
+    expected_skill: "space-systems/ecss/q6012-die-incoming-inspection"
+  - id: dii2
+    query: "we counted fewer dies than the packing list says and the packing list itself is under what we ordered, and the inspector left the visual sample box blank, what does that do to the batch"
+    intent: "ECSS-Q-ST-60-12C clause 10.3; counted against packing list against ordered reconciliation, and an unperformed check treated at its own severity"
+    expected_skill: "space-systems/ecss/q6012-die-incoming-inspection"

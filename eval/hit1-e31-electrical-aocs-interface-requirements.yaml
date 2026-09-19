@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-electrical-aocs-interface-requirements (space-systems/ecss)
+# Two tasks for the new leaf. eai1 routes on heater circuits sized at the top of
+# the regulated bus and the peak-versus-average allocation with a redundant
+# branch; eai2 routes on the disturbance the thermal design hands to attitude.
+# Both must deterministically hit
+# space-systems/ecss/e31-electrical-aocs-interface-requirements.
+tasks:
+  - id: eai1
+    query: "here are the heater strings and the bus range, tell me what to ask the power people for as a peak number and as an orbit average, and whether the redundant string belongs in either"
+    intent: "ECSS-E-ST-31C clauses 4.3.3 and 4.3.4; heater circuit sizing at maximum bus voltage, derated switch current, peak versus duty-weighted allocation"
+    expected_skill: "space-systems/ecss/e31-electrical-aocs-interface-requirements"
+  - id: eai2
+    query: "the attitude team wants the disturbance our offset radiator puts into the momentum budget at hot case, plus the dissipation table per mode and one mode has no number yet"
+    intent: "ECSS-E-ST-31C clauses 4.3.3 and 4.3.4; radiator photon-recoil torque about the moment arm and per-mode dissipation data completeness"
+    expected_skill: "space-systems/ecss/e31-electrical-aocs-interface-requirements"

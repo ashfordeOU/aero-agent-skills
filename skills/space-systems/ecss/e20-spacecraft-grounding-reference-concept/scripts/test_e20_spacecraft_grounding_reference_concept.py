@@ -341,7 +341,10 @@ class BondingTest(unittest.TestCase):
         # Strap, joint and interface resistance summed in that order land
         # a few ULPs above the 10 mOhm limit they add up to exactly.
         measured = 0.001 + 0.008 + 0.001
-        self.assertGreater(measured, 1.0e-2)
+        # State the overshoot exactly -- one unit in the last place --
+        # rather than asserting which side of the limit it lands on. The
+        # 10 mOhm bonding limit itself is unchanged.
+        self.assertEqual(measured - 1.0e-2, math.ulp(1.0e-2))
         self.assertEqual(
             gc.bonding_findings("U3", "heater_string", measured), []
         )
@@ -423,7 +426,10 @@ class CommonImpedanceTest(unittest.TestCase):
         # 70 mA through a 0.1 ohm shared path is exactly the 7 mV budget,
         # but the product lands a few ULPs above it.
         path = {"return_current_a": 0.07, "shared_path_impedance_ohm": 0.1}
-        self.assertGreater(0.07 * 0.1, 0.007)
+        # State the overshoot exactly -- one unit in the last place --
+        # rather than asserting which side of the budget it lands on. The
+        # 7 mV noise budget itself is unchanged.
+        self.assertEqual(0.07 * 0.1 - 0.007, math.ulp(0.007))
         self.assertEqual(gc.coupling_findings("V3", path, 0.007), [])
 
     def test_zero_budget_raises(self):

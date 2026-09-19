@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7045-testing-machine-control (space-systems/ecss)
+# Two tasks for the new leaf. tmc1 routes on the verification readings that fix
+# the grade of the force channel and the verified span a small peak force falls
+# out of; tmc2 routes on the crosshead speed a compliant load train needs and
+# the bending an opposed gauge pair reports. Both must deterministically hit
+# space-systems/ecss/q7045-testing-machine-control.
+tasks:
+  - id: tmc1
+    query: "Our tensile frame is rated 100 kN and one force-verification reading sits 1.3 percent out near the top. The specimen peaks around 500 N. What grade does the force channel earn, and is that peak inside the verified span?"
+    intent: "ECSS-Q-ST-70-45 equipment; force-measuring system grade from the worst verification reading, and the peak force against the lowest verified force of the span"
+    expected_skill: "space-systems/ecss/q7045-testing-machine-control"
+  - id: tmc2
+    query: "work out what crosshead speed gives me the required strain rate on a fifty millimetre gauge length when the load train takes up ten microns per kilonewton, and say whether the opposed strain gauges show acceptable alignment"
+    intent: "ECSS-Q-ST-70-45 equipment; crosshead speed as specimen extension rate plus load-train deflection rate, and load-train bending from opposed gauges"
+    expected_skill: "space-systems/ecss/q7045-testing-machine-control"

@@ -5,10 +5,10 @@
 # space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery.
 tasks:
   - id: rssr1
-    query: "show that a retriggerable limiter puts itself back into the conducting state after an unintended switch-off instead of waiting for a ground command to restore the load"
+    query: "A transient on the bus trips one of our retriggerable limiters even though the load is fine. Operations want to know whether the channel comes back by itself, or whether somebody on the ground has to send something before the unit sees power again."
     intent: "ECSS-E-ST-20-20C clause 5.2.18.1.1; autonomous recovery of a retriggerable limiter from a spurious trip"
     expected_skill: "space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery"
   - id: rssr2
-    query: "count how many retrigger cycles a bus disturbance forces on a limiter, build the recovery latency from detection open interval and turn-on ramp, and compare it against the hold-up of the load behind it"
+    query: "The vendor quotes a 12 ms turn-on ramp, but a bus disturbance here runs past a single open interval, so our retriggerable limiter retriggers several times before it stays on. How long is the load really dark, and does its hold-up cover that?"
     intent: "ECSS-E-ST-20-20C clause 5.2.18.1.1; retrigger cycle count, recovery latency, load hold-up margin"
     expected_skill: "space-systems/ecss/e2020-rlcl-spurious-switch-off-recovery"

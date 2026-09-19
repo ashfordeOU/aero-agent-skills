@@ -6,10 +6,10 @@
 # space-systems/ecss/q6012-sensitivity-and-stability-review-item.
 tasks:
   - id: sasr1
-    query: "I have the output power change this microwave die shows for a process shift, a temperature swing and a supply tolerance, combine them into one spread figure and tell me which source is driving it"
+    query: "for this die-form mmic review item, output power moves with process spread, a supply tolerance and a temperature swing; normalise each coefficient, weight it by its own tolerance, combine them root-sum-square, then name the source that dominates the permitted spread"
     intent: "ECSS-Q-ST-60-12C clause 7.3.5; normalised sensitivity coefficients weighted by each source tolerance combine root-sum-square because the sources are independent, and the dominant contributor is the reviewable output"
     expected_skill: "space-systems/ecss/q6012-sensitivity-and-stability-review-item"
   - id: sasr2
-    query: "check the swept s-parameters of this amplifier die for unconditional stability and tell me whether the sweep went far enough outside the operating band to prove it will not oscillate"
+    query: "our die design review has arrived at the item covering sensitivity and stability: the applicant offers a Rollett figure and a swept determinant plus a variation budget, so grade whether that evidence closes the item or the sweep stopped too close to the band"
     intent: "ECSS-Q-ST-60-12C clause 7.3.5; unconditional stability needs Rollett K above one and the scattering determinant magnitude below one at the same frequency, and a band-limited sweep is a coverage finding"
     expected_skill: "space-systems/ecss/q6012-sensitivity-and-stability-review-item"

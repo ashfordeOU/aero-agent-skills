@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-visual-and-dimensional (space-systems/ecss)
+# vd1 routes on the zone-first reading of a surface indication and the depth
+# allowance taken as a fraction of the basic thread height; vd2 routes on the
+# per-feature signed tolerance band and the margin reported with the verdict.
+# Both must deterministically hit space-systems/ecss/q7046-visual-and-dimensional.
+tasks:
+  - id: vd1
+    query: "there is a shallow lap in the thread root of a procured bolt and another on the plain shank, the pitch is 1.5 mm, tell me which of them I can accept and how deep the shank one is allowed to be"
+    intent: "ECSS-Q-ST-70-46 inspection clause; discontinuity judged by zone first, with the allowance outside the stress-concentrating zones taken as a fraction of the basic thread height"
+    expected_skill: "space-systems/ecss/q7046-visual-and-dimensional"
+  - id: vd2
+    query: "I measured major diameter, head height and fillet radius on thirty fasteners against one-sided drawing tolerances, work out which parts fail, how much margin the passing ones have left and what actually drove the rejects"
+    intent: "ECSS-Q-ST-70-46 inspection clause; per-feature signed tolerance band with the margin to the nearer limit and a grouped rollup of the bench run"
+    expected_skill: "space-systems/ecss/q7046-visual-and-dimensional"

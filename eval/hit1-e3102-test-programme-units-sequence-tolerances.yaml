@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3102-test-programme-units-sequence-tolerances (space-systems/ecss)
+# Two tasks for the new leaf. tpust1 routes on the article count and the ordering of
+# the campaign for the equipment type; tpust2 routes on the applied-tolerance versus
+# instrument-accuracy pair that decides whether any reading is evidence. Both must
+# deterministically hit
+# space-systems/ecss/e3102-test-programme-units-sequence-tolerances.
+tasks:
+  - id: tpust1
+    query: "we have one capillary loop article and the plan puts the burst run before the pressure cycling, check how many units a qualification model programme owes and whether that order is allowed"
+    intent: "ECSS-E-ST-31-02C clauses 5.6.1 to 5.6.4; test article count for the model philosophy and the fixed ordering of the campaign for a capillary driven loop versus a heat pipe"
+    expected_skill: "space-systems/ecss/e3102-test-programme-units-sequence-tolerances"
+  - id: tpust2
+    query: "on this heat pipe test programme the rig holds set pressure to two percent and the transducer reads to one percent; does that measurement accuracy let us police the allowable band on the applied parameter, or is the instrument too coarse"
+    intent: "ECSS-E-ST-31-02C clauses 5.6.1 to 5.6.4; allowable tolerance on an applied test parameter versus the required measurement accuracy, including the resolution rule between them"
+    expected_skill: "space-systems/ecss/e3102-test-programme-units-sequence-tolerances"

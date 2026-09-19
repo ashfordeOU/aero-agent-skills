@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-applicability-and-connections (space-systems/ecss)
+# ac1 routes on whether a joint is governed by the crimping practice at all;
+# ac2 routes on the per-category conductor limit and barrel fill window. Both
+# must deterministically hit
+# space-systems/ecss/q7026-applicability-and-connections.
+tasks:
+  - id: ac1
+    query: "our harness definition mixes crimped contacts, soldered terminations and a couple of insulation displacement joints, sort out which of them the crimping practice actually governs before we write the tooling plan"
+    intent: "ECSS-Q-ST-70-26C framework clause; joining method decides scope, and machined contact, stamped contact, splice, lug and coaxial ferrule are the crimp categories"
+    expected_skill: "space-systems/ecss/q7026-applicability-and-connections"
+  - id: ac2
+    query: "somebody wants two wires in one machined contact barrel and a third barrel has a solid conductor next to a stranded one, work out how many conductors each crimp type may take and whether the barrel fill ratio is inside its window"
+    intent: "ECSS-Q-ST-70-26C framework clause; conductor-count limit per crimp category, refusal of a mixed solid-and-stranded barrel, and barrel fill against its floor and ceiling"
+    expected_skill: "space-systems/ecss/q7026-applicability-and-connections"

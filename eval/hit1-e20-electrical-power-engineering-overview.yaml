@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-electrical-power-engineering-overview (space-systems/ecss)
+# Case 1 routes on naming the bus architecture from where regulation is applied
+# and on the four-stage chain being populated. Case 2 routes on the orbit energy
+# balance that sizes storage and generation.
+tasks:
+  - id: e20-electrical-power-engineering-overview-1
+    query: "Our bus is held at 28 V by the shunt while the array is lit, and in eclipse the battery simply sets whatever it sets. What do we call that architecture, and must each stage in the power chain have at least one box listed?"
+    intent: "ECSS-E-ST-20C clause 5.1; the architecture name follows the regulation state in sunlight and eclipse, not from the element inventory"
+    expected_skill: "space-systems/ecss/e20-electrical-power-engineering-overview"
+  - id: e20-electrical-power-engineering-overview-2
+    query: "Eclipse load is 420 W for 35 minutes. With 88 percent distribution efficiency and a 25 percent depth of discharge allowance, what usable capacity must I install, and how much array power refills it over the sunlit arc?"
+    intent: "ECSS-E-ST-20C clause 5.1; losses divide rather than multiply, and the generation requirement carries the recharge term as well as the sunlit load"
+    expected_skill: "space-systems/ecss/e20-electrical-power-engineering-overview"

@@ -124,4 +124,7 @@ python3 scripts/test_gain_scheduling_logic.py
 - ARP4754A is proprietary (SAE); name + paraphrase only per
   standards-map.yaml. Gain scheduling interpolation math is standard
   control practice, summary only.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

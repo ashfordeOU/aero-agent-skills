@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7053-acceptance-criteria (space-systems/ecss)
+# tr1 routes on per-category criteria selection and mixed-assembly severity;
+# tr2 routes on deviation-band routing and the unevidenced criterion. Both
+# must deterministically hit space-systems/ecss/q7053-acceptance-criteria.
+tasks:
+  - id: tr1
+    query: "which acceptance limits apply to a bracket with a bonded polymer insert after the sterilization compatibility exposure, the metal set or the polymer set, and what decides it"
+    intent: "ECSS-Q-ST-70-53C acceptance clause; criteria set selected by material or hardware category, a mixed assembly resolved to its most severe constituent category"
+    expected_skill: "space-systems/ecss/q7053-acceptance-criteria"
+  - id: tr2
+    query: "the mass loss came out just past its limit but inside the deviation band and nobody wrote a deviation reference, and one criterion has no measurement at all, what is the accept or reject decision"
+    intent: "ECSS-Q-ST-70-53C acceptance clause; accept-with-deviation only against a recorded deviation reference, an unevidenced criterion blocking the accept rather than passing silently"
+    expected_skill: "space-systems/ecss/q7053-acceptance-criteria"

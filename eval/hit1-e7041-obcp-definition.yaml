@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-obcp-definition (space-systems/ecss)
+# Two tasks for the new leaf. obdf1 routes on the static definition a procedure
+# needs before it can be loaded at all; obdf2 routes on the activation argument
+# contract. Both must deterministically hit
+# space-systems/ecss/e7041-obcp-definition.
+tasks:
+  - id: obdf1
+    query: "the ground wrote a new on-board procedure and I need to know before we uplink anything whether it can even run on the interpreter we fly, and whether the set we want aboard fits the memory reserved for procedure definitions"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.1; an on-board control procedure definition names an engine with a language and a maximum procedure size, so the engine has to exist aboard and the image has to fit both that per-procedure limit and the definition store when the whole set is accumulated"
+    expected_skill: "space-systems/ecss/e7041-obcp-definition"
+  - id: obdf2
+    query: "this OBCP definition declares some arguments with defaults and some without - tell me which ones the activation command must carry, and what the engine should do if an operator sends one as the wrong kind of number"
+    intent: "ECSS-E-ST-70-41C clause 6.18.4.1; a declared procedure argument is mandatory unless it declares a default, so binding at activation must refuse an undeclared name, refuse a value that does not match its declared type, fill from defaults, and raise on a mandatory argument with no value"
+    expected_skill: "space-systems/ecss/e7041-obcp-definition"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7040-rebrazing-and-repair (space-systems/ecss)
+# Two tasks for the new leaf. rbr1 routes on the defect-curability split that
+# separates a re-braze from a remake; rbr2 routes on the cumulative dwell budget
+# that the cycle count cannot see. Both must deterministically hit
+# space-systems/ecss/q7040-rebrazing-and-repair.
+tasks:
+  - id: rbr1
+    query: "this brazed bracket came out with a short fillet and the section shows parent metal eaten away - tell me which of those a second furnace run can cure and which means we cut a new part"
+    intent: "ECSS-Q-ST-70-40 repair clause; a loss of parent metal is a remake finding while a wetting or flow defect is the repairable set"
+    expected_skill: "space-systems/ecss/q7040-rebrazing-and-repair"
+  - id: rbr2
+    query: "this joint is only on its second repair so the cycle count says we have room, but add up the minutes it has spent above the filler liquidus and tell me if the aluminium pair can take another one"
+    intent: "ECSS-Q-ST-70-40 repair clause; the cumulative dwell budget of the base metal and filler pair is counted separately from the re-braze cycle limit"
+    expected_skill: "space-systems/ecss/q7040-rebrazing-and-repair"

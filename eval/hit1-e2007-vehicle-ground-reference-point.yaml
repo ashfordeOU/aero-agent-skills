@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-vehicle-ground-reference-point (space-systems/ecss)
+# Case 1 routes on qualifying the single designated datum itself. Case 2 routes
+# on substantiating the lead offset that is subtracted campaign-wide and on
+# reading a negative corrected value.
+tasks:
+  - id: e2007-vehicle-ground-reference-point-1
+    query: "Only one structural point is meant to serve as the bonding datum across an entire vehicle. Ours sits on a painted equipment panel bracket and becomes unreachable once the harness is installed. Does either of those disqualify it as the designated reference?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.11.2; the datum qualifies only on primary structure, with a conductive finish, still reachable in the measurement configuration"
+    expected_skill: "space-systems/ecss/e2007-vehicle-ground-reference-point"
+  - id: e2007-vehicle-ground-reference-point-2
+    query: "All our readings carry the same 3.5 milliohm subtraction for the leads and nobody substantiated that from the conductor length and section. Two corrected values then came out negative. Is that a superb bond or an input defect?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.11.2; an unsubstantiated offset biases the whole campaign, and a negative corrected reading is an input defect, not an excellent bond"
+    expected_skill: "space-systems/ecss/e2007-vehicle-ground-reference-point"

@@ -250,9 +250,12 @@ def shielding_for_dose_limit(dose_rate_rad_day, mission_years, dose_limit_krad,
     """Return the minimum aluminum shielding in mm meeting the dose limit.
 
     Bisection over [0, max_shielding_mm] of tid_after_shielding;
-    returns the smallest thickness whose total ionizing dose is at most
-    the limit. Returns None when even the maximum shielding cannot
-    meet the limit (the proton component floor sits above it).
+    returns the smallest thickness whose total ionizing dose is STRICTLY
+    below the limit, so that dose_verdict() on the result is never
+    EXCEEDED. A dose exactly at the limit carries zero margin and is not
+    a design solution. Returns None when even the maximum shielding
+    cannot get below the limit (the proton component floor sits at or
+    above it).
 
     Raises ValueError for a non-positive dose limit or mission life, or
     a negative dose rate or maximum shielding.
@@ -266,13 +269,16 @@ def shielding_for_dose_limit(dose_rate_rad_day, mission_years, dose_limit_krad,
     if max_shielding_mm <= 0.0:
         raise ValueError("max_shielding_mm must be > 0, got %r" % (max_shielding_mm,))
     if tid_after_shielding(dose_rate_rad_day, mission_years, max_shielding_mm,
-                           electron_fraction=electron_fraction) > dose_limit_krad:
+                           electron_fraction=electron_fraction) >= dose_limit_krad:
         return None
     lo, hi = 0.0, max_shielding_mm
     for _ in range(60):
         mid = (lo + hi) / 2.0
+        # STRICTLY below, not at: dose_verdict() calls a dose at the limit
+        # EXCEEDED, so a thickness that lands exactly on it does not meet the
+        # limit by this module's own definition (2026-09-19).
         if tid_after_shielding(dose_rate_rad_day, mission_years, mid,
-                               electron_fraction=electron_fraction) <= dose_limit_krad:
+                               electron_fraction=electron_fraction) < dose_limit_krad:
             hi = mid
         else:
             lo = mid

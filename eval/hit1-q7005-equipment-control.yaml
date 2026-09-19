@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-equipment-control (space-systems/ecss)
+# ec1 routes on calendar-month calibration currency on the analysis day and the
+# wavenumber tolerance-to-uncertainty ratio; ec2 routes on cell pathlength drift
+# and a consumable blank beside the quantitation limit. Both must
+# deterministically hit space-systems/ecss/q7005-equipment-control.
+tasks:
+  - id: q7005ec1
+    query: "before this infrared contamination run, work out whether the spectrometer calibration is still current on the analysis day given a twelve month interval from a month-end certificate, and whether its wavenumber uncertainty is small enough for the tolerance it has to police"
+    intent: "ECSS-Q-ST-70-05C equipment control; calibration intervals run in whole calendar months and capability is the tolerance over the uncertainty, not the uncertainty alone"
+    expected_skill: "space-systems/ecss/q7005-equipment-control"
+  - id: q7005ec2
+    query: "the transmission cell pathlength measures a few micrometres off nominal and the precleaned wipe lot blank is close to the quantitation limit we will be working at, decide whether this equipment set can be cleared for the contamination analysis"
+    intent: "ECSS-Q-ST-70-05C equipment control; pathlength drift is graded as a fraction of nominal and a blank close to the quantitation limit consumes the measurement"
+    expected_skill: "space-systems/ecss/q7005-equipment-control"

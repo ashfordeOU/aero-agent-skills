@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-power-protection-failure-containment (space-systems/ecss)
+# Case 1 routes on the independence test: shared resources between protection and protected function.
+# Case 2 routes on the trip-threshold window, selectivity ordering and ride-through timing.
+tasks:
+  - id: e20-power-protection-failure-containment-1
+    query: "Our latching current limiter takes its housekeeping supply from the very rail it exists to open, and shares a sense element with the regulator control loop it protects. Is the protection independent enough to contain a fault on that branch?"
+    intent: "ECSS-E-ST-20C 5.3; a shared sense element or a bias drawn off the protected rail destroys independence, so the protection dies with the fault it should clear"
+    expected_skill: "space-systems/ecss/e20-power-protection-failure-containment"
+  - id: e20-power-protection-failure-containment-2
+    query: "Downstream limiter trips at 3.5 A on a load drawing 1.8 A steady with 6 A inrush; the harness fault rating is 8 A and the upstream breaker sits at 4 A. Is there a valid trip window, and does the ordering hold against bus ride-through?"
+    intent: "ECSS-E-ST-20C 5.3; the setting must clear inrush yet stay under the harness rating, trip ahead of the upstream device by the selectivity ratio, and finish inside the ride-through time"
+    expected_skill: "space-systems/ecss/e20-power-protection-failure-containment"

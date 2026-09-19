@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7046-hardness-testing (space-systems/ecss)
+# hd1 routes on judging Rockwell readings against a Vickers class band through
+# the tabulated conversion; hd2 routes on a soft skin over a sound core. Both
+# must deterministically hit space-systems/ecss/q7046-hardness-testing.
+tasks:
+  - id: hd1
+    query: "the lab gave me Rockwell C numbers for a class 10.9 bolt lot but our band is written in Vickers, how do I put them on one scale and is the lot inside the band"
+    intent: "ECSS-Q-ST-70-46 testing clause; interpolate the tabulated hardness conversion rather than extrapolating it, then judge every converted reading against the property-class floor and ceiling"
+    expected_skill: "space-systems/ecss/q7046-hardness-testing"
+  - id: hd2
+    query: "the surface reading on these fasteners is sixty points softer than the core reading, is the lot too soft or is something wrong with the skin, and was the indentation even valid on a thread that thin"
+    intent: "ECSS-Q-ST-70-46 testing clause; surface-to-core difference names carbon loss or pick-up, and the minimum section follows from the load and hardness through the indentation diagonal"
+    expected_skill: "space-systems/ecss/q7046-hardness-testing"

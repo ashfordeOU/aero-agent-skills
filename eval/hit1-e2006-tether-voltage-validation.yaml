@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2006-tether-voltage-validation (space-systems/ecss)
+# Case 1 routes on building the sweep: relative plasma speed and the magnetic
+# latitude the inclination reaches. Case 2 routes on which circuit condition
+# bounds the answer and the checks the bound is then held against.
+tasks:
+  - id: e2006-tether-voltage-validation-1
+    query: "For a 5 km conductive tether at 400 km and 52 degrees inclination, do I use inertial orbital speed or subtract the corotating ionosphere, and must I sweep magnetic latitude instead of evaluating at the equator?"
+    intent: "ECSS-E-ST-20-06C clause 10.3; the crossing speed is relative to the corotating plasma, and the dipole field varies with the latitude the inclination allows"
+    expected_skill: "space-systems/ecss/e2006-tether-voltage-validation"
+  - id: e2006-tether-voltage-validation-2
+    query: "Our analysis reports the loaded potential across the tether ends after the circuit and contactor drops. Should the bound instead be taken open circuit, and does our declared design voltage cover it with the insulation rating holding its required margin?"
+    intent: "ECSS-E-ST-20-06C clause 10.3; drops only subtract so the open-circuit case bounds the duty, and the bound is then checked against design voltage and withstand margin"
+    expected_skill: "space-systems/ecss/e2006-tether-voltage-validation"

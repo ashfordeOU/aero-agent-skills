@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2040-device-development-plan-data-item (space-systems/ecss)
+# Two tasks for the new leaf. ddpd1 routes on the task owner that is not a declared
+# role; ddpd2 routes on tool qualification state and the milestone overrun. Both must
+# deterministically hit
+# space-systems/ecss/e2040-device-development-plan-data-item.
+tasks:
+  - id: ddpd1
+    query: "cross-check this device development plan before baselining: the task list names owners the organisation never declares, and two declared roles own nothing. Does Annex B make that check run both ways, and what does each unmatched role still owe?"
+    intent: "ECSS-E-ST-20-40C Annex B; two-way referential check between the task list and the organisation roster of a device development plan"
+    expected_skill: "space-systems/ecss/e2040-device-development-plan-data-item"
+  - id: ddpd2
+    query: "our device development plan has a task whose owner is not in the declared organisation, a tool named with no qualification state against it, and a declared role nobody uses; check the four areas cross-refer before baselining"
+    intent: "ECSS-E-ST-20-40C Annex B; tool qualification state, task to milestone placement, milestone overrun and plan slack"
+    expected_skill: "space-systems/ecss/e2040-device-development-plan-data-item"

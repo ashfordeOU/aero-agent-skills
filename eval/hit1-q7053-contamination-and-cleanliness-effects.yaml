@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7053-contamination-and-cleanliness-effects (space-systems/ecss)
+# tr1 routes on obscuration from a size distribution and band placement; tr2
+# routes on the process-attributable residue share against its allocation.
+# Both must deterministically hit
+# space-systems/ecss/q7053-contamination-and-cleanliness-effects.
+tasks:
+  - id: tr1
+    query: "turn this post-sterilization particle size distribution and inspected area into an obscuration percentage and tell me the tightest product cleanliness band the surface still meets"
+    intent: "ECSS-Q-ST-70-53C cleanliness-effect evaluation; projected area over inspected area, tightest band whose ceiling the figure meets, no band when dirtier than the coarsest"
+    expected_skill: "space-systems/ecss/q7053-contamination-and-cleanliness-effects"
+  - id: tr2
+    query: "separate the non-volatile residue the vapour phase process itself added from what was already on the witness plate, and grade that added share against its contamination budget allocation as well as the total against the surface requirement"
+    intent: "ECSS-Q-ST-70-53C cleanliness-effect evaluation; process-attributable residue increase floored at zero, allocation and total requirement graded independently"
+    expected_skill: "space-systems/ecss/q7053-contamination-and-cleanliness-effects"

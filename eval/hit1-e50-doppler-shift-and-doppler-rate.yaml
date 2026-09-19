@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-doppler-shift-and-doppler-rate (space-systems/ecss)
+# Two tasks for the new leaf. dop1 routes on the acquisition sweep width once
+# oscillator error is added; dop2 routes on the rate the tracking loop must follow.
+# Both must deterministically hit space-systems/ecss/e50-doppler-shift-and-doppler-rate.
+tasks:
+  - id: dop1
+    query: "work out how far off nominal our carrier can land at closest approach once the range rate and the reference oscillator error are both counted, and how wide the acquisition sweep has to be"
+    intent: "ECSS-E-ST-50C clause 5.6.11.1; the offset is carrier times radial velocity over light speed, the reference error adds to it, and the sweep spans both sides of nominal"
+    expected_skill: "space-systems/ecss/e50-doppler-shift-and-doppler-rate"
+  - id: dop2
+    query: "the receiver acquires the offset fine but the frequency is moving fast at overhead pass, how many hertz per second does the loop have to follow and what radial acceleration is that"
+    intent: "ECSS-E-ST-50C clause 5.6.11.1; Doppler rate is carrier times radial acceleration over light speed and is judged against the tracking loop capability, not the acquisition range"
+    expected_skill: "space-systems/ecss/e50-doppler-shift-and-doppler-rate"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-command-criticality-assessment (space-systems/ecss)
+# Case 1 routes on the equipment-level modifiers and the protection the retained
+# level then demands. Case 2 routes on the system-level confirmation and the
+# bound on a redundancy downgrade, which the equipment view cannot see.
+tasks:
+  - id: e20-command-criticality-assessment-1
+    query: "This pyro line command cannot be undone once sent, but there is an onboard recovery for the mode it changes. Does the irreversibility step up cancel the autonomous recovery step down, and what protection does the resulting rating demand?"
+    intent: "ECSS-E-ST-20C clause 4.1.3; the two equipment-level modifiers and the protection set attached to the level that survives them"
+    expected_skill: "space-systems/ecss/e20-command-criticality-assessment"
+  - id: e20-command-criticality-assessment-2
+    query: "The supplier rated their heater switch low because the unit is redundant, but one command word drives both strings and the unit feeds a single string attitude function. Must I escalate that rating at system level?"
+    intent: "ECSS-E-ST-20C clause 4.1.3; a downgrade is void when one command word reaches both paths, and a single-string function forces escalation above the equipment claim"
+    expected_skill: "space-systems/ecss/e20-command-criticality-assessment"

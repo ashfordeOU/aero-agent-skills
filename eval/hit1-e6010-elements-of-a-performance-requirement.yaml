@@ -1,0 +1,14 @@
+# Hit@1 fragment: e6010-elements-of-a-performance-requirement
+# (space-systems/ecss). per1 routes on the absent elements of a pointing
+# requirement; per2 routes on the coherence rule between the index and the
+# probability level. Both must deterministically hit
+# space-systems/ecss/e6010-elements-of-a-performance-requirement.
+tasks:
+  - id: per1
+    query: "the pointing spec says absolute pointing error below 0.1 degrees and nothing else, tell me what elements that statement is missing before anyone can write a verification case for it"
+    intent: "ECSS-E-ST-60-10C clause 4.1.2; a performance requirement carries a parameter, a statistical index, a value and unit, an evaluation window, a reference frame and an operating condition, and a bound with only a value and a unit is at least four different obligations"
+    expected_skill: "space-systems/ecss/e6010-elements-of-a-performance-requirement"
+  - id: per2
+    query: "this control performance requirement is written as a never-exceed peak error but it also carries a 99.7 percent confidence level, is that coherent and how should it be restated"
+    intent: "ECSS-E-ST-60-10C clause 4.1.2; a probability level belongs with a statistical index and nowhere else, so a deterministic peak or absolute bound carrying one is incoherent rather than merely redundant"
+    expected_skill: "space-systems/ecss/e6010-elements-of-a-performance-requirement"

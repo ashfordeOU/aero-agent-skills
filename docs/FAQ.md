@@ -26,23 +26,69 @@ top of the README states the legal basis.
 
 ## Do you reproduce standards text?
 
-No. The summary-not-copy rule (STANDARDS.md) allows only name +
-paraphrase + short attributed quotes under 100 words + a link to the
-publisher. Gated standards (DO-178C, DO-254, ARP4754A, ARP4761A,
-AS9100, DO-330, DO-160G, AS9102, MMPDS) never appear verbatim anywhere
-in this repository. A real
-gate enforces it: make validate runs a no-verbatim scan over skills/
-and docs/ and requires zero matches.
+No, and here is how far the enforcement actually goes. The
+summary-not-copy rule (STANDARDS.md) allows only name + paraphrase +
+short attributed quotes under 100 words + a link to the publisher, and
+every skill here is written to it.
+
+Gate 4 (make no-verbatim) enforces that rule in three parts:
+publisher-boilerplate markers for every family whose publisher stamps
+its documents; a source-text comparison (one-way shingle fingerprints
+against the publisher's own documents) for every family whose sources
+are indexed; and objective-table block detection. It scans skills/,
+docs/, README.md, STANDARDS.md and NOTICE.
+
+One family is source-compared today: ECSS, which covers most of the
+library. Eight more get the marker check only, which catches a pasted
+page and would not catch a retyped paragraph. Five are reported
+UNCHECKED, because their sources (US Government works and an open
+specification) carry no boilerplate to match and no source index exists
+for them. An unchecked family is not a proven-clean family, and the
+gate refuses to print PASS over one: every run names each family, the
+number of leaves citing it, and the check it received.
+
+So: no verbatim text is intended, none has been found, and for thirteen
+of the fourteen families "none found" rests on the marker check or on
+nothing at all rather than on a comparison against the source. The
+per-family table is in docs/harness-contract.md; make no-verbatim
+reproduces it on your own checkout.
 
 ## What does "verified" mean?
 
-A skill is marked verified only when make validate passes: 5 REAL
-gates covering spec conformance, description quality, a behavior test
-for DAL determination, the no-verbatim scan, and a Hit@1 routing
-corpus. The run is deterministic and offline. You can replay it:
-clone the repo and run make validate; exit 0 means the gates pass on
-that commit. It means nothing more. It is not certification, not
-approval, and not a guarantee of airworthiness.
+A skill is marked verified when the whole offline battery passes on the
+commit that ships it. make validate runs spec lint, description lint,
+the per-skill behavior contract, the no-verbatim scan, the Hit@1 router
+corpus, verifier independence, release law, numeric portability and
+corpus-fragment naming. make attest adds the number snapshot, the brief
+audit and the content-policy sweep. The run is deterministic and
+offline, and you can replay it: clone the repo, run both, exit 0 means
+the gates pass on that commit.
+
+It means nothing more, and two limits belong in the same breath. The
+Hit@1 corpus carries queries for a minority of the leaves, so most
+skills are spec-linted and behavior-tested but never router-asserted.
+The no-verbatim gate compares source text for one standards family out
+of fourteen; the rest are markers-only or UNCHECKED. Both figures, with
+their complements and the command that produces each, are in
+docs/harness-contract.md.
+
+Verified is not certification, not approval, and not a guarantee of
+airworthiness.
+
+## What does the harness not check?
+
+Four things, stated so that nobody has to infer them.
+
+1. Engineering correctness. A skill's contract test and the logic module
+   it exercises are authored together, so a shared misconception passes
+   both. The gate proves the module behaves as its own contract says.
+2. Routing for a leaf the corpus has no query for. That is most of the
+   library today.
+3. Verbatim reuse in a standards family with no source index. Markers
+   catch a pasted page; nothing catches a retyped paragraph.
+4. Anything covered only by a checker that exists in the tree but is
+   wired into no make target. docs/harness-contract.md lists those by
+   path, because presence is not enforcement.
 
 ## What license is it under?
 

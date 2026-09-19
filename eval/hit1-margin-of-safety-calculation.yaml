@@ -1,0 +1,13 @@
+# Hit@1 fragment: margin-of-safety-calculation (space-systems/ecss)
+# Case 1 routes on which load level and failure mode governs and on reporting the full
+# set. Case 2 routes on allowables already carrying their knockdowns and on buckling
+# taking its own factor.
+tasks:
+  - id: margin-of-safety-calculation-1
+    query: "For an aluminium shear web the ECSS ultimate-margin comes out at plus 0.31 while the yield-margin with a 1.1 factor lands at plus 0.04. Which pair sizes the part, and must the non-governing margins still be reported?"
+    intent: "ECSS-E-ST-32C 4.5.16; the governing case is the smallest across every failure mode and load level pair, and the non-governing pairs still belong in the record"
+    expected_skill: "space-systems/ecss/margin-of-safety-calculation"
+  - id: margin-of-safety-calculation-2
+    query: "My allowable already carries a material scatter knockdown. Do I apply the environmental correction again inside the formula, and does the buckling-margin at each load-level take the same factor as the yield-margin?"
+    intent: "ECSS-E-ST-32C 4.5.16; allowables enter pre-adjusted so corrections inside the formula double count, and buckling carries its own factor rather than the strength sizing rule"
+    expected_skill: "space-systems/ecss/margin-of-safety-calculation"

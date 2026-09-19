@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7021-acceptance-criteria (space-systems/ecss)
+# fa1 routes on the same burned set being graded against two installations;
+# fa2 routes on the short set that is inconclusive rather than a pass, and the
+# drip that ignited the indicator. Both must deterministically hit
+# space-systems/ecss/q7021-acceptance-criteria.
+tasks:
+  - id: fa1
+    query: "three specimens of this tape burned to 120 mm with no dripping, tell me whether that clears the flammability limits for a vented equipment bay and whether the same numbers clear the tighter ones for a volume the crew occupies"
+    intent: "ECSS-Q-ST-70-21C acceptance; burn-length and dripping limits are a property of the installation class, and the verdict is driven by the worst specimen of the set"
+    expected_skill: "space-systems/ecss/q7021-acceptance-criteria"
+  - id: fa2
+    query: "only two of the planned five specimens got burned and one of them shed a flaming drop that lit the paper underneath, work out whether we can report this flammability run as acceptable"
+    intent: "ECSS-Q-ST-70-21C acceptance; a set below the class minimum is inconclusive rather than a pass, and a drip that ignites the indicator fails the specimen in every class"
+    expected_skill: "space-systems/ecss/q7021-acceptance-criteria"

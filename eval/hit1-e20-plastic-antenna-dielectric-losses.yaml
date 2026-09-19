@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-plastic-antenna-dielectric-losses (space-systems/ecss)
+# Case 1 routes on splitting absorbed loss from interface reflection, only one of which heats.
+# Case 2 routes on the frequency and incidence-angle dependence and the part temperature limit.
+tasks:
+  - id: e20-plastic-antenna-dielectric-losses-1
+    query: "A thin untuned radome over our Ka-band horn measures 0.4 dB of insertion loss. How much of that is genuinely absorbed in the plastic and how much is interface reflection, and which share drives the temperature rise of the part?"
+    intent: "ECSS-E-ST-20C 7.2.2.4.3; both terms count against the path budget but only the absorbed share becomes heat, and on a thin low-loss slab the reflection can dominate"
+    expected_skill: "space-systems/ecss/e20-plastic-antenna-dielectric-losses"
+  - id: e20-plastic-antenna-dielectric-losses-2
+    query: "We want to reuse a C-band waveguide window at Ka-band, with the beam striking it 35 degrees off normal. How does the attenuation constant change with frequency and refracted path, and how do I check it against its maximum use temperature?"
+    intent: "ECSS-E-ST-20C 7.2.2.4.3; attenuation scales with frequency and the refracted path is longer than the geometric thickness, and the temperature check is per part rather than per chain"
+    expected_skill: "space-systems/ecss/e20-plastic-antenna-dielectric-losses"

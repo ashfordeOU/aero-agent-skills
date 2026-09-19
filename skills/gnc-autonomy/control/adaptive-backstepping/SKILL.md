@@ -239,4 +239,7 @@ deterministic, 44 test methods). Run:
   standards-map.yaml, as the reference-only control-pack convention shared
   with backstepping-control, adaptive-control, l1-adaptive-control,
   pid-control-design, observer-design and sliding-mode-control.
+- Revision note: ARP4754B (2023) supersedes ARP4754A; this skill keys to
+  ARP4754A as the certification-baseline revision (FAA AC 20-174 cites A);
+  see standards-map.yaml arp4754a.revision_decision.
 - compliance: STANDARDS-REF, gated: false.

@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-battery-user-manual-contents (space-systems/ecss)
+# Case 1 routes on chapter coverage plus a storage state the chemistry does not allow.
+# Case 2 routes on converting the mission duty profile into the cycle count demanded.
+tasks:
+  - id: e20-battery-user-manual-contents-1
+    query: "Our supplier handbook says to store the lithium-ion assembly at full state-of-charge, and one chapter is headed general notes. How do I grade an unrecognized chapter against the mandated list, and that storage state against the band its chemistry allows?"
+    intent: "ECSS-E-ST-20C Annex D; the case turns on refusing an unrecognized chapter heading while separately grading the declared storage state against the chemistry band"
+    expected_skill: "space-systems/ecss/e20-battery-user-manual-contents"
+  - id: e20-battery-user-manual-contents-2
+    query: "Our duty-profile gives about 5,900 orbits a year with 62 percent of them eclipsed, over six years plus a year in storage. The handbook declares 30,000 cycles at 25 percent depth of discharge. Does its cycle-life and calendar-life cover that?"
+    intent: "ECSS-E-ST-20C Annex D; the case turns on deriving demanded cycles from the eclipse fraction rather than orbit count, and on calendar life covering storage too"
+    expected_skill: "space-systems/ecss/e20-battery-user-manual-contents"

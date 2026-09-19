@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7028-laminate-and-hole-repair (space-systems/ecss)
+# Two tasks for the new leaf. lhr1 routes on the clearance-envelope half of the
+# decision, which area-only grading misses; lhr2 routes on the barrel wall left
+# after removal and replating and on the diameter the cleaning grew.
+# Both must deterministically hit
+# space-systems/ecss/q7028-laminate-and-hole-repair.
+tasks:
+  - id: lhr1
+    query: "there is a small blister in the base material of this board but it sits right between two tracks, tell me whether that is still a repairable defect or whether the board is scrap"
+    intent: "ECSS-Q-ST-70-28 repair methods; a delamination is graded on area fraction AND on whether it has entered the conductor clearance envelope, so a small defect between conductors is a refusal"
+    expected_skill: "space-systems/ecss/q7028-laminate-and-hole-repair"
+  - id: lhr2
+    query: "we cleaned the damaged plating out of a through hole and replated it, work out whether the barrel that is left is still thick enough or whether this one needs an eyelet"
+    intent: "ECSS-Q-ST-70-28 repair methods; barrel wall after repair is original minus removed plus replated, and finished-diameter growth refuses the hole before the wall is even considered"
+    expected_skill: "space-systems/ecss/q7028-laminate-and-hole-repair"

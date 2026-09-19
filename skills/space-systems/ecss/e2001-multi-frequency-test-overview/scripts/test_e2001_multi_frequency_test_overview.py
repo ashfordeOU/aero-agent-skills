@@ -274,9 +274,18 @@ class TestSustainedLevel(unittest.TestCase):
         self.assertAlmostEqual(level / 1920.0, 1.0, places=5)
 
     def test_level_is_never_below_the_average(self):
+        # "Never below" has two sides, so exercise both. With the onset
+        # longer than the widest dwell the floor binds and the level IS the
+        # average - 120 W times 4 carriers, an exact product - so assert the
+        # equality rather than a >= whose two operands coincide. With a
+        # short onset the bisection lands well clear of the floor.
+        average = 120.0 * 4.0
         onset = multipactor_onset_time_s(1.0e9)
-        self.assertGreaterEqual(
-            sustained_envelope_level_w(4, 120.0, 1.0e9, onset), 480.0
+        self.assertEqual(
+            sustained_envelope_level_w(4, 120.0, 1.0e9, onset), average
+        )
+        self.assertGreater(
+            sustained_envelope_level_w(4, 120.0, 1.0e9, 1.0e-10), average
         )
 
     def test_zero_onset_time_rejected(self):

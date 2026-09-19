@@ -212,8 +212,17 @@ class ResidualProbabilityTests(unittest.TestCase):
 
     def test_residual_never_falls_below_the_independent_product(self):
         product = 2.0e-4 * 5.0e-4
-        for beta in (0.0, 0.1, 0.5, 1.0):
-            self.assertGreaterEqual(
+        # With no shared cause the model IS the independent product: the
+        # shared term is exactly zero and (1 - 0) ** 2 is exactly one, so
+        # both sides are the same float on every platform - an equality,
+        # not a bound. Any shared cause adds a term orders of magnitude
+        # larger than the product, so the residual then sits strictly
+        # above it.
+        self.assertEqual(
+            residual_stuck_on_probability(2.0e-4, 5.0e-4, 0.0), product
+        )
+        for beta in (0.1, 0.5, 1.0):
+            self.assertGreater(
                 residual_stuck_on_probability(2.0e-4, 5.0e-4, beta), product
             )
 

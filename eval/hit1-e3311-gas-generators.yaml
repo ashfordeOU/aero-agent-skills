@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3311-gas-generators (space-systems/ecss)
+# egg1 routes on the closed-volume pressure computed from grain mass and gas
+# yield; egg2 routes on the two worst-case corners against actuation and
+# burst. Both must deterministically hit
+# space-systems/ecss/e3311-gas-generators.
+tasks:
+  - id: egg1
+    query: "size the pyrotechnic gas generator for the actuator cavity, I have grain mass, the specific gas yield in moles per gram and the flame temperature, work out the pressure it develops in the free volume and whether it moves the piston"
+    intent: "ECSS-E-ST-33-11C clause 4.11.6; moles from grain mass and specific yield, closed-volume pressure at the delivered gas temperature, actuation margin"
+    expected_skill: "space-systems/ecss/e3311-gas-generators"
+  - id: egg2
+    query: "check the gas generator at both ends of its conditioning range, cold light grain into the biggest cavity and hot heavy grain into the smallest, and tell me if the hot corner stays under the receiver working pressure with burst margin"
+    intent: "ECSS-E-ST-33-11C clause 4.11.6; cold and hot worst-case corners, working pressure and burst margin, rise time, gas temperature and particulate"
+    expected_skill: "space-systems/ecss/e3311-gas-generators"

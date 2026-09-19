@@ -1,0 +1,12 @@
+# Hit@1 fragment: copc-metallic-liner (space-systems/ecss)
+# Case 1 routes on the two separate stress gates: elastic at proof, positive margin in service.
+# Case 2 routes on the fracture-mechanics leak demonstration and the cycle scatter factor.
+tasks:
+  - id: copc-metallic-liner-1
+    query: "Our overwrapped container has a 2219 aluminium liner. The hoop stress stays comfortably under yield at the proof condition, but the margin at MEOP comes out slightly negative. Is the COPC liner still acceptable, or does that block qualification?"
+    intent: "ECSS-E-ST-32 4.5.2; remaining elastic at proof and holding a positive margin at the sustained operating condition are two independent gates on the metallic liner"
+    expected_skill: "space-systems/ecss/copc-metallic-liner"
+  - id: copc-metallic-liner-2
+    query: "For a Ti-6Al-4V lined COPC the critical semi-elliptical flaw depth from the toughness works out shallower than the liner wall, and cycling gave 4,000 cycles against a 1,200 cycle mission need. Does leak before burst hold, and is the cycle budget covered?"
+    intent: "ECSS-E-ST-32 4.5.2; the leak demonstration turns on critical flaw depth exceeding wall thickness, and the cycle budget needs a scatter factor of at least four"
+    expected_skill: "space-systems/ecss/copc-metallic-liner"

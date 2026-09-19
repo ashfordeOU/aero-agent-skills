@@ -6,8 +6,8 @@
 # space-systems/ecss/e3311-electrical-requirements.
 tasks:
   - id: eer1
-    query: "our initiator has a no-fire current in the datasheet and the circuit analysis gives a worst case stray current into the same pins, work out whether that leaves enough and whether the firing lines are wired the way they have to be"
-    intent: "ECSS-E-ST-33-11C clause 4.8.2; stray current graded as a fraction of the no-fire current plus the firing-line wiring controls"
+    query: "screen each path able to put energy into the bridgewire on this initiator: worst case stray current, radio-frequency pickup turned into delivered power, how much energy an electrostatic discharge stores pin to case, and the nuclear pulse margin, then the firing-line wiring"
+    intent: "ECSS-E-ST-33-11C clause 4.8.2; every energy path into the bridgewire screened together - stray current against no-fire, radio-frequency pickup, electrostatic discharge and nuclear pulse - plus the firing-line wiring controls"
     expected_skill: "space-systems/ecss/e3311-electrical-requirements"
   - id: eer2
     query: "take the radiated field level for the bay, the length of the twisted pair going to the squib and the bridgewire resistance, and tell me how much power actually lands on the bridgewire against its no-fire power"

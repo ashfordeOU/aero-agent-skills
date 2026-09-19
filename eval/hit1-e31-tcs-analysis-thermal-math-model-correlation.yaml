@@ -1,0 +1,15 @@
+# Hit@1 fragment: e31-tcs-analysis-thermal-math-model-correlation
+# (space-systems/ecss). tmm1 routes on the radiative balance and the radiator
+# area the sink actually demands; tmm2 routes on the transient stability limit
+# and on attributing a residual to a model parameter inside its credible range.
+# Both must deterministically hit
+# space-systems/ecss/e31-tcs-analysis-thermal-math-model-correlation.
+tasks:
+  - id: tmm1
+    query: "close the steady balance for this radiator with the shroud at the sink we actually have rather than at zero, and tell me how much area the load needs to stay under its temperature limit"
+    intent: "ECSS-E-ST-31C clause 4.5.1; fourth-power radiative balance with a non-zero sink and the inverted area sizing at the limit"
+    expected_skill: "space-systems/ecss/e31-tcs-analysis-thermal-math-model-correlation"
+  - id: tmm2
+    query: "the model reads four kelvin high across the sensors, work out which coupling I can adjust to absorb that and whether the change stays inside what the parameter is credibly known to, and check my transient step is stable"
+    intent: "ECSS-E-ST-31C clause 4.5.2.1; residual statistics, parameter attribution against a credible range, and the explicit step against the linearised radiative time constant"
+    expected_skill: "space-systems/ecss/e31-tcs-analysis-thermal-math-model-correlation"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e2021-actuator-voltage-withstand (space-systems/ecss)
+# Two tasks for the new leaf. avw1 routes on the per-side terminal voltage and the
+# smallest-line-drop worst case; avw2 routes on the cross-strapped case where both
+# drive sides are energised and the drop halves. Both must deterministically hit
+# space-systems/ecss/e2021-actuator-voltage-withstand.
+tasks:
+  - id: avw1
+    query: "the actuator datasheet gives one withstand voltage but the unit is fed from two sides with different harness lengths, work out what each side actually puts on the terminals at the top of the bus range"
+    intent: "ECSS-E-ST-20-21C clause 5.6.2; per-side terminal voltage from the bus upper envelope and the smallest credible line drop, governing side named"
+    expected_skill: "space-systems/ecss/e2021-actuator-voltage-withstand"
+  - id: avw2
+    query: "if a command error energises the nominal and redundant drives at the same time does the actuator see more voltage than either side alone, and does it still hold off its rating"
+    intent: "ECSS-E-ST-20-21C clause 5.6.2; both paths in parallel lower the drop and raise the terminal voltage above either single-side case"
+    expected_skill: "space-systems/ecss/e2021-actuator-voltage-withstand"

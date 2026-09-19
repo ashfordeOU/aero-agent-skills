@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-crimp-tool-control (space-systems/ecss)
+# tc1 routes on tool, die and positioner certification for a named contact;
+# tc2 routes on the two-way calibration allowance. Both must deterministically
+# hit space-systems/ecss/q7026-crimp-tool-control.
+tasks:
+  - id: tc1
+    query: "an operator has fitted a positioner borrowed from the next bench onto a certified crimp frame, decide whether that tool and die set is still certified for the contact part number and conductor in front of it"
+    intent: "ECSS-Q-ST-70-26C tooling clause; the crimp tool is certified as a tool, die and positioner set for a contact family and a conductor cross-section range"
+    expected_skill: "space-systems/ecss/q7026-crimp-tool-control"
+  - id: tc2
+    query: "this crimp tool is still in date on its calibration sticker but has done nine thousand five hundred crimps since it was last calibrated, work out whether it can be drawn today and which allowance actually governs"
+    intent: "ECSS-Q-ST-70-26C tooling clause; calibration consumed by elapsed days and accumulated cycles together, whichever runs out first, with released, book-for-calibration and overdue states"
+    expected_skill: "space-systems/ecss/q7026-crimp-tool-control"

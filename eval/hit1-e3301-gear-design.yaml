@@ -1,0 +1,13 @@
+# Hit@1 fragment: e3301-gear-design (space-systems/ecss)
+# egd1 routes on tooth bending and flank durability for a cycle count; egd2
+# routes on the thermal backlash sweep and the lubricant screen. Both must
+# deterministically hit space-systems/ecss/e3301-gear-design.
+tasks:
+  - id: egd1
+    query: "size the tooth strength on this drive stage, module 0.8 pinion of twenty teeth carrying 1.2 newton metres, and tell me whether the root bending and the flank durability both hold up for twenty million tooth load cycles"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.7; Lewis bending and Hertzian flank contact stress against life-derated allowables"
+    expected_skill: "space-systems/ecss/e3301-gear-design"
+  - id: egd2
+    query: "the steel mesh sits in an aluminium housing and goes to minus forty, tell me what backlash is left at the cold end and whether the grease we picked is still rated at that temperature and at the flank stress we are running"
+    intent: "ECSS-E-ST-33-01C clause 4.7.5.4.7; backlash across the thermal range from the expansion mismatch, plus lubricant temperature, stress and substrate compatibility"
+    expected_skill: "space-systems/ecss/e3301-gear-design"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3102-diode-heat-pipe-verification (space-systems/ecss)
+# dhp1 routes on the forward-to-reverse conductance ratio; dhp2 routes on the
+# switch transient, its settling instant and the energy that leaks through it.
+# Both must deterministically hit
+# space-systems/ecss/e3102-diode-heat-pipe-verification.
+tasks:
+  - id: dhp1
+    query: "the one-way pipe meets its forward watts easily but I need to know how much it still passes the wrong way and whether the forward-to-reverse ratio meets spec"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2c; forward and reverse conductance from measured heat and rise, diodicity ratio, and reverse leak at the service temperature difference"
+    expected_skill: "space-systems/ecss/e3102-diode-heat-pipe-verification"
+  - id: dhp2
+    query: "here is the sampled reverse power transient while the heat pipe turns itself off; it dips early then recovers before settling, so find the settling crossing properly and integrate the leak up to it rather than over the whole record"
+    intent: "ECSS-E-ST-31-02C clause 5.5.5.2c; last-descent mode switch time from a sampled transient and the trapezoidal switch energy truncated at the crossing"
+    expected_skill: "space-systems/ecss/e3102-diode-heat-pipe-verification"

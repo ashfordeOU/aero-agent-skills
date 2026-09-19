@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-reflector-material-properties (space-systems/ecss)
+# Case 1 routes on coating thickness against skin depth and the conduction loss.
+# Case 2 routes on mesh geometric leakage and the surface-error gain penalty.
+tasks:
+  - id: e20-reflector-material-properties-1
+    query: "Our dish is a metallised CFRP shell with a 2 micron aluminium coating working from 4 to 8 GHz. Do I size that coating against skin-depth at 4 GHz or at 8 GHz, and how do I get the surface-resistance and the ohmic-reflection-loss it costs?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.2; skin depth is widest at the low edge so that is the sizing case, and the conduction penalty comes from the RF surface resistance rather than a probe measurement"
+    expected_skill: "space-systems/ecss/e20-reflector-material-properties"
+  - id: e20-reflector-material-properties-2
+    query: "We are trading a knitted-metal-mesh reflector against a solid shell. How does leakage through the cell-opening and wire-radius set the loss, and how do I turn our predicted thermoelastic surface-rms-error into a Ruze gain penalty at 20 GHz?"
+    intent: "ECSS-E-ST-20C 7.2.2.3.2; mesh loss is dominated by geometric leakage rather than wire conductivity, and the Ruze penalty depends on the error measured in wavelengths"
+    expected_skill: "space-systems/ecss/e20-reflector-material-properties"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-mixed-housekeeping-and-payload-data (space-systems/ecss)
+# Two tasks for the new leaf. mhp1 routes on housekeeping latency behind a payload
+# transfer unit; mhp2 routes on the payload volume left after the cadence is paid.
+# Both must deterministically hit the mixed housekeeping and payload leaf.
+tasks:
+  - id: mhp1
+    query: "housekeeping telemetry has to go out every second but the imager is halfway through a long transfer unit on the same downlink, how late can the health report be and how big can those units be"
+    intent: "ECSS-E-ST-50C clause 5.6.10; housekeeping latency is the payload unit it waits behind plus its own serialisation, and the unit cap follows from the latency budget"
+    expected_skill: "space-systems/ecss/e50-mixed-housekeeping-and-payload-data"
+  - id: mhp2
+    query: "our housekeeping reports slip because a bulk payload transfer unit is already in progress; compute the reservation housekeeping needs, the delay that in-progress unit imposes, the payload volume left in a ten minute contact, and which unit cap restores both"
+    intent: "ECSS-E-ST-50C clause 5.6.10; the housekeeping reservation is frame over cadence, and payload success is the remaining rate multiplied by the contact length"
+    expected_skill: "space-systems/ecss/e50-mixed-housekeeping-and-payload-data"

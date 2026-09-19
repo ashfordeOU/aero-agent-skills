@@ -1,0 +1,12 @@
+# Hit@1 fragment: e20-failure-propagation-general-requirements (space-systems/ecss)
+# Case 1 routes on crediting a barrier for a fault family on a coupling path.
+# Case 2 routes on the selectivity margins of a credited protection device.
+tasks:
+  - id: e20-failure-propagation-general-requirements-1
+    query: "An overcurrent fault inside one unit shares a secondary power return and a harness bundle with its neighbour. How do I decide whether the declared barrier really contains that fault on that path, or whether the pair stays uncontained?"
+    intent: "ECSS-E-ST-20C 4.2.1.1; a barrier is credited only where it covers that fault family on that coupling path"
+    expected_skill: "space-systems/ecss/e20-failure-propagation-general-requirements"
+  - id: e20-failure-propagation-general-requirements-2
+    query: "The series fuse is rated 3 A, steady demand is 2.1 A and the upstream converter current-limits at 4 A. Does that clear selectively before the source folds back, or does the fuse itself become a finding while the containment topology looked fine?"
+    intent: "ECSS-E-ST-20C 4.2.1.1; protection selectivity margins judged separately from the containment topology"
+    expected_skill: "space-systems/ecss/e20-failure-propagation-general-requirements"

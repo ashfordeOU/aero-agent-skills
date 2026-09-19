@@ -1,0 +1,12 @@
+# Hit@1 fragment: e2001-multipactor-nominal-power-definition (space-systems/ecss)
+# Case 1 routes on the carrier combination rule that sets the declared figure. Case 2 routes on
+# the reference plane and the bias-and-uncertainty budget the declaration has to cover.
+tasks:
+  - id: e2001-multipactor-nominal-power-definition-1
+    query: "Our output multiplexer sees eight carriers of 20 W each, and their phases can line up. What single power figure goes into the requirement as the level at which the unit has to remain multipactor-free, and how far over the averaged sum does that sit?"
+    intent: "ECSS-E-ST-20-01C 4.3.1.1; carriers combine on amplitude so an alignable set peaks well above its average sum, and the declared figure has to be that worst case"
+    expected_skill: "space-systems/ecss/e2001-multipactor-nominal-power-definition"
+  - id: e2001-multipactor-nominal-power-definition-2
+    query: "Between the amplifier and the filter there is 0.4 dB of harness loss and 0.3 dB of measurement uncertainty. Should we declare a multipactor-free power equal to the nominal drive or to the worst case after that budget, and at which plane?"
+    intent: "ECSS-E-ST-20-01C 4.3.1.1; the figure is stated at the equipment input, signed biases add algebraically and uncertainty magnitudes only ever widen the worst case"
+    expected_skill: "space-systems/ecss/e2001-multipactor-nominal-power-definition"

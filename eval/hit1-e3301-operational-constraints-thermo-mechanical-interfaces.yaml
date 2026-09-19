@@ -1,0 +1,16 @@
+# Hit@1 fragment: e3301-operational-constraints-thermo-mechanical-interfaces
+# (space-systems/ecss). ocm1 routes on the constraints the neighbours impose on
+# a moving mechanism - deposition over life, a dipole that reorients, bonding
+# across a rotating joint. ocm2 routes on the bolted mounting interface, where
+# expansion mismatch becomes displacement and induced load. Both must
+# deterministically hit
+# space-systems/ecss/e3301-operational-constraints-thermo-mechanical-interfaces.
+tasks:
+  - id: ocm1
+    query: "the optics team gave our rotating mechanism a deposition allowance and the magnetometer team gave us a dipole allowance at one metre, work out whether we stay inside both over fifteen years and whether the bonding path across the bearing is acceptable as continuity"
+    intent: "ECSS-E-ST-33-01C clause 4.5.3; accumulated contamination against the allowance, static plus moving-part dipole at the declared separation, grounding paths that cross a moving interface"
+    expected_skill: "space-systems/ecss/e3301-operational-constraints-thermo-mechanical-interfaces"
+  - id: ocm2
+    query: "our titanium mechanism bolts to an aluminium panel over two hundred millimetres and swings forty kelvin, tell me the expansion mismatch at the mounting interface, the load it drives through the interface stiffness and the heat it conducts, against the budgets we were given"
+    intent: "ECSS-E-ST-33-01C clause 4.6; thermo-mechanical interface displacement, thermally induced interface load and conducted flux against their budgets"
+    expected_skill: "space-systems/ecss/e3301-operational-constraints-thermo-mechanical-interfaces"

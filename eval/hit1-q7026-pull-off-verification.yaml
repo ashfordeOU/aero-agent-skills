@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-pull-off-verification (space-systems/ecss)
+# Two tasks for the new leaf. po1 routes on the destructive pull test sample and
+# lot decision; po2 routes on a conductor that pulled out of the barrel above the
+# minimum force. Both must deterministically hit
+# space-systems/ecss/q7026-pull-off-verification.
+tasks:
+  - id: po1
+    query: "The crimp pull-off results are in. Work out how many specimens this lot size demands, check each recorded force against the minimum for that wire gauge, and say what the next lot's sample rate becomes."
+    intent: "ECSS-Q-ST-70-26 quality; pull-off sample rate by lot size, lot acceptance on the recorded forces against the minimum for the gauge, and the escalated rate the next lot owes"
+    expected_skill: "space-systems/ecss/q7026-pull-off-verification"
+  - id: po2
+    query: "one specimen cleared the minimum force but the wire pulled out of the barrel instead of breaking, and the sample was two short of the plan"
+    intent: "ECSS-Q-ST-70-26 quality; pull-out versus conductor break and an undersized pull test sample"
+    expected_skill: "space-systems/ecss/q7026-pull-off-verification"

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7005-detection-limits (space-systems/ecss)
+# Two tasks for the new leaf. dtl1 routes on the blank-replicate standard
+# deviation and the two limits expressed in areal units; dtl2 routes on the
+# quadrature combination and the interval that straddles an allocation. Both
+# must deterministically hit space-systems/ecss/q7005-detection-limits.
+tasks:
+  - id: dtl1
+    query: "eleven replicate blanks went through the infrared method and I have the calibration slope; report the detection limit, then the quantification limit, both as areal mass, from the blank replicate spread and the usual multipliers"
+    intent: "ECSS-Q-ST-70-05C quantification; three and ten times the blank sample standard deviation, converted through the calibration slope and the dilution, recovery and area chain"
+    expected_skill: "space-systems/ecss/q7005-detection-limits"
+  - id: dtl2
+    query: "the reading sits just under my allocation, but the recovery and the calibration slope each carry a few percent; add those relative components in quadrature, expand them, and say whether the uncertainty leaves this result quantified and compliant"
+    intent: "ECSS-Q-ST-70-05C quantification; relative components combined in quadrature, expanded by a stated coverage factor, and an interval spanning the allocation decides nothing"
+    expected_skill: "space-systems/ecss/q7005-detection-limits"

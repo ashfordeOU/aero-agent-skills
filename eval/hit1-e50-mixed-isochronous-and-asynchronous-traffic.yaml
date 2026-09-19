@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-mixed-isochronous-and-asynchronous-traffic (space-systems/ecss)
+# Two tasks for the new leaf. mia1 routes on the cadence jitter a non-preemptible
+# bulk transfer injects; mia2 routes on best-effort starvation behind the reservation.
+# Both must deterministically hit the mixed isochronous and asynchronous leaf.
+tasks:
+  - id: mia1
+    query: "our isochronous attitude frames have to leave at a fixed cadence while a bulk best-effort transfer is already mid-unit on the same link and cannot be preempted; how much jitter does that serialisation cost, and how far must we segment the bulk traffic"
+    intent: "ECSS-E-ST-50C clause 5.6.9; worst-case cadence jitter is the serialisation time of the largest non-preemptible best-effort unit, so the remedy is a unit cap or a preemptible link"
+    expected_skill: "space-systems/ecss/e50-mixed-isochronous-and-asynchronous-traffic"
+  - id: mia2
+    query: "after the periodic flows reserve their slots on the link, is there enough capacity left to actually clear the best-effort queue or are we quietly starving it"
+    intent: "ECSS-E-ST-50C clause 5.6.9; the reservation is the sum of frame over period per periodic flow, and the best-effort offered load has to fit the capacity that remains"
+    expected_skill: "space-systems/ecss/e50-mixed-isochronous-and-asynchronous-traffic"

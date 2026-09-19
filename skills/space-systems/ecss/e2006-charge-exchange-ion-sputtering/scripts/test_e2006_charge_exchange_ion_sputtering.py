@@ -89,10 +89,16 @@ class SputterYieldTests(unittest.TestCase):
         self.assertAlmostEqual(sputter_yield("aluminium-alloy", 20.0), 0.0)
 
     def test_threshold_representation_error_is_absorbed(self):
-        # A few ULPs above the 15 eV threshold of the blanket material is
-        # still the threshold, not an eroding impact.
-        energy = 15.0 * (1.0 + 2.0 ** -50)
-        self.assertGreater(energy, 15.0)
+        # A few units in the last place above the 15 eV threshold of the
+        # blanket material is still the threshold, not an eroding impact.
+        # The offset is built with integer arithmetic and a division, so
+        # it is exactly two to the minus fifty on every platform - 2.0 **
+        # -50 would have gone through libm pow. Assert the size of the
+        # excess, not the rounding direction; the threshold is unchanged.
+        energy = 15.0 * (1.0 + 1.0 / 2 ** 50)
+        excess = energy - 15.0
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         self.assertAlmostEqual(sputter_yield("polyimide-blanket", energy), 0.0)
 
     def test_yield_increases_with_energy(self):
@@ -121,7 +127,13 @@ class ExposureCategorizationTests(unittest.TestCase):
         self.assertEqual(categorize_ion_exposure(8.0, 20.0), DIRECT_BEAM_EXPOSURE)
 
     def test_surface_at_the_cone_edge_within_representation_is_direct(self):
-        self.assertGreater(0.1 + 0.2, 0.3)
+        # 0.1 + 0.2 is one correctly rounded IEEE-754 addition, so it
+        # overshoots 0.3 by the same sliver everywhere. Assert the size of
+        # that overshoot rather than the rounding direction; the cone
+        # half-angle is unchanged and the excess is absorbed.
+        excess = (0.1 + 0.2) - 0.3
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         self.assertEqual(
             categorize_ion_exposure(0.1 + 0.2, 0.3), DIRECT_BEAM_EXPOSURE
         )
@@ -229,7 +241,12 @@ class ErosionAllowanceTests(unittest.TestCase):
 
     def test_representation_error_at_the_allowance_is_absorbed(self):
         depth = 0.1 + 0.2
-        self.assertGreater(depth, 0.3)
+        # One correctly rounded IEEE-754 addition: the same sliver over
+        # the 0.3 um allowance on every platform. Assert its size, not the
+        # rounding direction. The allowance itself is unchanged.
+        excess = depth - 0.3
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         check = check_erosion_allowance(depth, 0.3)
         self.assertTrue(check["compliant"])
 

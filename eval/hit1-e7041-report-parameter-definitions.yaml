@@ -1,0 +1,15 @@
+# Hit@1 fragment: e7041-report-parameter-definitions (space-systems/ecss)
+# Two tasks for the new leaf. rpd1 routes on answering a request for where
+# named parameters actually live, including the identifiers the store does not
+# hold; rpd2 routes on the binding each entry must carry and the transfer
+# totals. Both must deterministically hit
+# space-systems/ecss/e7041-report-parameter-definitions.
+tasks:
+  - id: rpd1
+    query: "ground asked the spacecraft which object memory and bit offset six named parameters are defined at and two of those identifiers were never defined on board, work out whether that request is failed outright or only for those two and what comes back"
+    intent: "ECSS-E-ST-70-41C clause 6.20.5.4; identifier resolution against the definition store and the partial-acceptance verdict"
+    expected_skill: "space-systems/ecss/e7041-report-parameter-definitions"
+  - id: rpd2
+    query: "assemble the parameter definition report that answers an empty request, with every entry carrying its memory, offset, type and width plus the totals a receiver needs to spot a truncated downlink"
+    intent: "ECSS-E-ST-70-41C clause 6.20.5.4; one entry per definition carrying the whole binding, plus the definition count and total reported width"
+    expected_skill: "space-systems/ecss/e7041-report-parameter-definitions"

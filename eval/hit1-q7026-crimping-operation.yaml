@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7026-crimping-operation (space-systems/ecss)
+# Two tasks for the new leaf. co1 routes on running and grading the crimp cycle
+# itself; co2 routes on the die/positioner and selector setup plus a tool past its
+# cycle interval. Both must deterministically hit
+# space-systems/ecss/q7026-crimping-operation.
+tasks:
+  - id: co1
+    query: "run the crimp cycle and grade it: was the full cycle completed, did the barrel take exactly one crimp, and is the resulting height over or under crimped"
+    intent: "ECSS-Q-ST-70-26 process; crimp cycle completion and two-sided compression"
+    expected_skill: "space-systems/ecss/q7026-crimping-operation"
+  - id: co2
+    query: "confirm the die and positioner match the contact part and the selector matches the gauge, and decide what to do about a crimp tool past its cycle interval"
+    intent: "ECSS-Q-ST-70-26 process; tooling selection, selector setting and tool calibration currency"
+    expected_skill: "space-systems/ecss/q7026-crimping-operation"

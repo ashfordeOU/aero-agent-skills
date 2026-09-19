@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7045-test-validity-checks (space-systems/ecss)
+# Two tasks for the new leaf. tvc1 routes on where along the gauge length the
+# specimen broke and what the appearance was; tvc2 routes on the run anomalies
+# and the lot disposition on valid specimens only. Both must deterministically
+# hit space-systems/ecss/q7045-test-validity-checks.
+tasks:
+  - id: tvc1
+    query: "two coupons broke right at the jaw and one broke twenty millimetres off centre inside the gauge length, tell me which results I can keep and what the off-centre one does to the elongation"
+    intent: "ECSS-Q-ST-70-45 acceptance; fracture inside or outside the gauge length, the outer region owing the displaced-gauge treatment, and a fixture-governed fracture appearance"
+    expected_skill: "space-systems/ecss/q7045-test-validity-checks"
+  - id: tvc2
+    query: "on one tensile specimen the force stepped down a quarter before maximum force while the crosshead kept rising, and another saw a seven kelvin soak overshoot; how many specimens stay valid, and does the lot repeat or fail on those alone"
+    intent: "ECSS-Q-ST-70-45 acceptance; pre-peak force discontinuity and soak excursion as invalidating anomalies, and lot disposition counting valid specimens only"
+    expected_skill: "space-systems/ecss/q7045-test-validity-checks"

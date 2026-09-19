@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7021-equipment-and-facility-control (space-systems/ecss)
+# fc1 routes on the delivered blend versus the set point, with the diluent
+# impurity the deciding term; fc2 routes on calibration graded against the
+# planned test date and the igniter windows. Both must deterministically hit
+# space-systems/ecss/q7021-equipment-and-facility-control.
+tasks:
+  - id: fc1
+    query: "the rig is set to three litres of oxygen against seven of nitrogen for a 30 percent flammability run, but the nitrogen is only industrial grade, work out what concentration the chamber actually sees and whether it is inside tolerance"
+    intent: "ECSS-Q-ST-70-21C facility control; the delivered oxygen fraction follows from the supply purities and set flows, and the oxygen carried in the diluent counts against a narrow two-sided tolerance"
+    expected_skill: "space-systems/ecss/q7021-equipment-and-facility-control"
+  - id: fc2
+    query: "our flammability campaign is booked for September and the oxygen analyser certificate runs out in June, plus the burner flame is measuring 12 mm, tell me whether the facility can run the screening"
+    intent: "ECSS-Q-ST-70-21C facility control; calibration is graded against the planned test date rather than today, and the igniter flame height has to sit inside its window"
+    expected_skill: "space-systems/ecss/q7021-equipment-and-facility-control"

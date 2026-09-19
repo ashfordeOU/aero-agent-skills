@@ -1,0 +1,15 @@
+# Hit@1 fragment: e3311-cutters-explosively-actuated-valves (space-systems/ecss)
+# Two tasks for the new leaf. cv1 routes on the shear section a bundle or tube
+# actually presents to the blade and the anvil the cut needs; cv2 routes on the
+# ram force a valve owes against line pressure and the seat it has to hold
+# afterwards. Both must deterministically hit
+# space-systems/ecss/e3311-cutters-explosively-actuated-valves.
+tasks:
+  - id: cv1
+    query: "we are severing a nineteen strand cable and a thin walled tube with cartridge driven blades, work out the section each one really shears and whether the cartridge has the energy to get the blade all the way through"
+    intent: "ECSS-E-ST-33-11C clause 4.12.5; summed strand area for a bundle and the annulus for a tube, cut energy over blade travel against delivered cartridge work, plus the anvil reaction"
+    expected_skill: "space-systems/ecss/e3311-cutters-explosively-actuated-valves"
+  - id: cv2
+    query: "size the ram on our normally closed pyro valve against the worst case line pressure on the seat plus the seal drag, and tell me what leak rate the seat is allowed to show once it has fired"
+    intent: "ECSS-E-ST-33-11C clause 4.12.6; line pressure across the seat area plus seal break friction as the required ram force, with the post-actuation leak rate graded next to it"
+    expected_skill: "space-systems/ecss/e3311-cutters-explosively-actuated-valves"

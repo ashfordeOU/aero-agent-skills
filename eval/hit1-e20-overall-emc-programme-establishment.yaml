@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-overall-emc-programme-establishment (space-systems/ecss)
+# Case 1 routes on deriving the required area set from this mission's profile
+# rather than inheriting a table. Case 2 routes on the establishment milestone
+# and the named owner each declared activity owes.
+tasks:
+  - id: e20-overall-emc-programme-establishment-1
+    query: "We copied the compatibility activity table from the last satellite, but this one carries an ordnance train and a magnetometer. Which areas does that profile pull in, and can I claim coverage from the old table?"
+    intent: "ECSS-E-ST-20C clause 6.2.1; the mission profile pulls in areas beyond the unconditional set, so inherited coverage is coverage of the wrong set"
+    expected_skill: "space-systems/ecss/e20-overall-emc-programme-establishment"
+  - id: e20-overall-emc-programme-establishment-2
+    query: "Our plan names the prime's engineering department as compatibility authority and fixes the grounding concept only at CDR. Is a critical design review milestone too late for something the harness routing depends on, and does a department count as an owner?"
+    intent: "ECSS-E-ST-20C clause 6.2.1; each area has a last milestone at which it can still drive the design, and the authority is a named role rather than an organisation"
+    expected_skill: "space-systems/ecss/e20-overall-emc-programme-establishment"

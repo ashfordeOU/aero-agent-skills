@@ -1,0 +1,12 @@
+# Hit@1 fragment: drd-fatigue-analysis (space-systems/ecss)
+# Case 1 routes on the deliverable's mandatory content and what is missing from a supplier report.
+# Case 2 routes on the scatter divisor and the life margin verdict at one location.
+tasks:
+  - id: drd-fatigue-analysis-1
+    query: "Reviewing a supplier deliverable for a launcher thrust frame. It shows an S-N curve and a damage sum but never says which cycle counting scheme produced the blocks, nor where the material curve came from. What content is that report obliged to carry before I accept it?"
+    intent: "ECSS-E-ST-32C Annex D DRD-FA; the report deliverable has a mandatory content list and a missing counting method or data source is an acceptance finding"
+    expected_skill: "space-systems/ecss/drd-fatigue-analysis"
+  - id: drd-fatigue-analysis-2
+    query: "Linear damage summation at a bracket attachment hole comes to 0.6 over the mission. With the metallic scatter divisor of 4 taken off the predicted life, how do I express the margin against required design life, and when is the location not cleared?"
+    intent: "ECSS-E-ST-32C Annex D DRD-FA; the predicted life is divided by the scatter factor before the life margin is formed against required design life"
+    expected_skill: "space-systems/ecss/drd-fatigue-analysis"

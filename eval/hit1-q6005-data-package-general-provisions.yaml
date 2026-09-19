@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-data-package-general-provisions (space-systems/ecss,
+# Q-ST-60-05 13.2.1). Two tasks per leaf; gp1 routes on the delivery medium
+# and the retention period, gp2 on the page reconciliation, the document
+# identification fields and the provision index. Both must deterministically
+# hit space-systems/ecss/q6005-data-package-general-provisions.
+tasks:
+  - id: gp1
+    query: "check the data-package-general-provisions of a hybrid lot: the hybrid-data-package-medium-grade each document category demands and the hybrid-data-package-retention-shortfall"
+    intent: "ecss hybrids; the format and retention rules the accompanying record set obeys"
+    expected_skill: "space-systems/ecss/q6005-data-package-general-provisions"
+  - id: gp2
+    query: "run the hybrid-data-package-page-reconciliation over a delivered record set, test the hybrid-document-identification-fields and return the hybrid-data-package-provision-index"
+    intent: "ecss hybrids; whether the delivered documents are complete and identifiable"
+    expected_skill: "space-systems/ecss/q6005-data-package-general-provisions"

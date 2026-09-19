@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-inter-spacecraft-network-management-service (space-systems/ecss)
+# nms1 routes on management function coverage and polling overhead; nms2 routes
+# on convergence after a topology change.
+# Both must hit space-systems/ecss/e50-inter-spacecraft-network-management-service.
+tasks:
+  - id: nms1
+    query: "the formation network lets the operator see link state but there is no way to re-address a member, and the polling traffic is eating into the science downlink, review what the management service covers and what it costs"
+    intent: "ECSS-E-ST-50C clause 5.7.4.3; coverage is a set comparison against membership, addressing, route maintenance, link state, configuration and performance, and the polling cost is members times exchange size over the period as a share of capacity"
+    expected_skill: "space-systems/ecss/e50-inter-spacecraft-network-management-service"
+  - id: nms2
+    query: "one member drops out of the formation, how long before the rest of the constellation has noticed the topology change and converged on new routes, and does polling faster actually shorten that"
+    intent: "ECSS-E-ST-50C clause 5.7.4.3; convergence is detection plus propagation across the diameter plus reconfiguration, and only detection moves with the polling period"
+    expected_skill: "space-systems/ecss/e50-inter-spacecraft-network-management-service"

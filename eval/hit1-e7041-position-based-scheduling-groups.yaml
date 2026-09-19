@@ -1,0 +1,14 @@
+# Hit@1 fragment: e7041-position-based-scheduling-groups (space-systems/ecss)
+# Two tasks for the new leaf. pbsg1 routes on a group reaching across
+# partitions; pbsg2 routes on an activity held by more than one release gate.
+# Both must deterministically hit
+# space-systems/ecss/e7041-position-based-scheduling-groups.
+tasks:
+  - id: pbsg1
+    query: "one command against the orbit-position schedule silently stopped activities in three different partitions, and a handful of commands were untouched by it, explain what the second membership is doing"
+    intent: "ECSS-E-ST-70-41C clause 6.22.8.1; a scheduling group is a partition independent of the sub-schedule partition, it reaches across sub-schedules, and activities in no group at all are unreachable by a group command"
+    expected_skill: "space-systems/ecss/e7041-position-based-scheduling-groups"
+  - id: pbsg2
+    query: "an activity in our position-based schedule will not release at its orbit angle even though its sub-schedule is open; which other gate is holding it, and can one activity sit in more than one scheduling group"
+    intent: "ECSS-E-ST-70-41C clause 6.22.8.1; release needs the schedule, the activity's sub-schedule and its scheduling group all permitting it, so an activity behind two shut gates does not move when one is opened"
+    expected_skill: "space-systems/ecss/e7041-position-based-scheduling-groups"

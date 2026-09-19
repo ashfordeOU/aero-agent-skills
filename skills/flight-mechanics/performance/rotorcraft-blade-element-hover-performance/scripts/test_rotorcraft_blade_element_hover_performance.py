@@ -124,8 +124,20 @@ class TestWorkedExampleMagnitudes(unittest.TestCase):
         ideal_cq = CT_WORKED ** 1.5 / math.sqrt(2.0)
         fm_ideal = logic.figure_of_merit_from_coefficients(CT_WORKED,
                                                            ideal_cq)
+        # FM at the ideal torque coefficient is unity by construction, but
+        # the ratio runs through ** twice and a division, so the last bit
+        # is libm-dependent. Assert unity to round-off and cap the excess
+        # with an explicit round-off allowance; the ideal ceiling of 1.0
+        # itself is unchanged.
         self.assertAlmostEqual(fm_ideal, 1.0, delta=1e-12)
-        self.assertLessEqual(fm_ideal, 1.0)
+        # NO DIRECTION CLAIM HERE, deliberately. fm_ideal is
+        #     x / (sqrt(2) * (x / sqrt(2))),  x = C_T ** 1.5
+        # so it is unity only to within a bit or two: ** and sqrt are not
+        # correctly rounded, and which side of 1.0 the ratio lands on is a
+        # property of the host's libm, not of the rotor. The delta=1e-12
+        # assertion above is the portable form of the same claim.
+        # The PHYSICAL ceiling (a real rotor cannot reach FM = 1) is
+        # asserted on FM_WORKED above, where it belongs.
 
     def test_momentum_split_magnitudes(self):
         self.assertAlmostEqual(P_IDEAL_MOM, 228448.0, delta=6000.0)

@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7021-manned-areas-interface (space-systems/ecss)
+# ma1 routes on the atmosphere-coverage question that gates a crewed-compartment
+# installation; ma2 routes on the containment and quantity decision for a
+# propagating or dripping material. Both must deterministically hit
+# space-systems/ecss/q7021-manned-areas-interface.
+tasks:
+  - id: ma1
+    query: "our flammability entry was obtained at thirty percent oxygen and seventy kilopascals and the crew cabin runs sea-level air, decide whether that entry is evidence for installing the material in the habitable volume at all"
+    intent: "ECSS-Q-ST-70-21C interface to ECSS-Q-ST-70C crewed-compartment material control; tested oxygen partial pressure must bound the compartment partial pressure or the usage goes to assessment"
+    expected_skill: "space-systems/ecss/q7021-manned-areas-interface"
+  - id: ma2
+    query: "a propagating material has to go inside a crewed module and a self-extinguishing one drips above an ignitable item, work out which installations are accepted, which need containment, and how much exposed area the compartment has already spent on exceptions"
+    intent: "ECSS-Q-ST-70-21C interface; disposition of a crewed-compartment installation from rating, exposed area and mass, containment form and the compartment exception budget"
+    expected_skill: "space-systems/ecss/q7021-manned-areas-interface"

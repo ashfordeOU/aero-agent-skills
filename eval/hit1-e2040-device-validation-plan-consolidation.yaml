@@ -1,0 +1,15 @@
+# Hit@1 fragment: e2040-device-validation-plan-consolidation (space-systems/ecss)
+# Two tasks for the new leaf. dvpc1 routes on an environment unable to
+# demonstrate the kind of need it is assigned to; dvpc2 routes on needs with no
+# activity, unavailable rigs and the schedule dependency loop. Both must
+# deterministically hit
+# space-systems/ecss/e2040-device-validation-plan-consolidation.
+tasks:
+  - id: dvpc1
+    query: "the plan demonstrates the thermal endurance need on a standalone bench, can that environment actually prove it or does it need a system representative setup"
+    intent: "ECSS-E-ST-20-40C 5.6.4; validation environment suitability per need kind, an unsuitable environment excluded from consolidation coverage rather than counted"
+    expected_skill: "space-systems/ecss/e2040-device-validation-plan-consolidation"
+  - id: dvpc2
+    query: "finalise the validation plan: which user needs have no activity demonstrating them, which activities want a rig that will not exist, and is the running order actually executable"
+    intent: "ECSS-E-ST-20-40C 5.6.4; need coverage, resource availability and schedule ordering including dependency loops scoped to the activities inside the loop"
+    expected_skill: "space-systems/ecss/e2040-device-validation-plan-consolidation"

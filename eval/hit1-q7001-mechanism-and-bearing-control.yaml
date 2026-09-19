@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7001-mechanism-and-bearing-control (space-systems/ecss)
+# Two tasks for the new leaf. mbc1 routes on reading a cleanliness level as a
+# particle population over a real wetted area rather than as a worst-case
+# size; mbc2 routes on the slip-ring gap being an electrical dimension and on
+# lubricant travelling outward. Both must deterministically hit
+# space-systems/ecss/q7001-mechanism-and-bearing-control.
+tasks:
+  - id: mbc1
+    query: "the bearing was procured to a product cleanliness level, tell me the biggest particle I should actually expect over that raceway area and whether the running clearance survives it once the drag from all the smaller ones goes into the actuator margin"
+    intent: "ECSS-Q-ST-70-01C sensitive mechanisms; the level is a population referred to a reference area, so the expected worst particle depends on the wetted area, and the collective drag belongs inside the torque margin"
+    expected_skill: "space-systems/ecss/q7001-mechanism-and-bearing-control"
+  - id: mbc2
+    query: "rotary joint with a slip ring behind it, does the expected particle bridge the contact gap and separately will the bearing lubricant creep far enough over ten years to reach the barrier"
+    intent: "ECSS-Q-ST-70-01C sensitive mechanisms; a particle against a contact gap is grouped clear, marginal or bridging with an electrical failure mode, and outward lubricant transport is part of the same assessment"
+    expected_skill: "space-systems/ecss/q7001-mechanism-and-bearing-control"

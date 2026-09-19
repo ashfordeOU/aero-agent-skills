@@ -198,8 +198,15 @@ class TestPassivity(unittest.TestCase):
     def test_lossless_point_summing_ulps_above_unity_is_passive(self):
         reflection = 0.025
         transmission = math.sqrt(1.0 - reflection * reflection)
-        self.assertGreater(reflection ** 2 + transmission ** 2, 1.0)
         result = check_passivity(reflection, transmission)
+        # Measure the sum the logic actually forms. sqrt, multiplication
+        # and addition are correctly rounded IEEE-754 operations, so this
+        # overshoot is one ULP on every platform; the old precondition
+        # squared with **, which goes through libm pow and need not agree
+        # in the last place with the multiplication inside the logic.
+        excess = result["power_sum"] - 1.0
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         self.assertTrue(result["passive"])
         self.assertEqual(result["findings"], [])
 
@@ -238,8 +245,14 @@ class TestReferenceComparison(unittest.TestCase):
         self.assertIn("+6.0000 dB", result["findings"][0])
 
     def test_edge_case_difference_landing_ulps_outside_still_passes(self):
-        # 20.3 - 20.0 evaluates to 0.3000000000000007 dB, physically the edge.
-        self.assertGreater(20.3 - 20.0, 0.3)
+        # 20.3 - 20.0 is a single IEEE-754 subtraction of exactly parsed
+        # decimals, giving 0.3000000000000007 dB on every platform:
+        # physically the edge of the 0.3 dB tolerance. Assert the size of
+        # the overshoot rather than the rounding direction. The tolerance
+        # itself is unchanged.
+        excess = (20.3 - 20.0) - 0.3
+        self.assertGreater(excess, 0.0)
+        self.assertLess(excess, 1e-9)
         result = compare_to_reference(20.3, 20.0, 0.3, "return-loss")
         self.assertTrue(result["within_tolerance"])
 

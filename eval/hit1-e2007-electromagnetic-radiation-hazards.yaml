@@ -1,0 +1,13 @@
+# Hit@1 fragment: e2007-electromagnetic-radiation-hazards (space-systems/ecss)
+# Case 1 routes on the near-field boundary gating whether any far-field number
+# may be quoted. Case 2 routes on the hazard-analysis linkage and the inhibit
+# count a severity demands, independent of the numeric margin.
+tasks:
+  - id: e2007-electromagnetic-radiation-hazards-1
+    query: "An electro-explosive initiator stands 1.2 m in front of an S-band horn with a 0.4 m aperture. Is it clear of the near-field zone, or would a far-field volts-per-metre figure at that stand-off fabricate a compliant receptor result?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.7; the boundary check precedes any computation, and a receptor inside it returns as invalid rather than compliant"
+    expected_skill: "space-systems/ecss/e2007-electromagnetic-radiation-hazards"
+  - id: e2007-electromagnetic-radiation-hazards-2
+    query: "Every emitter case on our list lands under its derated receptor threshold with room to spare, but three carry no hazard report number and one catastrophic case shows only a single inhibit. Is the emitter hazard-compliant?"
+    intent: "ECSS-E-ST-20-07C clause 4.2.7; the clause is a linkage obligation, so a numerically comfortable case with no hazard record and too few independent inhibits still fails"
+    expected_skill: "space-systems/ecss/e2007-electromagnetic-radiation-hazards"

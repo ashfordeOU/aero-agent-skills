@@ -1,0 +1,14 @@
+# Hit@1 fragment: e4008-link-base-requirements (space-systems/ecss)
+# lnk1 routes on resolving the two endpoints of a link registry entry; lnk2
+# routes on interface satisfaction through inheritance and the per-reference
+# multiplicity count. Both must deterministically hit
+# space-systems/ecss/e4008-link-base-requirements.
+tasks:
+  - id: lnk1
+    query: "go through the link base file and tell me which links point at an instance or a reference that is not in the assembly any more"
+    intent: "ECSS-E-ST-40-08C clause 5.3; resolve the source instance, the reference on its type and the target instance of every registered link"
+    expected_skill: "space-systems/ecss/e4008-link-base-requirements"
+  - id: lnk2
+    query: "the target model provides a derived interface rather than the one the reference asks for, and the same reference has two links on it, is either of those a problem"
+    intent: "ECSS-E-ST-40-08C clause 5.3; interface satisfaction closed over inheritance and link count against the reference multiplicity bounds"
+    expected_skill: "space-systems/ecss/e4008-link-base-requirements"

@@ -57,9 +57,16 @@ class TestWilsonInterval(unittest.TestCase):
                      (1, 1), (99, 100)):
             res = pci.wilson_score_interval(k, n)
             self.assertLessEqual(res["lower"], k / n)
-            self.assertGreaterEqual(res["upper"], k / n)
             self.assertGreaterEqual(res["lower"], 0.0)
-            self.assertLessEqual(res["upper"], 1.0)
+            if k == n:
+                # k == n takes the endpoint branch, which assigns the literal
+                # 1.0, and k / n is exactly 1.0. Both sides are exact and
+                # platform-independent, so the contract here is an equality,
+                # not an inequality that happens to sit on its own bound.
+                self.assertEqual(res["upper"], 1.0)
+            else:
+                self.assertGreaterEqual(res["upper"], k / n)
+                self.assertLessEqual(res["upper"], 1.0)
 
     def test_width_is_span_and_shrinks_with_n(self):
         res = pci.wilson_score_interval(12, 400)
@@ -210,7 +217,14 @@ class TestClopperPearson(unittest.TestCase):
         for k, n in ((12, 400), (5, 100), (25, 60), (0, 30), (30, 30), (3, 7)):
             res = pci.clopper_pearson_interval(k, n)
             self.assertLessEqual(res["lower"], k / n)
-            self.assertGreaterEqual(res["upper"], k / n)
+            if k == n:
+                # k == n takes the endpoint branch: upper is the literal 1.0
+                # and k / n is exactly 1.0. Assert the exact equality the code
+                # guarantees rather than a containment claim whose two sides
+                # are the same bit pattern.
+                self.assertEqual(res["upper"], 1.0)
+            else:
+                self.assertGreaterEqual(res["upper"], k / n)
 
     def test_exact_coverage_level(self):
         # Exactness: the CP bounds invert the binomial tail, so

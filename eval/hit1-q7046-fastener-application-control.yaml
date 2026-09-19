@@ -1,0 +1,14 @@
+# Hit@1 fragment: q7046-fastener-application-control (space-systems/ecss)
+# ac1 routes on the two-sided preload window delivered by the tightening
+# method's scatter; ac2 routes on positive locking and the right to reuse a
+# prevailing-torque or yield-tightened part.
+# Both must deterministically hit space-systems/ecss/q7046-fastener-application-control.
+tasks:
+  - id: ac1
+    query: "M10 stud, torque wrench, aiming at 65 percent of proof. Given the scatter that method brings, does the bottom of the preload band hold the faces together under the separating load, does the top stay under proof, and what torque suits our nut factor?"
+    intent: "ECSS-Q-ST-70-46 application clause; stress area and proof load, target preload as a fraction of proof, the scatter band the tightening method delivers, and both ends of the preload window"
+    expected_skill: "space-systems/ecss/q7046-fastener-application-control"
+  - id: ac2
+    query: "the joint has a prevailing torque nut and losing the fastener loses the function, is that locking good enough and can I put the same nut back in after the third removal"
+    intent: "ECSS-Q-ST-70-46 application clause; positive locking where the consequence is severe, and reuse judged on measured prevailing torque against its minimum with yield-tightened parts single-use"
+    expected_skill: "space-systems/ecss/q7046-fastener-application-control"

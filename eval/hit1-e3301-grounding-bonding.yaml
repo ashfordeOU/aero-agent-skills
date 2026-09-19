@@ -1,0 +1,14 @@
+# Hit@1 fragment: e3301-grounding-bonding (space-systems/ecss)
+# gb1 routes on the long-thin strap that passes on DC resistance and fails on
+# geometry; gb2 routes on reconciling the bonding schedule with the mechanism
+# inventory in both directions. Both must deterministically hit
+# space-systems/ecss/e3301-grounding-bonding.
+tasks:
+  - id: gb1
+    query: "this earthing braid runs two hundred millimetres for ten of width and it measures fine on DC resistance; take the length-to-width ratio, hold it under the geometry limit, and say whether the strap is a conductor or an inductive choke"
+    intent: "ECSS-E-ST-33-01C 4.7.7.4; the length to width geometry limit is an inductance rule and is graded separately from the DC resistance limit"
+    expected_skill: "space-systems/ecss/e3301-grounding-bonding"
+  - id: gb2
+    query: "run the bonding schedule beside the mechanism inventory for the spacecraft and tell me every mechanism left unbonded to structure, plus any strap the schedule credits to a mechanism that the inventory never lists"
+    intent: "ECSS-E-ST-33-01C 4.7.7.4; schedule coverage is reconciled both ways, and the joint resistance at each end dominates a short braid"
+    expected_skill: "space-systems/ecss/e3301-grounding-bonding"

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q6015-radiation-analysis-report-deliverable (space-systems/ecss)
+# Two tasks for the new leaf. rar1 routes on the required sections of the report
+# and the entry-to-section cross-check; rar2 routes on traceability -- a named
+# mitigation decision behind each shortfall and a real dated test reference
+# rather than a placeholder. Both must deterministically hit
+# space-systems/ecss/q6015-radiation-analysis-report-deliverable.
+tasks:
+  - id: rar1
+    query: "our radiation analysis report carries a single-event entry but no single-event section at all, so list the content it still owes, and check every shortfall names a mitigation decision and cites dated evidence instead of a placeholder"
+    intent: "ECSS-Q-ST-60-15C Annex B; required content of the radiation analysis report deliverable and the cross-check between analysis entries and the sections reporting them"
+    expected_skill: "space-systems/ecss/q6015-radiation-analysis-report-deliverable"
+  - id: rar2
+    query: "several entries carry a margin shortfall with no mitigation decision recorded and the test evidence reference says TBD, work out what traceability this radiation analysis report is missing"
+    intent: "ECSS-Q-ST-60-15C Annex B; mitigation decision required behind every margin shortfall, placeholder test evidence references, and evidence dated after the report"
+    expected_skill: "space-systems/ecss/q6015-radiation-analysis-report-deliverable"

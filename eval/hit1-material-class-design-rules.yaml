@@ -1,0 +1,13 @@
+# Hit@1 fragment: material-class-design-rules (space-systems/ecss)
+# Case 1 routes on the metal rule set: ductility floor, stress-corrosion
+# mitigation and the dissimilar-metal pair. Case 2 routes on the composite rule
+# set instead: layup symmetry, the hygrothermal knockdown and ply-fraction risk.
+tasks:
+  - id: material-class-design-rules-1
+    query: "Our fitting is a 7075 alloy with 1.8 percent elongation bolted straight to a titanium clevis. Does the low elongation fail the ductility floor on its own, and does the stress-corrosion susceptibility need a recorded mitigation before the galvanic pair screening?"
+    intent: "ECSS-E-ST-32C section 4.5.9; the ductility floor is an unconditional gate independent of strength margin, and a susceptible alloy owes a recorded mitigation while the couple is screened separately"
+    expected_skill: "space-systems/ecss/material-class-design-rules"
+  - id: material-class-design-rules-2
+    query: "The layup card for our skin is unbalanced and 85 percent of plies run at zero degrees, and the allowables table has no hygrothermal knockdown entry. Which of those is a violation, and does the ply fraction trigger a micro-cracking assessment?"
+    intent: "ECSS-E-ST-32C section 4.5.11; symmetry and balance are read off the layup card, the hygrothermal knockdown is owed on the allowables table regardless of the predicted environment, and a high directional ply fraction demands a micro-cracking assessment"
+    expected_skill: "space-systems/ecss/material-class-design-rules"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: e50-deterministic-performance (space-systems/ecss)
+# Two tasks for the new leaf. det1 routes on a bounded worst-case latency for
+# time-critical traffic; det2 routes on a saturated link that admits no bound.
+# Both must deterministically hit space-systems/ecss/e50-deterministic-performance.
+tasks:
+  - id: det1
+    query: "a control loop message crosses two switches on our on-board network and I need the worst-case latency it can ever see, not the average, including whatever frame is already on the wire when it becomes ready"
+    intent: "ECSS-E-ST-50C clause 5.7.1.2; the bound is the response-time fixed point of own transmission plus blocking plus higher-priority interference, charged per hop with switching in between"
+    expected_skill: "space-systems/ecss/e50-deterministic-performance"
+  - id: det2
+    query: "on this on-board network the higher priority streams nearly saturate the link and the response time iteration never settles, so tell me whether a deterministic end-to-end bound exists at all, what blocking and each store-and-forward hop add, and how wide the jitter band runs"
+    intent: "ECSS-E-ST-50C clause 5.7.1.2; the response-time fixed point exists only below unit link load, so at or above it the honest answer is unbounded rather than the iterate reached at the limit"
+    expected_skill: "space-systems/ecss/e50-deterministic-performance"

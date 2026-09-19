@@ -1,0 +1,12 @@
+# Hit@1 fragment: aerothermo-and-aeroelastic-test (space-systems/ecss)
+# Case 1 routes on the heating-plus-load test category and its flux acceptance.
+# Case 2 routes on the flutter-clearance half: speed margin and damping floor.
+tasks:
+  - id: aerothermo-and-aeroelastic-test-1
+    query: "A re-entry body flap goes into a wind-tunnel campaign. One run applies the heat-flux profile alone; another applies it with the mechanical load on at the same moment. Which run discharges the aerothermodynamic test, and what heat-flux margin factor do I record for the specimens?"
+    intent: "ECSS-E-ST-32C 4.6.3.23; a soak without a concurrent mechanical load is a thermal-only run and does not discharge the combined heating-and-load test category"
+    expected_skill: "space-systems/ecss/aerothermo-and-aeroelastic-test"
+  - id: aerothermo-and-aeroelastic-test-2
+    query: "Our grid-fin aeroelastic-test campaign extrapolates flutter onset to 1.09 times the limit speed, taken at the worst Mach and altitude pairing, and two tracked modes sit on the damping-ratio floor. Does that clear the ECSS structural stability margin, or must the run halt?"
+    intent: "ECSS-E-ST-32C 4.6.3.24; the flutter-speed margin factor and the damping floor are independent acceptance criteria, and vanished damping is instability rather than a finding to disposition"
+    expected_skill: "space-systems/ecss/aerothermo-and-aeroelastic-test"

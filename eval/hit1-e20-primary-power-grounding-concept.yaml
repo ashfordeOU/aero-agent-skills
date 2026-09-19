@@ -1,0 +1,13 @@
+# Hit@1 fragment: e20-primary-power-grounding-concept (space-systems/ecss)
+# Case 1 routes on sizing the star strap for the fault it must survive until
+# protection clears. Case 2 routes on a unit that quietly creates a second tie
+# between the primary return and structure.
+tasks:
+  - id: e20-primary-power-grounding-concept-1
+    query: "Our main power return ties to structure through a 16 square millimetre tinned copper braid. The credible fault is 340 A and the protection clears in 80 ms. Is that section adequate, and how much does the strap material change it?"
+    intent: "ECSS-E-ST-20C clause 5.8.1; the adiabatic rule sizes the strap from fault current and the square root of clearing time, with the material constant part of the sizing"
+    expected_skill: "space-systems/ecss/e20-primary-power-grounding-concept"
+  - id: e20-primary-power-grounding-concept-2
+    query: "One unit's datasheet says its primary return is tied to its own chassis, and the chassis bolts straight onto the panel. We already have a star point elsewhere. Does that unit create a second path, and does its isolation reading still matter?"
+    intent: "ECSS-E-ST-20C clause 5.8.1; exactly one tie is permitted, and a unit bonding its own primary return is reported whatever the isolation measurement shows"
+    expected_skill: "space-systems/ecss/e20-primary-power-grounding-concept"

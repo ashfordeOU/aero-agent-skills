@@ -1,0 +1,12 @@
+# Hit@1 fragment: fracture-control-summary-report (space-systems/ecss)
+# Case 1 routes on the per-item row and the documented basis a non-critical designation still
+# owes. Case 2 routes on an open analysis and the life-ratio threshold each category carries.
+tasks:
+  - id: fracture-control-summary-report-1
+    query: "For the clause 6.4.4 summary I have 140 flight items, and about thirty are marked non-fracture-critical with the basis column left empty. Does a blank basis make the row incomplete even when the item is not fracture critical?"
+    intent: "ECSS-E-ST-32C 6.4.4; every flight item gets a row, and a designation without a documented basis is incomplete whichever way the designation went"
+    expected_skill: "space-systems/ecss/fracture-control-summary-report"
+  - id: fracture-control-summary-report-2
+    query: "Collating the per-item rows: one fracture-critical fitting has its crack growth analysis still open, another is safe-life with a life ratio of 3.1, and a third is inspectable at 1.2. Which rows can I mark compliant and what does that make the programme total?"
+    intent: "ECSS-E-ST-32C 6.4.4; an incomplete analysis stops the downstream checks, the required life ratio follows the inspection category, and the programme verdict is only as good as its worst item"
+    expected_skill: "space-systems/ecss/fracture-control-summary-report"

@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7026-operator-certification (space-systems/ecss)
+# oc1 routes on the training record plus the per-combination qualification
+# samples; oc2 routes on the three clocks that expire a standing certification.
+# Both must deterministically hit space-systems/ecss/q7026-operator-certification.
+tasks:
+  - id: oc1
+    query: "this operator has finished all the crimp training modules and made thirty good qualification samples, but all of them on one contact family, may they crimp the other connector on this harness"
+    intent: "ECSS-Q-ST-70-26C personnel clause; qualification samples are counted per tool and contact combination rather than in total, and training alone is not a qualification"
+    expected_skill: "space-systems/ecss/q7026-operator-certification"
+  - id: oc2
+    query: "this operator's vision check lapsed over a year ago and nothing has been crimped by them in five months, although the certification itself still runs; check the training modules, the samples graded for this tool and contact, and how current their practice is"
+    intent: "ECSS-Q-ST-70-26C personnel clause; certification interval, vision check validity and practice currency are independent clocks and a practice lapse suspends pending refresher samples"
+    expected_skill: "space-systems/ecss/q7026-operator-certification"

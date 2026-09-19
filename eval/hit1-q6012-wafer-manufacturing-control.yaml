@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6012-wafer-manufacturing-control (space-systems/ecss)
+# wmc1 routes on the in-fabrication monitoring question -- is the process being
+# watched while the lot runs; wmc2 routes on the wafer-to-mask-set lineage walk,
+# which no general traceability skill carries. Both must deterministically hit
+# space-systems/ecss/q6012-wafer-manufacturing-control.
+tasks:
+  - id: wmc1
+    query: "the foundry says our die wafer lot is halfway through the line, work out whether every step they are supposed to be watching actually has a reading and whether any of those readings has drifted to the edge of its control band"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.3; in-fabrication process monitoring coverage over the mandatory steps and control band placement of each reading"
+    expected_skill: "space-systems/ecss/q6012-wafer-manufacturing-control"
+  - id: wmc2
+    query: "follow each of these wafers back through its lot to the mask set it was patterned from and tell me which ones cannot be traced, plus whether the excursions raised during the run have actually been dispositioned"
+    intent: "ECSS-Q-ST-60-12C clause 10.2.3; wafer to mask set traceability chain with cycle refusal and excursion disposition closure"
+    expected_skill: "space-systems/ecss/q6012-wafer-manufacturing-control"

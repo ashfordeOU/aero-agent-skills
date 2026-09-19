@@ -1,0 +1,14 @@
+# Hit@1 fragment: q6005-delivery-data-documentation (space-systems/ecss,
+# Q-ST-60-05 13.2). Two tasks per leaf; dd1 routes on the record groups and
+# the coverage index, dd2 on the history-phase chain, the serial traceability
+# index and the lot-history checks. Both must deterministically hit
+# space-systems/ecss/q6005-delivery-data-documentation.
+tasks:
+  - id: dd1
+    query: "audit the delivery-data-documentation of a shipped lot: grade the hybrid-delivery-record-groups that arrived and return the hybrid-documentation-coverage-index"
+    intent: "ecss hybrids; the records handed over with the delivered units"
+    expected_skill: "space-systems/ecss/q6005-delivery-data-documentation"
+  - id: dd2
+    query: "find the hybrid-manufacture-history-phase-gap in a data package and reconcile the hybrid-serial-traceability-index against the units shipped for the hybrid-delivery-package-verdict"
+    intent: "ecss hybrids; whether the package evidences the history of every delivered unit"
+    expected_skill: "space-systems/ecss/q6005-delivery-data-documentation"

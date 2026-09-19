@@ -1,0 +1,15 @@
+# Hit@1 fragment: e4008-simulator-initialisation-and-configuration-with-one
+# (space-systems/ecss). Two tasks for the new leaf. sic1 routes on the pair of
+# registered Schedule services and the start-up state walk; sic2 routes on the
+# configuration write that landed after the model tree was published and the
+# entry-point posting order. Both must deterministically hit
+# space-systems/ecss/e4008-simulator-initialisation-and-configuration-with-one.
+tasks:
+  - id: sic1
+    query: "our simulator registers two schedule services and the start-up trace shows it connecting the models twice before it reaches standby - work out which start-up rules that breaks"
+    intent: "ECSS-E-ST-40-08C clause 5.5.2; the single Schedule service invariant and the once-each ordered build, connect, initialise, standby walk"
+    expected_skill: "space-systems/ecss/e4008-simulator-initialisation-and-configuration-with-one"
+  - id: sic2
+    query: "a bus voltage was written into the model tree while the simulator was already running its initialisation entry points, and one entry point got posted ahead of the one it depends on - grade the start-up"
+    intent: "ECSS-E-ST-40-08C clause 5.5.2; the configuration window closing at model tree publication and the deterministic initialisation entry-point posting order"
+    expected_skill: "space-systems/ecss/e4008-simulator-initialisation-and-configuration-with-one"

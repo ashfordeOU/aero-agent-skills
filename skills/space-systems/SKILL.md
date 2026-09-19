@@ -26,8 +26,8 @@ elements.
 ## Domain
 
 Space systems and astrodynamics: spacecraft subsystem engineering,
-European space software assurance (ECSS-E-ST-40C software engineering,
-Q-ST-80C product assurance), systems-engineering lifecycle management
+European space software assurance (ECSS-E-ST-40C Rev.1 software engineering,
+Q-ST-80C Rev.2 product assurance), systems-engineering lifecycle management
 (ECSS-E-ST-10C), electrical power and thermal subsystem sizing,
 communication link budgets, attitude control, sun-synchronous orbit
 selection, and classical orbital element determination.
@@ -38,7 +38,7 @@ selection, and classical orbital element determination.
 |---|---|---|
 | space-systems/ecss/software-engineering | ECSS space software | criticality A-D, lifecycle gates, heritage reuse |
 | space-systems/ecss/software-verification | ECSS software verification | verification methods, depth by criticality, verification records |
-| space-systems/ecss/systems-engineering | ECSS systems engineering | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
+| space-systems/ecss/e10-systems-engineering | ECSS systems engineering | lifecycle phases 0-F, MDR/PRR/SRR/PDR/CDR/QR/AR/FRR gates |
 | space-systems/subsystems/power-thermal-budget | Power and thermal budget | EPS sizing, eclipse, battery and solar array budgets |
 | space-systems/subsystems/solar-array-sizing | Solar array sizing | array area from power demand, eclipse fraction, cell efficiency, packing factor, end-of-life degradation, photovoltaic panel sizing |
 | space-systems/subsystems/communication-link-budget | Communication link budget | EIRP, free-space path loss, C/N0, Eb/N0 margin, data rate |

@@ -76,11 +76,21 @@ class HazardIndexTests(unittest.TestCase):
         self.assertAlmostEqual(value, 0.0184, places=9)
 
     def test_index_never_exceeds_unity(self):
+        # 100 square metres saturates the area factor: the square root of a
+        # perfect square is exact and min() clamps the factor to 1.0, so the
+        # index is exactly the product of the two table factors. Both tables
+        # top out at unity, so the worst pairing reaches the top of the
+        # range exactly - it does not approach it through rounding, and the
+        # honest assertion there is an equality.
         for environment in logic.ENVIRONMENT_SEVERITY:
             for exposure in logic.EXPOSURE_FACTOR:
                 value = logic.hazard_index(environment, exposure, 100.0)
-                self.assertLessEqual(value, 1.0)
                 self.assertGreater(value, 0.0)
+                if (environment == "geostationary"
+                        and exposure == "exposed-dielectric"):
+                    self.assertEqual(value, 1.0)
+                else:
+                    self.assertLess(value, 1.0)
 
     def test_unknown_environment_raises(self):
         with self.assertRaises(ValueError):

@@ -1,0 +1,15 @@
+# Hit@1 fragment: q7004-rate-and-hold-requirements (space-systems/ecss)
+# Two tasks for the new leaf. rh1 routes on grading the logged transition rates
+# against the ceiling and the requested band over the transition only; rh2
+# routes on locating the stabilization instant and measuring the credited hold.
+# Both must deterministically hit
+# space-systems/ecss/q7004-rate-and-hold-requirements.
+tasks:
+  - id: rh1
+    query: "the chamber record shows one stretch of the ramp running fast, so how do I convert the logged temperatures to kelvin a minute and judge them only across the transition we declared, without the dwell points scoring as rate breaches"
+    intent: "ECSS-Q-ST-70-04C rate control; differentiating a logged series into per-interval kelvin-per-minute rates and grading them against the ceiling and the requested band over the declared transition only"
+    expected_skill: "space-systems/ecss/q7004-rate-and-hold-requirements"
+  - id: rh2
+    query: "the item drifted in and out of its plus or minus two kelvin set-point band for a while, so from which instant does stabilization count, and did we earn the four hours the procedure asked for"
+    intent: "ECSS-Q-ST-70-04C hold criteria; finding the first instant the item holds the band for the whole confirmation window with drift under the limit, then measuring the unbroken credited hold from there"
+    expected_skill: "space-systems/ecss/q7004-rate-and-hold-requirements"

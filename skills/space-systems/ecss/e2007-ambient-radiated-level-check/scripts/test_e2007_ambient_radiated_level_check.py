@@ -178,7 +178,13 @@ class TestHeadroomCategorization(unittest.TestCase):
         # 32.3 - 26.3 is 5.9999999999999964 in binary floating point, so a
         # physically compliant 6.0 dB headroom reads short of the requirement.
         point = {"frequency_hz": 30.0e6, "ambient_dbuv_m": 26.3, "limit_dbuv_m": 32.3}
-        self.assertLess(point_headroom_db(point), DEFAULT_REQUIRED_HEADROOM_DB)
+        # The subtraction is correctly rounded on every IEEE-754 platform,
+        # so the headroom is 5.9999999999999964 everywhere: four last places
+        # of representation error, not a shortfall. Assert the size of that
+        # error rather than which side of the requirement it falls on.
+        headroom = point_headroom_db(point)
+        self.assertNotEqual(headroom, DEFAULT_REQUIRED_HEADROOM_DB)
+        self.assertLess(abs(headroom - DEFAULT_REQUIRED_HEADROOM_DB), DB_TOL)
         self.assertEqual(categorize_point(point), CATEGORY_COMPLIANT)
 
     def test_negative_required_headroom_rejected(self):

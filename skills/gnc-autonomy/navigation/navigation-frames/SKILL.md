@@ -75,7 +75,7 @@ python3 skills/gnc-autonomy/navigation/navigation-frames/scripts/test_navigation
 
 ## Compliance
 
-- The ECSS series (E-ST-10C, E-ST-40C, Q-ST-80C, M-ST-40C) covers space
+- The ECSS series (E-ST-10C, E-ST-40C Rev.1, Q-ST-80C Rev.2, M-ST-40C) covers space
   engineering and software; it is free to download and summarized and
   referenced only, per standards-map.yaml.
 - compliance: STANDARDS-REF, gated: false.

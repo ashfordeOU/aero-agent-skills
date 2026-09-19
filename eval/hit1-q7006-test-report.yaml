@@ -1,0 +1,13 @@
+# Hit@1 fragment: q7006-test-report (space-systems/ecss)
+# tr1 routes on the four report blocks and the planned-versus-achieved exposure;
+# tr2 routes on dose-rate acceleration and the uncertainty budget. Both must
+# deterministically hit space-systems/ecss/q7006-test-report.
+tasks:
+  - id: tr1
+    query: "grade this electron and UV irradiation report: does it name the species, energy, spectral band, pressure and specimen temperature, and is every exposure given as planned and achieved with a note against anything out of tolerance"
+    intent: "ECSS-Q-ST-70-06C reporting clause; environment completeness and planned-versus-achieved exposure with recorded deviation notes"
+    expected_skill: "space-systems/ecss/q7006-test-report"
+  - id: tr2
+    query: "the run used a flux a thousand times the mission flux and eight suns of UV; what acceleration figures belong in the report, and combine the reflectometer and dosimetry uncertainty components with the declared coverage factor"
+    intent: "ECSS-Q-ST-70-06C reporting clause; dose-rate acceleration against the mission and the quadrature uncertainty budget with its coverage factor"
+    expected_skill: "space-systems/ecss/q7006-test-report"
