@@ -68,4 +68,29 @@ jobs:
         if: steps.npmcheck.outputs.already != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          set +e
+          npm publish --access public 2>&1 | tee /tmp/npm_publish.log
+          RC=${PIPESTATUS[0]}
+          set -e
+          if [ "$RC" -eq 0 ]; then
+            echo "published aero-agent-skills@$VER"
+            exit 0
+          fi
+
+          # The pre-check above is a TOCTOU race: two runs dispatched in the
+          # same second both see "not published" and both try. The loser gets
+          # E409 even though the version shipped. Ask the registry -- it is the
+          # only authority on whether the contract is met.
+          echo "publish exited $RC; asking the registry what it actually serves"
+          sleep 10
+          LIVE=$(npm view "aero-agent-skills@$VER" version 2>/dev/null || true)
+          if [ "$LIVE" = "$VER" ]; then
+            echo "::warning::aero-agent-skills@$VER is on the registry -- another run won the race, contract met"
+            exit 0
+          fi
+
+          echo "::error::publish failed and aero-agent-skills@$VER is NOT on the registry (view returned '${LIVE:-nothing}')"
+          cat /tmp/npm_publish.log
+          exit "$RC"
