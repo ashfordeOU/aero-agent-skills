@@ -22,12 +22,19 @@ THE RULE
   own machine and are the correct thing to document.
 
 SCOPE
-  Exactly what ships. The export's exclusions are parsed out of
-  publish-public.sh rather than restated here, so this gate and the export
-  cannot drift apart -- a file that stops shipping stops being graded, and a
-  file that starts shipping starts being graded, with no second list to update.
-  This is the defect that produced the marketing/ and development/ dead roots:
-  two places naming the same set, and only one of them maintained.
+  Exactly what ships. The export's exclusions are READ rather than restated,
+  so this gate and the export cannot drift apart -- a file that stops
+  shipping stops being graded, and a file that starts shipping starts being
+  graded, with no second list to update. This is the defect that produced the
+  marketing/ and development/ dead roots: two places naming the same set, and
+  only one of them maintained.
+
+  The list now lives in ops/automation/export-excludes.txt, which
+  publish-public.sh and publish-health.py also read. It moved there when the
+  inline pathspecs turned out to have TWO readers already and were about to
+  get a third. This gate went red the moment it moved, which is the correct
+  behaviour and the reason it fails closed on an empty parse rather than
+  assuming nothing is excluded.
 
 Usage: gate_shipped_instructions.py [repo_root]   (exit 1 on any violation)
 """
@@ -39,6 +46,7 @@ import sys
 REPO = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else
                        os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 PUBLISH = os.path.join(REPO, "ops", "automation", "publish-public.sh")
+EXCLUDES_FILE = os.path.join(REPO, "ops", "automation", "export-excludes.txt")
 
 # A change-directory instruction into ~/NAME where NAME is not a dotfile.
 # Covers the bare form, a deeper path, and the && one-liner form. Described
@@ -56,7 +64,20 @@ def git(*args):
 
 
 def export_exclusions():
-    """Read the export pathspec from publish-public.sh -- the one source."""
+    """Read the export pathspec from the one list every reader uses."""
+    if os.path.isfile(EXCLUDES_FILE):
+        ex = []
+        for line in open(EXCLUDES_FILE, encoding="utf-8"):
+            line = line.split("#", 1)[0].strip()
+            if line:
+                ex.append(line)
+        if ex:
+            return ex
+        print("FAIL shipped-instructions: export-excludes.txt named 0 "
+              "pathspecs. An empty list widens this gate to the whole tree "
+              "and would flag internal docs; it is a broken gate, not a "
+              "clean run.", file=sys.stderr)
+        sys.exit(2)
     if not os.path.isfile(PUBLISH):
         # We are on an export: the exclusions were already applied when this
         # tree was produced, so everything present is shipped content.

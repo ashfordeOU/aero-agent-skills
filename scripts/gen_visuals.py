@@ -48,6 +48,8 @@ violet/magenta/orange, flat fills, mono uppercase labels, title blocks).
 import json
 import math
 import re
+import hashlib
+import os
 import shutil
 import subprocess
 import sys
@@ -1446,11 +1448,165 @@ def _build_gate_selftest():
     return GateBattery
 
 
+def _build_raster_selftest():
+    import unittest
+
+    class RasterStaleness(unittest.TestCase):
+        """The lock, not the file's existence.
+
+        `--check` used to assert only that the PNG was THERE. A PNG made
+        from an SVG that has changed twice since passes that check forever,
+        and on a host whose PATH omits /opt/homebrew/bin the generator
+        printed WARN, skipped every raster and exited 0 -- so the stale PNG
+        was never even written.
+        """
+
+        def test_a_current_png_is_not_stale(self):
+            self.assertEqual(
+                stale_rasters({"a.png": "sha1"}, {"a.png": "sha1"},
+                              {"a.png"}), [])
+
+        def test_a_png_made_from_an_older_svg_is_stale(self):
+            out = stale_rasters({"a.png": "new"}, {"a.png": "old"}, {"a.png"})
+            self.assertEqual(len(out), 1)
+            self.assertIn("older SVG", out[0][1])
+
+        def test_a_missing_png_is_stale(self):
+            out = stale_rasters({"a.png": "sha"}, {"a.png": "sha"}, set())
+            self.assertEqual(out[0][1], "missing")
+
+        def test_a_png_with_no_recorded_source_is_stale(self):
+            # The state a machine without a rasterizer leaves behind: the
+            # PNG exists from some earlier run, and nothing says what from.
+            out = stale_rasters({"a.png": "sha"}, {}, {"a.png"})
+            self.assertIn("no recorded source", out[0][1])
+
+        def test_an_empty_lock_does_not_read_as_current(self):
+            out = stale_rasters({"a.png": "s", "b.png": "t"}, {},
+                                {"a.png", "b.png"})
+            self.assertEqual(len(out), 2)
+
+        def test_results_are_ordered_so_the_report_is_stable(self):
+            out = stale_rasters({"b.png": "1", "a.png": "1"}, {}, set())
+            self.assertEqual([n for n, _ in out], ["a.png", "b.png"])
+
+        def test_the_rasterizer_is_found_without_a_useful_path(self):
+            # The launchd / non-login-ssh case. shutil.which fails there;
+            # the fallbacks are the whole point.
+            self.assertTrue(
+                any(os.path.exists(c) for c in RASTERIZER_FALLBACKS)
+                or shutil.which("rsvg-convert") is None,
+                "no rasterizer anywhere, and the fallback list names none "
+                "that exist on this host")
+
+        def test_the_shipped_lock_covers_every_shipped_png(self):
+            lock = load_raster_lock()
+            if not lock:
+                self.skipTest("no lock in this tree yet")
+            for name in lock:
+                self.assertTrue((REPO / name).exists(),
+                                "%s is locked but not present" % name)
+
+    return RasterStaleness
+
+
 def run_selftest():
     import unittest
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(_build_gate_selftest())
+    loader = unittest.defaultTestLoader
+    suite = unittest.TestSuite([
+        loader.loadTestsFromTestCase(_build_gate_selftest()),
+        loader.loadTestsFromTestCase(_build_raster_selftest()),
+    ])
     ok = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
     return 0 if ok else 1
+
+
+
+# --- the raster staleness lock ---------------------------------------------
+#
+# PNG BYTES CANNOT BE THE EVIDENCE. librsvg renders the same SVG to different
+# bytes across versions, so a recorded PNG digest would go red on a machine
+# that merely has a different librsvg. That is why --check only ever asserted
+# that the PNG EXISTED -- and an existence check passes forever over a PNG
+# made from an SVG that has since changed twice.
+#
+# The SVG's digest is rasterizer-independent and answers the actual question:
+# "was this PNG made from THIS SVG?" So each conversion records the sha256 of
+# its source, and --check compares that against the source as it stands now.
+RASTER_LOCK = REPO / "docs" / "visuals.lock.json"
+RASTER_LOCK_CONTEXT = "aero-visuals-raster-lock/v1"
+
+# shutil.which() alone is not enough here. launchd and a non-login ssh shell
+# both run with a PATH that omits /opt/homebrew/bin, and rsvg-convert IS
+# installed on this machine -- so the generator printed WARN, skipped every
+# PNG and exited 0, and the check that only asked whether the file existed
+# said nothing. A tool that is present must not read as absent.
+RASTERIZER_FALLBACKS = (
+    "/opt/homebrew/bin/rsvg-convert",
+    "/usr/local/bin/rsvg-convert",
+    "/usr/bin/rsvg-convert",
+    "/opt/local/bin/rsvg-convert",
+)
+
+
+def find_rasterizer():
+    found = shutil.which("rsvg-convert")
+    if found:
+        return found
+    for candidate in RASTERIZER_FALLBACKS:
+        if os.path.exists(candidate) and os.access(candidate, os.X_OK):
+            return candidate
+    return None
+
+
+def _sha256_text(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def load_raster_lock():
+    if not RASTER_LOCK.exists():
+        return {}
+    try:
+        doc = json.loads(RASTER_LOCK.read_text(encoding="utf-8"))
+    except ValueError:
+        return {}
+    if doc.get("context") != RASTER_LOCK_CONTEXT:
+        return {}
+    return doc.get("rasters", {})
+
+
+def save_raster_lock(rasters):
+    RASTER_LOCK.parent.mkdir(parents=True, exist_ok=True)
+    RASTER_LOCK.write_text(json.dumps(
+        {"context": RASTER_LOCK_CONTEXT,
+         "note": ("sha256 of the SVG each PNG was rasterised from. PNG bytes "
+                  "are librsvg-version dependent and cannot be compared; the "
+                  "source can."),
+         "rasters": dict(sorted(rasters.items()))},
+        indent=2, sort_keys=False) + "\n", encoding="utf-8")
+
+
+def stale_rasters(svg_shas, lock, existing):
+    """Which PNGs are missing or were made from a different SVG.
+
+    Pure, so the interesting cases are testable without a rasterizer --
+    which is the whole point, since the machine that could not rasterize was
+    the one that silently skipped the work.
+
+    svg_shas  png-name -> sha256 of the SVG as it stands NOW
+    lock      png-name -> sha256 recorded when the PNG was made
+    existing  set of png-names present on disk
+    """
+    out = []
+    for name in sorted(svg_shas):
+        if name not in existing:
+            out.append((name, "missing"))
+        elif name not in lock:
+            out.append((name, "no recorded source -- run `make visuals` once "
+                              "to establish it"))
+        elif lock[name] != svg_shas[name]:
+            out.append((name, "made from an older SVG"))
+    return out
 
 
 def main():
@@ -1478,23 +1634,47 @@ def main():
                 path.write_text(content, encoding="utf-8")
                 print(f"wrote {path.relative_to(REPO)}")
 
-    # 2x PNG rasters for GitHub Mobile (no SVG support in the app). Bytes are
-    # rasterizer-version dependent, so --check asserts existence only; the
-    # push machine regenerates real pixels via make visuals.
-    rsvg = shutil.which("rsvg-convert")
+    # 2x PNG rasters for GitHub Mobile (no SVG support in the app).
+    #
+    # --check no longer asks only whether the file exists. It asks whether
+    # the PNG was made from the SVG that is there NOW, by comparing the
+    # source digest recorded at conversion time. See RASTER_LOCK above for
+    # why the PNG's own bytes cannot be the evidence.
+    rsvg = find_rasterizer()
+    lock = load_raster_lock()
+    svg_shas, existing = {}, set()
     for svg_path in sorted(p for p in out if p.suffix == ".svg"):
         png_path = svg_path.with_suffix(".png")
-        if check:
-            if not png_path.exists():
-                stale.append(png_path.relative_to(REPO))
-            continue
+        name = png_path.relative_to(REPO).as_posix()
+        svg_shas[name] = _sha256_text(out[svg_path])
+        if png_path.exists():
+            existing.add(name)
+
+    if check:
+        for name, why in stale_rasters(svg_shas, lock, existing):
+            stale.append("%s (%s)" % (name, why))
+    else:
         if not rsvg:
-            print(f"WARN rsvg-convert not found — skipped {png_path.name}")
-            continue
-        w = int(re.search(r'width="(\d+)"', out[svg_path]).group(1))
-        subprocess.run([rsvg, "-w", str(w * 2), str(svg_path), "-o", str(png_path)],
-                       check=True)
-        print(f"wrote {png_path.relative_to(REPO)}")
+            # Loud, and it does NOT touch the lock: leaving the recorded
+            # source alone is what makes the next --check go red instead of
+            # inheriting a green from a PNG nobody regenerated.
+            print("SKIPPED rasters: no rsvg-convert on PATH or at any of %s. "
+                  "The PNGs were NOT regenerated and the lock was NOT "
+                  "updated, so `make visuals-check` will now fail rather "
+                  "than pass over stale rasters."
+                  % ", ".join(RASTERIZER_FALLBACKS))
+        else:
+            for svg_path in sorted(p for p in out if p.suffix == ".svg"):
+                png_path = svg_path.with_suffix(".png")
+                name = png_path.relative_to(REPO).as_posix()
+                w = int(re.search(r'width="(\d+)"', out[svg_path]).group(1))
+                subprocess.run([rsvg, "-w", str(w * 2), str(svg_path),
+                                "-o", str(png_path)], check=True)
+                lock[name] = svg_shas[name]
+                print(f"wrote {png_path.relative_to(REPO)}")
+            save_raster_lock(lock)
+            print(f"wrote {RASTER_LOCK.relative_to(REPO)} "
+                  f"({len(svg_shas)} raster source digest(s))")
     if check:
         if stale:
             print(f"FAIL visuals-check: {len(stale)} stale artifact(s) — run `make visuals`:")

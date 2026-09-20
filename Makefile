@@ -26,14 +26,15 @@
 .PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 \
         independence release-law portability corpus-naming no-inference \
         slug-uniqueness router-coverage-structure router-coverage-complete \
-        hermeticity evidence-contract export-bundle \
+        hermeticity evidence-contract export-bundle shipped-instructions \
+        role-bindings role-bindings-refresh \
         determinism-perturb mutation-score gated-set-check stale-number-guard \
-        publish-health release-machinery \
+        publish-health release-machinery visuals-control \
         no-verbatim-strict router-coverage hit1-all negative-controls figure-audit \
         attest attest-strict snapshot-live number-snapshot-offline brief-audit \
         content-policy-sweep packs visuals visuals-check
 
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle shipped-instructions
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle shipped-instructions role-bindings
 	@echo "Aero Agent Skills validate: PASS ($(words $^)/$(words $^) REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
@@ -211,6 +212,12 @@ visuals:
 	@python3 scripts/gen_manifest.py
 	@python3 scripts/gen_jetbrains_catalog.py
 
+# Negative control for the raster freshness the lock now enforces. Runs on a
+# throwaway copy: a control that edits the real lock and restores it is one
+# interrupt away from leaving the tree in the state it planted.
+visuals-control:
+	@bash ops/automation/visuals-control.sh
+
 visuals-check:
 	@python3 scripts/gen_visuals.py --selftest
 	@python3 scripts/gen_visuals.py --check
@@ -276,3 +283,16 @@ content-policy-sweep:
 # `cd ~/AeroSkills`, which exists on no machine including this one.
 shipped-instructions:
 	@python3 scripts/gate_shipped_instructions.py
+
+# The cross-corpus invariant, from this side. A leaf renamed or retired here
+# breaks a role in a corpus that versions independently, and no gate in this
+# repository would have noticed. ops/contracts/role-bindings.json is the
+# roles corpus's declaration, pinned so the check runs offline inside the
+# publish export -- reaching for a live corpus would make this a gate that
+# can pass because something was reachable.
+role-bindings:
+	@python3 scripts/role_bindings_contract.py
+
+role-bindings-refresh:
+	@test -n "$(ROLES)" || { echo "FAIL: ROLES=<path to aero-agent-roles> is required" >&2; exit 2; }
+	@python3 scripts/role_bindings_contract.py --refresh "$(ROLES)"

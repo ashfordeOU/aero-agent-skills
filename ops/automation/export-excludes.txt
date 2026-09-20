@@ -1,0 +1,40 @@
+# Paths `git archive` must NOT carry into the public export.
+#
+# ONE list, THREE readers:
+#   publish-public.sh            builds the export from it
+#   publish-health.py            builds the "what SHOULD be public" set to
+#                                compare against the real public tree
+#   gate_shipped_instructions.py grades exactly what ships and nothing else
+#
+# The third one is why this file exists. The pathspecs used to be inline in
+# publish-public.sh, and gate_shipped_instructions.py already parsed them
+# back out of that script with a regex -- two readers of a list written for
+# one. Adding a third made a shared file the only honest option, and moving
+# it turned that gate red immediately, which is what a gate that fails
+# closed on an empty parse is for.
+#
+# Entries are git pathspecs, applied as `:(exclude)<entry>`, so both readers
+# get git's own matching semantics rather than a reimplementation of them.
+#
+# WHY EACH ONE (ECSS-100, founder 2026-09-09; internal-only list 2026-09-13
+# after a public audit found them shipped):
+#   ops/automation/test          test scaffolding, not product
+#   ops/ecss-program             scope docs + ECSS planning stay PRIVATE
+#   ops/automation/*-state.md    wave state notes: internal ops record
+#   ops/automation/state         same
+#   ops/automation/*-brief.md    wave work orders: name the private dev
+#                                remote and the push-token env var
+#   docs/MAINTENANCE_AND_HANDOVER.md  lists PAT FILE PATHS and the dev tree
+#   context                      internal release runbook (token choice)
+#
+# None of these is referenced by a gate, a Makefile target or a workflow --
+# checked before excluding. The mirror sync is a full replace, so the next
+# publish DELETES them from the public repo.
+
+ops/automation/test
+ops/ecss-program
+ops/automation/*-state.md
+ops/automation/state
+ops/automation/*-brief.md
+docs/MAINTENANCE_AND_HANDOVER.md
+context

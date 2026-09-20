@@ -13,7 +13,7 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="3,189 verified skills · 86 live packs · 12 families · 30 standards · 6,308 router cases · 17/17 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="3,189 verified skills · 86 live packs · 12 families · 30 standards · 6,308 router cases · 18/18 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
@@ -23,7 +23,7 @@
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-86-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 86"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
-  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-17%2F17-2ea043?style=flat&labelColor=1a1e35" alt="gates 17/17"></a>
+  <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-18%2F18-2ea043?style=flat&labelColor=1a1e35" alt="gates 18/18"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-7%2F7-2ea043?style=flat&labelColor=1a1e35" alt="attest 7/7"></a>
   <a href="eval/"><img src="https://img.shields.io/badge/router_cases-6,308-0ea5e9?style=flat&labelColor=1a1e35" alt="router cases 6,308"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
@@ -331,7 +331,7 @@ It also has a stated edge, and the edge is published rather than implied. Routin
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 3189 verified skills in 86 packs across 12 disciplines, all gated by `make validate` (17/17) and `make attest` (7/7); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 6308-case corpus) and Claude Code plugin packaging
+- **Shipped:** 3189 verified skills in 86 packs across 12 disciplines, all gated by `make validate` (18/18) and `make attest` (7/7); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 6308-case corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->

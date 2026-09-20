@@ -84,6 +84,23 @@ VOID = "VOID"
 # The bar for being listed here is that a fixture baseline can never be
 # green, so every mutation would be VOID. Convenience is not a reason.
 SELFTEST_PROOFS = {
+    "role-bindings": {
+        "why": (
+            "it checks the WHOLE corpus against a contract naming hundreds "
+            "of bound leaves. The fixture prunes the tree to four, so the "
+            "baseline is red before any mutation and every mutation is "
+            "VOID -- and a VOID control says nothing about the gate. Its "
+            "own suite builds throwaway corpora and retires a bound leaf "
+            "in one of them."
+        ),
+        "cmd": ["python3", "scripts/test_role_bindings_contract.py"],
+        "source": "scripts/test_role_bindings_contract.py",
+        "must_contain": [
+            "def test_a_retired_bound_leaf_is_caught(",
+            "def test_an_unbound_leaf_may_be_retired_freely(",
+            "def test_a_missing_contract_is_a_failure_not_a_skip(",
+        ],
+    },
     "gated-set-check": {
         "why": (
             "it grades count claims in the real documents. The fixture "

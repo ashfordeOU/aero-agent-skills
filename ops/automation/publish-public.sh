@@ -47,6 +47,7 @@ set -euo pipefail
 # script. Prepend the common dev-tool locations explicitly.
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
+HERE="$(cd "$(dirname "$0")" && pwd)"
 DEV_REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 PUBLIC_REMOTE="https://github.com/ashfordeOU/aero-agent-skills.git"
 MIRROR="$HOME/Code/.aero-agent-skills-public-mirror"
@@ -54,8 +55,51 @@ SCRATCH="$(mktemp -d)"
 DRY_RUN=0
 [ "${1:-}" = "--dry-run" ] && DRY_RUN=1
 
-log() { echo "[publish-public] $(date -u +%FT%TZ) $*"; }
-trap 'rm -rf "$SCRATCH"' EXIT
+LAST_STAGE="starting"
+log() { LAST_STAGE="$*"; echo "[publish-public] $(date -u +%FT%TZ) $*"; }
+
+# Every attempt leaves a record, successful or not.
+#
+# On 2026-09-20 three consecutive publishes aborted at public-ci-parity and
+# the only trace was a line in a log nobody gates on. publish-health then
+# reported "public is current" for hours, because it compared LEAF COUNTS
+# and the abort had changed no leaves. A failing publish must leave evidence
+# a check can read, not just prose a human might.
+#
+# Written from the EXIT trap so there is exactly ONE writer and no exit path
+# can forget it -- including `set -e` aborting somewhere nobody predicted.
+# PER REPOSITORY. There are four copies of this script on a dev machine --
+# skills dev, roles dev, and the two public mirrors, which are clones of the
+# exports. A single shared filename means whichever ran last owns the record,
+# and publish-health for one corpus would read an outcome written by the
+# other. The first version of this shipped with one shared path and produced
+# exactly that: a record whose dev_head was not a commit in this repository.
+PUBLISH_STATE_FILE="${AERO_PUBLISH_STATE_FILE:-$HOME/.hermes/state/aero-publish-last-$(basename "$DEV_REPO").json}"
+record_attempt () {
+  local rc=$?
+  local outcome
+  case "$rc" in
+    0)  outcome=ok ;;
+    75) outcome=skipped-lock ;;    # another writer held it; NOT a failure
+    78) outcome=held ;;            # founder GO absent; NOT a failure
+    *)  outcome=failed ;;
+  esac
+  mkdir -p "$(dirname "$PUBLISH_STATE_FILE")" 2>/dev/null || true
+  {
+    printf '{\n'
+    printf '  "attempted_at": "%s",\n' "$(date -u +%FT%TZ)"
+    printf '  "exit_status": %s,\n' "$rc"
+    printf '  "outcome": "%s",\n' "$outcome"
+    printf '  "stage": "%s",\n' "$(printf '%s' "$LAST_STAGE" | sed 's/[\\"]/\\&/g')"
+    printf '  "repo": "%s",\n' "$(basename "$DEV_REPO")"
+    printf '  "repo_path": "%s",\n' "$(cd "$DEV_REPO" && git rev-parse --show-toplevel 2>/dev/null || echo unknown)"
+    printf '  "dev_head": "%s",\n' "$(git -C "$DEV_REPO" rev-parse HEAD 2>/dev/null || echo unknown)"
+    printf '  "dry_run": %s\n' "$DRY_RUN"
+    printf '}\n'
+  } > "$PUBLISH_STATE_FILE" 2>/dev/null || true
+  rm -rf "$SCRATCH"
+}
+trap record_attempt EXIT
 
 cd "$DEV_REPO"
 
@@ -189,14 +233,20 @@ log "exporting the full tree to ${EXPORT}…"
 # None of these is referenced by a gate, a Makefile target or a workflow -
 # checked before excluding. The mirror sync is a full replace (step 5), so
 # the next publish DELETES them from the public repo.
-git archive --format=tar HEAD -- . \
-  ':(exclude)ops/automation/test' \
-  ':(exclude)ops/ecss-program' \
-  ':(exclude)ops/automation/*-state.md' \
-  ':(exclude)ops/automation/state' \
-  ':(exclude)ops/automation/*-brief.md' \
-  ':(exclude)docs/MAINTENANCE_AND_HANDOVER.md' \
-  ':(exclude)context' | tar -x -C "$EXPORT"
+# The list lives in ops/automation/export-excludes.txt so publish-health
+# can build the same "what SHOULD be public" set from it. See that file.
+EXPORT_EXCLUDES=()
+while IFS= read -r _line; do
+  _line="${_line%%#*}"
+  _line="$(printf '%s' "$_line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+  [ -z "$_line" ] && continue
+  EXPORT_EXCLUDES+=(":(exclude)$_line")
+done < "$HERE/export-excludes.txt"
+if [ "${#EXPORT_EXCLUDES[@]}" -eq 0 ]; then
+  log "FAIL: export-excludes.txt named nothing. An empty exclude list would publish the internal ops record."
+  exit 1
+fi
+git archive --format=tar HEAD -- . "${EXPORT_EXCLUDES[@]}" | tar -x -C "$EXPORT"
 # NOTE: About is refreshed post-push from the MIRROR (has .git), see step 7 —
 # the export has no .git so update-about.sh cannot resolve slug/token there.
 printf 'make validate\nmake brief-audit\nmake content-policy-sweep\nmake visuals-check\nmake package-test\n' > "$EXPORT/.ci-native"
