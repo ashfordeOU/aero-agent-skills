@@ -34,7 +34,10 @@ import sys
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DEFAULT_YAML = os.path.join(REPO_ROOT, "ops", "automation", "numbers.yaml")
-DEFAULT_ROOTS = ["research", "marketing", "development", "docs", "README.md"]
+# marketing/ and development/ were deliberately removed from this repo
+# (a282219e7, 9d9549cd7). Keeping them here produced a permanent WARN and
+# made the configured-root count overstate what the gate reads.
+DEFAULT_ROOTS = ["research", "docs", "README.md"]
 
 # Dated/planning artifacts excluded from the market-number audit (documented
 # in ops/automation/TEST.md):

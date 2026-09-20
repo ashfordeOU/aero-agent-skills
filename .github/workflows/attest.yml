@@ -9,8 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install PyYAML (brief-audit dependency)
-        run: python3 -m pip install --user pyyaml
+        run: python3 -m pip install --user pyyaml cryptography   # cryptography: the Ed25519 cross-validation reference
       - name: Harness gates (5/5 REAL, deterministic)
+        env:
+          # The hand-rolled Ed25519 must be proven to agree with independent
+          # implementations HERE. Without this a missing reference library
+          # downgrades that proof to a skip and the run still reads green.
+          AERO_REQUIRE_CROSSVAL: "1"
         run: make validate
       - name: Attestation gates (offline, deterministic at rest)
         # FIX 2026-09-10: 'make attest' includes number-snapshot-offline, which

@@ -12,15 +12,17 @@
 #     UNCLASSIFIED, CUI)
 #   - part-number patterns (P/N <digits>, NSN, CAGE)
 #   - specific military platform parameters (F-35/F-22/JSF/AIM-9 etc.)
-# Scan roots: README.md, marketing/, docs/, development/builds/, skills/,
-# support/ (publishable content). research/ briefs are internal evidence and
+# Scan roots: README.md, docs/, skills/, support/ (publishable content).
+# marketing/ and development/ were removed from the repo (a282219e7,
+# 9d9549cd7); they were still listed here, and `find` on a missing path
+# writes to a suppressed stderr, so the sweep quietly covered less than
+# this header claimed. research/ briefs are internal evidence and
 # legitimately discuss the policy terms — exempt by design.
 #
 # SCOPE DECISION (P2.1 rework, 2026-08-31): repo_root is TWO levels up from
 # ops/automation (../..), i.e. the repository root — NOT three (../../..),
 # which resolved to $HOME and made this sweep vacuous (skills/ never scanned).
-# The corrected sweep genuinely scans README.md + marketing/ + docs/ +
-# development/builds/ + skills/ + support/.
+# The corrected sweep genuinely scans README.md + docs/ + skills/ + support/.
 #
 # Meta-doc exemption: documents whose purpose is to DEFINE this sweep or the
 # policy itself necessarily quote the red-flag terms (e.g. the attestation
@@ -42,8 +44,8 @@ meta_doc_exempt=(
 if [ "$#" -gt 0 ]; then
   roots=("$@")
 else
-  roots=("$repo_root/README.md" "$repo_root/marketing" "$repo_root/docs"
-         "$repo_root/development/builds" "$repo_root/skills" "$repo_root/support")
+  roots=("$repo_root/README.md" "$repo_root/docs"
+         "$repo_root/skills" "$repo_root/support")
 fi
 
 patterns=(
@@ -95,18 +97,50 @@ skip_exempt() {
 # the FAIL message expect — same multi-file-per-pattern grep speed as the
 # original single-pass design.
 scratch="$(mktemp -d)"
-trap 'rm -rf "$scratch"' EXIT
+manifest="$(mktemp)"; candidates="$(mktemp)"; excluded="$(mktemp)"
+trap 'rm -rf "$scratch" "$manifest" "$candidates" "$excluded"' EXIT
 
-# Text-vs-binary detection matches grep -I's own heuristic (a NUL byte
-# anywhere marks a file binary) so this candidate list covers exactly what
-# the original whole-directory `grep -rI` scanned — true binaries (.png,
-# .pyc) are skipped the same way, nothing new is silently excluded.
+# Text-vs-binary detection matches grep -I's own heuristic: a NUL byte
+# anywhere marks a file binary. That is the right call for a .png and the
+# wrong one to make SILENTLY for a .md — one NUL byte is a one-byte way to
+# make a document invisible to this gate, which would then still print
+# "0 red-flag hits". (A file with invalid UTF-8 but no NUL is scanned
+# normally; that was checked, not assumed.)
+#
+# So the exclusions are counted and named, and a non-empty publishable text
+# file among them fails the gate. An empty file is excluded by the same
+# heuristic and is not an anomaly: there is nothing in it to sweep.
+find "${roots[@]}" -type f 2>/dev/null | LC_ALL=C sort > "$manifest"
+find "${roots[@]}" -type f -print0 2>/dev/null \
+  | xargs -0 grep -IlZ . 2>/dev/null | tr '\0' '\n' \
+  | LC_ALL=C sort > "$candidates" || true
+
+scanned=$(wc -l < "$candidates" | tr -d ' ')
+LC_ALL=C comm -23 "$manifest" "$candidates" > "$excluded"
+n_excluded=$(wc -l < "$excluded" | tr -d ' ')
+
+# A sweep that scanned nothing is not a clean sweep.
+if [ "$scanned" -eq 0 ]; then
+  echo "FAIL content-policy-sweep: 0 files scanned — the sweep covered nothing" >&2
+  exit 1
+fi
+
+n_anomalous=0
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  [ -s "$f" ] || continue          # empty: nothing to sweep, not an anomaly
+  case "${f##*.}" in
+    md|txt|html|htm|yaml|yml|json|csv|svg|py|sh)
+      echo "FAIL content-policy-sweep: $f is publishable text but was excluded from the sweep as binary (a NUL byte?) — it would never be checked" >&2
+      n_anomalous=$((n_anomalous + 1)) ;;
+  esac
+done < "$excluded"
+
 while IFS= read -r f; do
   [ -f "$f" ] || continue
   mkdir -p "$scratch$(dirname "$f")"
   sed -E 's/[A-Za-z0-9+\/=]{200,}/[BASE64-DATA-ELIDED]/g' "$f" > "$scratch$f"
-done < <(find "${roots[@]}" -type f -print0 2>/dev/null \
-  | xargs -0 grep -IlZ . 2>/dev/null | tr '\0' '\n' || true)
+done < "$candidates"
 
 for pat in "${patterns[@]}"; do
   while IFS= read -r scratch_line; do
@@ -118,7 +152,13 @@ for pat in "${patterns[@]}"; do
 done
 
 if [ "$hits" -ne 0 ]; then
-  echo "FAIL content-policy-sweep: ${hits} red-flag hit(s) in publishable content (brief 06 s8.3.6/8.3.9)" >&2
+  echo "FAIL content-policy-sweep: ${hits} red-flag hit(s) in ${scanned} scanned file(s) (brief 06 s8.3.6/8.3.9)" >&2
   exit 1
 fi
-echo "PASS content-policy-sweep: 0 red-flag hits in publishable content"
+if [ "$n_anomalous" -ne 0 ]; then
+  echo "FAIL content-policy-sweep: ${n_anomalous} publishable text file(s) were excluded from the sweep as binary" >&2
+  exit 1
+fi
+# State the denominator. A pass with no coverage figure cannot be told apart
+# from a pass that read nothing.
+echo "PASS content-policy-sweep: 0 red-flag hits in ${scanned} scanned file(s); ${n_excluded} excluded as binary, none of them publishable text"

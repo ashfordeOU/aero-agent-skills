@@ -25,11 +25,28 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))  # ops/automation -> repo root
 MAP_PATH = os.path.join(REPO_ROOT, "standards-map.yaml")
 
+# marketing/positioning-1pager.md was listed here after marketing/ had
+# been removed from the repo, and the PASS line printed its name -- so
+# the gate advertised coverage of a file it never opened.
 TARGET_DOCS = [
     "docs/FAQ.md",
     "docs/glossary.md",
-    "marketing/positioning-1pager.md",
 ]
+
+
+def assert_targets_present(repo_root):
+    """A target that is not on disk must fail, not disappear.
+
+    Silently skipping a missing target is indistinguishable from
+    checking it and finding nothing wrong, which is how this gate came
+    to name a deleted file in its own verdict.
+    """
+    missing = [d for d in TARGET_DOCS
+               if not os.path.isfile(os.path.join(repo_root, d))]
+    if missing:
+        print("FAIL gated-set-check: configured target(s) absent: %s"
+              % ", ".join(missing))
+        raise SystemExit(1)
 
 # Word-form numbers that could plausibly appear in count claims.
 WORD_TO_INT = {
@@ -115,6 +132,7 @@ def scan_claims(path: str, gated_count: int, map_total: int) -> list:
 
 def main() -> int:
     docs_root = sys.argv[1] if len(sys.argv) > 1 else REPO_ROOT
+    assert_targets_present(docs_root)
     map_total, gated = load_map()
     gated_count = len(gated)
     print(

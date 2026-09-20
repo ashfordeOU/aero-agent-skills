@@ -255,6 +255,6 @@ done
 [ -f "$root/README.md" ] && scan_file "$root/README.md"
 
 if [ "$fail" -eq 0 ]; then
-  echo "PASS stale-number-guard: no stale corpus/skill/pack count claims in marketing/ + docs/ + development/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt; R26 includes wave-22-close era 318/330-SKILL/650)"
+  echo "PASS stale-number-guard: no stale corpus/skill/pack count claims in docs/ + README.md (dated plans/, builds/, release-notes and harness-contract milestone records excluded; qualified README planning-target lines exempt; R26 includes wave-22-close era 318/330-SKILL/650)"
 fi
 exit "$fail"

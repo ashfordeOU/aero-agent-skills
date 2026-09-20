@@ -141,6 +141,16 @@ def collect_gates():
     }
 
 
+def grp(v):
+    """Comma-group an integer for display: 3189 -> "3,189".
+
+    Non-integers pass through untouched, so a value that is already a rendered
+    string (gate_ratio returns "16/16") is safe to wrap. Display only -- never
+    wrap a value that is about to be used in arithmetic.
+    """
+    return "{:,}".format(v) if isinstance(v, int) else v
+
+
 def gate_ratio(g, which="validate"):
     """"9/9" — the battery is green as a whole or it is not green at all."""
     n = g[f"{which}_count"]
@@ -168,7 +178,7 @@ def gate_chip_lines(target, m):
         return [head, tail] if tail else [head]
     top, bottom = label
     if bottom is None:
-        bottom = f'{m["router_cases"]} CASES'
+        bottom = f'{grp(m["router_cases"])} CASES'
     return [top, bottom]
 
 
@@ -358,11 +368,26 @@ def gen_radar(m, t):
     W, H = 940, 820
     cx, cy, R = 430, 410, 262
     peak = max(max(f["tasks"], f["leaves"]) for f in m["per_family"].values())
-    for step in (5, 10, 15, 20, 25, 50, 100, 200, 500):  # ≤6 rings, nice values
-        if math.ceil(peak / step) <= 6:
-            break
-    rings = [step * i for i in range(1, math.ceil(peak / step) + 1)]
-    rmax = float(rings[-1])
+
+    # Log radius, not linear. One family carries ~50x the leaves of the next,
+    # so a linear axis puts the other eleven inside 2% of the radius -- a knot
+    # at the centre with the value labels printed on top of each other. The
+    # chart then shows only that space-systems is large, and hides the
+    # relative coverage it exists to show.
+    #
+    # RADAR_FLOOR is one decade below the smallest family, so the smallest
+    # value has a visible radius instead of sitting on the origin.
+    RADAR_FLOOR = 10.0
+    rmax = float(peak)
+    _lo, _hi = math.log10(RADAR_FLOOR), math.log10(rmax)
+
+    def radial(value):
+        """Radius in px for a count, on the declared log scale."""
+        v = max(float(value), RADAR_FLOOR)
+        return R * (math.log10(v) - _lo) / (_hi - _lo)
+
+    # Decade and half-decade rings, only those inside the data range.
+    rings = [r for r in (10, 50, 100, 500, 1000, 5000) if r <= rmax]
     axes = radar_axes(m)
     ink, mint, pencil, faint = t["ink"], t["cyan"], t["pencil"], t["faint"]
 
@@ -372,7 +397,7 @@ def gen_radar(m, t):
 
     # ring grid + spokes
     for rv in rings:
-        r = R * rv / rmax
+        r = radial(rv)
         pts = [pt(cx, cy, r, a) for _, _, a in axes]
         o.append(poly(pts, fill="none", stroke=faint, stroke_width="0.8", stroke_opacity="0.55"))
     for _, _, a in axes:
@@ -382,8 +407,8 @@ def gen_radar(m, t):
     # ring value labels on the upper-left inter-axis diagonal (ref: AEI plot);
     # ink at reduced opacity stays readable over the mint fill in both themes
     for rv in rings:
-        x, y = pt(cx, cy, R * rv / rmax, -105)
-        o.append(txt(x - 4, y - 3, str(rv), size=10, fill=ink, anchor="end",
+        x, y = pt(cx, cy, radial(rv), -105)
+        o.append(txt(x - 4, y - 3, grp(rv), size=10, fill=ink, anchor="end",
                      extra=' opacity="0.55"'))
 
     # perimeter labels in each family's hue (matches rose + sunburst)
@@ -396,22 +421,22 @@ def gen_radar(m, t):
 
     # series 1: router-task pressure (magenta) — Hit@1 tasks asserting each family
     mag = t["magenta"]
-    task_pts = [pt(cx, cy, R * f["tasks"] / rmax, a) for _, f, a in axes]
+    task_pts = [pt(cx, cy, radial(f["tasks"]), a) for _, f, a in axes]
     o.append(poly(task_pts, fill=mag, fill_opacity="0.10", stroke=mag, stroke_width="2.2"))
     for x, y in task_pts:
         o.append(f'<rect x="{x - 3.2:.1f}" y="{y - 3.2:.1f}" width="6.4" height="6.4" '
                  f'fill="{t["canvas"]}" stroke="{mag}" stroke-width="1.6"/>')
 
     # series 2: live verified leaves (cyan)
-    live_pts = [pt(cx, cy, R * f["leaves"] / rmax, a) for _, f, a in axes]
+    live_pts = [pt(cx, cy, radial(f["leaves"]), a) for _, f, a in axes]
     o.append(poly(live_pts, fill=mint, fill_opacity=t["fill_data"], stroke=mint, stroke_width="2.6"))
     for x, y in live_pts:
         o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.6" fill="{mint}" stroke="{ink}" stroke-width="1.2"/>')
 
     # task value labels just outside each task vertex
     for (_, f, a), (x, y) in zip(axes, task_pts):
-        lx, ly = pt(cx, cy, R * f["tasks"] / rmax + 14, a)
-        o.append(txt(lx, ly + 3, str(f["tasks"]), size=9.5, fill=mag, anchor="middle"))
+        lx, ly = pt(cx, cy, radial(f["tasks"]) + 14, a)
+        o.append(txt(lx, ly + 3, grp(f["tasks"]), size=9.5, fill=mag, anchor="middle"))
 
     # header
     o.append(txt(910, 74, "DOMAIN COVERAGE", cls="cond", size=34, fill=ink,
@@ -425,10 +450,10 @@ def gen_radar(m, t):
              f'stroke="{ink}" stroke-width="1.2"/>')
     o.append(f'<line x1="{bx}" y1="{by + 74}" x2="{bx + bw}" y2="{by + 74}" stroke="{faint}" stroke-width="0.8"/>')
     o.append(f'<circle cx="{bx + 22}" cy="{by + 24}" r="4" fill="{mint}" stroke="{ink}" stroke-width="1.2"/>')
-    o.append(txt(bx + 36, by + 28, f'VERIFIED SKILLS · {m["leaves"]}', size=10.5, fill=ink))
+    o.append(txt(bx + 36, by + 28, f'VERIFIED SKILLS · {grp(m["leaves"])}', size=10.5, fill=ink))
     o.append(f'<rect x="{bx + 18}" y="{by + 44}" width="8" height="8" fill="none" stroke="{t["magenta"]}" stroke-width="1.6"/>')
-    o.append(txt(bx + 36, by + 52, f'ROUTER CASES · {m["router_cases"]}', size=10.5, fill=ink))
-    rows = [("UNIT", "COUNT PER FAMILY"), ("SCALE", f"0–{int(rmax)} · RINGS {int(rings[0])}"),
+    o.append(txt(bx + 36, by + 52, f'ROUTER CASES · {grp(m["router_cases"])}', size=10.5, fill=ink))
+    rows = [("UNIT", "COUNT PER FAMILY"), ("SCALE", f"LOG10 · {grp(int(RADAR_FLOOR))}–{grp(int(rmax))}"),
             ("GATE", "HIT@1 · DETERMINISTIC"), ("SHEET", "RDR-01 · REV AUTO")]
     for i, (k, v) in enumerate(rows):
         yy = by + 94 + i * 21
@@ -436,8 +461,8 @@ def gen_radar(m, t):
         o.append(txt(bx + 66, yy, v, size=9, fill=ink))
 
     # left-anchored + short so it ends clear of the title block (founder 2026-09-01)
-    o.append(txt(48, H - 22, f'{m["leaves"]} VERIFIED SKILLS · {m["live_packs"]} LIVE PACKS · '
-                 f'{m["router_cases"]} ROUTER CASES', size=10, fill=pencil, ls=2))
+    o.append(txt(48, H - 22, f'{grp(m["leaves"])} VERIFIED SKILLS · {grp(m["live_packs"])} LIVE PACKS · '
+                 f'{grp(m["router_cases"])} ROUTER CASES', size=10, fill=pencil, ls=2))
     o.append(ownermark(t, bx + bw, H - 8))
     o.append("</svg>")
     return "\n".join(o) + "\n"
@@ -493,7 +518,7 @@ def gen_polar(m, t):
         o.append(f'<rect x="{px}" y="{yy + 7}" width="{tw * fam["packs"] / vmax:.1f}" '
                  f'height="9" fill="{fam_color(t, i)}"/>')
         o.append(txt(px + tw + 12, yy + 15,
-                     f'{fam["packs"]}P · {fam["leaves"]} SKILLS', size=10, fill=ink))
+                     f'{fam["packs"]}P · {grp(fam["leaves"])} SKILLS', size=10, fill=ink))
 
     ring_note = "·".join(str(r) for r in rings)
     o.append(txt(cx, H - 22, f'{m["live_packs"]} LIVE PACKS · GRID RINGS {ring_note} · '
@@ -565,12 +590,12 @@ def gen_structure(m, t):
         dy = 10 if math.sin(math.radians(mid)) > 0.35 else (
             -4 if math.sin(math.radians(mid)) < -0.35 else 4)
         o.append(txt(lx, ly + dy, f["label"], size=11, fill=pencil, anchor=anchor, ls=1))
-        o.append(txt(lx, ly + dy + 15, f'{f["packs"]}P · {f["leaves"]}S', size=9.5,
+        o.append(txt(lx, ly + dy + 15, f'{f["packs"]}P · {grp(f["leaves"])}S', size=9.5,
                      fill=c, anchor=anchor, ls=1))
         a = a1 + fam_gap
 
     # center readout
-    o.append(txt(cx, cy - 8, str(m["leaves"]), cls="cond", size=52, fill=ink,
+    o.append(txt(cx, cy - 8, grp(m["leaves"]), cls="cond", size=52, fill=ink,
                  anchor="middle", ls=1))
     o.append(txt(cx, cy + 16, "VERIFIED SKILLS", size=10, fill=pencil,
                  anchor="middle", ls=2))
@@ -778,16 +803,40 @@ def gen_title(t):
     return "\n".join(o) + "\n"
 
 
+# Advance width of the monospace face as a fraction of font-size. Every
+# monospace glyph is this wide, so a run's width is exactly computable.
+MONO_ADVANCE = 0.62
+
+
+def statline_text_width(stats):
+    """Width in px of the centre-anchored run gen_statline is about to emit.
+
+    Mirrors the span construction below: dx 34 between stats, the figure at
+    font-size 34, dx 9, then the label at font-size 13 with 2px tracking.
+    """
+    run = 0.0
+    for k, (value, label, _colour) in enumerate(stats):
+        if k:
+            run += 34
+        run += len(str(value)) * 34 * MONO_ADVANCE
+        run += 9
+        run += len(label) * (13 * MONO_ADVANCE + 2)
+    return run
+
+
 def gen_statline(m, t):
-    W, H = 1240, 74
+    H = 74
     stats = [
-        (m["leaves"], "VERIFIED SKILLS", t["cyan"]),
-        (m["live_packs"], "LIVE PACKS", t["violet"]),
-        (m["families"], "FAMILIES", t["magenta"]),
-        (m["standards"], "STANDARDS", t["orange"]),
-        (m["router_cases"], "ROUTER CASES", t["cyan"]),
+        (grp(m["leaves"]), "VERIFIED SKILLS", t["cyan"]),
+        (grp(m["live_packs"]), "LIVE PACKS", t["violet"]),
+        (grp(m["families"]), "FAMILIES", t["magenta"]),
+        (grp(m["standards"]), "STANDARDS", t["orange"]),
+        (grp(m["router_cases"]), "ROUTER CASES", t["cyan"]),
         (gate_ratio(m["gates"]), "GATES GREEN", t["violet"]),
     ]
+    # Never pin this: the figures grow. 1240 stays the floor so the banner
+    # keeps its familiar proportions until the content genuinely needs more.
+    W = max(1240, int(statline_text_width(stats)) + 64)
     spans = []
     for k, (v, label, c) in enumerate(stats):
         dx = ' dx="34"' if k else ""
@@ -919,7 +968,7 @@ def gen_social(m, t):
         dy = 4 if math.sin(math.radians(mid)) > 0.35 else (-2 if math.sin(math.radians(mid)) < -0.35 else 3)
         o.append(txt(lx, ly + dy, short.get(name, name.upper()), size=9, fill=c, anchor=anchor, ls=1))
         a = a1 + fam_gap
-    o.append(txt(cx, cy - 6, str(m["leaves"]), cls="cond", size=34, fill=t["ink"], anchor="middle", ls=1))
+    o.append(txt(cx, cy - 6, grp(m["leaves"]), cls="cond", size=34, fill=t["ink"], anchor="middle", ls=1))
     o.append(txt(cx, cy + 17, "SKILLS", size=10, fill=t["pencil"], anchor="middle", ls=2))
     o.append(txt(cx, 328, "REPOSITORY STRUCTURE", size=12, fill=t["pencil"], anchor="middle", ls=2))
     o.append(txt(cx, 664, f'{m["live_packs"]} PACKS · {m["families"]} FAMILIES · ARC = SKILLS',
@@ -927,11 +976,11 @@ def gen_social(m, t):
 
     # --- right: stat chips, 2x3 grid (companion readout to the diagram) ---
     stats = [
-        (m["leaves"], "VERIFIED SKILLS", t["cyan"]),
-        (m["live_packs"], "LIVE PACKS", t["violet"]),
-        (m["families"], "FAMILIES", t["magenta"]),
-        (m["standards"], "STANDARDS", t["orange"]),
-        (m["router_cases"], "ROUTER CASES", t["cyan"]),
+        (grp(m["leaves"]), "VERIFIED SKILLS", t["cyan"]),
+        (grp(m["live_packs"]), "LIVE PACKS", t["violet"]),
+        (grp(m["families"]), "FAMILIES", t["magenta"]),
+        (grp(m["standards"]), "STANDARDS", t["orange"]),
+        (grp(m["router_cases"]), "ROUTER CASES", t["cyan"]),
         (gate_ratio(m["gates"]), "GATES GREEN", t["violet"]),
     ]
     gx0, gy0, chip_w, chip_h, ggap = 660, 428, 156, 56, 12
@@ -1010,11 +1059,11 @@ We built the aerospace knowledge layer for AI agents.
 
 Ask a general AI about DO-178C and you get the acronyms. Ask an agent carrying Aero Agent Skills and you get the software level determination, a PSAC draft, and a hard stop where a human signs.
 
-Aero Agent Skills is {m["leaves"]} verified engineering skills in {m["live_packs"]} installable packs across {m["families"]} disciplines: avionics certification, aerodynamics, structures, propulsion, GNC, flight test, space systems, manufacturing quality and more. Each skill encodes the process: when a standard applies, the workflow, the verification gates, and the point where the agent must stop for a human signature.
+Aero Agent Skills is {grp(m["leaves"])} verified engineering skills in {m["live_packs"]} installable packs across {m["families"]} disciplines: avionics certification, aerodynamics, structures, propulsion, GNC, flight test, space systems, manufacturing quality and more. Each skill encodes the process: when a standard applies, the workflow, the verification gates, and the point where the agent must stop for a human signature.
 
 What makes it different:
 
-- Verified means replayable. Every skill is spec-linted, behavior-tested offline, and router-asserted against a {m["router_cases"]}-case Hit@1 corpus you can run on the commit you are looking at. It is not certification, and the repo says so plainly.
+- Verified means replayable. Every skill is spec-linted, behavior-tested offline, and router-asserted against a {grp(m["router_cases"])}-case Hit@1 corpus you can run on the commit you are looking at. It is not certification, and the repo says so plainly.
 - {m["standards"]} aerospace standards mapped machine-readably: referenced and summarized, never reproduced.
 - Every number and chart in the repository is generated from the tree. Nothing is hand-counted, and CI fails on drift.
 
@@ -1043,7 +1092,7 @@ def gen_domains(m):
         "",
         "Machine-readable source of truth: `skills/` tree. This page is the human",
         f'companion — {m["families"]} families, {m["live_packs"]} live sub-domain packs, '
-        f'{m["leaves"]} verified leaves.',
+        f'{grp(m["leaves"])} verified leaves.',
         "",
         "Generated by `make visuals` (scripts/gen_visuals.py) — do not edit by hand;",
         "CI fails if this page drifts from the tree. Aero Agent Skills is built and",
@@ -1063,11 +1112,11 @@ def gen_domains(m):
             out.append(f"    {pid}[{pack} · {len(leaves)}]")
             out.append(f"    {mid(name)} --> {pid}")
     out += ["```", "",
-            f'*{m["live_packs"]} packs · {m["leaves"]} leaves rendered above.*']
+            f'*{m["live_packs"]} packs · {grp(m["leaves"])} leaves rendered above.*']
     for name in sorted(fams):
         f = fams[name]
         out += ["", f"## {name}", "",
-                f'**{f["packs"]} sub-domain packs · {f["leaves"]} skills**', "",
+                f'**{f["packs"]} sub-domain packs · {grp(f["leaves"])} skills**', "",
                 "| Pack | Skills | Count |", "|---|---|---|"]
         for pack, leaves in f["packs_detail"].items():
             listed = ", ".join(f"`{s}`" for s in leaves)
@@ -1130,9 +1179,9 @@ def block_statline(m):
     caught statline alt stuck at 330/674 while badges said 341/696)."""
     return (
         '<p align="center">\n'
-        f'  <img src="docs/statline-dark.png" alt="{m["leaves"]} verified skills · '
+        f'  <img src="docs/statline-dark.png" alt="{grp(m["leaves"])} verified skills · '
         f'{m["live_packs"]} live packs · {m["families"]} families · '
-        f'{m["standards"]} standards · {m["router_cases"]} router cases · '
+        f'{m["standards"]} standards · {grp(m["router_cases"])} router cases · '
         f'{gate_ratio(m["gates"])} gates green" width="100%">\n'
         '</p>'
     )
@@ -1145,7 +1194,7 @@ def block_badges(m):
                 f'{lab}-{enc}-{color}?style=flat&labelColor=1a1e35" alt="{alt or (label + " " + msg)}"></a>')
     g = m["gates"]
     row = [
-        b("skills", str(m["leaves"]), "0ea5e9", "skills/"),
+        b("skills", grp(m["leaves"]), "0ea5e9", "skills/"),
         b("packs", str(m["live_packs"]), "8b5cf6", "docs/DOMAINS.md"),
         b("families", str(m["families"]), "ec4899", "docs/DOMAINS.md"),
         b("standards", str(m["standards"]), "f97316", "STANDARDS.md"),
@@ -1153,7 +1202,7 @@ def block_badges(m):
           alt=f'gates {gate_ratio(g)}'),
         b("attest", gate_badge_msg(g, "attest"), "2ea043", "docs/harness-contract.md",
           alt=f'attest {gate_ratio(g, "attest")}'),
-        b("router cases", str(m["router_cases"]), "0ea5e9", "eval/"),
+        b("router cases", grp(m["router_cases"]), "0ea5e9", "eval/"),
         b("format", "agentskills.io", "8b5cf6", "https://agentskills.io"),
     ]
     # Distribution row: how the library ships. Static npm badge on purpose —
@@ -1172,10 +1221,10 @@ def block_badges(m):
 
 
 def block_overview(m):
-    return (f'**{m["leaves"]} verified skills** across **{m["families"]} families** and '
+    return (f'**{grp(m["leaves"])} verified skills** across **{m["families"]} families** and '
             f'**{m["live_packs"]} live sub-domain packs** — each one spec-linted, '
             f'behavior-tested, and router-asserted against a '
-            f'**{m["router_cases"]}-case Hit@1 corpus**. Every figure below is computed '
+            f'**{grp(m["router_cases"])}-case Hit@1 corpus**. Every figure below is computed '
             f'from the tree at HEAD; nothing is hand-counted.')
 
 
@@ -1193,10 +1242,10 @@ def block_family_table(m):
     fams = m["per_family"]
     for name in sorted(fams):
         f = fams[name]
-        rows.append(f'| **{pretty_names[name]}** | {f["spine"]} | {f["packs"]} | {f["leaves"]} | '
-                    f'{f["tasks"]} |')
+        rows.append(f'| **{pretty_names[name]}** | {f["spine"]} | {f["packs"]} | {grp(f["leaves"])} | '
+                    f'{grp(f["tasks"])} |')
     rows.append(f'| **Total** | {m["standards"]} standards mapped | **{m["live_packs"]}** | '
-                f'**{m["leaves"]}** | **{m["router_cases"]}** |')
+                f'**{grp(m["leaves"])}** | **{grp(m["router_cases"])}** |')
     return "\n".join(rows)
 
 
@@ -1365,7 +1414,21 @@ def _build_gate_selftest():
 
         def test_hit1_chip_carries_the_live_case_count(self):
             self.assertEqual(gate_chip_lines("hit1", {"router_cases": 4472})[1],
-                             "4472 CASES")
+                             "4,472 CASES")
+
+        def test_displayed_figures_past_a_thousand_are_comma_grouped(self):
+            """Lock the house rule in, rather than pinning the old form.
+
+            The chip expectation above was written against the ungrouped
+            figure, so it forbade the correct rendering: it went red the
+            moment grouping was introduced. Assert the rule itself, so a
+            future generator change is graded against the rule and not
+            against whatever the output happened to be.
+            """
+            self.assertEqual(grp(4472), "4,472")
+            self.assertEqual(grp(1000), "1,000")
+            self.assertEqual(grp(999), "999")       # below the rule, unchanged
+            self.assertEqual(grp("16/16"), "16/16")  # already rendered, passes through
 
         def test_readme_blocks_quote_the_makefile_not_a_constant(self):
             """The test that would have caught the original defect."""

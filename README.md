@@ -13,19 +13,19 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="3189 verified skills · 86 live packs · 12 families · 30 standards · 6308 router cases · 16/16 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="3,189 verified skills · 86 live packs · 12 families · 30 standards · 6,308 router cases · 16/16 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-3189-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 3189"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-3,189-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 3,189"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-86-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 86"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-16%2F16-2ea043?style=flat&labelColor=1a1e35" alt="gates 16/16"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-7%2F7-2ea043?style=flat&labelColor=1a1e35" alt="attest 7/7"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_cases-6308-0ea5e9?style=flat&labelColor=1a1e35" alt="router cases 6308"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_cases-6,308-0ea5e9?style=flat&labelColor=1a1e35" alt="router cases 6,308"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <p align="center">
@@ -134,7 +134,7 @@ Per-host setup paths: [docs/harness-integration.md](docs/harness-integration.md)
 ### The domain map
 
 <!-- gen:overview -->
-**3189 verified skills** across **12 families** and **86 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **6308-case Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**3,189 verified skills** across **12 families** and **86 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **6,308-case Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -166,11 +166,11 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | **GNC & autonomy** | ARP4754A | 6 | 68 | 143 |
 | **Manufacturing quality** | AS9100 / AS9102 | 8 | 48 | 101 |
 | **Propulsion** | FAR-33 | 11 | 54 | 118 |
-| **Space systems** | ECSS | 5 | 2582 | 5035 |
+| **Space systems** | ECSS | 5 | 2,582 | 5,035 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 69 | 147 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 47 | 96 |
 | **Vehicle design** | FAR-25 / CS-25 | 6 | 59 | 120 |
-| **Total** | 30 standards mapped | **86** | **3189** | **6308** |
+| **Total** | 30 standards mapped | **86** | **3,189** | **6,308** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).

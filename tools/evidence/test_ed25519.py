@@ -33,6 +33,27 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ed25519  # noqa: E402
 
 
+CROSSVAL_REQUIRED = os.environ.get("AERO_REQUIRE_CROSSVAL") == "1"
+
+
+def no_crossval(reason):
+    """A reference implementation is missing.
+
+    Our Ed25519 is hand-rolled from RFC 8032; agreement with independent
+    codebases is the only thing that catches a silent signature bug. On any
+    host that exists to prove that -- CI, a release machine -- an absent
+    reference implementation is a failure, not a skip, so the proof cannot
+    quietly stop happening. Set AERO_REQUIRE_CROSSVAL=1 there.
+    """
+    if CROSSVAL_REQUIRED:
+        raise AssertionError(
+            "cross-validation is required here but cannot run: %s. "
+            "Install the reference implementation, or unset "
+            "AERO_REQUIRE_CROSSVAL if this host is not meant to prove it."
+            % reason)
+    raise unittest.SkipTest(reason)
+
+
 def h(x):
     return binascii.unhexlify(x.replace(" ", ""))
 
@@ -81,8 +102,7 @@ class AgreesWithPyca(unittest.TestCase):
             from cryptography.hazmat.primitives.asymmetric import ed25519 as ref
             cls.ref = ref
         except ImportError:
-            raise unittest.SkipTest(
-                "pyca/cryptography absent -- cross-validation NOT performed")
+            no_crossval("pyca/cryptography absent")
 
     def test_our_signature_verifies_there(self):
         sec = os.urandom(32)
@@ -117,15 +137,17 @@ class AgreesWithOpenSSL(unittest.TestCase):
     def setUpClass(cls):
         cls.openssl = shutil.which("openssl")
         if not cls.openssl:
-            raise unittest.SkipTest(
-                "openssl absent -- cross-validation NOT performed")
+            no_crossval("openssl absent")
 
     def test_openssl_verifies_our_signature(self):
-        from cryptography.hazmat.primitives import serialization
         try:
+            # Both imports inside the try: `serialization` sat outside it, so
+            # an absent cryptography raised ImportError and errored the test
+            # instead of reaching the skip written on the next line.
+            from cryptography.hazmat.primitives import serialization
             from cryptography.hazmat.primitives.asymmetric import ed25519 as ref
         except ImportError:
-            raise unittest.SkipTest("needs cryptography to write the PEM")
+            no_crossval("needs cryptography to write the PEM")
 
         sec = os.urandom(32)
         msg = b"cross-checked against a third codebase"
