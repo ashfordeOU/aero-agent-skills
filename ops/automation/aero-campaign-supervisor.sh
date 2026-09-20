@@ -31,7 +31,7 @@
 set -u
 
 HOME_DIR="${AERO_CAMPAIGN_HOME:-$HOME}"
-CAMPAIGN="${AERO_CAMPAIGN_SCRIPT:-$HOME_DIR/dev-tree/aero-agent-skills/ops/automation/aero-campaign.sh}"
+CAMPAIGN="${AERO_CAMPAIGN_SCRIPT:-$HOME_DIR/company-ops/aero-agent-skills/ops/automation/aero-campaign.sh}"
 # Space-separated set of argv patterns that mean "a runner exists".
 PATTERNS="${AERO_CAMPAIGN_PATTERN:-aero-campaign.sh aero-day-driver.py}"
 STOP="${AERO_CAMPAIGN_STOP:-$HOME_DIR/.hermes/state/aero-day-stop}"

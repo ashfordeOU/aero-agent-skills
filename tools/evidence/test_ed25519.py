@@ -138,6 +138,39 @@ class AgreesWithOpenSSL(unittest.TestCase):
         cls.openssl = shutil.which("openssl")
         if not cls.openssl:
             no_crossval("openssl absent")
+        # An openssl without Ed25519 is not a reference implementation.
+        # Apple ships LibreSSL 3.3 as /usr/bin/openssl and it has none: it
+        # reports "unsupported algorithm" while loading the PUBLIC KEY,
+        # before any signature is examined. Asserting through that says our
+        # signer was rejected when the truth is the checker cannot read the
+        # key, and it turns the pre-push gate red on a clean tree.
+        #
+        # The probe uses a key written by the REFERENCE library, never one of
+        # ours: if openssl cannot load even that, the gap is openssl's. A key
+        # it loads but whose signature it rejects remains a failure - that is
+        # the finding this class exists to make.
+        try:
+            from cryptography.hazmat.primitives import serialization
+            from cryptography.hazmat.primitives.asymmetric import ed25519 as ref
+        except ImportError:
+            no_crossval("needs cryptography to write the probe key")
+        probe_pem = (ref.Ed25519PrivateKey.generate().public_key()
+                     .public_bytes(
+                         encoding=serialization.Encoding.PEM,
+                         format=serialization.PublicFormat.SubjectPublicKeyInfo))
+        with tempfile.TemporaryDirectory() as d:
+            probe_path = os.path.join(d, "probe.pem")
+            with open(probe_path, "wb") as fh:
+                fh.write(probe_pem)
+            probe = subprocess.run(
+                [cls.openssl, "pkey", "-pubin", "-noout", "-in", probe_path],
+                capture_output=True, text=True, timeout=30)
+        if probe.returncode != 0:
+            ver = subprocess.run([cls.openssl, "version"], capture_output=True,
+                                 text=True).stdout.strip() or "this openssl"
+            no_crossval("%s cannot load an Ed25519 public key written by the "
+                        "reference library, so it cannot cross-validate one"
+                        % ver)
 
     def test_openssl_verifies_our_signature(self):
         try:

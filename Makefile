@@ -33,7 +33,7 @@
         attest attest-strict snapshot-live number-snapshot-offline brief-audit \
         content-policy-sweep packs visuals visuals-check
 
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle shipped-instructions
 	@echo "Aero Agent Skills validate: PASS ($(words $^)/$(words $^) REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
@@ -253,7 +253,7 @@ publish-public-dry:
 # runs BEFORE committing (a fresh state snapshot is part of each complete commit).
 .PHONY: attest
 attest: number-snapshot-offline brief-audit content-policy-sweep figure-audit gated-set-check stale-number-guard release-machinery
-	@echo "Aero Agent Skills attest: $(words $^)/$(words $^) gates exited clean - read each gate verdict line; EMPTY is not a PASS"
+	@ops/automation/attest-summary.sh $(words $^)
 
 # Opt-in: make a zero brief-audit denominator BLOCK.
 attest-strict:
@@ -270,3 +270,9 @@ brief-audit:
 
 content-policy-sweep:
 	@ops/automation/content-policy-sweep.sh
+
+# Nothing that ships may tell the reader to cd into a directory only
+# the author has. Four shipped files opened their run instructions with
+# `cd ~/AeroSkills`, which exists on no machine including this one.
+shipped-instructions:
+	@python3 scripts/gate_shipped_instructions.py

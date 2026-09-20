@@ -14,7 +14,8 @@ plus round trips, scaling laws, boundary cases and ValueError rejection of
 non-physical inputs. Anchor figures in the spec are quoted to a few decimals;
 module values are the exact formula outputs, so tolerances cover the rounding.
 
-Run: cd the repository root && python3 skills/manufacturing-quality/ndt/leak-testing/scripts/test_leak_testing.py
+Run from the repository root:
+    python3 skills/manufacturing-quality/ndt/leak-testing/scripts/test_leak_testing.py
 """
 
 import math

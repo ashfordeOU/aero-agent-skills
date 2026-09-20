@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Hourly umbrella for every aero-* product's public surfaces. Driven by
-# launchd (org.ashforde.aero-hourly-publish, see ~/scheduled-jobs),
-# logged to ~/operator-logs/aero-hourly-publish.log.
+# a scheduled job on the build host (label
+# org.ashforde.aero-hourly-publish), logged to the operator's log dir.
 #
 # Best-effort between steps: a failure in one does not block the others
 # (they publish to different repos/pages), but each step's OWN gate
@@ -32,7 +32,7 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 # file; the default below is only a fallback for whichever machine
 # hasn't set it.
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SITE_REPO="${ASHFORDE_SITE_REPO:-$HOME/dev-tree/ashforde-site}"
+SITE_REPO="${ASHFORDE_SITE_REPO:-$HOME/company-ops/ashforde-site}"
 
 echo "===== $(date -u +%FT%TZ) hourly-publish starting ====="
 

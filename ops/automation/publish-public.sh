@@ -6,7 +6,7 @@
 # exports the FULL tree (see step 1: the old curated allowlist is gone
 # because the marketing/branding/internal-strategy content it used to
 # exclude has been physically relocated out of this repo entirely, to
-# ~/internal-tree/).
+# an internal tree held outside this repository).
 #
 # Safety model ("shouldn't fail" = never publish a broken state, not
 # "never encounters an error"):
@@ -168,7 +168,7 @@ make number-snapshot-offline >/tmp/publish-public-numbers.log 2>&1 || {
 # docs/DESIGN.md, docs/release-runbook-ashforde.md, docs/ashforde-seal.svg,
 # docs/logo-full.png, docs/social-card-dark.*, docs/superpowers/) was
 # physically relocated out of this repo to
-# ~/internal-tree/ so it no longer
+# an internal tree outside this repository so it no longer
 # exists in the tree at all — a full `git archive HEAD` is now safe by
 # construction, no curated path list to keep in sync.
 EXPORT="$SCRATCH/export"
@@ -184,7 +184,7 @@ log "exporting the full tree to ${EXPORT}…"
 #                                  remote and the push-token env var
 #   docs/MAINTENANCE_AND_HANDOVER  content-policy-sweep.sh's own header
 #                                  calls it "never shipped to buyers"; it
-#                                  lists PAT FILE PATHS and ~/dev-tree
+#                                  lists PAT FILE PATHS and the dev tree
 #   context/                       internal release runbook (token choice)
 # None of these is referenced by a gate, a Makefile target or a workflow -
 # checked before excluding. The mirror sync is a full replace (step 5), so

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Offline contract test for the digital-control-design leaf
 (skills/gnc-autonomy/control/digital-control-design). Deterministic,
-stdlib unittest, no network, no RNG. Run from anywhere:
+stdlib unittest, no network, no RNG. Run from the repository root:
 
-    cd the repository root
     python3 skills/gnc-autonomy/control/digital-control-design/scripts/test_digital_control_design.py
 
 Assert targets are the module's REAL worked-example outputs (run of

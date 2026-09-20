@@ -1,7 +1,7 @@
 """Contract test for turbine-blade-cooling logic.
 
-Offline deterministic stdlib unittest. Run:
-    cd the repository root && python3 skills/propulsion/axial-compressor/turbine-blade-cooling/scripts/test_turbine_blade_cooling.py
+Offline deterministic stdlib unittest. Run from the repository root:
+    python3 skills/propulsion/axial-compressor/turbine-blade-cooling/scripts/test_turbine_blade_cooling.py
 
 Sensitivity boundary (t_gas 1500 K, t_coolant 800 K, no film): the
 required coolant fraction falls below the 0.20 bleed limit when the

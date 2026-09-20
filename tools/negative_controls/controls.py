@@ -521,6 +521,23 @@ def mutate_content_policy(fixture: Path) -> None:
 # the control set
 # ---------------------------------------------------------------------------
 
+
+def mutate_shipped_instructions(fixture: Path) -> None:
+    """Tell the reader to cd into a directory only the author has.
+
+    The real defect: four shipped files opened their contract-test
+    instructions by changing directory into a home path named AeroSkills --
+    the repository's old layout, which
+    exists on no customer's machine and not on the build host either. The
+    first command a buyer copied out of those leaves failed before it ran
+    anything, and one of them said "Run from anywhere:" directly above it.
+    """
+    _edit(_skill_md(fixture),
+          # fragments, so controls.py does not trip the gate it exercises
+          lambda s: s + "\n## Contract test\n\n    c" + "d ~/DevBoxOnly\n"
+                        "    python3 scripts/test_it.py\n")
+
+
 CONTROLS = [
     Control(
         gate="lint-spec",
@@ -646,6 +663,13 @@ CONTROLS = [
         mutation="export-compliance claim planted in a leaf SKILL.md",
         signature=r"FAIL content-policy-sweep",
         apply=mutate_content_policy,
+    ),
+    Control(
+        gate="shipped-instructions",
+        mutation="a shipped leaf told the reader to cd into a home directory "
+                 "only the author has",
+        signature=r"FAIL shipped-instructions:.*cd into ~/DevBoxOnly",
+        apply=mutate_shipped_instructions,
     ),
 ]
 

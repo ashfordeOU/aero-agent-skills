@@ -72,7 +72,7 @@ CLAUDE_RUNNING_PAT = "claude -p"
 # worktrees (VEDA-0066): pgrep alone reads FALSE between two claude
 # invocations while a lane is genuinely still open, so a dirty/unpushed tree
 # from a healthy mid-build lane hard-FAILed the daily audit.
-LANE_ROOT = pathlib.Path.home() / "lane-workspace"
+LANE_ROOT = pathlib.Path.home() / "aero-lanes"
 
 # Hourly launchd public publish + slack, named so the audit never hardcodes
 # a bare number for "how behind is too behind".
@@ -342,7 +342,11 @@ def check_ecss_and_ccd():
     built = len(os.listdir(ecss_dir)) if os.path.isdir(ecss_dir) else 0
     note(f"ecss: {built} leaves built")
 
-    lanes_dir = os.path.expanduser("~/lane-workspace")
+    # Operator-side working dir, created by the build automation and
+    # specific to this host. Environment-driven so the path is a
+    # fallback rather than documentation shipped to users.
+    lanes_dir = (os.environ.get("AERO_LANES_DIR")
+                 or os.path.expanduser("~/aero-lanes"))
     if os.path.isdir(lanes_dir):
         lanes = [d for d in os.listdir(lanes_dir) if os.path.isdir(os.path.join(lanes_dir, d))]
         if lanes:

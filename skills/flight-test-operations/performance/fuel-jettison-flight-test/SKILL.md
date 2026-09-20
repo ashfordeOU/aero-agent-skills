@@ -171,7 +171,8 @@ outputs:
 Run the deterministic contract test (stdlib unittest, offline, no
 network, under 1 s):
 
-    cd the repository root
+From the repository root:
+
     python3 skills/flight-test-operations/performance/fuel-jettison-flight-test/scripts/test_fuel_jettison_flight_test.py
 
 It covers the worked-example least-squares fit (slope, intercept,

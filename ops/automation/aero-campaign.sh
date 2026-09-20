@@ -2,7 +2,7 @@
 # TRACKED HOME for the continuous aero campaign (VEDA-0071, 2026-09-11):
 # moved verbatim from /tmp/aero-campaign.sh, which was a transient
 # `launchctl submit` and survived only until the next reboot or /tmp sweep.
-# Started by the LaunchAgent ~/scheduled-jobs/aero-campaign.plist
+# Started by a per-user scheduled job on the build host.
 # (RunAtLoad, KeepAlive on non-zero exit). Never start it by hand while the
 # agent is loaded - two runners double every wave.
 export PATH="$HOME/.local/bin:$PATH"
