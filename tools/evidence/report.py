@@ -53,12 +53,19 @@ def collect(directory, trusted):
     rows = []
     for path, rec in record_module.load_directory(directory):
         body = rec.get("body") or {}
-        verdict = (body.get("verdict") or {})
+        # The EFFECTIVE record: the body with its amendments replayed. Reading
+        # body["verdict"] here reported a withdrawn finding as it was first
+        # issued, which is the one thing a conformance report must not do.
+        view = record_module.current_view(rec)
+        verdict = (view.get("verdict") or {})
+        issued_verdict = (body.get("verdict") or {})
+        amendments = rec.get("amendments") or []
+        history_problems = record_module.verify_history(rec)
         att_ok, att_notes = signing.verify(rec, trusted, require=False)
         rows.append({
             "path": path,
             "record_id": rec.get("record_id"),
-            "subject": (body.get("subject") or {}).get("ref"),
+            "subject": (view.get("subject") or {}).get("ref"),
             "overall": verdict.get("overall", "UNKNOWN"),
             "counts": verdict.get("counts") or {},
             "issued_at": (body.get("issued") or {}).get("at"),
@@ -67,6 +74,16 @@ def collect(directory, trusted):
             "attestation_ok": att_ok,
             "attestation_notes": att_notes,
             "record_digest": canonical.digest(rec),
+            # Amendment provenance. `amended` makes a changed record visible
+            # in the report even when its effective verdict is PASS, because
+            # "this was changed after issue" is itself something the reader
+            # is entitled to know.
+            "amended": bool(amendments),
+            "amendment_count": len(amendments),
+            "verdict_as_issued": issued_verdict.get("overall", "UNKNOWN"),
+            "verdict_changed": (issued_verdict.get("overall", "UNKNOWN")
+                                != verdict.get("overall", "UNKNOWN")),
+            "history_problems": list(history_problems or []),
         })
     rows.sort(key=lambda r: (r["overall"] != "FAIL", r["subject"] or ""))
     return rows
@@ -79,6 +96,10 @@ def summarise(rows):
     return {
         "records": len(rows),
         "verdicts": dict(verdicts),
+        "amended": sum(1 for r in rows if r.get("amended")),
+        "verdict_changed_by_amendment": sum(
+            1 for r in rows if r.get("verdict_changed")),
+        "broken_history": sum(1 for r in rows if r.get("history_problems")),
         "attested": attested,
         "unattested": len(rows) - attested,
         "attested_and_verified": trusted_ok,

@@ -241,6 +241,23 @@ PATTERN_RULES = [
 _RULES_BY_NAME = dict((r["name"], r) for r in PATTERN_RULES)
 
 
+#: Where an identity actually appears when it leaks: a filesystem path, a
+#: `~user`, or an identity-ish key's value. A bare substring match is not
+#: enough, and the reason is concrete. The GitHub Actions account is named
+#: `runner`; the corpus contains "runner-up" in four trade-off skills. A bare
+#: match therefore made this gate unpassable on CI while passing on every
+#: developer machine -- green where it is authored, red only where it ships.
+#: public-ci-parity could not catch it either, because parity runs the export's
+#: gates on the authoring machine, under the authoring account.
+_IDENTITY_CONTEXT = (
+    r"(?:[/\\~]"
+    r"|\b(?:user|username|owner|login|account|home|host|hostname|author|runas)"
+    r"[\"\']?\s*[=:]\s*[\"\']?"
+    # prose: "wrote by buildmaster on node-17", "ran as ci"
+    r"|\b(?:by|on|as|under|from)\s+)"
+)
+
+
 def literal_rules(hostname=None, username=None, extra=()):
     """Build rules that look for this machine's own names in an artefact.
 
@@ -251,16 +268,27 @@ def literal_rules(hostname=None, username=None, extra=()):
     rules = []
     seen = set()
 
-    def add(name, value, severity, why):
+    def add(name, value, severity, why, contextual=True):
         if not value:
             return
         value = str(value)
         if len(value) < 3 or value in seen:
             return
         seen.add(value)
-        rules.append(_rule(name, severity, re.escape(value), why))
+        pattern = re.escape(value)
+        if contextual:
+            pattern = _IDENTITY_CONTEXT + pattern + r"\b"
+        rules.append(_rule(name, severity, pattern, why))
 
-    add("literal-hostname", hostname, HIGH, "the artefact quotes this machine's host name")
+    # An FQDN is unambiguous, so a bare match is safe. A short host name is
+    # as word-like as an account name and gets the same treatment.
+    add(
+        "literal-hostname",
+        hostname,
+        HIGH,
+        "the artefact quotes this machine's host name",
+        contextual="." not in str(hostname or ""),
+    )
     if hostname and "." in str(hostname):
         add(
             "literal-hostname-short",
@@ -269,8 +297,11 @@ def literal_rules(hostname=None, username=None, extra=()):
             "the artefact quotes this machine's short host name",
         )
     add("literal-username", username, HIGH, "the artefact quotes the account it ran under")
+    # Caller-supplied literals are opted into explicitly, so they match bare.
     for value in extra:
-        add("literal-env", value, HIGH, "the artefact quotes a value from the run environment")
+        add("literal-env", value, HIGH,
+            "the artefact quotes a value from the run environment",
+            contextual=False)
     return rules
 
 

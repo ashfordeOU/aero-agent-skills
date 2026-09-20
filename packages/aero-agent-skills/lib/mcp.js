@@ -273,8 +273,21 @@ function serve() {
       case 'resources/read':
         try {
           const uri = req.params && req.params.uri;
+          if (!uri || typeof uri !== 'string') {
+            return reply(req.id, undefined, {
+              code: -32602, message: 'resources/read requires a string uri',
+            });
+          }
           const res = readResource(catalog, uri);
-          return reply(req.id, { contents: [{ uri, mimeType: 'text/markdown', text: res.content[0].text }] });
+          // readResource signals "not found" in-band. Returning that text as
+          // a successful read told the caller the resource existed and its
+          // content was an error message.
+          const text = res && res.content && res.content[0]
+            ? res.content[0].text : '';
+          if (res && res.isError) {
+            return reply(req.id, undefined, { code: -32002, message: text || 'resource not found' });
+          }
+          return reply(req.id, { contents: [{ uri, mimeType: 'text/markdown', text }] });
         } catch (e) {
           return reply(req.id, undefined, { code: -32603, message: `resources/read failed: ${e.message}` });
         }
@@ -299,10 +312,29 @@ function serve() {
         reply(null, undefined, { code: -32700, message: 'parse error' });
         continue;
       }
+      // JSON.parse("null") succeeds, as do "1" and "[]", so the parse guard
+      // above is not enough: handle() would dereference req.method and the
+      // whole server would die on one stray line.
+      if (req === null || typeof req !== 'object' || Array.isArray(req)) {
+        reply(null, undefined, {
+          code: -32600,
+          message: 'invalid request: expected a JSON-RPC object',
+        });
+        continue;
+      }
       handle(req);
     }
   });
-  process.stdin.on('end', () => process.exit(0));
+  process.stdin.on('end', () => {
+    // NOT process.exit(0): that discards whatever is still buffered in the
+    // asynchronous stdout pipe. A response larger than the pipe buffer
+    // (~64 KiB) was truncated mid-JSON, so the client received an
+    // unparseable fragment and rendered nothing -- list_skills for the
+    // space-systems family (2,582 leaves) came back as 65,742 bytes ending
+    // mid-sentence. Setting exitCode lets the event loop drain the write
+    // first; Node then exits on its own with nothing left pending.
+    process.exitCode = 0;
+  });
 }
 
 module.exports = { serve, callTool, TOOLS, resourcesList, readResource };

@@ -3,7 +3,7 @@ name: publish-npm
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.0'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
   release:
     types: [published]
@@ -40,7 +40,7 @@ jobs:
           # (2) package.json version lagged behind the release tags. Derive
           # the version from the newest v*.0 tag and sync package.json so
           # `npm publish` always ships the released version.
-          TAG=$(git tag --list 'v[0-9]*.[0-9]*.0' --sort=-v:refname | head -1)
+          TAG=$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -1)
           VER=${TAG#v}
           if [ -z "$VER" ]; then echo "no release tag found"; exit 1; fi
           npm version "$VER" --no-git-tag-version --allow-same-version

@@ -62,6 +62,7 @@ METRICS = os.path.join(REPO, "docs/metrics.json")
 PKG = os.path.join(REPO, "packages/aero-agent-skills/package.json")
 PLUGIN_GRADLE = os.path.join(REPO, "packages/jetbrains-plugin/build.gradle.kts")
 CLAUDE_PLUGIN = os.path.join(REPO, ".claude-plugin/plugin.json")
+MARKETPLACE = os.path.join(REPO, ".claude-plugin/marketplace.json")
 
 
 def leaf_count():
@@ -197,6 +198,24 @@ def changelog_body(leaves=None, m=None, version=None, log=None):
     return "\n".join(lines)
 
 
+def marketplace_description():
+    """The marketplace listing text, built from the live register.
+
+    Figures are comma-grouped past a thousand, matching every other public
+    surface. Nothing here is typed by hand; a wrong number means the register
+    is wrong, which the number gates already catch.
+    """
+    _, m = leaf_count()
+    return (
+        "%s standards-mapped SKILL.md workflows across %s packs and %s "
+        "families, each with verification gates and human sign-off stops: "
+        "avionics, aerodynamics, structures, propulsion, GNC, flight test, "
+        "space systems, and quality. Every claim is replayable offline."
+        % (format(m["leaves"], ","), format(m["live_packs"], ","),
+           format(m["families"], ","))
+    )
+
+
 def sync_versions(dry=False):
     leaves, band, pkg = current_version()
     changes = []
@@ -223,6 +242,22 @@ def sync_versions(dry=False):
                 c["version"] = band
                 json.dump(c, open(CLAUDE_PLUGIN, "w"), indent=2)
                 open(CLAUDE_PLUGIN, "a").write("\n")
+    # Claude Code marketplace listing. The schema carries no version field, so
+    # the corpus figures live in the plugin description -- which is also what a
+    # browser sees. Regenerating it here is what stops the file (and the commit
+    # message GitHub shows beside it) from going stale, as it did for three
+    # weeks while advertising 330 skills.
+    if os.path.exists(MARKETPLACE):
+        mk = json.load(open(MARKETPLACE))
+        plugins = mk.get("plugins") or []
+        if plugins:
+            want = marketplace_description()
+            if plugins[0].get("description") != want:
+                changes.append("marketplace.json: plugin description -> live counts")
+                if not dry:
+                    plugins[0]["description"] = want
+                    json.dump(mk, open(MARKETPLACE, "w"), indent=2)
+                    open(MARKETPLACE, "a").write("\n")
     return changes
 
 

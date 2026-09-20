@@ -60,6 +60,13 @@ intellijPlatform {
 
         ideaVersion {
             sinceBuild = "242"
+            // No upper bound. Left unset, the Gradle plugin pins untilBuild to
+            // the branch this was built against, and every release shipped as
+            // since=242.0 until=242.* -- installable on IDE 2024.2 and nothing
+            // after it. The payload here is a catalogue, not deep platform API
+            // use, so forward compatibility is the right default; being
+            // invisible to every current IDE is not.
+            untilBuild = provider { null }
         }
     }
 

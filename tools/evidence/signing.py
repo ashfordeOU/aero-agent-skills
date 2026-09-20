@@ -54,6 +54,10 @@ except ImportError:                   # as a script
 
 ALGORITHM = "ed25519"
 CONTEXT = "aeroskills-evidence-attestation/v1"
+
+#: Amendments are signed under their OWN context, so an amendment signature
+#: can never be replayed as a record attestation, or the reverse.
+AMENDMENT_CONTEXT = "aeroskills-amendment-attestation/v1"
 TRUST_ANCHOR = "trusted-keys.json"
 
 BINDS_INTEGRITY = "integrity"
@@ -143,6 +147,102 @@ def payload(body_digest, issuer):
 
 
 # ------------------------------------------------------------------ issue
+
+def amendment_payload(record_id, entry):
+    """The exact bytes signed for one amendment.
+
+    Binds the change to THIS record and THIS position in the chain, so a
+    valid amendment cannot be lifted onto another record, reordered, or
+    replayed at a different sequence number. The entry's own attestation is
+    excluded, since it cannot sign itself.
+    """
+    return canonical.canonical_bytes({
+        "context": AMENDMENT_CONTEXT,
+        "record_id": record_id,
+        "seq": entry.get("seq"),
+        "at": entry.get("at"),
+        "author": entry.get("author"),
+        "reason": entry.get("reason"),
+        "pointer": entry.get("pointer"),
+        "prior_value": entry.get("prior_value"),
+        "new_value": entry.get("new_value"),
+        "view_digest_before": entry.get("view_digest_before"),
+        "view_digest_after": entry.get("view_digest_after"),
+    })
+
+
+def attest_amendment(record, seq, private):
+    """Sign one amendment of a record. Returns the record, mutated in place."""
+    entries = record.get("amendments") or []
+    match = [e for e in entries if e.get("seq") == seq]
+    if not match:
+        raise ValueError("no amendment with seq %r on this record" % seq)
+    entry = match[0]
+    record_id = record.get("record_id")
+    if not record_id:
+        raise ValueError("record has no record_id to bind the amendment to")
+    public = ed25519.public_key(private)
+    entry["attestation"] = {
+        "algorithm": ALGORITHM,
+        "context": AMENDMENT_CONTEXT,
+        "key_id": key_id(public),
+        # Convenience only, exactly as for a record attestation: verify()
+        # will not trust it.
+        "public_key": public.hex(),
+        "signature": ed25519.sign(
+            private, amendment_payload(record_id, entry)).hex(),
+    }
+    return record
+
+
+def verify_amendments(record, trusted):
+    """(ok, notes) for the amendment chain's signatures.
+
+    Every amendment must carry an attestation from a key in `trusted`. An
+    amendment is a change to what the record effectively says; an unsigned one
+    is an unsigned claim, whatever the body signature proves.
+    """
+    notes = []
+    entries = record.get("amendments") or []
+    if not entries:
+        return True, notes
+    record_id = record.get("record_id")
+    for entry in entries:
+        seq = entry.get("seq")
+        att = entry.get("attestation")
+        if not att:
+            return False, ["amendment %s is not attested: it changes what this "
+                           "record says, and nothing signs it. The body "
+                           "signature does not cover amendments." % seq]
+        if att.get("context") != AMENDMENT_CONTEXT:
+            return False, ["amendment %s carries context %r -- a signature "
+                           "made for another purpose is not an amendment "
+                           "attestation" % (seq, att.get("context"))]
+        if att.get("algorithm") != ALGORITHM:
+            return False, ["amendment %s: unknown algorithm %r"
+                           % (seq, att.get("algorithm"))]
+        kid = att.get("key_id")
+        anchor = trusted.get(kid)
+        if anchor is None:
+            return False, ["amendment %s is signed by key %s, which is not in "
+                           "the trust anchor" % (seq, kid)]
+        try:
+            embedded = bytes.fromhex(att.get("public_key") or "")
+        except ValueError:
+            embedded = b""
+        if embedded and embedded != anchor:
+            return False, ["amendment %s names a key it was not signed by"
+                           % seq]
+        try:
+            sig = bytes.fromhex(att.get("signature") or "")
+        except ValueError:
+            return False, ["amendment %s: signature is not hex" % seq]
+        if not ed25519.verify(anchor, amendment_payload(record_id, entry), sig):
+            return False, ["amendment %s does not verify under the trusted "
+                           "key %s" % (seq, kid)]
+        notes.append("amendment %s attested by %s" % (seq, kid))
+    return True, notes
+
 
 def attest(record, private, issuer=None):
     """Attach an attestation. Returns the record (mutated in place)."""
@@ -242,6 +342,14 @@ def verify(record, trusted=None, require=True):
         return False, ["the attestation says issuer %r but the sealed body "
                        "says %r" % (issuer, claimed)]
 
+    # The body signature covers the body. What the record EFFECTIVELY says is
+    # the body with its amendments replayed, so an unattested amendment is an
+    # unsigned change to the verdict a reader acts on.
+    amendments_ok, amendment_notes = verify_amendments(record, trusted)
+    if not amendments_ok:
+        return False, amendment_notes
+
     notes.append("attested by %s (%s) and verified against the trust anchor"
                  % (issuer, kid))
+    notes.extend(amendment_notes)
     return True, notes

@@ -245,6 +245,13 @@ GATE_SOURCES = [
 # Makefile and the gate sources and refuses to build if anything a gate
 # statically reaches is absent from the fixture.
 GATE_DEPENDENCIES = {
+    # release-manager.py --sync regenerates the Claude Code
+    # marketplace listing (its description carries the live corpus
+    # figures), so release-law reads it. Added 2026-09-19 when the
+    # dependency audit refused to build a fixture without it.
+    "release-law": [
+        ".claude-plugin/marketplace.json",
+    ],
     # Gate 4 was fifteen greps in a shell script until 2026-09-19. It is now
     # a Python runner with a shingle index, and needs all three of these:
     # the runner the gate script execs, the shingle module that runner

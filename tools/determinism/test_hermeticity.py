@@ -219,5 +219,84 @@ class ContainerReprVsJson(unittest.TestCase):
     def test_dict_keys_view_is_still_caught(self):
         self.assertIn(self.RULE, rules_hit("tags dict_keys(['a', 'b'])"))
 
+
+class IdentityContext(unittest.TestCase):
+    """An identity literal is a leak only where an identity goes.
+
+    Regression for 2026-09-19. The rule matched the building account's name
+    as a bare substring. On a developer machine that name never appears in
+    the corpus, so the gate was green; on GitHub Actions the account is
+    `runner` and the corpus says "runner-up" in four trade-off skills, so the
+    gate was red. Green where authored, red only where it ships -- and
+    public-ci-parity could not see it, because parity runs the export's gates
+    on the authoring machine under the authoring account.
+    """
+
+    def _scan(self, text, username="runner"):
+        rules = hermeticity.literal_rules(hostname=None, username=username)
+        return hermeticity.scan_bytes(text, rules=rules, username=username)
+
+    # -- must still fail: these are real leaks -------------------------------
+
+    # Spelled in fragments, not literally: this file ships inside the public
+    # export, and publish-public.sh aborts the publish on any /Users/<name>/ or
+    # /home/<name>/ in the exported tree. It splits its own pattern strings for
+    # exactly this reason. The scanned text is byte-identical either way.
+    _POSIX_HOME = "/ho" + "me/runner/work/aero"
+    _MAC_HOME = "/Us" + "ers/runner/build"
+
+    def test_a_posix_home_path_is_caught(self):
+        self.assertTrue(self._scan('{"root": "%s"}' % self._POSIX_HOME))
+
+    def test_a_macos_home_path_is_caught(self):
+        self.assertTrue(self._scan('{"root": "%s"}' % self._MAC_HOME))
+
+    def test_a_windows_home_path_is_caught(self):
+        self.assertTrue(self._scan(r'{"root": "C:\\Users\\runner\\build"}'))
+
+    def test_a_tilde_user_is_caught(self):
+        self.assertTrue(self._scan('{"root": "~runner/cache"}'))
+
+    def test_a_quoted_identity_field_is_caught(self):
+        # {"owner": "runner"} -- the key's closing quote sits before the colon.
+        self.assertTrue(self._scan('{"owner": "runner", "n": 1}'))
+
+    def test_a_bare_identity_field_is_caught(self):
+        self.assertTrue(self._scan("built by user=runner on host"))
+
+    # -- must not fail: these are ordinary prose -----------------------------
+
+    def test_runner_up_is_not_a_finding(self):
+        self.assertEqual(
+            self._scan("compute the margin to the runner-up and perturb"), [])
+
+    def test_a_word_containing_the_name_is_not_a_finding(self):
+        self.assertEqual(self._scan("forerunners of the design"), [])
+
+    def test_the_name_as_a_plain_noun_is_not_a_finding(self):
+        self.assertEqual(self._scan("the front runner in the trade study"), [])
+
+    # -- the property that actually matters ----------------------------------
+
+    def test_the_verdict_does_not_depend_on_who_runs_the_gate(self):
+        # The whole defect in one assertion.
+        # Generic account names on purpose: this file ships in the public
+        # export, and the public-safety audit forbids the build machine's
+        # real account name appearing in it. The audit splits its own
+        # pattern strings for the same reason. The property under test is
+        # invariance across accounts, so the particular names are arbitrary.
+        prose = "the margin to the runner-up, and the buildbot review"
+        for account in ("runner", "buildbot", "ci", "jenkins"):
+            with self.subTest(account=account):
+                self.assertEqual(self._scan(prose, username=account), [],
+                                 "verdict changed with the account name")
+
+    def test_an_fqdn_still_matches_bare(self):
+        # A dotted host name is unambiguous; it needs no context.
+        rules = hermeticity.literal_rules(hostname="build01.example.com")
+        self.assertTrue(hermeticity.scan_bytes(
+            "produced on build01.example.com", rules=rules))
+
+
 if __name__ == "__main__":
     unittest.main()
