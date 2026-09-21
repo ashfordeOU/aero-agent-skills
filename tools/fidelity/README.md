@@ -86,3 +86,20 @@ number, and a tool that hides its own false starts is not an instrument.
    its edition letter is a real defect — it does not identify which edition the
    leaf was written against — but it is a different defect from citing a clause
    that does not exist, and the census now counts them separately.
+
+## Who read the first run
+
+The readers behind `results/run-seed20260921-n100.json` were language-model
+readers: not people, and not ECSS-qualified engineers. The result file's
+`grader` field was written before this section and does not say so. This
+section does.
+
+That is the reason the grader is graded first. Every worksheet carried fifteen
+planted mismatches the readers were not told about, the run would have printed
+VOID below a catch rate of 0.80, and they caught fifteen of fifteen. So the
+instrument was shown able to go red before its number was read, which is the
+same discipline applied to any measuring equipment. What the controls prove is
+the detection of a gross mismatch. They do not prove the completeness
+judgement a product-assurance engineer brings to a clause, so the result is a
+self-measurement with a demonstrated instrument. It is not an independent
+audit, and it should never be quoted as one.
