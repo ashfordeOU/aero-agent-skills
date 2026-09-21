@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Sync the GitHub About sidebar (description · homepage · topics) from
 # docs/metrics.json, so the public numbers come from the tree and can never be
-# hand-edited into staleness. Needs network plus a repo-scoped token (read from
-# the origin remote URL at runtime — never stored here), so it is deliberately
+# hand-edited into staleness. Needs network plus a token with admin on the
+# repo (resolved at runtime — never stored here), so it is deliberately
 # NOT one of the offline gates. Three ways it runs:
 #   make about                    — manual, from the local tree
 #   .ci-native --best-effort line — every push refreshes About (non-fatal:
@@ -28,10 +28,13 @@ cd "$(git rev-parse --show-toplevel)"
 url=$(git remote get-url origin)
 token=$(printf '%s' "$url" | sed -E 's#https://[^:]+:([^@]+)@.*#\1#')
 slug=$(printf '%s' "$url" | sed -E -e 's#.*github\.com/##' -e 's#\.git$##')
-# Not every clone embeds a token in the remote URL (e.g. the public-repo
-# mirror pushes via a credential helper) — fall back to gh's own token.
+# A remote normally names an account and leaves the secret to the credential
+# helper, so there is no token in the URL. Editing About needs admin on the
+# repo, so ask gh for the token of the account that OWNS it -- the active
+# account is a different one whenever the origin is the private dev repo --
+# and only then for whichever account is active.
 if [ "$token" = "$url" ] && command -v gh >/dev/null 2>&1; then
-  token=$(gh auth token 2>/dev/null || true)
+  token=$(gh auth token --user "${slug%%/*}" 2>/dev/null || gh auth token 2>/dev/null || true)
 fi
 if [ -z "$token" ] || [ "$slug" = "$url" ]; then
   echo "FAIL about: no usable token (neither embedded in origin nor via gh auth token) or unexpected remote shape" >&2

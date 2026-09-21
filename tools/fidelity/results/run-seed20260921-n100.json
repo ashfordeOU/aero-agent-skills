@@ -1,0 +1,38 @@
+{
+ "tool": "tools/fidelity/fidelity_audit.py",
+ "tool_version": "1.0.0",
+ "layer": "L3 fidelity",
+ "generated_utc": "2026-09-21T14:50:07Z",
+ "worksheet_seed": 20260921,
+ "extractor": "pymupdf-1.27.2.3",
+ "grader": "12 blind graders, 2 disjoint passes, 3 adjudicators; every partial re-judged against the whole leaf by 4 further readers",
+ "control": {
+  "planted": 15,
+  "caught": 15,
+  "catch_rate": 1.0,
+  "floor": 0.8,
+  "verdict": "RED-CAPABLE",
+  "note": "A grader that does not catch a deliberately mismatched pair has not measured anything. Below the floor the run reports VOID and says nothing about the corpus."
+ },
+ "result": {
+  "sampled": 100,
+  "judged": 97,
+  "unjudgeable": 2,
+  "contested": 1,
+  "faithful": 38,
+  "partial": 44,
+  "unfaithful": 15,
+  "fidelity_rate": 0.3918,
+  "fidelity_ci95": [
+   0.3005,
+   0.4912
+  ],
+  "worst_case_rate": 0.38,
+  "worst_case_note": "every excluded item counted as a miss -- the number to quote if someone argues the exclusions are self-serving",
+  "strict_note": "fidelity_rate counts only 'faithful' as a pass. 'partial' is a miss: a rendering that omits a requirement the clause imposes is how a supplier ends up non-compliant while believing otherwise."
+ },
+ "excluded_from_denominator": [
+  "unjudgeable",
+  "contested"
+ ]
+}

@@ -1,0 +1,41 @@
+{
+  "_comment": [
+    "Trust anchor for the SPECIMEN dossier, and for nothing else.",
+    "",
+    "These are PUBLIC keys; publishing them is the point -- anyone holding",
+    "the specimen dossier can verify it without asking us for anything and",
+    "without trusting the key the record itself carries.",
+    "",
+    "This anchor is SEPARATE from the conformance issuing anchor in the",
+    "skills corpus, deliberately. A specimen key listed alongside the",
+    "production one would verify exactly like the production one, and the",
+    "only thing distinguishing a demonstration from an issue would be a",
+    "reader noticing a status field. Separate files cannot be misread.",
+    "",
+    "The matching private key lives outside every repository and is never",
+    "committed."
+  ],
+  "schema": "aero-dossier-trust-anchor/v1",
+  "scope": "specimen only",
+  "keys": [
+    {
+      "key_id": "k_0beaa80219554da0",
+      "public_key": "c26ea6ba3c2ea429d4b47396539671350e99b80d0824b43e9645f9c832665e85",
+      "algorithm": "ed25519",
+      "issuer": "ashforde-harness-specimen",
+      "status": "specimen",
+      "created": "2026-09-20",
+      "note": "Signs SPECIMEN dossiers only. A record signed by this key covers no deployment: dossier.matches() refuses a specimen outright.",
+      "superseded": "2026-09-20: its private half was never persisted, so records under it can still be VERIFIED but no new one can be issued. Kept listed for exactly that reason -- removing it would invalidate a record that is not wrong."
+    },
+    {
+      "key_id": "k_3f8a796671dd338c",
+      "public_key": "8096cc750369c8ac8628863dade9024c65533dbcc729f4ebb31ccdbd19f358bd",
+      "algorithm": "ed25519",
+      "issuer": "ashforde-harness-specimen",
+      "status": "specimen",
+      "created": "2026-09-20",
+      "note": "Signs SPECIMEN dossiers only. A record signed by this key covers no deployment: dossier.matches() refuses a specimen outright. The private half is held outside every repository at a stable path so an issuance is reproducible."
+    }
+  ]
+}

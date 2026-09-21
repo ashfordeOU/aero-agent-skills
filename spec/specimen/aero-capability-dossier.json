@@ -1,0 +1,99 @@
+{
+  "attestation": {
+    "algorithm": "ed25519",
+    "body_digest": "sha256:b8c7488f4629b4a4c8c24553c9d2af41250ad4a643bdd221b2f929e8df67a358",
+    "context": "aero-harness-dossier-attestation/v1",
+    "issuer": "ashforde-harness-specimen",
+    "key_id": "k_3f8a796671dd338c",
+    "public_key": "8096cc750369c8ac8628863dade9024c65533dbcc729f4ebb31ccdbd19f358bd",
+    "signature": "28c81534a6d5da1d0cc8242b6898cf97cb59ab4ecfee2daaa74a7c82a986477c75cd0cc635907ea59d9ac5f7ace94f30ff003ce9642361dc724b856f784c920e"
+  },
+  "binding_integrity": {
+    "bindings": 597,
+    "ok": true,
+    "resolved": 597,
+    "roles": 38
+  },
+  "claim": "claim@1",
+  "context": "aeroskills-harness-dossier/v3",
+  "corpora": {
+    "roles": "67aa5baf4747569eac604d3ad29c5b8886517d2d2e0d53b76b0ba581cf8506e5",
+    "skills": "bbeae1a6fbf77b96e88c553a70e45da1ea0728b13f4aa0b44682e5deb606c48e"
+  },
+  "customer": "SPECIMEN (not issued to a customer): Ashforde OU capability demonstration",
+  "issued_at": "2026-09-21T00:00:00Z",
+  "not_after": "2027-09-21T00:00:00Z",
+  "not_before": "2026-09-21T00:00:00Z",
+  "provenance": {
+    "bindings": 597,
+    "distinct_bound_leaves": 524,
+    "gate_battery": {
+      "command": "make check",
+      "exit_status": 0,
+      "green": true,
+      "ran": true,
+      "verdict_lines": [
+        "PASS gate-isolation: 45 file(s) across 4 root(s) scanned, no corpus literals in harness source",
+        "PASS gate-manifest: 35 declared path(s) all present, 5 root(s) carry nothing undeclared (spec AHCS-1, claim@1)",
+        "PASS gate-contract: task spec loads (1988 chars), alias table resolves 16 name(s)",
+        "PASS gate-imports: 70 module(s) across 5 root(s) (harness, tools, checks, tests, runner), stdlib and first-party only",
+        "PASS gate-shadow: 70 module(s) scanned against 297 stdlib name(s), none shadowed",
+        "PASS gate-sandbox: 27 graded check(s) across 4 grant(s), enforced by seatbelt; 1 tool/effect pair(s) ride a stronger class and are named in the report",
+        "PASS gate-reviewer: 9 check(s); the packet carries task, return, schema, constraints and nothing else, and the 3 verdict(s) match checks/reviewer.md",
+        "PASS gate-provenance: 16 graded check(s); a one-digit change to a quotation is refused, and harness-captured is never reported as agent-deposited",
+        "PASS gate-heldout: 1 gate(s) carry a held-out control and none has ever moved in the same commit as the code it grades; 14 gate target(s) carry none yet (gate-bindings, gate-contract, gate-countermand, gate-heldout, gate-imports, gate-isolation, gate-manifest, gate-permissions, gate-reviewer, gate-sandbox, gate-shadow, gate-spec, gate-swap, gate-version)",
+        "PASS gate-swap: 35 declared path(s) byte-identical across the swap; both returns conform; no model named in harness source",
+        "PASS test: 25 suite(s) green",
+        "PASS aero-harness: all gates green"
+      ]
+    },
+    "roles": 38,
+    "roles_files": 284,
+    "roles_gate_battery": {
+      "command": "make -C <roles> validate",
+      "exit_status": 0,
+      "green": true,
+      "ran": true,
+      "verdict_lines": [
+        "PASS: export + RELEASE_TAG=v1.1.0 (38 roles) -> OK — release-law: OK — current milestone v1.1.0 is tagged",
+        "PASS: export + no RELEASE_TAG -> FAIL (teeth kept) — RELEASE TAG SOURCE UNKNOWN: not a git work tree and RELEASE_TAG unset — cannot verify v1.1.0 is tagged",
+        "PASS: export + RELEASE_TAG=v1.0.0 (v1.1.0 due) -> FAIL — RELEASE DUE: v1.1.0 (highest milestone crossed, no tag)",
+        "PASS: export + RELEASE_TAG=v1.0.0 (12 roles) -> OK — release-law: OK — current milestone v1.0.0 is tagged",
+        "PASS: export + multi-tag RELEASE_TAG -> OK — release-law: OK — current milestone v1.1.0 is tagged",
+        "PASS: git work tree, tag v1.1.0 -> OK (git source intact) — release-law: OK — current milestone v1.1.0 is tagged",
+        "PASS: git work tree, no tag (38 roles) -> FAIL — RELEASE DUE: v1.1.0 (highest milestone crossed, no tag)",
+        "release-law regression: 7/7 PASS",
+        "PASS gate-capabilities: 38 role(s), 8 distinct capability term(s), all defined and all used",
+        "Ran 9 tests in 0.179s",
+        "OK",
+        "Aero Agent Roles validate: PASS (8/8 REAL gates)"
+      ]
+    },
+    "skills_files": 9589,
+    "skills_gate_battery": {
+      "command": "make -C <skills> validate",
+      "exit_status": 0,
+      "green": true,
+      "ran": true,
+      "verdict_lines": [
+        "test_the_same_records_give_the_same_digest (__main__.RecordSetDigest.test_the_same_records_give_the_same_digest) ... ok",
+        "test_a_missing_directory_is_an_error (__main__.RefusesToMislead.test_a_missing_directory_is_an_error) ... report: /nonexistent-records-dir is not a directory",
+        "ok",
+        "test_an_empty_directory_is_refused_not_rendered_clean (__main__.RefusesToMislead.test_an_empty_directory_is_refused_not_rendered_clean) ... report: no records found in /var/folders/b_/44qv1zfx343f7y0lyldwpytw0000gn/T/tmpdreqh0j5 -- refusing to render an empty report, which would read as a clean result",
+        "ok",
+        "----------------------------------------------------------------------",
+        "Ran 13 tests in 0.114s",
+        "OK",
+        "..........................",
+        "----------------------------------------------------------------------",
+        "Ran 26 tests in 0.011s",
+        "OK"
+      ]
+    },
+    "skills_leaves": 3189
+  },
+  "record_id": "SPECIMEN-d01eb83b-7ddc200c-1fc042ea",
+  "runtime": "0.1.0",
+  "spec": "AHCS-1",
+  "specimen": true
+}
