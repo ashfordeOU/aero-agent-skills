@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -30,6 +35,12 @@ showing on what terms it can, rather than asserting that it does.
   the mission to say who it must work with; a link that happens to be
   compatible with a station nobody named has satisfied nothing, and a link
   with no named partner has an unstated requirement, which is the defect.
+- Breadth is what is being required, not one successful pairing. The link
+  has to hold up across the mission types it claims to serve, across the
+  traffic those missions carry — instrument returns, commanding, platform
+  health — and across ground segments that run from a full control centre
+  to a station that only receives. A partner list drawn from one class of
+  mission understates the requirement before any profile is compared.
 - Compatibility is per attribute and it is set intersection. Frequency band,
   modulation, channel coding and frame format each have a set of options a
   side can operate, and the two sides work together on an attribute only
@@ -55,8 +66,15 @@ showing on what terms it can, rather than asserting that it does.
 1. State the link profile and each partner profile as attribute to option
    set. Refuse a profile that omits a required attribute rather than reading
    the gap as unconstrained.
-2. Name the partners the mission requires. An empty required set is refused:
-   the missing requirement is the finding, not an empty result.
+2. Name the partners the mission requires, and check the list spans all
+   three breadths the requirement asks of the link: the mission types it
+   claims to serve, so a partner set drawn from a single class of mission
+   is caught as an understated requirement; the kinds of traffic those
+   partners carry, from instrument returns through commanding to platform
+   health; and the ground segments the link is meant to serve — a full
+   control centre and a station that only receives ask different things of
+   it. An empty required set is refused: the missing requirement is the
+   finding, not an empty result.
 3. Intersect the two profiles attribute by attribute, over the attributes
    both sides declare.
 4. Grade each partner into supported, unsupported with the clashing
@@ -69,8 +87,18 @@ showing on what terms it can, rather than asserting that it does.
 7. Close on the required set alone — supported, partial or unsupported —
    while still reporting every optional partner that cannot be reached.
 
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.4a | 2 |
+
 ## Pitfalls
 
+- Naming one mission's partners and calling the requirement stated. A link
+  sold as serving several mission types, and assessed against the ground
+  segment of one of them, has been graded on the easy case; the breadth it
+  claims is the breadth the partner list has to cover.
 - Reading an undeclared attribute as a wildcard. A side that declared no
   modulation has declared no profile, and the assumption invents an
   agreement neither party made.

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.2.1.2
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -47,17 +52,24 @@ front of you actually declares it.
 ## Workflow
 
 1. Write down the required activity set for the step before looking at
-   the plan. Reading the plan first anchors the review on what is there
-   rather than on what is owed.
+   the plan. In communication system requirements engineering that set
+   falls to the customer and holds three: working through what the
+   mission's top-level specifications demand, settling which
+   requirements are the space communication system's own and putting
+   them in writing, and composing the communication system requirements
+   no other mission document already yields. Reading the plan first
+   anchors the review on what is there rather than on what is owed.
 2. Normalise each declared activity into name, inputs and outputs, and
    reject anything that does not carry all three — the missing field is
    usually where the gap is.
 3. Reject a duplicate activity name outright. Two entries under one name
    mean two teams believe they own it, which is indistinguishable from
    nobody owning it.
-4. Take coverage as a fraction of the required set, and keep the extra
-   activities separate. Extras are not credit; a plan with four invented
-   activities and one required one is one third covered, not more.
+4. Take coverage as a fraction of the required set written down in step
+   1, so the fraction states how many of the three owed by the customer
+   the plan actually declares, and keep the extra activities separate.
+   Extras are not credit; a plan with four invented activities and one
+   required one is one third covered, not more.
 5. Flag every activity that consumes nothing or produces nothing, with
    the reason stated — one cannot be started from the step's inputs, the
    other cannot reach the step's outputs.
@@ -65,6 +77,12 @@ front of you actually declares it.
    the peers' outputs, and name every one that resolves to neither.
 7. Report all three together. A plan is conformant only when nothing is
    missing, nothing is disconnected, and nothing is unsatisfiable.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.2.1.2a | 4 |
 
 ## Pitfalls
 

@@ -1,0 +1,90 @@
+{
+ "layer": "L3 fidelity",
+ "measurement": "obligations addressed, before and after the wave-1 binding",
+ "wave": 1,
+ "standard": "ECSS-E-ST-50C Rev.2",
+ "date": "2026-09-22",
+ "base_commit": "a724cae3",
+ "worksheet_seed": 20260922,
+ "scope": {
+  "leaves": 70,
+  "clauses": 70,
+  "clause_per_leaf": "one; each of the 70 leaves cites one clause of this edition, and no two cite the same one",
+  "items": 86,
+  "items_note": "every lettered item the 70 cited clauses hold, bound or not, with retired items left out. An item a leaf never claimed still counts against it.",
+  "retired_items_note": "the export retires an item either by its change status or by replacing the whole text with a withdrawal marker and leaving the status alone. One item under these 70 clauses is retired the second way, which is why the set is 86 and not 87. The coverage screen read only the status until it was corrected on the same day; `earm_items.py coverage` now reports 86 declared, 86 held, 0 undeclared against this scope.",
+  "authority": "the ESA EARM export of the ECSS requirements database, handed to the worksheet builder by path and never kept in this repository"
+ },
+ "design": {
+  "cases": 150,
+  "before": 70,
+  "after": 70,
+  "planted_controls": 10,
+  "sheets": 5,
+  "cases_per_sheet": 30,
+  "blind": "cases carry opaque identifiers, are ordered at random, and were stripped of the clauses front matter and the Obligations table before reading, so a reader could not see which version was in front of them or what the leaf claimed",
+  "separation": "no leaf appears twice on one sheet, so the before and after readings of a leaf were made by different readers with no sight of each other",
+  "control_design": "each planted control pairs an after-version procedure with the items of a clause of the same edition it has nothing to do with. Every item of a control case has to be graded not-addressed."
+ },
+ "readers": "language-model readers, not ECSS-qualified engineers; a self-measurement with a demonstrated instrument, not an independent audit",
+ "texts_read": "the after texts read were the wave's leaves as first written. Seven of the 70 were reworded before the commit and after the reading: one step of e50-security, whose wording had captured two router cases belonging to other leaves, and phrase-level rewording in six leaves to remove five-word runs they shared with the source item text. Each rewrite keeps the same obligation at the same anchored step, and none was re-read, so the after rate is reported on the texts as read rather than on the texts as committed.",
+ "control": {
+  "planted_cases": 10,
+  "planted_items": 23,
+  "caught": 23,
+  "catch_rate": 1.0,
+  "catch_rate_ci95": [0.8569, 1.0],
+  "floor": 0.8,
+  "verdict": "RED-CAPABLE",
+  "note": "Below the floor the run reports VOID and no rate is published. A reader that cannot fail a procedure paired with a clause it does not serve has not measured anything.",
+  "bearing_on_the_after_rate": "the control procedures are after-version texts. The same texts the readers graded fully addressed against their own clauses were graded not-addressed on all 23 items of a clause they do not serve, so the after rate is not the product of a reader marking every after procedure addressed."
+ },
+ "before": {
+  "items": 86,
+  "judged": 86,
+  "unjudgeable": 0,
+  "addressed": 53,
+  "partial": 29,
+  "not_addressed": 4,
+  "rate": 0.6163,
+  "ci95": [0.5106, 0.712]
+ },
+ "after": {
+  "items": 86,
+  "judged": 86,
+  "unjudgeable": 0,
+  "addressed": 86,
+  "partial": 0,
+  "not_addressed": 0,
+  "rate": 1.0,
+  "ci95": [0.9572, 1.0]
+ },
+ "change": {
+  "rate_delta": 0.3837,
+  "note": "before and after are the same 86 items of the same 70 clauses, read from the same corpus at two commits. The intervals are unpaired and do not account for that pairing."
+ },
+ "claim_precision_after": {
+  "declared": 86,
+  "judged": 86,
+  "unjudgeable": 0,
+  "addressed": 86,
+  "partial": 0,
+  "not_addressed": 0,
+  "rate": 1.0,
+  "ci95": [0.9572, 1.0],
+  "no_baseline": "until this wave nothing was declared",
+  "limit": "every one of the 70 leaves declared every live item of the clause it cites, so the declared set and the after denominator are the same 86 items and the two rates are arithmetically identical. Claim precision exists to catch a leaf that raises the first number by claiming items it does not address; with nothing left undeclared it had no room to differ this wave, and it is reported as a check that did not bind rather than as a second, independent confirmation."
+ },
+ "strict_note": "addressed / judged. 'partial' counts as a miss: a procedure that names the subject but leaves the obligation unenforced is how a supplier ends up non-compliant while believing otherwise. Unjudgeable items are excluded from the denominator and counted; there were none.",
+ "excluded_from_denominator": ["unjudgeable"],
+ "baseline_comparison": {
+  "do_not_compare_to": "43.5% (83 of 191)",
+  "why": "that figure was read over the renderings already judged partial in the run of 2026-09-21, across every edition. This wave's before figure is read over all 70 leaves of one edition, worst and best together. The populations differ, so 43.5% to 61.6% is not a measured improvement and must not be quoted as one. The before figure published here is this wave's own baseline."
+ },
+ "limits": [
+  "The readers were language models, not ECSS-qualified engineers. The controls show they can fail a procedure that deserves to fail; they do not show the readers judge as a qualified engineer would.",
+  "Both arms were read by the same instrument this repository built and runs. It is a self-measurement, not an independent audit, and no reading here was checked by anyone outside it.",
+  "An after rate of 1.0 with 86 of 86 is a ceiling reading. The interval reaches down to 0.957 and no further because the sample cannot resolve a defect rarer than about one item in twenty-three; it is not evidence that no after leaf misstates an obligation.",
+  "What was graded is whether a reader following the procedure would carry out what the item requires. It is not a compliance statement: whether a project meets this standard is decided by that project's own verification."
+ ]
+}

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.4.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -55,25 +60,36 @@ arrives, in time, and without being thrown away on the way.
 
 ## Workflow
 
-1. Describe each exception flow as a severity group with its own rate,
+1. Enumerate the errors the network's own nodes detect, and name the
+   flow that carries each of them to the managing entity. An error the
+   network notices with no flow behind it cannot be reported at all,
+   and that gap is settled here, before any timing question below.
+2. Describe each exception flow as a severity group with its own rate,
    record size, stage latencies and arrival allowance. Reject an unknown
    severity or an unknown field rather than defaulting it.
-2. Sum detection, queueing, per-hop propagation and forwarding into a
+3. Sum detection, queueing, per-hop propagation and forwarding into a
    reporting latency for each group.
-3. Compare each latency against that group's allowance with a relative
+4. Compare each latency against that group's allowance with a relative
    tolerance so a flow landing exactly on the allowance passes on every
    build host.
-4. Compute the store the declared outage asks for, summing every flow,
+5. Compute the store the declared outage asks for, summing every flow,
    and compare it with the store provided under the same tolerance.
-5. Determine what the rate limiter discards. Grade a per-group limiter
+6. Determine what the rate limiter discards. Grade a per-group limiter
    against each group's own rate; grade a shared limiter against the
    aggregate offered load of all groups together.
-6. Where a shared limiter saturates, say plainly that the most urgent
+7. Where a shared limiter saturates, say plainly that the most urgent
    group present can be crowded out by the others, and recommend
    partitioning the limit per group rather than raising it.
-7. Report the verdict as reported only when latency, retention and
-   suppression all hold, and give each shortfall its own remedy number:
-   the store required, or the rate the store already provided survives.
+8. Report the verdict as reported only when coverage, latency, retention
+   and suppression all hold, and give each shortfall its own remedy
+   number: the store required, or the rate the store already provided
+   survives.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.4.4a | 1 |
 
 ## Pitfalls
 

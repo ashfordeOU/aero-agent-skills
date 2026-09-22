@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.3.2
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -56,7 +61,10 @@ loses it, and what it would take to hold it.
    of the assessment is not applicable rather than zero.
 3. Compare the backlog against the buffer with a relative tolerance. A
    burst sized to exactly fill the buffer must come out contained, and
-   an exact comparison on floating point decides that by rounding.
+   an exact comparison on floating point decides that by rounding. A
+   backlog the buffer cannot hold is data the design loses to
+   congestion, so carry it as a defect the design has to remove and not
+   as a quantity to note in passing.
 4. Report the time to overflow where there is an overload, and report it
    as undefined where there is not — a number there would imply a
    deadline that does not exist.
@@ -64,10 +72,18 @@ loses it, and what it would take to hold it.
    spare, and say plainly when there is none.
 6. On an overflow, report both remedies with their numbers: the buffer
    this burst needs, and the service rate that holds it inside the
-   buffer already provided.
+   buffer already provided. Where neither can move, flow control that
+   holds the source back before the buffer fills may close the same
+   gap, and belongs in the report beside them.
 7. Check the remedy against the same model before reporting it. A
    recommended rate that does not itself contain the burst is a
    rounding error someone will build to.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.3.2a | 3 |
 
 ## Pitfalls
 

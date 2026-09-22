@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -64,9 +69,17 @@ link budget must show beyond its nominal column.
    lands exactly on the bound is met rather than a coin toss.
 5. Name the applicable mode that leaves the least margin as the governing
    case.
-6. Compare the declared modes with the modes the mission requires, and
-   return any absentee as uncovered, which makes the whole assessment
-   unassessed rather than compliant.
+6. Compare the declared modes with the modes the mission requires — a
+   set that always holds, at least, the link lost outright, the margin
+   reduced while the link still closes, and a carrier that is acquired
+   only sporadically — and return any absentee as uncovered, which
+   makes the whole assessment unassessed rather than compliant.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.4a | 6 |
 
 ## Pitfalls
 

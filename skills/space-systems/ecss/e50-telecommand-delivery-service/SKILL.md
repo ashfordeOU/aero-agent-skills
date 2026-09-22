@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.4.2
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -69,6 +74,12 @@ what that service must do with a frame stream that arrived imperfectly.
 6. Separate findings from limitations. A refused frame with retransmission
    owed is a limitation; a frame outside the window, or a delivered run
    that is not contiguous, is a finding.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.4.2a | 5 |
 
 ## Pitfalls
 

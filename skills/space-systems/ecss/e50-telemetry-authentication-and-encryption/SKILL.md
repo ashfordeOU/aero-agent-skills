@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.5.7
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -61,8 +66,11 @@ enough for the mission and affordable in the downlink budget.
 1. Validate each stream: a name, a sensitivity tier the mapping knows,
    a positive frame payload in bits and a positive frame rate.
 2. Map the tier onto the services owed — authentication, confidentiality
-   or both — and compare with the services the design actually applies;
-   report a shortfall and report encryption applied without integrity.
+   or both — setting aside whatever the mission already covers by some
+   other means it can point to, since these services are owed for what
+   is left over. Compare that remainder with the services the design
+   actually applies; report a shortfall and report encryption applied
+   without integrity.
 3. Compute the per-frame overhead: the authentication tag when
    authentication applies, the initialisation vector or counter when
    confidentiality applies, and the padding needed to fill the last
@@ -76,6 +84,12 @@ enough for the mission and affordable in the downlink budget.
    rotation period, and compare with the span of the uniqueness counter.
 7. Report per stream the services owed and applied, the overhead, the
    useful throughput, and every finding.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.5.7a | 2 |
 
 ## Pitfalls
 

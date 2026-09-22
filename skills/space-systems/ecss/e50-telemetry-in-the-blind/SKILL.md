@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.5.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -75,6 +80,12 @@ sent to make it do so.
 6. Report the achieved margin, the rate the margin would support, and
    every finding: late arming, non-default parameter, command-dependent
    parameter, negative margin.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.5.4a | 4 |
 
 ## Pitfalls
 

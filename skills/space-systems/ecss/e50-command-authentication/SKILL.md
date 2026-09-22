@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.4.5
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,9 +26,13 @@ metadata:
 # ECSS Communications — Command Authentication (space-systems/ecss/e50-command-authentication)
 
 Use when the task is the single obligation of ECSS-E-ST-50C clause 5.4.5 —
-that where command authentication is required, a command is acted on only
-when it is shown to come from an authorized source — and the question is what
-the receiving end must check before it acts.
+that nothing an unauthorized sender issued ever runs on board — and the
+question is what the receiving end must check before it acts. The clause
+leaves the means open and notes authentication as one of them; take that
+route, as this leaf does, and the protected set has to reach every
+telecommand whose origin nothing else in the design vouches for. A command
+left outside it is one the spacecraft executes on no evidence of where it
+came from.
 
 ## Domain quick reference
 
@@ -53,7 +62,11 @@ the receiving end must check before it acts.
 ## Workflow
 
 1. Resolve policy first: is this command one that may only be acted on
-   when authenticated. That answer decides what an absent tag means.
+   when authenticated. That answer decides what an absent tag means, so
+   draw the protected set it comes from to hold every telecommand whose
+   sender the design does not already establish by other means. One
+   left out of that set is acted on because its origin was assumed, and
+   an assumption is not a check.
 2. With no tag presented, refuse a protected command and accept an
    ordinary one, saying which rule applied.
 3. Resolve the key named by the command. An unresolvable key is its own
@@ -64,7 +77,17 @@ the receiving end must check before it acts.
    replay, too far ahead, or a genuine advance.
 6. Derive the tag over the key identity, the counter and the command
    content, compare it with the carried one in constant time, and return
-   the outcome with the counter state the receiver should keep.
+   the outcome with the counter state the receiver should keep. A
+   refused command is then never run on board: the outcome gates
+   execution rather than annotating it. Across a protected set drawn as
+   step 1 requires, that is what leaves only commands traced to an
+   authorized sender able to act on the spacecraft.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.4.5a | 6 |
 
 ## Pitfalls
 

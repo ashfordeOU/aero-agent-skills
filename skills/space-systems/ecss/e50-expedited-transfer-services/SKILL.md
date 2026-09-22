@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -55,7 +60,8 @@ a precedence the network actually grants, or only a label on a queue.
 2. List the other expedited messages that can be queued at the same
    moment, in bits. An empty list is a claim that none can coincide.
 3. State the ordinary backlog, and state plainly whether the network
-   grants expedited traffic precedence over it.
+   grants expedited traffic precedence over the units already handed
+   to it for transfer.
 4. Sum the bits that go out before the message is delivered. Where
    precedence is absent, the ordinary backlog joins that sum.
 5. Divide by the link rate for the worst case, and report the blocking,
@@ -65,6 +71,12 @@ a precedence the network actually grants, or only a label on a queue.
    landing exactly on the deadline must come out met on every platform.
 7. Report the verdict three ways — met, missed, or no precedence at all
    — and on a miss give both inverses with their numbers.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.3a | 3 |
 
 ## Pitfalls
 

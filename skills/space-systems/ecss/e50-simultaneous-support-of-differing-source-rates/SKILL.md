@@ -10,6 +10,15 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.5.6
+    items: [a]
+    relation: implements
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.5.6
+    items: [b]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -27,11 +36,11 @@ rate rather than at a rate imposed on all of them.
 
 ## Domain quick reference
 
-- Two separate obligations live in this clause. The first is capacity:
-  the offered load of all sources together, grossed up by frame and
-  coding overhead, has to fit the downlink. The second is
-  simultaneity: each source has to be served at its own generation rate,
-  so meeting the total while starving the slow or the fast source is not
+- Two separate things have to hold. Capacity first: the offered load of
+  all sources together, grossed up by frame and coding overhead, has to
+  fit the downlink. Then simultaneity, which is what the clause is
+  about: each source has to be served at its own generation rate, so
+  meeting the total while starving the slow or the fast source is not
   compliance.
 - Slot apportionment is integer arithmetic on a finite cycle. A cycle of
   frames is divided among the sources in proportion to demand, but the
@@ -58,8 +67,9 @@ rate rather than at a rate imposed on all of them.
 ## Workflow
 
 1. Validate each source: a name, a positive packet size in bits, a
-   positive generation period, and a positive maximum latency. Zero or
-   negative entries are input errors.
+   positive generation period, a positive maximum latency, and the
+   priority the mission assigned it. Zero or negative entries are input
+   errors.
 2. Compute each source's demand as packet bits divided by generation
    period, and the offered load as the sum grossed up by the transport
    overhead factor.
@@ -70,13 +80,29 @@ rate rather than at a rate imposed on all of them.
    remainder, so the slots sum exactly to the cycle and ties resolve on
    the source name.
 5. Report any source apportioned zero slots: it is carried at no rate at
-   all, which is the condition the clause forbids.
+   all, which is the condition the clause forbids. Report with it any
+   source the apportionment would serve at a rate other than the one it
+   generates at — the rate belongs to the source, and the downlink is
+   not entitled to set it.
 6. Derive each source's service interval from its slot count and the
    cycle duration, add its own generation period, and compare with its
    declared maximum latency.
-7. Size the buffer per source as the packets generated in one service
+7. Close the apportionment against what the clause asks of it: every
+   source carried in the same cycle at its own demand, and each one
+   inside the maximum latency it declared. Where those two compete, take
+   slots from the lowest-priority source that still meets its own limit,
+   re-derive the intervals, and report a conflict no reordering resolves
+   rather than accepting a miss.
+8. Size the buffer per source as the packets generated in one service
    interval, rounded up, and report it with the demand spread between
    the fastest and slowest source.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.5.6a | 7 |
+| ECSS-E-ST-50C Rev.2 5.5.6b | 5 |
 
 ## Pitfalls
 

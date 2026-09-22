@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.12.2
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -26,9 +31,12 @@ link is entitled to use, and on what terms.
 
 ## Domain quick reference
 
-- The obligation is containment, not proximity. The band is allocated to
-  the service this link performs, in the region it operates over, and the
-  whole of the necessary bandwidth sits inside the allocation.
+- The clause's own obligation is an act, not an analysis: a request for
+  assignment of the chosen frequencies goes to the ITU before the system
+  requirements review. What decides whether that request is worth making
+  is containment, not proximity — the band is allocated to the service
+  this link performs, in the region it operates over, and the whole of
+  the necessary bandwidth sits inside the allocation.
 - A centre frequency is not a band. What is regulated is the bandwidth the
   emission necessarily occupies, so the edges are what must be tested and
   a centre comfortably inside an allocation can still spill out of it.
@@ -67,6 +75,16 @@ link is entitled to use, and on what terms.
 7. Where the band does not fit, rank the allocations the link could move
    into by status, then by how little of each it would consume, and give
    the centre range that makes it fit.
+8. Put the frequencies this selection settles on into a request for
+   assignment addressed to the Radiocommunication Bureau of the ITU, and
+   have it lodged before the system requirements review rather than
+   after the band has been designed into the link.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.12.2a | 8 |
 
 ## Pitfalls
 
@@ -87,6 +105,10 @@ link is entitled to use, and on what terms.
 - Reporting no-allocation and partially-outside as one failure. One needs
   a different band, the other needs a shift of a few megahertz, and the
   merged finding hides which.
+- Choosing the band and stopping. The selection is the input to an
+  assignment request, and a request lodged after the system requirements
+  review arrives with the link already designed around frequencies
+  nobody has yet been granted.
 
 ## Behavior contract (gate 3)
 

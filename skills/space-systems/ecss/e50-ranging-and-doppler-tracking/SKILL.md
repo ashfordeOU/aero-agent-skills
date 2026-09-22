@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.7
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -63,9 +68,23 @@ observable.
    turnaround ratio, and convert it back to confirm the relation used.
 6. Test the shift against half the tracking bandwidth, and report the
    bandwidth the stated worst-case rate actually demands.
-7. Grade an out-of-band carrier above an unresolved range — a link that
-   cannot hold lock produces neither observable — and check any code
-   period or bandwidth offered as a remedy against the same model.
+7. Settle the clause on one observable genuinely arriving: a range
+   whose ambiguity has been resolved, or a range rate from a carrier
+   the receiver can hold. Either alone discharges it — ranging by
+   itself, Doppler by itself, or both together — so long as what
+   comes back lets the ground work out how far off the spacecraft
+   sits, how fast it is opening or closing, or both, measured antenna
+   to antenna. Report both observables and name the one the link
+   leans on. Grade an out-of-band carrier above an unresolved range
+   — a link that cannot hold lock produces neither observable — and
+   check any code period or bandwidth offered as a remedy against the
+   same model.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.7a | 7 |
 
 ## Pitfalls
 

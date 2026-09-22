@@ -19,6 +19,9 @@ Contract: docs/harness-contract.md gate 1. Checks:
   a gated standard must be marked reference-only unless skill gated:true
 - gated: boolean, consistent with standards-map gating
 - metadata.version + metadata.author present
+- clauses (optional): a list of {standard, clause, items, relation}
+  mappings, validated by tools/obligations/obligation_binding.py -- the
+  rule `make obligations` applies too (docs/OBLIGATIONS.md)
 
 Exit 0 = conformant; 1 = violation (reasons on stdout).
 """
@@ -440,6 +443,48 @@ def check_mcp_policy(fm, errs):
         errs.append("mcp_blocked must be a list of server names")
 
 
+# The optional clause-obligation binding (docs/OBLIGATIONS.md):
+#   clauses:
+#     - standard: ECSS-E-ST-50C Rev.2
+#       clause: 5.6.11.8
+#       items: [a, b]
+#       relation: implements
+# Its rules live in ONE module, shared with `make obligations`, so this gate
+# and that one refuse the same bindings for the same reasons. Loaded by file
+# path, only when a leaf carries the key, so an unbound leaf costs nothing.
+BINDING_RULES = REPO_ROOT / "tools" / "obligations" / "obligation_binding.py"
+_BINDING_MODULE = []
+
+
+def _binding_rules():
+    if not _BINDING_MODULE:
+        import importlib.util
+
+        sys.dont_write_bytecode = True
+        spec = importlib.util.spec_from_file_location(
+            "aero_obligation_binding", str(BINDING_RULES))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _BINDING_MODULE.append(mod)
+    return _BINDING_MODULE[0]
+
+
+def check_clauses(fm, errs):
+    """Validate the optional `clauses` key. Absent = no binding (the default)."""
+    if "clauses" not in fm:
+        return
+    try:
+        rules = _binding_rules()
+    except (OSError, ImportError, SyntaxError) as exc:
+        errs.append("clauses: cannot load the binding rules from %s (%s); a "
+                    "binding that cannot be checked is not accepted"
+                    % (BINDING_RULES.relative_to(REPO_ROOT), exc))
+        return
+    _items, refusals = rules.validate(fm.get("clauses"))
+    for refusal in refusals:
+        errs.append("%s: %s" % (refusal.subject, refusal.reason))
+
+
 def main():
     p = pathlib.Path(sys.argv[1])
     text = p.read_text(encoding="utf-8")
@@ -484,6 +529,7 @@ def main():
         index = {}
     check_compliance_flags(fm, index, errs)
     check_mcp_policy(fm, errs)
+    check_clauses(fm, errs)
     body = parts[2] if len(parts) >= 3 else text
     body_offset = text.count("\n", 0, len(text) - len(body))
     n_body = len(body.splitlines())

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.8
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -76,7 +81,18 @@ each user is still inside the accuracy that user was promised.
    the allowance, and report that the period is unconstrained where
    there is no drift to accumulate.
 7. Grade every consumer, name the worst, and check the stated period
-   remedy back through the model before offering it.
+   remedy back through the model before offering it. Confirm in the same
+   pass that the graded set holds every node the network has to serve
+   with time, and that all of them trace back to the one reference: a
+   node nobody distributes to, or a second source of time alongside the
+   first, leaves the network without a single reference however
+   comfortably each budget closes.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.8a | 7 |
 
 ## Pitfalls
 

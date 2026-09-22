@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.9
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -64,6 +69,12 @@ both, and what it costs when it does not.
    sized exactly to a bound comes out compliant.
 7. Where either fails, report the remedy as a number: the largest unit
    the jitter budget allows, and the link rate that carries both loads.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.9a | 6 |
 
 ## Pitfalls
 

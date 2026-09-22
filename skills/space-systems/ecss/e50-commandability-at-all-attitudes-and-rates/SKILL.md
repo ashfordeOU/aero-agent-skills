@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.4.1
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -66,7 +71,17 @@ and a real receiver meet it.
    acquisition plus one frame, and invert the same relation to give the
    body rate ceiling.
 6. Report the attitude finding and the rate finding separately, and
-   combine them only in the verdict.
+   combine them only in the verdict — which the design earns only when
+   no sampled direction is left short and the rate ceiling reaches the
+   fastest turn the mission anticipates, since what is owed is an
+   uplink that works at every attitude the body can hold and across the
+   whole anticipated rate range.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.4.1a | 6 |
 
 ## Pitfalls
 

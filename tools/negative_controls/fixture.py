@@ -234,6 +234,8 @@ GATE_SOURCES = [
     "ops/automation/brief-audit.sh",
     "ops/automation/number_audit.py",
     "ops/automation/content-policy-sweep.sh",
+    "tools/obligations/obligations_gate.py",
+    "tools/obligations/obligation_binding.py",
 ]
 
 # What a gate needs BEYOND the blanket copies above, declared per gate.
@@ -271,6 +273,19 @@ GATE_DEPENDENCIES = {
     ],
     "figure-audit": [
         "tools/figure_audit.py",
+    ],
+    # Gate 1 validates the optional `clauses` key with the rule module the
+    # obligations gate uses, loaded by file path -- one rule, two readers.
+    "lint-spec": [
+        "tools/obligations/obligation_binding.py",
+    ],
+    # Gate 19 runs its gate and its two detector suites from this directory.
+    # The binding suite also grades the stdlib reader against the two other
+    # front-matter readers in the tree, so it names both; tools/export is
+    # already carried for gate 12.
+    "obligations": [
+        "tools/obligations",
+        "tools/evidence/frontmatter.py",
     ],
     "router-coverage-structure": [
         "tools/router_coverage.py",

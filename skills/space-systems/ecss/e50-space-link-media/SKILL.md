@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.12.1
+    items: [a, b]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -26,7 +31,7 @@ medium can actually carry it.
 
 ## Domain quick reference
 
-- Two obligations, and they fail in different ways. Every link names the
+- Two checks, and they fail in different ways. Every link names the
   medium it uses, and that medium is one the mission declared and agreed.
   Separately, the named medium supports what the link has to deliver.
 - A link with an unstated medium is not a small gap. It is a link nobody
@@ -52,12 +57,16 @@ medium can actually carry it.
 1. Declare the media catalogue: each medium with the rate it sustains,
    the range it closes, the availability it achieves, and whether it is
    inside the agreed interoperable set.
-2. Declare each link with the medium it names and what it requires. A
-   link with no stated availability is asserting it does not care, so
-   make that explicit as zero rather than leaving it absent.
+2. Declare each link with the medium it names and what it requires,
+   taking in the links run between the spacecraft and the ground segment
+   and the links run from one spacecraft to another alike: both ride the
+   media being assessed, and a plan listing only the first has left a
+   whole class of link unsized. A link with no stated availability is
+   asserting it does not care, so make that explicit as zero rather than
+   leaving it absent.
 3. Reject a duplicate medium name and a duplicate link name. Two entries
    under one name are two teams describing different things.
-4. Check the first obligation before the second. A link naming a medium
+4. Check the naming before the envelope. A link naming a medium
    outside the catalogue has no envelope to be measured against, and
    reporting it as under-capable misnames the defect.
 5. Compute each criterion as a utilisation of the medium's envelope, and
@@ -68,6 +77,18 @@ medium can actually carry it.
 7. Where the medium is still open, rank the catalogue by headroom rather
    than picking the first that passes — the ranking is what makes the
    cost of the marginal choice visible.
+8. Total the distinct frequencies the selected media commit the project
+   to, and merge two links onto one frequency wherever neither loses the
+   envelope it needs. The project should hold as few of them as its
+   links allow: each one is separately coordinated, licensed and
+   equipped for on the ground.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.12.1a | 2 |
+| ECSS-E-ST-50C Rev.2 5.6.12.1b | 8 |
 
 ## Pitfalls
 

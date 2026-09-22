@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.1.3
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -57,14 +62,17 @@ actually holds them.
 1. State the control cycle, the link rate, the protocol overhead per
    activation and the guard time. A zero cycle, a zero rate or an empty
    exchange set is an input error, not a degenerate schedule.
-2. List every synchronous exchange as a name, a size and a repetition
-   period. Refuse two exchanges under one name — a duplicate silently
-   halves the reservation it was meant to add.
+2. List every synchronous exchange the sensors and actuators on board
+   need — each reading collected and each command issued — as a name, a
+   size and a repetition period. Refuse two exchanges under one name — a
+   duplicate silently halves the reservation it was meant to add.
 3. Test each period against the cycle for harmonicity first. A
    non-harmonic period is reported before any load figure, because a
    schedule that cannot be laid out has no meaningful utilisation.
 4. Size each slot as payload plus overhead at the link rate, plus the
-   guard time, and count the slots the busiest cycle has to hold.
+   guard time, and count the slots the busiest cycle has to hold, so
+   that every sensor reading and every actuator command has a place
+   reserved for it in each cycle it runs in.
 5. Add the reservation, and compare it with the cycle using a relative
    tolerance so a schedule sized to exactly fill its cycle is accepted
    everywhere rather than on some hosts.
@@ -74,6 +82,12 @@ actually holds them.
    link rate that makes the reservation fit, and the cycle length that
    would hold it at the rate already available. Where guard time alone
    fills the cycle, say plainly that no rate fixes it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.1.3a | 4 |
 
 ## Pitfalls
 

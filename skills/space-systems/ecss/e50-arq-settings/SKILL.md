@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.13.5
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -69,9 +74,20 @@ change them once the spacecraft is flying.
    residual loss probability it leaves.
 6. Where the residual misses the target, report the attempt count that
    would reach it, found by multiplying attempt by attempt.
-7. Report any parameter that is not commandable as a finding in its own
+7. Put the chosen set through end-to-end simulation before it flies,
+   covering the whole range of conditions the link is expected to meet,
+   and read every run for the two signatures the settings exist to keep
+   out: data the retransmissions failed to recover, and retransmissions
+   the losses never called for.
+8. Report any parameter that is not commandable as a finding in its own
    right, whatever its value, and summarise the recommended set so an
    operator can uplink it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.13.5a | 7 |
 
 ## Pitfalls
 

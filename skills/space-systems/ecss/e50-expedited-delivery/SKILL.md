@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.3
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -60,18 +65,30 @@ costs the traffic behind it.
 2. State the policy: no expedited class, non-preemptive, or preemptive
    with its switch cost and whether the interrupted unit is resumed or
    resent.
-3. Compute the latency the urgent unit sees under that policy, and under
+3. Require the link to carry an expedited class whichever policy was
+   just recorded: a unit handed to that class is taken for transmission
+   ahead of every unit already handed over, in connection-oriented and
+   connectionless transfer alike. A design offering no such class
+   leaves urgent data nothing to use, and the no-class figures below
+   only price what leaving it out costs.
+4. Compute the latency the urgent unit sees under that policy, and under
    the other two, so the comparison is on the table rather than asserted.
-4. Compare the latency with the deadline using a relative tolerance, so a
+5. Compare the latency with the deadline using a relative tolerance, so a
    design landing exactly on the deadline is compliant on every build
    host.
-5. Where the deadline is missed, report both remedies with their numbers:
+6. Where the deadline is missed, report both remedies with their numbers:
    the policy that meets it at this rate, and the rate that meets it
    under this policy.
-6. Compute the share of the link the expedited load consumes and report a
+7. Compute the share of the link the expedited load consumes and report a
    normal queue left with nothing, whatever the urgent latency looks like.
-7. Check any recommended rate or policy against the same model before
+8. Check any recommended rate or policy against the same model before
    reporting it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.3a | 3 |
 
 ## Pitfalls
 

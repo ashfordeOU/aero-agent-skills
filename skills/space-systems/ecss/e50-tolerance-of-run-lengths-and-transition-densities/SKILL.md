@@ -10,6 +10,15 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.3
+    items: [b]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -50,7 +59,10 @@ whether there are enough edges everywhere to hold bit synchronisation.
 ## Workflow
 
 1. Take the stream as it will be transmitted, after any framing and
-   before or after conditioning as the question requires. Reject
+   before or after conditioning as the question requires, and take the
+   harshest pattern the source can put on the link rather than a nominal
+   capture: what is under design here is the link's tolerance of what
+   can occur, not of what one recording happened to hold. Reject
    anything that is not a binary symbol rather than coercing it: a
    stream that silently became all zeros reports itself as the worst
    run in the design.
@@ -68,6 +80,18 @@ whether there are enough edges everywhere to hold bit synchronisation.
    shortfall in edges.
 7. Compare each bound with a relative tolerance, then state which
    obligation failed and whether conditioning is required.
+8. Drive the same measurement from a simulation of those harshest
+   patterns and keep what it returns as the demonstration record,
+   running it again while the design is analysed, while it is built, and
+   once more when it is verified, so the link is shown to operate under
+   both bounds at each of those stages rather than argued for once.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.3a | 7 |
+| ECSS-E-ST-50C Rev.2 5.6.11.3b | 8 |
 
 ## Pitfalls
 

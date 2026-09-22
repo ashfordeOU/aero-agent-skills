@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.2.1.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -48,7 +53,11 @@ whether the things on the closure list qualify.
 
 1. List the required outputs of the step before opening the closure
    list, so the review is driven by what is owed rather than by what
-   was submitted.
+   was submitted. Where the step is the requirements engineering one,
+   the list carries the requirements specification for the
+   communication system: the customer owes it, and it is written to
+   the document definition the standard's annex sets out for that
+   deliverable.
 2. Normalise each declared output into name, identifier and producing
    activity. Accept a missing identifier or producer rather than
    rejecting the record — those are the findings, not input errors.
@@ -62,6 +71,12 @@ whether the things on the closure list qualify.
 6. Count repeated names and report each with its count.
 7. Report the step complete only when nothing is missing, unidentified,
    untraced or duplicated — and report the fraction either way.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.2.1.3a | 1 |
 
 ## Pitfalls
 

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.6
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -65,8 +70,21 @@ actually is for a given frame and decoder.
    expected error count, the head otherwise - and cap the number of terms.
 5. Multiply the rate by the frames in a pass, and turn it into mean
    transmissions per delivered frame.
-6. Compare with the bound inclusively and return the rate, the coding
+6. Evaluate the case this clause pins down alongside the mission's own:
+   a frame of two hundred and fifty-six octets carried at a link error
+   rate of ten to the minus five, whose rejection rate has to come out
+   under ten to the minus five. Report it beside the frame sizes the
+   mission actually flies rather than in place of them; where those are
+   longer, holding the same bound may call for a better error rate at
+   the decoder input or a stronger code.
+7. Compare with the bound inclusively and return the rate, the coding
    scheme, the pass-level consequence and the verdict.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.6a | 6 |
 
 ## Pitfalls
 

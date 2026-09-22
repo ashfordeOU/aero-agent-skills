@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.4.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -76,6 +81,12 @@ acted on.
 7. Check each stated remedy back through the model before offering it,
    and report the verdict as complete only when coverage, overhead and
    convergence all hold.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.4.3a | 1 |
 
 ## Pitfalls
 

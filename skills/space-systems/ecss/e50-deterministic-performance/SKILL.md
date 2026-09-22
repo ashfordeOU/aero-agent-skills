@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.1.2
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -67,10 +72,25 @@ bounded, and what that bound is, rather than reporting how fast it usually is.
    switching cost at each intermediate node.
 6. Compute the idle-path latency the same way with no blocking and no
    rivals, and take the jitter as the spread between the two.
-7. Compare the bound with the deadline and the spread with the jitter
+7. Work steps 2 to 6 again for every load the network is specified to
+   carry, restating the blocking frame and the higher-priority streams
+   at step 2 for each one, up to the heaviest offered traffic it is
+   permitted to see. Re-running the arithmetic on the same declared
+   rivals only reproduces the operating point it came from, so the
+   second case has to be declared, not recomputed. The clause is a
+   claim about all of the loads, so one bounded operating point settles
+   nothing, and a single load case with no bound settles the clause on
+   its own.
+8. Compare the bound with the deadline and the spread with the jitter
    budget, absorbing representation error at each boundary with a named
    tolerance rather than by relaxing the requirement. Report the
-   verdict, the margin and every finding.
+   verdict, the margin and every finding, load case by load case.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.1.2a | 7 |
 
 ## Pitfalls
 

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -56,18 +61,32 @@ survived, and whether it is survived quickly enough to matter.
 1. List the nominal path and the redundant path as ordered elements.
    Reject a repeated element in a path: it is a naming error, and it
    makes the overlap count wrong.
-2. Take the intersection. Those are the elements both paths depend on.
-3. Remove the shared elements the design accepted by name, and refuse
+2. Name the network's own services for managing the redundancy: the
+   one that decides which of the underlying buses carries traffic, and
+   the one that rewrites addressing and routing so the redundant units
+   are reached once it has decided. Those two are the clause's
+   examples rather than the whole of what a design may need, so record
+   any further service the switch depends on. Two paths with nothing
+   to move traffic between them is redundant hardware, not managed
+   redundancy.
+3. Take the intersection. Those are the elements both paths depend on.
+4. Remove the shared elements the design accepted by name, and refuse
    an acceptance for anything the paths do not actually share.
-4. Whatever is left is a single point of failure, and it decides the
+5. Whatever is left is a single point of failure, and it decides the
    first half of the verdict.
-5. Add detection, decision and reconfiguration into the switchover
+6. Add detection, decision and reconfiguration into the switchover
    outage.
-6. Compare that outage against the tolerated one with a relative
+7. Compare that outage against the tolerated one with a relative
    tolerance. A budget landing exactly on the bound must pass on every
    platform rather than on the host that rounded kindly.
-7. Report the detection budget left, or say plainly that decision and
+8. Report the detection budget left, or say plainly that decision and
    reconfiguration alone already overrun it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.5a | 2 |
 
 ## Pitfalls
 

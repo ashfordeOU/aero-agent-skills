@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.8.2
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -34,6 +39,11 @@ was made and which one it is.
   data type, sequence position and generation time. Each answers a
   question the others cannot, and a label missing one leaves a
   question the receiver has to guess at.
+- The ground network owes its own version of that test, over every
+  item of data it takes from the spacecraft: a reader of one item has
+  to be able to say which parameter it holds, when the value was
+  sampled on board and when it arrived on the ground, and no two of
+  those items may end up wearing the same label.
 - Field width is arithmetic, not judgement. Naming N distinct things
   takes the bit count that addresses N, and a field one bit short does
   not carry most of them — it carries half, and aliases the rest onto
@@ -60,7 +70,11 @@ was made and which one it is.
 2. Compare the field names against the required set
    case-insensitively; report present, missing and unrecognised
    separately, because an unrecognised name is usually a required field
-   under a house name.
+   under a house name. For data the ground has acquired, run the same
+   comparison against what one item has to yield by itself — the
+   parameter it holds, the time that value was sampled on board, the
+   time it reached the ground — and confirm that no two acquired items
+   can carry identical labels.
 3. Size each identifier field: the bits needed to address the declared
    number of distinct sources and destinations, against the bits
    declared. Report how many things the declared field can actually
@@ -76,6 +90,12 @@ was made and which one it is.
 7. Grade sufficient only when coverage, both identifier widths, the
    sequence window and the overhead all hold, and give each shortfall a
    number: the width needed, or the payload size that fits.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.8.2a | 2 |
 
 ## Pitfalls
 

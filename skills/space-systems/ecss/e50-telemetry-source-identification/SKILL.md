@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.5.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -57,7 +62,9 @@ with no recourse to the pass plan or the time of arrival.
 1. Validate each declared stream: a name, a non-negative integer
    spacecraft identifier, a non-negative integer source identifier, and
    optionally the virtual channel it is routed on. Non-integer or
-   negative identifiers are input errors.
+   negative identifiers are input errors. Take the list as the whole of
+   what the spacecraft sends down, because a telemetry source left off
+   it reaches the ground carrying no spacecraft identifier at all.
 2. Form the (spacecraft, source) tuple per stream and group the streams
    by tuple; any group holding more than one stream is an ambiguity that
    the receiving system cannot resolve.
@@ -75,6 +82,12 @@ with no recourse to the pass plan or the time of arrival.
 6. Report the tuple map, the required widths, and every finding:
    duplicate tuple, field overflow, premature reuse, channel used as an
    identifier.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.5.3a | 1 |
 
 ## Pitfalls
 

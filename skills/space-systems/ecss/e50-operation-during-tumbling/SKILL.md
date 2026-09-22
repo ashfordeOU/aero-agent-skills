@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.2
+    items: [a, b]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -54,6 +59,9 @@ station at all, and whether the sweep it gives is long enough to use.
 1. State the geometry as three angles: the station aspect from the spin
    axis, the antenna boresight cone from the same axis, and the beam
    width. Two of the three are spacecraft design, one is the pass.
+   Take the tumble rate from the worst conditions the spacecraft is
+   expected to reach rather than a nominal figure, since that is the
+   case the link has to be designed to work in.
 2. Compute the visibility arc over one rotation. Handle the degenerate
    cone explicitly — an all-or-nothing answer, not a division that
    happens not to raise.
@@ -68,6 +76,18 @@ station at all, and whether the sweep it gives is long enough to use.
 7. Where the window is short, report both remedies as numbers: the
    tumble rate at or below which this arc suffices, and the beam width
    that would give a long enough arc at the rate that exists.
+8. Record how the link's ability to cope with those conditions is
+   shown by simulation, and check that the simulation is run again as
+   the design moves through analysis, implementation and verification
+   rather than once at the start. The geometry here sizes the case a
+   simulation has to reproduce; it does not stand in for one.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.2a | 5 |
+| ECSS-E-ST-50C Rev.2 5.6.11.2b | 8 |
 
 ## Pitfalls
 

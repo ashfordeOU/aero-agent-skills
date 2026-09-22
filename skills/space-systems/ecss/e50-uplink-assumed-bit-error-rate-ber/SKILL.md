@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,9 +26,10 @@ metadata:
 # ECSS Communications — Uplink Assumed Bit Error Rate (space-systems/ecss/e50-uplink-assumed-bit-error-rate-ber)
 
 Use when the task is the single obligation of ECSS-E-ST-50C clause 5.6.11.5 —
-that the bit error rate assumed for the uplink is stated — and the question is
-whether the number every later uplink figure was derived from is written down,
-worst case, and the same number throughout.
+that uplink budget work rests on the error rate this clause fixes, ten to the
+minus five, referred to where the telecommand decoder takes its input — and the
+question is whether the number every later uplink figure was derived from is
+that one, written down, and the same number throughout.
 
 ## Domain quick reference
 
@@ -34,14 +40,16 @@ worst case, and the same number throughout.
 - An unstated rate is the worst outcome, not a neutral one. Each analyst
   then supplies their own, the frame rejection page and the corrupted
   frame page disagree silently, and nobody can reproduce either number.
-- A typical or mid-pass rate is the wrong statistic. The requirement has
-  to hold at the worst declared condition, so the assumption has to be no
+- A typical or mid-pass rate is the wrong statistic. The link has to hold
+  up at the worst declared condition, so the assumption has to be no
   better than the worst of low elevation, rain fade, interference and any
   other condition the mission declares.
-- Equality with the worst condition is coverage. An assumption that
-  exactly equals the worst declared rate satisfies the clause; only a
-  rate that is genuinely better than a declared condition is optimistic.
-- Consistency is half the obligation. A derived figure that recorded no
+- Equality with the worst condition is coverage, not compliance. An
+  assumption that exactly equals the worst declared rate is not
+  optimistic about that condition; whether the clause is met is a
+  separate question, settled in step 2 against the fixed rate and the
+  point in the chain that rate is referred to.
+- Consistency is half the work. A derived figure that recorded no
   rate, or recorded a different one, breaks the chain just as effectively
   as an absent assumption, and reads as compliant on its own page.
 - Rates belong in exact decimal arithmetic. Writing one as ten raised to
@@ -57,16 +65,31 @@ worst case, and the same number throughout.
 1. Read the stated rate, accepting a number, a text rate or a mantissa
    and decimal exponent, and refuse a rate that is zero, negative, or so
    small or large that it is a unit mistake rather than a link.
-2. Normalise the declared conditions, refusing a duplicate name, and rank
+2. Check the stated rate against the one this clause settles on for
+   uplink budget work, ten to the minus five, and confirm it is referred
+   to the input of the telecommand decoder: the same figure taken at the
+   antenna or at the demodulator output is a different assumption about
+   a different point in the chain.
+3. Normalise the declared conditions, refusing a duplicate name, and rank
    them to find the worst.
-3. Compare the stated rate with every condition in exact decimal, and
+4. Compare the stated rate with every condition in exact decimal, and
    name each condition the assumption is better than.
-4. Compare the stated rate with the rate each derived figure recorded,
+5. Compare the stated rate with the rate each derived figure recorded,
    treating an unrecorded rate as a disagreement.
-5. Report the conservatism margin in decades for the reader, keeping it
+6. Report the conservatism margin in decades for the reader, keeping it
    out of the pass criterion.
-6. Return one verdict: unstated, optimistic, inconsistent, or sound, with
-   the worst-case condition named either way.
+7. Return one verdict, with the worst-case condition named either way.
+   Unstated, optimistic and inconsistent each stand on their own; sound
+   grades the mission's own use of the rate and nothing more, so carry
+   step 2's finding through to it and report a rate that is not this
+   clause's figure, at this clause's point in the chain, as failing
+   5.6.11.5 however well it covers the declared conditions.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.5a | 2 |
 
 ## Pitfalls
 
@@ -85,7 +108,7 @@ worst case, and the same number throughout.
   point. The comparison then turns on the last bit and disagrees across
   hosts.
 - Turning the decade margin into a pass criterion. It is the only
-  logarithm in the clause and the least reproducible number in it.
+  logarithm in this assessment and the least reproducible number in it.
 
 ## Behavior contract (gate 3)
 
@@ -94,7 +117,11 @@ the credibility bounds, same-rate tolerance, condition normalisation with
 duplicate rejection, worst-case ranking, coverage detection including the
 equality case, derived-figure consistency including an unrecorded rate,
 the decade margin and the four-way unstated / optimistic / inconsistent /
-sound verdict are exercised by the gate 3 contract test:
+sound verdict are exercised by the gate 3 contract test. That verdict is
+the mission-side one of step 7: the clause check of step 2 — the fixed
+rate, and the point in the chain it is referred to — is the
+practitioner's, outside this contract, so a sound returned by the module
+is not on its own a finding of compliance with 5.6.11.5. The test is:
 scripts/test_e50_uplink_assumed_bit_error_rate_ber.py against
 scripts/e50_uplink_assumed_bit_error_rate_ber_logic.py (stdlib unittest,
 offline). Run:

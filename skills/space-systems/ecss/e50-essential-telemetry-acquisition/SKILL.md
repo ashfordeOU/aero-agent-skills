@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.5.2
+    items: [a, b, c, d]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -64,22 +69,46 @@ else on board has degraded.
    nominal on-board processing chain. A missing or non-positive field is
    an input error, not a default.
 2. Check category coverage against the mandated health categories for
-   the mission; report each category with no parameter behind it rather
-   than reporting a single pass or fail.
+   the mission, which between them have to tell the ground how the
+   vehicle as a whole is faring; report each category with no parameter
+   behind it rather than reporting a single pass or fail.
 3. Check phase coverage per parameter against the declared mission
    phases, and report the parameter-phase pairs that are missing.
 4. Flag every parameter whose acquisition path is dependent on the
-   nominal processing chain; those are the members that disappear in the
-   condition the set exists for.
-5. Compute the aggregate encoded rate: the sum over the set of
+   nominal processing chain: on an on-board software application having
+   to run, or on the space network being up. Those are the members that
+   disappear in the condition the set exists for, and the acquisition
+   should reach them by a route that waits on neither.
+5. Take the set through the degraded case the clause is written for.
+   For each parameter, establish that the critical monitoring point it
+   is read from, and the chain that carries the sample to the
+   transmitter and out to the ground, both still work when every other
+   system on board has lost all but one of its redundant branches — the
+   command and data management unit among them — and report each
+   parameter that does not survive that condition.
+6. Compute the aggregate encoded rate: the sum over the set of
    bits-per-sample times sample rate, multiplied by the transport
    overhead factor of the emergency frame and coding scheme.
-6. Compare that rate with the guaranteed emergency downlink capacity,
+7. Compare that rate with the guaranteed emergency downlink capacity,
    absorbing floating-point representation error at the boundary with a
    named tolerance rather than by inflating the capacity.
-7. Report the per-parameter rates, the aggregate, the headroom, and
+8. Confirm the membership is held as an agreed list, and that the
+   agreement is in place no later than the preliminary design review:
+   for each member, the rule that turns its raw sample into engineering
+   units, the encoding it is carried in, and the format it is
+   transmitted in.
+9. Report the per-parameter rates, the aggregate, the headroom, and
    every finding: uncovered category, phase gap, dependent acquisition
-   path, capacity overrun.
+   path, single-branch loss, capacity overrun.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.5.2a | 5 |
+| ECSS-E-ST-50C Rev.2 5.5.2b | 8 |
+| ECSS-E-ST-50C Rev.2 5.5.2c | 2 |
+| ECSS-E-ST-50C Rev.2 5.5.2d | 4 |
 
 ## Pitfalls
 

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.8
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -20,10 +25,11 @@ metadata:
 
 # ECSS Communications — Downlink Frame Rejection Rate (space-systems/ecss/e50-downlink-frame-rejection-rate)
 
-Use when the task is the single obligation of ECSS-E-ST-50C clause 5.6.11.8 —
-that the rate at which downlink frames are rejected stays inside its stated
-bound at the assumed bit error rate — and the question is what that rate is
-for a given block code, symbol width and interleaving depth.
+Use when the task is the single recommendation of ECSS-E-ST-50C clause
+5.6.11.8 — that the rate at which downlink frames are rejected should stay
+below one in a hundred thousand at the assumed bit error rate — and the
+question is what that rate is for a given block code, symbol width and
+interleaving depth.
 
 ## Domain quick reference
 
@@ -64,8 +70,19 @@ for a given block code, symbol width and interleaving depth.
    again in the log domain.
 5. Multiply by the frames in a pass and by the payload bits per frame to
    state the loss in the units the mission cares about.
-6. Compare with the bound inclusively and return the verdict with both
-   intermediate figures kept visible.
+6. Compare with the recommended level — a frame rejection rate below
+   1e-5 — and with any tighter figure the project sets, deciding the
+   boundary inclusively so the verdict does not change with the build
+   host. Return it with both intermediate figures kept visible. The
+   clause recommends this level rather than requiring it, so a rate
+   above it is reported as a recommendation not met, with its margin,
+   rather than as a breach.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.8a | 6 |
 
 ## Pitfalls
 

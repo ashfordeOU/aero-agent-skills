@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.4.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -73,6 +78,17 @@ pins the offset, and how long that answer survives before the next one.
    where the pair has no declared relative drift.
 7. Say which term dominates. Where motion beats static asymmetry, the
    cheaper fix is a shorter responder hold, not a better cable.
+8. Where the network carries more nodes than this pair, the exchange
+   should be repeated between each node and the one holding the common
+   reference, so that what the service reports is alignment to that
+   reference rather than agreement between two clocks that have both
+   walked away from it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.4.5a | 8 |
 
 ## Pitfalls
 

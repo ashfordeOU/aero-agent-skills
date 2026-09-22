@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.1.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -65,15 +70,23 @@ node can be kept off it.
    for a rotation; iterate the arbitration fixed point per node for
    fixed priority, snapping a ceiling that lands on a whole number so
    the count does not depend on the build host.
-5. Where a node's fixed point does not exist, name that node: it can be
-   kept off the medium indefinitely, and that is a more specific
-   finding than a load figure.
+5. Confirm the scheme really does hand the medium to every node on the
+   list, and name any node it leaves without a turn to transfer data.
+   Where a node's fixed point does not exist it can be kept off the
+   medium indefinitely, and that is a more specific finding than a
+   load figure.
 6. Report the worst node and its delay, and compare with the access
    budget using a relative tolerance so a design sized to exactly meet
    the budget passes everywhere.
 7. Say what the input left out — a fixed-priority assessment with no
    blocking frame declared is missing the term that dominates the
    lowest-priority bound.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.1.5a | 5 |
 
 ## Pitfalls
 

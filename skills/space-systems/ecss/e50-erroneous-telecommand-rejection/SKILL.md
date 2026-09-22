@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.4.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,7 +26,8 @@ metadata:
 # ECSS Communications — Erroneous Telecommand Rejection (space-systems/ecss/e50-erroneous-telecommand-rejection)
 
 Use when the task is the single obligation of ECSS-E-ST-50C clause 5.4.3 —
-that a telecommand found to be erroneous is rejected rather than executed —
+that the chance an erroneous telecommand is accepted stays below one
+hundredth divided by the number of commands the mission expects to send —
 and the question is what the on-board acceptance chain must actually do with
 a command that does not survive its checks.
 
@@ -66,6 +72,18 @@ a command that does not survive its checks.
 6. Return the first failing check as the reason, an empty execution plan
    whenever the command was rejected, and the fact that a rejection
    report is owed.
+7. Beyond the single command, size the chain against the clause's own
+   figure. Take the number of telecommands the mission expects to send
+   to the spacecraft, divide one hundredth by it, and require the
+   probability that an erroneous command is accepted to stay under the
+   result. Report the margin alongside the uplink error rate and the
+   check-symbol strength the figure rests on.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.4.3a | 7 |
 
 ## Pitfalls
 

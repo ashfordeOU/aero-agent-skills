@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.6
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,15 +26,17 @@ metadata:
 # ECSS Communications — Time Correlation (space-systems/ecss/e50-time-correlation)
 
 Use when the task is the single obligation of ECSS-E-ST-50C clause 5.6.14.6 —
-that onboard time is correlated with the reference time scale to a stated
-accuracy — and the question is how good the correlation is and how long it lasts.
+that the space link provide the capability by which the ground can tie onboard
+time to its own scale — and the question is how good the correlation that
+capability yields is, against the accuracy the mission states, and how long it
+lasts.
 
 ## Domain quick reference
 
 - A correlation is a fit, not a number. One pair gives an offset that is
   already stale when it is written down; the pair set gives an offset, a
   drift, and a statement about how well each is known.
-- The stated accuracy is what makes the obligation checkable. Without a
+- The stated accuracy is what makes the correlation checkable. Without a
   bound there is nothing to compare the residuals against, and without a
   drift uncertainty there is no interval over which to compare it.
 - Propagation delay is a bias every pair shares, which is exactly the
@@ -49,8 +56,11 @@ accuracy — and the question is how good the correlation is and how long it las
 
 ## Workflow
 
-1. Collect the pairs as onboard reading against reference instant, and
-   reject a set that does not strictly advance in onboard time.
+1. Collect the pairs as onboard reading against the matching instant on
+   the ground reference scale, each one taken through the correlation
+   service the space link itself provides rather than reconstructed
+   afterwards, and reject a set that does not strictly advance in
+   onboard time.
 2. Remove the one-way light time from the reference side before fitting
    anything, and record the correction applied so the bias is visible.
 3. Fit the offset between the scales against onboard time by least
@@ -64,6 +74,12 @@ accuracy — and the question is how good the correlation is and how long it las
    it. Report it as the re-correlation interval.
 7. Call out a light-time correction larger than the accuracy bound —
    it is the one error that would have passed every residual check.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.6a | 1 |
 
 ## Pitfalls
 

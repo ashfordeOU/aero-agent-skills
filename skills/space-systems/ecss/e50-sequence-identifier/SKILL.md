@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.13.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -51,9 +56,11 @@ identifier trace says about loss, duplication and reordering.
 
 ## Workflow
 
-1. State the link as the identifier field width, the retransmission
-   scheme, the outstanding window the design wants, the unit size and the
-   data rate.
+1. Confirm that every formatted data unit the link carries holds a
+   sequence identifier giving its place in the stream, which is what lets
+   a receiver separate a repeated unit from an omitted one. Then state
+   the link as the identifier field width, the retransmission scheme, the
+   outstanding window the design wants, the unit size and the data rate.
 2. Compute the identifier space from the width with integer arithmetic,
    and the unambiguous window the scheme allows on that space.
 3. Compare the wanted window against the unambiguous window. Where it does
@@ -70,6 +77,12 @@ identifier trace says about loss, duplication and reordering.
 7. Report the verdict with both numbers a designer can act on: the width
    that makes the wanted window safe, and the window the present width
    can carry.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.13.3a | 1 |
 
 ## Pitfalls
 

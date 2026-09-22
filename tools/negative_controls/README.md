@@ -70,11 +70,40 @@ being silently skipped:
 | number-snapshot-offline | attest | the register's tracked star figure drifted away from the recorded snapshot |
 | brief-audit | attest | a published figure under `docs/` drifted away from the canonical register |
 | content-policy-sweep | attest | an export-compliance claim planted in a leaf `SKILL.md` |
+| obligations | validate | six controls, one per defect class: the fixture's ECSS leaf is given a correct clause binding (two items, each anchored to a real step) and then one of: a declared item with no `## Obligations` row; a row for an undeclared item; a row pointing at a step that does not exist; a standard without its issue letter; an item declared twice; the reserved relation `cites-clause`. Each signature names the leaf and the item |
+
+The table above is not the whole roster; `--list` prints every control the
+suite runs, read from `controls.py`.
+
+### A gate may carry several controls
+
+A gate that claims to catch several defect classes gets one control per
+class, each on its own mutant and its own line of output (`obligations #1`
+to `obligations #6`). Until 2026-09-22 the controls were indexed by gate in a
+plain dict, so a second control for the same gate silently replaced the
+first: gate 4's publisher-marker control never ran once its source-text
+control was added. Both run now. The headline counts gates and controls
+separately, and a gate is RED-CAPABLE only when every one of its controls is.
+
+The obligations controls carry a diagnosis: when one fails, the same leaf is
+given the correct binding alone, so a gate that refuses correct bindings is
+told apart from a gate that is blind to the planted defect. Each of the six
+was also shown to go `NOT PROVED` when its own check was removed from a copy
+of the gate (with the gate's detector suites taken out of that copy's recipe,
+since they catch the removal first and would make the baseline red).
 
 Marker strings the gates hunt for are assembled from fragments inside
 `controls.py`, so this directory never itself carries one.
 
 ## Last measured result
+
+**2026-09-22, with gate 19 (`obligations`) added: 26 of 26 gates
+RED-CAPABLE across 32 controls, nothing `NOT PROVED`, nothing `VOID`, runner
+exit 0.** Eighteen gates by fixture mutation (the obligations gate by six
+controls, gate 4 by two, now that both of its controls run) and eight by
+their own detector suites.
+
+Earlier:
 
 **2026-09-19, working tree `r4-correction`: 12 of 12 RED-CAPABLE, nothing
 `NOT PROVED`, nothing `VOID`, runner exit 0.**

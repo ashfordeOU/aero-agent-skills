@@ -31,6 +31,32 @@ Steps:
    - scripts/{LEAF_SLUG}_logic.py: deterministic offline module
      implementing the checkable logic (stdlib only, no deps).
    - scripts/test_{LEAF_SLUG}.py: offline unittest, deterministic, passes.
+   - OPTIONAL, the clause-obligation binding (docs/OBLIGATIONS.md). When
+     the leaf makes the practitioner do or check lettered items of the
+     clause, declare those items in the frontmatter and anchor each one
+     to the step of the numbered `## Workflow` that does it:
+
+         clauses:
+           - standard: ECSS-E-ST-50C Rev.2
+             clause: 5.6.11.8
+             items: [a, b]
+             relation: implements
+
+         ## Obligations
+
+         | Item | Step |
+         |---|---|
+         | ECSS-E-ST-50C Rev.2 5.6.11.8a | 2 |
+         | ECSS-E-ST-50C Rev.2 5.6.11.8b | 3 |
+
+     relation is `implements` (the practitioner does the item) or
+     `verifies` (the practitioner checks it was met); `cites-clause` is
+     refused. Quote a clause with fewer than two dots ("5.10"), write
+     items inline, and put no comment on a binding line. Read the items
+     with `python3 tools/obligations/earm_items.py items --export <EARM>
+     --standard "<edition>" --clause <n>` (terminal only; paraphrase,
+     never paste), then run `make obligations`. Declare only items the
+     workflow really makes the practitioner discharge.
 4. NO verbatim ECSS text (copyright) — paraphrase into implementable
    procedure. Common knowledge + procedure, standard+clause as citation.
 5. Run the test locally to prove it passes.

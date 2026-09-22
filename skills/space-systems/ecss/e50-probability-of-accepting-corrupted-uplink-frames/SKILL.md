@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.7
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -67,8 +72,19 @@ probability is for a given detection design.
 4. Multiply the two factors to get the per-frame figure.
 5. Raise it to the mission figure over the frames the mission uplinks,
    in the log domain, and report the mean gap between acceptances.
-6. Compare with the bound inclusively, and search upward through integer
-   check lengths for the shortest field that would satisfy it.
+6. Compare with the bound inclusively. Take that bound from the limit
+   the standard sets on accepting an erroneous telecommand at clause
+   5.4.3 — which tightens as the count of telecommands the mission
+   sends grows — rather than from a figure chosen here, since this
+   probability has to sit inside that limit. Then search upward
+   through integer check lengths for the shortest field that would
+   satisfy it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.7a | 6 |
 
 ## Pitfalls
 

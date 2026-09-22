@@ -1,6 +1,6 @@
 ---
 name: e50-error-rates
-description: "Compute the error-rate budget of a ground network data path against ECSS-E-ST-50C clause 5.8.4, which asks that the network deliver data at or below a stated error rate. Convert a bit error rate into a block or frame error rate, compose the segments of a path into one end-to-end figure, and invert that composition into the rate each hop has to hold. Report errored bits, errored blocks and errored seconds over a pass, and the headroom as a ratio and in decibels. Use when apportioning an error budget across ground segments, or grading a measured path against one. Trigger: ecss, e-st-50-ground-network, ground-network-error-rate, bit-error-rate-to-frame-error-rate, end-to-end-error-budget-apportionment, errored-seconds-per-pass, ground-segment-error-margin."
+description: "Compute the error-rate budget of a ground network data path against ECSS-E-ST-50C clause 5.8.4, which asks the ground figure to sit well under the rates carried by the space link and by the space network rather than under an absolute number of its own. Convert a bit error rate into a block or frame error rate, compose the segments of a path into one end-to-end figure, and invert that composition into the rate each hop has to hold. Report errored bits, errored blocks and errored seconds over a pass, and the headroom as a ratio and in decibels. Use when apportioning an error budget across ground segments, or grading a measured path against one. Trigger: ecss, e-st-50-ground-network, ground-network-error-rate, bit-error-rate-to-frame-error-rate, end-to-end-error-budget-apportionment, errored-seconds-per-pass, ground-segment-error-margin."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.8.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,9 +26,10 @@ metadata:
 # ECSS Communications — Error Rates (space-systems/ecss/e50-error-rates)
 
 Use when a ground network path carries a stated error-rate requirement per
-ECSS-E-ST-50C clause 5.8.4 — turning that one figure into a budget the
-segments of the path can be held to, and turning a measured path back into
-a verdict against it.
+ECSS-E-ST-50C clause 5.8.4, which asks the ground figure to sit well under
+the rates carried by the space link and by the space network — turning those
+into a budget the segments of the path can be held to, and turning a
+measured path back into a verdict against them.
 
 ## Domain quick reference
 
@@ -64,14 +70,26 @@ a verdict against it.
    again against the requirement divided by the headroom factor the
    project asks for, so a path that only just passes is reported as
    only just passing rather than as compliant.
-5. Where the path does not reach the target, compute the per-segment
+5. Grade the path against the clause's own comparison as well: the
+   composed ground-network rate beside the rate the space link carries
+   and the rate the space network carries, all three at one granularity.
+   The clause asks the ground figure to sit well under both and does not
+   say by how much, so state the factor the project treats as clearly
+   lower and report the ratio to each.
+6. Where the path does not reach the target, compute the per-segment
    allocation that would, and name the worst segment so the effort goes
    where the budget is being spent.
-6. Report the headroom as a ratio and in decibels, and report it as
+7. Report the headroom as a ratio and in decibels, and report it as
    undefined rather than infinite where a path shows no errors at all.
-7. Add the volume figures for the pass — errored bits, errored blocks,
+8. Add the volume figures for the pass — errored bits, errored blocks,
    errored seconds — so the prediction can be reconciled against the
    station log.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.8.4a | 5 |
 
 ## Pitfalls
 

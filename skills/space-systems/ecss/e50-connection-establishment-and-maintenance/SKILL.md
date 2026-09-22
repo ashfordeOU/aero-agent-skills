@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.1
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -52,9 +57,13 @@ flowing.
 
 ## Workflow
 
-1. State the service as the handshake exchange count, the far-end
-   processing time, the round trip, the configured establishment timeout
-   and the attempts allowed.
+1. Fix what the space link owes before any number is chosen: bringing
+   the carrier up and setting the link up for data transfer as the
+   contact opens, holding the connection while the exchange runs, and
+   taking it down in an orderly way once the contact ends. Then state
+   the service as the handshake exchange count, the far-end processing
+   time, the round trip, the configured establishment timeout and the
+   attempts allowed.
 2. Compute the establishment timeout floor and compare the configured
    timeout against it with a relative tolerance, so a timeout set exactly
    at the floor is acceptable on every build host.
@@ -62,12 +71,23 @@ flowing.
    compare it with the contact time available.
 4. State maintenance as the keepalive interval, the inactivity timeout and
    the consecutive keepalive losses the link is expected to inflict.
+   Opening the connection may also settle the rate the contact will run
+   at, and maintenance may return to that rate as the radio conditions
+   move through the pass; where the service offers either, specify it
+   here with the rest of the function instead of leaving it to the
+   implementation.
 5. Check that the interval times one more than the tolerated losses stays
    inside the inactivity timeout, and report the interval that would.
 6. Replay any recorded state trace against the allowed transitions and
    name the first step the machine does not permit.
 7. Report the verdict with the numbers an implementer can set: the
    establishment timeout, the attempts and the keepalive interval.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.1a | 1 |
 
 ## Pitfalls
 

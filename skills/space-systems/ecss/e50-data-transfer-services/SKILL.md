@@ -1,6 +1,6 @@
 ---
 name: e50-data-transfer-services
-description: "Evaluate the data transfer services an on-board network offers against the traffic it has to carry, under ECSS-E-ST-50C clause 5.7.2.1, whose two normative items fail differently: a service exists for every flow, and the service carrying a flow meets what that flow asked for. Assign flows to services by best fit, aggregate the load each service ends up carrying, and separate a flow with no service at all from one whose service misses its rate, its latency bound or its delivery assurance. Report utilisation, spare capacity and the shortfall in each dimension. Use when sizing or reviewing on-board network transfer services. Trigger: ecss, e-st-50-communications, on-board-network-data-transfer-service, network-service-class-assignment, on-board-flow-latency-bound, network-service-utilisation, assured-delivery-service-gap."
+description: "Evaluate the data transfer services an on-board network offers against the traffic it has to carry, under ECSS-E-ST-50C clause 5.7.2.1, one normative item holding two questions that fail differently: a service exists for every pair of applications that has to exchange data units, and the service carrying a flow meets what that flow asked for, getting the unit to its destination or telling the sender it could not. Assign flows to services by best fit, aggregate the load each service ends up carrying, and separate a flow with no service at all from one whose service misses its rate, its latency bound or its delivery assurance. Report utilisation, spare capacity and the shortfall in each dimension. Use when sizing or reviewing on-board network transfer services. Trigger: ecss, e-st-50-communications, on-board-network-data-transfer-service, network-service-class-assignment, on-board-flow-latency-bound, network-service-utilisation, assured-delivery-service-gap."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.1
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -26,13 +31,14 @@ service exists for each flow, and whether it is the service that flow needed.
 
 ## Domain quick reference
 
-- Two normative items, and they are not the same question. One asks
-  that a data transfer service exists for the traffic the network is
-  required to carry. The other asks that the service actually meets
-  what the flow needs. A design can pass the first and fail the second
-  in the same review.
-- A flow states three things, not one: a sustained rate, an upper bound
-  on how long a transfer may take, and whether delivery has to be
+- One normative item holding two questions, and they are not the same
+  question. One asks that a data transfer service exists for the
+  traffic the network is required to carry. The other asks that the
+  service actually meets what the flow needs. A design can pass the
+  first and fail the second in the same review.
+- A flow names the two applications it runs between and states three
+  things about the traffic they exchange: a sustained rate, an upper
+  bound on how long a transfer may take, and whether delivery has to be
   assured. A service that satisfies two of the three has not served it.
 - Adequacy is a property of the service under its whole load. Two flows
   that each fit a service can together exceed it, so the rate test runs
@@ -51,12 +57,21 @@ service exists for each flow, and whether it is the service that flow needed.
 ## Workflow
 
 1. Declare each service with a name, its sustained capacity, the
-   latency bound it commits to and whether it assures delivery.
-2. Declare each flow with a name, its rate, its deadline and whether it
-   needs assured delivery. Reject a duplicate name on either side: two
+   latency bound it commits to, whether it assures delivery, and
+   whether it returns word to the sender when a data unit could not
+   be delivered at all.
+2. Declare each flow with a name, the application it starts at, the
+   application it ends at, its rate, its deadline and whether it needs
+   assured delivery. The two application names are what the coverage
+   question is asked about: every pair of applications on the network
+   that has to exchange data units is owed a service able to carry the
+   flow between them, so the pairs have to be on the table before
+   anything is placed. Reject a duplicate name on either side: two
    entries under one name are two teams sizing the same traffic.
 3. For each flow, take the services that meet its latency bound and its
-   assurance need. Do not filter on capacity here.
+   assurance need. A service meets that need when it either gets the
+   data unit to its destination or tells the sender it could not. Do
+   not filter on capacity here.
 4. Place the flows largest first, choosing the eligible service that is
    left with the least spare capacity afterwards.
 5. Sum the load each service carries once every flow is placed, then
@@ -64,9 +79,18 @@ service exists for each flow, and whether it is the service that flow needed.
 6. Compare rates and latencies with a relative tolerance. A flow sized
    to exactly fill a service, or sitting exactly on its latency bound,
    must come out adequate rather than depend on the build machine.
-7. Report the two items separately — coverage and adequacy — with the
-   named flows under each, the utilisation of every service and the
-   rate shortfall where there is one.
+7. Report the two questions separately — coverage and adequacy — with
+   the named flows under each, the utilisation of every service and
+   the rate shortfall where there is one. Walk the pairs declared at
+   step 2 and name every one the service set leaves unable to exchange
+   data units, and any service that neither gets a unit to its
+   destination nor reports the failure back to the sender.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.1a | 7 |
 
 ## Pitfalls
 
@@ -93,7 +117,7 @@ service exists for each flow, and whether it is the service that flow needed.
 Service and flow validation, eligibility by latency and assurance,
 deterministic best-fit assignment, per-service aggregate load, the
 three-way flow verdict with a tolerance at the capacity and latency
-bounds, the separated coverage and adequacy items, and the utilisation
+bounds, the separated coverage and adequacy questions, and the utilisation
 and spare-capacity report are exercised by the gate 3 contract test:
 scripts/test_e50_data_transfer_services.py against
 scripts/e50_data_transfer_services_logic.py (stdlib unittest, offline).

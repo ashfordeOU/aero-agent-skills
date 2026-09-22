@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.1.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -60,9 +65,13 @@ that have no slot of their own.
    that contradiction belongs to the schedule upstream.
 2. Compute the spare window, its capacity in bits, and the sustained
    capacity over the cycle.
-3. Where the spare window is zero, stop: report that no asynchronous
-   transfer can start. Segment counts and completion times would be
-   arithmetic about a service that does not exist.
+3. Establish that the network offers the service its nodes are owed:
+   an unscheduled path between every pair of attached nodes, whether or
+   not anyone has yet named traffic to send over it. A zero spare
+   window withholds that service from all of them; a missing path
+   withholds it from the pair it belongs to. Stop on either and name
+   which one it is, because segment counts and completion times would
+   be arithmetic about a service that does not exist.
 4. Compare sustained capacity with the offered asynchronous rate using
    a relative tolerance. A stream offered at exactly the capacity is
    served, not starved, on every build host.
@@ -77,6 +86,12 @@ that have no slot of their own.
    delivers it inside the window already there. Where no offered rate
    was declared, say the result is latency only and carries no
    throughput claim.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.1.4a | 3 |
 
 ## Pitfalls
 

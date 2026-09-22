@@ -10,6 +10,15 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.2
+    items: [a]
+    relation: implements
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.2
+    items: [b]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -28,6 +37,13 @@ services allocated to the link can live inside that declaration.
 
 ## Domain quick reference
 
+- Each direction is a simplex channel and that is where the clause
+  starts. A record declared bidirectional is shorthand for a pair of
+  contra-flowing channels; each of them is graded on its own, and what
+  the declaration adds on top of the pair is whether the two may carry
+  traffic at the same instant. Reading a two-way link as one
+  undifferentiated pipe is how a return service ends up assumed onto a
+  forward path.
 - Directionality is a property of the link, not of the service. A link
   is declared forward-only, return-only or bidirectional, and every
   service allocated to it has to find the direction it needs already
@@ -57,10 +73,16 @@ services allocated to the link can live inside that declaration.
 
 ## Workflow
 
-1. Validate each link record: identifier, directionality, simultaneity
-   statement, allocated services, propagation, turnaround and slot-wait
-   times. An unknown directionality, an unknown service, a repeated
-   service or a negative time is an input error, not a case to clamp.
+1. Enter every space link of the mission and grade each direction it
+   carries as a simplex channel in its own right: a link declared
+   bidirectional is a contra-flowing pair, and each side of that pair
+   answers for the services put on it on its own, with the declaration
+   saying on top of the pair whether the two sides may run at the same
+   instant. A link may address one peer or several. Then validate
+   each record: identifier, directionality, simultaneity statement,
+   allocated services, propagation, turnaround and slot-wait times. An
+   unknown directionality, an unknown service, a repeated service or a
+   negative time is an input error, not a case to clamp.
 2. Derive the directions the allocated services need and compare them
    with the directions the declaration carries. Name every service that
    needs a direction the link does not have.
@@ -69,13 +91,25 @@ services allocated to the link can live inside that declaration.
    one, and a one-way link that carries one has been mis-declared.
 5. Pick out the services that need both directions open at the same
    instant and refuse them on an alternating link.
-6. Compute the two-way response time — round trip alone when
+6. Where a service keeps its data intact by answering on the link that
+   flows the other way — a retransmission request, an acknowledgement —
+   confirm that contra-flowing link is declared and that both ends
+   carry its return traffic. The mechanism is owed support; it is not
+   assumed into existence by the service that relies on it.
+7. Compute the two-way response time — round trip alone when
    simultaneous, round trip plus two turnarounds plus the slot wait
    when alternating — and compare it with the allowance the services
    carry, absorbing representation error at the boundary with a named
    tolerance rather than by relaxing the allowance.
-7. Aggregate across the link set: which links are bidirectional, which
+8. Aggregate across the link set: which links are bidirectional, which
    are one-way, and which carry findings.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.2a | 1 |
+| ECSS-E-ST-50C Rev.2 5.6.2b | 6 |
 
 ## Pitfalls
 

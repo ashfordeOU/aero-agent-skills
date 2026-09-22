@@ -22,6 +22,10 @@
 #   gate 14 hermeticity   generated artefacts carry no machine-specific trace
 #   gate 15 evidence-contract  the evidence record + regrade rules hold
 #   gate 16 export-bundle the exported reference case set
+#   gate 17 shipped-instructions  nothing shipped says cd into an author-only dir
+#   gate 18 role-bindings  every leaf a paired role binds still exists
+#   gate 19 obligations   every clause item a leaf declares is anchored to a
+#                         step of its procedure (docs/OBLIGATIONS.md)
 
 .PHONY: validate lint-spec desc-lint pytest-contract no-verbatim hit1 \
         independence release-law portability corpus-naming no-inference \
@@ -32,9 +36,9 @@
         publish-health release-machinery visuals-control \
         no-verbatim-strict router-coverage hit1-all negative-controls figure-audit \
         attest attest-strict snapshot-live number-snapshot-offline brief-audit \
-        content-policy-sweep packs visuals visuals-check
+        content-policy-sweep packs visuals visuals-check obligations
 
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle shipped-instructions role-bindings
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle shipped-instructions role-bindings obligations
 	@echo "Aero Agent Skills validate: PASS ($(words $^)/$(words $^) REAL gates green - docs/harness-contract.md)"
 
 # Per-skill completeness standard (founder 2026-09-01): every leaf skill
@@ -116,6 +120,17 @@ evidence-contract:
 # Gate 16: the exported reference case set and the tokenizer that reads it.
 export-bundle:
 	@python3 tools/export/test_export_bundle.py
+
+# Gate 19: a leaf may bind the lettered items of an ECSS clause it makes the
+# practitioner discharge (front matter `clauses:`). A binding is refused
+# unless every declared item has a row in the leaf's `## Obligations` table
+# pointing at a step that exists in its numbered procedure. It proves the
+# claim is ANCHORED; whether the step discharges the item is the fidelity
+# audit's question (tools/fidelity/). Then the gate's own detector suites.
+obligations:
+	@python3 tools/obligations/obligations_gate.py
+	@python3 tools/obligations/test_obligations.py
+	@python3 tools/obligations/test_earm_items.py
 
 # ---- shipped, run on demand, deliberately NOT in validate ----
 # Real and passing, but it re-runs the generators 40 times (~130s) to prove

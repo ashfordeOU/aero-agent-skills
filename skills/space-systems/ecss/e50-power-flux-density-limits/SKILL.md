@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.12.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -52,9 +57,11 @@ whether it is under the limit that applies at the angle it arrives from.
 
 1. State the reference bandwidth the limit is written in before anything
    is measured. Every number that follows is relative to it.
-2. Declare the limit schedule as arrival-angle breakpoints. Two is the
-   minimum that can be interpolated; the plateaus at each end are stated
-   as breakpoints too so the shape is explicit.
+2. Declare the limit schedule as arrival-angle breakpoints, taken from
+   the limits that hold in the band this downlink is allocated for its
+   space service. Two is the minimum that can be interpolated; the
+   plateaus at each end are stated as breakpoints too so the shape is
+   explicit.
 3. Derive the flux at the surface from EIRP and slant range where it is
    not measured directly, keeping the spreading in one helper.
 4. Refer each observation to the reference bandwidth before grading it,
@@ -65,8 +72,17 @@ whether it is under the limit that applies at the angle it arrives from.
    decibel tolerance, and separate an exceedance from a margin thinner
    than the coordination case asked for.
 7. Report the governing angle across the profile, not only the count of
-   exceedances. Which angle governs is what the mitigation is designed
-   against.
+   exceedances, and take the profile across every phase in which the
+   spacecraft transmits rather than the nominal pass alone — the limit
+   holds for the whole mission. Which angle governs is what the
+   mitigation is designed against, and lowering the power the
+   spacecraft transmits may be that mitigation.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.12.4a | 7 |
 
 ## Pitfalls
 

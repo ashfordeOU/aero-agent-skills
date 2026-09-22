@@ -181,9 +181,9 @@ That line is the only authority; this table follows it in order.
 
 ```
 $ grep -m1 '^validate:' Makefile
-validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle
+validate: lint-spec desc-lint pytest-contract no-verbatim hit1 independence release-law portability corpus-naming no-inference slug-uniqueness router-coverage-structure router-coverage-complete hermeticity evidence-contract export-bundle shipped-instructions role-bindings obligations
 $ grep -m1 '^validate:' Makefile | cut -d: -f2 | wc -w | tr -d ' '
-16
+19
 ```
 
 | Gate | `make` target | Runner | A green means |
@@ -204,6 +204,9 @@ $ grep -m1 '^validate:' Makefile | cut -d: -f2 | wc -w | tr -d ' '
 | 14 hermeticity | `hermeticity` | `tools/determinism/hermeticity.py` | the generated artefacts carry no embedded timestamp, absolute path, hostname, build id or locale-dependent number -- a pipeline can be bit-identical on one machine and still be non-hermetic |
 | 15 evidence contract | `evidence-contract` | `tools/evidence/tests/` (56 tests) | the evidence record's digest does not move with key order or float representation, floats are refused, and a regrade issues a successor rather than mutating a record |
 | 16 export bundle | `export-bundle` | `tools/export/test_export_bundle.py` (26 tests) | the exported reference case set and its tokenizer behave as the shipped router expects |
+| 17 shipped instructions | `shipped-instructions` | `scripts/gate_shipped_instructions.py` | nothing that ships tells the reader to change into a directory only the author has |
+| 18 role bindings | `role-bindings` | `scripts/role_bindings_contract.py` | every leaf the paired roles corpus binds, as pinned in `ops/contracts/role-bindings.json`, still exists in this tree |
+| 19 clause obligations | `obligations` | `tools/obligations/obligations_gate.py`, then `tools/obligations/test_obligations.py` and `test_earm_items.py` | every clause item a leaf declares in its `clauses:` front matter has a row in its `## Obligations` table pointing at a step of its numbered procedure. It proves the claim is anchored, not that the step discharges the item; see gate 19 below and [OBLIGATIONS.md](OBLIGATIONS.md) |
 
 `make validate` prints one summary line. That line is a summary of the targets
 above and of nothing else: it is not evidence that the corpus is complete, and
@@ -299,7 +302,13 @@ compliance flags of the legal brief:
   by name;
 - `gated` consistent with the map: a standard the map marks `gated: true` must be
   listed reference-only in the skill, or the skill itself must be `gated: true`;
-- `metadata.version` and `metadata.author` present.
+- `metadata.version` and `metadata.author` present;
+- `clauses`, when present (it is optional), is a list of
+  `{standard, clause, items, relation}` mappings: an ECSS designation with its
+  issue letter, a dotted clause number held as text, a non-empty list of item
+  letters, and `implements` or `verifies` (`cites-clause` is refused). The rule
+  is `tools/obligations/obligation_binding.py`, the same module gate 19 uses,
+  so the two gates cannot disagree about a well-formed binding.
 
 Scope: every SKILL.md in the tree. The run of 2026-09-19 linted 3,201 SKILL.md files, which is every family
 router plus every leaf (`find skills -name SKILL.md | wc -l`).
@@ -545,6 +554,32 @@ WARN corpus-naming: 1372 of 3189 leaves (43.0%) have no corpus fragment, so this
 WARN corpus-naming: 2 fragment(s) name no known leaf and graded nothing; each is either an aggregate file or an orphan left by a rename.
 PASS corpus-naming: 1817 of 3189 leaf/leaves graded, one spelling each (1819 fragment(s), 2 unattributable)
 ```
+
+### Gate 19: clause obligations
+
+A leaf may declare the lettered items of an ECSS clause it makes the
+practitioner discharge, in a `clauses:` front-matter key, and must then anchor
+each declared item to a step of its numbered procedure in an `## Obligations`
+table. The gate refuses, naming the leaf and the item: a malformed binding, a
+declared item with no row, a row for an undeclared item, a row pointing at a
+step that does not exist, a duplicate, and the reserved relation
+`cites-clause`. The full contract is [OBLIGATIONS.md](OBLIGATIONS.md).
+
+What a green does not mean: that the anchored step discharges the item. That
+is judged by reading, in the fidelity audit (`tools/fidelity/`), and reported
+as two numbers that are never summed: the share of each cited clause's items
+a leaf addresses, and the share of declared items the reading finds
+addressed.
+
+Coverage, with its complement: the binding is optional, so the gate grades
+only the leaves that declare one, and its PASS line prints how many did and
+how many did not (`make obligations | head -1`). On this commit 70 of the
+corpus's leaves declare a binding and 86 declared items are anchored; **the
+other 3,131 declare none, and the gate says nothing about them**. The gate
+was added the same day with nothing bound at all, so its first green graded
+nothing in the corpus; its detector suites and six negative controls (one
+per defect class above) are what showed it can go red, and they remain the
+reason to believe a green here, not the number of leaves now bound.
 
 ## Determinism rules
 

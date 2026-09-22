@@ -1,6 +1,6 @@
 ---
 name: e50-data-unit-identifier
-description: "Verify that the identifier a space link puts on each data unit names that unit unambiguously for as long as it matters, under ECSS-E-ST-50C clause 5.6.13.2. Compute the modulus of the counter field, the period it takes to wrap, how many units are live inside the retention window, and the coverage of one against the other; separate a field that wraps inside the window from one that covers it with no margin; size the narrowest field that works by exact integer doubling; and read an observed run for gaps, wraps and repeats. Use when sizing or reviewing data unit counters. Trigger: ecss, e-st-50-communications, data-unit-identifier-field-width, data-unit-counter-wrap-ambiguity, data-unit-sequence-gap-detection, data-unit-retention-window-coverage."
+description: "Verify that every formatted data unit a space link carries holds an identifier naming its source, its destination or both, under ECSS-E-ST-50C clause 5.6.13.2, then size the counter field that carries that identifier so it still names one unit for as long as the design acts on it. Compute the modulus of the counter field, the period it takes to wrap, how many units are live inside the retention window, and the coverage of one against the other; separate a field that wraps inside the window from one that covers it with no margin; size the narrowest field that works by exact integer doubling; and read an observed run for gaps, wraps and repeats. Use when sizing or reviewing data unit counters. Trigger: ecss, e-st-50-communications, data-unit-identifier-field-width, data-unit-counter-wrap-ambiguity, data-unit-sequence-gap-detection, data-unit-retention-window-coverage."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.13.2
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,15 +26,23 @@ metadata:
 # ECSS Communications — Data Unit Identifier (space-systems/ecss/e50-data-unit-identifier)
 
 Use when the identifier carried by each data unit on a space link is being
-sized or reviewed, per ECSS-E-ST-50C clause 5.6.13.2 — whether that identifier
+sized or reviewed, per ECSS-E-ST-50C clause 5.6.13.2 — whether a formatted
+unit carries an identifier at all and which endpoint it names, and then,
+past what the clause asks, whether the counter carrying that identifier
 still names one unit by the time anyone acts on it.
 
 ## Domain quick reference
 
+- What the clause itself asks is short: a formatted data unit on the
+  space link carries an identifier, and that identifier names its
+  source, its destination, or both at once. Step 1 is where that is
+  settled. Everything after it is this leaf's own discipline — a
+  counter that wraps still carries an identifier and still satisfies
+  the item, and can still leave a receiver acting on the wrong unit.
 - Unambiguous has a duration. A counter in a fixed field names a unit
-  uniquely only until it wraps, so the question is never whether the
-  field is wide enough but whether it is wide enough for the window the
-  system still cares about that unit in.
+  uniquely only until it wraps, so the sizing question is never whether
+  the field is wide enough but whether it is wide enough for the window
+  the system still cares about that unit in.
 - The window is set by what the design does with the identifier, not by
   the pass. Retransmission, reordering, gap filling and ground-side
   reconciliation all reach back in time, and the longest of them governs.
@@ -49,23 +62,36 @@ still names one unit by the time anyone acts on it.
 
 ## Workflow
 
-1. State the retention window before the field width. The window is a
+1. Check first that every formatted data unit the space link carries
+   holds an identifier at all, and which endpoint it names: its source,
+   its destination, or both at once. An identifier that names
+   neither leaves a receiver with nothing to act on. The name only has
+   to hold inside the one spacecraft's domain; a wider, universally
+   unique name may be built by reading the identifier together with
+   others, the spacecraft identifier among them.
+2. State the retention window before the field width. The window is a
    system property; the width is the answer to it.
-2. Compute the field modulus from the width, and the wrap period from
+3. Compute the field modulus from the width, and the wrap period from
    the modulus and the production rate.
-3. Compute how many units are live inside the window, and take coverage
+4. Compute how many units are live inside the window, and take coverage
    as the modulus over that count.
-4. Decide the three-way verdict with a relative tolerance, so a field
+5. Decide the three-way verdict with a relative tolerance, so a field
    sized exactly to its window is decided the same way everywhere.
-5. Report the narrowest width that would cover the window with the
+6. Report the narrowest width that would cover the window with the
    margin asked for, found by doubling an integer capacity, so the
    recommendation is exact rather than a rounded logarithm.
-6. When reading an observed run, reject any value outside the field
+7. When reading an observed run, reject any value outside the field
    first. It is a decoding fault and it would otherwise manufacture a
    long run of phantom gaps.
-7. Separate wraps, gaps and duplicates in the report, and give the
+8. Separate wraps, gaps and duplicates in the report, and give the
    identifier expected next so a receiver's own bookkeeping can be
    checked against it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.13.2a | 1 |
 
 ## Pitfalls
 

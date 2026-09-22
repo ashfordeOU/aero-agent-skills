@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.8
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -61,6 +66,9 @@ what the ground should conclude when a confirmation has not arrived yet.
 4. Grade each command against the deadline into confirmed, confirmed
    late, pending, or timed out, comparing at the bound with a relative
    tolerance so a confirmation landing exactly on time is on time.
+   Confirmed here means the uplink was taken in at the spacecraft's
+   gateway onto the space network, which is what this function is asked
+   to report and the whole of it.
 5. Attach the action each state earns: nothing for confirmed and
    pending, retransmit for a timeout inside the attempt budget, escalate
    for one past it.
@@ -69,6 +77,12 @@ what the ground should conclude when a confirmation has not arrived yet.
    than dropping them.
 7. Report the worst observed latency alongside the deadline — it is the
    number that says whether the deadline has any margin left in practice.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.8a | 4 |
 
 ## Pitfalls
 

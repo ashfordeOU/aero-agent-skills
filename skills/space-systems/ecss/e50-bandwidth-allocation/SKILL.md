@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.3.1
+    items: [a, b]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -48,24 +53,38 @@ flow is allocated, and whether the set fits.
 
 ## Workflow
 
-1. Declare each flow with a name, its own rate and its overhead factor.
+1. Name the spacecraft operating mode this allocation is for, and take
+   the flow set that mode actually runs. A mode that transmits
+   different traffic is a separate allocation, not a variation of this
+   one, and a single set covering every mode sizes none of them.
+2. Declare each flow with a name, its own rate and its overhead factor.
    A flow with no overhead declared is being asserted to cost exactly
    its payload, which is a claim, so make it explicit as 1.0.
-2. Reject a duplicate flow name. Two entries under one name are two
+3. Reject a duplicate flow name. Two entries under one name are two
    teams sizing the same traffic, and the total silently doubles it.
-3. Allocate each flow as rate times overhead, and record its share of
-   the capacity — the share is what makes one flow's dominance visible
-   without reading the totals.
-4. Sum the allocations, then compare against the usable capacity, which
+4. Allocate each flow as rate times overhead, so what it gets follows
+   both what the mode needs transmitted and what the stack adds to
+   carry it, and record its share of the capacity — the share is what
+   makes one flow's dominance visible without reading the totals.
+5. Sum the allocations, then compare against the usable capacity, which
    is the link capacity less the reserved margin.
-5. Compare with a relative tolerance. A flow set sized to exactly fill
+6. Compare with a relative tolerance. A flow set sized to exactly fill
    the usable capacity must come out feasible, and an exact-equality
    comparison on floating point decides that by rounding.
-6. Report which of the three outcomes holds, with the shortfall in bit/s
+7. Report which of the three outcomes holds, with the shortfall in bit/s
    where there is one, rather than a pass or fail.
-7. Where the set does not fit, report the capacity it would need at the
+8. Where the set does not fit, report the capacity it would need at the
    declared margin, and the single factor every flow would scale by to
-   fit the capacity that exists.
+   fit the capacity that exists. In an emergency mode the essential
+   command and telemetry flows take precedence: allocate those first
+   and let the proportional cut fall on what remains.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.3.1a | 4 |
+| ECSS-E-ST-50C Rev.2 5.3.1b | 8 |
 
 ## Pitfalls
 

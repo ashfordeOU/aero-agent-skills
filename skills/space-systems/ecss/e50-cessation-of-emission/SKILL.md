@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.3.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -54,9 +59,12 @@ question is whether a particular inhibit architecture actually delivers it.
 
 ## Workflow
 
-1. Validate each inhibit path as a record: an identifier, an execution
-   latency, and whether it runs through the emitting chain, survives safe
-   mode, and needs flight software. Reject a malformed record rather than
+1. List every emitter the spacecraft can radiate from before looking at
+   any path, since the obligation covers all of its transmissions and a
+   single transmitter nobody can silence defeats it. Then validate each
+   inhibit path as a record: an identifier, an execution latency, and
+   whether it runs through the emitting chain, survives safe mode, and
+   needs flight software. Reject a malformed record rather than
    assuming a default.
 2. Name the impairments on each path, then split them: running through
    the emitting chain or vanishing in safe mode removes the path from the
@@ -71,7 +79,16 @@ question is whether a particular inhibit architecture actually delivers it.
    bound reads the same on every host.
 6. Return the verdict with the findings that produced it, so a reviewer
    can see whether the gap is speed, independence, or a path that never
-   existed.
+   existed. Grade the design met only where each emitter can be brought
+   off the air by telecommand at any point in the mission; a
+   transmitter that can be silenced in some configurations and not
+   others is not one the obligation lets through.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.3.3a | 6 |
 
 ## Pitfalls
 

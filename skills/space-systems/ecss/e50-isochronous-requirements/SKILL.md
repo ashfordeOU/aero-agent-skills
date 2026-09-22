@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -52,7 +57,11 @@ is whether the set written down is complete, and whether it can be met at all.
 ## Workflow
 
 1. Take the set as stated and list what is absent before touching what
-   is present. An incomplete set is not judged consistent.
+   is present. Three of those figures are the ones the clause obliges the
+   service to be written with — the rate it runs at, the longest delivery
+   delay it is allowed, and how far an individual delivery may stray from
+   that delay — so a set silent on any of them specifies no service at
+   all. An incomplete set is not judged consistent.
 2. Validate each figure that is present for type, finiteness and sign,
    and raise rather than coerce. A negative period is malformed input,
    not a requirement with an unusual value.
@@ -68,6 +77,12 @@ is whether the set written down is complete, and whether it can be met at all.
    where its inputs were not stated.
 7. Grade incomplete before inconsistent, and check any rate or bound
    offered as a remedy against the same model before reporting it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.5a | 1 |
 
 ## Pitfalls
 

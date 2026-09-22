@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -73,9 +78,16 @@ and setup take a visible share of the window.
    drain what the pass can deliver, clamp at the storage capacity and
    count what is lost when the store is full.
 7. Report the final and peak backlog, the lost volume, whether the
-   store was ever cleared, and whether the plan is stable, absorbing
-   representation error at the capacity boundary with a named
-   tolerance.
+   store was ever cleared, and whether the plan is stable — that is,
+   whether the link goes on carrying the mission across contacts this
+   short and this irregularly spaced — absorbing representation error
+   at the capacity boundary with a named tolerance.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.3a | 7 |
 
 ## Pitfalls
 

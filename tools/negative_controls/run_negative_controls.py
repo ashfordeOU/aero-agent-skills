@@ -322,6 +322,99 @@ def run_gate(tree: Path, gate: str, env: dict) -> tuple[int, str, float]:
 # ---------------------------------------------------------------------------
 
 
+def _run_control(root, base, gate, n, label, control, env, args,
+                 rc_base, out_base, secs_base):
+    """Run ONE control against a fresh mutant. Returns its verdict."""
+    mutant = root / ("mutant-%s-%d" % (gate, n))
+    shutil.copytree(base, mutant, symlinks=True)
+    mutation_error = None
+    rc_mut, out_mut, secs_mut = None, "", 0.0
+    try:
+        control.apply(mutant)
+    except (controls_mod.MutationError, fixture_mod.FixtureError) as exc:
+        mutation_error = str(exc)
+    else:
+        rc_mut, out_mut, secs_mut = run_gate(mutant, gate, env)
+
+    signature_ok = bool(rc_mut and re.search(control.signature, out_mut))
+    # Order matters. A control that never ran is VOID and says
+    # nothing about the gate; only a control that DID run can
+    # convict the gate of being blind.
+    if rc_base != 0:
+        verdict, reason = VOID, (
+            "baseline is already red (exit %d)%s - the control never ran, "
+            "and this is a finding about the fixture, not the gate"
+            % (
+                rc_base,
+                "" if rc_mut is None else " and the mutant exited %d for the same reason" % rc_mut,
+            )
+        )
+    elif mutation_error is not None:
+        verdict, reason = VOID, (
+            "mutation could not be applied: %s - the control never ran" % mutation_error
+        )
+    elif rc_mut == 0:
+        verdict, reason = NOT_PROVED, "baseline green, mutant exited 0: the gate is blind to this defect"
+    elif not signature_ok:
+        verdict, reason = NOT_PROVED, (
+            "mutant exited %d but never reported the planted defect (expected /%s/): "
+            "the gate went red near the defect, not at it" % (rc_mut, control.signature)
+        )
+    else:
+        verdict, reason = RED_CAPABLE, ""
+
+    if verdict == RED_CAPABLE:
+        print("GATE %s: %s (mutation: %s)" % (label, verdict, control.mutation))
+    else:
+        print("GATE %s: %s (mutation: %s; %s)" % (label, verdict, control.mutation, reason))
+        if verdict == VOID and rc_base != 0:
+            # A VOID is a repair job, so print enough of the
+            # baseline to start it without re-running with --verbose.
+            failing = [
+                ln for ln in out_base.strip().splitlines()
+                if re.search(r"(FAIL|Error|error|Traceback|No such file)", ln)
+            ] or out_base.strip().splitlines()
+            for line in failing[:VOID_EXCERPT_LINES]:
+                print("    baseline | %s" % line.strip()[:200])
+            if len(failing) > VOID_EXCERPT_LINES:
+                print("    baseline | ... %d more line(s), see --verbose"
+                      % (len(failing) - VOID_EXCERPT_LINES))
+        # A second probe only means something once the baseline is
+        # green; under a VOID control it would grade the same broken
+        # fixture twice.
+        if verdict == NOT_PROVED and control.diagnosis is not None:
+            probe = root / ("diagnosis-%s-%d" % (gate, n))
+            shutil.copytree(base, probe, symlinks=True)
+            try:
+                control.diagnosis.apply(probe)
+            except (controls_mod.MutationError, fixture_mod.FixtureError) as exc:
+                print("    diagnosis could not be applied: %s" % exc)
+            else:
+                rc_d, _out_d, _s = run_gate(probe, gate, env)
+                print(
+                    "    diagnosis: %s -> gate exit %d (%s)"
+                    % (
+                        control.diagnosis.description,
+                        rc_d,
+                        "RED" if rc_d else "still green",
+                    )
+                )
+                print("    %s" % control.diagnosis.expectation)
+        for line in _wrap_note(control.note):
+            print("    %s" % line)
+
+    if args.verbose:
+        print("    baseline: exit %d in %.1fs" % (rc_base, secs_base))
+        for line in out_base.strip().splitlines():
+            print("      | %s" % line)
+        if mutation_error is None:
+            print("    mutant:   exit %d in %.1fs" % (rc_mut, secs_mut))
+            for line in out_mut.strip().splitlines():
+                print("      | %s" % line)
+        print()
+    return verdict
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--only", action="append", default=[], metavar="GATE")
@@ -353,8 +446,11 @@ def main(argv=None) -> int:
     if args.list:
         print()
         for gate in gates:
-            c = controls_mod.BY_GATE.get(gate)
-            print("%-24s %s" % (gate, c.mutation if c else "(no control)"))
+            cs = controls_mod.BY_GATE.get(gate) or []
+            if not cs:
+                print("%-24s %s" % (gate, "(no control)"))
+            for c in cs:
+                print("%-24s %s" % (gate, c.mutation))
         return 1 if (missing or orphan) else 0
 
     # A gate with no control is reported, never crashed on: this repo grows
@@ -419,99 +515,18 @@ def main(argv=None) -> int:
 
         print()
         for gate in selected:
-            control = controls_mod.BY_GATE[gate]
-
+            # A gate may carry several controls, one per defect class it
+            # claims to catch. Each runs on its own mutant and is reported
+            # on its own line; the baseline is shared, because it is the
+            # same tree. (Until 2026-09-22 this was a dict keyed by gate, so
+            # a second control silently replaced the first and never ran.)
+            gate_controls = controls_mod.BY_GATE[gate]
             rc_base, out_base, secs_base = run_gate(baseline_tree, gate, env)
-
-            mutant = root / ("mutant-" + gate)
-            shutil.copytree(base, mutant, symlinks=True)
-            mutation_error = None
-            rc_mut, out_mut, secs_mut = None, "", 0.0
-            try:
-                control.apply(mutant)
-            except (controls_mod.MutationError, fixture_mod.FixtureError) as exc:
-                mutation_error = str(exc)
-            else:
-                rc_mut, out_mut, secs_mut = run_gate(mutant, gate, env)
-
-            signature_ok = bool(rc_mut and re.search(control.signature, out_mut))
-            # Order matters. A control that never ran is VOID and says
-            # nothing about the gate; only a control that DID run can
-            # convict the gate of being blind.
-            if rc_base != 0:
-                verdict, reason = VOID, (
-                    "baseline is already red (exit %d)%s - the control never ran, "
-                    "and this is a finding about the fixture, not the gate"
-                    % (
-                        rc_base,
-                        "" if rc_mut is None else " and the mutant exited %d for the same reason" % rc_mut,
-                    )
-                )
-            elif mutation_error is not None:
-                verdict, reason = VOID, (
-                    "mutation could not be applied: %s - the control never ran" % mutation_error
-                )
-            elif rc_mut == 0:
-                verdict, reason = NOT_PROVED, "baseline green, mutant exited 0: the gate is blind to this defect"
-            elif not signature_ok:
-                verdict, reason = NOT_PROVED, (
-                    "mutant exited %d but never reported the planted defect (expected /%s/): "
-                    "the gate went red near the defect, not at it" % (rc_mut, control.signature)
-                )
-            else:
-                verdict, reason = RED_CAPABLE, ""
-
-            if verdict == RED_CAPABLE:
-                print("GATE %s: %s (mutation: %s)" % (gate, verdict, control.mutation))
-            else:
-                print("GATE %s: %s (mutation: %s; %s)" % (gate, verdict, control.mutation, reason))
-                if verdict == VOID and rc_base != 0:
-                    # A VOID is a repair job, so print enough of the
-                    # baseline to start it without re-running with --verbose.
-                    failing = [
-                        ln for ln in out_base.strip().splitlines()
-                        if re.search(r"(FAIL|Error|error|Traceback|No such file)", ln)
-                    ] or out_base.strip().splitlines()
-                    for line in failing[:VOID_EXCERPT_LINES]:
-                        print("    baseline | %s" % line.strip()[:200])
-                    if len(failing) > VOID_EXCERPT_LINES:
-                        print("    baseline | ... %d more line(s), see --verbose"
-                              % (len(failing) - VOID_EXCERPT_LINES))
-                # A second probe only means something once the baseline is
-                # green; under a VOID control it would grade the same broken
-                # fixture twice.
-                if verdict == NOT_PROVED and control.diagnosis is not None:
-                    probe = root / ("diagnosis-" + gate)
-                    shutil.copytree(base, probe, symlinks=True)
-                    try:
-                        control.diagnosis.apply(probe)
-                    except (controls_mod.MutationError, fixture_mod.FixtureError) as exc:
-                        print("    diagnosis could not be applied: %s" % exc)
-                    else:
-                        rc_d, _out_d, _s = run_gate(probe, gate, env)
-                        print(
-                            "    diagnosis: %s -> gate exit %d (%s)"
-                            % (
-                                control.diagnosis.description,
-                                rc_d,
-                                "RED" if rc_d else "still green",
-                            )
-                        )
-                        print("    %s" % control.diagnosis.expectation)
-                for line in _wrap_note(control.note):
-                    print("    %s" % line)
-
-            results.append((gate, verdict))
-
-            if args.verbose:
-                print("    baseline: exit %d in %.1fs" % (rc_base, secs_base))
-                for line in out_base.strip().splitlines():
-                    print("      | %s" % line)
-                if mutation_error is None:
-                    print("    mutant:   exit %d in %.1fs" % (rc_mut, secs_mut))
-                    for line in out_mut.strip().splitlines():
-                        print("      | %s" % line)
-                print()
+            for n, control in enumerate(gate_controls, 1):
+                label = gate if len(gate_controls) == 1 else "%s #%d" % (gate, n)
+                results.append((label, gate, _run_control(
+                    root, base, gate, n, label, control, env, args,
+                    rc_base, out_base, secs_base)))
     finally:
         if args.keep:
             print("\nfixtures kept at %s" % root)
@@ -521,15 +536,19 @@ def main(argv=None) -> int:
     for gate in by_selftest:
         verdict, detail = run_selftest_proof(REPO, gate, SELFTEST_PROOFS[gate])
         print("GATE %s: %s (self-test: %s)" % (gate, verdict, detail))
-        results.append((gate, verdict))
+        results.append((gate, gate, verdict))
 
-    proved = [g for g, v in results if v == RED_CAPABLE]
-    not_proved = [g for g, v in results if v == NOT_PROVED]
-    void = [g for g, v in results if v == VOID]
+    proved = [lbl for lbl, _g, v in results if v == RED_CAPABLE]
+    not_proved = [lbl for lbl, _g, v in results if v == NOT_PROVED]
+    void = [lbl for lbl, _g, v in results if v == VOID]
+    gates_run = sorted({g for _lbl, g, _v in results})
+    gates_proved = sorted({g for _lbl, g, _v in results}
+                          - {g for _lbl, g, v in results if v != RED_CAPABLE})
     print()
     print(
-        "%d of %d gate(s) with a control proved RED-CAPABLE"
-        % (len(proved), len(results))
+        "%d of %d gate(s) with a control proved RED-CAPABLE "
+        "(%d of %d control(s))"
+        % (len(gates_proved), len(gates_run), len(proved), len(results))
     )
     if not_proved:
         print(

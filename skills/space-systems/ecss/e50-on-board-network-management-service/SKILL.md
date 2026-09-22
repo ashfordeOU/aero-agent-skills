@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -52,8 +57,12 @@ service reaches every resource, and whether it still reaches it on a bad day.
 
 1. Declare every managed resource with a name, the management
    operations it supports, and the hops its management traffic takes.
-2. State the required operation set explicitly. Shortening it is how a
-   gap becomes a pass, so make the set an input and print it back.
+2. State the required operation set explicitly, and check it covers the
+   work the clause gives the service: holding the routing and
+   configuration tables of the network correct as the network changes,
+   which is what keeps it dependable and available rather than merely
+   observable. Shortening the set is how a gap becomes a pass, so make
+   the set an input and print it back.
 3. For each resource, take the required operations it does not support.
    An extra operation beyond the set is not a gap.
 4. Test the management path for a self-dependency: the resource's own
@@ -64,6 +73,12 @@ service reaches every resource, and whether it still reaches it on a bad day.
    path fault outrank an operation gap, and keep both in the reasons.
 7. Report the coverage ratio over every resource and every required
    operation, and list the two clause failures separately.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.4a | 2 |
 
 ## Pitfalls
 

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.1.8
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -71,12 +76,21 @@ grading them against what was required.
    undetected errors, and say plainly when no duration was declared.
 6. Compare the achieved bit error rate and the residual rate with their
    required values, using a tolerance scaled to the values themselves.
-   An absolute tolerance at these magnitudes would pass a budget missed
-   by orders of magnitude.
+   Take those required values from the error figures the space link was
+   specified to: the network inside the spacecraft has to come in under
+   the link outside it, so a house figure looser than the link's is not
+   the requirement. An absolute tolerance at these magnitudes would pass
+   a budget missed by orders of magnitude.
 7. Report the two budgets separately. A link can meet its bit error
    rate and still fail its residual requirement, and the remedy for
    that one is a wider check sequence or a shorter frame, not a better
    channel.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.1.8a | 6 |
 
 ## Pitfalls
 

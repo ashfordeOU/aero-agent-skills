@@ -1,6 +1,6 @@
 ---
 name: e50-ground-network-availability
-description: "Derive the availability budget of a ground network against ECSS-E-ST-50C clause 5.8.6, the largest availability block in the standard. Build each element from its mean time between failures and repair time, charge preventive downtime, fold redundant members into a group, compose the chain, and restate the result as the outage seconds the reporting period allows. Rank elements by the share of unavailability each spends, and invert the chain into the per-element availability or repair time a target needs. Use when apportioning an end-to-end availability requirement across ground elements, or grading a proposed chain. Trigger: ecss, e-st-50-ground-network, ground-network-availability-budget, mtbf-mttr-element-availability, series-chain-availability-composition, outage-seconds-per-year-budget, availability-apportionment-inverse."
+description: "Derive the availability budget of a ground network against ECSS-E-ST-50C clause 5.8.6, a single requirement that the network be there for every scheduled operation. Build each element from its mean time between failures and repair time, charge preventive downtime, fold redundant members into a group, compose the chain, and restate the result as the outage seconds the reporting period allows. Rank elements by the share of unavailability each spends, and invert the chain into the per-element availability or repair time a target needs. Use when apportioning an end-to-end availability requirement across ground elements, or grading a proposed chain. Trigger: ecss, e-st-50-ground-network, ground-network-availability-budget, mtbf-mttr-element-availability, series-chain-availability-composition, outage-seconds-per-year-budget, availability-apportionment-inverse."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.8.6
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -27,8 +32,9 @@ chain back into a verdict against it.
 
 ## Domain quick reference
 
-- The clause is long because a ground network is long. The many items
-  behind it reduce to one discipline applied end to end: every element
+- The clause is one sentence and the work behind it is not. It asks
+  that the network be there for every scheduled operation, and
+  answering that takes one discipline applied end to end: every element
   has an availability, the chain composes, and the composed number is
   what the mission was promised.
 - An element's availability comes from two numbers, not one. How often
@@ -55,23 +61,35 @@ chain back into a verdict against it.
 1. List the chain element by element, each with a name and either a
    stated availability or a failure and repair time pair, and say which
    elements are redundant and how many members they have.
-2. Build each element's availability, charging preventive downtime where
+2. Fix the window the requirement bites in: the operations scheduled on
+   the spacecraft across the reporting period — every pass, every
+   manoeuvre, every commanding window the plan holds — because the
+   network is owed to all of them, and a figure averaged over the idle
+   time between them hides an outage that lands on one.
+3. Build each element's availability, charging preventive downtime where
    the element has planned maintenance. Fold redundant members into a
    group before the element enters the chain.
-3. Compose the chain in series. Do not average the elements and do not
+4. Compose the chain in series. Do not average the elements and do not
    quote the worst one; both understate a long chain differently.
-4. Restate both the achieved and the required figure as outage seconds
+5. Restate both the achieved and the required figure as outage seconds
    over the period the requirement is written for, so the comparison is
    in units an operations team can act on.
-5. Grade with a relative tolerance against the requirement, and grade
-   again against the requirement stiffened by whatever headroom factor
-   the project asks for, so a chain that only just passes is reported as
-   only just passing.
-6. Rank the elements by the share of chain unavailability each spends,
+6. Grade with a relative tolerance against the requirement, over the
+   scheduled operations fixed above rather than over the calendar, and
+   grade again against the requirement stiffened by whatever headroom
+   factor the project asks for, so a chain that only just passes is
+   reported as only just passing.
+7. Rank the elements by the share of chain unavailability each spends,
    and name the top one.
-7. Where the chain misses, compute the inverse: the per-element
+8. Where the chain misses, compute the inverse: the per-element
    availability the chain needs, or the repair time one element needs,
    and check that recommendation back through the same composition.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.8.6a | 6 |
 
 ## Pitfalls
 

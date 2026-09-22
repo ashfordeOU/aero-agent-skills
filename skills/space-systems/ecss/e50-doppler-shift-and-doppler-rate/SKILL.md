@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.1
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -68,6 +73,12 @@ much sweep, against what the receiver can actually do.
    design has least room, and which supplier number to press on.
 7. Where either fails, report the inverse: the radial velocity and the
    radial acceleration the equipment tolerates as stated.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.1a | 5 |
 
 ## Pitfalls
 

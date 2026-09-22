@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.8.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -51,8 +56,11 @@ hot, and what the failover it does have actually costs the service.
 
 ## Workflow
 
-1. State the node availability, the node count, and how many of those
-   nodes the service needs at once.
+1. Pick out the nodes the clause reaches — the ones that carry the
+   control and the operation of the mission's critical functions, not
+   every node in the network — and for that set state the node
+   availability, the node count, and how many of those nodes the
+   service needs at once.
 2. Compute the redundancy term as the binomial tail, not as the
    availability of a single node and not as one minus the product of the
    failure rates unless one node really does suffice.
@@ -70,6 +78,12 @@ hot, and what the failover it does have actually costs the service.
    combined model: the hot node count that reaches it behind this gap,
    and the longest gap this redundancy tolerates. Report that no count
    reaches it when the gap alone already spends the budget.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.8.5a | 3 |
 
 ## Pitfalls
 

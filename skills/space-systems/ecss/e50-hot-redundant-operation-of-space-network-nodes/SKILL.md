@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.1.6
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -26,12 +31,14 @@ redundant, and whether having both units live is safe for the network.
 
 ## Domain quick reference
 
-- Two items sit at this clause and they pull against each other. The
-  first asks that both units be powered and attached at once, so a
-  takeover costs a switchover rather than a power-up. The second asks
-  that having both units there does not itself harm the network, and
-  that the takeover is fast enough to be worth having.
-- The first item is a state question with no middle ground. A unit that
+- One recommendation sits at this clause, and it is a recommendation,
+  not a shall: the network should let the nodes attached to it run hot
+  redundantly. Reviewing a pair against it splits into two questions
+  that pull against each other — whether both units really are powered
+  and attached at once, so a takeover costs a switchover rather than a
+  power-up, and whether having both of them live harms the network or
+  leaves the takeover too slow to be worth having.
+- The powered-and-attached question has no middle ground. A unit that
   is unpowered is a cold spare; a unit powered but off the network is a
   warm spare. Both may be perfectly good designs, but neither is what
   this clause calls hot, and the distinction is what sets the outage.
@@ -58,9 +65,9 @@ redundant, and whether having both units live is safe for the network.
    its address, and whether its transmitter is enabled. Refuse a
    missing field rather than assuming it — an assumed "attached" is
    precisely the ambiguity this clause exists to remove.
-2. Settle the first item: both units powered and attached, or not. Where
-   not, name which unit and whether the design is a cold or a warm
-   spare, because the remedy differs.
+2. Settle the powered-and-attached question: both units live on the
+   network at once, or not. Where not, name which unit and whether the
+   design is a cold or a warm spare, because the remedy differs.
 3. Collect every way the pair being live at once harms the network: two
    enabled transmitters, and one address answering for both while both
    are attached. Report all of them, not the first.
@@ -75,6 +82,19 @@ redundant, and whether having both units live is safe for the network.
    shorten.
 7. Where no outage budget was declared, report the chain and say it was
    not graded. An absent budget is not a satisfied one.
+8. Widen the verdict from this pair to the network: run the same four
+   checks over every redundant set it carries, and list the attached
+   nodes it cannot hold hot at all, whether an addressing scheme, the
+   way the medium is arbitrated or the segment layout is what forbids
+   it. The clause recommends the network be able to do this for every
+   node connected to it, so a node it cannot is a finding against the
+   network and not against that node.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.1.6a | 8 |
 
 ## Pitfalls
 
@@ -105,7 +125,7 @@ redundant, and whether having both units live is safe for the network.
 ## Behavior contract (gate 3)
 
 Unit validation including missing and mistyped fields, the powered and
-attached test for the first item, both network conflicts reported
+attached test, both network conflicts reported
 together, the single-segment exposure and the three ways it is avoided,
 the failover chain at and beyond its budget, and the detection-time
 inverse checked against the same model are exercised by the gate 3

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.13.1
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -60,13 +65,22 @@ data it holds and which link delivered it.
 4. Group the identifiers by frame version and look for collisions inside
    each group only. A cross-namespace match is not a collision.
 5. Declare each link with the spacecraft it serves, its direction and its
-   physical channel, and build the identity from those three.
+   physical channel, build the identity from those three, and name the
+   frame field that carries it alongside the spacecraft identifier, so
+   that a frame taken off a space-ground exchange on its own says which
+   spacecraft it came from and which link brought it.
 6. Report a link naming an undeclared spacecraft separately from a link
    identity collision. One is a missing declaration, the other is two
    links that cannot be told apart.
 7. Report the remaining assignable identifiers per namespace, and give
    the lowest free one when a new assignment is needed. Raise on an
    exhausted namespace rather than returning the reserved pattern.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.13.1a | 5 |
 
 ## Pitfalls
 

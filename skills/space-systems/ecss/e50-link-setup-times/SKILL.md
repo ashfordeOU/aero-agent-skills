@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.8
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -61,10 +66,19 @@ and whether the pass it is spent in can afford it.
    alone.
 6. Compare the total with the contact window as a share, against the
    share the design allows itself. Report the seconds of pass left for
-   user data.
+   user data, and take the window from the shortest contact a
+   contingency leaves: what remains after setup has to carry a command
+   worth sending and the status report that answers it, and a pass that
+   only finishes acquiring supports neither.
 7. Where the setup misses, report the seconds that must be shaved and
    the stage that dominates, and where propagation is more than half the
    total, say so — that is a protocol change, not a hardware one.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.8a | 6 |
 
 ## Pitfalls
 

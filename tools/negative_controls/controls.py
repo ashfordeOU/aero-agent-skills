@@ -518,6 +518,114 @@ def mutate_content_policy(fixture: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
+# mutations - gate 19, obligations
+# ---------------------------------------------------------------------------
+#
+# The fixture's leaves declare no binding, so the baseline is green because
+# there is nothing to grade. Each mutation therefore gives the fixture's ECSS
+# leaf a CORRECT binding first -- two items, each anchored to a real step of
+# its six-step Workflow -- and then plants exactly one defect in it. The
+# locators are syntax for the gate to read, not a claim about the clause:
+# the gate never consults a standard, and this file carries no ECSS text.
+
+OBL_STD = "ECSS-E-ST-20-07C Rev.2"
+OBL_CLAUSE = "5.3.10"
+
+def _obl_leaf_rel():
+    for leaf, _fragment in KEPT_LEAVES:
+        if leaf.startswith("space-systems/ecss/"):
+            return "skills/%s/SKILL.md" % leaf
+    raise MutationError("the fixture carries no ECSS leaf to bind")
+
+
+def _obl_row(letter, step, std=OBL_STD):
+    return (("%s %s%s" % (std, OBL_CLAUSE, letter)), step)
+
+
+def _bind(fixture, entries, rows):
+    """Give the fixture's ECSS leaf a binding and an Obligations table.
+
+    entries: [(standard, items text, relation)] under OBL_CLAUSE.
+    rows:    [(item label, step)].
+    """
+    path = fixture / _obl_leaf_rel()
+    block = "clauses:\n" + "".join(
+        "  - standard: %s\n    clause: %s\n    items: [%s]\n"
+        "    relation: %s\n" % (std, OBL_CLAUSE, items, rel)
+        for std, items, rel in entries)
+    table = ("\n## Obligations\n\n| Item | Step |\n|---|---|\n"
+             + "".join("| %s | %s |\n" % r for r in rows))
+
+    def fm(front):
+        if "clauses:" in front:
+            raise MutationError("the fixture leaf already declares clauses")
+        return front.rstrip("\n") + "\n" + block
+
+    _edit_frontmatter(path, fm)
+    _edit(path, lambda text: text.rstrip("\n") + "\n" + table)
+
+
+_OBL_GOOD_ENTRIES = [(OBL_STD, "a, b", "implements")]
+_OBL_GOOD_ROWS = [_obl_row("a", 4), _obl_row("b", 5)]
+
+
+def apply_obligations_valid(fixture: Path) -> None:
+    """The correct binding alone: the gate must stay GREEN on it."""
+    _bind(fixture, _OBL_GOOD_ENTRIES, _OBL_GOOD_ROWS)
+
+
+def mutate_obligations_unanchored(fixture: Path) -> None:
+    """Declare a third item and give it no row."""
+    _bind(fixture, [(OBL_STD, "a, b, c", "implements")], _OBL_GOOD_ROWS)
+
+
+def mutate_obligations_undeclared_row(fixture: Path) -> None:
+    """Anchor an item the front matter never declares."""
+    _bind(fixture, _OBL_GOOD_ENTRIES, _OBL_GOOD_ROWS + [_obl_row("d", 3)])
+
+
+def mutate_obligations_missing_step(fixture: Path) -> None:
+    """Point a row at step 9 of a six-step procedure."""
+    _bind(fixture, _OBL_GOOD_ENTRIES, [_obl_row("a", 4), _obl_row("b", 9)])
+
+
+def mutate_obligations_malformed(fixture: Path) -> None:
+    """Drop the issue letter from the standard's designation."""
+    _bind(fixture, [("ECSS-E-ST-20-07 Rev.2", "a, b", "implements")],
+          _OBL_GOOD_ROWS)
+
+
+def mutate_obligations_duplicate(fixture: Path) -> None:
+    """Declare item b a second time, in a second entry."""
+    _bind(fixture, _OBL_GOOD_ENTRIES + [(OBL_STD, "b", "verifies")],
+          _OBL_GOOD_ROWS)
+
+
+def mutate_obligations_reserved(fixture: Path) -> None:
+    """Use the reserved relation."""
+    _bind(fixture, [(OBL_STD, "a, b", "cites-clause")], _OBL_GOOD_ROWS)
+
+
+def _obl_signature(subject, reason):
+    """A red line that names the leaf, the item and the defect."""
+    return r"FAIL obligations: %s: %s: %s" % (
+        re.escape(_obl_leaf_rel()), subject, reason)
+
+
+_OBL_ITEM = re.escape("%s %s" % (OBL_STD, OBL_CLAUSE))
+
+OBLIGATIONS_DIAGNOSIS = Diagnosis(
+    description="the same leaf given the correct binding alone (two items, "
+                "each anchored to an existing step)",
+    expectation="green here means a correct binding is accepted, so the "
+                "control's failure is blindness to the planted defect; red "
+                "here means the gate refuses a CORRECT binding, which is a "
+                "finding about the gate, not about the mutation",
+    apply=apply_obligations_valid,
+)
+
+
+# ---------------------------------------------------------------------------
 # the control set
 # ---------------------------------------------------------------------------
 
@@ -665,6 +773,61 @@ CONTROLS = [
         apply=mutate_content_policy,
     ),
     Control(
+        gate="obligations",
+        mutation="a leaf declares clause item c and gives it no row in "
+                 "## Obligations",
+        signature=_obl_signature(_OBL_ITEM + "c", r"declared \(clauses\[0\], "
+                                 r"implements\) but no row in ## Obligations "
+                                 r"anchors it"),
+        apply=mutate_obligations_unanchored,
+        diagnosis=OBLIGATIONS_DIAGNOSIS,
+    ),
+    Control(
+        gate="obligations",
+        mutation="an Obligations row anchors item d, which the front matter "
+                 "never declares",
+        signature=_obl_signature(_OBL_ITEM + "d", r"Obligations row at line "
+                                 r"\d+ anchors an item the front matter does "
+                                 r"not declare"),
+        apply=mutate_obligations_undeclared_row,
+        diagnosis=OBLIGATIONS_DIAGNOSIS,
+    ),
+    Control(
+        gate="obligations",
+        mutation="an Obligations row points at step 9 of a six-step Workflow",
+        signature=_obl_signature(_OBL_ITEM + "b", r"Step 9 does not exist"),
+        apply=mutate_obligations_missing_step,
+        diagnosis=OBLIGATIONS_DIAGNOSIS,
+    ),
+    Control(
+        gate="obligations",
+        mutation="the binding's standard loses its issue letter",
+        signature=_obl_signature(
+            re.escape("clauses[0] (ECSS-E-ST-20-07 Rev.2 5.3.10a, "
+                      "ECSS-E-ST-20-07 Rev.2 5.3.10b)"),
+            r"standard 'ECSS-E-ST-20-07 Rev\.2' is not an ECSS designation"),
+        apply=mutate_obligations_malformed,
+        diagnosis=OBLIGATIONS_DIAGNOSIS,
+    ),
+    Control(
+        gate="obligations",
+        mutation="item b is declared a second time in a second entry",
+        signature=_obl_signature(_OBL_ITEM + "b",
+                                 r"declared in clauses\[0\] and clauses\[1\]"),
+        apply=mutate_obligations_duplicate,
+        diagnosis=OBLIGATIONS_DIAGNOSIS,
+    ),
+    Control(
+        gate="obligations",
+        mutation="the binding uses the reserved relation cites-clause",
+        signature=_obl_signature(
+            re.escape("clauses[0] (%s %sa, %s %sb)"
+                      % (OBL_STD, OBL_CLAUSE, OBL_STD, OBL_CLAUSE)),
+            r"relation 'cites-clause' is reserved and refused"),
+        apply=mutate_obligations_reserved,
+        diagnosis=OBLIGATIONS_DIAGNOSIS,
+    ),
+    Control(
         gate="shipped-instructions",
         mutation="a shipped leaf told the reader to cd into a home directory "
                  "only the author has",
@@ -673,4 +836,11 @@ CONTROLS = [
     ),
 ]
 
-BY_GATE = {c.gate: c for c in CONTROLS}
+# gate -> its controls, in declaration order. A list, not a single control:
+# a gate that claims to catch several defect classes carries one control per
+# class, and each must go red on its own. (A dict of single controls let a
+# second control for the same gate silently replace the first.)
+BY_GATE = {}
+for _control in CONTROLS:
+    BY_GATE.setdefault(_control.gate, []).append(_control)
+del _control

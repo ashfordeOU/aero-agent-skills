@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.12.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -58,7 +63,11 @@ of them is under the limit that actually applies to it.
    necessary bandwidth. Two breakpoints is the minimum that can be
    interpolated; one is a flat limit pretending to be a shape.
 3. Declare the spurious limit separately. It applies past the out-of-band
-   boundary and is not an extension of the mask.
+   boundary and is not an extension of the mask. Where a component lands
+   in a band whose service is especially vulnerable to interference —
+   deep-space and radio-astronomy users among them — the limit protecting
+   that band may be tighter than the general one, and the figure to use
+   comes from the spurious-emission standard the project works to.
 4. Place each measured component in its domain, deciding the boundaries
    with a tolerance so a component sitting exactly on one is placed the
    same way on every platform.
@@ -69,6 +78,12 @@ of them is under the limit that actually applies to it.
 7. Report the worst graded component and its domain, not just a count.
    The single number a reviewer acts on is which emission is closest to
    its limit and where it sits.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.12.3a | 6 |
 
 ## Pitfalls
 

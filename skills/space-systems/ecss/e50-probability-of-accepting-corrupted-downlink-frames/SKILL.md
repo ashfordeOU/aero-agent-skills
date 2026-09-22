@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.11.9
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -63,13 +68,26 @@ telemetry case really satisfies all three.
    an exact integer power of two.
 3. Multiply the codeword failure probability by the miscorrection
    probability, compound over the codewords a frame carries in the log
-   domain, and multiply by the escape probability.
+   domain, and multiply by the escape probability. Take the frame at
+   the largest size the link sends: more codewords carry more chances
+   to miscorrect, so that is the frame the recommended figure is
+   written against.
 4. Compare the declared derivation inputs with the inputs actually used,
    naming any that are missing or that disagree.
 5. Raise the per-frame figure to the mission figure over the frames the
    mission downlinks.
 6. Grade the three obligations separately, keep both escape gates
-   visible in the report, and name every obligation that failed.
+   visible in the report, and name every obligation that failed. The
+   standard's own ceiling for a largest-size frame, below 10^-12, is
+   put as a recommendation rather than a demand, so a figure above it
+   is reported as falling short of what is recommended and not as a
+   breach.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.11.9a | 6 |
 
 ## Pitfalls
 

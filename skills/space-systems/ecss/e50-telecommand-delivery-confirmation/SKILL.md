@@ -1,6 +1,6 @@
 ---
 name: e50-telecommand-delivery-confirmation
-description: "Verify that an on-board network confirms telecommand delivery to the destination within a bounded time, per ECSS-E-ST-50C clause 5.7.2.7, by matching a real dispatch log against a real confirmation log rather than counting acknowledgements. Derive a per-command deadline from dispatch plus the transit and return bounds, keep the earliest confirmation, and separate one that never came from one that came after the sender had already had to act. Report strays, duplicates, a confirmation dated before its own dispatch, and the bound that would have held. Use when reviewing on-board telecommand delivery. Trigger: ecss, e-st-50-communications, on-board-telecommand-delivery-confirmation, telecommand-confirmation-deadline, unconfirmed-telecommand-delivery, stray-delivery-confirmation, duplicate-delivery-confirmation."
+description: "Verify that an on-board network confirms telecommand delivery to the end destination a command named, which is what ECSS-E-ST-50C clause 5.7.2.7 asks of it, and separately that the confirmation arrived inside the transit-and-return bound the project set rather than one the clause fixes, by matching a real dispatch log against a real confirmation log rather than counting acknowledgements. Derive a per-command deadline from dispatch plus the transit and return bounds, keep the earliest confirmation, and separate one that never came from one that came after the sender had already had to act. Report strays, duplicates, a confirmation dated before its own dispatch, and the bound that would have held. Use when reviewing on-board telecommand delivery. Trigger: ecss, e-st-50-communications, on-board-telecommand-delivery-confirmation, telecommand-confirmation-deadline, unconfirmed-telecommand-delivery, stray-delivery-confirmation, duplicate-delivery-confirmation."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.7
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,8 +26,10 @@ metadata:
 # ECSS Communications — On-Board Telecommand Delivery Confirmation (space-systems/ecss/e50-telecommand-delivery-confirmation)
 
 Use when a telecommand dispatch log is being reviewed against what came back
-from the on-board network, per ECSS-E-ST-50C clause 5.7.2.7 — whether the
-sender learned the destination had it, and learned it in time.
+from the on-board network: whether the sender was told that the end
+destination had the command, which ECSS-E-ST-50C clause 5.7.2.7 requires the
+network to be able to tell it, and whether it was told inside the bound this
+project set for itself.
 
 ## Domain quick reference
 
@@ -55,8 +62,11 @@ sender learned the destination had it, and learned it in time.
    name cannot be told apart in the confirmation log either.
 2. State the confirmation log, and the two bounds: transit across the
    network, and the confirmation coming back.
-3. Match each confirmation to its command. Keep the earliest and name
-   the later ones as duplicates rather than dropping them silently.
+3. Match each confirmation to its command and to the destination that
+   command named: one raised somewhere short of that destination is not
+   the confirmation this service owes, whatever it proves about the hop
+   it came from. Keep the earliest and name the later ones as duplicates
+   rather than dropping them silently.
 4. Refuse a confirmation dated before its own dispatch. It is a clock
    or an identifier fault, and averaging it in hides both.
 5. Derive each command's deadline from its own dispatch time plus the
@@ -66,7 +76,20 @@ sender learned the destination had it, and learned it in time.
    on the host that rounded down.
 7. Report the three command verdicts, the strays and duplicates
    separately from them, the confirmation ratio, and the worst latency
-   actually observed.
+   actually observed. Keep two claims apart when wording them: whether
+   the network told the sender that each command reached the end
+   destination it was addressed to, which is what the clause asks of
+   the service, and whether it did so inside the bound stated in step 2,
+   which the project chose and the clause does not fix. Say too that a
+   delivery confirmed is not an execution confirmed — what the
+   application at the destination then did with the command is a
+   separate account this service does not settle.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.7a | 7 |
 
 ## Pitfalls
 

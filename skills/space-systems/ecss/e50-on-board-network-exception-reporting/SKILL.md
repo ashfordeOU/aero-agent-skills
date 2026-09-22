@@ -1,6 +1,6 @@
 ---
 name: e50-on-board-network-exception-reporting
-description: "Validate the exception reporting a declared on-board network catalogue actually delivers, under ECSS-E-ST-50C clause 5.7.2.6, whose two normative items ask that exceptions be detected and reported and that a report carry what an operator needs. Walk each required exception down a four-rung ladder — never detected, detected but never sent, sent without the identification, source or time somebody has to act on, sent too late to act at all — and report the rung with its reasons, the detection ratio and the entries nobody asked for. Use when reviewing on-board network fault reporting. Trigger: ecss, e-st-50-communications, on-board-network-exception-reporting, network-exception-catalogue-coverage, exception-report-field-completeness, exception-report-latency-bound, undetected-network-fault."
+description: "Validate the exception reporting a declared on-board network catalogue actually delivers, under ECSS-E-ST-50C clause 5.7.2.6, whose two normative items ask for a reporting function that lets every error the network detects be reported, and fix which events have to count as exceptions in the first place. Walk each required exception down a four-rung ladder — never detected, detected but never sent, sent without the identification, source or time somebody has to act on, sent too late to act at all — and report the rung with its reasons, the detection ratio and the entries nobody asked for. Use when reviewing on-board network fault reporting. Trigger: ecss, e-st-50-communications, on-board-network-exception-reporting, network-exception-catalogue-coverage, exception-report-field-completeness, exception-report-latency-bound, undetected-network-fault."
 license: Apache-2.0
 compliance: STANDARDS-REF
 standards:
@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.7.2.6
+    items: [a, b]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -21,19 +26,28 @@ metadata:
 # ECSS Communications — On-Board Network Exception Reporting (space-systems/ecss/e50-on-board-network-exception-reporting)
 
 Use when the exceptions an on-board network can raise are being reviewed
-against what it actually reports, per ECSS-E-ST-50C clause 5.7.2.6 — detection
-and reporting on one side, the content of the report on the other.
+against what it actually reports, per ECSS-E-ST-50C clause 5.7.2.6 — a
+reporting function that carries every detected error on one side, and the
+events that have to count as exceptions on the other.
 
 ## Domain quick reference
 
-- Two normative items, and they fail as a ladder rather than as a pair
-  of boxes. The first asks that exceptions be detected and reported.
-  The second asks that the report carry enough to act on.
+- Two normative items asking two different questions, not a pair of
+  boxes. The first asks for a reporting function through which every
+  error the network detects can be reported. The second fixes the floor
+  of the set — the events that count as exceptions whatever a design
+  chooses to call them — so a required set missing one of them is short
+  of the clause before a single report is read.
 - Four rungs, four owners. Nobody detects it — an instrumentation gap.
   Detected and never sent — a plumbing gap. Sent without the
   identification, the source or the time — a content gap. Sent too
   late to act on — a timing gap. One pass-or-fail line hides which one
-  you have and sends the finding to the wrong team.
+  you have and sends the finding to the wrong team. The first two rungs
+  are the clause's: an event it names that the network never raises is
+  missing from the set the clause fixes, and one raised but never sent
+  defeats the reporting function the clause asks for. The field set and
+  the latency bound are the reviewer's own, graded against inputs the
+  review has to state rather than against the clause.
 - An exception missing from the catalogue entirely is the first rung,
   not an omission from the review. Silence in a catalogue is a claim
   that the network cannot raise it, and that claim gets graded.
@@ -51,7 +65,12 @@ and reporting on one side, the content of the report on the other.
 ## Workflow
 
 1. State the exceptions the network is required to raise, the fields a
-   report has to carry, and the latency bound if there is one.
+   report has to carry, and the latency bound if there is one. The
+   required set is short of the clause until it holds the events the
+   clause itself names: a data unit that arrives damaged, counted even
+   where the damage was repaired; one that arrives with nowhere to go;
+   a delivery that does not complete; a sub-network link that drops; and
+   a reconfiguration that fault detection triggered.
 2. Declare each catalogue entry with whether it is detected, whether it
    is reported, the fields its report carries and its report latency.
 3. Refuse an entry that claims a report for an exception it does not
@@ -67,6 +86,13 @@ and reporting on one side, the content of the report on the other.
 7. Report the two clause items separately, with the detection ratio
    over the required set and the entries the required set did not ask
    for.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.7.2.6a | 4 |
+| ECSS-E-ST-50C Rev.2 5.7.2.6b | 1 |
 
 ## Pitfalls
 

@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.6.14.4
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -52,9 +57,12 @@ cadence — and the question is whether an observed run actually did.
 
 ## Workflow
 
-1. State the cadence as three numbers: the nominal period, the jitter
-   tolerance, and the epoch the grid is anchored at — or record that the
-   first delivery is the anchor because none was declared.
+1. Name the directions that carry speech or moving pictures whose worth
+   expires with delay, since the cadence obligation attaches to each of
+   them, and state the cadence of each as three numbers: the nominal
+   period, the jitter tolerance, and the epoch the grid is anchored at —
+   or record that the first delivery is the anchor because none was
+   declared.
 2. Reject a run that does not strictly increase before measuring
    anything. Out-of-order arrival times are a different defect and the
    cadence figures computed over them mean nothing.
@@ -65,11 +73,20 @@ cadence — and the question is whether an observed run actually did.
 5. Measure the interval the run actually achieved and subtract the
    nominal period. Compare that rate error against the budget the run
    length can absorb — tolerance divided by the number of steps.
-6. Grade: within tolerance conforms; outside it with a rate error beyond
-   that budget is drift; outside it with the mean rate intact is jitter.
+6. Grade each direction on its own run: within tolerance conforms;
+   outside it with a rate error beyond that budget is drift; outside it
+   with the mean rate intact is jitter. The link carries the service only
+   where both directions of the pair conform, so a verdict taken from the
+   downlink alone covers half of it.
 7. Report both remedies for a jitter failure, the achieved rate for a
    drift failure, and check a proposed tolerance against the same model
    before offering it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.6.14.4a | 6 |
 
 ## Pitfalls
 

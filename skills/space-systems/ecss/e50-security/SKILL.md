@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-E-ST-50C Rev.2
+    clause: 5.8.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -59,23 +64,35 @@ key survives the traffic it protects.
 1. Describe each flow by name, sensitivity group and declared services.
    Reject an unknown group or an unrecognised service name rather than
    passing it through.
-2. Compare the declared services against the group's required set;
+2. Grade the ground network separately from the flows it carries. List
+   the security mechanisms it provides so that nobody unauthorised
+   reaches its facilities to command the spacecraft or take its data,
+   and hold each mechanism to naming which of those two it denies. A
+   flow whose services are all present says nothing about an operator
+   console an unauthorised person can reach.
+3. Compare the declared services against the group's required set;
    report present, missing and beyond-requirement separately.
-3. Sum the tag, initialisation vector and replay counter into a
+4. Sum the tag, initialisation vector and replay counter into a
    per-frame security overhead, treating a zero width as an absent
    field rather than an error.
-4. Express that overhead as a share of the whole protected frame and
+5. Express that overhead as a share of the whole protected frame and
    compare it with the allowance under a relative tolerance, so a
    design landing exactly on the allowance passes on every host.
-5. Report the payload rate the link delivers once the frames are
+6. Report the payload rate the link delivers once the frames are
    protected, which is the figure a data budget needs.
-6. Compute the key lifetime as the smaller of the replay counter space
+7. Compute the key lifetime as the smaller of the replay counter space
    and the per-key frame limit, divided by the frame rate, and name
    which of the two bound it.
-7. Compare that lifetime against the time the design has to go without
+8. Compare that lifetime against the time the design has to go without
    rekeying. Where the counter binds, give the width that carries it;
    where the key schedule binds, say so instead of widening a counter
    that was never the problem.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-E-ST-50C Rev.2 5.8.3a | 2 |
 
 ## Pitfalls
 
