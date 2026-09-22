@@ -1,12 +1,12 @@
 {
   "attestation": {
     "algorithm": "ed25519",
-    "body_digest": "sha256:b8c7488f4629b4a4c8c24553c9d2af41250ad4a643bdd221b2f929e8df67a358",
+    "body_digest": "sha256:2ed320bac40ca44b7d8ff817666ec0fed822a17707e9c5fdb7c783f7732bdc9b",
     "context": "aero-harness-dossier-attestation/v1",
     "issuer": "ashforde-harness-specimen",
     "key_id": "k_3f8a796671dd338c",
     "public_key": "8096cc750369c8ac8628863dade9024c65533dbcc729f4ebb31ccdbd19f358bd",
-    "signature": "28c81534a6d5da1d0cc8242b6898cf97cb59ab4ecfee2daaa74a7c82a986477c75cd0cc635907ea59d9ac5f7ace94f30ff003ce9642361dc724b856f784c920e"
+    "signature": "9a643ce7e90f433f99c6905c065b1bd34b05dddc7fbc50ac59ae220c10471356d26eba898f9ad7cd48f72d8860106aa8664c03063f8385a6644cdb8465875d02"
   },
   "binding_integrity": {
     "bindings": 597,
@@ -21,9 +21,9 @@
     "skills": "bbeae1a6fbf77b96e88c553a70e45da1ea0728b13f4aa0b44682e5deb606c48e"
   },
   "customer": "SPECIMEN (not issued to a customer): Ashforde OU capability demonstration",
-  "issued_at": "2026-09-21T00:00:00Z",
-  "not_after": "2027-09-21T00:00:00Z",
-  "not_before": "2026-09-21T00:00:00Z",
+  "issued_at": "2026-09-22T10:50:16Z",
+  "not_after": "2027-09-22T10:50:16Z",
+  "not_before": "2026-09-22T10:50:16Z",
   "provenance": {
     "bindings": 597,
     "distinct_bound_leaves": 524,
@@ -33,19 +33,23 @@
       "green": true,
       "ran": true,
       "verdict_lines": [
-        "PASS gate-isolation: 45 file(s) across 4 root(s) scanned, no corpus literals in harness source",
-        "PASS gate-manifest: 35 declared path(s) all present, 5 root(s) carry nothing undeclared (spec AHCS-1, claim@1)",
+        "PASS gate-isolation: 70 file(s) across 4 root(s) scanned, no corpus literals in harness source",
+        "PASS gate-manifest: 41 declared path(s) all present, 6 root(s) carry nothing undeclared (spec AHCS-1, claim@1)",
         "PASS gate-contract: task spec loads (1988 chars), alias table resolves 16 name(s)",
-        "PASS gate-imports: 70 module(s) across 5 root(s) (harness, tools, checks, tests, runner), stdlib and first-party only",
-        "PASS gate-shadow: 70 module(s) scanned against 297 stdlib name(s), none shadowed",
-        "PASS gate-sandbox: 27 graded check(s) across 4 grant(s), enforced by seatbelt; 1 tool/effect pair(s) ride a stronger class and are named in the report",
-        "PASS gate-reviewer: 9 check(s); the packet carries task, return, schema, constraints and nothing else, and the 3 verdict(s) match checks/reviewer.md",
+        "PASS gate-imports: 109 module(s) across 5 root(s) (harness, tools, checks, tests, runner) and 0 at the tree root, stdlib and first-party only",
+        "PASS gate-shadow: 109 module(s) scanned against 297 stdlib name(s), none shadowed",
+        "PASS gate-sandbox: 38 graded check(s) across 5 grant(s), enforced by seatbelt; 1 tool/effect pair(s) ride a stronger class and are named in the report",
+        "PASS gate-reviewer: 9 check(s); the packet carries task, return, schema, constraints and nothing else, the 4 key(s) checks/reviewer.md sanctions under `## What the reviewer is given`, and the 3 verdict(s) match checks/reviewer.md",
         "PASS gate-provenance: 16 graded check(s); a one-digit change to a quotation is refused, and harness-captured is never reported as agent-deposited",
-        "PASS gate-heldout: 1 gate(s) carry a held-out control and none has ever moved in the same commit as the code it grades; 14 gate target(s) carry none yet (gate-bindings, gate-contract, gate-countermand, gate-heldout, gate-imports, gate-isolation, gate-manifest, gate-permissions, gate-reviewer, gate-sandbox, gate-shadow, gate-spec, gate-swap, gate-version)",
-        "PASS gate-swap: 35 declared path(s) byte-identical across the swap; both returns conform; no model named in harness source",
-        "PASS test: 25 suite(s) green",
+        "PASS gate-heldout: 21 gate(s) carry a held-out control and none has ever moved in the same commit as the code it grades; digests unverified here, because the controls were not handed in; 0 gate target(s) carry none yet (none)",
+        "PASS gate-swap: 41 declared path(s) byte-identical across the swap; both returns conform; no model named in harness source (34 file(s) read)",
+        "PASS test: 40 suite(s) green",
         "PASS aero-harness: all gates green"
       ]
+    },
+    "log": {
+      "salt": "bdf0ca51cd3b96794182e0e317aaf06f54ebbe1a569f262cc34eecc22db089e9",
+      "state": "committed"
     },
     "roles": 38,
     "roles_files": 284,
@@ -79,10 +83,10 @@
         "test_the_same_records_give_the_same_digest (__main__.RecordSetDigest.test_the_same_records_give_the_same_digest) ... ok",
         "test_a_missing_directory_is_an_error (__main__.RefusesToMislead.test_a_missing_directory_is_an_error) ... report: /nonexistent-records-dir is not a directory",
         "ok",
-        "test_an_empty_directory_is_refused_not_rendered_clean (__main__.RefusesToMislead.test_an_empty_directory_is_refused_not_rendered_clean) ... report: no records found in /var/folders/b_/44qv1zfx343f7y0lyldwpytw0000gn/T/tmpdreqh0j5 -- refusing to render an empty report, which would read as a clean result",
+        "test_an_empty_directory_is_refused_not_rendered_clean (__main__.RefusesToMislead.test_an_empty_directory_is_refused_not_rendered_clean) ... report: no records found in /var/folders/b_/44qv1zfx343f7y0lyldwpytw0000gn/T/tmp1_d7ehuf -- refusing to render an empty report, which would read as a clean result",
         "ok",
         "----------------------------------------------------------------------",
-        "Ran 13 tests in 0.114s",
+        "Ran 13 tests in 0.112s",
         "OK",
         "..........................",
         "----------------------------------------------------------------------",
@@ -90,9 +94,16 @@
         "OK"
       ]
     },
-    "skills_leaves": 3189
+    "skills_leaves": 3189,
+    "timestamp": {
+      "authority": "http://timestamp.digicert.com",
+      "qualified": false,
+      "state": "stamped",
+      "time": "2026-09-22T10:59:59Z",
+      "token": "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"
+    }
   },
-  "record_id": "SPECIMEN-d01eb83b-7ddc200c-1fc042ea",
+  "record_id": "SPECIMEN-b6721bcc-140ff681-d47cd98a",
   "runtime": "0.1.0",
   "spec": "AHCS-1",
   "specimen": true
