@@ -364,11 +364,39 @@ Apache-2.0. See [LICENSE](LICENSE) · [NOTICE](NOTICE) · [SECURITY.md](SECURITY
 
 Aero Agent Skills is built and maintained by **[Ashforde OÜ](https://ashforde.org)** (Estonia). Copyright © 2026 Ashforde OÜ.
 
-## Related
+<!-- family:begin -->
+<!-- Generated from contract/family.csv and
+     contract/family-links.csv in the runtime. Do not edit by
+     hand: `make gate-family` re-renders this block and
+     refuses a change made here. -->
 
-- [Aero Agent Roles](https://github.com/ashfordeOU/aero-agent-roles) — the role layer that packages these skills into end-to-end deliverables (certification plans, compliance matrices, audit reports)
-- [Aero Agent Skills on the web](https://ashforde.org/aeroagentskills/)
+## Related repositories
 
+This repository is one of a family. Each connection below is pinned by
+a digest, a signature or a byte-for-byte copy, and a named check goes red
+when a pin breaks.
+
+- **[aero-agent-roles](https://github.com/ashfordeOU/aero-agent-roles)** &mdash; The engineering roles and the leaf skills each one binds
+- **[aero-harness-records](https://github.com/ashfordeOU/aero-harness-records)** &mdash; The calibration registry, the dated log of every proof, and the public evidence log
+- **[ahcs-conformance](https://github.com/ashfordeOU/ahcs-conformance)** &mdash; The test suite that grades an implementation against the published specification
+
+### What connects it
+
+| Between | What flows | Held red by |
+|---|---|---|
+| aero-agent-roles to aero-agent-skills | Each role's bound leaf skills | `gate-bindings` |
+| aero-agent-skills to aero-harness | The corpus, handed in by path at issue time | `determinism`, `gate-isolation` |
+| aero-agent-skills to aero-harness | The attestation format and the Ed25519 signing code | `gate-spec` |
+| aero-harness to aero-agent-skills | The published specification directory: the specification, the specimen record and the trust anchor | `gate-spec-mirror` |
+| aero-agent-skills to ahcs-conformance | The published specification directory | `conformance-suite-ci` |
+
+Each connection carries a number in the runtime's own map, used to
+cross-reference it. The numbers are left out here because nothing a
+reader of this page can follow them to.
+
+A glossary of every abbreviation used here is in the specification
+directory that ships beside the corpus.
+<!-- family:end -->
 ---
 
 <div align="center">
