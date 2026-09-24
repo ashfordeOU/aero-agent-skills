@@ -378,7 +378,7 @@ when a pin breaks.
 
 - **[aero-agent-roles](https://github.com/ashfordeOU/aero-agent-roles)** &mdash; The engineering roles and the leaf skills each one binds
 - **[aero-harness-records](https://github.com/ashfordeOU/aero-harness-records)** &mdash; The calibration registry, the dated log of every proof, and the public evidence log
-- **[ahcs-conformance](https://github.com/ashfordeOU/ahcs-conformance)** &mdash; The test suite that grades an implementation against the published specification
+- **[arcs-conformance](https://github.com/ashfordeOU/arcs-conformance)** &mdash; The test suite that grades an implementation against the published specification
 
 ### What connects it
 
@@ -388,7 +388,7 @@ when a pin breaks.
 | aero-agent-skills to aero-harness | The corpus, handed in by path at issue time | `determinism`, `gate-isolation` |
 | aero-agent-skills to aero-harness | The attestation format and the Ed25519 signing code | `gate-spec` |
 | aero-harness to aero-agent-skills | The published specification directory: the specification, the specimen record and the trust anchor | `gate-spec-mirror` |
-| aero-agent-skills to ahcs-conformance | The published specification directory | `conformance-suite-ci` |
+| aero-agent-skills to arcs-conformance | The published specification directory | `conformance-suite-ci` |
 
 Each connection carries a number in the runtime's own map, used to
 cross-reference it. The numbers are left out here because nothing a

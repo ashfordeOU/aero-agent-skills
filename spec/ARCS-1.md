@@ -1,6 +1,6 @@
-# AHCS-1 — the Ashforde Harness Conformance Specification
+# ARCS-1 — the Agent Run Conformance Specification
 
-AHCS-1 · edition 2026-09-21 · defines `claim@1` · supersedes: nothing
+ARCS-1 · edition 2026-09-24 · defines `claim@1` · supersedes: edition 2026-09-21
 
 ---
 
@@ -12,7 +12,7 @@ key.* This document defines what that sentence is made of and how a stranger
 checks it.
 
 It exists because the alternative was a string constant. Until this edition,
-`AHCS-1` was the value of a variable and the subject of a regular expression
+`ARCS-1` was the value of a variable and the subject of a regular expression
 in one module of a private runtime. Two public documents — a README and a
 licence — said the specification was published openly so that an outsider
 could check a conformance claim without asking us. A conformance claim
@@ -128,7 +128,7 @@ A record is a JSON object. Exactly these fields are defined:
 | `context` | string | required | exactly `aeroskills-harness-dossier/v3`. §7 |
 | `customer` | string | required | who the claim was issued to; non-empty |
 | `runtime` | string | required | the issuing implementation's own version. Provenance, never a conformance input |
-| `spec` | string | required | `AHCS-1` |
+| `spec` | string | required | `ARCS-1` |
 | `claim` | string | required | `claim@1` |
 | `corpora` | object | required | corpus name to 64-character lowercase hexadecimal SHA-256; at least one entry |
 | `issued_at` | instant | required | when the claim was made |
@@ -174,7 +174,7 @@ addition a re-qualification event.
 A record names the specification and **not the edition of this document**.
 An edition clarifies; it never changes what conforms. An edition that
 changed what conforms would be a different specification and would be
-called AHCS-2. So the edition is precisely the thing a reader does not need
+called ARCS-2. So the edition is precisely the thing a reader does not need
 in order to check a record, and putting it in the record would be inviting
 them to check the wrong thing. §14.
 
@@ -623,12 +623,12 @@ and the identifier is its first 24 characters in three groups.
     "issued_at": "2026-09-21T00:00:00Z",
     "not_after": "2026-12-20T00:00:00Z",
     "not_before": "2026-09-21T00:00:00Z",
-    "record_id": "AHD-ef8683bf-28f5b6ec-582332d5",
+    "record_id": "AHD-86446bd1-3e0f8893-b6b56d24",
     "runtime": "0.1.0",
-    "spec": "AHCS-1"
+    "spec": "ARCS-1"
   },
-  "payload_sha256": "ef8683bf28f5b6ec582332d53c907f4ebb82ff9062aa1c17f627f004734e2881",
-  "record_id": "AHD-ef8683bf-28f5b6ec-582332d5"
+  "payload_sha256": "86446bd13e0f8893b6b56d242797da3dd22ab74d5355c7d5836dc72040d05c1b",
+  "record_id": "AHD-86446bd1-3e0f8893-b6b56d24"
 }
 ```
 
@@ -640,9 +640,9 @@ The bytes an Ed25519 signature is computed over, for the record above.
 ```json
 {
   "vector": "attestation-payload",
-  "body_digest": "sha256:b99b6183d5eb354808bbcf897a1736ed04b0ea27bb93af20c4896a98240707fe",
-  "signed_bytes": "{\"body_digest\":\"sha256:b99b6183d5eb354808bbcf897a1736ed04b0ea27bb93af20c4896a98240707fe\",\"context\":\"aero-harness-dossier-attestation/v1\"}",
-  "signed_bytes_sha256": "95308e7c804d4c47ae72d79bba7f0300f9fc647f83d07109bb01c1820803b936"
+  "body_digest": "sha256:b2c29bd5cf5986ea54ece845950292e1ce8fddf728e2a57f91083433f43f42b0",
+  "signed_bytes": "{\"body_digest\":\"sha256:b2c29bd5cf5986ea54ece845950292e1ce8fddf728e2a57f91083433f43f42b0\",\"context\":\"aero-harness-dossier-attestation/v1\"}",
+  "signed_bytes_sha256": "46ca3e957354e721a6dd5a909a8004d6045d7a8346cbffa3088934e0b66f2a44"
 }
 ```
 
@@ -658,17 +658,17 @@ A first list, sequence 1, carrying one withdrawal against the record above.
     "context": "aeroskills-harness-status-list/v1",
     "covers_context": "aeroskills-harness-dossier/v3",
     "entries": {
-      "AHD-ef8683bf-28f5b6ec-582332d5": {
+      "AHD-86446bd1-3e0f8893-b6b56d24": {
         "at": "2026-09-25T00:00:00Z",
         "reason": "the corpus digest no longer resolves",
         "state": "withdrawn"
       }
     },
-    "list_id": "AHS-075198bf-78c27f11-e2376e79",
+    "list_id": "AHS-d48d5c2b-9b3f768b-493ca350",
     "next_update": "2026-10-22T00:00:00Z",
     "sequence": 1
   },
-  "list_id": "AHS-075198bf-78c27f11-e2376e79"
+  "list_id": "AHS-d48d5c2b-9b3f768b-493ca350"
 }
 ```
 
@@ -687,16 +687,16 @@ not conflate them.
 
 **An edition clarifies. It never changes what conforms.** Wording, worked
 examples, a criterion stated more precisely, a limitation admitted that was
-always true: all of these are a new edition of AHCS-1, and an
+always true: all of these are a new edition of ARCS-1, and an
 implementation that conformed to an earlier edition still conforms.
 
 **A change that makes a conforming implementation non-conforming, or the
-reverse, is not an edition.** It is AHCS-2, it has a new context string,
+reverse, is not an edition.** It is ARCS-2, it has a new context string,
 and records under the old one keep meaning what they said. That is the
 entire reason `spec` is an integer-suffixed name and not a version number
 with a minor component: there is nothing a minor bump could honestly mean.
 
-A record therefore names `AHCS-1` and never an edition. The runtime knows
+A record therefore names `ARCS-1` and never an edition. The runtime knows
 which edition it implements — the reference implementation states it in
 `harness/version.py` and `make gate-spec` holds that statement to this
 document — but that is the implementation's provenance, not the claim's.
@@ -736,7 +736,7 @@ says whether it is an intact one.
 
 | file | what it is |
 | --- | --- |
-| `AHCS-1.md` | this document |
+| `ARCS-1.md` | this document |
 | `specimen/aero-capability-dossier.json` | the worked record §13 refers to, marked as a specimen in all three places §9 requires |
 | `specimen/specimen-trust-anchor.json` | the anchor that record verifies against. It lists specimen keys and nothing else (§9) |
 | `LICENSE` | the terms below, repeated where a reader looks for them first |
