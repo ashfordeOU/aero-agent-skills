@@ -1,0 +1,12 @@
+# Hit@1 fragment: q80-software-configuration-nonconformance (space-systems/ecss)
+# Two tasks for the new leaf, both anchored on ECSS-Q-ST-80C Rev.2. Both must
+# deterministically hit space-systems/ecss/q80-software-configuration-nonconformance.
+tasks:
+  - id: cn1
+    query: "check this software delivery has its software configuration file and software release document and recompute the delivery integrity checksum for q80"
+    intent: "ECSS-Q-ST-80C Rev.2 software configuration management and problem/nonconformance chain: SCMP, controlled documents, delivery integrity, configuration file currency, SPR lifecycle, NCR disposition, draft to human sign-off"
+    expected_skill: "space-systems/ecss/q80-software-configuration-nonconformance"
+  - id: cn2
+    query: "replay our software problem report lifecycle log, decide which problems become nonconformances and check the ncr disposition by the review board"
+    intent: "ECSS-Q-ST-80C Rev.2 software configuration management and problem/nonconformance chain: SCMP, controlled documents, delivery integrity, configuration file currency, SPR lifecycle, NCR disposition, draft to human sign-off"
+    expected_skill: "space-systems/ecss/q80-software-configuration-nonconformance"

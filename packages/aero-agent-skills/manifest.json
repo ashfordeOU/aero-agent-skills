@@ -1,7 +1,7 @@
 {
  "schema": "aero-agent-skills/manifest@1",
  "counts": {
-  "leaves": 3189,
+  "leaves": 3200,
   "live_packs": 86,
   "families": 12,
   "corpus_tasks": 1754
@@ -54408,6 +54408,214 @@
     "am-ra-versus-rz-parameter",
     "am-adhered-partly-fused-particles",
     "am-surface-sampling-coverage"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-compliance-matrix",
+   "name": "q80-compliance-matrix",
+   "description": "Build a clause-by-clause compliance matrix against ECSS-Q-ST-80C Rev.2 as a draft for human sign-off: join the clause list to an evidence index of document, section, status and justification, set each clause to compliant, partially compliant, not compliant or not applicable, pre-fill clauses tailored out for the software category, raise gaps such as missing evidence, compliance claimed without a reference and not-applicable claims that contradict the tailoring, summarise coverage, and render Markdown or CSV ending at the stop line. Use when a supplier answers the Q-80 compliance matrix or a customer audits one. Trigger: q80-compliance-matrix, software-product-assurance-compliance, clause-by-clause-compliance, evidence-index, compliance-gap-list, statement-of-compliance.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-compliance-matrix",
+    "software-product-assurance-compliance",
+    "clause-by-clause-compliance",
+    "evidence-index",
+    "compliance-gap-list",
+    "statement-of-compliance"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-milestone-assurance-evidence",
+   "name": "q80-milestone-assurance-evidence",
+   "description": "Plan and audit the software product assurance evidence owed at each milestone review under ECSS-Q-ST-80C Rev.2: resolve the documents a review owes for the software category and project scope from the clauses that drive them, grade a submitted review pack for missing, immature and unplanned items, list the evidence kept continuously rather than per review, build the software product assurance milestone report skeleton, and find the first incomplete review. Use when a review data pack is assembled or audited. Trigger: q80-milestone-evidence, spamr, software-review-data-pack, srr-pdr-cdr-qr-ar-evidence, spa-milestone-report, q-st-80c-annex-f.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-milestone-assurance-evidence",
+    "q80-milestone-evidence",
+    "spamr",
+    "software-review-data-pack",
+    "srr-pdr-cdr-qr-ar-evidence",
+    "spa-milestone-report",
+    "q-st-80c-annex-f"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-reuse-and-firmware-assurance",
+   "name": "q80-reuse-and-firmware-assurance",
+   "description": "Assess existing software and programmable devices for qualification under ECSS-Q-ST-80C Rev.2: sort an item as supplier heritage, customer-furnished, COTS, MOTS, freeware or open source, grade its quality-level evidence, suitability and security aspects into corrective actions for the software reuse file, choose reverse engineering or service history to recover missing evidence and grade that history, check open-source licences against how the product is distributed, check a component built for future reuse on every target platform, and check a programmed device for its procedure, marking, programmer calibration and image digest. Use when a COTS or open-source library, heritage code or an FPGA or PROM image enters a space project. Trigger: q80-reuse-firmware, existing-software-qualification, cots-open-source-qualification, software-reuse-file, service-history, programmable-device-firmware.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-reuse-and-firmware-assurance",
+    "q80-reuse-firmware",
+    "existing-software-qualification",
+    "cots-open-source-qualification",
+    "software-reuse-file",
+    "service-history",
+    "programmable-device-firmware"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-configuration-nonconformance",
+   "name": "q80-software-configuration-nonconformance",
+   "description": "Audit software configuration management and the problem and nonconformance chain under ECSS-Q-ST-80C Rev.2 from the assurance side: grade the configuration management plan for regeneration from backup, branching and merging, change control, corruption protection and integrity, check the controlled-document register, check a delivery label, configuration file and release document and recompute the integrity value from the delivered bytes, check the configuration file against each milestone baseline, move software problem reports through legal states, decide when a problem becomes a nonconformance, and check the review board disposition. Use when a delivery or a problem report log is audited. Trigger: q80-configuration-nonconformance, software-configuration-file, software-release-document, delivery-integrity-checksum, software-problem-report-lifecycle, ncr-disposition.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-configuration-nonconformance",
+    "q80-configuration-nonconformance",
+    "software-configuration-file",
+    "software-release-document",
+    "delivery-integrity-checksum",
+    "software-problem-report-lifecycle",
+    "ncr-disposition"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-criticality-tailoring",
+   "name": "q80-software-criticality-tailoring",
+   "description": "Classify space software into criticality categories A to D from the severity of the functions it serves and the compensating provisions in place, then derive the ECSS-Q-ST-80C Rev.2 tailoring matrix for that category: which software product assurance requirements apply, apply in reduced form, drop out, or follow the security sensitivity instead. Summarise the matrix per requirement group, list what relaxes when a category is lowered, and resolve a product's category from its components. Use when a software criticality category is being argued or a Q-80 tailoring proposal is prepared for the customer. Trigger: q-st-80c-annex-d, software-criticality-category, q80-applicability-matrix, q80-tailoring, category-downgrade-impact, compensating-provision.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-criticality-tailoring",
+    "q-st-80c-annex-d",
+    "software-criticality-category",
+    "q80-applicability-matrix",
+    "q80-tailoring",
+    "category-downgrade-impact",
+    "compensating-provision"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-dependability-safety-analysis",
+   "name": "q80-software-dependability-safety-analysis",
+   "description": "Perform and audit the software dependability and safety analysis of ECSS-Q-ST-80C Rev.2: grade a software FMEA worksheet for missing effects, unmitigated severe failure modes and mitigations with no requirement, raise components to the strictest category when failures can cross an unsegregated link or shared resource, check the hardware-software interaction analysis (HSIA) for hardware failures with no software requirement or no passing verification, track analysis recommendations and export the system-level ones, and propose critical item list candidates. Use when a supplier prepares the software dependability and safety analysis report or a customer reviews one. Trigger: software-fmea, sfmea, hsia, software-failure-propagation, software-critical-item-list, q80-dependability-safety-analysis.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-dependability-safety-analysis",
+    "q80-dependability-safety-analysis",
+    "software-fmea",
+    "sfmea",
+    "hsia",
+    "software-failure-propagation",
+    "software-critical-item-list"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-process-assurance",
+   "name": "q80-software-process-assurance",
+   "description": "Audit software process assurance under ECSS-Q-ST-80C Rev.2 clause 6: walk the life cycle reviews to the first open gate and the work that ran ahead of it, check the handling of critical software against its fixed obligations and the justified project measures, check verification independence by category, grade a reuse candidate and an automatic code generator, and triage nonconformances and software problem reports against the review board. Use when a supplier's development process is audited or a critical software package is prepared for review. Trigger: q80-process-assurance, critical-software-handling, software-reuse-delta, auto-generated-code-assurance, software-nonconformance-triage, lifecycle-gate-check.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-process-assurance",
+    "q80-process-assurance",
+    "critical-software-handling",
+    "software-reuse-delta",
+    "auto-generated-code-assurance",
+    "software-nonconformance-triage",
+    "lifecycle-gate-check"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-product-assurance-plan",
+   "name": "q80-software-product-assurance-plan",
+   "description": "Draft and audit the software product assurance programme and its plan (SPAP) under ECSS-Q-ST-80C Rev.2: grade a plan against the Annex B outline with conditional sections switched on by scope, check the assurance organisation for a named lead, an independent reporting line and backed supplier delegation, check supplier flow-down and monitoring against the software category, grade methods and tools by their effect on the executable, and state the plan maturity owed at each review. Use when a supplier writes or updates its SPAP or a customer reviews one. Trigger: spap, software-product-assurance-plan, q80-spap-drd, spa-organisation-independence, software-supplier-flow-down, spa-tool-justification.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-product-assurance-plan",
+    "spap",
+    "software-product-assurance-plan",
+    "q80-spap-drd",
+    "spa-organisation-independence",
+    "software-supplier-flow-down",
+    "spa-tool-justification"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-product-quality-metrics",
+   "name": "q80-software-product-quality-metrics",
+   "description": "Define and evaluate the software product quality objectives and metrication programme of ECSS-Q-ST-80C Rev.2 clause 7.1: hold a metric catalogue with ceilings and floors, set thresholds per criticality category with project overrides traced to their source, measure comment density and a cyclomatic complexity estimate from source text, grade a measurement set and per-module metrics for pass, fail and missing, and read software maturity from the problem-report trend. Use when quality targets are agreed or a metrics report is prepared for a review. Trigger: q80-metrication, software-quality-metrics, cyclomatic-complexity-threshold, comment-density, test-coverage-goals, software-maturity-trend.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-product-quality-metrics",
+    "q80-metrication",
+    "software-quality-metrics",
+    "cyclomatic-complexity-threshold",
+    "comment-density",
+    "test-coverage-goals",
+    "software-maturity-trend"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-software-security-assurance",
+   "name": "q80-software-security-assurance",
+   "description": "Assess software security assurance under ECSS-Q-ST-80C Rev.2, the transversal security-sensitivity dimension that Revision 2 added beside the criticality category: decide which components are security sensitive from their confidentiality, integrity and availability impacts, list the security clauses that apply, including those that return for category D, spread sensitivity over links without segregation and flag criticality versus sensitivity conflicts, check the extra measures chosen for sensitive software, decide regression or further verification after a change, and check the review board and the supplier security package. Use when a software security analysis or security management plan is prepared or audited. Trigger: security-sensitive-software, software-security-analysis, security-sensitivity, q80-security-assurance, security-regression-trigger, fuzzing-penetration-testing.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-software-security-assurance",
+    "q80-security-assurance",
+    "security-sensitive-software",
+    "software-security-analysis",
+    "security-sensitivity",
+    "security-regression-trigger",
+    "fuzzing-penetration-testing"
+   ],
+   "family": "space-systems",
+   "pack": "ecss",
+   "router_doc": false
+  },
+  {
+   "path": "space-systems/ecss/q80-supplier-procurement-control",
+   "name": "q80-supplier-procurement-control",
+   "description": "Audit supplier selection and the control of procured and customer-furnished software under ECSS-Q-ST-80C Rev.2: grade a supplier selection record, build and check the flow-down package a lower-level supplier receives for its role, criticality category and security sensitivity, grade supplier monitoring by milestone, check each procured item for ordering and receiving inspection criteria, backup solution, contract terms, configuration registration and exportability, run a receiving inspection that hashes the delivered image against the order, and grade the justification of operational ground equipment and services. Use when software is subcontracted or bought in for a space project. Trigger: q80-supplier-procurement-control, procured-software, receiving-inspection, supplier-selection, customer-furnished-software, ground-equipment-selection.",
+   "tags": [
+    "ecss",
+    "q-st-80c",
+    "q80-supplier-procurement-control",
+    "procured-software",
+    "receiving-inspection",
+    "supplier-selection",
+    "customer-furnished-software",
+    "ground-equipment-selection",
+    "software-procurement-data"
    ],
    "family": "space-systems",
    "pack": "ecss",

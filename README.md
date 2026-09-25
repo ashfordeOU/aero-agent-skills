@@ -13,19 +13,19 @@
 
 <!-- gen:statline -->
 <p align="center">
-  <img src="docs/statline-dark.png" alt="3,189 verified skills · 86 live packs · 12 families · 30 standards · 6,308 router cases · 19/19 gates green" width="100%">
+  <img src="docs/statline-dark.png" alt="3,200 verified skills · 86 live packs · 12 families · 30 standards · 6,330 router cases · 19/19 gates green" width="100%">
 </p>
 <!-- /gen:statline -->
 
 <!-- gen:badges -->
 <p align="center">
-  <a href="skills/"><img src="https://img.shields.io/badge/skills-3,189-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 3,189"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/skills-3,200-0ea5e9?style=flat&labelColor=1a1e35" alt="skills 3,200"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/packs-86-8b5cf6?style=flat&labelColor=1a1e35" alt="packs 86"></a>
   <a href="docs/DOMAINS.md"><img src="https://img.shields.io/badge/families-12-ec4899?style=flat&labelColor=1a1e35" alt="families 12"></a>
   <a href="STANDARDS.md"><img src="https://img.shields.io/badge/standards-30-f97316?style=flat&labelColor=1a1e35" alt="standards 30"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/gates-19%2F19-2ea043?style=flat&labelColor=1a1e35" alt="gates 19/19"></a>
   <a href="docs/harness-contract.md"><img src="https://img.shields.io/badge/attest-7%2F7-2ea043?style=flat&labelColor=1a1e35" alt="attest 7/7"></a>
-  <a href="eval/"><img src="https://img.shields.io/badge/router_cases-6,308-0ea5e9?style=flat&labelColor=1a1e35" alt="router cases 6,308"></a>
+  <a href="eval/"><img src="https://img.shields.io/badge/router_cases-6,330-0ea5e9?style=flat&labelColor=1a1e35" alt="router cases 6,330"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/format-agentskills.io-8b5cf6?style=flat&labelColor=1a1e35" alt="format agentskills.io"></a>
 </p>
 <p align="center">
@@ -57,6 +57,26 @@ Ask a general-purpose AI about DO-178C and you get a Wikipedia summary: the acro
 **Aero Agent Skills encodes the process** — when to use a standard, the workflow, the pitfalls, and the point where the agent must stop and let a human sign. Each skill is a `SKILL.md` on the open agentskills.io format: YAML frontmatter the router reads, a body the agent follows. Loaded on demand, no lock-in, works in any host that reads the format.
 
 The statline, the badges, the family table and the roadmap are **generated from the tree at HEAD** by `make visuals` — gate ratios included, read from the Makefile's own `validate:` and `attest:` lines — and `make visuals-check` fails CI when any block drifts. The prose outside those blocks is written by hand. A generated figure states a count; it does not state coverage, so where you need to know what a gate actually reaches and what it leaves untouched, [docs/harness-contract.md](docs/harness-contract.md) is the authority and every figure in it carries the command that produces it.
+
+## Software product assurance under ECSS-Q-ST-80C
+
+A software product assurance (PA) manager at a European space supplier owes the customer an answer to ECSS-Q-ST-80C Rev.2 (30 April 2025), the European Cooperation for Space Standardization (ECSS) standard for software product assurance, clause by clause, with the evidence behind each answer. These skills carry that work:
+
+| Skill | What it does |
+|---|---|
+| [`q80-software-criticality-tailoring`](skills/space-systems/ecss/q80-software-criticality-tailoring/) | Places the software in criticality category A to D and works out which requirements apply, shrink or drop out for that category |
+| [`q80-software-product-assurance-plan`](skills/space-systems/ecss/q80-software-product-assurance-plan/) | Grades the software product assurance (SPA) plan against its document requirements definition (DRD), and checks the organisation, supplier control and tools it describes |
+| [`q80-software-process-assurance`](skills/space-systems/ecss/q80-software-process-assurance/) | Audits the process: life-cycle gates, handling of critical software, verification independence, reuse, generated code, nonconformances |
+| [`q80-software-dependability-safety-analysis`](skills/space-systems/ecss/q80-software-dependability-safety-analysis/) | Grades the software failure modes and effects analysis, raises components that can bring down a more critical one, checks the hardware-software interaction analysis and proposes critical items |
+| [`q80-software-security-assurance`](skills/space-systems/ecss/q80-software-security-assurance/) | Works the security-sensitivity dimension Revision 2 added: which components are sensitive, which clauses sensitivity switches on even at category D, the extra measures and when a change forces a regression run |
+| [`q80-supplier-procurement-control`](skills/space-systems/ecss/q80-supplier-procurement-control/) | Checks supplier selection, what is flowed down to each supplier, supplier monitoring, procured and customer-furnished items and their receiving inspection |
+| [`q80-software-configuration-nonconformance`](skills/space-systems/ecss/q80-software-configuration-nonconformance/) | Checks configuration management and each delivery's integrity value, and follows problem reports into nonconformances and the review board's disposition |
+| [`q80-reuse-and-firmware-assurance`](skills/space-systems/ecss/q80-reuse-and-firmware-assurance/) | Builds the reuse file for heritage, commercial off-the-shelf and open-source software, checks licences, and checks programmed devices |
+| [`q80-software-product-quality-metrics`](skills/space-systems/ecss/q80-software-product-quality-metrics/) | Sets quality thresholds per category and grades the measurements and the maturity trend against them |
+| [`q80-milestone-assurance-evidence`](skills/space-systems/ecss/q80-milestone-assurance-evidence/) | Says which assurance evidence is due at the system requirements review (SRR), preliminary design review (PDR), critical design review (CDR), qualification review (QR) and acceptance review (AR), and builds the milestone report |
+| [`q80-compliance-matrix`](skills/space-systems/ecss/q80-compliance-matrix/) | Joins the clause list to an evidence index and returns the matrix, the coverage and the gaps, always as a draft |
+
+The role `software-product-assurance-engineer` in [Aero Agent Roles](https://github.com/ashfordeOU/aero-agent-roles), being built next, strings these skills into one clause-by-clause compliance matrix. It stops where each of them stops: at a named human's sign-off. Until that person signs, the matrix is a draft, not a statement of compliance.
 
 ## Quick start
 
@@ -134,7 +154,7 @@ Per-host setup paths: [docs/harness-integration.md](docs/harness-integration.md)
 ### The domain map
 
 <!-- gen:overview -->
-**3,189 verified skills** across **12 families** and **86 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **6,308-case Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
+**3,200 verified skills** across **12 families** and **86 live sub-domain packs** — each one spec-linted, behavior-tested, and router-asserted against a **6,330-case Hit@1 corpus**. Every figure below is computed from the tree at HEAD; nothing is hand-counted.
 <!-- /gen:overview -->
 
 <p align="center">
@@ -166,11 +186,11 @@ The 12-family register — every count computed from the tree, regenerated on ev
 | **GNC & autonomy** | ARP4754A | 6 | 68 | 143 |
 | **Manufacturing quality** | AS9100 / AS9102 | 8 | 48 | 101 |
 | **Propulsion** | FAR-33 | 11 | 54 | 118 |
-| **Space systems** | ECSS | 5 | 2,582 | 5,035 |
+| **Space systems** | ECSS | 5 | 2,593 | 5,057 |
 | **Structures** | FAR-25 / CS-25 / MMPDS | 7 | 69 | 147 |
 | **Systems engineering & safety** | ARP4754A / ARP4761A | 7 | 47 | 96 |
 | **Vehicle design** | FAR-25 / CS-25 | 6 | 59 | 120 |
-| **Total** | 30 standards mapped | **86** | **3,189** | **6,308** |
+| **Total** | 30 standards mapped | **86** | **3,200** | **6,330** |
 <!-- /gen:family-table -->
 
 Full catalog: the [skills/](skills/) tree — every leaf is a verified skill. Per-pack tables: [docs/DOMAINS.md](docs/DOMAINS.md).
@@ -329,12 +349,12 @@ make visuals-check  # charts + README numbers regenerate to zero diff
 
 Verified means the full bar passes on the commit you are looking at. That is what "verified" means in this repository: nothing more. It is not certification, not approval, not airworthy.
 
-It also has a stated edge, and the edge is published rather than implied. Routing coverage closed on 2026-09-19: every leaf now carries at least one query and gate 13 fails a build where one does not, where previously 2,251 of 3,189 leaves were spec-linted and behavior-tested but never router-asserted. What a green still does not cover: the router scores raw token overlap, so 222 of the 6,308 cases win by half a point or less, and re-scored the way a user actually types — hyphens stripped from the query — Hit@1 is 96.48% rather than 100%. And the no-verbatim gate compares source text for one standards family out of fourteen, reporting the rest as markers-only or UNCHECKED. Every one of those figures, with its complement and the command that produces it, is in [docs/harness-contract.md](docs/harness-contract.md).
+It also has a stated edge, and the edge is published rather than implied. Routing coverage closed on 2026-09-19: every leaf now carries at least one query and gate 13 fails a build where one does not, where previously 2,251 of 3,200 leaves were spec-linted and behavior-tested but never router-asserted. What a green still does not cover: the router scores raw token overlap, so 222 of the 6,308 cases win by half a point or less, and re-scored the way a user actually types — hyphens stripped from the query — Hit@1 is 96.48% rather than 100%. And the no-verbatim gate compares source text for one standards family out of fourteen, reporting the rest as markers-only or UNCHECKED. Every one of those figures, with its complement and the command that produces it, is in [docs/harness-contract.md](docs/harness-contract.md).
 
 ## Roadmap
 
 <!-- gen:roadmap -->
-- **Shipped:** 3189 verified skills in 86 packs across 12 disciplines, all gated by `make validate` (19/19) and `make attest` (7/7); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 6308-case corpus) and Claude Code plugin packaging
+- **Shipped:** 3200 verified skills in 86 packs across 12 disciplines, all gated by `make validate` (19/19) and `make attest` (7/7); distribution as an npm CLI + MCP server (`aero-agent-skills`, router parity proven on the full 6330-case corpus) and Claude Code plugin packaging
 - **Now:** deepening every live pack and opening new sub-domain packs on the same eval-gated pipeline — every addition lands with its behavior contract and router tasks
 - **Later:** reference builds; marketplace listings; AI Department Operator packs
 <!-- /gen:roadmap -->

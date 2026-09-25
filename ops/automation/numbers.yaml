@@ -494,7 +494,7 @@ measurements:
 # does not, so a backslash is the one character on which the two readers could
 # disagree. Every generator below is written to need none.
 
-corpus_as_of: "2026-09-19"
+corpus_as_of: "2026-09-25"
 
 # Words that mark a number as a corpus claim. A unit listed here that no
 # denominator claims makes figure_audit.py red on sight — that is deliberate:
@@ -503,7 +503,7 @@ corpus_units: ["verified skills", "verified leaves", "leaf skills", "published s
 
 corpus_denominators:
   - id: leaves
-    value: 3189
+    value: 3200
     definition: "A shipped skill: skills/<family>/<pack>/<leaf>/SKILL.md, i.e. every depth-4 SKILL.md under skills/. The README headline number."
     generator: "find skills -mindepth 4 -maxdepth 4 -name SKILL.md | wc -l | tr -d ' '"
     phrases: ["verified skills", "verified leaves", "leaf skills", "published skills", "shipped skills", "skill folders", "leaves", "leaf", "skills"]
@@ -515,7 +515,7 @@ corpus_denominators:
     phrases: ["family routers", "category skills", "router docs"]
     tolerance_abs: 0
   - id: skill_md_files
-    value: 3201
+    value: 3212
     definition: "leaves + category_skills: every SKILL.md in the tree. Equals the npm manifest skills-array length and metrics.json skill_files. Quote as catalogue entries, never as skills."
     generator: "find skills -name SKILL.md | wc -l | tr -d ' '"
     phrases: ["catalogue entries", "catalog entries", "skill.md files", "skill.md"]
@@ -545,25 +545,25 @@ corpus_denominators:
     phrases: ["router tasks", "corpus tasks", "task hit@1 corpus", "task corpus"]
     tolerance_abs: 0
   - id: router_cases
-    value: 6308
+    value: 6330
     definition: "Router cases gate 5 executes: every case in eval/, the assembled hit1-corpus.yaml plus every per-leaf hit1-<slug>.yaml fragment. Until 2026-09-19 the gate read the corpus file alone, so this figure and corpus_tasks were the same number; they are not any more."
     generator: "scripts/gate-hit1-corpus.sh | tail -1 | grep -oE '[0-9]+/[0-9]+' | cut -d/ -f1"
     phrases: ["router cases", "case hit@1 corpus", "case corpus", "executed router cases"]
     tolerance_abs: 0
   - id: router_fragments
-    value: 2277
+    value: 2288
     definition: "Per-leaf eval fragments eval/hit1-<slug>.yaml, excluding the assembled hit1-corpus.yaml. A FLAT namespace (one directory for the whole corpus), so it is not expected to equal leaves."
     generator: "find eval -maxdepth 1 -name 'hit1-*.yaml' ! -name 'hit1-corpus.yaml' | wc -l | tr -d ' '"
     phrases: ["router fragments", "eval fragments"]
     tolerance_abs: 0
   - id: test_files
-    value: 3189
+    value: 3200
     definition: "Per-leaf unittest files skills/<family>/<pack>/<leaf>/scripts/test_*.py. Exceeds leaves where a leaf ships more than one test file, so it is not a synonym for the leaf count."
     generator: "find skills -mindepth 5 -maxdepth 5 -name 'test_*.py' | wc -l | tr -d ' '"
     phrases: ["test files", "unit test files"]
     tolerance_abs: 0
   - id: logic_modules
-    value: 3191
+    value: 3202
     definition: "Per-leaf stdlib-only logic modules: the non-test .py files under skills/<family>/<pack>/<leaf>/scripts/."
     generator: "find skills -mindepth 5 -maxdepth 5 -name '*.py' ! -name 'test_*' | wc -l | tr -d ' '"
     phrases: ["logic modules"]

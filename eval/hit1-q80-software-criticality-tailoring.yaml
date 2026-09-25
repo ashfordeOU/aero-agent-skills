@@ -1,0 +1,12 @@
+# Hit@1 fragment: q80-software-criticality-tailoring (space-systems/ecss)
+# Two tasks for the new leaf, both anchored on ECSS-Q-ST-80C Rev.2. Both must
+# deterministically hit space-systems/ecss/q80-software-criticality-tailoring.
+tasks:
+  - id: ct1
+    query: "which software criticality category is our on-board software if it takes part in a catastrophic function but a hardware compensating provision exists, and give me the q80 applicability matrix for that category"
+    intent: "ECSS-Q-ST-80C Rev.2 Annex D software criticality categories from function severity and compensating provisions, applicability matrix per category, downgrade impact"
+    expected_skill: "space-systems/ecss/q80-software-criticality-tailoring"
+  - id: ct2
+    query: "the customer wants the payload software moved from category b to category c, list the q80 requirements that relax with that category downgrade impact and summarise the q80 tailoring per requirement group"
+    intent: "ECSS-Q-ST-80C Rev.2 Annex D software criticality categories from function severity and compensating provisions, applicability matrix per category, downgrade impact"
+    expected_skill: "space-systems/ecss/q80-software-criticality-tailoring"

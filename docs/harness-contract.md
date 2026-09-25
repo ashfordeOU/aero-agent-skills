@@ -170,7 +170,7 @@ the transcript.
 |---|---|
 | A gate table with five rows; prose elsewhere in the file describing a gate 8 and a gate 9 | `make validate` runs the nine targets listed below and `make attest` three more. The table now lists every one of them. |
 | A definition of done naming a five-gate battery on one skill | Definition of done is the whole battery green on every skill in the tree. See "Definition of done". |
-| A gate 5 pass criterion of 154 tasks | The gate asserts 6,308 cases reaching all 3,189 leaves. It read one file and reached under a third of them until 2026-09-19; gate 13 now refuses a build in which any leaf has no case. Counts and commands in "Gate 5" below. |
+| A gate 5 pass criterion of 154 tasks | The gate asserts 6,330 cases reaching all 3,200 leaves. It read one file and reached under a third of them until 2026-09-19; gate 13 now refuses a build in which any leaf has no case. Counts and commands in "Gate 5" below. |
 | Gate 4 described as an RTCA/SAE/IAQG grep, with ECSS named as text that "must not trip the gate" | Gate 4 is family-aware. ECSS is the one family whose source documents are indexed, and ECSS prose in this repo IS compared against them; a long shared run fails the gate whether or not it carries a citation. |
 | "Gated standards never appear verbatim anywhere in this repository - the no-verbatim gate enforces it" (also in README.md and docs/FAQ.md) | The gate compares body text for one family out of fourteen. For the other thirteen it checks publisher boilerplate only, or reports UNCHECKED. The no-verbatim rule is a policy the corpus follows; it is mechanically enforced only where an index exists. |
 
@@ -310,7 +310,7 @@ compliance flags of the legal brief:
   is `tools/obligations/obligation_binding.py`, the same module gate 19 uses,
   so the two gates cannot disagree about a well-formed binding.
 
-Scope: every SKILL.md in the tree. The run of 2026-09-19 linted 3,201 SKILL.md files, which is every family
+Scope: every SKILL.md in the tree. The run of 2026-09-19 linted 3,212 SKILL.md files, which is every family
 router plus every leaf (`find skills -name SKILL.md | wc -l`).
 
 A green does not mean the skill is correct, useful, or that its standards
@@ -335,9 +335,9 @@ block is dead code: a module cannot decide its own verdict by calling
 `unittest.main(exit=False)` or `sys.exit(0)`. The verdict is computed by the
 driver from the `unittest.TestResult`.
 
-Scope on 2026-09-19: 3,189 test files
+Scope on 2026-09-19: 3,200 test files
 (`find skills -mindepth 5 -maxdepth 5 -name 'test_*.py' | wc -l`) across the
-3,189 leaves (`find skills -mindepth 4 -maxdepth 4 -name SKILL.md | wc -l`).
+3,200 leaves (`find skills -mindepth 4 -maxdepth 4 -name SKILL.md | wc -l`).
 Every leaf ships a real contract test. The file count runs two above the leaf
 count for a reason a reader should have rather than infer: two leaves have
 slugs that begin with `test-`
@@ -479,7 +479,7 @@ Two properties of the evidence that a green does NOT cover, both measured by
 Two further facts about the corpus, both measured the same day, both outside
 this gate's control:
 
-- `eval/` holds 2,277 router fragments with 4,554 cases between them, covering
+- `eval/` holds 2,288 router fragments with 4,576 cases between them, covering
   2,277 distinct leaves, and the assembled corpus holds 1,754 cases naming 938.
   The two sets overlap; together they name all 3,189. Gate 5 now runs both, so
   the assembly step no longer decides what is graded.
@@ -550,9 +550,9 @@ anything new: `eval/hit1-<slug>.yaml`.
 The gate states its own denominator, and on 2026-09-19 it reported:
 
 ```
-WARN corpus-naming: 1372 of 3189 leaves (43.0%) have no corpus fragment, so this gate says nothing about them. Coverage is leaf-create-gate.sh's contract, not this gate's; --strict here rejects only a ZERO denominator.
+WARN corpus-naming: 1372 of 3200 leaves (42.9%) have no corpus fragment, so this gate says nothing about them. Coverage is leaf-create-gate.sh's contract, not this gate's; --strict here rejects only a ZERO denominator.
 WARN corpus-naming: 2 fragment(s) name no known leaf and graded nothing; each is either an aggregate file or an orphan left by a rename.
-PASS corpus-naming: 1817 of 3189 leaf/leaves graded, one spelling each (1819 fragment(s), 2 unattributable)
+PASS corpus-naming: 1828 of 3200 leaf/leaves graded, one spelling each (1830 fragment(s), 2 unattributable)
 ```
 
 ### Gate 19: clause obligations
