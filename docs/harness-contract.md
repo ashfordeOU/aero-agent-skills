@@ -160,9 +160,9 @@ Three rules govern this document.
    family is not a clean family, and nothing in this document may let the two
    read alike.
 
-Every measurement quoted here was taken on 2026-09-19 on branch `r4-correction`
-and is shown with the command that produced it. Re-run the command; do not trust
-the transcript.
+This document was rewritten on 2026-09-19 on branch `r4-correction`. Its figures
+are recounted when the corpus changes, and each one is shown with the command
+that produces it. Re-run the command; do not trust the transcript.
 
 ### What this document said before 2026-09-19, and what is true
 
@@ -547,12 +547,12 @@ maps to the LONGEST leaf slug contained in its filename, so a shorter slug that
 is a substring of a longer one does not steal the mapping. Canonical name for
 anything new: `eval/hit1-<slug>.yaml`.
 
-The gate states its own denominator, and on 2026-09-19 it reported:
+The gate states its own denominator. On 2026-09-26, at 3,200 leaves, `python3 scripts/corpus_naming_check.py --strict` reported:
 
 ```
-WARN corpus-naming: 1372 of 3200 leaves (42.9%) have no corpus fragment, so this gate says nothing about them. Coverage is leaf-create-gate.sh's contract, not this gate's; --strict here rejects only a ZERO denominator.
-WARN corpus-naming: 2 fragment(s) name no known leaf and graded nothing; each is either an aggregate file or an orphan left by a rename.
-PASS corpus-naming: 1828 of 3200 leaf/leaves graded, one spelling each (1830 fragment(s), 2 unattributable)
+WARN corpus-naming: 912 of 3200 leaves (28.5%) have no corpus fragment, so this gate says nothing about them. Coverage is leaf-create-gate.sh's contract, not this gate's; --strict here rejects only a ZERO denominator.
+WARN corpus-naming: 1 fragment(s) name no known leaf and graded nothing; each is either an aggregate file or an orphan left by a rename.
+PASS corpus-naming: 2288 of 3200 leaf/leaves graded, one spelling each (2289 fragment(s), 1 unattributable)
 ```
 
 ### Gate 19: clause obligations
