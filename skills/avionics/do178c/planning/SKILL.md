@@ -53,6 +53,22 @@ planning-phase artifacts (PSAC, SDP, SVP, SCM, SQA plans).
 - Coverage depth mismatched to level (A requires MC/DC, not statement).
 - Traceability gaps (no derived requirements).
 
+## Stop gate: human sign-off required
+
+The agent drafts; it does not decide. Stop and hand the draft to a named
+human before any of these leave the working folder:
+
+- The software level assigned to each function or item. The agent may
+  propose it with the severity rationale, but the level stands only once
+  the responsible engineer has agreed it with the safety assessment team.
+- The PSAC and the other planning-phase plans submitted to the
+  certification authority or its designee.
+- Any deviation, alternative method, or reduced objective set.
+
+Mark every such output as a draft, list the open questions for the
+reviewer, and end with the line: STOP: human sign-off required before
+submission.
+
 ## Behavior contract (gate 3)
 
 This skill ships its own contract test, like every skill in the library:
