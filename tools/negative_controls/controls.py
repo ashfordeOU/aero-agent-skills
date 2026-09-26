@@ -377,16 +377,20 @@ def mutate_independence(fixture: Path) -> None:
 
 
 def mutate_release_law(fixture: Path) -> None:
-    """Push the leaf count over the next 100-skill band boundary.
+    """Push the leaf count past a completed 100-skill band.
 
-    The version files stay where they are, so they are now a minor behind the
-    band the convention demands - the drift this gate was written for.
+    The version files stay where they are, so they no longer name the last
+    released band - the drift this gate was written for. The count goes to
+    the second boundary above it, not +100: since 2026-09-26 the files track
+    the last COMPLETED band, and +100 from a count under 200 completes no
+    band at all, so the gate rightly stayed green and the control proved
+    nothing.
     """
 
     def fn(text: str) -> str:
         new, n = re.subn(
             r'("leaves"\s*:\s*)(\d+)',
-            lambda m: m.group(1) + str(int(m.group(2)) + 100),
+            lambda m: m.group(1) + str((int(m.group(2)) // 100 + 2) * 100),
             text,
             count=1,
         )
@@ -717,8 +721,8 @@ CONTROLS = [
     ),
     Control(
         gate="release-law",
-        mutation="docs/metrics.json leaf count pushed over the next 100-skill band",
-        signature=r"version file behind band[\s\S]*VERDICT: FAIL",
+        mutation="docs/metrics.json leaf count pushed past a completed 100-skill band",
+        signature=r"version file is not the released version[\s\S]*VERDICT: FAIL",
         apply=mutate_release_law,
     ),
     Control(

@@ -38,6 +38,7 @@
 <!-- /gen:badges -->
 
 <p align="center">
+  <a href="#from-free-skills-to-a-signed-evidence-pack">Evidence pilot</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#for-humans">For humans</a> ·
   <a href="#for-agents">For agents</a> ·
@@ -76,7 +77,13 @@ A software product assurance (PA) manager at a European space supplier owes the 
 | [`q80-milestone-assurance-evidence`](skills/space-systems/ecss/q80-milestone-assurance-evidence/) | Says which assurance evidence is due at the system requirements review (SRR), preliminary design review (PDR), critical design review (CDR), qualification review (QR) and acceptance review (AR), and builds the milestone report |
 | [`q80-compliance-matrix`](skills/space-systems/ecss/q80-compliance-matrix/) | Joins the clause list to an evidence index and returns the matrix, the coverage and the gaps, always as a draft |
 
-The role `software-product-assurance-engineer` in [Aero Agent Roles](https://github.com/ashfordeOU/aero-agent-roles), being built next, strings these skills into one clause-by-clause compliance matrix. It stops where each of them stops: at a named human's sign-off. Until that person signs, the matrix is a draft, not a statement of compliance.
+The role `software-product-assurance-engineer` in [Aero Agent Roles](https://github.com/ashfordeOU/aero-agent-roles) (published in the `aero-agent-roles` npm package) strings these skills into one clause-by-clause compliance matrix. It stops where each of them stops: at a named human's sign-off. Until that person signs, the matrix is a draft, not a statement of compliance.
+
+## From free skills to a signed evidence pack
+
+These skills, and the role that strings them into one matrix, are free under Apache-2.0 and stay that way. If you would rather have the ECSS-Q-ST-80C work run for you on your own evidence, Ashforde OÜ offers a **five-day evidence pilot**, delivered as a service on Aero Harness, the runtime Ashforde operates. It runs these same open-source skills and the `software-product-assurance-engineer` role over your criticality category, evidence table and document folder, and hands back a clause-by-clause draft compliance matrix, a gap list, a trace from each clause to your own files, and a signed record you can check offline without us. It stops where the skills stop, at your own sign-off: Ashforde never signs compliance on your behalf. Pricing on request.
+
+**[See the pilot: ashforde.org/pilot](https://ashforde.org/pilot/)** · talk to us at [contact@ashforde.org](mailto:contact@ashforde.org)
 
 ## Quick start
 
@@ -398,24 +405,23 @@ when a pin breaks.
 
 - **[aero-agent-roles](https://github.com/ashfordeOU/aero-agent-roles)** &mdash; The engineering roles and the leaf skills each one binds
 - **[aero-harness-records](https://github.com/ashfordeOU/aero-harness-records)** &mdash; The calibration registry, the dated log of every proof, and the public evidence log
-- **[arcs-conformance](https://github.com/ashfordeOU/arcs-conformance)** &mdash; The test suite that grades an implementation against the published specification
+- **[arcs-conformance](https://github.com/ashfordeOU/arcs-conformance)** &mdash; ARCS-1, the Agent Run Conformance Specification, which is the aerospace profile of Trust, Runtime Attestation and Compliance Evidence (TRACE): its one canonical copy, and the test suite that grades an implementation against it
 
 ### What connects it
 
 | Between | What flows | Held red by |
 |---|---|---|
 | aero-agent-roles to aero-agent-skills | Each role's bound leaf skills | `gate-bindings` |
-| aero-agent-skills to aero-harness | The corpus, handed in by path at issue time | `determinism`, `gate-isolation` |
-| aero-agent-skills to aero-harness | The attestation format and the Ed25519 signing code | `gate-spec` |
-| aero-harness to aero-agent-skills | The published specification directory: the specification, the specimen record and the trust anchor | `gate-spec-mirror` |
-| aero-agent-skills to arcs-conformance | The published specification directory | `conformance-suite-ci` |
+| aero-agent-skills to the runtime (private) | The corpus, handed in by path at issue time | `determinism`, `gate-isolation` |
+| aero-agent-skills to the runtime (private) | The attestation format and the Ed25519 signing code | `gate-spec` |
+| arcs-conformance to aero-agent-skills | Where the canonical specification lives: named in the related-repositories block, and in a pointer file carrying one edition and its SHA-256 | `gate-family` |
 
 Each connection carries a number in the runtime's own map, used to
 cross-reference it. The numbers are left out here because nothing a
 reader of this page can follow them to.
 
-A glossary of every abbreviation used here is in the specification
-directory that ships beside the corpus.
+Every abbreviation used here is spelled out in the glossary of
+[aero-harness-records](https://github.com/ashfordeOU/aero-harness-records#glossary).
 <!-- family:end -->
 ---
 

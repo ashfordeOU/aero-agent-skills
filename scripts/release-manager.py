@@ -9,7 +9,7 @@ This tool:
   --status        show current leaf count + which release band we're in
   --next          show what the next release tag will be + skills remaining
   --sync          sync package.json + JetBrains + Claude plugin versions to
-                  the current band version (call before a release)
+                  the last released band (moves only when a band completes)
   --changelog     print the release notes body from the git log since the
                   last release tag (new leaves + families)
 
@@ -77,10 +77,25 @@ def band_version(leaves):
     return f"1.{minor}.0"
 
 
+def released_version(leaves):
+    """The version the version files must carry at this leaf count: the
+    last COMPLETED band, which is the tag release-on-milestone cuts.
+
+    FIX 2026-09-26 (first-principles review FP-17): the files used to track
+    the band the count sits IN, so at 3,150 leaves every file said 1.31.0
+    while no v1.31.0 tag, Release or npm version existed. A published
+    version has to be one that shipped. Now the files move only in the
+    push that completes a band — the release commit — and at every other
+    count they equal the newest release: 3,100-3,199 -> 1.30.0,
+    3,200-3,299 -> 1.31.0."""
+    completed = (leaves // 100) * 100
+    return band_version(completed) if completed >= 100 else "1.0.0"
+
+
 def current_version():
-    """Current band version + the actual published versions."""
+    """Released version the files must carry + the package.json version."""
     leaves, _ = leaf_count()
-    band = band_version(leaves)
+    band = released_version(leaves)
     pkg = json.load(open(PKG))["version"]
     return leaves, band, pkg
 
@@ -270,7 +285,7 @@ def release_check() -> int:
     (v1.6.0) with no Release object.
 
     BLOCKING (locally fixable, no publish authority needed):
-      1. version files must be at the current band  -> run --sync
+      1. version files must name the last released band  -> run --sync
 
     REPORT-ONLY (needs a release decision / founder GO under Ruling 3, so
     it must never silently block a push):
@@ -281,9 +296,9 @@ def release_check() -> int:
     _, band, pkg = current_version()
     problems, notes = [], []
 
-    # 1. version files == current band  (blocking)
+    # 1. version files == last released band  (blocking; see released_version)
     for c in sync_versions(dry=True):
-        problems.append(f"version file behind band: {c}  -> run --sync")
+        problems.append(f"version file is not the released version: {c}  -> run --sync")
 
     completed = (leaves // 100) * 100
     due_tag = f"v{band_version(completed)}" if completed >= 100 else "v1.0.0"
@@ -301,14 +316,18 @@ def release_check() -> int:
                      f"touch ~/.hermes/state/aero-release-HOLD to pause)")
 
     # 2. public parity (best effort; gh may be unavailable)
+    # FIX 2026-09-26: the list was capped at 30 Releases. Past 30 milestones
+    # the oldest Releases fell off the page and their tags were reported as
+    # "PUBLIC BREACH: tag with no Release" (v1.1.0, v1.3.0) while both
+    # Releases existed. Read every Release and every tag page.
     try:
         r = subprocess.run([GH or "gh", "release", "list", "-R", PUBLIC_REPO,
-                            "-L", "30", "--json", "tagName"],
+                            "-L", "1000", "--json", "tagName"],
                            capture_output=True, text=True, timeout=25)
         if r.returncode == 0:
             rel = {x["tagName"] for x in json.loads(r.stdout or "[]")}
             t = subprocess.run([GH or "gh", "api", f"repos/{PUBLIC_REPO}/git/refs/tags",
-                               "--jq", ".[].ref"],
+                               "--paginate", "--jq", ".[].ref"],
                                capture_output=True, text=True, timeout=25)
             ptags = {x.replace("refs/tags/", "") for x in t.stdout.split()
                      if x.startswith("refs/tags/v")}
@@ -341,7 +360,7 @@ def release_check() -> int:
             print(f"  - {p}")
         print("VERDICT: FAIL — release convention not met (founder 2026-09-03)")
         return 1
-    print("VERDICT: PASS — versions at band; release status reported above")
+    print("VERDICT: PASS — version files name the released band; release status reported above")
     return 0
 
 
@@ -456,8 +475,8 @@ def main():
     leaves, metrics = leaf_count()
     if args.status or not any([args.next, args.sync, args.changelog]):
         _, band, pkg = current_version()
-        print(f"leaves: {leaves}  (band: {band} = skills {((leaves-1)//100)*100+1}-{((leaves-1)//100+1)*100})")
-        print(f"npm package.json: {pkg}  |  band version: {band}")
+        print(f"leaves: {leaves}  (last released band: {band}; this count sits in band {band_version(leaves)} = skills {((leaves-1)//100)*100+1}-{((leaves-1)//100+1)*100})")
+        print(f"npm package.json: {pkg}  |  released version (files): {band}")
         nb = next_release_info()
         print(f"next release: {nb[2]} at {nb[1]} leaves ({nb[3]} to go)")
     if args.next:
@@ -466,7 +485,7 @@ def main():
     if args.sync:
         changes = sync_versions(dry=args.dry)
         if not changes:
-            print("all package versions already at band — nothing to sync")
+            print("all package versions already at the released band — nothing to sync")
         else:
             for c in changes:
                 print(("DRY-RUN " if args.dry else "") + c)

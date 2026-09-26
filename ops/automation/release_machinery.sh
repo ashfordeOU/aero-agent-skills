@@ -25,7 +25,7 @@
 set -uo pipefail
 
 DIR="ops/automation"
-MIN=10
+MIN=11
 
 while [ $# -gt 0 ]; do
   case "$1" in

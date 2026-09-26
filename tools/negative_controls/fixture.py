@@ -20,8 +20,8 @@ because a departure that is not written down becomes a lie later:
   2. The Hit@1 corpus is assembled from the three leaves' own corpus
      fragments instead of copying the 1,754-task corpus, whose tasks point at
      leaves this fixture does not carry.
-  3. The three release version files are set to the band implied by
-     docs/metrics.json. The working tree is currently NOT aligned (see the
+  3. The three release version files are set to the last released band
+     implied by docs/metrics.json. The working tree is currently NOT aligned (see the
      README), and an already-red baseline proves nothing.
   4. One extra document is added under docs/ carrying a truthful, resolvable
      figure taken from the number register, so the brief-audit gate has
@@ -646,7 +646,10 @@ def _align_release_versions(fixture: Path) -> str:
     reason `--sync` would make the tree green.
     """
     leaves = json.loads((fixture / "docs/metrics.json").read_text(encoding="utf-8"))["leaves"]
-    band = "1.%d.0" % ((leaves - 1) // 100)
+    # The version files name the last RELEASED band (release-manager.py
+    # released_version, 2026-09-26), not the band the count sits in.
+    completed = (leaves // 100) * 100
+    band = "1.%d.0" % ((completed - 1) // 100) if completed >= 100 else "1.0.0"
 
     pkg = fixture / "packages/aero-agent-skills/package.json"
     data = json.loads(pkg.read_text(encoding="utf-8"))

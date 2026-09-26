@@ -6,6 +6,10 @@ Full library, figures, and provenance: [github.com/ashfordeOU/aero-agent-skills]
 
 Every skill follows the open [agentskills.io](https://agentskills.io) format and is gated by a replayable offline battery (spec lint, description lint, behavior contracts, no-verbatim sweep, Hit@1 router corpus). This package bundles the tree at the released commit; live counts come from `aero-skills list`, never from this README.
 
+## Need the ECSS-Q-ST-80C work run for you?
+
+Ashforde OÜ offers a five-day evidence pilot for ECSS-Q-ST-80C Rev.2, the European Cooperation for Space Standardization (ECSS) standard for software product assurance, delivered as a service on Aero Harness, the runtime Ashforde operates. It runs these same open-source skills and the `software-product-assurance-engineer` role from [Aero Agent Roles](https://github.com/ashfordeOU/aero-agent-roles) over your own evidence, and hands back a clause-by-clause draft compliance matrix, a gap list, a trace to your own files and a signed record you can check offline. It stops at your own sign-off. Pricing on request: [ashforde.org/pilot](https://ashforde.org/pilot/) · [contact@ashforde.org](mailto:contact@ashforde.org)
+
 ## CLI
 
 ```bash
