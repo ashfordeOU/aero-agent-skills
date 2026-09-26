@@ -10,6 +10,151 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.2.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.2.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.2.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.3.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.3.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.4.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.4.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.5.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.5.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.5.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.1.5.4
+    items: [a, b]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.1.1
+    items: [a, b]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.1.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.1.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.1.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.1.5
+    items: [a, b]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.7.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.7.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.3.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.6.1.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.6.1.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.6.1.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.6.2.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.6.2.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.6.2.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.2.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.2.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.2.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.2.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.3.1
+    items: [a, b]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.3.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.7.3.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -62,15 +207,132 @@ process assessment and improvement.
 
 1. Fix the scope: suppliers, operations and maintenance, security
    sensitivity, reuse. Each switches a conditional section on.
-2. Grade the draft against the outline: missing sections, thin sections,
-   sections not owed, and ids that are not in the outline at all.
-3. Check the organisation: named lead, reporting line, dual roles,
-   delegation backed by supplier plans.
-4. Check each supplier: category and requirements flowed down, plan
-   received, pre-award assessment, monitoring depth for the category.
-5. Grade the methods and tools against the category.
-6. State the maturity the plan owes at the next review and list what must
-   change to reach it.
+2. Grade the draft with `assess_spap` against the Annex B outline:
+   missing sections, thin sections, sections not owed, and ids that are
+   not in the outline at all. The plan answers the project's assurance
+   requirements, and may stand alone or be a section of the supplier's
+   overall product assurance plan. Every internal manual, standard or
+   procedure it refers to counts as part of the programme and has to be
+   available to the reviewer.
+3. Check the organisation with `check_organisation`: an organisation for
+   software development in which each person has defined tasks; the
+   responsibility, authority and working relations of everyone who
+   manages, does or checks work that affects software quality, written
+   down; the responsibilities and interfaces of every internal and
+   external organisation on the project, written down; and enough
+   resources for the assurance tasks.
+4. Check the assurance lead: a named person; answering to the project
+   manager, via the product assurance manager where there is one,
+   never through the development line; with the authority and
+   independence to set up and sustain the assurance programme; with direct
+   access to higher management when needed. Audits and reviews, of
+   both products and processes, are done by people who did not do the work.
+5. Check any delegation of assurance work to a lower-tier supplier: it
+   is documented and controlled, backed by that supplier's own plan held
+   and reviewed, and the plan states that responsibility to the customer
+   stays with this supplier.
+6. Check each supplier with `check_supplier_control`: category and
+   requirements flowed down, plan received, pre-award assessment,
+   monitoring depth for the category.
+7. Check staffing and training: the project requirements were reviewed
+   early enough to acquire or build the skills needed, in a training plan;
+   training subjects follow from the tools, techniques, methods and
+   computers actually used; the people on each planned task have the right
+   mix of skills and training by the time the task starts; that training
+   covers security analysis and audit, security engineering, security
+   assurance methods and tools, and the project's own security rules and
+   procedures; and training records are kept.
+8. Check the quality model: the software quality requirements are
+   specified through one, built on functionality, reliability,
+   maintainability, reusability, suitability for safety, security,
+   usability, efficiency, portability and development effectiveness.
+9. Check the plan links software risks into the project risk policy of
+   ECSS-M-ST-80 rather than running a separate register, holds an audit
+   plan and schedule run as the general quality assurance standard
+   ECSS-Q-ST-10 sets out for audits, and handles software alerts through
+   that same standard's alert process.
+10. Grade the methods and tools with `assess_tools` against the category.
+    The methods and tools for every development activity, from
+    requirements analysis and modelling through coding and testing to
+    configuration management, verification and assurance, are proposed by
+    the supplier and accepted by the customer. Each choice is justified by a
+    test or a written assessment showing the team is experienced or
+    trained in it, that it suits the product's function and operation,
+    that it will stay available through development and maintenance, and
+    that it suits the product's security sensitivity. Their correct use is
+    checked and reported.
+11. Check the development environment: chosen against availability,
+    compatibility, performance, maintenance, durability and consistency
+    with the operational equipment, the category and the security
+    sensitivity, the security regulations that apply, support
+    documentation, acceptance and warranty, installation and training,
+    maintenance and evolution, copyright, and dependence on one vendor;
+    its fitness justified in writing; and its availability to the
+    developers confirmed before each phase starts.
+12. Check process assessment and improvement: how capable the
+    processes in use are, including those that units outside the team
+    provide, is monitored and controlled; each assessment has a documented
+    model and method conforming to ISO/IEC 33002:2015, a model, method,
+    scope, results and assessors that the customer set or recognised and
+    that were checked against the project requirements, and a competent
+    assessor. Results feed back into the processes, into where the
+    project is heading and into technology needs; earlier results are used;
+    improvement follows a documented improvement process; and the
+    improvement is shown with evidence.
+13. Check the compliance matrix delivered with the plan: one row per
+    applicable assurance requirement, and for each a reference to the
+    document holding its expected output.
+14. State the maturity the plan owes at the next review with
+    `plan_maturity_due` and list what must change to reach it. The plan
+    is revised at every milestone so the next phase's work is fully
+    defined, and before the acceptance review it is extended with the
+    quality measures for operations and maintenance, or a separate plan
+    for them is issued.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 5.1.1a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.1.2.1a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.1.2.2a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.1.2.3a | 5 |
+| ECSS-Q-ST-80C Rev.2 5.1.3.1a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.1.3.2a | 4 |
+| ECSS-Q-ST-80C Rev.2 5.1.4.1a | 4 |
+| ECSS-Q-ST-80C Rev.2 5.1.4.2a | 4 |
+| ECSS-Q-ST-80C Rev.2 5.1.5.1a | 7 |
+| ECSS-Q-ST-80C Rev.2 5.1.5.2a | 7 |
+| ECSS-Q-ST-80C Rev.2 5.1.5.3a | 7 |
+| ECSS-Q-ST-80C Rev.2 5.1.5.4a | 7 |
+| ECSS-Q-ST-80C Rev.2 5.1.5.4b | 7 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.1a | 2 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.1b | 2 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.2a | 2 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.3a | 14 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.4a | 14 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.5a | 13 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.5b | 13 |
+| ECSS-Q-ST-80C Rev.2 5.2.3a | 9 |
+| ECSS-Q-ST-80C Rev.2 5.2.4a | 9 |
+| ECSS-Q-ST-80C Rev.2 5.2.7.1a | 8 |
+| ECSS-Q-ST-80C Rev.2 5.2.7.2a | 8 |
+| ECSS-Q-ST-80C Rev.2 5.3.1a | 9 |
+| ECSS-Q-ST-80C Rev.2 5.6.1.1a | 10 |
+| ECSS-Q-ST-80C Rev.2 5.6.1.2a | 10 |
+| ECSS-Q-ST-80C Rev.2 5.6.1.3a | 10 |
+| ECSS-Q-ST-80C Rev.2 5.6.2.1a | 11 |
+| ECSS-Q-ST-80C Rev.2 5.6.2.2a | 11 |
+| ECSS-Q-ST-80C Rev.2 5.6.2.3a | 11 |
+| ECSS-Q-ST-80C Rev.2 5.7.1a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.2.1a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.2.2a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.2.3a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.2.4a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.3.1a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.3.1b | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.3.2a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.7.3.3a | 12 |
 
 ## Pitfalls
 

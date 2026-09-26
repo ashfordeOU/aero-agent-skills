@@ -10,6 +10,43 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.3.5.2
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.1
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.2
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.3
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.4
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.5
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.6
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.7
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.1.8
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -51,15 +88,58 @@ level under 6.3.5.
 
 ## Workflow
 
-1. Agree the metric set and the thresholds per category; record every
-   project override against its source.
-2. Collect the measurements from the project's analysers; use the source
+1. Derive the software quality requirements, security, safety and
+   dependability ones among them, from the requirements set at system
+   level, and write each as a number or a hard constraint (a ceiling, a
+   floor, a limit) rather than an adjective.
+2. For each quality requirement in the technical specification, name the
+   assurance activity that will show the product meets it (a review, an
+   analysis, a measured metric, a test) and who runs it.
+3. Write the metrication programme from the project's quality model:
+   the metrics to collect and keep, the tool or method that measures each,
+   the target value traced to the quality requirement it serves, the
+   analyses run on the data (descriptive statistics, trends such as the
+   problem-report trend), how the results reach the developers and turn
+   into corrective actions, and when collection, storage, analysis and
+   reporting happen across the life cycle. Agree the thresholds per
+   category and record every project override against its source.
+4. Make sure the set holds the basic product metrics at least: code size,
+   design and code complexity, fault density and failure intensity, test
+   coverage and the number of failures.
+5. Agree with the customer, from the software's criticality and its
+   security sensitivity, the coverage goal for each test level (unit,
+   integration, and validation against the technical specification and
+   against the requirements baseline), and follow each with a coverage
+   metric in the set.
+6. Collect the measurements from the project's analysers; use the source
    text estimates here only to cross-check them.
-3. Grade the measurement set: pass, fail with the margin, missing.
-4. Grade per module and list the offenders and the worst module per
+7. Grade the measurement set: pass, fail with the margin, missing.
+8. Grade per module and list the offenders and the worst module per
    metric.
-5. Read the maturity trend from the problem-report history.
-6. Write the metrics section of the assurance report as a draft.
+9. Check that the numerical accuracy of the software has been estimated
+   and that the estimate has been verified by analysis or test, for every
+   product; look hardest where accuracy decides mission success (attitude
+   control, science data). A metric set that passes says nothing about it.
+10. Name who collects and analyses the software maturity data (failures,
+    corrections, run durations) and by what means, then read the maturity
+    trend from the problem-report history.
+11. Write the metrics section of the assurance report as a draft, carrying
+    the measured results and their analysis so the customer can see the
+    quality reached.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 6.3.5.2a | 5 |
+| ECSS-Q-ST-80C Rev.2 7.1.1a | 1 |
+| ECSS-Q-ST-80C Rev.2 7.1.2a | 1 |
+| ECSS-Q-ST-80C Rev.2 7.1.3a | 2 |
+| ECSS-Q-ST-80C Rev.2 7.1.4a | 3 |
+| ECSS-Q-ST-80C Rev.2 7.1.5a | 4 |
+| ECSS-Q-ST-80C Rev.2 7.1.6a | 11 |
+| ECSS-Q-ST-80C Rev.2 7.1.7a | 9 |
+| ECSS-Q-ST-80C Rev.2 7.1.8a | 10 |
 
 ## Pitfalls
 

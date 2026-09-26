@@ -10,6 +10,19 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.2.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.2.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.2.3
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -58,9 +71,26 @@ milestone report (SPAMR) that summarises them.
 1. Normalise the review, the category and the scope flags.
 2. Resolve the documents owed with the clauses driving each.
 3. Grade the submitted pack: missing, below the maturity owed, unplanned.
-4. List the continuous evidence to sample alongside the pack.
-5. Build the milestone report skeleton and mark the missing inputs.
+4. List the continuous evidence to sample alongside the pack with
+   `continuous_evidence`. Among it, check the periodic assurance reports
+   exist on the agreed cadence (on their own or inside the project's
+   product assurance reporting), and that each one assesses the present
+   quality of product and processes from measured values tied to the
+   plan's metrication, lists the verifications done, and lists the
+   problems found and the problems closed.
+5. Build the milestone report skeleton with `spamr_skeleton` and mark the
+   missing inputs. The milestone report is owed at every milestone review
+   and covers the assurance work of all the phases since the previous
+   one; a review pack without it is incomplete whatever else it holds.
 6. Across the sequence, report the first review that is not complete.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 5.2.2.1a | 4 |
+| ECSS-Q-ST-80C Rev.2 5.2.2.2a | 4 |
+| ECSS-Q-ST-80C Rev.2 5.2.2.3a | 5 |
 
 ## Pitfalls
 

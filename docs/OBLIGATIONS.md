@@ -281,6 +281,7 @@ not state are left blank rather than filled in.
 | Wave | Opened | Scope | Closed | Obligations addressed | Claim precision |
 |---|---|---|---|---|---|
 | 1 | 2026-09-22 | ECSS-E-ST-50C Rev.2 | 2026-09-22 | 61.6% → 100.0% (53/86 → 86/86) | 100.0% (86/86) |
+| 2 | 2026-09-26 | ECSS-Q-ST-80C Rev.2, the evidence pilot's thirteen leaves | 2026-09-26 | 34.5% → 100.0% (71/206 → 206/206) | 100.0% (206/206) |
 
 Wave 1 bound every leaf that cites this edition — 70 of them — to 86 items
 across 70 clauses, and was read blind: 150 cases over five sheets, the
@@ -315,3 +316,44 @@ rewording in six more to remove five-word runs they shared with the source
 item text. Each keeps the same obligation at the same anchored step, and
 none was re-read. The after rate is therefore reported on the texts as read,
 not on the texts as committed.
+
+Wave 2 is out of the edition order above, on purpose: it binds the leaves
+the ECSS-Q-ST-80C Rev.2 evidence pilot runs on — the eleven `q80-*` leaves
+and the two others the software product assurance role binds
+(`software-engineering`, `software-verification`) — because that pilot
+puts these leaves in front of a reader first. ECSS-E-ST-70-41C is still
+the next edition in the schedule. None of these thirteen cites a clause in
+the form the fidelity audit's citation reader recognises, so each was
+scoped to the clause groups its own text names as its subject (6.2.9 and
+6.2.10 for the security leaf, 5.4, 5.5 and 7.4 for the supplier leaf, and
+so on), expanded to every live item under them. The scope of every leaf is
+listed in the result file so it can be contested. 183 clause bindings, 206
+leaf-item pairs over 199 distinct items; 94 of the edition's 293 bindable
+items, in clauses 6.3 and 7.2, are in no leaf's scope.
+
+The reading followed wave 1: four sheets, 32 cases, the before and after
+of a leaf never on one sheet, the binding and the Obligations table
+stripped. Six planted controls put 29 items against procedures that do not
+serve them; all 29 were graded not addressed. Obligations addressed went
+from **71 of 206 (34.5%, 95% CI 28.3–41.2%)** to **204 of 206 (99.0%)** at
+the first reading, `partial` counted as a miss. The two misses were real:
+a numerical accuracy check made conditional where the item is not, and a
+plan checked for describing the disposal of development resources rather
+than for doing it. Both leaves were repaired and re-read blind by other
+readers, each sheet with one more planted control. The re-read found a
+third defect in one of them, a sentence that let a reader take one of two
+required problem counts as not reported to the customer; it was reworded
+and read again. On the texts as read — twelve of the thirteen are committed as read; one
+step of the dependability leaf was reworded afterwards, keeping its
+obligation and its anchor, because two of its new words pulled another
+leaf's router case onto it, and was not re-read — the after rate is **206 of 206 (100.0%, 95% CI
+98.2–100%)**, and 39 of 39 planted items were caught over the wave. Claim
+precision did not bind, for the same reason as in wave 1: each leaf
+declared every live item of its scope.
+
+34.5% is this wave's own baseline and is not comparable with 61.6% or
+43.5%: the populations differ. A repair followed by a re-read can converge
+on what one reader wants to see; the controls on every re-read show the
+reader still failed procedures that deserved to fail, and nothing more.
+Counts, scope, intervals and limits:
+[`tools/obligations/results/wave-2-ECSS-Q-ST-80CRev2-pilot.json`](../tools/obligations/results/wave-2-ECSS-Q-ST-80CRev2-pilot.json).

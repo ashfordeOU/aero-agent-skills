@@ -10,6 +10,91 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.1.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.1.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.2.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.2.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.3.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.3.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.3.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.3.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.4.5
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.5.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.5.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.5.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.5.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.5.5
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.5.6
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.4.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.4.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.4.3
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.4.4
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.4.5
+    items: [a]
+    relation: verifies
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -58,15 +143,88 @@ treatment. How the assurance plan describes supplier control is graded by
 ## Workflow
 
 1. Grade each supplier selection record with `grade_supplier_selection`.
-2. For each lower-level supplier, run `build_flowdown` and compare the
-   package actually sent with `check_flowdown_package`.
-3. At each milestone, run `check_supplier_monitoring` per supplier.
-4. List every procured and customer-furnished item and run
-   `check_procured_item` on each; submit the list for customer review.
-5. On delivery, run `receiving_inspection` with the delivered bytes and
-   record the digest in the configuration file.
-6. For operational ground equipment, run `check_ground_selection`.
-7. Send the findings to the reviewer as a draft.
+   Selection follows the supplier-selection rules of ECSS-Q-ST-20 (its
+   clause 5.4.1): a pre-award audit or assessment on file and a record of
+   the procurement source.
+2. Where the candidate offers existing software, including software
+   inside an off-the-shelf unit or equipment, check that its reuse
+   analysis was in hand before the choice: the case for reuse, the
+   assessment against the functional, performance, quality and security
+   requirements, the quality-level analysis, the reuse file entry and the
+   suitability assessment.
+3. For each lower-level supplier, run `build_flowdown`: assurance
+   requirements tailored to the supplier's role, among them the
+   obligation to write its own software product assurance plan; the
+   criticality category of what it builds and the failures it can cause
+   at higher level, from the dependability and safety analyses; and its
+   security sensitivity with the failures, attacks and security effects
+   it can cause at higher level during development and in operation, from
+   the security analyses.
+4. Compare the package actually sent with `check_flowdown_package`, and
+   confirm the flowed-down assurance requirements went to the customer
+   for acceptance before the system requirements review (SRR).
+5. At each milestone, run `check_supplier_monitoring` per supplier: the
+   supplier's conformance to its assurance requirements is followed; its
+   assurance plan was reviewed and approved, then passed to the customer
+   for acceptance by the preliminary design review (PDR); its development
+   processes are defined and actually applied as that plan says; its
+   processes and products are checked continuously; and its final
+   validation is followed.
+6. Check the procurement documents follow ECSS-Q-ST-20 (its clause
+   5.4.2), and that the choice of each procured product is described and
+   was put to the customer for review.
+7. List every procured and customer-furnished item and run
+   `check_procured_item` on each: ordering criteria (version, options,
+   security certifications), receiving inspection criteria, a backup if
+   the product stops being available, contract terms for development,
+   maintenance and upgrades, country of origin when the customer asks for
+   it, registration under configuration management, and the export
+   constraints identified.
+8. On delivery, run `receiving_inspection` with the delivered bytes
+   against the inspection criteria of step 7, as a planned inspection
+   under ECSS-Q-ST-20 (its clause 5.4.4), and record the digest in the
+   configuration file.
+9. For operational ground equipment, confirm hardware is subcontracted and
+   bought under the same ECSS-Q-ST-20 procurement rules (its clause 5.4)
+   with receiving inspection reports, then run `check_ground_selection`:
+   the choice is justified against performance, maintenance, durability
+   and consistency with the operational equipment, category and security
+   sensitivity, the security regulations and standards that apply,
+   support documentation, acceptance and warranty, installation and
+   training, maintenance and evolution, copyright, availability,
+   compatibility and site constraints, and it covers the constraints of
+   both developing and using the software.
+10. For operational support services, check the justification covers
+    service levels, quality of service and escalation, and that the
+    provider's product and support policy lets the hardware and the
+    services be kept going for the whole specified life of the software.
+11. Send the findings to the reviewer as a draft.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 5.4.1.1a | 1 |
+| ECSS-Q-ST-80C Rev.2 5.4.1.2a | 2 |
+| ECSS-Q-ST-80C Rev.2 5.4.2.1a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.4.2.2a | 4 |
+| ECSS-Q-ST-80C Rev.2 5.4.3.1a | 5 |
+| ECSS-Q-ST-80C Rev.2 5.4.3.2a | 5 |
+| ECSS-Q-ST-80C Rev.2 5.4.3.3a | 5 |
+| ECSS-Q-ST-80C Rev.2 5.4.3.4a | 5 |
+| ECSS-Q-ST-80C Rev.2 5.4.4a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.4.5a | 3 |
+| ECSS-Q-ST-80C Rev.2 5.5.1a | 6 |
+| ECSS-Q-ST-80C Rev.2 5.5.2a | 6 |
+| ECSS-Q-ST-80C Rev.2 5.5.3a | 7 |
+| ECSS-Q-ST-80C Rev.2 5.5.4a | 7 |
+| ECSS-Q-ST-80C Rev.2 5.5.5a | 8 |
+| ECSS-Q-ST-80C Rev.2 5.5.6a | 7 |
+| ECSS-Q-ST-80C Rev.2 7.4.1a | 9 |
+| ECSS-Q-ST-80C Rev.2 7.4.2a | 10 |
+| ECSS-Q-ST-80C Rev.2 7.4.3a | 9 |
+| ECSS-Q-ST-80C Rev.2 7.4.4a | 9 |
+| ECSS-Q-ST-80C Rev.2 7.4.5a | 10 |
 
 ## Pitfalls
 

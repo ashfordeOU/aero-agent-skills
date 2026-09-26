@@ -10,6 +10,15 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.1
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.10
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -58,17 +67,32 @@ of every requirement to each category (D.2).
 ## Workflow
 
 1. Collect the functions the software takes part in and the highest
-   severity among them, from the system dependability and safety analyses.
+   severity among them, from the system-level analyses that classify
+   software by the severity of its failure consequences: the safety
+   analysis run to ECSS-Q-ST-40 and the dependability analysis run to
+   ECSS-Q-ST-30. Take the severity from those analyses; do not re-derive
+   it inside the software team.
 2. List the compensating provisions actually in place and confirm each one
    meets the system requirements before claiming credit.
 3. Assign the category and record the rationale and the constraints the
    assignment places on any software provision.
-4. Resolve the product category from its components; claim a partition
-   only with its analysis in hand.
+4. Resolve the product category from its components with
+   `project_category`. Where a lower-category component can make a
+   higher-category one fail, through a failure that propagates or a
+   resource both use, and no segregation or partitioning analysis shows
+   that path is closed, every component involved takes the highest
+   category among them.
 5. Derive the tailoring matrix for the category, with the security rows set
    by the security sensitivity decision.
 6. Summarise per requirement group for the customer, and where a lower
    category is proposed, attach the list of what relaxes.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 6.2.2.1a | 1 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.10a | 4 |
 
 ## Pitfalls
 

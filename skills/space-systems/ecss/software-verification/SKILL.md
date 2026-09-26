@@ -10,6 +10,15 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.2.1.3
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 7.2.3.6
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -50,13 +59,25 @@ verification depth from criticality, and listing the records.
 1. Collect the software requirements with their category (functional,
    performance, interface, resource, safety, data).
 2. Select the verification method for each requirement with
-   verify_method.
+   verify_method, and record it against that requirement in the
+   specification, so no requirement leaves the requirements baseline or
+   the technical specification without its verification and validation
+   method stated (ECSS-Q-ST-80C Rev.2 asks for this per requirement).
 3. Determine the verification depth, independence, and records for the
    software criticality with verification_depth.
 4. Build the verification plan with plan_verdict and confirm every
    requirement received a method.
 5. Close each requirement with its verification record before
-   acceptance.
+   acceptance. For every requirement that testing does not close,
+   write, or point to, a verification report that records the analysis,
+   inspection or review actually done for it.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 7.2.1.3a | 2 |
+| ECSS-Q-ST-80C Rev.2 7.2.3.6a | 5 |
 
 ## Pitfalls
 

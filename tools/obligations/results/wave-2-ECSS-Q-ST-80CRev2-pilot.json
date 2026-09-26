@@ -1,0 +1,331 @@
+{
+ "layer": "L3 fidelity",
+ "measurement": "obligations addressed, before and after the wave-2 binding",
+ "wave": 2,
+ "standard": "ECSS-Q-ST-80C Rev.2",
+ "date": "2026-09-26",
+ "base_commit": "56c92546",
+ "worksheet_seed": 20260926,
+ "scope": {
+  "population": "the leaves the ECSS-Q-ST-80C evidence pilot uses: the 11 q80-* leaves and the two other leaves the role software-product-assurance-engineer binds (software-engineering, software-verification). Chosen by the pilot, not by the edition schedule; ECSS-E-ST-70-41C remains next in that schedule.",
+  "leaves": 13,
+  "clause_bindings": 183,
+  "items": 206,
+  "how_the_scope_was_set": "none of these leaves cites a clause in the form the fidelity audit's citation reader recognises, so its census finds no citation to scope from. Each leaf was scoped to the clause groups its own before-text names as its subject (for example 6.2.9 and 6.2.10 for q80-software-security-assurance), expanded to every live lettered item the export holds under them, with each group given to one leaf. Leaves whose subject is an annex (the tailoring annex, the milestone annex) were scoped to the numbered clauses behind it. The two leaves outside the q80 set cite ECSS-E-ST-40C in prose; they were scoped to the ECSS-Q-ST-80C Rev.2 items their procedures act on (6.2.2.1, 6.2.6.2; 7.2.1.3, 7.2.3.6). The 'scope' of each leaf is listed under per_leaf.",
+  "not_in_scope": "clause 6.3 (the engineering-process assurance of requirements, design, coding, testing, delivery, acceptance, operations and maintenance) apart from 6.3.5.2, and clause 7.2 apart from 7.2.1.3 and 7.2.3.6: no leaf of the pilot names them as its subject. 94 of the edition's 293 bindable items are outside every scope here. Annex items (B.2.1, C.2.1) have no form in the binding.",
+  "items_note": "every live lettered item under the scoped clauses, bound or not; an item a leaf never claimed still counts against it. Retired items (6.2.3.1a, 6.2.3.1b, 6.3.7.4a) are left out. Five items are in the scope of two or three leaves (5.2.1.5a-b, 6.2.2.1a, 6.2.2.10a, 6.2.6.2a-b), graded once per leaf; 206 leaf-item pairs over 199 distinct items.",
+  "coverage_screen": "earm_items.py coverage after the wave: 83 leaves bind, 292 items declared, 292 held by the export, 0 export items under bound clauses undeclared",
+  "authority": "the ESA EARM export of the ECSS requirements database, read where it lies and never kept in this repository",
+  "distinct_items": 199
+ },
+ "design": {
+  "cases": 32,
+  "before": 13,
+  "after": 13,
+  "planted_controls": 6,
+  "sheets": 4,
+  "case_unit": "one leaf version graded against every item of its scope; wave 1 had one clause per leaf, so its case was a leaf and a clause",
+  "blind": "cases carry opaque identifiers, are ordered at random, and were stripped of all front matter except name and description, and of the Obligations table, so a reader could not see which version was in front of it or what the leaf claimed",
+  "separation": "no leaf appears twice on one sheet, so the before and after readings of a leaf were made by different readers",
+  "control_design": "each planted control pairs an after-version procedure with items of a clause of the same edition it does not serve; every such item has to be graded not-addressed"
+ },
+ "readers": "language-model readers, one per sheet, not ECSS-qualified engineers; a self-measurement with a demonstrated instrument, not an independent audit",
+ "control": {
+  "planted_cases": 6,
+  "planted_items": 29,
+  "caught": 29,
+  "catch_rate": 1.0,
+  "floor": 0.8,
+  "verdict": "RED-CAPABLE",
+  "re_read_controls": "the two re-reads below each carried one more planted control (5 items each); all 10 items were graded not-addressed, so 39 of 39 over the wave"
+ },
+ "before": {
+  "items": 206,
+  "judged": 206,
+  "unjudgeable": 0,
+  "addressed": 71,
+  "partial": 69,
+  "not_addressed": 66,
+  "rate": 0.3447,
+  "ci95": [
+   0.2831,
+   0.4119
+  ]
+ },
+ "after_first_reading": {
+  "items": 206,
+  "judged": 206,
+  "unjudgeable": 0,
+  "addressed": 204,
+  "partial": 2,
+  "not_addressed": 0,
+  "rate": 0.9903,
+  "ci95": [
+   0.9653,
+   0.9973
+  ],
+  "misses": [
+   "q80-software-product-quality-metrics 7.1.7a: the accuracy check was conditional on mission relevance; the item is unconditional",
+   "q80-software-process-assurance 6.1.4b: the plan was checked to describe the disposal of development resources, not that it was carried out"
+  ]
+ },
+ "repairs_and_re_reads": [
+  {
+   "sheet": 5,
+   "texts": "both repaired leaves, all 60 of their items, plus one control",
+   "result": "q80-software-product-quality-metrics 9 of 9 addressed; q80-software-process-assurance 50 of 51, 6.2.5.4a partial (the reader read the wording as reporting only one of the two problem counts to the customer; the sheet-1 reader had graded it addressed)"
+  },
+  {
+   "sheet": 6,
+   "texts": "q80-software-process-assurance reworded so both problem counts are reported, all 51 items, plus one control",
+   "result": "51 of 51 addressed"
+  }
+ ],
+ "after": {
+  "basis": "the 13 leaves as committed: 11 as read on sheets 1 to 4, q80-software-product-quality-metrics as read on sheet 5, q80-software-process-assurance as read on sheet 6",
+  "items": 206,
+  "judged": 206,
+  "unjudgeable": 0,
+  "addressed": 206,
+  "partial": 0,
+  "not_addressed": 0,
+  "rate": 1.0,
+  "ci95": [
+   0.9817,
+   1.0
+  ]
+ },
+ "claim_precision_after": {
+  "declared": 206,
+  "addressed": 206,
+  "rate": 1.0,
+  "ci95": [
+   0.9817,
+   1.0
+  ],
+  "limit": "every leaf declared every live item of its scope, so the declared set and the after denominator are the same 206 items and the two rates are arithmetically identical; it did not bind this wave"
+ },
+ "change": {
+  "rate_delta": 0.6553,
+  "note": "the same 206 items read at two commits; the intervals are unpaired"
+ },
+ "strict_note": "addressed / judged. 'partial' counts as a miss.",
+ "baseline_comparison": {
+  "do_not_compare_to": [
+   "43.5% (83 of 191)",
+   "61.6% (wave 1 before)"
+  ],
+  "why": "different populations. 34.5% is this wave's own baseline."
+ },
+ "per_leaf": {
+  "q80-software-security-assurance": {
+   "scope": [
+    "6.2.9",
+    "6.2.10"
+   ],
+   "after": {
+    "addressed": 13
+   },
+   "items": 13,
+   "before": {
+    "not-addressed": 5,
+    "partial": 5,
+    "addressed": 3
+   }
+  },
+  "q80-software-dependability-safety-analysis": {
+   "scope": [
+    "6.2.2",
+    "5.3.2"
+   ],
+   "before": {
+    "partial": 6,
+    "addressed": 7
+   },
+   "items": 13,
+   "after": {
+    "addressed": 13
+   }
+  },
+  "q80-software-configuration-nonconformance": {
+   "scope": [
+    "6.2.4",
+    "5.2.5",
+    "5.2.6"
+   ],
+   "before": {
+    "partial": 9,
+    "addressed": 15
+   },
+   "items": 24,
+   "after": {
+    "addressed": 24
+   }
+  },
+  "q80-reuse-and-firmware-assurance": {
+   "scope": [
+    "6.2.7",
+    "7.3",
+    "7.5"
+   ],
+   "after": {
+    "addressed": 23
+   },
+   "items": 23,
+   "before": {
+    "partial": 8,
+    "addressed": 14,
+    "not-addressed": 1
+   }
+  },
+  "q80-supplier-procurement-control": {
+   "scope": [
+    "5.4",
+    "5.5",
+    "7.4"
+   ],
+   "after": {
+    "addressed": 21
+   },
+   "items": 21,
+   "before": {
+    "addressed": 15,
+    "partial": 6
+   }
+  },
+  "q80-software-product-quality-metrics": {
+   "scope": [
+    "7.1",
+    "6.3.5.2"
+   ],
+   "after": {
+    "addressed": 8,
+    "partial": 1
+   },
+   "items": 9,
+   "before": {
+    "partial": 7,
+    "addressed": 2
+   },
+   "after_as_committed": {
+    "addressed": 9
+   }
+  },
+  "q80-software-process-assurance": {
+   "scope": [
+    "6.1",
+    "6.2.1",
+    "6.2.3",
+    "6.2.5",
+    "6.2.6",
+    "6.2.8"
+   ],
+   "before": {
+    "not-addressed": 38,
+    "addressed": 7,
+    "partial": 6
+   },
+   "items": 51,
+   "after": {
+    "addressed": 50,
+    "partial": 1
+   },
+   "after_as_committed": {
+    "addressed": 51
+   }
+  },
+  "q80-software-product-assurance-plan": {
+   "scope": [
+    "5.1",
+    "5.2.1",
+    "5.2.3",
+    "5.2.4",
+    "5.2.7",
+    "5.3.1",
+    "5.6",
+    "5.7"
+   ],
+   "after": {
+    "addressed": 40
+   },
+   "items": 40,
+   "before": {
+    "partial": 14,
+    "not-addressed": 22,
+    "addressed": 4
+   }
+  },
+  "q80-milestone-assurance-evidence": {
+   "scope": [
+    "5.2.2"
+   ],
+   "before": {
+    "partial": 2,
+    "addressed": 1
+   },
+   "items": 3,
+   "after": {
+    "addressed": 3
+   }
+  },
+  "q80-compliance-matrix": {
+   "scope": [
+    "5.2.1.5"
+   ],
+   "before": {
+    "addressed": 2
+   },
+   "items": 2,
+   "after": {
+    "addressed": 2
+   }
+  },
+  "q80-software-criticality-tailoring": {
+   "scope": [
+    "6.2.2.1",
+    "6.2.2.10"
+   ],
+   "after": {
+    "addressed": 2
+   },
+   "items": 2,
+   "before": {
+    "partial": 1,
+    "addressed": 1
+   }
+  },
+  "software-engineering": {
+   "scope": [
+    "6.2.2.1",
+    "6.2.6.2"
+   ],
+   "before": {
+    "partial": 3
+   },
+   "items": 3,
+   "after": {
+    "addressed": 3
+   }
+  },
+  "software-verification": {
+   "scope": [
+    "7.2.1.3",
+    "7.2.3.6"
+   ],
+   "after": {
+    "addressed": 2
+   },
+   "items": 2,
+   "before": {
+    "partial": 2
+   }
+  }
+ },
+ "limits": [
+  "The scope was set by the binder from each leaf's own subject statements. A different reading of what a leaf claims would give a different denominator; the per-leaf scope is published so it can be contested.",
+  "The after figure for two leaves rests on a re-read of repaired texts by a different reader than the one that found the misses. Repair-and-re-read can converge on a reader's taste; the planted controls on each re-read show the reader still failed procedures that deserved to fail.",
+  "The readers were language models. A ceiling reading of 206 of 206 cannot resolve a defect rarer than about one item in 55; it is not evidence that no leaf misstates an obligation.",
+  "It is not a compliance statement."
+ ],
+ "texts_read": "one step of q80-software-dependability-safety-analysis (the HSIA verification step, item 6.2.2.9a) was reworded after its reading and before the commit, because two words it had added pulled a router case of another leaf onto it (gate 5); the step keeps the same obligation at the same anchored step and was not re-read. Every other leaf is committed exactly as last read."
+}

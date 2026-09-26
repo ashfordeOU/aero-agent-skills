@@ -10,6 +10,11 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.2.1.5
+    items: [a, b]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -53,16 +58,30 @@ matrix, a coverage summary and the gap list, and stops at a human sign-off.
 ## Workflow
 
 1. Take the clause list: the customer's, or the full requirement list of
-   the standard for the software category.
+   the standard for the software category. The matrix covers every
+   assurance requirement that applies to the project or the contract, one
+   row each, and is delivered together with the software product
+   assurance plan (as its last section or beside it).
 2. Load the evidence index (CSV or rows) and normalise the status
    vocabulary; refuse anything outside the four statuses.
-3. Build the matrix with the category, so tailored-out rows pre-fill and
-   contradictions surface.
+3. Build the matrix with `build_matrix` and the category, so tailored-out
+   rows pre-fill and contradictions surface. Every row other than not
+   applicable must point at the document, down to the section, where that
+   requirement's expected output is found; a row with no such reference is
+   a gap. Where the requirement is to follow a document requirements
+   definition, one general statement of compliance with it is enough.
 4. Read the coverage summary and the gap list; resolve what can be
    resolved from existing documents, and list the rest as open.
 5. Render the matrix with the draft banner and the stop line.
 6. Hand it to the responsible human. Only that person records the sign-off,
    and approving over open gaps has to be an explicit choice.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 5.2.1.5a | 1 |
+| ECSS-Q-ST-80C Rev.2 5.2.1.5b | 3 |
 
 ## Pitfalls
 

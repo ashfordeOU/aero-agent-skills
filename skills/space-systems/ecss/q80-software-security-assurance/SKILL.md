@@ -10,6 +10,51 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.1
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.2
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.3
+    items: [a, b]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.4
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.5
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.6
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.9.7
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.10.1
+    items: [a, b]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.10.2
+    items: [a]
+    relation: verifies
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.10.3
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.10.4
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -59,19 +104,81 @@ the category itself belongs to `q80-software-criticality-tailoring`.
 
 ## Workflow
 
-1. Take the component impacts from the security analysis and run
-   `determine_sensitivity` with the agreed threshold.
-2. Run `sensitivity_clauses` for the product to get the clause list, and
+1. Open the software product assurance plan (SPAP) and confirm it has a
+   security assurance part, in its own section or by reference to the
+   security management plan. A plan that says nothing about security
+   assurance is the first finding, raised before anything is graded.
+2. Settle how the software security analysis will be done before doing it:
+   name the techniques (for example security requirements analysis, risk
+   analysis, design review, code analysis), the sensitivity scale and the
+   threshold, and record the customer's agreement to them. Techniques the
+   customer has not agreed are proposals, not the method.
+3. Start from the system-level security analysis the software belongs to.
+   Take each component's confidentiality, integrity and availability impact
+   from it and run `determine_sensitivity` with the agreed threshold. The
+   sensitivity it returns per component is the core result of the software
+   security analysis.
+4. Run `sensitivity_clauses` for the product to get the clause list, and
    merge it into the tailoring matrix.
-3. Model the component links and run `propagate_sensitivity`; open an
-   analysis action for every conflict it reports.
-4. Grade the measures in the security management plan with
-   `check_security_measures`.
-5. For each change since the last baseline, call `change_impact` and plan
-   the regression run or the analysis it asks for.
-6. Check open nonconformances with `check_board_security` and each
-   supplier package with `check_supplier_security_package`.
-7. Hand the results to the reviewer as a draft.
+5. Model the component links and run `propagate_sensitivity`. For every
+   link a failure can cross, whether it is accidental or provoked by an
+   attacker, write down the segregation, partitioning or fail-secure
+   isolation that stops it, and check that the measure is built, not only
+   drawn. For every conflict the propagation reports, where one component
+   is the more critical and its neighbour the more sensitive, analyse what
+   the critical one failing does to security and what the sensitive one
+   failing does to safety and dependability, and record how the conflict
+   was resolved.
+6. Use the results to cut the sensitive set down and treat what remains:
+   propose design changes that take components out of it (moving key
+   handling into one isolated component, say) and mitigations for the
+   components that stay sensitive. Log each as a recommendation with an
+   owner.
+7. Grade the measures in the security management plan with
+   `check_security_measures`. Each sensitive component needs measures on
+   top of those already chosen for critical software, a written reason for
+   each, and a report showing it was applied.
+8. For each change since the last baseline, call `change_impact`. A change
+   in what the platform hardware does, in any tool that takes part in
+   producing the executable, or in the security of the operating
+   environment the software is fielded in orders a regression run of the
+   sensitive software (a binary comparison can stand in for a minor tool
+   change).
+9. For the other triggers, record an analysis of whether more
+   verification and validation is needed: a change in platform function or
+   performance, in the surroundings the software or its hardware run in,
+   in what is known about threats, vulnerabilities or the system's
+   sensitivity, or in the build infrastructure and its tools.
+10. At every milestone from the preliminary design review on, re-run steps
+    3 and 5 on the current design and state, component by component,
+    whether its sensitivity and security risks still hold.
+11. In the same report, give the status of every recommendation from step
+    6: implemented or not, verified or not.
+12. Send the system security analyst what the software level found that
+    the system level did not: new security failure modes or
+    vulnerabilities, and recommendations for system activities or system
+    changes, new or changed requirements included.
+13. Check open nonconformances with `check_board_security` and each
+    supplier package with `check_supplier_security_package`.
+14. Hand the results to the reviewer as a draft.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 6.2.9.1a | 1 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.2a | 3 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.3a | 2 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.3b | 2 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.4a | 6 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.5a | 11 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.6a | 10 |
+| ECSS-Q-ST-80C Rev.2 6.2.9.7a | 12 |
+| ECSS-Q-ST-80C Rev.2 6.2.10.1a | 5 |
+| ECSS-Q-ST-80C Rev.2 6.2.10.1b | 5 |
+| ECSS-Q-ST-80C Rev.2 6.2.10.2a | 7 |
+| ECSS-Q-ST-80C Rev.2 6.2.10.3a | 8 |
+| ECSS-Q-ST-80C Rev.2 6.2.10.4a | 9 |
 
 ## Pitfalls
 

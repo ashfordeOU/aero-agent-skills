@@ -10,6 +10,15 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.1
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.6.2
+    items: [a, b]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -41,14 +50,27 @@ gates, and heritage reuse.
 ## Workflow
 
 1. Classify the software criticality category from the failure
-   consequences.
+   consequences with `criticality_category`, taking the consequence of
+   each failure from the system-level safety and dependability analyses
+   (run to ECSS-Q-ST-40 and ECSS-Q-ST-30, as ECSS-Q-ST-80C Rev.2 asks)
+   rather than from the software team's own view of mission value.
 2. Size assurance and verification rigor for the category.
 3. Run the lifecycle phases (requirements, design, implementation,
-   verification, validation, acceptance), gating each on its review
-   record.
+   verification, validation, acceptance), gating each with `phase_gate`
+   on its review record: check every output of a phase against criteria
+   fixed before the phase started, and let no output feed the next phase
+   until that planned check is recorded as done.
 4. For reused software, scope the heritage assessment and evidence.
 5. Confirm rigor and evidence sets with the project product
    assurance plan.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 6.2.2.1a | 1 |
+| ECSS-Q-ST-80C Rev.2 6.2.6.2a | 3 |
+| ECSS-Q-ST-80C Rev.2 6.2.6.2b | 3 |
 
 ## Pitfalls
 

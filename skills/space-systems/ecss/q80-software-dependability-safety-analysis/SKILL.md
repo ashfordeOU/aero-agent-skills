@@ -10,6 +10,55 @@ gated: false
 domain: space-systems
 pack: space-systems
 compatibility: "agentskills.io SKILL.md; any SKILL.md host (Claude Code, Hermes, OpenClaw)"
+clauses:
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.3.2.1
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 5.3.2.2
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.1
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.2
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.3
+    items: [a, b]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.4
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.5
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.6
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.7
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.8
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.9
+    items: [a]
+    relation: implements
+  - standard: ECSS-Q-ST-80C Rev.2
+    clause: 6.2.2.10
+    items: [a]
+    relation: implements
 metadata:
   domain: space-systems
   subdomain: ecss
@@ -55,19 +104,72 @@ down, component by component.
 
 ## Workflow
 
-1. Collect the system-level severities and the agreed analysis methods.
-2. Grade the software FMEA worksheet with `grade_sfmea`; resolve every
-   unmitigated severity I or II row before going further.
-3. List the interactions between components (calls, shared memory,
-   processor time, buses) and run `propagate_criticality`, marking only
-   those links a segregation argument really closes as prevented.
-4. Check the HSIA mapping and its verification results with
-   `check_hsia_coverage`.
-5. Update the recommendation log with `track_recommendations` for the
-   coming review and pass the system-level items upward.
-6. Check the report history with `check_analysis_currency`.
-7. Draft the critical item list proposals with `critical_item_candidates`
-   and send the whole package to the reviewer as a draft.
+1. Collect the system-level severities. The criticality of each software
+   product comes from the system safety analysis (run to ECSS-Q-ST-40) and
+   the system dependability analysis (run to ECSS-Q-ST-30), graded by how
+   bad the consequence of its failure is; take the classification from
+   those analyses rather than re-deriving it here.
+2. Name the techniques the software analysis will use at specification
+   level and at design level (a software FMEA, a software fault tree, a
+   common cause analysis are the usual set), and record that the customer
+   agreed them.
+3. Carry the system results down to components: grade the software FMEA
+   worksheet with `grade_sfmea`, resolve every unmitigated severity I or
+   II row before going further, and assign each component the criticality
+   its worst failure effect earns.
+4. List the interactions between components (calls, shared memory,
+   processor time, buses) and run `propagate_criticality`, marking as
+   prevented only those links a segregation or partitioning argument
+   really closes. Where a lower component can still bring down a higher
+   one, every component on that path takes the highest category among
+   them.
+5. Act on the results: propose design measures that take components out
+   of the critical set (isolating a function, removing a shared resource)
+   and mitigations for those that stay critical, handled as critical
+   software. Log each as a recommendation with an owner.
+6. Answer the hardware-software interaction analysis (HSIA) from the
+   software side: for every hardware failure it lists, name the software
+   requirements that say how the software must behave when that failure
+   occurs, and flag every failure with none.
+7. Run `check_hsia_coverage` on the verification and validation results
+   of those requirements: each must demonstrate, with the failure
+   actually injected, that the software reacts as specified and behaves in
+   no unwanted way that could fail the system.
+8. Update the recommendation log with `track_recommendations` and report,
+   for the coming review, whether each is implemented and whether it is
+   verified.
+9. Pass upward to the system analyses what the software level adds: new
+   failure modes found at software design level, and recommendations for
+   the system (a hardware inhibit, an architecture change).
+10. Check the report history with `check_analysis_currency`: the analysis
+    is re-done at each development milestone and the category of every
+    component confirmed again, not re-issued unchanged.
+11. Draft the critical item list proposals with
+    `critical_item_candidates`, stating for each software item the
+    property that puts it on the list (the severity it can cause, a
+    single point of failure it holds, and so on).
+12. Feed those proposals into the project's critical item control run to
+    ECSS-Q-ST-10-04, so each accepted item is tracked, controlled and
+    closed like any other critical item, and send the whole package to
+    the reviewer as a draft.
+
+## Obligations
+
+| Item | Step |
+|---|---|
+| ECSS-Q-ST-80C Rev.2 5.3.2.1a | 12 |
+| ECSS-Q-ST-80C Rev.2 5.3.2.2a | 11 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.1a | 1 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.2a | 3 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.3a | 2 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.3b | 2 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.4a | 5 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.5a | 8 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.6a | 10 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.7a | 9 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.8a | 6 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.9a | 7 |
+| ECSS-Q-ST-80C Rev.2 6.2.2.10a | 4 |
 
 ## Pitfalls
 
